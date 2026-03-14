@@ -1,0 +1,376 @@
+
+import React, { useState, useEffect, Suspense } from 'react';
+import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import Layout from './components/Layout';
+import LandingPage from './components/LandingPage';
+import { motion as m, AnimatePresence } from 'framer-motion';
+import { Shield, ArrowRight, Zap } from 'lucide-react';
+import { EconomyProvider, useEconomy } from './context/EconomyContext';
+
+// --- LAZY LOAD COMPONENTS (Performance Optimization) ---
+// These components will only load when the user clicks on them, 
+// making the initial website load much faster.
+const Quiz = React.lazy(() => import('./components/Quiz'));
+const HeroFactory = React.lazy(() => import('./components/HeroFactory'));
+const Academy = React.lazy(() => import('./components/Academy'));
+const Ebooks = React.lazy(() => import('./components/Ebooks'));
+const Dashboard = React.lazy(() => import('./components/Dashboard'));
+const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
+const Account = React.lazy(() => import('./components/Account'));
+const WiseFriends = React.lazy(() => import('./components/WiseFriends'));
+const Cinema = React.lazy(() => import('./components/Cinema'));
+const ThreeDFactory = React.lazy(() => import('./components/ThreeDFactory'));
+const HeroMarket = React.lazy(() => import('./components/HeroMarket'));
+const LegalHub = React.lazy(() => import('./components/LegalHub')); 
+const GameCenter = React.lazy(() => import('./components/GameCenter'));
+const MusicStudio = React.lazy(() => import('./components/MusicStudio'));
+const BusinessSimulation = React.lazy(() => import('./components/BusinessSimulation'));
+
+const motion = m as any;
+
+type RitualPhase = 'intro' | 'ritual' | 'discover' | 'gateway';
+
+interface PortalProps {
+  lang: 'el' | 'en';
+}
+
+// ─── DISCOVERY FEATURES ───
+const DISCOVER_FEATURES = {
+  el: [
+    { emoji: '🧠', title: 'ΜΑΘΕ', desc: 'Ιστορίες σπουδαίων ανθρώπων', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { emoji: '📚', title: 'ΔΙΑΒΑΣΕ', desc: 'Βιβλία που σου δίνουν δύναμη', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
+    { emoji: '🎨', title: 'ΔΗΜΙΟΥΡΓΗΣΕ', desc: 'Τον δικό σου ήρωα με AI', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
+    { emoji: '🎵', title: 'ΤΡΑΓΟΥΔΑ', desc: 'Φτιάξε δικά σου τραγούδια', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
+    { emoji: '🏢', title: 'ΕΠΙΧΕΙΡΗΣΕ', desc: 'Κάνε το πρώτο σου business', color: 'from-emerald-500/20 to-teal-600/10', border: 'border-emerald-500/30', glow: 'shadow-emerald-500/20' },
+    { emoji: '🧊', title: '3D & VIDEO', desc: 'Ζωντάνεψε τους ήρωές σου', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
+    { emoji: '🧩', title: 'ΠΑΙΞΕ', desc: 'Quiz, παιχνίδια & προκλήσεις', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
+    { emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
+  ],
+  en: [
+    { emoji: '🧠', title: 'LEARN', desc: 'Stories of great people', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { emoji: '📚', title: 'READ', desc: 'Books that give you power', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
+    { emoji: '🎨', title: 'CREATE', desc: 'Your own AI hero', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
+    { emoji: '🎵', title: 'SING', desc: 'Make your own songs', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
+    { emoji: '🏢', title: 'BUILD', desc: 'Start your first business', color: 'from-emerald-500/20 to-teal-600/10', border: 'border-emerald-500/30', glow: 'shadow-emerald-500/20' },
+    { emoji: '🧊', title: '3D & VIDEO', desc: 'Bring your heroes to life', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
+    { emoji: '🧩', title: 'PLAY', desc: 'Quizzes, games & challenges', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
+    { emoji: '👫', title: 'SHARE', desc: 'Challenge friends & compete', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
+  ],
+};
+
+const Portal: React.FC<PortalProps> = ({ lang }) => {
+  const navigate = useNavigate();
+  const [phase, setPhase] = useState<RitualPhase>('intro');
+  const [showLine2, setShowLine2] = useState(false);
+  const { earnCredits } = useEconomy();
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setShowLine2(true), 500);
+    const t2 = setTimeout(() => setPhase('ritual'), 1500);
+    const t3 = setTimeout(() => setPhase('discover'), 3000);
+    const t4 = setTimeout(() => setPhase('gateway'), 3200);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+    };
+  }, []);
+
+  const t = {
+    el: {
+      line1: 'ΔΕΝ ΑΓΟΡΑΣΕΣ ΕΝΑΝ ΗΡΩΑ.',
+      line2: '...ΚΑΠΟΙΟΣ ΣΕ ΔΙΑΛΕΞΕ.',
+      cardTitle: 'ΞΕΚΛΕΙΔΩΣΕΣ ΕΝΑΝ ΦΥΛΑΚΑ',
+      cardQuote: '«Οι Φύλακες δεν ανήκουν σε κανέναν. Εμφανίζονται μόνο όταν κάποιος είναι έτοιμος να δημιουργήσει κάτι δικό του.»',
+      credits: 'Χρησιμοποίησέ τα για να φτιάξεις κάτι που δεν υπήρχε.',
+      discoverTitle: 'ΤΙ ΘΑ ΑΝΑΚΑΛΥΨΕΙΣ',
+      btn: 'ΞΕΚΙΝΑ ΤΟ ΤΑΞΙΔΙ',
+      footer: 'ΟΙ ΦΥΛΑΚΕΣ ΔΕΝ ΠΕΡΙΜΕΝΟΥΝ. ΔΗΜΙΟΥΡΓΟΥΝ.'
+    },
+    en: {
+      line1: 'YOU DIDN\'T BUY A HERO.',
+      line2: '...SOMEONE CHOSE YOU.',
+      cardTitle: 'YOU UNLOCKED A GUARDIAN',
+      cardQuote: '«Guardians belong to no one. They appear only when someone is ready to create something of their own.»',
+      credits: 'Use them to create something that didn\'t exist.',
+      discoverTitle: 'WHAT YOU\'LL DISCOVER',
+      btn: 'START YOUR JOURNEY',
+      footer: 'GUARDIANS DON\'T WAIT. THEY CREATE.'
+    }
+  };
+
+  const text = t[lang];
+  const features = DISCOVER_FEATURES[lang];
+
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden font-['Nunito'] select-none">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-black to-black" />
+      <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-15" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full animate-pulse pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-4xl px-6 md:px-8 text-center">
+        <AnimatePresence mode="wait">
+          {/* ═══ PHASE 1: CINEMATIC INTRO ═══ */}
+          {phase === 'intro' && (
+            <motion.div
+              key="intro"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="space-y-12 md:space-y-16"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-slate-400 text-xl md:text-3xl font-thin italic tracking-[0.3em] uppercase"
+              >
+                {text.line1}
+              </motion.p>
+
+              <AnimatePresence>
+                {showLine2 && (
+                  <motion.h2
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="text-5xl md:text-8xl font-[1000] text-amber-500 uppercase italic tracking-tighter drop-shadow-[0_0_60px_rgba(245,158,11,0.6)]"
+                  >
+                    {text.line2}
+                  </motion.h2>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
+
+          {/* ═══ PHASE 2: GUARDIAN CARD ═══ */}
+          {phase === 'ritual' && (
+            <motion.div
+              key="ritual"
+              initial={{ opacity: 0, scale: 0.95, y: 60 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-md mx-auto space-y-8 md:space-y-10"
+            >
+              <div className="glass-panel p-8 rounded-[3rem] border-2 border-white/10 shadow-[0_0_80px_rgba(59,130,246,0.15)] space-y-8 relative">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-white/20 backdrop-blur-3xl shadow-xl">
+                   <Shield size={32} className="text-blue-400 animate-pulse" />
+                </div>
+
+                <div className="space-y-4 pt-6">
+                  <h3 className="text-2xl md:text-3xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
+                    {text.cardTitle}
+                  </h3>
+                  <p className="text-slate-400 text-sm md:text-base font-bold italic leading-relaxed px-2">
+                    {text.cardQuote}
+                  </p>
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="space-y-4"
+                >
+                  <div className="flex items-center justify-center gap-4 bg-amber-500/10 border border-amber-500/30 px-6 py-4 rounded-[1.5rem] shadow-[0_0_40px_rgba(245,158,11,0.1)]">
+                    <Zap size={24} className="text-amber-500 fill-current" />
+                    <span className="text-xl md:text-2xl font-[1000] text-amber-500 italic tracking-tighter">
+                      10 Credits
+                    </span>
+                  </div>
+                  <p className="text-white/30 text-xs font-bold italic tracking-wide">
+                    {text.credits}
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* ═══ PHASE 3 & 4: DISCOVER + GATEWAY ═══ */}
+          {(phase === 'discover' || phase === 'gateway') && (
+            <motion.div
+              key="discover"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="max-w-2xl mx-auto space-y-8"
+            >
+              {/* Section title */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="space-y-2"
+              >
+                <p className="text-white/20 text-[10px] font-[1000] uppercase tracking-[0.5em]">
+                  {text.discoverTitle}
+                </p>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent mx-auto" />
+              </motion.div>
+
+              {/* Feature grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                {features.map((feat, i) => (
+                  <motion.div
+                    key={feat.title}
+                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      delay: 0.15 + i * 0.08,
+                      duration: 0.5,
+                      type: 'spring',
+                      stiffness: 200,
+                      damping: 20,
+                    }}
+                    className={`relative p-4 md:p-5 rounded-2xl bg-gradient-to-br ${feat.color} border ${feat.border} shadow-lg ${feat.glow} backdrop-blur-sm overflow-hidden group hover:scale-105 transition-transform`}
+                  >
+                    {/* Ambient glow */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/5 rounded-full blur-xl pointer-events-none" />
+
+                    <div className="relative z-10 text-center space-y-1.5">
+                      <motion.span
+                        animate={{ y: [0, -3, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                        className="text-2xl md:text-3xl block"
+                      >
+                        {feat.emoji}
+                      </motion.span>
+                      <h4 className="text-white font-[1000] text-[10px] md:text-xs uppercase italic tracking-wider leading-none">
+                        {feat.title}
+                      </h4>
+                      <p className="text-white/40 text-[9px] md:text-[10px] font-bold leading-snug">
+                        {feat.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              {phase === 'gateway' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
+                  className="space-y-6 pt-2"
+                >
+                  <button
+                    onClick={() => { earnCredits(10); navigate('/dashboard'); }}
+                    className="group relative mx-auto px-10 py-5 md:py-6 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border-2 border-amber-500/30 rounded-full overflow-hidden transition-all hover:border-amber-400/60 hover:scale-105 active:scale-95 shadow-[0_0_60px_rgba(245,158,11,0.15)] hover:shadow-[0_0_80px_rgba(245,158,11,0.3)]"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/10 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="relative z-10 text-amber-400 font-[1000] text-lg md:text-xl uppercase tracking-[0.15em] italic flex items-center gap-4">
+                      {text.btn}
+                      <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
+                    </span>
+                  </button>
+
+                  <p className="text-[10px] font-[1000] uppercase tracking-[0.6em] text-white/10 italic animate-pulse">
+                    {text.footer}
+                  </p>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
+
+// --- LOADING SCREEN FOR LAZY LOADING ---
+const PageLoader = () => (
+  <div className="flex flex-col items-center justify-center h-full min-h-[50vh] space-y-4">
+     <div className="relative">
+        <div className="w-16 h-16 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+           <Zap size={16} className="text-blue-400 animate-pulse" fill="currentColor" />
+        </div>
+     </div>
+     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">LOADING...</p>
+  </div>
+);
+
+// --- MAIN APP CONTENT ---
+function AppContent() {
+  const [lang, setLang] = useState<'el' | 'en'>('el');
+  const [xp, setXp] = useState(1250);
+  const [level, setLevel] = useState(7);
+  const { earnCredits } = useEconomy();
+
+  const [myHeroes, setMyHeroes] = useState<any[]>([]);
+  const [completedIds, setCompletedIds] = useState<string[]>([]);
+
+  const addXp = (amount: number, id: string, creditReward: number = 0) => {
+    if (completedIds.includes(id)) return;
+
+    setXp(prev => {
+      const newXp = prev + amount;
+      const nextLevelXp = level * 500;
+      
+      if (newXp >= nextLevelXp) {
+        setLevel(l => l + 1);
+        earnCredits(5); // Level up reward
+      }
+      return newXp;
+    });
+
+    if (creditReward > 0) {
+      earnCredits(creditReward);
+    }
+
+    setCompletedIds(prev => [...prev, id]);
+  };
+
+  const addHero = (hero: any) => {
+    setMyHeroes(prev => [...prev, hero]);
+  };
+
+  const updateHero = (updatedHero: any) => {
+    setMyHeroes(prev => prev.map(h => h.id === updatedHero.id ? updatedHero : h));
+  };
+
+  return (
+    <HashRouter>
+      <Layout lang={lang} setLang={setLang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes}>
+        {/* Suspense Wraps ALL Lazy Routes to show loading spinner while fetching chunks */}
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<LandingPage lang={lang} />} />
+            <Route path="/portal" element={<Portal lang={lang} />} />
+            
+            {/* Lazy Loaded Routes */}
+            <Route path="/dashboard" element={<Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} />} />
+            <Route path="/factory" element={<HeroFactory lang={lang} addHero={addHero} />} />
+            <Route path="/3d-factory" element={<ThreeDFactory lang={lang} />} />
+            <Route path="/market" element={<HeroMarket lang={lang} myHeroes={myHeroes} />} /> 
+            <Route path="/wise-friends" element={<WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} />} />
+            <Route path="/academy" element={<Academy lang={lang} addXp={addXp} completedIds={completedIds} />} />
+            <Route path="/cinema" element={<Cinema lang={lang} myHeroes={myHeroes} />} />
+            <Route path="/music" element={<MusicStudio lang={lang} />} />
+            <Route path="/business" element={<BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} />} />
+            <Route path="/ebooks" element={<Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} />} />
+            <Route path="/quiz" element={<Quiz lang={lang} />} />
+            <Route path="/game" element={<GameCenter lang={lang} />} />
+            <Route path="/admin" element={<AdminDashboard lang={lang} />} />
+            <Route path="/account" element={<Account lang={lang} onClaimBonus={() => { earnCredits(1); return true; }} lastClaimDate={new Date().toDateString()} />} />
+            <Route path="/legal" element={<LegalHub lang={lang} />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+    </HashRouter>
+  );
+}
+
+// Wrap with Provider
+export default function App() {
+  return (
+    <EconomyProvider>
+      <AppContent />
+    </EconomyProvider>
+  );
+}
