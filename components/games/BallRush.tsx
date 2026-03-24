@@ -12,7 +12,8 @@ const CROCUS_IMG_URL = "/images/crocus.jpg";
 
 export default function BallRush({ lang, onBack }: BallRushProps) {
   const { earnCredits } = useEconomy();
-  
+  const creditsAwardedRef = useRef(false);
+
   // Refs for game state to avoid re-renders during loop
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number | null>(null);
@@ -247,8 +248,9 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
       gameRef.current.running = false;
       setUiState(s => ({...s, msg: 'GAME OVER'}));
       
-      if (gameRef.current.score > 100) {
-          earnCredits(5); // Reward
+      if (gameRef.current.score > 100 && !creditsAwardedRef.current) {
+          creditsAwardedRef.current = true;
+          earnCredits(5);
       }
   };
 
@@ -265,7 +267,7 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
 
       // --- 1. BACKGROUND (Dynamic Grid) ---
       // Clear
-      ctx.fillStyle = "#070b16";
+      ctx.fillStyle = "#0B0F1A";
       ctx.fillRect(0, 0, W, H);
 
       // Create Gradient Background
@@ -513,12 +515,12 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
       </div>
 
       {/* Game Canvas Container */}
-      <div className="flex-1 min-h-0 relative rounded-xl overflow-hidden border-2 border-white/10 shadow-2xl bg-[#070b16]">
+      <div className="flex-1 min-h-0 relative rounded-xl overflow-hidden border-2 border-white/10 shadow-2xl bg-[#0B0F1A]">
          <canvas 
             ref={canvasRef} 
             width={900} 
             height={500} 
-            className="w-full h-full object-contain block bg-[#070b16]"
+            className="w-full h-full object-contain block bg-[#0B0F1A]"
          />
          
          {/* Start Overlay */}

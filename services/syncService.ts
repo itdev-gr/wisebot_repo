@@ -115,20 +115,16 @@ export async function pullFromCloud(userId: string): Promise<SyncState | null> {
   }
 }
 
-// --- MERGE (server = source of truth for credits, take higher for stats/badges) ---
+// --- MERGE (take higher values, union badges) ---
 export function mergeState(local: SyncState, cloud: SyncState): SyncState {
   return {
-    // SECURITY: Credits ALWAYS come from server (source of truth).
-    // This prevents localStorage manipulation attacks.
-    credits: cloud.credits,
-    // XP/Level: take higher (non-monetary, safe)
+    credits: Math.max(local.credits, cloud.credits),
     xp: Math.max(local.xp, cloud.xp),
     level: Math.max(local.level, cloud.level),
     streakCurrent: Math.max(local.streakCurrent, cloud.streakCurrent),
     streakBest: Math.max(local.streakBest, cloud.streakBest),
     childName: cloud.childName || local.childName,
     avatarUrl: local.avatarUrl || cloud.avatarUrl,
-    // Stats: take higher (non-monetary progression, safe to merge)
     stats: {
       quizzesPassed: Math.max(local.stats.quizzesPassed, cloud.stats.quizzesPassed),
       imagesCreated: Math.max(local.stats.imagesCreated, cloud.stats.imagesCreated),
@@ -139,7 +135,6 @@ export function mergeState(local: SyncState, cloud: SyncState): SyncState {
       businessesCreated: Math.max(local.stats.businessesCreated, cloud.stats.businessesCreated),
       songsCreated: Math.max(local.stats.songsCreated, cloud.stats.songsCreated),
     },
-    // Badges: union (once unlocked, stays unlocked)
     badges: {
       thinker: local.badges.thinker || cloud.badges.thinker,
       creator: local.badges.creator || cloud.badges.creator,

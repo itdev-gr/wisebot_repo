@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useEconomy } from '../../context/EconomyContext';
 import { ArrowLeft, Play, Eye, EyeOff, CheckCircle, Zap, RefreshCcw } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
@@ -28,7 +28,8 @@ interface WisebotPuzzleProps {
 
 export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
   const { earnCredits } = useEconomy();
-  
+  const creditsAwardedRef = useRef(false);
+
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'victory'>('menu');
   const [selectedHero, setSelectedHero] = useState(HEROES[0]);
@@ -121,7 +122,10 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
       if (isFull) {
           setTimeout(() => {
               setGameState('victory');
-              earnCredits(selectedDiff.bonus);
+              if (!creditsAwardedRef.current) {
+                creditsAwardedRef.current = true;
+                earnCredits(selectedDiff.bonus);
+              }
           }, 500);
       }
   };
@@ -252,7 +256,7 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
         <div className="flex-1 flex flex-col md:flex-row gap-2 md:gap-3 overflow-hidden min-h-0">
 
             {/* BOARD AREA */}
-            <div className="h-[55vw] md:h-auto md:flex-1 flex items-center justify-center relative bg-[#0f1014] rounded-xl border-2 border-white/10 shadow-2xl p-1 md:p-2 overflow-hidden shrink-0 md:shrink">
+            <div className="h-[55vw] md:h-auto md:flex-1 flex items-center justify-center relative bg-[#0B0F1A] rounded-xl border-2 border-white/10 shadow-2xl p-1 md:p-2 overflow-hidden shrink-0 md:shrink">
 
                 {/* THE GRID */}
                 <div
@@ -329,7 +333,7 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
             </div>
 
             {/* TRAY AREA (Scrollable) */}
-            <div className="flex-1 min-h-0 md:flex-none md:h-full md:w-64 bg-[#0a0a0a] rounded-2xl md:rounded-3xl border border-white/10 flex flex-col">
+            <div className="flex-1 min-h-0 md:flex-none md:h-full md:w-64 bg-[#0B0F1A] rounded-2xl md:rounded-3xl border border-white/10 flex flex-col">
                 <div className="px-3 py-2 md:p-4 border-b border-white/10 flex justify-between items-center shrink-0">
                     <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">{t.pieces}</span>
                     <span className="bg-white/10 px-2 py-1 rounded text-xs font-bold text-white">{trayPieces.length}</span>

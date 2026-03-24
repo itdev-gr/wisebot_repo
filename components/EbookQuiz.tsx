@@ -17,7 +17,6 @@ const playEbookSound = (type: 'click' | 'correct' | 'wrong' | 'victory') => {
 
     switch (type) {
       case 'click': {
-        // Soft click/tap sound — short gentle "pop"
         const osc = ctx.createOscillator();
         osc.connect(gain);
         osc.frequency.setValueAtTime(600, ctx.currentTime);
@@ -29,11 +28,10 @@ const playEbookSound = (type: 'click' | 'correct' | 'wrong' | 'victory') => {
         break;
       }
       case 'correct': {
-        // Cheerful ascending two-note chime
         const osc = ctx.createOscillator();
         osc.connect(gain);
-        osc.frequency.setValueAtTime(523, ctx.currentTime);        // C5
-        osc.frequency.setValueAtTime(659, ctx.currentTime + 0.12); // E5
+        osc.frequency.setValueAtTime(523, ctx.currentTime);
+        osc.frequency.setValueAtTime(659, ctx.currentTime + 0.12);
         gain.gain.setValueAtTime(0.25, ctx.currentTime);
         gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.3);
         osc.start(ctx.currentTime);
@@ -41,7 +39,6 @@ const playEbookSound = (type: 'click' | 'correct' | 'wrong' | 'victory') => {
         break;
       }
       case 'wrong': {
-        // Low gentle buzz — not harsh
         const osc = ctx.createOscillator();
         osc.connect(gain);
         osc.type = 'triangle';
@@ -54,7 +51,6 @@ const playEbookSound = (type: 'click' | 'correct' | 'wrong' | 'victory') => {
         break;
       }
       case 'victory': {
-        // Celebratory ascending arpeggio: C5 → E5 → G5 → C6
         const notes = [523, 659, 784, 1047];
         const noteLen = 0.15;
         notes.forEach((freq, i) => {
@@ -99,7 +95,6 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
   const [isFinished, setIsFinished] = useState(false);
   const victorySoundPlayed = useRef(false);
 
-  // Play victory sound when quiz is finished with perfect score
   useEffect(() => {
     if (isFinished && score === questions.length && !victorySoundPlayed.current) {
       victorySoundPlayed.current = true;
@@ -107,18 +102,17 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
     }
   }, [isFinished, score, questions.length]);
 
-  // Pre-generate confetti particles (deterministic per render)
   const confettiParticles = useMemo(() =>
     Array.from({ length: 70 }, (_, i) => ({
       id: i,
-      x: 5 + ((i * 17 + 23) % 90), // Spread across width
+      x: 5 + ((i * 17 + 23) % 90),
       color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
       size: 5 + (i % 4) * 3,
       delay: (i % 15) * 0.06,
       duration: 2.5 + (i % 5) * 0.6,
       drift: ((i * 7) % 200) - 100,
       rotation: ((i * 47) % 720) - 360,
-      shape: i % 3, // 0=circle, 1=square, 2=rectangle
+      shape: i % 3,
     })),
   []);
 
@@ -146,7 +140,6 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
       setIsAnswerChecked(false);
     } else {
       setIsFinished(true);
-      // Ensure onComplete is called with final score
       onComplete(score + (selectedOption === questions[currentQuestion].correct ? 0 : 0), questions.length);
     }
   };
@@ -199,25 +192,22 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
 
             {/* Trophy with glow & rings */}
             <div className="relative mx-auto w-36 h-36 flex items-center justify-center">
-              {/* Expanding rings */}
               {[0, 1, 2].map(i => (
                 <motion.div
                   key={i}
                   initial={{ scale: 0.5, opacity: 0.6 }}
                   animate={{ scale: [0.5, 2.5], opacity: [0.5, 0] }}
                   transition={{ duration: 2.5, delay: 0.8 + i * 0.4, repeat: Infinity, repeatDelay: 0.5 }}
-                  className="absolute inset-0 rounded-full border-2 border-amber-400/40"
+                  className="absolute inset-0 rounded-full border-2 border-amber-500/40"
                 />
               ))}
 
-              {/* Glow pulse */}
               <motion.div
                 animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="absolute inset-[-20px] rounded-full bg-amber-400/20 blur-2xl"
               />
 
-              {/* Trophy circle */}
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
@@ -235,8 +225,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               transition={{ delay: 0.6, type: 'spring', stiffness: 200 }}
               className="space-y-3"
             >
-              <h2 className="text-5xl md:text-7xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 uppercase italic tracking-tighter drop-shadow-[0_0_30px_rgba(251,191,36,0.3)]"
-                style={{ WebkitTextStroke: '1px rgba(251,191,36,0.1)' }}
+              <h2 className="text-5xl md:text-7xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-700 uppercase italic tracking-tighter"
               >
                 {lang === 'el' ? 'ΜΠΡΑΒΟ!' : 'AMAZING!'}
               </h2>
@@ -244,7 +233,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.9 }}
-                className="text-white/50 font-black text-lg uppercase tracking-[0.2em]"
+                className="text-amber-800/60 font-black text-lg uppercase tracking-[0.2em]"
               >
                 {lang === 'el' ? 'ΤΕΛΕΙΟ ΣΚΟΡ' : 'PERFECT SCORE'}
               </motion.p>
@@ -264,7 +253,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ delay: 1.1 + i * 0.1, type: 'spring', stiffness: 300 }}
                 >
-                  <Star size={28} className="text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" fill="currentColor" />
+                  <Star size={28} className="text-amber-500 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" fill="currentColor" />
                 </motion.div>
               ))}
             </motion.div>
@@ -276,18 +265,18 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               transition={{ delay: 1.3 }}
               className="flex items-center justify-center gap-4"
             >
-              <div className="px-5 py-3 bg-white/5 rounded-2xl border border-white/10">
-                <span className="text-white/80 font-black text-sm uppercase tracking-wider">
+              <div className="px-5 py-3 bg-amber-900/10 rounded-2xl border border-amber-800/20">
+                <span className="text-amber-900 font-black text-sm uppercase tracking-wider">
                   {score}/{questions.length}
                 </span>
               </div>
               <motion.div
-                animate={{ boxShadow: ['0 0 20px rgba(251,191,36,0.2)', '0 0 40px rgba(251,191,36,0.4)', '0 0 20px rgba(251,191,36,0.2)'] }}
+                animate={{ boxShadow: ['0 0 20px rgba(180,120,30,0.15)', '0 0 40px rgba(180,120,30,0.3)', '0 0 20px rgba(180,120,30,0.15)'] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="px-6 py-3 bg-amber-500/15 rounded-2xl border border-amber-500/30 flex items-center gap-2"
+                className="px-6 py-3 bg-amber-500/20 rounded-2xl border border-amber-600/30 flex items-center gap-2"
               >
-                <Zap size={18} className="text-amber-400" />
-                <span className="text-amber-300 font-[1000] text-base uppercase tracking-wider">+1 Credit</span>
+                <Zap size={18} className="text-amber-600" />
+                <span className="text-amber-700 font-[1000] text-base uppercase tracking-wider">+1 Credit</span>
               </motion.div>
             </motion.div>
 
@@ -296,7 +285,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.6 }}
-              className="text-white/30 text-xs font-bold uppercase tracking-[0.3em] max-w-xs mx-auto"
+              className="text-amber-800/40 text-xs font-bold uppercase tracking-[0.3em] max-w-xs mx-auto"
             >
               {lang === 'el' ? 'Η ΓΝΩΣΗ ΕΙΝΑΙ Η ΔΥΝΑΜΗ ΣΟΥ' : 'KNOWLEDGE IS YOUR POWER'}
             </motion.p>
@@ -311,17 +300,17 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               {hasNextBook ? (
                 <button
                   onClick={onNextBook}
-                  className="w-full py-5 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 rounded-[2rem] font-[1000] text-black text-xl uppercase italic tracking-widest shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
+                  className="w-full py-5 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 rounded-[2rem] font-[1000] text-white text-xl uppercase italic tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
                 >
                   {lang === 'el' ? 'ΕΠΟΜΕΝΟ ΒΙΒΛΙΟ' : 'NEXT BOOK'}
                   <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                 </button>
               ) : (
-                <div className="p-5 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-2xl border border-emerald-500/20 text-center">
-                  <p className="text-emerald-300 font-[1000] uppercase italic tracking-wider">
+                <div className="p-5 bg-emerald-50 rounded-2xl border border-emerald-300/40 text-center">
+                  <p className="text-emerald-700 font-[1000] uppercase italic tracking-wider">
                     {lang === 'el' ? 'ΟΛΟΚΛΗΡΩΣΕΣ ΟΛΑ ΤΑ ΒΙΒΛΙΑ!' : 'ALL BOOKS COMPLETE!'}
                   </p>
-                  <p className="text-emerald-400/50 text-xs font-bold uppercase tracking-wider mt-1">
+                  <p className="text-emerald-600/50 text-xs font-bold uppercase tracking-wider mt-1">
                     {lang === 'el' ? 'Είσαι θρύλος!' : 'You are a legend!'}
                   </p>
                 </div>
@@ -329,7 +318,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
 
               <button
                 onClick={onRetry}
-                className="w-full py-4 bg-white/5 border border-white/10 text-white/50 hover:text-white hover:bg-white/10 font-bold uppercase tracking-widest rounded-xl transition-all text-sm"
+                className="w-full py-4 bg-amber-800/10 border border-amber-800/20 text-amber-800/60 hover:text-amber-900 hover:bg-amber-800/15 font-bold uppercase tracking-widest rounded-xl transition-all text-sm"
               >
                 {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΞΑΝΑ' : 'READ AGAIN'}
               </button>
@@ -347,7 +336,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-          className="w-28 h-28 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-[0_0_40px_rgba(251,146,60,0.3)]"
+          className="w-28 h-28 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg"
         >
           <span className="text-5xl">💪</span>
         </motion.div>
@@ -358,13 +347,13 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
           transition={{ delay: 0.3 }}
           className="space-y-3"
         >
-          <h2 className="text-4xl md:text-5xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400 uppercase italic tracking-tighter">
+          <h2 className="text-4xl md:text-5xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600 uppercase italic tracking-tighter">
             {lang === 'el' ? 'ΣΧΕΔΟΝ!' : 'ALMOST!'}
           </h2>
-          <p className="text-white/50 font-bold text-lg">
+          <p className="text-amber-900/60 font-bold text-lg">
             {lang === 'el' ? `Σκορ: ${score}/${questions.length}` : `Score: ${score}/${questions.length}`}
           </p>
-          <p className="text-white/30 text-xs font-bold uppercase tracking-wider max-w-xs mx-auto">
+          <p className="text-amber-800/40 text-xs font-bold uppercase tracking-wider max-w-xs mx-auto">
             {lang === 'el'
               ? 'Ξαναδιάβασε την ιστορία και δοκίμασε ξανά! Μπορείς!'
               : 'Read the story again and try once more! You got this!'}
@@ -382,7 +371,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
             <Star
               key={i}
               size={24}
-              className={i < score ? 'text-amber-400' : 'text-white/10'}
+              className={i < score ? 'text-amber-500' : 'text-amber-800/15'}
               fill={i < score ? 'currentColor' : 'none'}
             />
           ))}
@@ -396,7 +385,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
         >
           <button
             onClick={onRetry}
-            className="w-full py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-[2rem] font-[1000] text-xl uppercase italic tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
+            className="w-full py-5 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-[2rem] font-[1000] text-xl uppercase italic tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
           >
             <RefreshCcw size={22} className="group-hover:rotate-180 transition-transform duration-500" />
             {lang === 'el' ? 'ΞΑΝΑΔΙΑΒΑΣΕ' : 'READ AGAIN'}
@@ -413,7 +402,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
         {/* Header */}
         <div className="space-y-2">
            <div className="flex justify-between items-center">
-             <span className="text-blue-400 font-black text-xs uppercase tracking-widest">
+             <span className="text-amber-700 font-black text-xs uppercase tracking-widest">
                {lang === 'el' ? 'ΕΡΩΤΗΣΗ' : 'QUESTION'} {currentQuestion + 1} / {questions.length}
              </span>
              <div className="flex items-center gap-1.5">
@@ -422,16 +411,16 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                    key={i}
                    className={`w-2 h-2 rounded-full transition-all ${
                      i < currentQuestion
-                       ? 'bg-emerald-400 shadow-[0_0_6px_rgba(16,185,129,0.5)]'
+                       ? 'bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.5)]'
                        : i === currentQuestion
-                       ? 'bg-blue-400 shadow-[0_0_6px_rgba(96,165,250,0.5)] scale-125'
-                       : 'bg-white/10'
+                       ? 'bg-amber-600 shadow-[0_0_6px_rgba(180,120,30,0.5)] scale-125'
+                       : 'bg-amber-800/20'
                    }`}
                  />
                ))}
              </div>
            </div>
-           <h2 className="text-2xl md:text-3xl font-[1000] text-white uppercase italic tracking-tighter leading-tight">
+           <h2 className="text-2xl md:text-3xl font-[1000] text-amber-950 uppercase italic tracking-tighter leading-tight">
               {questions[currentQuestion].q[lang]}
            </h2>
         </div>
@@ -442,18 +431,18 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               const isSelected = selectedOption === idx;
               const isCorrect = idx === questions[currentQuestion].correct;
 
-              let btnStyle = "bg-white/5 border-2 border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20";
+              let btnStyle = "bg-white/70 border-2 border-amber-800/20 text-amber-950 hover:bg-white hover:border-amber-600/40 shadow-sm";
               let icon = null;
 
               if (isAnswerChecked) {
                  if (isCorrect) {
-                    btnStyle = "bg-emerald-500/20 border-emerald-500 text-emerald-300 shadow-[0_0_20px_rgba(16,185,129,0.2)]";
-                    icon = <CheckCircle size={20} className="text-emerald-400" />;
+                    btnStyle = "bg-emerald-50 border-2 border-emerald-500 text-emerald-800 shadow-[0_0_20px_rgba(16,185,129,0.15)]";
+                    icon = <CheckCircle size={20} className="text-emerald-500" />;
                  } else if (isSelected) {
-                    btnStyle = "bg-red-500/20 border-red-500 text-red-300";
-                    icon = <XCircle size={20} className="text-red-400" />;
+                    btnStyle = "bg-red-50 border-2 border-red-400 text-red-700";
+                    icon = <XCircle size={20} className="text-red-500" />;
                  } else {
-                    btnStyle = "opacity-40 border-transparent";
+                    btnStyle = "opacity-40 border-2 border-transparent";
                  }
               }
 
@@ -476,7 +465,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
           {isAnswerChecked && (
              <div className="w-full animate-in fade-in slide-in-from-bottom-2">
                 <div className={`mb-4 text-center font-black uppercase tracking-widest text-sm ${
-                   selectedOption === questions[currentQuestion].correct ? 'text-emerald-400' : 'text-red-400'
+                   selectedOption === questions[currentQuestion].correct ? 'text-emerald-600' : 'text-red-500'
                 }`}>
                    {selectedOption === questions[currentQuestion].correct
                       ? (lang === 'el' ? 'ΣΩΣΤΗ ΑΠΑΝΤΗΣΗ!' : 'CORRECT ANSWER!')
@@ -484,7 +473,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                 </div>
                 <button
                   onClick={handleNext}
-                  className="w-full py-4 bg-white text-black font-[1000] uppercase italic tracking-widest rounded-xl hover:bg-gray-200 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-amber-800 text-white font-[1000] uppercase italic tracking-widest rounded-xl hover:bg-amber-700 transition-all flex items-center justify-center gap-2"
                 >
                    {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'CONTINUE'} <ArrowRight size={20} />
                 </button>

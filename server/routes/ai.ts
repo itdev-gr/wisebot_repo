@@ -3,68 +3,12 @@
  * ==============
  * All AI calls go through here so the API key stays on the server.
  * Frontend sends the prompt/params → server calls Gemini → returns result.
- * Credit validation: paid actions (image, video, music, 3d, business) check credits before generating.
  */
 
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { GoogleGenAI, Modality } from '@google/genai';
-import { supabaseAdmin } from '../lib/supabase.js';
 
 export const aiRouter = Router();
-
-// ─── Credit costs for AI actions ──────────────────────────
-const AI_COSTS: Record<string, number> = {
-  image: 6,
-  video: 50,
-  music: 60,
-  '3d': 60,
-  business: 4,
-};
-
-/**
- * Helper: spend credits before AI generation.
- * Returns true if credits were deducted, false if insufficient.
- * On generation failure, call refundCredits to return them.
- */
-async function spendForAI(userId: string, action: string): Promise<{ success: boolean; error?: string }> {
-  const cost = AI_COSTS[action];
-  if (!cost) return { success: true }; // Free actions (chat, quiz, tts)
-
-  const { data: success, error } = await supabaseAdmin.rpc('spend_credits', {
-    p_user_id: userId,
-    p_amount: cost,
-    p_action: `CREATE_${action.toUpperCase()}`,
-  });
-
-  if (error) {
-    console.error(`[AI] Credit spend error for ${action}:`, error.message);
-    return { success: false, error: 'Credit check failed' };
-  }
-
-  if (!success) {
-    return { success: false, error: 'Insufficient credits' };
-  }
-
-  return { success: true };
-}
-
-/** Refund credits on generation failure */
-async function refundCredits(userId: string, action: string): Promise<void> {
-  const cost = AI_COSTS[action];
-  if (!cost) return;
-
-  try {
-    await supabaseAdmin.rpc('earn_credits', {
-      p_user_id: userId,
-      p_amount: cost,
-      p_action: `REFUND_${action.toUpperCase()}`,
-      p_action_id: null,
-    });
-    console.log(`[AI] Refunded ${cost} credits for failed ${action} (user: ${userId})`);
-  } catch (err) {
-    console.error(`[AI] Refund failed for ${action}:`, err);
-  }
-}
 
 const getAI = () => {
   const key = process.env.GEMINI_API_KEY;
@@ -93,18 +37,11 @@ aiRouter.post('/chat', async (req, res) => {
   }
 });
 
-// ─── IMAGE GENERATION (costs 6 credits) ──────────────────
-aiRouter.post('/image', async (req: Request, res: Response) => {
+// ─── IMAGE GENERATION ─────────────────────────────────────
+aiRouter.post('/image', async (req, res) => {
   try {
-    const userId = req.user?.id;
     const { prompt } = req.body;
     if (!prompt) return res.status(400).json({ error: 'Prompt required' });
-
-    // Spend credits before generating
-    if (userId) {
-      const spend = await spendForAI(userId, 'image');
-      if (!spend.success) return res.status(402).json({ error: spend.error });
-    }
 
     const ai = getAI();
     const response = await ai.models.generateContent({
@@ -121,83 +58,19 @@ aiRouter.post('/image', async (req: Request, res: Response) => {
         image: `data:image/png;base64,${part.inlineData.data}`,
       });
     } else {
-      // Refund credits if no image generated
-      if (userId) await refundCredits(userId, 'image');
       res.status(500).json({ error: 'No image generated' });
     }
   } catch (err: any) {
     console.error('Image gen error:', err.message);
-    // Refund credits on error
-    if (req.user?.id) await refundCredits(req.user.id, 'image');
     res.status(500).json({ error: 'Image generation failed' });
   }
 });
 
-// ─── AVATAR (Photo-to-Hero) — costs 6 credits (same as image) ─
-aiRouter.post('/avatar', async (req: Request, res: Response) => {
+// ─── MUSIC (LYRICS + COVER ART) ──────────────────────────
+aiRouter.post('/music', async (req, res) => {
   try {
-    const userId = req.user?.id;
-    const { photoBase64, mimeType, prompt } = req.body;
-    if (!photoBase64) return res.status(400).json({ error: 'Photo required' });
-
-    // Same cost as image generation
-    if (userId) {
-      const spend = await spendForAI(userId, 'image');
-      if (!spend.success) return res.status(402).json({ error: spend.error });
-    }
-
-    const ai = getAI();
-    const avatarPrompt = prompt || `Transform this person's photo into a stunning Pixar/Disney 3D animated hero character for a kids' adventure game.
-IMPORTANT RULES:
-- Keep the ESSENCE of the person's face (similar features, expression, vibe)
-- Make it a heroic cartoon character - NOT a realistic portrait
-- Pixar/Disney animation style with big expressive eyes
-- Vibrant, colorful hero outfit (cape, armor, or cool adventure gear)
-- Heroic confident pose
-- Clean magical background with sparkles
-- Kid-friendly, adorable yet capable look
-- High quality 3D render, cinematic lighting`;
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
-      contents: {
-        parts: [
-          { inlineData: { data: photoBase64, mimeType: mimeType || 'image/jpeg' } },
-          { text: avatarPrompt },
-        ],
-      },
-    });
-
-    const part = response.candidates?.[0]?.content?.parts?.find(
-      (p: any) => p.inlineData
-    );
-
-    if (part?.inlineData) {
-      res.json({
-        image: `data:image/png;base64,${part.inlineData.data}`,
-      });
-    } else {
-      if (userId) await refundCredits(userId, 'image');
-      res.status(500).json({ error: 'No avatar generated' });
-    }
-  } catch (err: any) {
-    console.error('Avatar gen error:', err.message);
-    if (req.user?.id) await refundCredits(req.user.id, 'image');
-    res.status(500).json({ error: 'Avatar generation failed' });
-  }
-});
-
-// ─── MUSIC (LYRICS + COVER ART) — costs 60 credits ──────
-aiRouter.post('/music', async (req: Request, res: Response) => {
-  try {
-    const userId = req.user?.id;
     const { lyricsPrompt, artPrompt } = req.body;
     if (!lyricsPrompt) return res.status(400).json({ error: 'Prompt required' });
-
-    if (userId) {
-      const spend = await spendForAI(userId, 'music');
-      if (!spend.success) return res.status(402).json({ error: spend.error });
-    }
 
     const ai = getAI();
 
@@ -228,22 +101,15 @@ aiRouter.post('/music', async (req: Request, res: Response) => {
     res.json({ ...lyricsData, cover: coverUrl });
   } catch (err: any) {
     console.error('Music gen error:', err.message);
-    if (req.user?.id) await refundCredits(req.user.id, 'music');
     res.status(500).json({ error: 'Music generation failed' });
   }
 });
 
-// ─── VIDEO GENERATION — costs 50 credits ─────────────────
-aiRouter.post('/video', async (req: Request, res: Response) => {
+// ─── VIDEO GENERATION ─────────────────────────────────────
+aiRouter.post('/video', async (req, res) => {
   try {
-    const userId = req.user?.id;
     const { prompt, imageBytes, mimeType } = req.body;
     if (!prompt) return res.status(400).json({ error: 'Prompt required' });
-
-    if (userId) {
-      const spend = await spendForAI(userId, 'video');
-      if (!spend.success) return res.status(402).json({ error: spend.error });
-    }
 
     const ai = getAI();
     const apiKey = process.env.GEMINI_API_KEY!;
@@ -277,22 +143,15 @@ aiRouter.post('/video', async (req: Request, res: Response) => {
     });
   } catch (err: any) {
     console.error('Video gen error:', err.message);
-    if (req.user?.id) await refundCredits(req.user.id, 'video');
     res.status(500).json({ error: 'Video generation failed' });
   }
 });
 
-// ─── 3D GENERATION — costs 60 credits ────────────────────
-aiRouter.post('/3d', async (req: Request, res: Response) => {
+// ─── 3D GENERATION ────────────────────────────────────────
+aiRouter.post('/3d', async (req, res) => {
   try {
-    const userId = req.user?.id;
     const { prompt, imageBytes, mimeType } = req.body;
     if (!prompt) return res.status(400).json({ error: 'Prompt required' });
-
-    if (userId) {
-      const spend = await spendForAI(userId, '3d');
-      if (!spend.success) return res.status(402).json({ error: spend.error });
-    }
 
     const ai = getAI();
 
@@ -317,27 +176,19 @@ aiRouter.post('/3d', async (req: Request, res: Response) => {
         image: `data:image/png;base64,${part.inlineData.data}`,
       });
     } else {
-      if (userId) await refundCredits(userId, '3d');
       res.status(500).json({ error: 'No 3D result generated' });
     }
   } catch (err: any) {
     console.error('3D gen error:', err.message);
-    if (req.user?.id) await refundCredits(req.user.id, '3d');
     res.status(500).json({ error: '3D generation failed' });
   }
 });
 
-// ─── BUSINESS (TEXT + LOGO) — costs 4 credits ────────────
-aiRouter.post('/business', async (req: Request, res: Response) => {
+// ─── BUSINESS (TEXT + LOGO) ───────────────────────────────
+aiRouter.post('/business', async (req, res) => {
   try {
-    const userId = req.user?.id;
     const { textPrompt, logoPrompt } = req.body;
     if (!textPrompt) return res.status(400).json({ error: 'Prompt required' });
-
-    if (userId) {
-      const spend = await spendForAI(userId, 'business');
-      if (!spend.success) return res.status(402).json({ error: spend.error });
-    }
 
     const ai = getAI();
 
@@ -367,7 +218,6 @@ aiRouter.post('/business', async (req: Request, res: Response) => {
     res.json({ ...bizData, logo: logoUrl });
   } catch (err: any) {
     console.error('Business gen error:', err.message);
-    if (req.user?.id) await refundCredits(req.user.id, 'business');
     res.status(500).json({ error: 'Business generation failed' });
   }
 });

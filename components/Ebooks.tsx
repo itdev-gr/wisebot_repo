@@ -1,7 +1,6 @@
 
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import DOMPurify from 'dompurify';
 import {
   Book as BookIcon,
   Lock,
@@ -648,7 +647,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                                 prose-strong:text-amber-900
                                 prose-img:rounded-xl prose-img:shadow-lg"
                               style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-                              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlPages[currentPage] || '') }}
+                              dangerouslySetInnerHTML={{ __html: htmlPages[currentPage] || '' }}
                             />
                           </div>
                         )}

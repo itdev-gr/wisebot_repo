@@ -28,10 +28,10 @@ const GRID_SIZE = 6; // 6x6 Grid
 
 // Building Types
 const BUILDINGS = [
-  { id: 'house', name: { el: 'Κατοικία', en: 'Habitat' }, icon: Home, cost: 10, type: 'pop', color: 'bg-blue-500', prod: { pop: 2, energy: -1 }, desc: '+Population' },
-  { id: 'solar', name: { el: 'Ηλιακό Πάνελ', en: 'Solar Panel' }, icon: Zap, cost: 20, type: 'energy', color: 'bg-amber-400', prod: { pop: 0, energy: 5 }, desc: '+Energy' },
-  { id: 'park', name: { el: 'Πάρκο', en: 'Eco Park' }, icon: Leaf, cost: 15, type: 'nature', color: 'bg-emerald-500', prod: { pop: 0, energy: 0, nature: 3 }, desc: '+Happiness' },
-  { id: 'lab', name: { el: 'Εργαστήριο', en: 'Tech Lab' }, icon: Cpu, cost: 50, type: 'tech', color: 'bg-purple-500', prod: { pop: -1, energy: -3, tech: 5 }, desc: '+Innovation' },
+  { id: 'house', name: { el: 'Κατοικία', en: 'Habitat' }, icon: Home, cost: 10, type: 'pop', color: 'bg-blue-500', selectedBorder: 'border-blue-400', prod: { pop: 2, energy: -1 }, desc: '+Population' },
+  { id: 'solar', name: { el: 'Ηλιακό Πάνελ', en: 'Solar Panel' }, icon: Zap, cost: 20, type: 'energy', color: 'bg-amber-400', selectedBorder: 'border-amber-400', prod: { pop: 0, energy: 5 }, desc: '+Energy' },
+  { id: 'park', name: { el: 'Πάρκο', en: 'Eco Park' }, icon: Leaf, cost: 15, type: 'nature', color: 'bg-emerald-500', selectedBorder: 'border-emerald-400', prod: { pop: 0, energy: 0, nature: 3 }, desc: '+Happiness' },
+  { id: 'lab', name: { el: 'Εργαστήριο', en: 'Tech Lab' }, icon: Cpu, cost: 50, type: 'tech', color: 'bg-purple-500', selectedBorder: 'border-purple-400', prod: { pop: -1, energy: -3, tech: 5 }, desc: '+Innovation' },
 ];
 
 const LEVELS = [
@@ -44,8 +44,9 @@ const LEVELS = [
 ];
 
 export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
-  const { earnCredits } = useEconomy();
-  
+  const { earnCredits, showNotification } = useEconomy();
+  const creditsAwardedRef = useRef(false);
+
   // Game State
   const [grid, setGrid] = useState<(string | null)[]>(Array(GRID_SIZE * GRID_SIZE).fill(null));
   const [resources, setResources] = useState({ credits: 100, pop: 0, energy: 20, nature: 0, tech: 0 });
@@ -106,7 +107,10 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
     
     if (currentLvlIndex > level) {
       setLevel(currentLvlIndex);
-      earnCredits(10); // Reward for city growth
+      if (!creditsAwardedRef.current) {
+        creditsAwardedRef.current = true;
+        earnCredits(5); // Reward once per game
+      }
     }
   }, [resources.pop]);
 
@@ -133,7 +137,7 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
       setResources(prev => ({ ...prev, credits: prev.credits - building.cost }));
     } else {
       // Error Feedback (simplified)
-      alert(lang === 'el' ? 'Δεν έχεις αρκετά χρήματα!' : 'Not enough funds!');
+      showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά χρήματα!' : 'Not enough funds!');
     }
   };
 
@@ -146,7 +150,7 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
   const currentLevelTitle = LEVELS[level].title;
 
   return (
-    <div className="h-full flex flex-col relative overflow-hidden bg-[#0f1014]">
+    <div className="h-full flex flex-col relative overflow-hidden bg-[#0B0F1A]">
 
       {/* 1. TOP HUD */}
       <div className="z-20 bg-black/40 backdrop-blur-md px-3 py-2 border-b border-white/10 flex justify-between items-center shrink-0">
@@ -234,8 +238,8 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
                      key={b.id}
                      onClick={() => setSelectedTool(b.id)}
                      className={`flex flex-col items-center gap-2 p-3 rounded-2xl border-2 transition-all group ${
-                        selectedTool === b.id 
-                        ? `bg-white/10 border-${b.color.split('-')[1]}-400 scale-110` 
+                        selectedTool === b.id
+                        ? `bg-white/10 ${b.selectedBorder} scale-110`
                         : 'bg-transparent border-white/5 hover:bg-white/5'
                      }`}
                   >

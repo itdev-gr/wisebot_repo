@@ -1,0 +1,7 @@
+{
+  "name": "wisebot Locked books ok academy ok",
+  "description": "An interactive educational platform featuring AI-powered quizzes, digital ebooks, and video lessons guided by your AI companion, WiseBot.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

@@ -4,16 +4,15 @@
  * Credit pack purchases via Stripe Checkout.
  *
  * Flow:
- * 1. Frontend calls POST /api/stripe/checkout with packId (authenticated)
- * 2. Server creates Stripe Checkout Session with userId from JWT
+ * 1. Frontend calls POST /api/stripe/checkout with packId
+ * 2. Server creates Stripe Checkout Session
  * 3. User is redirected to Stripe payment page
  * 4. After payment, Stripe sends webhook to POST /api/stripe/webhook
- * 5. Server verifies webhook → adds credits to user account via Supabase RPC
+ * 5. Server verifies webhook → adds credits to user account
  */
 
 import { Router, Request, Response } from 'express';
 import Stripe from 'stripe';
-import { supabaseAdmin } from '../lib/supabase.js';
 
 export const stripeRouter = Router();
 
@@ -31,37 +30,17 @@ const getStripe = () => {
   return new Stripe(key);
 };
 
-// ─── Create Checkout Session (requires auth) ─────────────
+// ─── Create Checkout Session ──────────────────────────────
 stripeRouter.post('/checkout', async (req: Request, res: Response) => {
   try {
-    // Get userId from authenticated user (JWT), NOT from request body
-    const userId = req.user?.id;
-    if (!userId) {
-      return res.status(401).json({ error: 'Authentication required' });
-    }
+    const { packId, userId } = req.body;
+    // TODO: Get userId from auth middleware instead
 
-    const { packId } = req.body;
     const pack = CREDIT_PACKS.find(p => p.id === packId);
     if (!pack) return res.status(400).json({ error: 'Invalid pack' });
 
     const stripe = getStripe();
     const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
-
-    // Create purchase record BEFORE Stripe session (for idempotency tracking)
-    const { error: purchaseError } = await supabaseAdmin
-      .from('purchases')
-      .insert({
-        user_id: userId,
-        pack_id: pack.id,
-        credits_amount: pack.credits,
-        amount_eur: pack.priceEur / 100,
-        status: 'pending',
-      });
-
-    if (purchaseError) {
-      console.error('[Stripe] Purchase record error:', purchaseError.message);
-      // Continue anyway — webhook will handle idempotency
-    }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -78,31 +57,18 @@ stripeRouter.post('/checkout', async (req: Request, res: Response) => {
         quantity: 1,
       }],
       mode: 'payment',
-      success_url: `${frontendUrl}/#/store?success=true&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${frontendUrl}/#/store?cancelled=true`,
+      success_url: `${frontendUrl}/store?success=true&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${frontendUrl}/store?cancelled=true`,
       metadata: {
-        userId: userId,          // From JWT — not user-controlled
+        userId: userId || 'anonymous',
         packId: pack.id,
         credits: pack.credits.toString(),
       },
     });
 
-    // Update purchase with stripe session ID
-    if (session.id) {
-      await supabaseAdmin
-        .from('purchases')
-        .update({ stripe_session_id: session.id })
-        .eq('user_id', userId)
-        .eq('pack_id', pack.id)
-        .eq('status', 'pending')
-        .is('stripe_session_id', null)
-        .order('created_at', { ascending: false })
-        .limit(1);
-    }
-
     res.json({ url: session.url });
   } catch (err: any) {
-    console.error('[Stripe] Checkout error:', err.message);
+    console.error('Stripe checkout error:', err.message);
     res.status(500).json({ error: 'Failed to create checkout session' });
   }
 });
@@ -136,7 +102,7 @@ stripeRouter.get('/verify/:sessionId', async (req: Request, res: Response) => {
       res.json({ success: false, status: session.payment_status });
     }
   } catch (err: any) {
-    console.error('[Stripe] Verify error:', err.message);
+    console.error('Stripe verify error:', err.message);
     res.status(500).json({ error: 'Failed to verify payment' });
   }
 });
@@ -155,7 +121,7 @@ export const stripeWebhookHandler = async (req: Request, res: Response) => {
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
   } catch (err: any) {
-    console.error('[Stripe] Webhook signature failed:', err.message);
+    console.error('Webhook signature failed:', err.message);
     return res.status(400).json({ error: 'Invalid signature' });
   }
 
@@ -167,31 +133,21 @@ export const stripeWebhookHandler = async (req: Request, res: Response) => {
       const credits = parseInt(session.metadata?.credits || '0');
       const packId = session.metadata?.packId;
 
-      console.log(`[Stripe] Payment received! User: ${userId}, Pack: ${packId}, Credits: ${credits}`);
+      console.log(`💰 Payment received! User: ${userId}, Pack: ${packId}, Credits: ${credits}`);
 
-      if (userId && credits > 0) {
-        // Add credits via idempotent Supabase function
-        // add_purchased_credits checks if session already processed
-        const { error } = await supabaseAdmin.rpc('add_purchased_credits', {
-          p_user_id: userId,
-          p_amount: credits,
-          p_stripe_session_id: session.id,
-        });
-
-        if (error) {
-          console.error('[Stripe] Credit addition error:', error.message);
-          // Don't return error — Stripe will retry webhook
-        } else {
-          console.log(`[Stripe] Credits added successfully: ${credits} credits to user ${userId}`);
-        }
-      }
+      // TODO [SUPABASE]: Add credits to user account
+      // await supabase.rpc('add_purchased_credits', {
+      //   user_id: userId,
+      //   amount: credits,
+      //   stripe_session_id: session.id,
+      // });
 
       break;
     }
 
     case 'payment_intent.payment_failed': {
       const intent = event.data.object as Stripe.PaymentIntent;
-      console.warn(`[Stripe] Payment failed for intent: ${intent.id}`);
+      console.warn(`❌ Payment failed for intent: ${intent.id}`);
       break;
     }
   }

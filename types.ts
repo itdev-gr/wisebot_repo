@@ -53,6 +53,13 @@ export interface QuizQuestion {
   explanation?: LocalizedString;
 }
 
+export interface BookPage {
+  title: LocalizedString;
+  image?: string;
+  imageCaption?: LocalizedString;
+  text: LocalizedString;
+}
+
 export interface Book {
   id: number | string; // Allow both for compatibility across components
   title: string | LocalizedString;
@@ -66,7 +73,9 @@ export interface Book {
   xp?: number;
   description?: LocalizedString;
   meaning?: LocalizedString;
-  content?: LocalizedString;
+  parentMessage?: LocalizedString; // Message for parents
+  content?: LocalizedString;    // Legacy HTML content
+  pages?: BookPage[];           // New structured pages (preferred)
   videoUrl?: string;
   questions?: QuizQuestion[];
   stepLabel?: LocalizedString;

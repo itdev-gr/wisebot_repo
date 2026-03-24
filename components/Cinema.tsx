@@ -19,7 +19,7 @@ import {
   Quote,
   Globe
 } from 'lucide-react';
-import { backendAI } from '../services/backendApi';
+import { GoogleGenAI } from "../services/geminiProxy";
 import { useLocation } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
@@ -430,7 +430,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   };
 
   const handleGenerate = async () => {
-    if (!(await spendCredits(costs.video, 'CREATE_VIDEO'))) {
+    if (!spendCredits(costs.video)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -482,12 +482,57 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
       const prompt = `Animate the character in this image. Action: ${finalAction}. The character says: "${finalGreeting} ${finalMessage}". Style: cinematic 3D animation, colorful, kid-friendly.`;
 
-      // Backend handles generation + polling + credits
-      const { video: videoBase64 } = await backendAI.video(prompt, imageBytes, mimeType);
+      // Step 1: Start video generation via server
+      const genResp = await fetch('/api/ai/video-generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, imageBytes, mimeType }),
+      });
+      const genData = await genResp.json();
 
-      // Convert base64 video to blob URL for local playback
-      const videoBlob = await fetch(`data:video/mp4;base64,${videoBase64}`).then(r => r.blob());
-      const localUrl = URL.createObjectURL(videoBlob);
+      if (!genData.operationName) {
+        throw new Error(genData.error || 'Failed to start video generation');
+      }
+
+      // Step 2: Poll for completion
+      let attempts = 0;
+      const maxAttempts = 60; // 5 minutes
+
+      const pollVideo = async (): Promise<string> => {
+        while (attempts < maxAttempts) {
+          attempts++;
+          await new Promise(r => setTimeout(r, 5000));
+
+          try {
+            const statusResp = await fetch(`/api/ai/video-status?operationName=${encodeURIComponent(genData.operationName)}`);
+            const statusData = await statusResp.json();
+
+            if (statusData.status === 'complete' && statusData.videoUrl) {
+              // Fetch the video and create a local blob URL
+              try {
+                const videoResp = await fetch(statusData.videoUrl);
+                if (videoResp.ok) {
+                  const blob = await videoResp.blob();
+                  return URL.createObjectURL(blob);
+                }
+              } catch {
+                // If fetch fails, use URL directly
+              }
+              return statusData.videoUrl;
+            }
+            if (statusData.status === 'error') {
+              throw new Error(statusData.error || 'Video generation failed');
+            }
+          } catch (pollErr: any) {
+            if (pollErr.message?.includes('failed') || pollErr.message?.includes('error')) throw pollErr;
+            // Network error — keep polling
+            console.warn('Poll error, retrying:', pollErr.message);
+          }
+        }
+        throw new Error(lang === 'el' ? 'Timeout — δοκίμασε ξανά' : 'Timeout — try again');
+      };
+
+      const localUrl = await pollVideo();
 
       const newVideoEntry = {
         id: `my-${Date.now()}`,

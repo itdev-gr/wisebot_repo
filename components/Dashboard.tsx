@@ -31,6 +31,8 @@ import {
   Sparkles,
   Play,
   X,
+  FlaskConical,
+  Globe,
 } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
@@ -104,20 +106,12 @@ const QUEST_STAGES: QuestStage[] = [
 const DASHBOARD_VIDEOS = [
   { id: 'dv1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
   { id: 'dv2', title: { el: 'CROCUS', en: 'CROCUS' }, thumbnail: '/images/crocus.jpg', videoUrl: '/video/crocus%20claude.mp4' },
-  { id: 'dv3', title: { el: 'ΤΑ ΠΑΙΔΙΑ ΜΕ ΤΟ WISEBOT', en: 'KIDS WITH WISEBOT' }, thumbnail: '/images/paidia-wisebot-2.png', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'dv3', title: { el: 'ΤΑ ΠΑΙΔΙΑ ΜΕ ΤΟ WISEBOT', en: 'KIDS WITH WISEBOT' }, thumbnail: '/images/paidia-wisebot-2.webp', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
 // ============================================================
-// 🏆 WEEKLY LEADERBOARD COMPONENT
+// 🏆 WEEKLY PROGRESS COMPONENT (replaces fake leaderboard)
 // ============================================================
-
-// Seeded PRNG (mulberry32)
-const seededRandom = (seed: number): number => {
-  let t = seed + 0x6D2B79F5;
-  t = Math.imul(t ^ t >>> 15, t | 1);
-  t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-  return ((t ^ t >>> 14) >>> 0) / 4294967296;
-};
 
 const getISOWeek = (date: Date): number => {
   const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
@@ -126,119 +120,43 @@ const getISOWeek = (date: Date): number => {
   return Math.ceil((((d.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
 };
 
-const FAKE_NAMES = [
-  'Αλέξανδρος', 'Μαρία', 'Γιώργος', 'Σοφία', 'Νίκος',
-  'Ελένη', 'Δημήτρης', 'Κατερίνα', 'Παναγιώτης', 'Αθηνά',
-  'Στέφανος', 'Ιωάννα', 'Κώστας', 'Εύα', 'Βασίλης',
-  'Χριστίνα', 'Μιχάλης', 'Δέσποινα', 'Ανδρέας', 'Μαρίνα',
+// Personal weekly progress achievements
+const PROGRESS_MILESTONES = [
+  { key: 'lessonsRead', icon: '📖', label: { el: 'Μαθήματα', en: 'Lessons' }, points: 10 },
+  { key: 'booksRead', icon: '📚', label: { el: 'Βιβλία', en: 'Books' }, points: 20 },
+  { key: 'quizzesPassed', icon: '🧠', label: { el: 'Quiz', en: 'Quizzes' }, points: 25 },
+  { key: 'imagesCreated', icon: '🎨', label: { el: 'Εικόνες', en: 'Images' }, points: 15 },
+  { key: 'heroesCompleted', icon: '🦸', label: { el: 'Ήρωες', en: 'Heroes' }, points: 20 },
+  { key: 'businessesCreated', icon: '💼', label: { el: 'Εταιρείες', en: 'Businesses' }, points: 30 },
 ];
-
-const FAKE_ACHIEVEMENTS = [
-  { el: 'Διάβασε 5 ιστορίες', en: 'Read 5 stories' },
-  { el: 'Δημιούργησε 3 ήρωες', en: 'Created 3 heroes' },
-  { el: 'Πέρασε 4 Quiz', en: 'Passed 4 quizzes' },
-  { el: 'Διάβασε 3 βιβλία', en: 'Read 3 books' },
-  { el: 'Έφτιαξε εταιρεία', en: 'Built a business' },
-  { el: 'Δημιούργησε 5 ήρωες', en: 'Created 5 heroes' },
-  { el: 'Πέρασε 6 Quiz', en: 'Passed 6 quizzes' },
-  { el: 'Διάβασε 8 ιστορίες', en: 'Read 8 stories' },
-  { el: 'Έφτιαξε 2 εταιρείες', en: 'Built 2 businesses' },
-  { el: 'Δημιούργησε βίντεο', en: 'Created a video' },
-];
-
-const AVATAR_COLORS = [
-  'from-blue-500 to-cyan-500',
-  'from-purple-500 to-pink-500',
-  'from-amber-500 to-orange-500',
-  'from-emerald-500 to-teal-500',
-  'from-rose-500 to-red-500',
-  'from-indigo-500 to-violet-500',
-  'from-fuchsia-500 to-purple-500',
-  'from-cyan-500 to-blue-500',
-  'from-green-500 to-emerald-500',
-  'from-orange-500 to-amber-500',
-];
-
-interface LeaderboardEntry {
-  name: string;
-  avatarColor: string;
-  score: number;
-  achievement: { el: string; en: string };
-  isPlayer: boolean;
-}
 
 const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) => {
   const weekNum = getISOWeek(new Date());
-  const yearWeekSeed = new Date().getFullYear() * 100 + weekNum;
 
-  // Calculate player score
-  const playerScore =
+  // Calculate total score
+  const totalScore =
     (stats.lessonsRead || 0) * 10 +
     (stats.quizzesPassed || 0) * 25 +
     (stats.imagesCreated || 0) * 15 +
     (stats.booksRead || 0) * 20 +
+    (stats.heroesCompleted || 0) * 20 +
     (stats.businessesCreated || 0) * 30;
 
-  // Generate 9 fake players with seeded random (deterministic per week)
-  const fakePlayers: LeaderboardEntry[] = React.useMemo(() => {
-    const shuffled = [...FAKE_NAMES];
-    // Fisher-Yates with seeded random
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(seededRandom(yearWeekSeed * 1000 + i) * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
+  // Level thresholds for achievements
+  const level = totalScore < 50 ? 'beginner' : totalScore < 150 ? 'explorer' : totalScore < 300 ? 'creator' : 'master';
+  const levelConfig = {
+    beginner: { emoji: '🌱', label: { el: 'Αρχάριος', en: 'Beginner' }, color: 'from-green-500/20 to-emerald-500/10 border-green-500/30', next: 50 },
+    explorer: { emoji: '🧭', label: { el: 'Εξερευνητής', en: 'Explorer' }, color: 'from-blue-500/20 to-cyan-500/10 border-blue-500/30', next: 150 },
+    creator: { emoji: '🔥', label: { el: 'Δημιουργός', en: 'Creator' }, color: 'from-amber-500/20 to-orange-500/10 border-amber-500/30', next: 300 },
+    master: { emoji: '👑', label: { el: 'Master', en: 'Master' }, color: 'from-purple-500/20 to-fuchsia-500/10 border-purple-500/30', next: 999 },
+  };
 
-    return Array.from({ length: 9 }, (_, i) => {
-      const r = seededRandom(yearWeekSeed * 100 + i);
-      const score = Math.floor(50 + r * 400); // Scores between 50-450
-      const achIdx = Math.floor(seededRandom(yearWeekSeed * 200 + i) * FAKE_ACHIEVEMENTS.length);
-      const colorIdx = Math.floor(seededRandom(yearWeekSeed * 300 + i) * AVATAR_COLORS.length);
-
-      return {
-        name: shuffled[i],
-        avatarColor: AVATAR_COLORS[colorIdx],
-        score,
-        achievement: FAKE_ACHIEVEMENTS[achIdx],
-        isPlayer: false,
-      };
-    });
-  }, [yearWeekSeed]);
-
-  // Insert player and sort
-  const allPlayers = React.useMemo(() => {
-    const playerEntry: LeaderboardEntry = {
-      name: lang === 'el' ? 'ΕΣΥ!' : 'YOU!',
-      avatarColor: 'from-amber-400 to-yellow-500',
-      score: playerScore,
-      achievement: {
-        el: playerScore > 0 ? 'Συνέχισε!' : 'Ξεκίνα τώρα!',
-        en: playerScore > 0 ? 'Keep going!' : 'Start now!',
-      },
-      isPlayer: true,
-    };
-
-    const combined = [...fakePlayers, playerEntry];
-    combined.sort((a, b) => b.score - a.score);
-    return combined.slice(0, 10);
-  }, [fakePlayers, playerScore, lang]);
-
-  // Only show player in top 10 if they have a meaningful score
-  const playerRank = playerScore > 0 ? allPlayers.findIndex(p => p.isPlayer) + 1 : 0;
-  const isInTop10 = playerRank > 0 && playerRank <= 10;
-
-  // If player not in top 10, calculate what they need
-  const top10MinScore = allPlayers[allPlayers.length - 1]?.score || 0;
-  const pointsNeeded = isInTop10 ? 0 : top10MinScore - playerScore + 1;
-
-  const rankEmojis = ['👑', '🥈', '🥉'];
-  const rankBgColors = [
-    'from-amber-500/20 to-yellow-500/10 border-amber-500/40',
-    'from-slate-300/10 to-slate-400/5 border-slate-400/30',
-    'from-orange-700/15 to-orange-800/5 border-orange-600/30',
-  ];
+  const currentLevel = levelConfig[level];
+  const nextThreshold = currentLevel.next;
+  const progress = Math.min(100, Math.round((totalScore / nextThreshold) * 100));
 
   return (
-    <div className="bg-[#0f1014] border-2 border-white/10 rounded-[2rem] p-6 md:p-8 space-y-6">
+    <div className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-[2rem] p-6 md:p-8 space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -247,119 +165,63 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
           </div>
           <div>
             <h2 className="font-[1000] text-white text-lg italic uppercase tracking-tight">
-              {lang === 'el' ? 'TOP 10 ΕΒΔΟΜΑΔΑΣ' : 'WEEKLY TOP 10'}
+              {lang === 'el' ? 'Η ΠΡΟΟΔΟΣ ΣΟΥ' : 'YOUR PROGRESS'}
             </h2>
             <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">
               {lang === 'el' ? `Εβδομάδα ${weekNum}` : `Week ${weekNum}`}
             </p>
           </div>
         </div>
-        {isInTop10 && (
-          <div className="px-4 py-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl">
-            <span className="text-amber-300 font-[1000] text-sm italic">
-              #{playerRank}
-            </span>
-          </div>
-        )}
+        <div className="px-4 py-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl">
+          <span className="text-amber-300 font-[1000] text-sm italic">
+            {totalScore} {lang === 'el' ? 'πόντοι' : 'pts'}
+          </span>
+        </div>
       </div>
 
-      {/* Player rank callout */}
-      {isInTop10 ? (
-        <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-4 flex items-center gap-3">
-          <div className="text-3xl">{playerRank <= 3 ? rankEmojis[playerRank - 1] : '🔥'}</div>
-          <div>
-            <p className="text-amber-300 font-[1000] text-base italic uppercase">
-              {lang === 'el'
-                ? `Είσαι #${playerRank} αυτή την εβδομάδα!`
-                : `You are #${playerRank} this week!`}
+      {/* Level badge */}
+      <div className={`bg-gradient-to-r ${currentLevel.color} border rounded-2xl p-4 flex items-center gap-3`}>
+        <div className="text-3xl">{currentLevel.emoji}</div>
+        <div className="flex-1">
+          <p className="text-white font-[1000] text-base italic uppercase">
+            {currentLevel.label[lang]}
+          </p>
+          {level !== 'master' && (
+            <div className="mt-2">
+              <div className="flex justify-between text-[10px] text-white/40 font-bold mb-1">
+                <span>{totalScore} / {nextThreshold}</span>
+                <span>{progress}%</span>
+              </div>
+              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transition-all duration-500"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            </div>
+          )}
+          {level === 'master' && (
+            <p className="text-white/50 text-xs font-bold mt-1">
+              {lang === 'el' ? 'Έφτασες στην κορυφή!' : 'You reached the top!'}
             </p>
-            <p className="text-white/40 text-xs font-bold">
-              {lang === 'el' ? `${playerScore} πόντοι` : `${playerScore} points`}
-            </p>
-          </div>
+          )}
         </div>
-      ) : (
-        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-4 flex items-center gap-3">
-          <div className="text-3xl">🚀</div>
-          <div>
-            <p className="text-blue-300 font-[1000] text-sm italic uppercase">
-              {lang === 'el'
-                ? playerScore === 0
-                  ? 'Ξεκίνα το ταξίδι σου!'
-                  : `Λίγο ακόμα! Χρειάζεσαι ${pointsNeeded} πόντους!`
-                : playerScore === 0
-                  ? 'Start your journey!'
-                  : `Almost there! You need ${pointsNeeded} points!`}
-            </p>
-            <p className="text-white/40 text-xs font-bold">
-              {lang === 'el'
-                ? playerScore === 0
-                  ? 'Διάβασε, παίξε quiz, φτιάξε ήρωες!'
-                  : `${playerScore} πόντοι - συνέχισε!`
-                : playerScore === 0
-                  ? 'Read, take quizzes, create heroes!'
-                  : `${playerScore} points - keep going!`}
-            </p>
-          </div>
-        </div>
-      )}
+      </div>
 
-      {/* Leaderboard list */}
-      <div className="space-y-2">
-        {allPlayers.map((player, idx) => {
-          const rank = idx + 1;
-          const isTop3 = rank <= 3;
-
+      {/* Activity breakdown */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+        {PROGRESS_MILESTONES.map(m => {
+          const count = stats[m.key] || 0;
           return (
-            <div
-              key={`${player.name}-${idx}`}
-              className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${
-                player.isPlayer
-                  ? 'bg-gradient-to-r from-amber-500/15 to-orange-500/10 border-2 border-amber-500/30 shadow-[0_0_20px_rgba(245,158,11,0.1)]'
-                  : isTop3
-                    ? `bg-gradient-to-r ${rankBgColors[idx]} border`
-                    : 'bg-white/[0.02] border border-white/5 hover:bg-white/[0.04]'
-              }`}
-            >
-              {/* Rank */}
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                isTop3 ? 'text-lg' : 'bg-white/5 text-white/30 font-[1000] text-xs'
-              }`}>
-                {isTop3 ? rankEmojis[idx] : rank}
-              </div>
-
-              {/* Avatar */}
-              <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${player.avatarColor} flex items-center justify-center shrink-0 border border-white/10 ${
-                player.isPlayer ? 'ring-2 ring-amber-400/50' : ''
-              }`}>
-                <span className="text-white font-[1000] text-sm">
-                  {player.isPlayer ? '⭐' : player.name.charAt(0)}
-                </span>
-              </div>
-
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <p className={`font-[1000] text-sm uppercase italic tracking-tight truncate ${
-                  player.isPlayer ? 'text-amber-300' : 'text-white'
-                }`}>
-                  {player.name}
-                </p>
-                <p className="text-white/30 text-[10px] font-bold truncate">
-                  {player.achievement[lang]}
-                </p>
-              </div>
-
-              {/* Score */}
-              <div className="text-right shrink-0">
-                <p className={`font-[1000] text-lg italic ${
-                  player.isPlayer ? 'text-amber-400' : isTop3 ? 'text-white' : 'text-white/60'
-                }`}>
-                  {player.score}
-                </p>
-                <p className="text-white/20 text-[8px] font-black uppercase tracking-wider">
-                  {lang === 'el' ? 'ΠΟΝΤΟΙ' : 'PTS'}
-                </p>
-              </div>
+            <div key={m.key} className="bg-white/[0.03] border border-white/5 rounded-xl p-3 text-center">
+              <div className="text-xl mb-1">{m.icon}</div>
+              <p className="text-white font-[1000] text-lg italic">{count}</p>
+              <p className="text-white/30 text-[9px] font-bold uppercase tracking-wider">
+                {m.label[lang]}
+              </p>
+              <p className="text-white/15 text-[8px] font-bold mt-0.5">
+                +{count * m.points} {lang === 'el' ? 'πόντοι' : 'pts'}
+              </p>
             </div>
           );
         })}
@@ -369,8 +231,8 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
       <div className="text-center pt-2">
         <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.3em]">
           {lang === 'el'
-            ? '📊 Η κατάταξη ανανεώνεται κάθε Δευτέρα'
-            : '📊 Rankings reset every Monday'}
+            ? totalScore === 0 ? '🚀 Ξεκίνα το ταξίδι σου! Διάβασε, παίξε, δημιούργησε!' : '💪 Συνέχισε! Κάθε δραστηριότητα σου δίνει πόντους!'
+            : totalScore === 0 ? '🚀 Start your journey! Read, play, create!' : '💪 Keep going! Every activity earns you points!'}
         </p>
       </div>
     </div>
@@ -419,50 +281,100 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
   // 📦 COMPONENTS
   // ============================================================
 
-  // Module Card
+  // Color map to avoid dynamic Tailwind classes (which break in production)
+  const COLOR_MAP: Record<string, { hoverBorder: string; ring: string; gradientBg: string; gradientFrom: string; border: string; bg: string; text400: string; text300: string; hoverOverlay: string }> = {
+    blue: { hoverBorder: 'hover:border-blue-500/50', ring: 'ring-blue-500/20', gradientBg: 'bg-gradient-to-br from-blue-500 to-blue-700', gradientFrom: 'bg-gradient-to-br from-blue-500/5 to-transparent', border: 'border-blue-500/30', bg: 'bg-blue-500/10', text400: 'text-blue-400', text300: 'text-blue-300', hoverOverlay: 'from-blue-500/5' },
+    indigo: { hoverBorder: 'hover:border-indigo-500/50', ring: 'ring-indigo-500/20', gradientBg: 'bg-gradient-to-br from-indigo-500 to-indigo-700', gradientFrom: 'bg-gradient-to-br from-indigo-500/5 to-transparent', border: 'border-indigo-500/30', bg: 'bg-indigo-500/10', text400: 'text-indigo-400', text300: 'text-indigo-300', hoverOverlay: 'from-indigo-500/5' },
+    purple: { hoverBorder: 'hover:border-purple-500/50', ring: 'ring-purple-500/20', gradientBg: 'bg-gradient-to-br from-purple-500 to-purple-700', gradientFrom: 'bg-gradient-to-br from-purple-500/5 to-transparent', border: 'border-purple-500/30', bg: 'bg-purple-500/10', text400: 'text-purple-400', text300: 'text-purple-300', hoverOverlay: 'from-purple-500/5' },
+    fuchsia: { hoverBorder: 'hover:border-fuchsia-500/50', ring: 'ring-fuchsia-500/20', gradientBg: 'bg-gradient-to-br from-fuchsia-500 to-fuchsia-700', gradientFrom: 'bg-gradient-to-br from-fuchsia-500/5 to-transparent', border: 'border-fuchsia-500/30', bg: 'bg-fuchsia-500/10', text400: 'text-fuchsia-400', text300: 'text-fuchsia-300', hoverOverlay: 'from-fuchsia-500/5' },
+    pink: { hoverBorder: 'hover:border-pink-500/50', ring: 'ring-pink-500/20', gradientBg: 'bg-gradient-to-br from-pink-500 to-pink-700', gradientFrom: 'bg-gradient-to-br from-pink-500/5 to-transparent', border: 'border-pink-500/30', bg: 'bg-pink-500/10', text400: 'text-pink-400', text300: 'text-pink-300', hoverOverlay: 'from-pink-500/5' },
+    rose: { hoverBorder: 'hover:border-rose-500/50', ring: 'ring-rose-500/20', gradientBg: 'bg-gradient-to-br from-rose-500 to-rose-700', gradientFrom: 'bg-gradient-to-br from-rose-500/5 to-transparent', border: 'border-rose-500/30', bg: 'bg-rose-500/10', text400: 'text-rose-400', text300: 'text-rose-300', hoverOverlay: 'from-rose-500/5' },
+    amber: { hoverBorder: 'hover:border-amber-500/50', ring: 'ring-amber-500/20', gradientBg: 'bg-gradient-to-br from-amber-500 to-amber-700', gradientFrom: 'bg-gradient-to-br from-amber-500/5 to-transparent', border: 'border-amber-500/30', bg: 'bg-amber-500/10', text400: 'text-amber-400', text300: 'text-amber-300', hoverOverlay: 'from-amber-500/5' },
+    emerald: { hoverBorder: 'hover:border-emerald-500/50', ring: 'ring-emerald-500/20', gradientBg: 'bg-gradient-to-br from-emerald-500 to-emerald-700', gradientFrom: 'bg-gradient-to-br from-emerald-500/5 to-transparent', border: 'border-emerald-500/30', bg: 'bg-emerald-500/10', text400: 'text-emerald-400', text300: 'text-emerald-300', hoverOverlay: 'from-emerald-500/5' },
+    green: { hoverBorder: 'hover:border-green-500/50', ring: 'ring-green-500/20', gradientBg: 'bg-gradient-to-br from-green-500 to-green-700', gradientFrom: 'bg-gradient-to-br from-green-500/5 to-transparent', border: 'border-green-500/30', bg: 'bg-green-500/10', text400: 'text-green-400', text300: 'text-green-300', hoverOverlay: 'from-green-500/5' },
+    cyan: { hoverBorder: 'hover:border-cyan-500/50', ring: 'ring-cyan-500/20', gradientBg: 'bg-gradient-to-br from-cyan-500 to-cyan-700', gradientFrom: 'bg-gradient-to-br from-cyan-500/5 to-transparent', border: 'border-cyan-500/30', bg: 'bg-cyan-500/10', text400: 'text-cyan-400', text300: 'text-cyan-300', hoverOverlay: 'from-cyan-500/5' },
+  };
+
+  // Module Card — Premium design with cover images & teal CTA
   const ModuleCard = ({
-    title, subtitle, rewardText, icon: Icon, color, path,
+    title, subtitle, rewardText, icon: Icon, color, path, image,
     locked = false, unlockHint = '', delay = 0, featured = false, isNext = false
-  }: any) => (
+  }: any) => {
+    const c = COLOR_MAP[color] || COLOR_MAP.blue;
+    return (
     <div
       onClick={() => !locked && navigate(path)}
       className={`relative group cursor-pointer rounded-[2.5rem] border-2 transition-all duration-500 overflow-hidden flex flex-col h-full
         ${locked
-          ? 'border-white/5 bg-[#0a0b10] opacity-50 grayscale pointer-events-none'
-          : `border-white/10 hover:border-${color}-500/50 bg-[#0f1014] hover:bg-[#15171e] hover:-translate-y-2 hover:shadow-2xl`
+          ? 'border-white/[0.04] bg-white/[0.02] opacity-50 grayscale pointer-events-none'
+          : `border-white/[0.06] ${c.hoverBorder} bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06] hover:-translate-y-2 hover:shadow-2xl`
         }
-        ${featured ? `ring-4 ring-${color}-500/20` : ''}
+        ${featured ? `ring-4 ${c.ring}` : ''}
         ${isNext ? 'ring-2 ring-amber-500/40 animate-pulse-slow' : ''}
       `}
       style={{ animationDelay: `${delay}ms` }}
     >
-        {!locked && <div className={`absolute inset-0 bg-gradient-to-br from-${color}-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />}
+        {/* Cover Image */}
+        {image && (
+          <div className="relative w-full aspect-[16/10] overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F1A] via-[#0B0F1A]/50 to-transparent" />
+            {/* Icon overlaid on image */}
+            <div className="absolute top-4 left-4 z-10">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-lg border border-white/20 backdrop-blur-md
+                  ${locked ? 'bg-white/10' : c.gradientBg}`}>
+                  {locked ? <Lock size={22} /> : <Icon size={24} />}
+              </div>
+            </div>
+            {/* Reward badge overlaid on image */}
+            {!locked && (
+              <div className="absolute top-4 right-4 z-10">
+                <div className={`px-3 py-1.5 rounded-lg border ${c.border} ${c.bg} backdrop-blur-md flex items-center gap-2`}>
+                   <Zap size={12} className={`${c.text400} fill-current`} />
+                   <span className={`text-[9px] font-black uppercase tracking-widest ${c.text300}`}>
+                      {rewardText}
+                   </span>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {!locked && <div className={`absolute inset-0 ${c.gradientFrom} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />}
 
         {/* "NEXT" badge for the next quest objective */}
         {isNext && !locked && (
-          <div className="absolute top-4 right-4 z-20">
+          <div className={`absolute ${image ? 'top-[4.5rem]' : 'top-4'} right-4 z-20`}>
             <div className="px-2 py-1 bg-amber-500 rounded-full flex items-center gap-1 shadow-lg animate-bounce">
               <Target size={10} className="text-black" />
-              <span className="text-[8px] font-black text-black uppercase tracking-wider">{lang === 'el' ? 'QUEST' : 'QUEST'}</span>
+              <span className="text-[8px] font-black text-black uppercase tracking-wider">{lang === 'el' ? 'ΑΠΟΣΤΟΛΗ' : 'QUEST'}</span>
             </div>
           </div>
         )}
 
-        <div className="p-8 flex-1 flex flex-col relative z-10">
-            <div className="flex justify-between items-start mb-6">
+        <div className={`${image ? 'px-8 pb-5 pt-2' : 'p-8'} flex-1 flex flex-col relative z-10`}>
+            {/* Icon + Reward row — only when no cover image */}
+            {!image && (
+              <div className="flex justify-between items-start mb-6">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110 border border-white/10
-                    ${locked ? 'bg-white/5' : `bg-gradient-to-br from-${color}-500 to-${color}-700`}`}>
+                    ${locked ? 'bg-white/5' : c.gradientBg}`}>
                     {locked ? <Lock size={28} /> : <Icon size={32} />}
                 </div>
                 {!locked && (
-                    <div className={`px-3 py-1.5 rounded-lg border border-${color}-500/30 bg-${color}-500/10 flex items-center gap-2`}>
-                       <Zap size={12} className={`text-${color}-400 fill-current`} />
-                       <span className={`text-[9px] font-black uppercase tracking-widest text-${color}-300`}>
+                    <div className={`px-3 py-1.5 rounded-lg border ${c.border} ${c.bg} flex items-center gap-2`}>
+                       <Zap size={12} className={`${c.text400} fill-current`} />
+                       <span className={`text-[9px] font-black uppercase tracking-widest ${c.text300}`}>
                           {rewardText}
                        </span>
                     </div>
                 )}
-            </div>
+              </div>
+            )}
             <div className="mt-auto space-y-2">
                 <h3 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-slate-400 transition-all">
                     {title}
@@ -473,14 +385,23 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             </div>
         </div>
 
-        <div className={`px-8 py-4 border-t border-white/5 flex items-center justify-between ${locked ? 'bg-black/20' : 'bg-white/5 group-hover:bg-white/10'}`}>
-            <span className={`font-black uppercase tracking-[0.15em] transition-colors ${locked ? 'text-[9px] text-amber-400/60' : 'text-[10px] tracking-[0.2em] text-white/30 group-hover:text-white/60'}`}>
-                {locked ? (unlockHint || (lang === 'el' ? 'ΚΛΕΙΔΩΜΕΝΟ' : 'LOCKED')) : (lang === 'el' ? 'ΕΚΚΙΝΗΣΗ' : 'START')}
+        {/* CTA Footer — Teal glow for unlocked */}
+        <div className={`px-8 py-4 border-t flex items-center justify-between transition-all ${
+          locked
+            ? 'border-white/5 bg-black/20'
+            : 'border-emerald-500/10 bg-gradient-to-r from-emerald-500/[0.08] to-teal-500/[0.08] group-hover:from-emerald-500/20 group-hover:to-teal-500/20'
+        }`}>
+            <span className={`font-black uppercase transition-colors ${
+              locked
+                ? 'text-[9px] tracking-[0.15em] text-amber-400/60'
+                : 'text-[11px] tracking-[0.2em] text-emerald-400/80 group-hover:text-emerald-300'
+            }`}>
+                {locked ? (unlockHint || (lang === 'el' ? 'ΚΛΕΙΔΩΜΕΝΟ' : 'LOCKED')) : (lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY')}
             </span>
-            {!locked && <ArrowRight size={16} className="text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all" />}
+            {!locked && <ChevronRight size={18} className="text-emerald-400/60 group-hover:text-emerald-300 group-hover:translate-x-1 transition-all" />}
         </div>
     </div>
-  );
+  );};
 
   // Badge item for footer
   const BadgeItem = ({ icon: Icon, title, unlocked }: any) => (
@@ -545,15 +466,15 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       <header className="pt-8 space-y-6">
          <div className="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden border-2 border-white/10 shadow-[0_10px_60px_rgba(59,130,246,0.2)]">
             <img
-              src="/images/eksofilo.png"
+              src="/images/eksofilo.webp"
               className="w-full object-cover max-h-[280px] md:max-h-[380px]"
               alt="WiseBot Academy"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent flex flex-col justify-end p-6 md:p-10">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F1A] via-[#0B0F1A]/40 to-transparent flex flex-col justify-end p-6 md:p-10">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/40 border border-blue-500/30 text-blue-300 mb-3 w-fit backdrop-blur-sm">
                 <Compass size={16} />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em]">WISEBOT ACADEMY HQ</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em]">{lang === 'el' ? 'ΑΡΧΗΓΕΙΟ WISEBOT ACADEMY' : 'WISEBOT ACADEMY HQ'}</span>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-[1000] text-white italic tracking-tighter uppercase leading-none">
                 {lang === 'el' ? 'ΤΙ ΘΑ ΜΑΘΟΥΜΕ' : 'WHAT WILL WE LEARN'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΣΗΜΕΡΑ;' : 'TODAY?'}</span>
@@ -580,8 +501,8 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             onClick={() => !item.locked && navigate(item.path)}
             className={`relative flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 transition-all overflow-hidden group ${
               item.locked
-                ? 'border-white/5 bg-white/5 opacity-40 cursor-not-allowed'
-                : 'border-white/10 bg-[#0f1014] hover:border-white/20 hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer'
+                ? 'border-white/5 bg-white/[0.03] opacity-40 cursor-not-allowed'
+                : 'border-white/10 bg-white/[0.03] backdrop-blur-sm hover:border-white/20 hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer'
             }`}
           >
             {!item.locked && (
@@ -600,7 +521,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       </div>
 
       {/* 🗺️ 2. QUEST PROGRESS TRACKER */}
-      <div className="bg-[#0f1014] border-2 border-white/10 rounded-[2rem] p-6 md:p-8 space-y-6">
+      <div className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-[2rem] p-6 md:p-8 space-y-6">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -612,7 +533,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                 {lang === 'el' ? 'ΤΟ ΤΑΞΙΔΙ ΣΟΥ' : 'YOUR JOURNEY'}
               </h2>
               <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">
-                {lang === 'el' ? `${completedStages}/${QUEST_STAGES.length} Quest Stages` : `${completedStages}/${QUEST_STAGES.length} Quest Stages`}
+                {lang === 'el' ? `${completedStages}/${QUEST_STAGES.length} Στάδια Αποστολής` : `${completedStages}/${QUEST_STAGES.length} Quest Stages`}
               </p>
             </div>
           </div>
@@ -680,7 +601,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-amber-300/70 text-[9px] font-black uppercase tracking-[0.2em]">
-                {lang === 'el' ? 'ΤΡΕΧΟΝ QUEST' : 'CURRENT QUEST'}
+                {lang === 'el' ? 'ΤΡΕΧΟΥΣΑ ΑΠΟΣΤΟΛΗ' : 'CURRENT QUEST'}
               </p>
               <p className="text-white font-bold text-sm md:text-base truncate">
                 {activeQuest.quest[lang]}
@@ -701,7 +622,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                 {lang === 'el' ? 'ΘΡΥΛΟΣ' : 'LEGEND'}
               </p>
               <p className="text-white font-bold text-sm md:text-base">
-                {lang === 'el' ? 'Ολοκλήρωσες όλα τα Quests! Είσαι θρύλος!' : 'You completed all Quests! You are a legend!'}
+                {lang === 'el' ? 'Ολοκλήρωσες όλες τις Αποστολές! Είσαι θρύλος!' : 'You completed all Quests! You are a legend!'}
               </p>
             </div>
             <Trophy size={20} className="text-amber-400 shrink-0" />
@@ -713,7 +634,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       <DailyMission lang={lang} />
 
       {/* 🎬 VIDEO HIGHLIGHTS */}
-      <div className="bg-[#0f1014] border-2 border-white/10 rounded-[2rem] p-6 md:p-8 space-y-5">
+      <div className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-[2rem] p-6 md:p-8 space-y-5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-pink-500/20 rounded-xl flex items-center justify-center border border-pink-500/30">
@@ -789,16 +710,18 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={GraduationCap}
             color="blue"
             path="/academy"
+            image="/images/paidia-kai-wisebot.webp"
             delay={0}
             isNext={currentQuestIdx === 0}
          />
          <ModuleCard
             title={t.dashboard.modules.ebooks.title}
             subtitle={lang === 'el' ? 'Η Βιβλιοθήκη της Σοφίας. Κάθε βιβλίο σου δίνει ενέργεια.' : 'The Library of Wisdom. Every book gives you energy.'}
-            rewardText={lang === 'el' ? '+1 CREDIT' : '+1 CREDIT'}
+            rewardText={lang === 'el' ? '+2 CREDITS' : '+2 CREDITS'}
             icon={Book}
             color="indigo"
             path="/ebooks"
+            image="/images/foxi%20teacher.webp"
             delay={100}
          />
          <ModuleCard
@@ -808,6 +731,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Gamepad2}
             color="fuchsia"
             path="/game"
+            image="/images/ta-3-paidia.webp"
             delay={200}
          />
 
@@ -827,6 +751,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Brain}
             color="purple"
             path="/quiz"
+            image="/images/paidia-wisebot-2.webp"
             locked={!isQuizUnlocked}
             unlockHint={lang === 'el' ? '🔓 Διάβασε 2 ιστορίες ή 1 βιβλίο' : '🔓 Read 2 stories or 1 book'}
             delay={300}
@@ -839,6 +764,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Music}
             color="rose"
             path="/music"
+            image="/images/paidia-kai-pencilo.webp"
             locked={!isMusicUnlocked}
             unlockHint={lang === 'el' ? '🔓 Διάβασε 1 ιστορία' : '🔓 Read 1 story'}
             delay={400}
@@ -846,10 +772,11 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          <ModuleCard
             title={t.dashboard.modules.business.title}
             subtitle={lang === 'el' ? 'Φτιάξε εταιρεία, λογότυπο και μάθε επιχειρηματικότητα.' : 'Build a company, create a logo and learn entrepreneurship.'}
-            rewardText={lang === 'el' ? '+2 CREDITS' : '+2 CREDITS'}
+            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
             icon={Briefcase}
             color="green"
             path="/business"
+            image="/images/paidia-kai-sparken.webp"
             locked={!isBusinessUnlocked}
             unlockHint={lang === 'el' ? '🔓 Διάβασε 2 ιστορίες' : '🔓 Read 2 stories'}
             delay={450}
@@ -871,6 +798,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Wand2}
             color="fuchsia"
             path="/factory"
+            image="/images/WiseBot_Hero_spark.webp"
             locked={!isFactoryUnlocked}
             unlockHint={lang === 'el' ? '🔓 Διάβασε 3 ιστορίες ή 2 βιβλία' : '🔓 Read 3 stories or 2 books'}
             delay={500}
@@ -893,6 +821,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Clapperboard}
             color="pink"
             path="/cinema"
+            image="/images/paidia-kai-crocus.webp"
             locked={!isCinemaUnlocked}
             unlockHint={lang === 'el' ? '🔓 Δημιούργησε 1 ήρωα' : '🔓 Create 1 hero'}
             delay={600}
@@ -905,6 +834,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Store}
             color="amber"
             path="/market"
+            image="/images/paidia-kai-link.webp"
             locked={!isMarketUnlocked}
             unlockHint={lang === 'el' ? '🔓 Δημιούργησε 1 ήρωα' : '🔓 Create 1 hero'}
             delay={700}
@@ -926,6 +856,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Box}
             color="emerald"
             path="/3d-factory"
+            image="/images/WiseBot_Hero_lion_quin.webp"
             locked={!is3DUnlocked}
             unlockHint={lang === 'el' ? '🔓 Κέρδισε Creator Badge' : '🔓 Earn Creator Badge'}
             delay={800}
@@ -938,6 +869,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             icon={Users}
             color="cyan"
             path="/wise-friends"
+            image="/images/eksofilo.webp"
             delay={900}
          />
       </div>
@@ -976,12 +908,15 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                         {lang === 'el' ? 'Επίπεδο' : 'Level'} {level}
                     </span>
                 </div>
-                <div className="flex justify-between gap-2">
+                <div className="flex justify-between gap-2 flex-wrap">
                     <BadgeItem icon={Brain} title={lang === 'el' ? 'Στοχαστής' : 'Thinker'} unlocked={badges.thinker} />
                     <BadgeItem icon={Palette} title={lang === 'el' ? 'Δημιουργός' : 'Creator'} unlocked={badges.creator} />
                     <BadgeItem icon={Film} title={lang === 'el' ? 'Σκηνοθέτης' : 'Director'} unlocked={badges.filmmaker} />
                     <BadgeItem icon={Hammer} title={lang === 'el' ? 'Μάστορας' : 'Builder'} unlocked={badges.builder} />
                     <BadgeItem icon={Store} title={lang === 'el' ? 'Έμπορος' : 'Trader'} unlocked={badges.market} />
+                    <BadgeItem icon={Music} title={lang === 'el' ? 'Μουσικός' : 'Musician'} unlocked={badges.musician} />
+                    <BadgeItem icon={FlaskConical} title={lang === 'el' ? 'Επιστήμονας' : 'Scientist'} unlocked={badges.scientist} />
+                    <BadgeItem icon={Globe} title={lang === 'el' ? 'Εξερευνητής' : 'Explorer'} unlocked={badges.explorer} />
                 </div>
             </div>
          </div>

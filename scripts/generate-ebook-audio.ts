@@ -13,7 +13,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // ─── Config ──────────────────────────────────────────────────────
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
+const GEMINI_API_KEY = 'AIzaSyCVssbqZLoB6tPsFzAVZfv1mORMzExvzVE';
 const VOICE_NAME = 'Kore';        // Warm female voice, great for kids' stories
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'audio', 'ebooks');
 const FFMPEG_PATH = path.join(process.cwd(), 'node_modules', 'ffmpeg-static', 'ffmpeg');

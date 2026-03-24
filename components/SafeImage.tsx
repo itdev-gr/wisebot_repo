@@ -18,7 +18,7 @@ export function SafeImage({ src, alt, className = '', wrapperClassName = '', loa
 
   if (!url || failed) {
     return (
-      <div className={`bg-[#0f1014] flex items-center justify-center ${wrapperClassName}`}>
+      <div className={`bg-[#0B0F1A] flex items-center justify-center ${wrapperClassName}`}>
         <div className="w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center text-white/30" aria-hidden />
       </div>
     );

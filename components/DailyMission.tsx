@@ -8,7 +8,7 @@ interface DailyMissionProps {
 }
 
 const DailyMission: React.FC<DailyMissionProps> = ({ lang }) => {
-  const { dailyMission } = useEconomy();
+  const { dailyMission, streak } = useEconomy();
   const missionDef = MISSION_POOL[dailyMission.id];
 
   if (!missionDef) return null;
@@ -45,6 +45,12 @@ const DailyMission: React.FC<DailyMissionProps> = ({ lang }) => {
               }`}>
                 {lang === 'el' ? 'ΗΜΕΡΗΣΙΑ ΑΠΟΣΤΟΛΗ' : 'DAILY MISSION'}
               </span>
+              {/* Streak badge */}
+              {streak > 1 && (
+                <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400 text-[9px] font-black border border-orange-500/30">
+                  {streak} {lang === 'el' ? 'ΣΕΡΙ' : 'STREAK'} 🔥
+                </span>
+              )}
             </div>
             <p className="text-white font-bold text-sm leading-snug">
               {dailyMission.completed
@@ -63,7 +69,7 @@ const DailyMission: React.FC<DailyMissionProps> = ({ lang }) => {
         }`}>
           <Zap size={14} className={`fill-current ${dailyMission.completed ? 'text-emerald-400' : 'text-amber-400'}`} />
           <span className={`text-sm font-black ${dailyMission.completed ? 'text-emerald-300' : 'text-amber-300'}`}>
-            {dailyMission.completed ? '✓' : '+3'}
+            {dailyMission.completed ? '✓' : `+${streak >= 7 ? '8' : streak >= 3 ? '6' : '5'}`}
           </span>
         </div>
       </div>

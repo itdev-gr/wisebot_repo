@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { backendAI } from '../services/backendApi';
+import { GoogleGenAI } from "../services/geminiProxy";
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 
@@ -299,7 +299,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     const input = mode === 'simple' ? description.trim() : customLyrics.trim();
     if (!input) return;
 
-    if (!(await spendCredits(costs.song, 'CREATE_SONG'))) {
+    if (!spendCredits(costs.song)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -316,6 +316,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     }, 200);
 
     try {
+      const ai = new GoogleGenAI();
       const genreLabels = selectedGenres.map(id => GENRES.find(g => g.id === id)?.label || id).join(', ');
       const finalStyle = customStyle || genreLabels;
 
@@ -362,11 +363,39 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         }`;
       }
 
-      const artPrompt = `A detailed album cover for a ${finalStyle} song, modern, artistic, vibrant`;
-      const lyricsData = await backendAI.music(lyricsPrompt, artPrompt);
-      const coverUrl = lyricsData.cover || '';
+      const lyricsResp = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: { parts: [{ text: lyricsPrompt }] },
+        config: { responseMimeType: 'application/json' }
+      });
+
+      const textResponse = lyricsResp.text;
+      if (!textResponse) throw new Error("No text from API");
+      let lyricsData;
+      try {
+        // Clean response (remove markdown code fences if present)
+        const cleaned = textResponse.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+        lyricsData = JSON.parse(cleaned);
+      } catch (parseErr) {
+        console.error("JSON parse error:", parseErr, "Raw:", textResponse.slice(0, 200));
+        throw new Error("Invalid AI response format");
+      }
 
       setGenStep(2);
+
+      // Generate cover art (graceful fallback if image API fails)
+      let coverUrl = '';
+      try {
+        const imageResp = await ai.models.generateContent({
+          model: 'gemini-2.5-flash-image',
+          contents: { parts: [{ text: lyricsData.artPrompt }] }
+        });
+        if (imageResp.candidates?.[0]?.content?.parts?.[0]?.inlineData) {
+          coverUrl = `data:image/png;base64,${imageResp.candidates[0].content.parts[0].inlineData.data}`;
+        }
+      } catch (imgErr) {
+        console.warn('Cover art generation failed (quota?), continuing without:', imgErr);
+      }
 
       // ── Step 3: Send to Suno for REAL music generation ──
       setGenStep(3);
@@ -379,7 +408,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             lyrics: lyricsData.lyrics,
-            style: finalStyle,
+            style: lyricsData.style || finalStyle,
             title: lyricsData.title,
             instrumental,
           }),

@@ -2,17 +2,10 @@
 import { Book } from '../types';
 
 // ============================================================
-// 📖 BOOK 7: Ο ΚΟΣΜΟΣ ΕΙΝΑΙ ΜΕΓΑΛΥΤΕΡΟΣ / THE WORLD IS BIGGER
-// Hero: Sparken (ο αετός)
-// Theme: ΠΡΟΟΠΤΙΚΗ / PERSPECTIVE
+// BOOK 7: O KOSMOS EINAI MEGALYTEROS / THE WORLD IS BIGGER
+// Hero: Sparken (the eagle)
+// Theme: PROOPTIKI / PERSPECTIVE
 // ============================================================
-
-// Cover image
-const IMG_SPARKEN = "/images/sparken.jpg";
-
-// Story images (will be updated with full-res URLs)
-const IMG_KIDS_WITH_SPARKEN = "/images/paidia-kai-sparken.png";
-const IMG_KIDS_TOGETHER = "/images/ta-3-paidia.png";
 
 export const BOOK_7: Book[] = [
   {
@@ -21,7 +14,7 @@ export const BOOK_7: Book[] = [
     theme: { el: "ΠΡΟΟΠΤΙΚΗ", en: "PERSPECTIVE" },
     stepLabel: { el: "SPARKEN & Η ΠΡΟΟΠΤΙΚΗ", en: "SPARKEN & PERSPECTIVE" },
     author: "Sparken",
-    cover: IMG_SPARKEN,
+    cover: "/images/sparken.jpg",
     videoUrl: "",
     description: {
       el: "Μια ιστορία για τη στιγμή που καταλαβαίνεις ότι η γνώμη γύρω σου δεν είναι ο νόμος του κόσμου. Τα παιδιά φεύγουν ταξίδι και βρίσκουν τη φυλή τους.",
@@ -32,457 +25,226 @@ export const BOOK_7: Book[] = [
       en: "The opinion around you is not the world. The world is much bigger than you think."
     },
     xp: 170,
-    content: {
-      el: `
-      <div class="space-y-10 font-sans text-gray-200 leading-relaxed">
+    parentMessage: {
+      el: "Μετά την κοροϊδία, πολλά παιδιά πιστεύουν ότι ο κόσμος τους τελειώνει στην αυλή του σχολείου. Νιώθουν ότι η γνώμη των συμμαθητών τους είναι η μοναδική αλήθεια. Η πιο δυνατή κίνηση που μπορείτε να κάνετε ως γονείς είναι να τους δείξετε ότι υπάρχουν άνθρωποι εκεί έξω που σκέφτονται σαν αυτά. Πηγαίνετέ τα σε εργαστήρια, σε ομάδες, σε δραστηριότητες εκτός σχολείου. Αφήστε τα να ανακαλύψουν ότι η γειτονιά τους δεν είναι ο πλανήτης. Η φυλή τους υπάρχει — απλώς δεν την έχουν βρει ακόμα.",
+      en: "After being mocked, many children believe their world ends at the schoolyard. They feel that their classmates' opinion is the only truth. The most powerful move you can make as parents is to show them that there are people out there who think like them. Take them to workshops, groups, activities outside school. Let them discover that their neighborhood is not the planet. Their tribe exists — they just haven't found it yet."
+    },
 
-        <!-- ═══════════ ΕΝΑΡΚΤΗΡΙΑ ΦΡΑΣΗ ═══════════ -->
-        <div class="relative bg-gradient-to-r from-teal-900/60 to-cyan-900/60 p-8 rounded-2xl border border-teal-500/30 text-center shadow-lg">
-          <p class="text-3xl font-black text-teal-200 mb-2">«Όταν μεγαλώνει ο κόσμος σου,»</p>
-          <p class="text-xl text-cyan-300/80 italic">«μικραίνει ο φόβος σου.»</p>
-        </div>
+    // -- STRUCTURED PAGES (5 pages) --
+    pages: [
+      {
+        title: { el: "Το Βάρος της Σιωπής", en: "The Weight of Silence" },
+        image: "/images/ta-3-paidia.webp",
+        imageCaption: { el: "Τρία παιδιά που ένιωθαν πολύ μικρά για τον κόσμο.", en: "Three kids who felt too small for the world." },
+        text: {
+          el: `Πέρασαν τρεις μέρες από τα γέλια στην αυλή. Τρεις μέρες που κανένα από τα τρία παιδιά δεν μίλησε για αυτό που συνέβη. Αλλά η σιωπή δεν σήμαινε ότι ξέχασαν. Σήμαινε ότι πονούσαν ακόμα.
 
-        <!-- ═══════════ ΣΚΗΝΗ 1 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-teal-600 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest shadow-lg shadow-teal-600/30">ΣΚΗΝΗ 01</span>
-            <h3 class="text-2xl font-black text-teal-400 tracking-wide">ΕΞΩ ΑΠ' ΤΗ ΦΟΥΣΚΑ</h3>
-          </div>
-          <p>Το αυτοκίνητο έτρεχε στον δρόμο. Βαλίτσες στο πορτμπαγκάζ. Μουσική στο ραδιόφωνο. Στάσεις για χυμούς και τοστ σε βενζινάδικα.</p>
-          <p class="mt-3">— «Πού πάμε πάλι;» ρώτησε ο Φίλιππος, βιδωμένος στο κάθισμα με τα πόδια πάνω στο μπροστινό.</p>
-          <p class="mt-3">— «Σε μέρος που δεν μας ξέρει κανείς», είπε η Αλεξάνδρα. Και η φωνή της ακούστηκε σαν ελευθερία.</p>
-          <p class="mt-4">Η Ελευθερία κοίταζε από το παράθυρο — δέντρα, βουνά, σύννεφα που άλλαζαν σχήμα. «Αυτό είναι καλό. Εκεί βλέπεις καθαρά. Εκεί δεν έχεις ρόλο.»</p>
-          <p class="mt-3 text-gray-400 italic">Ο Crocus κουλουριάστηκε στο πίσω κάθισμα, με τη μύτη ανάμεσα στα μπουτάκια. «Εγώ δεν εμπιστεύομαι μέρη χωρίς γήπεδο», μουρμούρισε. Κανείς δεν του απάντησε.</p>
-        </section>
+Η Αλεξάνδρα σταμάτησε να ζωγραφίζει. Τα μολύβια της έμεναν ακίνητα μέσα στη θήκη, ακουμπισμένα πάνω στο γραφείο σαν αντικείμενα κάποιου άλλου. Κάθε φορά που τα κοιτούσε, άκουγε εκείνο το γέλιο. Σαν ηχώ που δεν σβήνει.
 
-        <!-- ═══════════ ΣΚΗΝΗ 2 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-cyan-600 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest shadow-lg shadow-cyan-600/30">ΣΚΗΝΗ 02</span>
-            <h3 class="text-2xl font-black text-cyan-300 tracking-wide">ΠΑΙΔΙΑ ΠΟΥ ΔΕΝ ΓΕΛΑΝΕ</h3>
-          </div>
-          <p>Στην πλατεία μιας άλλης πόλης, τα παιδιά δεν έπαιζαν το ίδιο παιχνίδι. Δεν κυνηγιόντουσαν. Δεν φώναζαν.</p>
-          <p class="mt-3">Κάποια ζωγράφιζαν στο πεζοδρόμιο με κιμωλίες. Κάποια έφτιαχναν κατασκευές από ξυλάκια και σπάγκο. Κάποια καθόντουσαν σε κύκλο και… συζητούσαν. Σοβαρά. Σαν να ήταν αυτό το πιο φυσιολογικό πράγμα στον κόσμο.</p>
-          <p class="mt-4">Ο Φίλιππος πλησίασε, με το κουτί τους κάτω από τον μπράτσο. «Τι κάνετε;»</p>
-          <p class="mt-3">— «Δοκιμή», απάντησε ένα παιδί χωρίς να σηκώσει το κεφάλι.</p>
-          <p class="mt-3">— «Τι δοκιμή;»</p>
-          <p class="mt-3 text-white font-bold text-lg">— «Ιδέες.»</p>
-          <p class="mt-3 italic text-teal-300/70">Ο Φίλιππος σταμάτησε. Η λέξη ακούστηκε τόσο απλή — αλλά ταυτόχρονα σαν κάτι που δεν είχε ακούσει ποτέ.</p>
-        </section>
+Ο Φίλιππος αντέδρασε αλλιώς. Δεν σταμάτησε — εξαφανίστηκε. Κλεινόταν στο δωμάτιό του, κοιτούσε βίντεο στο τάμπλετ, δεν μιλούσε σε κανέναν. «Είμαι καλά», έλεγε, με φωνή που ακουγόταν σαν τοίχος.
 
-        <!-- ═══════════ ΣΚΗΝΗ 3 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-white text-black text-xs font-black px-3 py-1 rounded-full tracking-widest">ΣΚΗΝΗ 03</span>
-            <h3 class="text-2xl font-black text-white tracking-wide">Η ΑΝΑΤΡΟΠΗ</h3>
-          </div>
-          <p>Η Αλεξάνδρα πήρε μια ανάσα. Βαθιά. Και μετά — χωρίς να σκεφτεί πολύ — έδειξε διστακτικά το δικό τους παιχνίδι.</p>
-          <p class="mt-3">Περίμενε το γέλιο. Τα χέρια της έτρεμαν. Ο στομάχι της ήταν σφιγμένο.</p>
-          <p class="mt-3"><strong class="text-red-400">Δεν γέλασε κανείς.</strong></p>
-          <p class="mt-3">— «Α, ενδιαφέρον», είπε ένας, γέρνοντας πιο κοντά.</p>
-          <p class="mt-3">— «Θέλει σκέψη», είπε μια άλλη. «Μπορούμε να το δοκιμάσουμε;»</p>
-          <p class="mt-4">Ο Φίλιππος κοίταξε την Ελευθερία. Τα μάτια τους είπαν τα πάντα.</p>
-          <p class="mt-3">«Δεν είπαν "χαζό"», ψιθύρισε.</p>
-          <p class="mt-3">Η Ελευθερία χαμογέλασε — ένα χαμόγελο που δεν το κράτησε. <strong class="text-teal-300">«Γιατί εδώ… δεν είναι.»</strong></p>
-        </section>
+Η Ελευθερία ήταν αυτή που φαινόταν πιο ήρεμη. Αλλά η ηρεμία της ήταν ψεύτικη. Μέσα της κυλούσε μια σκέψη, ξανά και ξανά, σαν σπασμένο ρολόι: «Κι αν δεν ταιριάζω πουθενά;»
 
-        <!-- ═══════════ ΕΙΚΟΝΑ ═══════════ -->
-        <div class="flex justify-center my-8">
-          <div class="relative group">
-            <img src="${IMG_KIDS_WITH_SPARKEN}" alt="Τα παιδιά με τον Sparken" class="rounded-2xl shadow-2xl shadow-teal-500/20 max-h-96 object-contain border-2 border-teal-500/30" />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-2xl">
-              <p class="text-sm text-teal-200 text-center font-medium">Τα παιδιά ανακαλύπτουν νέους κόσμους με τον Sparken</p>
-            </div>
-          </div>
-        </div>
+Ο κόσμος τους — το σχολείο, η γειτονιά, η αυλή — ένιωθε ξαφνικά πολύ μικρός. Και πολύ εχθρικός. Σαν δωμάτιο που μικραίνει κάθε μέρα.
 
-        <!-- ═══════════ ΣΚΗΝΗ 4 ═══════════ -->
-        <section class="bg-teal-900/20 p-6 rounded-xl border-t-4 border-cyan-400 my-6 shadow-xl shadow-teal-500/10">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-cyan-400 text-black text-xs font-black px-3 py-1 rounded-full tracking-widest">ΣΚΗΝΗ 04</span>
-            <h3 class="text-3xl font-black text-cyan-200 tracking-wide">ΤΑ ΦΤΕΡΑ ΤΟΥ SPARKEN</h3>
-          </div>
-          <p>Ο αέρας άλλαξε. Κάτι σαν αύρα — αλλά πιο δυνατή, πιο σκόπιμη. Τα φύλλα σηκώθηκαν στον αέρα.</p>
-          <p class="mt-3">Ο Sparken κατέβηκε αργά, τα φτερά του ανοιγμένα σαν χάρτης. Κάθε φτερό ήταν σαν σελίδα — γεμάτο χρώμα, ιστορίες, δρόμους που κανείς δεν είχε ακολουθήσει.</p>
-          <p class="mt-4 text-white font-bold text-lg">«Βλέπετε; Ο κόσμος δεν είναι ένας κύκλος. Είναι πολλοί. Και σε κάποιον από αυτούς… ταιριάζετε ακριβώς.»</p>
-          <p class="mt-3">Ο Crocus ανασήκωσε το φρύδι. «Δηλαδή δεν είναι όλοι ίδιοι;»</p>
-          <p class="mt-3 text-teal-200 font-bold">— «Όχι. Και αυτό δεν είναι πρόβλημα. Αυτό είναι τύχη.»</p>
-          <p class="mt-3 italic text-cyan-300/70">Ο Sparken δεν φώναζε. Μιλούσε σαν κάποιος που είχε δει τον κόσμο από ψηλά. Γιατί τον είχε δει.</p>
-        </section>
+Αυτή τη μέρα, η Αλεξάνδρα κάθισε στο παράθυρο και κοίταξε τον ουρανό. Ήταν γεμάτος σύννεφα — βαριά, γκρίζα, αδιάφορα. Ακριβώς σαν τη διάθεσή της.
 
-        <!-- ═══════════ ΣΚΗΝΗ 5 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-gray-500 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">ΣΚΗΝΗ 05</span>
-            <h3 class="text-2xl font-black text-gray-300 tracking-wide">ΜΕΓΑΛΕΣ ΙΔΕΕΣ ΣΕ ΜΙΚΡΑ ΜΕΡΗ</h3>
-          </div>
-          <p>Σε ένα μουσείο: «Γιατί αυτό θεωρείται τέχνη;». Η Αλεξάνδρα κοιτούσε ένα πίνακα με ένα μόνο σημείο — κι αισθανόταν ότι καταλάβαινε.</p>
-          <p class="mt-3">Σε ένα βιβλιοπωλείο: «Παιδί έγραψε αυτό το βιβλίο;». Η Ελευθερία κράτησε ένα βιβλίο γραμμένο από 12χρονο — και τα μάτια της γυάλισαν.</p>
-          <p class="mt-3">Σε ένα καφέ: «Εσύ τι φτιάχνεις;». Ένα κορίτσι δίπλα τους σχεδίαζε ένα app στο τετράδιό της. Ήταν 11 χρονών.</p>
-          <p class="mt-4">Οι ερωτήσεις έπεφταν σαν βροχή — και κάθε μία άνοιγε κάτι μέσα τους.</p>
-          <p class="mt-3">Η Αλεξάνδρα άρχισε να μιλά πιο άνετα. Ο Φίλιππος έκανε σχέδια σε χαρτοπετσέτες. Η Ελευθερία σημείωνε μανιωδώς, με δύο μολύβια εναλλάξ.</p>
-        </section>
+Κι εκεί, ψηλά, ανάμεσα στα σύννεφα, είδε κάτι. Κάτι που λαμπύριζε χρυσό.`,
+          en: `Three days had passed since the laughter in the schoolyard. Three days during which none of the three children spoke about what happened. But silence did not mean they had forgotten. It meant they were still hurting.
 
-        <!-- ═══════════ ΣΚΗΝΗ 6 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-fuchsia-500 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">ΣΚΗΝΗ 06</span>
-            <h3 class="text-2xl font-black text-fuchsia-300 tracking-wide">Η ΑΠΟΚΑΛΥΨΗ</h3>
-          </div>
-          <p>Το βράδυ. Τα φώτα χαμηλά. Ο ήχος του αέρα έξω.</p>
-          <p class="mt-3">«Τελικά… δεν είμαστε περίεργοι», είπε ο Φίλιππος. Η φωνή του ήταν ήσυχη — αλλά σίγουρη.</p>
-          <p class="mt-3">— «Είμαστε απλώς νωρίς», απάντησε η Ελευθερία.</p>
-          <p class="mt-3">Η Αλεξάνδρα γέλασε — ελαφρά, σαν ανακούφιση. «Νωρίς… μου αρέσει αυτό. Μου αρέσει πολύ.»</p>
-          <p class="mt-4">Η WiseBot εμφανίστηκε, ήσυχα, στη γωνία του δωματίου. Το φως της ζέστανε τα πρόσωπά τους.</p>
-          <p class="mt-3"><strong class="text-white text-lg">«Όταν μεγαλώνει ο κόσμος σου, μικραίνει ο φόβος σου.»</strong></p>
-          <p class="mt-3 text-teal-300/70 italic">Κανείς δεν μίλησε. Αλλά όλοι ένιωσαν ότι κάτι μέσα τους άνοιξε. Κάτι σαν πόρτα σε δρόμο που πάντα υπήρχε — αλλά δεν το είχαν δει.</p>
-        </section>
+Alexandra stopped drawing. Her pencils remained motionless inside their case, resting on the desk like objects belonging to someone else. Every time she looked at them, she heard that laughter. Like an echo that never fades.
 
-        <!-- ═══════════ ΣΚΗΝΗ 7 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-white text-black text-xs font-black px-3 py-1 rounded-full tracking-widest">ΣΚΗΝΗ 07</span>
-            <h3 class="text-2xl font-black text-white tracking-wide">ΤΟ ΓΥΡΙΣΜΑ</h3>
-          </div>
-          <p>Πίσω στο σπίτι, όλα ήταν ίδια. Τα ίδια σπίτια. Οι ίδιοι δρόμοι. Η ίδια αυλή.</p>
-          <p class="mt-3">Αλλά τα παιδιά όχι.</p>
-          <p class="mt-3">Κάποιο γέλιο ακούστηκε πάλι στο σχολείο. Κάποιος πέταξε ένα σχόλιο. Κάποιος σφύριξε ειρωνικά.</p>
-          <p class="mt-3">Ο Φίλιππος σήκωσε τους ώμους. «ΟΚ.» Απλά. Χωρίς θυμό.</p>
-          <p class="mt-3">Η Αλεξάνδρα χαμογέλασε — ένα χαμόγελο που δεν ζητούσε έγκριση.</p>
-          <p class="mt-3">Η Ελευθερία άνοιξε το τετράδιο. Και άρχισε να γράφει — πιο γρήγορα, πιο σίγουρα, σαν να μην υπήρχε κανείς γύρω.</p>
-          <p class="mt-4 italic text-teal-300/70">Ο Crocus τους κοίταξε. «Τι τους κάνατε ρε;» Κανείς δεν απάντησε. Δεν χρειαζόταν.</p>
-        </section>
+Philippos reacted differently. He didn't stop — he disappeared. He shut himself in his room, watched videos on his tablet, spoke to no one. "I'm fine," he said, in a voice that sounded like a wall.
 
-        <!-- ═══════════ ΣΚΗΝΗ 8 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-teal-500 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">ΣΚΗΝΗ 08</span>
-            <h3 class="text-2xl font-black text-teal-400 tracking-wide">Η ΝΕΑ ΣΚΕΨΗ</h3>
-          </div>
-          <p>Το βράδυ, πριν κοιμηθούν, έγραψαν κάτι στον τοίχο τους. Με μαρκαδόρο. Χωρίς άδεια. Χωρίς δισταγμό.</p>
-          <p class="mt-4 font-serif italic text-xl text-cyan-100 bg-teal-900/40 p-6 rounded-xl border-l-4 border-cyan-400 shadow-inner">
-            «Δεν φτιάχνουμε κάτι για όλους.<br/>Το φτιάχνουμε για εκείνους που το καταλαβαίνουν.»
-          </p>
-          <p class="mt-4">Ο Sparken κάθισε στο παράθυρο — τα φτερά του μισάνοιχτα, σαν πανιά σε λιμάνι.</p>
-          <p class="mt-3"><strong class="text-white text-lg">«Τώρα… βλέπετε πιο μακριά.»</strong></p>
-          <p class="mt-3">Η WiseBot άναψε τελευταία φορά, απαλά, σαν αποχαιρετισμός. Αλλά δεν ήταν τέλος.</p>
-          <p class="mt-4 text-xl font-bold text-teal-200">Ήταν αρχή.</p>
-          <p class="mt-2 italic text-cyan-400/60">Τέλος Μέρους 1 — Η αρχή ενός κόσμου.</p>
-        </section>
+Eleftheria was the one who seemed the calmest. But her calm was false. Inside her, a thought was running, again and again, like a broken clock: "What if I don't belong anywhere?"
 
-        <!-- ═══════════ ΕΙΚΟΝΑ 2 ═══════════ -->
-        <div class="flex justify-center my-8">
-          <div class="relative group">
-            <img src="${IMG_KIDS_TOGETHER}" alt="Τα τρία παιδιά μαζί" class="rounded-2xl shadow-2xl shadow-teal-500/20 max-h-96 object-contain border-2 border-teal-500/30" />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-2xl">
-              <p class="text-sm text-teal-200 text-center font-medium">Φίλιππος, Αλεξάνδρα & Ελευθερία — βλέπουν πιο μακριά</p>
-            </div>
-          </div>
-        </div>
+Their world — the school, the neighborhood, the yard — suddenly felt very small. And very hostile. Like a room that shrinks a little more each day.
 
-        <!-- ═══════════ JOURNAL ═══════════ -->
-        <div class="mt-12 bg-teal-950/60 p-8 rounded-3xl border-2 border-dashed border-teal-500/40 shadow-xl">
-          <h4 class="text-xl font-black text-teal-300 uppercase tracking-wider mb-6 flex items-center gap-2">
-            🌍 JOURNAL: ΑΝΟΙΓΩ ΤΟΝ ΚΟΣΜΟ ΜΟΥ
-          </h4>
+That day, Alexandra sat by the window and looked at the sky. It was full of clouds — heavy, grey, indifferent. Exactly like her mood.
 
-          <div class="space-y-6 text-gray-300">
+And there, high above, between the clouds, she saw something. Something that shimmered gold.`
+        }
+      },
+      {
+        title: { el: "Ο Αετός με τα Χρυσά Μάτια", en: "The Eagle with Golden Eyes" },
+        image: "/images/sparken.jpg",
+        imageCaption: { el: "Ο Sparken — ο αετός της προοπτικής.", en: "Sparken — the eagle of perspective." },
+        text: {
+          el: `Δεν κατέβηκε αργά. Δεν χρειάστηκε. Ο Sparken ήρθε σαν αστραπή που δεν κάνει θόρυβο — μια γραμμή χρυσού φωτός που σκίστηκε τον ουρανό και κάθισε στο κάγκελο του μπαλκονιού.
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">1. Η ΦΟΥΣΚΑ ΜΟΥ</h5>
-              <p class="text-sm mb-2 opacity-80">Γράψε κάτι που νόμιζες ότι «όλοι» το σκέφτονται έτσι (αλλά τελικά όχι):</p>
-              <div class="w-full h-10 bg-black/30 rounded-lg border border-teal-500/20"></div>
-            </div>
+Ήταν ένας αετός. Αλλά όχι σαν τους αετούς στα βιβλία. Τα φτερά του ήταν σχεδόν διάφανα — κατασκευασμένα από φως, σαν ολογράμματα που τρεμόπαιζαν κάτω από τον ήλιο. Τα μάτια του ήταν χρυσά, βαθιά, σαν δύο ήλιοι σε μικρογραφία.
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">2. Η ΑΝΑΚΑΛΥΨΗ</h5>
-              <p class="text-sm mb-2 opacity-80">Γράψε κάτι καινούργιο που είδες ή έμαθες και σου άρεσε:</p>
-              <div class="w-full h-10 bg-black/30 rounded-lg border border-teal-500/20"></div>
-            </div>
+«Μικρά μου», είπε. Η φωνή του ήταν ζεστή, σαν άνεμος που φέρνει θάλασσα.
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">3. ΑΤΟΜΑ ΠΟΥ ΜΕ ΚΑΤΑΛΑΒΑΙΝΟΥΝ</h5>
-              <p class="text-sm mb-2 opacity-80">Γράψε 1-3 ονόματα ατόμων που σε κάνουν να νιώθεις «κανονικός»:</p>
-              <div class="w-full h-10 bg-black/30 rounded-lg border border-teal-500/20"></div>
-            </div>
+Η Αλεξάνδρα πετάχτηκε πίσω. «Ποιος... τι...;»
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">4. Η ΥΠΕΝΘΥΜΙΣΗ</h5>
-              <div class="bg-black/20 p-4 rounded-xl border border-teal-500/10">
-                <p class="text-sm italic">«Δεν χρειάζεται να μικρύνω για να ταιριάξω.</p>
-                <p class="text-sm italic">Ο κόσμος είναι μεγάλος και υπάρχει χώρος για μένα.»</p>
-              </div>
-            </div>
+Ο Sparken έγειρε το κεφάλι του. «Ρωτάς ποιος είμαι. Αλλά η πιο σωστή ερώτηση είναι: πού κοιτάς;»
 
-          </div>
-        </div>
+Ο Φίλιππος ήρθε τρέχοντας στο δωμάτιο. Η Ελευθερία τον ακολούθησε. Κοιτούσαν τον αετό με ανοιχτά μάτια και κομμένη ανάσα.
 
-        <!-- ═══════════ MEANING BOX ═══════════ -->
-        <div class="mt-8 bg-gradient-to-r from-teal-900/40 to-cyan-900/40 p-8 rounded-3xl border border-teal-400/30 shadow-xl">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-3xl">💎</span>
-            <h4 class="text-xl font-black text-teal-300 uppercase tracking-wider">ΤΟ ΝΟΗΜΑ ΤΗΣ ΙΣΤΟΡΙΑΣ</h4>
-          </div>
-          <div class="space-y-4 text-teal-100/90">
-            <p class="text-lg leading-relaxed">Η γνώμη γύρω σου δεν είναι ο κόσμος. Είναι μόνο μια μικρή γωνία. Ο αληθινός κόσμος είναι πολύ πιο μεγάλος — και κάπου εκεί μέσα, υπάρχουν άνθρωποι που σε περιμένουν.</p>
-            <p class="text-lg leading-relaxed font-semibold text-teal-200">Δεν φτιάχνεις κάτι για όλους. Το φτιάχνεις για εκείνους που θα το καταλάβουν.</p>
-            <p class="text-sm text-teal-400/60 italic mt-4">— Sparken</p>
-          </div>
-        </div>
+«Εγώ είμαι ο Sparken», είπε, ανοίγοντας τα φτερά του αργά. Φως χύθηκε στο δωμάτιο — χρυσό, απαλό, ζεστό. Σαν ανατολή μέσα σε τέσσερις τοίχους. «Και ήρθα γιατί κοιτάτε πολύ χαμηλά.»
 
-        <!-- ═══════════ ΜΗΝΥΜΑ ΓΙΑ ΓΟΝΕΙΣ ═══════════ -->
-        <div class="mt-8 bg-gradient-to-br from-slate-950 to-teal-950/60 p-8 rounded-3xl border border-teal-500/30 shadow-2xl relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <div class="flex items-center gap-3 mb-6 relative z-10">
-            <span class="text-2xl">👨‍👩‍👧</span>
-            <h4 class="text-xl font-black text-teal-300 uppercase tracking-wider">ΜΗΝΥΜΑ ΓΙΑ ΓΟΝΕΙΣ</h4>
-          </div>
-          <div class="space-y-4 relative z-10">
-            <p class="text-gray-300 leading-relaxed">
-              Όταν ένα παιδί καταλάβει ότι δεν κρίνεται μόνο από το στενό του περιβάλλον — σχολείο, γειτονιά, τάξη — αποκτά ελευθερία σκέψης. Αποκτά χώρο να αναπνεύσει.
-            </p>
-            <p class="text-gray-300 leading-relaxed">
-              Η αλλαγή παραστάσεων δεν είναι απλώς διακοπές. Είναι <strong class="text-teal-300">απαραίτητο άνοιγμα μυαλού</strong> — και μια από τις πιο σημαντικές βάσεις αυτοπεποίθησης.
-            </p>
-            <div class="mt-4 bg-black/20 p-4 rounded-xl border border-teal-500/10">
-              <p class="text-teal-200 font-bold text-sm mb-2">💡 TIPS ΓΙΑ ΓΟΝΕΙΣ:</p>
-              <ul class="text-sm text-gray-400 space-y-2">
-                <li>• Πηγαίνετε το παιδί σε περιβάλλοντα με παιδιά που δημιουργούν</li>
-                <li>• Δείξτε του ότι η «ιδιαιτερότητά» του δεν είναι πρόβλημα — είναι δύναμη</li>
-                <li>• Βρείτε μαζί workshops, εκθέσεις, κοινότητες με κοινά ενδιαφέροντα</li>
-                <li>• Πείτε: «Δεν χρειάζεται να αρέσεις σε όλους. Χρειάζεται να βρεις τους δικούς σου»</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+«Πολύ χαμηλά;» ρώτησε η Ελευθερία.
 
-      </div>
-    `,
-      en: `
-      <div class="space-y-10 font-sans text-gray-200 leading-relaxed">
+«Ναι», είπε ο Sparken. «Βλέπετε μόνο αυτό που είναι γύρω σας. Την αυλή. Τα γέλια. Τις γνώμες πέντε ανθρώπων. Και νομίζετε ότι αυτός είναι ο κόσμος.» Έκανε παύση. Τα χρυσά μάτια του λάμπρυναν. «Αλλά ο κόσμος είναι πολύ, πολύ μεγαλύτερος.»`,
+          en: `He didn't come down slowly. He didn't need to. Sparken arrived like lightning that makes no sound — a line of golden light that split the sky and landed on the balcony railing.
 
-        <!-- ═══════════ OPENING QUOTE ═══════════ -->
-        <div class="relative bg-gradient-to-r from-teal-900/60 to-cyan-900/60 p-8 rounded-2xl border border-teal-500/30 text-center shadow-lg">
-          <p class="text-3xl font-black text-teal-200 mb-2">"When your world grows,"</p>
-          <p class="text-xl text-cyan-300/80 italic">"your fear shrinks."</p>
-        </div>
+He was an eagle. But not like the eagles in books. His wings were almost transparent — constructed from light, like holograms that flickered under the sun. His eyes were golden, deep, like two miniature suns.
 
-        <!-- ═══════════ SCENE 1 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-teal-600 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest shadow-lg shadow-teal-600/30">SCENE 01</span>
-            <h3 class="text-2xl font-black text-teal-400 tracking-wide">OUTSIDE THE BUBBLE</h3>
-          </div>
-          <p>The car was racing on the road. Suitcases in the trunk. Music on the radio. Stops for juice and sandwiches at gas stations.</p>
-          <p class="mt-3">"Where are we going again?" asked Philippos, planted in his seat with his feet on the front one.</p>
-          <p class="mt-3">"To a place where no one knows us," said Alexandra. And her voice sounded like freedom.</p>
-          <p class="mt-4">Eleftheria looked out the window — trees, mountains, clouds changing shape. "That is good. There you see clearly. There you don't have a role."</p>
-          <p class="mt-3 text-gray-400 italic">Crocus curled up in the back seat, nose between his legs. "I don't trust places without a field," he mumbled. Nobody answered him.</p>
-        </section>
+"Little ones," he said. His voice was warm, like a wind that carries the sea.
 
-        <!-- ═══════════ SCENE 2 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-cyan-600 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest shadow-lg shadow-cyan-600/30">SCENE 02</span>
-            <h3 class="text-2xl font-black text-cyan-300 tracking-wide">KIDS WHO DON'T LAUGH</h3>
-          </div>
-          <p>In the square of another city, the kids were not playing the same game. They weren't chasing each other. They weren't shouting.</p>
-          <p class="mt-3">Some were drawing on the sidewalk with chalk. Some were building structures from sticks and string. Some sat in a circle and… discussed. Seriously. As if it were the most natural thing in the world.</p>
-          <p class="mt-4">Philippos approached, box tucked under his arm. "What are you doing?"</p>
-          <p class="mt-3">"Testing," answered a child without looking up.</p>
-          <p class="mt-3">"Testing what?"</p>
-          <p class="mt-3 text-white font-bold text-lg">"Ideas."</p>
-          <p class="mt-3 italic text-teal-300/70">Philippos stopped. The word sounded so simple — yet at the same time like something he'd never heard before.</p>
-        </section>
+Alexandra jumped back. "Who... what...?"
 
-        <!-- ═══════════ SCENE 3 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-white text-black text-xs font-black px-3 py-1 rounded-full tracking-widest">SCENE 03</span>
-            <h3 class="text-2xl font-black text-white tracking-wide">THE TWIST</h3>
-          </div>
-          <p>Alexandra took a breath. Deep. And then — without thinking too much — she hesitantly showed their own game.</p>
-          <p class="mt-3">She expected laughter. Her hands were shaking. Her stomach was tight.</p>
-          <p class="mt-3"><strong class="text-red-400">No one laughed.</strong></p>
-          <p class="mt-3">"Oh, interesting," said one, leaning closer.</p>
-          <p class="mt-3">"It needs thought," said another. "Can we try it?"</p>
-          <p class="mt-4">Philippos looked at Eleftheria. Their eyes said everything.</p>
-          <p class="mt-3">"They didn't say 'stupid'," he whispered.</p>
-          <p class="mt-3">Eleftheria smiled — a smile she couldn't hold back. <strong class="text-teal-300">"Because here… it isn't."</strong></p>
-        </section>
+Sparken tilted his head. "You ask who I am. But the real question is: where are you looking?"
 
-        <!-- ═══════════ IMAGE ═══════════ -->
-        <div class="flex justify-center my-8">
-          <div class="relative group">
-            <img src="${IMG_KIDS_WITH_SPARKEN}" alt="The kids with Sparken" class="rounded-2xl shadow-2xl shadow-teal-500/20 max-h-96 object-contain border-2 border-teal-500/30" />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-2xl">
-              <p class="text-sm text-teal-200 text-center font-medium">The kids discover new worlds with Sparken</p>
-            </div>
-          </div>
-        </div>
+Philippos came running into the room. Eleftheria followed him. They stared at the eagle with wide eyes and held breath.
 
-        <!-- ═══════════ SCENE 4 ═══════════ -->
-        <section class="bg-teal-900/20 p-6 rounded-xl border-t-4 border-cyan-400 my-6 shadow-xl shadow-teal-500/10">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-cyan-400 text-black text-xs font-black px-3 py-1 rounded-full tracking-widest">SCENE 04</span>
-            <h3 class="text-3xl font-black text-cyan-200 tracking-wide">SPARKEN'S WINGS</h3>
-          </div>
-          <p>The air changed. Something like a breeze — but stronger, more intentional. Leaves rose into the air.</p>
-          <p class="mt-3">Sparken descended slowly, his wings opened like a map. Each feather was like a page — full of color, stories, roads no one had followed.</p>
-          <p class="mt-4 text-white font-bold text-lg">"You see? The world is not one circle. It is many. And in one of them… you fit perfectly."</p>
-          <p class="mt-3">Crocus raised an eyebrow. "Meaning everyone isn't the same?"</p>
-          <p class="mt-3 text-teal-200 font-bold">"No. And that's not a problem. That's luck."</p>
-          <p class="mt-3 italic text-cyan-300/70">Sparken didn't shout. He spoke like someone who had seen the world from above. Because he had.</p>
-        </section>
+"I am Sparken," he said, spreading his wings slowly. Light poured into the room — golden, soft, warm. Like a sunrise inside four walls. "And I came because you are looking too low."
 
-        <!-- ═══════════ SCENE 5 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-gray-500 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">SCENE 05</span>
-            <h3 class="text-2xl font-black text-gray-300 tracking-wide">BIG IDEAS IN SMALL PLACES</h3>
-          </div>
-          <p>In a museum: "Why is this considered art?" Alexandra stared at a painting with a single dot — and felt she understood.</p>
-          <p class="mt-3">In a bookstore: "A child wrote this book?" Eleftheria held a book written by a 12-year-old — and her eyes glistened.</p>
-          <p class="mt-3">In a cafe: "What are you making?" A girl next to them was designing an app in her notebook. She was 11 years old.</p>
-          <p class="mt-4">The questions fell like rain — and each one opened something inside them.</p>
-          <p class="mt-3">Alexandra started speaking more comfortably. Philippos drew plans on napkins. Eleftheria took notes furiously, alternating between two pencils.</p>
-        </section>
+"Too low?" asked Eleftheria.
 
-        <!-- ═══════════ SCENE 6 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-fuchsia-500 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">SCENE 06</span>
-            <h3 class="text-2xl font-black text-fuchsia-300 tracking-wide">THE REVELATION</h3>
-          </div>
-          <p>That night. Lights low. The sound of wind outside.</p>
-          <p class="mt-3">"Finally… we aren't weird," said Philippos. His voice was quiet — but certain.</p>
-          <p class="mt-3">"We're just early," replied Eleftheria.</p>
-          <p class="mt-3">Alexandra laughed — lightly, like relief. "Early… I like that. I like that a lot."</p>
-          <p class="mt-4">WiseBot appeared, quietly, in the corner of the room. Her light warmed their faces.</p>
-          <p class="mt-3"><strong class="text-white text-lg">"When your world grows, your fear shrinks."</strong></p>
-          <p class="mt-3 text-teal-300/70 italic">Nobody spoke. But everyone felt something open inside them. Something like a door to a road that had always existed — but they hadn't seen it.</p>
-        </section>
+"Yes," said Sparken. "You only see what is around you. The schoolyard. The laughter. The opinions of five people. And you think that is the world." He paused. His golden eyes brightened. "But the world is much, much bigger."`
+        }
+      },
+      {
+        title: { el: "Η Πτήση", en: "The Flight" },
+        image: "/images/paidia-kai-sparken.webp",
+        imageCaption: { el: "Τα παιδιά πετούν πάνω από τον κόσμο που ήξεραν.", en: "The children fly above the world they knew." },
+        text: {
+          el: `«Σκαρφαλώστε», είπε ο Sparken, και τα φτερά του άνοιξαν τόσο πλατιά που σκέπασαν ολόκληρο το μπαλκόνι. Φως κυλούσε κατά μήκος τους σαν νερό.
 
-        <!-- ═══════════ SCENE 7 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-white text-black text-xs font-black px-3 py-1 rounded-full tracking-widest">SCENE 07</span>
-            <h3 class="text-2xl font-black text-white tracking-wide">THE RETURN</h3>
-          </div>
-          <p>Back home, everything was the same. The same houses. The same streets. The same yard.</p>
-          <p class="mt-3">But the kids were not.</p>
-          <p class="mt-3">Some laughter was heard again at school. Someone threw a comment. Someone whistled sarcastically.</p>
-          <p class="mt-3">Philippos shrugged. "OK." Simple. Without anger.</p>
-          <p class="mt-3">Alexandra smiled — a smile that asked for no approval.</p>
-          <p class="mt-3">Eleftheria opened the notebook. And started writing — faster, more sure, as if nobody else existed.</p>
-          <p class="mt-4 italic text-teal-300/70">Crocus looked at them. "What did you do to them?" Nobody answered. It wasn't needed.</p>
-        </section>
+Τα τρία παιδιά κοιτάχτηκαν. Ο Φίλιππος ήταν ο πρώτος. Πάτησε πάνω στο φτερό — ήταν σταθερό σαν βράχος, αλλά ζεστό σαν κουβέρτα. Η Αλεξάνδρα ακολούθησε. Η Ελευθερία δίστασε.
 
-        <!-- ═══════════ SCENE 8 ═══════════ -->
-        <section>
-          <div class="flex items-center gap-3 mb-4">
-            <span class="bg-teal-500 text-white text-xs font-black px-3 py-1 rounded-full tracking-widest">SCENE 08</span>
-            <h3 class="text-2xl font-black text-teal-400 tracking-wide">THE NEW THOUGHT</h3>
-          </div>
-          <p>That night, before bed, they wrote something on their wall. With a marker. Without permission. Without hesitation.</p>
-          <p class="mt-4 font-serif italic text-xl text-cyan-100 bg-teal-900/40 p-6 rounded-xl border-l-4 border-cyan-400 shadow-inner">
-            "We don't make something for everyone.<br/>We make it for those who understand it."
-          </p>
-          <p class="mt-4">Sparken sat on the windowsill — wings half-open, like sails in a harbor.</p>
-          <p class="mt-3"><strong class="text-white text-lg">"Now… you see further."</strong></p>
-          <p class="mt-3">WiseBot glowed one last time, softly, like a goodbye. But it wasn't the end.</p>
-          <p class="mt-4 text-xl font-bold text-teal-200">It was the beginning.</p>
-          <p class="mt-2 italic text-cyan-400/60">End of Part 1 — The beginning of a world.</p>
-        </section>
+«Κι αν πέσω;» ψιθύρισε.
 
-        <!-- ═══════════ IMAGE 2 ═══════════ -->
-        <div class="flex justify-center my-8">
-          <div class="relative group">
-            <img src="${IMG_KIDS_TOGETHER}" alt="The three kids together" class="rounded-2xl shadow-2xl shadow-teal-500/20 max-h-96 object-contain border-2 border-teal-500/30" />
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 rounded-b-2xl">
-              <p class="text-sm text-teal-200 text-center font-medium">Philippos, Alexandra & Eleftheria — they see further</p>
-            </div>
-          </div>
-        </div>
+Ο Sparken γύρισε ένα χρυσό μάτι προς το μέρος της. «Δεν πέφτει κανείς όταν ξέρει γιατί πετά.»
 
-        <!-- ═══════════ JOURNAL ═══════════ -->
-        <div class="mt-12 bg-teal-950/60 p-8 rounded-3xl border-2 border-dashed border-teal-500/40 shadow-xl">
-          <h4 class="text-xl font-black text-teal-300 uppercase tracking-wider mb-6 flex items-center gap-2">
-            🌍 JOURNAL: OPENING MY WORLD
-          </h4>
+Η Ελευθερία πήρε μια βαθιά ανάσα. Και ανέβηκε.
 
-          <div class="space-y-6 text-gray-300">
+Ο Sparken απογειώθηκε. Αθόρυβα, σαν σκέψη που ελευθερώνεται. Πρώτα πάνω από τα σπίτια. Μετά πάνω από τη γειτονιά. Μετά πάνω από ολόκληρη την πόλη. Ο αέρας ήταν κρύος αλλά τα φτερά ζέσταιναν — σαν να κρατούσαν τα παιδιά μέσα σε φούσκα από ήλιο.
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">1. MY BUBBLE</h5>
-              <p class="text-sm mb-2 opacity-80">Write something you thought "everyone" thinks this way (but actually not):</p>
-              <div class="w-full h-10 bg-black/30 rounded-lg border border-teal-500/20"></div>
-            </div>
+Τα παιδιά κοίταξαν κάτω. Το σχολείο τους φαινόταν τώρα μικρό. Σαν κουτί παπουτσιών. Η αυλή — ένα τετραγωνάκι. Τα παιδιά που γελούσαν — κουκκίδες. Απλές, μικροσκοπικές κουκκίδες.
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">2. THE DISCOVERY</h5>
-              <p class="text-sm mb-2 opacity-80">Write something new you saw or learned and liked:</p>
-              <div class="w-full h-10 bg-black/30 rounded-lg border border-teal-500/20"></div>
-            </div>
+«Βλέπετε;» είπε ο Sparken. «Από εδώ ψηλά, οι φωνές τους δεν ακούγονται. Όχι γιατί δεν υπάρχουν. Αλλά γιατί υπάρχουν τόσα πολλά ακόμη πέρα από αυτές.»
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">3. PEOPLE WHO UNDERSTAND ME</h5>
-              <p class="text-sm mb-2 opacity-80">Write 1-3 names of people who make you feel "normal":</p>
-              <div class="w-full h-10 bg-black/30 rounded-lg border border-teal-500/20"></div>
-            </div>
+Η Αλεξάνδρα ένιωσε τα μάτια της να καίνε. Όχι από λύπη αυτή τη φορά. Από κάτι εντελώς διαφορετικό — σαν να ξεκλειδωνόταν κάτι μέσα στο στήθος της. Ελευθερία.
 
-            <div>
-              <h5 class="text-teal-200 font-bold mb-2">4. THE REMINDER</h5>
-              <div class="bg-black/20 p-4 rounded-xl border border-teal-500/10">
-                <p class="text-sm italic">"I don't need to shrink to fit.</p>
-                <p class="text-sm italic">The world is big and there is space for me."</p>
-              </div>
-            </div>
+«Ο κόσμος μας... ήταν τόσο μικρός», ψιθύρισε ο Φίλιππος.
 
-          </div>
-        </div>
+«Όχι», είπε ο Sparken. «Ο κόσμος ήταν πάντα τεράστιος. Εσείς απλώς δεν είχατε σηκώσει ακόμα το κεφάλι.»`,
+          en: `"Climb on," said Sparken, and his wings opened so wide they covered the entire balcony. Light ran along them like water.
 
-        <!-- ═══════════ MEANING BOX ═══════════ -->
-        <div class="mt-8 bg-gradient-to-r from-teal-900/40 to-cyan-900/40 p-8 rounded-3xl border border-teal-400/30 shadow-xl">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="text-3xl">💎</span>
-            <h4 class="text-xl font-black text-teal-300 uppercase tracking-wider">THE MEANING OF THE STORY</h4>
-          </div>
-          <div class="space-y-4 text-teal-100/90">
-            <p class="text-lg leading-relaxed">The opinion around you is not the world. It's just a small corner. The real world is much bigger — and somewhere in it, there are people waiting for you.</p>
-            <p class="text-lg leading-relaxed font-semibold text-teal-200">You don't make something for everyone. You make it for those who will understand it.</p>
-            <p class="text-sm text-teal-400/60 italic mt-4">— Sparken</p>
-          </div>
-        </div>
+The three children looked at each other. Philippos was first. He stepped onto the wing — it was steady as a rock, but warm as a blanket. Alexandra followed. Eleftheria hesitated.
 
-        <!-- ═══════════ MESSAGE FOR PARENTS ═══════════ -->
-        <div class="mt-8 bg-gradient-to-br from-slate-950 to-teal-950/60 p-8 rounded-3xl border border-teal-500/30 shadow-2xl relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <div class="flex items-center gap-3 mb-6 relative z-10">
-            <span class="text-2xl">👨‍👩‍👧</span>
-            <h4 class="text-xl font-black text-teal-300 uppercase tracking-wider">MESSAGE FOR PARENTS</h4>
-          </div>
-          <div class="space-y-4 relative z-10">
-            <p class="text-gray-300 leading-relaxed">
-              When a child understands that they are not judged only by their narrow environment — school, neighborhood, class — they gain freedom of thought. They gain space to breathe.
-            </p>
-            <p class="text-gray-300 leading-relaxed">
-              Changing scenes isn't just vacation. It is <strong class="text-teal-300">necessary mind opening</strong> — and one of the most important foundations of confidence.
-            </p>
-            <div class="mt-4 bg-black/20 p-4 rounded-xl border border-teal-500/10">
-              <p class="text-teal-200 font-bold text-sm mb-2">💡 TIPS FOR PARENTS:</p>
-              <ul class="text-sm text-gray-400 space-y-2">
-                <li>• Take your child to environments with kids who create</li>
-                <li>• Show them that their "uniqueness" isn't a problem — it's a power</li>
-                <li>• Find workshops, exhibitions, communities with shared interests together</li>
-                <li>• Say: "You don't need to please everyone. You need to find your people"</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+"What if I fall?" she whispered.
 
-      </div>
-    `
-    }
+Sparken turned one golden eye toward her. "No one falls when they know why they fly."
+
+Eleftheria took a deep breath. And climbed on.
+
+Sparken took off. Silently, like a thought being set free. First above the houses. Then above the neighborhood. Then above the entire city. The air was cold but the wings gave warmth — as if holding the children inside a bubble of sunlight.
+
+The children looked down. Their school seemed small now. Like a shoebox. The yard — a tiny square. The kids who had laughed — dots. Simple, microscopic dots.
+
+"Do you see?" said Sparken. "From up here, their voices cannot be heard. Not because they don't exist. But because there is so much more beyond them."
+
+Alexandra felt her eyes burn. Not from sadness this time. From something completely different — as if something was unlocking inside her chest. Freedom.
+
+"Our world... was so small," whispered Philippos.
+
+"No," said Sparken. "The world was always enormous. You simply hadn't raised your heads yet."`
+        }
+      },
+      {
+        title: { el: "Η Φυλή", en: "The Tribe" },
+        image: "/images/paidia-wisebot-2.webp",
+        imageCaption: { el: "Δεν ήταν μόνοι. Δεν ήταν ποτέ μόνοι.", en: "They were not alone. They were never alone." },
+        text: {
+          el: `Ο Sparken κατέβηκε σε μια πλατεία γεμάτη κόσμο — αλλά όχι τον κόσμο που τα παιδιά ήξεραν.
+
+Ήταν παιδιά. Δεκάδες. Κάποια έφτιαχναν μηχανήματα από ξύλο και σύρματα. Κάποια ζωγράφιζαν τοιχογραφίες σε έναν τεράστιο τοίχο, με χρώματα τόσο δυνατά που φώτιζαν τη γωνία ολόκληρη. Κάποια έγραφαν σε τετράδια, τόσο συγκεντρωμένα που δεν σήκωναν καν το βλέμμα.
+
+«Ποιοι είναι αυτοί;» ψιθύρισε η Αλεξάνδρα, σαν να φοβόταν ότι αν μιλήσει δυνατά θα ξυπνήσει από όνειρο.
+
+«Αυτοί», είπε ο Sparken, «είναι σαν κι εσάς. Παιδιά που κάποτε τα κοροΐδεψαν. Που τους είπαν ότι αυτό που φτιάχνουν δεν αξίζει. Που ένιωσαν μικρά μέσα σε κόσμο που δεν τα καταλάβαινε. Αλλά αντί να μικρύνουν, βρήκαν αυτούς που τους μοιάζουν.»
+
+Ένα κορίτσι με κοντά μαλλιά και χρώμα στα δάχτυλα σήκωσε το κεφάλι. Χαμογέλασε. «Νέοι;» ρώτησε. «Ελάτε να δείτε τι φτιάχνουμε.»
+
+Ο Φίλιππος ένιωσε κάτι που δεν είχε νιώσει εδώ και μέρες — περιέργεια. Καθαρή, αληθινή περιέργεια. Πλησίασε αργά ένα τραπέζι γεμάτο κυκλώματα και μπαταρίες. «Τι φτιάχνετε;» Ένα αγόρι απάντησε χωρίς να σηκώσει κεφάλι: «Μια γέφυρα που κρατάει δέκα κιλά. Από χαρτόνι.» Ο Φίλιππος δεν πίστευε στα αυτιά του.
+
+Η Ελευθερία βρήκε μια ομάδα παιδιών που διάβαζαν δυνατά ιστορίες που είχαν γράψει μόνα τους. Κάθισε δίπλα τους. Κανείς δεν γέλασε. Κανείς δεν ρώτησε «γιατί». Απλώς της έκαναν χώρο. Σαν να την περίμεναν.
+
+Η Αλεξάνδρα στάθηκε μπροστά στον τοίχο με τις τοιχογραφίες. Τα χέρια της έτρεμαν. Ένα αγόρι της έδωσε ένα πινέλο. «Υπάρχει χώρος», είπε απλά.
+
+Και εκείνη τη στιγμή — χωρίς λόγια, χωρίς εξηγήσεις, χωρίς άδεια — τα τρία παιδιά κατάλαβαν κάτι που τους άλλαξε για πάντα. Δεν ήταν λάθος. Δεν ήταν ποτέ λάθος. Απλώς ήταν στο λάθος δωμάτιο.`,
+          en: `Sparken descended into a square full of people — but not the people the children knew.
+
+They were children. Dozens of them. Some were building machines from wood and wire. Some were painting murals on a massive wall, with colors so vivid they lit up the whole corner. Some were writing in notebooks, so focused they didn't even look up.
+
+"Who are they?" whispered Alexandra, as if afraid that speaking loudly would wake her from a dream.
+
+"They," said Sparken, "are like you. Children who were once mocked. Who were told that what they make is worthless. Who felt small inside a world that didn't understand them. But instead of shrinking, they found those who are like them."
+
+A girl with short hair and paint on her fingers raised her head. She smiled. "New here?" she asked. "Come see what we're making."
+
+Philippos felt something he hadn't felt in days — curiosity. Pure, real curiosity. He slowly approached a table covered in circuits and batteries. "What are you making?" A boy answered without looking up: "A bridge that holds ten kilos. Made from cardboard." Philippos couldn't believe his ears.
+
+Eleftheria found a group of children reading aloud stories they had written themselves. She sat down beside them. No one laughed. No one asked "why." They simply made room for her. As if they had been waiting.
+
+Alexandra stood before the wall of murals. Her hands were trembling. A boy handed her a brush. "There's room," he said simply.
+
+And in that moment — without words, without explanations, without permission — the three children understood something that changed them forever. They were not wrong. They were never wrong. They had simply been in the wrong room.`
+        }
+      },
+      {
+        title: { el: "Πίσω με Νέα Μάτια", en: "Back with New Eyes" },
+        image: "/images/eleftheria.webp",
+        imageCaption: { el: "Ο κόσμος δεν άλλαξε. Τα μάτια τους άλλαξαν.", en: "The world didn't change. Their eyes did." },
+        text: {
+          el: `Ο Sparken τα έφερε πίσω πριν νυχτώσει. Τα φτερά του ολογράμματος σιγόσβηναν στο δειλινό, αλλά τα χρυσά μάτια του ήταν ακόμα φωτεινά — πιο φωτεινά, ίσως, από πριν.
+
+«Πρέπει να φύγεις;» ρώτησε η Αλεξάνδρα, και η φωνή της είχε κάτι που δεν υπήρχε πριν — σταθερότητα.
+
+«Δεν φεύγω ποτέ», είπε ο Sparken. «Είμαι εδώ κάθε φορά που σηκώνετε το κεφάλι αρκετά ψηλά. Κάθε φορά που θυμάστε ότι η αυλή σας δεν είναι ο πλανήτης σας.»
+
+Ο Φίλιππος στάθηκε στο μπαλκόνι και κοίταξε τη γειτονιά. Τα ίδια σπίτια. Οι ίδιοι δρόμοι. Η ίδια αυλή. Αλλά κάτι ήταν διαφορετικό. Δεν ήταν ο κόσμος που άλλαξε — ήταν τα μάτια του.
+
+«Αύριο στο σχολείο», είπε αργά, «μπορεί να ξαναγελάσουν.»
+
+«Σίγουρα θα γελάσουν», είπε ο Sparken, χωρίς να κρύψει την αλήθεια.
+
+«Δεν πειράζει», είπε η Ελευθερία. Και η φωνή της ακούστηκε σαν κάποια που μόλις ανακάλυψε μυστικό πολύ μεγάλο για λέξεις. «Γιατί τώρα ξέρω. Εκεί έξω υπάρχουν άνθρωποι σαν εμάς. Η γνώμη πέντε ανθρώπων δεν είναι ο κόσμος.»
+
+Η Αλεξάνδρα άνοιξε τη θήκη με τα μολύβια. Για πρώτη φορά εδώ και μέρες, τα δάχτυλά της ήθελαν να ζωγραφίσουν. Σχεδίασε έναν αετό με φτερά από φως πάνω σε λευκό χαρτί. Και από κάτω, με γράμματα μικρά αλλά σταθερά, έγραψε: «Ο κόσμος είναι μεγαλύτερος.»
+
+Ο Sparken ανέμισε τα φτερά του μια τελευταία φορά. Χρυσό φως γέμισε το δωμάτιο — ζεστό σαν αγκαλιά, βαθύ σαν υπόσχεση.
+
+«Θυμηθείτε αυτό», είπε σιγανά. «Η γνώμη γύρω σας δεν είναι η αλήθεια. Η αλήθεια είναι εκεί έξω — τεράστια, γεμάτη, και σας περιμένει. Απλώς πρέπει να πετάξετε αρκετά ψηλά για να τη δείτε.»
+
+Τρία παιδιά. Ένας αετός. Μια πτήση. Αυτό ήταν αρκετό. Γιατί η αληθινή ελευθερία δεν είναι να φύγεις από τον κόσμο σου. Είναι να καταλάβεις ότι ο κόσμος σου δεν είναι ένα δωμάτιο — είναι ένας ουρανός.`,
+          en: `Sparken brought them back before nightfall. His hologram wings were dimming in the twilight, but his golden eyes were still bright — brighter, perhaps, than before.
+
+"Do you have to leave?" asked Alexandra, and her voice held something that wasn't there before — steadiness.
+
+"I never leave," said Sparken. "I am here every time you raise your heads high enough. Every time you remember that your schoolyard is not your planet."
+
+Philippos stood on the balcony and looked at the neighborhood. The same houses. The same streets. The same yard. But something was different. It wasn't the world that had changed — it was his eyes.
+
+"Tomorrow at school," he said slowly, "they might laugh again."
+
+"They will certainly laugh," said Sparken, without hiding the truth.
+
+"That's okay," said Eleftheria. And her voice sounded like someone who had just discovered a secret too big for words. "Because now I know. Out there, there are people like us. The opinion of five people is not the world."
+
+Alexandra opened her pencil case. For the first time in days, her fingers wanted to draw. She sketched an eagle with wings of light on white paper. And underneath, in letters small but steady, she wrote: "The world is bigger."
+
+Sparken beat his wings one last time. Golden light filled the room — warm as an embrace, deep as a promise.
+
+"Remember this," he said softly. "The opinion around you is not the truth. The truth is out there — enormous, full, and waiting for you. You just need to fly high enough to see it."
+
+Three children. One eagle. One flight. That was enough. Because true freedom is not escaping your world. It is understanding that your world is not a room — it is a sky.`
+        }
+      }
+    ]
   }
 ];

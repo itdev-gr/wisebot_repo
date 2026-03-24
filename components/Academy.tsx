@@ -1,62 +1,83 @@
 
 import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward } from 'lucide-react';
+import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Download, Wifi, WifiOff } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
 import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel } from '../utils/ttsVoice';
+import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, preDownloadAll, getCachedCount, PreDownloadProgress, loadStaticAudio } from '../services/cloudTTS';
 
 const motion = m as any;
 
-// HD IMAGE LINKS
+// HD IMAGE LINKS (solo characters)
 const LINK_HD = "/images/link.jpg";
 const PENCILO_HD = "/images/pencilo.jpg";
 const WISEBOT_HD = "/images/wisebot.jpg";
 const CROCUS_HD = "/images/crocus.jpg";
 const SPARKEN_HD = "/images/sparken.jpg";
 
+// Image rotation: alternates heroes & kids+heroes for visual variety
+const STORY_IMAGES = [
+  "/images/wisebot.jpg",
+  "/images/paidia-kai-link.webp",
+  "/images/pencilo.jpg",
+  "/images/paidia-kai-crocus.webp",
+  "/images/sparken.jpg",
+  "/images/paidia-kai-wisebot.webp",
+  "/images/link.jpg",
+  "/images/paidia-kai-pencilo.webp",
+  "/images/crocus.jpg",
+  "/images/paidia-kai-sparken.webp",
+];
+const getStoryImage = (index: number) => STORY_IMAGES[index % STORY_IMAGES.length];
+
 // CATEGORY CONFIGURATION
 const CATEGORIES = {
-  START_SMALL: { 
+  START_SMALL: {
     id: 'START_SMALL',
-    icon: Lightbulb, 
+    icon: Lightbulb,
     color: "from-amber-400 to-orange-600",
     border: "border-amber-500/50",
     bg: "bg-amber-500/10",
-    title: { el: "ΕΠΙΧΕΙΡΗΜΑΤΙΚΟΤΗΤΑ", en: "ENTREPRENEURSHIP" }
+    title: { el: "ΕΠΙΧΕΙΡΗΜΑΤΙΚΟΤΗΤΑ", en: "ENTREPRENEURSHIP" },
+    desc: { el: "Άνθρωποι που ξεκίνησαν από το μηδέν και άλλαξαν τον κόσμο", en: "People who started from zero and changed the world" }
   },
-  SPORTS: { 
+  SPORTS: {
     id: 'SPORTS',
-    icon: Dumbbell, 
+    icon: Dumbbell,
     color: "from-red-500 to-rose-600",
     border: "border-red-500/50",
     bg: "bg-red-500/10",
-    title: { el: "ΑΘΛΗΤΙΣΜΟΣ & ΘΕΛΗΣΗ", en: "SPORTS & RESILIENCE" }
+    title: { el: "ΑΘΛΗΤΙΣΜΟΣ & ΘΕΛΗΣΗ", en: "SPORTS & RESILIENCE" },
+    desc: { el: "Αθλητές που νίκησαν πρώτα τον εαυτό τους", en: "Athletes who defeated themselves first" }
   },
-  TECH: { 
+  TECH: {
     id: 'TECH',
-    icon: Cpu, 
+    icon: Cpu,
     color: "from-cyan-400 to-blue-600",
     border: "border-cyan-500/50",
     bg: "bg-cyan-500/10",
-    title: { el: "ΤΕΧΝΟΛΟΓΙΑ", en: "TECHNOLOGY" }
+    title: { el: "ΤΕΧΝΟΛΟΓΙΑ", en: "TECHNOLOGY" },
+    desc: { el: "Εφευρέτες και οραματιστές που έφτιαξαν το μέλλον", en: "Inventors and visionaries who built the future" }
   },
-  ARTS: { 
+  ARTS: {
     id: 'ARTS',
-    icon: Palette, 
+    icon: Palette,
     color: "from-fuchsia-400 to-purple-600",
     border: "border-fuchsia-500/50",
     bg: "bg-fuchsia-500/10",
-    title: { el: "ΤΕΧΝΕΣ & ΕΚΦΡΑΣΗ", en: "ARTS & EXPRESSION" }
+    title: { el: "ΤΕΧΝΕΣ & ΕΚΦΡΑΣΗ", en: "ARTS & EXPRESSION" },
+    desc: { el: "Καλλιτέχνες που μετέτρεψαν τον πόνο σε αριστούργημα", en: "Artists who turned pain into masterpieces" }
   },
-  SCIENCE: { 
+  SCIENCE: {
     id: 'SCIENCE',
-    icon: Globe, 
+    icon: Globe,
     color: "from-emerald-400 to-teal-600",
     border: "border-emerald-500/50",
     bg: "bg-emerald-500/10",
-    title: { el: "ΕΠΙΣΤΗΜΗ", en: "SCIENCE" }
+    title: { el: "ΕΠΙΣΤΗΜΗ", en: "SCIENCE" },
+    desc: { el: "Επιστήμονες που αποκάλυψαν τα μυστικά του σύμπαντος", en: "Scientists who revealed the secrets of the universe" }
   }
 };
 
@@ -680,12 +701,352 @@ const COURSES = [
       el: "Ο Neil ήταν πιλότος δοκιμών που πέταξε το πιο γρήγορο αεροπλάνο (X-15). Επιλέχθηκε για την αποστολή Apollo 11. Όταν το σκάφος κατέβαινε στη Σελήνη, ο υπολογιστής έβγαζε λάθη και τα καύσιμα τελείωναν. Ο Neil πήρε τον έλεγχο και προσγείωσε το Eagle με μόλις 30 δευτερόλεπτα καυσίμου να απομένουν. Η καρδιά του χτυπούσε με 150 παλμούς. Πάτησε στο φεγγάρι και είπε: «Ένα μικρό βήμα για τον άνθρωπο, ένα τεράστιο άλμα για την ανθρωπότητα».",
       en: "Neil was a test pilot who flew the fastest plane (X-15). He was chosen for Apollo 11. As the craft descended to the Moon, the computer flashed errors and fuel was running low. Neil took manual control and landed the Eagle with just 30 seconds of fuel left. His heart rate was 150 bpm. He stepped onto the moon and said: 'That's one small step for man, one giant leap for mankind.'"
     }
+  },
+
+  // ========================================================================
+  // 🚀 NEW STORIES: START SMALL (Business & Visionaries) — IDs 51-53
+  // ========================================================================
+  {
+    id: 51,
+    category: "START_SMALL",
+    subject: { el: "Sara Blakely", en: "Sara Blakely" },
+    title: { el: "Η Βασίλισσα του Ψαλιδιού", en: "The Scissors Queen" },
+    subtitle: { el: "Spanx Founder", en: "Spanx Founder" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Η Sara Blakely πουλούσε fax μηχανήματα πόρτα-πόρτα. Ήταν 27 χρονών, είχε μόλις 5.000 δολάρια στην τράπεζα, και ένα πρόβλημα: τα καλσόν της δεν έδειχναν καλά κάτω από λευκά παντελόνια. Μια βραδιά, πήρε ένα ψαλίδι και έκοψε τα πόδια ενός καλσόν. Αυτή η στιγμή άλλαξε τη ζωή της. Για δύο χρόνια, δούλευε τη μέρα πουλώντας fax και τη νύχτα έγραφε η ίδια το δίπλωμα ευρεσιτεχνίας (δεν είχε χρήματα για δικηγόρο). Κανένας κατασκευαστής δεν ήθελε να δουλέψει μαζί της. Τελικά ένας βιοτέχνης στη Βόρεια Καρολίνα δέχτηκε, μόνο επειδή η κόρη του πίστεψε στην ιδέα. Η Oprah ανέφερε τα Spanx ως ένα από τα αγαπημένα της πράγματα, και η Sara έγινε η νεότερη αυτοδημιούργητη δισεκατομμυριούχος γυναίκα στην Αμερική. Μάθημα: Μερικές φορές, η λύση βρίσκεται σε ένα ψαλίδι και λίγο θάρρος.",
+      en: "Sara Blakely sold fax machines door-to-door. She was 27, had only $5,000 in her bank account, and one problem: her pantyhose didn't look good under white pants. One evening, she grabbed scissors and cut the feet off a pair of pantyhose. That moment changed her life. For two years, she worked days selling fax machines and nights writing her own patent (she couldn't afford a lawyer). No manufacturer would work with her. Finally, a factory owner in North Carolina agreed — only because his daughter believed in the idea. When Oprah named Spanx one of her 'Favorite Things,' sales exploded. Sara became the youngest self-made female billionaire in America. Lesson: Sometimes the solution is a pair of scissors and a little courage."
+    }
+  },
+  {
+    id: 52,
+    category: "START_SMALL",
+    subject: { el: "Jack Ma", en: "Jack Ma" },
+    title: { el: "Ο Βασιλιάς που Απορρίφθηκε 30 Φορές", en: "The King Rejected 30 Times" },
+    subtitle: { el: "Alibaba", en: "Alibaba" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Ο Jack Ma μεγάλωσε φτωχός στην Κίνα. Απέτυχε στις εξετάσεις εισαγωγής στο πανεπιστήμιο τρεις φορές. Απορρίφθηκε από 30 δουλειές — ακόμα και τα KFC τον απέρριψαν (24 υποψήφιοι πήγαν, 23 πέρασαν, εκείνος όχι). Κανείς δεν τον ήθελε. Αλλά ο Jack είχε ένα πλεονέκτημα: μιλούσε αγγλικά, γιατί ως παιδί πήγαινε στο ξενοδοχείο της πόλης του και ξεναγούσε τουρίστες δωρεάν για 9 χρόνια. Η πρώτη φορά που είδε υπολογιστή ήταν στα 33 του. Δεν ήξερε να γράψει κώδικα. Μάζεψε 17 φίλους στο διαμέρισμά του και τους είπε: «Θα χτίσουμε κάτι σαν το eBay, αλλά για την Κίνα.» Αυτό ήταν η Alibaba — σήμερα μια εταιρεία δισεκατομμυρίων. Μάθημα: Δεν χρειάζεται να είσαι ο πιο έξυπνος, αρκεί να μην τα παρατάς.",
+      en: "Jack Ma grew up poor in China. He failed his college entrance exams three times. He was rejected from 30 jobs — even KFC turned him down (24 applicants showed up, 23 were hired, he wasn't). Nobody wanted him. But Jack had one advantage: he spoke English, because as a kid he spent 9 years biking to his town's hotel to give tourists free tours. The first time he saw a computer was at age 33. He couldn't write code. He gathered 17 friends in his apartment and told them: 'We'll build something like eBay, but for China.' That was Alibaba — today a multi-billion dollar company. Lesson: You don't need to be the smartest, you just need to never give up."
+    }
+  },
+  {
+    id: 53,
+    category: "START_SMALL",
+    subject: { el: "Richard Branson", en: "Richard Branson" },
+    title: { el: "Ο Δυσλεκτικός Δισεκατομμυριούχος", en: "The Dyslexic Billionaire" },
+    subtitle: { el: "Virgin Empire", en: "Virgin Empire" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Ο Richard Branson είχε δυσλεξία. Οι βαθμοί του ήταν τραγικοί. Ο διευθυντής του σχολείου του είπε: «Ή θα καταλήξεις εκατομμυριούχος ή θα καταλήξεις στη φυλακή.» Παράτησε το σχολείο στα 16 και ξεκίνησε ένα μαθητικό περιοδικό από ένα τηλεφωνικό θάλαμο. Ύστερα άνοιξε ένα δισκοπωλείο (Virgin Records). Μετά μια αεροπορική εταιρεία (Virgin Atlantic). Μετά μια εταιρεία διαστήματος (Virgin Galactic). Πολύ θα αποτύχει: καταπληκτικά αερόστατα κατέπεσαν, εταιρείες χρεοκόπησαν. Αλλά ο κανόνας του ήταν απλός: «Αν κάποιος σου προσφέρει μια εκπληκτική ευκαιρία και δεν είσαι σίγουρος ότι μπορείς να τα καταφέρεις, πες ναι — μετά μάθε πώς.» Σήμερα, ο Branson διαχειρίζεται 400 εταιρείες. Μάθημα: Η δυσλεξία δεν είναι αδυναμία — είναι διαφορετικός τρόπος σκέψης.",
+      en: "Richard Branson had dyslexia. His grades were terrible. His headmaster told him: 'You'll either end up a millionaire or in prison.' He dropped out of school at 16 and started a student magazine from a phone booth. Then he opened a record shop (Virgin Records). Then an airline (Virgin Atlantic). Then a space company (Virgin Galactic). He failed spectacularly many times: hot air balloons crashed, companies went bankrupt. But his rule was simple: 'If somebody offers you an amazing opportunity and you're not sure you can do it, say yes — then learn how.' Today, Branson runs 400 companies. Lesson: Dyslexia isn't a weakness — it's a different way of thinking."
+    }
+  },
+
+  // ========================================================================
+  // 🏅 NEW STORIES: SPORTS (Resilience & Mindset) — IDs 54-56
+  // ========================================================================
+  {
+    id: 54,
+    category: "SPORTS",
+    subject: { el: "Simone Biles", en: "Simone Biles" },
+    title: { el: "Η Βασίλισσα της Βαρύτητας", en: "Queen of Gravity" },
+    subtitle: { el: "The GOAT", en: "The GOAT" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Η Simone Biles μπήκε σε ανάδοχη οικογένεια όταν ήταν μόλις 3 χρονών. Η βιολογική της μητέρα δεν μπορούσε να τη μεγαλώσει. Στα 6, πήγε μια εκδρομή σε ένα γυμναστήριο ενόργανης. Άρχισε να αντιγράφει τις αθλήτριες — και οι προπονητές έμειναν άφωνοι. Η Simone ήταν τόσο καλή που εφηύρε κινήσεις που κανείς δεν είχε κάνει ποτέ (4 κινήσεις φέρουν το όνομά της!). Κέρδισε 37 μετάλλια σε Παγκόσμια Πρωταθλήματα. Στους Ολυμπιακούς του Τόκιο, αποσύρθηκε για να προστατεύσει την ψυχική της υγεία — και δέχτηκε κριτική. Αντί να τα παρατήσει, γύρισε στους Ολυμπιακούς του Παρισιού 2024 και κέρδισε 3 ακόμα μετάλλια. Μάθημα: Η πραγματική δύναμη δεν είναι να μην πέφτεις ποτέ. Είναι να ξέρεις πότε να σταματήσεις — και να γυρνάς πιο δυνατός.",
+      en: "Simone Biles was placed in foster care when she was just 3 years old. Her biological mother couldn't raise her. At 6, she went on a field trip to a gymnastics gym. She started copying the gymnasts — and the coaches were stunned. Simone was so good she invented moves nobody had ever done (4 moves carry her name!). She won 37 World Championship medals. At the Tokyo Olympics, she withdrew to protect her mental health — and faced criticism. Instead of quitting, she returned at the Paris 2024 Olympics and won 3 more medals. Lesson: Real strength isn't never falling. It's knowing when to stop — and coming back stronger."
+    }
+  },
+  {
+    id: 55,
+    category: "SPORTS",
+    subject: { el: "LeBron James", en: "LeBron James" },
+    title: { el: "Το Παιδί του Akron", en: "The Kid from Akron" },
+    subtitle: { el: "King James", en: "King James" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Ο LeBron James μεγάλωσε στο Akron του Οχάιο, σε μια γειτονιά γεμάτη βία και φτώχεια. Η μητέρα του ήταν 16 χρονών όταν τον γέννησε. Μέχρι τα 10 του, είχαν μετακομίσει πάνω από 12 φορές. Χάνει 83 μέρες σχολείου στην τέταρτη δημοτικού. Ένας προπονητής ποδοσφαίρου, ο Frank Walker, τον πήρε σπίτι του και τον έμαθε πειθαρχία. Ο LeBron ανακάλυψε το μπάσκετ και δεν κοίταξε πίσω. Στα 18, πήγε κατευθείαν στο NBA χωρίς πανεπιστήμιο. Κέρδισε 4 πρωταθλήματα με 3 διαφορετικές ομάδες. Αλλά το πιο σπουδαίο πράγμα που έκανε; Άνοιξε ένα σχολείο στο Akron για παιδιά σε κίνδυνο, χρηματοδοτώντας τις σπουδές τους μέχρι το πανεπιστήμιο. Μάθημα: Μην ξεχνάς ποτέ από πού ξεκίνησες.",
+      en: "LeBron James grew up in Akron, Ohio, in a neighborhood full of violence and poverty. His mother was 16 when she had him. By age 10, they had moved more than 12 times. He missed 83 days of school in fourth grade. A football coach, Frank Walker, took him in and taught him discipline. LeBron discovered basketball and never looked back. At 18, he went straight to the NBA without college. He won 4 championships with 3 different teams. But the most important thing he did? He opened a school in Akron for at-risk kids, funding their education through college. Lesson: Never forget where you started."
+    }
+  },
+  {
+    id: 56,
+    category: "SPORTS",
+    subject: { el: "Roger Federer", en: "Roger Federer" },
+    title: { el: "Χάνεις Σχεδόν τους Μισούς Πόντους", en: "You Lose Almost Half the Points" },
+    subtitle: { el: "The Maestro", en: "The Maestro" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Ο Roger Federer θεωρείται ο κομψότερος τενίστας στην ιστορία. Κέρδισε 20 Grand Slam τίτλους. Αλλά εδώ είναι ένα στατιστικό που αλλάζει τον τρόπο σκέψης σου: σε ολόκληρη την καριέρα του, κέρδισε μόλις το 54% των πόντων. Αυτό σημαίνει ότι ΕΧΑΣΕ σχεδόν τους μισούς. Σε μια ομιλία του σε αποφοίτους, είπε: «Στο τένις, η τελειότητα δεν είναι δυνατή. Στα καλύτερά μου, δεν ήμουν ένας ρομπότ-νικητής, ήμουν ένας καλύτερος χαμένος.» Ως παιδί, ο Federer ήταν κλαψιάρης στο γήπεδο — έσπαγε ρακέτες και τσίριζε. Χρειάστηκε χρόνια για να μάθει αυτοέλεγχο. Μάθημα: Δεν χρειάζεται να κερδίζεις κάθε πόντο. Αρκεί να κερδίζεις τους σημαντικούς.",
+      en: "Roger Federer is considered the most elegant tennis player in history. He won 20 Grand Slam titles. But here's a stat that changes how you think: across his entire career, he won only 54% of points. That means he LOST almost half of them. In a graduation speech, he said: 'In tennis, perfection is impossible. At my best, I wasn't a robot-winner. I was a better loser.' As a kid, Federer was a crybaby on court — he smashed rackets and screamed. It took years to learn self-control. Lesson: You don't need to win every point. You just need to win the ones that matter."
+    }
+  },
+
+  // ========================================================================
+  // 💻 NEW STORIES: TECH (Technology) — IDs 57-59
+  // ========================================================================
+  {
+    id: 57,
+    category: "TECH",
+    subject: { el: "Hedy Lamarr", en: "Hedy Lamarr" },
+    title: { el: "Η Σταρ που Εφηύρε το WiFi", en: "The Star Who Invented WiFi" },
+    subtitle: { el: "Beauty & Brains", en: "Beauty & Brains" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Η Hedy Lamarr ήταν η πιο διάσημη ηθοποιός του Hollywood τη δεκαετία του '40. Αλλά πίσω από τα φώτα, ήταν μια ιδιοφυής εφευρέτρια. Κατά τη διάρκεια του Β' Παγκοσμίου Πολέμου, ανέπτυξε μαζί με τον συνθέτη George Antheil ένα σύστημα 'αλλαγής συχνοτήτων' για τορπίλες, ώστε να μην μπορεί ο εχθρός να παρεμβληθεί στα ραδιοσήματα. Χρησιμοποίησαν την ιδέα ενός πιάνου που αλλάζει νότες! Ο Αμερικανικός Ναυτικός αγνόησε το δίπλωμα ευρεσιτεχνίας της. Δεκαετίες αργότερα, η τεχνολογία της αποτέλεσε τη βάση του Bluetooth, του GPS, και του WiFi. Η Hedy δεν κέρδισε ποτέ ούτε ένα δολάριο από αυτήν. Μάθημα: Η ιδιοφυΐα δεν φαίνεται πάντα εκεί που περιμένεις.",
+      en: "Hedy Lamarr was Hollywood's most famous actress in the 1940s. But behind the spotlight, she was a brilliant inventor. During World War II, she developed a 'frequency hopping' system for torpedoes with composer George Antheil, so enemies couldn't jam radio signals. They used the idea of a piano changing notes! The U.S. Navy ignored her patent. Decades later, her technology became the foundation of Bluetooth, GPS, and WiFi. Hedy never earned a single dollar from it. Lesson: Genius doesn't always look like what you expect."
+    }
+  },
+  {
+    id: 58,
+    category: "TECH",
+    subject: { el: "Grace Hopper", en: "Grace Hopper" },
+    title: { el: "Το Πρώτο «Bug» στην Ιστορία", en: "The First Bug in History" },
+    subtitle: { el: "Queen of Code", en: "Queen of Code" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Η Grace Hopper ήταν ναυτικός αξιωματικός και μαθηματικός. Στα 1940s, δούλεψε σε έναν από τους πρώτους υπολογιστές στον κόσμο, τον Harvard Mark I — ένα μηχάνημα 15 μέτρων. Μια μέρα ο υπολογιστής σταμάτησε να δουλεύει. Η Grace βρήκε ένα πραγματικό έντομο (σκόρο) κολλημένο στα κυκλώματα. Το κόλλησε στο ημερολόγιο και έγραψε: «First actual case of bug being found» — και από τότε λέμε 'bug' σε κάθε πρόβλημα υπολογιστή! Η Grace εφηύρε τον πρώτο compiler (μεταφραστή κώδικα). Πριν από αυτήν, οι προγραμματιστές έγραφαν μόνο αριθμούς. Η Grace είπε: «Γιατί να μην γράφουμε αγγλικά;» Τη γέλασαν. Αλλά εκείνη είχε δίκιο — η COBOL (γλώσσα που δημιούργησε) τρέχει ακόμα σε τράπεζες σε όλο τον κόσμο.",
+      en: "Grace Hopper was a naval officer and mathematician. In the 1940s, she worked on one of the world's first computers, the Harvard Mark I — a 15-meter machine. One day the computer stopped working. Grace found an actual insect (a moth) stuck in the circuits. She taped it to her logbook and wrote: 'First actual case of bug being found' — and that's why we call every computer problem a 'bug'! Grace invented the first compiler (code translator). Before her, programmers only wrote numbers. Grace said: 'Why can't we write in English?' They laughed at her. But she was right — COBOL (the language she created) still runs in banks worldwide."
+    }
+  },
+  {
+    id: 59,
+    category: "TECH",
+    subject: { el: "Jensen Huang", en: "Jensen Huang" },
+    title: { el: "Από Πλύστρα Πιάτων στον Βασιλιά του AI", en: "From Dishwasher to AI King" },
+    subtitle: { el: "Nvidia", en: "Nvidia" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Ο Jensen Huang γεννήθηκε στην Ταϊβάν και μετανάστευσε στις ΗΠΑ ως παιδί. Στα 9, τον έστειλαν σε ένα οικοτροφείο στο Kentucky που, χωρίς να το ξέρουν οι γονείς του, ήταν σχολείο για προβληματικά παιδιά. Ο συγκάτοικός του ήταν γεμάτος τατουάζ και του μάθαινε τον Jensen να καπνίζει. Ο Jensen δούλευε πλένοντας πιάτα σε ένα εστιατόριο τη νύχτα. Αντί να τα παρατήσει, σκέφτηκε: «Αν μπορώ να πλένω πιάτα, μπορώ να κάνω τα πάντα.» Σπούδασε μηχανικός και ίδρυσε τη Nvidia σε ένα Denny's (fast food). Σήμερα, η Nvidia φτιάχνει τα chips που τρέχουν κάθε AI στον κόσμο — ChatGPT, αυτόνομα αυτοκίνητα, ρομπότ. Η εταιρεία αξίζει πάνω από 2 τρισεκατομμύρια δολάρια. Μάθημα: Τα πιάτα που πλένεις σήμερα μπορεί να σε οδηγήσουν στο μέλλον.",
+      en: "Jensen Huang was born in Taiwan and immigrated to the US as a child. At 9, he was sent to a boarding school in Kentucky that, unknown to his parents, was a reform school for troubled kids. His roommate was covered in tattoos and taught Jensen to smoke. Jensen worked washing dishes at a restaurant at night. Instead of giving up, he thought: 'If I can wash dishes, I can do anything.' He studied engineering and founded Nvidia at a Denny's restaurant. Today, Nvidia makes the chips that power every AI in the world — ChatGPT, self-driving cars, robots. The company is worth over $2 trillion. Lesson: The dishes you wash today might lead you to the future."
+    }
+  },
+
+  // ========================================================================
+  // 🎨 NEW STORIES: ARTS (Arts & Expression) — IDs 60-62
+  // ========================================================================
+  {
+    id: 60,
+    category: "ARTS",
+    subject: { el: "Charlie Chaplin", en: "Charlie Chaplin" },
+    title: { el: "Ο Αλητάκος που Γέλασε τον Κόσμο", en: "The Tramp Who Made the World Laugh" },
+    subtitle: { el: "Silent King", en: "Silent King" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Ο Charlie Chaplin μεγάλωσε στα πιο φτωχά δρομάκια του Λονδίνου. Η μητέρα του μπήκε σε ψυχιατρικό ίδρυμα. Στα 10, εργαζόταν σε εργοστάσια. Ένα πρωί, η μητέρα του στεκόταν στο παράθυρο κοιτώντας τους ανθρώπους να περπατάνε — περιγράφοντας τον καθένα με τόση κωμικότητα που ο μικρός Charlie γέλαγε ασταμάτητα. Εκείνη η στιγμή τον δίδαξε ότι ο χιούμορ γεννιέται μέσα από τον πόνο. Ο Charlie εφηύρε τον «Αλητάκο» (The Tramp) — έναν αξιαγάπητο άστεγο με μπαστούνι, μουστάκι και μεγάλα παπούτσια. Χωρίς να πει ποτέ ούτε μια λέξη (ήταν βωβός κινηματογράφος), έκανε ολόκληρο τον πλανήτη να γελάσει ΚΑΙ να κλάψει. Μάθημα: Δεν χρειάζεσαι λέξεις για να αγγίξεις τις καρδιές.",
+      en: "Charlie Chaplin grew up in London's poorest streets. His mother was committed to a mental institution. At 10, he worked in factories. One morning, his mother stood at the window watching people walk by — describing each one with such comedy that little Charlie laughed nonstop. That moment taught him that humor is born from pain. Charlie invented 'The Tramp' — a lovable homeless man with a cane, mustache, and big shoes. Without ever saying a single word (it was silent film), he made the entire planet laugh AND cry. Lesson: You don't need words to touch hearts."
+    }
+  },
+  {
+    id: 61,
+    category: "ARTS",
+    subject: { el: "Banksy", en: "Banksy" },
+    title: { el: "Ο Αόρατος Καλλιτέχνης", en: "The Invisible Artist" },
+    subtitle: { el: "Street Legend", en: "Street Legend" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Κανείς δεν ξέρει ποιος είναι ο Banksy. Κανείς. Σε έναν κόσμο που ο καθένας θέλει likes και followers, ο Banksy παραμένει ανώνυμος. Τα graffiti του εμφανίζονται μια νύχτα σε τοίχους πόλεων — στο Λονδίνο, στη Νέα Υόρκη, ακόμα και στη Βηθλεέμ. Κάθε έργο στέλνει ένα μήνυμα: κατά του πολέμου, κατά της αδικίας, υπέρ της ελευθερίας. Ένα βράδυ, ένα έργο του πωλήθηκε σε δημοπρασία για 1.4 εκατομμύρια λίρες. Τη στιγμή που ο σφυράκος χτύπησε, ο πίνακας αυτοκαταστράφηκε μέσα από έναν κρυφό καταστροφέα που είχε βάλει ο Banksy στην κορνίζα! Ο κόσμος έμεινε άφωνος. Αυτό ήταν και το μήνυμα: η τέχνη δεν είναι για πώληση. Μάθημα: Κάνε κάτι σπουδαίο. Δεν χρειάζεται να ξέρουν όλοι ότι ήσουν εσύ.",
+      en: "Nobody knows who Banksy is. Nobody. In a world where everyone wants likes and followers, Banksy stays anonymous. His graffiti appear overnight on city walls — in London, New York, even Bethlehem. Every piece sends a message: against war, against injustice, for freedom. One evening, his artwork sold at auction for £1.4 million. The moment the gavel struck, the painting self-destructed through a hidden shredder Banksy had built into the frame! The room was stunned. That was the message: art isn't for sale. Lesson: Do something great. Not everyone needs to know it was you."
+    }
+  },
+  {
+    id: 62,
+    category: "ARTS",
+    subject: { el: "Adele", en: "Adele" },
+    title: { el: "Η Φωνή Πίσω από τα Δάκρυα", en: "The Voice Behind the Tears" },
+    subtitle: { el: "Soul Voice", en: "Soul Voice" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Η Adele μεγάλωσε σε ένα μικρό διαμέρισμα στο νότιο Λονδίνο. Ο πατέρας της έφυγε όταν ήταν 3 χρονών. Η μητέρα της ήταν 18 και δυσκολευόταν οικονομικά. Η Adele ανακάλυψε τη μουσική ακούγοντας τα CD της μητέρας της. Στα 19, κυκλοφόρησε το πρώτο της άλμπουμ. Αλλά η πραγματική ιστορία είναι αυτή: η Adele είχε τρομερό τρακ. Πριν τις συναυλίες, έκανε εμετό από το άγχος. Σκέφτηκε πολλές φορές να σταματήσει. Μια φορά, μπήκε σε μια σκηνή και βρήκε 20.000 ανθρώπους να τραγουδάνε τα τραγούδια της. Κατάλαβε ότι ο πόνος που ένιωθε (ο χωρισμός, η μοναξιά, η απόρριψη) ήταν ο λόγος που ο κόσμος αγαπούσε τη μουσική της — γιατί ήταν αληθινή. Τα άλμπουμ της πούλησαν πάνω από 120 εκατομμύρια αντίτυπα. Μάθημα: Ο πόνος σου μπορεί να γίνει η πιο δυνατή φωνή σου.",
+      en: "Adele grew up in a small apartment in South London. Her father left when she was 3. Her mother was 18 and struggled financially. Adele discovered music listening to her mother's CDs. At 19, she released her debut album. But here's the real story: Adele had terrible stage fright. Before concerts, she would throw up from anxiety. She thought about quitting many times. One time she walked onto a stage and found 20,000 people singing her songs. She realized the pain she felt (heartbreak, loneliness, rejection) was why the world loved her music — because it was real. Her albums have sold over 120 million copies. Lesson: Your pain can become your most powerful voice."
+    }
+  },
+
+  // ========================================================================
+  // 🔬 NEW STORIES: SCIENCE — IDs 63-65
+  // ========================================================================
+  {
+    id: 63,
+    category: "SCIENCE",
+    subject: { el: "Katherine Johnson", en: "Katherine Johnson" },
+    title: { el: "Η Γυναίκα Πίσω από τα Αστέρια", en: "The Woman Behind the Stars" },
+    subtitle: { el: "Hidden Figure", en: "Hidden Figure" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Στη δεκαετία του '50, στην Αμερική, οι μαύρες γυναίκες δεν μπορούσαν ούτε να πιουν νερό από την ίδια βρύση με τους λευκούς. Η Katherine Johnson ήταν μαθηματικός στη NASA — αλλά κανείς δεν ήξερε τ' όνομά της. Οι υπολογισμοί ΤΗΣ έστειλαν τον John Glenn σε τροχιά γύρω από τη Γη. Ο Glenn αρνήθηκε να μπει στο διαστημόπλοιο μέχρι η Katherine να ελέγξει τους αριθμούς προσωπικά. «Αν εκείνη πει ότι είναι σωστοί, πετάω», είπε. Αργότερα, οι υπολογισμοί της βοήθησαν στην αποστολή Apollo 11 στη Σελήνη. Δούλεψε στη NASA για 35 χρόνια, αλλά η ιστορία της παρέμεινε κρυμμένη μέχρι την ταινία «Hidden Figures». Πήρε το Μετάλλιο Ελευθερίας στα 97 της. Μάθημα: Δεν χρειάζεται να σε βλέπουν για να αλλάζεις τον κόσμο.",
+      en: "In 1950s America, Black women couldn't even drink from the same water fountain as white people. Katherine Johnson was a mathematician at NASA — but nobody knew her name. HER calculations sent John Glenn into orbit around Earth. Glenn refused to board the spacecraft until Katherine personally checked the numbers. 'If she says they're good, I'm ready to go,' he said. Later, her calculations helped the Apollo 11 mission reach the Moon. She worked at NASA for 35 years, but her story remained hidden until the movie 'Hidden Figures.' She received the Medal of Freedom at age 97. Lesson: You don't need to be seen to change the world."
+    }
+  },
+  {
+    id: 64,
+    category: "SCIENCE",
+    subject: { el: "Αρχιμήδης", en: "Archimedes" },
+    title: { el: "Εύρηκα! Εύρηκα!", en: "Eureka! Eureka!" },
+    subtitle: { el: "Ο Αρχαίος Εφευρέτης", en: "Ancient Inventor" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Πριν 2.300 χρόνια, στις Συρακούσες της Σικελίας, ζούσε ένας Έλληνας τρελός για τα μαθηματικά. Ο βασιλιάς ζήτησε να μάθει αν το στέμμα του ήταν από καθαρό χρυσό ή αν ο χρυσοχόος τον εξαπάτησε. Ο Αρχιμήδης σκεφτόταν το πρόβλημα ημέρες. Μια μέρα μπήκε στη μπανιέρα του — και παρατήρησε ότι το νερό ανέβηκε. Σε μια στιγμή κατάλαβε: κάθε σώμα εκτοπίζει τόσο νερό όσο ο όγκος του! Πετάχτηκε γυμνός στους δρόμους φωνάζοντας «ΕΥΡΗΚΑ!». Εκτός από αυτό, ο Αρχιμήδης εφηύρε τον μοχλό, την κοχλία σπείρα (αντλία νερού) και πολεμικές μηχανές που κράτησαν τους Ρωμαίους μακριά για 3 χρόνια. Είπε: «Δώστε μου ένα σημείο στήριξης και θα μετακινήσω τη Γη.» Μάθημα: Οι μεγάλες ανακαλύψεις μπορεί να έρθουν ακόμα και στο μπάνιο.",
+      en: "2,300 years ago in Syracuse, Sicily, lived a Greek man obsessed with mathematics. The king wanted to know if his crown was pure gold or if the goldsmith had cheated him. Archimedes thought about the problem for days. One day he got into his bath — and noticed the water rose. In a flash he understood: every object displaces water equal to its volume! He jumped out naked and ran through the streets shouting 'EUREKA!' Beyond that, Archimedes invented the lever, the screw pump (for lifting water), and war machines that kept the Romans away for 3 years. He said: 'Give me a place to stand and I will move the Earth.' Lesson: Great discoveries can come even in the bathtub."
+    }
+  },
+  {
+    id: 65,
+    category: "SCIENCE",
+    subject: { el: "Carl Sagan", en: "Carl Sagan" },
+    title: { el: "Δισεκατομμύρια και Δισεκατομμύρια", en: "Billions and Billions" },
+    subtitle: { el: "Cosmic Voice", en: "Cosmic Voice" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Ο Carl Sagan ήταν ένα παιδί από το Brooklyn που κοιτούσε τα αστέρια. Στα 5 του, η μητέρα του τον πήγε στην Παγκόσμια Έκθεση της Νέας Υόρκης, όπου είδε τα αστέρια σε ένα πλανητάριο. Η ζωή του δεν ήταν ποτέ η ίδια. Ο Carl δεν ήθελε απλώς να κατανοήσει το σύμπαν — ήθελε να το εξηγήσει στον κόσμο. Η τηλεοπτική του σειρά «Cosmos» είδε 500 εκατομμύρια θεατές σε 60 χώρες. Έκανε τη φυσική διασκεδαστική. Ο Carl βοήθησε τη NASA να στείλει τον «Χρυσό Δίσκο» στα Voyager — ένα μήνυμα προς τους εξωγήινους με μουσική, φωνές και εικόνες από τη Γη. Αν κάποτε ένας εξωγήινος ακούσει ανθρώπινη μουσική, θα είναι χάρη στον Carl Sagan. Μάθημα: Η γνώση αποκτά αξία μόνο όταν τη μοιράζεσαι.",
+      en: "Carl Sagan was a kid from Brooklyn who stared at the stars. At 5, his mother took him to the New York World's Fair, where he saw the stars in a planetarium. His life was never the same. Carl didn't just want to understand the universe — he wanted to explain it to everyone. His TV series 'Cosmos' reached 500 million viewers in 60 countries. He made physics fun. Carl helped NASA send the 'Golden Record' on the Voyager spacecraft — a message to aliens with music, voices, and images from Earth. If an alien ever hears human music, it'll be thanks to Carl Sagan. Lesson: Knowledge only has value when you share it."
+    }
+  },
+
+  // ========================================================================
+  // 🚀 EXTRA STORIES: START SMALL — IDs 66-67
+  // ========================================================================
+  {
+    id: 66,
+    category: "START_SMALL",
+    subject: { el: "Madam C.J. Walker", en: "Madam C.J. Walker" },
+    title: { el: "Η Πρώτη Αυτοδημιούργητη Εκατομμυριούχος", en: "The First Self-Made Millionaire" },
+    subtitle: { el: "Beauty Empire", en: "Beauty Empire" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Η Sarah Breedlove γεννήθηκε το 1867, δύο χρόνια μετά την κατάργηση της δουλείας στην Αμερική. Ορφανή στα 7, παντρεμένη στα 14, χήρα στα 20, με ένα κοριτσάκι να μεγαλώσει. Δούλευε πλένοντας ρούχα για 1,50 δολάριο τη μέρα. Τα μαλλιά της άρχισαν να πέφτουν από το stress και τα σκληρά σαπούνια. Αντί να το δεχτεί, εφηύρε τα δικά της προϊόντα περιποίησης μαλλιών. Πούλαγε πόρτα-πόρτα, εκπαίδεψε χιλιάδες γυναίκες ως πωλήτριες, και δημιούργησε μια αυτοκρατορία. Έγινε η πρώτη αυτοδημιούργητη γυναίκα εκατομμυριούχος στην Αμερική. Δώρισε τεράστια ποσά σε σχολεία, ορφανοτροφεία και οργανώσεις πολιτικών δικαιωμάτων. Μάθημα: Η φτώχεια δεν σε ορίζει — ο τρόπος που αντιδράς, σε ορίζει.",
+      en: "Sarah Breedlove was born in 1867, two years after slavery was abolished in America. Orphaned at 7, married at 14, widowed at 20, with a little girl to raise. She worked washing clothes for $1.50 a day. Her hair started falling out from stress and harsh soaps. Instead of accepting it, she invented her own hair care products. She sold door-to-door, trained thousands of women as salespeople, and built an empire. She became the first self-made female millionaire in America. She donated enormous sums to schools, orphanages, and civil rights organizations. Lesson: Poverty doesn't define you — how you respond to it does."
+    }
+  },
+  {
+    id: 67,
+    category: "START_SMALL",
+    subject: { el: "Phil Knight", en: "Phil Knight" },
+    title: { el: "Παπούτσια από το Πορτμπαγκάζ", en: "Shoes from the Car Trunk" },
+    subtitle: { el: "Nike", en: "Nike" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Ο Phil Knight ήταν ένας μέτριος δρομέας στο πανεπιστήμιο του Oregon. Δεν ήταν αρκετά γρήγορος για να γίνει πρωταθλητής, αλλά ήταν αρκετά παρατηρητικός. Ταξίδεψε στην Ιαπωνία και έπεισε μια εταιρεία παπουτσιών να του δώσει δικαιώματα πώλησης. Γύρισε στην Αμερική και πουλούσε παπούτσια από το πορτμπαγκάζ του αυτοκινήτου του σε αγώνες στίβου! Η εταιρεία ονομαζόταν Blue Ribbon Sports. Ο προπονητής του, Bill Bowerman, πειραματιζόταν στο σπίτι φτιάχνοντας σόλες σε μια βαφλιέρα. Μαζί δημιούργησαν τη Nike — το όνομα της ελληνικής θεάς της Νίκης. Το swoosh σχεδιάστηκε από μια φοιτήτρια για 35 δολάρια. Σήμερα η Nike αξίζει πάνω από 150 δισεκατομμύρια δολάρια. Μάθημα: Δεν χρειάζεται να είσαι ο καλύτερος αθλητής — αρκεί να βλέπεις ευκαιρίες εκεί που οι άλλοι βλέπουν αγώνες.",
+      en: "Phil Knight was an average runner at the University of Oregon. He wasn't fast enough to become a champion, but he was observant enough. He traveled to Japan and convinced a shoe company to give him selling rights. He returned to America and sold shoes from the trunk of his car at track meets! The company was called Blue Ribbon Sports. His coach, Bill Bowerman, experimented at home making soles in a waffle iron. Together they created Nike — named after the Greek goddess of Victory. The swoosh was designed by a student for $35. Today Nike is worth over $150 billion. Lesson: You don't need to be the best athlete — you just need to see opportunities where others see games."
+    }
+  },
+
+  // ========================================================================
+  // 🏅 EXTRA STORIES: SPORTS — IDs 68-69
+  // ========================================================================
+  {
+    id: 68,
+    category: "SPORTS",
+    subject: { el: "Pelé", en: "Pelé" },
+    title: { el: "Το Ξυπόλητο Παιδί με τη Κάλτσα", en: "The Barefoot Kid with a Sock Ball" },
+    subtitle: { el: "O Rei", en: "O Rei" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Στις φτωχογειτονιές της Βραζιλίας, ένα αγόρι ονόματι Edson δεν είχε λεφτά για μπάλα. Γέμιζε μια κάλτσα με εφημερίδες και παπούτσια δεν είχε — έπαιζε ξυπόλητος στο χωματόδρομο. Ο πατέρας του, πρώην ποδοσφαιριστής που τραυματίστηκε νωρίς, τον εκπαίδευε κάθε μέρα. Στα 15, ο Pelé υπέγραψε με τη Santos. Στα 17, κέρδισε το Παγκόσμιο Κύπελλο — ο νεότερος σκόρερ τελικού ποτέ. Έκλαιγε στον πάγκο. Κέρδισε 3 Παγκόσμια Κύπελλα συνολικά, σκόραρε πάνω από 1.000 γκολ, και ο κόσμος τον ονόμασε «Ο Βασιλιάς». Πέρα από τα γήπεδα, ο Pelé σταμάτησε (προσωρινά) έναν εμφύλιο πόλεμο στη Νιγηρία — και οι δύο πλευρές κήρυξαν εκεχειρία για να τον δουν να παίζει. Μάθημα: Μια κάλτσα γεμάτη εφημερίδες μπορεί να αλλάξει τον κόσμο αν τη κυνηγάς με αγάπη.",
+      en: "In the slums of Brazil, a boy named Edson couldn't afford a ball. He stuffed a sock with newspapers, and he had no shoes — he played barefoot on dirt roads. His father, a former footballer whose career was cut short by injury, trained him every day. At 15, Pelé signed with Santos. At 17, he won the World Cup — the youngest final scorer ever. He cried on the bench. He won 3 World Cups total, scored over 1,000 goals, and the world called him 'The King.' Beyond football, Pelé temporarily stopped a civil war in Nigeria — both sides declared a ceasefire to watch him play. Lesson: A sock stuffed with newspapers can change the world if you chase it with love."
+    }
+  },
+  {
+    id: 69,
+    category: "SPORTS",
+    subject: { el: "Yusra Mardini", en: "Yusra Mardini" },
+    title: { el: "Η Κολυμβήτρια που Έσωσε Ζωές", en: "The Swimmer Who Saved Lives" },
+    subtitle: { el: "Refugee Champion", en: "Refugee Champion" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Η Yusra Mardini ήταν μια ταλαντούχα κολυμβήτρια από τη Συρία. Το 2015, ο πόλεμος κατέστρεψε τη χώρα της. Στα 17, μπήκε σε μια βάρκα με 20 ανθρώπους (χωρητικότητα 7) για να περάσει στην Ελλάδα. Η βάρκα χάλασε στα ανοιχτά της θάλασσας. Ενώ οι περισσότεροι δεν ήξεραν κολύμπι, η Yusra πήδηξε στο νερό μαζί με την αδερφή της και σπρώχνουν τη βάρκα για 3,5 ώρες μέσα στο σκοτάδι. Έσωσαν 20 ζωές. Κατέληξε στη Γερμανία, βρήκε μια πισίνα, ξαναπροπονήθηκε, και ένα χρόνο αργότερα αγωνίστηκε στους Ολυμπιακούς Αγώνες του Ρίο (2016) ως μέλος της πρώτης Ολυμπιακής Ομάδας Προσφύγων στην ιστορία. Μάθημα: Η ίδια δύναμη που σε σώζει μπορεί να σε κάνει πρωταθλητή.",
+      en: "Yusra Mardini was a talented swimmer from Syria. In 2015, war destroyed her country. At 17, she boarded a boat with 20 people (capacity: 7) to cross to Greece. The engine failed in open sea. While most couldn't swim, Yusra jumped into the water with her sister and pushed the boat for 3.5 hours in the dark. They saved 20 lives. She ended up in Germany, found a pool, retrained, and one year later competed at the Rio Olympics (2016) as a member of the first-ever Refugee Olympic Team. Lesson: The same strength that saves you can make you a champion."
+    }
+  },
+
+  // ========================================================================
+  // 💻 EXTRA STORIES: TECH — IDs 70-71
+  // ========================================================================
+  {
+    id: 70,
+    category: "TECH",
+    subject: { el: "Margaret Hamilton", en: "Margaret Hamilton" },
+    title: { el: "Η Γυναίκα που Έσωσε το Apollo 11", en: "The Woman Who Saved Apollo 11" },
+    subtitle: { el: "Software Pioneer", en: "Software Pioneer" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Η Margaret Hamilton ήταν 33 χρονών, μητέρα, και η επικεφαλής ομάδας λογισμικού της NASA για το Apollo 11. Σε μια εποχή που η λέξη 'software' δεν υπήρχε καν, η Margaret έγραψε τον κώδικα που θα πήγαινε τους ανθρώπους στη Σελήνη. Τρία λεπτά πριν την προσσελήνωση, ο υπολογιστής ξεκίνησε να δείχνει σφάλματα. Πανικός στο Houston. Αλλά ο κώδικας της Margaret ήταν σχεδιασμένος να αναγνωρίζει ποια tasks είναι σημαντικά και να πετάει τα υπόλοιπα. Ο υπολογιστής δεν κράσαρε — λειτούργησε ακριβώς όπως τον σχεδίασε. Η Margaret είχε φέρει μια φορά την κόρη της στο εργαστήριο. Η μικρή πάτησε ένα κουμπί και κράσαρε τον προσομοιωτή. Η Margaret ζήτησε να βάλουν ασφαλιστικά, αλλά οι αστροναύτες «δεν κάνουν λάθη». Τελικά ο Jim Lovell στο Apollo 8 πάτησε κατά λάθος ακριβώς εκείνο το κουμπί. Μάθημα: Ο καλός κώδικας σώζει ζωές.",
+      en: "Margaret Hamilton was 33, a mother, and the lead software engineer at NASA for Apollo 11. At a time when the word 'software' didn't even exist, Margaret wrote the code that would take humans to the Moon. Three minutes before landing, the computer started showing errors. Panic in Houston. But Margaret's code was designed to recognize which tasks were important and discard the rest. The computer didn't crash — it worked exactly as she designed it. Margaret once brought her daughter to the lab. The little girl pressed a button and crashed the simulator. Margaret asked them to add safeguards, but astronauts 'don't make mistakes.' Eventually, Jim Lovell on Apollo 8 accidentally pressed that exact button. Lesson: Good code saves lives."
+    }
+  },
+  {
+    id: 71,
+    category: "TECH",
+    subject: { el: "Satya Nadella", en: "Satya Nadella" },
+    title: { el: "Ο Ήσυχος που Έσωσε τη Microsoft", en: "The Quiet Man Who Saved Microsoft" },
+    subtitle: { el: "Cloud King", en: "Cloud King" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Όταν ο Satya Nadella ήταν παιδί στην Ινδία, ονειρευόταν να γίνει παίκτης κρίκετ. Δεν τα κατάφερε. Σπούδασε μηχανικός, μετανάστευσε στην Αμερική, και μπήκε στη Microsoft. Για 22 χρόνια, δούλεψε ήσυχα χωρίς να ξεχωρίζει. Το 2014, η Microsoft ήταν σε κρίση — θεωρούνταν παλιομοδίτικη, είχε χάσει τα κινητά, τα social media, τα πάντα. Ο Satya έγινε CEO και έκανε κάτι ριζικό: αντί να πολεμήσει τους ανταγωνιστές, συνεργάστηκε μαζί τους. Μετέτρεψε τη Microsoft σε εταιρεία cloud (Azure) και AI. Η αξία της εταιρείας εκτοξεύτηκε από 300 σε πάνω από 3 τρισεκατομμύρια. Το μεγαλύτερο μάθημα; Ο γιος του Satya γεννήθηκε με εγκεφαλική παράλυση, κι αυτό τον έκανε πιο ενσυναισθητικό ηγέτη. Μάθημα: Η ενσυναίσθηση είναι η μεγαλύτερη υπερδύναμη στην τεχνολογία.",
+      en: "When Satya Nadella was a kid in India, he dreamed of becoming a cricket player. He didn't make it. He studied engineering, moved to America, and joined Microsoft. For 22 years, he worked quietly without standing out. In 2014, Microsoft was in crisis — considered outdated, having lost mobile, social media, everything. Satya became CEO and did something radical: instead of fighting competitors, he partnered with them. He transformed Microsoft into a cloud (Azure) and AI company. The company's value skyrocketed from $300 billion to over $3 trillion. The biggest lesson? Satya's son was born with cerebral palsy, and that made him a more empathetic leader. Lesson: Empathy is the greatest superpower in technology."
+    }
+  },
+
+  // ========================================================================
+  // 🎨 EXTRA STORIES: ARTS — IDs 72-73
+  // ========================================================================
+  {
+    id: 72,
+    category: "ARTS",
+    subject: { el: "Bob Marley", en: "Bob Marley" },
+    title: { el: "Ένα Τραγούδι για την Ελευθερία", en: "One Song for Freedom" },
+    subtitle: { el: "Reggae King", en: "Reggae King" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Ο Bob Marley μεγάλωσε στο Trenchtown, μια από τις πιο επικίνδυνες γειτονιές της Τζαμάικα. Δεν είχε πατέρα, δεν είχε χρήματα, αλλά είχε μια κιθάρα. Η μουσική του δεν μιλούσε απλώς για αγάπη — μιλούσε για δικαιοσύνη, ελευθερία και ενότητα. Η Τζαμάικα βρισκόταν σε πολιτικό χάος. Δύο ημέρες πριν δώσει μια συναυλία ειρήνης, πυροβολήθηκε στο σπίτι του — τον χτύπησαν στο χέρι, τη σύζυγο και τον μάνατζέρ του. Αντί να ακυρώσει, ανέβηκε στη σκηνή με τον επίδεσμο στο χέρι και τραγούδησε μπροστά σε 80.000 ανθρώπους. Ρώτησαν γιατί. Απάντησε: «Αυτοί που προσπαθούν να κάνουν τον κόσμο χειρότερο δεν παίρνουν μέρα άδεια. Πώς μπορώ εγώ;» Μάθημα: Η μουσική μπορεί να αλλάξει τον κόσμο περισσότερο από τα όπλα.",
+      en: "Bob Marley grew up in Trenchtown, one of Jamaica's most dangerous neighborhoods. He had no father, no money, but he had a guitar. His music didn't just talk about love — it spoke about justice, freedom, and unity. Jamaica was in political chaos. Two days before giving a peace concert, he was shot at home — hit in the arm, along with his wife and manager. Instead of canceling, he went on stage with a bandage on his arm and sang to 80,000 people. They asked why. He answered: 'The people who are trying to make the world worse never take a day off. How can I?' Lesson: Music can change the world more than guns."
+    }
+  },
+  {
+    id: 73,
+    category: "ARTS",
+    subject: { el: "Hayao Miyazaki", en: "Hayao Miyazaki" },
+    title: { el: "Ο Μάγος του Anime", en: "The Wizard of Anime" },
+    subtitle: { el: "Studio Ghibli", en: "Studio Ghibli" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Ο Hayao Miyazaki μεγάλωσε στην Ιαπωνία του Β' Παγκοσμίου Πολέμου. Η μητέρα του ήταν άρρωστη για χρόνια — και αυτή η εμπειρία εμφανίζεται σε πολλές ταινίες του (Totoro, Spirited Away). Ως παιδί, δεν μπορούσε να ζωγραφίσει ανθρώπους — μόνο αεροπλάνα. Εξασκήθηκε μέχρι να γίνει ένας από τους καλύτερους σχεδιαστές στον κόσμο. Ίδρυσε το Studio Ghibli και δημιούργησε ταινίες χωρίς ψηφιακά εφέ — όλα ζωγραφισμένα στο χέρι, καρέ-καρέ. Κάθε ταινία του Miyazaki έχει θέμα: η αγάπη για τη φύση, η δύναμη των παιδιών, η ομορφιά πίσω από τον φόβο. Το «Spirited Away» κέρδισε Όσκαρ. Ο Miyazaki «συνταξιοδοτήθηκε» 7 φορές αλλά γυρνάει πάντα. Μάθημα: Η αληθινή τέχνη γίνεται με υπομονή, καρέ-καρέ.",
+      en: "Hayao Miyazaki grew up in World War II Japan. His mother was sick for years — and this experience appears in many of his films (Totoro, Spirited Away). As a child, he couldn't draw people — only airplanes. He practiced until he became one of the best animators in the world. He founded Studio Ghibli and created films without digital effects — everything hand-painted, frame by frame. Every Miyazaki film has a theme: love for nature, the power of children, beauty behind fear. 'Spirited Away' won an Academy Award. Miyazaki has 'retired' 7 times but always comes back. Lesson: True art is made with patience, frame by frame."
+    }
+  },
+
+  // ========================================================================
+  // 🔬 EXTRA STORIES: SCIENCE — IDs 74-75
+  // ========================================================================
+  {
+    id: 74,
+    category: "SCIENCE",
+    subject: { el: "Louis Pasteur", en: "Louis Pasteur" },
+    title: { el: "Ο Σωτήρας των Παιδιών", en: "The Savior of Children" },
+    subtitle: { el: "Vaccine Pioneer", en: "Vaccine Pioneer" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Πριν τον Louis Pasteur, οι γιατροί δεν πίστευαν ότι τα μικρόβια υπάρχουν. Οι άνθρωποι πέθαιναν από μολύνσεις μετά από χειρουργεία επειδή οι γιατροί δεν έπλεναν ούτε τα χέρια τους. Ο Pasteur απέδειξε ότι αόρατα μικρόβια προκαλούν ασθένειες. Τον κορόιδεψαν. Τον αποκάλεσαν τρελό. Αλλά εκείνος συνέχισε. Εφηύρε την παστερίωση (γι' αυτό γράφει 'pasteurized' στο γάλα σου) και δημιούργησε εμβόλια για τον άνθρακα και τη λύσσα. Η πιο δραματική στιγμή: ένα αγόρι 9 χρονών, ο Joseph Meister, δαγκώθηκε 14 φορές από λυσσασμένο σκύλο. Χωρίς θεραπεία, θα πέθαινε σίγουρα. Ο Pasteur ρίσκαρε τα πάντα και του χορήγησε το πειραματικό εμβόλιο. Ο Joseph επέζησε. Μάθημα: Μερικές φορές χρειάζεται να τολμήσεις για να σώσεις κόσμο.",
+      en: "Before Louis Pasteur, doctors didn't believe germs existed. People died from infections after surgeries because doctors didn't even wash their hands. Pasteur proved that invisible microbes cause diseases. They mocked him. Called him crazy. But he continued. He invented pasteurization (that's why your milk says 'pasteurized') and created vaccines for anthrax and rabies. The most dramatic moment: a 9-year-old boy, Joseph Meister, was bitten 14 times by a rabid dog. Without treatment, he would certainly die. Pasteur risked everything and gave him the experimental vaccine. Joseph survived. Lesson: Sometimes you need to dare in order to save the world."
+    }
+  },
+  {
+    id: 75,
+    category: "SCIENCE",
+    subject: { el: "Jacques Cousteau", en: "Jacques Cousteau" },
+    title: { el: "Ο Κυρίαρχος των Ωκεανών", en: "The Lord of the Oceans" },
+    subtitle: { el: "Ocean Explorer", en: "Ocean Explorer" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Ο Jacques Cousteau ήθελε να γίνει πιλότος στο Ναυτικό. Ένα σοβαρό τροχαίο ατύχημα έσπασε και τα δύο του χέρια — το όνειρο χάθηκε. Για να ανακάμψει, άρχισε να κολυμπάει στη θάλασσα. Εκεί, ανακάλυψε έναν κόσμο που κανείς δεν είχε δει. Μαζί με τον μηχανικό Émile Gagnan, εφηύρε τον αυτόνομο αναπνευστήρα (Aqua-Lung), που επέτρεψε στον άνθρωπο να κολυμπάει ελεύθερα στο βυθό. Η τηλεοπτική σειρά του «Ο Κόσμος της Σιωπής» έδειξε τον ωκεανό σε εκατομμύρια. Δεν ήταν μόνο εξερευνητής — ήταν ακτιβιστής. Πολέμησε ενάντια στη θαλάσσια ρύπανση δεκαετίες πριν γίνει μόδα. Είπε: «Οι άνθρωποι προστατεύουν αυτά που αγαπούν.» Μάθημα: Ένα ατύχημα μπορεί να σε οδηγήσει στον αληθινό σκοπό σου.",
+      en: "Jacques Cousteau wanted to become a Navy pilot. A serious car accident broke both his arms — the dream was gone. To recover, he started swimming in the sea. There, he discovered a world nobody had ever seen. Together with engineer Émile Gagnan, he invented the self-contained breathing apparatus (Aqua-Lung), allowing humans to swim freely underwater. His TV series 'The Silent World' showed the ocean to millions. He wasn't just an explorer — he was an activist. He fought against marine pollution decades before it became trendy. He said: 'People protect what they love.' Lesson: An accident can lead you to your true purpose."
+    }
   }
 ];
 
-// ─── STORY READER WITH TTS ─────────────────────────────────────
-// Splits story text into sentences, reads aloud with the best available voice,
-// and highlights the current sentence being spoken.
+// ─── STORY READER WITH CLOUD TTS + BROWSER FALLBACK ────────────
+// Uses Gemini TTS API for natural, human-sounding voices.
+// Falls back to Web Speech API if cloud TTS is unavailable.
 
 const splitSentences = (text: string): string[] => {
   const raw = text.match(/[^.!?]+[.!?]+[\s]?|[^.!?]+$/g);
@@ -696,23 +1057,37 @@ const splitSentences = (text: string): string[] => {
 interface StoryReaderProps {
   text: string;
   lang: 'el' | 'en';
+  storyId?: number; // For loading pre-generated static audio files
 }
 
-function StoryReader({ text, lang }: StoryReaderProps) {
+function StoryReader({ text, lang, storyId }: StoryReaderProps) {
   const sentences = useMemo(() => splitSentences(text), [text]);
+
+  // ─── Shared state ────
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [currentIdx, setCurrentIdx] = useState(-1);
+  const [isLoading, setIsLoading] = useState(false);
   const [rate, setRate] = useState(1);
-  const [voiceReady, setVoiceReady] = useState(false);
-  const [voiceLabel, setVoiceLabel] = useState('');
+  const [ttsMode, setTtsMode] = useState<'cloud' | 'browser'>(
+    (storyId || isCloudTTSAvailable()) ? 'cloud' : 'browser'
+  );
+
+  // ─── Cloud TTS refs ────
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const chunkUrlsRef = useRef<string[]>([]);
+  const currentChunkRef = useRef(0);
+
+  // ─── Browser TTS refs (fallback) ────
+  const [currentIdx, setCurrentIdx] = useState(-1);
   const sentenceRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const currentIdxRef = useRef(-1);
   const isPlayingRef = useRef(false);
   const chromeFixCleanupRef = useRef<(() => void) | null>(null);
   const bestVoiceRef = useRef<SpeechSynthesisVoice | null>(null);
+  const [voiceReady, setVoiceReady] = useState(false);
+  const [voiceLabel, setVoiceLabel] = useState('');
 
-  // Load best voice on mount
+  // Load browser voice (fallback)
   useEffect(() => {
     ensureVoicesLoaded().then(() => {
       const voice = getBestVoice(lang);
@@ -725,6 +1100,7 @@ function StoryReader({ text, lang }: StoryReaderProps) {
   // Cleanup on unmount or text change
   useEffect(() => {
     return () => {
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       window.speechSynthesis.cancel();
       chromeFixCleanupRef.current?.();
       setIsPlaying(false);
@@ -734,12 +1110,38 @@ function StoryReader({ text, lang }: StoryReaderProps) {
     };
   }, [text]);
 
-  // Auto-scroll to current sentence
+  // Auto-scroll to current sentence (browser mode)
   useEffect(() => {
     if (currentIdx >= 0 && sentenceRefs.current[currentIdx]) {
       sentenceRefs.current[currentIdx]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [currentIdx]);
+
+  // ═══════════════════════════════════════════════════════════════
+  // CLOUD TTS FUNCTIONS
+  // ═══════════════════════════════════════════════════════════════
+
+  const playCloudChunk = useCallback((idx: number) => {
+    if (idx >= chunkUrlsRef.current.length) {
+      setIsPlaying(false);
+      setIsPaused(false);
+      return;
+    }
+
+    const audio = new Audio(chunkUrlsRef.current[idx]);
+    audio.playbackRate = rate;
+    audioRef.current = audio;
+    currentChunkRef.current = idx;
+
+    audio.onplay = () => setIsPlaying(true);
+    audio.onended = () => playCloudChunk(idx + 1);
+    audio.onerror = () => playCloudChunk(idx + 1);
+    audio.play().catch(() => setIsPlaying(false));
+  }, [rate]);
+
+  // ═══════════════════════════════════════════════════════════════
+  // BROWSER TTS FUNCTIONS (FALLBACK)
+  // ═══════════════════════════════════════════════════════════════
 
   const speakSentence = useCallback((idx: number) => {
     if (idx >= sentences.length) {
@@ -763,44 +1165,86 @@ function StoryReader({ text, lang }: StoryReaderProps) {
       chromeFixCleanupRef.current?.();
       chromeFixCleanupRef.current = startChromeFix();
     };
-
     utterance.onend = () => {
-      if (isPlayingRef.current) speakSentence(currentIdxRef.current + 1);
+      if (isPlayingRef.current) setTimeout(() => speakSentence(currentIdxRef.current + 1), 300);
     };
-
     utterance.onerror = (e) => {
-      if (e.error !== 'interrupted' && e.error !== 'canceled') {
-        console.warn('TTS error:', e.error);
-      }
-      if (isPlayingRef.current) speakSentence(currentIdxRef.current + 1);
+      if (e.error !== 'interrupted' && e.error !== 'canceled') console.warn('TTS error:', e.error);
+      if (isPlayingRef.current) setTimeout(() => speakSentence(currentIdxRef.current + 1), 150);
     };
-
     window.speechSynthesis.speak(utterance);
   }, [sentences, lang, rate]);
 
-  const handlePlay = useCallback(() => {
+  // ═══════════════════════════════════════════════════════════════
+  // UNIFIED HANDLERS
+  // ═══════════════════════════════════════════════════════════════
+
+  const handlePlay = useCallback(async () => {
+    // Resume from pause
     if (isPaused) {
-      window.speechSynthesis.resume();
+      if (audioRef.current) {
+        audioRef.current.play();
+      } else {
+        window.speechSynthesis.resume();
+        isPlayingRef.current = true;
+      }
       setIsPaused(false);
       setIsPlaying(true);
-      isPlayingRef.current = true;
       return;
     }
+
+    // ─── 1. Try static audio file (pre-generated, instant, NO API needed!) ────
+    if (storyId) {
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      try {
+        const staticUrl = await loadStaticAudio(storyId, lang);
+        if (staticUrl) {
+          setTtsMode('cloud'); // Switch to audio-element mode for pause/resume
+          chunkUrlsRef.current = [staticUrl];
+          playCloudChunk(0);
+          return;
+        }
+      } catch { /* no static file, continue */ }
+    }
+
+    // ─── 2. Try Cloud TTS (generates + caches in IndexedDB) ────
+    if (ttsMode === 'cloud') {
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      setIsLoading(true);
+      try {
+        const urls = await generateSpeechChunked(text, lang);
+        chunkUrlsRef.current = urls;
+        setIsLoading(false);
+        playCloudChunk(0);
+        return;
+      } catch (err) {
+        console.warn('Cloud TTS unavailable, switching to device voice:', err);
+        setTtsMode('browser');
+        setIsLoading(false);
+      }
+    }
+
+    // ─── 3. Browser TTS fallback ────
     window.speechSynthesis.cancel();
     setIsPlaying(true);
     setIsPaused(false);
     isPlayingRef.current = true;
     setTimeout(() => speakSentence(0), 100);
-  }, [isPaused, speakSentence]);
+  }, [isPaused, ttsMode, text, lang, storyId, playCloudChunk, speakSentence]);
 
   const handlePause = useCallback(() => {
-    window.speechSynthesis.pause();
+    if (audioRef.current) {
+      audioRef.current.pause();
+    } else {
+      window.speechSynthesis.pause();
+      isPlayingRef.current = false;
+    }
     setIsPaused(true);
     setIsPlaying(false);
-    isPlayingRef.current = false;
   }, []);
 
   const handleStop = useCallback(() => {
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
     window.speechSynthesis.cancel();
     chromeFixCleanupRef.current?.();
     setIsPlaying(false);
@@ -813,7 +1257,10 @@ function StoryReader({ text, lang }: StoryReaderProps) {
   const handleSpeedToggle = useCallback(() => {
     setRate(r => {
       const nextRate = r === 1 ? 1.3 : r === 1.3 ? 0.8 : 1;
-      if (isPlayingRef.current || isPaused) {
+
+      if (audioRef.current) {
+        audioRef.current.playbackRate = nextRate;
+      } else if (isPlayingRef.current || isPaused) {
         window.speechSynthesis.cancel();
         setIsPaused(false);
         isPlayingRef.current = true;
@@ -827,7 +1274,7 @@ function StoryReader({ text, lang }: StoryReaderProps) {
             chromeFixCleanupRef.current?.();
             chromeFixCleanupRef.current = startChromeFix();
           };
-          utterance.onend = () => { if (isPlayingRef.current) speakSentence(currentIdxRef.current + 1); };
+          utterance.onend = () => { if (isPlayingRef.current) setTimeout(() => speakSentence(currentIdxRef.current + 1), 300); };
           utterance.onerror = () => { if (isPlayingRef.current) speakSentence(currentIdxRef.current + 1); };
           window.speechSynthesis.speak(utterance);
         }, 100);
@@ -837,24 +1284,31 @@ function StoryReader({ text, lang }: StoryReaderProps) {
   }, [sentences, lang, isPaused, speakSentence]);
 
   const handleSentenceClick = useCallback((idx: number) => {
+    if (ttsMode === 'cloud') return; // No sentence-level control in cloud mode
     window.speechSynthesis.cancel();
     setIsPlaying(true);
     setIsPaused(false);
     isPlayingRef.current = true;
     setTimeout(() => speakSentence(idx), 100);
-  }, [speakSentence]);
+  }, [speakSentence, ttsMode]);
 
   const speedLabel = rate === 1 ? '1x' : rate === 1.3 ? '1.3x' : '0.8x';
   const active = isPlaying || isPaused;
+  const isCloud = ttsMode === 'cloud';
 
   return (
     <div className="space-y-4">
       {/* TTS Controls */}
       <div className="flex items-center gap-2 flex-wrap">
-        {!isPlaying && !isPaused ? (
+        {isLoading ? (
+          <button disabled className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-500/50 to-indigo-600/50 text-white rounded-xl font-black text-xs uppercase tracking-wider animate-pulse">
+            <Loader2 size={16} className="animate-spin" />
+            {lang === 'el' ? 'ΕΤΟΙΜΑΖΩ ΦΩΝΗ...' : 'GENERATING VOICE...'}
+          </button>
+        ) : !isPlaying && !isPaused ? (
           <button
             onClick={handlePlay}
-            disabled={!voiceReady}
+            disabled={!isCloud && !voiceReady}
             className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-black text-xs uppercase tracking-wider hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-lg disabled:opacity-50"
           >
             <Volume2 size={16} />
@@ -881,15 +1335,25 @@ function StoryReader({ text, lang }: StoryReaderProps) {
           <FastForward size={14} /> {speedLabel}
         </button>
 
-        {voiceLabel && !active && (
-          <span className="text-white/20 text-[10px] font-bold uppercase tracking-widest">{voiceLabel}</span>
+        {/* Voice mode indicator */}
+        {!active && !isLoading && (
+          <span className="flex items-center gap-1 text-white/25 text-[10px] font-bold uppercase tracking-widest">
+            {isCloud ? <><Sparkles size={10} className="text-purple-400" /> AI Voice</> : voiceLabel || 'Device'}
+          </span>
         )}
-        {active && currentIdx >= 0 && (
+        {/* Cloud: playing indicator */}
+        {active && isCloud && (
+          <span className="flex items-center gap-1.5 text-purple-300/50 text-[10px] font-bold uppercase tracking-widest ml-auto animate-pulse">
+            <Sparkles size={10} /> AI Voice
+          </span>
+        )}
+        {/* Browser: sentence counter */}
+        {active && !isCloud && currentIdx >= 0 && (
           <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest ml-auto">{currentIdx + 1}/{sentences.length}</span>
         )}
       </div>
 
-      {/* Story text with sentence highlighting */}
+      {/* Story text — sentence highlighting only in browser mode */}
       <div className="prose prose-invert prose-lg max-w-none">
         <p className="text-lg md:text-xl text-gray-300 font-medium leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-white first-letter:mr-3 first-letter:float-left">
           {sentences.map((sentence, i) => (
@@ -897,12 +1361,14 @@ function StoryReader({ text, lang }: StoryReaderProps) {
               key={i}
               ref={(el) => { sentenceRefs.current[i] = el; }}
               onClick={() => handleSentenceClick(i)}
-              className={`transition-all duration-300 cursor-pointer rounded-sm ${
-                currentIdx === i
-                  ? 'bg-amber-400/20 text-white px-0.5 -mx-0.5'
-                  : active && currentIdx >= 0
-                    ? i < currentIdx ? 'text-white/30' : 'text-gray-300 hover:text-white hover:bg-white/5'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+              className={`transition-all duration-300 rounded-sm ${
+                isCloud
+                  ? 'text-gray-300' // Cloud mode: no highlighting
+                  : currentIdx === i
+                    ? 'bg-amber-400/20 text-white px-0.5 -mx-0.5 cursor-pointer'
+                    : active && currentIdx >= 0
+                      ? i < currentIdx ? 'text-white/30 cursor-pointer' : 'text-gray-300 hover:text-white hover:bg-white/5 cursor-pointer'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5 cursor-pointer'
               }`}
             >
               {sentence}{' '}
@@ -924,19 +1390,60 @@ interface AcademyProps {
 
 export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const [selectedCourse, setSelectedCourse] = useState<any | null>(null);
-  const [activeCategory, setActiveCategory] = useState<string>("START_SMALL"); 
+  const [selectedImage, setSelectedImage] = useState<string>('');
+  const [activeCategory, setActiveCategory] = useState<string>("START_SMALL");
   const { trackAction } = useEconomy();
-  
+  const rewardedRef = useRef<Set<number>>(new Set()); // Prevent double-fire (React StrictMode / motion layout)
+
+  // ─── Voice Pre-Download State ────
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState<PreDownloadProgress | null>(null);
+  const [cachedVoiceCount, setCachedVoiceCount] = useState(0);
+
+  const storyItems = useMemo(() =>
+    COURSES.map(c => ({
+      id: `story-${c.id}`,
+      text: c.storyContent[lang],
+      lang,
+    })),
+    [lang]
+  );
+
+  // Check how many voices are already cached
+  useEffect(() => {
+    getCachedCount(storyItems).then(setCachedVoiceCount).catch(() => {});
+  }, [storyItems]);
+
+  const handleDownloadAll = useCallback(async () => {
+    if (isDownloading) return;
+    setIsDownloading(true);
+    try {
+      await preDownloadAll(storyItems, (p) => setDownloadProgress(p));
+      const count = await getCachedCount(storyItems);
+      setCachedVoiceCount(count);
+    } catch (err) {
+      console.warn('Pre-download failed:', err);
+    } finally {
+      setIsDownloading(false);
+      setDownloadProgress(null);
+    }
+  }, [storyItems, isDownloading]);
+
   const filteredCourses = COURSES.filter(course => course.category === activeCategory);
 
-  const handleReadStory = (course: any) => {
+  const handleReadStory = (course: any, imageUrl?: string) => {
     setSelectedCourse(course);
-    
-    // TRACKING LOGIC (Hidden XP: Just mark as complete)
-    if (addXp) {
-        addXp(0, `academy-${course.id}`); // 0 XP, purely for completion status
+    if (imageUrl) setSelectedImage(imageUrl);
+
+    // Only award credits for NEW stories (prevent credit farming + double-fire guard)
+    const storyKey = `academy-${course.id}`;
+    if (!completedIds.includes(storyKey) && !rewardedRef.current.has(course.id)) {
+      rewardedRef.current.add(course.id);
+      trackAction('READ_ACADEMY');
+      if (addXp) {
+        addXp(0, storyKey); // 0 XP, purely for completion status
+      }
     }
-    trackAction('READ_ACADEMY');
   };
 
   const handleNextStory = () => {
@@ -944,10 +1451,11 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
     const currentFilteredIndex = filteredCourses.findIndex(c => c.id === selectedCourse.id);
 
     if (currentFilteredIndex < filteredCourses.length - 1) {
-      const nextCourse = filteredCourses[currentFilteredIndex + 1];
-      handleReadStory(nextCourse); 
+      const nextIndex = currentFilteredIndex + 1;
+      const nextCourse = filteredCourses[nextIndex];
+      handleReadStory(nextCourse, getStoryImage(nextIndex));
     } else {
-      setSelectedCourse(null); 
+      setSelectedCourse(null);
     }
   };
 
@@ -958,32 +1466,73 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
     return Math.round((completedCount / catCourses.length) * 100);
   };
 
+  const activeCat = CATEGORIES[activeCategory as keyof typeof CATEGORIES];
+  const totalStories = COURSES.length;
+  const totalCompleted = COURSES.filter(c => completedIds.includes(`academy-${c.id}`)).length;
+
   return (
     <div className="relative w-full h-full pb-32 animate-in fade-in duration-700">
-      
+
       {/* HEADER */}
       <div className="text-center py-8 space-y-3 relative z-10">
          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-2 backdrop-blur-md">
             <BookOpen size={14} className="text-blue-400" />
             <span className="text-[10px] font-black uppercase tracking-widest text-white/60">WISEBOT ACADEMY</span>
+            <span className="text-[10px] font-black text-blue-400">{totalCompleted}/{totalStories}</span>
          </div>
          <h2 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
             {lang === 'el' ? 'ΜΑΘΗΜΑΤΑ' : 'LESSONS'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΖΩΗΣ' : 'OF LIFE'}</span>
          </h2>
          <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs">
-            {lang === 'el' ? 'ΔΙΑΒΑΣΕ, ΕΜΠΝΕΥΣΟΥ, ΠΡΟΧΩΡΑ' : 'READ, INSPIRE, MOVE FORWARD'}
+            {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 65 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 65 GREAT PEOPLE'}
          </p>
+
+         {/* Voice Download Button */}
+         {isCloudTTSAvailable() && (
+           <div className="flex items-center justify-center gap-3 mt-2">
+             {isDownloading ? (
+               <div className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full">
+                 <Loader2 size={13} className="text-purple-400 animate-spin" />
+                 <span className="text-purple-300/80 text-[10px] font-black uppercase tracking-wider">
+                   {downloadProgress
+                     ? `${lang === 'el' ? 'ΚΑΤΕΒΑΖΩ' : 'DOWNLOADING'} ${downloadProgress.completed}/${downloadProgress.total}...`
+                     : lang === 'el' ? 'ΕΤΟΙΜΑΖΩ...' : 'PREPARING...'}
+                 </span>
+               </div>
+             ) : cachedVoiceCount >= COURSES.length ? (
+               <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+                 <WifiOff size={11} className="text-emerald-400" />
+                 <span className="text-emerald-300/70 text-[10px] font-black uppercase tracking-wider">
+                   {lang === 'el' ? 'ΟΛΕΣ ΟΙ ΦΩΝΕΣ ΑΠΟΘΗΚΕΥΜΕΝΕΣ' : 'ALL VOICES SAVED'} <Sparkles size={10} className="inline text-emerald-400" />
+                 </span>
+               </div>
+             ) : (
+               <button
+                 onClick={handleDownloadAll}
+                 className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full hover:bg-purple-500/20 active:scale-95 transition-all group"
+               >
+                 <Download size={12} className="text-purple-400 group-hover:animate-bounce" />
+                 <span className="text-purple-300/70 text-[10px] font-black uppercase tracking-wider group-hover:text-purple-200">
+                   {lang === 'el'
+                     ? `ΚΑΤΕΒΑΣΕ ΟΛΕΣ ΤΙΣ ΦΩΝΕΣ AI (${cachedVoiceCount}/${COURSES.length})`
+                     : `DOWNLOAD ALL AI VOICES (${cachedVoiceCount}/${COURSES.length})`}
+                 </span>
+               </button>
+             )}
+           </div>
+         )}
       </div>
 
       {/* CATEGORY TABS (Pill Style) */}
-      <div className="relative max-w-7xl mx-auto mb-10">
+      <div className="relative max-w-7xl mx-auto mb-4">
         {/* Fade hint right */}
-        <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-[#0f172a] to-transparent z-10 pointer-events-none md:hidden" />
+        <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-[#0B0F1A] to-transparent z-10 pointer-events-none md:hidden" />
         <div className="px-4 overflow-x-auto custom-scrollbar pb-4">
           <div className="flex gap-2 md:gap-3 justify-start md:justify-center min-w-max">
             {Object.values(CATEGORIES).map((cat) => {
               const isActive = activeCategory === cat.id;
               const progress = getProgress(cat.id);
+              const catCount = COURSES.filter(c => c.category === cat.id).length;
 
               return (
                 <button
@@ -999,12 +1548,17 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                 >
                   <cat.icon size={16} className={`shrink-0 ${isActive ? 'text-white' : 'opacity-70'}`} />
                   <div className="text-left">
-                      <span className="block font-black text-[10px] md:text-xs uppercase tracking-wide leading-none mb-1">
-                      {lang === 'el' ? cat.title.el : cat.title.en}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="block font-black text-[10px] md:text-xs uppercase tracking-wide leading-none">
+                          {lang === 'el' ? cat.title.el : cat.title.en}
+                        </span>
+                        <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-md ${isActive ? 'bg-white/20 text-white' : 'bg-white/10 text-white/40'}`}>
+                          {catCount}
+                        </span>
+                      </div>
                       {isActive && (
-                          <div className="w-full bg-black/20 h-1 rounded-full overflow-hidden">
-                              <div className="bg-white h-full" style={{ width: `${progress}%` }} />
+                          <div className="w-full bg-black/20 h-1 rounded-full overflow-hidden mt-1.5">
+                              <div className="bg-white h-full transition-all duration-500" style={{ width: `${progress}%` }} />
                           </div>
                       )}
                   </div>
@@ -1015,74 +1569,93 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
         </div>
       </div>
 
+      {/* CATEGORY DESCRIPTION */}
+      <div className="max-w-7xl mx-auto px-4 mb-8">
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={activeCategory}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="text-center text-white/30 text-sm font-bold"
+          >
+            {activeCat.desc[lang]} &middot; {filteredCourses.length} {lang === 'el' ? 'ιστορίες' : 'stories'} &middot; {getProgress(activeCategory)}% {lang === 'el' ? 'ολοκληρωμένο' : 'complete'}
+          </motion.p>
+        </AnimatePresence>
+      </div>
+
       {/* COURSE GRID */}
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
          <AnimatePresence mode='popLayout'>
             {filteredCourses.map((course, index) => {
-               const isCompleted = completedIds.includes(`academy-${course.id}`); 
+               const isCompleted = completedIds.includes(`academy-${course.id}`);
                const CategoryConfig = CATEGORIES[course.category as keyof typeof CATEGORIES];
 
                return (
-                  <motion.div 
+                  <motion.div
                      layout
                      key={course.id}
                      initial={{ opacity: 0, scale: 0.9 }}
                      animate={{ opacity: 1, scale: 1 }}
                      exit={{ opacity: 0, scale: 0.9 }}
-                     transition={{ duration: 0.2, delay: index * 0.05 }}
-                     onClick={() => handleReadStory(course)}
+                     transition={{ duration: 0.2, delay: index * 0.03 }}
+                     onClick={() => handleReadStory(course, getStoryImage(index))}
                      className={`
-                        group relative rounded-[2rem] overflow-hidden border-2 bg-[#0f1014] cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl
-                        ${isCompleted ? 'border-emerald-500/50' : 'border-white/10 hover:border-white/30'}
+                        group relative rounded-[1.5rem] overflow-hidden border bg-[#0B0F1A] cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl flex
+                        ${isCompleted ? 'border-emerald-500/40' : 'border-white/10 hover:border-white/20'}
                      `}
                   >
-                     {/* Image Header */}
-                     <div className="aspect-[4/3] min-h-[180px] relative overflow-hidden bg-[#0f1014]">
+                     {/* Left: Image (compact) — uses rotating images for variety */}
+                     <div className="w-28 sm:w-32 shrink-0 relative overflow-hidden bg-[#0B0F1A]">
                         <SafeImage
-                          src={course.image}
+                          src={getStoryImage(index)}
                           alt={course.title[lang]}
                           loading="eager"
                           wrapperClassName="absolute inset-0"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
                         />
-                        <div className={`absolute inset-0 bg-gradient-to-t from-[#0f1014] via-transparent to-transparent`} />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B0F1A]/80" />
 
-                        {/* Story Number Badge */}
-                        <div className="absolute top-3 left-3">
-                            <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-[1000] text-xs text-white shadow-lg border border-white/20 ${isCompleted ? 'bg-emerald-500' : 'bg-black/50 backdrop-blur-md'}`}>
+                        {/* Number Badge */}
+                        <div className="absolute top-2.5 left-2.5">
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center font-[1000] text-[10px] text-white shadow-lg border border-white/20 ${isCompleted ? 'bg-emerald-500' : 'bg-black/60 backdrop-blur-md'}`}>
                                 {index + 1}
                             </div>
                         </div>
-
-                        {/* Status Badge */}
-                        <div className="absolute top-3 right-3">
-                            {isCompleted ? (
-                                <div className="bg-emerald-500 text-white p-1.5 rounded-full shadow-lg">
-                                    <CheckCircle size={16} fill="currentColor" className="text-emerald-900" />
-                                </div>
-                            ) : (
-                                <div className="bg-black/40 backdrop-blur-md text-white/70 p-1.5 rounded-full border border-white/10">
-                                    <Book size={14} />
-                                </div>
-                            )}
-                        </div>
                      </div>
 
-                     {/* Content Body */}
-                     <div className="p-5 relative">
+                     {/* Right: Content */}
+                     <div className="flex-1 p-4 flex flex-col justify-center relative min-h-[120px]">
                         {/* Glow effect on hover */}
                         <div className={`absolute inset-0 bg-gradient-to-br ${CategoryConfig.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                        
-                        <div className="relative z-10">
-                            <span className={`inline-block text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md mb-2 border ${CategoryConfig.bg} ${CategoryConfig.border} text-white/80`}>
+
+                        <div className="relative z-10 space-y-1.5">
+                            {/* Person name */}
+                            <span className={`inline-block text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md border ${CategoryConfig.bg} ${CategoryConfig.border} text-white/80`}>
                                 {course.subject[lang]}
                             </span>
-                            <h3 className="text-lg font-[1000] text-white uppercase italic tracking-tighter leading-tight mb-1 group-hover:text-blue-300 transition-colors">
+                            {/* Title */}
+                            <h3 className="text-sm md:text-base font-[1000] text-white uppercase italic tracking-tight leading-tight group-hover:text-blue-300 transition-colors">
                                 {course.title[lang]}
                             </h3>
-                            <p className="text-white/40 text-xs font-bold uppercase tracking-wider">
-                                {isCompleted ? (lang === 'el' ? 'ΟΛΟΚΛΗΡΩΘΗΚΕ' : 'COMPLETED') : (lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΩΡΑ' : 'READ NOW')}
-                            </p>
+                            {/* Subtitle + Status */}
+                            <div className="flex items-center gap-2">
+                              <p className="text-white/30 text-[10px] font-bold uppercase tracking-wider">
+                                  {course.subtitle[lang]}
+                              </p>
+                              {isCompleted && (
+                                <div className="flex items-center gap-1 text-emerald-400">
+                                  <CheckCircle size={10} />
+                                  <span className="text-[9px] font-black uppercase">{lang === 'el' ? 'OK' : 'DONE'}</span>
+                                </div>
+                              )}
+                            </div>
+                        </div>
+
+                        {/* Arrow hint */}
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <ArrowRight size={16} className="text-white/30" />
                         </div>
                      </div>
                   </motion.div>
@@ -1106,7 +1679,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#0f1014] border border-white/10 w-full max-w-4xl h-[90vh] md:h-auto md:max-h-[90vh] rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+              className="bg-[#0B0F1A] border border-white/10 w-full max-w-4xl h-[90vh] md:h-auto md:max-h-[90vh] rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
             >
               {/* Close Button */}
               <button 
@@ -1117,15 +1690,15 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
               </button>
 
               {/* Left: Visuals */}
-              <div className="w-full md:w-5/12 min-h-[16rem] md:min-h-[24rem] relative shrink-0 bg-[#0f1014]">
+              <div className="w-full md:w-5/12 min-h-[16rem] md:min-h-[24rem] relative shrink-0 bg-[#0B0F1A]">
                 <SafeImage
-                  src={selectedCourse.image}
+                  src={selectedImage || selectedCourse.image}
                   alt={selectedCourse.title[lang]}
                   loading="eager"
                   wrapperClassName="absolute inset-0"
                   className="w-full h-full object-cover min-h-[16rem] md:min-h-[24rem]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f1014] via-transparent to-transparent md:bg-gradient-to-r" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F1A] via-transparent to-transparent md:bg-gradient-to-r" />
                 
                 <div className="absolute bottom-8 left-8 right-8">
                     <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-black/40 backdrop-blur-md mb-4 border-white/20`}>
@@ -1140,12 +1713,13 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
               </div>
 
               {/* Right: Story Content */}
-              <div className="w-full md:w-7/12 p-8 md:p-12 overflow-y-auto custom-scrollbar flex flex-col bg-[#0f1014]">
+              <div className="w-full md:w-7/12 p-8 md:p-12 overflow-y-auto custom-scrollbar flex flex-col bg-[#0B0F1A]">
                 
                 <div className="flex-1 space-y-8">
                   <StoryReader
                     text={selectedCourse.storyContent[lang]}
                     lang={lang}
+                    storyId={selectedCourse.id}
                   />
 
                   {/* ── STORY COMPLETE CELEBRATION ── */}

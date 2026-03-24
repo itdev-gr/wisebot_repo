@@ -5,7 +5,7 @@ import {
   Building2, Pizza, Shirt, Gamepad2, Heart, Music,
   Target, Users, Crown, TrendingUp, Download
 } from 'lucide-react';
-import { backendAI } from '../services/backendApi';
+import { GoogleGenAI } from "../services/geminiProxy";
 import { useEconomy } from '../context/EconomyContext';
 
 interface Props {
@@ -99,13 +99,31 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
       const generateBusiness = async () => {
         try {
+          const ai = new GoogleGenAI();
           const industryName = INDUSTRIES.find(i => i.id === biz.industry)?.[lang === 'el' ? 'el' : 'en'] || biz.industry;
 
+          // Generate logo
           const logoPrompt = `Create a modern, minimalist company logo for a ${industryName} company called "${biz.name}".
           The company sells: ${biz.product}.
           Style: Clean, professional, vibrant colors, flat design, suitable for kids to understand.
           The logo should be centered on a solid dark background. No text in the image.`;
 
+          const logoResponse = await ai.models.generateContent({
+            model: 'gemini-2.5-flash-image',
+            contents: { parts: [{ text: logoPrompt }] },
+          });
+
+          const logoParts = logoResponse.candidates?.[0]?.content?.parts;
+          if (logoParts) {
+            for (const part of logoParts) {
+              if (part.inlineData) {
+                setResultLogo(`data:image/png;base64,${part.inlineData.data}`);
+                break;
+              }
+            }
+          }
+
+          // Generate slogan & description
           const textPrompt = `You are a business advisor for kids. A child created a company:
           Name: ${biz.name}
           Industry: ${industryName}
@@ -117,11 +135,16 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
           SLOGAN: [a catchy 5-7 word marketing slogan]
           DESCRIPTION: [a fun 2-sentence business description for kids, explaining what makes this company special]`;
 
-          const result = await backendAI.business(textPrompt, logoPrompt);
+          const textResponse = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: textPrompt,
+          });
 
-          if (result.logo) setResultLogo(result.logo);
-          if (result.slogan) setResultSlogan(result.slogan);
-          if (result.description) setResultDesc(result.description);
+          const text = textResponse.text || '';
+          const sloganMatch = text.match(/SLOGAN:\s*(.+)/);
+          const descMatch = text.match(/DESCRIPTION:\s*(.+)/s);
+          if (sloganMatch) setResultSlogan(sloganMatch[1].trim());
+          if (descMatch) setResultDesc(descMatch[1].trim());
 
         } catch (error) {
           console.error("Business generation failed:", error);
@@ -173,13 +196,13 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
     return false;
   };
 
-  const handleNext = async () => {
+  const handleNext = () => {
     if (step === 2) {
-      const success = await spendCredits(COST, 'CREATE_BUSINESS');
-      if (!success) {
+      if (credits < COST) {
         showNotification('💰', lang === 'el' ? `Χρειάζεσαι ${COST} Credits!` : `You need ${COST} Credits!`);
         return;
       }
+      spendCredits(COST);
     }
     setStep(s => s + 1);
   };

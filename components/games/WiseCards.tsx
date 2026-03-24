@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -114,7 +114,8 @@ const ICONS = [
 
 export default function WiseCards({ lang, onBack }: WiseCardsProps) {
   const { earnCredits } = useEconomy();
-  
+  const creditsAwardedRef = useRef(false);
+
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'finished'>('menu');
   const [level, setLevel] = useState(LEVELS[0]);
@@ -235,7 +236,10 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
         if (allMatched) {
             setTimeout(() => {
                 setGameState('finished');
-                earnCredits(5); 
+                if (!creditsAwardedRef.current) {
+                  creditsAwardedRef.current = true;
+                  earnCredits(5);
+                }
             }, 500);
         }
         return currentCards;
@@ -246,7 +250,7 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
 
   if (gameState === 'menu') {
       return (
-        <div className="h-full flex flex-col items-center justify-center p-6 bg-[#020617] animate-in fade-in">
+        <div className="h-full flex flex-col items-center justify-center p-6 bg-[#0B0F1A] animate-in fade-in">
             <button onClick={onBack} className="absolute top-4 right-4 text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg">
                {t.back}
             </button>
@@ -285,7 +289,7 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
       const winner = scores[1] > scores[2] ? 1 : scores[1] < scores[2] ? 2 : 0;
       
       return (
-        <div className="h-full flex flex-col items-center justify-center p-6 bg-[#020617] animate-in zoom-in text-center">
+        <div className="h-full flex flex-col items-center justify-center p-6 bg-[#0B0F1A] animate-in zoom-in text-center">
              <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(251,191,36,0.4)] mb-8 animate-bounce">
                  <Trophy size={64} className="text-white" />
              </div>
@@ -308,10 +312,10 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
 
   // GAME BOARD
   return (
-    <div className="h-full flex flex-col bg-[#020617] relative select-none overflow-hidden">
+    <div className="h-full flex flex-col bg-[#0B0F1A] relative select-none overflow-hidden">
         
         {/* TOP HUD */}
-        <div className="bg-[#0f1014] border-b border-white/10 px-3 py-2 flex justify-between items-center shadow-lg z-20 shrink-0">
+        <div className="bg-[#0B0F1A] border-b border-white/10 px-3 py-2 flex justify-between items-center shadow-lg z-20 shrink-0">
             <div className={`flex flex-col items-start transition-opacity duration-300 ${turn === 1 ? 'opacity-100 scale-105' : 'opacity-50'}`}>
                 <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-1">
                    <Users size={12}/> {t.p1}

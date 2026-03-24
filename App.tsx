@@ -1,14 +1,16 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
-import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import LandingPage from './components/LandingPage';
+import ErrorBoundary from './components/ErrorBoundary';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Shield, ArrowRight, Zap } from 'lucide-react';
+import { Shield, ArrowRight, Zap, WifiOff } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
 // --- LAZY LOAD COMPONENTS (Performance Optimization) ---
-// These components will only load when the user clicks on them, 
+// These components will only load when the user clicks on them,
 // making the initial website load much faster.
 const Quiz = React.lazy(() => import('./components/Quiz'));
 const HeroFactory = React.lazy(() => import('./components/HeroFactory'));
@@ -25,6 +27,9 @@ const LegalHub = React.lazy(() => import('./components/LegalHub'));
 const GameCenter = React.lazy(() => import('./components/GameCenter'));
 const MusicStudio = React.lazy(() => import('./components/MusicStudio'));
 const BusinessSimulation = React.lazy(() => import('./components/BusinessSimulation'));
+const CreditStore = React.lazy(() => import('./components/CreditStore'));
+const ParentDashboard = React.lazy(() => import('./components/ParentDashboard'));
+const AuthScreen = React.lazy(() => import('./components/AuthScreen'));
 
 const motion = m as any;
 
@@ -105,9 +110,9 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
   const features = DISCOVER_FEATURES[lang];
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden font-['Nunito'] select-none">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-black to-black" />
-      <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-15" />
+    <div className="min-h-screen bg-[#0B0F1A] flex items-center justify-center relative overflow-hidden font-['Nunito'] select-none">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F1A] via-[#0B0F1A] to-[#0B0F1A]" />
+      <div className="absolute inset-0 bg-[url('/images/stardust.webp')] opacity-15" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full animate-pulse pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-4xl px-6 md:px-8 text-center">
@@ -176,14 +181,14 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
                   transition={{ delay: 0.2, duration: 0.5 }}
                   className="space-y-4"
                 >
-                  <div className="flex items-center justify-center gap-4 bg-amber-500/10 border border-amber-500/30 px-6 py-4 rounded-[1.5rem] shadow-[0_0_40px_rgba(245,158,11,0.1)]">
-                    <Zap size={24} className="text-amber-500 fill-current" />
-                    <span className="text-xl md:text-2xl font-[1000] text-amber-500 italic tracking-tighter">
-                      10 Credits
+                  <div className="flex items-center justify-center gap-4 bg-blue-500/10 border border-blue-500/30 px-6 py-4 rounded-[1.5rem] shadow-[0_0_40px_rgba(59,130,246,0.1)]">
+                    <Zap size={24} className="text-blue-400 fill-current" />
+                    <span className="text-xl md:text-2xl font-[1000] text-blue-400 italic tracking-tighter">
+                      {lang === 'el' ? 'Ξεκίνα Δωρεάν!' : 'Start Free!'}
                     </span>
                   </div>
                   <p className="text-white/30 text-xs font-bold italic tracking-wide">
-                    {text.credits}
+                    {lang === 'el' ? 'Κέρδισε credits παίζοντας και μαθαίνοντας' : 'Earn credits by playing and learning'}
                   </p>
                 </motion.div>
               </div>
@@ -259,7 +264,9 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
                   className="space-y-6 pt-2"
                 >
                   <button
-                    onClick={() => { earnCredits(10); navigate('/dashboard'); }}
+                    onClick={() => {
+                      navigate('/dashboard');
+                    }}
                     className="group relative mx-auto px-10 py-5 md:py-6 bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border-2 border-amber-500/30 rounded-full overflow-hidden transition-all hover:border-amber-400/60 hover:scale-105 active:scale-95 shadow-[0_0_60px_rgba(245,158,11,0.15)] hover:shadow-[0_0_80px_rgba(245,158,11,0.3)]"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/10 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -282,6 +289,16 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
   );
 };
 
+// --- AUTH GUARD: Redirects unauthenticated users to /login ---
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user, loading } = useAuth();
+
+  if (loading) return <PageLoader />;
+  if (!user) return <Navigate to="/login" replace />;
+
+  return <>{children}</>;
+};
+
 // --- LOADING SCREEN FOR LAZY LOADING ---
 const PageLoader = () => (
   <div className="flex flex-col items-center justify-center h-full min-h-[50vh] space-y-4">
@@ -291,32 +308,90 @@ const PageLoader = () => (
            <Zap size={16} className="text-blue-400 animate-pulse" fill="currentColor" />
         </div>
      </div>
-     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">LOADING...</p>
+     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">ΦΟΡΤΩΣΗ...</p>
   </div>
 );
+
+// --- OFFLINE BANNER ---
+const OfflineBanner = () => {
+  const [isOffline, setIsOffline] = useState(!navigator.onLine);
+  useEffect(() => {
+    const goOffline = () => setIsOffline(true);
+    const goOnline = () => setIsOffline(false);
+    window.addEventListener('offline', goOffline);
+    window.addEventListener('online', goOnline);
+    return () => { window.removeEventListener('offline', goOffline); window.removeEventListener('online', goOnline); };
+  }, []);
+  if (!isOffline) return null;
+  return (
+    <div className="fixed top-0 left-0 right-0 z-[99998] bg-gradient-to-r from-red-600 to-orange-600 text-white text-center py-2 px-4 flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider shadow-lg">
+      <WifiOff size={14} /> Δεν υπάρχει σύνδεση στο internet — Κάποιες λειτουργίες δεν θα δουλέψουν
+    </div>
+  );
+};
 
 // --- MAIN APP CONTENT ---
 function AppContent() {
   const [lang, setLang] = useState<'el' | 'en'>('el');
-  const [xp, setXp] = useState(1250);
-  const [level, setLevel] = useState(7);
+  const [xp, setXp] = useState<number>(() => {
+    const saved = localStorage.getItem('wb_xp');
+    return saved ? parseInt(saved) : 0;
+  });
+  const [level, setLevel] = useState<number>(() => {
+    const saved = localStorage.getItem('wb_level');
+    return saved ? parseInt(saved) : 1;
+  });
   const { earnCredits } = useEconomy();
 
-  const [myHeroes, setMyHeroes] = useState<any[]>([]);
-  const [completedIds, setCompletedIds] = useState<string[]>([]);
+  const [myHeroes, setMyHeroes] = useState<any[]>(() => {
+    const saved = localStorage.getItem('wb_heroes');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [completedIds, setCompletedIds] = useState<string[]>(() => {
+    const saved = localStorage.getItem('wb_completed_ids');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Daily bonus claim tracking (persisted to localStorage)
+  const [lastClaimDate, setLastClaimDate] = useState<string>(() => {
+    return localStorage.getItem('wb_last_claim_date') || '';
+  });
+
+  useEffect(() => {
+    if (lastClaimDate) localStorage.setItem('wb_last_claim_date', lastClaimDate);
+  }, [lastClaimDate]);
+
+  const handleClaimBonus = (): boolean => {
+    const today = new Date().toDateString();
+    if (lastClaimDate === today) return false;
+    earnCredits(3);
+    setLastClaimDate(today);
+    return true;
+  };
+
+  // Persist XP, Level, Heroes, CompletedIds to localStorage
+  useEffect(() => { localStorage.setItem('wb_xp', xp.toString()); }, [xp]);
+  useEffect(() => { localStorage.setItem('wb_level', level.toString()); }, [level]);
+  useEffect(() => { try { localStorage.setItem('wb_heroes', JSON.stringify(myHeroes)); } catch (e) { console.warn('Failed to save heroes to localStorage:', e); } }, [myHeroes]);
+  useEffect(() => { localStorage.setItem('wb_completed_ids', JSON.stringify(completedIds)); }, [completedIds]);
 
   const addXp = (amount: number, id: string, creditReward: number = 0) => {
     if (completedIds.includes(id)) return;
 
     setXp(prev => {
       const newXp = prev + amount;
-      const nextLevelXp = level * 500;
-      
-      if (newXp >= nextLevelXp) {
-        setLevel(l => l + 1);
-        earnCredits(5); // Level up reward
-      }
       return newXp;
+    });
+
+    // Check level up separately to avoid stale closure
+    setLevel(currentLevel => {
+      const totalXp = (parseInt(localStorage.getItem('wb_xp') || '0')) + amount;
+      const nextLevelXp = currentLevel * 500;
+      if (totalXp >= nextLevelXp) {
+        earnCredits(2); // Level up reward
+        return currentLevel + 1;
+      }
+      return currentLevel;
     });
 
     if (creditReward > 0) {
@@ -336,18 +411,20 @@ function AppContent() {
 
   return (
     <HashRouter>
+      <OfflineBanner />
       <Layout lang={lang} setLang={setLang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes}>
-        {/* Suspense Wraps ALL Lazy Routes to show loading spinner while fetching chunks */}
+        {/* ErrorBoundary catches crashes, Suspense handles lazy loading */}
+        <ErrorBoundary lang={lang}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<LandingPage lang={lang} />} />
             <Route path="/portal" element={<Portal lang={lang} />} />
-            
-            {/* Lazy Loaded Routes */}
+            <Route path="/login" element={<AuthScreen lang={lang} />} />
+            <Route path="/legal" element={<LegalHub lang={lang} />} />
             <Route path="/dashboard" element={<Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} />} />
             <Route path="/factory" element={<HeroFactory lang={lang} addHero={addHero} />} />
             <Route path="/3d-factory" element={<ThreeDFactory lang={lang} />} />
-            <Route path="/market" element={<HeroMarket lang={lang} myHeroes={myHeroes} />} /> 
+            <Route path="/market" element={<HeroMarket lang={lang} myHeroes={myHeroes} />} />
             <Route path="/wise-friends" element={<WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} />} />
             <Route path="/academy" element={<Academy lang={lang} addXp={addXp} completedIds={completedIds} />} />
             <Route path="/cinema" element={<Cinema lang={lang} myHeroes={myHeroes} />} />
@@ -357,20 +434,26 @@ function AppContent() {
             <Route path="/quiz" element={<Quiz lang={lang} />} />
             <Route path="/game" element={<GameCenter lang={lang} />} />
             <Route path="/admin" element={<AdminDashboard lang={lang} />} />
-            <Route path="/account" element={<Account lang={lang} onClaimBonus={() => { earnCredits(1); return true; }} lastClaimDate={new Date().toDateString()} />} />
-            <Route path="/legal" element={<LegalHub lang={lang} />} />
+            <Route path="/account" element={<Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} />} />
+            <Route path="/store" element={<CreditStore lang={lang} />} />
+            <Route path="/parent" element={<ParentDashboard lang={lang} />} />
+            {/* 404 catch-all: redirect unknown routes to landing */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
+        </ErrorBoundary>
       </Layout>
     </HashRouter>
   );
 }
 
-// Wrap with Provider
+// Wrap with Providers: Economy → Auth (Auth uses useEconomy for sync)
 export default function App() {
   return (
     <EconomyProvider>
-      <AppContent />
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
     </EconomyProvider>
   );
 }

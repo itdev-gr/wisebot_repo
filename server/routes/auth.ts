@@ -2,11 +2,13 @@
  * AUTH ROUTES
  * ===========
  * Authentication using Supabase Auth.
- * Handles signup, login, session verification, and COPPA parent verification.
+ * Handles signup, login, and session verification.
+ *
+ * TODO [SUPABASE]: Connect to Supabase Auth when ready.
+ * For now, provides the route structure.
  */
 
 import { Router } from 'express';
-import { supabaseAdmin } from '../lib/supabase.js';
 
 export const authRouter = Router();
 
@@ -24,49 +26,20 @@ authRouter.post('/register', async (req, res) => {
       return res.status(400).json({ error: 'Parent email required (COPPA compliance)' });
     }
 
-    if (password.length < 6) {
-      return res.status(400).json({ error: 'Password must be at least 6 characters' });
-    }
-
-    // Create user in Supabase Auth with auto-confirm
-    // (profile + stats are auto-created via database trigger `handle_new_user`)
-    const { data, error } = await supabaseAdmin.auth.admin.createUser({
-      email,
-      password,
-      email_confirm: true, // Auto-confirm for now — parent verification is separate
-      user_metadata: {
-        child_name: childName || '',
-        parent_email: parentEmail,
-      },
-    });
-
-    if (error) {
-      // Handle duplicate email
-      if (error.message?.includes('already been registered') || error.message?.includes('already exists')) {
-        return res.status(409).json({ error: 'Email already registered' });
-      }
-      console.error('[Auth] Register error:', error.message);
-      return res.status(400).json({ error: error.message || 'Registration failed' });
-    }
-
-    // Update profile with parent email and child name
-    if (data.user) {
-      await supabaseAdmin
-        .from('profiles')
-        .update({
-          child_name: childName || '',
-          parent_email: parentEmail,
-        })
-        .eq('id', data.user.id);
-    }
+    // TODO [SUPABASE]:
+    // 1. Create user in Supabase Auth
+    // 2. Send verification email to parentEmail
+    // 3. User account is inactive until parent confirms
+    // const { data, error } = await supabase.auth.signUp({ email, password });
+    // await sendParentVerificationEmail(parentEmail, data.user.id);
 
     res.json({
       success: true,
-      userId: data.user?.id,
-      message: 'Account created successfully.',
+      message: 'Account created. Parent verification email sent.',
+      // token: data.session.access_token,
     });
   } catch (err: any) {
-    console.error('[Auth] Register error:', err.message);
+    console.error('Register error:', err.message);
     res.status(500).json({ error: 'Registration failed' });
   }
 });
@@ -80,27 +53,18 @@ authRouter.post('/login', async (req, res) => {
       return res.status(400).json({ error: 'Email and password required' });
     }
 
-    // Sign in via Supabase Auth
-    const { data, error } = await supabaseAdmin.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return res.status(401).json({ error: 'Invalid credentials' });
-    }
+    // TODO [SUPABASE]:
+    // const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    // if (error) return res.status(401).json({ error: 'Invalid credentials' });
 
     res.json({
       success: true,
-      token: data.session?.access_token,
-      refreshToken: data.session?.refresh_token,
-      user: {
-        id: data.user?.id,
-        email: data.user?.email,
-      },
+      // token: data.session.access_token,
+      // user: { id: data.user.id, email: data.user.email },
+      message: 'Placeholder — connect Supabase',
     });
   } catch (err: any) {
-    console.error('[Auth] Login error:', err.message);
+    console.error('Login error:', err.message);
     res.status(500).json({ error: 'Login failed' });
   }
 });
@@ -111,31 +75,13 @@ authRouter.get('/me', async (req, res) => {
     const token = req.headers.authorization?.replace('Bearer ', '');
     if (!token) return res.status(401).json({ error: 'No token provided' });
 
-    const { data: { user }, error } = await supabaseAdmin.auth.getUser(token);
-    if (error || !user) {
-      return res.status(401).json({ error: 'Invalid token' });
-    }
+    // TODO [SUPABASE]:
+    // const { data: { user }, error } = await supabase.auth.getUser(token);
+    // if (error || !user) return res.status(401).json({ error: 'Invalid token' });
+    // res.json({ user: { id: user.id, email: user.email } });
 
-    // Fetch profile data
-    const { data: profile } = await supabaseAdmin
-      .from('profiles')
-      .select('child_name, parent_email, avatar_url, parent_verified, credits')
-      .eq('id', user.id)
-      .single();
-
-    res.json({
-      user: {
-        id: user.id,
-        email: user.email,
-        childName: profile?.child_name || '',
-        parentEmail: profile?.parent_email || '',
-        avatarUrl: profile?.avatar_url || '',
-        parentVerified: profile?.parent_verified || false,
-        credits: profile?.credits || 0,
-      },
-    });
+    res.json({ user: null, message: 'Placeholder — connect Supabase' });
   } catch (err: any) {
-    console.error('[Auth] Session verify error:', err.message);
     res.status(500).json({ error: 'Session verification failed' });
   }
 });
@@ -143,39 +89,14 @@ authRouter.get('/me', async (req, res) => {
 // ─── Parent Verification (COPPA) ─────────────────────────
 authRouter.post('/parent-verify', async (req, res) => {
   try {
-    const { token, childUserId } = req.body;
+    const { token } = req.body;
 
-    if (!token || !childUserId) {
-      return res.status(400).json({ error: 'Token and child user ID required' });
-    }
+    // TODO: Verify parent consent token
+    // This is called when parent clicks the link in verification email
+    // Activates the child's account
 
-    // Verify the parent consent token
-    // For now, we use a simple approach: token = SHA256(childUserId + secret)
-    // In production, use a proper token system with expiration
-    const crypto = await import('crypto');
-    const secret = process.env.PARENT_VERIFY_SECRET || process.env.SUPABASE_SERVICE_KEY || '';
-    const expectedToken = crypto
-      .createHmac('sha256', secret)
-      .update(`parent_verify_${childUserId}`)
-      .digest('hex');
-
-    if (token !== expectedToken) {
-      return res.status(400).json({ error: 'Invalid verification token' });
-    }
-
-    // Mark child account as parent-verified
-    const { error } = await supabaseAdmin
-      .from('profiles')
-      .update({ parent_verified: true })
-      .eq('id', childUserId);
-
-    if (error) {
-      return res.status(500).json({ error: 'Verification update failed' });
-    }
-
-    res.json({ success: true, message: 'Parent verification complete' });
+    res.json({ success: true, message: 'Parent verification placeholder' });
   } catch (err: any) {
-    console.error('[Auth] Parent verify error:', err.message);
     res.status(500).json({ error: 'Verification failed' });
   }
 });
@@ -183,25 +104,15 @@ authRouter.post('/parent-verify', async (req, res) => {
 // ─── Delete Account (COPPA requirement) ──────────────────
 authRouter.delete('/account', async (req, res) => {
   try {
-    const token = req.headers.authorization?.replace('Bearer ', '');
-    if (!token) return res.status(401).json({ error: 'No token provided' });
+    // TODO [SUPABASE]:
+    // Delete all user data (COPPA requires this)
+    // const userId = req.user.id;
+    // await supabase.from('heroes').delete().eq('user_id', userId);
+    // await supabase.from('stats').delete().eq('user_id', userId);
+    // await supabase.auth.admin.deleteUser(userId);
 
-    const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
-    if (authError || !user) {
-      return res.status(401).json({ error: 'Invalid token' });
-    }
-
-    // Delete user from Supabase Auth (cascades to all related tables via foreign keys)
-    const { error } = await supabaseAdmin.auth.admin.deleteUser(user.id);
-
-    if (error) {
-      console.error('[Auth] Account deletion error:', error.message);
-      return res.status(500).json({ error: 'Account deletion failed' });
-    }
-
-    res.json({ success: true, message: 'Account deleted successfully' });
+    res.json({ success: true, message: 'Account deletion placeholder' });
   } catch (err: any) {
-    console.error('[Auth] Account deletion error:', err.message);
     res.status(500).json({ error: 'Account deletion failed' });
   }
 });

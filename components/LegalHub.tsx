@@ -44,14 +44,29 @@ export default function LegalHub({ lang }: LegalHubProps) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    // Reset after 3 seconds for demo purposes
-    setTimeout(() => {
-        setIsSubmitted(false);
-        setForm({ name: '', surname: '', email: '', phone: '', orderId: '', message: '' });
-    }, 4000);
+    setIsSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, type: 'contact' }),
+      });
+      if (res.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setForm({ name: '', surname: '', email: '', phone: '', orderId: '', message: '' });
+        }, 5000);
+      }
+    } catch (err) {
+      console.error('Contact form error:', err);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const text = {
@@ -160,7 +175,7 @@ export default function LegalHub({ lang }: LegalHubProps) {
 
         {/* Content Area */}
         <div className="lg:col-span-3">
-            <div className="glass-panel p-8 md:p-12 rounded-[3rem] border border-white/10 bg-[#0f1014] relative overflow-hidden min-h-[600px]">
+            <div className="glass-panel p-8 md:p-12 rounded-[3rem] border border-white/10 bg-[#0B0F1A] relative overflow-hidden min-h-[600px]">
                 
                 {/* Background Decoration */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
@@ -430,12 +445,16 @@ export default function LegalHub({ lang }: LegalHubProps) {
                                         </div>
                                     </div>
 
-                                    <button 
-                                        type="submit" 
-                                        className="w-full py-5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl font-[1000] text-white uppercase tracking-widest text-sm shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
+                                    <button
+                                        type="submit"
+                                        disabled={isSending}
+                                        className="w-full py-5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl font-[1000] text-white uppercase tracking-widest text-sm shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50"
                                     >
-                                        <Send size={20} /> {t.form.send}
+                                        <Send size={20} /> {isSending ? (lang === 'el' ? 'ΑΠΟΣΤΟΛΗ...' : 'SENDING...') : t.form.send}
                                     </button>
+                                    <p className="text-center text-white/30 text-xs mt-3">
+                                        📧 {lang === 'el' ? 'Ή στείλε email:' : 'Or email us:'} <a href="mailto:info@wisebot.gr" className="text-blue-400 hover:text-blue-300 underline">info@wisebot.gr</a>
+                                    </p>
                                 </form>
                             )}
                         </motion.div>

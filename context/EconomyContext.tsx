@@ -2,7 +2,6 @@
 import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Zap, Trophy, Star, X, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe } from 'lucide-react';
-import { backendCredits, isBackendAvailable } from '../services/backendApi';
 
 const motion = m as any;
 
@@ -67,16 +66,12 @@ interface EconomyContextType {
   };
   dailyMission: DailyMission;
   streak: number;
-  /** Spend credits — validates server-side first (async), falls back to localStorage offline */
-  spendCredits: (amount: number, action?: string) => Promise<boolean>;
-  /** Earn credits — validates server-side first (async) */
-  earnCredits: (amount: number, action?: string, actionId?: string) => Promise<void>;
+  spendCredits: (amount: number) => boolean;
+  earnCredits: (amount: number) => void;
   trackAction: (action: ActionType) => void;
   showNotification: (emoji: string, title: string, subtitle?: string) => void;
   /** Cloud sync: bulk-update state from Supabase data */
   syncFromCloud: (credits: number, stats: EconomyStats, badges: Badges) => void;
-  /** Refresh credits from server (source of truth) */
-  refreshFromServer: () => Promise<void>;
 }
 
 const EconomyContext = createContext<EconomyContextType | undefined>(undefined);
@@ -458,26 +453,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     business: BASE_COST_BUSINESS,    // 5 credits (~€0.20)
   };
 
-  // 4. ACTIONS (Hybrid: server-first, localStorage fallback)
-
-  const spendCredits = async (amount: number, action?: string): Promise<boolean> => {
-    // Try server-side validation first (source of truth)
-    if (isBackendAvailable() && action) {
-      try {
-        const result = await backendCredits.spend(amount, action);
-        if (result.success) {
-          // Update local cache with server-confirmed balance
-          setCredits(result.remaining);
-          return true;
-        }
-        return false; // Server said insufficient credits
-      } catch (err) {
-        console.warn('[Economy] Server spend failed, falling back to local:', err);
-        // Fall through to local validation
-      }
-    }
-
-    // Fallback: local validation (offline mode)
+  // 4. ACTIONS
+  const spendCredits = (amount: number): boolean => {
     if (credits >= amount) {
       setCredits(prev => prev - amount);
       return true;
@@ -485,39 +462,9 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     return false;
   };
 
-  const earnCredits = async (amount: number, action?: string, actionId?: string): Promise<void> => {
-    // Try server-side first
-    if (isBackendAvailable() && action) {
-      try {
-        const result = await backendCredits.earn(amount, action, actionId);
-        if (result.success && result.newBalance !== undefined) {
-          setCredits(result.newBalance);
-          return;
-        }
-      } catch (err) {
-        console.warn('[Economy] Server earn failed, falling back to local:', err);
-      }
-    }
-
-    // Fallback: local update
+  const earnCredits = (amount: number) => {
     setCredits(prev => prev + amount);
   };
-
-  // Refresh credits from server (call after login or when syncing)
-  const refreshFromServer = useCallback(async () => {
-    if (!isBackendAvailable()) return;
-    try {
-      const serverStats = await backendCredits.getStats();
-      if (serverStats) {
-        setCredits(serverStats.credits);
-        // Update badges from server
-        const serverBadges = serverStats.badges as unknown as Badges;
-        if (serverBadges) setBadges(prev => ({ ...prev, ...serverBadges }));
-      }
-    } catch (err) {
-      console.warn('[Economy] Server refresh failed:', err);
-    }
-  }, []);
 
   // General-purpose notification (replaces alert() across the app)
   const showNotification = useCallback((emoji: string, title: string, subtitle?: string) => {
@@ -531,20 +478,20 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setBadges({ ...DEFAULT_BADGES, ...newBadges });
   }, []);
 
-  const completeDailyMission = async (action: string) => {
+  const completeDailyMission = (action: string) => {
     if (dailyMission.completed) return;
     const missionDef = MISSION_POOL[dailyMission.id];
     if (missionDef && missionDef.action === action) {
       const updated = { ...dailyMission, completed: true };
       setDailyMission(updated);
       localStorage.setItem('wb_daily_mission', JSON.stringify(updated));
-      const reward = badges.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD;
-      await earnCredits(reward, badges.explorer ? 'DAILY_MISSION_EXPLORER' : 'DAILY_MISSION');
+      const reward = badges.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD; // 5 or 7 with explorer badge
+      earnCredits(reward);
       // Update streak
       const newStreak = updateStreak();
       setStreak(newStreak);
       const streakBonus = newStreak >= 7 ? 3 : newStreak >= 3 ? 1 : 0;
-      if (streakBonus > 0) await earnCredits(streakBonus, newStreak >= 7 ? 'STREAK_BONUS_7' : 'STREAK_BONUS_3');
+      if (streakBonus > 0) earnCredits(streakBonus);
       setTimeout(() => {
         const streakMsg = newStreak > 1 ? ` (${newStreak} streak!)` : '';
         showReward('🎯', 'DAILY MISSION COMPLETE!', `+${reward + streakBonus} Credits${streakMsg}`, 'achievement');
@@ -557,13 +504,6 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // because React StrictMode calls state updater functions twice in development.
   const trackAction = (action: ActionType) => {
     completeDailyMission(action);
-
-    // Track action on server for stat updates + badge checking
-    if (isBackendAvailable()) {
-      backendCredits.trackAction(action).catch(err =>
-        console.warn('[Economy] Server track failed:', err)
-      );
-    }
 
     // 1) Compute new stats & badges from current state (pure computation)
     const newStats = { ...stats };
@@ -665,7 +605,7 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (badgeUnlocked) setBadges(newBadges);
 
     // 3) Side effects: credits & notifications (run once, outside updater)
-    if (creditReward > 0) earnCredits(creditReward, action);
+    if (creditReward > 0) earnCredits(creditReward);
     if (rewardTitle && !badgeUnlocked) {
       showReward(rewardEmoji, rewardTitle, rewardSubtitle, 'credit');
     } else if (rewardTitle && badgeUnlocked) {
@@ -679,7 +619,7 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   };
 
   return (
-    <EconomyContext.Provider value={{ credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud, refreshFromServer }}>
+    <EconomyContext.Provider value={{ credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud }}>
       {children}
 
       {/* ─── REWARD TOAST NOTIFICATIONS ─── */}

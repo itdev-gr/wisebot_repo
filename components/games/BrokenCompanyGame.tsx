@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { 
   Users, DollarSign, AlertTriangle, 
@@ -60,6 +60,7 @@ interface BrokenCompanyGameProps {
 
 export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGameProps) {
   const { earnCredits } = useEconomy();
+  const creditsAwardedRef = useRef(false);
 
   // --- STATE ---
   const [phase, setPhase] = useState<'SETUP' | 'GAME' | 'EVENT' | 'GAMEOVER' | 'VICTORY'>('SETUP');
@@ -229,7 +230,10 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
     // Check Victory
     if (turn >= MAX_TURNS) {
       setPhase('VICTORY');
-      earnCredits(20);
+      if (!creditsAwardedRef.current) {
+        creditsAwardedRef.current = true;
+        earnCredits(20);
+      }
       return;
     }
 
@@ -253,7 +257,7 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
 
   if (phase === 'SETUP') {
     return (
-      <div className="h-full flex flex-col items-center justify-center p-6 animate-in fade-in bg-[#0f1014]">
+      <div className="h-full flex flex-col items-center justify-center p-6 animate-in fade-in bg-[#0B0F1A]">
         <button onClick={onBack} className="absolute top-4 right-4 text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg">
            {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
         </button>
@@ -309,7 +313,7 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
 
   if (phase === 'GAMEOVER' || phase === 'VICTORY') {
     return (
-      <div className="h-full flex flex-col items-center justify-center p-6 text-center animate-in zoom-in bg-[#0f1014]">
+      <div className="h-full flex flex-col items-center justify-center p-6 text-center animate-in zoom-in bg-[#0B0F1A]">
         <div className={`w-32 h-32 rounded-full flex items-center justify-center mb-8 shadow-2xl ${phase === 'VICTORY' ? 'bg-emerald-500' : 'bg-red-500'}`}>
            {phase === 'VICTORY' ? <Trophy size={64} className="text-white" /> : <Ghost size={64} className="text-white" />}
         </div>

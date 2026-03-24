@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import {
   Shield, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe,
   Zap, BookOpen, Image as ImageIcon, Trophy, Briefcase, BarChart3, Clock, Target,
-  ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame, Mail, KeyRound, Loader2
+  ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame
 } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
-import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 
 interface ParentDashboardProps {
   lang: 'el' | 'en';
@@ -15,15 +14,11 @@ interface ParentDashboardProps {
 export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const { credits, badges, stats, streak } = useEconomy();
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [parentEmail, setParentEmail] = useState('');
-  const [parentPassword, setParentPassword] = useState('');
-  const [authError, setAuthError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  // Fallback PIN for when Supabase is not configured
-  const PARENT_PIN = (import.meta as any).env?.VITE_PARENT_PIN || '1821';
   const [pin, setPin] = useState('');
-  const useEmailAuth = isSupabaseConfigured();
+
+  // TODO [BACKEND]: Replace PIN gate with Supabase parent auth
+  // PIN loaded from environment variable — set VITE_PARENT_PIN in .env or Vercel
+  const PARENT_PIN = (import.meta as any).env?.VITE_PARENT_PIN || '1821';
 
   const t = lang === 'el' ? {
     title: 'ΓΟΝΕΪΚΟΣ ΠΙΝΑΚΑΣ',
@@ -117,119 +112,49 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     { icon: Store, label: t.uploads, value: stats.heroesUploaded, color: 'text-violet-400' },
   ];
 
-  // Parent login handler (Supabase email/password)
-  const handleParentLogin = async () => {
-    if (!parentEmail || !parentPassword) return;
-    setIsLoading(true);
-    setAuthError('');
-
-    try {
-      // Sign in as parent via Supabase Auth
-      const { error } = await supabase.auth.signInWithPassword({
-        email: parentEmail,
-        password: parentPassword,
-      });
-
-      if (error) {
-        setAuthError(lang === 'el' ? 'Λάθος email ή κωδικός' : 'Wrong email or password');
-      } else {
-        setIsUnlocked(true);
-      }
-    } catch {
-      setAuthError(lang === 'el' ? 'Σφάλμα σύνδεσης' : 'Connection error');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Auth Gate
+  // PIN Gate
   if (!isUnlocked) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center px-4">
+      <div className="min-h-[60vh] flex items-center justify-center">
         <div className="w-full max-w-sm bg-[#0B0F1A]/80 border border-white/10 rounded-3xl p-10 text-center backdrop-blur-xl">
           <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-blue-500/30">
             <Shield size={32} className="text-blue-400" />
           </div>
           <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-2">{t.pinTitle}</h2>
           <p className="text-white/50 text-sm mb-6">{t.pinDesc}</p>
-
-          {useEmailAuth ? (
-            /* Supabase email/password auth */
-            <div className="space-y-4">
-              <div className="relative">
-                <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
-                <input
-                  type="email"
-                  value={parentEmail}
-                  onChange={e => setParentEmail(e.target.value)}
-                  placeholder={lang === 'el' ? 'Email γονέα' : 'Parent email'}
-                  className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/30 text-sm focus:border-blue-500/50 focus:outline-none transition-colors"
-                  onKeyDown={e => e.key === 'Enter' && handleParentLogin()}
-                />
+          <div className="flex justify-center gap-2 mb-6">
+            {[0, 1, 2, 3].map(i => (
+              <div key={i} className={`w-12 h-12 rounded-xl border-2 flex items-center justify-center text-2xl font-black ${
+                pin.length > i ? 'border-blue-500 bg-blue-500/20 text-blue-300' : 'border-white/10 bg-white/5 text-white/20'
+              }`}>
+                {pin[i] || '•'}
               </div>
-              <div className="relative">
-                <KeyRound size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
-                <input
-                  type="password"
-                  value={parentPassword}
-                  onChange={e => setParentPassword(e.target.value)}
-                  placeholder={lang === 'el' ? 'Κωδικός' : 'Password'}
-                  className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/30 text-sm focus:border-blue-500/50 focus:outline-none transition-colors"
-                  onKeyDown={e => e.key === 'Enter' && handleParentLogin()}
-                />
-              </div>
-              {authError && (
-                <p className="text-red-400 text-xs font-bold flex items-center justify-center gap-1">
-                  <AlertCircle size={12} /> {authError}
-                </p>
-              )}
-              <button
-                onClick={handleParentLogin}
-                disabled={isLoading || !parentEmail || !parentPassword}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black uppercase tracking-wider text-sm hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {isLoading ? <Loader2 size={16} className="animate-spin" /> : <Unlock size={16} />}
-                {t.pinBtn}
-              </button>
-            </div>
-          ) : (
-            /* Fallback: PIN auth (for local dev without Supabase) */
-            <>
-              <div className="flex justify-center gap-2 mb-6">
-                {[0, 1, 2, 3].map(i => (
-                  <div key={i} className={`w-12 h-12 rounded-xl border-2 flex items-center justify-center text-2xl font-black ${
-                    pin.length > i ? 'border-blue-500 bg-blue-500/20 text-blue-300' : 'border-white/10 bg-white/5 text-white/20'
-                  }`}>
-                    {pin[i] || '•'}
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-3 gap-2 mb-4">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, null, 0, 'del'].map((key, i) => {
-                  if (key === null) return <div key={i} />;
-                  return (
-                    <button
-                      key={i}
-                      onClick={() => {
-                        if (key === 'del') setPin(p => p.slice(0, -1));
-                        else if (pin.length < 4) {
-                          const newPin = pin + key;
-                          setPin(newPin);
-                          if (newPin.length === 4) {
-                            if (newPin === PARENT_PIN) setIsUnlocked(true);
-                            else setTimeout(() => setPin(''), 500);
-                          }
-                        }
-                      }}
-                      className="h-12 rounded-xl bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/10 text-white font-black text-lg transition-all"
-                    >
-                      {key === 'del' ? '←' : key}
-                    </button>
-                  );
-                })}
-              </div>
-            </>
-          )}
+            ))}
+          </div>
+          <div className="grid grid-cols-3 gap-2 mb-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, null, 0, 'del'].map((key, i) => {
+              if (key === null) return <div key={i} />;
+              return (
+                <button
+                  key={i}
+                  onClick={() => {
+                    if (key === 'del') setPin(p => p.slice(0, -1));
+                    else if (pin.length < 4) {
+                      const newPin = pin + key;
+                      setPin(newPin);
+                      if (newPin.length === 4) {
+                        if (newPin === PARENT_PIN) setIsUnlocked(true);
+                        else setTimeout(() => setPin(''), 500);
+                      }
+                    }
+                  }}
+                  className="h-12 rounded-xl bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/10 text-white font-black text-lg transition-all"
+                >
+                  {key === 'del' ? '←' : key}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

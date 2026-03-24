@@ -4,7 +4,7 @@ import { Character } from './types';
 // --- Translation Dictionary (Moved from App.tsx) ---
 export const UI_TEXT = {
   el: {
-    menu: { home: 'Αρχική', dashboard: 'Κέντρο Ελέγχου', academy: 'Ακαδημία', factory: 'Εργαστήριο Ηρώων', factory3d: '3D Εργοστάσιο', market: 'Αγορά Ηρώων', music: 'Στούντιο Μουσικής', business: 'Η Εταιρεία Μου', wiseFriends: 'Wise & Φίλοι', quiz: 'Κουίζ & Δώρα', ebooks: 'Βιβλιοθήκη', game: 'Παιχνίδια', cinema: 'Κινηματογράφος', admin: 'Πίνακας Ελέγχου', account: 'Λογαριασμός', logout: 'Αποσύνδεση' },
+    menu: { home: 'Αρχική', dashboard: 'Κέντρο Ελέγχου', academy: 'Ακαδημία', factory: 'Εργαστήριο Ηρώων', factory3d: '3D Εργοστάσιο', market: 'Αγορά Ηρώων', music: 'Στούντιο Μουσικής', business: 'Η Εταιρεία Μου', wiseFriends: 'Wise & Φίλοι', quiz: 'Κουίζ & Δώρα', ebooks: 'Βιβλιοθήκη', game: 'Παιχνίδια', cinema: 'Κινηματογράφος', store: 'Credit Store', parent: 'Γονεϊκός Πίνακας', admin: 'Πίνακας Ελέγχου', account: 'Λογαριασμός', logout: 'Αποσύνδεση' },
     dashboard: {
       welcome: 'Στρατηγείο',
       subtitle: 'Το δάσος της γνώσης σε περιμένει.',
@@ -63,8 +63,8 @@ export const UI_TEXT = {
     quiz: { title: 'Ζώνη Κουίζ 🧠', subtitle: 'Προκάλεσε τον εαυτό σου και κέρδισε XP!', placeholder: 'π.χ. Διάστημα...', startBtn: 'ΞΕΚΙΝΑ ΤΩΡΑ!' }
   },
   en: {
-    menu: { home: 'Home', dashboard: 'Dashboard', academy: 'Academy', factory: 'Hero Factory', factory3d: '3D Factory', market: 'Hero Market', music: 'Music Studio', business: 'My Business', wiseFriends: 'Wise & Friends', quiz: 'Quiz Zone', ebooks: 'Ebooks', game: 'Wise Games', cinema: 'Cinema', admin: 'Admin Panel', account: 'Account', logout: 'Logout' },
-    dashboard: { 
+    menu: { home: 'Home', dashboard: 'Dashboard', academy: 'Academy', factory: 'Hero Factory', factory3d: '3D Factory', market: 'Hero Market', music: 'Music Studio', business: 'My Business', wiseFriends: 'Wise & Friends', quiz: 'Quiz Zone', ebooks: 'Ebooks', game: 'Wise Games', cinema: 'Cinema', store: 'Credit Store', parent: 'Parent Dashboard', admin: 'Admin Panel', account: 'Account', logout: 'Logout' },
+    dashboard: {
       welcome: 'Headquarters', 
       subtitle: 'The forest of knowledge awaits you.', 
       rank: 'Rank: Master Creator',
@@ -132,7 +132,7 @@ const CROCUS_HD = "/images/crocus.jpg";
 const SPARKEN_HD = "/images/sparken.jpg";
 
 // MASTER LEVEL USER AVATAR
-export const USER_GROUP_PHOTO = "/images/eksofilo.png";
+export const USER_GROUP_PHOTO = "/images/eksofilo.webp";
 
 export const HEROES = [
   {

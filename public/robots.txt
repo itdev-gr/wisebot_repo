@@ -1,0 +1,11 @@
+# WiseBot Academy - robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin
+
+# Sitemap
+Sitemap: https://wisebot.gr/sitemap.xml
+
+# Crawl delay (be nice)
+Crawl-delay: 1

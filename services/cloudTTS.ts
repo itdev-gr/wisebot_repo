@@ -12,8 +12,10 @@
  *   4. Falls back to Web Speech API if all else fails
  */
 
-import { backendAI } from './backendApi';
+import { GoogleGenAI } from "./geminiProxy";
 import { base64ToUint8Array } from "../utils/audioUtils";
+
+const getAI = () => new GoogleGenAI();
 
 // ─── Voice Presets ──────────────────────────────────────────────
 export const TTS_VOICES = {
@@ -221,31 +223,48 @@ export async function generateSpeech(
     return blobUrl;
   }
 
-  // 3️⃣ Generate via backend TTS proxy (one-time cost)
-  const result = await backendAI.tts(text, voiceName);
+  // 3️⃣ Generate via Gemini API (one-time cost)
+  const ai = getAI();
 
-  if (result.audio) {
-    const audioBytes = base64ToUint8Array(result.audio);
-    const mimeType = result.mimeType || '';
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash-preview-tts',
+    contents: text,
+    config: {
+      responseModalities: ['AUDIO'],
+      speechConfig: {
+        voiceConfig: {
+          prebuiltVoiceConfig: { voiceName },
+        },
+      },
+    },
+  });
 
-    let blob: Blob;
-    if (mimeType.includes('wav') || mimeType.includes('mp3') || mimeType.includes('ogg')) {
-      blob = new Blob([audioBytes], { type: mimeType });
-    } else {
-      const rateMatch = mimeType.match(/rate=(\d+)/);
-      const sampleRate = rateMatch ? parseInt(rateMatch[1]) : 24000;
-      blob = pcmToWav(audioBytes, sampleRate);
+  if (response.candidates?.[0]?.content?.parts) {
+    for (const part of response.candidates[0].content.parts) {
+      if (part.inlineData?.data) {
+        const audioBytes = base64ToUint8Array(part.inlineData.data);
+        const mimeType = part.inlineData.mimeType || '';
+
+        let blob: Blob;
+        if (mimeType.includes('wav') || mimeType.includes('mp3') || mimeType.includes('ogg')) {
+          blob = new Blob([audioBytes], { type: mimeType });
+        } else {
+          const rateMatch = mimeType.match(/rate=(\d+)/);
+          const sampleRate = rateMatch ? parseInt(rateMatch[1]) : 24000;
+          blob = pcmToWav(audioBytes, sampleRate);
+        }
+
+        // Save to IndexedDB (persistent — never need to generate again!)
+        await saveToDB(key, blob);
+
+        const blobUrl = URL.createObjectURL(blob);
+        memCacheSet(key, blobUrl);
+        return blobUrl;
+      }
     }
-
-    // Save to IndexedDB (persistent — never need to generate again!)
-    await saveToDB(key, blob);
-
-    const blobUrl = URL.createObjectURL(blob);
-    memCacheSet(key, blobUrl);
-    return blobUrl;
   }
 
-  throw new Error('TTS returned no audio data');
+  throw new Error('Gemini TTS returned no audio data');
 }
 
 // ═══════════════════════════════════════════════════════════════

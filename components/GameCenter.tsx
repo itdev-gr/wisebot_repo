@@ -1,17 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid } from 'lucide-react';
-import NebulaCatch from './games/NebulaCatch';
-import DifferenceFinder from './games/DifferenceFinder';
-import HeroSlingshot from './games/HeroSlingshot';
-import BallRush from './games/BallRush';
-import HeroFusion from './games/HeroFusion';
-import WisebotPuzzle from './games/WisebotPuzzle';
-import BrokenCompanyGame from './games/BrokenCompanyGame';
-import SkyMetropolis from './games/SkyMetropolis';
-import TacticalFootball from './games/TacticalFootball';
-import WiseCards from './games/WiseCards';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette } from 'lucide-react';
+
+// ─── Lazy-loaded games (each becomes its own chunk) ────────────
+const NebulaCatch = React.lazy(() => import('./games/NebulaCatch'));
+const DifferenceFinder = React.lazy(() => import('./games/DifferenceFinder'));
+const HeroSlingshot = React.lazy(() => import('./games/HeroSlingshot'));
+const BallRush = React.lazy(() => import('./games/BallRush'));
+const HeroFusion = React.lazy(() => import('./games/HeroFusion'));
+const WisebotPuzzle = React.lazy(() => import('./games/WisebotPuzzle'));
+const BrokenCompanyGame = React.lazy(() => import('./games/BrokenCompanyGame'));
+const SkyMetropolis = React.lazy(() => import('./games/SkyMetropolis'));
+const TacticalFootball = React.lazy(() => import('./games/TacticalFootball'));
+const WiseCards = React.lazy(() => import('./games/WiseCards'));
+const GeometryDash = React.lazy(() => import('./games/GeometryDash'));
+const EndlessRunner = React.lazy(() => import('./games/EndlessRunner'));
+const TowerDefense = React.lazy(() => import('./games/TowerDefense'));
+const WizardDuel = React.lazy(() => import('./games/WizardDuel'));
+const DungeonExplorer = React.lazy(() => import('./games/DungeonExplorer'));
+const ArtBattle = React.lazy(() => import('./games/ArtBattle'));
+
+const GameLoader = () => (
+  <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
+    <Loader2 size={48} className="text-blue-500 animate-spin" />
+    <p className="text-white/50 font-black text-sm uppercase tracking-widest animate-pulse">LOADING GAME...</p>
+  </div>
+);
 
 const motion = m as any;
 
@@ -20,7 +35,7 @@ interface GameCenterProps {
 }
 
 export default function GameCenter({ lang }: GameCenterProps) {
-  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards'>('menu');
+  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle'>('menu');
 
   const t = {
     title: lang === 'el' ? 'ΠΑΙΧΝΙΔΙΑ' : 'GAMES',
@@ -35,6 +50,12 @@ export default function GameCenter({ lang }: GameCenterProps) {
     sky: { title: 'SKY CITY', desc: lang === 'el' ? 'Χτίσε πόλη!' : 'Build a city!' },
     football: { title: 'NEON TACTICS', desc: lang === 'el' ? 'Ποδόσφαιρο!' : 'Football!' },
     cards: { title: 'WISE CARDS', desc: lang === 'el' ? 'Μνήμη (2P).' : 'Memory (2P).' },
+    geodash: { title: 'GEOMETRY DASH', desc: lang === 'el' ? 'Πήδα & επιβίωσε!' : 'Jump & survive!' },
+    runner: { title: 'ENDLESS RUNNER', desc: lang === 'el' ? 'Τρέξε ατελείωτα!' : 'Run forever!' },
+    tower: { title: 'TOWER DEFENSE', desc: lang === 'el' ? 'Υπεράσπισε τη βάση!' : 'Defend the base!' },
+    wizard: { title: 'WIZARD DUEL', desc: lang === 'el' ? 'Μαγικές μάχες!' : 'Magic battles!' },
+    dungeon: { title: 'DUNGEON', desc: lang === 'el' ? 'Εξερεύνησε!' : 'Explore!' },
+    artbattle: { title: 'AI ART BATTLE', desc: lang === 'el' ? 'Δημιούργησε AI τέχνη!' : 'Create AI art!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -56,26 +77,106 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'sky': return <SkyMetropolis lang={lang} onBack={handleBack} />;
         case 'football': return <TacticalFootball lang={lang} onBack={handleBack} />;
         case 'cards': return <WiseCards lang={lang} onBack={handleBack} />;
+        case 'geodash': return <GeometryDash lang={lang} onBack={handleBack} />;
+        case 'runner': return <EndlessRunner lang={lang} onBack={handleBack} />;
+        case 'tower': return <TowerDefense lang={lang} onBack={handleBack} />;
+        case 'wizard': return <WizardDuel lang={lang} onBack={handleBack} />;
+        case 'dungeon': return <DungeonExplorer lang={lang} onBack={handleBack} />;
+        case 'artbattle': return <ArtBattle lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
 
     return (
-      <div className="fixed inset-0 z-[9999] bg-[#0a0a0f] flex flex-col overflow-hidden">
+      <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none">
-          <img src="/images/paidia-kai-wisebot.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.04]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f]" />
+          <img src="/images/paidia-kai-wisebot.webp" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.04]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F1A] via-transparent to-[#0B0F1A]" />
         </div>
-        <div className="relative flex-1 flex flex-col overflow-hidden">
-          {gameComponent}
-        </div>
+        <Suspense fallback={<GameLoader />}>
+          <div className="relative flex-1 flex flex-col overflow-hidden">
+            {gameComponent}
+          </div>
+        </Suspense>
       </div>
     );
   }
 
   // GAME DATA with static Tailwind classes and thumbnails
   const games = [
+    {
+      key: 'wizard' as const, icon: Wand2, featured: true,
+      thumbnail: '/images/wisebot.jpg',
+      category: lang === 'el' ? 'ΕΚΠΑΙΔΕΥΤΙΚΟ' : 'EDUCATIONAL',
+      cardBg: 'bg-gradient-to-br from-purple-950/90 to-fuchsia-950/90',
+      borderColor: 'border-purple-500/30 hover:border-purple-400/60',
+      iconBg: 'bg-purple-500/20 border-purple-500/30',
+      iconColor: 'text-purple-400',
+      hoverShadow: 'hover:shadow-purple-500/20',
+      playBg: 'group-hover:bg-purple-500',
+      tagBg: 'bg-purple-500/20 text-purple-300',
+    },
+    {
+      key: 'artbattle' as const, icon: Palette, featured: true,
+      thumbnail: '/images/pencilo.jpg',
+      category: 'AI ART',
+      cardBg: 'bg-gradient-to-br from-fuchsia-950/90 to-pink-950/90',
+      borderColor: 'border-fuchsia-500/30 hover:border-fuchsia-400/60',
+      iconBg: 'bg-fuchsia-500/20 border-fuchsia-500/30',
+      iconColor: 'text-fuchsia-400',
+      hoverShadow: 'hover:shadow-fuchsia-500/20',
+      playBg: 'group-hover:bg-fuchsia-500',
+      tagBg: 'bg-fuchsia-500/20 text-fuchsia-300',
+    },
+    {
+      key: 'dungeon' as const, icon: Map,
+      thumbnail: '/images/link.jpg',
+      category: 'ROGUELIKE',
+      cardBg: 'bg-gradient-to-br from-emerald-950/90 to-teal-950/90',
+      borderColor: 'border-emerald-500/30 hover:border-emerald-400/60',
+      iconBg: 'bg-emerald-500/20 border-emerald-500/30',
+      iconColor: 'text-emerald-400',
+      hoverShadow: 'hover:shadow-emerald-500/20',
+      playBg: 'group-hover:bg-emerald-500',
+      tagBg: 'bg-emerald-500/20 text-emerald-300',
+    },
+    {
+      key: 'geodash' as const, icon: Zap, featured: true,
+      thumbnail: '/images/crocus.jpg',
+      category: 'ARCADE',
+      cardBg: 'bg-gradient-to-br from-cyan-950/90 to-blue-950/90',
+      borderColor: 'border-cyan-500/30 hover:border-cyan-400/60',
+      iconBg: 'bg-cyan-500/20 border-cyan-500/30',
+      iconColor: 'text-cyan-400',
+      hoverShadow: 'hover:shadow-cyan-500/20',
+      playBg: 'group-hover:bg-cyan-500',
+      tagBg: 'bg-cyan-500/20 text-cyan-300',
+    },
+    {
+      key: 'runner' as const, icon: PersonStanding,
+      thumbnail: '/images/sparken.jpg',
+      category: 'ARCADE',
+      cardBg: 'bg-gradient-to-br from-violet-950/90 to-purple-950/90',
+      borderColor: 'border-violet-500/30 hover:border-violet-400/60',
+      iconBg: 'bg-violet-500/20 border-violet-500/30',
+      iconColor: 'text-violet-400',
+      hoverShadow: 'hover:shadow-violet-500/20',
+      playBg: 'group-hover:bg-violet-500',
+      tagBg: 'bg-violet-500/20 text-violet-300',
+    },
+    {
+      key: 'tower' as const, icon: Shield,
+      thumbnail: '/images/link.jpg',
+      category: lang === 'el' ? 'ΣΤΡΑΤΗΓΙΚΗ' : 'STRATEGY',
+      cardBg: 'bg-gradient-to-br from-emerald-950/90 to-green-950/90',
+      borderColor: 'border-emerald-500/30 hover:border-emerald-400/60',
+      iconBg: 'bg-emerald-500/20 border-emerald-500/30',
+      iconColor: 'text-emerald-400',
+      hoverShadow: 'hover:shadow-emerald-500/20',
+      playBg: 'group-hover:bg-emerald-500',
+      tagBg: 'bg-emerald-500/20 text-emerald-300',
+    },
     {
       key: 'cards' as const, icon: Grid, featured: true,
       thumbnail: '/images/wisebot.jpg',

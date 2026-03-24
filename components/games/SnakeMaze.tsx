@@ -15,7 +15,8 @@ const MIN_SPEED = 80;
 
 export default function SnakeMaze({ lang, onBack }: SnakeMazeProps) {
   const { earnCredits } = useEconomy();
-  
+  const creditsAwardedRef = useRef(false);
+
   // Game State
   const [isPlaying, setIsPlaying] = useState(false);
   const [gameOver, setGameOver] = useState(false);
@@ -71,7 +72,10 @@ export default function SnakeMaze({ lang, onBack }: SnakeMazeProps) {
     setGameOver(true);
     if (gameLoopRef.current) clearInterval(gameLoopRef.current);
     if (score > highScore) setHighScore(score);
-    if (score > 50) earnCredits(5); // Reward for good play
+    if (score > 50 && !creditsAwardedRef.current) {
+      creditsAwardedRef.current = true;
+      earnCredits(5);
+    }
   };
 
   const changeDirection = (newDir: string) => {
@@ -211,7 +215,7 @@ export default function SnakeMaze({ lang, onBack }: SnakeMazeProps) {
       <div 
         className="fixed inset-0 z-0 bg-cover bg-center"
         style={{ 
-            backgroundImage: "url('/images/eksofilo.png')",
+            backgroundImage: "url('/images/eksofilo.webp')",
             filter: "brightness(0.4) contrast(1.2)"
         }}
       ></div>
@@ -238,7 +242,7 @@ export default function SnakeMaze({ lang, onBack }: SnakeMazeProps) {
       {/* GAME AREA */}
       <div className="flex-1 min-h-0 flex flex-col items-center justify-center relative z-10 w-full px-2">
 
-         <div className="relative bg-[#0f1014]/90 border-2 border-emerald-500/30 rounded-xl shadow-2xl p-1 w-full max-w-md aspect-square backdrop-blur-sm overflow-hidden">
+         <div className="relative bg-[#0B0F1A]/90 border-2 border-emerald-500/30 rounded-xl shadow-2xl p-1 w-full max-w-md aspect-square backdrop-blur-sm overflow-hidden">
             {/* GRID */}
             <div 
                 className="grid w-full h-full" 

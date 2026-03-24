@@ -38,13 +38,17 @@ import {
   ArrowLeft,
   Briefcase,
   Volume2,
-  VolumeX
+  VolumeX,
+  FlaskConical,
+  Coins,
+  Shield
 } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { UI_TEXT } from '../constants'; 
 import { USER_GROUP_PHOTO } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
-import WiseBotChat from './WiseBotChat'; // Import Chat Component
+const WiseBotChat = React.lazy(() => import('./WiseBotChat')); // Lazy load Chat (pulls in genai SDK)
+const PWAInstallPrompt = React.lazy(() => import('./PWAInstallPrompt'));
 
 const motion = m as any;
 
@@ -71,7 +75,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   const [isChatOpen, setIsChatOpen] = useState(false);
   
   // ECONOMY DATA
-  const { credits, badges } = useEconomy();
+  const { credits, badges, stats } = useEconomy();
 
   // BACKGROUND MUSIC
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -94,64 +98,72 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   const t = UI_TEXT[lang];
 
   // --- PROGRESSION LOGIC ---
-  const isEbooksUnlocked = true; 
-  const isFactoryUnlocked = true; 
-  const isCinemaUnlocked = true; 
-  const is3DUnlocked = true; // Unlocked for everyone
-  const isFriendsUnlocked = true; 
+  // Safe access with fallbacks to prevent crashes
+  const s = stats || {};
+  const b = badges || {};
+  const isQuizUnlocked = (s.lessonsRead || 0) >= 2 || (s.booksRead || 0) >= 1;
+  const isMusicUnlocked = (s.lessonsRead || 0) >= 1;
+  const isFactoryUnlocked = (s.lessonsRead || 0) >= 3 || (s.booksRead || 0) >= 2;
+  const isCinemaUnlocked = (s.imagesCreated || 0) >= 1;
+  const isMarketUnlocked = (s.imagesCreated || 0) >= 1;
+  const isBusinessUnlocked = (s.lessonsRead || 0) >= 2;
+  const is3DUnlocked = !!b.creator;
+  const isEbooksUnlocked = true;
+  const isFriendsUnlocked = true;
+  const isGamesUnlocked = (s.booksRead || 0) >= 1 || (s.quizzesPassed || 0) >= 1;
 
   // --- CINEMATIC RANK SYSTEM ---
   const unlockedBadgeCount = Object.values(badges).filter(Boolean).length;
-  const totalBadges = 5;
+  const totalBadges = 8;
   const progressPercent = (unlockedBadgeCount / totalBadges) * 100;
   
   // Rank Definitions with Blue/Cyber Cinematic Colors & Localization
   const getRankInfo = (count: number, currentLang: 'el' | 'en') => {
-    if (count === 5) return { 
-      title: 'LEGEND', 
-      gradient: 'from-amber-300 via-yellow-500 to-amber-700', 
-      glow: 'shadow-amber-500/50', 
+    if (count >= 8) return {
+      title: 'LEGEND',
+      gradient: 'from-amber-300 via-yellow-500 to-amber-700',
+      glow: 'shadow-amber-500/50',
       textGlow: 'drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]',
       icon: Crown,
       sub: currentLang === 'el' ? 'Ο Απόλυτος Δημιουργός' : 'The Ultimate Creator'
     };
-    if (count === 4) return { 
-      title: 'GRANDMASTER', 
-      gradient: 'from-fuchsia-500 via-purple-600 to-indigo-800', 
-      glow: 'shadow-purple-500/50', 
+    if (count >= 6) return {
+      title: 'GRANDMASTER',
+      gradient: 'from-fuchsia-500 via-purple-600 to-indigo-800',
+      glow: 'shadow-purple-500/50',
       textGlow: 'drop-shadow-[0_0_15px_rgba(168,85,247,0.8)]',
       icon: Star,
       sub: currentLang === 'el' ? 'Κυρίαρχος της Γνώσης' : 'Master of Wisdom'
     };
-    if (count === 3) return { 
-      title: 'MASTER', 
-      gradient: 'from-cyan-400 via-blue-500 to-blue-800', 
-      glow: 'shadow-blue-500/50', 
+    if (count >= 4) return {
+      title: 'MASTER',
+      gradient: 'from-cyan-400 via-blue-500 to-blue-800',
+      glow: 'shadow-blue-500/50',
       textGlow: 'drop-shadow-[0_0_15px_rgba(59,130,246,0.8)]',
       icon: Trophy,
       sub: currentLang === 'el' ? 'Έμπειρος Δημιουργός' : 'Skilled Creator'
     };
-    if (count === 2) return { 
-      title: 'CREATOR', 
-      gradient: 'from-emerald-400 via-green-500 to-teal-800', 
-      glow: 'shadow-emerald-500/50', 
+    if (count >= 2) return {
+      title: 'CREATOR',
+      gradient: 'from-emerald-400 via-green-500 to-teal-800',
+      glow: 'shadow-emerald-500/50',
       textGlow: 'drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]',
       icon: Wand2,
       sub: currentLang === 'el' ? 'Ανερχόμενο Ταλέντο' : 'Rising Talent'
     };
-    if (count === 1) return { 
-      title: 'EXPLORER', 
-      gradient: 'from-sky-300 via-sky-400 to-blue-600', 
-      glow: 'shadow-sky-500/50', 
+    if (count === 1) return {
+      title: 'EXPLORER',
+      gradient: 'from-sky-300 via-sky-400 to-blue-600',
+      glow: 'shadow-sky-500/50',
       textGlow: 'drop-shadow-[0_0_10px_rgba(56,189,248,0.8)]',
       icon: BookOpen,
       sub: currentLang === 'el' ? 'Εξερευνητής' : 'Explorer'
     };
     // BASE RANK - WISEKID (Blue Theme)
-    return { 
-      title: 'WISEKID', 
-      gradient: 'from-blue-400 via-indigo-500 to-purple-600', 
-      glow: 'shadow-blue-500/30', 
+    return {
+      title: 'WISEKID',
+      gradient: 'from-blue-400 via-indigo-500 to-purple-600',
+      glow: 'shadow-blue-500/30',
       textGlow: 'drop-shadow-[0_0_10px_rgba(96,165,250,0.8)]',
       icon: Rocket,
       sub: currentLang === 'el' ? 'Μελλοντικός Ήρωας' : 'Future Hero'
@@ -159,25 +171,26 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   };
 
   const currentRank = getRankInfo(unlockedBadgeCount, lang);
-  const nextRank = getRankInfo(Math.min(unlockedBadgeCount + 1, 5), lang);
+  const nextRank = getRankInfo(Math.min(unlockedBadgeCount + 1, 8), lang);
 
   // Updated Navigation: Home added back at the top
   const navItems = [
     { icon: <Home size={24} />, label: t.menu.home, path: "/", locked: false },
     { icon: <ShieldCheck size={24} />, label: t.menu.dashboard, path: "/dashboard", locked: false },
     { icon: <PlayCircle size={24} />, label: t.menu.academy, path: "/academy", locked: false },
-    { icon: <Book size={24} />, label: t.menu.ebooks, path: "/ebooks", locked: !isEbooksUnlocked },
-    { icon: <Gamepad2 size={24} />, label: t.menu.game, path: "/game", locked: false }, 
+    { icon: <Book size={24} />, label: t.menu.ebooks, path: "/ebooks", locked: false },
+    { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: !isQuizUnlocked },
     { icon: <Wand2 size={24} />, label: t.menu.factory, path: "/factory", locked: !isFactoryUnlocked },
+    { icon: <Gamepad2 size={24} />, label: t.menu.game, path: "/game", locked: !isGamesUnlocked },
+    { icon: <Music size={24} />, label: t.menu.music, path: "/music", locked: !isMusicUnlocked },
     { icon: <Clapperboard size={24} />, label: t.menu.cinema, path: "/cinema", locked: !isCinemaUnlocked },
-    { icon: <Music size={24} />, label: t.menu.music, path: "/music", locked: false },
-    { icon: <Briefcase size={24} />, label: t.menu.business, path: "/business", locked: false },
     { icon: <Box size={24} />, label: t.menu.factory3d, path: "/3d-factory", locked: !is3DUnlocked },
-    { icon: <Store size={24} />, label: t.menu.market, path: "/market", locked: false },
-    { icon: <Users size={24} />, label: t.menu.wiseFriends, path: "/wise-friends", locked: !isFriendsUnlocked },
-    { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: false },
+    { icon: <Briefcase size={24} />, label: t.menu.business, path: "/business", locked: !isBusinessUnlocked },
+    { icon: <Store size={24} />, label: t.menu.market, path: "/market", locked: !isMarketUnlocked },
+    { icon: <Users size={24} />, label: t.menu.wiseFriends, path: "/wise-friends", locked: false },
+    { icon: <Coins size={24} />, label: t.menu.store, path: "/store", locked: false },
     { icon: <UserCircle size={24} />, label: t.menu.account, path: "/account", locked: false },
-    { icon: <Settings size={24} />, label: t.menu.admin, path: "/admin", locked: false },
+    { icon: <Shield size={24} />, label: t.menu.parent, path: "/parent", locked: false },
   ];
 
   // Logic to hide layout on immersive pages
@@ -192,6 +205,9 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
     { key: 'filmmaker', title: { el: 'ΣΚΗΝΟΘΕΤΗΣ', en: 'DIRECTOR' }, icon: Clapperboard, desc: { el: 'Αφήγηση', en: 'Storytelling' } },
     { key: 'builder', title: { el: 'ΜΑΣΤΟΡΑΣ', en: 'BUILDER' }, icon: Hammer, desc: { el: 'Κατασκευή', en: 'Engineering' } },
     { key: 'market', title: { el: 'ΕΜΠΟΡΟΣ', en: 'TRADER' }, icon: Store, desc: { el: 'Κοινότητα', en: 'Community' } },
+    { key: 'musician', title: { el: 'ΜΟΥΣΙΚΟΣ', en: 'MUSICIAN' }, icon: Music, desc: { el: 'Μελωδία', en: 'Melody' } },
+    { key: 'scientist', title: { el: 'ΕΠΙΣΤΗΜΟΝΑΣ', en: 'SCIENTIST' }, icon: FlaskConical, desc: { el: 'Ερευνα', en: 'Research' } },
+    { key: 'explorer', title: { el: 'ΕΞΕΡΕΥΝΗΤΗΣ', en: 'EXPLORER' }, icon: Globe, desc: { el: 'Ανακάλυψη', en: 'Discovery' } },
   ];
 
   return (
@@ -218,6 +234,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                   animate={{ scale: 1, x: -70, y: -20 }}
                   exit={{ scale: 0, x: 0, y: 0 }}
                   onClick={() => { setIsMobileMenuOpen(true); setShowRocketOptions(false); }}
+                  aria-label="Open navigation menu"
                   style={{ position: 'fixed', bottom: '100px', right: '32px', zIndex: 9999 }}
                   className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-xl border-2 border-white/20"
                 >
@@ -231,6 +248,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                   animate={{ scale: 1, x: -10, y: -90 }}
                   exit={{ scale: 0, x: 0, y: 0 }}
                   onClick={() => { setIsChatOpen(true); setShowRocketOptions(false); }}
+                  aria-label="Open WiseBot chat"
                   style={{ position: 'fixed', bottom: '100px', right: '32px', zIndex: 9999 }}
                   className="w-14 h-14 bg-purple-600 rounded-full flex items-center justify-center text-white shadow-xl border-2 border-white/20"
                 >
@@ -242,11 +260,12 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
           </AnimatePresence>
 
           {/* MAIN ROCKET BUTTON */}
-          <motion.button 
+          <motion.button
             whileTap={{ scale: 0.9 }}
             initial={{ scale: 0, y: 50 }}
             animate={{ scale: 1, y: 0 }}
             onClick={() => setShowRocketOptions(!showRocketOptions)}
+            aria-label={showRocketOptions ? 'Close menu' : 'Open menu'}
             style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 9999 }}
             className={`w-16 h-16 rounded-full flex items-center justify-center text-white shadow-[0_0_40px_rgba(59,130,246,0.8)] border-2 border-white/40 backdrop-blur-2xl transition-transform ${showRocketOptions ? 'bg-red-500 rotate-45' : 'bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 hover:scale-110'}`}
           >
@@ -263,7 +282,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                 initial={{ opacity: 0, y: "100%" }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: "100%" }}
-                className="fixed inset-0 z-[10000] bg-[#0f1014]/98 backdrop-blur-3xl flex flex-col"
+                className="fixed inset-0 z-[10000] bg-[#0B0F1A]/98 backdrop-blur-3xl flex flex-col"
               >
                  {/* ... Mobile Menu Content ... */}
                  <div className="flex items-center justify-between p-6 border-b border-white/10">
@@ -281,21 +300,35 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                    </button>
                 </div>
                 <div className="flex-1 overflow-y-auto p-6 space-y-3 custom-scrollbar">
-                   {navItems.map((item, idx) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${
-                          location.pathname === item.path
-                            ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg border border-white/20"
-                            : "bg-white/5 text-white/70 border border-white/5"
-                        }`}
-                      >
-                        {item.icon}
-                        <span className="font-black text-lg uppercase tracking-wide">{item.label}</span>
-                      </Link>
-                   ))}
+                   {navItems.map((item, idx) => {
+                      if (item.locked) {
+                        return (
+                          <div
+                            key={item.path}
+                            className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/5 opacity-40"
+                          >
+                            <Lock size={24} className="text-white/30" />
+                            <span className="font-black text-lg uppercase tracking-wide text-white/30 line-through">{item.label}</span>
+                            <span className="ml-auto text-[9px] font-bold text-amber-400/60">🔒</span>
+                          </div>
+                        );
+                      }
+                      return (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${
+                            location.pathname === item.path
+                              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg border border-white/20"
+                              : "bg-white/5 text-white/70 border border-white/5"
+                          }`}
+                        >
+                          {item.icon}
+                          <span className="font-black text-lg uppercase tracking-wide">{item.label}</span>
+                        </Link>
+                      );
+                   })}
                    
                    {/* Legal Link Mobile */}
                    <Link
@@ -324,19 +357,67 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
           {/* CHAT INTERFACE */}
           <AnimatePresence>
             {isChatOpen && (
-              <WiseBotChat lang={lang} onClose={() => setIsChatOpen(false)} />
+              <React.Suspense fallback={null}>
+                <WiseBotChat lang={lang} onClose={() => setIsChatOpen(false)} />
+              </React.Suspense>
             )}
           </AnimatePresence>
 
         </div>
       )}
 
+      {/* DESKTOP: Floating WiseBot Chat Button — ALWAYS visible */}
+      <div className="hidden xl:block" style={{ position: 'fixed', bottom: 0, right: 0, zIndex: 99999 }}>
+        {/* Chat FAB */}
+        <button
+          onClick={() => setIsChatOpen(!isChatOpen)}
+          aria-label={isChatOpen ? 'Close chat' : 'Open WiseBot chat'}
+          style={{ position: 'fixed', bottom: '32px', right: '32px', zIndex: 99999 }}
+          className={`w-16 h-16 rounded-full flex items-center justify-center text-white shadow-[0_0_40px_rgba(147,51,234,0.6)] border-2 border-white/30 transition-all hover:scale-110 active:scale-95 ${
+            isChatOpen
+              ? 'bg-red-500'
+              : 'bg-gradient-to-br from-purple-600 to-blue-600 hover:shadow-[0_0_60px_rgba(147,51,234,0.8)]'
+          }`}
+        >
+          {isChatOpen ? <X size={26} /> : (
+            <div className="relative">
+              <MessageCircle size={28} />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-purple-600 animate-pulse" />
+            </div>
+          )}
+        </button>
+
+        {/* Chat label */}
+        {!isChatOpen && (
+          <div
+            style={{ position: 'fixed', bottom: '42px', right: '108px', zIndex: 99998 }}
+            className="bg-purple-600/90 backdrop-blur-sm px-4 py-2 rounded-xl text-white text-xs font-black uppercase tracking-widest shadow-lg border border-white/20 whitespace-nowrap pointer-events-none"
+          >
+            💬 {lang === 'el' ? 'Μίλα με τη WiseBot!' : 'Chat with WiseBot!'}
+          </div>
+        )}
+
+        {/* Desktop Chat Interface */}
+        <AnimatePresence>
+          {isChatOpen && (
+            <React.Suspense fallback={null}>
+              <WiseBotChat lang={lang} onClose={() => setIsChatOpen(false)} />
+            </React.Suspense>
+          )}
+        </AnimatePresence>
+      </div>
+
       {/* MAIN APP CONTAINER */}
       <div className={`flex h-screen overflow-hidden ${isImmersive ? '' : 'app-bg flex-row'}`}>
-        
+
+        {/* PREMIUM BACKGROUND */}
+        {!isImmersive && (
+          <div className="fixed inset-0 z-0 pointer-events-none premium-bg" />
+        )}
+
         {/* DESKTOP SIDEBAR */}
         {!isImmersive && (
-          <aside className="hidden xl:flex w-80 glass-panel border-r-2 border-white/20 flex-col z-20 m-4 rounded-[3rem] shadow-2xl relative overflow-hidden">
+          <aside className="hidden xl:flex w-80 bg-[#0B0F1A]/80 backdrop-blur-xl border-r border-white/[0.06] flex-col z-20 m-4 rounded-[3rem] shadow-2xl relative overflow-hidden">
             <div className="p-10 flex items-center gap-4 relative z-10">
               <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white shadow-[0_0_30px_rgba(59,130,246,0.6)] rotate-3">
                 <Rocket size={32} />
@@ -418,7 +499,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                                 {lang === 'el' ? 'ΕΠΙΠΕΔΟ' : 'RANK'}
                              </p>
                              <div className="flex gap-1 justify-end mt-1">
-                                {[...Array(5)].map((_, i) => (
+                                {[...Array(totalBadges)].map((_, i) => (
                                    <div key={i} className={`w-1.5 h-1.5 rounded-full ${i < unlockedBadgeCount ? `bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]` : 'bg-white/10'}`}></div>
                                 ))}
                              </div>
@@ -449,14 +530,14 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[1200] flex items-center justify-center p-4 xl:pl-80 bg-[#020617]/90 backdrop-blur-xl" // Dark Slate background
+              className="fixed inset-0 z-[1200] flex items-center justify-center p-4 xl:pl-80 bg-[#0B0F1A]/90 backdrop-blur-xl"
               onClick={() => setShowLevelModal(false)}
             >
               {/* Blue Ambient Glow Background */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                  <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[150px]"></div>
                  <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-purple-600/10 rounded-full blur-[150px]"></div>
-                 <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-20"></div>
+                 <div className="absolute inset-0 bg-[url('/images/stardust.webp')] opacity-20"></div>
               </div>
               
               <motion.div 
@@ -464,7 +545,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 exit={{ scale: 0.9, y: 50, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
-                className="w-full max-w-6xl h-[85vh] bg-slate-900/80 border border-blue-500/20 rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(30,58,138,0.4)] flex relative backdrop-blur-2xl"
+                className="w-full max-w-6xl h-[85vh] bg-[#0B0F1A]/80 border border-blue-500/20 rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(30,58,138,0.4)] flex relative backdrop-blur-2xl"
               >
                 <button 
                   onClick={() => setShowLevelModal(false)}
@@ -546,7 +627,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                               const isUnlocked = badges[badge.key as keyof typeof badges];
                               return (
                                  <div key={idx} className="flex flex-col items-center gap-2 group/badge">
-                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border-2 transition-all duration-500 relative ${isUnlocked ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-cyan-400/50 shadow-[0_0_20px_rgba(34,211,238,0.2)]' : 'bg-slate-900 border-white/5 grayscale opacity-40'}`}>
+                                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border-2 transition-all duration-500 relative ${isUnlocked ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-cyan-400/50 shadow-[0_0_20px_rgba(34,211,238,0.2)]' : 'bg-[#0B0F1A] border-white/5 grayscale opacity-40'}`}>
                                        <badge.icon size={24} className={isUnlocked ? 'text-cyan-200 drop-shadow-md' : 'text-white/20'} />
                                        {isUnlocked && <div className="absolute inset-0 bg-white/10 animate-pulse rounded-2xl"></div>}
                                     </div>
@@ -562,7 +643,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                      {/* C2. CREDITS & REWARDS */}
                      <div className="space-y-6">
                         <div className="bg-gradient-to-br from-indigo-900/40 to-slate-900/80 border border-indigo-500/30 rounded-[2.5rem] p-8 flex items-center justify-between relative overflow-hidden">
-                           <div className="absolute inset-0 bg-[url('/images/carbon-fibre.png')] opacity-10"></div>
+                           <div className="absolute inset-0 bg-[url('/images/carbon-fibre.webp')] opacity-10"></div>
                            <div className="relative z-10">
                               <p className="text-indigo-300 font-black text-xs uppercase tracking-widest mb-1">
                                 {lang === 'el' ? 'ΔΙΑΘΕΣΙΜΑ CREDITS' : 'AVAILABLE CREDITS'}
@@ -595,7 +676,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
 
         <main className="flex-1 flex flex-col overflow-hidden relative">
           {!isImmersive && (
-            <header className="h-20 xl:h-28 flex items-center justify-between px-6 md:px-10 lg:px-14 z-10 glass-panel m-2 md:m-4 xl:m-4 mb-0 rounded-2xl xl:rounded-[3rem] border-white/20 shadow-xl">
+            <header className="h-20 xl:h-28 flex items-center justify-between px-6 md:px-10 lg:px-14 z-10 bg-[#0B0F1A]/60 backdrop-blur-xl border border-white/[0.06] m-2 md:m-4 xl:m-4 mb-0 rounded-2xl xl:rounded-[3rem] shadow-xl">
               <div className="flex items-center gap-3 md:gap-5 flex-1 min-w-0">
                 {isOnDashboard ? (
                   <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg rotate-3 shrink-0">
@@ -644,6 +725,11 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
 
       {/* BACKGROUND MUSIC */}
       <audio ref={audioRef} src="/audio/wisebots%20song%20claude.mp3" preload="auto" />
+
+      {/* PWA INSTALL PROMPT */}
+      <React.Suspense fallback={null}>
+        <PWAInstallPrompt lang={lang} />
+      </React.Suspense>
 
       {/* FLOATING MUTE BUTTON FOR IMMERSIVE PAGES (Landing/Portal) */}
       {isImmersive && (

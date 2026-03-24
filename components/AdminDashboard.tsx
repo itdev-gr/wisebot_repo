@@ -1,191 +1,1015 @@
-
-import React from 'react';
-import { 
-  Users, 
-  Activity, 
-  Settings, 
-  Database, 
-  ShieldAlert, 
-  TrendingUp, 
-  Cpu,
-  Edit3,
-  Trash2,
-  CheckCircle
+/**
+ * ADMIN DASHBOARD — Full Management Panel
+ * ==========================================
+ * PIN-protected admin panel with:
+ * - KPI overview cards with growth indicators
+ * - Revenue & purchases tracking
+ * - User management (search, sort, give credits, expand details)
+ * - Content analytics (popular features, creation breakdown)
+ * - System health monitoring
+ * - Quick actions (give credits)
+ */
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import {
+  Users, Database, CheckCircle, Lock, KeyRound, RefreshCw, Zap,
+  BookOpen, Brain, Mail, Crown, Loader2, AlertTriangle, LogOut,
+  UserCheck, UserX, Cpu, Plus, Send, X, TrendingUp, TrendingDown,
+  DollarSign, Activity, BarChart3, Clock, Shield, Eye, EyeOff,
+  Search, ChevronDown, ChevronUp, Image, Music, Film, Briefcase,
+  Box, Gamepad2, Star, ArrowUpRight, Globe, Server, Palette,
+  CreditCard, Hash,
 } from 'lucide-react';
 
-const RECENT_USERS = [
-  { name: 'Γιώργος Π.', status: 'Active', plan: 'Pro', creations: 12, lastActive: '2m ago' },
-  { name: 'Μαρία Κ.', status: 'Active', plan: 'Basic', creations: 5, lastActive: '15m ago' },
-  { name: 'Νίκος Λ.', status: 'Pending', plan: 'Pro', creations: 0, lastActive: '1h ago' },
-  { name: 'Ελένη Μ.', status: 'Active', plan: 'Pro', creations: 28, lastActive: '5m ago' },
-];
+// No credentials in code — auth handled server-side via /api/admin/login
 
-interface AdminDashboardProps {
-  lang: 'el' | 'en';
+interface UserData {
+  id: string;
+  email: string;
+  childName: string;
+  parentEmail: string | null;
+  credits: number;
+  xp: number;
+  level: number;
+  emailConfirmed: boolean;
+  lastSignIn: string | null;
+  createdAt: string;
+  stats: {
+    images: number; videos: number; songs: number; quizzes: number;
+    booksRead: number; storiesRead: number; businesses: number; heroes: number;
+  } | null;
 }
 
-export default function AdminDashboard({ lang }: AdminDashboardProps) {
-  
-  const text = {
-    el: {
-      title: 'Κέντρο Ελέγχου',
-      sub: 'Διαχείριση Πλατφόρμας & Analytics',
-      health: 'Υγεία Συστήματος',
-      stats: { users: 'Συνολικοί Μαθητές', heroes: '3D Ήρωες', energy: 'Ενέργεια', subs: 'Premium Συνδρομές' },
-      usersTitle: 'Διαχείριση Χρηστών',
-      viewAll: 'Προβολή Όλων',
-      table: { name: 'Όνομα', status: 'Κατάσταση', plan: 'Πλάνο', actions: 'Ενέργειες' },
-      alertsTitle: 'Ειδοποιήσεις & Ασφάλεια',
-      apiStable: 'Gemini API Σταθερό',
-      backup: 'Αντίγραφο Ασφαλείας Ολοκληρώθηκε',
-      announcement: 'Ανακοίνωση',
-      announcementText: '"Το επόμενο update (v2.4) θα περιλαμβάνει το Voice Chat AI."',
-      broadcast: 'Αποστολή'
-    },
-    en: {
-      title: 'Command Center',
-      sub: 'Platform Administration & Analytics',
-      health: 'System Health',
-      stats: { users: 'Total Students', heroes: '3D Heroes', energy: 'Energy Consumed', subs: 'Premium Subs' },
-      usersTitle: 'User Management',
-      viewAll: 'View All',
-      table: { name: 'Name', status: 'Status', plan: 'Plan', actions: 'Actions' },
-      alertsTitle: 'Alerts & Security',
-      apiStable: 'Gemini API Stable',
-      backup: 'DB Backup Complete',
-      announcement: 'Announcement',
-      announcementText: '"The next update (v2.4) will include Voice Chat AI."',
-      broadcast: 'Broadcast'
+interface StripePayment {
+  id: string;
+  amount: number;
+  currency: string;
+  credits: number;
+  packId: string;
+  userId: string;
+  email: string | null;
+  date: string;
+  status: string;
+}
+
+interface DashData {
+  users: UserData[];
+  totals: {
+    userCount: number; totalCredits: number; totalCreations: number;
+    totalBooksRead: number; totalQuizzes: number; purchaseCount: number;
+    totalRevenue?: number;
+  };
+  payments?: StripePayment[];
+}
+
+// ─── TAB TYPES ──────────────────────
+type TabId = 'overview' | 'users' | 'content' | 'system';
+
+// ─── MAIN COMPONENT ─────────────────
+export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
+  const [isUnlocked, setIsUnlocked] = useState(() => !!sessionStorage.getItem('wb_admin_token'));
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
+  const adminToken = useCallback(() => sessionStorage.getItem('wb_admin_token') || '', []);
+  const [data, setData] = useState<DashData | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState<TabId>('overview');
+  const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+
+  // User management
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState<'name' | 'credits' | 'level' | 'activity' | 'recent'>('recent');
+  const [expandedUser, setExpandedUser] = useState<string | null>(null);
+
+  // Give credits modal
+  const [creditModal, setCreditModal] = useState<{ userId: string; name: string; currentCredits: number } | null>(null);
+  const [creditAmount, setCreditAmount] = useState('');
+  const [creditSending, setCreditSending] = useState(false);
+  const [creditMsg, setCreditMsg] = useState('');
+
+  const handleLoginSubmit = async () => {
+    if (!loginEmail.trim() || !loginPassword.trim()) return;
+    setLoginLoading(true);
+    setLoginError('');
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: loginEmail.trim(), password: loginPassword }),
+      });
+      const data = await res.json();
+      if (data.success && data.token) {
+        sessionStorage.setItem('wb_admin_token', data.token);
+        setIsUnlocked(true);
+      } else {
+        setLoginError(lang === 'el' ? 'Λάθος στοιχεία' : 'Invalid credentials');
+        setLoginPassword('');
+      }
+    } catch (err) {
+      setLoginError(lang === 'el' ? 'Σφάλμα σύνδεσης' : 'Connection error');
+    } finally {
+      setLoginLoading(false);
     }
   };
 
-  const t = text[lang];
+  const handleLogout = () => {
+    setIsUnlocked(false);
+    sessionStorage.removeItem('wb_admin_token');
+    setData(null);
+    setLoginEmail('');
+    setLoginPassword('');
+  };
 
-  const SYSTEM_STATS = [
-    { label: t.stats.users, value: '4,852', change: '+12%', icon: <Users className="text-blue-400" /> },
-    { label: t.stats.heroes, value: '12,403', change: '+25%', icon: <Cpu className="text-purple-400" /> },
-    { label: t.stats.energy, value: '850K', change: '+5%', icon: <Activity className="text-amber-400" /> },
-    { label: t.stats.subs, value: '1,200', change: '+8%', icon: <TrendingUp className="text-emerald-400" /> },
+  const fetchData = useCallback(async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/admin/stats', {
+        headers: { 'X-Admin-Token': adminToken() },
+      });
+      if (!res.ok) throw new Error(res.status === 403 ? 'Unauthorized' : 'Failed to fetch');
+      const result = await res.json();
+      setData(result);
+      setLastRefresh(new Date());
+    } catch (err: any) {
+      setError(err.message || 'Failed to load data');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isUnlocked) fetchData();
+  }, [isUnlocked, fetchData]);
+
+  // Auto-refresh every 30 seconds
+  useEffect(() => {
+    if (!isUnlocked) return;
+    const interval = setInterval(fetchData, 30000);
+    return () => clearInterval(interval);
+  }, [isUnlocked, fetchData]);
+
+  const handleGiveCredits = async () => {
+    if (!creditModal || !creditAmount) return;
+    const amount = parseInt(creditAmount);
+    if (isNaN(amount) || amount <= 0) return;
+    setCreditSending(true);
+    setCreditMsg('');
+    try {
+      const res = await fetch('/api/admin/credits', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        body: JSON.stringify({ userId: creditModal.userId, amount }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setCreditMsg(`+${amount}! Now: ${result.newCredits}`);
+        setData(prev => {
+          if (!prev) return prev;
+          return {
+            ...prev,
+            users: prev.users.map(u => u.id === creditModal.userId ? { ...u, credits: result.newCredits } : u),
+            totals: { ...prev.totals, totalCredits: prev.totals.totalCredits + amount },
+          };
+        });
+        setCreditAmount('');
+        setTimeout(() => { setCreditModal(null); setCreditMsg(''); }, 1500);
+      } else {
+        setCreditMsg(`Error: ${result.error}`);
+      }
+    } catch { setCreditMsg('Network error'); }
+    finally { setCreditSending(false); }
+  };
+
+  // Computed stats
+  const computedStats = useMemo(() => {
+    if (!data) return null;
+    const users = data.users;
+    const now = Date.now();
+    const day = 86400000;
+
+    const activeToday = users.filter(u => u.lastSignIn && now - new Date(u.lastSignIn).getTime() < day).length;
+    const activeWeek = users.filter(u => u.lastSignIn && now - new Date(u.lastSignIn).getTime() < 7 * day).length;
+    const newToday = users.filter(u => now - new Date(u.createdAt).getTime() < day).length;
+    const newWeek = users.filter(u => now - new Date(u.createdAt).getTime() < 7 * day).length;
+    const verified = users.filter(u => u.emailConfirmed).length;
+    const withParent = users.filter(u => u.parentEmail).length;
+    const avgCredits = users.length > 0 ? Math.round(users.reduce((s, u) => s + u.credits, 0) / users.length) : 0;
+    const avgLevel = users.length > 0 ? (users.reduce((s, u) => s + u.level, 0) / users.length).toFixed(1) : '0';
+    const maxLevel = users.length > 0 ? Math.max(...users.map(u => u.level)) : 0;
+    const topUser = users.length > 0 ? users.reduce((a, b) => {
+      const aTotal = a.stats ? a.stats.images + a.stats.videos + a.stats.songs + a.stats.quizzes + a.stats.booksRead + a.stats.storiesRead : 0;
+      const bTotal = b.stats ? b.stats.images + b.stats.videos + b.stats.songs + b.stats.quizzes + b.stats.booksRead + b.stats.storiesRead : 0;
+      return aTotal > bTotal ? a : b;
+    }) : null;
+
+    // Content breakdown
+    const totalImages = users.reduce((s, u) => s + (u.stats?.images || 0), 0);
+    const totalVideos = users.reduce((s, u) => s + (u.stats?.videos || 0), 0);
+    const totalSongs = users.reduce((s, u) => s + (u.stats?.songs || 0), 0);
+    const totalQuizzes = users.reduce((s, u) => s + (u.stats?.quizzes || 0), 0);
+    const totalBooks = users.reduce((s, u) => s + (u.stats?.booksRead || 0) + (u.stats?.storiesRead || 0), 0);
+    const totalBusiness = users.reduce((s, u) => s + (u.stats?.businesses || 0), 0);
+    const totalHeroes = users.reduce((s, u) => s + (u.stats?.heroes || 0), 0);
+
+    return {
+      activeToday, activeWeek, newToday, newWeek, verified, withParent,
+      avgCredits, avgLevel, maxLevel, topUser,
+      totalImages, totalVideos, totalSongs, totalQuizzes, totalBooks, totalBusiness, totalHeroes,
+    };
+  }, [data]);
+
+  // Filtered & sorted users
+  const filteredUsers = useMemo(() => {
+    if (!data) return [];
+    let users = [...data.users];
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      users = users.filter(u =>
+        u.childName.toLowerCase().includes(q) ||
+        u.email.toLowerCase().includes(q) ||
+        (u.parentEmail && u.parentEmail.toLowerCase().includes(q))
+      );
+    }
+    users.sort((a, b) => {
+      switch (sortBy) {
+        case 'name': return a.childName.localeCompare(b.childName);
+        case 'credits': return b.credits - a.credits;
+        case 'level': return b.level - a.level;
+        case 'activity': {
+          const aT = a.stats ? a.stats.images + a.stats.videos + a.stats.songs + a.stats.quizzes + a.stats.booksRead : 0;
+          const bT = b.stats ? b.stats.images + b.stats.videos + b.stats.songs + b.stats.quizzes + b.stats.booksRead : 0;
+          return bT - aT;
+        }
+        case 'recent':
+        default: return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      }
+    });
+    return users;
+  }, [data, searchQuery, sortBy]);
+
+  // ─── LOGIN GATE ─────────────────────
+  if (!isUnlocked) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh] animate-in fade-in duration-700">
+        <div className="glass-panel p-10 rounded-[3rem] border-white/10 max-w-sm w-full text-center space-y-6">
+          <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto border border-red-500/30">
+            <Shield size={36} className="text-red-400" />
+          </div>
+          <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter">ADMIN LOGIN</h2>
+          <p className="text-white/30 text-xs">Secure authentication required</p>
+          <div className="space-y-3">
+            <input
+              type="email" value={loginEmail}
+              onChange={e => setLoginEmail(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && document.getElementById('admin-pass')?.focus()}
+              placeholder="Email" autoComplete="email"
+              className="w-full text-sm font-bold bg-white/5 border-2 border-white/10 focus:border-blue-500 rounded-xl px-4 py-3.5 text-white outline-none transition-colors placeholder:text-white/20"
+            />
+            <input
+              id="admin-pass" type="password" value={loginPassword}
+              onChange={e => setLoginPassword(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleLoginSubmit()}
+              placeholder="Password" autoComplete="current-password"
+              className="w-full text-sm font-bold bg-white/5 border-2 border-white/10 focus:border-blue-500 rounded-xl px-4 py-3.5 text-white outline-none transition-colors placeholder:text-white/20"
+            />
+            {loginError && <p className="text-red-400 text-xs font-bold">{loginError}</p>}
+            <button onClick={handleLoginSubmit} disabled={!loginEmail.trim() || !loginPassword.trim() || loginLoading}
+              className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-[1000] uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:brightness-110 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+              {loginLoading ? <Loader2 size={16} className="animate-spin" /> : <Lock size={16} />}
+              {loginLoading ? 'AUTHENTICATING...' : 'LOGIN'}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (loading && !data) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Loader2 size={48} className="text-blue-400 animate-spin" />
+      </div>
+    );
+  }
+
+  if (error && !data) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="glass-panel p-10 rounded-[3rem] border-white/10 max-w-sm text-center space-y-4">
+          <AlertTriangle size={48} className="text-amber-400 mx-auto" />
+          <p className="text-white font-bold">{error}</p>
+          <button onClick={fetchData} className="px-6 py-3 bg-blue-500/20 border border-blue-500/30 rounded-xl text-blue-400 font-bold text-sm">Retry</button>
+        </div>
+      </div>
+    );
+  }
+
+  const totals = data?.totals || { userCount: 0, totalCredits: 0, totalCreations: 0, totalBooksRead: 0, totalQuizzes: 0, purchaseCount: 0 };
+
+  const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
+    { id: 'overview', label: 'Overview', icon: <BarChart3 size={16} /> },
+    { id: 'users', label: `Users (${totals.userCount})`, icon: <Users size={16} /> },
+    { id: 'content', label: 'Content & Costs', icon: <DollarSign size={16} /> },
+    { id: 'system', label: 'System', icon: <Server size={16} /> },
   ];
 
+  const formatDate = (d: string | null) => {
+    if (!d) return '—';
+    return new Date(d).toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' });
+  };
+  const timeAgo = (d: string | null) => {
+    if (!d) return '—';
+    const diff = Date.now() - new Date(d).getTime();
+    const m = Math.floor(diff / 60000);
+    if (m < 1) return 'Now';
+    if (m < 60) return `${m}m`;
+    const h = Math.floor(m / 60);
+    if (h < 24) return `${h}h`;
+    return `${Math.floor(h / 24)}d`;
+  };
+
   return (
-    <div className="space-y-8 animate-in fade-in duration-700">
-      <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-        <div>
-          <h2 className="text-4xl font-[1000] text-white tracking-tighter uppercase italic">
-            {t.title}
-          </h2>
-          <p className="text-white/40 font-bold uppercase tracking-widest text-xs">{t.sub}</p>
+    <div className="space-y-6 animate-in fade-in duration-500 pb-20">
+      {/* CREDIT MODAL */}
+      {creditModal && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setCreditModal(null)}>
+          <div className="bg-[#0B0F1A] border border-white/10 rounded-2xl p-6 max-w-sm w-full space-y-4" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between">
+              <h3 className="text-white font-[1000] uppercase italic text-sm">Give Credits</h3>
+              <button onClick={() => setCreditModal(null)} className="text-white/40 hover:text-white"><X size={18} /></button>
+            </div>
+            <div className="text-white/60 text-xs">
+              <p className="font-bold text-white text-base">{creditModal.name}</p>
+              <p className="mt-1">Current: <span className="text-amber-400 font-bold">{creditModal.currentCredits} ⚡</span></p>
+            </div>
+            <div className="flex gap-2">
+              {[5, 10, 25, 50, 100].map(amt => (
+                <button key={amt} onClick={() => setCreditAmount(String(amt))}
+                  className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all ${creditAmount === String(amt) ? 'bg-amber-500 text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'}`}>
+                  {amt}
+                </button>
+              ))}
+            </div>
+            <input type="number" value={creditAmount} onChange={e => setCreditAmount(e.target.value)}
+              placeholder="Custom..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold outline-none focus:border-amber-500" />
+            {creditMsg && <p className={`text-xs font-bold ${creditMsg.startsWith('Error') ? 'text-red-400' : 'text-emerald-400'}`}>{creditMsg}</p>}
+            <button onClick={handleGiveCredits} disabled={!creditAmount || creditSending}
+              className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-black font-[1000] uppercase text-xs rounded-xl flex items-center justify-center gap-2 disabled:opacity-40">
+              {creditSending ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
+              {creditSending ? 'Sending...' : `Give ${creditAmount || '0'} Credits`}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ─── HEADER ───────────────── */}
+      <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+            <Shield size={24} className="text-white" />
+          </div>
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-[1000] text-white tracking-tighter uppercase italic">
+              WiseBot <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Admin</span>
+            </h2>
+            <p className="text-white/30 text-[10px] font-bold uppercase tracking-[0.3em]">
+              Live Dashboard • {lastRefresh ? `Updated ${timeAgo(lastRefresh.toISOString())}` : 'Loading...'}
+            </p>
+          </div>
         </div>
         <div className="flex gap-2">
-          <button className="bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition-all">
-            <Settings size={20} className="text-white" />
+          <button onClick={fetchData} disabled={loading}
+            className="bg-white/5 hover:bg-white/10 p-3 rounded-xl border border-white/10 transition-all disabled:opacity-50">
+            <RefreshCw size={18} className={`text-white ${loading ? 'animate-spin' : ''}`} />
           </button>
-          <button className="bg-emerald-500 text-black px-6 py-3 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-all">
-            {t.health}: 100%
+          <button onClick={handleLogout} className="bg-red-500/10 hover:bg-red-500/20 p-3 rounded-xl border border-red-500/20 transition-all">
+            <LogOut size={18} className="text-red-400" />
           </button>
+          <div className="bg-emerald-500 text-black px-4 py-3 rounded-xl font-black uppercase tracking-widest text-[10px] flex items-center gap-1.5">
+            <span className="w-2 h-2 bg-black rounded-full animate-pulse" /> LIVE
+          </div>
         </div>
       </header>
 
-      {/* STATS GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {SYSTEM_STATS.map((stat, i) => (
-          <div key={i} className="glass-panel p-6 rounded-[2rem] border-white/10 hover:border-white/20 transition-all group">
-            <div className="flex justify-between items-start mb-4">
-              <div className="p-3 bg-white/5 rounded-2xl group-hover:scale-110 transition-transform">
-                {stat.icon}
-              </div>
-              <span className="text-emerald-400 text-xs font-black italic">{stat.change}</span>
+      {/* ─── TABS ─────────────────── */}
+      <div className="flex gap-1 bg-white/[0.03] p-1 rounded-xl border border-white/5 overflow-x-auto">
+        {tabs.map(tab => (
+          <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
+              activeTab === tab.id
+                ? 'bg-white/10 text-white border border-white/10'
+                : 'text-white/40 hover:text-white/60 hover:bg-white/5'
+            }`}>
+            {tab.icon} {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ─── TAB CONTENT ──────────── */}
+      {activeTab === 'overview' && <OverviewTab totals={totals} stats={computedStats} users={data?.users || []} onGiveCredits={setCreditModal} />}
+      {activeTab === 'users' && (
+        <UsersTab
+          users={filteredUsers}
+          searchQuery={searchQuery} setSearchQuery={setSearchQuery}
+          sortBy={sortBy} setSortBy={setSortBy}
+          expandedUser={expandedUser} setExpandedUser={setExpandedUser}
+          onGiveCredits={setCreditModal}
+          formatDate={formatDate} timeAgo={timeAgo}
+        />
+      )}
+      {activeTab === 'content' && <ContentTab stats={computedStats} totals={totals} data={data} />}
+      {activeTab === 'system' && <SystemTab totals={totals} lastRefresh={lastRefresh} users={data?.users || []} />}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TAB: OVERVIEW
+// ═══════════════════════════════════════
+function OverviewTab({ totals, stats, users, onGiveCredits }: any) {
+  if (!stats) return null;
+
+  const kpis = [
+    { label: 'Total Users', value: totals.userCount, icon: <Users size={20} />, color: 'text-blue-400', bg: 'bg-blue-500/10', sub: `${stats.newToday} new today` },
+    { label: 'Active Today', value: stats.activeToday, icon: <Activity size={20} />, color: 'text-emerald-400', bg: 'bg-emerald-500/10', sub: `${stats.activeWeek} this week` },
+    { label: 'Credits in Circulation', value: totals.totalCredits, icon: <Zap size={20} />, color: 'text-amber-400', bg: 'bg-amber-500/10', sub: `avg ${stats.avgCredits}/user` },
+    { label: 'Total Creations', value: totals.totalCreations, icon: <Cpu size={20} />, color: 'text-purple-400', bg: 'bg-purple-500/10', sub: `${stats.totalImages} images, ${stats.totalSongs} songs` },
+    { label: 'Books & Stories', value: totals.totalBooksRead, icon: <BookOpen size={20} />, color: 'text-cyan-400', bg: 'bg-cyan-500/10', sub: `${totals.totalQuizzes} quizzes passed` },
+    { label: 'Purchases', value: totals.purchaseCount, icon: <CreditCard size={20} />, color: 'text-orange-400', bg: 'bg-orange-500/10', sub: 'Stripe transactions' },
+  ];
+
+  return (
+    <div className="space-y-6">
+      {/* KPI Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+        {kpis.map((kpi, i) => (
+          <div key={i} className="glass-panel p-4 sm:p-5 rounded-2xl border-white/5 hover:border-white/10 transition-all group">
+            <div className="flex items-start justify-between mb-3">
+              <div className={`p-2 rounded-xl ${kpi.bg}`}>{React.cloneElement(kpi.icon as any, { className: kpi.color })}</div>
             </div>
-            <p className="text-white/40 text-[10px] font-black uppercase tracking-widest mb-1">{stat.label}</p>
-            <p className="text-3xl font-[1000] text-white italic tracking-tighter">{stat.value}</p>
+            <p className="text-2xl sm:text-3xl font-[1000] text-white italic tracking-tighter">{kpi.value}</p>
+            <p className="text-white/50 text-[10px] font-bold uppercase tracking-wider mt-0.5">{kpi.label}</p>
+            <p className="text-white/25 text-[9px] font-bold mt-1">{kpi.sub}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* USER TABLE */}
-        <div className="lg:col-span-2 glass-panel rounded-[2.5rem] border-white/10 overflow-hidden flex flex-col">
-          <div className="p-8 border-b border-white/10 flex items-center justify-between">
-            <h3 className="text-xl font-black text-white uppercase italic flex items-center gap-3">
-              <Database size={20} className="text-blue-400" /> {t.usersTitle}
-            </h3>
-            <button className="text-xs font-black text-blue-400 hover:underline uppercase tracking-widest">{t.viewAll}</button>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="bg-white/5 text-[10px] uppercase font-black tracking-widest text-white/40">
-                  <th className="px-8 py-4">{t.table.name}</th>
-                  <th className="px-8 py-4">{t.table.status}</th>
-                  <th className="px-8 py-4">{t.table.plan}</th>
-                  <th className="px-8 py-4 text-right">{t.table.actions}</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5">
-                {RECENT_USERS.map((user, i) => (
-                  <tr key={i} className="hover:bg-white/5 transition-colors group">
-                    <td className="px-8 py-5">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border border-white/20" />
-                        <div>
-                          <p className="text-white font-bold text-sm">{user.name}</p>
-                          <p className="text-white/30 text-[10px] font-medium">{user.lastActive}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-5">
-                      <span className={`text-[10px] font-black uppercase px-2 py-1 rounded-md ${user.status === 'Active' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}`}>
-                        {user.status}
-                      </span>
-                    </td>
-                    <td className="px-8 py-5 text-white/60 font-bold text-xs uppercase">{user.plan}</td>
-                    <td className="px-8 py-5 text-right">
-                      <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button className="p-2 bg-white/5 rounded-lg text-blue-400 hover:bg-blue-400/20"><Edit3 size={14}/></button>
-                        <button className="p-2 bg-white/5 rounded-lg text-rose-400 hover:bg-rose-400/20"><Trash2 size={14}/></button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+      {/* Quick Info Row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <QuickStat label="Verified" value={`${stats.verified}/${totals.userCount}`} icon={<UserCheck size={14} />} color="text-emerald-400" />
+        <QuickStat label="With Parent" value={stats.withParent} icon={<Shield size={14} />} color="text-blue-400" />
+        <QuickStat label="Avg Level" value={stats.avgLevel} icon={<TrendingUp size={14} />} color="text-purple-400" />
+        <QuickStat label="Max Level" value={stats.maxLevel} icon={<Crown size={14} />} color="text-amber-400" />
+      </div>
 
-        {/* SYSTEM STATUS */}
-        <div className="glass-panel rounded-[2.5rem] border-white/10 p-8 space-y-6">
-          <h3 className="text-xl font-black text-white uppercase italic flex items-center gap-3">
-            <ShieldAlert size={20} className="text-rose-400" /> {t.alertsTitle}
+      {/* Recent Users */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5 flex items-center justify-between">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <Clock size={14} className="text-blue-400" /> Recent Users
           </h3>
-          
-          <div className="space-y-4">
-            <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center gap-4">
-              <CheckCircle className="text-emerald-400 shrink-0" />
-              <div>
-                <p className="text-xs font-black text-white uppercase italic">{t.apiStable}</p>
-                <p className="text-[10px] text-white/40 font-medium tracking-tight">Latency: 240ms</p>
+        </div>
+        <div className="divide-y divide-white/5">
+          {users.slice(0, 5).map((u: UserData) => (
+            <div key={u.id} className="px-4 py-3 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-[10px] font-black text-white">
+                  {u.childName.charAt(0).toUpperCase()}
+                </div>
+                <div>
+                  <p className="text-white font-bold text-sm">{u.childName}</p>
+                  <p className="text-white/30 text-[10px]">{u.email}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-amber-400 font-[1000] text-sm">{u.credits}⚡</span>
+                <button onClick={() => onGiveCredits({ userId: u.id, name: u.childName, currentCredits: u.credits })}
+                  className="bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 px-2 py-1 rounded-lg text-[9px] font-black uppercase flex items-center gap-1">
+                  <Plus size={10} /> Give
+                </button>
               </div>
             </div>
-            
-            <div className="p-4 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center gap-4">
-              <Database className="text-blue-400 shrink-0" />
-              <div>
-                <p className="text-xs font-black text-white uppercase italic">{t.backup}</p>
-                <p className="text-[10px] text-white/40 font-medium tracking-tight">Today at 04:00 AM</p>
-              </div>
-            </div>
-
-            <div className="p-6 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 rounded-3xl mt-8">
-              <h4 className="text-white font-black uppercase italic mb-2">{t.announcement}</h4>
-              <p className="text-xs text-white/60 leading-relaxed font-bold italic mb-4">
-                {t.announcementText}
-              </p>
-              <button className="w-full bg-white text-black py-2 rounded-xl text-[10px] font-black uppercase tracking-widest">{t.broadcast}</button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* Top User */}
+      {stats.topUser && (
+        <div className="glass-panel p-5 rounded-2xl border-white/5 bg-gradient-to-r from-amber-500/5 to-orange-500/5">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-lg font-black text-white">
+              <Star size={20} />
+            </div>
+            <div>
+              <p className="text-white/40 text-[9px] font-black uppercase tracking-widest">Most Active User</p>
+              <p className="text-white font-[1000] text-lg italic">{stats.topUser.childName}</p>
+              <p className="text-white/30 text-xs">{stats.topUser.email} • Level {stats.topUser.level}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TAB: USERS
+// ═══════════════════════════════════════
+function UsersTab({ users, searchQuery, setSearchQuery, sortBy, setSortBy, expandedUser, setExpandedUser, onGiveCredits, formatDate, timeAgo }: any) {
+  const sortOptions = [
+    { id: 'recent', label: 'Newest' },
+    { id: 'name', label: 'Name' },
+    { id: 'credits', label: 'Credits' },
+    { id: 'level', label: 'Level' },
+    { id: 'activity', label: 'Activity' },
+  ];
+
+  return (
+    <div className="space-y-4">
+      {/* Search & Sort Bar */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        <div className="relative flex-1">
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30" />
+          <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+            placeholder="Search users..."
+            className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 outline-none focus:border-blue-500/40" />
+        </div>
+        <div className="flex gap-1 bg-white/[0.03] p-1 rounded-xl border border-white/5">
+          {sortOptions.map(opt => (
+            <button key={opt.id} onClick={() => setSortBy(opt.id)}
+              className={`px-3 py-2 rounded-lg text-[10px] font-bold uppercase transition-all ${sortBy === opt.id ? 'bg-white/10 text-white' : 'text-white/30 hover:text-white/50'}`}>
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* User Cards */}
+      <div className="space-y-2">
+        {users.length === 0 ? (
+          <div className="glass-panel p-12 rounded-2xl text-center text-white/30 text-sm font-bold">
+            {searchQuery ? 'No users match your search' : 'No users yet'}
+          </div>
+        ) : (
+          users.map((user: UserData) => {
+            const isExpanded = expandedUser === user.id;
+            const totalActivity = user.stats
+              ? user.stats.images + user.stats.videos + user.stats.songs + user.stats.quizzes + user.stats.booksRead + user.stats.storiesRead + user.stats.businesses + user.stats.heroes
+              : 0;
+
+            return (
+              <div key={user.id} className="glass-panel rounded-xl border-white/5 overflow-hidden hover:border-white/10 transition-all">
+                {/* Main Row */}
+                <div className="p-4 flex items-center gap-3 cursor-pointer" onClick={() => setExpandedUser(isExpanded ? null : user.id)}>
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm font-black text-white shrink-0">
+                    {user.childName.charAt(0).toUpperCase()}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2">
+                      <p className="text-white font-bold text-sm truncate">{user.childName}</p>
+                      {user.emailConfirmed ? (
+                        <span className="shrink-0 w-4 h-4 bg-emerald-500/20 rounded-full flex items-center justify-center"><UserCheck size={8} className="text-emerald-400" /></span>
+                      ) : (
+                        <span className="shrink-0 w-4 h-4 bg-amber-500/20 rounded-full flex items-center justify-center"><UserX size={8} className="text-amber-400" /></span>
+                      )}
+                    </div>
+                    <p className="text-white/30 text-[10px] font-bold truncate">{user.email}</p>
+                  </div>
+                  <div className="flex items-center gap-4 shrink-0">
+                    <div className="text-center">
+                      <p className="text-amber-400 font-[1000] text-sm italic">{user.credits}</p>
+                      <p className="text-white/20 text-[8px] font-bold uppercase">Credits</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-purple-400 font-[1000] text-sm italic">{user.level}</p>
+                      <p className="text-white/20 text-[8px] font-bold uppercase">Level</p>
+                    </div>
+                    <div className="text-center hidden sm:block">
+                      <p className="text-blue-400 font-[1000] text-sm italic">{totalActivity}</p>
+                      <p className="text-white/20 text-[8px] font-bold uppercase">Activity</p>
+                    </div>
+                    {isExpanded ? <ChevronUp size={16} className="text-white/30" /> : <ChevronDown size={16} className="text-white/30" />}
+                  </div>
+                </div>
+
+                {/* Expanded Details */}
+                {isExpanded && (
+                  <div className="px-4 pb-4 pt-1 border-t border-white/5 space-y-3 animate-in fade-in duration-200">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                      <DetailItem label="Email" value={user.email} />
+                      <DetailItem label="Parent" value={user.parentEmail || '—'} />
+                      <DetailItem label="Joined" value={formatDate(user.createdAt)} />
+                      <DetailItem label="Last Login" value={user.lastSignIn ? timeAgo(user.lastSignIn) : 'Never'} />
+                    </div>
+
+                    {user.stats && (
+                      <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
+                        <StatBadge icon="🎨" label="Images" val={user.stats.images} />
+                        <StatBadge icon="🎬" label="Videos" val={user.stats.videos} />
+                        <StatBadge icon="🎵" label="Songs" val={user.stats.songs} />
+                        <StatBadge icon="🧠" label="Quiz" val={user.stats.quizzes} />
+                        <StatBadge icon="📚" label="Books" val={user.stats.booksRead} />
+                        <StatBadge icon="📖" label="Stories" val={user.stats.storiesRead} />
+                        <StatBadge icon="🏢" label="Business" val={user.stats.businesses} />
+                        <StatBadge icon="🦸" label="Heroes" val={user.stats.heroes} />
+                      </div>
+                    )}
+
+                    <button onClick={() => onGiveCredits({ userId: user.id, name: user.childName, currentCredits: user.credits })}
+                      className="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-amber-400 px-4 py-2 rounded-lg text-xs font-black uppercase flex items-center gap-2 transition-all">
+                      <Plus size={14} /> Give Credits
+                    </button>
+                  </div>
+                )}
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TAB: CONTENT & COSTS
+// ═══════════════════════════════════════
+function ContentTab({ stats, totals, data }: any) {
+  if (!stats) return null;
+
+  // ─── API COST PER CALL (in EUR) ────
+  const API_COSTS = [
+    { name: 'AI Chat', endpoint: '/api/ai/chat', provider: 'GPT-4o-mini', costPerCall: 0.002, creditsCharged: 0, uses: stats.totalQuizzes + stats.totalBooks, icon: <Brain size={16} />, color: 'text-cyan-400' },
+    { name: 'Image Generation', endpoint: '/api/ai/generate', provider: 'DALL-E 3', costPerCall: 0.04, creditsCharged: 6, uses: stats.totalImages, icon: <Image size={16} />, color: 'text-pink-400' },
+    { name: 'Video Generation', endpoint: '/api/ai/video-generate', provider: 'Veo 2', costPerCall: 0.25, creditsCharged: 50, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
+    { name: 'Music Generation', endpoint: '/api/ai/suno-generate', provider: 'Suno AI', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalSongs, icon: <Music size={16} />, color: 'text-fuchsia-400' },
+    { name: 'Text-to-Speech', endpoint: '/api/ai/tts', provider: 'Gemini TTS', costPerCall: 0.003, creditsCharged: 0, uses: stats.totalBooks * 3, icon: <Activity size={16} />, color: 'text-emerald-400' },
+    { name: '3D Factory', endpoint: '/api/ai/meshy-generate', provider: 'Meshy.ai', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalHeroes, icon: <Box size={16} />, color: 'text-orange-400' },
+    { name: 'Quiz Generation', endpoint: '/api/ai/quiz', provider: 'Gemini 2.5 Flash', costPerCall: 0.002, creditsCharged: 0, uses: stats.totalQuizzes, icon: <Brain size={16} />, color: 'text-blue-400' },
+    { name: 'Business Sim', endpoint: '/api/ai/business', provider: 'Gemini 2.5 Flash', costPerCall: 0.002, creditsCharged: 5, uses: stats.totalBusiness, icon: <Briefcase size={16} />, color: 'text-violet-400' },
+  ];
+
+  const totalAPICost = API_COSTS.reduce((s, a) => s + a.costPerCall * a.uses, 0);
+  const totalUses = API_COSTS.reduce((s, a) => s + a.uses, 0);
+
+  // ─── REVENUE ESTIMATION ────
+  // Credit packs: 50 credits = €2.99, 200 = €7.99, 500 = €14.99, 1000 = €29.99
+  // Average credit value ≈ €0.04/credit
+  const avgCreditValue = 0.04;
+  const totalCreditsSpent = API_COSTS.reduce((s, a) => s + a.creditsCharged * a.uses, 0);
+  const realRevenue = totals.totalRevenue || 0;
+  const estimatedRevenue = realRevenue > 0 ? realRevenue : totals.purchaseCount * 7.99;
+  const profitMargin = estimatedRevenue > 0 ? ((estimatedRevenue - totalAPICost) / estimatedRevenue * 100).toFixed(0) : '—';
+
+  // ─── CREDIT ECONOMY (updated pricing) ────
+  // At Starter rate: 1 credit = €0.05
+  const creditEconomy = [
+    { label: 'Image (DALL-E 3)', credits: 6, realCost: '€0.04', revenue: '€0.30', margin: '+€0.26', marginPct: '87%', color: 'text-pink-400' },
+    { label: 'Video (Veo 2)', credits: 50, realCost: '€0.25', revenue: '€2.50', margin: '+€2.25', marginPct: '90%', color: 'text-amber-400' },
+    { label: 'Song (Suno AI)', credits: 60, realCost: '€0.10', revenue: '€3.00', margin: '+€2.90', marginPct: '97%', color: 'text-fuchsia-400' },
+    { label: '3D Model (Meshy)', credits: 60, realCost: '€0.10', revenue: '€3.00', margin: '+€2.90', marginPct: '97%', color: 'text-orange-400' },
+    { label: 'Business Sim', credits: 5, realCost: '€0.002', revenue: '€0.25', margin: '+€0.25', marginPct: '99%', color: 'text-violet-400' },
+    { label: 'Chat / Quiz', credits: 0, realCost: '€0.002', revenue: 'Free', margin: 'Free', marginPct: '—', color: 'text-cyan-400' },
+  ];
+
+  // Content breakdown
+  const contentTypes = [
+    { icon: '🎨', label: 'Hero Images', value: stats.totalImages, cost: stats.totalImages * 0.04 },
+    { icon: '🎬', label: 'Videos', value: stats.totalVideos, cost: stats.totalVideos * 0.25 },
+    { icon: '🎵', label: 'Songs', value: stats.totalSongs, cost: stats.totalSongs * 0.10 },
+    { icon: '🧠', label: 'Quizzes', value: stats.totalQuizzes, cost: stats.totalQuizzes * 0.002 },
+    { icon: '📚', label: 'Books Read', value: stats.totalBooks, cost: stats.totalBooks * 0.003 },
+    { icon: '🏢', label: 'Businesses', value: stats.totalBusiness, cost: stats.totalBusiness * 0.002 },
+    { icon: '🦸', label: '3D Heroes', value: stats.totalHeroes, cost: stats.totalHeroes * 0.10 },
+  ];
+
+  return (
+    <div className="space-y-6">
+
+      {/* ─── COST OVERVIEW CARDS ───── */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="glass-panel p-4 rounded-2xl border-white/5 bg-gradient-to-br from-red-500/5 to-red-500/0">
+          <DollarSign size={18} className="text-red-400 mb-2" />
+          <p className="text-2xl font-[1000] text-red-400 italic">€{totalAPICost.toFixed(2)}</p>
+          <p className="text-white/30 text-[9px] font-bold uppercase tracking-wider">Total API Cost</p>
+        </div>
+        <div className="glass-panel p-4 rounded-2xl border-white/5 bg-gradient-to-br from-emerald-500/5 to-emerald-500/0">
+          <CreditCard size={18} className="text-emerald-400 mb-2" />
+          <p className="text-2xl font-[1000] text-emerald-400 italic">€{estimatedRevenue.toFixed(2)}</p>
+          <p className="text-white/30 text-[9px] font-bold uppercase tracking-wider">Stripe Revenue</p>
+        </div>
+        <div className="glass-panel p-4 rounded-2xl border-white/5 bg-gradient-to-br from-blue-500/5 to-blue-500/0">
+          <TrendingUp size={18} className="text-blue-400 mb-2" />
+          <p className="text-2xl font-[1000] text-blue-400 italic">{profitMargin}%</p>
+          <p className="text-white/30 text-[9px] font-bold uppercase tracking-wider">Profit Margin</p>
+        </div>
+        <div className="glass-panel p-4 rounded-2xl border-white/5 bg-gradient-to-br from-purple-500/5 to-purple-500/0">
+          <Activity size={18} className="text-purple-400 mb-2" />
+          <p className="text-2xl font-[1000] text-purple-400 italic">{totalUses}</p>
+          <p className="text-white/30 text-[9px] font-bold uppercase tracking-wider">Total API Calls</p>
+        </div>
+      </div>
+
+      {/* ─── API COST TABLE ───── */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <DollarSign size={14} className="text-red-400" /> Cost per API Call
+          </h3>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left min-w-[600px]">
+            <thead>
+              <tr className="bg-white/5 text-[8px] uppercase font-black tracking-widest text-white/30">
+                <th className="px-4 py-2.5">API</th>
+                <th className="px-4 py-2.5">Provider</th>
+                <th className="px-4 py-2.5 text-center">Cost/Call</th>
+                <th className="px-4 py-2.5 text-center">Credits</th>
+                <th className="px-4 py-2.5 text-center">Uses</th>
+                <th className="px-4 py-2.5 text-right">Total Cost</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5">
+              {API_COSTS.map((api, i) => (
+                <tr key={i} className="hover:bg-white/[0.02] transition-colors">
+                  <td className="px-4 py-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className={api.color}>{api.icon}</span>
+                      <span className="text-white text-xs font-bold">{api.name}</span>
+                    </div>
+                  </td>
+                  <td className="px-4 py-2.5">
+                    <span className="text-white/40 text-[10px] font-bold">{api.provider}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-red-400/80 text-xs font-[1000]">€{api.costPerCall.toFixed(3)}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-amber-400 text-xs font-[1000]">{api.creditsCharged > 0 ? `${api.creditsCharged}⚡` : 'Free'}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-white font-bold text-xs">{api.uses}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-right">
+                    <span className="text-red-400 font-[1000] text-xs">€{(api.costPerCall * api.uses).toFixed(3)}</span>
+                  </td>
+                </tr>
+              ))}
+              {/* TOTAL ROW */}
+              <tr className="bg-white/5 font-[1000]">
+                <td className="px-4 py-3 text-white text-xs uppercase" colSpan={4}>Total</td>
+                <td className="px-4 py-3 text-center text-white text-xs">{totalUses}</td>
+                <td className="px-4 py-3 text-right text-red-400 text-sm">€{totalAPICost.toFixed(3)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* ─── CREDIT ECONOMY / MARGIN ANALYSIS ───── */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <Zap size={14} className="text-amber-400" /> Credit Economy — Margin per Feature
+          </h3>
+          <p className="text-white/25 text-[10px] font-bold mt-1">1 credit ≈ €0.04 (based on avg pack price)</p>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left min-w-[500px]">
+            <thead>
+              <tr className="bg-white/5 text-[8px] uppercase font-black tracking-widest text-white/30">
+                <th className="px-4 py-2.5">Feature</th>
+                <th className="px-4 py-2.5 text-center">Credits Charged</th>
+                <th className="px-4 py-2.5 text-center">User Pays</th>
+                <th className="px-4 py-2.5 text-center">Real Cost</th>
+                <th className="px-4 py-2.5 text-center">Margin</th>
+                <th className="px-4 py-2.5 text-center">Margin %</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5">
+              {creditEconomy.map((ce, i) => (
+                <tr key={i} className="hover:bg-white/[0.02]">
+                  <td className="px-4 py-2.5">
+                    <span className={`text-xs font-bold ${ce.color}`}>{ce.label}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-amber-400 font-[1000] text-xs">{ce.credits > 0 ? `${ce.credits}⚡` : 'Free'}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-white font-bold text-xs">€{(ce.credits * avgCreditValue).toFixed(2)}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-red-400/70 font-bold text-xs">{ce.realCost}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    <span className="text-emerald-400 font-[1000] text-xs">{ce.margin}</span>
+                  </td>
+                  <td className="px-4 py-2.5 text-center">
+                    {ce.marginPct !== '—' ? (
+                      <span className="bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-black">{ce.marginPct}</span>
+                    ) : (
+                      <span className="text-white/20 text-[10px]">—</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* ─── CONTENT BREAKDOWN ───── */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <BarChart3 size={14} className="text-blue-400" /> Content Created
+          </h3>
+        </div>
+        <div className="p-4 space-y-3">
+          {contentTypes.map((ct, i) => {
+            const maxVal = Math.max(...contentTypes.map(c => c.value), 1);
+            return (
+              <div key={i} className="flex items-center gap-3">
+                <span className="text-lg w-8 text-center">{ct.icon}</span>
+                <div className="flex-1">
+                  <div className="flex justify-between mb-1">
+                    <span className="text-white/60 text-[11px] font-bold">{ct.label}</span>
+                    <span className="text-white font-[1000] text-xs italic">{ct.value} <span className="text-red-400/50 font-bold text-[9px]">(€{ct.cost.toFixed(3)})</span></span>
+                  </div>
+                  <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500 opacity-50" style={{ width: `${Math.max((ct.value / maxVal) * 100, 3)}%` }} />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ─── RECENT STRIPE PAYMENTS ───── */}
+      {(data as any)?.payments && (data as any).payments.length > 0 && (
+        <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+          <div className="p-4 border-b border-white/5">
+            <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+              <CreditCard size={14} className="text-emerald-400" /> Stripe Payments ({(data as any).payments.length})
+            </h3>
+          </div>
+          <div className="divide-y divide-white/5">
+            {(data as any).payments.map((p: any) => (
+              <div key={p.id} className="px-4 py-3 flex items-center justify-between">
+                <div>
+                  <p className="text-white text-sm font-bold">{p.packId} — {p.credits}⚡</p>
+                  <p className="text-white/30 text-[10px]">{p.email || p.userId} • {new Date(p.date).toLocaleDateString('el-GR')}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-emerald-400 font-[1000] text-lg italic">€{p.amount.toFixed(2)}</p>
+                  <p className="text-emerald-400/50 text-[9px] font-bold uppercase">{p.status}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ─── STRIPE PACKS ───── */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <CreditCard size={14} className="text-orange-400" /> Credit Packs (Stripe)
+          </h3>
+        </div>
+        <div className="p-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { name: 'Starter', credits: 100, price: '€4.99', perCredit: '€0.050', color: 'from-blue-500/10 to-cyan-500/10' },
+            { name: 'Hero', credits: 240, price: '€9.99', perCredit: '€0.042', color: 'from-purple-500/10 to-fuchsia-500/10' },
+            { name: 'Legend', credits: 600, price: '€19.99', perCredit: '€0.033', color: 'from-amber-500/10 to-orange-500/10' },
+            { name: 'Ultimate', credits: 1600, price: '€39.99', perCredit: '€0.025', color: 'from-emerald-500/10 to-teal-500/10' },
+          ].map((pack, i) => (
+            <div key={i} className={`bg-gradient-to-br ${pack.color} rounded-xl p-3 border border-white/5 text-center`}>
+              <p className="text-white font-[1000] text-sm italic">{pack.name}</p>
+              <p className="text-amber-400 font-[1000] text-xl italic mt-1">{pack.credits}⚡</p>
+              <p className="text-white/50 text-xs font-bold">{pack.price}</p>
+              <p className="text-white/25 text-[9px] font-bold mt-1">{pack.perCredit}/credit</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// TAB: SYSTEM
+// ═══════════════════════════════════════
+function SystemTab({ totals, lastRefresh, users }: any) {
+  const endpoints = [
+    { name: '/api/ai/chat', desc: 'AI Chat (GPT-4o-mini)', status: 'active' },
+    { name: '/api/ai/generate', desc: 'Image Gen (DALL-E 3) + Text (Gemini)', status: 'active' },
+    { name: '/api/ai/tts', desc: 'Text-to-Speech', status: 'active' },
+    { name: '/api/ai/video', desc: 'Video Gen (Veo)', status: 'active' },
+    { name: '/api/ai/music', desc: 'Music Gen', status: 'active' },
+    { name: '/api/ai/quiz', desc: 'Quiz Gen', status: 'active' },
+    { name: '/api/auth/signup', desc: 'User Registration', status: 'active' },
+    { name: '/api/stripe/checkout', desc: 'Stripe Payments', status: 'active' },
+    { name: '/api/admin/stats', desc: 'Admin Stats', status: 'active' },
+    { name: '/api/admin/credits', desc: 'Credit Management', status: 'active' },
+  ];
+
+  const config = [
+    { label: 'Platform', value: 'Vercel (Serverless)' },
+    { label: 'Database', value: 'Supabase PostgreSQL' },
+    { label: 'Auth', value: 'Supabase Auth + Password' },
+    { label: 'AI Provider', value: 'Google Gemini / Imagen' },
+    { label: 'Payments', value: 'Stripe' },
+    { label: 'Domain', value: 'wisebot.gr' },
+    { label: 'Region', value: 'fra1 (Europe)' },
+    { label: 'Framework', value: 'React + Vite + TailwindCSS' },
+  ];
+
+  return (
+    <div className="space-y-6">
+      {/* API Endpoints */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <Globe size={14} className="text-blue-400" /> API Endpoints
+          </h3>
+        </div>
+        <div className="divide-y divide-white/5">
+          {endpoints.map((ep, i) => (
+            <div key={i} className="px-4 py-3 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
+              <div>
+                <p className="text-white font-bold text-xs font-mono">{ep.name}</p>
+                <p className="text-white/30 text-[10px]">{ep.desc}</p>
+              </div>
+              <span className="flex items-center gap-1.5 text-[9px] font-black uppercase px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400">
+                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" /> Active
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* System Config */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
+            <Server size={14} className="text-purple-400" /> System Config
+          </h3>
+        </div>
+        <div className="divide-y divide-white/5">
+          {config.map((c, i) => (
+            <div key={i} className="px-4 py-2.5 flex items-center justify-between">
+              <p className="text-white/40 text-xs font-bold">{c.label}</p>
+              <p className="text-white text-xs font-bold">{c.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Quick Stats */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <QuickStat label="Total Users" value={totals.userCount} icon={<Users size={14} />} color="text-blue-400" />
+        <QuickStat label="API Endpoints" value={endpoints.length} icon={<Globe size={14} />} color="text-emerald-400" />
+        <QuickStat label="Purchases" value={totals.purchaseCount} icon={<CreditCard size={14} />} color="text-orange-400" />
+        <QuickStat label="Last Refresh" value={lastRefresh ? new Date(lastRefresh).toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' }) : '—'} icon={<Clock size={14} />} color="text-purple-400" />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// SHARED COMPONENTS
+// ═══════════════════════════════════════
+function QuickStat({ label, value, icon, color }: { label: string; value: any; icon: React.ReactNode; color: string }) {
+  return (
+    <div className="glass-panel p-3 rounded-xl border-white/5 flex items-center gap-3">
+      <div className={color}>{icon}</div>
+      <div>
+        <p className="text-white font-[1000] text-sm italic">{value}</p>
+        <p className="text-white/30 text-[8px] font-bold uppercase tracking-wider">{label}</p>
+      </div>
+    </div>
+  );
+}
+
+function DetailItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-white/[0.03] rounded-lg p-2">
+      <p className="text-white/30 text-[8px] font-bold uppercase tracking-wider">{label}</p>
+      <p className="text-white/70 text-[11px] font-bold truncate">{value}</p>
+    </div>
+  );
+}
+
+function StatBadge({ icon, label, val }: { icon: string; label: string; val: number }) {
+  return (
+    <div className="bg-white/[0.03] rounded-lg p-2 text-center">
+      <p className="text-sm">{icon}</p>
+      <p className="text-white font-[1000] text-xs italic">{val}</p>
+      <p className="text-white/20 text-[7px] font-bold uppercase">{label}</p>
     </div>
   );
 }

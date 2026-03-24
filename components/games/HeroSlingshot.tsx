@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useEconomy } from '../../context/EconomyContext';
 import { ArrowLeft, Play, RefreshCcw, Zap, Target, BrainCircuit, MousePointer2 } from 'lucide-react';
 
 interface HeroSlingshotProps {
@@ -25,7 +24,6 @@ const HERO_BUBBLES = [
 ];
 
 export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
-  const { earnCredits } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   // Game State Refs (no re-renders)
@@ -312,7 +310,7 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
       const state = stateRef.current;
 
       // Clear
-      ctx.fillStyle = '#0f172a';
+      ctx.fillStyle = '#0B0F1A';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Draw Grid Bubbles
@@ -398,7 +396,7 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
   };
 
   return (
-    <div className="h-full flex flex-col items-center p-2 bg-[#020617] select-none touch-none overscroll-none overflow-hidden">
+    <div className="h-full flex flex-col items-center p-2 bg-[#0B0F1A] select-none touch-none overscroll-none overflow-hidden">
 
       {/* HEADER */}
       <div className="w-full max-w-md bg-[#1e293b] px-3 py-2 rounded-xl border border-white/10 flex justify-between items-center mb-2 shadow-lg z-10 shrink-0">

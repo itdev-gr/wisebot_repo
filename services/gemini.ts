@@ -1,22 +1,29 @@
 
-import { GoogleGenAI, GenerateContentResponse, Modality } from "@google/genai";
+import { GoogleGenAI } from "./geminiProxy";
 
-const getAI = () => new GoogleGenAI({ apiKey: process.env.API_KEY });
+// All AI requests are proxied through /api/ai/generate (server-side API key)
+const getAI = () => new GoogleGenAI();
 
-// Chat / Text
+export function isAIAvailable(): boolean {
+  // Always available — proxied through serverless endpoint
+  return true;
+}
+
+// Chat / Text — uses generateContent with full history
 export const generateChatResponse = async (
   model: string,
   history: { role: string; parts: { text: string }[] }[],
   message: string
 ): Promise<string> => {
   const ai = getAI();
-  const chat = ai.chats.create({
-    model: model,
-    history: history,
+  const response = await ai.models.generateContent({
+    model,
+    contents: [
+      ...history,
+      { role: 'user', parts: [{ text: message }] }
+    ],
   });
-
-  const result = await chat.sendMessage({ message });
-  return result.text || "";
+  return response.text || "";
 };
 
 // Image Generation
@@ -84,61 +91,19 @@ IMPORTANT RULES:
   throw new Error("No avatar generated");
 };
 
-// Video Generation (Veo)
-export const generateVideo = async (prompt: string): Promise<string> => {
-  // Always create a new instance to pick up the selected key if changed
-  const ai = getAI(); 
-  
-  let operation = await ai.models.generateVideos({
-    model: 'veo-3.1-fast-generate-preview',
-    prompt: prompt,
-    config: {
-      numberOfVideos: 1,
-      resolution: '720p',
-      aspectRatio: '16:9'
-    }
-  });
-
-  // Polling
-  while (!operation.done) {
-    await new Promise(resolve => setTimeout(resolve, 5000)); // 5s poll
-    operation = await ai.operations.getVideosOperation({ operation: operation });
-  }
-
-  const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
-  if (!downloadLink) throw new Error("Video generation failed or returned no URI");
-
-  // Fetch the actual bytes to create a local blob URL for playback
-  // Must append API Key
-  const videoRes = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
-  if (!videoRes.ok) throw new Error("Failed to download video bytes");
-  
-  const blob = await videoRes.blob();
-  return URL.createObjectURL(blob);
+// Video Generation (Veo) — requires server-side long-running process
+// TODO: Implement server-side video generation endpoint
+export const generateVideo = async (_prompt: string): Promise<string> => {
+  throw new Error('VIDEO_NOT_AVAILABLE');
 };
 
-// Live API Connection Helper
-// Returns the session promise so the caller can send inputs
+// Live API Connection — requires WebSocket support
+// TODO: Implement server-side live session endpoint
 export const connectLiveSession = async (
-  onOpen: () => void,
-  onMessage: (msg: any) => void,
-  onError: (e: any) => void,
-  onClose: (e: any) => void
+  _onOpen: () => void,
+  _onMessage: (msg: any) => void,
+  _onError: (e: any) => void,
+  _onClose: (e: any) => void
 ): Promise<any> => {
-  const ai = getAI();
-  return ai.live.connect({
-    model: 'gemini-2.5-flash-native-audio-preview-12-2025',
-    callbacks: {
-      onopen: onOpen,
-      onmessage: onMessage,
-      onerror: onError,
-      onclose: onClose,
-    },
-    config: {
-      responseModalities: [Modality.AUDIO],
-      speechConfig: {
-        voiceConfig: { prebuiltVoiceConfig: { voiceName: 'Zephyr' } },
-      },
-    },
-  });
+  throw new Error('LIVE_NOT_AVAILABLE');
 };

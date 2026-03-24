@@ -143,7 +143,7 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
     >
       <div
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
-        className="relative w-full max-w-md bg-gradient-to-b from-[#1a1a3e] to-[#0f172a] rounded-[2.5rem] border border-white/10 shadow-[0_0_80px_rgba(245,158,11,0.2)] overflow-hidden"
+        className="relative w-full max-w-md bg-gradient-to-b from-[#1a1a3e] to-[#0B0F1A] rounded-[2.5rem] border border-white/10 shadow-[0_0_80px_rgba(245,158,11,0.2)] overflow-hidden"
         style={{ animation: 'dr-popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' }}
       >
         {/* Ambient glow */}

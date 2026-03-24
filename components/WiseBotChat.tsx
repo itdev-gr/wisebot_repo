@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, User, Shield } from 'lucide-react';
-import { backendAI } from '../services/backendApi';
+import { GoogleGenAI } from "../services/geminiProxy";
 import { useEconomy } from '../context/EconomyContext';
 
 const motion = m as any;
@@ -240,6 +240,8 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
     setIsTyping(true);
 
     try {
+      const ai = new GoogleGenAI();
+
       // 🛡️ BULLETPROOF KID-SAFE SYSTEM PROMPT
       const systemInstruction = `
 === IDENTITY ===
@@ -305,12 +307,17 @@ Use to personalize. Only mention when the child asks.
 
       // Conversation context — last 10 messages only
       const recent = messages.slice(-10);
-      const history = recent.map(m => ({
+      const contents = recent.map(m => ({
         role: m.role,
         parts: [{ text: m.text }],
       }));
+      contents.push({ role: 'user', parts: [{ text: userMsg }] });
 
-      const response = await backendAI.chat(userMsg, history, systemInstruction);
+      const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents,
+        config: { systemInstruction },
+      });
 
       let text =
         response.text ||

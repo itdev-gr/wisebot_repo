@@ -57,6 +57,7 @@ interface Entity {
 
 export default function TacticalFootball({ lang, onBack }: TacticalFootballProps) {
   const { earnCredits } = useEconomy();
+  const creditsAwardedRef = useRef(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<Record<string, HTMLImageElement>>({});
 
@@ -336,7 +337,10 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
           ...s, scoreP: state.scorePlayer, scoreO: state.scoreOpponent, message: t.goal
       }));
 
-      if(scorer === 'player') earnCredits(5);
+      if(scorer === 'player' && !creditsAwardedRef.current) {
+        creditsAwardedRef.current = true;
+        earnCredits(5);
+      }
 
       setTimeout(() => {
           initMatch(); 
@@ -452,7 +456,7 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
       const state = stateRef.current;
 
       // Clear & Background
-      ctx.fillStyle = '#050b14';
+      ctx.fillStyle = '#0B0F1A';
       ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
       // Field Lines (Neon)
@@ -567,10 +571,10 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
   };
 
   return (
-    <div className="h-full flex flex-col items-center p-2 bg-[#020617] select-none touch-none overscroll-none overflow-hidden">
+    <div className="h-full flex flex-col items-center p-2 bg-[#0B0F1A] select-none touch-none overscroll-none overflow-hidden">
 
       {/* HEADER — compact */}
-      <div className="flex justify-between items-center w-full max-w-lg mx-auto bg-[#0f172a] px-3 py-2 rounded-xl border border-white/10 shadow-lg z-10 shrink-0">
+      <div className="flex justify-between items-center w-full max-w-lg mx-auto bg-[#0B0F1A] px-3 py-2 rounded-xl border border-white/10 shadow-lg z-10 shrink-0">
          <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-1">
             <ArrowLeft size={14} />
          </button>
@@ -606,7 +610,7 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
             ref={canvasRef}
             width={GAME_WIDTH}
             height={GAME_HEIGHT}
-            className="w-full h-full object-contain cursor-crosshair bg-[#050b14]"
+            className="w-full h-full object-contain cursor-crosshair bg-[#0B0F1A]"
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={handlePointerUp}
@@ -624,7 +628,7 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
 
       {/* FOOTER CONTROLS — mobile only (desktop spin is in header) */}
       <div className="md:hidden mt-1 flex gap-3 w-full max-w-lg mx-auto justify-center shrink-0">
-          <div className="flex items-center gap-1.5 bg-[#0f172a] px-2 py-1.5 rounded-xl border border-white/10 shadow-lg">
+          <div className="flex items-center gap-1.5 bg-[#0B0F1A] px-2 py-1.5 rounded-xl border border-white/10 shadow-lg">
               <span className="text-[9px] font-black text-white/40 uppercase px-1">{t.spin}</span>
               <button onClick={() => toggleSpin(-1)} className={`p-2 rounded-lg transition-all ${uiState.spin === -1 ? 'bg-cyan-500 text-black' : 'bg-white/5 text-white hover:bg-white/10'}`}><RotateCcw size={16} /></button>
               <button onClick={() => toggleSpin(0)} className={`p-2 rounded-lg transition-all ${uiState.spin === 0 ? 'bg-cyan-500 text-black' : 'bg-white/5 text-white hover:bg-white/10'}`}><Target size={16} /></button>

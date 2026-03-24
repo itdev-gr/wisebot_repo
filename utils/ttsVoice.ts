@@ -17,7 +17,10 @@ const NOVELTY_VOICES = [
 
 // Known high-quality Apple voices (even in compact form)
 const GOOD_APPLE_EN = ['Samantha', 'Ava', 'Zoe', 'Alex', 'Serena', 'Daniel', 'Karen', 'Jamie', 'Lee', 'Matilda', 'Tessa', 'Tom'];
-const GOOD_APPLE_EL = ['Μελίνα', 'Melina'];
+const GOOD_APPLE_EL = ['Μελίνα', 'Melina', 'Nikos'];
+
+// Prefer female voices for kids' content (warmer, friendlier)
+const PREFERRED_FEMALE = ['Samantha', 'Ava', 'Zoe', 'Serena', 'Karen', 'Matilda', 'Tessa', 'Μελίνα', 'Melina', 'Female'];
 
 function getVoiceQuality(voice: SpeechSynthesisVoice): number {
   const name = voice.name;
@@ -25,20 +28,27 @@ function getVoiceQuality(voice: SpeechSynthesisVoice): number {
   // Filter out novelty
   if (NOVELTY_VOICES.some(n => name.includes(n))) return 0;
 
+  let score = 0;
+
   // Microsoft Neural (Edge) — best free voices
-  if (name.includes('Natural')) return 100;
-  // Apple Premium (downloaded, Chrome-only)
-  if (name.includes('Premium')) return 95;
+  if (name.includes('Natural')) score = 100;
+  // Apple Premium (downloaded)
+  else if (name.includes('Premium')) score = 95;
   // Apple Enhanced (downloaded)
-  if (name.includes('Enhanced')) return 85;
+  else if (name.includes('Enhanced')) score = 85;
   // Google Cloud voices (Chrome) — great but have 15s bug
-  if (name.startsWith('Google')) return 75;
+  else if (name.startsWith('Google')) score = 75;
   // Known high-quality Apple compact voices
-  if ([...GOOD_APPLE_EN, ...GOOD_APPLE_EL].some(n => name.includes(n))) return 65;
+  else if ([...GOOD_APPLE_EN, ...GOOD_APPLE_EL].some(n => name.includes(n))) score = 65;
   // Any remote/cloud voice (generally higher quality)
-  if (!voice.localService) return 55;
+  else if (!voice.localService) score = 55;
   // Any remaining local voice
-  return 30;
+  else score = 30;
+
+  // Bonus for female voices (friendlier for kids)
+  if (PREFERRED_FEMALE.some(f => name.includes(f))) score += 3;
+
+  return score;
 }
 
 /**
@@ -103,20 +113,29 @@ export function createWarmUtterance(
 ): { utterance: SpeechSynthesisUtterance; startChromeFix: () => () => void } {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang === 'el' ? 'el-GR' : 'en-US';
-
-  // Warm, sweet tone — slightly lower pitch, comfortable rate
-  utterance.pitch = 1.0;      // Keep natural for best quality
-  utterance.rate = rate * 0.95; // Slightly slower = more conversational
   utterance.volume = 0.92;     // Slightly below max = softer, more pleasant
 
   if (voice) {
     utterance.voice = voice;
-    // Premium/Enhanced/Natural voices sound best at default pitch
-    // Only lower pitch for basic voices
     const quality = getVoiceQuality(voice);
-    if (quality < 65) {
-      utterance.pitch = 0.95; // Slightly warmer for basic voices
+
+    if (quality >= 85) {
+      // Premium/Enhanced/Natural voices — let them shine, minimal tuning
+      utterance.pitch = 1.0;
+      utterance.rate = rate * 0.92;  // Comfortable storytelling pace
+    } else if (quality >= 65) {
+      // Good voices (Google Cloud, known Apple) — warm them up
+      utterance.pitch = 1.05;        // Slightly brighter = friendlier for kids
+      utterance.rate = rate * 0.88;  // Slower = more comprehension for children
+    } else {
+      // Basic/robotic voices — compensate with warmer settings
+      utterance.pitch = 0.92;        // Lower pitch = warmer, less robotic
+      utterance.rate = rate * 0.85;  // Slower = less machine-gun feel
     }
+  } else {
+    // No voice selected — safe defaults
+    utterance.pitch = 1.0;
+    utterance.rate = rate * 0.90;
   }
 
   // Chrome 15-second bug workaround for cloud voices

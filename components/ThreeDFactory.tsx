@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Upload, RefreshCcw, Download, Cuboid, Grid, Sparkles, Cylinder, Box, FileDown, CheckCircle2, Lock, X, Zap, RotateCcw } from 'lucide-react';
-import { backendAI } from '../services/backendApi';
+import { GoogleGenAI } from "../services/geminiProxy";
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 
@@ -177,13 +177,15 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generate3DPreview = async () => {
     if (!image) return;
 
-    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
+    if (!spendCredits(costs.threeD)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
 
     setIsProcessing(true);
     try {
+        const ai = new GoogleGenAI();
+        
         let imageBytes = "";
         let mimeType = "image/png";
 
@@ -203,6 +205,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         }
 
         let prompt = "";
+        let model = 'gemini-2.5-flash-image';
 
         if (styleMode === 'voxel') {
             prompt = `
@@ -215,24 +218,41 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
             // UPDATED PROMPT FOR BETTER CENTERED VIEW
             prompt = `
             Act as a 3D Modeler. Convert this character into a "3D Print Ready" digital figurine.
-
+            
             VIEW ANGLE: Front 3/4 view (slightly angled to show depth, but mostly front-facing).
             CENTERING: Perfectly centered on a circular exhibition pedestal/base.
-
+            
             STYLE REQUIREMENTS:
             - Material: Grey Resin Prototype (matte finish).
             - Lighting: Studio lighting to highlight geometry and depth.
             - Clarity: Clean edges, no blur, high contrast.
             - Background: Solid dark grey (neutral).
-
+            
             The goal is an image that looks like a photograph of a real 3D printed object on a desk.
             `;
         }
 
-        const result = await backendAI.threeD(prompt, imageBytes, mimeType);
+        const response = await ai.models.generateContent({
+            model: model,
+            contents: {
+                parts: [
+                    { inlineData: { mimeType: mimeType, data: imageBytes } },
+                    { text: prompt }
+                ]
+            },
+            config: {
+                responseModalities: ['TEXT', 'IMAGE'],
+            }
+        });
 
-        if (result.image) {
-            setResultImage(`data:image/png;base64,${result.image}`);
+        const parts = response.candidates?.[0]?.content?.parts;
+        if (parts) {
+            for (const part of parts) {
+                if (part.inlineData) {
+                    setResultImage(`data:image/png;base64,${part.inlineData.data}`);
+                    break;
+                }
+            }
         } else {
             throw new Error("No image generated.");
         }
@@ -294,7 +314,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generateReal3D = async () => {
     if (!image) return;
 
-    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
+    if (!spendCredits(costs.threeD)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -785,8 +805,8 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
                   </a>
                 ) : (
                   <button
-                    onClick={async () => {
-                      if (await spendCredits(costs.threeD, 'CREATE_3D')) {
+                    onClick={() => {
+                      if (spendCredits(costs.threeD)) {
                         setUnlockedModels(prev => [...prev, selected3DModel!.id]);
                         showNotification('🎉', lang === 'el' ? 'Ξεκλειδώθηκε! Κατέβασέ το!' : 'Unlocked! Download it!');
                       } else {

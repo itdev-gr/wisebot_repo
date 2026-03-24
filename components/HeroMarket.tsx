@@ -160,9 +160,9 @@ export default function HeroMarket({ lang, myHeroes }: HeroMarketProps) {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  const handleBuy = async (item: any) => {
+  const handleBuy = (item: any) => {
     if (item.sold) return;
-    if (await spendCredits(item.price, 'CREATE_IMAGE')) {
+    if (spendCredits(item.price)) {
       // For user listings: don't mark as sold (many kids can buy!)
       // For pre-made heroes: mark as sold (one-time)
       if (item.isUserListing) {
@@ -467,14 +467,14 @@ export default function HeroMarket({ lang, myHeroes }: HeroMarketProps) {
                                 </div>
 
                                 <button
-                                    onClick={async () => {
+                                    onClick={() => {
                                         if (!canAfford) {
                                             showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
                                             return;
                                         }
                                         if (item.id === 'r2') {
                                             // Mystery Box - give random digital gift
-                                            if (await spendCredits(item.cost, 'CREATE_IMAGE')) {
+                                            if (spendCredits(item.cost)) {
                                                 const gifts = [
                                                     { reward: 6, msg: lang === 'el' ? '🎨 1 Δωρεάν Hero Image! (+6⚡)' : '🎨 1 Free Hero Image! (+6⚡)' },
                                                     { reward: 50, msg: lang === 'el' ? '🎬 1 Δωρεάν Video! (+50⚡)' : '🎬 1 Free Video! (+50⚡)' },
@@ -490,7 +490,7 @@ export default function HeroMarket({ lang, myHeroes }: HeroMarketProps) {
                                             }
                                         } else {
                                             // 3D Print or Expert Plan - just deduct and show confirmation
-                                            if (await spendCredits(item.cost, 'CREATE_IMAGE')) {
+                                            if (spendCredits(item.cost)) {
                                                 showNotification('✅', lang === 'el' ? 'Επιτυχής εξαργύρωση! Θα επικοινωνήσουμε μαζί σου!' : 'Redeemed! We\'ll contact you!');
                                                 showLocalNotif(lang === 'el' ? `✅ ${item.title[lang]} - Θα επικοινωνήσουμε σύντομα!` : `✅ ${item.title[lang]} - We'll contact you soon!`);
                                             }

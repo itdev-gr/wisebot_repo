@@ -1,4 +1,4 @@
-import { Blob as GenAIBlob } from '@google/genai';
+interface GenAIBlob { data: string; mimeType: string; }
 
 export function base64ToUint8Array(base64: string): Uint8Array {
   const binaryString = atob(base64);

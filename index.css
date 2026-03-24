@@ -4,41 +4,55 @@
 
 body {
   font-family: 'Nunito', sans-serif;
-  background: #0f172a;
+  background: #0B0F1A;
   overflow-x: hidden;
   margin: 0;
   color: white;
 }
 
 .app-bg {
-  background-image: url('/images/eksofilo.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   position: relative;
 }
 
-.app-bg::before {
-  content: "";
+/* ─── PREMIUM BACKGROUND SYSTEM ─── */
+.premium-bg {
+  position: relative;
+  background: linear-gradient(135deg, #0B0F1A 0%, #0F1B2D 40%, #0A1F1C 100%);
+}
+.premium-bg::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 0;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(0, 255, 200, 0.06), transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(120, 100, 255, 0.06), transparent 40%);
+  pointer-events: none;
+}
+.premium-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    url('/images/stardust.webp') center / cover no-repeat,
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.12;
+  pointer-events: none;
 }
 
+/* ─── GLASS STYLES (Premium) ─── */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px) saturate(150%);
-  -webkit-backdrop-filter: blur(15px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(130%);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(100px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .magic-gradient {

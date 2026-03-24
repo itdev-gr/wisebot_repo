@@ -1,0 +1,270 @@
+/**
+ * AUTH CONTEXT — Supabase Password Auth
+ * =======================================
+ * Register: calls /api/auth/signup (server creates user with auto-confirm)
+ * Login: supabase.auth.signInWithPassword() directly
+ * On login: pulls cloud data -> merges with localStorage -> pushes back.
+ */
+import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
+import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
+import { pullFromCloud, pushToCloud, mergeState, debouncedPush, cancelPendingPush, type SyncState } from '../services/syncService';
+import { useEconomy } from './EconomyContext';
+import type { User } from '@supabase/supabase-js';
+
+interface Profile {
+  id: string;
+  childName: string;
+  parentEmail: string | null;
+  avatarUrl: string | null;
+  parentVerified: boolean;
+}
+
+interface AuthContextType {
+  user: User | null;
+  profile: Profile | null;
+  loading: boolean;
+  isGuest: boolean;
+  signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string }>;
+  signIn: (email: string, password: string) => Promise<{ error?: string }>;
+  signOut: () => Promise<void>;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<User | null>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const [loading, setLoading] = useState(true);
+  const syncDoneRef = useRef(false);
+
+  const configured = isSupabaseConfigured();
+
+  // Fetch profile from Supabase
+  const fetchProfile = useCallback(async (userId: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('id, child_name, parent_email, avatar_url, parent_verified')
+        .eq('id', userId)
+        .single();
+
+      if (error || !data) {
+        console.warn('[Auth] Could not fetch profile:', error?.message);
+        return null;
+      }
+
+      const p: Profile = {
+        id: data.id,
+        childName: data.child_name,
+        parentEmail: data.parent_email,
+        avatarUrl: data.avatar_url,
+        parentVerified: data.parent_verified,
+      };
+      setProfile(p);
+      return p;
+    } catch (err) {
+      console.error('[Auth] Profile fetch error:', err);
+      return null;
+    }
+  }, []);
+
+  // Initialize: check existing session
+  useEffect(() => {
+    if (!configured) {
+      setLoading(false);
+      return;
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        setUser(session.user);
+        fetchProfile(session.user.id);
+      }
+      setLoading(false);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (session?.user) {
+          setUser(session.user);
+          await fetchProfile(session.user.id);
+        } else {
+          setUser(null);
+          setProfile(null);
+          syncDoneRef.current = false;
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
+  }, [configured, fetchProfile]);
+
+  // Sign Up — calls server endpoint which uses admin API
+  const signUp = useCallback(async (
+    email: string,
+    password: string,
+    childName: string,
+    parentEmail?: string,
+  ): Promise<{ error?: string }> => {
+    if (!configured) return { error: 'Auth not configured' };
+
+    try {
+      // Step 1: Create user via server API (auto-confirms email)
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password, childName, parentEmail }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        return { error: result.error || result.details || 'Registration failed' };
+      }
+
+      // Step 2: Auto-login after signup
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (signInError) {
+        return { error: signInError.message };
+      }
+
+      syncDoneRef.current = false;
+      return {};
+    } catch (err: any) {
+      return { error: err.message || 'Registration failed' };
+    }
+  }, [configured]);
+
+  // Sign In — direct Supabase call
+  const signIn = useCallback(async (
+    email: string,
+    password: string,
+  ): Promise<{ error?: string }> => {
+    if (!configured) return { error: 'Auth not configured' };
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        return { error: error.message };
+      }
+
+      syncDoneRef.current = false;
+      return {};
+    } catch (err: any) {
+      return { error: err.message || 'Login failed' };
+    }
+  }, [configured]);
+
+  // Sign Out
+  const signOut = useCallback(async () => {
+    cancelPendingPush();
+    await supabase.auth.signOut();
+    setUser(null);
+    setProfile(null);
+    syncDoneRef.current = false;
+  }, []);
+
+  const isGuest = !user;
+
+  return (
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, signUp, signIn, signOut }}>
+      {children}
+      {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
+    </AuthContext.Provider>
+  );
+};
+
+/**
+ * SYNC BRIDGE — Connects AuthContext to EconomyContext
+ */
+const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject<boolean> }> = ({ userId, syncDoneRef }) => {
+  const { credits, stats, badges, syncFromCloud } = useEconomy();
+  const prevStateRef = useRef<string>('');
+
+  // On login: pull from cloud, merge, update local
+  useEffect(() => {
+    if (syncDoneRef.current) return;
+
+    const doSync = async () => {
+      const cloudState = await pullFromCloud(userId);
+      if (!cloudState) {
+        syncDoneRef.current = true;
+        return;
+      }
+
+      const localState: SyncState = {
+        credits,
+        xp: parseInt(localStorage.getItem('wb_xp') || '0'),
+        level: parseInt(localStorage.getItem('wb_level') || '1'),
+        stats,
+        badges,
+        streakCurrent: 0,
+        streakBest: 0,
+        childName: '',
+        avatarUrl: localStorage.getItem('wb_avatar') || '',
+      };
+
+      const merged = mergeState(localState, cloudState);
+      syncFromCloud(merged.credits, merged.stats, merged.badges);
+      localStorage.setItem('wb_xp', merged.xp.toString());
+      localStorage.setItem('wb_level', merged.level.toString());
+      await pushToCloud(userId, merged);
+
+      syncDoneRef.current = true;
+      console.log('[Sync] Initial sync complete');
+    };
+
+    doSync();
+  }, [userId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // On state change: debounced push to cloud
+  useEffect(() => {
+    if (!syncDoneRef.current) return;
+
+    const stateKey = JSON.stringify({ credits, stats, badges });
+    if (stateKey === prevStateRef.current) return;
+    prevStateRef.current = stateKey;
+
+    const state: SyncState = {
+      credits,
+      xp: parseInt(localStorage.getItem('wb_xp') || '0'),
+      level: parseInt(localStorage.getItem('wb_level') || '1'),
+      stats,
+      badges,
+      streakCurrent: 0,
+      streakBest: 0,
+      childName: '',
+      avatarUrl: localStorage.getItem('wb_avatar') || '',
+    };
+
+    debouncedPush(userId, state);
+  }, [credits, stats, badges, userId]);
+
+  return null;
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    // Return safe defaults instead of throwing
+    return {
+      user: null,
+      profile: null,
+      loading: false,
+      signUp: async () => {},
+      signIn: async () => {},
+      signOut: async () => {},
+      updateProfile: async () => {},
+    } as any;
+  }
+  return context;
+};

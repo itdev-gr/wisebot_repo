@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { CheckCircle, RefreshCcw, Star, Zap, Bug, Hexagon, Triangle, Circle, Square, Trophy } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
@@ -67,6 +67,7 @@ const DIFFERENCES_CONFIG = [
 
 export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps) {
   const { earnCredits } = useEconomy();
+  const creditsAwardedRef = useRef(false);
   const [level, setLevel] = useState(0);
   const [foundDiffs, setFoundDiffs] = useState<string[]>([]);
   const [gameWon, setGameWon] = useState(false);
@@ -78,7 +79,7 @@ export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps
     found: lang === 'el' ? 'ΒΡΕΘΗΚΑΝ' : 'FOUND',
     next: lang === 'el' ? 'ΕΠΟΜΕΝΟ ΕΠΙΠΕΔΟ' : 'NEXT LEVEL',
     victory: lang === 'el' ? 'ΝΙΚΗΣΕΣ!' : 'VICTORY!',
-    reward: lang === 'el' ? 'Πάρε 10 Credits' : 'Get 10 Credits',
+    reward: lang === 'el' ? 'Πάρε 1 Credit' : 'Get 1 Credit',
     back: lang === 'el' ? 'ΠΙΣΩ' : 'BACK'
   };
 
@@ -99,7 +100,10 @@ export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps
           }, 1500);
         } else {
           setGameWon(true);
-          earnCredits(10);
+          if (!creditsAwardedRef.current) {
+            creditsAwardedRef.current = true;
+            earnCredits(1);
+          }
         }
       }
     }
