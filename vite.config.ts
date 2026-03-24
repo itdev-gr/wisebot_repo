@@ -127,6 +127,15 @@ export default defineConfig(({ mode }) => {
                 if (id.includes('/framer-motion/')) {
                   return 'framer-motion';
                 }
+                if (id.includes('/@supabase/')) {
+                  return 'supabase';
+                }
+                if (id.includes('/lucide-react/')) {
+                  return 'lucide-icons';
+                }
+                if (id.includes('/@google/genai')) {
+                  return 'google-genai';
+                }
               }
             }
           }
