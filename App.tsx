@@ -289,12 +289,43 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
   );
 };
 
+// --- PENDING VERIFICATION SCREEN ---
+const PendingVerification: React.FC = () => {
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
+
+  return (
+    <div className="min-h-screen bg-[#0B0F1A] flex items-center justify-center p-4 font-['Nunito']">
+      <div className="text-center max-w-md space-y-6">
+        <div className="w-20 h-20 mx-auto bg-amber-500/10 rounded-3xl flex items-center justify-center border border-amber-500/20">
+          <Shield size={36} className="text-amber-400" />
+        </div>
+        <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter">
+          Pending Verification
+        </h2>
+        <p className="text-white/50 text-sm font-bold leading-relaxed">
+          Account not activated yet. Ask your parent to click the link in the email we sent them.
+        </p>
+        <div className="space-y-3 pt-4">
+          <button
+            onClick={() => { signOut(); navigate('/login', { replace: true }); }}
+            className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white/60 text-sm font-bold hover:bg-white/10 transition-all"
+          >
+            Back to Login
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // --- AUTH GUARD: Redirects unauthenticated users to /login ---
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { user, loading, emailVerified } = useAuth();
 
   if (loading) return <PageLoader />;
   if (!user) return <Navigate to="/login" replace />;
+  if (!emailVerified) return <PendingVerification />;
 
   return <>{children}</>;
 };

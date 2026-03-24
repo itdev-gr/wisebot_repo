@@ -1,8 +1,13 @@
 /**
- * POST /api/auth/signup — Create a new user via Supabase Admin API
- * =================================================================
- * Uses service_role key to create user with email_confirm: true,
- * bypassing the need for email verification.
+ * POST /api/auth/signup — Create a new user + profile
+ * =====================================================
+ * Children don't have email. The parent's email IS the account email.
+ *
+ * Flow:
+ * 1. Use the regular Supabase client (anon key) for signUp — this
+ *    automatically sends the email verification link to the parent.
+ * 2. Use the admin client (service role) to create the profile row,
+ *    which needs to bypass RLS.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
@@ -16,6 +21,14 @@ function getSupabaseAdmin() {
   );
 }
 
+function getSupabaseAnon() {
+  const url = process.env.SUPABASE_URL || '';
+  const anonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
+  return createClient(url, anonKey, {
+    auth: { autoRefreshToken: false, persistSession: false }
+  });
+}
+
 export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
@@ -23,16 +36,18 @@ export default withProtection(async (req: any, res: any) => {
     const body = req.body || {};
 
     // Trim all string inputs
-    const email = typeof body.email === 'string' ? body.email.trim() : '';
+    const parentEmail = typeof body.parentEmail === 'string' ? body.parentEmail.trim() : '';
     const password = typeof body.password === 'string' ? body.password : '';
     const childName = typeof body.childName === 'string' ? body.childName.trim() : '';
-    const parentEmail = typeof body.parentEmail === 'string' ? body.parentEmail.trim() : '';
+
+    // Backwards compat: accept `email` as fallback for `parentEmail`
+    const email = parentEmail || (typeof body.email === 'string' ? body.email.trim() : '');
 
     // Validation — required fields
     if (!email || !password || !childName) {
       return res.status(400).json({
         error: 'Missing required fields',
-        details: 'email, password, and childName are required',
+        details: 'parentEmail, password, and childName are required',
       });
     }
 
@@ -53,31 +68,25 @@ export default withProtection(async (req: any, res: any) => {
       });
     }
 
-    // parentEmail format validation (if provided)
-    if (parentEmail && !EMAIL_RE.test(parentEmail)) {
-      return res.status(400).json({
-        error: 'Invalid parent email format',
-        details: 'Please provide a valid parent email address',
-      });
-    }
-
-    if (password.length < 6) {
+    if (password.length < 8) {
       return res.status(400).json({
         error: 'Password too short',
-        details: 'Password must be at least 6 characters',
+        details: 'Password must be at least 8 characters',
       });
     }
 
-    const supabaseAdmin = getSupabaseAdmin();
-
-    // Create user via admin API (auto-confirms email)
-    const { data, error } = await supabaseAdmin.auth.admin.createUser({
+    // Step 1: Create user with the regular (anon) client
+    // This automatically sends a confirmation email to the parent
+    const supabaseAnon = getSupabaseAnon();
+    const { data, error } = await supabaseAnon.auth.signUp({
       email,
       password,
-      email_confirm: true,
-      user_metadata: {
-        child_name: childName,
-        parent_email: parentEmail,
+      options: {
+        data: {
+          child_name: childName,
+          parent_email: email,
+        },
+        emailRedirectTo: 'https://wisebot.gr/#/login',
       },
     });
 
@@ -94,11 +103,38 @@ export default withProtection(async (req: any, res: any) => {
       return res.status(400).json({ error: error.message });
     }
 
+    // Supabase signUp can return a user with a fake id if the email
+    // already exists but is unconfirmed. Check for identities to detect this.
+    if (data.user && data.user.identities && data.user.identities.length === 0) {
+      return res.status(409).json({
+        error: 'User already exists',
+        details: 'An account with this email already exists. Try logging in instead.',
+      });
+    }
+
     console.log('[Auth Signup] User created:', data.user?.id);
+
+    // Step 2: Create profile with admin client (bypasses RLS)
+    if (data.user?.id) {
+      const supabaseAdmin = getSupabaseAdmin();
+      const { error: profileError } = await supabaseAdmin.from('profiles').upsert({
+        id: data.user.id,
+        child_name: childName,
+        parent_email: email,
+        parent_verified: false,
+        credits: 50, // starter credits
+      });
+
+      if (profileError) {
+        console.error('[Auth Signup] Profile creation error:', profileError.message);
+        // Don't fail the whole signup — user was created, profile can be retried
+      }
+    }
 
     return res.status(200).json({
       success: true,
       userId: data.user?.id,
+      message: 'Verification email sent to parent',
     });
   } catch (err: any) {
     console.error('[Auth Signup] Unexpected error:', err);

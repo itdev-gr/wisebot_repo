@@ -1,9 +1,12 @@
 /**
  * AUTH CONTEXT — Supabase Password Auth
  * =======================================
- * Register: calls /api/auth/signup (server creates user with auto-confirm)
+ * Register: calls /api/auth/signup (server creates user via anon signUp, sends verification email)
  * Login: supabase.auth.signInWithPassword() directly
  * On login: pulls cloud data -> merges with localStorage -> pushes back.
+ *
+ * Children don't have email. The parent's email IS the account email.
+ * Email verification is required before the child can use the app.
  */
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
@@ -25,6 +28,7 @@ interface AuthContextType {
   profile: Profile | null;
   loading: boolean;
   isGuest: boolean;
+  emailVerified: boolean;
   signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string }>;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
@@ -36,6 +40,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [emailVerified, setEmailVerified] = useState(false);
   const syncDoneRef = useRef(false);
 
   const configured = isSupabaseConfigured();
@@ -79,6 +84,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
         setUser(session.user);
+        setEmailVerified(!!session.user.email_confirmed_at);
         fetchProfile(session.user.id);
       }
       setLoading(false);
@@ -89,10 +95,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       async (event, session) => {
         if (session?.user) {
           setUser(session.user);
+          setEmailVerified(!!session.user.email_confirmed_at);
           await fetchProfile(session.user.id);
         } else {
           setUser(null);
           setProfile(null);
+          setEmailVerified(false);
           syncDoneRef.current = false;
         }
       }
@@ -101,7 +109,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return () => subscription.unsubscribe();
   }, [configured, fetchProfile]);
 
-  // Sign Up — calls server endpoint which uses admin API
+  // Sign Up — calls server endpoint which creates user + sends verification email
+  // Does NOT auto-login — parent must verify email first
   const signUp = useCallback(async (
     email: string,
     password: string,
@@ -111,11 +120,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!configured) return { error: 'Auth not configured' };
 
     try {
-      // Step 1: Create user via server API (auto-confirms email)
+      // Create user via server API (sends verification email to parent)
       const response = await authFetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, childName, parentEmail }),
+        body: JSON.stringify({ email, password, childName, parentEmail: parentEmail || email }),
       });
 
       const result = await response.json();
@@ -124,17 +133,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return { error: result.error || result.details || 'Registration failed' };
       }
 
-      // Step 2: Auto-login after signup
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (signInError) {
-        return { error: signInError.message };
-      }
-
-      syncDoneRef.current = false;
+      // Don't auto-login — email verification is required first
       return {};
     } catch (err: any) {
       return { error: err.message || 'Registration failed' };
@@ -177,7 +176,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isGuest = !user;
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isGuest, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signOut }}>
       {children}
       {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
     </AuthContext.Provider>
@@ -261,6 +260,7 @@ export const useAuth = () => {
       user: null,
       profile: null,
       loading: false,
+      emailVerified: false,
       signUp: async () => {},
       signIn: async () => {},
       signOut: async () => {},
