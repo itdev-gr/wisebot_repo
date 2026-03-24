@@ -168,6 +168,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signOut = useCallback(async () => {
     cancelPendingPush();
     await supabase.auth.signOut();
+
+    // Clear all WiseBot localStorage data on sign out
+    Object.keys(localStorage).filter(k => k.startsWith('wb_')).forEach(k => localStorage.removeItem(k));
+    // Clear game-related keys
+    Object.keys(localStorage).filter(k =>
+      k.startsWith('quiz_progress_') ||
+      k === 'hero_fusion_best' ||
+      k === 'wisebot_ballrush_best' ||
+      k === 'wisebot_music_library' ||
+      k === 'pwa_dismissed'
+    ).forEach(k => localStorage.removeItem(k));
+
     setUser(null);
     setProfile(null);
     syncDoneRef.current = false;

@@ -30,6 +30,7 @@ const BusinessSimulation = React.lazy(() => import('./components/BusinessSimulat
 const CreditStore = React.lazy(() => import('./components/CreditStore'));
 const ParentDashboard = React.lazy(() => import('./components/ParentDashboard'));
 const AuthScreen = React.lazy(() => import('./components/AuthScreen'));
+const CookieConsent = React.lazy(() => import('./components/CookieConsent'));
 
 const motion = m as any;
 
@@ -478,6 +479,9 @@ function AppContent() {
         </Suspense>
         </ErrorBoundary>
       </Layout>
+      <Suspense fallback={null}>
+        <CookieConsent lang={lang} />
+      </Suspense>
     </HashRouter>
   );
 }

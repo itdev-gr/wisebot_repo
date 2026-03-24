@@ -25,12 +25,15 @@ import {
   X,
   LogIn,
   LogOut,
-  Cloud
+  Cloud,
+  Trash2,
+  AlertTriangle
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { USER_GROUP_PHOTO } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
+import { authFetch } from '../services/backendApi';
 
 // Available avatars from hero images
 const AVATAR_OPTIONS = [
@@ -68,6 +71,10 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
   const { user, profile, isGuest, signOut } = useAuth();
   const navigate = useNavigate();
   const [showAvatarPicker, setShowAvatarPicker] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
   const [avatar, setAvatar] = useState<string>(() => {
     return localStorage.getItem('wb_avatar') || USER_GROUP_PHOTO;
   });
@@ -425,6 +432,118 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
 
         </div>
       </div>
+
+      {/* DELETE ACCOUNT SECTION */}
+      {!isGuest && (
+        <section className="glass-panel p-8 rounded-[2.5rem] border border-red-500/20 space-y-6">
+          <h3 className="text-xl font-black text-red-400 uppercase italic flex items-center gap-3">
+            <Trash2 size={20} /> {lang === 'el' ? 'Διαγραφή Λογαριασμού' : 'Delete Account'}
+          </h3>
+          <p className="text-white/50 text-sm font-bold leading-relaxed">
+            {lang === 'el'
+              ? 'Η διαγραφή του λογαριασμού σας θα αφαιρέσει μόνιμα όλα τα δεδομένα σας, συμπεριλαμβανομένων των δημιουργιών, της προόδου και των credits σας.'
+              : 'Deleting your account will permanently remove all your data, including your creations, progress, and credits.'}
+          </p>
+          <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 px-5 py-3 rounded-xl">
+            <AlertTriangle size={18} className="text-red-400 shrink-0" />
+            <span className="text-red-400 text-sm font-black uppercase tracking-wider">
+              {lang === 'el' ? 'Αυτή η ενέργεια είναι μη αναστρέψιμη' : 'This action is irreversible'}
+            </span>
+          </div>
+          <button
+            onClick={() => { setShowDeleteDialog(true); setDeleteConfirmText(''); setDeleteError(''); }}
+            className="px-6 py-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 font-black text-xs uppercase tracking-wider hover:bg-red-500/20 hover:border-red-500/50 transition-all"
+          >
+            {lang === 'el' ? 'ΔΙΑΓΡΑΦΗ ΛΟΓΑΡΙΑΣΜΟΥ' : 'DELETE ACCOUNT'}
+          </button>
+        </section>
+      )}
+
+      {/* DELETE CONFIRMATION MODAL */}
+      {showDeleteDialog && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-xl p-4" onClick={() => setShowDeleteDialog(false)}>
+          <div className="bg-[#0B0F1A]/95 border border-red-500/20 rounded-3xl p-8 max-w-md w-full space-y-6" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between">
+              <h3 className="text-xl font-black text-red-400 uppercase italic tracking-tighter flex items-center gap-2">
+                <AlertTriangle size={20} /> {lang === 'el' ? 'ΕΠΙΒΕΒΑΙΩΣΗ' : 'CONFIRM'}
+              </h3>
+              <button onClick={() => setShowDeleteDialog(false)} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20">
+                <X size={20} />
+              </button>
+            </div>
+
+            <p className="text-white/60 text-sm font-bold leading-relaxed">
+              {lang === 'el'
+                ? <>Πληκτρολογήστε <strong className="text-red-400">ΔΙΑΓΡΑΦΗ</strong> για να επιβεβαιώσετε τη διαγραφή του λογαριασμού σας.</>
+                : <>Type <strong className="text-red-400">DELETE</strong> to confirm the deletion of your account.</>}
+            </p>
+
+            <input
+              type="text"
+              value={deleteConfirmText}
+              onChange={e => setDeleteConfirmText(e.target.value)}
+              placeholder={lang === 'el' ? 'ΔΙΑΓΡΑΦΗ' : 'DELETE'}
+              className="w-full bg-black/40 border border-white/10 rounded-xl py-4 px-4 text-white focus:border-red-500 focus:bg-black/60 outline-none transition-all font-bold text-center uppercase tracking-widest"
+            />
+
+            {deleteError && (
+              <p className="text-red-400 text-sm font-bold text-center">{deleteError}</p>
+            )}
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setShowDeleteDialog(false)}
+                className="flex-1 py-4 bg-white/5 border border-white/10 rounded-xl font-black text-white/50 text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
+              >
+                {lang === 'el' ? 'ΑΚΥΡΩΣΗ' : 'CANCEL'}
+              </button>
+              <button
+                onClick={async () => {
+                  const expected = lang === 'el' ? 'ΔΙΑΓΡΑΦΗ' : 'DELETE';
+                  if (deleteConfirmText.toUpperCase() !== expected) {
+                    setDeleteError(lang === 'el' ? `Πληκτρολογήστε "${expected}" για επιβεβαίωση` : `Type "${expected}" to confirm`);
+                    return;
+                  }
+                  setIsDeleting(true);
+                  setDeleteError('');
+                  try {
+                    const res = await authFetch('/api/auth/delete-account', { method: 'DELETE' });
+                    if (res.ok) {
+                      // Clear all wb_ localStorage keys
+                      Object.keys(localStorage).filter(k => k.startsWith('wb_')).forEach(k => localStorage.removeItem(k));
+                      // Clear game-related keys
+                      Object.keys(localStorage).filter(k =>
+                        k.startsWith('quiz_progress_') ||
+                        k === 'hero_fusion_best' ||
+                        k === 'wisebot_ballrush_best' ||
+                        k === 'wisebot_music_library' ||
+                        k === 'pwa_dismissed'
+                      ).forEach(k => localStorage.removeItem(k));
+                      await signOut();
+                      navigate('/');
+                    } else {
+                      const data = await res.json();
+                      setDeleteError(data.error || (lang === 'el' ? 'Αποτυχία διαγραφής' : 'Deletion failed'));
+                    }
+                  } catch (err) {
+                    setDeleteError(lang === 'el' ? 'Σφάλμα σύνδεσης' : 'Connection error');
+                  } finally {
+                    setIsDeleting(false);
+                  }
+                }}
+                disabled={isDeleting}
+                className="flex-1 py-4 bg-red-600 border border-red-500 rounded-xl font-black text-white text-xs uppercase tracking-wider hover:bg-red-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isDeleting ? (
+                  <>{lang === 'el' ? 'ΔΙΑΓΡΑΦΗ...' : 'DELETING...'}</>
+                ) : (
+                  <><Trash2 size={14} /> {lang === 'el' ? 'ΔΙΑΓΡΑΦΗ' : 'DELETE'}</>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,13 +2,22 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7834HP8GYV"></script>
+  <!-- Google Analytics — DISABLED until cookie consent is implemented (GDPR) -->
+  <!-- Analytics will be loaded dynamically after user consents -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-7834HP8GYV');
+    // Load GA only after consent
+    window.enableAnalytics = function() {
+      if (window._gaLoaded) return;
+      window._gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7834HP8GYV';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-7834HP8GYV', { anonymize_ip: true });
+    };
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="referrer" content="no-referrer">

@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { 
-  Shield, 
-  Scale, 
-  CreditCard, 
-  Brain, 
-  FileText, 
+import {
+  Shield,
+  Scale,
+  CreditCard,
+  Brain,
+  FileText,
   AlertTriangle,
   CheckCircle,
   HelpCircle,
@@ -17,7 +17,8 @@ import {
   Phone,
   Hash,
   MessageSquare,
-  Send
+  Send,
+  Eye
 } from 'lucide-react';
 import { authFetch } from '../services/backendApi';
 
@@ -28,7 +29,7 @@ interface LegalHubProps {
 }
 
 export default function LegalHub({ lang }: LegalHubProps) {
-  const [activeSection, setActiveSection] = useState('overview');
+  const [activeSection, setActiveSection] = useState('privacy');
   
   // Form State
   const [form, setForm] = useState({
@@ -75,6 +76,7 @@ export default function LegalHub({ lang }: LegalHubProps) {
       title: 'Κέντρο Ασφάλειας & Όρων',
       subtitle: 'Διαφάνεια, Ασφάλεια και Κανόνες Λειτουργίας',
       menu: {
+        privacy: 'Πολιτική Απορρήτου',
         overview: 'Επισκόπηση',
         safety: 'Ασφάλεια & AI',
         terms: 'Όροι & Πληρωμές',
@@ -98,6 +100,7 @@ export default function LegalHub({ lang }: LegalHubProps) {
       title: 'Safety & Legal Hub',
       subtitle: 'Transparency, Safety and Operating Rules',
       menu: {
+        privacy: 'Privacy Policy',
         overview: 'Overview',
         safety: 'Safety & AI',
         terms: 'Terms & Payments',
@@ -122,6 +125,7 @@ export default function LegalHub({ lang }: LegalHubProps) {
   const t = text[lang];
 
   const sections = [
+    { id: 'privacy', icon: Eye, label: t.menu.privacy },
     { id: 'overview', icon: FileText, label: t.menu.overview },
     { id: 'safety', icon: Shield, label: t.menu.safety },
     { id: 'terms', icon: Scale, label: t.menu.terms },
@@ -183,6 +187,135 @@ export default function LegalHub({ lang }: LegalHubProps) {
 
                 <AnimatePresence mode='wait'>
                     
+                    {/* 0. PRIVACY POLICY */}
+                    {activeSection === 'privacy' && (
+                        <motion.div key="privacy" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-8">
+                            <h2 className="text-3xl font-[1000] text-white uppercase italic tracking-tighter mb-6 flex items-center gap-3">
+                                <Eye className="text-cyan-400" /> {lang === 'el' ? 'ΠΟΛΙΤΙΚΗ ΑΠΟΡΡΗΤΟΥ' : 'PRIVACY POLICY'}
+                            </h2>
+
+                            {lang === 'el' ? (
+                                <div className="space-y-6 text-gray-300 leading-relaxed font-medium">
+                                    <div className="p-6 bg-cyan-900/20 border border-cyan-500/30 rounded-3xl">
+                                        <h4 className="text-cyan-400 font-black uppercase tracking-widest text-sm mb-3">GDPR - ΠΡΟΣΤΑΣΙΑ ΔΕΔΟΜΕΝΩΝ</h4>
+                                        <p className="text-sm opacity-80">Η WiseBot Academy δεσμεύεται για την προστασία των προσωπικών δεδομένων σας και των παιδιών σας, σύμφωνα με τον Γενικό Κανονισμό Προστασίας Δεδομένων (GDPR).</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΥΠΕΥΘΥΝΟΣ ΕΠΕΞΕΡΓΑΣΙΑΣ</h4>
+                                        <p className="text-sm opacity-80">WiseBot Academy (wisebot.gr) — <a href="mailto:info@wisebot.gr" className="text-cyan-400 hover:text-cyan-300 underline">info@wisebot.gr</a></p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΤΙ ΔΕΔΟΜΕΝΑ ΣΥΛΛΕΓΟΥΜΕ</h4>
+                                        <p className="text-sm opacity-80">Ψευδώνυμο παιδιού, email γονέα, πρόοδος στα παιχνίδια, δημιουργίες (εικόνες, μουσική, κείμενα).</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΓΙΑΤΙ</h4>
+                                        <p className="text-sm opacity-80">Για τη λειτουργία της πλατφόρμας, αποθήκευση προόδου, δημιουργία περιεχομένου με AI.</p>
+                                    </div>
+
+                                    <div className="p-6 bg-amber-900/20 border border-amber-500/30 rounded-3xl space-y-2">
+                                        <h4 className="text-amber-400 font-black uppercase tracking-widest text-sm flex items-center gap-2">
+                                            <AlertTriangle size={16} /> ΝΟΜΙΚΗ ΒΑΣΗ
+                                        </h4>
+                                        <p className="text-sm opacity-80">Συγκατάθεση γονέα (GDPR Άρθρο 8) — Για παιδιά κάτω των 15 ετών στην Ελλάδα, απαιτείται η συγκατάθεση του γονέα.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΠΑΡΟΧΟΙ AI</h4>
+                                        <p className="text-sm opacity-80">Χρησιμοποιούμε Google Gemini, OpenAI, ElevenLabs για δημιουργία περιεχομένου. Τα δεδομένα μεταφέρονται σε servers στις ΗΠΑ.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">COOKIES</h4>
+                                        <p className="text-sm opacity-80">Χρησιμοποιούμε μόνο απαραίτητα cookies. Τα analytics cookies (Google Analytics) φορτώνονται μόνο μετά τη συγκατάθεσή σας.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΔΙΚΑΙΩΜΑΤΑ ΣΑΣ</h4>
+                                        <p className="text-sm opacity-80">Πρόσβαση, διόρθωση, διαγραφή, φορητότητα δεδομένων — Επικοινωνήστε στο <a href="mailto:info@wisebot.gr" className="text-cyan-400 hover:text-cyan-300 underline">info@wisebot.gr</a></p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΔΙΑΓΡΑΦΗ ΛΟΓΑΡΙΑΣΜΟΥ</h4>
+                                        <p className="text-sm opacity-80">Μπορείτε να διαγράψετε τον λογαριασμό σας ανά πάσα στιγμή από τις Ρυθμίσεις Λογαριασμού.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΧΡΟΝΟΣ ΔΙΑΤΗΡΗΣΗΣ</h4>
+                                        <p className="text-sm opacity-80">Τα δεδομένα διατηρούνται όσο ο λογαριασμός είναι ενεργός. Ανενεργοί λογαριασμοί διαγράφονται μετά από 24 μήνες.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ΑΠΔΠΧ</h4>
+                                        <p className="text-sm opacity-80">Δικαίωμα καταγγελίας στην Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (<a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 underline">www.dpa.gr</a>)</p>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className="space-y-6 text-gray-300 leading-relaxed font-medium">
+                                    <div className="p-6 bg-cyan-900/20 border border-cyan-500/30 rounded-3xl">
+                                        <h4 className="text-cyan-400 font-black uppercase tracking-widest text-sm mb-3">GDPR - DATA PROTECTION</h4>
+                                        <p className="text-sm opacity-80">WiseBot Academy is committed to protecting your personal data and your children's data, in accordance with the General Data Protection Regulation (GDPR).</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">DATA CONTROLLER</h4>
+                                        <p className="text-sm opacity-80">WiseBot Academy (wisebot.gr) — <a href="mailto:info@wisebot.gr" className="text-cyan-400 hover:text-cyan-300 underline">info@wisebot.gr</a></p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">WHAT DATA WE COLLECT</h4>
+                                        <p className="text-sm opacity-80">Child's nickname, parent's email, game progress, creations (images, music, texts).</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">WHY</h4>
+                                        <p className="text-sm opacity-80">For platform operation, progress storage, and AI content creation.</p>
+                                    </div>
+
+                                    <div className="p-6 bg-amber-900/20 border border-amber-500/30 rounded-3xl space-y-2">
+                                        <h4 className="text-amber-400 font-black uppercase tracking-widest text-sm flex items-center gap-2">
+                                            <AlertTriangle size={16} /> LEGAL BASIS
+                                        </h4>
+                                        <p className="text-sm opacity-80">Parental consent (GDPR Article 8) — For children under 15 in Greece, parental consent is required.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">AI PROVIDERS</h4>
+                                        <p className="text-sm opacity-80">We use Google Gemini, OpenAI, ElevenLabs for content creation. Data is transferred to servers in the USA.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">COOKIES</h4>
+                                        <p className="text-sm opacity-80">We only use essential cookies. Analytics cookies (Google Analytics) are loaded only after your consent.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">YOUR RIGHTS</h4>
+                                        <p className="text-sm opacity-80">Access, rectification, erasure, data portability — Contact us at <a href="mailto:info@wisebot.gr" className="text-cyan-400 hover:text-cyan-300 underline">info@wisebot.gr</a></p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">ACCOUNT DELETION</h4>
+                                        <p className="text-sm opacity-80">You can delete your account at any time from Account Settings.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">DATA RETENTION</h4>
+                                        <p className="text-sm opacity-80">Data is retained as long as the account is active. Inactive accounts are deleted after 24 months.</p>
+                                    </div>
+
+                                    <div className="bg-white/5 p-5 rounded-2xl border border-white/10 space-y-2">
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs">HDPA</h4>
+                                        <p className="text-sm opacity-80">Right to lodge a complaint with the Hellenic Data Protection Authority (<a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-cyan-300 underline">www.dpa.gr</a>)</p>
+                                    </div>
+                                </div>
+                            )}
+                        </motion.div>
+                    )}
+
                     {/* 1. OVERVIEW */}
                     {activeSection === 'overview' && (
                         <motion.div key="overview" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-8">
