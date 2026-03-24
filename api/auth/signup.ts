@@ -75,20 +75,53 @@ export default withProtection(async (req: any, res: any) => {
       });
     }
 
-    // Step 1: Create user with the regular (anon) client
-    // This automatically sends a confirmation email to the parent
-    const supabaseAnon = getSupabaseAnon();
-    const { data, error } = await supabaseAnon.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          child_name: childName,
-          parent_email: email,
+    // Step 1: Try regular client first (sends verification email automatically)
+    // Fall back to admin client if anon key is not available
+    const anonUrl = process.env.SUPABASE_URL || '';
+    const anonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
+
+    let data: any = null;
+    let error: any = null;
+
+    if (anonKey) {
+      // Regular client — auto-sends verification email
+      const supabaseAnon = getSupabaseAnon();
+      const result = await supabaseAnon.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { child_name: childName, parent_email: email },
+          emailRedirectTo: 'https://wisebot.gr/#/login',
         },
-        emailRedirectTo: 'https://wisebot.gr/#/login',
-      },
-    });
+      });
+      data = result.data;
+      error = result.error;
+    } else {
+      // Fallback: Admin client — create user without auto-confirm
+      console.log('[Auth Signup] SUPABASE_ANON_KEY not set, using admin API');
+      const supabaseAdmin = getSupabaseAdmin();
+      const result = await supabaseAdmin.auth.admin.createUser({
+        email,
+        password,
+        email_confirm: false, // Require email verification
+        user_metadata: { child_name: childName, parent_email: email },
+      });
+      data = result.data;
+      error = result.error;
+
+      // Admin API: manually trigger verification email
+      if (data?.user && !error) {
+        try {
+          await supabaseAdmin.auth.admin.generateLink({
+            type: 'signup',
+            email,
+            options: { redirectTo: 'https://wisebot.gr/#/login' },
+          });
+        } catch (linkErr) {
+          console.warn('[Auth Signup] Could not generate verification link:', (linkErr as any)?.message);
+        }
+      }
+    }
 
     if (error) {
       console.error('[Auth Signup] Error:', error.message);

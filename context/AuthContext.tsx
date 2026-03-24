@@ -31,6 +31,7 @@ interface AuthContextType {
   emailVerified: boolean;
   signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string }>;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
+  signInWithGoogle: () => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
 }
 
@@ -164,6 +165,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [configured]);
 
+  // Sign In with Google OAuth
+  const signInWithGoogle = useCallback(async (): Promise<{ error?: string }> => {
+    if (!configured) return { error: 'Auth not configured' };
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: window.location.origin + '/#/dashboard',
+        },
+      });
+      if (error) return { error: error.message };
+      return {};
+    } catch (err: any) {
+      return { error: err.message || 'Google login failed' };
+    }
+  }, [configured]);
+
   // Sign Out
   const signOut = useCallback(async () => {
     cancelPendingPush();
@@ -188,7 +206,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isGuest = !user;
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, signOut }}>
       {children}
       {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
     </AuthContext.Provider>
