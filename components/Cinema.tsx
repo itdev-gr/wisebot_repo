@@ -19,7 +19,7 @@ import {
   Quote,
   Globe
 } from 'lucide-react';
-import { GoogleGenAI } from "@google/genai";
+import { backendAI } from '../services/backendApi';
 import { useLocation } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
@@ -27,9 +27,172 @@ import { useEconomy } from '../context/EconomyContext';
 const motion = m as any;
 
 // --- ALL CINEMA VIDEOS ---
-const SYSTEM_VIDEOS = [
+// 🎬 Inspirational Shorts (featured first)
+const INSPIRATION_VIDEOS = [
   {
-    id: 'vid-1',
+    id: 'ins-1',
+    title: { el: 'ΤΟ ΟΡΑΜΑ', en: 'THE VISION' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/wisebot.jpg',
+    videoUrl: '/video/to%20orama.mp4',
+    duration: '0:30',
+    description: { el: 'Κάθε μεγάλο ταξίδι ξεκινά με ένα όραμα.', en: 'Every great journey starts with a vision.' },
+    author: 'WiseBot Studio',
+    type: 'official',
+    featured: true
+  },
+  {
+    id: 'ins-2',
+    title: { el: 'Η ΙΔΕΑ ΖΩΝΤΑΝΕΥΕΙ', en: 'THE IDEA COMES ALIVE' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/sparken.jpg',
+    videoUrl: '/video/i%20idea%20zontanevi.mp4',
+    duration: '0:30',
+    description: { el: 'Μια ιδέα μπορεί να αλλάξει τα πάντα.', en: 'One idea can change everything.' },
+    author: 'WiseBot Studio',
+    type: 'official',
+    featured: true
+  },
+  {
+    id: 'ins-3',
+    title: { el: 'ΔΗΜΙΟΥΡΓΙΑ', en: 'CREATION' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/pencilo.jpg',
+    videoUrl: '/video/dimiourgia.mp4',
+    duration: '0:30',
+    description: { el: 'Δημιούργησε κάτι που δεν υπήρχε πριν.', en: 'Create something that never existed before.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-4',
+    title: { el: 'ΦΤΙΑΞΤΕ ΚΑΤΙ ΠΟΥ ΑΝΤΕΧΕΙ', en: 'BUILD SOMETHING TIMELESS' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/crocus.jpg',
+    videoUrl: '/video/ftiakste%20kati%20pou%20antexi%20ston%20xrono.mp4',
+    duration: '0:30',
+    description: { el: 'Φτιάξε κάτι που θα μείνει για πάντα.', en: 'Build something that lasts forever.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-5',
+    title: { el: 'ΕΠΙΜΕΝΟΥΜΕ', en: 'WE PERSIST' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/link.jpg',
+    videoUrl: '/video/epimenoume.MP4',
+    duration: '0:30',
+    description: { el: 'Η επιμονή φέρνει αποτελέσματα.', en: 'Persistence brings results.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-6',
+    title: { el: 'ΦΤΙΑΞΑΤΕ ΤΑ ΦΤΕΡΑ ΣΑΣ', en: 'BUILD YOUR WINGS' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/paidia-wisebot-2.webp',
+    videoUrl: '/video/ftiaksate%20ta%20ftera%20sas%20.MP4',
+    duration: '0:30',
+    description: { el: 'Φτιάξε τα φτερά σου και πέτα ψηλά!', en: 'Build your wings and fly high!' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-7',
+    title: { el: 'Η ΑΡΧΗ ΕΓΙΝΕ', en: 'THE BEGINNING WAS MADE' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/ta-3-paidia.webp',
+    videoUrl: '/video/i%20arxi%20egine.mp4',
+    duration: '0:30',
+    description: { el: 'Κάθε αρχή κρύβει μεγαλείο.', en: 'Every beginning holds greatness.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-8',
+    title: { el: 'ΣΤΡΑΤΗΓΙΚΗ', en: 'STRATEGY' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/foxi teacher.webp',
+    videoUrl: '/video/stratigiki.mp4',
+    duration: '0:30',
+    description: { el: 'Σκέψου έξυπνα, κάνε στρατηγικές κινήσεις.', en: 'Think smart, make strategic moves.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-9',
+    title: { el: 'ΤΟ ΛΑΘΟΣ ΠΟΥ ΣΕ ΣΩΖΕΙ', en: 'THE MISTAKE THAT SAVES YOU' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/paidia-kai-wisebot.webp',
+    videoUrl: '/video/to%20lathos%20pou%20se%20sozi.MP4',
+    duration: '0:30',
+    description: { el: 'Τα λάθη είναι ο καλύτερος δάσκαλος.', en: 'Mistakes are the best teacher.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-10',
+    title: { el: 'ΠΑΙΧΝΙΔΙ ΜΕ AI', en: 'GAME WITH AI' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/wiseboat kai paidia eksofilo.PNG',
+    videoUrl: '/video/paixnidi%20me%20ai.mp4',
+    duration: '0:30',
+    description: { el: 'Ανακάλυψε τη δύναμη της τεχνητής νοημοσύνης.', en: 'Discover the power of AI.' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-11',
+    title: { el: 'ΔΕΙΞΤΟ', en: 'SHOW IT' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/paidia-kai-sparken.webp',
+    videoUrl: '/video/diksto.MP4',
+    duration: '0:30',
+    description: { el: 'Δείξε στον κόσμο τι μπορείς!', en: 'Show the world what you can do!' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-12',
+    title: { el: 'ΖΩΝΤΑΝΑ ΠΑΙΧΝΙΔΙΑ', en: 'LIVE GAMES' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/paidia-kai-link.webp',
+    videoUrl: '/video/zontana%20paixnidia%20.MP4',
+    duration: '0:30',
+    description: { el: 'Τα παιχνίδια ζωντανεύουν με τη φαντασία σου!', en: 'Games come alive with your imagination!' },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+  {
+    id: 'ins-13',
+    title: { el: 'ΤΟ ΛΑΘΟΣ', en: 'THE MISTAKE' },
+    hero: 'WiseBot',
+    category: 'inspiration',
+    thumbnail: '/images/paidia-kai-crocus.webp',
+    videoUrl: '/video/to%20lathos.MP4',
+    duration: '0:30',
+    description: { el: 'Μη φοβάσαι να κάνεις λάθος.', en: "Don't be afraid to make mistakes." },
+    author: 'WiseBot Studio',
+    type: 'official'
+  },
+];
+
+// 🦸 Hero Character Videos
+const HERO_VIDEOS = [
+  {
+    id: 'hero-1',
     title: { el: 'WISEBOT VIDEO', en: 'WISEBOT VIDEO' },
     hero: 'Wisebot',
     category: 'adventure',
@@ -41,10 +204,10 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-2',
+    id: 'hero-2',
     title: { el: 'LINK VIDEO', en: 'LINK VIDEO' },
     hero: 'Link',
-    category: 'lesson',
+    category: 'adventure',
     thumbnail: '/images/link.jpg',
     videoUrl: '/video/link%20claude.mp4',
     duration: '0:30',
@@ -53,7 +216,7 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-3',
+    id: 'hero-3',
     title: { el: 'SPARKEN VIDEO', en: 'SPARKEN VIDEO' },
     hero: 'Sparken',
     category: 'adventure',
@@ -65,10 +228,10 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-4',
+    id: 'hero-4',
     title: { el: 'PENCILLO VIDEO', en: 'PENCILLO VIDEO' },
     hero: 'Pencillo',
-    category: 'lesson',
+    category: 'adventure',
     thumbnail: '/images/pencilo.jpg',
     videoUrl: '/video/pencillo%20claude.mp4',
     duration: '0:30',
@@ -77,7 +240,7 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-5',
+    id: 'hero-5',
     title: { el: 'CROCUS VIDEO', en: 'CROCUS VIDEO' },
     hero: 'Crocus',
     category: 'adventure',
@@ -89,11 +252,11 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-6',
+    id: 'hero-6',
     title: { el: 'WISEBOT & ΠΑΙΔΙΑ', en: 'WISEBOT & KIDS' },
     hero: 'Wisebot',
     category: 'adventure',
-    thumbnail: '/images/paidia-kai-wisebot.png',
+    thumbnail: '/images/paidia-kai-wisebot.webp',
     videoUrl: '/video/_users_617112eb-fd56-420e-8c6d-32639da2f4b5_generated_7254caf8-e421-49eb-a44c-09d6f4268955_generated_video.MP4',
     duration: '0:30',
     description: { el: 'Ο Wisebot με τα παιδιά!', en: 'Wisebot with the kids!' },
@@ -101,11 +264,11 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-7',
+    id: 'hero-7',
     title: { el: 'SPARKEN & ΠΑΙΔΙΑ', en: 'SPARKEN & KIDS' },
     hero: 'Sparken',
     category: 'adventure',
-    thumbnail: '/images/paidia-kai-sparken.png',
+    thumbnail: '/images/paidia-kai-sparken.webp',
     videoUrl: '/video/_users_617112eb-fd56-420e-8c6d-32639da2f4b5_generated_51dae794-84f7-4fd3-af4c-e5a22ada28c2_generated_video.MP4',
     duration: '0:30',
     description: { el: 'Ο Sparken με τα παιδιά!', en: 'Sparken with the kids!' },
@@ -113,11 +276,11 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-8',
+    id: 'hero-8',
     title: { el: 'LINK & ΠΑΙΔΙΑ', en: 'LINK & KIDS' },
     hero: 'Link',
     category: 'adventure',
-    thumbnail: '/images/paidia-kai-link.png',
+    thumbnail: '/images/paidia-kai-link.webp',
     videoUrl: '/video/_users_617112eb-fd56-420e-8c6d-32639da2f4b5_generated_8920af1f-ecc7-460e-aec8-b241c15d0b11_generated_video.MP4',
     duration: '0:30',
     description: { el: 'Η Link με τα παιδιά!', en: 'Link with the kids!' },
@@ -125,11 +288,11 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-9',
+    id: 'hero-9',
     title: { el: 'CROCUS & ΠΑΙΔΙΑ', en: 'CROCUS & KIDS' },
     hero: 'Crocus',
     category: 'adventure',
-    thumbnail: '/images/paidia-kai-crocus.png',
+    thumbnail: '/images/paidia-kai-crocus.webp',
     videoUrl: '/video/_users_617112eb-fd56-420e-8c6d-32639da2f4b5_generated_8e1b62f3-dcba-4feb-beee-6c4a5565298d_generated_video.MP4',
     duration: '0:30',
     description: { el: 'Ο Crocus με τα παιδιά!', en: 'Crocus with the kids!' },
@@ -137,11 +300,11 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-10',
+    id: 'hero-10',
     title: { el: 'PENCILLO & ΠΑΙΔΙΑ', en: 'PENCILLO & KIDS' },
     hero: 'Pencillo',
     category: 'adventure',
-    thumbnail: '/images/paidia-kai-pencilo.png',
+    thumbnail: '/images/paidia-kai-pencilo.webp',
     videoUrl: '/video/_users_617112eb-fd56-420e-8c6d-32639da2f4b5_generated_6ffdf71a-3cc5-4631-8b8d-6c9cad233409_generated_video.MP4',
     duration: '0:30',
     description: { el: 'Ο Pencillo με τα παιδιά!', en: 'Pencillo with the kids!' },
@@ -149,11 +312,11 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
   {
-    id: 'vid-11',
+    id: 'hero-11',
     title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' },
     hero: 'All',
     category: 'adventure',
-    thumbnail: '/images/paidia-wisebot-2.png',
+    thumbnail: '/images/paidia-wisebot-2.webp',
     videoUrl: '/video/_users_617112eb-fd56-420e-8c6d-32639da2f4b5_generated_026327ca-bbf0-43bd-bb52-f4115f7121ff_generated_video.MP4',
     duration: '0:30',
     description: { el: 'Όλοι οι ήρωες μαζί!', en: 'All heroes together!' },
@@ -161,6 +324,8 @@ const SYSTEM_VIDEOS = [
     type: 'official'
   },
 ];
+
+const SYSTEM_VIDEOS = [...INSPIRATION_VIDEOS, ...HERO_VIDEOS];
 
 // --- COMMUNITY VIDEOS ---
 const MARKET_VIDEOS: any[] = [];
@@ -200,7 +365,7 @@ interface CinemaProps {
 }
 
 const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
-  const { spendCredits, costs, trackAction } = useEconomy();
+  const { spendCredits, costs, trackAction, showNotification } = useEconomy();
   const location = useLocation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -264,125 +429,87 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
     }
   };
 
-  const getApiKey = async (): Promise<string> => {
-    let key = process.env.API_KEY;
-    const win = window as any;
-    if (win.aistudio) {
-        const hasKey = await win.aistudio.hasSelectedApiKey();
-        if (!hasKey) {
-            await win.aistudio.openSelectKey();
-        }
-    }
-    return key || '';
-  };
-
   const handleGenerate = async () => {
-    if (!spendCredits(costs.video)) {
-        alert(lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-        return;
+    if (!(await spendCredits(costs.video, 'CREATE_VIDEO'))) {
+      showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      return;
     }
 
     setIsGenerating(true);
     setGeneratedVideoUrl(null);
-    
-    // Select a random quote for this session
+
     const randomQuote = LOADING_QUOTES[Math.floor(Math.random() * LOADING_QUOTES.length)];
     setQuoteData(randomQuote);
 
-    // --- LOADING SEQUENCE ---
     const sequence = [
-        { text: lang === 'el' ? "🎥 Ρυθμίζουμε τα φώτα..." : "🎥 Setting the lights...", delay: 0 },
-        { text: lang === 'el' ? "🎭 Ο ηθοποιός ετοιμάζεται..." : "🎭 The actor is getting ready...", delay: 2000 },
-        { text: lang === 'el' ? "🎬 Ησυχία στο πλατό..." : "🎬 Quiet on set...", delay: 4000 },
-        { text: randomQuote.text, author: randomQuote.author, isQuote: true, delay: 6000 },
-        { text: lang === 'el' ? "✨ Προσθέτουμε λίγη μαγεία..." : "✨ Adding some magic...", delay: 10000 },
+      { text: lang === 'el' ? "🎥 Ρυθμίζουμε τα φώτα..." : "🎥 Setting the lights...", delay: 0 },
+      { text: lang === 'el' ? "🎭 Ο ηθοποιός ετοιμάζεται..." : "🎭 The actor is getting ready...", delay: 3000 },
+      { text: lang === 'el' ? "🎬 Ησυχία στο πλατό..." : "🎬 Quiet on set...", delay: 7000 },
+      { text: randomQuote.text, author: randomQuote.author, isQuote: true, delay: 12000 },
+      { text: lang === 'el' ? "✨ Προσθέτουμε μαγεία..." : "✨ Adding magic...", delay: 20000 },
+      { text: lang === 'el' ? "🎬 Σχεδόν έτοιμο..." : "🎬 Almost ready...", delay: 35000 },
     ];
 
     let timeoutIds: ReturnType<typeof setTimeout>[] = [];
-    sequence.forEach(({ text, delay, isQuote }) => {
-        const id = setTimeout(() => {
-            setLoadingText(text);
-        }, delay);
-        timeoutIds.push(id);
+    sequence.forEach(({ text, delay }) => {
+      const id = setTimeout(() => setLoadingText(text), delay);
+      timeoutIds.push(id);
     });
 
-    // Prepare Inputs
     const finalGreeting = customGreeting || selectedGreeting;
     const finalAction = customAction || selectedAction;
     const finalMessage = customMessage || selectedMessage;
 
     try {
-      await getApiKey();
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
-      // Image Prep
+      // Prepare hero image as base64
       let imageBytes = "";
       let mimeType = "image/png";
 
       if (selectedHero.avatar.startsWith('data:')) {
-          const parts = selectedHero.avatar.split(',');
-          mimeType = parts[0].match(/:(.*?);/)?.[1] || "image/png";
-          imageBytes = parts[1];
+        const parts = selectedHero.avatar.split(',');
+        mimeType = parts[0].match(/:(.*?);/)?.[1] || "image/png";
+        imageBytes = parts[1];
       } else {
-          const resp = await fetch(selectedHero.avatar);
-          const blob = await resp.blob();
-          mimeType = blob.type;
-          const reader = new FileReader();
-          imageBytes = await new Promise((resolve) => {
-              reader.onloadend = () => resolve((reader.result as string).split(',')[1]);
-              reader.readAsDataURL(blob);
-          });
+        const resp = await fetch(selectedHero.avatar);
+        const blob = await resp.blob();
+        mimeType = blob.type;
+        const reader = new FileReader();
+        imageBytes = await new Promise((resolve) => {
+          reader.onloadend = () => resolve((reader.result as string).split(',')[1]);
+          reader.readAsDataURL(blob);
+        });
       }
 
-      const prompt = `Animate the character in this image.
-      Action: The character is doing: ${finalAction}.
-      Speech: The character is looking at the camera and speaking this exact text: "${finalGreeting} ${finalMessage}".
-      Lip Sync: Synchronize mouth movement to the speech text provided.
-      Style: High quality, cinematic 3D.`;
+      const prompt = `Animate the character in this image. Action: ${finalAction}. The character says: "${finalGreeting} ${finalMessage}". Style: cinematic 3D animation, colorful, kid-friendly.`;
 
-      let operation = await ai.models.generateVideos({
-        model: 'veo-3.1-fast-generate-preview',
-        prompt: prompt,
-        image: { imageBytes, mimeType },
-        config: { numberOfVideos: 1, resolution: '720p', aspectRatio: '9:16' }
-      });
+      // Backend handles generation + polling + credits
+      const { video: videoBase64 } = await backendAI.video(prompt, imageBytes, mimeType);
 
-      while (!operation.done) {
-        await new Promise(resolve => setTimeout(resolve, 5000));
-        operation = await ai.operations.getVideosOperation({operation: operation});
-      }
+      // Convert base64 video to blob URL for local playback
+      const videoBlob = await fetch(`data:video/mp4;base64,${videoBase64}`).then(r => r.blob());
+      const localUrl = URL.createObjectURL(videoBlob);
 
-      if (operation.response?.generatedVideos?.[0]?.video?.uri) {
-        const videoUri = operation.response.generatedVideos[0].video.uri;
-        const fetchUrl = `${videoUri}&key=${process.env.API_KEY}`;
-        const videoResponse = await fetch(fetchUrl);
-        const videoBlob = await videoResponse.blob();
-        const localUrl = URL.createObjectURL(videoBlob);
-        
-        // --- ADD TO GALLERY ---
-        const newVideoEntry = {
-            id: `my-${Date.now()}`,
-            title: { el: `Η Ταινία του ${selectedHero.name}`, en: `${selectedHero.name}'s Movie` },
-            hero: selectedHero.name,
-            category: 'user',
-            thumbnail: selectedHero.avatar, // Use hero image as thumbnail for now
-            videoUrl: localUrl,
-            duration: '0:06', // Veo videos are usually short
-            description: { el: `${finalAction} - ${finalGreeting}`, en: `${finalAction} - ${finalGreeting}` },
-            author: 'You',
-            type: 'user'
-        };
-        
-        setGallery(prev => [newVideoEntry, ...prev]);
-        setGeneratedVideoUrl(localUrl);
-        trackAction('CREATE_VIDEO');
-      } else {
-        throw new Error("No video generated.");
-      }
+      const newVideoEntry = {
+        id: `my-${Date.now()}`,
+        title: { el: `Η Ταινία του ${selectedHero.name}`, en: `${selectedHero.name}'s Movie` },
+        hero: selectedHero.name,
+        category: 'user',
+        thumbnail: selectedHero.avatar,
+        videoUrl: localUrl,
+        duration: '0:06',
+        description: { el: `${finalAction} - ${finalGreeting}`, en: `${finalAction} - ${finalGreeting}` },
+        author: 'You',
+        type: 'user'
+      };
+
+      setGallery(prev => [newVideoEntry, ...prev]);
+      setGeneratedVideoUrl(localUrl);
+      trackAction('CREATE_VIDEO');
+      showNotification('🎬', lang === 'el' ? 'Το βίντεο είναι έτοιμο!' : 'Video is ready!');
 
     } catch (error: any) {
       console.error(error);
-      alert(lang === 'el' ? 'Σφάλμα στη δημιουργία βίντεο: ' + error.message : 'Error generating video: ' + error.message);
+      showNotification('❌', error.message || (lang === 'el' ? 'Σφάλμα βίντεο' : 'Video error'));
     } finally {
       setIsGenerating(false);
       timeoutIds.forEach(clearTimeout);
@@ -425,7 +552,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="w-full max-w-4xl mx-auto bg-[#0f1014] border border-white/10 rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-2xl relative overflow-hidden"
+            className="w-full max-w-4xl mx-auto bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-[2rem] md:rounded-[3rem] p-6 md:p-12 shadow-2xl relative overflow-hidden"
           >
             <button onClick={resetWizard} className="absolute top-6 right-6 text-white/50 hover:text-white p-2 z-50">
                 <X size={24} />
@@ -640,43 +767,171 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
         )}
       </AnimatePresence>
 
-      {/* STANDARD VIDEOS GRID (Below Wizard) */}
+      {/* ═══════════════════════════════════════════════════ */}
+      {/* CINEMA GALLERY — REDESIGNED                       */}
+      {/* ═══════════════════════════════════════════════════ */}
       {!isWizardOpen && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {gallery.map((video) => (
-                <div key={video.id} onClick={() => setSelectedVideo(video)} className="group cursor-pointer rounded-[2rem] overflow-hidden border border-white/10 bg-[#0f1014] relative shadow-lg hover:border-blue-500/50 transition-all">
-                    <div className="aspect-video relative bg-black">
-                        {video.thumbnail ? (
-                            <img src={video.thumbnail} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt={typeof video.title === 'string' ? video.title : video.title[lang]}/>
-                        ) : (
-                            <div className="w-full h-full bg-slate-900 flex items-center justify-center">
-                                <Film size={40} className="text-white/20" />
-                            </div>
-                        )}
-                        
-                        {/* TYPE BADGE */}
-                        <div className="absolute top-3 left-3 px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest z-10 border border-white/10 shadow-lg
-                            ${video.type === 'user' ? 'bg-purple-600 text-white' : video.type === 'community' ? 'bg-emerald-600 text-white' : 'bg-blue-600 text-white'}">
-                            {video.type === 'user' ? (lang === 'el' ? 'ΔΙΚΟ ΜΟΥ' : 'MY VIDEO') : video.type === 'community' ? (lang === 'el' ? 'ΚΟΙΝΟΤΗΤΑ' : 'COMMUNITY') : (lang === 'el' ? 'ΕΠΙΣΗΜΟ' : 'OFFICIAL')}
-                        </div>
+        <div className="space-y-16">
 
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"><Play size={20} fill="white" className="text-white"/></div>
-                        </div>
+          {/* ── FEATURED HERO BANNER ── */}
+          {(() => {
+            const feat = INSPIRATION_VIDEOS[0];
+            return (
+              <div onClick={() => setSelectedVideo(feat)} className="group cursor-pointer relative rounded-[2rem] overflow-hidden border border-white/10 bg-black shadow-2xl">
+                <div className="aspect-[21/9] relative">
+                  <img src={feat.thumbnail} className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 scale-105 group-hover:scale-100" alt="" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-purple-600/20" />
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-red-400">FEATURED</span>
                     </div>
-                    <div className="p-5">
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-lg font-black text-white uppercase italic leading-tight line-clamp-1">{typeof video.title === 'string' ? video.title : video.title[lang]}</h3>
-                        </div>
-                        <div className="flex items-center gap-2 mb-2">
-                            {video.type === 'community' && <Globe size={12} className="text-emerald-400" />}
-                            {video.type === 'user' && <Users size={12} className="text-purple-400" />}
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">{video.author}</span>
-                        </div>
-                        <p className="text-white/50 text-xs font-bold line-clamp-2">{typeof video.description === 'string' ? video.description : video.description[lang]}</p>
+                    <h2 className="text-3xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter mb-2">
+                      {feat.title[lang]}
+                    </h2>
+                    <p className="text-white/60 text-sm font-bold max-w-lg">{feat.description[lang]}</p>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center group-hover:scale-110 group-hover:bg-white/20 transition-all duration-300 border border-white/20">
+                      <Play size={32} fill="white" className="text-white ml-1" />
                     </div>
+                  </div>
                 </div>
-            ))}
+              </div>
+            );
+          })()}
+
+          {/* ── INSPIRATIONAL SHORTS ── */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <Sparkles size={20} className="text-amber-400" />
+              <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tight">
+                {lang === 'el' ? 'ΕΜΠΝΕΥΣΤΙΚΑ SHORTS' : 'INSPIRATIONAL SHORTS'}
+              </h3>
+              <div className="flex-1 h-px bg-gradient-to-r from-amber-500/30 to-transparent" />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {INSPIRATION_VIDEOS.slice(1).map((video) => (
+                <div key={video.id} onClick={() => setSelectedVideo(video)} className="group cursor-pointer rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:border-amber-500/40 transition-all hover:shadow-lg hover:shadow-amber-500/5">
+                  <div className="aspect-video relative bg-black">
+                    <img src={video.thumbnail} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 bg-white/15 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play size={16} fill="white" className="text-white ml-0.5" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-2 left-3 right-3">
+                      <h4 className="text-xs font-[900] text-white uppercase italic leading-tight line-clamp-1">{video.title[lang]}</h4>
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <p className="text-white/40 text-[10px] font-bold line-clamp-2">{video.description[lang]}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── CTA: CREATE YOUR OWN VIDEO ── */}
+          <div className="relative rounded-[2rem] overflow-hidden border border-white/10 bg-gradient-to-br from-purple-900/40 via-[#0B0F1A] to-blue-900/40 p-8 md:p-12">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1 text-center md:text-left space-y-4">
+                <div className="flex items-center justify-center md:justify-start gap-2">
+                  <Wand2 size={18} className="text-purple-400" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-purple-400">{lang === 'el' ? 'AI VIDEO STUDIO' : 'AI VIDEO STUDIO'}</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-[1000] text-white uppercase italic tracking-tighter leading-tight">
+                  {lang === 'el' ? 'ΖΩΝΤΑΝΕΨΕ ΤΟΝ ΗΡΩΑ ΣΟΥ!' : 'BRING YOUR HERO TO LIFE!'}
+                </h3>
+                <p className="text-white/50 text-sm font-bold max-w-md">
+                  {lang === 'el'
+                    ? 'Φτιάξε τον ήρωά σου στο Hero Lab και μετά ζωντάνεψέ τον εδώ! Δώστου φωνή, κίνηση και μήνυμα — δημιούργησε τη δική σου ταινία AI!'
+                    : 'Create your hero in Hero Lab then bring them to life here! Give them voice, movement and a message — create your own AI movie!'}
+                </p>
+              </div>
+              <button
+                onClick={() => setIsWizardOpen(true)}
+                className="shrink-0 px-8 py-5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white rounded-2xl font-[1000] uppercase tracking-widest shadow-xl hover:scale-105 transition-all text-sm flex items-center gap-3 border border-white/10"
+              >
+                <Film size={22} />
+                {lang === 'el' ? 'ΦΤΙΑΞΕ ΤΑΙΝΙΑ' : 'CREATE MOVIE'}
+              </button>
+            </div>
+          </div>
+
+          {/* ── HERO STORIES ── */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <Users size={20} className="text-blue-400" />
+              <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tight">
+                {lang === 'el' ? 'ΟΙ ΗΡΩΕΣ ΣΕ ΔΡΑΣΗ' : 'HEROES IN ACTION'}
+              </h3>
+              <div className="flex-1 h-px bg-gradient-to-r from-blue-500/30 to-transparent" />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {HERO_VIDEOS.map((video) => (
+                <div key={video.id} onClick={() => setSelectedVideo(video)} className="group cursor-pointer rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:border-blue-500/40 transition-all hover:shadow-lg hover:shadow-blue-500/5">
+                  <div className="aspect-video relative bg-black">
+                    <img src={video.thumbnail} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-10 h-10 bg-white/15 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play size={16} fill="white" className="text-white ml-0.5" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-2 left-3 right-3">
+                      <h4 className="text-xs font-[900] text-white uppercase italic leading-tight line-clamp-1">{video.title[lang]}</h4>
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <p className="text-white/40 text-[10px] font-bold line-clamp-2">{video.description[lang]}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── USER CREATED VIDEOS ── */}
+          {gallery.filter(v => v.type === 'user').length > 0 && (
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Wand2 size={20} className="text-purple-400" />
+                <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tight">
+                  {lang === 'el' ? 'ΟΙ ΤΑΙΝΙΕΣ ΜΟΥ' : 'MY MOVIES'}
+                </h3>
+                <div className="flex-1 h-px bg-gradient-to-r from-purple-500/30 to-transparent" />
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {gallery.filter(v => v.type === 'user').map((video) => (
+                  <div key={video.id} onClick={() => setSelectedVideo(video)} className="group cursor-pointer rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:border-purple-500/40 transition-all hover:shadow-lg hover:shadow-purple-500/5">
+                    <div className="aspect-video relative bg-black">
+                      {video.thumbnail ? (
+                        <img src={video.thumbnail} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt="" />
+                      ) : (
+                        <div className="w-full h-full bg-slate-900 flex items-center justify-center"><Film size={30} className="text-white/20" /></div>
+                      )}
+                      <div className="absolute top-2 left-2 px-2 py-0.5 rounded-md text-[8px] font-black uppercase tracking-widest bg-purple-600 text-white border border-white/10">
+                        {lang === 'el' ? 'ΔΙΚΟ ΜΟΥ' : 'MY VIDEO'}
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-10 h-10 bg-white/15 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Play size={16} fill="white" className="text-white ml-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <h4 className="text-xs font-[900] text-white uppercase italic line-clamp-1">{typeof video.title === 'string' ? video.title : video.title[lang]}</h4>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
       )}
 

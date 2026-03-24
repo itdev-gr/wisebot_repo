@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, User, Shield } from 'lucide-react';
-import { GoogleGenAI } from "@google/genai";
+import { backendAI } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
 
 const motion = m as any;
@@ -120,15 +120,31 @@ const pick = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
   const { credits, badges, stats } = useEconomy();
 
+  // Check if user is registered (has auth token)
+  const isRegistered = !!localStorage.getItem('wb_auth_token');
+
+  // Track free message count for unregistered users
+  const [freeMessageCount, setFreeMessageCount] = useState(() => {
+    try { return parseInt(localStorage.getItem('wb_free_chat_count') || '0'); } catch { return 0; }
+  });
+  const FREE_MESSAGE_LIMIT = 4;
+
   const [input, setInput] = useState('');
+
+  // First message depends on registration status
+  const getWelcomeMessage = () => {
+    if (isRegistered) {
+      return lang === 'el'
+        ? 'Γεια! 🦉 Τι κάνεις σήμερα; Πες μου τι σκέφτεσαι!'
+        : 'Hey! 🦉 How are you today? Tell me what\'s on your mind!';
+    }
+    return lang === 'el'
+      ? 'Γεια! 🦉 Είμαι η WiseBot! Τώρα είσαι χωρίς εγγραφή — μπορείς να μου στείλεις μερικά μηνύματα δωρεάν. Μόλις κάνεις εγγραφή θα ξεκλειδώσεις τη δημιουργία ηρώων, μουσικής, video και πολλά ακόμα! Πες μου, τι θα ήθελες να μάθεις; 😊'
+      : 'Hey! 🦉 I\'m WiseBot! You\'re currently without an account — you can send me a few free messages. Once you register, you\'ll unlock hero creation, music, video and much more! Tell me, what would you like to learn? 😊';
+  };
+
   const [messages, setMessages] = useState<{ role: 'user' | 'model'; text: string }[]>([
-    {
-      role: 'model',
-      text:
-        lang === 'el'
-          ? 'Γεια σου! Είμαι ο WiseBot, η σοφή κουκουβάγια της Ακαδημίας! 🦉✨ Μπορώ να σε βοηθήσω με τα μαθήματα, τα παιχνίδια ή να φτιάξουμε ήρωες. Τι λες;'
-          : 'Hoot hoot! I am WiseBot, the wise owl of the Academy! 🦉✨ I can help you with lessons, games, or creating heroes. What do you say?',
-    },
+    { role: 'model', text: getWelcomeMessage() },
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -150,6 +166,29 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
   // =========================
   const handleSend = async () => {
     if (!input.trim()) return;
+
+    // 🔒 FREE MESSAGE LIMIT (unregistered users)
+    if (!isRegistered && freeMessageCount >= FREE_MESSAGE_LIMIT) {
+      setMessages(prev => [
+        ...prev,
+        { role: 'user' as const, text: input.trim() },
+        {
+          role: 'model' as const,
+          text: lang === 'el'
+            ? '🔒 Τα δωρεάν μηνύματα τελείωσαν!\n\nΓια να συνεχίσουμε, πρέπει να κάνεις **εγγραφή**! Κερδίζεις αμέσως **24 δωρεάν credits** και ξεκλειδώνεις:\n\n🦸 Δημιουργία ηρώων\n🎵 Δημιουργία τραγουδιών\n🎬 Δημιουργία video\n🧊 3D μοντέλα\n\nΠάτα **Λογαριασμός** στο μενού για εγγραφή! 🚀'
+            : '🔒 Free messages used up!\n\nTo continue, you need to **register**! You get **24 free credits** instantly and unlock:\n\n🦸 Hero creation\n🎵 Song creation\n🎬 Video creation\n🧊 3D models\n\nTap **Account** in the menu to register! 🚀',
+        },
+      ]);
+      setInput('');
+      return;
+    }
+
+    // Track free message count
+    if (!isRegistered) {
+      const newCount = freeMessageCount + 1;
+      setFreeMessageCount(newCount);
+      localStorage.setItem('wb_free_chat_count', String(newCount));
+    }
 
     // 🛡️ RATE LIMIT
     if (isRateLimited()) {
@@ -201,8 +240,6 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
     setIsTyping(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
       // 🛡️ BULLETPROOF KID-SAFE SYSTEM PROMPT
       const systemInstruction = `
 === IDENTITY ===
@@ -268,17 +305,12 @@ Use to personalize. Only mention when the child asks.
 
       // Conversation context — last 10 messages only
       const recent = messages.slice(-10);
-      const contents = recent.map(m => ({
+      const history = recent.map(m => ({
         role: m.role,
         parts: [{ text: m.text }],
       }));
-      contents.push({ role: 'user', parts: [{ text: userMsg }] });
 
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents,
-        config: { systemInstruction },
-      });
+      const response = await backendAI.chat(userMsg, history, systemInstruction);
 
       let text =
         response.text ||
@@ -321,7 +353,7 @@ Use to personalize. Only mention when the child asks.
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9, y: 20 }}
-      className="fixed bottom-24 right-4 z-[10000] w-[90vw] md:w-[400px] h-[60vh] md:h-[500px] bg-[#0f1014]/95 backdrop-blur-xl border-2 border-purple-500/30 rounded-[2rem] shadow-2xl flex flex-col overflow-hidden"
+      className="fixed bottom-24 right-4 z-[10000] w-[90vw] md:w-[400px] h-[60vh] md:h-[500px] bg-[#0B0F1A]/95 backdrop-blur-xl border-2 border-purple-500/30 rounded-[2rem] shadow-2xl flex flex-col overflow-hidden"
     >
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-4 flex items-center justify-between">

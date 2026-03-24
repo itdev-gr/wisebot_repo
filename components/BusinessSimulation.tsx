@@ -5,7 +5,7 @@ import {
   Building2, Pizza, Shirt, Gamepad2, Heart, Music,
   Target, Users, Crown, TrendingUp, Download
 } from 'lucide-react';
-import { GoogleGenAI } from "@google/genai";
+import { backendAI } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
 
 interface Props {
@@ -15,12 +15,12 @@ interface Props {
 }
 
 const INDUSTRIES = [
-  { id: 'tech', icon: Building2, el: 'Τεχνολογία', en: 'Technology', color: 'blue' },
-  { id: 'food', icon: Pizza, el: 'Φαγητό', en: 'Food', color: 'orange' },
-  { id: 'fashion', icon: Shirt, el: 'Μόδα', en: 'Fashion', color: 'pink' },
-  { id: 'games', icon: Gamepad2, el: 'Παιχνίδια', en: 'Games', color: 'purple' },
-  { id: 'health', icon: Heart, el: 'Υγεία', en: 'Health', color: 'emerald' },
-  { id: 'music', icon: Music, el: 'Μουσική', en: 'Music', color: 'rose' },
+  { id: 'tech', icon: Building2, el: 'Τεχνολογία', en: 'Technology', activeBorder: 'border-blue-500', activeBg: 'bg-blue-500/10', activeText: 'text-blue-400' },
+  { id: 'food', icon: Pizza, el: 'Φαγητό', en: 'Food', activeBorder: 'border-orange-500', activeBg: 'bg-orange-500/10', activeText: 'text-orange-400' },
+  { id: 'fashion', icon: Shirt, el: 'Μόδα', en: 'Fashion', activeBorder: 'border-pink-500', activeBg: 'bg-pink-500/10', activeText: 'text-pink-400' },
+  { id: 'games', icon: Gamepad2, el: 'Παιχνίδια', en: 'Games', activeBorder: 'border-purple-500', activeBg: 'bg-purple-500/10', activeText: 'text-purple-400' },
+  { id: 'health', icon: Heart, el: 'Υγεία', en: 'Health', activeBorder: 'border-emerald-500', activeBg: 'bg-emerald-500/10', activeText: 'text-emerald-400' },
+  { id: 'music', icon: Music, el: 'Μουσική', en: 'Music', activeBorder: 'border-rose-500', activeBg: 'bg-rose-500/10', activeText: 'text-rose-400' },
 ];
 
 const PRICING = [
@@ -36,7 +36,7 @@ const TARGETS = [
 ];
 
 const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
-  const { credits, spendCredits, trackAction } = useEconomy();
+  const { credits, spendCredits, trackAction, showNotification, costs } = useEconomy();
   const [step, setStep] = useState(0);
   const [loadingText, setLoadingText] = useState('');
   const [resultLogo, setResultLogo] = useState('');
@@ -51,7 +51,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
     target: '',
   });
 
-  const COST = 3;
+  const COST = costs.business;
 
   // Step definitions
   const steps = [
@@ -99,31 +99,13 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
       const generateBusiness = async () => {
         try {
-          const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
           const industryName = INDUSTRIES.find(i => i.id === biz.industry)?.[lang === 'el' ? 'el' : 'en'] || biz.industry;
 
-          // Generate logo
           const logoPrompt = `Create a modern, minimalist company logo for a ${industryName} company called "${biz.name}".
           The company sells: ${biz.product}.
           Style: Clean, professional, vibrant colors, flat design, suitable for kids to understand.
           The logo should be centered on a solid dark background. No text in the image.`;
 
-          const logoResponse = await ai.models.generateContent({
-            model: 'gemini-2.5-flash-image',
-            contents: { parts: [{ text: logoPrompt }] },
-          });
-
-          const logoParts = logoResponse.candidates?.[0]?.content?.parts;
-          if (logoParts) {
-            for (const part of logoParts) {
-              if (part.inlineData) {
-                setResultLogo(`data:image/png;base64,${part.inlineData.data}`);
-                break;
-              }
-            }
-          }
-
-          // Generate slogan & description
           const textPrompt = `You are a business advisor for kids. A child created a company:
           Name: ${biz.name}
           Industry: ${industryName}
@@ -135,16 +117,11 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
           SLOGAN: [a catchy 5-7 word marketing slogan]
           DESCRIPTION: [a fun 2-sentence business description for kids, explaining what makes this company special]`;
 
-          const textResponse = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: textPrompt,
-          });
+          const result = await backendAI.business(textPrompt, logoPrompt);
 
-          const text = textResponse.text || '';
-          const sloganMatch = text.match(/SLOGAN:\s*(.+)/);
-          const descMatch = text.match(/DESCRIPTION:\s*(.+)/s);
-          if (sloganMatch) setResultSlogan(sloganMatch[1].trim());
-          if (descMatch) setResultDesc(descMatch[1].trim());
+          if (result.logo) setResultLogo(result.logo);
+          if (result.slogan) setResultSlogan(result.slogan);
+          if (result.description) setResultDesc(result.description);
 
         } catch (error) {
           console.error("Business generation failed:", error);
@@ -196,13 +173,13 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
     return false;
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step === 2) {
-      if (credits < COST) {
-        alert(lang === 'el' ? `Χρειάζεσαι ${COST} Credits!` : `You need ${COST} Credits!`);
+      const success = await spendCredits(COST, 'CREATE_BUSINESS');
+      if (!success) {
+        showNotification('💰', lang === 'el' ? `Χρειάζεσαι ${COST} Credits!` : `You need ${COST} Credits!`);
         return;
       }
-      spendCredits(COST);
     }
     setStep(s => s + 1);
   };
@@ -255,11 +232,11 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
                 onClick={() => setBiz(b => ({ ...b, industry: ind.id }))}
                 className={`p-6 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center gap-3 cursor-pointer ${
                   biz.industry === ind.id
-                    ? `border-${ind.color}-500 bg-${ind.color}-500/10 scale-105`
+                    ? `${ind.activeBorder} ${ind.activeBg} scale-105`
                     : 'border-white/10 bg-white/5 hover:bg-white/10'
                 }`}
               >
-                <ind.icon size={32} className={biz.industry === ind.id ? `text-${ind.color}-400` : 'text-white/60'} />
+                <ind.icon size={32} className={biz.industry === ind.id ? ind.activeText : 'text-white/60'} />
                 <span className="text-sm font-bold text-white">{lang === 'el' ? ind.el : ind.en}</span>
               </button>
             ))}
@@ -372,7 +349,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
       {step === 4 && (
         <div className="space-y-8">
           {/* Company Card */}
-          <div className="bg-gradient-to-br from-[#0f1014] to-[#15171e] rounded-[2rem] border-2 border-green-500/20 overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-br from-[#0B0F1A] to-[#0F1B2D] rounded-[2rem] border-2 border-green-500/20 overflow-hidden shadow-2xl">
             {/* Logo */}
             <div className="flex justify-center py-8 bg-gradient-to-b from-green-500/5 to-transparent">
               {resultLogo ? (
@@ -432,7 +409,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
           <div className="flex items-center justify-center gap-3 py-4 rounded-xl bg-green-500/10 border border-green-500/20">
             <TrendingUp size={20} className="text-green-400" />
             <span className="text-green-300 font-black text-sm">
-              {lang === 'el' ? 'ΚΕΡΔΙΣΕΣ +2 CREDITS & +50 XP!' : 'YOU EARNED +2 CREDITS & +50 XP!'}
+              {lang === 'el' ? 'ΚΕΡΔΙΣΕΣ +3 CREDITS & +50 XP!' : 'YOU EARNED +3 CREDITS & +50 XP!'}
             </span>
           </div>
 

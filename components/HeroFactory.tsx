@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import {
   Wand2,
@@ -23,12 +23,36 @@ import {
   ImageIcon
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenAI } from "@google/genai";
+import { backendAI, isBackendAvailable } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
-import { generateAvatarFromPhoto } from '../services/gemini';
 import { renderHeroCard, shareHeroCard, downloadDataUrl } from '../utils/heroCardCanvas';
 
 const motion = m as any;
+
+// Compress a data URL image to a small JPEG for localStorage (avoids QuotaExceededError)
+const compressImageForStorage = (dataUrl: string, maxSize = 400): Promise<string> => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const scale = Math.min(maxSize / img.width, maxSize / img.height, 1);
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', 0.7));
+      } else {
+        resolve(dataUrl); // fallback
+      }
+    };
+    img.onerror = () => {
+      console.warn('compressImageForStorage: image failed to load, using placeholder');
+      resolve('/images/wisebot.jpg');
+    };
+    img.src = dataUrl;
+  });
+};
 
 interface HeroFactoryProps {
   lang: 'el' | 'en';
@@ -37,10 +61,11 @@ interface HeroFactoryProps {
 
 export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const navigate = useNavigate();
-  const { credits, spendCredits, costs, trackAction } = useEconomy(); // Economy
-  
+  const { credits, spendCredits, costs, trackAction, showNotification } = useEconomy();
+
   const [step, setStep] = useState(-1); // Start at mode selection
   const [mode, setMode] = useState<'create' | 'avatar' | null>(null);
+  const [generationError, setGenerationError] = useState<string | null>(null);
   const [hero, setHero] = useState({
     species: '',
     gear: '',
@@ -63,6 +88,12 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const [heroCardImage, setHeroCardImage] = useState<string | null>(null);
   const [cardLoading, setCardLoading] = useState(false);
 
+  // Meshy 3D state
+  const [meshy3DStatus, setMeshy3DStatus] = useState<'idle' | 'processing' | 'complete' | 'error'>('idle');
+  const [meshy3DProgress, setMeshy3DProgress] = useState(0);
+  const [meshy3DUrls, setMeshy3DUrls] = useState<any>(null);
+  const meshyPollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
   // --- INSPIRATION POOL ---
   const QUOTES = [
     {
@@ -81,13 +112,14 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       const randomQuote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
       setQuoteData(randomQuote);
 
-      // 1. Visual Loading Sequence
+      // 1. Visual Loading Sequence (DALL-E takes 15-25s)
       const sequence = [
         { text: lang === 'el' ? `✨ Η μαγεία ξεκινά (-${costs.image}⚡)...` : `✨ Magic begins (-${costs.image}⚡)...`, delay: 0 },
-        { text: lang === 'el' ? "🔥 Δίνουμε μορφή στη φαντασία σου..." : "🔥 Shaping your imagination...", delay: 2000 },
-        { text: lang === 'el' ? "🛡️ Προσθέτουμε τις δυνάμεις..." : "🛡️ Adding powers...", delay: 4000 },
-        { text: randomQuote.text, author: randomQuote.author, delay: 6000, isQuote: true }, 
-        { text: lang === 'el' ? "🌟 Ο Θρύλος γεννήθηκε!" : "🌟 A Legend is born!", delay: 10000 },
+        { text: lang === 'el' ? "🔥 Δίνουμε μορφή στη φαντασία σου..." : "🔥 Shaping your imagination...", delay: 3000 },
+        { text: lang === 'el' ? "🛡️ Προσθέτουμε τις δυνάμεις..." : "🛡️ Adding powers...", delay: 7000 },
+        { text: randomQuote.text, author: randomQuote.author, delay: 11000, isQuote: true },
+        { text: lang === 'el' ? "🎨 Ο ήρωας ζωγραφίζεται..." : "🎨 Hero is being painted...", delay: 16000 },
+        { text: lang === 'el' ? "🌟 Σχεδόν έτοιμο!" : "🌟 Almost ready!", delay: 22000 },
       ];
 
       let timeoutIds: ReturnType<typeof setTimeout>[] = [];
@@ -100,82 +132,87 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       });
 
       // 2. Trigger Real AI Generation
+      setGenerationError(null);
       const generateHero = async () => {
         try {
-          const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+          console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `Create a masterpiece 3D render of a unique, heroic character for a kids' adventure game. Pixar/Disney animation style.
-          
-          CORE APPEARANCE (Species/Look): ${hero.species}.
-          SPECIAL POWER/GEAR (Visuals): ${hero.gear}.
-          THEIR ROLE (Vibe): ${hero.contribution}.
-          
-          Details: High fidelity, 8k resolution, cinematic lighting, octane render, adorable yet capable, expressive face, vibrant colors. 
-          The character stands confidently on a podium. Plain dark gradient studio background to emphasize the character.`;
+          const prompt = `A unique heroic character for a kids' adventure game. Pixar/Disney 3D animation style.
+Species: ${hero.species}.
+Power/Gear: ${hero.gear}.
+Role: ${hero.contribution}.
+Style: Adorable yet capable, expressive face, vibrant colors, standing on a podium, dark gradient studio background.`;
 
-          const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash-image', 
-            contents: { parts: [{ text: prompt }] },
-          });
+          console.log('[HeroFactory] Calling backend API...');
+          const result = await backendAI.image(prompt);
+          console.log('[HeroFactory] Backend response received');
 
-          const parts = response.candidates?.[0]?.content?.parts;
-          if (parts) {
-            for (const part of parts) {
-              if (part.inlineData) {
-                const base64String = part.inlineData.data;
-                const newImageUrl = `data:image/png;base64,${base64String}`;
-                setResultImage(newImageUrl);
-                // Track stats
-                trackAction('CREATE_IMAGE');
-                break;
-              }
-            }
+          if (result.image) {
+            const compressed = await compressImageForStorage(result.image, 800);
+            console.log('[HeroFactory] Compressed size:', Math.round(compressed.length / 1024), 'KB');
+            setResultImage(compressed);
+            trackAction('CREATE_IMAGE');
+          } else {
+            const msg = lang === 'el' ? 'Δεν δημιουργήθηκε εικόνα.' : 'No image generated.';
+            setGenerationError(msg);
+            showNotification('❌', msg);
           }
         } catch (error: any) {
-          console.error("Hero generation failed:", error);
+          const errMsg = error?.message || String(error);
+          console.error('[HeroFactory] Generation failed:', errMsg);
+          setGenerationError(errMsg);
+          showNotification('❌', `${lang === 'el' ? 'Σφάλμα' : 'Error'}: ${errMsg.slice(0, 80)}`);
         }
+        setStep(5);
       };
 
       generateHero();
 
+      // Safety timeout: if generation takes more than 45s, show result anyway
       const finishId = setTimeout(() => {
         setStep(5);
-      }, 12000); 
-      
+      }, 45000);
+
       timeoutIds.push(finishId);
 
       return () => timeoutIds.forEach(clearTimeout);
     }
   }, [step, lang, hero]);
 
-  // Effect to save hero
+  // Effect to save hero — image is already compressed in state
+  const heroSavedRef = useRef(false);
   useEffect(() => {
-    if (step === 5) {
-       addHero({
-            id: Date.now().toString(),
-            name: hero.name,
-            role: lang === 'el' ? 'Ο Νέος Φύλακας' : 'The New Guardian',
-            image: resultImage,
-            description: `${hero.species} • ${hero.gear}`,
-            isUserGenerated: true,
-            color: 'from-fuchsia-500 to-purple-600',
-            heroClass: 'creator'
+    if (step === 5 && !heroSavedRef.current) {
+      heroSavedRef.current = true;
+      try {
+        addHero({
+          id: Date.now().toString(),
+          name: hero.name,
+          role: lang === 'el' ? 'Ο Νέος Φύλακας' : 'The New Guardian',
+          image: resultImage,
+          description: `${hero.species} • ${hero.gear}`,
+          isUserGenerated: true,
+          color: 'from-fuchsia-500 to-purple-600',
+          heroClass: 'creator'
         });
-       trackAction('COMPLETE_HERO'); 
+        trackAction('COMPLETE_HERO');
+      } catch (e) {
+        console.error('Failed to save hero:', e);
+      }
     }
-  }, [step, resultImage]); 
+  }, [step]); 
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step === 0 && !hero.species) return;
     if (step === 1 && !hero.gear) return;
     if (step === 2 && !hero.contribution) return;
     if (step === 3 && !hero.name) return;
     
     if (step === 3) {
-        // Attempt to spend credits before proceeding
-        const success = spendCredits(costs.image);
+        // Attempt to spend credits before proceeding (server-validated)
+        const success = await spendCredits(costs.image, 'CREATE_IMAGE');
         if (!success) {
-            alert(lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+            showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
             return;
         }
     }
@@ -203,6 +240,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     setAvatarLoading(false);
     setHeroCardImage(null);
     setCardLoading(false);
+    heroSavedRef.current = false;
   };
 
   // Avatar mode: handle photo upload
@@ -219,9 +257,9 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   // Avatar mode: generate avatar from photo
   const handleGenerateAvatar = async () => {
     if (!uploadedPhoto || !avatarName) return;
-    const success = spendCredits(costs.image);
+    const success = await spendCredits(costs.image, 'CREATE_IMAGE');
     if (!success) {
-      alert(lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
     setAvatarLoading(true);
@@ -230,30 +268,34 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       // Extract base64 data from data URL
       const base64Data = uploadedPhoto.split(',')[1];
       const mimeType = uploadedPhoto.split(';')[0].split(':')[1] || 'image/jpeg';
-      const result = await generateAvatarFromPhoto(base64Data, mimeType);
-      setAvatarResult(result);
+      const avatarResp = await backendAI.avatar(base64Data, mimeType);
+      if (!avatarResp.image) throw new Error('No avatar generated');
+      const rawResult = avatarResp.image;
+      // Compress IMMEDIATELY — raw base64 can crash mobile browsers
+      const compressedAvatar = await compressImageForStorage(rawResult, 800);
+      setAvatarResult(compressedAvatar);
       trackAction('CREATE_IMAGE');
-      // Save as user avatar
-      localStorage.setItem('wb_user_avatar', result);
-      // Also save as a hero
+      try { localStorage.setItem('wb_user_avatar', compressedAvatar); } catch (e) { /* quota */ }
+      // Also save as a hero (already compressed)
       addHero({
         id: `avatar-${Date.now()}`,
         name: avatarName,
         role: lang === 'el' ? 'Ο Πραγματικός Ήρωας' : 'The Real Hero',
-        image: result,
+        image: compressedAvatar,
         description: lang === 'el' ? 'Μεταμόρφωση φωτογραφίας σε ήρωα' : 'Photo transformed into a hero',
         isUserGenerated: true,
         color: 'from-cyan-500 to-blue-600',
         heroClass: 'avatar'
       });
       trackAction('COMPLETE_HERO');
+      setAvatarLoading(false);
+      setStep(8); // avatar result step — only on success
     } catch (error) {
       console.error('Avatar generation failed:', error);
-      alert(lang === 'el' ? 'Κάτι πήγε στραβά. Δοκίμασε ξανά!' : 'Something went wrong. Try again!');
-      setStep(6); // back to upload step
+      showNotification('❌', lang === 'el' ? 'Κάτι πήγε στραβά. Δοκίμασε ξανά!' : 'Something went wrong. Try again!');
+      setAvatarLoading(false);
+      setStep(6); // back to upload step on error
     }
-    setAvatarLoading(false);
-    setStep(8); // avatar result step
   };
 
   // Generate the hero card image (canvas-based)
@@ -278,6 +320,73 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       return null;
     }
   };
+
+  // ─── Meshy 3D Conversion ───
+  const startMeshy3D = useCallback(async (imageToConvert: string) => {
+    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
+      showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      return;
+    }
+    setMeshy3DStatus('processing');
+    setMeshy3DProgress(0);
+    setMeshy3DUrls(null);
+
+    try {
+      // Convert local image to data URI if needed
+      let imageUrl = imageToConvert;
+      if (!imageToConvert.startsWith('data:') && !imageToConvert.startsWith('http')) {
+        const resp = await fetch(imageToConvert);
+        const blob = await resp.blob();
+        const reader = new FileReader();
+        imageUrl = await new Promise((resolve) => {
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(blob);
+        });
+      }
+
+      const resp = await fetch('/api/ai/meshy-generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageUrl }),
+      });
+      const data = await resp.json();
+      if (!data.taskId) throw new Error(data.error || 'Failed');
+
+      // Poll for completion
+      if (meshyPollRef.current) clearInterval(meshyPollRef.current);
+      let attempts = 0;
+      meshyPollRef.current = setInterval(async () => {
+        attempts++;
+        if (attempts > 120) {
+          if (meshyPollRef.current) clearInterval(meshyPollRef.current);
+          setMeshy3DStatus('error');
+          return;
+        }
+        try {
+          const sr = await fetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
+          const sd = await sr.json();
+          setMeshy3DProgress(sd.progress || 0);
+          if (sd.status === 'complete' && sd.modelUrls) {
+            if (meshyPollRef.current) clearInterval(meshyPollRef.current);
+            setMeshy3DUrls(sd.modelUrls);
+            setMeshy3DStatus('complete');
+            showNotification('🎉', lang === 'el' ? '3D Μοντέλο έτοιμο!' : '3D Model ready!');
+          } else if (sd.status === 'error') {
+            if (meshyPollRef.current) clearInterval(meshyPollRef.current);
+            setMeshy3DStatus('error');
+          }
+        } catch (e) { /* keep polling */ }
+      }, 5000);
+    } catch (err: any) {
+      setMeshy3DStatus('error');
+      showNotification('❌', err.message || '3D Error');
+    }
+  }, [costs.threeD, lang, showNotification, spendCredits]);
+
+  // Cleanup meshy polling
+  useEffect(() => {
+    return () => { if (meshyPollRef.current) clearInterval(meshyPollRef.current); };
+  }, []);
 
   const handleDownload = async () => {
     const card = await generateHeroCard();
@@ -432,6 +541,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
             <p className="text-white/30 text-xs font-bold">
               {lang === 'el' ? `⚡ ${costs.image} Credits για μαγεία! | Έχεις: ${credits}` : `⚡ ${costs.image} Credits for magic! | You have: ${credits}`}
             </p>
+            <p className="text-white/10 text-[10px]">v4</p>
           </div>
         </motion.div>
       );
@@ -774,8 +884,8 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           {/* Magic Vortex */}
           <div className="relative w-48 h-48 mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-spin blur-2xl opacity-50" />
-            <div className="absolute inset-2 bg-[#020617] rounded-full flex items-center justify-center border-2 border-white/20 relative z-10 overflow-hidden">
-               <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-50 animate-pulse"></div>
+            <div className="absolute inset-2 bg-[#0B0F1A] rounded-full flex items-center justify-center border-2 border-white/20 relative z-10 overflow-hidden">
+               <div className="absolute inset-0 bg-[url('/images/stardust.webp')] opacity-50 animate-pulse"></div>
                <Sparkles size={64} className="text-white animate-pulse" />
             </div>
             {/* Floating Particles (Simulated) */}
@@ -810,7 +920,43 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       );
     }
 
-    // STEP 5: THE GRAND REVEAL
+    // STEP 5: THE GRAND REVEAL (or error fallback)
+    if (step === 5 && generationError) {
+      return (
+        <motion.div
+          key="result-error"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.35 }}
+          className="glass-panel p-8 md:p-12 rounded-[3rem] border-2 border-red-500/20 text-center space-y-6"
+        >
+          <div className="w-20 h-20 bg-red-500/20 rounded-full flex items-center justify-center mx-auto border border-red-500/30">
+            <span className="text-4xl">😔</span>
+          </div>
+          <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter">
+            {lang === 'el' ? 'Κάτι πήγε στραβά' : 'Something went wrong'}
+          </h2>
+          <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-3">
+            <p className="text-red-400 text-xs font-mono break-all">{generationError}</p>
+          </div>
+          <p className="text-white/40 text-xs">v4 — Gemini Native</p>
+          <div className="flex gap-3 justify-center">
+            <button
+              onClick={() => { setGenerationError(null); heroSavedRef.current = false; setStep(4); }}
+              className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-[1000] uppercase tracking-widest text-xs hover:brightness-110 transition-all flex items-center gap-2"
+            >
+              <RefreshCcw size={14} /> {lang === 'el' ? 'ΔΟΚΙΜΑΣΕ ΞΑΝΑ' : 'TRY AGAIN'}
+            </button>
+            <button
+              onClick={reset}
+              className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white/60 font-[1000] uppercase tracking-widest text-xs hover:bg-white/10 transition-all"
+            >
+              {lang === 'el' ? 'ΑΡΧΗ' : 'START OVER'}
+            </button>
+          </div>
+        </motion.div>
+      );
+    }
     if (step === 5) {
       return (
         <motion.div
@@ -834,15 +980,15 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           </motion.div>
 
           {/* HERO CARD */}
-          <div className="relative w-full max-w-sm mx-auto bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden border-[6px] border-white/10 shadow-[0_0_100px_rgba(168,85,247,0.5)] group hover:scale-[1.02] transition-transform duration-500 z-10">
+          <div className="relative w-full max-w-sm mx-auto bg-white/[0.03] backdrop-blur-sm rounded-[2.5rem] overflow-hidden border-[6px] border-white/[0.08] shadow-[0_0_100px_rgba(168,85,247,0.5)] group hover:scale-[1.02] transition-transform duration-500 z-10">
 
             {/* Shiny overlay */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent z-20 pointer-events-none" />
 
             {/* Image Area */}
             <div className="h-96 relative overflow-hidden">
-              <img src={resultImage} className="w-full h-full object-cover" alt="Hero" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
+              <img src={resultImage} className="w-full h-full object-cover" alt="Hero" onError={(e) => { (e.target as HTMLImageElement).src = '/images/wisebot.jpg'; }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F1A] via-transparent to-transparent opacity-90" />
 
               {/* Stats Badges */}
               <div className="absolute top-4 right-4 flex flex-col gap-2">
@@ -853,7 +999,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
             </div>
 
             {/* Content Area */}
-            <div className="p-8 relative z-10 bg-gradient-to-b from-transparent to-black/80 backdrop-blur-sm -mt-32 pt-20">
+            <div className="p-8 relative z-10 bg-gradient-to-b from-transparent to-[#0B0F1A]/90 backdrop-blur-sm -mt-32 pt-20">
               <div className="mb-2 flex items-center gap-2">
                 <Stars size={14} className="text-purple-400" />
                 <span className="text-purple-400 text-xs font-black uppercase tracking-[0.3em]">{hero.species}</span>
@@ -913,8 +1059,64 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
               </div>
           </div>
 
+          {/* 3D CONVERSION SECTION */}
+          <div className="mt-6 w-full max-w-md relative z-20 space-y-3">
+            {meshy3DStatus === 'idle' && (
+              <button
+                onClick={() => startMeshy3D(resultImage)}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-[1000] text-sm uppercase italic tracking-widest hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-3"
+              >
+                <Sparkles size={18} /> {lang === 'el' ? `ΚΑΝΕ ΤΟΝ 3D! (-${costs.threeD}⚡)` : `MAKE IT 3D! (-${costs.threeD}⚡)`}
+              </button>
+            )}
+            {meshy3DStatus === 'processing' && (
+              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center space-y-2">
+                <p className="text-amber-300 font-[1000] text-sm uppercase tracking-widest flex items-center justify-center gap-2">
+                  <RefreshCcw size={14} className="animate-spin" /> {lang === 'el' ? 'ΔΗΜΙΟΥΡΓΙΑ 3D...' : 'CREATING 3D...'} {meshy3DProgress}%
+                </p>
+                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500" style={{ width: `${meshy3DProgress}%` }} />
+                </div>
+              </div>
+            )}
+            {meshy3DStatus === 'complete' && meshy3DUrls && (
+              <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 space-y-3 text-center">
+                <p className="text-emerald-300 font-[1000] text-sm uppercase tracking-widest">
+                  🎉 {lang === 'el' ? '3D ΜΟΝΤΕΛΟ ΕΤΟΙΜΟ!' : '3D MODEL READY!'}
+                </p>
+                {meshy3DUrls.glb && (
+                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/40" style={{ height: '250px' }}>
+                    {/* @ts-ignore */}
+                    <model-viewer
+                      src={meshy3DUrls.glb}
+                      alt={hero.name || 'Hero 3D'}
+                      auto-rotate
+                      camera-controls
+                      touch-action="pan-y"
+                      style={{ width: '100%', height: '100%', background: '#0B0F1A' }}
+                    />
+                  </div>
+                )}
+                <div className="flex flex-wrap gap-1.5 justify-center">
+                  {meshy3DUrls.glb && <a href={meshy3DUrls.glb} download className="px-4 py-2 bg-emerald-600/20 border border-emerald-500/30 rounded-xl text-emerald-300 text-xs font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all">GLB</a>}
+                  {meshy3DUrls.fbx && <a href={meshy3DUrls.fbx} download className="px-4 py-2 bg-emerald-600/20 border border-emerald-500/30 rounded-xl text-emerald-300 text-xs font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all">FBX</a>}
+                  {meshy3DUrls.stl && <a href={meshy3DUrls.stl} download className="px-4 py-2 bg-emerald-600/20 border border-emerald-500/30 rounded-xl text-emerald-300 text-xs font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all">STL</a>}
+                  {meshy3DUrls.obj && <a href={meshy3DUrls.obj} download className="px-4 py-2 bg-emerald-600/20 border border-emerald-500/30 rounded-xl text-emerald-300 text-xs font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all">OBJ</a>}
+                </div>
+              </div>
+            )}
+            {meshy3DStatus === 'error' && (
+              <button
+                onClick={() => { setMeshy3DStatus('idle'); }}
+                className="w-full py-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 font-bold text-xs uppercase tracking-widest"
+              >
+                {lang === 'el' ? 'Σφάλμα 3D — Δοκίμασε ξανά' : '3D Error — Try again'}
+              </button>
+            )}
+          </div>
+
           {/* NAVIGATION BUTTONS */}
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md relative z-20">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md relative z-20">
             <button
               onClick={() => navigate('/wise-friends')}
               className="w-full py-5 rounded-2xl bg-white text-black font-[1000] text-sm uppercase tracking-widest shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3"
@@ -941,10 +1143,10 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     <div className="min-h-screen w-full flex items-center justify-center p-4 relative overflow-hidden font-['Nunito']">
 
       {/* 🌌 MAGICAL BACKGROUND (Moving Nebula) */}
-      <div className="absolute inset-0 bg-[#020617]">
-        <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-30 animate-pulse" />
+      <div className="absolute inset-0 bg-[#0B0F1A]">
+        <div className="absolute inset-0 bg-[url('/images/stardust.webp')] opacity-30 animate-pulse" />
         <div className="absolute -top-1/2 -left-1/2 w-[150%] h-[150%] bg-gradient-to-br from-purple-900/20 via-blue-900/10 to-transparent blur-[120px] animate-rotate-3d" />
-        <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent" />
+        <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-t from-[#0B0F1A] via-transparent to-transparent" />
       </div>
 
       <div className="relative z-10 w-full max-w-3xl">

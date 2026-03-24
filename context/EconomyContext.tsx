@@ -1,17 +1,21 @@
 
 import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Zap, Trophy, Star } from 'lucide-react';
+import { Zap, Trophy, Star, X, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe } from 'lucide-react';
+import { backendCredits, isBackendAvailable } from '../services/backendApi';
 
 const motion = m as any;
 
 // --- TYPES ---
 export interface Badges {
-  thinker: boolean;   // Unlocked via Academy & Quizzes
-  creator: boolean;   // Unlocked via Image Generation
-  filmmaker: boolean; // Unlocked via Video Generation
-  builder: boolean;   // Unlocked via Completing Hero
-  market: boolean;    // Unlocked via Sharing/Selling
+  thinker: boolean;    // Unlocked via Academy & Quizzes (5 quizzes OR 5 lessons)
+  creator: boolean;    // Unlocked via Image Generation (5 images)
+  filmmaker: boolean;  // Unlocked via Video Generation (2 videos)
+  builder: boolean;    // Unlocked via Completing Hero (1 hero)
+  market: boolean;     // Unlocked via Sharing/Selling (1 hero upload)
+  musician: boolean;   // Unlocked via Creating Songs (3 songs) → Song cost -2
+  scientist: boolean;  // Unlocked via Quizzes (10 quizzes) → +1 credit per quiz
+  explorer: boolean;   // Unlocked via Academy (10 stories) → Daily mission +2
 }
 
 export interface EconomyStats {
@@ -22,6 +26,7 @@ export interface EconomyStats {
   lessonsRead: number;
   booksRead: number;
   businessesCreated: number;
+  songsCreated: number;   // Tracks songs for musician badge
 }
 
 export interface DailyMission {
@@ -38,6 +43,17 @@ export interface RewardNotification {
   type: 'credit' | 'badge' | 'achievement';
 }
 
+// Badge celebration data
+interface BadgeCelebration {
+  key: string;
+  title: string;
+  subtitle: string;
+  emoji: string;
+  gradient: string;
+}
+
+type ActionType = 'PASS_QUIZ' | 'CREATE_IMAGE' | 'CREATE_VIDEO' | 'UPLOAD_HERO' | 'COMPLETE_HERO' | 'READ_ACADEMY' | 'READ_BOOK' | 'CREATE_BUSINESS' | 'CREATE_SONG';
+
 interface EconomyContextType {
   credits: number;
   badges: Badges;
@@ -45,22 +61,41 @@ interface EconomyContextType {
   costs: {
     image: number;
     video: number;
+    song: number;
+    threeD: number;
+    business: number;
   };
   dailyMission: DailyMission;
-  spendCredits: (amount: number) => boolean;
-  earnCredits: (amount: number) => void;
-  trackAction: (action: 'PASS_QUIZ' | 'CREATE_IMAGE' | 'CREATE_VIDEO' | 'UPLOAD_HERO' | 'COMPLETE_HERO' | 'READ_ACADEMY' | 'READ_BOOK' | 'CREATE_BUSINESS') => void;
+  streak: number;
+  /** Spend credits — validates server-side first (async), falls back to localStorage offline */
+  spendCredits: (amount: number, action?: string) => Promise<boolean>;
+  /** Earn credits — validates server-side first (async) */
+  earnCredits: (amount: number, action?: string, actionId?: string) => Promise<void>;
+  trackAction: (action: ActionType) => void;
+  showNotification: (emoji: string, title: string, subtitle?: string) => void;
+  /** Cloud sync: bulk-update state from Supabase data */
+  syncFromCloud: (credits: number, stats: EconomyStats, badges: Badges) => void;
+  /** Refresh credits from server (source of truth) */
+  refreshFromServer: () => Promise<void>;
 }
 
 const EconomyContext = createContext<EconomyContextType | undefined>(undefined);
 
 // --- CONSTANTS ---
-const INITIAL_CREDITS = 10;
-const BASE_COST_IMAGE = 3;
-const BASE_COST_VIDEO = 7;
+// 1 credit = €0.05 (at Starter rate: 100 credits = €4.99)
+const INITIAL_CREDITS = 24;       // New users get 24 credits (= 4 images free)
+const BASE_COST_IMAGE = 6;        // 6⚡ = €0.30
+const BASE_COST_VIDEO = 50;       // 50⚡ = €2.50
+const BASE_COST_SONG = 60;        // 60⚡ = €3.00
+const BASE_COST_3D = 60;          // 60⚡ = €3.00
+const BASE_COST_BUSINESS = 4;     // 4⚡ = €0.20
 const DAILY_MISSION_REWARD = 3;
 
-// Mission pool: id maps to action type that completes it
+// Default state shapes (used for initialization & migration)
+const DEFAULT_BADGES: Badges = { thinker: false, creator: false, filmmaker: false, builder: false, market: false, musician: false, scientist: false, explorer: false };
+const DEFAULT_STATS: EconomyStats = { quizzesPassed: 0, imagesCreated: 0, videosCreated: 0, heroesUploaded: 0, lessonsRead: 0, booksRead: 0, businessesCreated: 0, songsCreated: 0 };
+
+// Mission pool: expanded from 6 to 12 missions
 export const MISSION_POOL = [
   { id: 0, action: 'READ_ACADEMY', el: 'Διάβασε 1 ιστορία στην Ακαδημία', en: 'Read 1 story in Academy' },
   { id: 1, action: 'READ_BOOK', el: 'Διάβασε 1 βιβλίο στη Βιβλιοθήκη', en: 'Read 1 book in Library' },
@@ -68,7 +103,25 @@ export const MISSION_POOL = [
   { id: 3, action: 'CREATE_IMAGE', el: 'Δημιούργησε 1 ήρωα', en: 'Create 1 hero' },
   { id: 4, action: 'CREATE_BUSINESS', el: 'Φτιάξε 1 επιχείρηση', en: 'Create 1 business' },
   { id: 5, action: 'READ_ACADEMY', el: 'Μάθε για 1 σπουδαίο άνθρωπο', en: 'Learn about 1 great person' },
+  { id: 6, action: 'CREATE_SONG', el: 'Φτιάξε 1 τραγούδι', en: 'Create 1 song' },
+  { id: 7, action: 'PASS_QUIZ', el: 'Κέρδισε 1 πρόκληση', en: 'Win 1 challenge' },
+  { id: 8, action: 'CREATE_IMAGE', el: 'Σχεδίασε 1 νέο χαρακτήρα', en: 'Design 1 new character' },
+  { id: 9, action: 'READ_BOOK', el: 'Εξερεύνησε 1 ιστορία', en: 'Explore 1 story' },
+  { id: 10, action: 'CREATE_BUSINESS', el: 'Ανάπτυξε 1 ιδέα', en: 'Develop 1 idea' },
+  { id: 11, action: 'READ_ACADEMY', el: 'Ανακάλυψε 1 μυστικό', en: 'Discover 1 secret' },
 ];
+
+// Badge metadata for celebration
+const BADGE_META: Record<string, { icon: any; gradient: string; titleEl: string; titleEn: string; subtitleEl: string; subtitleEn: string }> = {
+  thinker:   { icon: Brain,        gradient: 'from-blue-400 via-cyan-500 to-blue-600',       titleEl: 'ΣΤΟΧΑΣΤΗΣ',     titleEn: 'THINKER',    subtitleEl: 'Ηρώων -1⚡',              subtitleEn: 'Hero Image -1⚡' },
+  creator:   { icon: Palette,      gradient: 'from-pink-400 via-rose-500 to-red-600',        titleEl: 'ΔΗΜΙΟΥΡΓΟΣ',    titleEn: 'CREATOR',    subtitleEl: 'Μάστερ Τέχνης',           subtitleEn: 'Art Master' },
+  filmmaker: { icon: Clapperboard, gradient: 'from-amber-400 via-orange-500 to-red-600',     titleEl: 'ΣΚΗΝΟΘΕΤΗΣ',    titleEn: 'DIRECTOR',   subtitleEl: 'Βίντεο -2⚡',             subtitleEn: 'Video -2⚡' },
+  builder:   { icon: Hammer,       gradient: 'from-emerald-400 via-green-500 to-teal-600',   titleEl: 'ΜΑΣΤΟΡΑΣ',      titleEn: 'BUILDER',    subtitleEl: 'Hero +1⚡ Bonus',         subtitleEn: 'Hero +1⚡ Bonus' },
+  market:    { icon: Store,        gradient: 'from-violet-400 via-purple-500 to-indigo-600',  titleEl: 'ΕΜΠΟΡΟΣ',       titleEn: 'TRADER',     subtitleEl: 'Κοινότητα',               subtitleEn: 'Community' },
+  musician:  { icon: Music,        gradient: 'from-fuchsia-400 via-pink-500 to-purple-600',   titleEl: 'ΜΟΥΣΙΚΟΣ',      titleEn: 'MUSICIAN',   subtitleEl: 'Τραγούδι -2⚡',           subtitleEn: 'Song -2⚡' },
+  scientist: { icon: FlaskConical, gradient: 'from-lime-400 via-green-500 to-emerald-600',   titleEl: 'ΕΠΙΣΤΗΜΟΝΑΣ',   titleEn: 'SCIENTIST',  subtitleEl: 'Quiz +1⚡ Bonus',         subtitleEn: 'Quiz +1⚡ Bonus' },
+  explorer:  { icon: Globe,        gradient: 'from-sky-400 via-blue-500 to-indigo-600',      titleEl: 'ΕΞΕΡΕΥΝΗΤΗΣ',   titleEn: 'EXPLORER',   subtitleEl: 'Αποστολή +2⚡',           subtitleEn: 'Mission +2⚡' },
+};
 
 const getTodayStr = () => new Date().toISOString().split('T')[0];
 
@@ -79,11 +132,188 @@ const getTodayMission = (): DailyMission => {
     const parsed = JSON.parse(saved) as DailyMission;
     if (parsed.date === today) return parsed;
   }
-  // New day → pick mission based on day-of-year for consistency
+  // New day -> pick mission based on day-of-year for consistency
   const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
   const mission: DailyMission = { id: dayOfYear % MISSION_POOL.length, date: today, completed: false };
   localStorage.setItem('wb_daily_mission', JSON.stringify(mission));
   return mission;
+};
+
+// Streak calculation
+const getStreak = (): number => {
+  const saved = localStorage.getItem('wb_streak');
+  if (!saved) return 0;
+  const { count, lastDate } = JSON.parse(saved);
+  const today = getTodayStr();
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  if (lastDate === today) return count;
+  if (lastDate === yesterday) return count; // streak alive, not yet incremented today
+  return 0; // streak broken
+};
+
+const updateStreak = () => {
+  const saved = localStorage.getItem('wb_streak');
+  const today = getTodayStr();
+  if (saved) {
+    const { count, lastDate } = JSON.parse(saved);
+    if (lastDate === today) return count; // already updated today
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    const newCount = lastDate === yesterday ? count + 1 : 1;
+    localStorage.setItem('wb_streak', JSON.stringify({ count: newCount, lastDate: today }));
+    return newCount;
+  }
+  localStorage.setItem('wb_streak', JSON.stringify({ count: 1, lastDate: today }));
+  return 1;
+};
+
+// ─── CONFETTI PARTICLE ──────────────────────────────────────
+const Particle: React.FC<{ delay: number; color: string }> = ({ delay, color }) => {
+  const x = Math.random() * 100;
+  const size = 4 + Math.random() * 8;
+  const duration = 2 + Math.random() * 2;
+
+  return (
+    <motion.div
+      initial={{ y: '-10vh', x: `${x}vw`, opacity: 1, rotate: 0, scale: 1 }}
+      animate={{ y: '110vh', opacity: 0, rotate: 360 + Math.random() * 720, scale: 0.3 }}
+      transition={{ duration, delay, ease: 'easeIn' }}
+      style={{
+        position: 'absolute', width: size, height: size, borderRadius: Math.random() > 0.5 ? '50%' : '2px',
+        background: color, left: 0, top: 0, zIndex: 1,
+      }}
+    />
+  );
+};
+
+// ─── BADGE CELEBRATION FULLSCREEN ──────────────────────────
+const BadgeCelebrationOverlay: React.FC<{
+  badge: BadgeCelebration | null;
+  onDismiss: () => void;
+}> = ({ badge, onDismiss }) => {
+  useEffect(() => {
+    if (badge) {
+      const timer = setTimeout(onDismiss, 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [badge, onDismiss]);
+
+  if (!badge) return null;
+
+  const meta = BADGE_META[badge.key];
+  if (!meta) return null;
+
+  const BadgeIcon = meta.icon;
+  const confettiColors = ['#60a5fa', '#a78bfa', '#f472b6', '#34d399', '#fbbf24', '#fb923c', '#22d3ee', '#e879f9'];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100000] flex items-center justify-center"
+      onClick={onDismiss}
+    >
+      {/* Dark backdrop */}
+      <div className="absolute inset-0 bg-black/85 backdrop-blur-xl" />
+
+      {/* Confetti particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 60 }).map((_, i) => (
+          <Particle key={i} delay={i * 0.05} color={confettiColors[i % confettiColors.length]} />
+        ))}
+      </div>
+
+      {/* Central content */}
+      <motion.div
+        initial={{ scale: 0, rotateY: 180 }}
+        animate={{ scale: 1, rotateY: 0 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.2 }}
+        className="relative z-10 flex flex-col items-center text-center px-8"
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Glow rings */}
+        <motion.div
+          animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className={`absolute w-64 h-64 rounded-full bg-gradient-to-r ${meta.gradient} blur-3xl opacity-30`}
+        />
+        <motion.div
+          animate={{ scale: [1.2, 1.8, 1.2], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 2.5, repeat: Infinity, delay: 0.3 }}
+          className={`absolute w-80 h-80 rounded-full bg-gradient-to-r ${meta.gradient} blur-[80px] opacity-20`}
+        />
+
+        {/* Badge icon */}
+        <motion.div
+          initial={{ scale: 0, rotate: -180 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 12, delay: 0.4 }}
+          className={`relative w-32 h-32 rounded-[2rem] bg-gradient-to-br ${meta.gradient} flex items-center justify-center shadow-2xl border-4 border-white/30 mb-8`}
+        >
+          <BadgeIcon size={56} className="text-white drop-shadow-xl" />
+          {/* Shine sweep */}
+          <motion.div
+            initial={{ x: '-100%' }}
+            animate={{ x: '200%' }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 rounded-[2rem]"
+          />
+        </motion.div>
+
+        {/* BADGE UNLOCKED label */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mb-3"
+        >
+          <span className="text-xs font-black uppercase tracking-[0.5em] text-white/50">
+            BADGE UNLOCKED
+          </span>
+        </motion.div>
+
+        {/* Badge title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30, scale: 0.5 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.7 }}
+          className={`text-5xl md:text-7xl font-[1000] uppercase italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r ${meta.gradient} drop-shadow-2xl mb-4`}
+        >
+          {badge.title}
+        </motion.h2>
+
+        {/* Subtitle / bonus */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9 }}
+          className="text-lg font-bold text-white/70 uppercase tracking-wider"
+        >
+          {badge.subtitle}
+        </motion.p>
+
+        {/* Emoji */}
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: [0, 1.3, 1] }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+          className="text-6xl mt-6"
+        >
+          {badge.emoji}
+        </motion.div>
+
+        {/* Tap to dismiss */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          className="text-xs text-white/30 mt-8 uppercase tracking-widest"
+        >
+          Tap to continue
+        </motion.p>
+      </motion.div>
+    </motion.div>
+  );
 };
 
 // ─── REWARD TOAST COMPONENT ──────────────────────────────────────
@@ -167,7 +397,7 @@ const RewardToast: React.FC<{ notification: RewardNotification; onDismiss: () =>
 
 // ─── ECONOMY PROVIDER ────────────────────────────────────────────
 export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // 1. STATE INITIALIZATION (Persisted)
+  // 1. STATE INITIALIZATION (Persisted, with migration for new fields)
   const [credits, setCredits] = useState<number>(() => {
     const saved = localStorage.getItem('wb_credits');
     return saved ? parseInt(saved) : INITIAL_CREDITS;
@@ -175,19 +405,23 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const [stats, setStats] = useState<EconomyStats>(() => {
     const saved = localStorage.getItem('wb_stats');
-    return saved ? { quizzesPassed: 0, imagesCreated: 0, videosCreated: 0, heroesUploaded: 0, lessonsRead: 0, booksRead: 0, businessesCreated: 0, ...JSON.parse(saved) } : { quizzesPassed: 0, imagesCreated: 0, videosCreated: 0, heroesUploaded: 0, lessonsRead: 0, booksRead: 0, businessesCreated: 0 };
+    return saved ? { ...DEFAULT_STATS, ...JSON.parse(saved) } : { ...DEFAULT_STATS };
   });
 
   const [badges, setBadges] = useState<Badges>(() => {
     const saved = localStorage.getItem('wb_badges');
-    return saved ? JSON.parse(saved) : { thinker: false, creator: false, filmmaker: false, builder: false, market: false };
+    return saved ? { ...DEFAULT_BADGES, ...JSON.parse(saved) } : { ...DEFAULT_BADGES };
   });
 
   const [dailyMission, setDailyMission] = useState<DailyMission>(getTodayMission);
+  const [streak, setStreak] = useState<number>(getStreak);
 
   // ─── NOTIFICATION SYSTEM ───
   const [notifications, setNotifications] = useState<RewardNotification[]>([]);
   const notifIdRef = useRef(0);
+
+  // ─── BADGE CELEBRATION ───
+  const [celebratingBadge, setCelebratingBadge] = useState<BadgeCelebration | null>(null);
 
   const showReward = useCallback((emoji: string, title: string, subtitle?: string, type: 'credit' | 'badge' | 'achievement' = 'credit') => {
     const id = ++notifIdRef.current;
@@ -198,19 +432,52 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setNotifications(prev => prev.filter(n => n.id !== id));
   }, []);
 
+  const showBadgeCelebration = useCallback((key: string, emoji: string, lang: string = 'el') => {
+    const meta = BADGE_META[key];
+    if (!meta) return;
+    setCelebratingBadge({
+      key,
+      title: lang === 'el' ? meta.titleEl : meta.titleEn,
+      subtitle: lang === 'el' ? meta.subtitleEl : meta.subtitleEn,
+      emoji,
+      gradient: meta.gradient,
+    });
+  }, []);
+
   // 2. PERSISTENCE
   useEffect(() => { localStorage.setItem('wb_credits', credits.toString()); }, [credits]);
   useEffect(() => { localStorage.setItem('wb_stats', JSON.stringify(stats)); }, [stats]);
   useEffect(() => { localStorage.setItem('wb_badges', JSON.stringify(badges)); }, [badges]);
 
-  // 3. DYNAMIC COSTS
+  // 3. DYNAMIC COSTS (badge discounts applied)
   const costs = {
-    image: badges.thinker ? BASE_COST_IMAGE - 1 : BASE_COST_IMAGE,
-    video: badges.filmmaker ? BASE_COST_VIDEO - 2 : BASE_COST_VIDEO,
+    image: BASE_COST_IMAGE,         // 8 credits (~€0.30)
+    video: BASE_COST_VIDEO,          // 40 credits (~€2.50)
+    song: BASE_COST_SONG,            // 50 credits (~€3.00)
+    threeD: BASE_COST_3D,            // 50 credits (~€3.00)
+    business: BASE_COST_BUSINESS,    // 5 credits (~€0.20)
   };
 
-  // 4. ACTIONS
-  const spendCredits = (amount: number): boolean => {
+  // 4. ACTIONS (Hybrid: server-first, localStorage fallback)
+
+  const spendCredits = async (amount: number, action?: string): Promise<boolean> => {
+    // Try server-side validation first (source of truth)
+    if (isBackendAvailable() && action) {
+      try {
+        const result = await backendCredits.spend(amount, action);
+        if (result.success) {
+          // Update local cache with server-confirmed balance
+          setCredits(result.remaining);
+          return true;
+        }
+        return false; // Server said insufficient credits
+      } catch (err) {
+        console.warn('[Economy] Server spend failed, falling back to local:', err);
+        // Fall through to local validation
+      }
+    }
+
+    // Fallback: local validation (offline mode)
     if (credits >= amount) {
       setCredits(prev => prev - amount);
       return true;
@@ -218,113 +485,201 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     return false;
   };
 
-  const earnCredits = (amount: number) => {
+  const earnCredits = async (amount: number, action?: string, actionId?: string): Promise<void> => {
+    // Try server-side first
+    if (isBackendAvailable() && action) {
+      try {
+        const result = await backendCredits.earn(amount, action, actionId);
+        if (result.success && result.newBalance !== undefined) {
+          setCredits(result.newBalance);
+          return;
+        }
+      } catch (err) {
+        console.warn('[Economy] Server earn failed, falling back to local:', err);
+      }
+    }
+
+    // Fallback: local update
     setCredits(prev => prev + amount);
   };
 
-  const completeDailyMission = (action: string) => {
+  // Refresh credits from server (call after login or when syncing)
+  const refreshFromServer = useCallback(async () => {
+    if (!isBackendAvailable()) return;
+    try {
+      const serverStats = await backendCredits.getStats();
+      if (serverStats) {
+        setCredits(serverStats.credits);
+        // Update badges from server
+        const serverBadges = serverStats.badges as unknown as Badges;
+        if (serverBadges) setBadges(prev => ({ ...prev, ...serverBadges }));
+      }
+    } catch (err) {
+      console.warn('[Economy] Server refresh failed:', err);
+    }
+  }, []);
+
+  // General-purpose notification (replaces alert() across the app)
+  const showNotification = useCallback((emoji: string, title: string, subtitle?: string) => {
+    showReward(emoji, title, subtitle, 'credit');
+  }, [showReward]);
+
+  // Cloud sync: bulk-update state from merged Supabase data
+  const syncFromCloud = useCallback((newCredits: number, newStats: EconomyStats, newBadges: Badges) => {
+    setCredits(newCredits);
+    setStats({ ...DEFAULT_STATS, ...newStats });
+    setBadges({ ...DEFAULT_BADGES, ...newBadges });
+  }, []);
+
+  const completeDailyMission = async (action: string) => {
     if (dailyMission.completed) return;
     const missionDef = MISSION_POOL[dailyMission.id];
     if (missionDef && missionDef.action === action) {
       const updated = { ...dailyMission, completed: true };
       setDailyMission(updated);
       localStorage.setItem('wb_daily_mission', JSON.stringify(updated));
-      earnCredits(DAILY_MISSION_REWARD);
-      // Show daily mission complete toast
-      setTimeout(() => showReward('🎯', 'DAILY MISSION COMPLETE!', `+${DAILY_MISSION_REWARD} Credits`, 'achievement'), 800);
+      const reward = badges.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD;
+      await earnCredits(reward, badges.explorer ? 'DAILY_MISSION_EXPLORER' : 'DAILY_MISSION');
+      // Update streak
+      const newStreak = updateStreak();
+      setStreak(newStreak);
+      const streakBonus = newStreak >= 7 ? 3 : newStreak >= 3 ? 1 : 0;
+      if (streakBonus > 0) await earnCredits(streakBonus, newStreak >= 7 ? 'STREAK_BONUS_7' : 'STREAK_BONUS_3');
+      setTimeout(() => {
+        const streakMsg = newStreak > 1 ? ` (${newStreak} streak!)` : '';
+        showReward('🎯', 'DAILY MISSION COMPLETE!', `+${reward + streakBonus} Credits${streakMsg}`, 'achievement');
+      }, 800);
     }
   };
 
-  const trackAction = (action: 'PASS_QUIZ' | 'CREATE_IMAGE' | 'CREATE_VIDEO' | 'UPLOAD_HERO' | 'COMPLETE_HERO' | 'READ_ACADEMY' | 'READ_BOOK' | 'CREATE_BUSINESS') => {
+  // trackAction: Updates stats, awards credits, shows notifications, and unlocks badges.
+  // IMPORTANT: Side effects (earnCredits, showReward) must happen OUTSIDE setStats()
+  // because React StrictMode calls state updater functions twice in development.
+  const trackAction = (action: ActionType) => {
     completeDailyMission(action);
-    setStats(prev => {
-      const newStats = { ...prev };
-      let newBadges = { ...badges };
-      let badgeUnlocked = false;
 
-      switch (action) {
-        case 'PASS_QUIZ':
-          newStats.quizzesPassed += 1;
-          // RULE: Every 3 quizzes = 1 Credit
-          if (newStats.quizzesPassed % 3 === 0) {
-             earnCredits(1);
-             showReward('🎉', 'QUIZ SET COMPLETE!', '+1 Credit', 'credit');
-          }
-          // RULE: 5 Quizzes = Thinker Badge (Knowledge)
-          if (newStats.quizzesPassed >= 5 && !newBadges.thinker) {
-            newBadges.thinker = true;
-            badgeUnlocked = true;
-            setTimeout(() => showReward('🧠', 'THINKER BADGE!', 'Knowledge Master', 'badge'), 600);
-          }
-          break;
+    // Track action on server for stat updates + badge checking
+    if (isBackendAvailable()) {
+      backendCredits.trackAction(action).catch(err =>
+        console.warn('[Economy] Server track failed:', err)
+      );
+    }
 
-        case 'READ_BOOK':
-          newStats.booksRead += 1;
-          // RULE: 1 Book = 1 Credit
-          earnCredits(1);
-          showReward('📚', 'BOOK COMPLETE!', '+1 Credit', 'credit');
-          break;
+    // 1) Compute new stats & badges from current state (pure computation)
+    const newStats = { ...stats };
+    let newBadges = { ...badges };
+    let badgeUnlocked = false;
+    let creditReward = 0;
+    let rewardEmoji = '';
+    let rewardTitle = '';
+    let rewardSubtitle = '';
+    let pendingBadgeCelebrations: Array<{ key: string; emoji: string; delay: number }> = [];
 
-        case 'READ_ACADEMY':
-          newStats.lessonsRead += 1;
-          // RULE: Academy helps unlock Thinker Badge
-          if (newStats.lessonsRead >= 5 && !newBadges.thinker) {
-             newBadges.thinker = true;
-             badgeUnlocked = true;
-             setTimeout(() => showReward('🧠', 'THINKER BADGE!', 'Knowledge Master', 'badge'), 600);
-          }
-          break;
+    switch (action) {
+      case 'PASS_QUIZ':
+        newStats.quizzesPassed += 1;
+        creditReward = newBadges.scientist ? 3 : 2;
+        rewardEmoji = '🎉'; rewardTitle = 'QUIZ PASS!'; rewardSubtitle = `+${creditReward} Credits ⚡`;
+        if (newStats.quizzesPassed >= 5 && !newBadges.thinker) {
+          newBadges.thinker = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });
+        }
+        if (newStats.quizzesPassed >= 10 && !newBadges.scientist) {
+          newBadges.scientist = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'scientist', emoji: '🔬', delay: 1400 });
+        }
+        break;
 
-        case 'CREATE_IMAGE':
-          newStats.imagesCreated += 1;
-          if (newStats.imagesCreated >= 5 && !newBadges.creator) {
-            newBadges.creator = true;
-            badgeUnlocked = true;
-            showReward('🎨', 'CREATOR BADGE!', 'Art Master', 'badge');
-          }
-          break;
+      case 'READ_BOOK':
+        newStats.booksRead += 1;
+        creditReward = 2;
+        rewardEmoji = '📚'; rewardTitle = 'BOOK COMPLETE!'; rewardSubtitle = '+2 Credits ⚡';
+        break;
 
-        case 'CREATE_VIDEO':
-          newStats.videosCreated += 1;
-          if (newStats.videosCreated >= 2 && !newBadges.filmmaker) {
-            newBadges.filmmaker = true;
-            badgeUnlocked = true;
-            showReward('🎬', 'FILMMAKER BADGE!', 'Video Master', 'badge');
-          }
-          break;
+      case 'READ_ACADEMY':
+        newStats.lessonsRead += 1;
+        creditReward = 1;
+        rewardEmoji = '📖'; rewardTitle = 'STORY COMPLETE!'; rewardSubtitle = '+1 Credit ⚡';
+        if (newStats.lessonsRead >= 5 && !newBadges.thinker) {
+          newBadges.thinker = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });
+        }
+        if (newStats.lessonsRead >= 10 && !newBadges.explorer) {
+          newBadges.explorer = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'explorer', emoji: '🌍', delay: 1400 });
+        }
+        break;
 
-        case 'COMPLETE_HERO':
-          if (!newBadges.builder) {
-            newBadges.builder = true;
-            badgeUnlocked = true;
-            showReward('⚙️', 'BUILDER BADGE!', 'Hero Engineer', 'badge');
-          }
-          break;
+      case 'CREATE_IMAGE':
+        newStats.imagesCreated += 1;
+        if (newBadges.builder) {
+          creditReward = 1;
+          rewardEmoji = '⚙️'; rewardTitle = 'BUILDER BONUS!'; rewardSubtitle = '+1 Credit ⚡';
+        }
+        if (newStats.imagesCreated >= 5 && !newBadges.creator) {
+          newBadges.creator = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'creator', emoji: '🎨', delay: 800 });
+        }
+        break;
 
-        case 'UPLOAD_HERO':
-          newStats.heroesUploaded += 1;
-          // Unlocks "Trader" Badge (Market)
-          if (!newBadges.market) {
-            newBadges.market = true;
-            badgeUnlocked = true;
-            showReward('🏪', 'TRADER BADGE!', 'Market Master', 'badge');
-          }
-          break;
+      case 'CREATE_VIDEO':
+        newStats.videosCreated += 1;
+        if (newStats.videosCreated >= 2 && !newBadges.filmmaker) {
+          newBadges.filmmaker = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'filmmaker', emoji: '🎬', delay: 800 });
+        }
+        break;
 
-        case 'CREATE_BUSINESS':
-          newStats.businessesCreated += 1;
-          earnCredits(2);
-          showReward('💼', 'BUSINESS CREATED!', '+2 Credits', 'credit');
-          break;
-      }
+      case 'COMPLETE_HERO':
+        if (!newBadges.builder) {
+          newBadges.builder = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'builder', emoji: '⚙️', delay: 800 });
+        }
+        break;
 
-      if (badgeUnlocked) setBadges(newBadges);
-      return newStats;
+      case 'UPLOAD_HERO':
+        newStats.heroesUploaded += 1;
+        if (!newBadges.market) {
+          newBadges.market = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'market', emoji: '🏪', delay: 800 });
+        }
+        break;
+
+      case 'CREATE_BUSINESS':
+        newStats.businessesCreated += 1;
+        creditReward = 3;
+        rewardEmoji = '💼'; rewardTitle = 'BUSINESS CREATED!'; rewardSubtitle = '+3 Credits ⚡';
+        break;
+
+      case 'CREATE_SONG':
+        newStats.songsCreated += 1;
+        if (newStats.songsCreated >= 3 && !newBadges.musician) {
+          newBadges.musician = true; badgeUnlocked = true;
+          pendingBadgeCelebrations.push({ key: 'musician', emoji: '🎵', delay: 800 });
+        }
+        break;
+    }
+
+    // 2) Apply state updates (pure)
+    setStats(newStats);
+    if (badgeUnlocked) setBadges(newBadges);
+
+    // 3) Side effects: credits & notifications (run once, outside updater)
+    if (creditReward > 0) earnCredits(creditReward, action);
+    if (rewardTitle && !badgeUnlocked) {
+      showReward(rewardEmoji, rewardTitle, rewardSubtitle, 'credit');
+    } else if (rewardTitle && badgeUnlocked) {
+      showReward(rewardEmoji, rewardTitle, rewardSubtitle, 'credit');
+    }
+
+    // Show cinematic badge celebration (replaces the old badge toasts)
+    pendingBadgeCelebrations.forEach(bc => {
+      setTimeout(() => showBadgeCelebration(bc.key, bc.emoji), bc.delay);
     });
   };
 
   return (
-    <EconomyContext.Provider value={{ credits, badges, stats, costs, dailyMission, spendCredits, earnCredits, trackAction }}>
+    <EconomyContext.Provider value={{ credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud, refreshFromServer }}>
       {children}
 
       {/* ─── REWARD TOAST NOTIFICATIONS ─── */}
@@ -339,6 +694,16 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
           ))}
         </AnimatePresence>
       </div>
+
+      {/* ─── BADGE CELEBRATION FULLSCREEN ─── */}
+      <AnimatePresence>
+        {celebratingBadge && (
+          <BadgeCelebrationOverlay
+            badge={celebratingBadge}
+            onDismiss={() => setCelebratingBadge(null)}
+          />
+        )}
+      </AnimatePresence>
     </EconomyContext.Provider>
   );
 };

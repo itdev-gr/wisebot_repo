@@ -1,70 +1,112 @@
 
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
+import DOMPurify from 'dompurify';
 import {
   Book as BookIcon,
   Lock,
   CheckCircle,
   Zap,
-  ArrowRight,
-  Footprints,
   X,
   Volume2,
   Pause,
   Square,
-  FastForward
+  FastForward,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  Loader2,
+  Sparkles,
+  BookOpen
 } from 'lucide-react';
-import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel, htmlToParagraphs } from '../utils/ttsVoice';
-// Individual upgraded book files (1 book per file) — ALL 26 BOOKS
-import { BOOK_1 } from '../data/bookData_1';
-import { BOOK_2 } from '../data/bookData_2';
-import { BOOK_3 } from '../data/bookData_3';
-import { BOOK_4 } from '../data/bookData_4';
-import { BOOK_5 } from '../data/bookData_5';
-import { BOOK_6 } from '../data/bookData_6';
-import { BOOK_7 } from '../data/bookData_7';
-import { BOOK_8 } from '../data/bookData_8';
-import { BOOK_9 } from '../data/bookData_9';
-import { BOOK_10 } from '../data/bookData_10';
-import { BOOK_11 } from '../data/bookData_11';
-import { BOOK_12 } from '../data/bookData_12';
-import { BOOK_13 } from '../data/bookData_13';
-import { BOOK_14 } from '../data/bookData_14';
-import { BOOK_15 } from '../data/bookData_15';
-import { BOOK_16 } from '../data/bookData_16';
-import { BOOK_17 } from '../data/bookData_17';
-import { BOOK_18 } from '../data/bookData_18';
-import { BOOK_19 } from '../data/bookData_19';
-import { BOOK_20 } from '../data/bookData_20';
-import { BOOK_21 } from '../data/bookData_21';
-import { BOOK_22 } from '../data/bookData_22';
-import { BOOK_23 } from '../data/bookData_23';
-import { BOOK_24 } from '../data/bookData_24';
-import { BOOK_25 } from '../data/bookData_25';
-import { BOOK_26 } from '../data/bookData_26';
-import { BOOK_QUIZZES } from '../data/bookQuizData';
+import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel, htmlToParagraphs, htmlToPlainText } from '../utils/ttsVoice';
+import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticEbookAudio } from '../services/cloudTTS';
+import { BookPage } from '../types';
+
+// ─── Dynamic book loaders (each book becomes its own chunk) ────────────
+const bookImporters: Record<number, () => Promise<{ default?: any; [key: string]: any }>> = {
+  1: () => import('../data/bookData_1'),
+  2: () => import('../data/bookData_2'),
+  3: () => import('../data/bookData_3'),
+  4: () => import('../data/bookData_4'),
+  5: () => import('../data/bookData_5'),
+  6: () => import('../data/bookData_6'),
+  7: () => import('../data/bookData_7'),
+  8: () => import('../data/bookData_8'),
+  9: () => import('../data/bookData_9'),
+  10: () => import('../data/bookData_10'),
+  11: () => import('../data/bookData_11'),
+  12: () => import('../data/bookData_12'),
+  13: () => import('../data/bookData_13'),
+  14: () => import('../data/bookData_14'),
+  15: () => import('../data/bookData_15'),
+  16: () => import('../data/bookData_16'),
+  17: () => import('../data/bookData_17'),
+  18: () => import('../data/bookData_18'),
+  19: () => import('../data/bookData_19'),
+  20: () => import('../data/bookData_20'),
+  21: () => import('../data/bookData_21'),
+  22: () => import('../data/bookData_22'),
+  23: () => import('../data/bookData_23'),
+  24: () => import('../data/bookData_24'),
+  25: () => import('../data/bookData_25'),
+  26: () => import('../data/bookData_26'),
+};
+
+const bookCache = new Map<number, any[]>();
+
+async function loadBookData(bookId: number): Promise<any[]> {
+  if (bookCache.has(bookId)) return bookCache.get(bookId)!;
+  const importer = bookImporters[bookId];
+  if (!importer) return [];
+  const mod = await importer();
+  const key = Object.keys(mod).find(k => k.startsWith('BOOK_'));
+  const data = key ? mod[key] : [];
+  const arr = Array.isArray(data) ? data : [data];
+  bookCache.set(bookId, arr);
+  return arr;
+}
+
+const quizImporter = () => import('../data/bookQuizData');
 import { EbookQuiz } from './EbookQuiz';
-import { useEconomy } from '../context/EconomyContext'; // Hook
+import { useEconomy } from '../context/EconomyContext';
 import { SafeImage } from './SafeImage';
 
 const motion = m as any;
 
-// ─── BOOK TTS PLAYER ───────────────────────────────────────────
-// Floating TTS player for eBook content. Extracts readable paragraphs
-// from the HTML content and reads them aloud with paragraph highlighting.
+// ─── BOOK TTS PLAYER (Storybook theme) ─────────────────────────────────
 
 interface BookTTSPlayerProps {
-  htmlContent: string;
+  textContent: string;         // Plain text for structured pages
+  htmlContent?: string;        // HTML content for legacy pages
   lang: 'el' | 'en';
   contentRef: React.RefObject<HTMLDivElement | null>;
+  bookId?: number;
+  pageNum?: number;
 }
 
-function BookTTSPlayer({ htmlContent, lang, contentRef }: BookTTSPlayerProps) {
-  const paragraphs = useMemo(() => htmlToParagraphs(htmlContent), [htmlContent]);
+function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum }: BookTTSPlayerProps) {
+  const paragraphs = useMemo(() => {
+    if (htmlContent) return htmlToParagraphs(htmlContent);
+    return textContent.split('\n\n').filter(p => p.trim().length > 0);
+  }, [textContent, htmlContent]);
+  const plainText = useMemo(() => {
+    if (htmlContent) return htmlToPlainText(htmlContent);
+    return textContent;
+  }, [textContent, htmlContent]);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(-1);
   const [rate, setRate] = useState(1);
+  const [ttsMode, setTtsMode] = useState<'cloud' | 'browser'>(
+    (bookId && pageNum) || isCloudTTSAvailable() ? 'cloud' : 'browser'
+  );
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const chunkUrlsRef = useRef<string[]>([]);
+  const currentChunkRef = useRef(0);
   const [voiceReady, setVoiceReady] = useState(false);
   const [voiceLabel, setVoiceLabelState] = useState('');
   const currentIdxRef = useRef(-1);
@@ -72,7 +114,6 @@ function BookTTSPlayer({ htmlContent, lang, contentRef }: BookTTSPlayerProps) {
   const chromeFixCleanupRef = useRef<(() => void) | null>(null);
   const bestVoiceRef = useRef<SpeechSynthesisVoice | null>(null);
 
-  // Load best voice
   useEffect(() => {
     ensureVoicesLoaded().then(() => {
       const voice = getBestVoice(lang);
@@ -82,232 +123,182 @@ function BookTTSPlayer({ htmlContent, lang, contentRef }: BookTTSPlayerProps) {
     });
   }, [lang]);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       window.speechSynthesis.cancel();
       chromeFixCleanupRef.current?.();
       isPlayingRef.current = false;
     };
-  }, [htmlContent]);
+  }, [textContent, htmlContent]);
 
-  // Highlight the current paragraph in the rendered HTML
-  useEffect(() => {
-    if (!contentRef.current) return;
-    const allBlocks = contentRef.current.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote, td');
-
-    // Map paragraph index to DOM element by matching text content
-    allBlocks.forEach((el) => {
-      const htmlEl = el as HTMLElement;
-      htmlEl.style.transition = 'all 0.3s ease';
-      htmlEl.style.borderRadius = '8px';
-
-      const elText = (htmlEl.textContent || '').trim();
-      const matchIdx = paragraphs.findIndex(p => elText.length > 2 && elText.includes(p.substring(0, Math.min(40, p.length))));
-
-      if (matchIdx >= 0 && matchIdx === currentIdx) {
-        htmlEl.style.background = 'rgba(251, 191, 36, 0.15)';
-        htmlEl.style.padding = '4px 8px';
-        htmlEl.style.margin = '0 -8px';
-        htmlEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else if (currentIdx >= 0 && matchIdx >= 0 && matchIdx < currentIdx) {
-        htmlEl.style.background = 'transparent';
-        htmlEl.style.padding = '';
-        htmlEl.style.margin = '';
-        htmlEl.style.opacity = '0.4';
-      } else {
-        htmlEl.style.background = 'transparent';
-        htmlEl.style.padding = '';
-        htmlEl.style.margin = '';
-        htmlEl.style.opacity = currentIdx >= 0 ? '0.7' : '1';
-      }
-    });
-
-    // Reset all opacities when not playing
-    if (currentIdx < 0) {
-      allBlocks.forEach((el) => {
-        const htmlEl = el as HTMLElement;
-        htmlEl.style.background = 'transparent';
-        htmlEl.style.padding = '';
-        htmlEl.style.margin = '';
-        htmlEl.style.opacity = '1';
-      });
+  const playCloudChunk = useCallback((idx: number) => {
+    if (idx >= chunkUrlsRef.current.length) {
+      setIsPlaying(false); setIsPaused(false); return;
     }
-  }, [currentIdx, paragraphs, contentRef]);
+    const audio = new Audio(chunkUrlsRef.current[idx]);
+    audio.playbackRate = rate;
+    audioRef.current = audio;
+    currentChunkRef.current = idx;
+    audio.onplay = () => setIsPlaying(true);
+    audio.onended = () => playCloudChunk(idx + 1);
+    audio.onerror = () => playCloudChunk(idx + 1);
+    audio.play().catch(() => setIsPlaying(false));
+  }, [rate]);
 
   const speakParagraph = useCallback((idx: number) => {
     if (idx >= paragraphs.length) {
-      setIsPlaying(false);
-      setIsPaused(false);
-      setCurrentIdx(-1);
-      isPlayingRef.current = false;
-      currentIdxRef.current = -1;
-      chromeFixCleanupRef.current?.();
-      return;
+      setIsPlaying(false); setIsPaused(false); setCurrentIdx(-1);
+      isPlayingRef.current = false; currentIdxRef.current = -1;
+      chromeFixCleanupRef.current?.(); return;
     }
-
-    currentIdxRef.current = idx;
-    setCurrentIdx(idx);
-
-    const { utterance, startChromeFix } = createWarmUtterance(
-      paragraphs[idx], lang, rate, bestVoiceRef.current
-    );
-
-    utterance.onstart = () => {
-      chromeFixCleanupRef.current?.();
-      chromeFixCleanupRef.current = startChromeFix();
-    };
-
-    utterance.onend = () => {
-      if (isPlayingRef.current) speakParagraph(currentIdxRef.current + 1);
-    };
-
+    currentIdxRef.current = idx; setCurrentIdx(idx);
+    const { utterance, startChromeFix } = createWarmUtterance(paragraphs[idx], lang, rate, bestVoiceRef.current);
+    utterance.onstart = () => { chromeFixCleanupRef.current?.(); chromeFixCleanupRef.current = startChromeFix(); };
+    utterance.onend = () => { if (isPlayingRef.current) setTimeout(() => speakParagraph(currentIdxRef.current + 1), 400); };
     utterance.onerror = (e: any) => {
-      if (e.error !== 'interrupted' && e.error !== 'canceled') {
-        console.warn('TTS error:', e.error);
-      }
-      if (isPlayingRef.current) speakParagraph(currentIdxRef.current + 1);
+      if (e.error !== 'interrupted' && e.error !== 'canceled') console.warn('TTS error:', e.error);
+      if (isPlayingRef.current) setTimeout(() => speakParagraph(currentIdxRef.current + 1), 200);
     };
-
     window.speechSynthesis.speak(utterance);
   }, [paragraphs, lang, rate]);
 
-  const handlePlay = useCallback(() => {
+  const handlePlay = useCallback(async () => {
     if (isPaused) {
-      window.speechSynthesis.resume();
-      setIsPaused(false);
-      setIsPlaying(true);
-      isPlayingRef.current = true;
-      return;
+      if (audioRef.current) audioRef.current.play();
+      else { window.speechSynthesis.resume(); isPlayingRef.current = true; }
+      setIsPaused(false); setIsPlaying(true); return;
+    }
+    if (bookId && pageNum) {
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      try {
+        const staticUrl = await loadStaticEbookAudio(bookId, pageNum, lang);
+        if (staticUrl) {
+          setTtsMode('cloud');
+          chunkUrlsRef.current = [staticUrl];
+          playCloudChunk(0); return;
+        }
+      } catch { /* no static file */ }
+    }
+    if (ttsMode === 'cloud') {
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      setIsLoading(true);
+      try {
+        const urls = await generateSpeechChunked(plainText, lang);
+        chunkUrlsRef.current = urls; setIsLoading(false);
+        playCloudChunk(0); return;
+      } catch {
+        setTtsMode('browser'); setIsLoading(false);
+      }
     }
     window.speechSynthesis.cancel();
-    setIsPlaying(true);
-    setIsPaused(false);
-    isPlayingRef.current = true;
+    setIsPlaying(true); setIsPaused(false); isPlayingRef.current = true;
     setTimeout(() => speakParagraph(0), 100);
-  }, [isPaused, speakParagraph]);
+  }, [isPaused, ttsMode, plainText, lang, bookId, pageNum, playCloudChunk, speakParagraph]);
 
   const handlePause = useCallback(() => {
-    window.speechSynthesis.pause();
-    setIsPaused(true);
-    setIsPlaying(false);
-    isPlayingRef.current = false;
+    if (audioRef.current) audioRef.current.pause();
+    else { window.speechSynthesis.pause(); isPlayingRef.current = false; }
+    setIsPaused(true); setIsPlaying(false);
   }, []);
 
   const handleStop = useCallback(() => {
-    window.speechSynthesis.cancel();
-    chromeFixCleanupRef.current?.();
-    setIsPlaying(false);
-    setIsPaused(false);
-    setCurrentIdx(-1);
-    isPlayingRef.current = false;
-    currentIdxRef.current = -1;
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+    window.speechSynthesis.cancel(); chromeFixCleanupRef.current?.();
+    setIsPlaying(false); setIsPaused(false); setCurrentIdx(-1);
+    isPlayingRef.current = false; currentIdxRef.current = -1;
   }, []);
 
   const handleSpeedToggle = useCallback(() => {
     setRate(r => {
       const nextRate = r === 1 ? 1.3 : r === 1.3 ? 0.8 : 1;
-      if (isPlayingRef.current || isPaused) {
-        window.speechSynthesis.cancel();
-        setIsPaused(false);
-        isPlayingRef.current = true;
-        setIsPlaying(true);
-        const idx = currentIdxRef.current >= 0 ? currentIdxRef.current : 0;
-        setTimeout(() => {
-          const { utterance, startChromeFix } = createWarmUtterance(
-            paragraphs[idx], lang, nextRate, bestVoiceRef.current
-          );
-          utterance.onstart = () => {
-            chromeFixCleanupRef.current?.();
-            chromeFixCleanupRef.current = startChromeFix();
-          };
-          utterance.onend = () => { if (isPlayingRef.current) speakParagraph(currentIdxRef.current + 1); };
-          utterance.onerror = () => { if (isPlayingRef.current) speakParagraph(currentIdxRef.current + 1); };
-          window.speechSynthesis.speak(utterance);
-        }, 100);
-      }
+      if (audioRef.current) audioRef.current.playbackRate = nextRate;
       return nextRate;
     });
-  }, [paragraphs, lang, isPaused, speakParagraph]);
+  }, []);
 
   const speedLabel = rate === 1 ? '1x' : rate === 1.3 ? '1.3x' : '0.8x';
   const active = isPlaying || isPaused;
-
+  const isCloud = ttsMode === 'cloud';
   if (paragraphs.length === 0) return null;
 
   return (
-    <div className="sticky top-0 z-20 bg-[#0f1115]/95 backdrop-blur-xl border-b border-white/5 -mx-8 md:-mx-16 px-8 md:px-16 py-3 mb-6 flex items-center gap-2 flex-wrap">
-      {!isPlaying && !isPaused ? (
-        <button
-          onClick={handlePlay}
-          disabled={!voiceReady}
-          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-xl font-black text-xs uppercase tracking-wider hover:brightness-110 hover:scale-105 active:scale-95 transition-all shadow-lg disabled:opacity-50"
-        >
-          <Volume2 size={15} />
-          {lang === 'el' ? 'ΑΚΟΥΣΕ' : 'LISTEN'}
+    <div className="bg-[#f0e6d2]/95 backdrop-blur-sm border-t border-amber-800/15 px-4 py-2.5 flex items-center gap-2 flex-wrap shrink-0">
+      {isLoading ? (
+        <button disabled className="flex items-center gap-2 px-3 py-1.5 bg-amber-800/20 text-amber-900/70 rounded-lg font-bold text-[11px] uppercase tracking-wider animate-pulse">
+          <Loader2 size={13} className="animate-spin" />
+          {lang === 'el' ? 'ΕΤΟΙΜΑΖΩ...' : 'LOADING...'}
+        </button>
+      ) : !isPlaying && !isPaused ? (
+        <button onClick={handlePlay} disabled={!isCloud && !voiceReady}
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-800 text-amber-50 rounded-lg font-bold text-[11px] uppercase tracking-wider hover:bg-amber-900 active:scale-95 transition-all shadow disabled:opacity-40">
+          <Volume2 size={13} /> {lang === 'el' ? 'ΑΚΟΥΣΕ' : 'LISTEN'}
         </button>
       ) : (
         <>
           {isPlaying ? (
-            <button onClick={handlePause} className="flex items-center gap-2 px-4 py-2 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-amber-500/30 active:scale-95 transition-all">
-              <Pause size={15} /> {lang === 'el' ? 'ΠΑΥΣΗ' : 'PAUSE'}
+            <button onClick={handlePause} className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-600/20 text-amber-900 border border-amber-800/20 rounded-lg font-bold text-[11px] uppercase tracking-wider hover:bg-amber-600/30 active:scale-95 transition-all">
+              <Pause size={13} /> {lang === 'el' ? 'ΠΑΥΣΗ' : 'PAUSE'}
             </button>
           ) : (
-            <button onClick={handlePlay} className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-emerald-500/30 active:scale-95 transition-all">
-              <Volume2 size={15} /> {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'RESUME'}
+            <button onClick={handlePlay} className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700/20 text-emerald-900 border border-emerald-800/20 rounded-lg font-bold text-[11px] uppercase tracking-wider active:scale-95 transition-all">
+              <Volume2 size={13} /> {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'RESUME'}
             </button>
           )}
-          <button onClick={handleStop} className="p-2 bg-red-500/10 text-red-400 border border-red-500/20 rounded-xl hover:bg-red-500/20 active:scale-95 transition-all">
-            <Square size={13} />
+          <button onClick={handleStop} className="p-1.5 bg-red-800/10 text-red-900/60 border border-red-800/15 rounded-lg hover:bg-red-800/20 active:scale-95 transition-all">
+            <Square size={11} />
           </button>
         </>
       )}
-
-      <button onClick={handleSpeedToggle} className="flex items-center gap-1.5 px-3 py-2 bg-white/5 text-white/60 border border-white/10 rounded-xl font-black text-[10px] uppercase tracking-wider hover:bg-white/10 hover:text-white active:scale-95 transition-all">
-        <FastForward size={13} /> {speedLabel}
+      <button onClick={handleSpeedToggle} className="flex items-center gap-1 px-2 py-1.5 bg-amber-800/5 text-amber-800/50 border border-amber-800/10 rounded-lg font-bold text-[10px] uppercase tracking-wider hover:bg-amber-800/10 active:scale-95 transition-all">
+        <FastForward size={11} /> {speedLabel}
       </button>
-
-      {voiceLabel && !active && (
-        <span className="text-white/20 text-[10px] font-bold uppercase tracking-widest">{voiceLabel}</span>
-      )}
-      {active && currentIdx >= 0 && (
-        <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest ml-auto">
-          {currentIdx + 1}/{paragraphs.length}
+      {!active && !isLoading && (
+        <span className="flex items-center gap-1 text-amber-800/25 text-[9px] font-bold uppercase tracking-widest ml-auto">
+          {isCloud ? <><Sparkles size={8} /> AI</> : voiceLabel || 'Device'}
         </span>
       )}
     </div>
   );
 }
 
-// All 26 books from individual premium upgraded files
-const BOOKS = [
-  ...(Array.isArray(BOOK_1) ? BOOK_1 : []),
-  ...(Array.isArray(BOOK_2) ? BOOK_2 : []),
-  ...(Array.isArray(BOOK_3) ? BOOK_3 : []),
-  ...(Array.isArray(BOOK_4) ? BOOK_4 : []),
-  ...(Array.isArray(BOOK_5) ? BOOK_5 : []),
-  ...(Array.isArray(BOOK_6) ? BOOK_6 : []),
-  ...(Array.isArray(BOOK_7) ? BOOK_7 : []),
-  ...(Array.isArray(BOOK_8) ? BOOK_8 : []),
-  ...(Array.isArray(BOOK_9) ? BOOK_9 : []),
-  ...(Array.isArray(BOOK_10) ? BOOK_10 : []),
-  ...(Array.isArray(BOOK_11) ? BOOK_11 : []),
-  ...(Array.isArray(BOOK_12) ? BOOK_12 : []),
-  ...(Array.isArray(BOOK_13) ? BOOK_13 : []),
-  ...(Array.isArray(BOOK_14) ? BOOK_14 : []),
-  ...(Array.isArray(BOOK_15) ? BOOK_15 : []),
-  ...(Array.isArray(BOOK_16) ? BOOK_16 : []),
-  ...(Array.isArray(BOOK_17) ? BOOK_17 : []),
-  ...(Array.isArray(BOOK_18) ? BOOK_18 : []),
-  ...(Array.isArray(BOOK_19) ? BOOK_19 : []),
-  ...(Array.isArray(BOOK_20) ? BOOK_20 : []),
-  ...(Array.isArray(BOOK_21) ? BOOK_21 : []),
-  ...(Array.isArray(BOOK_22) ? BOOK_22 : []),
-  ...(Array.isArray(BOOK_23) ? BOOK_23 : []),
-  ...(Array.isArray(BOOK_24) ? BOOK_24 : []),
-  ...(Array.isArray(BOOK_25) ? BOOK_25 : []),
-  ...(Array.isArray(BOOK_26) ? BOOK_26 : [])
-];
+// ─── LEGACY PAGE SPLITTER (for old HTML content books) ─────────────────
+function splitIntoPages(html: string): string[] {
+  if (!html) return [''];
+  try {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html.trim();
+    const root = tmp.firstElementChild || tmp;
+    const children = Array.from(root.children) as HTMLElement[];
+    if (children.length <= 1) return [html];
+
+    const MIN_PAGE = 200;
+    const MAX_PAGE = 1200;
+    const pages: string[][] = [[]];
+    let len = 0;
+
+    for (const child of children) {
+      const textLen = (child.textContent || '').trim().length;
+      if (len > MIN_PAGE && len + textLen > MAX_PAGE && pages[pages.length - 1].length > 0) {
+        pages.push([]); len = 0;
+      }
+      pages[pages.length - 1].push(child.outerHTML);
+      len += textLen;
+      if (child.tagName === 'SECTION' && len > MIN_PAGE) { pages.push([]); len = 0; }
+    }
+    if (pages[pages.length - 1].length === 0) pages.pop();
+    while (pages.length > 1) {
+      const last = pages[pages.length - 1];
+      const lastLen = last.join('').replace(/<[^>]*>/g, '').length;
+      if (lastLen < MIN_PAGE) { pages.pop(); pages[pages.length - 1].push(...last); } else break;
+    }
+    return pages.map(p => p.join('\n'));
+  } catch { return [html]; }
+}
+
+// Lightweight metadata for the book list
+import { BOOK_METADATA } from '../data/bookMetadata';
+const BOOKS = BOOK_METADATA as any[];
 
 interface EbooksProps {
   lang: 'el' | 'en';
@@ -318,19 +309,60 @@ interface EbooksProps {
 }
 
 export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => {
-  // Allow string IDs to match Book interface
   const [selectedBookId, setSelectedBookId] = useState<number | string | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
   const { trackAction } = useEconomy();
   const bookContentRef = useRef<HTMLDivElement>(null);
+  const readerScrollRef = useRef<HTMLDivElement>(null);
 
-  const activeBook = BOOKS.find(b => b.id === selectedBookId);
+  const [loadedBook, setLoadedBook] = useState<any | null>(null);
+  const [loadedQuizzes, setLoadedQuizzes] = useState<Record<number, any[]>>({});
+  const [isLoadingBook, setIsLoadingBook] = useState(false);
+
+  // Load full book data + quiz
+  useEffect(() => {
+    if (selectedBookId === null) { setLoadedBook(null); return; }
+    const bookId = typeof selectedBookId === 'number' ? selectedBookId : parseInt(String(selectedBookId));
+    setIsLoadingBook(true);
+    Promise.all([
+      loadBookData(bookId),
+      Object.keys(loadedQuizzes).length === 0 ? quizImporter().then(m => m.BOOK_QUIZZES) : Promise.resolve(loadedQuizzes),
+    ]).then(([bookArr, quizzes]) => {
+      setLoadedBook(bookArr[0] || null);
+      if (typeof quizzes === 'object' && !Array.isArray(quizzes)) setLoadedQuizzes(quizzes);
+      setIsLoadingBook(false);
+    }).catch(() => setIsLoadingBook(false));
+  }, [selectedBookId]);
+
+  const activeBookMeta = BOOKS.find(b => b.id === selectedBookId);
+  const activeBook = loadedBook || activeBookMeta;
   const activeBookIndex = BOOKS.findIndex(b => b.id === selectedBookId);
   const hasNextBook = activeBookIndex !== -1 && activeBookIndex < BOOKS.length - 1;
 
-  const isBookLocked = (bookId: number | string) => {
-    return false; // Always return false for testing
-  };
+  // Determine if using new pages format or legacy HTML
+  const hasStructuredPages = !!loadedBook?.pages;
+
+  // Pages for new format
+  const structuredPages: BookPage[] = loadedBook?.pages || [];
+
+  // Pages for legacy HTML format
+  const htmlPages = useMemo(() => {
+    if (hasStructuredPages) return [];
+    if (!loadedBook?.content?.[lang]) return [''];
+    return splitIntoPages(loadedBook.content[lang]);
+  }, [loadedBook, lang, hasStructuredPages]);
+
+  const totalPages = hasStructuredPages ? structuredPages.length : htmlPages.length;
+  const isFirstPage = currentPage === 0;
+  const isLastPage = currentPage >= totalPages - 1;
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    readerScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
+  const isBookLocked = () => false;
 
   const closeBook = () => {
     window.speechSynthesis.cancel();
@@ -338,20 +370,15 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   };
 
   const openBook = (id: number | string) => {
-    if (isBookLocked(id)) return;
     setSelectedBookId(id);
     setShowQuiz(false);
+    setCurrentPage(0);
   };
 
   const handleQuizComplete = (score: number, total: number) => {
     if (activeBook && score === total) {
-      // 1. Economy Track (Credits & Badges)
       trackAction('READ_BOOK');
-      
-      // 2. Mark as Completed in App State (Shows Green Checkmark)
-      if (addXp) {
-        addXp(0, `ebook-${activeBook.id}`);
-      }
+      if (addXp) addXp(0, `ebook-${activeBook.id}`);
     }
   };
 
@@ -359,183 +386,376 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
     if (hasNextBook) {
       setSelectedBookId(BOOKS[activeBookIndex + 1].id);
       setShowQuiz(false);
+      setCurrentPage(0);
     } else {
       setSelectedBookId(null);
     }
-  };
-
-  const handleRetryStory = () => {
-    setShowQuiz(false);
   };
 
   if (!BOOKS || BOOKS.length === 0) {
     return <div className="text-white text-center p-10">Library is currently empty.</div>;
   }
 
+  // Current page data (structured format)
+  const currentStructuredPage = hasStructuredPages ? structuredPages[currentPage] : null;
+
   return (
     <div className="relative w-full h-full overflow-y-auto overflow-x-hidden custom-scrollbar pb-32">
-      
-      {/* HEADER */}
+
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* HEADER                                                     */}
+      {/* ═══════════════════════════════════════════════════════════ */}
       <div className="text-center py-10 space-y-4 relative z-10">
-         <h2 className="text-3xl sm:text-5xl md:text-7xl font-[1000] text-white uppercase italic tracking-tighter leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-            WISEBOT &{' '}<span className="text-transparent bg-clip-text magic-gradient">{lang === 'el' ? 'ΟΙ ΦΙΛΟΙ' : 'FRIENDS'}</span>
-         </h2>
-         <p className="text-white/50 font-bold uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-lg">
-            {lang === 'el' ? '1 BOOK = +1 CREDIT' : '1 BOOK = +1 CREDIT'}
-         </p>
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-[1000] text-white uppercase italic tracking-tighter leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+          WISEBOT &{' '}<span className="text-transparent bg-clip-text magic-gradient">{lang === 'el' ? 'ΟΙ ΦΙΛΟΙ' : 'FRIENDS'}</span>
+        </h2>
+        <p className="text-white/50 font-bold uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-lg">
+          {lang === 'el' ? '26 ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +2 CREDITS' : '26 STORIES • 1 BOOK = +2 CREDITS'}
+        </p>
       </div>
 
-      {/* BOOKS LIST */}
-      <div className="max-w-5xl mx-auto px-4 relative">
-         <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500/20 via-purple-500/20 to-transparent -translate-x-1/2 hidden md:block"></div>
-
-         <div className="space-y-12 relative z-10">
-            {BOOKS.map((book, index) => {
-               const isCompleted = completedIds.includes(`ebook-${book.id}`);
-               const isLocked = isBookLocked(book.id);
-               const isEven = index % 2 === 0;
-               
-               return (
-                  <motion.div 
-                     key={book.id}
-                     initial={{ opacity: 0, y: 50 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     className={`flex flex-col md:flex-row items-center gap-8 ${isEven ? '' : 'md:flex-row-reverse'}`}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* BOOKSHELF GRID                                             */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <div className="max-w-6xl mx-auto px-4 pb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+          {BOOKS.map((book: any, index: number) => {
+            const isCompleted = completedIds.includes(`ebook-${book.id}`);
+            return (
+              <motion.div
+                key={book.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.04, duration: 0.4 }}
+                onClick={() => openBook(book.id)}
+                className="group cursor-pointer"
+              >
+                {/* 3D Book Cover */}
+                <div className="relative" style={{ perspective: '800px' }}>
+                  <div
+                    className="relative w-full rounded-lg overflow-hidden transition-all duration-500 group-hover:-translate-y-3"
+                    style={{
+                      aspectRatio: '3/4',
+                      boxShadow: '4px 6px 20px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)',
+                      transform: 'rotateY(0deg)',
+                    }}
                   >
-                     <div className={`absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-[#0f1014] border-4 flex items-center justify-center z-20 hidden md:flex ${isLocked ? 'border-white/5 text-white/20' : 'border-blue-500/30 text-blue-400'}`}>
-                        {isLocked ? <Lock size={12} /> : <span className="font-black text-xs">{index + 1}</span>}
-                     </div>
+                    <SafeImage
+                      src={book.cover ?? book.coverImage}
+                      alt={typeof book.title === 'string' ? book.title : book.title[lang]}
+                      loading="lazy"
+                      wrapperClassName="absolute inset-0"
+                      className="w-full h-full object-cover"
+                    />
 
-                     <div className="flex-1 w-full group">
-                        <div 
-                          onClick={() => openBook(book.id)}
-                          className={`relative rounded-[2.5rem] p-2 border-2 transition-all duration-500 overflow-hidden bg-slate-950/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]
-                          ${isLocked
-                             ? 'border-white/5 opacity-60 cursor-not-allowed grayscale'
-                             : 'border-white/10 hover:border-purple-500/50 hover:shadow-[0_8px_40px_rgba(124,58,237,0.2)] cursor-pointer'
-                          }`}
-                        >
-                           
-                           {!isLocked && <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>}
+                    {/* Book spine shadow */}
+                    <div className="absolute top-0 left-0 w-3 h-full bg-gradient-to-r from-black/40 to-transparent pointer-events-none" />
 
-                           <div className="flex flex-col sm:flex-row gap-6 p-4">
-                              <div className="w-full sm:w-32 h-40 rounded-[2rem] overflow-hidden shrink-0 relative shadow-lg bg-[#0f1014]">
-                                 <SafeImage src={book.cover ?? book.coverImage} alt="Cover" loading="eager" wrapperClassName="absolute inset-0" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
-                                 {isCompleted && (
-                                    <div className="absolute inset-0 bg-emerald-500/20 backdrop-blur-[1px] flex items-center justify-center">
-                                       <CheckCircle size={32} className="text-emerald-400 drop-shadow-lg" />
-                                    </div>
-                                 )}
-                              </div>
+                    {/* Bottom gradient + title */}
+                    <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/90 via-black/60 to-transparent pointer-events-none">
+                      <div className="text-amber-300/80 text-[9px] font-black uppercase tracking-[0.2em] mb-0.5">
+                        {book.theme?.[lang] || `STEP ${index + 1}`}
+                      </div>
+                      <h3 className="text-white font-[900] text-xs md:text-sm leading-tight uppercase italic tracking-tight">
+                        {typeof book.title === 'string' ? book.title : book.title[lang]}
+                      </h3>
+                    </div>
 
-                              <div className="flex-1 flex flex-col justify-center space-y-2">
-                                 <div className="flex items-center gap-3">
-                                    <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest italic">
-                                      {book.stepLabel ? book.stepLabel[lang] : `STEP ${index + 1} • ${book.theme?.[lang] || 'STORY'}`}
-                                    </span>
-                                 </div>
-                                 <h3 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-tight group-hover:text-purple-300 transition-colors">
-                                    {typeof book.title === 'string' ? book.title : book.title[lang]}
-                                 </h3>
-                                 <p className="text-white/50 text-xs font-bold italic line-clamp-2 pr-4">{book.description?.[lang]}</p>
-                                 
-                                 <div className="pt-4 flex items-center gap-4">
-                                    {/* UPDATED REWARD BADGE */}
-                                    <div className="px-3 py-1 bg-amber-500/10 rounded-lg border border-amber-500/20 text-[10px] font-black text-amber-400 flex items-center gap-1.5 uppercase tracking-widest">
-                                       <Zap size={12} fill="currentColor" /> +1 CREDIT
-                                    </div>
-                                    {!isLocked && (
-                                       <div className="text-white/20 group-hover:translate-x-2 transition-transform">
-                                          <ArrowRight size={20} />
-                                       </div>
-                                    )}
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                    {/* Book number */}
+                    <div className="absolute top-2 left-2 w-6 h-6 bg-amber-900/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow pointer-events-none">
+                      <span className="text-amber-100 text-[10px] font-black">{index + 1}</span>
+                    </div>
 
-                     <div className="flex-1 hidden md:block"></div>
-                  </motion.div>
-               );
-            })}
-         </div>
+                    {/* Completed badge */}
+                    {isCompleted && (
+                      <div className="absolute top-2 right-2 w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg pointer-events-none">
+                        <CheckCircle size={14} className="text-white" />
+                      </div>
+                    )}
+
+                    {/* Hover glow */}
+                    <div className="absolute inset-0 bg-amber-400/0 group-hover:bg-amber-400/10 transition-colors duration-500 pointer-events-none" />
+                  </div>
+
+                  {/* Page edges effect */}
+                  <div className="absolute -bottom-1 left-1 right-1 h-1 bg-amber-100/20 rounded-b-lg" />
+                  <div className="absolute -bottom-2 left-2 right-2 h-1 bg-amber-100/10 rounded-b-lg" />
+                </div>
+
+                {/* Credit reward */}
+                <div className="mt-2 flex items-center justify-center gap-1 text-amber-400/50 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Zap size={9} fill="currentColor" /> +2 CREDITS
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
 
-      {/* --- READER & QUIZ MODAL --- */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* STORYBOOK READER                                           */}
+      {/* ═══════════════════════════════════════════════════════════ */}
       <AnimatePresence>
         {selectedBookId && activeBook && (
-          <div className="fixed inset-0 z-50 flex items-center justify-end md:pl-80 md:pr-4 p-4">
+          <div className="fixed inset-0 z-50">
+            {/* Dark warm overlay */}
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={closeBook}
-              className="absolute inset-0 bg-[#000]/95 backdrop-blur-xl cursor-pointer"
+              className="absolute inset-0 bg-[#1a0f08]/95 backdrop-blur-sm cursor-pointer"
             />
 
+            {/* Book container */}
             <motion.div
-              layoutId={`book-${selectedBookId}`}
-              initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 50, opacity: 0 }}
-              className="relative w-full h-[95vh] bg-[#0f1115] border border-white/10 rounded-[3rem] shadow-2xl flex overflow-hidden"
+              initial={{ scale: 0.92, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 30 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="relative z-10 flex items-center justify-center h-full p-3 md:p-6 pointer-events-none"
             >
-               <button onClick={closeBook} className="absolute top-6 right-6 z-30 w-12 h-12 flex items-center justify-center bg-white/5 hover:bg-red-500/80 rounded-full border border-white/5 transition-all group backdrop-blur-md shadow-2xl">
-                  <X className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-               </button>
+              <div className="pointer-events-auto w-full max-w-3xl h-[94vh] md:h-[90vh] flex flex-col rounded-2xl md:rounded-3xl overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #faf5eb 0%, #f5ead6 50%, #f0e4cc 100%)',
+                  boxShadow: '0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,90,43,0.15), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -2px 8px rgba(139,90,43,0.08)',
+                }}
+              >
 
-               <div className="hidden lg:block w-[40%] h-full min-h-[20rem] relative overflow-hidden border-r border-white/5 bg-[#0f1115]">
-                  <SafeImage src={activeBook.cover ?? activeBook.coverImage} alt="Cover" loading="eager" wrapperClassName="absolute inset-0" className="w-full h-full object-cover opacity-60 grayscale-[0.3]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f1115] via-transparent to-transparent opacity-90" />
-                  <div className="absolute bottom-12 left-12 right-12 space-y-6">
-                     <h1 className="text-5xl font-[1000] text-white uppercase italic tracking-tighter leading-none">{typeof activeBook.title === 'string' ? activeBook.title : activeBook.title[lang]}</h1>
-                     <div className="w-20 h-1 bg-blue-500 rounded-full"></div>
-                     <p className="text-xl text-white/80 font-bold italic">"{activeBook.meaning?.[lang]}"</p>
+                {/* ─── Top Bar ─── */}
+                <div className="flex items-center justify-between px-5 py-3 border-b border-amber-800/10 bg-gradient-to-r from-amber-900/[0.04] to-transparent shrink-0">
+                  <div className="flex items-center gap-2">
+                    <BookOpen size={14} className="text-amber-800/40" />
+                    <span className="text-amber-800/50 text-[10px] font-bold uppercase tracking-[0.2em]">
+                      {activeBook.stepLabel ? (typeof activeBook.stepLabel === 'string' ? activeBook.stepLabel : activeBook.stepLabel[lang]) : ''}
+                    </span>
                   </div>
-               </div>
+                  <button
+                    onClick={closeBook}
+                    className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-amber-900/10 text-amber-900/30 hover:text-amber-900/70 transition-all"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
 
-               <div className="flex-1 h-full overflow-y-auto custom-scrollbar p-8 md:p-16 relative">
+                {/* ─── Loading overlay ─── */}
+                {isLoadingBook && (
+                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4" style={{ background: 'linear-gradient(135deg, #faf5eb, #f5ead6)' }}>
+                    <Loader2 size={36} className="text-amber-800/40 animate-spin" />
+                    <p className="text-amber-800/40 font-bold text-xs uppercase tracking-[0.2em] animate-pulse">
+                      {lang === 'el' ? 'ΑΝΟΙΓΩ ΤΟ ΒΙΒΛΙΟ...' : 'OPENING BOOK...'}
+                    </p>
+                  </div>
+                )}
+
+                {/* ─── Scrollable content ─── */}
+                <div ref={readerScrollRef} className="flex-1 overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#c4a16a #f0e4cc' }}>
                   {!showQuiz ? (
-                     <div className="max-w-2xl mx-auto space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                        {/* TTS Player - sticky bar */}
-                        {activeBook.content?.[lang] && (
-                          <BookTTSPlayer
-                            htmlContent={activeBook.content[lang]}
-                            lang={lang}
-                            contentRef={bookContentRef}
-                          />
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`page-${currentPage}-${selectedBookId}`}
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -30 }}
+                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                      >
+                        {/* ════════════════════════════════════ */}
+                        {/* NEW FORMAT: Structured pages         */}
+                        {/* ════════════════════════════════════ */}
+                        {hasStructuredPages && currentStructuredPage ? (
+                          <div>
+                            {/* Page illustration */}
+                            {currentStructuredPage.image && (
+                              <div className="relative w-full overflow-hidden bg-amber-950/5">
+                                <img
+                                  src={currentStructuredPage.image}
+                                  alt={currentStructuredPage.title[lang]}
+                                  className="w-full object-contain"
+                                  style={{ maxHeight: '45vh' }}
+                                />
+                                {/* Gradient fade into page */}
+                                <div className="absolute bottom-0 inset-x-0 h-16" style={{ background: 'linear-gradient(to top, #faf5eb, transparent)' }} />
+                                {/* Image caption */}
+                                {currentStructuredPage.imageCaption && (
+                                  <div className="absolute bottom-3 left-0 right-0 text-center">
+                                    <span className="text-amber-900/40 text-[10px] font-medium italic tracking-wide">
+                                      {currentStructuredPage.imageCaption[lang]}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+
+                            {/* Story text */}
+                            <div ref={bookContentRef} className="px-6 md:px-14 py-6 md:py-10">
+                              {/* Chapter title */}
+                              <div className="text-center mb-8">
+                                <div className="flex items-center justify-center gap-3 mb-3">
+                                  <div className="h-px flex-1 max-w-12 bg-amber-800/20" />
+                                  <span className="text-amber-800/30 text-[10px] font-bold uppercase tracking-[0.3em]">
+                                    {lang === 'el' ? `ΣΕΛΙΔΑ ${currentPage + 1}` : `PAGE ${currentPage + 1}`}
+                                  </span>
+                                  <div className="h-px flex-1 max-w-12 bg-amber-800/20" />
+                                </div>
+                                <h2 className="text-2xl md:text-3xl text-amber-950 leading-tight" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 700 }}>
+                                  {currentStructuredPage.title[lang]}
+                                </h2>
+                              </div>
+
+                              {/* Decorative separator */}
+                              <div className="flex items-center justify-center gap-2 mb-8">
+                                <div className="h-px w-8 bg-amber-800/15" />
+                                <div className="w-1.5 h-1.5 rounded-full bg-amber-800/20" />
+                                <div className="h-px w-8 bg-amber-800/15" />
+                              </div>
+
+                              {/* Text content */}
+                              <div className="space-y-4 text-amber-950/85 leading-[1.9] md:leading-[2]" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '1.05rem' }}>
+                                {currentStructuredPage.text[lang].split('\n\n').map((paragraph, pIdx) => (
+                                  <p key={pIdx} className={
+                                    paragraph.startsWith('«') || paragraph.startsWith('"')
+                                      ? 'text-amber-900 font-semibold'
+                                      : ''
+                                  }>
+                                    {paragraph}
+                                  </p>
+                                ))}
+                              </div>
+
+                              {/* Bottom page ornament */}
+                              <div className="flex items-center justify-center gap-2 mt-10 mb-4">
+                                <div className="h-px w-12 bg-amber-800/10" />
+                                <span className="text-amber-800/15 text-lg">✦</span>
+                                <div className="h-px w-12 bg-amber-800/10" />
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          /* ════════════════════════════════════ */
+                          /* LEGACY FORMAT: HTML content          */
+                          /* ════════════════════════════════════ */
+                          <div className="px-6 md:px-14 py-8 md:py-12">
+                            {currentPage === 0 && (
+                              <div className="flex items-center justify-center gap-2 text-amber-800/40 font-bold text-[10px] uppercase tracking-[0.3em] mb-6">
+                                <BookOpen size={12} /> {lang === 'el' ? 'Το Ταξίδι Ξεκινά' : 'The Journey Begins'}
+                              </div>
+                            )}
+                            <div
+                              ref={bookContentRef}
+                              className="prose prose-lg max-w-none
+                                prose-p:text-amber-950/80 prose-p:leading-relaxed
+                                prose-headings:text-amber-950 prose-headings:font-bold
+                                prose-blockquote:border-l-4 prose-blockquote:border-amber-700/30 prose-blockquote:bg-amber-900/5 prose-blockquote:p-4 prose-blockquote:rounded-r-xl
+                                prose-strong:text-amber-900
+                                prose-img:rounded-xl prose-img:shadow-lg"
+                              style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
+                              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlPages[currentPage] || '') }}
+                            />
+                          </div>
                         )}
 
-                        <div className="flex items-center gap-3 text-blue-400 font-black text-xs uppercase tracking-[0.3em] italic mb-8">
-                           <Footprints size={16} /> The Journey Begins
-                        </div>
-                        <div
-                           ref={bookContentRef}
-                           className="prose prose-invert prose-lg md:prose-xl max-w-none
-                           prose-p:text-gray-300 prose-p:font-medium prose-p:leading-relaxed
-                           prose-headings:text-white prose-headings:font-black prose-headings:uppercase prose-headings:italic
-                           prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-500/10 prose-blockquote:p-6 prose-blockquote:rounded-r-xl"
-                           dangerouslySetInnerHTML={{ __html: activeBook.content?.[lang] || '' }}
-                        />
-                        <div className="pt-12">
-                           <button
-                              onClick={() => setShowQuiz(true)}
-                              className="w-full py-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-[2rem] font-[1000] text-white text-xl uppercase italic tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3"
-                           >
-                              {lang === 'el' ? 'ΚΑΝΕ ΤΟ QUIZ' : 'TAKE THE QUIZ'} <ArrowRight size={24} />
-                           </button>
-                        </div>
-                     </div>
+                        {/* ─── MEANING (last page only) ─── */}
+                        {isLastPage && activeBook.meaning && (
+                          <div className="mx-6 md:mx-14 mb-4 p-6 rounded-2xl border border-amber-800/10" style={{ background: 'linear-gradient(135deg, rgba(139,90,43,0.06), rgba(139,90,43,0.02))' }}>
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="text-lg">💎</span>
+                              <h4 className="text-sm font-bold text-amber-900/60 uppercase tracking-[0.15em]">
+                                {lang === 'el' ? 'Το νόημα αυτής της ιστορίας' : 'The meaning of this story'}
+                              </h4>
+                            </div>
+                            <p className="text-amber-900/70 leading-relaxed italic" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+                              {typeof activeBook.meaning === 'string' ? activeBook.meaning : activeBook.meaning[lang]}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* ─── PARENT MESSAGE (last page only) ─── */}
+                        {isLastPage && activeBook.parentMessage && (
+                          <div className="mx-6 md:mx-14 mb-8 p-6 rounded-2xl border border-blue-800/10" style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.04), rgba(37,99,235,0.01))' }}>
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="text-lg">👨‍👩‍👧</span>
+                              <h4 className="text-sm font-bold text-blue-900/50 uppercase tracking-[0.15em]">
+                                {lang === 'el' ? 'Μήνυμα για γονείς' : 'Message for parents'}
+                              </h4>
+                            </div>
+                            <p className="text-blue-900/60 leading-relaxed text-sm" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
+                              {typeof activeBook.parentMessage === 'string' ? activeBook.parentMessage : activeBook.parentMessage[lang]}
+                            </p>
+                          </div>
+                        )}
+                      </motion.div>
+                    </AnimatePresence>
                   ) : (
-                     <EbookQuiz 
-                       questions={BOOK_QUIZZES[Number(activeBook.id)] || []} 
-                       lang={lang}
-                       onComplete={handleQuizComplete}
-                       onRetry={handleRetryStory}
-                       onNextBook={handleNextBook}
-                       hasNextBook={hasNextBook}
-                     />
+                    <div className="p-6">
+                      <EbookQuiz
+                        questions={loadedQuizzes[Number(activeBook.id)] || []}
+                        lang={lang}
+                        onComplete={handleQuizComplete}
+                        onRetry={() => setShowQuiz(false)}
+                        onNextBook={handleNextBook}
+                        hasNextBook={hasNextBook}
+                      />
+                    </div>
                   )}
-               </div>
+                </div>
+
+                {/* ─── Page Navigation ─── */}
+                {!showQuiz && totalPages > 0 && (
+                  <div className="flex items-center justify-between px-5 py-2.5 pr-20 xl:pr-5 border-t border-amber-800/10 bg-gradient-to-r from-amber-900/[0.03] to-transparent shrink-0">
+                    <button
+                      onClick={() => setCurrentPage(p => Math.max(0, p - 1))}
+                      disabled={isFirstPage}
+                      className="flex items-center gap-1 px-3 py-2 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all disabled:opacity-15 text-amber-800/50 hover:text-amber-900 hover:bg-amber-900/5 active:scale-95"
+                    >
+                      <ChevronLeft size={14} /> {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
+                    </button>
+
+                    {/* Page indicator dots */}
+                    <div className="flex items-center gap-1.5">
+                      {Array.from({ length: totalPages }).map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setCurrentPage(i)}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            i === currentPage
+                              ? 'bg-amber-800/60 w-5'
+                              : i < currentPage
+                                ? 'bg-amber-800/25'
+                                : 'bg-amber-800/10'
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        if (isLastPage) setShowQuiz(true);
+                        else setCurrentPage(p => p + 1);
+                      }}
+                      className={`flex items-center gap-1 px-3 py-2 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all active:scale-95 ${
+                        isLastPage
+                          ? 'bg-amber-800 text-amber-50 shadow-md hover:bg-amber-900'
+                          : 'text-amber-800/50 hover:text-amber-900 hover:bg-amber-900/5'
+                      }`}
+                    >
+                      {isLastPage ? (lang === 'el' ? 'QUIZ' : 'QUIZ') : (lang === 'el' ? 'ΕΠΟΜΕΝΗ' : 'NEXT')}
+                      {isLastPage ? <ArrowRight size={14} /> : <ChevronRight size={14} />}
+                    </button>
+                  </div>
+                )}
+
+                {/* ─── TTS Player ─── */}
+                {!showQuiz && (
+                  <BookTTSPlayer
+                    key={`tts-${currentPage}-${selectedBookId}`}
+                    textContent={currentStructuredPage?.text[lang] || ''}
+                    htmlContent={!hasStructuredPages ? (htmlPages[currentPage] || '') : undefined}
+                    lang={lang}
+                    contentRef={bookContentRef}
+                    bookId={typeof activeBook.id === 'number' ? activeBook.id : parseInt(String(activeBook.id))}
+                    pageNum={currentPage + 1}
+                  />
+                )}
+              </div>
             </motion.div>
           </div>
         )}
