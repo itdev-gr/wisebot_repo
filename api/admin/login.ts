@@ -7,6 +7,7 @@
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import crypto from 'crypto';
+import { withProtection } from '../_lib/middleware';
 
 function safeCompare(a: string, b: string): boolean {
   // Hash both to ensure equal length for timingSafeEqual
@@ -15,12 +16,7 @@ function safeCompare(a: string, b: string): boolean {
   return crypto.timingSafeEqual(hashA, hashB);
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') return res.status(200).end();
+export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -73,4 +69,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await new Promise(resolve => setTimeout(resolve, 500));
     return res.status(403).json({ error: 'Invalid credentials' });
   }
-}
+});

@@ -1100,7 +1100,7 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
   // Cleanup on unmount or text change
   useEffect(() => {
     return () => {
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null; }
       window.speechSynthesis.cancel();
       chromeFixCleanupRef.current?.();
       setIsPlaying(false);
@@ -1128,6 +1128,7 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
       return;
     }
 
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
     const audio = new Audio(chunkUrlsRef.current[idx]);
     audio.playbackRate = rate;
     audioRef.current = audio;

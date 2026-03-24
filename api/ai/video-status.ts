@@ -7,8 +7,9 @@
  * GET /api/ai/video-status?operationName=xxx
  * Response: { status, videoUrl?, progress? }
  */
+import { withAuth } from '../_lib/middleware';
 
-export default async function handler(req: any, res: any) {
+export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -38,13 +39,29 @@ export default async function handler(req: any, res: any) {
       const videoUri = video?.uri;
 
       if (videoUri) {
-        // Build authenticated URL for client-side fetch
+        // Proxy the video through our server — NEVER expose API key to client
         const separator = videoUri.includes('?') ? '&' : '?';
         const authenticatedUrl = `${videoUri}${separator}key=${apiKey}`;
 
+        // Fetch the video server-side and return as base64 or redirect via signed URL
+        try {
+          const videoResp = await fetch(authenticatedUrl);
+          if (videoResp.ok) {
+            const videoBuffer = await videoResp.arrayBuffer();
+            const base64 = Buffer.from(videoBuffer).toString('base64');
+            return res.status(200).json({
+              status: 'complete',
+              videoData: `data:video/mp4;base64,${base64}`,
+            });
+          }
+        } catch (proxyErr: any) {
+          console.error('[video-status] Proxy fetch error:', proxyErr.message);
+        }
+
+        // Fallback: return URI without API key (may require re-auth flow)
         return res.status(200).json({
           status: 'complete',
-          videoUrl: authenticatedUrl,
+          videoUrl: videoUri,
         });
       }
 
@@ -62,4 +79,4 @@ export default async function handler(req: any, res: any) {
     console.error('[video-status] Error:', err.message);
     return res.status(500).json({ error: err.message || 'Failed to check video status' });
   }
-}
+});

@@ -18,6 +18,7 @@ import {
   Sparkles,
   BookOpen
 } from 'lucide-react';
+import DOMPurify from 'dompurify';
 import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel, htmlToParagraphs, htmlToPlainText } from '../utils/ttsVoice';
 import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticEbookAudio } from '../services/cloudTTS';
 import { BookPage } from '../types';
@@ -124,7 +125,7 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
 
   useEffect(() => {
     return () => {
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null; }
       window.speechSynthesis.cancel();
       chromeFixCleanupRef.current?.();
       isPlayingRef.current = false;
@@ -135,6 +136,7 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     if (idx >= chunkUrlsRef.current.length) {
       setIsPlaying(false); setIsPaused(false); return;
     }
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
     const audio = new Audio(chunkUrlsRef.current[idx]);
     audio.playbackRate = rate;
     audioRef.current = audio;
@@ -647,7 +649,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                                 prose-strong:text-amber-900
                                 prose-img:rounded-xl prose-img:shadow-lg"
                               style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
-                              dangerouslySetInnerHTML={{ __html: htmlPages[currentPage] || '' }}
+                              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(htmlPages[currentPage] || '') }}
                             />
                           </div>
                         )}

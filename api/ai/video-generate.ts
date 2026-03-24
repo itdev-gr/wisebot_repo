@@ -9,6 +9,7 @@
  * Response: { operationName }
  */
 import { GoogleGenAI } from '@google/genai';
+import { withAuth } from '../_lib/middleware';
 
 const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|rape|molest|pedophil|incest|nude|naked|suicide|self.?harm|fuck|shit|bitch|cunt|nigger|nazi|hitler|terrorist|kill.?myself)\b/i;
 const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ/i;
@@ -18,7 +19,7 @@ function isContentSafe(text: string): boolean {
   return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text);
 }
 
-export default async function handler(req: any, res: any) {
+export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -65,4 +66,4 @@ export default async function handler(req: any, res: any) {
     console.error('[video-generate] Error:', err.message);
     return res.status(500).json({ error: err.message || 'Video generation failed' });
   }
-}
+});

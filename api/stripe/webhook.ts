@@ -1,5 +1,6 @@
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
+import { withProtection } from '../_lib/middleware';
 
 function getSupabaseAdmin() {
   return createClient(
@@ -20,7 +21,7 @@ async function getRawBody(req: any): Promise<Buffer> {
   });
 }
 
-export default async function handler(req: any, res: any) {
+export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'POST') return res.status(405).end();
 
   try {
@@ -90,4 +91,4 @@ export default async function handler(req: any, res: any) {
     console.error('Webhook error:', err.message);
     res.status(500).json({ error: 'Webhook processing error' });
   }
-}
+});

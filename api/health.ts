@@ -1,4 +1,6 @@
-export default function handler(req: any, res: any) {
+import { withProtection } from './_lib/middleware';
+
+export default withProtection(async (req: any, res: any) => {
   try {
     res.status(200).json({
       status: 'ok',
@@ -12,4 +14,4 @@ export default function handler(req: any, res: any) {
   } catch (err: any) {
     res.status(500).json({ error: err.message });
   }
-}
+});

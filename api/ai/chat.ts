@@ -5,6 +5,7 @@
  * Content moderation for children ages 6-13.
  */
 import { GoogleGenAI } from '@google/genai';
+import { withAuth } from '../_lib/middleware';
 
 // Enhanced blocklist: English (with word boundaries) + Greek (without \b since it doesn't work with Unicode)
 const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you)\b/i;
@@ -91,7 +92,7 @@ async function chatWithGemini(message: string, history: any[], systemPrompt: str
   return response.text || '';
 }
 
-export default async function handler(req: any, res: any) {
+export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -129,4 +130,4 @@ export default async function handler(req: any, res: any) {
     console.error('AI Chat error:', err.message);
     res.status(500).json({ error: err.message || 'Unknown error' });
   }
-}
+});

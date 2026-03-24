@@ -7,6 +7,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
+import { withProtection } from '../_lib/middleware';
 
 function getSupabaseAdmin() {
   return createClient(
@@ -16,18 +17,20 @@ function getSupabaseAdmin() {
   );
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Admin-Token');
-
-  if (req.method === 'OPTIONS') return res.status(200).end();
+export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
-  // Token-based auth — token validated via ADMIN_SECRET env var
+  // Token-based auth — timing-safe comparison with ADMIN_SECRET
   const token = req.headers['x-admin-token'] as string;
   const adminSecret = process.env.ADMIN_SECRET;
-  if (!token || !adminSecret || token.length < 32) {
+  if (!token || !adminSecret) {
+    return res.status(403).json({ error: 'Unauthorized' });
+  }
+  // Timing-safe comparison to prevent timing attacks
+  const crypto = await import('crypto');
+  const tokenBuf = Buffer.from(token.padEnd(64, '\0'));
+  const secretBuf = Buffer.from(adminSecret.padEnd(64, '\0'));
+  if (tokenBuf.length !== secretBuf.length || !crypto.timingSafeEqual(tokenBuf, secretBuf)) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
 
@@ -142,4 +145,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.error('[Admin] Error:', err);
     return res.status(500).json({ error: 'Internal server error' });
   }
-}
+});

@@ -507,18 +507,24 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
             const statusResp = await fetch(`/api/ai/video-status?operationName=${encodeURIComponent(genData.operationName)}`);
             const statusData = await statusResp.json();
 
-            if (statusData.status === 'complete' && statusData.videoUrl) {
-              // Fetch the video and create a local blob URL
-              try {
-                const videoResp = await fetch(statusData.videoUrl);
-                if (videoResp.ok) {
-                  const blob = await videoResp.blob();
-                  return URL.createObjectURL(blob);
-                }
-              } catch {
-                // If fetch fails, use URL directly
+            if (statusData.status === 'complete') {
+              // Server returns base64 video data (API key never exposed to client)
+              if (statusData.videoData) {
+                return statusData.videoData;
               }
-              return statusData.videoUrl;
+              // Fallback: blob URL from videoUrl (public URLs only)
+              if (statusData.videoUrl) {
+                try {
+                  const videoResp = await fetch(statusData.videoUrl);
+                  if (videoResp.ok) {
+                    const blob = await videoResp.blob();
+                    return URL.createObjectURL(blob);
+                  }
+                } catch {
+                  // If fetch fails, use URL directly
+                }
+                return statusData.videoUrl;
+              }
             }
             if (statusData.status === 'error') {
               throw new Error(statusData.error || 'Video generation failed');

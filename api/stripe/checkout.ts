@@ -1,4 +1,5 @@
 import Stripe from 'stripe';
+import { withProtection } from '../_lib/middleware';
 
 const CREDIT_PACKS: Record<string, { name: string; credits: number; price: number }> = {
   starter: { name: 'WiseBot Academy ⚡ Starter (100 Credits)', credits: 100, price: 499 },
@@ -7,7 +8,7 @@ const CREDIT_PACKS: Record<string, { name: string; credits: number; price: numbe
   ultimate:{ name: 'WiseBot Academy 🏆 Ultimate (1600 Credits)', credits: 1600, price: 3999 },
 };
 
-export default async function handler(req: any, res: any) {
+export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -54,4 +55,4 @@ export default async function handler(req: any, res: any) {
     console.error('Stripe checkout error:', err.message, err.type, err.code);
     res.status(500).json({ error: err.message || 'Payment service error' });
   }
-}
+});

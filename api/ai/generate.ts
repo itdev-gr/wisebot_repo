@@ -7,6 +7,7 @@
  * Content moderation applied for kid safety.
  */
 import { GoogleGenAI } from '@google/genai';
+import { withAuth } from '../_lib/middleware';
 
 // Content moderation for kids' app (ages 6-13)
 const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you)\b/i;
@@ -189,7 +190,7 @@ function processGeminiResponse(response: any) {
   return { text, candidates };
 }
 
-export default async function handler(req: any, res: any) {
+export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -295,4 +296,4 @@ export default async function handler(req: any, res: any) {
     console.error('[AI Proxy]', err?.message || 'Unknown error');
     return res.status(500).json({ error: err?.message || 'AI generation failed' });
   }
-}
+});

@@ -4,6 +4,7 @@
  * Uses Gemini 2.5 Flash with content moderation.
  */
 import { GoogleGenAI } from '@google/genai';
+import { withAuth } from '../_lib/middleware';
 
 // Content moderation for kids' app (ages 6-13)
 const BLOCKED_CONTENT = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ)\b/i;
@@ -20,7 +21,7 @@ const SAFETY_SETTINGS: any[] = [
   { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_LOW_AND_ABOVE' },
 ];
 
-export default async function handler(req: any, res: any) {
+export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -52,4 +53,4 @@ export default async function handler(req: any, res: any) {
     console.error('AI Business error:', err.message);
     res.status(500).json({ error: 'AI service error' });
   }
-}
+});

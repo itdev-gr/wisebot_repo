@@ -6,9 +6,10 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { withProtection } from '../_lib/middleware';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default withProtection(async (req: any, res: any) => {
   // Accept the callback (we use polling instead, but Suno requires a valid URL)
   console.log('[suno-callback] Received callback:', JSON.stringify(req.body || {}).slice(0, 500));
   return res.status(200).json({ received: true });
-}
+});

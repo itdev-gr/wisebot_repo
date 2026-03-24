@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Zap, Trophy, Star, X, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe } from 'lucide-react';
 
@@ -445,26 +445,30 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   useEffect(() => { localStorage.setItem('wb_badges', JSON.stringify(badges)); }, [badges]);
 
   // 3. DYNAMIC COSTS (badge discounts applied)
-  const costs = {
+  const costs = useMemo(() => ({
     image: BASE_COST_IMAGE,         // 8 credits (~€0.30)
     video: BASE_COST_VIDEO,          // 40 credits (~€2.50)
     song: BASE_COST_SONG,            // 50 credits (~€3.00)
     threeD: BASE_COST_3D,            // 50 credits (~€3.00)
     business: BASE_COST_BUSINESS,    // 5 credits (~€0.20)
-  };
+  }), []);
 
   // 4. ACTIONS
-  const spendCredits = (amount: number): boolean => {
-    if (credits >= amount) {
-      setCredits(prev => prev - amount);
-      return true;
-    }
-    return false;
-  };
+  const spendCredits = useCallback((amount: number): boolean => {
+    let success = false;
+    setCredits(prev => {
+      if (prev >= amount) {
+        success = true;
+        return prev - amount;
+      }
+      return prev;
+    });
+    return success;
+  }, []);
 
-  const earnCredits = (amount: number) => {
+  const earnCredits = useCallback((amount: number) => {
     setCredits(prev => prev + amount);
-  };
+  }, []);
 
   // General-purpose notification (replaces alert() across the app)
   const showNotification = useCallback((emoji: string, title: string, subtitle?: string) => {
@@ -618,8 +622,13 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     });
   };
 
+  const contextValue = useMemo(() => ({
+    credits, badges, stats, costs, dailyMission, streak,
+    spendCredits, earnCredits, trackAction, showNotification, syncFromCloud,
+  }), [credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud]);
+
   return (
-    <EconomyContext.Provider value={{ credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud }}>
+    <EconomyContext.Provider value={contextValue}>
       {children}
 
       {/* ─── REWARD TOAST NOTIFICATIONS ─── */}

@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { HashRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import LandingPage from './components/LandingPage';
@@ -361,13 +361,13 @@ function AppContent() {
     if (lastClaimDate) localStorage.setItem('wb_last_claim_date', lastClaimDate);
   }, [lastClaimDate]);
 
-  const handleClaimBonus = (): boolean => {
+  const handleClaimBonus = useCallback((): boolean => {
     const today = new Date().toDateString();
     if (lastClaimDate === today) return false;
     earnCredits(3);
     setLastClaimDate(today);
     return true;
-  };
+  }, [lastClaimDate, earnCredits]);
 
   // Persist XP, Level, Heroes, CompletedIds to localStorage
   useEffect(() => { localStorage.setItem('wb_xp', xp.toString()); }, [xp]);
@@ -375,39 +375,38 @@ function AppContent() {
   useEffect(() => { try { localStorage.setItem('wb_heroes', JSON.stringify(myHeroes)); } catch (e) { console.warn('Failed to save heroes to localStorage:', e); } }, [myHeroes]);
   useEffect(() => { localStorage.setItem('wb_completed_ids', JSON.stringify(completedIds)); }, [completedIds]);
 
-  const addXp = (amount: number, id: string, creditReward: number = 0) => {
-    if (completedIds.includes(id)) return;
+  const addXp = useCallback((amount: number, id: string, creditReward: number = 0) => {
+    setCompletedIds(prev => {
+      if (prev.includes(id)) return prev;
 
-    setXp(prev => {
-      const newXp = prev + amount;
-      return newXp;
-    });
+      setXp(p => p + amount);
 
-    // Check level up separately to avoid stale closure
-    setLevel(currentLevel => {
-      const totalXp = (parseInt(localStorage.getItem('wb_xp') || '0')) + amount;
-      const nextLevelXp = currentLevel * 500;
-      if (totalXp >= nextLevelXp) {
-        earnCredits(2); // Level up reward
-        return currentLevel + 1;
+      // Check level up separately to avoid stale closure
+      setLevel(currentLevel => {
+        const totalXp = (parseInt(localStorage.getItem('wb_xp') || '0')) + amount;
+        const nextLevelXp = currentLevel * 500;
+        if (totalXp >= nextLevelXp) {
+          earnCredits(2); // Level up reward
+          return currentLevel + 1;
+        }
+        return currentLevel;
+      });
+
+      if (creditReward > 0) {
+        earnCredits(creditReward);
       }
-      return currentLevel;
+
+      return [...prev, id];
     });
+  }, [earnCredits]);
 
-    if (creditReward > 0) {
-      earnCredits(creditReward);
-    }
-
-    setCompletedIds(prev => [...prev, id]);
-  };
-
-  const addHero = (hero: any) => {
+  const addHero = useCallback((hero: any) => {
     setMyHeroes(prev => [...prev, hero]);
-  };
+  }, []);
 
-  const updateHero = (updatedHero: any) => {
+  const updateHero = useCallback((updatedHero: any) => {
     setMyHeroes(prev => prev.map(h => h.id === updatedHero.id ? updatedHero : h));
-  };
+  }, []);
 
   return (
     <HashRouter>

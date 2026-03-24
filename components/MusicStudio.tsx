@@ -168,11 +168,11 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
   const playFeatured = (songId: string, src: string) => {
     if (featuredPlaying === songId) {
-      featuredAudioRef.current?.pause();
+      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current.src = ''; }
       setFeaturedPlaying(null);
       return;
     }
-    if (featuredAudioRef.current) featuredAudioRef.current.pause();
+    if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current.src = ''; }
     const audio = new Audio(src);
     audio.onended = () => setFeaturedPlaying(null);
     audio.play().catch(() => {});
@@ -213,6 +213,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   const progressInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const barsRef = useRef<number[]>(Array(24).fill(0).map(() => Math.random()));
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const stepTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Save songs to localStorage
   useEffect(() => {
@@ -308,10 +310,12 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     setGenStep(0);
     setGenProgress(0);
 
-    const stepTimer = setInterval(() => {
+    if (stepTimerRef.current) clearInterval(stepTimerRef.current);
+    if (progTimerRef.current) clearInterval(progTimerRef.current);
+    stepTimerRef.current = setInterval(() => {
       setGenStep(s => Math.min(s + 1, GEN_STEPS.length - 1));
     }, 2500);
-    const progTimer = setInterval(() => {
+    progTimerRef.current = setInterval(() => {
       setGenProgress(p => Math.min(p + 1, 95));
     }, 200);
 
@@ -421,8 +425,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         console.warn('Suno generation failed, song will be lyrics-only:', sunoErr);
       }
 
-      clearInterval(stepTimer);
-      clearInterval(progTimer);
+      if (stepTimerRef.current) { clearInterval(stepTimerRef.current); stepTimerRef.current = null; }
+      if (progTimerRef.current) { clearInterval(progTimerRef.current); progTimerRef.current = null; }
       setGenProgress(100);
 
       const newSong: GeneratedSong = {
@@ -453,8 +457,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
     } catch (error) {
       console.error("Music Gen Error", error);
-      clearInterval(stepTimer);
-      clearInterval(progTimer);
+      if (stepTimerRef.current) { clearInterval(stepTimerRef.current); stepTimerRef.current = null; }
+      if (progTimerRef.current) { clearInterval(progTimerRef.current); progTimerRef.current = null; }
       showNotification('❌', lang === 'el' ? 'Σφάλμα. Δοκίμασε ξανά.' : 'Error. Try again.');
     } finally {
       setIsGenerating(false);
@@ -586,10 +590,12 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   useEffect(() => {
     return () => {
       synthRef.current.cancel();
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current = null; }
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null; }
+      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current.src = ''; featuredAudioRef.current = null; }
       if (progressInterval.current) clearInterval(progressInterval.current);
       if (pollingRef.current) clearInterval(pollingRef.current);
+      if (stepTimerRef.current) clearInterval(stepTimerRef.current);
+      if (progTimerRef.current) clearInterval(progTimerRef.current);
     };
   }, []);
 
