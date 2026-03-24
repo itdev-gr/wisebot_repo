@@ -48,14 +48,49 @@ export default withProtection(async (req: any, res: any) => {
       console.log('[contact] DB insert skipped (table may not exist):', (dbErr as any)?.message);
     }
 
-    // Log the message for admin visibility in Vercel logs
+    // Send email notification via Resend API
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      try {
+        const fullName = `${name} ${surname || ''}`.trim();
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${resendKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: process.env.RESEND_FROM_EMAIL || 'WiseBot <noreply@wisebot.gr>',
+            to: [supportEmail],
+            subject: `[WiseBot Contact] ${type || 'Μήνυμα'} από ${fullName}`,
+            html: `
+              <h2>Νέο μήνυμα επικοινωνίας</h2>
+              <p><strong>Όνομα:</strong> ${fullName}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              ${phone ? `<p><strong>Τηλέφωνο:</strong> ${phone}</p>` : ''}
+              ${orderId ? `<p><strong>Αριθμός παραγγελίας:</strong> ${orderId}</p>` : ''}
+              <p><strong>Τύπος:</strong> ${type || 'contact'}</p>
+              <hr>
+              <p>${message.replace(/\n/g, '<br>')}</p>
+              <hr>
+              <p style="color:#888;font-size:12px">Αποστολή: ${new Date().toISOString()}</p>
+            `,
+          }),
+        });
+        console.log('[contact] Email sent to', supportEmail);
+      } catch (emailErr) {
+        console.error('[contact] Email send failed:', (emailErr as any)?.message);
+        // Don't fail the request — message is already saved in Supabase
+      }
+    } else {
+      console.log('[contact] RESEND_API_KEY not set — email not sent');
+    }
+
+    // Also log for Vercel dashboard visibility
     console.log('[contact] New message:', {
       from: `${name} ${surname || ''}`.trim(),
       email,
-      phone: phone || 'N/A',
-      orderId: orderId || 'N/A',
       type: type || 'contact',
-      message: message.substring(0, 200),
       timestamp: new Date().toISOString(),
     });
 

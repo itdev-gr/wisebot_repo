@@ -75,21 +75,11 @@ export default defineConfig(({ mode }) => {
                 },
               },
               {
-                // Google Fonts CSS
-                urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-                handler: 'StaleWhileRevalidate',
-                options: {
-                  cacheName: 'google-fonts-cache',
-                  expiration: { maxEntries: 5, maxAgeSeconds: 365 * 24 * 60 * 60 },
-                  cacheableResponse: { statuses: [0, 200] },
-                },
-              },
-              {
-                // Google Fonts files
-                urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+                // Local fonts cache
+                urlPattern: /\/fonts\/.*/i,
                 handler: 'CacheFirst',
                 options: {
-                  cacheName: 'gstatic-fonts-cache',
+                  cacheName: 'local-fonts-cache',
                   expiration: { maxEntries: 10, maxAgeSeconds: 365 * 24 * 60 * 60 },
                   cacheableResponse: { statuses: [0, 200] },
                 },
