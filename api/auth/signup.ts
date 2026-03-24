@@ -20,13 +20,44 @@ export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { email, password, childName, parentEmail } = req.body || {};
+    const body = req.body || {};
 
-    // Validation
+    // Trim all string inputs
+    const email = typeof body.email === 'string' ? body.email.trim() : '';
+    const password = typeof body.password === 'string' ? body.password : '';
+    const childName = typeof body.childName === 'string' ? body.childName.trim() : '';
+    const parentEmail = typeof body.parentEmail === 'string' ? body.parentEmail.trim() : '';
+
+    // Validation — required fields
     if (!email || !password || !childName) {
       return res.status(400).json({
         error: 'Missing required fields',
         details: 'email, password, and childName are required',
+      });
+    }
+
+    // Email format validation (basic regex)
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!EMAIL_RE.test(email)) {
+      return res.status(400).json({
+        error: 'Invalid email format',
+        details: 'Please provide a valid email address',
+      });
+    }
+
+    // childName max length
+    if (childName.length > 50) {
+      return res.status(400).json({
+        error: 'Child name too long',
+        details: 'Child name must be 50 characters or fewer',
+      });
+    }
+
+    // parentEmail format validation (if provided)
+    if (parentEmail && !EMAIL_RE.test(parentEmail)) {
+      return res.status(400).json({
+        error: 'Invalid parent email format',
+        details: 'Please provide a valid parent email address',
       });
     }
 
@@ -46,7 +77,7 @@ export default withProtection(async (req: any, res: any) => {
       email_confirm: true,
       user_metadata: {
         child_name: childName,
-        parent_email: parentEmail || '',
+        parent_email: parentEmail,
       },
     });
 

@@ -345,11 +345,13 @@ function AppContent() {
 
   const [myHeroes, setMyHeroes] = useState<any[]>(() => {
     const saved = localStorage.getItem('wb_heroes');
-    return saved ? JSON.parse(saved) : [];
+    if (!saved) return [];
+    try { return JSON.parse(saved); } catch { /* corrupted data, use default */ return []; }
   });
   const [completedIds, setCompletedIds] = useState<string[]>(() => {
     const saved = localStorage.getItem('wb_completed_ids');
-    return saved ? JSON.parse(saved) : [];
+    if (!saved) return [];
+    try { return JSON.parse(saved); } catch { /* corrupted data, use default */ return []; }
   });
 
   // Daily bonus claim tracking (persisted to localStorage)
@@ -416,26 +418,29 @@ function AppContent() {
         <ErrorBoundary lang={lang}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
+            {/* PUBLIC ROUTES */}
             <Route path="/" element={<LandingPage lang={lang} />} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<AuthScreen lang={lang} />} />
             <Route path="/legal" element={<LegalHub lang={lang} />} />
-            <Route path="/dashboard" element={<Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} />} />
-            <Route path="/factory" element={<HeroFactory lang={lang} addHero={addHero} />} />
-            <Route path="/3d-factory" element={<ThreeDFactory lang={lang} />} />
-            <Route path="/market" element={<HeroMarket lang={lang} myHeroes={myHeroes} />} />
-            <Route path="/wise-friends" element={<WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} />} />
-            <Route path="/academy" element={<Academy lang={lang} addXp={addXp} completedIds={completedIds} />} />
-            <Route path="/cinema" element={<Cinema lang={lang} myHeroes={myHeroes} />} />
-            <Route path="/music" element={<MusicStudio lang={lang} />} />
-            <Route path="/business" element={<BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} />} />
-            <Route path="/ebooks" element={<Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} />} />
-            <Route path="/quiz" element={<Quiz lang={lang} />} />
-            <Route path="/game" element={<GameCenter lang={lang} />} />
-            <Route path="/admin" element={<AdminDashboard lang={lang} />} />
-            <Route path="/account" element={<Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} />} />
-            <Route path="/store" element={<CreditStore lang={lang} />} />
-            <Route path="/parent" element={<ParentDashboard lang={lang} />} />
+
+            {/* PROTECTED ROUTES — require authentication */}
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
+            <Route path="/factory" element={<ProtectedRoute><HeroFactory lang={lang} addHero={addHero} /></ProtectedRoute>} />
+            <Route path="/3d-factory" element={<ProtectedRoute><ThreeDFactory lang={lang} /></ProtectedRoute>} />
+            <Route path="/market" element={<ProtectedRoute><HeroMarket lang={lang} myHeroes={myHeroes} /></ProtectedRoute>} />
+            <Route path="/wise-friends" element={<ProtectedRoute><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /></ProtectedRoute>} />
+            <Route path="/academy" element={<ProtectedRoute><Academy lang={lang} addXp={addXp} completedIds={completedIds} /></ProtectedRoute>} />
+            <Route path="/cinema" element={<ProtectedRoute><Cinema lang={lang} myHeroes={myHeroes} /></ProtectedRoute>} />
+            <Route path="/music" element={<ProtectedRoute><MusicStudio lang={lang} /></ProtectedRoute>} />
+            <Route path="/business" element={<ProtectedRoute><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /></ProtectedRoute>} />
+            <Route path="/ebooks" element={<ProtectedRoute><Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} /></ProtectedRoute>} />
+            <Route path="/quiz" element={<ProtectedRoute><Quiz lang={lang} /></ProtectedRoute>} />
+            <Route path="/game" element={<ProtectedRoute><GameCenter lang={lang} /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><AdminDashboard lang={lang} /></ProtectedRoute>} />
+            <Route path="/account" element={<ProtectedRoute><Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} /></ProtectedRoute>} />
+            <Route path="/store" element={<ProtectedRoute><CreditStore lang={lang} /></ProtectedRoute>} />
+            <Route path="/parent" element={<ProtectedRoute><ParentDashboard lang={lang} /></ProtectedRoute>} />
             {/* 404 catch-all: redirect unknown routes to landing */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

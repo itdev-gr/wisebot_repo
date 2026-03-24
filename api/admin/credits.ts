@@ -18,16 +18,20 @@ function getSupabaseAdmin() {
 export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // Token-based auth — timing-safe comparison with ADMIN_SECRET
+  // Token-based auth — verify HMAC token matches what login generates
   const token = req.headers['x-admin-token'] as string;
   const adminSecret = process.env.ADMIN_SECRET;
   if (!token || !adminSecret) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
   const crypto = await import('crypto');
-  const tokenBuf = Buffer.from(token.padEnd(64, '\0'));
-  const secretBuf = Buffer.from(adminSecret.padEnd(64, '\0'));
-  if (tokenBuf.length !== secretBuf.length || !crypto.timingSafeEqual(tokenBuf, secretBuf)) {
+  const expectedToken = crypto
+    .createHmac('sha256', adminSecret)
+    .update('wisebot_admin_session')
+    .digest('hex');
+  const tokenBuf = Buffer.from(token);
+  const expectedBuf = Buffer.from(expectedToken);
+  if (tokenBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(tokenBuf, expectedBuf)) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
 

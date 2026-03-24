@@ -52,11 +52,11 @@ export default withProtection(async (req: any, res: any) => {
       return res.status(403).json({ error: 'Invalid credentials' });
     }
 
-    // Generate session token (HMAC of timestamp + secret)
-    const timestamp = Date.now().toString();
+    // Generate session token (HMAC of fixed message + secret)
+    // Uses a deterministic message so stats/credits endpoints can verify
     const token = crypto
       .createHmac('sha256', adminSecret)
-      .update(`admin_session_${timestamp}`)
+      .update('wisebot_admin_session')
       .digest('hex');
 
     return res.status(200).json({

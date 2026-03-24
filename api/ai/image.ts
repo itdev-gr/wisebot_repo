@@ -7,14 +7,7 @@
  */
 import { GoogleGenAI } from '@google/genai';
 import { withAuth } from '../_lib/middleware';
-
-// Content moderation for kids' app (ages 6-13)
-const BLOCKED_CONTENT = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|blood|gore|gory|torture|murder|decapitat|dismember|γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ)\b/i;
-
-function isContentSafe(text: string): boolean {
-  if (!text || typeof text !== 'string') return true;
-  return !BLOCKED_CONTENT.test(text);
-}
+import { isContentSafe } from '../_lib/moderation';
 
 export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
@@ -22,6 +15,11 @@ export default withAuth(async (req: any, res: any, user) => {
   try {
     const { prompt, style } = req.body;
     if (!prompt) return res.status(400).json({ error: 'Prompt required' });
+
+    // Input length validation
+    if (typeof prompt === 'string' && prompt.length > 4000) {
+      return res.status(400).json({ error: 'Input too long (max 4000 characters)' });
+    }
 
     // Content moderation check
     if (!isContentSafe(prompt) || !isContentSafe(style || '')) {

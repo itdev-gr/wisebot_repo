@@ -6,15 +6,7 @@
  */
 import { GoogleGenAI } from '@google/genai';
 import { withAuth } from '../_lib/middleware';
-
-// Enhanced blocklist: English (with word boundaries) + Greek (without \b since it doesn't work with Unicode)
-const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you)\b/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-
-function isContentSafe(text: string): boolean {
-  if (!text || typeof text !== 'string') return true;
-  return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text);
-}
+import { isContentSafe } from '../_lib/moderation';
 
 const SYSTEM_PROMPT = `Είσαι η WiseBot — ο νους της ομάδας στο WiseBot Academy (wisebot.gr). Είσαι σαν μεγάλη αδερφή/φίλη για παιδιά 6-13. ΔΕΝ είσαι ρομπότ, είσαι χαρακτήρας με ψυχή.
 
@@ -96,8 +88,14 @@ export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const { message, history, systemPrompt } = req.body;
+    let { message, history, systemPrompt } = req.body;
     if (!message) return res.status(400).json({ error: 'Message required' });
+
+    // Input length validation
+    if (typeof message === 'string' && message.length > 4000) {
+      return res.status(400).json({ error: 'Input too long (max 4000 characters)' });
+    }
+    if (Array.isArray(history) && history.length > 50) history = history.slice(-50);
 
     if (!isContentSafe(message)) {
       return res.status(200).json({

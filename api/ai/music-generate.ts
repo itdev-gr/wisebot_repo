@@ -29,14 +29,7 @@
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { withAuth } from '../_lib/middleware';
-
-// Content moderation for kids' app (ages 6-13)
-const BLOCKED_CONTENT = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ)\b/i;
-
-function isContentSafe(text: string): boolean {
-  if (!text || typeof text !== 'string') return true;
-  return !BLOCKED_CONTENT.test(text);
-}
+import { isContentSafe } from '../_lib/moderation';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 

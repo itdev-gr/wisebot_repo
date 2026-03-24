@@ -171,7 +171,8 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
         addXp(50, bizId);
 
         // Save to localStorage collection
-        const saved = JSON.parse(localStorage.getItem('wb_businesses') || '[]');
+        let saved: any[] = [];
+        try { saved = JSON.parse(localStorage.getItem('wb_businesses') || '[]'); } catch { /* corrupted data, use default */ }
         saved.push({
           id: bizId,
           name: biz.name,
@@ -198,11 +199,10 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
   const handleNext = () => {
     if (step === 2) {
-      if (credits < COST) {
+      if (!spendCredits(COST)) {
         showNotification('💰', lang === 'el' ? `Χρειάζεσαι ${COST} Credits!` : `You need ${COST} Credits!`);
         return;
       }
-      spendCredits(COST);
     }
     setStep(s => s + 1);
   };

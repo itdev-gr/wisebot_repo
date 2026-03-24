@@ -124,8 +124,10 @@ const getTodayMission = (): DailyMission => {
   const today = getTodayStr();
   const saved = localStorage.getItem('wb_daily_mission');
   if (saved) {
-    const parsed = JSON.parse(saved) as DailyMission;
-    if (parsed.date === today) return parsed;
+    try {
+      const parsed = JSON.parse(saved) as DailyMission;
+      if (parsed.date === today) return parsed;
+    } catch { /* corrupted data, regenerate mission */ }
   }
   // New day -> pick mission based on day-of-year for consistency
   const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
@@ -138,24 +140,28 @@ const getTodayMission = (): DailyMission => {
 const getStreak = (): number => {
   const saved = localStorage.getItem('wb_streak');
   if (!saved) return 0;
-  const { count, lastDate } = JSON.parse(saved);
-  const today = getTodayStr();
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-  if (lastDate === today) return count;
-  if (lastDate === yesterday) return count; // streak alive, not yet incremented today
-  return 0; // streak broken
+  try {
+    const { count, lastDate } = JSON.parse(saved);
+    const today = getTodayStr();
+    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+    if (lastDate === today) return count;
+    if (lastDate === yesterday) return count; // streak alive, not yet incremented today
+    return 0; // streak broken
+  } catch { /* corrupted data, use default */ return 0; }
 };
 
 const updateStreak = () => {
   const saved = localStorage.getItem('wb_streak');
   const today = getTodayStr();
   if (saved) {
-    const { count, lastDate } = JSON.parse(saved);
-    if (lastDate === today) return count; // already updated today
-    const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-    const newCount = lastDate === yesterday ? count + 1 : 1;
-    localStorage.setItem('wb_streak', JSON.stringify({ count: newCount, lastDate: today }));
-    return newCount;
+    try {
+      const { count, lastDate } = JSON.parse(saved);
+      if (lastDate === today) return count; // already updated today
+      const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+      const newCount = lastDate === yesterday ? count + 1 : 1;
+      localStorage.setItem('wb_streak', JSON.stringify({ count: newCount, lastDate: today }));
+      return newCount;
+    } catch { /* corrupted data, reset streak */ }
   }
   localStorage.setItem('wb_streak', JSON.stringify({ count: 1, lastDate: today }));
   return 1;
@@ -400,16 +406,22 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const [stats, setStats] = useState<EconomyStats>(() => {
     const saved = localStorage.getItem('wb_stats');
-    return saved ? { ...DEFAULT_STATS, ...JSON.parse(saved) } : { ...DEFAULT_STATS };
+    if (!saved) return { ...DEFAULT_STATS };
+    try { return { ...DEFAULT_STATS, ...JSON.parse(saved) }; } catch { /* corrupted data, use default */ return { ...DEFAULT_STATS }; }
   });
 
   const [badges, setBadges] = useState<Badges>(() => {
     const saved = localStorage.getItem('wb_badges');
-    return saved ? { ...DEFAULT_BADGES, ...JSON.parse(saved) } : { ...DEFAULT_BADGES };
+    if (!saved) return { ...DEFAULT_BADGES };
+    try { return { ...DEFAULT_BADGES, ...JSON.parse(saved) }; } catch { /* corrupted data, use default */ return { ...DEFAULT_BADGES }; }
   });
 
   const [dailyMission, setDailyMission] = useState<DailyMission>(getTodayMission);
   const [streak, setStreak] = useState<number>(getStreak);
+
+  // ─── CREDITS REF (for synchronous reads in spendCredits) ───
+  const creditsRef = useRef(credits);
+  useEffect(() => { creditsRef.current = credits; }, [credits]);
 
   // ─── NOTIFICATION SYSTEM ───
   const [notifications, setNotifications] = useState<RewardNotification[]>([]);
@@ -455,15 +467,10 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   // 4. ACTIONS
   const spendCredits = useCallback((amount: number): boolean => {
-    let success = false;
-    setCredits(prev => {
-      if (prev >= amount) {
-        success = true;
-        return prev - amount;
-      }
-      return prev;
-    });
-    return success;
+    if (creditsRef.current < amount) return false;
+    creditsRef.current -= amount;
+    setCredits(prev => prev >= amount ? prev - amount : prev);
+    return true;
   }, []);
 
   const earnCredits = useCallback((amount: number) => {
@@ -482,14 +489,23 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setBadges({ ...DEFAULT_BADGES, ...newBadges });
   }, []);
 
-  const completeDailyMission = (action: string) => {
-    if (dailyMission.completed) return;
-    const missionDef = MISSION_POOL[dailyMission.id];
+  // Refs to avoid stale closures in memoized callbacks
+  const dailyMissionRef = useRef(dailyMission);
+  useEffect(() => { dailyMissionRef.current = dailyMission; }, [dailyMission]);
+  const badgesRef = useRef(badges);
+  useEffect(() => { badgesRef.current = badges; }, [badges]);
+  const statsRef = useRef(stats);
+  useEffect(() => { statsRef.current = stats; }, [stats]);
+
+  const completeDailyMission = useCallback((action: string) => {
+    const currentMission = dailyMissionRef.current;
+    if (currentMission.completed) return;
+    const missionDef = MISSION_POOL[currentMission.id];
     if (missionDef && missionDef.action === action) {
-      const updated = { ...dailyMission, completed: true };
+      const updated = { ...currentMission, completed: true };
       setDailyMission(updated);
       localStorage.setItem('wb_daily_mission', JSON.stringify(updated));
-      const reward = badges.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD; // 5 or 7 with explorer badge
+      const reward = badgesRef.current.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD;
       earnCredits(reward);
       // Update streak
       const newStreak = updateStreak();
@@ -501,17 +517,17 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
         showReward('🎯', 'DAILY MISSION COMPLETE!', `+${reward + streakBonus} Credits${streakMsg}`, 'achievement');
       }, 800);
     }
-  };
+  }, [earnCredits, showReward]);
 
   // trackAction: Updates stats, awards credits, shows notifications, and unlocks badges.
   // IMPORTANT: Side effects (earnCredits, showReward) must happen OUTSIDE setStats()
   // because React StrictMode calls state updater functions twice in development.
-  const trackAction = (action: ActionType) => {
+  const trackAction = useCallback((action: ActionType) => {
     completeDailyMission(action);
 
-    // 1) Compute new stats & badges from current state (pure computation)
-    const newStats = { ...stats };
-    let newBadges = { ...badges };
+    // 1) Compute new stats & badges from current state (pure computation via refs)
+    const newStats = { ...statsRef.current };
+    let newBadges = { ...badgesRef.current };
     let badgeUnlocked = false;
     let creditReward = 0;
     let rewardEmoji = '';
@@ -620,12 +636,13 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     pendingBadgeCelebrations.forEach(bc => {
       setTimeout(() => showBadgeCelebration(bc.key, bc.emoji), bc.delay);
     });
-  };
+  }, [completeDailyMission, earnCredits, showReward, showBadgeCelebration]);
 
   const contextValue = useMemo(() => ({
     credits, badges, stats, costs, dailyMission, streak,
     spendCredits, earnCredits, trackAction, showNotification, syncFromCloud,
   }), [credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud]);
+
 
   return (
     <EconomyContext.Provider value={contextValue}>

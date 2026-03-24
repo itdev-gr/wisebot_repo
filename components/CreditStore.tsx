@@ -51,9 +51,22 @@ export default function CreditStore({ lang }: CreditStoreProps) {
     const sessionId = urlParams.get('session_id');
     const success = urlParams.get('success');
     if (success && sessionId && backendReady) {
+      // Prevent duplicate processing: check if this session was already verified
+      const processedSessions = JSON.parse(localStorage.getItem('wb_verified_sessions') || '[]');
+      if (processedSessions.includes(sessionId)) {
+        // Already processed — just clean up URL
+        window.history.replaceState({}, '', window.location.pathname + '#/store');
+        return;
+      }
+
       backendStripe.verify(sessionId).then(result => {
         if (result.success && result.credits > 0) {
-          earnCredits(result.credits);
+          // Mark session as processed BEFORE doing anything else
+          const updated = [...processedSessions, sessionId];
+          localStorage.setItem('wb_verified_sessions', JSON.stringify(updated));
+
+          // Don't call earnCredits — rely on webhook + cloud sync to add credits
+          // This prevents double-crediting if webhook already fired
           showNotification('🎉', lang === 'el'
             ? `+${result.credits} Credits! Ευχαριστούμε!`
             : `+${result.credits} Credits! Thank you!`);
