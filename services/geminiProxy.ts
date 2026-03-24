@@ -7,6 +7,7 @@
  * Usage: Replace `import { GoogleGenAI } from "@google/genai"`
  *   with `import { GoogleGenAI } from "../services/geminiProxy"`
  */
+import { authFetch } from './backendApi';
 
 interface Part {
   text?: string;
@@ -54,7 +55,7 @@ class ModelsProxy {
       ? [{ role: 'user' as const, parts: [{ text: contents }] }]
       : contents;
 
-    const resp = await fetch('/api/ai/generate', {
+    const resp = await authFetch('/api/ai/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ model, contents: normalizedContents, config }),

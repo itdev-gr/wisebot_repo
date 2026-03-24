@@ -9,6 +9,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 import { pullFromCloud, pushToCloud, mergeState, debouncedPush, cancelPendingPush, type SyncState } from '../services/syncService';
 import { useEconomy } from './EconomyContext';
+import { authFetch } from '../services/backendApi';
 import type { User } from '@supabase/supabase-js';
 
 interface Profile {
@@ -111,7 +112,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       // Step 1: Create user via server API (auto-confirms email)
-      const response = await fetch('/api/auth/signup', {
+      const response = await authFetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, childName, parentEmail }),

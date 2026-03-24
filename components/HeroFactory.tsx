@@ -25,6 +25,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { GoogleGenAI } from "../services/geminiProxy";
 import { useEconomy } from '../context/EconomyContext';
+import { authFetch } from '../services/backendApi';
 import { generateAvatarFromPhoto } from '../services/gemini';
 import { renderHeroCard, shareHeroCard, downloadDataUrl } from '../utils/heroCardCanvas';
 
@@ -360,7 +361,7 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
         });
       }
 
-      const resp = await fetch('/api/ai/meshy-generate', {
+      const resp = await authFetch('/api/ai/meshy-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageUrl }),
@@ -379,7 +380,7 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
           return;
         }
         try {
-          const sr = await fetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
+          const sr = await authFetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
           const sd = await sr.json();
           setMeshy3DProgress(sd.progress || 0);
           if (sd.status === 'complete' && sd.modelUrls) {

@@ -24,11 +24,24 @@ export function isBackendAvailable(): boolean {
 }
 
 /**
- * Fetch helper with auth token
+ * Get the current Supabase auth token
+ */
+async function getAuthToken(): Promise<string | null> {
+  try {
+    const { supabase, isSupabaseConfigured } = await import('./supabaseClient');
+    if (!isSupabaseConfigured()) return null;
+    const { data: { session } } = await supabase.auth.getSession();
+    return session?.access_token || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Fetch helper with Supabase auth token
  */
 async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
-
-  const token = localStorage.getItem('wb_auth_token');
+  const token = await getAuthToken();
   const res = await fetch(`${API_BASE}${endpoint}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -43,6 +56,22 @@ async function apiFetch<T>(endpoint: string, options?: RequestInit): Promise<T> 
   }
 
   return res.json();
+}
+
+/**
+ * Authenticated fetch — for use in components that do raw fetch()
+ * Usage: const res = await authFetch('/api/ai/chat', { method: 'POST', body: ... })
+ */
+export async function authFetch(url: string, options?: RequestInit): Promise<Response> {
+  const token = await getAuthToken();
+  return fetch(url, {
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...options?.headers,
+    },
+  });
 }
 
 // ─── AI ENDPOINTS ─────────────────────────────────────────

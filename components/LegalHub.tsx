@@ -19,6 +19,7 @@ import {
   MessageSquare,
   Send
 } from 'lucide-react';
+import { authFetch } from '../services/backendApi';
 
 const motion = m as any;
 
@@ -50,7 +51,7 @@ export default function LegalHub({ lang }: LegalHubProps) {
     e.preventDefault();
     setIsSending(true);
     try {
-      const res = await fetch('/api/contact', {
+      const res = await authFetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, type: 'contact' }),

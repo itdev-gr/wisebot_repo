@@ -19,6 +19,7 @@ import {
   Box, Gamepad2, Star, ArrowUpRight, Globe, Server, Palette,
   CreditCard, Hash,
 } from 'lucide-react';
+import { authFetch } from '../services/backendApi';
 
 // No credentials in code — auth handled server-side via /api/admin/login
 
@@ -94,7 +95,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     setLoginLoading(true);
     setLoginError('');
     try {
-      const res = await fetch('/api/admin/login', {
+      const res = await authFetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: loginEmail.trim(), password: loginPassword }),
@@ -126,7 +127,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/admin/stats', {
+      const res = await authFetch('/api/admin/stats', {
         headers: { 'X-Admin-Token': adminToken() },
       });
       if (!res.ok) throw new Error(res.status === 403 ? 'Unauthorized' : 'Failed to fetch');
@@ -158,7 +159,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     setCreditSending(true);
     setCreditMsg('');
     try {
-      const res = await fetch('/api/admin/credits', {
+      const res = await authFetch('/api/admin/credits', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
         body: JSON.stringify({ userId: creditModal.userId, amount }),

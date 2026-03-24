@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { ArrowLeft, Sparkles, Trophy, Star, Palette, RotateCcw, Loader2, Image, Zap, Crown, ThumbsUp, Clock } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
+import { authFetch } from '../../services/backendApi';
 
 interface ArtBattleProps {
   lang: 'el' | 'en';
@@ -102,7 +103,7 @@ export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
       // Use the existing AI proxy to generate image
       const enhancedPrompt = `Create a beautiful, detailed, colorful illustration in a vibrant cartoon/anime style: ${userPrompt}. The art should be high quality, appealing to children, and safe for all ages. Theme: ${currentTheme.theme}`;
 
-      const response = await fetch('/api/ai/generate', {
+      const response = await authFetch('/api/ai/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -5,6 +5,7 @@ import { Upload, RefreshCcw, Download, Cuboid, Grid, Sparkles, Cylinder, Box, Fi
 import { GoogleGenAI } from "../services/geminiProxy";
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
+import { authFetch } from '../services/backendApi';
 
 const motion = m as any;
 
@@ -290,7 +291,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         return;
       }
       try {
-        const resp = await fetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(taskId)}`);
+        const resp = await authFetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(taskId)}`);
         const data = await resp.json();
         setMeshyProgress(data.progress || 0);
 
@@ -339,7 +340,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         });
       }
 
-      const resp = await fetch('/api/ai/meshy-generate', {
+      const resp = await authFetch('/api/ai/meshy-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageUrl }),

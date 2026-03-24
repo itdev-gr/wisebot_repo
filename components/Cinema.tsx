@@ -23,6 +23,7 @@ import { GoogleGenAI } from "../services/geminiProxy";
 import { useLocation } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
+import { authFetch } from '../services/backendApi';
 
 const motion = m as any;
 
@@ -483,7 +484,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       const prompt = `Animate the character in this image. Action: ${finalAction}. The character says: "${finalGreeting} ${finalMessage}". Style: cinematic 3D animation, colorful, kid-friendly.`;
 
       // Step 1: Start video generation via server
-      const genResp = await fetch('/api/ai/video-generate', {
+      const genResp = await authFetch('/api/ai/video-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt, imageBytes, mimeType }),
@@ -504,7 +505,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
           await new Promise(r => setTimeout(r, 5000));
 
           try {
-            const statusResp = await fetch(`/api/ai/video-status?operationName=${encodeURIComponent(genData.operationName)}`);
+            const statusResp = await authFetch(`/api/ai/video-status?operationName=${encodeURIComponent(genData.operationName)}`);
             const statusData = await statusResp.json();
 
             if (statusData.status === 'complete') {
