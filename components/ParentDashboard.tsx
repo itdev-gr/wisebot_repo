@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import {
   Shield, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe,
   Zap, BookOpen, Image as ImageIcon, Trophy, Briefcase, BarChart3, Clock, Target,
-  ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame
+  ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame, Download
 } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
+import { useAuth } from '../context/AuthContext';
+import { authFetch } from '../services/backendApi';
 
 interface ParentDashboardProps {
   lang: 'el' | 'en';
@@ -13,20 +15,18 @@ interface ParentDashboardProps {
 
 export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const { credits, badges, stats, streak } = useEconomy();
+  const { user, signIn } = useAuth();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [pin, setPin] = useState('');
-
-  // TODO [BACKEND]: Replace PIN gate with Supabase parent auth
-  // PIN loaded from environment variable — set VITE_PARENT_PIN in .env or Vercel
-  const PARENT_PIN = (import.meta as any).env?.VITE_PARENT_PIN || '1821';
+  const [exporting, setExporting] = useState(false);
 
   const t = lang === 'el' ? {
     title: 'ΓΟΝΕΪΚΟΣ ΠΙΝΑΚΑΣ',
     subtitle: 'Παρακολουθήστε την πρόοδο του παιδιού σας',
-    pinTitle: 'Εισαγωγή PIN',
-    pinDesc: 'Εισάγετε το PIN γονέα',
-    pinBtn: 'ΕΙΣΟΔΟΣ',
-    pinError: 'Λάθος PIN',
+    pinTitle: 'Επαλήθευση Γονέα',
+    pinDesc: 'Εισάγετε τον κωδικό του λογαριασμού σας',
+    pinBtn: 'ΕΠΑΛΗΘΕΥΣΗ',
+    pinError: 'Λάθος κωδικός',
     overview: 'ΕΠΙΣΚΟΠΗΣΗ',
     activity: 'ΔΡΑΣΤΗΡΙΟΤΗΤΑ',
     badges: 'ΒΡΑΒΕΙΑ',
@@ -56,10 +56,10 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   } : {
     title: 'PARENT DASHBOARD',
     subtitle: 'Monitor your child\'s progress',
-    pinTitle: 'Enter PIN',
-    pinDesc: 'Enter parent PIN',
-    pinBtn: 'ENTER',
-    pinError: 'Wrong PIN',
+    pinTitle: 'Parent Verification',
+    pinDesc: 'Enter your account password',
+    pinBtn: 'VERIFY',
+    pinError: 'Wrong password',
     overview: 'OVERVIEW',
     activity: 'ACTIVITY',
     badges: 'BADGES',
@@ -112,7 +112,29 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     { icon: Store, label: t.uploads, value: stats.heroesUploaded, color: 'text-violet-400' },
   ];
 
-  // PIN Gate
+  const [authError, setAuthError] = useState('');
+  const [verifying, setVerifying] = useState(false);
+
+  // Data export handler
+  const handleExport = async () => {
+    setExporting(true);
+    try {
+      const res = await authFetch('/api/auth/export-data');
+      if (res.ok) {
+        const data = await res.json();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `wisebot-data-${new Date().toISOString().slice(0, 10)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    } catch { /* ignore */ }
+    setExporting(false);
+  };
+
+  // Parent auth gate — re-enter password to verify identity
   if (!isUnlocked) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
@@ -122,39 +144,49 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
           </div>
           <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-2">{t.pinTitle}</h2>
           <p className="text-white/50 text-sm mb-6">{t.pinDesc}</p>
-          <div className="flex justify-center gap-2 mb-6">
-            {[0, 1, 2, 3].map(i => (
-              <div key={i} className={`w-12 h-12 rounded-xl border-2 flex items-center justify-center text-2xl font-black ${
-                pin.length > i ? 'border-blue-500 bg-blue-500/20 text-blue-300' : 'border-white/10 bg-white/5 text-white/20'
-              }`}>
-                {pin[i] || '•'}
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-cols-3 gap-2 mb-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, null, 0, 'del'].map((key, i) => {
-              if (key === null) return <div key={i} />;
-              return (
-                <button
-                  key={i}
-                  onClick={() => {
-                    if (key === 'del') setPin(p => p.slice(0, -1));
-                    else if (pin.length < 4) {
-                      const newPin = pin + key;
-                      setPin(newPin);
-                      if (newPin.length === 4) {
-                        if (newPin === PARENT_PIN) setIsUnlocked(true);
-                        else setTimeout(() => setPin(''), 500);
-                      }
-                    }
-                  }}
-                  className="h-12 rounded-xl bg-white/5 hover:bg-white/10 active:bg-white/20 border border-white/10 text-white font-black text-lg transition-all"
-                >
-                  {key === 'del' ? '←' : key}
-                </button>
-              );
-            })}
-          </div>
+          <form onSubmit={async (e) => {
+            e.preventDefault();
+            setAuthError('');
+            setVerifying(true);
+            try {
+              // Re-authenticate with the account password
+              const email = user?.email;
+              if (!email || !pin) {
+                setAuthError(t.pinError);
+                setVerifying(false);
+                return;
+              }
+              const result = await signIn(email, pin);
+              if (result.error) {
+                setAuthError(t.pinError);
+              } else {
+                setIsUnlocked(true);
+              }
+            } catch {
+              setAuthError(t.pinError);
+            }
+            setVerifying(false);
+          }} className="space-y-4">
+            <input
+              type="password"
+              value={pin}
+              onChange={(e) => setPin(e.target.value)}
+              placeholder={lang === 'el' ? 'Κωδικός λογαριασμού' : 'Account password'}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 text-center"
+            />
+            {authError && (
+              <p className="text-red-400 text-xs font-bold flex items-center justify-center gap-1">
+                <AlertCircle size={14} /> {authError}
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={verifying || !pin}
+              className="w-full py-3 bg-blue-600/20 border border-blue-500/30 rounded-xl text-white font-black uppercase text-sm hover:bg-blue-600/30 transition-all disabled:opacity-50"
+            >
+              {verifying ? '...' : t.pinBtn}
+            </button>
+          </form>
         </div>
       </div>
     );
@@ -270,6 +302,35 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
             ))}
           </ul>
         </div>
+      </div>
+
+      {/* Data Management (GDPR) */}
+      <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h3 className="text-sm font-black text-white/80 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <Download size={16} /> {lang === 'el' ? 'ΔΙΑΧΕΙΡΙΣΗ ΔΕΔΟΜΕΝΩΝ' : 'DATA MANAGEMENT'}
+        </h3>
+        <div className="flex flex-wrap gap-3">
+          <button
+            onClick={handleExport}
+            disabled={exporting}
+            className="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-xl text-blue-300 text-xs font-bold hover:bg-blue-600/30 transition-all disabled:opacity-50"
+          >
+            {exporting
+              ? (lang === 'el' ? 'Εξαγωγή...' : 'Exporting...')
+              : (lang === 'el' ? '📥 Κατέβασε τα δεδομένα σου' : '📥 Download your data')}
+          </button>
+          <button
+            onClick={() => window.location.hash = '#/account'}
+            className="px-4 py-2 bg-red-600/10 border border-red-500/20 rounded-xl text-red-400 text-xs font-bold hover:bg-red-600/20 transition-all"
+          >
+            {lang === 'el' ? '🗑️ Διαγραφή λογαριασμού' : '🗑️ Delete account'}
+          </button>
+        </div>
+        <p className="text-white/30 text-xs mt-3">
+          {lang === 'el'
+            ? 'Σύμφωνα με τον GDPR, έχετε δικαίωμα εξαγωγής ή διαγραφής των δεδομένων σας ανά πάσα στιγμή.'
+            : 'Under GDPR, you have the right to export or delete your data at any time.'}
+        </p>
       </div>
     </div>
   );
