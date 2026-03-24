@@ -177,7 +177,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generate3DPreview = async () => {
     if (!image) return;
 
-    if (!spendCredits(costs.threeD)) {
+    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -294,7 +294,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generateReal3D = async () => {
     if (!image) return;
 
-    if (!spendCredits(costs.threeD)) {
+    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -785,8 +785,8 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
                   </a>
                 ) : (
                   <button
-                    onClick={() => {
-                      if (spendCredits(costs.threeD)) {
+                    onClick={async () => {
+                      if (await spendCredits(costs.threeD, 'CREATE_3D')) {
                         setUnlockedModels(prev => [...prev, selected3DModel!.id]);
                         showNotification('🎉', lang === 'el' ? 'Ξεκλειδώθηκε! Κατέβασέ το!' : 'Unlocked! Download it!');
                       } else {
