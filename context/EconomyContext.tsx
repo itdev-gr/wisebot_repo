@@ -51,6 +51,19 @@ interface BadgeCelebration {
   gradient: string;
 }
 
+interface ActivityLogEntry {
+  action: string;
+  category: 'game' | 'learn' | 'create';
+  timestamp: string; // ISO date
+}
+
+interface ScreenLimits {
+  games: number;    // minutes per day
+  learn: number;
+  create: number;
+  enabled: boolean;
+}
+
 type ActionType = 'PASS_QUIZ' | 'CREATE_IMAGE' | 'CREATE_VIDEO' | 'UPLOAD_HERO' | 'COMPLETE_HERO' | 'READ_ACADEMY' | 'READ_BOOK' | 'CREATE_BUSINESS' | 'CREATE_SONG';
 
 interface EconomyContextType {
@@ -117,6 +130,45 @@ const BADGE_META: Record<string, { icon: any; gradient: string; titleEl: string;
   scientist: { icon: FlaskConical, gradient: 'from-lime-400 via-green-500 to-emerald-600',   titleEl: 'ΕΠΙΣΤΗΜΟΝΑΣ',   titleEn: 'SCIENTIST',  subtitleEl: 'Quiz +1⚡ Bonus',         subtitleEn: 'Quiz +1⚡ Bonus' },
   explorer:  { icon: Globe,        gradient: 'from-sky-400 via-blue-500 to-indigo-600',      titleEl: 'ΕΞΕΡΕΥΝΗΤΗΣ',   titleEn: 'EXPLORER',   subtitleEl: 'Αποστολή +2⚡',           subtitleEn: 'Mission +2⚡' },
 };
+
+// ─── ACTIVITY LOG HELPERS ────────────────────────────────────────
+function getActivityLog(): ActivityLogEntry[] {
+  try {
+    const raw = localStorage.getItem('wb_activity_log');
+    if (!raw) return [];
+    const log = JSON.parse(raw) as ActivityLogEntry[];
+    // Keep only last 30 days
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - 30);
+    return log.filter(e => new Date(e.timestamp) > cutoff);
+  } catch { return []; }
+}
+
+function saveActivityLog(log: ActivityLogEntry[]) {
+  localStorage.setItem('wb_activity_log', JSON.stringify(log.slice(-500))); // max 500 entries
+}
+
+function getScreenLimits(): ScreenLimits {
+  try {
+    const raw = localStorage.getItem('wb_screen_limits');
+    if (!raw) return { games: 30, learn: 60, create: 30, enabled: false };
+    return JSON.parse(raw);
+  } catch { return { games: 30, learn: 60, create: 30, enabled: false }; }
+}
+
+function getTodayMinutes(category: 'game' | 'learn' | 'create'): number {
+  const today = new Date().toISOString().slice(0, 10);
+  const log = getActivityLog();
+  return log.filter(e => e.category === category && e.timestamp.startsWith(today)).length; // Each entry ≈ 1 action, not minutes
+}
+
+// Map action types to categories
+function getActionCategory(action: string): 'game' | 'learn' | 'create' {
+  const a = action.toLowerCase();
+  if (['quiz', 'lesson', 'book', 'story', 'academy'].some(k => a.includes(k))) return 'learn';
+  if (['image', 'video', 'song', 'music', 'business', '3d', 'hero'].some(k => a.includes(k))) return 'create';
+  return 'game';
+}
 
 const getTodayStr = () => new Date().toISOString().split('T')[0];
 
@@ -636,6 +688,12 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     pendingBadgeCelebrations.forEach(bc => {
       setTimeout(() => showBadgeCelebration(bc.key, bc.emoji), bc.delay);
     });
+
+    // Activity logging
+    const category = getActionCategory(action);
+    const log = getActivityLog();
+    log.push({ action, category, timestamp: new Date().toISOString() });
+    saveActivityLog(log);
   }, [completeDailyMission, earnCredits, showReward, showBadgeCelebration]);
 
   const contextValue = useMemo(() => ({
@@ -679,3 +737,6 @@ export const useEconomy = () => {
   if (!context) throw new Error('useEconomy must be used within an EconomyProvider');
   return context;
 };
+
+export { getActivityLog, getScreenLimits, getTodayMinutes, saveActivityLog };
+export type { ActivityLogEntry, ScreenLimits };
