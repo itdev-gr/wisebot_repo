@@ -46,13 +46,7 @@ const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
 const RATE_LIMIT_MAX = 15; // 15 requests per minute per IP
 
-// Clean up old entries every 5 minutes
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, val] of rateLimitMap) {
-    if (val.resetAt < now) rateLimitMap.delete(key);
-  }
-}, 5 * 60_000);
+// Clean up old entries on each request (no setInterval — serverless-safe)
 
 export function checkRateLimit(req: any, res: any, maxRequests = RATE_LIMIT_MAX): boolean {
   const ip = req.headers?.['x-forwarded-for']?.split(',')[0]?.trim()
@@ -61,6 +55,14 @@ export function checkRateLimit(req: any, res: any, maxRequests = RATE_LIMIT_MAX)
     || 'unknown';
 
   const now = Date.now();
+
+  // Clean up expired entries (serverless-safe, no setInterval)
+  if (rateLimitMap.size > 100) {
+    for (const [key, val] of rateLimitMap) {
+      if (val.resetAt < now) rateLimitMap.delete(key);
+    }
+  }
+
   const entry = rateLimitMap.get(ip);
 
   if (!entry || entry.resetAt < now) {
