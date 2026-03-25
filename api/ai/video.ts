@@ -3,7 +3,6 @@
  * =======================================
  * Uses Gemini 2.5 Flash with content moderation.
  */
-import { GoogleGenAI } from '@google/genai';
 import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
@@ -36,6 +35,7 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) return res.status(500).json({ error: 'AI not configured' });
 
+    const { GoogleGenAI } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey });
     const parts: any[] = [{ text: `Create a short animated video for children about: ${prompt}. Keep it fun, colorful, and educational. No violence or scary elements.` }];
     if (imageBytes && mimeType) {

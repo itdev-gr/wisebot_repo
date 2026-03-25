@@ -6,7 +6,6 @@
  * Routes text requests to Gemini (or OpenAI GPT-4o if Gemini fails).
  * Content moderation applied for kid safety.
  */
-import { GoogleGenAI } from '@google/genai';
 import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
@@ -210,6 +209,8 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
 
     const openaiKey = process.env.OPENAI_API_KEY;
     const geminiKey = process.env.GEMINI_API_KEY;
+
+    const { GoogleGenAI } = await import('@google/genai');
 
     // ── GEMINI IMAGE MODEL → Use Gemini API natively ──
     // This handles both text-to-image AND photo-to-avatar (multimodal)

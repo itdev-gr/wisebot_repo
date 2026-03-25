@@ -4,10 +4,10 @@
  * Admin-only endpoint to add credits to any user's profile.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createClient } from '@supabase/supabase-js';
 import { withProtection } from '../_lib/middleware';
 
-function getSupabaseAdmin() {
+async function getSupabaseAdmin() {
+  const { createClient } = await import('@supabase/supabase-js');
   return createClient(
     process.env.SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_KEY || '',
@@ -42,7 +42,7 @@ export default withProtection(async (req: any, res: any) => {
       return res.status(400).json({ error: 'userId and positive amount required' });
     }
 
-    const supabase = getSupabaseAdmin();
+    const supabase = await getSupabaseAdmin();
 
     // Update credits directly
     const { data: profile, error: fetchError } = await supabase

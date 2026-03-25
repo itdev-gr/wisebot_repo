@@ -5,7 +5,6 @@
  * Fallback: Gemini 2.0 Flash.
  * Cost: ~$0.02/image
  */
-import { GoogleGenAI } from '@google/genai';
 import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
@@ -32,6 +31,7 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) return res.status(500).json({ error: 'AI not configured' });
 
+    const { GoogleGenAI } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey });
 
     // Build kid-safe prompt
@@ -71,7 +71,8 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
       const apiKey = process.env.GEMINI_API_KEY;
       if (!apiKey) throw new Error('No API key');
 
-      const ai = new GoogleGenAI({ apiKey });
+      const { GoogleGenAI: GoogleGenAIFallback } = await import('@google/genai');
+      const ai = new GoogleGenAIFallback({ apiKey });
       const fullPrompt = style
         ? `Create a child-friendly image: ${prompt}, ${style} style. Colorful, safe, no violence.`
         : `Create a child-friendly image: ${prompt}. Colorful, safe, no violence.`;

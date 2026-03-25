@@ -4,7 +4,6 @@
  * Uses OpenAI GPT-4o-mini if available, falls back to Gemini.
  * Content moderation for children ages 6-13.
  */
-import { GoogleGenAI } from '@google/genai';
 import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
@@ -75,6 +74,7 @@ async function chatWithOpenAI(message: string, history: any[], systemPrompt: str
 }
 
 async function chatWithGemini(message: string, history: any[], systemPrompt: string, apiKey: string): Promise<string> {
+  const { GoogleGenAI } = await import('@google/genai');
   const ai = new GoogleGenAI({ apiKey });
   const response = await ai.models.generateContent({
     model: 'gemini-2.5-flash',

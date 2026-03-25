@@ -11,7 +11,7 @@
  * 3. Return success.
  */
 import { withAuth } from '../_lib/middleware';
-import { supabaseAdmin } from '../_lib/supabase';
+import { getSupabaseAdmin } from '../_lib/supabase';
 
 export default withAuth(async (req, res, user) => {
   if (req.method !== 'DELETE') {
@@ -19,6 +19,7 @@ export default withAuth(async (req, res, user) => {
   }
 
   try {
+    const supabaseAdmin = await getSupabaseAdmin();
     const { error } = await supabaseAdmin.auth.admin.deleteUser(user.userId);
 
     if (error) {

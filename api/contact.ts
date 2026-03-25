@@ -6,10 +6,10 @@
  * For now, stores in Supabase table + sends via fetch to email service.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createClient } from '@supabase/supabase-js';
 import { withProtection } from './_lib/middleware';
 
-function getSupabase() {
+async function getSupabase() {
+  const { createClient } = await import('@supabase/supabase-js');
   return createClient(
     process.env.SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_KEY || '',
@@ -31,7 +31,7 @@ export default withProtection(async (req: any, res: any) => {
     const supportEmail = process.env.SUPPORT_EMAIL || 'info@wisebot.gr';
 
     // Store in Supabase (if table exists)
-    const supabase = getSupabase();
+    const supabase = await getSupabase();
     try {
       await supabase.from('contact_messages').insert({
         name: `${name} ${surname || ''}`.trim(),

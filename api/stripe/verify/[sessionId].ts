@@ -1,4 +1,3 @@
-import Stripe from 'stripe';
 import { withProtection } from '../../_lib/middleware';
 
 export default withProtection(async (req: any, res: any) => {
@@ -8,6 +7,7 @@ export default withProtection(async (req: any, res: any) => {
     const key = process.env.STRIPE_SECRET_KEY;
     if (!key) return res.status(500).json({ error: 'Stripe not configured' });
 
+    const Stripe = (await import('stripe')).default;
     const stripe = new Stripe(key);
     const { sessionId } = req.query;
 

@@ -1,8 +1,7 @@
-import Stripe from 'stripe';
-import { createClient } from '@supabase/supabase-js';
 import { withProtection } from '../_lib/middleware';
 
-function getSupabaseAdmin() {
+async function getSupabaseAdmin() {
+  const { createClient } = await import('@supabase/supabase-js');
   return createClient(
     process.env.SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_KEY || '',
@@ -29,11 +28,12 @@ export default withProtection(async (req: any, res: any) => {
     const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
     if (!key || !webhookSecret) return res.status(500).json({ error: 'Not configured' });
 
+    const Stripe = (await import('stripe')).default;
     const stripe = new Stripe(key);
     const rawBody = await getRawBody(req);
     const sig = req.headers['stripe-signature'] as string;
 
-    let event: Stripe.Event;
+    let event: any;
     try {
       event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
     } catch (err: any) {
@@ -42,7 +42,7 @@ export default withProtection(async (req: any, res: any) => {
     }
 
     if (event.type === 'checkout.session.completed') {
-      const session = event.data.object as Stripe.Checkout.Session;
+      const session = event.data.object as any;
       const { userId, packId, credits } = session.metadata || {};
       const creditsAmount = parseInt(credits || '0');
       const sessionId = session.id;
@@ -53,7 +53,7 @@ export default withProtection(async (req: any, res: any) => {
       if (userId && userId !== 'anonymous' && creditsAmount > 0) {
         try {
           // Insert purchase record
-          await getSupabaseAdmin()
+          await (await getSupabaseAdmin())
             .from('purchases')
             .insert({
               user_id: userId,
@@ -65,7 +65,7 @@ export default withProtection(async (req: any, res: any) => {
             });
 
           // Add credits via atomic function
-          const { error: rpcError } = await getSupabaseAdmin().rpc('earn_credits', {
+          const { error: rpcError } = await (await getSupabaseAdmin()).rpc('earn_credits', {
             p_user_id: userId,
             p_amount: creditsAmount,
             p_action: 'PURCHASE',

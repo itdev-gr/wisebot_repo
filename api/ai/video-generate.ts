@@ -8,7 +8,6 @@
  * Body: { prompt, imageBytes?, mimeType? }
  * Response: { operationName }
  */
-import { GoogleGenAI } from '@google/genai';
 import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
@@ -26,6 +25,7 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
   }
 
   try {
+    const { GoogleGenAI } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey });
 
     const generateConfig: any = {

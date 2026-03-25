@@ -5,11 +5,10 @@
  * Protected: requires admin PIN in X-Admin-Pin header.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createClient } from '@supabase/supabase-js';
-import Stripe from 'stripe';
 import { withProtection } from '../_lib/middleware';
 
-function getSupabaseAdmin() {
+async function getSupabaseAdmin() {
+  const { createClient } = await import('@supabase/supabase-js');
   return createClient(
     process.env.SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_KEY || '',
@@ -38,7 +37,7 @@ export default withProtection(async (req: any, res: any) => {
   }
 
   try {
-    const supabaseAdmin = getSupabaseAdmin();
+    const supabaseAdmin = await getSupabaseAdmin();
 
     // Fetch all users from auth
     const { data: authData, error: authError } = await supabaseAdmin.auth.admin.listUsers({
@@ -69,6 +68,7 @@ export default withProtection(async (req: any, res: any) => {
     const stripeKey = process.env.STRIPE_SECRET_KEY;
     if (stripeKey) {
       try {
+        const Stripe = (await import('stripe')).default;
         const stripe = new Stripe(stripeKey);
         const sessions = await stripe.checkout.sessions.list({
           limit: 100,

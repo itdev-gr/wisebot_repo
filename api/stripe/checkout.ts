@@ -1,4 +1,3 @@
-import Stripe from 'stripe';
 import { withOptionalAuth } from '../_lib/middleware';
 
 const CREDIT_PACKS: Record<string, { name: string; credits: number; price: number }> = {
@@ -18,6 +17,7 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
       return res.status(500).json({ error: 'Payment service not configured' });
     }
 
+    const Stripe = (await import('stripe')).default;
     const stripe = new Stripe(key);
     const { packId, userId: bodyUserId } = req.body || {};
 

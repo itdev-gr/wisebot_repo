@@ -10,10 +10,10 @@
  *    which needs to bypass RLS.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createClient } from '@supabase/supabase-js';
 import { withProtection } from '../_lib/middleware';
 
-function getSupabaseAdmin() {
+async function getSupabaseAdmin() {
+  const { createClient } = await import('@supabase/supabase-js');
   return createClient(
     process.env.SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_KEY || '',
@@ -21,7 +21,8 @@ function getSupabaseAdmin() {
   );
 }
 
-function getSupabaseAnon() {
+async function getSupabaseAnon() {
+  const { createClient } = await import('@supabase/supabase-js');
   const url = process.env.SUPABASE_URL || '';
   const anonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
   return createClient(url, anonKey, {
@@ -76,7 +77,7 @@ export default withProtection(async (req: any, res: any) => {
     }
 
     // Create user with admin API (most reliable, works without ANON_KEY)
-    const supabaseAdmin = getSupabaseAdmin();
+    const supabaseAdmin = await getSupabaseAdmin();
 
     let data: any = null;
     let error: any = null;
@@ -118,8 +119,8 @@ export default withProtection(async (req: any, res: any) => {
 
     // Step 2: Create profile with admin client (bypasses RLS)
     if (data.user?.id) {
-      const supabaseAdmin = getSupabaseAdmin();
-      const { error: profileError } = await supabaseAdmin.from('profiles').upsert({
+      const supabaseAdminForProfile = await getSupabaseAdmin();
+      const { error: profileError } = await supabaseAdminForProfile.from('profiles').upsert({
         id: data.user.id,
         child_name: childName,
         parent_email: email,

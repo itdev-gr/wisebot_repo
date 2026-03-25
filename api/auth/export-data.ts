@@ -4,10 +4,10 @@
  * Returns all user data in JSON format.
  * Requires authentication. Returns data for the authenticated user only.
  */
-import { createClient } from '@supabase/supabase-js';
 import { withAuth } from '../_lib/middleware';
 
-function getSupabaseAdmin() {
+async function getSupabaseAdmin() {
+  const { createClient } = await import('@supabase/supabase-js');
   return createClient(
     process.env.SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_KEY || '',
@@ -19,7 +19,7 @@ export default withAuth(async (req: any, res: any, user) => {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
-    const supabase = getSupabaseAdmin();
+    const supabase = await getSupabaseAdmin();
     const userId = user.userId;
 
     // Fetch all user data in parallel
