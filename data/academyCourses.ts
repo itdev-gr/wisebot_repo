@@ -1,3 +1,10 @@
+// HD image constants used by course entries
+const LINK_HD = "/images/link.jpg";
+const PENCILO_HD = "/images/pencilo.jpg";
+const WISEBOT_HD = "/images/wisebot.jpg";
+const CROCUS_HD = "/images/crocus.jpg";
+const SPARKEN_HD = "/images/sparken.jpg";
+
 export const COURSES = [
   // ========================================================================
   // 🚀 CATEGORY 1: START SMALL (Business & Visionaries)
