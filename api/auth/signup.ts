@@ -75,53 +75,22 @@ export default withProtection(async (req: any, res: any) => {
       });
     }
 
-    // Step 1: Try regular client first (sends verification email automatically)
-    // Fall back to admin client if anon key is not available
-    const anonUrl = process.env.SUPABASE_URL || '';
-    const anonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
+    // Create user with admin API (most reliable, works without ANON_KEY)
+    const supabaseAdmin = getSupabaseAdmin();
 
     let data: any = null;
     let error: any = null;
 
-    if (anonKey) {
-      // Regular client — auto-sends verification email
-      const supabaseAnon = getSupabaseAnon();
-      const result = await supabaseAnon.auth.signUp({
-        email,
-        password,
-        options: {
-          data: { child_name: childName, parent_email: email },
-          emailRedirectTo: 'https://wisebot.gr/#/login',
-        },
-      });
-      data = result.data;
-      error = result.error;
-    } else {
-      // Fallback: Admin client — create user without auto-confirm
-      console.log('[Auth Signup] SUPABASE_ANON_KEY not set, using admin API');
-      const supabaseAdmin = getSupabaseAdmin();
-      const result = await supabaseAdmin.auth.admin.createUser({
-        email,
-        password,
-        email_confirm: false, // Require email verification
-        user_metadata: { child_name: childName, parent_email: email },
-      });
-      data = result.data;
-      error = result.error;
-
-      // Admin API: manually trigger verification email
-      if (data?.user && !error) {
-        try {
-          await supabaseAdmin.auth.admin.generateLink({
-            type: 'signup',
-            email,
-            options: { redirectTo: 'https://wisebot.gr/#/login' },
-          });
-        } catch (linkErr) {
-          console.warn('[Auth Signup] Could not generate verification link:', (linkErr as any)?.message);
-        }
-      }
-    }
+    // First try: admin createUser with email_confirm true (user can login immediately)
+    // We auto-confirm because Supabase admin API doesn't send verification emails
+    const result = await supabaseAdmin.auth.admin.createUser({
+      email,
+      password,
+      email_confirm: true,
+      user_metadata: { child_name: childName, parent_email: email },
+    });
+    data = result.data;
+    error = result.error;
 
     if (error) {
       console.error('[Auth Signup] Error:', error.message);

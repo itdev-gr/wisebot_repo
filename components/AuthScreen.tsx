@@ -70,7 +70,7 @@ const TEXT = {
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const navigate = useNavigate();
-  const { user, loading: authLoading, emailVerified, signUp, signIn, signInWithGoogle } = useAuth();
+  const { user, loading: authLoading, emailVerified, signUp, signIn, signInWithGoogle, resetPassword } = useAuth();
   const t = TEXT[lang];
 
   // If already logged in AND verified, redirect
@@ -105,7 +105,8 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       setError(t.errorRequired);
       return;
     }
-    if (password.length < 8) {
+    // Password length check only for registration — existing users may have shorter passwords
+    if (tab === 'register' && password.length < 8) {
       setError(t.errorPassword);
       return;
     }
@@ -270,6 +271,33 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
+
+              {/* Forgot password — only show on login tab */}
+              {tab === 'login' && (
+                <div className="text-right">
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      if (!parentEmail) {
+                        setError(lang === 'el' ? 'Βάλε πρώτα το email σου' : 'Enter your email first');
+                        return;
+                      }
+                      setError('');
+                      const result = await resetPassword(parentEmail);
+                      if (result.error) {
+                        setError(result.error);
+                      } else {
+                        setSuccess(lang === 'el'
+                          ? 'Στείλαμε email για αλλαγή κωδικού! Τσέκαρε τα εισερχόμενά σου.'
+                          : 'Password reset email sent! Check your inbox.');
+                      }
+                    }}
+                    className="text-blue-400/60 text-xs font-bold hover:text-blue-400 transition-colors"
+                  >
+                    {lang === 'el' ? 'Ξέχασες τον κωδικό;' : 'Forgot password?'}
+                  </button>
+                </div>
+              )}
 
               <AnimatePresence mode="wait">
                 {tab === 'register' && (
