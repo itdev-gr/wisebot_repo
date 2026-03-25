@@ -115,7 +115,19 @@ export function withProtection(handler: (req: any, res: any) => Promise<any>) {
   };
 }
 
-/** Wrap handler with CORS + rate limiting + auth (protected endpoints) */
+/** Wrap handler with CORS + rate limiting + OPTIONAL auth (AI endpoints — works for guests too) */
+export function withOptionalAuth(handler: (req: any, res: any, user: { userId: string; email: string } | null) => Promise<any>) {
+  return async (req: any, res: any) => {
+    if (setCorsHeaders(req, res)) return;
+    if (checkRateLimit(req, res)) return;
+
+    // Try to get user but don't require it
+    const user = await verifyAuth(req);
+    return handler(req, res, user);
+  };
+}
+
+/** Wrap handler with CORS + rate limiting + REQUIRED auth (protected endpoints) */
 export function withAuth(handler: (req: any, res: any, user: { userId: string; email: string }) => Promise<any>) {
   return async (req: any, res: any) => {
     if (setCorsHeaders(req, res)) return;

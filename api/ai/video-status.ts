@@ -7,9 +7,9 @@
  * GET /api/ai/video-status?operationName=xxx
  * Response: { status, videoUrl?, progress? }
  */
-import { withAuth } from '../_lib/middleware';
+import { withOptionalAuth } from '../_lib/middleware';
 
-export default withAuth(async (req: any, res: any, user) => {
+export default withOptionalAuth(async (req: any, res: any, user) => {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.GEMINI_API_KEY;

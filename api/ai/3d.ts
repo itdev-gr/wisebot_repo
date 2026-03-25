@@ -4,7 +4,7 @@
  * Uses Gemini 2.5 Flash with content moderation.
  */
 import { GoogleGenAI } from '@google/genai';
-import { withAuth } from '../_lib/middleware';
+import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
 const SAFETY_SETTINGS: any[] = [
@@ -14,7 +14,7 @@ const SAFETY_SETTINGS: any[] = [
   { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_LOW_AND_ABOVE' },
 ];
 
-export default withAuth(async (req: any, res: any, user) => {
+export default withOptionalAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {

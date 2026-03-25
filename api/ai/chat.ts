@@ -5,7 +5,7 @@
  * Content moderation for children ages 6-13.
  */
 import { GoogleGenAI } from '@google/genai';
-import { withAuth } from '../_lib/middleware';
+import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
 const SYSTEM_PROMPT = `Είσαι η WiseBot — ο νους της ομάδας στο WiseBot Academy (wisebot.gr). Είσαι σαν μεγάλη αδερφή/φίλη για παιδιά 6-13. ΔΕΝ είσαι ρομπότ, είσαι χαρακτήρας με ψυχή.
@@ -84,7 +84,7 @@ async function chatWithGemini(message: string, history: any[], systemPrompt: str
   return response.text || '';
 }
 
-export default withAuth(async (req: any, res: any, user) => {
+export default withOptionalAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {

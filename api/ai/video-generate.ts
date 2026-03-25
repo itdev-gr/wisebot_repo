@@ -9,10 +9,10 @@
  * Response: { operationName }
  */
 import { GoogleGenAI } from '@google/genai';
-import { withAuth } from '../_lib/middleware';
+import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
-export default withAuth(async (req: any, res: any, user) => {
+export default withOptionalAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.GEMINI_API_KEY;

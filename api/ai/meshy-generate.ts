@@ -18,11 +18,11 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { withAuth } from '../_lib/middleware';
+import { withOptionalAuth } from '../_lib/middleware';
 
 const MESHY_API_URL = 'https://api.meshy.ai/openapi/v1/image-to-3d';
 
-export default withAuth(async (req: any, res: any, user) => {
+export default withOptionalAuth(async (req: any, res: any, user) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

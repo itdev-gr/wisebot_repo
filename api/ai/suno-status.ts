@@ -18,11 +18,11 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { withAuth } from '../_lib/middleware';
+import { withOptionalAuth } from '../_lib/middleware';
 
 const SUNO_STATUS_URL = 'https://api.sunoapi.org/api/v1/generate/record-info';
 
-export default withAuth(async (req: any, res: any, user) => {
+export default withOptionalAuth(async (req: any, res: any, user) => {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
