@@ -4,7 +4,6 @@
  * Uses OpenAI GPT-4o-mini if available, falls back to Gemini.
  * Content moderation for children ages 6-13.
  */
-import { isContentSafe } from './_moderation';
 
 const SYSTEM_PROMPT = `Είσαι η WiseBot — ο νους της ομάδας στο WiseBot Academy (wisebot.gr). Είσαι σαν μεγάλη αδερφή/φίλη για παιδιά 6-13. ΔΕΝ είσαι ρομπότ, είσαι χαρακτήρας με ψυχή.
 
@@ -82,6 +81,11 @@ async function chatWithGemini(message: string, history: any[], systemPrompt: str
   });
   return response.text || '';
 }
+
+
+const BLOCKED_EN = /(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)/i;
+const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
+function isContentSafe(text: string): boolean { if (\!text || typeof text \!== 'string') return true; return \!BLOCKED_EN.test(text) && \!BLOCKED_GR.test(text); }
 
 export default async function handler(req: any, res: any) {
   // CORS
