@@ -51,9 +51,9 @@ export default async function handler(req: any, res: any) {
       ? `${safetyPrefix} ${prompt}, ${style} style.`
       : `${safetyPrefix} ${prompt}.`;
 
-    // Use Imagen 4 Fast — $0.02/image, ~2.7s latency
+    // Use Imagen 3 — stable, widely available
     const response = await ai.models.generateImages({
-      model: 'imagen-4.0-fast-generate-001',
+      model: 'imagen-3.0-generate-002',
       prompt: fullPrompt,
       config: {
         numberOfImages: 1,
@@ -74,7 +74,7 @@ export default async function handler(req: any, res: any) {
     // Fallback: no image generated
     return res.status(200).json({ image: '', description: 'No image generated' });
   } catch (err: any) {
-    console.error('AI Image error:', err.message);
+    console.error('AI Image error:', err.message, err.status, err.code);
 
     // If Imagen fails, fallback to Gemini 2.0 Flash
     try {
@@ -89,7 +89,7 @@ export default async function handler(req: any, res: any) {
         : `Create a child-friendly image: ${prompt}. Colorful, safe, no violence.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.0-flash',
         contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
         config: { responseModalities: ['TEXT', 'IMAGE'] },
       });

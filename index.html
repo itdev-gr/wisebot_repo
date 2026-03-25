@@ -230,7 +230,8 @@
     @font-face { font-family: 'Nunito'; font-weight: 800; font-style: normal; font-display: swap; src: url('/fonts/nunito-800.ttf') format('truetype'); }
     @font-face { font-family: 'Nunito'; font-weight: 900; font-style: normal; font-display: swap; src: url('/fonts/nunito-900.ttf') format('truetype'); }
   </style>
-  <link rel="stylesheet" href="/index.css">
+  <link rel="preload" as="style" href="/index.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/index.css"></noscript>
 </head>
 <body>
   <div id="root"></div>
