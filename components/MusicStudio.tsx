@@ -483,7 +483,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     if (pollingRef.current) clearInterval(pollingRef.current);
 
     let attempts = 0;
-    const maxAttempts = 60; // ~5 minutes at 5s intervals
+    const maxAttempts = 120; // ~10 minutes at 5s intervals (Suno can be slow)
 
     pollingRef.current = setInterval(async () => {
       attempts++;
