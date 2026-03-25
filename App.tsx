@@ -320,6 +320,14 @@ const PendingVerification: React.FC = () => {
   );
 };
 
+// --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
+const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user, loading, emailVerified } = useAuth();
+  if (loading) return <>{children}</>;
+  if (user && emailVerified) return <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
+};
+
 // --- AUTH GUARD: Redirects unauthenticated users to /login ---
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, loading, emailVerified } = useAuth();
@@ -451,7 +459,7 @@ function AppContent() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* PUBLIC ROUTES */}
-            <Route path="/" element={<LandingPage lang={lang} />} />
+            <Route path="/" element={<AutoRedirectIfLoggedIn><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<AuthScreen lang={lang} />} />
             <Route path="/legal" element={<LegalHub lang={lang} />} />

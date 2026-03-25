@@ -173,7 +173,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: 'https://wisebot.gr/#/dashboard',
+          // Don't use hash route in redirectTo — conflicts with HashRouter
+          // Supabase puts access_token in the hash fragment which overwrites HashRouter's route
+          redirectTo: 'https://wisebot.gr',
         },
       });
       if (error) return { error: error.message };
