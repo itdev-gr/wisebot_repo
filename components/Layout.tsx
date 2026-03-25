@@ -292,8 +292,9 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                       </div>
                       <span className="text-xl font-black text-white uppercase italic tracking-tighter">WiseBot</span>
                    </div>
-                   <button 
+                   <button
                      onClick={() => setIsMobileMenuOpen(false)}
+                     aria-label={lang === 'el' ? 'Κλείσιμο μενού' : 'Close menu'}
                      className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10 active:bg-white/20"
                    >
                      <X size={24} />
@@ -547,8 +548,9 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                 onClick={(e) => e.stopPropagation()}
                 className="w-full max-w-6xl h-[85vh] bg-[#0B0F1A]/80 border border-blue-500/20 rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(30,58,138,0.4)] flex relative backdrop-blur-2xl"
               >
-                <button 
+                <button
                   onClick={() => setShowLevelModal(false)}
+                  aria-label={lang === 'el' ? 'Κλείσιμο' : 'Close'}
                   className="absolute top-8 right-8 z-[1010] p-4 bg-blue-900/20 hover:bg-blue-800/40 rounded-full text-white transition-all border border-blue-500/20 backdrop-blur-md"
                 >
                   <X size={24} />
@@ -683,7 +685,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                     <Rocket size={20} className="md:w-6 md:h-6 lg:w-8 lg:h-8" />
                   </div>
                 ) : (
-                  <button onClick={() => navigate('/dashboard')} className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/10 hover:bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer border border-white/10 shrink-0">
+                  <button onClick={() => navigate('/dashboard')} aria-label={lang === 'el' ? 'Πίσω στο Dashboard' : 'Back to Dashboard'} className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-white/10 hover:bg-white/20 rounded-xl md:rounded-2xl flex items-center justify-center text-white shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer border border-white/10 shrink-0">
                     <ArrowLeft size={20} className="md:w-6 md:h-6 lg:w-8 lg:h-8" />
                   </button>
                 )}
@@ -696,11 +698,12 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                 {/* MUTE / UNMUTE BUTTON */}
                 <button
                   onClick={toggleMusic}
-                  className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center border transition-all hover:scale-110 active:scale-95 ${
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all hover:scale-110 active:scale-95 ${
                     isMuted
                       ? 'bg-white/5 border-white/10 text-white/40 hover:text-white hover:border-white/30'
                       : 'bg-purple-500/20 border-purple-500/40 text-purple-300 hover:bg-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.3)]'
                   }`}
+                  aria-label={isMuted ? (lang === 'el' ? 'Ενεργοποίηση μουσικής' : 'Unmute music') : (lang === 'el' ? 'Σίγαση μουσικής' : 'Mute music')}
                   title={isMuted ? (lang === 'el' ? 'Ενεργοποίηση μουσικής' : 'Unmute music') : (lang === 'el' ? 'Σίγαση μουσικής' : 'Mute music')}
                 >
                   {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
@@ -741,6 +744,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
               ? 'bg-black/40 border-white/20 text-white/50 hover:text-white hover:border-white/40'
               : 'bg-purple-500/30 border-purple-500/50 text-purple-200 shadow-[0_0_20px_rgba(168,85,247,0.4)]'
           }`}
+          aria-label={isMuted ? (lang === 'el' ? 'Ενεργοποίηση μουσικής' : 'Unmute music') : (lang === 'el' ? 'Σίγαση μουσικής' : 'Mute music')}
           title={isMuted ? (lang === 'el' ? 'Ενεργοποίηση μουσικής' : 'Unmute music') : (lang === 'el' ? 'Σίγαση μουσικής' : 'Mute music')}
         >
           {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}

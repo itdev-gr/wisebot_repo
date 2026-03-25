@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Trophy,
@@ -37,8 +37,8 @@ import {
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import DailyMission from './DailyMission';
-import DailyRewardPopup from './DailyRewardPopup';
-import OnboardingOverlay from './OnboardingOverlay';
+const DailyRewardPopup = React.lazy(() => import('./DailyRewardPopup'));
+const OnboardingOverlay = React.lazy(() => import('./OnboardingOverlay'));
 
 interface DashboardProps {
   lang: 'el' | 'en';
@@ -442,8 +442,10 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
     <div className="pb-32 relative z-10 px-4 max-w-7xl mx-auto animate-in fade-in duration-700 space-y-10">
 
       {/* 🎁 DAILY REWARD POPUP */}
-      <DailyRewardPopup lang={lang} />
-      <OnboardingOverlay lang={lang} />
+      <Suspense fallback={null}>
+        <DailyRewardPopup lang={lang} />
+        <OnboardingOverlay lang={lang} />
+      </Suspense>
 
       {/* 🎉 CELEBRATION OVERLAY */}
       {celebrateStage !== null && (
@@ -683,7 +685,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       {dashboardVideo && (
         <div className="fixed inset-0 z-[1000] bg-black/95 flex items-center justify-center p-4 xl:pl-80" onClick={() => setDashboardVideo(null)}>
           <div className="w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden relative border border-white/10 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setDashboardVideo(null)} className="absolute top-4 right-4 text-white z-20 bg-black/50 p-2 rounded-full hover:bg-white/20 transition-colors">
+            <button onClick={() => setDashboardVideo(null)} aria-label={lang === 'el' ? 'Κλείσιμο βίντεο' : 'Close video'} className="absolute top-4 right-4 text-white z-20 bg-black/50 p-3 rounded-full hover:bg-white/20 transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center">
               <X size={24} />
             </button>
             <video ref={(el) => { if (el) { el.muted = false; el.play().catch(() => {}); } }} src={dashboardVideo.videoUrl} controls playsInline className="w-full h-full object-contain" />
