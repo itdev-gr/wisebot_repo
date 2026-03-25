@@ -43,19 +43,17 @@ export default function CreditStore({ lang }: CreditStoreProps) {
   const [showSuccess, setShowSuccess] = useState(false);
   const backendReady = isBackendAvailable();
 
-  // Handle Stripe redirect (works with HashRouter)
-  // Stripe redirects to: /?success=true&session_id=xxx#/store
-  // So we need window.location.search, not HashRouter's searchParams
+  // Handle Stripe redirect
+  // Stripe redirects to: /store?success=true&session_id=xxx
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionId = urlParams.get('session_id');
-    const success = urlParams.get('success');
+    const sessionId = searchParams.get('session_id');
+    const success = searchParams.get('success');
     if (success && sessionId && backendReady) {
       // Prevent duplicate processing: check if this session was already verified
       const processedSessions = JSON.parse(localStorage.getItem('wb_verified_sessions') || '[]');
       if (processedSessions.includes(sessionId)) {
         // Already processed — just clean up URL
-        window.history.replaceState({}, '', window.location.pathname + '#/store');
+        window.history.replaceState({}, '', '/store');
         return;
       }
 
@@ -73,7 +71,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
           setShowSuccess(true);
           setTimeout(() => setShowSuccess(false), 5000);
           // Clean up URL params after processing
-          window.history.replaceState({}, '', window.location.pathname + '#/store');
+          window.history.replaceState({}, '', '/store');
         }
       }).catch(console.error);
     }

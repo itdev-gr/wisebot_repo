@@ -44,23 +44,19 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
   useEffect(() => {
     refreshSavedProgress();
 
-    const hash = window.location.hash;
-    const queryIdx = hash.indexOf('?');
-    if (queryIdx > -1) {
-      const params = new URLSearchParams(hash.substring(queryIdx));
-      const category = params.get('challenge');
-      const score = params.get('score');
-      const from = params.get('from');
-      if (category && score && from) {
-        setChallengeData({
-          score: parseInt(score),
-          from: decodeURIComponent(from),
-        });
-        const isHero = category === 'facts' || category === 'scenarios';
-        setActiveQuiz({ type: isHero ? 'hero' : 'general', id: category });
-        // Clean URL to prevent re-triggering
-        window.history.replaceState(null, '', window.location.pathname + '#/quiz');
-      }
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('challenge');
+    const score = params.get('score');
+    const from = params.get('from');
+    if (category && score && from) {
+      setChallengeData({
+        score: parseInt(score),
+        from: decodeURIComponent(from),
+      });
+      const isHero = category === 'facts' || category === 'scenarios';
+      setActiveQuiz({ type: isHero ? 'hero' : 'general', id: category });
+      // Clean URL to prevent re-triggering
+      window.history.replaceState(null, '', '/quiz');
     }
   }, []);
 

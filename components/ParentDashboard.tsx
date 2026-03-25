@@ -655,7 +655,7 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
             {exporting ? t.exportingBtn : `\u{1F4E5} ${t.exportBtn}`}
           </button>
           <button
-            onClick={() => window.location.hash = '#/account'}
+            onClick={() => window.location.href = '/account'}
             className="px-4 py-2 bg-red-600/10 border border-red-500/20 rounded-xl text-red-400 text-xs font-bold hover:bg-red-600/20 transition-all"
           >
             {`\u{1F5D1}\uFE0F ${t.deleteBtn}`}

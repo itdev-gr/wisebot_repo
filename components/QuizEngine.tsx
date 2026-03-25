@@ -351,8 +351,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
   // ─── CHALLENGE & SHARE ───
   const handleChallenge = async () => {
     const name = localStorage.getItem('wb_user_name') || (lang === 'el' ? 'WiseKid' : 'WiseKid');
-    const base = `${window.location.origin}${window.location.pathname}`;
-    const url = `${base}#/quiz?challenge=${categoryId || ''}&score=${totalScore}&total=${questions.length}&from=${encodeURIComponent(name)}`;
+    const url = `${window.location.origin}/quiz?challenge=${categoryId || ''}&score=${totalScore}&total=${questions.length}&from=${encodeURIComponent(name)}`;
     const text = lang === 'el'
       ? `Πήρα ${totalScore}/${questions.length} στο ${topic}! Μπορείς να με νικήσεις; 🧠`
       : `I scored ${totalScore}/${questions.length} on ${topic}! Can you beat me? 🧠`;

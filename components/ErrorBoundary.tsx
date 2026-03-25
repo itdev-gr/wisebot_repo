@@ -79,7 +79,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
                 <RefreshCcw size={14} /> {t.retry}
               </button>
               <button
-                onClick={() => { this.setState({ hasError: false, error: null }); window.location.hash = '#/dashboard'; }}
+                onClick={() => { this.setState({ hasError: false, error: null }); window.location.href = '/dashboard'; }}
                 className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white/60 font-[1000] uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
               >
                 <Home size={14} /> {t.home}

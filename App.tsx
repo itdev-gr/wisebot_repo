@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
-import { HashRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import LandingPage from './components/LandingPage';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -451,7 +451,7 @@ function AppContent() {
   }, []);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <OfflineBanner />
       <Layout lang={lang} setLang={setLang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes}>
         {/* ErrorBoundary catches crashes, Suspense handles lazy loading */}
@@ -490,7 +490,7 @@ function AppContent() {
       <Suspense fallback={null}>
         <CookieConsent lang={lang} />
       </Suspense>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

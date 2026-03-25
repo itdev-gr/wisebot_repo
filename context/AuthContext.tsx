@@ -173,9 +173,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          // Don't use hash route in redirectTo — conflicts with HashRouter
-          // Supabase puts access_token in the hash fragment which overwrites HashRouter's route
-          redirectTo: 'https://wisebot.gr',
+          redirectTo: 'https://wisebot.gr/dashboard',
         },
       });
       if (error) return { error: error.message };
@@ -190,7 +188,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!configured) return { error: 'Auth not configured' };
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://wisebot.gr/#/login',
+        redirectTo: 'https://wisebot.gr/login',
       });
       if (error) return { error: error.message };
       return {};

@@ -30,8 +30,8 @@ export default async function handler(req: any, res: any) {
       payment_method_types: ['card'],
       line_items: [{ price_data: { currency: 'eur', product_data: { name: pack.name }, unit_amount: pack.price }, quantity: 1 }],
       mode: 'payment',
-      success_url: `${frontendUrl}/?success=true&session_id={CHECKOUT_SESSION_ID}#/store`,
-      cancel_url: `${frontendUrl}/#/store`,
+      success_url: `${frontendUrl}/store?success=true&session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${frontendUrl}/store`,
       metadata: { userId: userId || 'anonymous', packId, credits: String(pack.credits) },
     });
 
