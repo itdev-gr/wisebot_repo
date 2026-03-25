@@ -17,7 +17,7 @@ import {
   DollarSign, Activity, BarChart3, Clock, Shield, Eye, EyeOff,
   Search, ChevronDown, ChevronUp, Image, Music, Film, Briefcase,
   Box, Gamepad2, Star, ArrowUpRight, Globe, Server, Palette,
-  CreditCard, Hash,
+  CreditCard, Hash, Trash2, RotateCcw,
 } from 'lucide-react';
 import { authFetch } from '../services/backendApi';
 
@@ -89,6 +89,20 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
   const [creditAmount, setCreditAmount] = useState('');
   const [creditSending, setCreditSending] = useState(false);
   const [creditMsg, setCreditMsg] = useState('');
+
+  // Delete user modal
+  const [deleteModal, setDeleteModal] = useState<{ userId: string; name: string } | null>(null);
+  const [deleteConfirmText, setDeleteConfirmText] = useState('');
+  const [deleteSending, setDeleteSending] = useState(false);
+  const [deleteMsg, setDeleteMsg] = useState('');
+
+  // Refund credits modal
+  const [refundModal, setRefundModal] = useState<{ userId: string; name: string; currentCredits: number } | null>(null);
+  const [refundAmount, setRefundAmount] = useState('');
+  const [refundReason, setRefundReason] = useState('');
+  const [refundCustomReason, setRefundCustomReason] = useState('');
+  const [refundSending, setRefundSending] = useState(false);
+  const [refundMsg, setRefundMsg] = useState('');
 
   const handleLoginSubmit = async () => {
     if (!loginEmail.trim() || !loginPassword.trim()) return;
@@ -182,6 +196,77 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
       }
     } catch { setCreditMsg('Network error'); }
     finally { setCreditSending(false); }
+  };
+
+  const handleDeleteUser = async () => {
+    if (!deleteModal || deleteConfirmText !== 'DELETE') return;
+    setDeleteSending(true);
+    setDeleteMsg('');
+    try {
+      const res = await authFetch('/api/admin/delete-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        body: JSON.stringify({ userId: deleteModal.userId, reason: 'Admin manual deletion' }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setDeleteMsg('User deleted successfully');
+        setData(prev => {
+          if (!prev) return prev;
+          const removedUser = prev.users.find(u => u.id === deleteModal.userId);
+          const removedCredits = removedUser?.credits || 0;
+          return {
+            ...prev,
+            users: prev.users.filter(u => u.id !== deleteModal.userId),
+            totals: {
+              ...prev.totals,
+              userCount: prev.totals.userCount - 1,
+              totalCredits: prev.totals.totalCredits - removedCredits,
+            },
+          };
+        });
+        setTimeout(() => { setDeleteModal(null); setDeleteMsg(''); setDeleteConfirmText(''); }, 1500);
+      } else {
+        setDeleteMsg(`Error: ${result.error}`);
+      }
+    } catch { setDeleteMsg('Network error'); }
+    finally { setDeleteSending(false); }
+  };
+
+  const handleRefundCredits = async () => {
+    if (!refundModal || !refundAmount) return;
+    const amount = parseInt(refundAmount);
+    if (isNaN(amount) || amount <= 0) return;
+    const reason = refundReason === 'other' ? refundCustomReason : refundReason;
+    if (!reason) return;
+    setRefundSending(true);
+    setRefundMsg('');
+    try {
+      const res = await authFetch('/api/admin/refund', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        body: JSON.stringify({ userId: refundModal.userId, amount, reason }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setRefundMsg(`Refunded +${amount}! New balance: ${result.newCredits}`);
+        setData(prev => {
+          if (!prev) return prev;
+          return {
+            ...prev,
+            users: prev.users.map(u => u.id === refundModal.userId ? { ...u, credits: result.newCredits } : u),
+            totals: { ...prev.totals, totalCredits: prev.totals.totalCredits + amount },
+          };
+        });
+        setRefundAmount('');
+        setRefundReason('');
+        setRefundCustomReason('');
+        setTimeout(() => { setRefundModal(null); setRefundMsg(''); }, 1500);
+      } else {
+        setRefundMsg(`Error: ${result.error}`);
+      }
+    } catch { setRefundMsg('Network error'); }
+    finally { setRefundSending(false); }
   };
 
   // Computed stats
@@ -366,6 +451,90 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
         </div>
       )}
 
+      {/* DELETE USER MODAL */}
+      {deleteModal && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => { setDeleteModal(null); setDeleteConfirmText(''); setDeleteMsg(''); }}>
+          <div className="bg-[#0B0F1A] border border-red-500/20 rounded-2xl p-6 max-w-sm w-full space-y-4" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between">
+              <h3 className="text-red-400 font-[1000] uppercase italic text-sm flex items-center gap-2"><Trash2 size={16} /> Delete User</h3>
+              <button onClick={() => { setDeleteModal(null); setDeleteConfirmText(''); setDeleteMsg(''); }} className="text-white/40 hover:text-white"><X size={18} /></button>
+            </div>
+            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-3">
+              <p className="text-red-400 text-xs font-bold">WARNING: This action is permanent!</p>
+              <p className="text-red-400/60 text-[10px] mt-1">All user data, creations, and account info will be permanently deleted.</p>
+            </div>
+            <div className="text-white/60 text-xs">
+              <p className="font-bold text-white text-base">{deleteModal.name}</p>
+              <p className="mt-1 text-white/30">User ID: <span className="font-mono text-[10px]">{deleteModal.userId}</span></p>
+            </div>
+            <div>
+              <p className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-2">Type "DELETE" to confirm</p>
+              <input type="text" value={deleteConfirmText} onChange={e => setDeleteConfirmText(e.target.value)}
+                placeholder="DELETE"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold outline-none focus:border-red-500 placeholder:text-white/10" />
+            </div>
+            {deleteMsg && <p className={`text-xs font-bold ${deleteMsg.startsWith('Error') ? 'text-red-400' : 'text-emerald-400'}`}>{deleteMsg}</p>}
+            <button onClick={handleDeleteUser} disabled={deleteConfirmText !== 'DELETE' || deleteSending}
+              className="w-full py-3 bg-gradient-to-r from-red-600 to-red-500 text-white font-[1000] uppercase text-xs rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 transition-all">
+              {deleteSending ? <Loader2 size={14} className="animate-spin" /> : <Trash2 size={14} />}
+              {deleteSending ? 'Deleting...' : 'Permanently Delete User'}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* REFUND CREDITS MODAL */}
+      {refundModal && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => { setRefundModal(null); setRefundAmount(''); setRefundReason(''); setRefundCustomReason(''); setRefundMsg(''); }}>
+          <div className="bg-[#0B0F1A] border border-orange-500/20 rounded-2xl p-6 max-w-sm w-full space-y-4" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between">
+              <h3 className="text-orange-400 font-[1000] uppercase italic text-sm flex items-center gap-2"><RotateCcw size={16} /> Refund Credits</h3>
+              <button onClick={() => { setRefundModal(null); setRefundAmount(''); setRefundReason(''); setRefundCustomReason(''); setRefundMsg(''); }} className="text-white/40 hover:text-white"><X size={18} /></button>
+            </div>
+            <div className="text-white/60 text-xs">
+              <p className="font-bold text-white text-base">{refundModal.name}</p>
+              <p className="mt-1">Current: <span className="text-amber-400 font-bold">{refundModal.currentCredits} credits</span></p>
+            </div>
+            <div>
+              <p className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-2">Quick Amount</p>
+              <div className="flex gap-2">
+                {[10, 50, 100, 200].map(amt => (
+                  <button key={amt} onClick={() => setRefundAmount(String(amt))}
+                    className={`flex-1 py-2.5 rounded-lg text-xs font-bold transition-all ${refundAmount === String(amt) ? 'bg-orange-500 text-black' : 'bg-white/5 text-white/60 hover:bg-white/10'}`}>
+                    +{amt}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <input type="number" value={refundAmount} onChange={e => setRefundAmount(e.target.value)}
+              placeholder="Custom amount..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold outline-none focus:border-orange-500" />
+            <div>
+              <p className="text-white/40 text-[10px] font-bold uppercase tracking-wider mb-2">Reason</p>
+              <select value={refundReason} onChange={e => setRefundReason(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold outline-none focus:border-orange-500 appearance-none cursor-pointer">
+                <option value="" className="bg-[#0B0F1A]">Select reason...</option>
+                <option value="Song creation failed" className="bg-[#0B0F1A]">Song creation failed</option>
+                <option value="Image generation failed" className="bg-[#0B0F1A]">Image generation failed</option>
+                <option value="Video generation failed" className="bg-[#0B0F1A]">Video generation failed</option>
+                <option value="3D model failed" className="bg-[#0B0F1A]">3D model failed</option>
+                <option value="Technical issue" className="bg-[#0B0F1A]">Technical issue</option>
+                <option value="other" className="bg-[#0B0F1A]">Other (free text)</option>
+              </select>
+            </div>
+            {refundReason === 'other' && (
+              <input type="text" value={refundCustomReason} onChange={e => setRefundCustomReason(e.target.value)}
+                placeholder="Describe reason..." className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-bold outline-none focus:border-orange-500" />
+            )}
+            {refundMsg && <p className={`text-xs font-bold ${refundMsg.startsWith('Error') ? 'text-red-400' : 'text-emerald-400'}`}>{refundMsg}</p>}
+            <button onClick={handleRefundCredits} disabled={!refundAmount || !refundReason || (refundReason === 'other' && !refundCustomReason) || refundSending}
+              className="w-full py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-black font-[1000] uppercase text-xs rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 transition-all">
+              {refundSending ? <Loader2 size={14} className="animate-spin" /> : <RotateCcw size={14} />}
+              {refundSending ? 'Refunding...' : `Refund ${refundAmount || '0'} Credits`}
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* ─── HEADER ───────────────── */}
       <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
@@ -418,6 +587,8 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
           sortBy={sortBy} setSortBy={setSortBy}
           expandedUser={expandedUser} setExpandedUser={setExpandedUser}
           onGiveCredits={setCreditModal}
+          onDeleteUser={setDeleteModal}
+          onRefundCredits={setRefundModal}
           formatDate={formatDate} timeAgo={timeAgo}
         />
       )}
@@ -519,7 +690,7 @@ function OverviewTab({ totals, stats, users, onGiveCredits }: any) {
 // ═══════════════════════════════════════
 // TAB: USERS
 // ═══════════════════════════════════════
-function UsersTab({ users, searchQuery, setSearchQuery, sortBy, setSortBy, expandedUser, setExpandedUser, onGiveCredits, formatDate, timeAgo }: any) {
+function UsersTab({ users, searchQuery, setSearchQuery, sortBy, setSortBy, expandedUser, setExpandedUser, onGiveCredits, onDeleteUser, onRefundCredits, formatDate, timeAgo }: any) {
   const sortOptions = [
     { id: 'recent', label: 'Newest' },
     { id: 'name', label: 'Name' },
@@ -561,12 +732,33 @@ function UsersTab({ users, searchQuery, setSearchQuery, sortBy, setSortBy, expan
               ? user.stats.images + user.stats.videos + user.stats.songs + user.stats.quizzes + user.stats.booksRead + user.stats.storiesRead + user.stats.businesses + user.stats.heroes
               : 0;
 
+            // Warning indicators
+            const warnings: { type: 'red' | 'orange' | 'green'; label: string }[] = [];
+            if (user.credits < 0) {
+              warnings.push({ type: 'red', label: 'Negative credits' });
+            }
+            if (totalActivity === 0 && user.credits >= 0) {
+              warnings.push({ type: 'orange', label: 'No creations (possible bot)' });
+            }
+            if (user.lastSignIn) {
+              const daysSinceLogin = (Date.now() - new Date(user.lastSignIn).getTime()) / 86400000;
+              if (daysSinceLogin > 30) {
+                warnings.push({ type: 'orange', label: `Inactive ${Math.floor(daysSinceLogin)}d` });
+              }
+            } else {
+              warnings.push({ type: 'orange', label: 'Never logged in' });
+            }
+            const healthColor = warnings.some(w => w.type === 'red')
+              ? 'bg-red-500' : warnings.some(w => w.type === 'orange')
+              ? 'bg-orange-500' : 'bg-emerald-500';
+
             return (
               <div key={user.id} className="glass-panel rounded-xl border-white/5 overflow-hidden hover:border-white/10 transition-all">
                 {/* Main Row */}
                 <div className="p-4 flex items-center gap-3 cursor-pointer" onClick={() => setExpandedUser(isExpanded ? null : user.id)}>
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm font-black text-white shrink-0">
+                  <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-sm font-black text-white shrink-0">
                     {user.childName.charAt(0).toUpperCase()}
+                    <span className={`absolute -top-0.5 -right-0.5 w-2.5 h-2.5 ${healthColor} rounded-full border-2 border-[#0B0F1A]`} title={warnings.map(w => w.label).join(', ') || 'Healthy'} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
@@ -576,12 +768,15 @@ function UsersTab({ users, searchQuery, setSearchQuery, sortBy, setSortBy, expan
                       ) : (
                         <span className="shrink-0 w-4 h-4 bg-amber-500/20 rounded-full flex items-center justify-center"><UserX size={8} className="text-amber-400" /></span>
                       )}
+                      {warnings.filter(w => w.type === 'red').map((w, i) => (
+                        <span key={i} className="shrink-0 text-[8px] font-black bg-red-500/15 text-red-400 px-1.5 py-0.5 rounded-md uppercase hidden sm:inline-block">{w.label}</span>
+                      ))}
                     </div>
                     <p className="text-white/30 text-[10px] font-bold truncate">{user.email}</p>
                   </div>
                   <div className="flex items-center gap-4 shrink-0">
                     <div className="text-center">
-                      <p className="text-amber-400 font-[1000] text-sm italic">{user.credits}</p>
+                      <p className={`font-[1000] text-sm italic ${user.credits < 0 ? 'text-red-400' : 'text-amber-400'}`}>{user.credits}</p>
                       <p className="text-white/20 text-[8px] font-bold uppercase">Credits</p>
                     </div>
                     <div className="text-center">
@@ -599,30 +794,55 @@ function UsersTab({ users, searchQuery, setSearchQuery, sortBy, setSortBy, expan
                 {/* Expanded Details */}
                 {isExpanded && (
                   <div className="px-4 pb-4 pt-1 border-t border-white/5 space-y-3 animate-in fade-in duration-200">
+                    {/* Warning badges */}
+                    {warnings.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {warnings.map((w, i) => (
+                          <span key={i} className={`text-[9px] font-black px-2 py-1 rounded-md uppercase ${
+                            w.type === 'red' ? 'bg-red-500/15 text-red-400 border border-red-500/20' :
+                            w.type === 'orange' ? 'bg-orange-500/15 text-orange-400 border border-orange-500/20' :
+                            'bg-emerald-500/15 text-emerald-400 border border-emerald-500/20'
+                          }`}>
+                            <AlertTriangle size={8} className="inline mr-1 -mt-0.5" />{w.label}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       <DetailItem label="Email" value={user.email} />
-                      <DetailItem label="Parent" value={user.parentEmail || '—'} />
+                      <DetailItem label="Parent" value={user.parentEmail || '\u2014'} />
                       <DetailItem label="Joined" value={formatDate(user.createdAt)} />
                       <DetailItem label="Last Login" value={user.lastSignIn ? timeAgo(user.lastSignIn) : 'Never'} />
                     </div>
 
                     {user.stats && (
                       <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
-                        <StatBadge icon="🎨" label="Images" val={user.stats.images} />
-                        <StatBadge icon="🎬" label="Videos" val={user.stats.videos} />
-                        <StatBadge icon="🎵" label="Songs" val={user.stats.songs} />
-                        <StatBadge icon="🧠" label="Quiz" val={user.stats.quizzes} />
-                        <StatBadge icon="📚" label="Books" val={user.stats.booksRead} />
-                        <StatBadge icon="📖" label="Stories" val={user.stats.storiesRead} />
-                        <StatBadge icon="🏢" label="Business" val={user.stats.businesses} />
-                        <StatBadge icon="🦸" label="Heroes" val={user.stats.heroes} />
+                        <StatBadge icon={"\uD83C\uDFA8"} label="Images" val={user.stats.images} />
+                        <StatBadge icon={"\uD83C\uDFAC"} label="Videos" val={user.stats.videos} />
+                        <StatBadge icon={"\uD83C\uDFB5"} label="Songs" val={user.stats.songs} />
+                        <StatBadge icon={"\uD83E\uDDE0"} label="Quiz" val={user.stats.quizzes} />
+                        <StatBadge icon={"\uD83D\uDCDA"} label="Books" val={user.stats.booksRead} />
+                        <StatBadge icon={"\uD83D\uDCD6"} label="Stories" val={user.stats.storiesRead} />
+                        <StatBadge icon={"\uD83C\uDFE2"} label="Business" val={user.stats.businesses} />
+                        <StatBadge icon={"\uD83E\uDDB8"} label="Heroes" val={user.stats.heroes} />
                       </div>
                     )}
 
-                    <button onClick={() => onGiveCredits({ userId: user.id, name: user.childName, currentCredits: user.credits })}
-                      className="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-amber-400 px-4 py-2 rounded-lg text-xs font-black uppercase flex items-center gap-2 transition-all">
-                      <Plus size={14} /> Give Credits
-                    </button>
+                    <div className="flex flex-wrap gap-2">
+                      <button onClick={() => onGiveCredits({ userId: user.id, name: user.childName, currentCredits: user.credits })}
+                        className="bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 text-amber-400 px-4 py-2 rounded-lg text-xs font-black uppercase flex items-center gap-2 transition-all">
+                        <Plus size={14} /> Give Credits
+                      </button>
+                      <button onClick={() => onRefundCredits({ userId: user.id, name: user.childName, currentCredits: user.credits })}
+                        className="bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20 text-orange-400 px-4 py-2 rounded-lg text-xs font-black uppercase flex items-center gap-2 transition-all">
+                        <RotateCcw size={14} /> Refund
+                      </button>
+                      <button onClick={() => onDeleteUser({ userId: user.id, name: user.childName })}
+                        className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 px-4 py-2 rounded-lg text-xs font-black uppercase flex items-center gap-2 transition-all ml-auto">
+                        <Trash2 size={14} /> Delete
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
@@ -916,6 +1136,8 @@ function SystemTab({ totals, lastRefresh, users }: any) {
     { name: '/api/stripe/checkout', desc: 'Stripe Payments', status: 'active' },
     { name: '/api/admin/stats', desc: 'Admin Stats', status: 'active' },
     { name: '/api/admin/credits', desc: 'Credit Management', status: 'active' },
+    { name: '/api/admin/refund', desc: 'Credit Refunds', status: 'active' },
+    { name: '/api/admin/delete-user', desc: 'User Deletion', status: 'active' },
   ];
 
   const config = [
