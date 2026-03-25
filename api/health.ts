@@ -1,13 +1,6 @@
-import { withProtection } from './_lib/middleware';
-
-export default withProtection(async (req: any, res: any) => {
-  try {
-    // Don't expose which services are configured — attackers can use this info
-    res.status(200).json({
-      status: 'ok',
-      timestamp: new Date().toISOString(),
-    });
-  } catch {
-    res.status(500).json({ status: 'error' });
-  }
-});
+// Simple health check — no middleware to isolate crash issue
+export default async function handler(req: any, res: any) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+}
