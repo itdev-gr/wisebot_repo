@@ -126,8 +126,18 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
         return;
       }
 
-      // Don't navigate — show verification message instead
-      setShowVerificationMsg(true);
+      // Registration successful — auto-login with the new credentials
+      setSuccess(lang === 'el' ? 'Εγγραφή επιτυχής! Μπαίνεις...' : 'Registered! Entering...');
+      const loginResult = await signIn(parentEmail, password);
+      if (loginResult.error) {
+        // If auto-login fails, switch to login tab
+        setTab('login');
+        setSuccess('');
+        setError(lang === 'el' ? 'Η εγγραφή έγινε! Κάνε σύνδεση.' : 'Registered! Please log in.');
+        setSubmitting(false);
+        return;
+      }
+      setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
       setSubmitting(false);
     } else {
       const result = await signIn(parentEmail, password);
