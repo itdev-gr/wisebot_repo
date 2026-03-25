@@ -6,7 +6,6 @@
  * For now, stores in Supabase table + sends via fetch to email service.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { withProtection } from './_lib/middleware';
 
 async function getSupabase() {
   const { createClient } = await import('@supabase/supabase-js');
@@ -17,7 +16,13 @@ async function getSupabase() {
   );
 }
 
-export default withProtection(async (req: any, res: any) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -103,4 +108,4 @@ export default withProtection(async (req: any, res: any) => {
     console.error('[contact] Error:', err.message);
     return res.status(500).json({ error: 'Failed to send message' });
   }
-});
+}

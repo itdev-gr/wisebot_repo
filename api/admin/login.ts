@@ -7,7 +7,6 @@
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import crypto from 'crypto';
-import { withProtection } from '../_lib/middleware';
 
 function safeCompare(a: string, b: string): boolean {
   // Hash both to ensure equal length for timingSafeEqual
@@ -16,7 +15,13 @@ function safeCompare(a: string, b: string): boolean {
   return crypto.timingSafeEqual(hashA, hashB);
 }
 
-export default withProtection(async (req: any, res: any) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -69,4 +74,4 @@ export default withProtection(async (req: any, res: any) => {
     await new Promise(resolve => setTimeout(resolve, 500));
     return res.status(403).json({ error: 'Invalid credentials' });
   }
-});
+}

@@ -5,7 +5,6 @@
  * Content moderation applied for kid safety.
  * Returns { audio: base64, mimeType: string } for playback.
  */
-import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
 // Voice name mapping
@@ -17,7 +16,15 @@ const VOICE_MAP: Record<string, string> = {
   default: 'Kore',
 };
 
-export default withOptionalAuth(async (req: any, res: any, user) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
+  const user = null;
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -84,4 +91,4 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
     console.error('[TTS]', errorMsg);
     return res.status(500).json({ error: errorMsg });
   }
-});
+}

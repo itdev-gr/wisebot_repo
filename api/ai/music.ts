@@ -4,7 +4,6 @@
  * Uses Gemini to generate song lyrics for children.
  * Returns { title, lyrics, cover } matching frontend expectations.
  */
-import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
 const SAFETY_SETTINGS: any[] = [
@@ -14,7 +13,15 @@ const SAFETY_SETTINGS: any[] = [
   { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_LOW_AND_ABOVE' },
 ];
 
-export default withOptionalAuth(async (req: any, res: any, user) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
+  const user = null;
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -82,4 +89,4 @@ Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
     console.error('AI Music error:', err.message);
     res.status(500).json({ error: 'AI service error' });
   }
-});
+}

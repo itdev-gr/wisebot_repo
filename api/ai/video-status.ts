@@ -7,9 +7,16 @@
  * GET /api/ai/video-status?operationName=xxx
  * Response: { status, videoUrl?, progress? }
  */
-import { withOptionalAuth } from '../_lib/middleware';
 
-export default withOptionalAuth(async (req: any, res: any, user) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
+  const user = null;
+
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -79,4 +86,4 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
     console.error('[video-status] Error:', err.message);
     return res.status(500).json({ error: err.message || 'Failed to check video status' });
   }
-});
+}

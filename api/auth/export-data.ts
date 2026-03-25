@@ -4,8 +4,6 @@
  * Returns all user data in JSON format.
  * Requires authentication. Returns data for the authenticated user only.
  */
-import { withAuth } from '../_lib/middleware';
-
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');
   return createClient(
@@ -15,8 +13,27 @@ async function getSupabaseAdmin() {
   );
 }
 
-export default withAuth(async (req: any, res: any, user) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+
+  // Required auth
+  const authHeader = req.headers?.authorization;
+  if (!authHeader?.startsWith('Bearer ')) return res.status(401).json({ error: 'Authentication required' });
+  let user: { userId: string; email: string };
+  try {
+    const token = authHeader.slice(7);
+    const { createClient } = await import('@supabase/supabase-js');
+    const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_KEY!, { auth: { autoRefreshToken: false, persistSession: false } });
+    const { data: { user: u }, error } = await supabase.auth.getUser(token);
+    if (error || !u) return res.status(401).json({ error: 'Invalid token' });
+    user = { userId: u.id, email: u.email || '' };
+  } catch { return res.status(401).json({ error: 'Auth failed' }); }
 
   try {
     const supabase = await getSupabaseAdmin();
@@ -53,4 +70,4 @@ export default withAuth(async (req: any, res: any, user) => {
     console.error('[export-data] Error:', err.message);
     return res.status(500).json({ error: 'Failed to export data' });
   }
-});
+}

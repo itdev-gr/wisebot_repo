@@ -4,7 +4,6 @@
  * Admin-only endpoint to add credits to any user's profile.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { withProtection } from '../_lib/middleware';
 
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');
@@ -15,7 +14,13 @@ async function getSupabaseAdmin() {
   );
 }
 
-export default withProtection(async (req: any, res: any) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   // Token-based auth — verify HMAC token matches what login generates
@@ -77,4 +82,4 @@ export default withProtection(async (req: any, res: any) => {
     console.error('[Admin Credits] Error:', err);
     return res.status(500).json({ error: 'Internal server error' });
   }
-});
+}

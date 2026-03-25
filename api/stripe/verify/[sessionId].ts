@@ -1,6 +1,10 @@
-import { withProtection } from '../../_lib/middleware';
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
 
-export default withProtection(async (req: any, res: any) => {
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -28,4 +32,4 @@ export default withProtection(async (req: any, res: any) => {
     console.error('Stripe verify error:', err.message);
     res.status(500).json({ error: 'Payment verification error' });
   }
-});
+}

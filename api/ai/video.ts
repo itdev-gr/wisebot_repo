@@ -3,7 +3,6 @@
  * =======================================
  * Uses Gemini 2.5 Flash with content moderation.
  */
-import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
 const SAFETY_SETTINGS: any[] = [
@@ -13,7 +12,15 @@ const SAFETY_SETTINGS: any[] = [
   { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_LOW_AND_ABOVE' },
 ];
 
-export default withOptionalAuth(async (req: any, res: any, user) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
+  const user = null;
+
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
@@ -56,4 +63,4 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
     console.error('AI Video error:', err.message);
     res.status(500).json({ error: 'AI service error' });
   }
-});
+}

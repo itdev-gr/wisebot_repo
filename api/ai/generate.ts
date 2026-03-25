@@ -6,7 +6,6 @@
  * Routes text requests to Gemini (or OpenAI GPT-4o if Gemini fails).
  * Content moderation applied for kid safety.
  */
-import { withOptionalAuth } from '../_lib/middleware';
 import { isContentSafe } from '../_lib/moderation';
 
 function extractTextFromContents(contents: any): string {
@@ -181,7 +180,15 @@ function processGeminiResponse(response: any) {
   return { text, candidates };
 }
 
-export default withOptionalAuth(async (req: any, res: any, user) => {
+export default async function handler(req: any, res: any) {
+  // CORS
+  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+
+  const user = null;
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -294,4 +301,4 @@ export default withOptionalAuth(async (req: any, res: any, user) => {
     console.error('[AI Proxy]', err?.message || 'Unknown error');
     return res.status(500).json({ error: err?.message || 'AI generation failed' });
   }
-});
+}
