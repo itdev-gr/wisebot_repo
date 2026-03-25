@@ -4,7 +4,8 @@
  * Provides: CORS, rate limiting, authentication
  * Usage: wrap any handler with `withProtection(handler)` or `withAuth(handler)`
  */
-import { createClient } from '@supabase/supabase-js';
+// Lazy import to avoid bundling issues in Vercel serverless
+// import { createClient } from '@supabase/supabase-js'; // Moved to verifyAuth()
 
 // ─── CORS ────────────────────────────────────────────────────────
 const ALLOWED_ORIGINS = [
@@ -93,6 +94,7 @@ export async function verifyAuth(req: any): Promise<{ userId: string; email: str
   if (!supabaseUrl || !supabaseKey) return null;
 
   try {
+    const { createClient } = await import('@supabase/supabase-js');
     const supabase = createClient(supabaseUrl, supabaseKey, {
       auth: { autoRefreshToken: false, persistSession: false },
     });
