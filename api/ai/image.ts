@@ -51,9 +51,9 @@ export default async function handler(req: any, res: any) {
       ? `${safetyPrefix} ${prompt}, ${style} style.`
       : `${safetyPrefix} ${prompt}.`;
 
-    // Use Imagen 3 — stable, widely available
+    // Use Imagen 4 Fast — available on this API key
     const response = await ai.models.generateImages({
-      model: 'imagen-3.0-generate-002',
+      model: 'imagen-4.0-fast-generate-001',
       prompt: fullPrompt,
       config: {
         numberOfImages: 1,
@@ -109,7 +109,7 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ image: '', description: 'No image generated' });
     } catch (fallbackErr: any) {
       console.error('AI Image fallback error:', fallbackErr.message);
-      res.status(500).json({ error: 'AI service error' });
+      res.status(500).json({ error: fallbackErr.message || 'AI service error' });
     }
   }
 }
