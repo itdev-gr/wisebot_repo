@@ -1,12 +1,5 @@
-import { withProtection } from './_lib/middleware';
-
-export default withProtection(async (req: any, res: any) => {
-  try {
-    res.status(200).json({
-      status: 'ok',
-      timestamp: new Date().toISOString(),
-    });
-  } catch {
-    res.status(500).json({ status: 'error' });
-  }
-});
+export default async function handler(req: any, res: any) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  res.status(200).json({ status: 'ok', ts: Date.now() });
+}
