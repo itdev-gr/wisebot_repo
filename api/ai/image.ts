@@ -89,9 +89,9 @@ export default async function handler(req: any, res: any) {
         : `Create a child-friendly image: ${prompt}. Colorful, safe, no violence.`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
-        config: { responseModalities: ['TEXT', 'IMAGE'] },
+        model: 'gemini-2.5-flash-image',
+        contents: fullPrompt,
+        config: { responseModalities: ['IMAGE'] },
       });
 
       const parts = response.candidates?.[0]?.content?.parts;
