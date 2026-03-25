@@ -139,6 +139,34 @@ export default async function handler(req: any, res: any) {
       }
     }
 
+    // Send notification email to admin about new signup
+    const resendKey = process.env.RESEND_API_KEY;
+    if (resendKey) {
+      try {
+        await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: 'WiseBot <noreply@wisebot.gr>',
+            to: ['info@wisebot.gr'],
+            subject: `🎉 Νέα Εγγραφή: ${childName}`,
+            html: `
+              <h2>Νέα εγγραφή στο WiseBot Academy!</h2>
+              <p><strong>Ψευδώνυμο:</strong> ${childName}</p>
+              <p><strong>Email γονέα:</strong> ${email}</p>
+              <p><strong>Ημερομηνία:</strong> ${new Date().toLocaleString('el-GR')}</p>
+              <p><strong>User ID:</strong> ${data.user?.id}</p>
+              <p><strong>Credits:</strong> 50 (starter)</p>
+              <hr>
+              <p style="color:#888;">Αυτό είναι αυτόματο email από το WiseBot Academy.</p>
+            `,
+          }),
+        });
+      } catch (emailErr) {
+        console.warn('[Auth Signup] Notification email failed:', (emailErr as any)?.message);
+      }
+    }
+
     return res.status(200).json({
       success: true,
       userId: data.user?.id,
