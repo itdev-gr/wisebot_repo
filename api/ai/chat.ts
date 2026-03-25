@@ -4,7 +4,7 @@
  * Uses OpenAI GPT-4o-mini if available, falls back to Gemini.
  * Content moderation for children ages 6-13.
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 const SYSTEM_PROMPT = `Είσαι η WiseBot — ο νους της ομάδας στο WiseBot Academy (wisebot.gr). Είσαι σαν μεγάλη αδερφή/φίλη για παιδιά 6-13. ΔΕΝ είσαι ρομπότ, είσαι χαρακτήρας με ψυχή.
 

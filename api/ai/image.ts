@@ -5,7 +5,7 @@
  * Fallback: Gemini 2.0 Flash.
  * Cost: ~$0.02/image
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 export default async function handler(req: any, res: any) {
   // CORS

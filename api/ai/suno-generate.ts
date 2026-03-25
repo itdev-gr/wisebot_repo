@@ -19,7 +19,7 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 const SUNO_API_URL = 'https://api.sunoapi.org/api/v1/generate';
 

@@ -4,7 +4,7 @@
  * Uses Gemini to generate song lyrics for children.
  * Returns { title, lyrics, cover } matching frontend expectations.
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 const SAFETY_SETTINGS: any[] = [
   { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_LOW_AND_ABOVE' },

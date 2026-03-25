@@ -8,7 +8,7 @@
  * Body: { prompt, imageBytes?, mimeType? }
  * Response: { operationName }
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 export default async function handler(req: any, res: any) {
   // CORS

@@ -6,7 +6,7 @@
  * Routes text requests to Gemini (or OpenAI GPT-4o if Gemini fails).
  * Content moderation applied for kid safety.
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 function extractTextFromContents(contents: any): string {
   if (!contents) return '';

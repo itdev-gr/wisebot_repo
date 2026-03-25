@@ -5,7 +5,7 @@
  * Content moderation applied for kid safety.
  * Returns { audio: base64, mimeType: string } for playback.
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 // Voice name mapping
 const VOICE_MAP: Record<string, string> = {

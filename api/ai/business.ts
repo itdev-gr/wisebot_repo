@@ -3,7 +3,7 @@
  * ====================================
  * Uses Gemini 2.5 Flash with content moderation.
  */
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 const SAFETY_SETTINGS: any[] = [
   { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_LOW_AND_ABOVE' },

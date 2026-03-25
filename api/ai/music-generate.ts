@@ -28,7 +28,7 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { isContentSafe } from '../_lib/moderation';
+import { isContentSafe } from './_moderation';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
