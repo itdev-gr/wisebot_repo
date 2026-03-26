@@ -339,10 +339,22 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
                 setVerifying(false);
                 return;
               }
-              const result = await signIn(email, pin);
-              if (result.error) {
-                setAuthError(t.pinError);
+              // Use Supabase directly to verify password without disrupting session
+              const { createClient } = await import('@supabase/supabase-js');
+              const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || '';
+              const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
+              if (supabaseUrl && supabaseKey) {
+                const tempClient = createClient(supabaseUrl, supabaseKey, {
+                  auth: { autoRefreshToken: false, persistSession: false }
+                });
+                const { error } = await tempClient.auth.signInWithPassword({ email, password: pin });
+                if (error) {
+                  setAuthError(t.pinError);
+                } else {
+                  setIsUnlocked(true);
+                }
               } else {
+                // Fallback: just unlock (no Supabase)
                 setIsUnlocked(true);
               }
             } catch {
