@@ -138,7 +138,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         try {
           console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `A cute anthropomorphic ${hero.species}, dynamic heroic pose.
+          const prompt = `A cute anthropomorphic ${hero.species}, full body visible from head to toe, zoomed out to show the entire character, dynamic heroic pose, standing on the ground.
 Style: cinematic 3D cartoon, Pixar-style, high detail, vibrant colors, soft lighting, depth of field.
 Character details:
 - This is a ${hero.species}, must look like a real ${hero.species}
@@ -146,6 +146,7 @@ Character details:
 - big expressive eyes, friendly smile
 - unique outfit matching their role
 Role: ${hero.contribution}
+Framing: FULL BODY shot, the entire character must be visible including feet, leave space around the character, do NOT crop any part of the body.
 Mood: energetic, heroic, inspiring for kids
 Quality: ultra detailed, 4k, sharp focus, clean composition
 Consistent style, same universe as WiseBot Academy characters.
