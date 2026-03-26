@@ -99,7 +99,7 @@ const FEATURED_VIDEOS = [
   { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
   { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/sparken.jpg', videoUrl: '/video/sparken%20claude.mp4' },
   { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/link.jpg', videoUrl: '/video/link%20claude.mp4' },
-  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.png', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.webp', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
 const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
@@ -124,7 +124,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 transform-gpu">
         <div className="absolute top-[-10%] right-[-10%] w-[900px] h-[900px] bg-blue-900/10 rounded-full blur-[60px] md:blur-[140px] transform-gpu will-change-transform" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[900px] h-[900px] bg-indigo-900/10 rounded-full blur-[60px] md:blur-[140px] transform-gpu will-change-transform" />
-        <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-20" />
+        <div className="absolute inset-0 bg-[url('/images/stardust.webp')] opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
       </div>
 

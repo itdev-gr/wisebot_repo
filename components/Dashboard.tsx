@@ -104,7 +104,7 @@ const QUEST_STAGES: QuestStage[] = [
 const DASHBOARD_VIDEOS = [
   { id: 'dv1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
   { id: 'dv2', title: { el: 'CROCUS', en: 'CROCUS' }, thumbnail: '/images/crocus.jpg', videoUrl: '/video/crocus%20claude.mp4' },
-  { id: 'dv3', title: { el: 'ΤΑ ΠΑΙΔΙΑ ΜΕ ΤΟ WISEBOT', en: 'KIDS WITH WISEBOT' }, thumbnail: '/images/paidia-wisebot-2.png', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'dv3', title: { el: 'ΤΑ ΠΑΙΔΙΑ ΜΕ ΤΟ WISEBOT', en: 'KIDS WITH WISEBOT' }, thumbnail: '/images/paidia-wisebot-2.webp', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
 // ============================================================
@@ -545,7 +545,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       <header className="pt-8 space-y-6">
          <div className="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden border-2 border-white/10 shadow-[0_10px_60px_rgba(59,130,246,0.2)]">
             <img
-              src="/images/eksofilo.png"
+              src="/images/eksofilo.webp"
               className="w-full object-cover max-h-[280px] md:max-h-[380px]"
               alt="WiseBot Academy"
               loading="eager"
