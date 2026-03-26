@@ -20,8 +20,15 @@ const PRESET_AMOUNTS = [5, 10, 25, 50];
 
 const PRESET_MESSAGES = [
   { id: 'birthday', label: { el: '🎂 Χρόνια Πολλά!', en: '🎂 Happy Birthday!' } },
-  { id: 'bravo', label: { el: '⭐ Μπράβο!', en: '⭐ Great job!' } },
-  { id: 'gift', label: { el: '🎁 Δώρο!', en: '🎁 A gift for you!' } },
+  { id: 'bravo', label: { el: '⭐ Μπράβο ρε!', en: '⭐ You rock!' } },
+  { id: 'gift', label: { el: '🎁 Δώρο για σένα!', en: '🎁 A gift for you!' } },
+  { id: 'music', label: { el: '🎵 Άκου αυτό!', en: '🎵 Listen to this!' } },
+  { id: 'hero', label: { el: '🦸 Γίνε ήρωας!', en: '🦸 Be a hero!' } },
+  { id: 'thanks', label: { el: '🙏 Ευχαριστώ φίλε!', en: '🙏 Thanks friend!' } },
+  { id: 'fire', label: { el: '🔥 Είσαι φωτιά!', en: '🔥 You\'re on fire!' } },
+  { id: 'cool', label: { el: '😎 Τέλειος!', en: '😎 So cool!' } },
+  { id: 'heart', label: { el: '💜 Σ\' αγαπώ φίλε!', en: '💜 Love you friend!' } },
+  { id: 'rocket', label: { el: '🚀 Πάμε δυνατά!', en: '🚀 Let\'s gooo!' } },
 ];
 
 type GiftStep = 'form' | 'sending' | 'success' | 'error';
