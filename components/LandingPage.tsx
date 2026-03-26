@@ -22,15 +22,16 @@ import {
   Wand2
 } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
+import GuestBanner from './GuestBanner';
 
 const motion = m as any;
 
 const HERO_IMAGES = {
-  wisebot: "/images/wisebot_sm.jpg",
-  pencilo: "/images/pencilo_sm.jpg",
-  link: "/images/link_sm.jpg",
-  crocus: "/images/crocus_sm.jpg",
-  sparken: "/images/sparken_sm.jpg"
+  wisebot: "/images/wisebot.jpg",
+  pencilo: "/images/pencilo.jpg",
+  link: "/images/link.jpg",
+  crocus: "/images/crocus.jpg",
+  sparken: "/images/sparken.jpg"
 };
 
 const LEGACY_ITEMS = [
@@ -95,10 +96,10 @@ const HISTORY_ITEMS = [
 ];
 
 const FEATURED_VIDEOS = [
-  { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot_sm.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
-  { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/sparken_sm.jpg', videoUrl: '/video/sparken%20claude.mp4' },
-  { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/link_sm.jpg', videoUrl: '/video/link%20claude.mp4' },
-  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.webp', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/sparken.jpg', videoUrl: '/video/sparken%20claude.mp4' },
+  { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/link.jpg', videoUrl: '/video/link%20claude.mp4' },
+  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.png', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
 const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
@@ -111,19 +112,19 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       repeat: Infinity,
       ease: "easeInOut" as const,
       repeatType: "reverse" as const,
-      delay: delay * 0.3
+      delay
     },
-    opacity: { duration: 0.4, delay: delay * 0.1 }
+    opacity: { duration: 1, delay }
   });
 
   return (
-    <div className="min-h-screen w-full bg-[#0B0F1A] text-white overflow-x-clip relative flex flex-col font-['Nunito'] select-none">
+    <div className="min-h-screen w-full bg-[#020617] text-white overflow-x-clip relative flex flex-col font-['Nunito'] select-none">
       
       {/* 🌌 ATMOSPHERIC BACKGROUND - OPTIMIZED FOR MOBILE */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 transform-gpu">
         <div className="absolute top-[-10%] right-[-10%] w-[900px] h-[900px] bg-blue-900/10 rounded-full blur-[60px] md:blur-[140px] transform-gpu will-change-transform" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[900px] h-[900px] bg-indigo-900/10 rounded-full blur-[60px] md:blur-[140px] transform-gpu will-change-transform" />
-        <div className="absolute inset-0 bg-[url('/images/stardust.webp')] opacity-20" />
+        <div className="absolute inset-0 bg-[url('/images/stardust.png')] opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
       </div>
 
@@ -158,9 +159,9 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         {/* LEFT: TEXT & CTA */}
         <div className="flex-1 flex flex-col justify-center space-y-6 md:space-y-12 z-40 max-w-4xl pt-6 pb-4 md:py-12 lg:py-0">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ delay: 0.3, duration: 1 }}
             className="space-y-6"
           >
             <div className="flex items-center gap-4">
@@ -228,12 +229,12 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
           >
-            <RouterLink
-              to="/portal"
+            <RouterLink 
+              to="/portal" 
               className="group relative inline-flex items-center gap-4 md:gap-6 px-8 py-4 md:px-14 md:py-6 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 text-white text-base md:text-2xl font-[1000] uppercase italic tracking-wider shadow-[0_15px_50px_rgba(79,70,229,0.4)] hover:scale-105 active:scale-95 transition-all cursor-pointer border-2 border-white/10 overflow-hidden"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
@@ -256,7 +257,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute top-1/2 left-1/2 z-30 w-36 h-36 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2rem] md:rounded-[3rem] overflow-hidden border-[4px] md:border-[6px] border-blue-400/30 shadow-[0_0_100px_rgba(59,130,246,0.5)] bg-slate-900 drop-shadow-2xl"
             >
-              <img src={HERO_IMAGES.wisebot} className="w-full h-full object-cover" alt="WiseBot Academy - AI Εκπαιδευτικό Παιχνίδι" loading="eager" fetchPriority="high" width={320} height={320} />
+              <img src={HERO_IMAGES.wisebot} className="w-full h-full object-cover" alt="Wisebot" loading="eager" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </motion.div>
 
@@ -268,7 +269,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute top-[5%] left-[0%] md:top-[10%] md:left-[-10%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-yellow-400/20 shadow-2xl -rotate-6 bg-slate-900"
             >
-              <img src={HERO_IMAGES.pencilo} className="w-full h-full object-cover" alt="Pencilo" loading="lazy" decoding="async" width={176} height={176} />
+              <img src={HERO_IMAGES.pencilo} className="w-full h-full object-cover" alt="Pencilo" loading="lazy" decoding="async" />
             </motion.div>
 
             {/* TOP RIGHT: SPARKEN - LAZY LOAD */}
@@ -279,7 +280,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute top-[5%] right-[0%] md:top-[5%] md:right-[-5%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-amber-400/20 shadow-2xl rotate-6 bg-slate-900"
             >
-              <img src={HERO_IMAGES.sparken} className="w-full h-full object-cover" alt="Sparken" loading="lazy" decoding="async" width={176} height={176} />
+              <img src={HERO_IMAGES.sparken} className="w-full h-full object-cover" alt="Sparken" loading="lazy" decoding="async" />
             </motion.div>
 
             {/* BOTTOM LEFT: CROCUS - LAZY LOAD */}
@@ -290,7 +291,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute bottom-[10%] left-[0%] md:bottom-[15%] md:left-[-5%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-emerald-400/20 shadow-2xl -rotate-12 bg-slate-900"
             >
-              <img src={HERO_IMAGES.crocus} className="w-full h-full object-cover" alt="Crocus" loading="lazy" decoding="async" width={176} height={176} />
+              <img src={HERO_IMAGES.crocus} className="w-full h-full object-cover" alt="Crocus" loading="lazy" decoding="async" />
             </motion.div>
 
             {/* BOTTOM RIGHT: LINK - LAZY LOAD */}
@@ -301,7 +302,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute bottom-[10%] right-[0%] md:bottom-[10%] md:right-[-10%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-cyan-400/20 shadow-[0_0_50px_rgba(34,211,238,0.2)] rotate-12 bg-slate-900"
             >
-              <img src={HERO_IMAGES.link} className="w-full h-full object-cover" alt="Link" loading="lazy" decoding="async" width={176} height={176} />
+              <img src={HERO_IMAGES.link} className="w-full h-full object-cover" alt="Link" loading="lazy" decoding="async" />
             </motion.div>
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none -z-10 transform-gpu" />
@@ -319,23 +320,19 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
             <Film size={18} className="text-blue-400" />
-            <h2 className="text-sm font-black text-white/60 uppercase tracking-[0.3em] italic">
+            <h3 className="text-sm font-black text-white/60 uppercase tracking-[0.3em] italic">
               {lang === 'el' ? 'ΔΕΣ ΤΟΥΣ ΗΡΩΕΣ ΣΕ ΔΡΑΣΗ' : 'WATCH THE HEROES IN ACTION'}
-            </h2>
+            </h3>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {FEATURED_VIDEOS.map((video) => (
               <div
                 key={video.id}
-                role="button"
-                tabIndex={0}
-                aria-label={`${lang === 'el' ? 'Παίξε βίντεο' : 'Play video'}: ${video.title[lang]}`}
                 onClick={() => setPlayingVideo(video)}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setPlayingVideo(video); } }}
                 className="group cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-black/40 hover:border-blue-500/50 transition-all hover:scale-[1.02]"
               >
                 <div className="aspect-video relative">
-                  <img src={video.thumbnail} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt={video.title[lang]} loading="lazy" decoding="async" width={320} height={180} />
+                  <img src={video.thumbnail} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt={video.title[lang]} loading="lazy" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Play size={16} fill="white" className="text-white" />
@@ -362,7 +359,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             onClick={() => setPlayingVideo(null)}
           >
             <div className="w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden relative border border-white/10 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-              <button onClick={() => setPlayingVideo(null)} aria-label={lang === 'el' ? 'Κλείσιμο βίντεο' : 'Close video'} className="absolute top-4 right-4 text-white z-20 bg-black/50 p-3 rounded-full hover:bg-white/20 transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center">
+              <button onClick={() => setPlayingVideo(null)} className="absolute top-4 right-4 text-white z-20 bg-black/50 p-2 rounded-full hover:bg-white/20 transition-colors">
                 <X size={24} />
               </button>
               <video ref={(el) => { if (el) { el.muted = false; el.play().catch(() => {}); } }} src={playingVideo.videoUrl} controls playsInline className="w-full h-full object-contain" />
@@ -392,100 +389,6 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         </div>
       </motion.div>
 
-      {/* SEO FOOTER with internal links */}
-      <footer className="relative z-30 w-full bg-black/60 border-t border-white/5 py-8 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-            <div>
-              <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest mb-3">
-                {lang === 'el' ? 'ΕΞΕΡΕΥΝΗΣΗ' : 'EXPLORE'}
-              </h3>
-              <nav className="space-y-2">
-                <RouterLink to="/academy" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Academy' : 'Academy'}
-                </RouterLink>
-                <RouterLink to="/ebooks" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'E-Books' : 'E-Books'}
-                </RouterLink>
-                <RouterLink to="/quiz" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Quiz' : 'Quiz'}
-                </RouterLink>
-              </nav>
-            </div>
-            <div>
-              <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest mb-3">
-                {lang === 'el' ? 'ΔΗΜΙΟΥΡΓΙΑ' : 'CREATE'}
-              </h3>
-              <nav className="space-y-2">
-                <RouterLink to="/factory" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Hero Factory' : 'Hero Factory'}
-                </RouterLink>
-                <RouterLink to="/3d-factory" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? '3D Factory' : '3D Factory'}
-                </RouterLink>
-                <RouterLink to="/music" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Music Studio' : 'Music Studio'}
-                </RouterLink>
-              </nav>
-            </div>
-            <div>
-              <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest mb-3">
-                {lang === 'el' ? 'ΛΟΓΑΡΙΑΣΜΟΣ' : 'ACCOUNT'}
-              </h3>
-              <nav className="space-y-2">
-                <RouterLink to="/login" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Σύνδεση / Εγγραφή' : 'Login / Register'}
-                </RouterLink>
-                <RouterLink to="/store" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Credits Store' : 'Credits Store'}
-                </RouterLink>
-                <RouterLink to="/dashboard" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Dashboard' : 'Dashboard'}
-                </RouterLink>
-              </nav>
-            </div>
-            <div>
-              <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest mb-3">
-                {lang === 'el' ? 'ΠΛΗΡΟΦΟΡΙΕΣ' : 'INFO'}
-              </h3>
-              <nav className="space-y-2">
-                <RouterLink to="/legal" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Όροι & Απόρρητο' : 'Terms & Privacy'}
-                </RouterLink>
-                <RouterLink to="/parent" className="block text-xs text-white/30 hover:text-white/60 font-bold transition-colors">
-                  {lang === 'el' ? 'Γονείς' : 'Parents'}
-                </RouterLink>
-                <a href="https://www.instagram.com/wisebot.gr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-white/30 hover:text-pink-400 font-bold transition-colors">
-                  📸 Instagram
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100094647660224" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-white/30 hover:text-blue-400 font-bold transition-colors">
-                  👍 Facebook
-                </a>
-                <a href="mailto:info@wisebot.gr" className="flex items-center gap-1.5 text-xs text-white/30 hover:text-cyan-400 font-bold transition-colors">
-                  📧 info@wisebot.gr
-                </a>
-              </nav>
-            </div>
-          </div>
-          <div className="border-t border-white/5 pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-[9px] text-white/20 font-bold">
-              &copy; {new Date().getFullYear()} WiseBot Academy. {lang === 'el' ? 'Με ❤️ από Ελλάδα.' : 'Made with ❤️ in Greece.'}
-            </p>
-            <div className="flex items-center gap-3">
-              <a href="https://www.instagram.com/wisebot.gr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/30 hover:text-pink-400 hover:border-pink-500/30 transition-all hover:scale-110" aria-label="Instagram">
-                <span className="text-sm">📸</span>
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=100094647660224" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/30 hover:text-blue-400 hover:border-blue-500/30 transition-all hover:scale-110" aria-label="Facebook">
-                <span className="text-sm">👍</span>
-              </a>
-            </div>
-            <p className="text-[9px] text-white/15 font-bold">
-              {lang === 'el' ? 'Ασφαλές AI εκπαιδευτικό παιχνίδι για παιδιά 6-13 ετών' : 'Safe AI educational game for children ages 6-13'}
-            </p>
-          </div>
-        </div>
-      </footer>
-
       {/* 🏺 HISTORY STORY MODAL */}
       <AnimatePresence>
         {selectedHistory && (
@@ -500,15 +403,14 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               initial={{ scale: 0.9, y: 50 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 50 }}
-              className="w-full max-w-2xl bg-[#0B0F1A] p-10 md:p-14 rounded-[3rem] border border-white/10 shadow-[0_0_100px_rgba(59,130,246,0.2)] relative text-center space-y-8 overflow-hidden"
+              className="w-full max-w-2xl bg-[#0f172a] p-10 md:p-14 rounded-[3rem] border border-white/10 shadow-[0_0_100px_rgba(59,130,246,0.2)] relative text-center space-y-8 overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Background Glow */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-blue-500/10 blur-[80px] pointer-events-none"></div>
 
-              <button
+              <button 
                 onClick={() => setSelectedHistory(null)}
-                aria-label={lang === 'el' ? 'Κλείσιμο' : 'Close'}
                 className="absolute top-8 right-8 p-3 bg-white/5 hover:bg-white/10 rounded-full text-white/50 hover:text-white transition-all border border-white/5"
               >
                 <X size={24} />
@@ -544,6 +446,9 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Guest Banner - shows for first-time visitors */}
+      <GuestBanner lang={lang} />
 
     </div>
   );

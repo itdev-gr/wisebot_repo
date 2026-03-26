@@ -19,11 +19,11 @@ import {
   Quote,
   Globe
 } from 'lucide-react';
-import { GoogleGenAI } from "../services/geminiProxy";
+import { backendAI } from '../services/backendApi';
 import { useLocation } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
-import { authFetch } from '../services/backendApi';
+import ShareButton from './ShareButton';
 
 const motion = m as any;
 
@@ -431,7 +431,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   };
 
   const handleGenerate = async () => {
-    if (!spendCredits(costs.video)) {
+    if (!(await spendCredits(costs.video, 'CREATE_VIDEO'))) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -483,63 +483,12 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
       const prompt = `Animate the character in this image. Action: ${finalAction}. The character says: "${finalGreeting} ${finalMessage}". Style: cinematic 3D animation, colorful, kid-friendly.`;
 
-      // Step 1: Start video generation via server
-      const genResp = await authFetch('/api/ai/video-generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, imageBytes, mimeType }),
-      });
-      const genData = await genResp.json();
+      // Backend handles generation + polling + credits
+      const { video: videoBase64 } = await backendAI.video(prompt, imageBytes, mimeType);
 
-      if (!genData.operationName) {
-        throw new Error(genData.error || 'Failed to start video generation');
-      }
-
-      // Step 2: Poll for completion
-      let attempts = 0;
-      const maxAttempts = 60; // 5 minutes
-
-      const pollVideo = async (): Promise<string> => {
-        while (attempts < maxAttempts) {
-          attempts++;
-          await new Promise(r => setTimeout(r, 5000));
-
-          try {
-            const statusResp = await authFetch(`/api/ai/video-status?operationName=${encodeURIComponent(genData.operationName)}`);
-            const statusData = await statusResp.json();
-
-            if (statusData.status === 'complete') {
-              // Server returns base64 video data (API key never exposed to client)
-              if (statusData.videoData) {
-                return statusData.videoData;
-              }
-              // Fallback: blob URL from videoUrl (public URLs only)
-              if (statusData.videoUrl) {
-                try {
-                  const videoResp = await fetch(statusData.videoUrl);
-                  if (videoResp.ok) {
-                    const blob = await videoResp.blob();
-                    return URL.createObjectURL(blob);
-                  }
-                } catch {
-                  // If fetch fails, use URL directly
-                }
-                return statusData.videoUrl;
-              }
-            }
-            if (statusData.status === 'error') {
-              throw new Error(statusData.error || 'Video generation failed');
-            }
-          } catch (pollErr: any) {
-            if (pollErr.message?.includes('failed') || pollErr.message?.includes('error')) throw pollErr;
-            // Network error — keep polling
-            console.warn('Poll error, retrying:', pollErr.message);
-          }
-        }
-        throw new Error(lang === 'el' ? 'Timeout — δοκίμασε ξανά' : 'Timeout — try again');
-      };
-
-      const localUrl = await pollVideo();
+      // Convert base64 video to blob URL for local playback
+      const videoBlob = await fetch(`data:video/mp4;base64,${videoBase64}`).then(r => r.blob());
+      const localUrl = URL.createObjectURL(videoBlob);
 
       const newVideoEntry = {
         id: `my-${Date.now()}`,
@@ -682,6 +631,15 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
                        <button onClick={resetWizard} className="flex-1 py-4 bg-white/10 text-white border border-white/20 rounded-2xl font-[1000] uppercase tracking-widest hover:bg-white/20 transition-all flex items-center justify-center gap-2 backdrop-blur-md">
                            <RefreshCcw size={20} /> {lang === 'el' ? 'ΝΕΟ ΕΡΓΟ' : 'NEW PROJECT'}
                        </button>
+                    </div>
+                    <div className="mt-3 relative z-20">
+                      <ShareButton
+                        title={lang === 'el' ? 'WiseBot Cinema' : 'WiseBot Cinema'}
+                        text={lang === 'el' ? 'Δες το video που έφτιαξα στο WiseBot Academy!' : 'Check out the video I made on WiseBot Academy!'}
+                        url={generatedVideoUrl || undefined}
+                        lang={lang}
+                        className="px-4 py-2"
+                      />
                     </div>
                 </motion.div>
             ) : (
@@ -992,7 +950,15 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
         {selectedVideo && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[1000] bg-black/95 flex items-center justify-center p-4 xl:pl-80" onClick={() => setSelectedVideo(null)}>
              <div className="w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden relative border border-white/10 shadow-2xl flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
-                <button onClick={() => setSelectedVideo(null)} className="absolute top-4 right-4 text-white z-20 bg-black/50 p-2 rounded-full hover:bg-white/20 transition-colors"><X size={24}/></button>
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                  <ShareButton
+                    title={typeof selectedVideo.title === 'string' ? selectedVideo.title : selectedVideo.title[lang]}
+                    text={lang === 'el' ? 'Δες αυτό το video στο WiseBot Academy!' : 'Check out this video on WiseBot Academy!'}
+                    lang={lang}
+                    className="bg-black/50 border-white/10 hover:bg-white/20"
+                  />
+                  <button onClick={() => setSelectedVideo(null)} className="text-white bg-black/50 p-2 rounded-full hover:bg-white/20 transition-colors"><X size={24}/></button>
+                </div>
                 
                 {selectedVideo.videoUrl ? (
                     selectedVideo.videoUrl.includes('youtube') || selectedVideo.videoUrl.includes('vimeo') ? (

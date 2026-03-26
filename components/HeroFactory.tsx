@@ -23,11 +23,10 @@ import {
   ImageIcon
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { GoogleGenAI } from "../services/geminiProxy";
+import { backendAI, isBackendAvailable } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
-import { authFetch } from '../services/backendApi';
-import { generateAvatarFromPhoto } from '../services/gemini';
 import { renderHeroCard, shareHeroCard, downloadDataUrl } from '../utils/heroCardCanvas';
+import ShareButton from './ShareButton';
 
 const motion = m as any;
 
@@ -137,8 +136,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       setGenerationError(null);
       const generateHero = async () => {
         try {
-          console.log('[HeroFactory] v4 — Starting image generation...');
-          const ai = new GoogleGenAI();
+          console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
           const prompt = `A unique heroic character for a kids' adventure game. Pixar/Disney 3D animation style.
 Species: ${hero.species}.
@@ -146,32 +144,16 @@ Power/Gear: ${hero.gear}.
 Role: ${hero.contribution}.
 Style: Adorable yet capable, expressive face, vibrant colors, standing on a podium, dark gradient studio background.`;
 
-          console.log('[HeroFactory] Calling API...');
-          const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash-image',
-            contents: { parts: [{ text: prompt }] },
-          });
-          console.log('[HeroFactory] API response received, candidates:', response.candidates?.length);
+          console.log('[HeroFactory] Calling backend API...');
+          const result = await backendAI.image(prompt);
+          console.log('[HeroFactory] Backend response received');
 
-          const parts = response.candidates?.[0]?.content?.parts;
-          let imageFound = false;
-          if (parts) {
-            console.log('[HeroFactory] Parts found:', parts.length);
-            for (const part of parts) {
-              if (part.inlineData) {
-                const base64String = part.inlineData.data;
-                console.log('[HeroFactory] Image data size:', Math.round(base64String.length / 1024), 'KB');
-                const rawUrl = `data:image/png;base64,${base64String}`;
-                const compressed = await compressImageForStorage(rawUrl, 800);
-                console.log('[HeroFactory] Compressed size:', Math.round(compressed.length / 1024), 'KB');
-                setResultImage(compressed);
-                trackAction('CREATE_IMAGE');
-                imageFound = true;
-                break;
-              }
-            }
-          }
-          if (!imageFound) {
+          if (result.image) {
+            const compressed = await compressImageForStorage(result.image, 800);
+            console.log('[HeroFactory] Compressed size:', Math.round(compressed.length / 1024), 'KB');
+            setResultImage(compressed);
+            trackAction('CREATE_IMAGE');
+          } else {
             const msg = lang === 'el' ? 'Δεν δημιουργήθηκε εικόνα.' : 'No image generated.';
             setGenerationError(msg);
             showNotification('❌', msg);
@@ -221,15 +203,15 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
     }
   }, [step]); 
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step === 0 && !hero.species) return;
     if (step === 1 && !hero.gear) return;
     if (step === 2 && !hero.contribution) return;
     if (step === 3 && !hero.name) return;
     
     if (step === 3) {
-        // Attempt to spend credits before proceeding
-        const success = spendCredits(costs.image);
+        // Attempt to spend credits before proceeding (server-validated)
+        const success = await spendCredits(costs.image, 'CREATE_IMAGE');
         if (!success) {
             showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
             return;
@@ -276,7 +258,7 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
   // Avatar mode: generate avatar from photo
   const handleGenerateAvatar = async () => {
     if (!uploadedPhoto || !avatarName) return;
-    const success = spendCredits(costs.image);
+    const success = await spendCredits(costs.image, 'CREATE_IMAGE');
     if (!success) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
@@ -287,7 +269,9 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
       // Extract base64 data from data URL
       const base64Data = uploadedPhoto.split(',')[1];
       const mimeType = uploadedPhoto.split(';')[0].split(':')[1] || 'image/jpeg';
-      const rawResult = await generateAvatarFromPhoto(base64Data, mimeType);
+      const avatarResp = await backendAI.avatar(base64Data, mimeType);
+      if (!avatarResp.image) throw new Error('No avatar generated');
+      const rawResult = avatarResp.image;
       // Compress IMMEDIATELY — raw base64 can crash mobile browsers
       const compressedAvatar = await compressImageForStorage(rawResult, 800);
       setAvatarResult(compressedAvatar);
@@ -340,7 +324,7 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
 
   // ─── Meshy 3D Conversion ───
   const startMeshy3D = useCallback(async (imageToConvert: string) => {
-    if (!spendCredits(costs.threeD)) {
+    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -361,7 +345,7 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
         });
       }
 
-      const resp = await authFetch('/api/ai/meshy-generate', {
+      const resp = await fetch('/api/ai/meshy-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageUrl }),
@@ -380,7 +364,7 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
           return;
         }
         try {
-          const sr = await authFetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
+          const sr = await fetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
           const sd = await sr.json();
           setMeshy3DProgress(sd.progress || 0);
           if (sd.status === 'complete' && sd.modelUrls) {
@@ -767,6 +751,15 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
               </button>
             </div>
 
+            {/* Inline Share Button */}
+            <ShareButton
+              title={`${avatarName} - WiseBot Hero`}
+              text={lang === 'el' ? 'Δες τον ήρωα που δημιούργησα στο WiseBot Academy!' : 'Check out the hero I created on WiseBot Academy!'}
+              imageUrl={avatarResult || undefined}
+              lang={lang}
+              className="px-4 py-2"
+            />
+
             <button onClick={reset} className="text-white/30 hover:text-white text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2 mx-auto">
               <RefreshCcw size={14} /> {lang === 'el' ? 'ΦΤΙΑΞΕ ΑΛΛΟΝ' : 'CREATE ANOTHER'}
             </button>
@@ -1074,6 +1067,17 @@ Style: Adorable yet capable, expressive face, vibrant colors, standing on a podi
                   <Download size={16} /> {lang === 'el' ? 'ΜΟΝΟ ΕΙΚΟΝΑ' : 'IMAGE ONLY'}
                 </button>
               </div>
+          </div>
+
+          {/* Share Button - inline */}
+          <div className="mt-3 w-full max-w-md relative z-20 flex justify-center">
+            <ShareButton
+              title={`${hero.name} - WiseBot Hero`}
+              text={lang === 'el' ? 'Δες τον ήρωα που δημιούργησα στο WiseBot Academy!' : 'Check out the hero I created on WiseBot Academy!'}
+              imageUrl={resultImage}
+              lang={lang}
+              className="px-4 py-2"
+            />
           </div>
 
           {/* 3D CONVERSION SECTION */}

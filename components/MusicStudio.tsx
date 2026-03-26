@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { GoogleGenAI } from "../services/geminiProxy";
+import { backendAI } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
-import { authFetch } from '../services/backendApi';
+import ShareButton from './ShareButton';
 
 interface MusicStudioProps {
   lang: 'el' | 'en';
@@ -169,11 +169,11 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
   const playFeatured = (songId: string, src: string) => {
     if (featuredPlaying === songId) {
-      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current.src = ''; }
+      featuredAudioRef.current?.pause();
       setFeaturedPlaying(null);
       return;
     }
-    if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current.src = ''; }
+    if (featuredAudioRef.current) featuredAudioRef.current.pause();
     const audio = new Audio(src);
     audio.onended = () => setFeaturedPlaying(null);
     audio.play().catch(() => {});
@@ -214,8 +214,6 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   const progressInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const barsRef = useRef<number[]>(Array(24).fill(0).map(() => Math.random()));
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const stepTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const progTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Save songs to localStorage
   useEffect(() => {
@@ -302,7 +300,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     const input = mode === 'simple' ? description.trim() : customLyrics.trim();
     if (!input) return;
 
-    if (!spendCredits(costs.song)) {
+    if (!(await spendCredits(costs.song, 'CREATE_SONG'))) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }
@@ -311,17 +309,14 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     setGenStep(0);
     setGenProgress(0);
 
-    if (stepTimerRef.current) clearInterval(stepTimerRef.current);
-    if (progTimerRef.current) clearInterval(progTimerRef.current);
-    stepTimerRef.current = setInterval(() => {
+    const stepTimer = setInterval(() => {
       setGenStep(s => Math.min(s + 1, GEN_STEPS.length - 1));
     }, 2500);
-    progTimerRef.current = setInterval(() => {
+    const progTimer = setInterval(() => {
       setGenProgress(p => Math.min(p + 1, 95));
     }, 200);
 
     try {
-      const ai = new GoogleGenAI();
       const genreLabels = selectedGenres.map(id => GENRES.find(g => g.id === id)?.label || id).join(', ');
       const finalStyle = customStyle || genreLabels;
 
@@ -368,39 +363,11 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         }`;
       }
 
-      const lyricsResp = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: { parts: [{ text: lyricsPrompt }] },
-        config: { responseMimeType: 'application/json' }
-      });
-
-      const textResponse = lyricsResp.text;
-      if (!textResponse) throw new Error("No text from API");
-      let lyricsData;
-      try {
-        // Clean response (remove markdown code fences if present)
-        const cleaned = textResponse.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-        lyricsData = JSON.parse(cleaned);
-      } catch (parseErr) {
-        console.error("JSON parse error:", parseErr, "Raw:", textResponse.slice(0, 200));
-        throw new Error("Invalid AI response format");
-      }
+      const artPrompt = `A detailed album cover for a ${finalStyle} song, modern, artistic, vibrant`;
+      const lyricsData = await backendAI.music(lyricsPrompt, artPrompt);
+      const coverUrl = lyricsData.cover || '';
 
       setGenStep(2);
-
-      // Generate cover art (graceful fallback if image API fails)
-      let coverUrl = '';
-      try {
-        const imageResp = await ai.models.generateContent({
-          model: 'gemini-2.5-flash-image',
-          contents: { parts: [{ text: lyricsData.artPrompt }] }
-        });
-        if (imageResp.candidates?.[0]?.content?.parts?.[0]?.inlineData) {
-          coverUrl = `data:image/png;base64,${imageResp.candidates[0].content.parts[0].inlineData.data}`;
-        }
-      } catch (imgErr) {
-        console.warn('Cover art generation failed (quota?), continuing without:', imgErr);
-      }
 
       // ── Step 3: Send to Suno for REAL music generation ──
       setGenStep(3);
@@ -408,12 +375,12 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
       let sunoTaskId = '';
       try {
-        const sunoResp = await authFetch('/api/ai/suno-generate', {
+        const sunoResp = await fetch('/api/ai/suno-generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             lyrics: lyricsData.lyrics,
-            style: lyricsData.style || finalStyle,
+            style: finalStyle,
             title: lyricsData.title,
             instrumental,
           }),
@@ -426,8 +393,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         console.warn('Suno generation failed, song will be lyrics-only:', sunoErr);
       }
 
-      if (stepTimerRef.current) { clearInterval(stepTimerRef.current); stepTimerRef.current = null; }
-      if (progTimerRef.current) { clearInterval(progTimerRef.current); progTimerRef.current = null; }
+      clearInterval(stepTimer);
+      clearInterval(progTimer);
       setGenProgress(100);
 
       const newSong: GeneratedSong = {
@@ -458,8 +425,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
     } catch (error) {
       console.error("Music Gen Error", error);
-      if (stepTimerRef.current) { clearInterval(stepTimerRef.current); stepTimerRef.current = null; }
-      if (progTimerRef.current) { clearInterval(progTimerRef.current); progTimerRef.current = null; }
+      clearInterval(stepTimer);
+      clearInterval(progTimer);
       showNotification('❌', lang === 'el' ? 'Σφάλμα. Δοκίμασε ξανά.' : 'Error. Try again.');
     } finally {
       setIsGenerating(false);
@@ -483,7 +450,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     if (pollingRef.current) clearInterval(pollingRef.current);
 
     let attempts = 0;
-    const maxAttempts = 120; // ~10 minutes at 5s intervals (Suno can be slow)
+    const maxAttempts = 60; // ~5 minutes at 5s intervals
 
     pollingRef.current = setInterval(async () => {
       attempts++;
@@ -494,7 +461,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       }
 
       try {
-        const resp = await authFetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
+        const resp = await fetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
         const data = await resp.json();
 
         if (data.status === 'complete' && (data.audioUrl || data.streamUrl)) {
@@ -591,12 +558,10 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   useEffect(() => {
     return () => {
       synthRef.current.cancel();
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null; }
-      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current.src = ''; featuredAudioRef.current = null; }
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
+      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current = null; }
       if (progressInterval.current) clearInterval(progressInterval.current);
       if (pollingRef.current) clearInterval(pollingRef.current);
-      if (stepTimerRef.current) clearInterval(stepTimerRef.current);
-      if (progTimerRef.current) clearInterval(progTimerRef.current);
     };
   }, []);
 
@@ -1022,6 +987,15 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
                   {/* Actions */}
                   <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                    {song.audioStatus === 'complete' && (
+                      <ShareButton
+                        title={song.title}
+                        text={lang === 'el' ? 'Δες το τραγούδι που έφτιαξα στο WiseBot Academy!' : 'Check out the song I made on WiseBot Academy!'}
+                        url={song.audioUrl || song.streamUrl}
+                        lang={lang}
+                        className="py-1 px-2"
+                      />
+                    )}
                     <button
                       onClick={e => { e.stopPropagation(); downloadLyrics(song); }}
                       className="p-1.5 rounded-lg hover:bg-white/10 text-white/30 hover:text-white/60 transition-colors"

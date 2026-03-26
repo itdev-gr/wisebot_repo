@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Rocket, Book, Wand2, Zap, ArrowRight, Sparkles, X } from 'lucide-react';
+import { Rocket, Wand2, Zap, ArrowRight, Sparkles, X } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 
 interface OnboardingOverlayProps {
@@ -19,43 +19,43 @@ interface OnboardingStep {
 const STEPS: OnboardingStep[] = [
   {
     icon: <Rocket size={40} className="text-amber-400" />,
-    title: { el: 'ΚΑΛΩΣ ΗΡΘΕΣ!', en: 'WELCOME!' },
+    title: { el: 'ΚΑΛΩΣ ΗΡΘΕΣ ΣΤΟ WISEBOT ACADEMY!', en: 'WELCOME TO WISEBOT ACADEMY!' },
     desc: {
       el: 'Αυτό είναι το Αρχηγείο σου! Από εδώ ξεκινάει η περιπέτεια.',
       en: "This is your HQ! Your adventure starts here.",
     },
     color: 'amber',
-    emoji: '🏰',
-  },
-  {
-    icon: <Book size={40} className="text-blue-400" />,
-    title: { el: 'ΔΙΑΒΑΣΕ ΙΣΤΟΡΙΕΣ', en: 'READ STORIES' },
-    desc: {
-      el: 'Ξεκίνα εδώ! Διάβασε ιστορίες σπουδαίων ανθρώπων και μάθε μαθήματα ζωής.',
-      en: 'Start here! Read stories of great people and learn life lessons.',
-    },
-    color: 'blue',
-    emoji: '📚',
+    emoji: '🎮',
   },
   {
     icon: <Wand2 size={40} className="text-purple-400" />,
-    title: { el: 'ΦΤΙΑΞΕ ΗΡΩΑ!', en: 'CREATE A HERO!' },
+    title: { el: 'ΔΗΜΙΟΥΡΓΗΣΕ ΜΕ AI!', en: 'CREATE WITH AI!' },
     desc: {
-      el: 'Φτιάξε τον δικό σου 3D ήρωα με AI! Δώσε του δυνάμεις και όνομα.',
-      en: 'Create your own 3D hero with AI! Give it powers and a name.',
+      el: 'Φτιάξε τραγούδια, εικόνες & video με τεχνητή νοημοσύνη! Γίνε δημιουργός!',
+      en: 'Make songs, images & videos with AI! Become a creator!',
     },
     color: 'purple',
-    emoji: '🦸‍♂️',
+    emoji: '🎵🎨🎬',
+  },
+  {
+    icon: <Zap size={40} className="text-blue-400" />,
+    title: { el: 'ΚΕΡΔΙΣΕ CREDITS!', en: 'EARN CREDITS!' },
+    desc: {
+      el: 'Κέρδισε Credits παίζοντας, διαβάζοντας & δημιουργώντας! Χρησιμοποίησέ τα για AI μαγεία.',
+      en: 'Earn Credits by playing, reading & creating! Use them for AI magic.',
+    },
+    color: 'blue',
+    emoji: '💎',
   },
   {
     icon: <Zap size={40} className="text-emerald-400" />,
     title: { el: 'ΠΗΡΕΣ 5 CREDITS!', en: 'YOU GOT 5 CREDITS!' },
     desc: {
-      el: 'Μπράβο! Ξεκίνα να εξερευνείς. Κέρδισε περισσότερα Credits κάνοντας Quests!',
-      en: "Awesome! Start exploring. Earn more Credits by completing Quests!",
+      el: 'Μπράβο! Ξεκίνα να εξερευνείς. Πάμε!',
+      en: "Awesome! Start exploring. Let's go!",
     },
     color: 'emerald',
-    emoji: '⚡',
+    emoji: '🚀',
   },
 ];
 
