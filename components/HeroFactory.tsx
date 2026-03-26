@@ -413,28 +413,28 @@ IMPORTANT: absolutely NO text, NO labels, NO titles, NO watermarks, NO writing o
   // --- GUIDED TEXTS ---
   const t = {
     step1: {
-      badge: lang === 'el' ? '🐾 ΖΩΟ' : '🐾 ANIMAL',
-      title: lang === 'el' ? 'Πες μου ένα ζώο!' : 'Tell me an animal!',
+      badge: lang === 'el' ? '🐾 ΧΑΡΑΚΤΗΡΑΣ' : '🐾 CHARACTER',
+      title: lang === 'el' ? 'Τι ζώο ή χαρακτήρα θέλεις;' : 'What animal or character?',
       desc: lang === 'el'
-        ? 'Τίγρη; Πίθηκος; Αετός; Δράκος; Καγκουρό; Ό,τι θέλεις — εσύ αποφασίζεις!'
-        : 'Tiger? Monkey? Eagle? Dragon? Kangaroo? Whatever you want — you decide!',
-      ph: lang === 'el' ? 'π.χ. τίγρη, πίθηκος, αετός...' : 'e.g. tiger, monkey, eagle...'
+        ? 'Δράκος; Πίθηκος; Τίγρη; Αετός; Σκύλος; Γάτα ρομπότ; Ό,τι φανταστείς!'
+        : 'Dragon? Monkey? Tiger? Eagle? Dog? Robot cat? Anything you imagine!',
+      ph: lang === 'el' ? 'π.χ. δράκος, πίθηκος, τίγρη...' : 'e.g. dragon, monkey, tiger...'
     },
     step2: {
-      badge: lang === 'el' ? '⚡ ΙΔΙΑΙΤΕΡΟΤΗΤΕΣ' : '⚡ FEATURES',
-      title: lang === 'el' ? 'Τι ιδιαίτερο έχει;' : 'What special features?',
+      badge: lang === 'el' ? '⚡ ΞΕΧΩΡΙΣΤΟ' : '⚡ UNIQUE',
+      title: lang === 'el' ? 'Γράψε 1-2 πράγματα που θα έχει!' : 'Write 1-2 things it will have!',
       desc: lang === 'el'
-        ? 'Πες μου τι ξεχωριστό έχει! Ουρά USB; Κεφάλι μπάλα; Φτερά από πίτσα; Μάτια laser; Ό,τι φανταστείς!'
-        : 'Tell me what makes it unique! USB tail? Ball head? Pizza wings? Laser eyes? Anything you imagine!',
-      ph: lang === 'el' ? 'π.χ. ουρά USB, κεφάλι μπάλα, φτερά πίτσα...' : 'e.g. USB tail, ball head, pizza wings...'
+        ? 'Κάνε τον ξεχωριστό! π.χ. μπάλα ποδοσφαίρου στο πόδι, κολυμβητής με γυαλιά, βιβλίο στο χέρι, εργαλεία, 3D μάτια, φτερά από πίτσα!'
+        : 'Make it unique! e.g. football at foot, swimmer with goggles, book in hand, tools, 3D eyes, pizza wings!',
+      ph: lang === 'el' ? 'π.χ. μπάλα στο πόδι, γυαλιά κολύμβησης...' : 'e.g. ball at foot, swim goggles...'
     },
     step3: {
-      badge: lang === 'el' ? '💪 ΑΠΟΣΤΟΛΗ' : '💪 MISSION',
-      title: lang === 'el' ? 'Πώς θα βοηθήσει τους άλλους;' : 'How will it help others?',
+      badge: lang === 'el' ? '🎯 ΤΙ ΚΑΝΕΙ' : '🎯 ACTION',
+      title: lang === 'el' ? 'Τι θέλει να κάνει;' : 'What does it want to do?',
       desc: lang === 'el'
-        ? 'Παίζει ποδόσφαιρο; Προστατεύει τα ζώα; Μαθαίνει τους φίλους; Πες μου την αποστολή του!'
-        : 'Plays football? Protects animals? Teaches friends? Tell me its mission!',
-      ph: lang === 'el' ? 'π.χ. παίζει ποδόσφαιρο, σώζει ζώα...' : 'e.g. plays football, saves animals...'
+        ? 'Παίζει ποδόσφαιρο; Δημιουργεί; Χτίζει; Κολυμπάει; Παίζει μουσική; Πες μας τι κάνει!'
+        : 'Plays football? Creates things? Builds? Swims? Makes music? Tell us what it does!',
+      ph: lang === 'el' ? 'π.χ. παίζει ποδόσφαιρο, φτιάχνει ρομπότ...' : 'e.g. plays football, builds robots...'
     },
     step4: {
       badge: lang === 'el' ? '✨ ΟΝΟΜΑ' : '✨ NAME',
