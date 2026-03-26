@@ -21,9 +21,11 @@ import {
   Book,
   CheckCircle2,
   Lightbulb,
-  HeartHandshake
+  HeartHandshake,
+  Gift,
 } from 'lucide-react';
 import { HEROES } from '../constants';
+import GiftModal from './GiftModal';
 
 const motion = m as any;
 
@@ -215,6 +217,8 @@ interface WiseFriendsProps {
 const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, completedIds }) => {
   const navigate = useNavigate();
   const [selectedHero, setSelectedHero] = useState<any | null>(null);
+  const [showGiftModal, setShowGiftModal] = useState(false);
+  const [giftUsername, setGiftUsername] = useState('');
 
   // Helper to check if a specific hero is unlocked (UNLOCKED FOR TESTING)
   const isHeroUnlocked = (heroId: string) => {
@@ -503,6 +507,13 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
         )}
       </AnimatePresence>
 
+      {/* Gift Modal */}
+      <GiftModal
+        lang={lang}
+        isOpen={showGiftModal}
+        onClose={() => { setShowGiftModal(false); setGiftUsername(''); }}
+        prefilledUsername={giftUsername}
+      />
     </div>
   );
 };

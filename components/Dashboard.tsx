@@ -31,12 +31,15 @@ import {
   Sparkles,
   Play,
   X,
+  Gift,
 } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
+import { useAuth } from '../context/AuthContext';
 import DailyMission from './DailyMission';
 import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
+import GiftModal from './GiftModal';
 
 interface DashboardProps {
   lang: 'el' | 'en';
@@ -380,7 +383,9 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
   const { credits, badges, stats } = useEconomy();
+  const { user } = useAuth();
   const [dashboardVideo, setDashboardVideo] = useState<typeof DASHBOARD_VIDEOS[0] | null>(null);
+  const [showGiftModal, setShowGiftModal] = useState(false);
 
   // ============================================================
   // 🔓 UNLOCK LOGIC (Progressive Quest-Based)
@@ -993,6 +998,18 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          </div>
       </div>
 
+      {/* Floating Gift Button */}
+      {user && (
+        <button
+          onClick={() => setShowGiftModal(true)}
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-2 border-white/20"
+          aria-label={lang === 'el' ? 'Στείλε δώρο' : 'Send gift'}
+        >
+          <Gift size={24} className="text-white" />
+        </button>
+      )}
+
+      <GiftModal lang={lang} isOpen={showGiftModal} onClose={() => setShowGiftModal(false)} />
     </div>
   );
 }
