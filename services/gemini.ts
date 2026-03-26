@@ -64,18 +64,21 @@ export const generateAvatarFromPhoto = async (photoBase64: string, mimeType: str
           }
         },
         {
-          text: `Transform this person's photo into a stunning Pixar/Disney 3D animated hero character for a kids' adventure game.
+          text: `Transform this person's photo into a stunning 3D animated hero character.
 
-IMPORTANT RULES:
-- Keep the ESSENCE of the person's face (similar features, expression, vibe)
-- Make it a heroic cartoon character - NOT a realistic portrait
-- Pixar/Disney animation style with big expressive eyes
-- Vibrant, colorful hero outfit (cape, armor, or cool adventure gear)
-- Heroic confident pose
-- Clean magical background with sparkles
-- Kid-friendly, adorable yet capable look
-- High quality 3D render, cinematic lighting
-- The character should look like they belong in a Pixar movie`
+STYLE:
+- Pixar/DreamWorks quality 3D render with cinematic lighting
+- Keep the ESSENCE of the person (similar features, expression, vibe)
+- Heroic cartoon character with big expressive eyes
+- Vibrant colorful hero outfit (cape, armor, or cool adventure gear)
+- Dynamic heroic pose, full body
+- Dark gradient studio background with subtle glow effects
+
+CRITICAL — DO NOT:
+- Do NOT add any text, titles, labels, watermarks, or writing
+- Do NOT add name tags, speech bubbles, or description boxes
+- Do NOT add any letters or words anywhere on the image
+- Just the character alone, clean, no text whatsoever`
         }
       ],
     },

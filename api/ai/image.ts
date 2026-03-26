@@ -24,8 +24,8 @@ export default async function handler(req: any, res: any) {
   }
 
   const safePrompt = style
-    ? `Child-friendly, colorful, safe for kids. ${prompt}, ${style} style.`
-    : `Child-friendly, colorful, safe for kids. ${prompt}.`;
+    ? `High quality 3D render, Pixar/DreamWorks animation style, cinematic lighting. ${prompt}, ${style} style. Vibrant colors, dark gradient background. IMPORTANT: Absolutely NO text, NO labels, NO titles, NO watermarks, NO writing of any kind. Just the subject alone.`
+    : `High quality 3D render, Pixar/DreamWorks animation style, cinematic lighting. ${prompt}. Vibrant colors, dark gradient background. IMPORTANT: Absolutely NO text, NO labels, NO titles, NO watermarks, NO writing of any kind. Just the subject alone.`;
 
   // ─── ATTEMPT 1: DALL-E 3 (OpenAI) — Best quality ─────────────
   const openaiKey = process.env.OPENAI_API_KEY;

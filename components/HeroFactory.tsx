@@ -138,11 +138,12 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         try {
           console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `A unique heroic character for a kids' adventure game. Pixar/Disney 3D animation style.
+          const prompt = `A single unique heroic animal character, full body, centered.
 Species: ${hero.species}.
-Power/Gear: ${hero.gear}.
+Special ability or gear: ${hero.gear}.
 Role: ${hero.contribution}.
-Style: Adorable yet capable, expressive face, vibrant colors, standing on a podium, dark gradient studio background.`;
+Style: High-quality 3D render, Pixar/DreamWorks animation quality, cinematic lighting, dark gradient studio background, vibrant saturated colors, expressive face with big eyes, heroic dynamic pose.
+IMPORTANT: Absolutely NO text, NO labels, NO titles, NO watermarks, NO speech bubbles, NO writing of any kind on the image. Just the character alone on a clean background.`;
 
           console.log('[HeroFactory] Calling backend API...');
           const result = await backendAI.image(prompt);
