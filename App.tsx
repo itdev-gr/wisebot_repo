@@ -321,10 +321,9 @@ const PendingVerification: React.FC = () => {
 };
 
 // --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
+// Landing page is always accessible — even for logged in users
+// They can navigate to /dashboard via the menu
 const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading, emailVerified } = useAuth();
-  if (loading) return <>{children}</>;
-  if (user && emailVerified) return <Navigate to="/dashboard" replace />;
   return <>{children}</>;
 };
 
