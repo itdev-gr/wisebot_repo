@@ -402,36 +402,36 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   // --- GUIDED TEXTS ---
   const t = {
     step1: {
-      badge: lang === 'el' ? 'ΜΟΡΦΗ' : 'FORM',
-      title: lang === 'el' ? 'Τι πλάσμα ονειρεύεσαι;' : 'What creature do you dream of?',
-      desc: lang === 'el' 
-        ? 'Μην πεις απλά "σκύλος". Κλείσε τα μάτια. Είναι ένας ιπτάμενος σκύλος; Ένα ρομπότ από ζελεδάκια; Ένας δράκος με γυαλιά;' 
-        : 'Don\'t just say "dog". Close your eyes. Is it a flying dog? A robot made of jelly? A dragon with glasses?',
-      ph: lang === 'el' ? 'π.χ. Ένας ιπτάμενος ελέφαντας με μεταλλικά φτερά...' : 'e.g. A flying elephant with metal wings...'
+      badge: lang === 'el' ? '🐾 ΖΩΟ' : '🐾 ANIMAL',
+      title: lang === 'el' ? 'Πες μου ένα ζώο!' : 'Tell me an animal!',
+      desc: lang === 'el'
+        ? 'Τίγρη; Πίθηκος; Αετός; Δράκος; Καγκουρό; Ό,τι θέλεις — εσύ αποφασίζεις!'
+        : 'Tiger? Monkey? Eagle? Dragon? Kangaroo? Whatever you want — you decide!',
+      ph: lang === 'el' ? 'π.χ. τίγρη, πίθηκος, αετός...' : 'e.g. tiger, monkey, eagle...'
     },
     step2: {
-      badge: lang === 'el' ? 'ΔΥΝΑΜΗ' : 'POWER',
-      title: lang === 'el' ? 'Τι το κάνει ξεχωριστό;' : 'What makes it special?',
+      badge: lang === 'el' ? '⚡ ΔΥΝΑΜΗ' : '⚡ POWER',
+      title: lang === 'el' ? 'Τι έχει;' : 'What does it have?',
       desc: lang === 'el'
-        ? 'Κάθε ήρωας έχει κάτι μοναδικό. Έχει μάτια που βλέπουν στο σκοτάδι; Χέρια από λάβα; Ένα σακίδιο που βγάζει εργαλεία;'
-        : 'Every hero has something unique. Eyes that see in the dark? Lava hands? A backpack that spawns tools?',
-      ph: lang === 'el' ? 'π.χ. Φοράει γυαλιά που διαβάζουν σκέψεις...' : 'e.g. Wears glasses that read minds...'
+        ? 'Μπάλα ποδοσφαίρου; Μαγικό σπαθί; Βιβλία; Σούπερ γυαλιά; Πες μου τι κρατάει ή φοράει!'
+        : 'Football? Magic sword? Books? Super glasses? Tell me what it holds or wears!',
+      ph: lang === 'el' ? 'π.χ. μπάλα ποδοσφαίρου, laser μάτια...' : 'e.g. football, laser eyes...'
     },
     step3: {
-      badge: lang === 'el' ? 'ΑΠΟΣΤΟΛΗ' : 'MISSION',
-      title: lang === 'el' ? 'Πώς θα βοηθήσει την ομάδα;' : 'How will they help the team?',
+      badge: lang === 'el' ? '💪 ΑΠΟΣΤΟΛΗ' : '💪 MISSION',
+      title: lang === 'el' ? 'Πώς θα βοηθήσει τους άλλους;' : 'How will it help others?',
       desc: lang === 'el'
-        ? 'Η ομάδα μας χρειάζεται βοήθεια. Τι μας λείπει; Μας λείπει το θάρρος; Η γνώση; Το γέλιο; Γίνε ο σωτήρας του παιχνιδιού.'
-        : 'Our team needs help. What are we missing? Courage? Knowledge? Laughter? Be the savior of the game.',
-      ph: lang === 'el' ? 'π.χ. Δίνει θάρρος σε όποιον φοβάται...' : 'e.g. Gives courage to anyone afraid...'
+        ? 'Παίζει ποδόσφαιρο; Προστατεύει τα ζώα; Μαθαίνει τους φίλους; Πες μου την αποστολή του!'
+        : 'Plays football? Protects animals? Teaches friends? Tell me its mission!',
+      ph: lang === 'el' ? 'π.χ. παίζει ποδόσφαιρο, σώζει ζώα...' : 'e.g. plays football, saves animals...'
     },
     step4: {
-      badge: lang === 'el' ? 'ΟΝΟΜΑ' : 'NAME',
-      title: lang === 'el' ? 'Πώς θα το φωνάζουμε;' : 'What shall we call it?',
+      badge: lang === 'el' ? '✨ ΟΝΟΜΑ' : '✨ NAME',
+      title: lang === 'el' ? 'Δώσε του όνομα!' : 'Give it a name!',
       desc: lang === 'el'
-        ? 'Ένα θρυλικό όνομα για έναν θρυλικό ήρωα. Κάντο να ακούγεται δυνατά!'
-        : 'A legendary name for a legendary hero. Make it sound loud!',
-      ph: lang === 'el' ? 'Γράψε το όνομα εδώ...' : 'Type the name here...'
+        ? 'Κάθε ήρωας χρειάζεται ένα δυνατό όνομα. Πώς θα τον φωνάζεις;'
+        : 'Every hero needs a strong name. What will you call it?',
+      ph: lang === 'el' ? 'π.χ. Tigi, Monki, Sparky...' : 'e.g. Tigi, Monki, Sparky...'
     },
     btn: {
       next: lang === 'el' ? 'ΕΠΟΜΕΝΟ' : 'NEXT',
