@@ -138,19 +138,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         try {
           console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `A cute anthropomorphic ${hero.species}, full body visible from head to toe, zoomed out to show the entire character, dynamic heroic pose, standing on the ground.
-Style: cinematic 3D cartoon, Pixar-style, high detail, vibrant colors, soft lighting, depth of field.
-Character details:
-- This is a ${hero.species}, must look like a real ${hero.species}
-- ${hero.gear}
-- big expressive eyes, friendly smile
-- unique outfit matching their role
-Role: ${hero.contribution}
-Framing: FULL BODY shot, the entire character must be visible including feet, leave space around the character, do NOT crop any part of the body.
-Mood: energetic, heroic, inspiring for kids
-Quality: ultra detailed, 4k, sharp focus, clean composition
-Consistent style, same universe as WiseBot Academy characters.
-IMPORTANT: absolutely NO text, NO labels, NO titles, NO watermarks, NO writing of any kind anywhere on the image.`;
+          const prompt = `A cute anthropomorphic ${hero.species} who ${hero.contribution}. This character is a ${hero.species}, NOT an owl, NOT a bird unless specified. Full body visible head to toe, dynamic pose. Special features: ${hero.gear}. Cinematic 3D cartoon, Pixar-style, vibrant colors, 4k ultra detailed, big expressive eyes. NO text NO labels NO writing.`;
 
           console.log('[HeroFactory] Calling backend API...');
           const result = await backendAI.image(prompt);
