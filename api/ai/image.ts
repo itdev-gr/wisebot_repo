@@ -23,9 +23,12 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({ image: '', description: 'This image cannot be created. Try something more fun!' });
   }
 
-  const safePrompt = style
-    ? `High quality 3D render, Pixar/DreamWorks animation style, cinematic lighting. ${prompt}, ${style} style. Vibrant colors, dark gradient background. IMPORTANT: Absolutely NO text, NO labels, NO titles, NO watermarks, NO writing of any kind. Just the subject alone.`
-    : `High quality 3D render, Pixar/DreamWorks animation style, cinematic lighting. ${prompt}. Vibrant colors, dark gradient background. IMPORTANT: Absolutely NO text, NO labels, NO titles, NO watermarks, NO writing of any kind. Just the subject alone.`;
+  // Pass the prompt as-is — the HeroFactory already constructs perfect prompts
+  // Only add NO TEXT instruction if not already present
+  const hasNoTextRule = prompt.toLowerCase().includes('no text');
+  const safePrompt = hasNoTextRule
+    ? prompt
+    : `${prompt}. IMPORTANT: NO text, NO labels, NO writing anywhere on the image.`;
 
   // ─── ATTEMPT 1: DALL-E 3 (OpenAI) — Best quality ─────────────
   const openaiKey = process.env.OPENAI_API_KEY;
