@@ -986,7 +986,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                  <div className="flex items-center gap-1 shrink-0">
                     {song.audioStatus === 'complete' && (
                       <ShareButton
                         title={song.title}
