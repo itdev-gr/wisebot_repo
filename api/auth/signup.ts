@@ -81,6 +81,21 @@ export default async function handler(req: any, res: any) {
       });
     }
 
+    // Check username (childName) uniqueness — case-insensitive
+    const supabaseForCheck = await getSupabaseAdmin();
+    const { data: existingUser, error: checkError } = await supabaseForCheck
+      .from('profiles')
+      .select('id')
+      .ilike('child_name', childName)
+      .limit(1);
+
+    if (!checkError && existingUser && existingUser.length > 0) {
+      return res.status(409).json({
+        error: 'Αυτό το ψευδώνυμο υπάρχει ήδη. Δοκίμασε ένα άλλο! / This nickname is already taken. Try another!',
+        details: 'child_name_taken',
+      });
+    }
+
     // Create user with admin API (most reliable, works without ANON_KEY)
     const supabaseAdmin = await getSupabaseAdmin();
 

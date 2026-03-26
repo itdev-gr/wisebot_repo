@@ -69,6 +69,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         parentVerified: data.parent_verified,
       };
       setProfile(p);
+
+      // Store child_name in localStorage so ShareButton and other components can access it
+      if (data.child_name) {
+        localStorage.setItem('wb_user_name', data.child_name);
+      }
+
       return p;
     } catch (err) {
       console.error('[Auth] Profile fetch error:', err);
