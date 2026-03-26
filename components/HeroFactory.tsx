@@ -138,7 +138,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         try {
           console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `A ${hero.species} character. This is a ${hero.species}, NOT any other animal. The ${hero.species} is holding or using: ${hero.gear}. The ${hero.species}'s mission: ${hero.contribution}. Full body shot, standing heroically, centered. 3D Pixar/DreamWorks quality render, cinematic lighting, dark gradient background, vibrant colors, big expressive eyes. NO text, NO labels, NO writing anywhere.`;
+          const prompt = `A cute cartoon ${hero.species}. It MUST be a ${hero.species} and look exactly like a ${hero.species}. Special physical features: ${hero.gear}. Personality: ${hero.contribution}. The character's unique features should be clearly visible and exaggerated in a fun cartoon way. Full body, standing, fun pose, colorful, cute big eyes, clean dark background. Cartoon style, NOT realistic. NO text, NO labels, NO words, NO writing.`;
 
           console.log('[HeroFactory] Calling backend API...');
           const result = await backendAI.image(prompt);
@@ -410,12 +410,12 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       ph: lang === 'el' ? 'π.χ. τίγρη, πίθηκος, αετός...' : 'e.g. tiger, monkey, eagle...'
     },
     step2: {
-      badge: lang === 'el' ? '⚡ ΔΥΝΑΜΗ' : '⚡ POWER',
-      title: lang === 'el' ? 'Τι έχει;' : 'What does it have?',
+      badge: lang === 'el' ? '⚡ ΙΔΙΑΙΤΕΡΟΤΗΤΕΣ' : '⚡ FEATURES',
+      title: lang === 'el' ? 'Τι ιδιαίτερο έχει;' : 'What special features?',
       desc: lang === 'el'
-        ? 'Μπάλα ποδοσφαίρου; Μαγικό σπαθί; Βιβλία; Σούπερ γυαλιά; Πες μου τι κρατάει ή φοράει!'
-        : 'Football? Magic sword? Books? Super glasses? Tell me what it holds or wears!',
-      ph: lang === 'el' ? 'π.χ. μπάλα ποδοσφαίρου, laser μάτια...' : 'e.g. football, laser eyes...'
+        ? 'Πες μου τι ξεχωριστό έχει! Ουρά USB; Κεφάλι μπάλα; Φτερά από πίτσα; Μάτια laser; Ό,τι φανταστείς!'
+        : 'Tell me what makes it unique! USB tail? Ball head? Pizza wings? Laser eyes? Anything you imagine!',
+      ph: lang === 'el' ? 'π.χ. ουρά USB, κεφάλι μπάλα, φτερά πίτσα...' : 'e.g. USB tail, ball head, pizza wings...'
     },
     step3: {
       badge: lang === 'el' ? '💪 ΑΠΟΣΤΟΛΗ' : '💪 MISSION',
