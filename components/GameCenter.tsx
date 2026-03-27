@@ -349,7 +349,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
                 </div>
 
                 {/* Play Button Overlay */}
-                <div className={`absolute inset-0 flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`}>
+                <div className={`absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
                   <div className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 group-hover:scale-110 transition-transform`}>
                     <Play size={20} fill="white" className="text-white ml-0.5" />
                   </div>

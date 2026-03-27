@@ -457,7 +457,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       `}
       style={{ animationDelay: `${delay}ms` }}
     >
-        {!locked && <div className={`absolute inset-0 bg-gradient-to-br ${c.gradientOverlay} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />}
+        {!locked && <div className={`absolute inset-0 bg-gradient-to-br ${c.gradientOverlay} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />}
 
         {/* "NEXT" badge for the next quest objective */}
         {isNext && !locked && (
@@ -606,7 +606,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             }`}
           >
             {!item.locked && (
-              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" style={{ background: `linear-gradient(135deg, rgba(255,255,255,0.03), transparent)` }} />
+              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: `linear-gradient(135deg, rgba(255,255,255,0.03), transparent)` }} />
             )}
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg ${item.locked ? 'grayscale' : ''}`}
               style={!item.locked ? { boxShadow: `0 4px 20px ${item.glow}` } : {}}
@@ -1018,7 +1018,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       {user && (
         <button
           onClick={() => setShowGiftModal(true)}
-          className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-2 border-white/20"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-2 border-white/20"
           aria-label={lang === 'el' ? 'Στείλε δώρο' : 'Send gift'}
         >
           <Gift size={24} className="text-white" />

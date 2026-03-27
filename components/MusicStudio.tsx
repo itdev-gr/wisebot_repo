@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { backendAI, authFetch } from '../services/backendApi';
+import { backendAI } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
@@ -173,21 +173,12 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       setFeaturedPlaying(null);
       return;
     }
-    // IMPORTANT: Create audio and play FIRST (before any state updates)
-    // Mobile browsers require .play() to be in the direct user gesture chain
+    if (featuredAudioRef.current) featuredAudioRef.current.pause();
     const audio = new Audio(src);
     audio.onended = () => setFeaturedPlaying(null);
-    audio.play().then(() => {
-      // Only update state after play succeeds
-      if (featuredAudioRef.current) featuredAudioRef.current.pause();
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current.currentTime = 0; }
-      if (isPlaying) stopPlayback();
-      featuredAudioRef.current = audio;
-      setFeaturedPlaying(songId);
-    }).catch((err) => {
-      console.error('[MusicStudio] Featured play failed:', err.message);
-      showNotification('❌', lang === 'el' ? 'Πάτησε ξανά για αναπαραγωγή' : 'Tap again to play');
-    });
+    audio.play().catch(() => {});
+    featuredAudioRef.current = audio;
+    setFeaturedPlaying(songId);
   };
 
   // Guided wizard state
@@ -384,8 +375,9 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
       let sunoTaskId = '';
       try {
-        const sunoResp = await authFetch('/api/ai/suno-generate', {
+        const sunoResp = await fetch('/api/ai/suno-generate', {
           method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             lyrics: lyricsData.lyrics,
             style: finalStyle,
@@ -469,7 +461,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       }
 
       try {
-        const resp = await authFetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
+        const resp = await fetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
         const data = await resp.json();
 
         if (data.status === 'complete' && (data.audioUrl || data.streamUrl)) {
@@ -515,12 +507,11 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     if (isPlaying && currentSong?.id === target.id) {
       stopPlayback();
     } else {
-      // Stop any existing playback (both generated and featured)
+      // Stop any existing playback
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
-      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); setFeaturedPlaying(null); }
       synthRef.current.cancel();
       setCurrentSong(target);
 
@@ -954,7 +945,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
                     {/* Play overlay */}
                     <button
                       onClick={e => { e.stopPropagation(); togglePlay(song); }}
-                      className="absolute inset-0 bg-black/40 flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity"
+                      className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     >
                       {isPlaying && currentSong?.id === song.id
                         ? <Pause size={18} className="text-white" fill="white" />
@@ -1059,8 +1050,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
                   {/* Play/Pause overlay */}
-                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none ${
-                    featuredPlaying === song.id ? 'opacity-100' : 'md:opacity-0 md:group-hover:opacity-100'
+                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity ${
+                    featuredPlaying === song.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                   }`}>
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all ${
                       featuredPlaying === song.id

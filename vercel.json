@@ -10,12 +10,6 @@
     "api/ai/image.ts": {
       "maxDuration": 60
     },
-    "api/ai/avatar.ts": {
-      "maxDuration": 60
-    },
-    "api/ai/video.ts": {
-      "maxDuration": 300
-    },
     "api/ai/video-generate.ts": {
       "maxDuration": 300
     },

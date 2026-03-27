@@ -713,7 +713,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
                   </div>
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-emerald-500/10 md:opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                  <div className="absolute inset-0 bg-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <div className="bg-black/60 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/20 text-white text-xs font-black uppercase tracking-wider flex items-center gap-2">
                       <RotateCcw size={14} /> {lang === 'el' ? 'PREVIEW 3D' : '3D PREVIEW'}
                     </div>

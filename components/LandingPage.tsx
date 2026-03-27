@@ -429,7 +429,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               <button onClick={() => setPlayingVideo(null)} className="absolute top-4 right-4 text-white z-20 bg-black/50 p-2 rounded-full hover:bg-white/20 transition-colors">
                 <X size={24} />
               </button>
-              <video autoPlay playsInline controls src={playingVideo.videoUrl} className="w-full h-full object-contain" />
+              <video ref={(el) => { if (el) { el.muted = false; el.play().catch(() => {}); } }} src={playingVideo.videoUrl} controls playsInline className="w-full h-full object-contain" />
             </div>
           </motion.div>
         )}

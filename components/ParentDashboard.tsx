@@ -318,7 +318,7 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     lang === 'el' ? 'Μουσική θεωρία' : 'Music Theory',
   ];
 
-  // ─── AUTH GATE — Dual: try stored parent PIN first, then account password ────
+  // ─── AUTH GATE ─────────────────────────────────────────────────────
   if (!isUnlocked) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
@@ -333,52 +333,30 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
             setAuthError('');
             setVerifying(true);
             try {
-              if (!pin) {
+              const email = user?.email;
+              if (!email || !pin) {
                 setAuthError(t.pinError);
                 setVerifying(false);
                 return;
               }
-
-              // Method 1: Check stored parent PIN (works for ALL users including Google OAuth)
-              const storedPin = localStorage.getItem('wb_parent_pin');
-              if (storedPin && pin === storedPin) {
+              // Use Supabase directly to verify password without disrupting session
+              const { createClient } = await import('@supabase/supabase-js');
+              const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || '';
+              const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
+              if (supabaseUrl && supabaseKey) {
+                const tempClient = createClient(supabaseUrl, supabaseKey, {
+                  auth: { autoRefreshToken: false, persistSession: false }
+                });
+                const { error } = await tempClient.auth.signInWithPassword({ email, password: pin });
+                if (error) {
+                  setAuthError(t.pinError);
+                } else {
+                  setIsUnlocked(true);
+                }
+              } else {
+                // Fallback: just unlock (no Supabase)
                 setIsUnlocked(true);
-                setVerifying(false);
-                return;
               }
-
-              // Method 2: Try Supabase password auth (for email/password users)
-              const email = user?.email;
-              if (email) {
-                try {
-                  const { createClient } = await import('@supabase/supabase-js');
-                  const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || '';
-                  const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
-                  if (supabaseUrl && supabaseKey) {
-                    const tempClient = createClient(supabaseUrl, supabaseKey, {
-                      auth: { autoRefreshToken: false, persistSession: false }
-                    });
-                    const { error } = await tempClient.auth.signInWithPassword({ email, password: pin });
-                    if (!error) {
-                      // Password matched — also save as parent PIN for faster access
-                      localStorage.setItem('wb_parent_pin', pin);
-                      setIsUnlocked(true);
-                      setVerifying(false);
-                      return;
-                    }
-                  }
-                } catch { /* password auth not available */ }
-              }
-
-              // No PIN set yet? First visit — let parent SET their PIN
-              if (!storedPin) {
-                localStorage.setItem('wb_parent_pin', pin);
-                setIsUnlocked(true);
-                setVerifying(false);
-                return;
-              }
-
-              setAuthError(t.pinError);
             } catch {
               setAuthError(t.pinError);
             }
@@ -388,17 +366,12 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
               type="password"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
-              placeholder={lang === 'el' ? 'Γονικός κωδικός (4+ ψηφία)' : 'Parent PIN (4+ digits)'}
+              placeholder={lang === 'el' ? 'Κωδικός λογαριασμού' : 'Account password'}
               className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 text-center"
             />
             {authError && (
               <p className="text-red-400 text-xs font-bold flex items-center justify-center gap-1">
                 <AlertCircle size={14} /> {authError}
-              </p>
-            )}
-            {!localStorage.getItem('wb_parent_pin') && (
-              <p className="text-blue-400/70 text-xs">
-                {lang === 'el' ? '🔐 Πρώτη φορά; Δημιούργησε τον γονικό κωδικό σου.' : '🔐 First time? Create your parent PIN.'}
               </p>
             )}
             <button
