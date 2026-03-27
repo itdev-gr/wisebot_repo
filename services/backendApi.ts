@@ -124,6 +124,31 @@ export const backendAI = {
       method: 'POST',
       body: JSON.stringify({ prompt }),
     }),
+
+  avatar: async (imageBytes: string, mimeType: string): Promise<{ image: string }> => {
+    const resp = await apiFetch<any>('/api/ai/generate', {
+      method: 'POST',
+      body: JSON.stringify({
+        model: 'gemini-2.5-flash-image',
+        contents: [{
+          parts: [
+            { text: 'Transform this photo into an epic cartoon/anime-style hero avatar. Keep the person recognizable but make them look like a superhero character. Vibrant colors, dynamic pose, clean illustration style. NO text anywhere on the image.' },
+            { inlineData: { data: imageBytes, mimeType } }
+          ]
+        }],
+        config: { responseModalities: ['IMAGE'] }
+      }),
+    });
+    for (const candidate of resp.candidates || []) {
+      for (const part of candidate.content?.parts || []) {
+        if (part.inlineData?.data) {
+          const mime = part.inlineData.mimeType || 'image/png';
+          return { image: `data:${mime};base64,${part.inlineData.data}` };
+        }
+      }
+    }
+    return { image: '' };
+  },
 };
 
 // ─── STRIPE ENDPOINTS ─────────────────────────────────────

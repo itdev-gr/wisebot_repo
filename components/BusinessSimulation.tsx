@@ -5,7 +5,7 @@ import {
   Building2, Pizza, Shirt, Gamepad2, Heart, Music,
   Target, Users, Crown, TrendingUp, Download
 } from 'lucide-react';
-import { GoogleGenAI } from "../services/geminiProxy";
+import { backendAI } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
 
 interface Props {
@@ -99,53 +99,17 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
       const generateBusiness = async () => {
         try {
-          const ai = new GoogleGenAI();
           const industryName = INDUSTRIES.find(i => i.id === biz.industry)?.[lang === 'el' ? 'el' : 'en'] || biz.industry;
 
-          // Generate logo
-          const logoPrompt = `Create a modern, minimalist company logo for a ${industryName} company called "${biz.name}".
-          The company sells: ${biz.product}.
-          Style: Clean, professional, vibrant colors, flat design, suitable for kids to understand.
-          The logo should be centered on a solid dark background. No text in the image.`;
+          const textPrompt = `${industryName} company "${biz.name}" sells ${biz.product}, pricing: ${biz.pricing}, target: ${biz.target}`;
+          const logoPrompt = `Modern minimalist logo for ${industryName} company "${biz.name}". Clean, professional, vibrant, flat design, dark background. No text.`;
 
-          const logoResponse = await ai.models.generateContent({
-            model: 'gemini-2.5-flash-image',
-            contents: { parts: [{ text: logoPrompt }] },
-          });
+          // Use backend API (never expose API keys client-side)
+          const result = await backendAI.business(textPrompt, logoPrompt);
 
-          const logoParts = logoResponse.candidates?.[0]?.content?.parts;
-          if (logoParts) {
-            for (const part of logoParts) {
-              if (part.inlineData) {
-                setResultLogo(`data:image/png;base64,${part.inlineData.data}`);
-                break;
-              }
-            }
-          }
-
-          // Generate slogan & description
-          const textPrompt = `You are a business advisor for kids. A child created a company:
-          Name: ${biz.name}
-          Industry: ${industryName}
-          Product: ${biz.product}
-          Pricing: ${biz.pricing}
-          Target: ${biz.target}
-
-          Respond in ${lang === 'el' ? 'Greek' : 'English'} with EXACTLY this format:
-          SLOGAN: [a catchy 5-7 word marketing slogan]
-          DESCRIPTION: [a fun 2-sentence business description for kids, explaining what makes this company special]`;
-
-          const textResponse = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: textPrompt,
-          });
-
-          const text = textResponse.text || '';
-          const sloganMatch = text.match(/SLOGAN:\s*(.+)/);
-          const descMatch = text.match(/DESCRIPTION:\s*(.+)/s);
-          if (sloganMatch) setResultSlogan(sloganMatch[1].trim());
-          if (descMatch) setResultDesc(descMatch[1].trim());
-
+          if (result.slogan) setResultSlogan(result.slogan);
+          if (result.description) setResultDesc(result.description);
+          if (result.logo) setResultLogo(result.logo);
         } catch (error) {
           console.error("Business generation failed:", error);
           setResultSlogan(lang === 'el' ? 'Η καλύτερη εταιρεία!' : 'The best company!');
@@ -155,7 +119,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
       generateBusiness();
 
-      const finishId = setTimeout(() => setStep(4), 10000);
+      const finishId = setTimeout(() => setStep(4), 15000);
       timeoutIds.push(finishId);
 
       return () => timeoutIds.forEach(clearTimeout);

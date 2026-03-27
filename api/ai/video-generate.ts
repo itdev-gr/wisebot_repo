@@ -57,7 +57,7 @@ export default async function handler(req: any, res: any) {
     const operation = await ai.models.generateVideos(generateConfig);
 
     // Return the operation name for polling
-    const operationName = operation.name || operation.operationName || '';
+    const operationName = operation.name || (operation as any).operationName || '';
 
     if (!operationName) {
       console.error('[video-generate] No operation name:', JSON.stringify(operation).slice(0, 500));

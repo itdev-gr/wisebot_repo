@@ -746,15 +746,16 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
                 {/* ─── TTS Player ─── */}
                 {!showQuiz && (
-                  <BookTTSPlayer
-                    key={`tts-${currentPage}-${selectedBookId}`}
-                    textContent={currentStructuredPage?.text[lang] || ''}
-                    htmlContent={!hasStructuredPages ? (htmlPages[currentPage] || '') : undefined}
-                    lang={lang}
-                    contentRef={bookContentRef}
-                    bookId={typeof activeBook.id === 'number' ? activeBook.id : parseInt(String(activeBook.id))}
-                    pageNum={currentPage + 1}
-                  />
+                  <React.Fragment key={`tts-${currentPage}-${selectedBookId}`}>
+                    <BookTTSPlayer
+                      textContent={currentStructuredPage?.text[lang] || ''}
+                      htmlContent={!hasStructuredPages ? (htmlPages[currentPage] || '') : undefined}
+                      lang={lang}
+                      contentRef={bookContentRef}
+                      bookId={typeof activeBook.id === 'number' ? activeBook.id : parseInt(String(activeBook.id))}
+                      pageNum={currentPage + 1}
+                    />
+                  </React.Fragment>
                 )}
               </div>
             </motion.div>

@@ -224,7 +224,7 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
   const isHeroUnlocked = (heroId: string) => {
     const reqBook = HERO_UNLOCK_REQUIREMENTS[heroId];
     if (!reqBook) return true; // User-created heroes are always unlocked
-    return completedIds.some(id => id === `book_${reqBook}` || id === `ebook_${reqBook}`);
+    return completedIds.some(id => id === `ebook-${reqBook}` || id === `book-${reqBook}` || id === `academy-${reqBook}`);
   };
 
   // Combine default heroes with user created heroes
