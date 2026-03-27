@@ -173,17 +173,21 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       setFeaturedPlaying(null);
       return;
     }
-    if (featuredAudioRef.current) featuredAudioRef.current.pause();
-    // Stop generated song playback if any
-    if (audioRef.current) { audioRef.current.pause(); audioRef.current.currentTime = 0; }
-    if (isPlaying) stopPlayback();
+    // IMPORTANT: Create audio and play FIRST (before any state updates)
+    // Mobile browsers require .play() to be in the direct user gesture chain
     const audio = new Audio(src);
     audio.onended = () => setFeaturedPlaying(null);
-    audio.play().catch(() => {
-      showNotification('❌', lang === 'el' ? 'Αδυναμία αναπαραγωγής' : 'Playback failed');
+    audio.play().then(() => {
+      // Only update state after play succeeds
+      if (featuredAudioRef.current) featuredAudioRef.current.pause();
+      if (audioRef.current) { audioRef.current.pause(); audioRef.current.currentTime = 0; }
+      if (isPlaying) stopPlayback();
+      featuredAudioRef.current = audio;
+      setFeaturedPlaying(songId);
+    }).catch((err) => {
+      console.error('[MusicStudio] Featured play failed:', err.message);
+      showNotification('❌', lang === 'el' ? 'Πάτησε ξανά για αναπαραγωγή' : 'Tap again to play');
     });
-    featuredAudioRef.current = audio;
-    setFeaturedPlaying(songId);
   };
 
   // Guided wizard state
@@ -950,7 +954,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
                     {/* Play overlay */}
                     <button
                       onClick={e => { e.stopPropagation(); togglePlay(song); }}
-                      className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute inset-0 bg-black/40 flex items-center justify-center md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                     >
                       {isPlaying && currentSong?.id === song.id
                         ? <Pause size={18} className="text-white" fill="white" />
@@ -1055,8 +1059,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
                   {/* Play/Pause overlay */}
-                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity ${
-                    featuredPlaying === song.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity pointer-events-none ${
+                    featuredPlaying === song.id ? 'opacity-100' : 'md:opacity-0 md:group-hover:opacity-100'
                   }`}>
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition-all ${
                       featuredPlaying === song.id
