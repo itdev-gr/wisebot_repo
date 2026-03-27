@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { backendAI } from '../services/backendApi';
+import { backendAI, authFetch } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
@@ -174,9 +174,14 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       return;
     }
     if (featuredAudioRef.current) featuredAudioRef.current.pause();
+    // Stop generated song playback if any
+    if (audioRef.current) { audioRef.current.pause(); audioRef.current.currentTime = 0; }
+    if (isPlaying) stopPlayback();
     const audio = new Audio(src);
     audio.onended = () => setFeaturedPlaying(null);
-    audio.play().catch(() => {});
+    audio.play().catch(() => {
+      showNotification('❌', lang === 'el' ? 'Αδυναμία αναπαραγωγής' : 'Playback failed');
+    });
     featuredAudioRef.current = audio;
     setFeaturedPlaying(songId);
   };
@@ -375,9 +380,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
       let sunoTaskId = '';
       try {
-        const sunoResp = await fetch('/api/ai/suno-generate', {
+        const sunoResp = await authFetch('/api/ai/suno-generate', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             lyrics: lyricsData.lyrics,
             style: finalStyle,
@@ -461,7 +465,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       }
 
       try {
-        const resp = await fetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
+        const resp = await authFetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
         const data = await resp.json();
 
         if (data.status === 'complete' && (data.audioUrl || data.streamUrl)) {
@@ -507,11 +511,12 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     if (isPlaying && currentSong?.id === target.id) {
       stopPlayback();
     } else {
-      // Stop any existing playback
+      // Stop any existing playback (both generated and featured)
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
+      if (featuredAudioRef.current) { featuredAudioRef.current.pause(); setFeaturedPlaying(null); }
       synthRef.current.cancel();
       setCurrentSong(target);
 

@@ -54,7 +54,13 @@ export default async function handler(req: any, res: any) {
 
     const { GoogleGenAI } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey });
-    const fullPrompt = `Create a fun children's song about: ${songTopic}. Genre: ${genre || 'pop'}. Mood: ${mood || 'happy'}.
+
+    // If lyricsPrompt is a detailed prompt (from MusicStudio), pass it through directly
+    // Otherwise build a simple prompt from topic + genre + mood
+    const isDetailedPrompt = lyricsPrompt && lyricsPrompt.length > 200;
+    const fullPrompt = isDetailedPrompt
+      ? lyricsPrompt
+      : `Create a fun children's song about: ${songTopic}. Genre: ${genre || 'pop'}. Mood: ${mood || 'happy'}.
 The song must be 100% kid-friendly, educational, and positive. No violence, scary themes, or adult topics.
 
 Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
