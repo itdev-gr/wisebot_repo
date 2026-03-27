@@ -47,8 +47,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const configured = isSupabaseConfigured();
 
-  // Fetch profile from Supabase
-  const fetchProfile = useCallback(async (userId: string) => {
+  // Fetch profile from Supabase — auto-creates for OAuth users if missing
+  const fetchProfile = useCallback(async (userId: string, authUser?: User | null) => {
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -57,6 +57,41 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .single();
 
       if (error || !data) {
+        // Profile doesn't exist — auto-create for OAuth users
+        const currentUser = authUser || user;
+        if (currentUser?.app_metadata?.provider === 'google' || currentUser?.app_metadata?.providers?.includes('google')) {
+          console.log('[Auth] Creating profile for Google OAuth user');
+          const displayName = currentUser.user_metadata?.full_name
+            || currentUser.user_metadata?.name
+            || currentUser.email?.split('@')[0]
+            || 'Ήρωας';
+          const email = currentUser.email || '';
+
+          const { error: insertError } = await supabase
+            .from('profiles')
+            .insert({
+              id: userId,
+              child_name: displayName,
+              parent_email: email,
+              credits: 100, // Welcome credits
+              parent_verified: true, // Google = verified email
+            });
+
+          if (!insertError) {
+            const p: Profile = {
+              id: userId,
+              childName: displayName,
+              parentEmail: email,
+              avatarUrl: null,
+              parentVerified: true,
+            };
+            setProfile(p);
+            localStorage.setItem('wb_user_name', displayName);
+            return p;
+          } else {
+            console.error('[Auth] Profile creation error:', insertError.message);
+          }
+        }
         console.warn('[Auth] Could not fetch profile:', error?.message);
         return null;
       }
@@ -80,7 +115,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       console.error('[Auth] Profile fetch error:', err);
       return null;
     }
-  }, []);
+  }, [user]);
 
   // Initialize: check existing session
   useEffect(() => {
@@ -104,7 +139,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (session?.user) {
           setUser(session.user);
           setEmailVerified(!!session.user.email_confirmed_at);
-          await fetchProfile(session.user.id);
+          await fetchProfile(session.user.id, session.user);
         } else {
           setUser(null);
           setProfile(null);
@@ -176,11 +211,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const signInWithGoogle = useCallback(async (): Promise<{ error?: string }> => {
     if (!configured) return { error: 'Auth not configured' };
     try {
+      const redirectTo = typeof window !== 'undefined'
+        ? `${window.location.origin}/dashboard`
+        : 'https://wisebot.gr/dashboard';
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: {
-          redirectTo: 'https://wisebot.gr/dashboard',
-        },
+        options: { redirectTo },
       });
       if (error) return { error: error.message };
       return {};
@@ -193,8 +229,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const resetPassword = useCallback(async (email: string): Promise<{ error?: string }> => {
     if (!configured) return { error: 'Auth not configured' };
     try {
+      const resetRedirect = typeof window !== 'undefined'
+        ? `${window.location.origin}/login`
+        : 'https://wisebot.gr/login';
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://wisebot.gr/login',
+        redirectTo: resetRedirect,
       });
       if (error) return { error: error.message };
       return {};

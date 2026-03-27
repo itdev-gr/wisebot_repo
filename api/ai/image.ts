@@ -1,8 +1,12 @@
 /**
  * Image Generation Endpoint — Kid-safe
  * ======================================
- * Priority: DALL-E 3 (OpenAI) → Imagen 4 (Google) → Gemini Flash Image
- * All with content moderation for children 6-13.
+ * Uses xAI Grok Imagine API (Aurora) for image generation.
+ * Content moderation for children 6-13.
+ *
+ * POST /api/ai/image
+ * Body: { prompt, style? }
+ * Response: { image: "data:image/...;base64,..." }
  */
 
 const BLOCKED_EN = /(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|blood|gore|gory|torture|murder|decapitat|dismember)/i;
@@ -15,6 +19,11 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  // Auth required — prevent anonymous API abuse
+  const { getAuthUser } = await import('../_lib/auth');
+  const user = await getAuthUser(req);
+  if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   const { prompt, style } = req.body || {};
   if (!prompt) return res.status(400).json({ error: 'Prompt required' });
@@ -30,99 +39,45 @@ export default async function handler(req: any, res: any) {
     ? prompt
     : `${prompt}. IMPORTANT: NO text, NO labels, NO writing anywhere on the image.`;
 
-  // ─── ATTEMPT 1: DALL-E 3 (OpenAI) — Best quality ─────────────
-  const openaiKey = process.env.OPENAI_API_KEY;
-  if (openaiKey) {
-    try {
-      console.log('[Image] Trying DALL-E 3...');
-      const resp = await fetch('https://api.openai.com/v1/images/generations', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${openaiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'dall-e-3',
-          prompt: safePrompt,
-          n: 1,
-          size: '1024x1024',
-          quality: 'standard',
-          response_format: 'b64_json',
-        }),
-      });
+  const xaiKey = process.env.XAI_API_KEY;
+  if (!xaiKey) return res.status(500).json({ error: 'Image service not configured' });
 
-      if (resp.ok) {
-        const data = await resp.json();
-        const b64 = data.data?.[0]?.b64_json;
-        if (b64) {
-          console.log('[Image] DALL-E 3 success');
-          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
-        }
-      } else {
-        const err = await resp.text();
-        console.warn('[Image] DALL-E 3 failed:', resp.status, err.slice(0, 200));
-      }
-    } catch (e: any) {
-      console.warn('[Image] DALL-E 3 error:', e.message);
-    }
-  }
-
-  // ─── ATTEMPT 2: Imagen 4 Fast (Google) ────────────────────────
-  const geminiKey = process.env.GEMINI_API_KEY;
-  if (geminiKey) {
-    try {
-      console.log('[Image] Trying Imagen 4...');
-      const { GoogleGenAI } = await import('@google/genai');
-      const ai = new GoogleGenAI({ apiKey: geminiKey });
-
-      const response = await ai.models.generateImages({
-        model: 'imagen-4.0-fast-generate-001',
+  // ─── xAI Grok Imagine — Aurora ─────────────────────────────
+  try {
+    console.log('[Image] Calling xAI grok-imagine-image...');
+    const resp = await fetch('https://api.x.ai/v1/images/generations', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${xaiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'grok-imagine-image',
         prompt: safePrompt,
-        config: {
-          numberOfImages: 1,
-          aspectRatio: '1:1',
-          personGeneration: 'DONT_ALLOW' as any,
-        },
-      });
+        n: 1,
+        response_format: 'b64_json',
+        aspect_ratio: '1:1',
+        resolution: '1k',
+      }),
+    });
 
-      if (response.generatedImages?.[0]?.image?.imageBytes) {
-        console.log('[Image] Imagen 4 success');
-        return res.status(200).json({
-          image: `data:image/png;base64,${response.generatedImages[0].image.imageBytes}`,
-        });
+    if (resp.ok) {
+      const data = await resp.json();
+      const item = data.data?.[0];
+      const b64 = item?.b64_json;
+      const mimeType = item?.mime_type || 'image/png';
+
+      if (b64) {
+        console.log('[Image] xAI grok-imagine-image success');
+        return res.status(200).json({ image: `data:${mimeType};base64,${b64}` });
       }
-    } catch (e: any) {
-      console.warn('[Image] Imagen 4 error:', e.message?.slice(0, 200));
     }
+
+    const errText = await resp.text();
+    console.error('[Image] xAI error:', resp.status, errText.slice(0, 300));
+    return res.status(500).json({ error: 'Image generation failed. Please try again.' });
+  } catch (e: any) {
+    console.error('[Image] xAI error:', e.message);
+    return res.status(500).json({ error: 'Image generation temporarily unavailable. Please try again.' });
   }
-
-  // ─── ATTEMPT 3: Gemini Flash Image ────────────────────────────
-  if (geminiKey) {
-    try {
-      console.log('[Image] Trying Gemini Flash Image...');
-      const { GoogleGenAI: GeminiAI } = await import('@google/genai');
-      const ai = new GeminiAI({ apiKey: geminiKey });
-
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
-        contents: safePrompt,
-        config: { responseModalities: ['IMAGE'] },
-      });
-
-      const parts = response.candidates?.[0]?.content?.parts;
-      if (parts) {
-        for (const part of parts) {
-          if ((part as any).inlineData?.data) {
-            console.log('[Image] Gemini Flash Image success');
-            return res.status(200).json({
-              image: `data:${(part as any).inlineData.mimeType || 'image/png'};base64,${(part as any).inlineData.data}`,
-            });
-          }
-        }
-      }
-    } catch (e: any) {
-      console.warn('[Image] Gemini Flash error:', e.message?.slice(0, 200));
-    }
-  }
-
-  // All failed
-  console.error('[Image] All providers failed');
-  res.status(500).json({ error: 'Image generation temporarily unavailable. Please try again.' });
 }

@@ -32,7 +32,8 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = null;
+  const { getAuthUser } = await import('../_lib/auth');
+  const user = await getAuthUser(req); // optional for polling
 
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });

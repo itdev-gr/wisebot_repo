@@ -124,6 +124,12 @@ export const backendAI = {
       method: 'POST',
       body: JSON.stringify({ prompt }),
     }),
+
+  avatar: (imageBytes: string, mimeType: string) =>
+    apiFetch<{ image: string }>('/api/ai/avatar', {
+      method: 'POST',
+      body: JSON.stringify({ imageBytes, mimeType }),
+    }),
 };
 
 // ─── STRIPE ENDPOINTS ─────────────────────────────────────

@@ -863,8 +863,8 @@ function ContentTab({ stats, totals, data }: any) {
   // ─── API COST PER CALL (in EUR) ────
   const API_COSTS = [
     { name: 'AI Chat', endpoint: '/api/ai/chat', provider: 'GPT-4o-mini', costPerCall: 0.002, creditsCharged: 0, uses: stats.totalQuizzes + stats.totalBooks, icon: <Brain size={16} />, color: 'text-cyan-400' },
-    { name: 'Image Generation', endpoint: '/api/ai/generate', provider: 'DALL-E 3', costPerCall: 0.04, creditsCharged: 6, uses: stats.totalImages, icon: <Image size={16} />, color: 'text-pink-400' },
-    { name: 'Video Generation', endpoint: '/api/ai/video-generate', provider: 'Veo 2', costPerCall: 0.25, creditsCharged: 50, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
+    { name: 'Image Generation', endpoint: '/api/ai/image', provider: 'xAI Grok Aurora', costPerCall: 0.02, creditsCharged: 6, uses: stats.totalImages, icon: <Image size={16} />, color: 'text-pink-400' },
+    { name: 'Video Generation', endpoint: '/api/ai/video', provider: 'xAI Grok Video', costPerCall: 0.30, creditsCharged: 50, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
     { name: 'Music Generation', endpoint: '/api/ai/suno-generate', provider: 'Suno AI', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalSongs, icon: <Music size={16} />, color: 'text-fuchsia-400' },
     { name: 'Text-to-Speech', endpoint: '/api/ai/tts', provider: 'Gemini TTS', costPerCall: 0.003, creditsCharged: 0, uses: stats.totalBooks * 3, icon: <Activity size={16} />, color: 'text-emerald-400' },
     { name: '3D Factory', endpoint: '/api/ai/meshy-generate', provider: 'Meshy.ai', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalHeroes, icon: <Box size={16} />, color: 'text-orange-400' },
