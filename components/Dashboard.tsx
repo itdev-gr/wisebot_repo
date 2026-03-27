@@ -424,24 +424,40 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
   // 📦 COMPONENTS
   // ============================================================
 
+  // Color map — all classes are full strings so Tailwind JIT can detect them
+  const COLOR_MAP: Record<string, { hoverBorder: string; ring: string; gradientOverlay: string; iconGradient: string; badgeBorder: string; badgeBg: string; zapColor: string; badgeText: string }> = {
+    blue:    { hoverBorder: 'hover:border-blue-500/50',    ring: 'ring-blue-500/20',    gradientOverlay: 'from-blue-500/5',    iconGradient: 'from-blue-500 to-blue-700',    badgeBorder: 'border-blue-500/30',    badgeBg: 'bg-blue-500/10',    zapColor: 'text-blue-400',    badgeText: 'text-blue-300' },
+    indigo:  { hoverBorder: 'hover:border-indigo-500/50',  ring: 'ring-indigo-500/20',  gradientOverlay: 'from-indigo-500/5',  iconGradient: 'from-indigo-500 to-indigo-700',  badgeBorder: 'border-indigo-500/30',  badgeBg: 'bg-indigo-500/10',  zapColor: 'text-indigo-400',  badgeText: 'text-indigo-300' },
+    purple:  { hoverBorder: 'hover:border-purple-500/50',  ring: 'ring-purple-500/20',  gradientOverlay: 'from-purple-500/5',  iconGradient: 'from-purple-500 to-purple-700',  badgeBorder: 'border-purple-500/30',  badgeBg: 'bg-purple-500/10',  zapColor: 'text-purple-400',  badgeText: 'text-purple-300' },
+    fuchsia: { hoverBorder: 'hover:border-fuchsia-500/50', ring: 'ring-fuchsia-500/20', gradientOverlay: 'from-fuchsia-500/5', iconGradient: 'from-fuchsia-500 to-fuchsia-700', badgeBorder: 'border-fuchsia-500/30', badgeBg: 'bg-fuchsia-500/10', zapColor: 'text-fuchsia-400', badgeText: 'text-fuchsia-300' },
+    pink:    { hoverBorder: 'hover:border-pink-500/50',    ring: 'ring-pink-500/20',    gradientOverlay: 'from-pink-500/5',    iconGradient: 'from-pink-500 to-pink-700',    badgeBorder: 'border-pink-500/30',    badgeBg: 'bg-pink-500/10',    zapColor: 'text-pink-400',    badgeText: 'text-pink-300' },
+    rose:    { hoverBorder: 'hover:border-rose-500/50',    ring: 'ring-rose-500/20',    gradientOverlay: 'from-rose-500/5',    iconGradient: 'from-rose-500 to-rose-700',    badgeBorder: 'border-rose-500/30',    badgeBg: 'bg-rose-500/10',    zapColor: 'text-rose-400',    badgeText: 'text-rose-300' },
+    amber:   { hoverBorder: 'hover:border-amber-500/50',   ring: 'ring-amber-500/20',   gradientOverlay: 'from-amber-500/5',   iconGradient: 'from-amber-500 to-amber-700',   badgeBorder: 'border-amber-500/30',   badgeBg: 'bg-amber-500/10',   zapColor: 'text-amber-400',   badgeText: 'text-amber-300' },
+    emerald: { hoverBorder: 'hover:border-emerald-500/50', ring: 'ring-emerald-500/20', gradientOverlay: 'from-emerald-500/5', iconGradient: 'from-emerald-500 to-emerald-700', badgeBorder: 'border-emerald-500/30', badgeBg: 'bg-emerald-500/10', zapColor: 'text-emerald-400', badgeText: 'text-emerald-300' },
+    green:   { hoverBorder: 'hover:border-green-500/50',   ring: 'ring-green-500/20',   gradientOverlay: 'from-green-500/5',   iconGradient: 'from-green-500 to-green-700',   badgeBorder: 'border-green-500/30',   badgeBg: 'bg-green-500/10',   zapColor: 'text-green-400',   badgeText: 'text-green-300' },
+    cyan:    { hoverBorder: 'hover:border-cyan-500/50',    ring: 'ring-cyan-500/20',    gradientOverlay: 'from-cyan-500/5',    iconGradient: 'from-cyan-500 to-cyan-700',    badgeBorder: 'border-cyan-500/30',    badgeBg: 'bg-cyan-500/10',    zapColor: 'text-cyan-400',    badgeText: 'text-cyan-300' },
+  };
+
   // Module Card
   const ModuleCard = ({
     title, subtitle, rewardText, icon: Icon, color, path,
     locked = false, unlockHint = '', delay = 0, featured = false, isNext = false
-  }: any) => (
+  }: any) => {
+    const c = COLOR_MAP[color] || COLOR_MAP.blue;
+    return (
     <div
       onClick={() => !locked && navigate(path)}
       className={`relative group cursor-pointer rounded-[2.5rem] border-2 transition-all duration-500 overflow-hidden flex flex-col h-full
         ${locked
           ? 'border-white/5 bg-[#0a0b10] opacity-50 grayscale pointer-events-none'
-          : `border-white/10 hover:border-${color}-500/50 bg-[#0f1014] hover:bg-[#15171e] hover:-translate-y-2 hover:shadow-2xl`
+          : `border-white/10 ${c.hoverBorder} bg-[#0f1014] hover:bg-[#15171e] hover:-translate-y-2 hover:shadow-2xl`
         }
-        ${featured ? `ring-4 ring-${color}-500/20` : ''}
+        ${featured ? `ring-4 ${c.ring}` : ''}
         ${isNext ? 'ring-2 ring-amber-500/40 animate-pulse-slow' : ''}
       `}
       style={{ animationDelay: `${delay}ms` }}
     >
-        {!locked && <div className={`absolute inset-0 bg-gradient-to-br from-${color}-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />}
+        {!locked && <div className={`absolute inset-0 bg-gradient-to-br ${c.gradientOverlay} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />}
 
         {/* "NEXT" badge for the next quest objective */}
         {isNext && !locked && (
@@ -456,13 +472,13 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         <div className="p-8 flex-1 flex flex-col relative z-10">
             <div className="flex justify-between items-start mb-6">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-lg transition-transform group-hover:scale-110 border border-white/10
-                    ${locked ? 'bg-white/5' : `bg-gradient-to-br from-${color}-500 to-${color}-700`}`}>
+                    ${locked ? 'bg-white/5' : `bg-gradient-to-br ${c.iconGradient}`}`}>
                     {locked ? <Lock size={28} /> : <Icon size={32} />}
                 </div>
                 {!locked && (
-                    <div className={`px-3 py-1.5 rounded-lg border border-${color}-500/30 bg-${color}-500/10 flex items-center gap-2`}>
-                       <Zap size={12} className={`text-${color}-400 fill-current`} />
-                       <span className={`text-[9px] font-black uppercase tracking-widest text-${color}-300`}>
+                    <div className={`px-3 py-1.5 rounded-lg border ${c.badgeBorder} ${c.badgeBg} flex items-center gap-2`}>
+                       <Zap size={12} className={`${c.zapColor} fill-current`} />
+                       <span className={`text-[9px] font-black uppercase tracking-widest ${c.badgeText}`}>
                           {rewardText}
                        </span>
                     </div>
@@ -485,7 +501,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             {!locked && <ArrowRight size={16} className="text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all" />}
         </div>
     </div>
-  );
+  );};
 
   // Badge item for footer
   const BadgeItem = ({ icon: Icon, title, unlocked }: any) => (

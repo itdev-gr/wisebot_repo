@@ -310,6 +310,73 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         </div>
       </div>
 
+      {/* 🚀 HOW IT WORKS — 4-Step Journey */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.0, duration: 0.8 }}
+        className="relative z-20 w-full px-6 md:px-12 py-8 md:py-16"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter leading-tight">
+              {lang === 'el' ? 'ΠΩΣ ΔΟΥΛΕΥΕΙ;' : 'HOW DOES IT WORK?'}
+            </h2>
+            <p className="text-white/40 text-xs md:text-sm font-bold uppercase tracking-[0.2em] mt-2">
+              {lang === 'el' ? '4 ΒΗΜΑΤΑ ΠΡΟΣ ΤΗΝ ΠΕΡΙΠΕΤΕΙΑ' : '4 STEPS TO ADVENTURE'}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+            {[
+              { step: '01', emoji: '📖', title: { el: 'ΔΙΑΒΑΣΕ', en: 'READ' }, desc: { el: 'Ιστορίες σπουδαίων ανθρώπων. Einstein, Μέσσι, Jobs — μάθε πώς τα κατάφεραν.', en: 'Stories of great people. Einstein, Messi, Jobs — learn how they made it.' }, color: 'from-blue-500/20 to-indigo-500/10', border: 'border-blue-500/20' },
+              { step: '02', emoji: '🎨', title: { el: 'ΔΗΜΙΟΥΡΓΗΣΕ', en: 'CREATE' }, desc: { el: 'Φτιάξε τον δικό σου ήρωα με AI. Ζωγράφισε, πες του τι κάνει — δες τον να ζωντανεύει!', en: 'Build your own hero with AI. Describe it, customize it — watch it come to life!' }, color: 'from-purple-500/20 to-fuchsia-500/10', border: 'border-purple-500/20' },
+              { step: '03', emoji: '🎵', title: { el: 'ΕΞΕΡΕΥΝΗΣΕ', en: 'EXPLORE' }, desc: { el: 'Φτιάξε τραγούδια, βίντεο, εταιρείες. Κάθε δημιουργία σου κερδίζει Credits!', en: 'Make songs, videos, businesses. Every creation earns you Credits!' }, color: 'from-pink-500/20 to-rose-500/10', border: 'border-pink-500/20' },
+              { step: '04', emoji: '🏆', title: { el: 'ΓΙΝΕ ΘΡΥΛΟΣ', en: 'BECOME LEGEND' }, desc: { el: 'Κέρδισε badges, σκαρφάλωσε στην κατάταξη, πρόκαλε τους φίλους σου!', en: 'Earn badges, climb the leaderboard, challenge your friends!' }, color: 'from-amber-500/20 to-orange-500/10', border: 'border-amber-500/20' },
+            ].map((item, i) => (
+              <div key={i} className={`relative p-4 md:p-6 rounded-2xl md:rounded-3xl bg-gradient-to-br ${item.color} border ${item.border} backdrop-blur-md group`}>
+                <div className="text-3xl md:text-4xl mb-3">{item.emoji}</div>
+                <div className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-1">{item.step}</div>
+                <h3 className="text-base md:text-xl font-[1000] text-white uppercase italic tracking-tighter mb-2">{item.title[lang]}</h3>
+                <p className="text-white/50 text-[11px] md:text-xs font-bold leading-relaxed">{item.desc[lang]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* 🛡️ PARENT TRUST SECTION */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.8 }}
+        className="relative z-20 w-full px-6 md:px-12 py-4 md:py-8"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-emerald-500/10 via-blue-500/5 to-emerald-500/10 border border-emerald-500/20 rounded-2xl md:rounded-3xl p-5 md:p-8 flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30 shrink-0">
+              <Shield size={32} className="text-emerald-400" />
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-lg md:text-2xl font-[1000] text-white uppercase italic tracking-tighter mb-2">
+                {lang === 'el' ? '100% ΑΣΦΑΛΕΣ ΓΙΑ ΠΑΙΔΙΑ' : '100% SAFE FOR KIDS'}
+              </h3>
+              <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3">
+                {[
+                  { el: 'Χωρίς chat', en: 'No chat' },
+                  { el: 'Χωρίς αγνώστους', en: 'No strangers' },
+                  { el: 'Γονεϊκός Πίνακας', en: 'Parent Dashboard' },
+                  { el: 'Email επαλήθευση', en: 'Email verification' },
+                ].map((item, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[10px] md:text-xs font-bold">
+                    ✓ {item[lang]}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       {/* 🎬 VIDEO SHOWCASE */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}

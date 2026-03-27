@@ -138,7 +138,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         try {
           console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `A cute anthropomorphic ${hero.species} who ${hero.contribution}. This character is a ${hero.species}, NOT an owl, NOT a bird unless specified. Full body visible head to toe, dynamic pose. Special features: ${hero.gear}. Cinematic 3D cartoon, Pixar-style, vibrant colors, 4k ultra detailed, big expressive eyes. NO text NO labels NO writing.`;
+          const prompt = `A cute anthropomorphic ${hero.species} character. IMPORTANT: This must be a ${hero.species} — NOT an owl, NOT a bird (unless the user specifically said bird/owl). The character ${hero.contribution}. Full body visible from head to toe, dynamic heroic pose. Wearing/holding: ${hero.gear}. Style: Cinematic 3D cartoon rendering, Pixar/DreamWorks quality, vibrant saturated colors, soft studio lighting, 4K ultra detailed, big expressive eyes, clean background with subtle glow. Absolutely NO text, NO labels, NO watermarks, NO writing anywhere in the image.`;
 
           console.log('[HeroFactory] Calling backend API...');
           const result = await backendAI.image(prompt);
@@ -849,7 +849,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           {/* Credits Check for final step */}
           {step === 3 && (
               <div className="flex items-center justify-center md:justify-end gap-2 text-white/60 text-xs font-bold uppercase tracking-widest mb-6">
-                  Your Credits: <span className={credits >= costs.image ? 'text-emerald-400 text-lg' : 'text-red-400 text-lg'}>{credits}</span>
+                  {lang === 'el' ? 'Τα Credits σου:' : 'Your Credits:'} <span className={credits >= costs.image ? 'text-emerald-400 text-lg' : 'text-red-400 text-lg'}>{credits}</span>
               </div>
           )}
 

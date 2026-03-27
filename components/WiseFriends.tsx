@@ -220,9 +220,11 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
   const [showGiftModal, setShowGiftModal] = useState(false);
   const [giftUsername, setGiftUsername] = useState('');
 
-  // Helper to check if a specific hero is unlocked (UNLOCKED FOR TESTING)
+  // Helper to check if a specific hero is unlocked via book completion
   const isHeroUnlocked = (heroId: string) => {
-    return true; 
+    const reqBook = HERO_UNLOCK_REQUIREMENTS[heroId];
+    if (!reqBook) return true; // User-created heroes are always unlocked
+    return completedIds.some(id => id === `book_${reqBook}` || id === `ebook_${reqBook}`);
   };
 
   // Combine default heroes with user created heroes
@@ -266,57 +268,61 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4 space-y-12 pb-32">
-      
+    <div className="max-w-7xl mx-auto py-6 md:py-10 px-4 space-y-8 md:space-y-12 pb-32">
+
       {/* HEADER */}
-      <div className="flex items-center gap-4 mb-8">
-         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20">
-            <Users size={32} className="text-white" />
+      <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-8">
+         <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-500/20 shrink-0">
+            <Users size={24} className="text-white md:hidden" />
+            <Users size={32} className="text-white hidden md:block" />
          </div>
-         <div>
-            <h2 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
+         <div className="min-w-0">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
               WISEBOT & <span className="text-transparent bg-clip-text magic-gradient">FRIENDS</span>
             </h2>
-            <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs md:text-sm mt-1">
+            <p className="text-white/40 font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[9px] md:text-sm mt-1">
                {lang === 'el' ? 'ΤΟ ΑΡΧΗΓΕΙΟ ΤΩΝ ΗΡΩΩΝ' : 'THE HEROES HEADQUARTERS'}
             </p>
          </div>
       </div>
 
-      {/* GUARDIANS GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* GUARDIANS GRID — 2 cols on mobile for compact, scrollable cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
          {allHeroes.map((hero) => {
             const unlocked = isHeroUnlocked(hero.id);
             const reqBook = HERO_UNLOCK_REQUIREMENTS[hero.id];
-            const data = HERO_DATA[hero.id] || getSelectedHeroData('user'); // Fallback for color/icons on grid
+            const data = HERO_DATA[hero.id] || getSelectedHeroData('user');
             const colors = getThemeColors(data.theme);
 
             return (
-              <motion.div 
+              <motion.div
                  key={hero.id}
-                 whileHover={unlocked ? { y: -10, scale: 1.02 } : {}}
+                 whileHover={unlocked ? { y: -6, scale: 1.02 } : {}}
+                 whileTap={unlocked ? { scale: 0.97 } : {}}
                  onClick={() => handleHeroClick(hero)}
-                 className={`relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border-2 bg-black/40 shadow-2xl transition-all ${unlocked ? 'border-white/10 cursor-pointer group hover:border-white/30' : 'border-white/5 opacity-80 cursor-not-allowed'}`}
+                 className={`relative aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden border-2 bg-black/40 shadow-xl md:shadow-2xl transition-all ${unlocked ? 'border-white/10 cursor-pointer group active:border-white/30 hover:border-white/30' : 'border-white/5 opacity-80 cursor-not-allowed'}`}
               >
-                 <img 
-                    src={hero.avatar} 
-                    alt={hero.name} 
-                    className={`w-full h-full object-cover transition-all duration-700 ${unlocked ? 'opacity-80 group-hover:opacity-100 group-hover:scale-110' : 'opacity-20 blur-sm grayscale'}`} 
+                 <img
+                    src={hero.avatar}
+                    alt={hero.name}
+                    className={`w-full h-full object-cover transition-all duration-700 ${unlocked ? 'opacity-80 group-hover:opacity-100 group-hover:scale-110' : 'opacity-20 blur-sm grayscale'}`}
+                    loading="lazy"
                  />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
 
                  {!unlocked && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-6 text-center">
-                        <div className="w-16 h-16 bg-black/60 rounded-full flex items-center justify-center mb-4 border border-white/10 backdrop-blur-md">
-                            <Lock size={32} className="text-white/50" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-3 md:p-6 text-center">
+                        <div className="w-10 h-10 md:w-16 md:h-16 bg-black/60 rounded-full flex items-center justify-center mb-2 md:mb-4 border border-white/10 backdrop-blur-md">
+                            <Lock size={20} className="text-white/50 md:hidden" />
+                            <Lock size={32} className="text-white/50 hidden md:block" />
                         </div>
-                        <h4 className="text-white font-[1000] uppercase italic tracking-tighter text-xl mb-2">
+                        <h4 className="text-white font-[1000] uppercase italic tracking-tighter text-sm md:text-xl mb-1 md:mb-2">
                             {lang === 'el' ? 'ΚΛΕΙΔΩΜΕΝΟΣ' : 'LOCKED'}
                         </h4>
-                        <div className="inline-flex items-center gap-2 bg-blue-900/40 px-3 py-1.5 rounded-lg border border-blue-500/30">
-                            <Book size={12} className="text-blue-400" />
-                            <span className="text-[10px] font-black text-blue-200 uppercase tracking-widest">
-                                {lang === 'el' ? `ΔΙΑΒΑΣΕ ΒΙΒΛΙΟ ${reqBook}` : `READ BOOK ${reqBook}`}
+                        <div className="inline-flex items-center gap-1.5 bg-blue-900/40 px-2 py-1 md:px-3 md:py-1.5 rounded-lg border border-blue-500/30">
+                            <Book size={10} className="text-blue-400" />
+                            <span className="text-[8px] md:text-[10px] font-black text-blue-200 uppercase tracking-widest">
+                                {lang === 'el' ? `ΒΙΒΛΙΟ ${reqBook}` : `BOOK ${reqBook}`}
                             </span>
                         </div>
                     </div>
@@ -324,185 +330,206 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
 
                  {/* Top Right Pulse */}
                  {unlocked && (
-                   <div className="absolute top-5 right-5 w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center shadow-lg group-hover:bg-white/10">
-                      <Activity size={18} className={`${colors.text} opacity-80`} />
+                   <div className="absolute top-3 right-3 md:top-5 md:right-5 w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md flex items-center justify-center shadow-lg group-hover:bg-white/10">
+                      <Activity size={14} className={`${colors.text} opacity-80 md:hidden`} />
+                      <Activity size={18} className={`${colors.text} opacity-80 hidden md:block`} />
                    </div>
                  )}
 
                  {/* Bottom Content */}
-                 <div className={`absolute bottom-0 inset-x-0 p-6 flex flex-col items-center text-center ${!unlocked ? 'opacity-30' : ''}`}>
-                    <h3 className="text-3xl font-[1000] text-white uppercase italic tracking-tighter leading-none mb-1 drop-shadow-xl">{hero.name}</h3>
-                    <p className={`text-[10px] font-black ${colors.text} uppercase tracking-[0.2em] mb-4`}>{getLoc(data.roleTitle, lang)}</p>
+                 <div className={`absolute bottom-0 inset-x-0 p-3 md:p-6 flex flex-col items-center text-center ${!unlocked ? 'opacity-30' : ''}`}>
+                    <h3 className="text-lg md:text-3xl font-[1000] text-white uppercase italic tracking-tighter leading-none mb-0.5 md:mb-1 drop-shadow-xl">{hero.name}</h3>
+                    <p className={`text-[8px] md:text-[10px] font-black ${colors.text} uppercase tracking-[0.15em] md:tracking-[0.2em]`}>{getLoc(data.roleTitle, lang)}</p>
                  </div>
               </motion.div>
             );
          })}
 
          {/* ADD YOUR HERO CARD */}
-         <motion.div 
-            whileHover={{ y: -10, scale: 1.02 }}
+         <motion.div
+            whileHover={{ y: -6, scale: 1.02 }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => navigate('/factory')}
-            className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden border-2 border-dashed border-white/20 bg-white/5 flex flex-col items-center justify-center gap-6 cursor-pointer group hover:border-blue-500/50 hover:bg-blue-500/5 transition-all"
+            className="relative aspect-[3/4] rounded-2xl md:rounded-[2.5rem] overflow-hidden border-2 border-dashed border-white/20 bg-white/5 flex flex-col items-center justify-center gap-3 md:gap-6 cursor-pointer group hover:border-blue-500/50 hover:bg-blue-500/5 active:bg-blue-500/10 transition-all"
          >
-            <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-               <Plus size={32} className="text-white/30 group-hover:text-blue-400" />
+            <div className="w-14 h-14 md:w-20 md:h-20 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+               <Plus size={24} className="text-white/30 group-hover:text-blue-400 md:hidden" />
+               <Plus size={32} className="text-white/30 group-hover:text-blue-400 hidden md:block" />
             </div>
-            <div className="text-center">
-               <h3 className="text-2xl font-black text-white/40 uppercase italic tracking-tighter group-hover:text-blue-400 transition-colors">{lang === 'el' ? 'ΝΕΟΣ ΗΡΩΑΣ' : 'ADD HERO'}</h3>
-               <p className="text-[10px] font-bold text-white/20 uppercase tracking-widest mt-2">{lang === 'el' ? 'ΜΠΕΣ ΣΤΗΝ ΟΜΑΔΑ' : 'JOIN THE TEAM'}</p>
+            <div className="text-center px-2">
+               <h3 className="text-base md:text-2xl font-black text-white/40 uppercase italic tracking-tighter group-hover:text-blue-400 transition-colors">{lang === 'el' ? 'ΝΕΟΣ ΗΡΩΑΣ' : 'ADD HERO'}</h3>
+               <p className="text-[8px] md:text-[10px] font-bold text-white/20 uppercase tracking-widest mt-1 md:mt-2">{lang === 'el' ? 'ΜΠΕΣ ΣΤΗΝ ΟΜΑΔΑ' : 'JOIN THE TEAM'}</p>
             </div>
          </motion.div>
       </div>
 
-      {/* NEW HEROES TEXT SECTION */}
-      <div className="text-center pt-8 border-t border-white/5">
-         <p className="text-white/40 font-bold uppercase tracking-[0.2em] text-xs">
-            {lang === 'el' ? 'ΠΡΟΣΘΕΣΕ ΚΙ ΑΛΛΟΥΣ ΗΡΩΕΣ' : 'ADD MORE HEROES TO THE TEAM'}
-         </p>
-         <button 
-            onClick={() => navigate('/factory')}
-            className="mt-4 text-blue-400 hover:text-blue-300 font-black italic underline uppercase tracking-widest text-sm transition-colors"
+      {/* SEND GIFT CTA */}
+      <div className="text-center pt-6 md:pt-8 border-t border-white/5 space-y-4">
+         <button
+            onClick={() => setShowGiftModal(true)}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-[1000] uppercase italic tracking-wider text-sm shadow-lg shadow-purple-500/20 hover:brightness-110 hover:scale-105 active:scale-95 transition-all"
          >
-            {lang === 'el' ? 'ΠΑΤΑ ΕΔΩ ΓΙΑ ΤΟ ΕΡΓΑΣΤΗΡΙΟ' : 'CLICK HERE FOR THE FACTORY'}
+            <Gift size={20} />
+            {lang === 'el' ? 'ΣΤΕΙΛΕ ΔΩΡΟ ΣΕ ΦΙΛΟ' : 'SEND GIFT TO A FRIEND'}
          </button>
+         <div>
+           <button
+              onClick={() => navigate('/factory')}
+              className="text-blue-400 hover:text-blue-300 font-black italic underline uppercase tracking-widest text-xs md:text-sm transition-colors"
+           >
+              {lang === 'el' ? 'ΠΑΤΑ ΕΔΩ ΓΙΑ ΤΟ ΕΡΓΑΣΤΗΡΙΟ' : 'CLICK HERE FOR THE FACTORY'}
+           </button>
+         </div>
       </div>
 
-      {/* --- DETAILED HERO MODAL (REDESIGNED) --- */}
+      {/* --- DETAILED HERO MODAL (MOBILE-FIRST REDESIGN) --- */}
       <AnimatePresence>
         {selectedHero && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1000] flex items-center justify-center p-4 xl:pl-80 bg-black/95 backdrop-blur-xl overflow-y-auto"
+            className="fixed inset-0 z-[1000] bg-black/95 backdrop-blur-xl overflow-y-auto"
             onClick={() => setSelectedHero(null)}
           >
-             <motion.div 
-                initial={{ scale: 0.9, y: 50 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 50 }}
-                onClick={(e) => e.stopPropagation()}
-                className="w-full max-w-5xl rounded-[3rem] overflow-hidden shadow-2xl relative flex flex-col md:flex-row bg-[#0f1014] border border-white/10"
-             >
-                {(() => {
-                   const data = getSelectedHeroData(selectedHero.id);
-                   const colors = getThemeColors(data.theme);
-                   const Icon = data.icon;
+             {/* Scroll wrapper for mobile */}
+             <div className="min-h-full flex items-start md:items-center justify-center p-0 md:p-4 xl:pl-80">
+               <motion.div
+                  initial={{ scale: 0.95, y: 30 }}
+                  animate={{ scale: 1, y: 0 }}
+                  exit={{ scale: 0.95, y: 30 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-full max-w-5xl md:rounded-[3rem] overflow-hidden shadow-2xl relative flex flex-col md:flex-row bg-[#0f1014] md:border border-white/10"
+               >
+                  {(() => {
+                     const data = getSelectedHeroData(selectedHero.id);
+                     const colors = getThemeColors(data.theme);
+                     const Icon = data.icon;
 
-                   return (
-                     <>
-                        {/* LEFT: VISUALS */}
-                        <div className="w-full md:w-5/12 h-80 md:h-auto relative overflow-hidden">
-                           <img src={selectedHero.avatar} className="w-full h-full object-cover" alt={selectedHero.name} />
-                           <div className={`absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r ${colors.gradient} opacity-60 mix-blend-multiply`}></div>
-                           <div className="absolute inset-0 bg-gradient-to-t from-[#0f1014] via-transparent to-transparent"></div>
-                           
-                           <button 
-                              onClick={() => setSelectedHero(null)} 
-                              className="absolute top-6 left-6 md:hidden bg-black/50 p-2 rounded-full text-white z-20 border border-white/10"
-                           >
-                              <X size={20}/>
-                           </button>
+                     return (
+                       <>
+                          {/* TOP/LEFT: VISUALS — shorter on mobile */}
+                          <div className="w-full md:w-5/12 h-56 sm:h-72 md:h-auto relative overflow-hidden shrink-0">
+                             <img src={selectedHero.avatar} className="w-full h-full object-cover" alt={selectedHero.name} />
+                             <div className={`absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r ${colors.gradient} opacity-60 mix-blend-multiply`}></div>
+                             <div className="absolute inset-0 bg-gradient-to-t from-[#0f1014] via-transparent to-transparent"></div>
 
-                           {/* Quote Overlay */}
-                           <div className="absolute bottom-8 left-8 right-8 text-center md:text-left">
-                              <Quote size={24} className={`${colors.text} mb-3 opacity-80`} />
-                              <p className="text-white font-[1000] text-xl italic leading-tight drop-shadow-lg">
-                                {getLoc(data.quote, lang)}
-                              </p>
-                           </div>
-                        </div>
+                             {/* Close Button — always visible, top-left on mobile */}
+                             <button
+                                onClick={() => setSelectedHero(null)}
+                                className="absolute top-4 left-4 md:hidden bg-black/60 p-2.5 rounded-full text-white z-20 border border-white/10 active:bg-white/20"
+                             >
+                                <X size={20}/>
+                             </button>
 
-                        {/* RIGHT: DATA DOSSIER */}
-                        <div className="w-full md:w-7/12 p-8 md:p-12 space-y-8 relative overflow-y-auto max-h-[85vh] custom-scrollbar bg-[#0f1014]">
-                           
-                           {/* Close Button Desktop */}
-                           <button 
-                              onClick={() => setSelectedHero(null)} 
-                              className="hidden md:block absolute top-8 right-8 bg-white/5 hover:bg-white/10 p-3 rounded-full text-white z-20 border border-white/10 transition-all"
-                           >
-                              <X size={24}/>
-                           </button>
+                             {/* Quote Overlay */}
+                             <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 text-center md:text-left">
+                                <Quote size={18} className={`${colors.text} mb-2 opacity-80 hidden md:block`} />
+                                <p className="text-white font-[1000] text-base md:text-xl italic leading-tight drop-shadow-lg">
+                                  {getLoc(data.quote, lang)}
+                                </p>
+                             </div>
+                          </div>
 
-                           {/* Header Info */}
-                           <div>
-                              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border ${colors.border} ${colors.badge} mb-4`}>
-                                 <Icon size={14} className={colors.text} />
-                                 <span className={`text-[10px] font-black uppercase tracking-widest ${colors.text}`}>
-                                    {getLoc(data.roleTitle, lang)}
-                                 </span>
-                              </div>
-                              <h2 className="text-5xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none mb-3">
-                                {selectedHero.name}
-                              </h2>
-                              <p className="text-white/60 font-bold text-sm md:text-base leading-relaxed border-l-2 border-white/10 pl-4">
-                                {getLoc(data.bio, lang)}
-                              </p>
-                           </div>
+                          {/* BOTTOM/RIGHT: DATA DOSSIER */}
+                          <div className="w-full md:w-7/12 p-5 md:p-12 space-y-5 md:space-y-8 relative md:overflow-y-auto md:max-h-[85vh] custom-scrollbar bg-[#0f1014]">
 
-                           {/* 1. CHARACTERISTICS */}
-                           <div className="space-y-4">
-                              <h4 className="text-white/40 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
-                                <Activity size={14} /> {lang === 'el' ? 'ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ' : 'CHARACTERISTICS'}
-                              </h4>
-                              <div className="flex flex-wrap gap-2">
-                                 {getLoc(data.traits, lang).map((trait: string, idx: number) => (
-                                    <span key={idx} className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-xs uppercase tracking-wide">
-                                       {trait}
-                                    </span>
-                                 ))}
-                              </div>
-                           </div>
+                             {/* Close Button Desktop */}
+                             <button
+                                onClick={() => setSelectedHero(null)}
+                                className="hidden md:block absolute top-8 right-8 bg-white/5 hover:bg-white/10 p-3 rounded-full text-white z-20 border border-white/10 transition-all"
+                             >
+                                <X size={24}/>
+                             </button>
 
-                           {/* 2. TEAM ROLE */}
-                           <div className={`p-6 rounded-2xl border ${colors.border} bg-gradient-to-br from-white/5 to-transparent relative overflow-hidden group`}>
-                              <div className={`absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity`}>
-                                 <Users size={64} />
-                              </div>
-                              <h4 className={`font-black uppercase tracking-widest text-xs mb-2 flex items-center gap-2 ${colors.text}`}>
-                                <HeartHandshake size={14} /> {lang === 'el' ? 'ΠΩΣ ΒΟΗΘΑ ΤΗΝ ΟΜΑΔΑ' : 'TEAM ROLE'}
-                              </h4>
-                              <p className="text-white/80 font-medium text-sm leading-relaxed relative z-10">
-                                {getLoc(data.teamRole, lang)}
-                              </p>
-                           </div>
+                             {/* Header Info */}
+                             <div>
+                                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border ${colors.border} ${colors.badge} mb-3`}>
+                                   <Icon size={14} className={colors.text} />
+                                   <span className={`text-[10px] font-black uppercase tracking-widest ${colors.text}`}>
+                                      {getLoc(data.roleTitle, lang)}
+                                   </span>
+                                </div>
+                                <h2 className="text-3xl sm:text-5xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none mb-2 md:mb-3">
+                                  {selectedHero.name}
+                                </h2>
+                                <p className="text-white/60 font-bold text-sm leading-relaxed border-l-2 border-white/10 pl-4">
+                                  {getLoc(data.bio, lang)}
+                                </p>
+                             </div>
 
-                           {/* 3. LESSONS */}
-                           <div className="space-y-4">
-                              <h4 className="text-white/40 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
-                                <Lightbulb size={14} /> {lang === 'el' ? 'ΤΙ ΜΑΘΑΙΝΕΙΣ ΜΑΖΙ ΤΟΥ' : 'WHAT YOU LEARN'}
-                              </h4>
-                              <div className="space-y-2">
-                                 {getLoc(data.lessons, lang).map((lesson: string, idx: number) => (
-                                    <div key={idx} className="flex items-start gap-3">
-                                       <CheckCircle2 size={16} className={`${colors.text} mt-0.5 shrink-0`} />
-                                       <span className="text-white/70 text-sm font-bold">{lesson}</span>
-                                    </div>
-                                 ))}
-                              </div>
-                           </div>
+                             {/* 1. CHARACTERISTICS */}
+                             <div className="space-y-3">
+                                <h4 className="text-white/40 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
+                                  <Activity size={14} /> {lang === 'el' ? 'ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ' : 'CHARACTERISTICS'}
+                                </h4>
+                                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                   {getLoc(data.traits, lang).map((trait: string, idx: number) => (
+                                      <span key={idx} className="px-3 py-1.5 md:px-4 md:py-2 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-[11px] md:text-xs uppercase tracking-wide">
+                                         {trait}
+                                      </span>
+                                   ))}
+                                </div>
+                             </div>
 
-                           {/* ACTIONS FOOTER */}
-                           <div className="pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                              <button 
-                                 onClick={() => handle3DOrder(selectedHero)}
-                                 className="py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2"
-                              >
-                                 <Box size={16} /> {lang === 'el' ? '3D ΕΚΤΥΠΩΣΗ' : '3D PRINT'}
-                              </button>
-                              <button 
-                                 onClick={() => navigate('/cinema', { state: { animateHero: selectedHero } })}
-                                 className={`py-4 ${colors.bg} hover:brightness-110 text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg flex items-center justify-center gap-2`}
-                              >
-                                 <Clapperboard size={16} /> {lang === 'el' ? 'ΖΩΝΤΑΝΕΨΕ ΤΟ' : 'BRING TO LIFE'}
-                              </button>
-                           </div>
+                             {/* 2. TEAM ROLE */}
+                             <div className={`p-4 md:p-6 rounded-2xl border ${colors.border} bg-gradient-to-br from-white/5 to-transparent relative overflow-hidden`}>
+                                <h4 className={`font-black uppercase tracking-widest text-xs mb-2 flex items-center gap-2 ${colors.text}`}>
+                                  <HeartHandshake size={14} /> {lang === 'el' ? 'ΠΩΣ ΒΟΗΘΑ ΤΗΝ ΟΜΑΔΑ' : 'TEAM ROLE'}
+                                </h4>
+                                <p className="text-white/80 font-medium text-sm leading-relaxed">
+                                  {getLoc(data.teamRole, lang)}
+                                </p>
+                             </div>
 
-                        </div>
-                     </>
-                   );
-                })()}
-             </motion.div>
+                             {/* 3. LESSONS */}
+                             <div className="space-y-3">
+                                <h4 className="text-white/40 font-black uppercase tracking-[0.2em] text-xs flex items-center gap-2">
+                                  <Lightbulb size={14} /> {lang === 'el' ? 'ΤΙ ΜΑΘΑΙΝΕΙΣ ΜΑΖΙ ΤΟΥ' : 'WHAT YOU LEARN'}
+                                </h4>
+                                <div className="space-y-2">
+                                   {getLoc(data.lessons, lang).map((lesson: string, idx: number) => (
+                                      <div key={idx} className="flex items-start gap-2.5">
+                                         <CheckCircle2 size={16} className={`${colors.text} mt-0.5 shrink-0`} />
+                                         <span className="text-white/70 text-sm font-bold">{lesson}</span>
+                                      </div>
+                                   ))}
+                                </div>
+                             </div>
+
+                             {/* ACTIONS FOOTER */}
+                             <div className="pt-5 md:pt-8 border-t border-white/10 grid grid-cols-2 gap-3 md:gap-4">
+                                <button
+                                   onClick={() => handle3DOrder(selectedHero)}
+                                   className="py-3 md:py-4 bg-white/5 hover:bg-white/10 active:bg-white/15 text-white border border-white/10 rounded-xl md:rounded-2xl font-black uppercase tracking-widest text-[10px] md:text-xs transition-all flex items-center justify-center gap-2"
+                                >
+                                   <Box size={14} /> {lang === 'el' ? '3D PRINT' : '3D PRINT'}
+                                </button>
+                                <button
+                                   onClick={() => navigate('/cinema', { state: { animateHero: selectedHero } })}
+                                   className={`py-3 md:py-4 ${colors.bg} hover:brightness-110 active:brightness-90 text-white rounded-xl md:rounded-2xl font-black uppercase tracking-widest text-[10px] md:text-xs transition-all shadow-lg flex items-center justify-center gap-2`}
+                                >
+                                   <Clapperboard size={14} /> {lang === 'el' ? 'ΖΩΝΤΑΝΕΨΕ' : 'ANIMATE'}
+                                </button>
+                             </div>
+
+                             {/* Gift button in modal */}
+                             <button
+                                onClick={() => {
+                                  setSelectedHero(null);
+                                  setShowGiftModal(true);
+                                }}
+                                className="w-full py-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl text-purple-300 font-black uppercase tracking-widest text-[10px] md:text-xs flex items-center justify-center gap-2 hover:bg-purple-500/20 active:bg-purple-500/30 transition-all"
+                             >
+                                <Gift size={14} /> {lang === 'el' ? 'ΣΤΕΙΛΕ ΔΩΡΟ ΣΕ ΦΙΛΟ' : 'SEND GIFT TO A FRIEND'}
+                             </button>
+
+                          </div>
+                       </>
+                     );
+                  })()}
+               </motion.div>
+             </div>
           </motion.div>
         )}
       </AnimatePresence>
