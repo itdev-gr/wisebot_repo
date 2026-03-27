@@ -235,11 +235,16 @@
 </head>
 <body>
   <div id="root"></div>
-  <!-- SW update: force page reload when new version is detected -->
+  <!-- SW update: reload once when new version is detected (with loop protection) -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.addEventListener('controllerchange', function() {
-        window.location.reload();
+        var lastReload = sessionStorage.getItem('sw_reload');
+        var now = Date.now();
+        if (!lastReload || (now - parseInt(lastReload)) > 10000) {
+          sessionStorage.setItem('sw_reload', now.toString());
+          window.location.reload();
+        }
       });
     }
   </script>
