@@ -36,15 +36,11 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
+    // xAI grok-imagine-video: text-to-video only (image-to-video not supported yet)
     const body: any = {
       model: 'grok-imagine-video',
       prompt: `Kid-friendly animated video: ${prompt}. Style: colorful, fun, safe for children. No violence, no scary elements.`,
     };
-
-    // Add image if provided (image-to-video)
-    if (imageBytes && mimeType) {
-      body.image = { imageBytes, mimeType };
-    }
 
     const resp = await fetch('https://api.x.ai/v1/videos/generations', {
       method: 'POST',
