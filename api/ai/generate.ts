@@ -1,9 +1,9 @@
 /**
- * Generic AI Proxy — v4 with Gemini native image + DALL-E fallback
- * =================================================================
+ * Generic AI Proxy — v5 with GPT-4o primary text + Gemini native image
+ * ======================================================================
  * Routes Gemini image models (gemini-*-image) to Gemini API natively.
  * Routes other image requests to OpenAI DALL-E 3.
- * Routes text requests to Gemini (or OpenAI GPT-4o if Gemini fails).
+ * Routes text requests to OpenAI GPT-4o (Gemini fallback).
  * Content moderation applied for kid safety.
  */
 
@@ -102,7 +102,7 @@ async function generateWithGPT(prompt: string, openaiKey: string, config?: any) 
   }
 
   const body: any = {
-    model: 'gpt-4o-mini',
+    model: 'gpt-4o',
     messages,
     max_tokens: config?.maxOutputTokens || 2048,
     temperature: 0.7,
@@ -273,9 +273,22 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json(result);
     }
 
-    // ── TEXT REQUEST → Try Gemini first, fallback to GPT ──
+    // ── TEXT REQUEST → GPT-4o primary, Gemini fallback ──
+    if (openaiKey) {
+      try {
+        console.log('[generate] Using GPT-4o for text generation');
+        const result = await generateWithGPT(allText, openaiKey, config);
+        return res.status(200).json(result);
+      } catch (gptErr: any) {
+        console.warn('[generate] GPT-4o failed, trying Gemini fallback:', gptErr.message?.slice(0, 100));
+        // Fall through to Gemini
+      }
+    }
+
+    // ── FALLBACK: Gemini ──
     if (geminiKey) {
       try {
+        console.log('[generate] Using Gemini fallback for text generation');
         const ai = new GoogleGenAI({ apiKey: geminiKey });
         const mergedConfig = { ...(config || {}), safetySettings: TEXT_SAFETY_SETTINGS };
 
@@ -288,16 +301,8 @@ export default async function handler(req: any, res: any) {
         const result = processGeminiResponse(response);
         return res.status(200).json(result);
       } catch (geminiErr: any) {
-        console.warn('[generate] Gemini failed, trying GPT fallback:', geminiErr.message?.slice(0, 100));
-        // Fall through to GPT
+        console.warn('[generate] Gemini fallback also failed:', geminiErr.message?.slice(0, 100));
       }
-    }
-
-    // ── FALLBACK: GPT-4o ──
-    if (openaiKey) {
-      console.log('[generate] Using GPT-4o fallback for text generation');
-      const result = await generateWithGPT(allText, openaiKey, config);
-      return res.status(200).json(result);
     }
 
     return res.status(500).json({ error: 'No AI service configured' });

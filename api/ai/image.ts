@@ -1,7 +1,7 @@
 /**
  * Image Generation Endpoint — Kid-safe
  * ======================================
- * Priority: DALL-E 3 (OpenAI) → Imagen 4 (Google) → Gemini Flash Image
+ * Priority: xAI Grok Imagine → DALL-E 3 (OpenAI) → Imagen 4 (Google) → Gemini Flash Image
  * All with content moderation for children 6-13.
  */
 
@@ -30,7 +30,39 @@ export default async function handler(req: any, res: any) {
     ? prompt
     : `${prompt}. IMPORTANT: NO text, NO labels, NO writing anywhere on the image.`;
 
-  // ─── ATTEMPT 1: DALL-E 3 (OpenAI) — Best quality ─────────────
+  // ─── ATTEMPT 1: xAI Grok Imagine — Best quality ───────────────
+  const xaiKey = process.env.XAI_API_KEY;
+  if (xaiKey) {
+    try {
+      console.log('[Image] Trying xAI Grok Imagine...');
+      const resp = await fetch('https://api.x.ai/v1/images/generations', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${xaiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'grok-imagine-image',
+          prompt: safePrompt,
+          n: 1,
+          response_format: 'b64_json',
+        }),
+      });
+
+      if (resp.ok) {
+        const data = await resp.json();
+        const b64 = data.data?.[0]?.b64_json;
+        if (b64) {
+          console.log('[Image] xAI Grok success');
+          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
+        }
+      } else {
+        const err = await resp.text();
+        console.warn('[Image] xAI Grok failed:', resp.status, err.slice(0, 200));
+      }
+    } catch (e: any) {
+      console.warn('[Image] xAI Grok error:', e.message);
+    }
+  }
+
+  // ─── ATTEMPT 2: DALL-E 3 (OpenAI) ────────────────────────────
   const openaiKey = process.env.OPENAI_API_KEY;
   if (openaiKey) {
     try {
@@ -64,7 +96,7 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  // ─── ATTEMPT 2: Imagen 4 Fast (Google) ────────────────────────
+  // ─── ATTEMPT 3: Imagen 4 Fast (Google) ────────────────────────
   const geminiKey = process.env.GEMINI_API_KEY;
   if (geminiKey) {
     try {
@@ -93,7 +125,7 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  // ─── ATTEMPT 3: Gemini Flash Image ────────────────────────────
+  // ─── ATTEMPT 4: Gemini Flash Image ────────────────────────────
   if (geminiKey) {
     try {
       console.log('[Image] Trying Gemini Flash Image...');
