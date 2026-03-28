@@ -33,8 +33,15 @@ const motion = m as any;
 // Compress a data URL image to a small JPEG for localStorage (avoids QuotaExceededError)
 const compressImageForStorage = (dataUrl: string, maxSize = 400): Promise<string> => {
   return new Promise((resolve) => {
+    // Safety timeout: if image never loads (bad data), resolve after 8s with original
+    const timeoutId = setTimeout(() => {
+      console.warn('compressImageForStorage: timeout, using original');
+      resolve(dataUrl);
+    }, 8000);
+
     const img = new Image();
     img.onload = () => {
+      clearTimeout(timeoutId);
       const canvas = document.createElement('canvas');
       const scale = Math.min(maxSize / img.width, maxSize / img.height, 1);
       canvas.width = img.width * scale;
@@ -48,8 +55,9 @@ const compressImageForStorage = (dataUrl: string, maxSize = 400): Promise<string
       }
     };
     img.onerror = () => {
-      console.warn('compressImageForStorage: image failed to load, using placeholder');
-      resolve('/images/wisebot.jpg');
+      clearTimeout(timeoutId);
+      console.warn('compressImageForStorage: image failed to load, using original');
+      resolve(dataUrl);
     };
     img.src = dataUrl;
   });
@@ -113,14 +121,16 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       const randomQuote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
       setQuoteData(randomQuote);
 
-      // 1. Visual Loading Sequence (DALL-E takes 15-25s)
+      // 1. Visual Loading Sequence (xAI Grok takes 20-60s)
       const sequence = [
         { text: lang === 'el' ? `✨ Η μαγεία ξεκινά (-${costs.image}⚡)...` : `✨ Magic begins (-${costs.image}⚡)...`, delay: 0 },
-        { text: lang === 'el' ? "🔥 Δίνουμε μορφή στη φαντασία σου..." : "🔥 Shaping your imagination...", delay: 3000 },
-        { text: lang === 'el' ? "🛡️ Προσθέτουμε τις δυνάμεις..." : "🛡️ Adding powers...", delay: 7000 },
-        { text: randomQuote.text, author: randomQuote.author, delay: 11000, isQuote: true },
-        { text: lang === 'el' ? "🎨 Ο ήρωας ζωγραφίζεται..." : "🎨 Hero is being painted...", delay: 16000 },
-        { text: lang === 'el' ? "🌟 Σχεδόν έτοιμο!" : "🌟 Almost ready!", delay: 22000 },
+        { text: lang === 'el' ? "🔥 Δίνουμε μορφή στη φαντασία σου..." : "🔥 Shaping your imagination...", delay: 4000 },
+        { text: lang === 'el' ? "🛡️ Προσθέτουμε τις δυνάμεις..." : "🛡️ Adding powers...", delay: 10000 },
+        { text: randomQuote.text, author: randomQuote.author, delay: 18000, isQuote: true },
+        { text: lang === 'el' ? "🎨 Ο ήρωας ζωγραφίζεται..." : "🎨 Hero is being painted...", delay: 28000 },
+        { text: lang === 'el' ? "🤖 Η Grok AI δουλεύει σκληρά..." : "🤖 Grok AI is working hard...", delay: 40000 },
+        { text: lang === 'el' ? "🌟 Σχεδόν έτοιμο!" : "🌟 Almost ready!", delay: 55000 },
+        { text: lang === 'el' ? "⏳ Λίγο ακόμα..." : "⏳ Just a little longer...", delay: 70000 },
       ];
 
       let timeoutIds: ReturnType<typeof setTimeout>[] = [];
@@ -165,10 +175,10 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
 
       generateHero();
 
-      // Safety timeout: if generation takes more than 45s, show result anyway
+      // Safety timeout: if generation takes more than 90s, show result anyway
       const finishId = setTimeout(() => {
         setStep(5);
-      }, 45000);
+      }, 90000);
 
       timeoutIds.push(finishId);
 

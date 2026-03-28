@@ -488,12 +488,43 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
       const prompt = `Animate the character in this image. Action: ${finalAction}. The character says: "${finalGreeting} ${finalMessage}". Style: cinematic 3D animation, colorful, kid-friendly.`;
 
-      // Backend handles generation + polling + credits
-      const { video: videoBase64 } = await backendAI.video(prompt, imageBytes, mimeType);
+      // Step 1: Start async video generation (xAI Grok)
+      const genResp = await fetch('/api/ai/video-generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, imageBytes, mimeType }),
+      });
+      if (!genResp.ok) {
+        const errData = await genResp.json().catch(() => ({}));
+        throw new Error(errData.error || `Video start failed: ${genResp.status}`);
+      }
+      const { requestId } = await genResp.json();
+      if (!requestId) throw new Error('No requestId from video API');
 
-      // Convert base64 video to blob URL for local playback
-      const videoBlob = await fetch(`data:video/mp4;base64,${videoBase64}`).then(r => r.blob());
-      const localUrl = URL.createObjectURL(videoBlob);
+      // Step 2: Poll for completion (up to 5 minutes)
+      let localUrl = '';
+      let videoData = '';
+      for (let i = 0; i < 60; i++) {
+        await new Promise(r => setTimeout(r, 5000)); // wait 5s between polls
+        const statusResp = await fetch(`/api/ai/video-status?requestId=${encodeURIComponent(requestId)}`);
+        if (!statusResp.ok) continue;
+        const statusData = await statusResp.json();
+
+        if (statusData.status === 'complete') {
+          if (statusData.videoData) {
+            // Proxy returned base64 — convert to blob URL
+            const videoBlob = await fetch(statusData.videoData).then(r => r.blob());
+            localUrl = URL.createObjectURL(videoBlob);
+          } else if (statusData.videoUrl) {
+            localUrl = statusData.videoUrl;
+          }
+          break;
+        } else if (statusData.status === 'error') {
+          throw new Error(statusData.error || 'Video generation failed');
+        }
+        // still processing → keep polling
+      }
+      if (!localUrl) throw new Error(lang === 'el' ? 'Το βίντεο δεν ολοκληρώθηκε.' : 'Video timed out.');
 
       const newVideoEntry = {
         id: `my-${Date.now()}`,
