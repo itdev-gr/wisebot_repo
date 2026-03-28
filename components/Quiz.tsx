@@ -99,7 +99,7 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
           >
             <button
               onClick={() => { setActiveQuiz(null); setChallengeData(null); refreshSavedProgress(); }}
-              className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-8 transition-colors"
+              className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-3 transition-colors"
             >
               <ArrowLeft size={16} /> {t.back}
             </button>

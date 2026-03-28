@@ -570,7 +570,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="mb-6 p-4 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-between gap-3"
+            className="mb-3 p-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-xl flex items-center justify-between gap-3"
           >
             <div className="flex items-center gap-3">
               <Zap size={18} className="text-blue-400 shrink-0" />
@@ -586,7 +586,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
 
       {/* Challenge banner */}
       {challengeData && (
-        <div className="mb-6 p-4 bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10 border border-purple-500/20 rounded-2xl flex items-center gap-3">
+        <div className="mb-3 p-3 bg-gradient-to-r from-purple-500/10 to-fuchsia-500/10 border border-purple-500/20 rounded-xl flex items-center gap-3">
           <Users size={20} className="text-purple-400 shrink-0" />
           <p className="text-purple-300 font-bold text-sm">
             {lang === 'el'
@@ -614,7 +614,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
 
       {/* STREAK MESSAGE */}
       {streakLabel && !showExplanation && (
-        <div className="mb-4 text-center">
+        <div className="mb-2 text-center">
           <span className="text-lg font-[1000] text-orange-400 uppercase italic tracking-wider animate-pulse">
             {streakLabel} <span className="text-white/50 text-sm">x{streak}</span>
           </span>

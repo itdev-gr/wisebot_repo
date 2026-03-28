@@ -196,6 +196,8 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   // Logic to hide layout on immersive pages
   // We check for '/' (Landing), '/landing', and '/portal'
   const isImmersive = ['/', '/landing', '/portal'].includes(location.pathname);
+  // Compact padding for quiz — no large bottom padding (FAB doesn't overlap content there)
+  const isQuizRoute = location.pathname === '/quiz';
   const activeGradient = "bg-gradient-to-r from-blue-600 to-purple-600 shadow-[0_0_20px_rgba(59,130,246,0.6)]";
 
   // BADGE DISPLAY CONFIG (Localized)
@@ -720,7 +722,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
             </header>
           )}
           
-          <div className={`flex-1 overflow-y-auto custom-scrollbar ${isImmersive ? '' : 'p-4 md:p-8 lg:p-12 pb-32 lg:pb-12'}`}>
+          <div className={`flex-1 overflow-y-auto custom-scrollbar ${isImmersive ? '' : isQuizRoute ? 'p-2 md:p-4 pb-4' : 'p-4 md:p-8 lg:p-12 pb-32 lg:pb-12'}`}>
             {children}
           </div>
         </main>
