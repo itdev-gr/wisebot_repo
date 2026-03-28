@@ -87,7 +87,7 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4 pb-32 min-h-full">
+    <div className={`max-w-6xl mx-auto px-4 min-h-full ${activeQuiz ? 'py-2 pb-4' : 'py-8 pb-32'}`}>
       
       <AnimatePresence mode="wait">
         {activeQuiz ? (

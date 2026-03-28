@@ -622,26 +622,26 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
       )}
 
       {/* ─── HEADER ─── */}
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb-3 flex justify-between items-center">
         <div>
-          <div className="flex items-center gap-2 mb-2 flex-wrap">
-            <span className="px-3 py-1 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-lg text-[10px] font-black uppercase tracking-widest">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+            <span className="px-2.5 py-0.5 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-lg text-[10px] font-black uppercase tracking-widest">
               LEVEL {currentLevel}/{totalLevels}
             </span>
-            <span className="px-3 py-1 bg-purple-600/20 text-purple-400 border border-purple-500/30 rounded-lg text-[10px] font-black uppercase tracking-widest">
+            <span className="px-2.5 py-0.5 bg-purple-600/20 text-purple-400 border border-purple-500/30 rounded-lg text-[10px] font-black uppercase tracking-widest">
               Q{currentIdx + 1}
             </span>
             {streak >= 3 && (
-              <span className="px-3 py-1 bg-orange-600/20 text-orange-400 border border-orange-500/30 rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+              <span className="px-2.5 py-0.5 bg-orange-600/20 text-orange-400 border border-orange-500/30 rounded-lg text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
                 <Flame size={10} fill="currentColor" /> {streak}
               </span>
             )}
           </div>
-          <h2 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter">{topic}</h2>
+          <h2 className="text-lg font-[1000] text-white uppercase italic tracking-tighter">{topic}</h2>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="glass-panel px-4 py-2 rounded-xl font-black text-white italic border-white/20 text-sm hidden md:block">
+        <div className="flex items-center gap-2">
+          <div className="bg-white/[0.06] border border-white/[0.08] backdrop-blur-sm px-3 py-1.5 rounded-xl font-black text-white italic text-sm hidden md:flex items-center gap-1">
             {totalPoints} <span className="text-white/40 text-[9px] not-italic">PTS</span>
           </div>
           <CircleTimer timeLeft={timeLeft} total={TIMER_SECONDS} />
@@ -649,18 +649,18 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
       </div>
 
       {/* Level progress bar */}
-      <div className="w-full bg-white/5 h-2 rounded-full mb-4 overflow-hidden">
+      <div className="w-full bg-white/[0.06] h-1.5 rounded-full mb-2 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${((currentIdx % QUESTIONS_PER_LEVEL) / QUESTIONS_PER_LEVEL) * 100}%` }}
-          className="h-full bg-blue-500"
+          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
         />
       </div>
 
       {/* Speed multiplier indicator */}
       {!showExplanation && (
-        <div className="flex justify-end mb-3">
-          <div className={`px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest border transition-all ${
+        <div className="flex justify-end mb-2">
+          <div className={`px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-widest border transition-all ${
             timeLeft > 12 ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' :
             timeLeft > 8 ? 'bg-amber-500/20 text-amber-400 border-amber-500/30' :
             timeLeft > 3 ? 'bg-white/10 text-white/50 border-white/10' :
@@ -673,43 +673,43 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
 
       {/* ─── QUESTION CARD ─── */}
       <div
-        className="glass-panel rounded-[2.5rem] shadow-2xl border border-white/10 p-8 md:p-10 relative overflow-hidden transition-all duration-300"
+        className="bg-white/[0.03] backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white/[0.08] p-5 md:p-7 relative overflow-hidden transition-all duration-300"
         style={flashCorrect ? { animation: 'qe-flash 0.5s ease-out' } : undefined}
       >
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/[0.04] rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
 
-        <p className="text-xl md:text-2xl text-white font-black italic mb-10 leading-snug relative z-10">
+        <p className="text-lg md:text-xl text-white font-black italic mb-5 leading-snug relative z-10">
           {currentQuestion.q[lang]}
         </p>
 
-        <div className="space-y-4 relative z-10">
+        <div className="space-y-2.5 relative z-10">
           {currentQuestion.options[lang].map((option, idx) => {
-            let borderClass = 'border-white/10';
-            let bgClass = 'hover:bg-white/5';
+            let borderClass = 'border-white/[0.08]';
+            let bgClass = 'hover:bg-white/[0.06] hover:border-white/20';
             let textClass = 'text-white/80';
             let icon = null;
 
             if (showExplanation) {
               if (idx === currentQuestion.correct) {
-                borderClass = 'border-emerald-500 ring-2 ring-emerald-500/20';
-                bgClass = 'bg-emerald-500/10';
+                borderClass = 'border-emerald-500/60 ring-1 ring-emerald-500/20';
+                bgClass = 'bg-emerald-500/[0.08]';
                 textClass = 'text-emerald-400';
-                icon = <CheckCircle2 className="text-emerald-500" size={24} />;
+                icon = <CheckCircle2 className="text-emerald-500 shrink-0" size={20} />;
               } else if (idx === selectedIdx) {
-                borderClass = 'border-rose-500 ring-2 ring-rose-500/20';
-                bgClass = 'bg-rose-500/10';
+                borderClass = 'border-rose-500/60 ring-1 ring-rose-500/20';
+                bgClass = 'bg-rose-500/[0.08]';
                 textClass = 'text-rose-400';
-                icon = <XCircle className="text-rose-500" size={24} />;
+                icon = <XCircle className="text-rose-500 shrink-0" size={20} />;
               } else {
-                bgClass = 'opacity-50';
+                bgClass = 'opacity-40';
               }
             }
 
             return (
               <button key={idx} onClick={() => handleSelect(idx)} disabled={showExplanation}
-                className={`w-full text-left p-5 rounded-2xl border-2 transition-all duration-300 flex items-center justify-between group ${borderClass} ${bgClass} ${textClass}`}
+                className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center justify-between group active:scale-[0.98] ${borderClass} ${bgClass} ${textClass}`}
               >
-                <span className="font-bold text-base">{option}</span>
+                <span className="font-bold text-sm md:text-base">{option}</span>
                 {icon}
               </button>
             );
@@ -718,11 +718,11 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
 
         {/* Explanation + Next */}
         {showExplanation && (
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mt-8 pt-8 border-t border-white/10">
+          <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="mt-4 pt-4 border-t border-white/[0.08]">
             {/* Points earned this question */}
             {selectedIdx !== null && selectedIdx >= 0 && selectedIdx === currentQuestion.correct && (
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <span className="text-emerald-400 font-[1000] text-lg italic">+{lastPointsEarned} pts</span>
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <span className="text-emerald-400 font-[1000] text-base italic">+{lastPointsEarned} pts</span>
                 {lastPointsEarned >= 150 && (
                   <span className="px-2 py-0.5 bg-amber-500/20 text-amber-400 text-[10px] font-black rounded-lg border border-amber-500/20 uppercase">
                     ⚡ {lang === 'el' ? 'ΓΡΗΓΟΡΟΣ' : 'FAST'}
@@ -733,32 +733,32 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
 
             {/* Timeout indicator */}
             {selectedIdx === -1 && (
-              <div className="p-4 rounded-2xl bg-red-900/20 border border-red-500/20 mb-4 flex items-center gap-3">
-                <Clock size={20} className="text-red-400" />
-                <p className="text-red-400 font-bold italic">{lang === 'el' ? 'Τέλος χρόνου!' : "Time's up!"}</p>
+              <div className="p-3 rounded-xl bg-red-900/20 border border-red-500/20 mb-3 flex items-center gap-2">
+                <Clock size={16} className="text-red-400 shrink-0" />
+                <p className="text-red-400 font-bold italic text-sm">{lang === 'el' ? 'Τέλος χρόνου!' : "Time's up!"}</p>
               </div>
             )}
 
-            <div className={`p-6 rounded-2xl border mb-6 ${
+            <div className={`p-4 rounded-xl border mb-3 ${
               (selectedIdx !== null && selectedIdx >= 0 && selectedIdx === currentQuestion.correct)
                 ? 'bg-emerald-900/20 border-emerald-500/20' : 'bg-rose-900/20 border-rose-500/20'
             }`}>
-              <h4 className={`font-black mb-2 uppercase tracking-widest text-xs italic flex items-center gap-2 ${
+              <h4 className={`font-black mb-1.5 uppercase tracking-widest text-[10px] italic flex items-center gap-2 ${
                 (selectedIdx !== null && selectedIdx >= 0 && selectedIdx === currentQuestion.correct)
                   ? 'text-emerald-400' : 'text-rose-400'
               }`}>
-                <Brain size={14} /> WiseBot Explanation:
+                <Brain size={12} /> WiseBot Explanation:
               </h4>
-              <p className="text-white/90 leading-relaxed font-bold italic text-base">
+              <p className="text-white/90 leading-relaxed font-bold italic text-sm">
                 {currentQuestion.explanation ? currentQuestion.explanation[lang] : (lang === 'el' ? 'Καλή προσπάθεια!' : 'Good try!')}
               </p>
             </div>
 
             <button onClick={handleNext}
-              className="w-full flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-xl font-[1000] hover:scale-[1.02] transition-all uppercase tracking-widest italic shadow-lg">
+              className="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-3.5 rounded-xl font-[1000] hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] active:scale-[0.98] transition-all uppercase tracking-widest italic shadow-lg text-sm">
               {isLevelEnd
                 ? (lang === 'el' ? 'ΕΛΕΓΧΟΣ ΕΠΙΠΕΔΟΥ...' : 'CHECKING LEVEL...')
-                : (lang === 'el' ? 'ΕΠΟΜΕΝΗ ΕΡΩΤΗΣΗ' : 'NEXT QUESTION')} <ArrowRight size={20} />
+                : (lang === 'el' ? 'ΕΠΟΜΕΝΗ ΕΡΩΤΗΣΗ' : 'NEXT QUESTION')} <ArrowRight size={18} />
             </button>
           </motion.div>
         )}
