@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Trophy,
   ArrowRight,
@@ -382,10 +383,26 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
-  const { credits, badges, stats } = useEconomy();
+  const { credits, badges, stats, earnCredits } = useEconomy();
   const { user } = useAuth();
   const [dashboardVideo, setDashboardVideo] = useState<typeof DASHBOARD_VIDEOS[0] | null>(null);
   const [showGiftModal, setShowGiftModal] = useState(false);
+  const [showFreeSongModal, setShowFreeSongModal] = useState(false);
+
+  // ============================================================
+  // 🎁 FREE MISSION TRACKER
+  // ============================================================
+  const academyCount = completedIds.filter(id => id.startsWith('academy-')).length;
+  const ebookCount = completedIds.filter(id => id.startsWith('ebook-')).length;
+  const missionComplete = academyCount >= 3 && ebookCount >= 1;
+
+  useEffect(() => {
+    if (missionComplete && localStorage.getItem('wb_free_song_claimed') !== 'true') {
+      localStorage.setItem('wb_free_song_claimed', 'true');
+      earnCredits(60);
+      setShowFreeSongModal(true);
+    }
+  }, [missionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ============================================================
   // 🔓 UNLOCK LOGIC (Progressive Quest-Based)
@@ -733,6 +750,95 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       {/* ⚡ DAILY MISSION */}
       <DailyMission lang={lang} />
 
+      {/* 🎁 FREE MISSION TRACKER */}
+      {!missionComplete ? (
+        <div className="bg-[#0f1014] border-2 border-amber-500/30 rounded-[2rem] p-6 md:p-8 space-y-5">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center border border-amber-500/30">
+              <Gift size={20} className="text-amber-400" />
+            </div>
+            <div>
+              <h2 className="font-[1000] text-white text-lg italic uppercase tracking-tight">
+                {lang === 'el' ? 'ΑΠΟΣΤΟΛΗ: ΔΩΡΕΑΝ ΤΡΑΓΟΥΔΙ' : 'MISSION: FREE SONG'}
+              </h2>
+              <p className="text-amber-400/70 text-[10px] font-bold uppercase tracking-widest">
+                {lang === 'el' ? 'Ολοκλήρωσε & κέρδισε +60 Credits' : 'Complete & earn +60 Credits'}
+              </p>
+            </div>
+          </div>
+
+          {/* Academy Progress */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-white/70 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <GraduationCap size={14} className="text-blue-400" />
+                {lang === 'el' ? 'Ιστορίες Academy' : 'Academy Stories'}
+              </span>
+              <span className={`font-[1000] text-sm ${academyCount >= 3 ? 'text-emerald-400' : 'text-amber-300'}`}>
+                {Math.min(academyCount, 3)}/3
+                {academyCount >= 3 && ' ✓'}
+              </span>
+            </div>
+            <div className="h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/10">
+              <div
+                className={`h-full rounded-full transition-all duration-700 ${academyCount >= 3 ? 'bg-gradient-to-r from-emerald-500 to-emerald-400' : 'bg-gradient-to-r from-blue-500 to-blue-400'}`}
+                style={{ width: `${Math.min((academyCount / 3) * 100, 100)}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Ebook Progress */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-white/70 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <Book size={14} className="text-indigo-400" />
+                {lang === 'el' ? 'Ebooks' : 'Ebooks'}
+              </span>
+              <span className={`font-[1000] text-sm ${ebookCount >= 1 ? 'text-emerald-400' : 'text-amber-300'}`}>
+                {Math.min(ebookCount, 1)}/1
+                {ebookCount >= 1 && ' ✓'}
+              </span>
+            </div>
+            <div className="h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/10">
+              <div
+                className={`h-full rounded-full transition-all duration-700 ${ebookCount >= 1 ? 'bg-gradient-to-r from-emerald-500 to-emerald-400' : 'bg-gradient-to-r from-indigo-500 to-indigo-400'}`}
+                style={{ width: `${Math.min(ebookCount * 100, 100)}%` }}
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 bg-amber-500/5 border border-amber-500/15 rounded-2xl p-4">
+            <Music size={18} className="text-amber-400 shrink-0" />
+            <p className="text-white/60 text-xs font-bold leading-relaxed">
+              {lang === 'el'
+                ? 'Διάβασε 3 ιστορίες στο Academy + 1 Ebook για να ξεκλειδώσεις 1 δωρεάν τραγούδι!'
+                : 'Read 3 Academy stories + 1 Ebook to unlock 1 free song!'}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-[#0f1014] border-2 border-emerald-500/30 rounded-[2rem] p-6 flex items-center gap-4">
+          <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center border border-emerald-500/30 shrink-0">
+            <CheckCircle2 size={24} className="text-emerald-400" />
+          </div>
+          <div className="flex-1">
+            <p className="text-emerald-300 font-[1000] text-base italic uppercase tracking-tight">
+              {lang === 'el' ? 'ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ ✓' : 'MISSION COMPLETE ✓'}
+            </p>
+            <p className="text-white/50 text-xs font-bold">
+              {lang === 'el' ? '+60 Credits κερδήθηκαν! Πήγαινε στη Μουσική!' : '+60 Credits earned! Head to Music!'}
+            </p>
+          </div>
+          <button
+            onClick={() => navigate('/music')}
+            className="shrink-0 px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-300 text-xs font-black uppercase tracking-widest hover:bg-emerald-500/30 transition-colors flex items-center gap-2"
+          >
+            <Music size={14} />
+            {lang === 'el' ? 'ΜΟΥΣΙΚΗ' : 'MUSIC'}
+          </button>
+        </div>
+      )}
+
       {/* 🎬 VIDEO HIGHLIGHTS */}
       <div className="bg-[#0f1014] border-2 border-white/10 rounded-[2rem] p-6 md:p-8 space-y-5">
         <div className="flex items-center justify-between">
@@ -1026,6 +1132,61 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       )}
 
       <GiftModal lang={lang} isOpen={showGiftModal} onClose={() => setShowGiftModal(false)} />
+
+      {/* 🎵 FREE SONG UNLOCKED MODAL */}
+      <AnimatePresence>
+        {showFreeSongModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-xl flex items-center justify-center p-6 xl:pl-80"
+            onClick={() => setShowFreeSongModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, y: 40 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.8, y: 40 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#0f1014] border-2 border-amber-500/50 rounded-[3rem] p-8 md:p-12 max-w-md w-full text-center space-y-6 shadow-[0_0_80px_rgba(245,158,11,0.25)]"
+            >
+              <div className="text-6xl animate-bounce">🎵</div>
+              <div>
+                <p className="text-amber-400/70 text-[10px] font-black uppercase tracking-[0.3em] mb-3">
+                  {lang === 'el' ? 'ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ' : 'MISSION COMPLETE'}
+                </p>
+                <h2 className="text-3xl font-[1000] text-white italic uppercase tracking-tighter leading-tight">
+                  {lang === 'el' ? 'ΔΩΡΕΑΝ ΤΡΑΓΟΥΔΙ' : 'FREE SONG'}
+                  <br />
+                  <span className="text-amber-400">
+                    {lang === 'el' ? 'ΞΕΚΛΕΙΔΩΘΗΚΕ!' : 'UNLOCKED!'}
+                  </span>
+                </h2>
+              </div>
+              <div className="flex items-center justify-center gap-3 bg-amber-500/10 border border-amber-500/25 rounded-2xl p-4">
+                <Zap size={22} className="text-amber-400 fill-current" />
+                <span className="text-amber-300 font-[1000] text-2xl">+60 Credits</span>
+              </div>
+              <div className="space-y-3">
+                <button
+                  onClick={() => { setShowFreeSongModal(false); navigate('/music'); }}
+                  className="w-full py-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl text-black font-[1000] text-lg uppercase italic tracking-wider hover:scale-[1.02] active:scale-95 transition-all shadow-[0_4px_20px_rgba(245,158,11,0.4)] flex items-center justify-center gap-3"
+                >
+                  <Music size={22} />
+                  {lang === 'el' ? 'ΠΑΜΕ ΣΤΗ ΜΟΥΣΙΚΗ!' : 'GO TO MUSIC!'}
+                </button>
+                <button
+                  onClick={() => setShowFreeSongModal(false)}
+                  className="w-full py-3 text-white/40 text-sm font-bold hover:text-white/60 transition-colors"
+                >
+                  {lang === 'el' ? 'Αργότερα' : 'Later'}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

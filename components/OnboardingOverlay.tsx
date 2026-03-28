@@ -1,236 +1,690 @@
+/**
+ * OnboardingOverlay — First-time user onboarding
+ * =================================================
+ * 4-step cinematic flow shown ONCE after first login:
+ * 1. Narrative: "Το ταξίδι ξεκινάει..."
+ * 2. Nickname: permanent unique username (for gift sending)
+ * 3. Avatar: take/upload photo → Gemini cartoon → save
+ * 4. Complete: "Αποστολές ξεκινούν!"
+ *
+ * Persisted to DB via completeOnboarding() in AuthContext.
+ * Shown only when profile.onboardingComplete === false.
+ */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Rocket, Wand2, Zap, ArrowRight, Sparkles, X } from 'lucide-react';
-import { useEconomy } from '../context/EconomyContext';
+import { Camera, Upload, RefreshCw, CheckCircle2, ArrowRight, Sparkles, User, Loader2, AlertCircle, X } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { supabase } from '../services/supabaseClient';
+import { authFetch } from '../services/backendApi';
 
 interface OnboardingOverlayProps {
   lang: 'el' | 'en';
 }
 
-interface OnboardingStep {
-  icon: React.ReactNode;
-  title: { el: string; en: string };
-  desc: { el: string; en: string };
-  color: string;
-  emoji: string;
-}
+type Step = 'narrative' | 'nickname' | 'avatar' | 'complete';
+type AvatarState = 'idle' | 'generating' | 'preview' | 'uploading';
 
-const STEPS: OnboardingStep[] = [
-  {
-    icon: <Rocket size={40} className="text-amber-400" />,
-    title: { el: 'ΚΑΛΩΣ ΗΡΘΕΣ ΣΤΟ WISEBOT ACADEMY!', en: 'WELCOME TO WISEBOT ACADEMY!' },
-    desc: {
-      el: 'Αυτό είναι το Αρχηγείο σου! Από εδώ ξεκινάει η περιπέτεια.',
-      en: "This is your HQ! Your adventure starts here.",
-    },
-    color: 'amber',
-    emoji: '🎮',
-  },
-  {
-    icon: <Wand2 size={40} className="text-purple-400" />,
-    title: { el: 'ΔΗΜΙΟΥΡΓΗΣΕ ΜΕ AI!', en: 'CREATE WITH AI!' },
-    desc: {
-      el: 'Φτιάξε τραγούδια, εικόνες & video με τεχνητή νοημοσύνη! Γίνε δημιουργός!',
-      en: 'Make songs, images & videos with AI! Become a creator!',
-    },
-    color: 'purple',
-    emoji: '🎵🎨🎬',
-  },
-  {
-    icon: <Zap size={40} className="text-blue-400" />,
-    title: { el: 'ΚΕΡΔΙΣΕ CREDITS!', en: 'EARN CREDITS!' },
-    desc: {
-      el: 'Κέρδισε Credits παίζοντας, διαβάζοντας & δημιουργώντας! Χρησιμοποίησέ τα για AI μαγεία.',
-      en: 'Earn Credits by playing, reading & creating! Use them for AI magic.',
-    },
-    color: 'blue',
-    emoji: '💎',
-  },
-  {
-    icon: <Zap size={40} className="text-emerald-400" />,
-    title: { el: 'ΠΗΡΕΣ 5 CREDITS!', en: 'YOU GOT 5 CREDITS!' },
-    desc: {
-      el: 'Μπράβο! Ξεκίνα να εξερευνείς. Πάμε!',
-      en: "Awesome! Start exploring. Let's go!",
-    },
-    color: 'emerald',
-    emoji: '🚀',
-  },
-];
-
-// CSS animations injected once
-const STYLE_ID = 'onboarding-styles';
+// Inject keyframe styles once
+const STYLE_ID = 'onboarding-v2-styles';
 const injectStyles = () => {
   if (document.getElementById(STYLE_ID)) return;
-  const style = document.createElement('style');
-  style.id = STYLE_ID;
-  style.textContent = `
-    @keyframes ob-fadeIn { from { opacity: 0 } to { opacity: 1 } }
-    @keyframes ob-slideUp { from { opacity: 0; transform: translateY(40px) scale(0.95) } to { opacity: 1; transform: translateY(0) scale(1) } }
-    @keyframes ob-bounce { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
-    @keyframes ob-glow { 0%,100% { box-shadow: 0 0 20px rgba(245,158,11,0.3) } 50% { box-shadow: 0 0 40px rgba(245,158,11,0.6) } }
-    @keyframes ob-confetti { 0% { transform: translate(0,0) scale(0); opacity: 1 } 50% { opacity: 1; transform: translate(var(--dx), var(--dy)) scale(1) } 100% { opacity: 0; transform: translate(var(--dx2), var(--dy2)) scale(0.5) rotate(var(--rot)) } }
+  const s = document.createElement('style');
+  s.id = STYLE_ID;
+  s.textContent = `
+    @keyframes ob2-fadeIn { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes ob2-slideUp { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: translateY(0) } }
+    @keyframes ob2-pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.5 } }
+    @keyframes ob2-spin { to { transform: rotate(360deg) } }
+    @keyframes ob2-float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
+    @keyframes ob2-glow { 0%,100% { box-shadow: 0 0 30px rgba(245,158,11,0.3) } 50% { box-shadow: 0 0 60px rgba(245,158,11,0.6) } }
+    .ob2-spin { animation: ob2-spin 1s linear infinite; }
   `;
-  document.head.appendChild(style);
+  document.head.appendChild(s);
 };
 
 export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
-  const { earnCredits } = useEconomy();
-  const [show, setShow] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
-  const [showConfetti, setShowConfetti] = useState(false);
+  const { profile, completeOnboarding } = useAuth();
 
+  const [step, setStep] = useState<Step>('narrative');
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Nickname state
+  const [nickname, setNickname] = useState('');
+  const [nicknameError, setNicknameError] = useState('');
+  const [nicknameChecking, setNicknameChecking] = useState(false);
+  const [nicknameValid, setNicknameValid] = useState(false);
+
+  // Avatar state
+  const [avatarState, setAvatarState] = useState<AvatarState>('idle');
+  const [cartoonUrl, setCartoonUrl] = useState<string | null>(null);
+  const [avatarError, setAvatarError] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showCamera, setShowCamera] = useState(false);
+  const streamRef = useRef<MediaStream | null>(null);
+
+  // Completion state
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState('');
+
+  // Show after brief delay so dashboard loads first
   useEffect(() => {
     injectStyles();
-    const done = localStorage.getItem('wb_onboarding_done');
-    if (!done) {
-      const timer = setTimeout(() => setShow(true), 1200);
-      return () => clearTimeout(timer);
+    if (profile && !profile.onboardingComplete) {
+      const t = setTimeout(() => {
+        setNickname(profile.childName || '');
+        setIsVisible(true);
+      }, 800);
+      return () => clearTimeout(t);
     }
-  }, []);
+  }, [profile]);
 
-  const handleNext = useCallback(() => {
-    if (currentStep < STEPS.length - 1) {
-      setCurrentStep(s => s + 1);
-      // On last step, award credits
-      if (currentStep === STEPS.length - 2) {
-        earnCredits(5);
-        setShowConfetti(true);
+  // Clean up camera on unmount
+  useEffect(() => {
+    return () => {
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(t => t.stop());
       }
-    } else {
-      // Done
-      localStorage.setItem('wb_onboarding_done', 'true');
-      setShow(false);
-    }
-  }, [currentStep, earnCredits]);
-
-  const handleSkip = useCallback(() => {
-    localStorage.setItem('wb_onboarding_done', 'true');
-    setShow(false);
+    };
   }, []);
 
-  const confettiParticles = React.useMemo(() =>
-    Array.from({ length: 16 }).map((_, i) => ({
-      dx: `${(Math.random() - 0.5) * 250}px`,
-      dy: `${(Math.random() - 0.5) * 250}px`,
-      dx2: `${(Math.random() - 0.5) * 350}px`,
-      dy2: `${(Math.random() - 0.5) * 350}px`,
-      rot: `${Math.random() * 720}deg`,
-      delay: `${Math.random() * 0.3}s`,
-      color: ['#fbbf24', '#f472b6', '#60a5fa', '#34d399', '#a78bfa', '#fb923c'][i % 6],
-    }))
-  , []);
+  // Don't render at all if not needed
+  if (!profile || profile.onboardingComplete || !isVisible) return null;
 
-  if (!show) return null;
+  // ── NICKNAME VALIDATION ──────────────────────────────────────────
+  const validateNickname = useCallback(async (val: string) => {
+    setNicknameError('');
+    setNicknameValid(false);
 
-  const step = STEPS[currentStep];
-  const isLast = currentStep === STEPS.length - 1;
-  const colorMap: Record<string, string> = {
-    amber: 'from-amber-500/20 to-amber-900/10 border-amber-500/30',
-    blue: 'from-blue-500/20 to-blue-900/10 border-blue-500/30',
-    purple: 'from-purple-500/20 to-purple-900/10 border-purple-500/30',
-    emerald: 'from-emerald-500/20 to-emerald-900/10 border-emerald-500/30',
+    const trimmed = val.trim();
+    if (trimmed.length < 3) {
+      setNicknameError(lang === 'el' ? 'Τουλάχιστον 3 χαρακτήρες' : 'At least 3 characters');
+      return;
+    }
+    if (trimmed.length > 20) {
+      setNicknameError(lang === 'el' ? 'Μέχρι 20 χαρακτήρες' : 'Max 20 characters');
+      return;
+    }
+    if (!/^[\w\u0370-\u03FF\u1F00-\u1FFF]+$/.test(trimmed)) {
+      setNicknameError(lang === 'el' ? 'Μόνο γράμματα, αριθμοί και _' : 'Only letters, numbers and _');
+      return;
+    }
+
+    // If same as current child_name, it's already theirs → valid
+    if (trimmed.toLowerCase() === profile.childName?.toLowerCase()) {
+      setNicknameValid(true);
+      return;
+    }
+
+    setNicknameChecking(true);
+    try {
+      const { data } = await supabase
+        .from('profiles')
+        .select('id')
+        .ilike('child_name', trimmed)
+        .neq('id', profile.id)
+        .limit(1);
+
+      if (data && data.length > 0) {
+        setNicknameError(lang === 'el' ? 'Αυτό το ψευδώνυμο υπάρχει ήδη' : 'This nickname is already taken');
+      } else {
+        setNicknameValid(true);
+      }
+    } catch {
+      setNicknameValid(true); // Allow on error
+    } finally {
+      setNicknameChecking(false);
+    }
+  }, [lang, profile.childName, profile.id]);
+
+  const handleNicknameChange = (val: string) => {
+    setNickname(val);
+    setNicknameValid(false);
+    setNicknameError('');
   };
-  const btnColor: Record<string, string> = {
-    amber: 'from-amber-500 to-orange-500',
-    blue: 'from-blue-500 to-indigo-600',
-    purple: 'from-purple-500 to-fuchsia-600',
-    emerald: 'from-emerald-500 to-teal-600',
+
+  const handleNicknameNext = async () => {
+    await validateNickname(nickname);
+    // Wait for state update via callback
+    setTimeout(() => {
+      if (!nicknameError && nickname.trim().length >= 3) {
+        setStep('avatar');
+      }
+    }, 50);
   };
 
+  // ── AVATAR / CAMERA ────────────────────────────────────────────
+  const startCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+      streamRef.current = stream;
+      setShowCamera(true);
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          videoRef.current.play();
+        }
+      }, 100);
+    } catch {
+      setAvatarError(lang === 'el' ? 'Δεν επιτράπηκε η κάμερα. Δοκίμασε να ανεβάσεις φωτογραφία.' : 'Camera not allowed. Try uploading a photo.');
+    }
+  };
+
+  const stopCamera = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(t => t.stop());
+      streamRef.current = null;
+    }
+    setShowCamera(false);
+  };
+
+  const capturePhoto = () => {
+    if (!videoRef.current) return;
+    const canvas = document.createElement('canvas');
+    canvas.width = videoRef.current.videoWidth || 512;
+    canvas.height = videoRef.current.videoHeight || 512;
+    const ctx = canvas.getContext('2d');
+    if (ctx) ctx.drawImage(videoRef.current, 0, 0);
+    const base64 = canvas.toDataURL('image/jpeg', 0.85);
+    stopCamera();
+    generateCartoon(base64, 'image/jpeg');
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const base64 = ev.target?.result as string;
+      generateCartoon(base64, file.type);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  };
+
+  const generateCartoon = async (dataUrl: string, mimeType: string) => {
+    setAvatarError('');
+    setAvatarState('generating');
+    setCartoonUrl(null);
+
+    try {
+      const base64 = dataUrl.split(',')[1];
+      const resp = await authFetch('/api/ai/avatar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageBytes: base64, mimeType }),
+      });
+
+      const data = await resp.json();
+      if (resp.ok && data.image) {
+        setCartoonUrl(data.image);
+        setAvatarState('preview');
+      } else {
+        throw new Error(data.error || 'Generation failed');
+      }
+    } catch (err: any) {
+      setAvatarError(lang === 'el' ? 'Δεν μπόρεσα να δημιουργήσω το avatar. Δοκίμασε ξανά!' : 'Could not generate avatar. Please try again!');
+      setAvatarState('idle');
+    }
+  };
+
+  const retryAvatar = () => {
+    setCartoonUrl(null);
+    setAvatarState('idle');
+    setAvatarError('');
+  };
+
+  // ── UPLOAD TO STORAGE & COMPLETE ─────────────────────────────
+  const handleComplete = async (skipAvatar = false) => {
+    setSaving(true);
+    setSaveError('');
+
+    let finalAvatarUrl = profile.avatarUrl || '';
+
+    if (!skipAvatar && cartoonUrl) {
+      try {
+        setAvatarState('uploading');
+        // Convert base64 to blob
+        const base64 = cartoonUrl.split(',')[1];
+        const mime = cartoonUrl.split(';')[0].split(':')[1] || 'image/png';
+        const byteChars = atob(base64);
+        const byteArr = new Uint8Array(byteChars.length);
+        for (let i = 0; i < byteChars.length; i++) byteArr[i] = byteChars.charCodeAt(i);
+        const blob = new Blob([byteArr], { type: mime });
+
+        const ext = mime.includes('png') ? 'png' : 'webp';
+        const filePath = `${profile.id}/cartoon.${ext}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from('avatars')
+          .upload(filePath, blob, { contentType: mime, upsert: true });
+
+        if (!uploadError) {
+          const { data: { publicUrl } } = supabase.storage
+            .from('avatars')
+            .getPublicUrl(filePath);
+          finalAvatarUrl = publicUrl;
+          localStorage.setItem('wb_avatar', publicUrl);
+        }
+      } catch {
+        // Continue even if upload fails
+      }
+    }
+
+    const { error } = await completeOnboarding(nickname.trim(), finalAvatarUrl);
+    if (error) {
+      setSaveError(lang === 'el' ? 'Σφάλμα αποθήκευσης. Δοκίμασε ξανά.' : 'Save error. Please try again.');
+      setSaving(false);
+      setAvatarState('preview');
+      return;
+    }
+
+    setStep('complete');
+    setSaving(false);
+  };
+
+  // ── STEP PROGRESS ─────────────────────────────────────────────
+  const stepIndex = { narrative: 0, nickname: 1, avatar: 2, complete: 3 };
+  const totalSteps = 3; // narrative doesn't count as a "form" step
+
+  // ── RENDER ────────────────────────────────────────────────────
   return createPortal(
     <div
-      className="fixed inset-0 flex items-center justify-center p-6 bg-black/85 backdrop-blur-xl"
-      style={{ zIndex: 99998, animation: 'ob-fadeIn 0.4s ease-out forwards' }}
+      className="fixed inset-0 flex items-center justify-center bg-[#06070e]/95 backdrop-blur-2xl"
+      style={{ zIndex: 99999, animation: 'ob2-fadeIn 0.5s ease-out forwards' }}
     >
-      {/* Content Card */}
-      <div
-        key={currentStep}
-        className={`relative w-full max-w-md bg-gradient-to-b ${colorMap[step.color]} rounded-[2.5rem] border backdrop-blur-2xl overflow-hidden`}
-        style={{ animation: 'ob-slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards' }}
-      >
-        {/* Ambient glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-white/5 rounded-full blur-[80px] pointer-events-none" />
-
-        {/* Skip button */}
-        <button
-          onClick={handleSkip}
-          className="absolute top-5 right-5 z-20 p-2 bg-white/5 hover:bg-white/10 rounded-full text-white/30 hover:text-white transition-all border border-white/5"
-        >
-          <X size={16} />
-        </button>
-
-        <div className="relative z-10 p-8 flex flex-col items-center text-center space-y-6">
-          {/* Step indicator */}
-          <div className="flex gap-2">
-            {STEPS.map((_, i) => (
-              <div
-                key={i}
-                className={`w-8 h-1.5 rounded-full transition-all duration-500 ${
-                  i <= currentStep ? 'bg-white' : 'bg-white/15'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Emoji + Icon */}
+      {/* Stars background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 40 }).map((_, i) => (
           <div
-            className="w-24 h-24 rounded-3xl bg-white/10 flex items-center justify-center"
-            style={{ animation: 'ob-bounce 2s ease-in-out infinite' }}
-          >
-            <span className="text-5xl">{step.emoji}</span>
-          </div>
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              opacity: Math.random() * 0.4 + 0.1,
+              animation: `ob2-pulse ${2 + Math.random() * 3}s ${Math.random() * 2}s ease-in-out infinite`,
+            }}
+          />
+        ))}
+      </div>
 
-          {/* Title */}
-          <div>
-            <h2 className="text-3xl font-[1000] text-white uppercase italic tracking-tighter">
-              {step.title[lang]}
-            </h2>
-            <p className="text-white/50 text-sm font-bold mt-2 leading-relaxed max-w-sm">
-              {step.desc[lang]}
-            </p>
-          </div>
+      {/* Card */}
+      <div
+        key={step}
+        className="relative w-full max-w-sm mx-4 bg-[#0d0f1a] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl"
+        style={{ animation: 'ob2-slideUp 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards' }}
+      >
+        {/* Top glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-amber-500/10 blur-[60px] pointer-events-none" />
 
-          {/* Step number */}
-          <div className="text-white/20 text-xs font-black uppercase tracking-[0.3em]">
-            {currentStep + 1} / {STEPS.length}
-          </div>
+        <div className="relative z-10 p-7 flex flex-col gap-6">
 
-          {/* Action button */}
-          <button
-            onClick={handleNext}
-            className={`w-full py-4 rounded-2xl bg-gradient-to-r ${btnColor[step.color]} text-white font-[1000] text-lg uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3`}
-            style={isLast ? { animation: 'ob-glow 1.5s ease-in-out infinite' } : undefined}
-          >
-            {isLast ? (
-              <><Sparkles size={22} /> {lang === 'el' ? 'ΞΕΚΙΝΑ!' : "LET'S GO!"}</>
-            ) : (
-              <><ArrowRight size={22} /> {lang === 'el' ? 'ΕΠΟΜΕΝΟ' : 'NEXT'}</>
-            )}
-          </button>
+          {/* ── STEP 1: NARRATIVE ────────────────────────────────── */}
+          {step === 'narrative' && (
+            <>
+              <div className="flex flex-col items-center text-center gap-5">
+                {/* Logo / hero image */}
+                <div
+                  className="w-28 h-28 rounded-[2rem] bg-gradient-to-br from-amber-500/20 to-purple-600/20 border border-amber-500/30 flex items-center justify-center text-6xl shadow-xl"
+                  style={{ animation: 'ob2-float 3s ease-in-out infinite' }}
+                >
+                  🦉
+                </div>
+
+                <div className="space-y-3">
+                  <p className="text-amber-400/70 text-[10px] font-black uppercase tracking-[0.4em]">
+                    {lang === 'el' ? 'WISEBOT ACADEMY' : 'WISEBOT ACADEMY'}
+                  </p>
+                  <h1 className="text-2xl font-[1000] text-white uppercase italic tracking-tight leading-tight">
+                    {lang === 'el' ? 'ΤΟ ΤΑΞΙΔΙ\nΞΕΚΙΝΑΕΙ!' : 'THE JOURNEY\nBEGINS!'}
+                  </h1>
+                  <p className="text-white/50 text-sm font-bold leading-relaxed">
+                    {lang === 'el'
+                      ? 'Βοήθησε τους ήρωες να πετύχουν τον στόχο τους. Δημιούργησε και εσύ τον δικό σου!'
+                      : 'Help the heroes achieve their goals. Create your own hero too!'}
+                  </p>
+                </div>
+
+                {/* Feature pills */}
+                <div className="flex flex-wrap justify-center gap-2">
+                  {(['🎵 Τραγούδια', '🎨 Εικόνες', '🎬 Video', '🧠 Quiz'] as const).map(f => (
+                    <span key={f} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/50 text-[10px] font-black uppercase tracking-wider">
+                      {f}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <button
+                onClick={() => setStep('nickname')}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-[1000] text-base uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
+                style={{ animation: 'ob2-glow 2s ease-in-out infinite' }}
+              >
+                <Sparkles size={20} />
+                {lang === 'el' ? 'ΞΕΚΙΝΑ ΤΟ ΤΑΞΙΔΙ' : 'START THE JOURNEY'}
+              </button>
+            </>
+          )}
+
+          {/* ── STEP 2: NICKNAME ─────────────────────────────────── */}
+          {step === 'nickname' && (
+            <>
+              {/* Progress dots */}
+              <div className="flex justify-center gap-2">
+                {[0, 1, 2].map(i => (
+                  <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${i === 0 ? 'w-8 bg-amber-400' : 'w-4 bg-white/15'}`} />
+                ))}
+              </div>
+
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="w-16 h-16 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center">
+                  <User size={28} className="text-amber-400" />
+                </div>
+                <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tight">
+                  {lang === 'el' ? 'ΔΙΑΛΕΞΕ ΨΕΥΔΩΝΥΜΟ' : 'CHOOSE NICKNAME'}
+                </h2>
+                <p className="text-white/40 text-xs font-bold leading-relaxed max-w-[260px]">
+                  {lang === 'el'
+                    ? 'Οι φίλοι σου θα σου στέλνουν δώρα με αυτό. Δεν αλλάζει!'
+                    : 'Friends will send you gifts with this. Cannot be changed!'}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={nickname}
+                    onChange={e => handleNicknameChange(e.target.value)}
+                    onBlur={() => nickname.trim().length >= 3 && validateNickname(nickname)}
+                    placeholder={lang === 'el' ? 'Το ψευδώνυμό σου...' : 'Your nickname...'}
+                    maxLength={20}
+                    className={`w-full bg-white/5 border rounded-2xl px-5 py-4 text-white font-bold text-center text-lg outline-none transition-all
+                      ${nicknameError ? 'border-red-500/50 focus:border-red-500' : nicknameValid ? 'border-emerald-500/50 focus:border-emerald-400' : 'border-white/10 focus:border-amber-500/50'}
+                      focus:shadow-[0_0_20px_rgba(245,158,11,0.15)]`}
+                    autoComplete="off"
+                    spellCheck={false}
+                  />
+                  {nicknameChecking && (
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                      <Loader2 size={16} className="text-amber-400 ob2-spin" />
+                    </div>
+                  )}
+                  {nicknameValid && !nicknameChecking && (
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                      <CheckCircle2 size={16} className="text-emerald-400" />
+                    </div>
+                  )}
+                </div>
+
+                {nicknameError && (
+                  <div className="flex items-center gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
+                    <AlertCircle size={14} className="text-red-400 shrink-0" />
+                    <p className="text-red-400 text-xs font-bold">{nicknameError}</p>
+                  </div>
+                )}
+
+                <p className="text-white/20 text-[10px] font-bold text-center">
+                  {nickname.trim().length}/20 {lang === 'el' ? 'χαρακτήρες' : 'characters'}
+                </p>
+              </div>
+
+              <button
+                onClick={handleNicknameNext}
+                disabled={nickname.trim().length < 3 || !!nicknameError || nicknameChecking}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-[1000] text-base uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+              >
+                <ArrowRight size={20} />
+                {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'CONTINUE'}
+              </button>
+            </>
+          )}
+
+          {/* ── STEP 3: AVATAR ───────────────────────────────────── */}
+          {step === 'avatar' && (
+            <>
+              {/* Progress dots */}
+              <div className="flex justify-center gap-2">
+                {[0, 1, 2].map(i => (
+                  <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${i <= 1 ? 'w-8 bg-amber-400' : 'w-4 bg-white/15'}`} />
+                ))}
+              </div>
+
+              <div className="flex flex-col items-center text-center gap-2">
+                <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tight">
+                  {lang === 'el' ? 'ΓΙΝΕ CARTOON!' : 'GO CARTOON!'}
+                </h2>
+                <p className="text-white/40 text-xs font-bold">
+                  {lang === 'el' ? 'Φωτογράφησε τον εαυτό σου και η AI θα σε μετατρέψει σε cartoon ήρωα!' : 'Take a photo and AI will turn you into a cartoon hero!'}
+                </p>
+              </div>
+
+              {/* Camera preview */}
+              {showCamera && (
+                <div className="relative rounded-2xl overflow-hidden bg-black aspect-square">
+                  <video ref={videoRef} className="w-full h-full object-cover" playsInline muted />
+                  <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-3">
+                    <button
+                      onClick={capturePhoto}
+                      className="px-5 py-2.5 bg-white text-black font-[1000] text-xs uppercase rounded-full hover:bg-white/90 active:scale-95 transition-all"
+                    >
+                      {lang === 'el' ? '📸 ΦΩΤΟΓΡΑΦΙΑ' : '📸 CAPTURE'}
+                    </button>
+                    <button
+                      onClick={stopCamera}
+                      className="p-2.5 bg-white/20 rounded-full hover:bg-white/30 transition-all"
+                    >
+                      <X size={16} className="text-white" />
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Generating state */}
+              {avatarState === 'generating' && !showCamera && (
+                <div className="flex flex-col items-center gap-4 py-4">
+                  <div className="w-20 h-20 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center">
+                    <Loader2 size={36} className="text-purple-400 ob2-spin" />
+                  </div>
+                  <p className="text-purple-300 text-sm font-bold" style={{ animation: 'ob2-pulse 1.5s ease-in-out infinite' }}>
+                    {lang === 'el' ? 'Η AI σε μετατρέπει σε cartoon...' : 'AI is turning you into cartoon...'}
+                  </p>
+                </div>
+              )}
+
+              {/* Uploading state */}
+              {avatarState === 'uploading' && (
+                <div className="flex flex-col items-center gap-4 py-4">
+                  <div className="w-20 h-20 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                    <Loader2 size={36} className="text-amber-400 ob2-spin" />
+                  </div>
+                  <p className="text-amber-300 text-sm font-bold" style={{ animation: 'ob2-pulse 1.5s ease-in-out infinite' }}>
+                    {lang === 'el' ? 'Αποθήκευση avatar...' : 'Saving avatar...'}
+                  </p>
+                </div>
+              )}
+
+              {/* Preview state */}
+              {avatarState === 'preview' && cartoonUrl && (
+                <div className="flex flex-col items-center gap-4">
+                  <div className="relative">
+                    <img
+                      src={cartoonUrl}
+                      alt="Cartoon avatar"
+                      className="w-36 h-36 rounded-[2rem] object-cover border-4 border-amber-500/40 shadow-[0_0_40px_rgba(245,158,11,0.3)]"
+                    />
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center border-2 border-[#0d0f1a]">
+                      <CheckCircle2 size={20} className="text-white" />
+                    </div>
+                  </div>
+                  <p className="text-white/60 text-sm font-bold text-center">
+                    {lang === 'el' ? 'Αυτός/Αυτή είσαι! 🎉' : "That's you! 🎉"}
+                  </p>
+                  <button
+                    onClick={retryAvatar}
+                    className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-white/50 text-xs font-bold hover:bg-white/10 transition-all"
+                  >
+                    <RefreshCw size={12} /> {lang === 'el' ? 'Δοκίμασε ξανά' : 'Try again'}
+                  </button>
+                </div>
+              )}
+
+              {/* Idle — show options */}
+              {avatarState === 'idle' && !showCamera && (
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={startCamera}
+                    className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-amber-500/30 transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center group-hover:border-amber-500/40 transition-all">
+                      <Camera size={22} className="text-amber-400" />
+                    </div>
+                    <span className="text-white/60 text-xs font-black uppercase tracking-wider">
+                      {lang === 'el' ? 'Φωτογραφία' : 'Take Photo'}
+                    </span>
+                  </button>
+
+                  <label className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-purple-500/30 transition-all group cursor-pointer">
+                    <div className="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center group-hover:border-purple-500/40 transition-all">
+                      <Upload size={22} className="text-purple-400" />
+                    </div>
+                    <span className="text-white/60 text-xs font-black uppercase tracking-wider">
+                      {lang === 'el' ? 'Ανέβασε' : 'Upload'}
+                    </span>
+                    <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
+                  </label>
+                </div>
+              )}
+
+              {avatarError && (
+                <div className="flex items-start gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
+                  <AlertCircle size={14} className="text-red-400 mt-0.5 shrink-0" />
+                  <p className="text-red-400 text-xs font-bold">{avatarError}</p>
+                </div>
+              )}
+
+              {saveError && (
+                <div className="flex items-start gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
+                  <AlertCircle size={14} className="text-red-400 mt-0.5 shrink-0" />
+                  <p className="text-red-400 text-xs font-bold">{saveError}</p>
+                </div>
+              )}
+
+              <div className="flex flex-col gap-2">
+                {/* Main CTA: enabled only if preview */}
+                {avatarState === 'preview' && (
+                  <button
+                    onClick={() => handleComplete(false)}
+                    disabled={saving}
+                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-[1000] text-base uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+                  >
+                    {saving ? <Loader2 size={20} className="ob2-spin" /> : <CheckCircle2 size={20} />}
+                    {lang === 'el' ? 'ΑΥΤΟΣ ΕΙΜΑΙ! ✓' : 'THAT\'S ME! ✓'}
+                  </button>
+                )}
+
+                {/* Skip avatar */}
+                {(avatarState === 'idle' || avatarState === 'generating') && !showCamera && (
+                  <button
+                    onClick={() => handleComplete(true)}
+                    disabled={saving || avatarState === 'generating'}
+                    className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all disabled:opacity-30"
+                  >
+                    {lang === 'el' ? 'Παράλειψη — συνέχεια χωρίς avatar' : 'Skip — continue without avatar'}
+                  </button>
+                )}
+              </div>
+            </>
+          )}
+
+          {/* ── STEP 4: COMPLETE ─────────────────────────────────── */}
+          {step === 'complete' && (
+            <>
+              <div className="flex flex-col items-center text-center gap-5 py-2">
+                {/* Avatar or default emoji */}
+                <div
+                  className="relative"
+                  style={{ animation: 'ob2-float 3s ease-in-out infinite' }}
+                >
+                  {cartoonUrl ? (
+                    <img
+                      src={cartoonUrl}
+                      alt="Your avatar"
+                      className="w-32 h-32 rounded-[2rem] object-cover border-4 border-amber-500/50 shadow-[0_0_50px_rgba(245,158,11,0.4)]"
+                    />
+                  ) : (
+                    <div className="w-32 h-32 rounded-[2rem] bg-gradient-to-br from-amber-500/20 to-purple-600/20 border border-amber-500/30 flex items-center justify-center text-6xl shadow-xl">
+                      🦸
+                    </div>
+                  )}
+                  <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-[#0d0f1a] border border-amber-500/40 rounded-full">
+                    <span className="text-amber-400 font-[1000] text-xs uppercase tracking-widest">{nickname}</span>
+                  </div>
+                </div>
+
+                <div className="space-y-2 mt-3">
+                  <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tight">
+                    {lang === 'el' ? 'ΑΠΟΣΤΟΛΕΣ\nΞΕΚΙΝΑΝΕ!' : 'MISSIONS\nBEGIN!'}
+                  </h2>
+                  <p className="text-white/50 text-sm font-bold leading-relaxed">
+                    {lang === 'el'
+                      ? 'Ολοκλήρωσε 3 ιστορίες Academy + 1 Ebook για να κερδίσεις ένα δωρεάν τραγούδι!'
+                      : 'Complete 3 Academy stories + 1 Ebook to unlock a free song!'}
+                  </p>
+                </div>
+
+                {/* Quick mission preview */}
+                <div className="w-full space-y-2">
+                  <div className="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl">
+                    <span className="text-xl">📖</span>
+                    <span className="text-white/60 text-xs font-black flex-1">
+                      {lang === 'el' ? '3 Ιστορίες Academy' : '3 Academy Stories'}
+                    </span>
+                    <span className="text-white/20 text-xs font-bold">0/3</span>
+                  </div>
+                  <div className="flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl">
+                    <span className="text-xl">📚</span>
+                    <span className="text-white/60 text-xs font-black flex-1">
+                      {lang === 'el' ? '1 Βιβλίο Ebook' : '1 Ebook'}
+                    </span>
+                    <span className="text-white/20 text-xs font-bold">0/1</span>
+                  </div>
+                  <div className="flex items-center gap-3 px-4 py-3 bg-amber-500/10 border border-amber-500/20 rounded-2xl">
+                    <span className="text-xl">🎵</span>
+                    <span className="text-amber-400/80 text-xs font-black flex-1">
+                      {lang === 'el' ? 'ΔΩΡΕΑΝ Τραγούδι + 60 Credits' : 'FREE Song + 60 Credits'}
+                    </span>
+                    <span className="text-amber-500/50 text-xs font-bold">🔒</span>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsVisible(false)}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-[1000] text-base uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
+                style={{ animation: 'ob2-glow 2s ease-in-out infinite' }}
+              >
+                <Rocket size={20} />
+                {lang === 'el' ? 'ΠΑΜΕ!' : "LET'S GO!"}
+              </button>
+            </>
+          )}
+
         </div>
-
-        {/* Confetti on last step */}
-        {showConfetti && (
-          <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
-            {confettiParticles.map((p, i) => (
-              <div
-                key={i}
-                className="absolute w-2 h-2 rounded-full left-1/2 top-[40%]"
-                style={{
-                  backgroundColor: p.color,
-                  '--dx': p.dx, '--dy': p.dy,
-                  '--dx2': p.dx2, '--dy2': p.dy2,
-                  '--rot': p.rot,
-                  animation: `ob-confetti 1.5s ${p.delay} ease-out forwards`,
-                } as React.CSSProperties}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>,
     document.body
   );
 }
+
+// Fix missing import
+const Rocket = ({ size, className }: { size: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+  </svg>
+);
