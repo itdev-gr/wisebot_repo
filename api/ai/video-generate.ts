@@ -1,14 +1,13 @@
 /**
- * Video Generation Endpoint — xAI Grok Imagine Video
- * =====================================================
- * Creates a video using xAI's grok-imagine-video model.
- * Returns a requestId for polling with /api/ai/video-status.
+ * Video Generation Endpoint — Google Veo 2
+ * ==========================================
+ * Starts async video generation via Google Veo 2.
+ * Returns requestId (operationName) for polling with /api/ai/video-status.
  *
  * POST /api/ai/video-generate
  * Body: { prompt, imageBytes?, mimeType? }
  * Response: { requestId }
  */
-
 
 const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)\b/i;
 const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
@@ -21,11 +20,9 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = null;
-
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const apiKey = process.env.XAI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Video service not configured' });
 
   const { prompt, imageBytes, mimeType } = req.body;
@@ -36,37 +33,36 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // xAI grok-imagine-video: text-to-video only (image-to-video not supported yet)
-    const body: any = {
-      model: 'grok-imagine-video',
-      prompt: `Kid-friendly animated video: ${prompt}. Style: colorful, fun, safe for children. No violence, no scary elements.`,
-    };
+    const { GoogleGenAI } = await import('@google/genai');
+    const ai = new GoogleGenAI({ apiKey });
 
-    const resp = await fetch('https://api.x.ai/v1/videos/generations', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
+    const videoPrompt = `Kid-friendly animated video for children: ${prompt}. Style: colorful, fun, educational, safe for children ages 6-13. No violence, no scary elements.`;
 
-    if (!resp.ok) {
-      const errText = await resp.text();
-      console.error('[video-generate] xAI error:', resp.status, errText.slice(0, 300));
-      return res.status(502).json({ error: `Video API error: ${resp.status}` });
+    const config: any = { model: 'veo-2.0-generate-001' };
+
+    // Add image if provided (image-to-video)
+    if (imageBytes && mimeType) {
+      config.image = { imageBytes, mimeType };
     }
 
-    const data = await resp.json();
-    const requestId = data.request_id;
+    const operation = await (ai.models as any).generateVideo({
+      ...config,
+      prompt: videoPrompt,
+      config: {
+        aspectRatio: '9:16',
+        numberOfVideos: 1,
+      },
+    });
 
-    if (!requestId) {
-      console.error('[video-generate] No request_id:', JSON.stringify(data).slice(0, 500));
+    const operationName = operation.name;
+    if (!operationName) {
+      console.error('[video-generate] No operation name:', JSON.stringify(operation).slice(0, 300));
       return res.status(502).json({ error: 'Failed to start video generation' });
     }
 
-    console.log('[video-generate] Started xAI video, requestId:', requestId);
-    return res.status(200).json({ requestId });
+    console.log('[video-generate] Started Veo 2 video, operationName:', operationName);
+    // Return as requestId so polling endpoint stays consistent
+    return res.status(200).json({ requestId: operationName });
   } catch (err: any) {
     console.error('[video-generate] Error:', err.message);
     return res.status(500).json({ error: err.message || 'Video generation failed' });
