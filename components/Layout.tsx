@@ -722,7 +722,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
             </header>
           )}
           
-          <div className={`flex-1 overflow-y-auto custom-scrollbar ${isImmersive ? '' : isQuizRoute ? 'p-2 md:p-4 pb-4' : 'p-4 md:p-8 lg:p-12 pb-32 lg:pb-12'}`}>
+          <div className={`flex-1 overflow-y-auto custom-scrollbar ${isImmersive ? '' : isQuizRoute ? 'pt-5 px-4 pb-4 md:pt-7 md:px-6 md:pb-4' : 'p-4 md:p-8 lg:p-12 pb-32 lg:pb-12'}`}>
             {children}
           </div>
         </main>

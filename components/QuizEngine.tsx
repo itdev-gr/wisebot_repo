@@ -716,7 +716,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
           })}
         </div>
 
-        {/* Explanation + Next */}
+        {/* Explanation (inside card — NO button here) */}
         {showExplanation && (
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="mt-4 pt-4 border-t border-white/[0.08]">
             {/* Points earned this question */}
@@ -739,7 +739,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
               </div>
             )}
 
-            <div className={`p-4 rounded-xl border mb-3 ${
+            <div className={`p-4 rounded-xl border ${
               (selectedIdx !== null && selectedIdx >= 0 && selectedIdx === currentQuestion.correct)
                 ? 'bg-emerald-900/20 border-emerald-500/20' : 'bg-rose-900/20 border-rose-500/20'
             }`}>
@@ -753,16 +753,25 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
                 {currentQuestion.explanation ? currentQuestion.explanation[lang] : (lang === 'el' ? 'Καλή προσπάθεια!' : 'Good try!')}
               </p>
             </div>
-
-            <button onClick={handleNext}
-              className="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-3.5 rounded-xl font-[1000] hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] active:scale-[0.98] transition-all uppercase tracking-widest italic shadow-lg text-sm">
-              {isLevelEnd
-                ? (lang === 'el' ? 'ΕΛΕΓΧΟΣ ΕΠΙΠΕΔΟΥ...' : 'CHECKING LEVEL...')
-                : (lang === 'el' ? 'ΕΠΟΜΕΝΗ ΕΡΩΤΗΣΗ' : 'NEXT QUESTION')} <ArrowRight size={18} />
-            </button>
           </motion.div>
         )}
       </div>
+
+      {/* STICKY NEXT BUTTON — outside card so it can stick to viewport bottom on mobile */}
+      {showExplanation && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="sticky bottom-3 mt-3 z-20"
+        >
+          <button onClick={handleNext}
+            className="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-4 rounded-2xl font-[1000] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-[0.98] transition-all uppercase tracking-widest italic shadow-xl text-sm">
+            {isLevelEnd
+              ? (lang === 'el' ? 'ΕΛΕΓΧΟΣ ΕΠΙΠΕΔΟΥ...' : 'CHECKING LEVEL...')
+              : (lang === 'el' ? 'ΕΠΟΜΕΝΗ ΕΡΩΤΗΣΗ' : 'NEXT QUESTION')} <ArrowRight size={18} />
+          </button>
+        </motion.div>
+      )}
     </div>
   );
 };
