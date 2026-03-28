@@ -462,6 +462,8 @@ function AppContent() {
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<AuthScreen lang={lang} />} />
             <Route path="/legal" element={<LegalHub lang={lang} />} />
+            <Route path="/privacy" element={<LegalHub lang={lang} />} />
+            <Route path="/terms" element={<LegalHub lang={lang} />} />
 
             {/* PROTECTED ROUTES — require authentication */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
