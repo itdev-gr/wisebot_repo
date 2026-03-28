@@ -456,9 +456,9 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             ))}
           </div>
           <div className="flex items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-white/20">
-            <a href="/privacy" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Πολιτική Απορρήτου' : 'Privacy Policy'}</a>
+            <a href="/legal" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Πολιτική Απορρήτου' : 'Privacy Policy'}</a>
             <span>·</span>
-            <a href="/terms" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Όροι Χρήσης' : 'Terms of Service'}</a>
+            <a href="/legal" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Όροι Χρήσης' : 'Terms of Service'}</a>
             <span>·</span>
             <span>© {new Date().getFullYear()} WiseBot Academy</span>
           </div>
