@@ -442,17 +442,26 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         transition={{ delay: 1.5, duration: 1 }}
         className="relative z-30 w-full bg-black/40 backdrop-blur-md border-t border-white/5 py-4"
       >
-        <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-6 md:gap-16">
-          {LEGACY_ITEMS.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 group cursor-default opacity-60 hover:opacity-100 transition-opacity">
-              <div className="p-1.5 bg-white/5 rounded-lg border border-white/10 text-white/40 group-hover:text-amber-400 group-hover:border-amber-500/30 transition-all duration-500">
-                {item.icon}
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-16">
+            {LEGACY_ITEMS.map((item, idx) => (
+              <div key={idx} className="flex items-center gap-3 group cursor-default opacity-60 hover:opacity-100 transition-opacity">
+                <div className="p-1.5 bg-white/5 rounded-lg border border-white/10 text-white/40 group-hover:text-amber-400 group-hover:border-amber-500/30 transition-all duration-500">
+                  {item.icon}
+                </div>
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white/30 group-hover:text-white/80 transition-colors">
+                  {item.title[lang]}
+                </span>
               </div>
-              <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.3em] text-white/30 group-hover:text-white/80 transition-colors">
-                {item.title[lang]}
-              </span>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="flex items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-white/20">
+            <a href="/privacy" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Πολιτική Απορρήτου' : 'Privacy Policy'}</a>
+            <span>·</span>
+            <a href="/terms" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Όροι Χρήσης' : 'Terms of Service'}</a>
+            <span>·</span>
+            <span>© {new Date().getFullYear()} WiseBot Academy</span>
+          </div>
         </div>
       </motion.div>
 
