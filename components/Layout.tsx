@@ -69,6 +69,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   const isOnDashboard = location.pathname === '/dashboard';
   const [showLevelModal, setShowLevelModal] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [lockedExpanded, setLockedExpanded] = useState(false);
   
   // NEW STATES FOR ROCKET INTERACTION
   const [showRocketOptions, setShowRocketOptions] = useState(false);
@@ -173,25 +174,36 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   const currentRank = getRankInfo(unlockedBadgeCount, lang);
   const nextRank = getRankInfo(Math.min(unlockedBadgeCount + 1, 8), lang);
 
-  // Updated Navigation: Home added back at the top
+  // ============================================================
+  // 🗺️ NAVIGATION — THREE-TIER: Pinned | Unlocked | Locked
+  // ============================================================
+
+  // All nav items (used for header title lookup)
   const navItems = [
-    { icon: <Home size={24} />, label: t.menu.home, path: "/", locked: false },
-    { icon: <ShieldCheck size={24} />, label: t.menu.dashboard, path: "/dashboard", locked: false },
-    { icon: <PlayCircle size={24} />, label: t.menu.academy, path: "/academy", locked: false },
-    { icon: <Book size={24} />, label: t.menu.ebooks, path: "/ebooks", locked: false },
-    { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: !isQuizUnlocked },
-    { icon: <Wand2 size={24} />, label: t.menu.factory, path: "/factory", locked: !isFactoryUnlocked },
-    { icon: <Gamepad2 size={24} />, label: t.menu.game, path: "/game", locked: !isGamesUnlocked },
-    { icon: <Music size={24} />, label: t.menu.music, path: "/music", locked: !isMusicUnlocked },
-    { icon: <Clapperboard size={24} />, label: t.menu.cinema, path: "/cinema", locked: !isCinemaUnlocked },
-    { icon: <Box size={24} />, label: t.menu.factory3d, path: "/3d-factory", locked: !is3DUnlocked },
-    { icon: <Briefcase size={24} />, label: t.menu.business, path: "/business", locked: !isBusinessUnlocked },
-    { icon: <Store size={24} />, label: t.menu.market, path: "/market", locked: !isMarketUnlocked },
-    { icon: <Users size={24} />, label: t.menu.wiseFriends, path: "/wise-friends", locked: false },
-    { icon: <Coins size={24} />, label: t.menu.store, path: "/store", locked: false },
-    { icon: <UserCircle size={24} />, label: t.menu.account, path: "/account", locked: false },
-    { icon: <Shield size={24} />, label: t.menu.parent, path: "/parent", locked: false },
+    { icon: <Shield size={24} />, label: t.menu.parent, path: "/parent", locked: false, unlockHint: '' },
+    { icon: <Home size={24} />, label: t.menu.home, path: "/", locked: false, unlockHint: '' },
+    { icon: <ShieldCheck size={24} />, label: t.menu.dashboard, path: "/dashboard", locked: false, unlockHint: '' },
+    { icon: <PlayCircle size={24} />, label: t.menu.academy, path: "/academy", locked: false, unlockHint: '' },
+    { icon: <Book size={24} />, label: t.menu.ebooks, path: "/ebooks", locked: false, unlockHint: '' },
+    { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: !isQuizUnlocked, unlockHint: lang === 'el' ? '2 ιστορίες ή 1 βιβλίο' : '2 stories or 1 book' },
+    { icon: <Wand2 size={24} />, label: t.menu.factory, path: "/factory", locked: !isFactoryUnlocked, unlockHint: lang === 'el' ? '3 ιστορίες ή 2 βιβλία' : '3 stories or 2 books' },
+    { icon: <Gamepad2 size={24} />, label: t.menu.game, path: "/game", locked: !isGamesUnlocked, unlockHint: lang === 'el' ? '1 βιβλίο ή 1 quiz' : '1 book or 1 quiz' },
+    { icon: <Music size={24} />, label: t.menu.music, path: "/music", locked: !isMusicUnlocked, unlockHint: lang === 'el' ? '1 ιστορία' : '1 story' },
+    { icon: <Clapperboard size={24} />, label: t.menu.cinema, path: "/cinema", locked: !isCinemaUnlocked, unlockHint: lang === 'el' ? '1 ήρωας' : '1 hero' },
+    { icon: <Box size={24} />, label: t.menu.factory3d, path: "/3d-factory", locked: !is3DUnlocked, unlockHint: lang === 'el' ? 'Creator Badge' : 'Creator Badge' },
+    { icon: <Briefcase size={24} />, label: t.menu.business, path: "/business", locked: !isBusinessUnlocked, unlockHint: lang === 'el' ? '2 ιστορίες' : '2 stories' },
+    { icon: <Store size={24} />, label: t.menu.market, path: "/market", locked: !isMarketUnlocked, unlockHint: lang === 'el' ? '1 ήρωας' : '1 hero' },
+    { icon: <Users size={24} />, label: t.menu.wiseFriends, path: "/wise-friends", locked: false, unlockHint: '' },
+    { icon: <Coins size={24} />, label: t.menu.store, path: "/store", locked: false, unlockHint: '' },
+    { icon: <UserCircle size={24} />, label: t.menu.account, path: "/account", locked: false, unlockHint: '' },
   ];
+
+  // PINNED: always visible at top (Parent, Home, Dashboard)
+  const pinnedItems = navItems.slice(0, 3);
+  // The rest: split into unlocked vs locked
+  const otherItems = navItems.slice(3);
+  const unlockedItems = otherItems.filter(i => !i.locked);
+  const lockedItems = otherItems.filter(i => i.locked);
 
   // Logic to hide layout on immersive pages
   // We check for '/' (Landing), '/landing', and '/portal'
@@ -302,46 +314,95 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                      <X size={24} />
                    </button>
                 </div>
-                <div className="flex-1 overflow-y-auto p-6 space-y-3 custom-scrollbar">
-                   {navItems.map((item, idx) => {
-                      if (item.locked) {
-                        return (
-                          <div
-                            key={item.path}
-                            className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/5 opacity-40"
-                          >
-                            <Lock size={24} className="text-white/30" />
-                            <span className="font-black text-lg uppercase tracking-wide text-white/30 line-through">{item.label}</span>
-                            <span className="ml-auto text-[9px] font-bold text-amber-400/60">🔒</span>
-                          </div>
-                        );
-                      }
-                      return (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${
-                            location.pathname === item.path
-                              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg border border-white/20"
-                              : "bg-white/5 text-white/70 border border-white/5"
-                          }`}
-                        >
-                          {item.icon}
-                          <span className="font-black text-lg uppercase tracking-wide">{item.label}</span>
-                        </Link>
-                      );
-                   })}
-                   
+                <div className="flex-1 overflow-y-auto p-6 space-y-2 custom-scrollbar">
+                   {/* ── PINNED ── */}
+                   {pinnedItems.map((item) => (
+                     <Link
+                       key={item.path}
+                       to={item.path}
+                       onClick={() => setIsMobileMenuOpen(false)}
+                       className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${
+                         location.pathname === item.path
+                           ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg border border-white/20"
+                           : "bg-white/5 text-white/70 border border-white/5 active:bg-white/10"
+                       }`}
+                     >
+                       {item.icon}
+                       <span className="font-black text-lg uppercase tracking-wide">{item.label}</span>
+                     </Link>
+                   ))}
+
+                   {/* ── SEPARATOR ── */}
+                   <div className="my-3 h-px bg-white/10" />
+
+                   {/* ── UNLOCKED ── */}
+                   {unlockedItems.map((item) => (
+                     <Link
+                       key={item.path}
+                       to={item.path}
+                       onClick={() => setIsMobileMenuOpen(false)}
+                       className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${
+                         location.pathname === item.path
+                           ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg border border-white/20"
+                           : "bg-white/5 text-white/70 border border-white/5 active:bg-white/10"
+                       }`}
+                     >
+                       {item.icon}
+                       <span className="font-black text-lg uppercase tracking-wide">{item.label}</span>
+                     </Link>
+                   ))}
+
+                   {/* ── LOCKED DROPDOWN ── */}
+                   {lockedItems.length > 0 && (
+                     <>
+                       <div className="my-3 h-px bg-white/10" />
+                       <button
+                         onClick={() => setLockedExpanded(prev => !prev)}
+                         className="w-full flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/5 text-white/30 active:bg-white/10 transition-all"
+                       >
+                         <Lock size={22} />
+                         <span className="font-black text-base uppercase tracking-wide flex-1 text-left">
+                           {lang === 'el' ? `Κλειδωμένα (${lockedItems.length})` : `Locked (${lockedItems.length})`}
+                         </span>
+                         <ChevronRight size={20} className={`transition-transform duration-200 ${lockedExpanded ? 'rotate-90' : ''}`} />
+                       </button>
+                       <AnimatePresence>
+                         {lockedExpanded && (
+                           <motion.div
+                             initial={{ opacity: 0, height: 0 }}
+                             animate={{ opacity: 1, height: 'auto' }}
+                             exit={{ opacity: 0, height: 0 }}
+                             className="overflow-hidden space-y-2"
+                           >
+                             {lockedItems.map((item) => (
+                               <div
+                                 key={item.path}
+                                 className="flex items-center gap-4 px-6 py-3 rounded-2xl bg-white/5 border border-white/5 opacity-40"
+                               >
+                                 <Lock size={20} className="text-white/30 shrink-0" />
+                                 <span className="font-black text-base uppercase tracking-wide text-white/30 line-through flex-1">{item.label}</span>
+                                 {item.unlockHint && (
+                                   <span className="text-[9px] font-bold text-amber-400/60 shrink-0 text-right">{item.unlockHint}</span>
+                                 )}
+                               </div>
+                             ))}
+                           </motion.div>
+                         )}
+                       </AnimatePresence>
+                     </>
+                   )}
+
                    {/* Legal Link Mobile */}
-                   <Link
-                      to="/legal"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="flex items-center gap-4 px-6 py-4 rounded-2xl transition-all bg-white/5 text-white/50 hover:bg-white/10 border border-white/5 mt-4"
-                   >
-                      <Scale size={24} />
-                      <span className="font-black text-lg uppercase tracking-wide">{lang === 'el' ? 'Όροι & Ασφάλεια' : 'Terms & Safety'}</span>
-                   </Link>
+                   <div className="mt-2">
+                     <Link
+                       to="/legal"
+                       onClick={() => setIsMobileMenuOpen(false)}
+                       className="flex items-center gap-4 px-6 py-4 rounded-2xl transition-all bg-white/5 text-white/50 border border-white/5"
+                     >
+                       <Scale size={24} />
+                       <span className="font-black text-lg uppercase tracking-wide">{lang === 'el' ? 'Όροι & Ασφάλεια' : 'Terms & Safety'}</span>
+                     </Link>
+                   </div>
                 </div>
                 {/* Mobile Language Toggle */}
                 <div className="p-6 border-t border-white/10">
@@ -430,21 +491,10 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
               </span>
             </div>
             
-            <nav className="flex-1 px-5 space-y-2 mt-4 overflow-y-auto custom-scrollbar relative z-10">
-              {navItems.map((item) => {
+            <nav className="flex-1 px-5 space-y-1 mt-4 overflow-y-auto custom-scrollbar relative z-10">
+              {/* ── PINNED ITEMS ── */}
+              {pinnedItems.map((item) => {
                 const isActive = location.pathname === item.path;
-                
-                if (item.locked) {
-                  return (
-                    <div key={item.path} className="group relative opacity-50 hover:opacity-100 transition-opacity">
-                      <div className="flex items-center gap-5 px-8 py-3.5 rounded-[2rem] text-white/30 cursor-not-allowed bg-black/20 border border-transparent">
-                        <Lock size={20} />
-                        <span className="font-black text-base line-through decoration-white/20">{item.label}</span>
-                      </div>
-                    </div>
-                  );
-                }
-
                 return (
                   <Link
                     key={item.path}
@@ -460,6 +510,67 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                   </Link>
                 );
               })}
+
+              {/* ── SEPARATOR ── */}
+              <div className="my-2 mx-2 h-px bg-white/[0.06]" />
+
+              {/* ── UNLOCKED ITEMS ── */}
+              {unlockedItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center gap-5 px-8 py-3.5 rounded-[2rem] transition-all duration-300 ${
+                      isActive
+                        ? `${activeGradient} text-white scale-105 border border-white/40`
+                        : "text-white/60 hover:bg-white/10 hover:text-white hover:scale-105"
+                    }`}
+                  >
+                    <div className={isActive ? "scale-110 drop-shadow-md" : ""}>{item.icon}</div>
+                    <span className="font-black text-base tracking-wide">{item.label}</span>
+                  </Link>
+                );
+              })}
+
+              {/* ── LOCKED DROPDOWN ── */}
+              {lockedItems.length > 0 && (
+                <>
+                  <div className="my-2 mx-2 h-px bg-white/[0.06]" />
+                  <button
+                    onClick={() => setLockedExpanded(prev => !prev)}
+                    className="w-full flex items-center gap-4 px-8 py-3 rounded-[2rem] text-white/30 hover:text-white/50 hover:bg-white/5 transition-all"
+                  >
+                    <Lock size={18} />
+                    <span className="font-black text-sm uppercase tracking-wider flex-1 text-left">
+                      {lang === 'el' ? `Κλειδωμένα (${lockedItems.length})` : `Locked (${lockedItems.length})`}
+                    </span>
+                    <ChevronRight size={16} className={`transition-transform duration-200 ${lockedExpanded ? 'rotate-90' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {lockedExpanded && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden space-y-1 pl-2"
+                      >
+                        {lockedItems.map((item) => (
+                          <div key={item.path} className="flex items-center gap-4 px-7 py-3 rounded-[2rem] bg-black/20 opacity-50">
+                            <Lock size={18} className="text-white/20 shrink-0" />
+                            <span className="font-black text-sm text-white/25 line-through flex-1 truncate">{item.label}</span>
+                            {item.unlockHint && (
+                              <span className="text-[9px] font-bold text-amber-500/50 shrink-0 text-right leading-tight max-w-[80px]">
+                                {item.unlockHint}
+                              </span>
+                            )}
+                          </div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </>
+              )}
             </nav>
 
             <div className="p-6 space-y-4 relative z-10">

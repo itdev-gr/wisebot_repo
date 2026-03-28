@@ -21,6 +21,7 @@ interface Profile {
   parentEmail: string | null;
   avatarUrl: string | null;
   parentVerified: boolean;
+  onboardingComplete: boolean;
 }
 
 interface AuthContextType {
@@ -34,6 +35,7 @@ interface AuthContextType {
   signInWithGoogle: () => Promise<{ error?: string }>;
   resetPassword: (email: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
+  completeOnboarding: (nickname: string, avatarUrl: string) => Promise<{ error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -52,7 +54,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .select('id, child_name, parent_email, avatar_url, parent_verified')
+        .select('id, child_name, parent_email, avatar_url, parent_verified, onboarding_complete')
         .eq('id', userId)
         .single();
 
@@ -67,6 +69,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         parentEmail: data.parent_email,
         avatarUrl: data.avatar_url,
         parentVerified: data.parent_verified,
+        onboardingComplete: data.onboarding_complete ?? false,
       };
       setProfile(p);
 
@@ -203,6 +206,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [configured]);
 
+  // Complete Onboarding — saves nickname + avatar + marks onboarding_complete=true
+  const completeOnboarding = useCallback(async (
+    nickname: string,
+    avatarUrl: string,
+  ): Promise<{ error?: string }> => {
+    if (!user) return { error: 'Not authenticated' };
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({
+          child_name: nickname,
+          avatar_url: avatarUrl,
+          onboarding_complete: true,
+        })
+        .eq('id', user.id);
+
+      if (error) return { error: error.message };
+
+      // Update localStorage & refresh profile state
+      localStorage.setItem('wb_user_name', nickname);
+      await fetchProfile(user.id);
+      return {};
+    } catch (err: any) {
+      return { error: err.message };
+    }
+  }, [user, fetchProfile]);
+
   // Sign Out
   const signOut = useCallback(async () => {
     cancelPendingPush();
@@ -227,7 +257,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isGuest = !user;
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, signOut }}>
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, signOut, completeOnboarding }}>
       {children}
       {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
     </AuthContext.Provider>
