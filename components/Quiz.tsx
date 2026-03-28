@@ -13,12 +13,12 @@ import { HERO_FACTS_QUIZ, HERO_SCENARIOS_QUIZ } from '../data/heroQuizData';
 const motion = m as any;
 
 const GENERAL_CATEGORIES = [
-  { id: 'sea', name: { el: 'ΘΑΛΑΣΣΑ', en: 'SEA' }, icon: <Waves size={24} />, color: 'bg-cyan-500', border: 'border-cyan-500' },
-  { id: 'kids', name: { el: 'ΠΑΙΔΙΚΑ', en: 'KIDS' }, icon: <Baby size={24} />, color: 'bg-pink-500', border: 'border-pink-500' },
-  { id: 'space', name: { el: 'ΔΙΑΣΤΗΜΑ', en: 'SPACE' }, icon: <Rocket size={24} />, color: 'bg-indigo-500', border: 'border-indigo-500' },
-  { id: 'sports', name: { el: 'ΑΘΛΗΤΙΣΜΟΣ', en: 'SPORTS' }, icon: <Medal size={24} />, color: 'bg-red-500', border: 'border-red-500' },
-  { id: 'animals', name: { el: 'ΖΩΑΚΙΑ', en: 'ANIMALS' }, icon: <PawPrint size={24} />, color: 'bg-emerald-500', border: 'border-emerald-500' },
-  { id: 'math', name: { el: 'ΜΑΘΗΜΑΤΙΚΑ', en: 'MATH' }, icon: <Calculator size={24} />, color: 'bg-amber-500', border: 'border-amber-500' },
+  { id: 'sea',     name: { el: 'ΘΑΛΑΣΣΑ',    en: 'SEA'     }, icon: <Waves size={24} />,      color: 'bg-cyan-500',    border: 'border-cyan-500',    glowClass: 'group-hover:shadow-[0_0_24px_rgba(6,182,212,0.5)]'   },
+  { id: 'kids',    name: { el: 'ΠΑΙΔΙΚΑ',    en: 'KIDS'    }, icon: <Baby size={24} />,       color: 'bg-pink-500',    border: 'border-pink-500',    glowClass: 'group-hover:shadow-[0_0_24px_rgba(236,72,153,0.5)]'  },
+  { id: 'space',   name: { el: 'ΔΙΑΣΤΗΜΑ',   en: 'SPACE'   }, icon: <Rocket size={24} />,     color: 'bg-indigo-500',  border: 'border-indigo-500',  glowClass: 'group-hover:shadow-[0_0_24px_rgba(99,102,241,0.5)]'  },
+  { id: 'sports',  name: { el: 'ΑΘΛΗΤΙΣΜΟΣ', en: 'SPORTS'  }, icon: <Medal size={24} />,      color: 'bg-red-500',     border: 'border-red-500',     glowClass: 'group-hover:shadow-[0_0_24px_rgba(239,68,68,0.5)]'   },
+  { id: 'animals', name: { el: 'ΖΩΑΚΙΑ',     en: 'ANIMALS' }, icon: <PawPrint size={24} />,   color: 'bg-emerald-500', border: 'border-emerald-500', glowClass: 'group-hover:shadow-[0_0_24px_rgba(16,185,129,0.5)]'  },
+  { id: 'math',    name: { el: 'ΜΑΘΗΜΑΤΙΚΑ', en: 'MATH'    }, icon: <Calculator size={24} />, color: 'bg-amber-500',   border: 'border-amber-500',   glowClass: 'group-hover:shadow-[0_0_24px_rgba(245,158,11,0.5)]'  },
 ];
 
 // All quiz category IDs for progress checking
@@ -215,7 +215,6 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
                         key={cat.id}
                         onClick={() => startQuiz('general', cat.id)}
                         className="relative flex flex-col items-center justify-center gap-4 p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.07] hover:scale-[1.03] hover:shadow-lg active:scale-95 transition-all duration-300 group aspect-square"
-                        style={{ ['--cat-glow' as any]: cat.color.includes('cyan') ? 'rgba(6,182,212,0.12)' : cat.color.includes('pink') ? 'rgba(236,72,153,0.12)' : cat.color.includes('indigo') ? 'rgba(99,102,241,0.12)' : cat.color.includes('emerald') ? 'rgba(16,185,129,0.12)' : cat.color.includes('orange') ? 'rgba(249,115,22,0.12)' : cat.color.includes('violet') ? 'rgba(139,92,246,0.12)' : 'rgba(255,255,255,0.06)' }}
                      >
                         {savedCategories[cat.id] && (
                           <div className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2 py-1 bg-emerald-500/25 border border-emerald-500/40 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
@@ -225,7 +224,7 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
                             </span>
                           </div>
                         )}
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-xl ${cat.color} group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300`}>
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-xl ${cat.color} ${cat.glowClass} group-hover:scale-110 transition-all duration-300`}>
                            {cat.icon}
                         </div>
                         <span className="text-xs font-black text-white/60 uppercase tracking-widest text-center group-hover:text-white transition-colors">

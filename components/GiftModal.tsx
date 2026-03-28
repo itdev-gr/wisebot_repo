@@ -183,7 +183,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder={lang === 'el' ? 'Ψευδώνυμο φίλου...' : 'Friend\'s username...'}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 transition-all"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 focus:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all"
                 />
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                 placeholder={lang === 'el' ? 'Ή γράψε ποσό...' : 'Or type amount...'}
                 min={1}
                 max={1000}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 focus:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all"
               />
             </div>
 
@@ -256,7 +256,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                   onChange={(e) => setCustomMessage(e.target.value.slice(0, 100))}
                   placeholder={lang === 'el' ? 'Γράψε μήνυμα... (max 100)' : 'Write message... (max 100)'}
                   maxLength={100}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 transition-all"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 focus:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all"
                 />
               )}
             </div>
@@ -289,7 +289,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
             <button
               onClick={handleSend}
               disabled={!username.trim() || amount < 1}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-[1000] text-sm uppercase italic tracking-widest hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-purple-500/20 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-[1000] text-sm uppercase italic tracking-widest hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] active:scale-95 transition-all shadow-lg shadow-purple-500/25 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
             >
               <Send size={16} />
               {lang === 'el' ? 'ΣΤΕΙΛΕ ΔΩΡΟ' : 'SEND GIFT'}
@@ -325,9 +325,11 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                 {lang === 'el' ? 'ΕΣΤΑΛΗ!' : 'SENT!'}
               </h3>
               <p className="text-white/60 text-sm font-bold mt-2">
-                {lang === 'el'
-                  ? `Έστειλες ${result.amount} credits στον ${result.recipientName}!`
-                  : `You sent ${result.amount} credits to ${result.recipientName}!`}
+                {lang === 'el' ? (
+                  <>Έστειλες <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 font-[1000] text-base">{result.amount}</span> credits στον <span className="text-white font-[1000]">{result.recipientName}</span>!</>
+                ) : (
+                  <>You sent <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 font-[1000] text-base">{result.amount}</span> credits to <span className="text-white font-[1000]">{result.recipientName}</span>!</>
+                )}
               </p>
               <p className="text-white/30 text-xs font-bold mt-1">
                 {lang === 'el'
