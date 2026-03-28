@@ -146,7 +146,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
         className="w-full max-w-md rounded-[2rem] bg-[#0B0F1A] border border-white/10 shadow-[0_0_60px_rgba(168,85,247,0.15)] overflow-hidden animate-in zoom-in-95 duration-300"
       >
         {/* Header */}
-        <div className="relative p-6 pb-4 bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-transparent border-b border-white/5">
+        <div className="relative p-6 pb-4 bg-gradient-to-br from-purple-600/20 via-pink-500/10 to-transparent border-b border-white/[0.06]">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 bg-white/5 hover:bg-white/10 p-2 rounded-full text-white/60 hover:text-white transition-all border border-white/10"
@@ -154,7 +154,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
             <X size={18} />
           </button>
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
               <Gift size={24} className="text-white" />
             </div>
             <div>
@@ -198,10 +198,10 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                   <button
                     key={amt}
                     onClick={() => handleAmountSelect(amt)}
-                    className={`py-3 rounded-xl font-[1000] text-lg italic transition-all border ${
+                    className={`py-3 rounded-xl font-[1000] text-lg italic transition-all duration-200 border ${
                       selectedPreset === amt
-                        ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 shadow-[0_0_15px_rgba(168,85,247,0.2)]'
-                        : 'bg-white/5 border-white/10 text-white/50 hover:bg-white/10 hover:text-white/80'
+                        ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 shadow-[0_0_20px_rgba(168,85,247,0.25)] scale-105'
+                        : 'bg-white/[0.04] border-white/[0.08] text-white/50 hover:bg-white/[0.08] hover:text-white/80 hover:scale-105 active:scale-95'
                     }`}
                   >
                     {amt}
@@ -313,8 +313,8 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
         {step === 'success' && result && (
           <div className="p-8 flex flex-col items-center justify-center gap-5 text-center">
             <div className="relative">
-              <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center border-2 border-emerald-500/40 shadow-[0_0_30px_rgba(16,185,129,0.3)]">
-                <Check size={40} className="text-emerald-400" />
+              <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center border-2 border-emerald-500/40 shadow-[0_0_50px_rgba(16,185,129,0.4)] animate-pulse">
+                <Check size={40} className="text-emerald-400 drop-shadow-lg" />
               </div>
               <div className="absolute -top-2 -right-2">
                 <Sparkles size={24} className="text-amber-400 animate-bounce" />

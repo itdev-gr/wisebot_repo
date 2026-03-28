@@ -152,13 +152,14 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <button
                     onClick={() => startQuiz('hero', 'facts')}
-                    className="group relative h-40 rounded-[2.5rem] overflow-hidden border-2 border-white/10 bg-gradient-to-br from-amber-900/40 to-black hover:border-amber-500/50 transition-all text-left p-8"
+                    className="group relative h-44 rounded-[2.5rem] overflow-hidden border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl hover:border-amber-500/30 hover:shadow-[0_0_40px_rgba(245,158,11,0.12)] active:scale-[0.98] transition-all duration-300 text-left p-8"
                   >
-                     <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
-                        <Star size={80} className="text-amber-400 rotate-12" />
+                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500/[0.06] to-transparent pointer-events-none" />
+                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-25 group-hover:scale-110 transition-all duration-500">
+                        <Star size={80} className="text-amber-400 rotate-12 drop-shadow-2xl" />
                      </div>
                      {savedCategories['facts'] && (
-                       <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full animate-pulse">
+                       <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/25 border border-emerald-500/40 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.2)]">
                          <Play size={10} className="text-emerald-400 fill-emerald-400" />
                          <span className="text-emerald-300 text-[9px] font-black uppercase tracking-wider">
                            {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'CONTINUE'}
@@ -166,23 +167,24 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
                        </div>
                      )}
                      <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2 mb-3">
                            <h4 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter group-hover:text-amber-400 transition-colors">{lang === 'el' ? 'Θρυλικά Γεγονότα' : 'Legendary Facts'}</h4>
-                           <span className="bg-amber-500/20 text-amber-300 text-[9px] px-2 py-0.5 rounded border border-amber-500/20 uppercase font-black tracking-wider">{lang === 'el' ? '15 Επίπεδα' : '15 Levels'}</span>
+                           <span className="bg-amber-500/15 text-amber-300 text-[9px] px-2.5 py-1 rounded-lg border border-amber-500/25 uppercase font-black tracking-wider">{lang === 'el' ? '15 Επίπεδα' : '15 Levels'}</span>
                         </div>
-                        <p className="text-white/50 text-xs font-bold uppercase tracking-widest">{t.heroDesc}</p>
+                        <p className="text-white/40 text-xs font-bold uppercase tracking-widest">{t.heroDesc}</p>
                      </div>
                   </button>
 
                   <button
                     onClick={() => startQuiz('hero', 'scenarios')}
-                    className="group relative h-40 rounded-[2.5rem] overflow-hidden border-2 border-white/10 bg-gradient-to-br from-blue-900/40 to-black hover:border-blue-500/50 transition-all text-left p-8"
+                    className="group relative h-44 rounded-[2.5rem] overflow-hidden border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl hover:border-blue-500/30 hover:shadow-[0_0_40px_rgba(59,130,246,0.12)] active:scale-[0.98] transition-all duration-300 text-left p-8"
                   >
-                     <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
-                        <Shield size={80} className="text-blue-400 -rotate-12" />
+                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.06] to-transparent pointer-events-none" />
+                     <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-25 group-hover:scale-110 transition-all duration-500">
+                        <Shield size={80} className="text-blue-400 -rotate-12 drop-shadow-2xl" />
                      </div>
                      {savedCategories['scenarios'] && (
-                       <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/20 border border-emerald-500/30 rounded-full animate-pulse">
+                       <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/25 border border-emerald-500/40 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.2)]">
                          <Play size={10} className="text-emerald-400 fill-emerald-400" />
                          <span className="text-emerald-300 text-[9px] font-black uppercase tracking-wider">
                            {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'CONTINUE'}
@@ -190,11 +192,11 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
                        </div>
                      )}
                      <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2 mb-3">
                            <h4 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter group-hover:text-blue-400 transition-colors">{lang === 'el' ? 'Σενάρια Ηρώων' : 'Hero Scenarios'}</h4>
-                           <span className="bg-blue-500/20 text-blue-300 text-[9px] px-2 py-0.5 rounded border border-blue-500/20 uppercase font-black tracking-wider">{lang === 'el' ? '15 Επίπεδα' : '15 Levels'}</span>
+                           <span className="bg-blue-500/15 text-blue-300 text-[9px] px-2.5 py-1 rounded-lg border border-blue-500/25 uppercase font-black tracking-wider">{lang === 'el' ? '15 Επίπεδα' : '15 Levels'}</span>
                         </div>
-                        <p className="text-white/50 text-xs font-bold uppercase tracking-widest">{lang === 'el' ? 'Τι θα έκανε ένας ήρωας;' : 'What would a hero do?'}</p>
+                        <p className="text-white/40 text-xs font-bold uppercase tracking-widest">{lang === 'el' ? 'Τι θα έκανε ένας ήρωας;' : 'What would a hero do?'}</p>
                      </div>
                   </button>
                </div>
@@ -212,20 +214,21 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
                      <button
                         key={cat.id}
                         onClick={() => startQuiz('general', cat.id)}
-                        className={`relative flex flex-col items-center justify-center gap-4 p-6 rounded-[2rem] border-2 border-white/5 bg-white/5 hover:bg-white/10 hover:scale-105 hover:${cat.border} transition-all group aspect-square`}
+                        className="relative flex flex-col items-center justify-center gap-4 p-6 rounded-[2rem] border border-white/[0.06] bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.07] hover:scale-[1.03] hover:shadow-lg active:scale-95 transition-all duration-300 group aspect-square"
+                        style={{ ['--cat-glow' as any]: cat.color.includes('cyan') ? 'rgba(6,182,212,0.12)' : cat.color.includes('pink') ? 'rgba(236,72,153,0.12)' : cat.color.includes('indigo') ? 'rgba(99,102,241,0.12)' : cat.color.includes('emerald') ? 'rgba(16,185,129,0.12)' : cat.color.includes('orange') ? 'rgba(249,115,22,0.12)' : cat.color.includes('violet') ? 'rgba(139,92,246,0.12)' : 'rgba(255,255,255,0.06)' }}
                      >
                         {savedCategories[cat.id] && (
-                          <div className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full animate-pulse">
+                          <div className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2 py-1 bg-emerald-500/25 border border-emerald-500/40 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                             <Play size={8} className="text-emerald-400 fill-emerald-400" />
                             <span className="text-emerald-300 text-[7px] font-black uppercase tracking-wider">
                               Q{savedCategories[cat.id]}
                             </span>
                           </div>
                         )}
-                        <div className={`w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg ${cat.color} group-hover:scale-110 transition-transform`}>
+                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-white shadow-xl ${cat.color} group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300`}>
                            {cat.icon}
                         </div>
-                        <span className="text-xs font-black text-white/70 uppercase tracking-widest text-center group-hover:text-white">
+                        <span className="text-xs font-black text-white/60 uppercase tracking-widest text-center group-hover:text-white transition-colors">
                            {cat.name[lang]}
                         </span>
                      </button>

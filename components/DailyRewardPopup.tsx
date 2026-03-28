@@ -164,8 +164,8 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
           <div
             className={`w-24 h-24 rounded-3xl flex items-center justify-center ${
               claimed
-                ? 'bg-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.4)]'
-                : 'bg-amber-500/20 shadow-[0_0_50px_rgba(245,158,11,0.4)]'
+                ? 'bg-emerald-500/20 shadow-[0_0_60px_rgba(16,185,129,0.5)] border border-emerald-500/30'
+                : 'bg-amber-500/20 shadow-[0_0_60px_rgba(245,158,11,0.5)] border border-amber-500/30'
             }`}
             style={{ animation: claimed ? 'dr-shake 0.6s ease-out' : 'dr-float 2s ease-in-out infinite' }}
           >
@@ -202,12 +202,12 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
                     {DAY_LABELS[lang][i]}
                   </span>
                   <div
-                    className={`w-full aspect-square rounded-xl flex flex-col items-center justify-center border transition-all ${
+                    className={`w-full aspect-square rounded-xl flex flex-col items-center justify-center border transition-all duration-300 ${
                       isPast || isJustClaimed
-                        ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-400'
+                        ? 'bg-emerald-500/25 border-emerald-500/40 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.15)]'
                         : isCurrent
-                        ? 'bg-amber-500/20 border-amber-500/50 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.3)]'
-                        : 'bg-white/5 border-white/5 text-white/20'
+                        ? 'bg-amber-500/25 border-amber-500/50 text-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.4)] scale-105'
+                        : 'bg-white/[0.03] border-white/[0.06] text-white/20'
                     }`}
                     style={isCurrent ? { animation: 'dr-pulse 1.5s ease-in-out infinite' } : undefined}
                   >
@@ -239,7 +239,7 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
           {!claimed ? (
             <button
               onClick={handleClaim}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white font-[1000] text-lg uppercase italic tracking-wider shadow-[0_8px_30px_rgba(245,158,11,0.4)] flex items-center justify-center gap-3 hover:brightness-110 hover:scale-105 active:scale-95 transition-all"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white font-[1000] text-lg uppercase italic tracking-wider shadow-[0_8px_40px_rgba(245,158,11,0.5)] flex items-center justify-center gap-3 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_50px_rgba(245,158,11,0.6)] active:scale-95 transition-all duration-300"
             >
               <Gift size={22} />
               {txt.claim} (+{todayReward} <Zap size={16} fill="currentColor" className="inline" />)
