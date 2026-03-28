@@ -729,7 +729,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
       </div>
 
       {/* BACKGROUND MUSIC */}
-      <audio ref={audioRef} src="/audio/wisebots%20song%20claude.mp3" preload="auto" />
+      <audio ref={audioRef} src="/songs/wisebots-song.mp3" preload="auto" />
 
       {/* PWA INSTALL PROMPT */}
       <React.Suspense fallback={null}>
