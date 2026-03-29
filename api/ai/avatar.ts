@@ -20,9 +20,22 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { getAuthUser } = await import('../_lib/auth');
-  const user = await getAuthUser(req);
-  if (!user) return res.status(401).json({ error: 'Authentication required' });
+  // Auth — inline pattern (same as gift.ts / delete-account.ts) to avoid dynamic _lib import issues
+  const authHeader = req.headers?.authorization;
+  const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  if (!token) return res.status(401).json({ error: 'Authentication required' });
+  try {
+    const { createClient } = await import('@supabase/supabase-js');
+    const supabaseAdmin = createClient(
+      process.env.SUPABASE_URL || '',
+      process.env.SUPABASE_SERVICE_KEY || '',
+      { auth: { autoRefreshToken: false, persistSession: false } },
+    );
+    const { data: { user }, error: authErr } = await supabaseAdmin.auth.getUser(token);
+    if (authErr || !user) return res.status(401).json({ error: 'Authentication required' });
+  } catch {
+    return res.status(401).json({ error: 'Authentication required' });
+  }
 
   const geminiKey = process.env.GEMINI_API_KEY;
   if (!geminiKey) return res.status(500).json({ error: 'Avatar service not configured' });
