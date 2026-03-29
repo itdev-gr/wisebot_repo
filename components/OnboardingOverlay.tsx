@@ -489,6 +489,13 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 <ArrowRight size={20} />
                 {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'CONTINUE'}
               </button>
+
+              <button
+                onClick={() => { setNickname(''); setStep('avatar'); }}
+                className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white/30 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
+              >
+                {lang === 'el' ? 'Παράλειψη — συνέχεια χωρίς ψευδώνυμο' : 'Skip — continue without nickname'}
+              </button>
             </>
           )}
 
@@ -583,28 +590,40 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
               {/* Idle — show options */}
               {avatarState === 'idle' && !showCamera && (
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    onClick={startCamera}
-                    className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-amber-500/30 transition-all group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center group-hover:border-amber-500/40 transition-all">
-                      <Camera size={22} className="text-amber-400" />
-                    </div>
-                    <span className="text-white/60 text-xs font-black uppercase tracking-wider">
-                      {lang === 'el' ? 'Φωτογραφία' : 'Take Photo'}
-                    </span>
-                  </button>
+                <div className="flex flex-col gap-3">
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={startCamera}
+                      className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-amber-500/30 transition-all group"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/20 flex items-center justify-center group-hover:border-amber-500/40 transition-all">
+                        <Camera size={22} className="text-amber-400" />
+                      </div>
+                      <span className="text-white/60 text-xs font-black uppercase tracking-wider">
+                        {lang === 'el' ? 'Φωτογραφία' : 'Take Photo'}
+                      </span>
+                    </button>
 
-                  <label className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-purple-500/30 transition-all group cursor-pointer">
-                    <div className="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center group-hover:border-purple-500/40 transition-all">
-                      <Upload size={22} className="text-purple-400" />
-                    </div>
-                    <span className="text-white/60 text-xs font-black uppercase tracking-wider">
-                      {lang === 'el' ? 'Ανέβασε' : 'Upload'}
-                    </span>
-                    <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
-                  </label>
+                    <label className="flex flex-col items-center gap-3 p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/[0.08] hover:border-purple-500/30 transition-all group cursor-pointer">
+                      <div className="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/20 flex items-center justify-center group-hover:border-purple-500/40 transition-all">
+                        <Upload size={22} className="text-purple-400" />
+                      </div>
+                      <span className="text-white/60 text-xs font-black uppercase tracking-wider">
+                        {lang === 'el' ? 'Ανέβασε' : 'Upload'}
+                      </span>
+                      <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleFileUpload} />
+                    </label>
+                  </div>
+
+                  {/* Privacy notice */}
+                  <div className="flex items-start gap-2 px-3 py-2.5 bg-white/[0.03] border border-white/[0.06] rounded-xl">
+                    <span className="text-[11px] mt-px">🔒</span>
+                    <p className="text-white/25 text-[10px] font-bold leading-relaxed">
+                      {lang === 'el'
+                        ? 'Η εικόνα σου χρησιμοποιείται αποκλειστικά και μόνο για να γίνει cartoon. Δεν αποθηκεύεται πουθενά και διαγράφεται από τον server αμέσως.'
+                        : 'Your photo is used exclusively to create a cartoon. It is never stored and is deleted from the server immediately.'}
+                    </p>
+                  </div>
                 </div>
               )}
 
