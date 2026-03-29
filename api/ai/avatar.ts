@@ -9,6 +9,9 @@
  * Response: { image: "data:image/...;base64,..." }
  */
 
+// Gemini image generation can take 15-30 s; extend beyond the 10-s hobby default
+export const config = { maxDuration: 60 };
+
 export default async function handler(req: any, res: any) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
