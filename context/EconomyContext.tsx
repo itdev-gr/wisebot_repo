@@ -534,11 +534,19 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     showReward(emoji, title, subtitle, 'credit');
   }, [showReward]);
 
-  // Cloud sync: bulk-update state from merged Supabase data
+  // Cloud sync: bulk-update state from merged Supabase data.
+  // Uses functional updates with equality checks to avoid unnecessary re-renders
+  // (e.g. when cloud data matches local data, no state change → no re-render cascade)
   const syncFromCloud = useCallback((newCredits: number, newStats: EconomyStats, newBadges: Badges) => {
-    setCredits(newCredits);
-    setStats({ ...DEFAULT_STATS, ...newStats });
-    setBadges({ ...DEFAULT_BADGES, ...newBadges });
+    setCredits(prev => prev !== newCredits ? newCredits : prev);
+    setStats(prev => {
+      const merged = { ...DEFAULT_STATS, ...newStats };
+      return JSON.stringify(prev) === JSON.stringify(merged) ? prev : merged;
+    });
+    setBadges(prev => {
+      const merged = { ...DEFAULT_BADGES, ...newBadges };
+      return JSON.stringify(prev) === JSON.stringify(merged) ? prev : merged;
+    });
   }, []);
 
   // Refs to avoid stale closures in memoized callbacks
