@@ -86,22 +86,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   // Initialize: check existing session
+  // NOTE: In Supabase v2, onAuthStateChange fires INITIAL_SESSION immediately with the current
+  // session. We rely on that instead of calling getSession() separately, which would cause
+  // fetchProfile to be called TWICE (once here, once in onAuthStateChange) triggering a double
+  // re-render that makes the landing page appear to "refresh" after a few seconds.
   useEffect(() => {
     if (!configured) {
       setLoading(false);
       return;
     }
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session?.user) {
-        setUser(session.user);
-        setEmailVerified(!!session.user.email_confirmed_at);
-        fetchProfile(session.user.id);
-      }
-      setLoading(false);
-    });
-
-    // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (session?.user) {
@@ -113,6 +107,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setProfile(null);
           setEmailVerified(false);
           syncDoneRef.current = false;
+        }
+        // INITIAL_SESSION fires immediately — use it as the loading-done signal
+        if (event === 'INITIAL_SESSION') {
+          setLoading(false);
         }
       }
     );
