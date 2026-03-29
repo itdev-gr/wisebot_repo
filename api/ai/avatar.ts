@@ -1,15 +1,15 @@
 /**
- * Avatar Generation Endpoint — Gemini Image Generation
- * ======================================================
- * Transforms a photo into a cartoon/anime hero avatar
- * using Google's Gemini image generation API.
+ * Avatar Generation Endpoint — Gemini Image-to-Image
+ * ====================================================
+ * Transforms a user photo into a cartoon/anime hero avatar.
+ * Uses @google/genai SDK (same pattern as image.ts / generate.ts).
  *
  * POST /api/ai/avatar
- * Body: { imageBytes: string (base64), mimeType: string }
+ * Body: { imageBytes: string (base64, no prefix), mimeType: string }
  * Response: { image: "data:image/...;base64,..." }
  */
 
-// Gemini image generation can take 15-30 s; extend beyond the 10-s hobby default
+// Gemini image generation can take 15-30 s
 export const config = { maxDuration: 60 };
 
 export default async function handler(req: any, res: any) {
@@ -43,56 +43,48 @@ export default async function handler(req: any, res: any) {
   const { imageBytes, mimeType } = req.body || {};
   if (!imageBytes) return res.status(400).json({ error: 'Image data required' });
 
+  const prompt =
+    'Transform this photo into a cute cartoon/anime hero. Keep the face clearly recognizable. ' +
+    'Use bright vivid colors, bold outlines, friendly expression. Square crop. ' +
+    'NO text, NO watermarks, NO labels anywhere on the image.';
+
   try {
-    console.log('[avatar] Calling Gemini image generation for cartoon transformation...');
+    const { GoogleGenAI } = await import('@google/genai');
+    const ai = new GoogleGenAI({ apiKey: geminiKey });
 
-    const prompt = 'Transform this photo into a cute cartoon character. Keep the face recognizable but make it cartoon/anime style with bright colors and a friendly expression. Square format. NO text anywhere on the image.';
-
-    const requestBody = {
-      contents: [{
-        role: 'user',
-        parts: [
-          {
-            inline_data: {
-              mime_type: mimeType || 'image/jpeg',
-              data: imageBytes,
-            },
-          },
-          { text: prompt },
-        ],
-      }],
-      generationConfig: {
-        responseModalities: ['IMAGE', 'TEXT'],
+    // gemini-2.0-flash-exp: supports image INPUT + IMAGE output (responseModalities)
+    console.log('[avatar] Calling gemini-2.0-flash-exp for cartoon transformation...');
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.0-flash-exp',
+      contents: [
+        {
+          parts: [
+            { inlineData: { mimeType: mimeType || 'image/jpeg', data: imageBytes } },
+            { text: prompt },
+          ],
+        },
+      ],
+      config: {
+        responseModalities: ['IMAGE', 'TEXT'] as any,
       },
-    };
+    });
 
-    const resp = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-preview-image-generation:generateContent?key=${geminiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestBody),
-      },
-    );
-
-    if (resp.ok) {
-      const data = await resp.json();
-      const parts = data?.candidates?.[0]?.content?.parts || [];
-      const imagePart = parts.find((p: any) => p.inlineData?.data);
-
-      if (imagePart?.inlineData?.data) {
-        const b64 = imagePart.inlineData.data;
-        const outputMime = imagePart.inlineData.mimeType || 'image/png';
-        console.log('[avatar] Gemini cartoon generation success');
-        return res.status(200).json({ image: `data:${outputMime};base64,${b64}` });
+    const parts = response.candidates?.[0]?.content?.parts ?? [];
+    for (const part of parts as any[]) {
+      if (part?.inlineData?.data) {
+        const outputMime = part.inlineData.mimeType || 'image/png';
+        console.log('[avatar] Success — cartoon image returned');
+        return res.status(200).json({ image: `data:${outputMime};base64,${part.inlineData.data}` });
       }
     }
 
-    const errText = await resp.text().catch(() => 'unknown');
-    console.error('[avatar] Gemini error:', resp.status, errText.slice(0, 300));
+    // No image in response — log what we got and return error
+    const textPart = (parts as any[]).find((p: any) => p?.text)?.text || '';
+    console.error('[avatar] Gemini returned no image. Text:', textPart.slice(0, 200));
     return res.status(500).json({ error: 'Avatar generation failed. Please try again.' });
+
   } catch (e: any) {
-    console.error('[avatar] Error:', e.message);
+    console.error('[avatar] Error:', e.message?.slice(0, 200));
     return res.status(500).json({ error: 'Avatar generation temporarily unavailable.' });
   }
 }
