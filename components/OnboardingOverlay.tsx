@@ -43,6 +43,37 @@ const injectStyles = () => {
   document.head.appendChild(s);
 };
 
+/**
+ * Resize + compress a dataURL image to max `maxSize`×`maxSize` JPEG.
+ * Returns the raw base64 string (no data URI prefix).
+ * Keeps payload well under Vercel's 4.5 MB serverless body limit.
+ */
+async function compressImage(dataUrl: string, maxSize = 512, quality = 0.85): Promise<string> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      let { width, height } = img;
+      if (width > maxSize || height > maxSize) {
+        if (width >= height) {
+          height = Math.round((height * maxSize) / width);
+          width = maxSize;
+        } else {
+          width = Math.round((width * maxSize) / height);
+          height = maxSize;
+        }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d')!;
+      ctx.drawImage(img, 0, 0, width, height);
+      resolve(canvas.toDataURL('image/jpeg', quality).split(',')[1]);
+    };
+    img.onerror = () => resolve(dataUrl.split(',')[1] ?? dataUrl); // fallback: pass original
+    img.src = dataUrl;
+  });
+}
+
 export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
   const { profile, completeOnboarding } = useAuth();
 
@@ -205,18 +236,30 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
     e.target.value = '';
   };
 
-  const generateCartoon = async (dataUrl: string, mimeType: string) => {
+  const generateCartoon = async (dataUrl: string, _mimeType: string) => {
     setAvatarError('');
     setAvatarState('generating');
     setCartoonUrl(null);
 
     try {
-      const base64 = dataUrl.split(',')[1];
-      const resp = await authFetch('/api/ai/avatar', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ imageBytes: base64, mimeType }),
-      });
+      // Always compress to max 512×512 JPEG — keeps payload ~50 KB, well under Vercel's 4.5 MB limit
+      const compressedBase64 = await compressImage(dataUrl, 512, 0.85);
+
+      // 55-second client-side timeout (API side allows 60s via maxDuration)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 55_000);
+
+      let resp: Response;
+      try {
+        resp = await authFetch('/api/ai/avatar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ imageBytes: compressedBase64, mimeType: 'image/jpeg' }),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
 
       const data = await resp.json();
       if (resp.ok && data.image) {
@@ -226,7 +269,12 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
         throw new Error(data.error || 'Generation failed');
       }
     } catch (err: any) {
-      setAvatarError(lang === 'el' ? 'Δεν μπόρεσα να δημιουργήσω το avatar. Δοκίμασε ξανά!' : 'Could not generate avatar. Please try again!');
+      const isTimeout = err?.name === 'AbortError';
+      setAvatarError(
+        lang === 'el'
+          ? (isTimeout ? 'Έληξε ο χρόνος αναμονής. Δοκίμασε ξανά!' : 'Δεν μπόρεσα να δημιουργήσω το avatar. Δοκίμασε ξανά!')
+          : (isTimeout ? 'Request timed out. Please try again!' : 'Could not generate avatar. Please try again!')
+      );
       setAvatarState('idle');
     }
   };
