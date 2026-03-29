@@ -4,6 +4,10 @@
  * Transforms a user photo into a cartoon/anime hero avatar.
  * Uses @google/genai SDK (same pattern as image.ts / generate.ts).
  *
+ * Model: gemini-2.0-flash-exp (supports image INPUT + IMAGE output via responseModalities)
+ * Requires personGeneration: ALLOW_ALL so Gemini's safety filter permits cartoon
+ * output of people (without it the model returns text refusal, no image).
+ *
  * POST /api/ai/avatar
  * Body: { imageBytes: string (base64, no prefix), mimeType: string }
  * Response: { image: "data:image/...;base64,..." }
@@ -53,6 +57,7 @@ export default async function handler(req: any, res: any) {
     const ai = new GoogleGenAI({ apiKey: geminiKey });
 
     // gemini-2.0-flash-exp: supports image INPUT + IMAGE output (responseModalities)
+    // personGeneration: ALLOW_ALL — required so the model can output cartoon images of people
     console.log('[avatar] Calling gemini-2.0-flash-exp for cartoon transformation...');
     const response = await ai.models.generateContent({
       model: 'gemini-2.0-flash-exp',
@@ -66,6 +71,7 @@ export default async function handler(req: any, res: any) {
       ],
       config: {
         responseModalities: ['IMAGE', 'TEXT'] as any,
+        personGeneration: 'ALLOW_ALL' as any,
       },
     });
 
