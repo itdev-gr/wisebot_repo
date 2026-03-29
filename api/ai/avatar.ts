@@ -1,30 +1,29 @@
 /**
- * Avatar Generation Endpoint — Gemini Image-to-Image
- * ====================================================
+ * Avatar Generation Endpoint — Photo → Cartoon
+ * ==============================================
  * Transforms a user photo into a cartoon/anime hero avatar.
- * Uses @google/genai SDK (same pattern as image.ts / generate.ts).
  *
- * Model: gemini-2.0-flash-exp (supports image INPUT + IMAGE output via responseModalities)
- * Requires personGeneration: ALLOW_ALL so Gemini's safety filter permits cartoon
- * output of people (without it the model returns text refusal, no image).
+ * Model priority:
+ *   1. OpenAI gpt-image-1  images.edit  (fast image-editing, ~10 s)
+ *   2. Gemini 2.0 Flash Exp             (image→image, 45 s timeout guard)
  *
  * POST /api/ai/avatar
  * Body: { imageBytes: string (base64, no prefix), mimeType: string }
  * Response: { image: "data:image/...;base64,..." }
  */
 
-// Gemini image generation can take 15-30 s
+// Allow up to 60 s (Vercel Hobby cap)
 export const config = { maxDuration: 60 };
 
 export default async function handler(req: any, res: any) {
-  // CORS
+  // ── CORS ────────────────────────────────────────────────────
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // Auth — inline pattern (same as gift.ts / delete-account.ts) to avoid dynamic _lib import issues
+  // ── AUTH — inline (same pattern as gift.ts / delete-account.ts) ─
   const authHeader = req.headers?.authorization;
   const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
   if (!token) return res.status(401).json({ error: 'Authentication required' });
@@ -41,56 +40,107 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Authentication required' });
   }
 
-  const geminiKey = process.env.GEMINI_API_KEY;
-  if (!geminiKey) return res.status(500).json({ error: 'Avatar service not configured' });
-
   const { imageBytes, mimeType } = req.body || {};
   if (!imageBytes) return res.status(400).json({ error: 'Image data required' });
 
   const prompt =
-    'Transform this photo into a cute cartoon/anime hero. Keep the face clearly recognizable. ' +
-    'Use bright vivid colors, bold outlines, friendly expression. Square crop. ' +
+    'Transform the person in this photo into a cute cartoon/anime hero. ' +
+    'Keep the face recognizable as a cartoon version of the same person. ' +
+    'Bright vivid colors, bold outlines, friendly expression, square crop. ' +
     'NO text, NO watermarks, NO labels anywhere on the image.';
 
-  try {
-    const { GoogleGenAI } = await import('@google/genai');
-    const ai = new GoogleGenAI({ apiKey: geminiKey });
+  // ─── ATTEMPT 1: OpenAI gpt-image-1 images.edit ──────────────
+  // Accepts JPEG/PNG input, ~10 s, designed specifically for image editing/transformation
+  const openaiKey = process.env.OPENAI_API_KEY;
+  if (openaiKey) {
+    try {
+      console.log('[avatar] Trying gpt-image-1 images.edit...');
+      const imageBuffer = Buffer.from(imageBytes, 'base64');
 
-    // gemini-2.0-flash-exp: supports image INPUT + IMAGE output (responseModalities)
-    // personGeneration: ALLOW_ALL — required so the model can output cartoon images of people
-    console.log('[avatar] Calling gemini-2.0-flash-exp for cartoon transformation...');
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash-exp',
-      contents: [
-        {
-          parts: [
-            { inlineData: { mimeType: mimeType || 'image/jpeg', data: imageBytes } },
-            { text: prompt },
-          ],
-        },
-      ],
-      config: {
-        responseModalities: ['IMAGE', 'TEXT'] as any,
-        personGeneration: 'ALLOW_ALL' as any,
-      },
-    });
+      const formData = new FormData();
+      formData.append('model', 'gpt-image-1');
+      formData.append(
+        'image',
+        new Blob([imageBuffer], { type: mimeType || 'image/jpeg' }),
+        'photo.jpg',
+      );
+      formData.append('prompt', prompt);
+      formData.append('n', '1');
+      formData.append('size', '1024x1024');
+      formData.append('quality', 'medium');
 
-    const parts = response.candidates?.[0]?.content?.parts ?? [];
-    for (const part of parts as any[]) {
-      if (part?.inlineData?.data) {
-        const outputMime = part.inlineData.mimeType || 'image/png';
-        console.log('[avatar] Success — cartoon image returned');
-        return res.status(200).json({ image: `data:${outputMime};base64,${part.inlineData.data}` });
+      const resp = await fetch('https://api.openai.com/v1/images/edits', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${openaiKey}` },
+        body: formData,
+      });
+
+      if (resp.ok) {
+        const data = await resp.json();
+        const b64 = data.data?.[0]?.b64_json;
+        if (b64) {
+          console.log('[avatar] gpt-image-1 success');
+          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
+        }
+        console.warn('[avatar] gpt-image-1 ok but no b64_json:', JSON.stringify(data).slice(0, 200));
+      } else {
+        const errText = await resp.text();
+        console.warn('[avatar] gpt-image-1 failed:', resp.status, errText.slice(0, 300));
       }
+    } catch (e: any) {
+      console.warn('[avatar] gpt-image-1 error:', e.message?.slice(0, 150));
     }
-
-    // No image in response — log what we got and return error
-    const textPart = (parts as any[]).find((p: any) => p?.text)?.text || '';
-    console.error('[avatar] Gemini returned no image. Text:', textPart.slice(0, 200));
-    return res.status(500).json({ error: 'Avatar generation failed. Please try again.' });
-
-  } catch (e: any) {
-    console.error('[avatar] Error:', e.message?.slice(0, 200));
-    return res.status(500).json({ error: 'Avatar generation temporarily unavailable.' });
   }
+
+  // ─── ATTEMPT 2: Gemini 2.0 Flash Exp (45 s timeout guard) ───
+  // Image→image with responseModalities; slow on free tier but correct model
+  const geminiKey = process.env.GEMINI_API_KEY;
+  if (geminiKey) {
+    try {
+      console.log('[avatar] Trying gemini-2.0-flash-exp (45 s guard)...');
+      const { GoogleGenAI } = await import('@google/genai');
+      const ai = new GoogleGenAI({ apiKey: geminiKey });
+
+      const geminiPromise = ai.models.generateContent({
+        model: 'gemini-2.0-flash-exp',
+        contents: [
+          {
+            parts: [
+              { inlineData: { mimeType: mimeType || 'image/jpeg', data: imageBytes } },
+              { text: prompt },
+            ],
+          },
+        ],
+        config: {
+          responseModalities: ['IMAGE', 'TEXT'] as any,
+          // Required: without ALLOW_ALL the safety filter refuses to output images of people
+          personGeneration: 'ALLOW_ALL' as any,
+        },
+      });
+
+      // Abort before Vercel's 60 s hard kill — gives us a clean error log instead of silent 500
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('GEMINI_TIMEOUT')), 45_000),
+      );
+
+      const response = await Promise.race([geminiPromise, timeoutPromise]) as any;
+      const parts: any[] = response.candidates?.[0]?.content?.parts ?? [];
+
+      for (const part of parts) {
+        if (part?.inlineData?.data) {
+          console.log('[avatar] Gemini success');
+          return res.status(200).json({
+            image: `data:${part.inlineData.mimeType || 'image/png'};base64,${part.inlineData.data}`,
+          });
+        }
+      }
+
+      const textPart = parts.find((p: any) => p?.text)?.text || '';
+      console.error('[avatar] Gemini returned no image. Text:', textPart.slice(0, 200));
+    } catch (e: any) {
+      console.error('[avatar] Gemini error:', e.message?.slice(0, 200));
+    }
+  }
+
+  return res.status(500).json({ error: 'Avatar generation failed. Please try again.' });
 }
