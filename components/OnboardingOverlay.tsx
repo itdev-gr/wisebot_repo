@@ -89,11 +89,10 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
     };
   }, []);
 
-  // Don't render at all if not needed
-  if (!profile || profile.onboardingComplete || !isVisible) return null;
-
   // ── NICKNAME VALIDATION ──────────────────────────────────────────
+  // IMPORTANT: useCallback must be called BEFORE any early return (Rules of Hooks)
   const validateNickname = useCallback(async (val: string) => {
+    if (!profile) return;
     setNicknameError('');
     setNicknameValid(false);
 
@@ -136,7 +135,10 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
     } finally {
       setNicknameChecking(false);
     }
-  }, [lang, profile.childName, profile.id]);
+  }, [lang, profile?.childName, profile?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Don't render at all if not needed (AFTER all hooks)
+  if (!profile || profile.onboardingComplete || !isVisible) return null;
 
   const handleNicknameChange = (val: string) => {
     setNickname(val);
