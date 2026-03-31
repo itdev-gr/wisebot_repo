@@ -33,6 +33,7 @@ import {
   Play,
   X,
   Gift,
+  Inbox,
 } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
@@ -41,6 +42,7 @@ import DailyMission from './DailyMission';
 import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
 import GiftModal from './GiftModal';
+import GiftInbox, { useGiftCount } from './GiftInbox';
 
 interface DashboardProps {
   lang: 'el' | 'en';
@@ -383,11 +385,13 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
-  const { credits, badges, stats, earnCredits } = useEconomy();
+  const { credits, badges, stats, earnCredits, syncFromCloud } = useEconomy();
   const { user } = useAuth();
   const [dashboardVideo, setDashboardVideo] = useState<typeof DASHBOARD_VIDEOS[0] | null>(null);
   const [showGiftModal, setShowGiftModal] = useState(false);
+  const [showGiftInbox, setShowGiftInbox] = useState(false);
   const [showFreeSongModal, setShowFreeSongModal] = useState(false);
+  const inboxCount = useGiftCount(!!user);
 
   // ============================================================
   // 🎁 FREE MISSION TRACKER
@@ -1120,18 +1124,76 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          </div>
       </div>
 
-      {/* Floating Gift Button */}
+      {/* Floating Gift Buttons */}
       {user && (
-        <button
-          onClick={() => setShowGiftModal(true)}
-          className="fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-2 border-white/20"
-          aria-label={lang === 'el' ? 'Στείλε δώρο' : 'Send gift'}
-        >
-          <Gift size={24} className="text-white" />
-        </button>
+        <div className="fixed bottom-24 right-6 z-50 flex flex-col gap-3 items-center">
+          {/* Inbox button */}
+          <button
+            onClick={() => setShowGiftInbox(true)}
+            className="relative w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 shadow-lg shadow-amber-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-2 border-white/20"
+            aria-label={lang === 'el' ? 'Δώρα που έλαβες' : 'Received gifts'}
+          >
+            <Inbox size={20} className="text-white" />
+            {inboxCount > 0 && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-black flex items-center justify-center border border-[#0B0F1A]">
+                {inboxCount > 9 ? '9+' : inboxCount}
+              </span>
+            )}
+          </button>
+          {/* Send gift button */}
+          <button
+            onClick={() => setShowGiftModal(true)}
+            className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 shadow-lg shadow-purple-500/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform border-2 border-white/20"
+            aria-label={lang === 'el' ? 'Στείλε δώρο' : 'Send gift'}
+          >
+            <Gift size={24} className="text-white" />
+          </button>
+        </div>
       )}
 
-      <GiftModal lang={lang} isOpen={showGiftModal} onClose={() => setShowGiftModal(false)} />
+      <GiftModal lang={lang} isOpen={showGiftModal} onClose={() => setShowGiftModal(false)} onGiftSent={(newBalance) => syncFromCloud(newBalance, stats, badges)} />
+
+      <GiftInbox
+        lang={lang}
+        isOpen={showGiftInbox}
+        onClose={() => setShowGiftInbox(false)}
+        onClaimImage={(gift) => {
+          // Add image to local heroes list
+          try {
+            const existing = JSON.parse(localStorage.getItem('wb_heroes') || '[]');
+            existing.unshift({
+              id: Date.now().toString(),
+              name: gift.title,
+              image: gift.image_url,
+              description: `${lang === 'el' ? 'Δώρο από' : 'Gift from'} ${gift.from_name}`,
+              isUserGenerated: true,
+              color: 'from-fuchsia-500 to-purple-600',
+              heroClass: 'creator',
+            });
+            localStorage.setItem('wb_heroes', JSON.stringify(existing));
+          } catch {}
+        }}
+        onClaimSong={(gift) => {
+          // Add song to local songs list
+          try {
+            const existing = JSON.parse(localStorage.getItem('wisebot_music_library') || '[]');
+            existing.unshift({
+              id: Date.now().toString(),
+              title: gift.title,
+              cover: gift.cover_url || '',
+              sunoCover: gift.cover_url || '',
+              audioUrl: gift.audio_url || '',
+              streamUrl: gift.stream_url || '',
+              lyrics: gift.lyrics || '',
+              style: gift.style || '',
+              audioStatus: 'complete',
+              createdAt: Date.now(),
+              instrumental: false,
+            });
+            localStorage.setItem('wisebot_music_library', JSON.stringify(existing));
+          } catch {}
+        }}
+      />
 
       {/* 🎵 FREE SONG UNLOCKED MODAL */}
       <AnimatePresence>

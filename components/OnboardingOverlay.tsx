@@ -4,7 +4,8 @@
  * 4-step cinematic flow shown ONCE after first login:
  * 1. Narrative: "Το ταξίδι ξεκινάει..."
  * 2. Nickname: permanent unique username (for gift sending)
- * 3. Avatar: take/upload photo → Gemini cartoon → save
+ * 3. Avatar: take/upload photo → AI cartoon → save
+ *            OR pick a WiseBot hero character
  * 4. Complete: "Αποστολές ξεκινούν!"
  *
  * Persisted to DB via completeOnboarding() in AuthContext.
@@ -23,7 +24,35 @@ interface OnboardingOverlayProps {
 }
 
 type Step = 'narrative' | 'nickname' | 'avatar' | 'complete';
-type AvatarState = 'idle' | 'generating' | 'preview' | 'uploading';
+type AvatarState = 'idle' | 'generating' | 'preview' | 'uploading' | 'character-picker';
+
+// WiseBot hero characters available as default avatars
+const WISEBOT_CHARACTERS = [
+  '/images/WiseBot_Hero_spark.webp',
+  '/images/WiseBot_Hero_Leo.webp',
+  '/images/WiseBot_Hero_rubi.webp',
+  '/images/WiseBot_Hero_tiger.webp',
+  '/images/WiseBot_Hero_monk.webp',
+  '/images/WiseBot_Hero_octa.webp',
+  '/images/WiseBot_Hero_igu.webp',
+  '/images/WiseBot_Hero_ori.webp',
+  '/images/WiseBot_Hero_kagu.webp',
+  '/images/WiseBot_Hero_sniki.webp',
+  '/images/WiseBot_Hero_skuiz.webp',
+  '/images/WiseBot_Hero_rakos_.webp',
+  '/images/WiseBot_Hero_koxil.webp',
+  '/images/WiseBot_Hero_pirc.webp',
+  '/images/WiseBot_Hero_muri.webp',
+  '/images/WiseBot_Hero_snake.webp',
+  '/images/WiseBot_Hero_elos.webp',
+  '/images/WiseBot_Hero_lion_quin.webp',
+  '/images/WiseBot_Hero_Mario.webp',
+  '/images/WiseBot_Hero_monkey.webp',
+  '/images/WiseBot_Hero_pike.webp',
+  '/images/WiseBot_Hero_let_.webp',
+  '/images/WiseBot_Hero_kefala.webp',
+  '/images/WiseBot_Hero_sniki-2.webp',
+];
 
 // Inject keyframe styles once
 const STYLE_ID = 'onboarding-v2-styles';
@@ -39,6 +68,8 @@ const injectStyles = () => {
     @keyframes ob2-float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-8px) } }
     @keyframes ob2-glow { 0%,100% { box-shadow: 0 0 30px rgba(245,158,11,0.3) } 50% { box-shadow: 0 0 60px rgba(245,158,11,0.6) } }
     .ob2-spin { animation: ob2-spin 1s linear infinite; }
+    .ob2-scrollbar-none::-webkit-scrollbar { display: none; }
+    .ob2-scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
   `;
   document.head.appendChild(s);
 };
@@ -89,6 +120,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
   // Avatar state
   const [avatarState, setAvatarState] = useState<AvatarState>('idle');
   const [cartoonUrl, setCartoonUrl] = useState<string | null>(null);
+  const [selectedCharacterUrl, setSelectedCharacterUrl] = useState<string | null>(null);
   const [avatarError, setAvatarError] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -122,29 +154,29 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
   // ── NICKNAME VALIDATION ──────────────────────────────────────────
   // IMPORTANT: useCallback must be called BEFORE any early return (Rules of Hooks)
-  const validateNickname = useCallback(async (val: string) => {
-    if (!profile) return;
+  const validateNickname = useCallback(async (val: string): Promise<boolean> => {
+    if (!profile) return false;
     setNicknameError('');
     setNicknameValid(false);
 
     const trimmed = val.trim();
     if (trimmed.length < 3) {
       setNicknameError(lang === 'el' ? 'Τουλάχιστον 3 χαρακτήρες' : 'At least 3 characters');
-      return;
+      return false;
     }
     if (trimmed.length > 20) {
       setNicknameError(lang === 'el' ? 'Μέχρι 20 χαρακτήρες' : 'Max 20 characters');
-      return;
+      return false;
     }
     if (!/^[\w\u0370-\u03FF\u1F00-\u1FFF]+$/.test(trimmed)) {
       setNicknameError(lang === 'el' ? 'Μόνο γράμματα, αριθμοί και _' : 'Only letters, numbers and _');
-      return;
+      return false;
     }
 
     // If same as current child_name, it's already theirs → valid
     if (trimmed.toLowerCase() === profile.childName?.toLowerCase()) {
       setNicknameValid(true);
-      return;
+      return true;
     }
 
     setNicknameChecking(true);
@@ -158,11 +190,14 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
       if (data && data.length > 0) {
         setNicknameError(lang === 'el' ? 'Αυτό το ψευδώνυμο υπάρχει ήδη' : 'This nickname is already taken');
+        return false;
       } else {
         setNicknameValid(true);
+        return true;
       }
     } catch {
       setNicknameValid(true); // Allow on error
+      return true;
     } finally {
       setNicknameChecking(false);
     }
@@ -178,13 +213,10 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
   };
 
   const handleNicknameNext = async () => {
-    await validateNickname(nickname);
-    // Wait for state update via callback
-    setTimeout(() => {
-      if (!nicknameError && nickname.trim().length >= 3) {
-        setStep('avatar');
-      }
-    }, 50);
+    const isValid = await validateNickname(nickname);
+    if (isValid) {
+      setStep('avatar');
+    }
   };
 
   // ── AVATAR / CAMERA ────────────────────────────────────────────
@@ -281,6 +313,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
   const retryAvatar = () => {
     setCartoonUrl(null);
+    setSelectedCharacterUrl(null);
     setAvatarState('idle');
     setAvatarError('');
   };
@@ -292,7 +325,11 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
     let finalAvatarUrl = profile.avatarUrl || '';
 
-    if (!skipAvatar && cartoonUrl) {
+    if (selectedCharacterUrl) {
+      // WiseBot character selected — use static URL directly, no upload needed
+      finalAvatarUrl = selectedCharacterUrl;
+      localStorage.setItem('wb_avatar', selectedCharacterUrl);
+    } else if (!skipAvatar && cartoonUrl) {
       try {
         setAvatarState('uploading');
         // Convert base64 to blob
@@ -326,7 +363,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
     if (error) {
       setSaveError(lang === 'el' ? 'Σφάλμα αποθήκευσης. Δοκίμασε ξανά.' : 'Save error. Please try again.');
       setSaving(false);
-      setAvatarState('preview');
+      if (cartoonUrl) setAvatarState('preview');
       return;
     }
 
@@ -335,8 +372,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
   };
 
   // ── STEP PROGRESS ─────────────────────────────────────────────
-  const stepIndex = { narrative: 0, nickname: 1, avatar: 2, complete: 3 };
-  const totalSteps = 3; // narrative doesn't count as a "form" step
+  // (narrative doesn't count as a "form" step)
 
   // ── RENDER ────────────────────────────────────────────────────
   return createPortal(
@@ -509,14 +545,17 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 ))}
               </div>
 
-              <div className="flex flex-col items-center text-center gap-2">
-                <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tight">
-                  {lang === 'el' ? 'ΓΙΝΕ CARTOON!' : 'GO CARTOON!'}
-                </h2>
-                <p className="text-white/40 text-xs font-bold">
-                  {lang === 'el' ? 'Φωτογράφησε τον εαυτό σου και η AI θα σε μετατρέψει σε cartoon ήρωα!' : 'Take a photo and AI will turn you into a cartoon hero!'}
-                </p>
-              </div>
+              {/* Title — hidden in character picker (has its own) */}
+              {avatarState !== 'character-picker' && (
+                <div className="flex flex-col items-center text-center gap-2">
+                  <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tight">
+                    {lang === 'el' ? 'ΓΙΝΕ CARTOON!' : 'GO CARTOON!'}
+                  </h2>
+                  <p className="text-white/40 text-xs font-bold">
+                    {lang === 'el' ? 'Φωτογράφησε τον εαυτό σου και η AI θα σε μετατρέψει σε cartoon ήρωα!' : 'Take a photo and AI will turn you into a cartoon hero!'}
+                  </p>
+                </div>
+              )}
 
               {/* Camera preview */}
               {showCamera && (
@@ -563,7 +602,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 </div>
               )}
 
-              {/* Preview state */}
+              {/* Preview state — cartoon photo */}
               {avatarState === 'preview' && cartoonUrl && (
                 <div className="flex flex-col items-center gap-4">
                   <div className="relative">
@@ -588,7 +627,65 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 </div>
               )}
 
-              {/* Idle — show options */}
+              {/* ── CHARACTER PICKER ─────────────────────────────── */}
+              {avatarState === 'character-picker' && (
+                <>
+                  <div className="flex flex-col items-center text-center gap-1">
+                    <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tight">
+                      {lang === 'el' ? 'ΠΟΙΟΣ ΗΡΩΑΣ ΕΙΣΑΙ;' : 'WHICH HERO ARE YOU?'}
+                    </h2>
+                    <p className="text-white/40 text-xs font-bold">
+                      {lang === 'el' ? 'Διάλεξε τον ήρωά σου από την παρέα WiseBot!' : 'Pick your hero from the WiseBot crew!'}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-4 gap-2 max-h-52 overflow-y-auto ob2-scrollbar-none">
+                    {WISEBOT_CHARACTERS.map((src) => (
+                      <button
+                        key={src}
+                        onClick={() => setSelectedCharacterUrl(src)}
+                        className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all hover:scale-105 active:scale-95
+                          ${selectedCharacterUrl === src
+                            ? 'border-amber-400 shadow-[0_0_14px_rgba(245,158,11,0.5)]'
+                            : 'border-white/10 hover:border-white/30'}`}
+                      >
+                        <img src={src} alt="" className="w-full h-full object-cover" loading="lazy" />
+                        {selectedCharacterUrl === src && (
+                          <div className="absolute inset-0 bg-amber-500/25 flex items-center justify-center">
+                            <CheckCircle2 size={18} className="text-amber-300" />
+                          </div>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+
+                  {saveError && (
+                    <div className="flex items-start gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
+                      <AlertCircle size={14} className="text-red-400 mt-0.5 shrink-0" />
+                      <p className="text-red-400 text-xs font-bold">{saveError}</p>
+                    </div>
+                  )}
+
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => { setAvatarState('idle'); setSelectedCharacterUrl(null); }}
+                      className="flex-none px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
+                    >
+                      ← {lang === 'el' ? 'Πίσω' : 'Back'}
+                    </button>
+                    <button
+                      onClick={() => handleComplete(false)}
+                      disabled={!selectedCharacterUrl || saving}
+                      className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-[1000] text-sm uppercase italic tracking-wider shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      {saving ? <Loader2 size={16} className="ob2-spin" /> : <CheckCircle2 size={16} />}
+                      {lang === 'el' ? 'ΑΥΤΟΣ ΕΙΜΑΙ!' : "THAT'S ME!"}
+                    </button>
+                  </div>
+                </>
+              )}
+
+              {/* Idle — show camera/upload options */}
               {avatarState === 'idle' && !showCamera && (
                 <div className="flex flex-col gap-3">
                   <div className="grid grid-cols-2 gap-3">
@@ -634,37 +731,40 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 </div>
               )}
 
-              {saveError && (
+              {saveError && avatarState !== 'character-picker' && (
                 <div className="flex items-start gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
                   <AlertCircle size={14} className="text-red-400 mt-0.5 shrink-0" />
                   <p className="text-red-400 text-xs font-bold">{saveError}</p>
                 </div>
               )}
 
-              <div className="flex flex-col gap-2">
-                {/* Main CTA: enabled only if preview */}
-                {avatarState === 'preview' && (
-                  <button
-                    onClick={() => handleComplete(false)}
-                    disabled={saving}
-                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-[1000] text-base uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50"
-                  >
-                    {saving ? <Loader2 size={20} className="ob2-spin" /> : <CheckCircle2 size={20} />}
-                    {lang === 'el' ? 'ΑΥΤΟΣ ΕΙΜΑΙ! ✓' : 'THAT\'S ME! ✓'}
-                  </button>
-                )}
+              {/* Bottom CTAs — not shown during character-picker (has its own) */}
+              {avatarState !== 'character-picker' && (
+                <div className="flex flex-col gap-2">
+                  {/* Main CTA: enabled only if preview */}
+                  {avatarState === 'preview' && (
+                    <button
+                      onClick={() => handleComplete(false)}
+                      disabled={saving}
+                      className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-[1000] text-base uppercase italic tracking-wider shadow-lg hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 disabled:opacity-50"
+                    >
+                      {saving ? <Loader2 size={20} className="ob2-spin" /> : <CheckCircle2 size={20} />}
+                      {lang === 'el' ? 'ΑΥΤΟΣ ΕΙΜΑΙ! ✓' : "THAT'S ME! ✓"}
+                    </button>
+                  )}
 
-                {/* Skip avatar */}
-                {(avatarState === 'idle' || avatarState === 'generating') && !showCamera && (
-                  <button
-                    onClick={() => handleComplete(true)}
-                    disabled={saving || avatarState === 'generating'}
-                    className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all disabled:opacity-30"
-                  >
-                    {lang === 'el' ? 'Παράλειψη — συνέχεια χωρίς avatar' : 'Skip — continue without avatar'}
-                  </button>
-                )}
-              </div>
+                  {/* Choose hero instead — visible when idle or generating */}
+                  {(avatarState === 'idle' || avatarState === 'generating') && !showCamera && (
+                    <button
+                      onClick={() => setAvatarState('character-picker')}
+                      disabled={saving || avatarState === 'generating'}
+                      className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all disabled:opacity-30"
+                    >
+                      {lang === 'el' ? '🦸 Διάλεξε ήρωα αντ\' αυτού' : '🦸 Choose a hero instead'}
+                    </button>
+                  )}
+                </div>
+              )}
             </>
           )}
 
@@ -672,14 +772,14 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
           {step === 'complete' && (
             <>
               <div className="flex flex-col items-center text-center gap-5 py-2">
-                {/* Avatar or default emoji */}
+                {/* Avatar — cartoon, selected character, or default emoji */}
                 <div
                   className="relative"
                   style={{ animation: 'ob2-float 3s ease-in-out infinite' }}
                 >
-                  {cartoonUrl ? (
+                  {(cartoonUrl || selectedCharacterUrl) ? (
                     <img
-                      src={cartoonUrl}
+                      src={cartoonUrl || selectedCharacterUrl!}
                       alt="Your avatar"
                       className="w-32 h-32 rounded-[2rem] object-cover border-4 border-amber-500/50 shadow-[0_0_50px_rgba(245,158,11,0.4)]"
                     />

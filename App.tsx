@@ -309,7 +309,7 @@ const PendingVerification: React.FC = () => {
         </p>
         <div className="space-y-3 pt-4">
           <button
-            onClick={() => { signOut(); navigate('/login', { replace: true }); }}
+            onClick={async () => { await signOut(); navigate('/login', { replace: true }); }}
             className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white/60 text-sm font-bold hover:bg-white/10 transition-all"
           >
             Back to Login

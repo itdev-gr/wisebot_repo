@@ -431,7 +431,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   };
 
   const handleGenerate = async () => {
-    if (!(await spendCredits(costs.video, 'CREATE_VIDEO'))) {
+    if (!spendCredits(costs.video)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }

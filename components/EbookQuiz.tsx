@@ -140,7 +140,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
       setIsAnswerChecked(false);
     } else {
       setIsFinished(true);
-      onComplete(score + (selectedOption === questions[currentQuestion].correct ? 0 : 0), questions.length);
+      onComplete(score + (selectedOption === questions[currentQuestion].correct ? 1 : 0), questions.length);
     }
   };
 

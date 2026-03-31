@@ -306,7 +306,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     const input = mode === 'simple' ? description.trim() : customLyrics.trim();
     if (!input) return;
 
-    if (!(await spendCredits(costs.song, 'CREATE_SONG'))) {
+    if (!spendCredits(costs.song)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }

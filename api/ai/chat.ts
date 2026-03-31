@@ -137,6 +137,6 @@ export default async function handler(req: any, res: any) {
     return res.status(500).json({ error: 'No AI service configured' });
   } catch (err: any) {
     console.error('AI Chat error:', err.message);
-    res.status(500).json({ error: err.message || 'Unknown error' });
+    return res.status(500).json({ error: err.message || 'Unknown error' });
   }
 }

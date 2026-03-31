@@ -102,6 +102,10 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const [meshy3DProgress, setMeshy3DProgress] = useState(0);
   const [meshy3DUrls, setMeshy3DUrls] = useState<any>(null);
   const meshyPollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Snapshot of hero at generation time — avoids stale closure and prevents
+  // the generation effect from re-firing if `hero` state reference changes
+  const heroSnapshot = useRef(hero);
+  useEffect(() => { heroSnapshot.current = hero; });
 
   // --- INSPIRATION POOL ---
   const QUOTES = [
@@ -148,7 +152,8 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         try {
           console.log('[HeroFactory] v4 — Starting image generation via backend...');
 
-          const prompt = `A cute anthropomorphic ${hero.species} character. IMPORTANT: This must be a ${hero.species} — NOT an owl, NOT a bird (unless the user specifically said bird/owl). The character ${hero.contribution}. Full body visible from head to toe, dynamic heroic pose. Wearing/holding: ${hero.gear}. Style: Cinematic 3D cartoon rendering, Pixar/DreamWorks quality, vibrant saturated colors, soft studio lighting, 4K ultra detailed, big expressive eyes, clean background with subtle glow. Absolutely NO text, NO labels, NO watermarks, NO writing anywhere in the image.`;
+          const h = heroSnapshot.current;
+          const prompt = `A cute anthropomorphic ${h.species} character. IMPORTANT: This must be a ${h.species} — NOT an owl, NOT a bird (unless the user specifically said bird/owl). The character ${h.contribution}. Full body visible from head to toe, dynamic heroic pose. Wearing/holding: ${h.gear}. Style: Cinematic 3D cartoon rendering, Pixar/DreamWorks quality, vibrant saturated colors, soft studio lighting, 4K ultra detailed, big expressive eyes, clean background with subtle glow. Absolutely NO text, NO labels, NO watermarks, NO writing anywhere in the image.`;
 
           console.log('[HeroFactory] Calling backend API...');
           const result = await backendAI.image(prompt);
@@ -184,7 +189,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
 
       return () => timeoutIds.forEach(clearTimeout);
     }
-  }, [step, lang, hero]);
+  }, [step, lang]); // hero removed — use heroSnapshot.current to avoid stale closure re-runs
 
   // Effect to save hero — image is already compressed in state
   const heroSavedRef = useRef(false);
@@ -217,7 +222,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     
     if (step === 3) {
         // Attempt to spend credits before proceeding (server-validated)
-        const success = await spendCredits(costs.image, 'CREATE_IMAGE');
+        const success = spendCredits(costs.image);
         if (!success) {
             showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
             return;
@@ -264,7 +269,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   // Avatar mode: generate avatar from photo
   const handleGenerateAvatar = async () => {
     if (!uploadedPhoto || !avatarName) return;
-    const success = await spendCredits(costs.image, 'CREATE_IMAGE');
+    const success = spendCredits(costs.image);
     if (!success) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
@@ -330,7 +335,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
 
   // ─── Meshy 3D Conversion ───
   const startMeshy3D = useCallback(async (imageToConvert: string) => {
-    if (!(await spendCredits(costs.threeD, 'CREATE_3D'))) {
+    if (!spendCredits(costs.threeD)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       return;
     }

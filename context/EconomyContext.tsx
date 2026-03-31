@@ -510,12 +510,12 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   // 3. DYNAMIC COSTS (badge discounts applied)
   const costs = useMemo(() => ({
-    image: BASE_COST_IMAGE,         // 8 credits (~€0.30)
-    video: BASE_COST_VIDEO,          // 40 credits (~€2.50)
-    song: BASE_COST_SONG,            // 50 credits (~€3.00)
-    threeD: BASE_COST_3D,            // 50 credits (~€3.00)
-    business: BASE_COST_BUSINESS,    // 5 credits (~€0.20)
-  }), []);
+    image: BASE_COST_IMAGE - (badges.thinker ? 1 : 0),   // thinker badge: -1⚡
+    video: BASE_COST_VIDEO - (badges.filmmaker ? 2 : 0),  // filmmaker badge: -2⚡
+    song: BASE_COST_SONG - (badges.musician ? 2 : 0),     // musician badge: -2⚡
+    threeD: BASE_COST_3D,
+    business: BASE_COST_BUSINESS,
+  }), [badges.thinker, badges.filmmaker, badges.musician]);
 
   // 4. ACTIONS
   const spendCredits = useCallback((amount: number): boolean => {
