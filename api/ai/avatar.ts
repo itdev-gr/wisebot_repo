@@ -42,6 +42,14 @@ export default async function handler(req: any, res: any) {
 
   const { imageBytes, mimeType } = req.body || {};
   if (!imageBytes) return res.status(400).json({ error: 'Image data required' });
+  // Validate base64 size (raw base64 string ≈ 1.33× actual bytes; 10MB limit)
+  if (typeof imageBytes !== 'string' || imageBytes.length > 14_000_000) {
+    return res.status(413).json({ error: 'Image too large (max 10 MB)' });
+  }
+  const allowedMimeTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+  if (mimeType && !allowedMimeTypes.includes(mimeType)) {
+    return res.status(400).json({ error: 'Unsupported image type' });
+  }
 
   const prompt =
     'Transform the person in this photo into a cute cartoon/anime hero. ' +

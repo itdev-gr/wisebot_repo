@@ -94,7 +94,8 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = null;
+  const user = await (await import('../_lib/auth')).getAuthUser(req);
+  if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   // Only allow POST
   if (req.method !== 'POST') {

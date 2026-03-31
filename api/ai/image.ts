@@ -16,6 +16,9 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  const user = await (await import('../_lib/auth')).getAuthUser(req);
+  if (!user) return res.status(401).json({ error: 'Authentication required' });
+
   const { prompt, style } = req.body || {};
   if (!prompt) return res.status(400).json({ error: 'Prompt required' });
   if (typeof prompt === 'string' && prompt.length > 4000) return res.status(400).json({ error: 'Input too long' });

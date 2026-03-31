@@ -7,6 +7,13 @@
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
+/** Escape HTML special chars to prevent email injection / XSS in HTML email */
+function esc(str: string): string {
+  return String(str).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] ?? c)
+  );
+}
+
 async function getSupabase() {
   const { createClient } = await import('@supabase/supabase-js');
   return createClient(
@@ -57,7 +64,7 @@ export default async function handler(req: any, res: any) {
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       try {
-        const fullName = `${name} ${surname || ''}`.trim();
+        const fullName = esc(`${name} ${surname || ''}`.trim());
         await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
@@ -67,16 +74,16 @@ export default async function handler(req: any, res: any) {
           body: JSON.stringify({
             from: process.env.RESEND_FROM_EMAIL || 'WiseBot <noreply@wisebot.gr>',
             to: [supportEmail],
-            subject: `[WiseBot Contact] ${type || 'Μήνυμα'} από ${fullName}`,
+            subject: `[WiseBot Contact] ${esc(type || 'Μήνυμα')} από ${fullName}`,
             html: `
               <h2>Νέο μήνυμα επικοινωνίας</h2>
               <p><strong>Όνομα:</strong> ${fullName}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              ${phone ? `<p><strong>Τηλέφωνο:</strong> ${phone}</p>` : ''}
-              ${orderId ? `<p><strong>Αριθμός παραγγελίας:</strong> ${orderId}</p>` : ''}
-              <p><strong>Τύπος:</strong> ${type || 'contact'}</p>
+              <p><strong>Email:</strong> ${esc(email)}</p>
+              ${phone ? `<p><strong>Τηλέφωνο:</strong> ${esc(phone)}</p>` : ''}
+              ${orderId ? `<p><strong>Αριθμός παραγγελίας:</strong> ${esc(orderId)}</p>` : ''}
+              <p><strong>Τύπος:</strong> ${esc(type || 'contact')}</p>
               <hr>
-              <p>${message.replace(/\n/g, '<br>')}</p>
+              <p>${esc(message).replace(/\n/g, '<br>')}</p>
               <hr>
               <p style="color:#888;font-size:12px">Αποστολή: ${new Date().toISOString()}</p>
             `,

@@ -17,9 +17,14 @@ export default async function handler(req: any, res: any) {
     const key = process.env.STRIPE_SECRET_KEY;
     if (!key) return res.status(500).json({ error: 'Stripe not configured' });
 
+    // ── AUTH: extract userId from JWT, never trust client-supplied userId ──
+    const { getAuthUser } = await import('../_lib/auth');
+    const authUser = await getAuthUser(req);
+    const userId = authUser?.id || 'anonymous';
+
     const Stripe = (await import('stripe')).default;
     const stripe = new Stripe(key);
-    const { packId, userId } = req.body || {};
+    const { packId } = req.body || {};
 
     const pack = CREDIT_PACKS[packId];
     if (!pack) return res.status(400).json({ error: 'Invalid pack' });
