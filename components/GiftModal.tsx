@@ -132,6 +132,13 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
     const timer = setTimeout(async () => {
       try {
         const res = await authFetch(`/api/auth/lookup-user?username=${encodeURIComponent(trimmed)}`);
+        // Only trust "not found" when the request itself succeeded (2xx)
+        if (!res.ok) {
+          // Server error — don't block the user, let the backend decide on send
+          setUsernameStatus('idle');
+          setVerifiedName('');
+          return;
+        }
         const data = await res.json();
         if (data.found) {
           setUsernameStatus('found');
@@ -141,7 +148,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
           setVerifiedName('');
         }
       } catch {
-        // On network error, don't block sending — let the backend decide
+        // Network error — don't block sending
         setUsernameStatus('idle');
         setVerifiedName('');
       }
@@ -172,10 +179,6 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
   const handleSend = useCallback(async () => {
     if (!username.trim()) {
       setError(lang === 'el' ? 'Γράψε το username του φίλου σου' : "Enter your friend's username");
-      return;
-    }
-    if (usernameStatus === 'not_found') {
-      setError(lang === 'el' ? 'Το username δεν βρέθηκε' : 'Username not found');
       return;
     }
     const finalMessage = useCustomMessage ? customMessage.trim().slice(0, 100) : message;
@@ -287,11 +290,11 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
 
   // Send button is disabled if:
   // - username is empty
-  // - username status is actively checking or confirmed not found
+  // - lookup is still running (checking)
   // - tab-specific item not selected
+  // NOTE: 'not_found' is a warning only — backend makes the final decision
   const sendDisabled =
     !username.trim() ||
-    usernameStatus === 'not_found' ||
     usernameStatus === 'checking' ||
     (tab === 'credits' && amount < 1) ||
     (tab === 'image' && !selectedHero) ||
