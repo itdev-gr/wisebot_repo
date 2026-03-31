@@ -37,6 +37,14 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req);
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
+  // Server-side credit guard — Suno generation costs credits
+  const SONG_COST = 60;
+  const { checkCredits } = await import('../_lib/auth');
+  const creditCheck = await checkCredits(user.id, SONG_COST);
+  if (!creditCheck.ok) {
+    return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: SONG_COST });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

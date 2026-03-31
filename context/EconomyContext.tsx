@@ -91,12 +91,12 @@ const EconomyContext = createContext<EconomyContextType | undefined>(undefined);
 
 // --- CONSTANTS ---
 // 1 credit = €0.05 (at Starter rate: 100 credits = €4.99)
-const INITIAL_CREDITS = 24;       // New users get 24 credits (= 4 images free)
-const BASE_COST_IMAGE = 6;        // 6⚡ = €0.30
-const BASE_COST_VIDEO = 50;       // 50⚡ = €2.50
-const BASE_COST_SONG = 60;        // 60⚡ = €3.00
-const BASE_COST_3D = 60;          // 60⚡ = €3.00
-const BASE_COST_BUSINESS = 4;     // 4⚡ = €0.20
+const INITIAL_CREDITS = 50;       // New users get 50 credits (= ~8 images free) — matches server signup.ts
+const BASE_COST_IMAGE = 6;        // 6⚡ = €0.30  | API cost: ~€0.03  | margin: ~90%
+const BASE_COST_VIDEO = 80;       // 80⚡ = €4.00  | API cost: ~€1.65-2.65 (Veo2) | margin: ~35-60%
+const BASE_COST_SONG = 60;        // 60⚡ = €3.00  | API cost: ~€0.10-0.25 | margin: ~92%
+const BASE_COST_3D = 60;          // 60⚡ = €3.00  | API cost: ~€0.20-0.45 (Meshy) | margin: ~85%
+const BASE_COST_BUSINESS = 4;     // 4⚡ = €0.20   | API cost: ~€0.001 (Gemini) | margin: ~99%
 const DAILY_MISSION_REWARD = 3;
 
 // Default state shapes (used for initialization & migration)
@@ -612,14 +612,14 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
       case 'READ_BOOK':
         newStats.booksRead += 1;
-        creditReward = 2;
-        rewardEmoji = '📚'; rewardTitle = 'BOOK COMPLETE!'; rewardSubtitle = '+2 Credits ⚡';
+        creditReward = 3;
+        rewardEmoji = '📚'; rewardTitle = 'BOOK COMPLETE!'; rewardSubtitle = '+3 Credits ⚡';
         break;
 
       case 'READ_ACADEMY':
         newStats.lessonsRead += 1;
-        creditReward = 1;
-        rewardEmoji = '📖'; rewardTitle = 'STORY COMPLETE!'; rewardSubtitle = '+1 Credit ⚡';
+        creditReward = 2;
+        rewardEmoji = '📖'; rewardTitle = 'STORY COMPLETE!'; rewardSubtitle = '+2 Credits ⚡';
         if (newStats.lessonsRead >= 5 && !newBadges.thinker) {
           newBadges.thinker = true; badgeUnlocked = true;
           pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });

@@ -31,6 +31,14 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req);
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
+  // Server-side credit guard — Meshy 3D generation costs credits
+  const THREED_COST = 60;
+  const { checkCredits } = await import('../_lib/auth');
+  const creditCheck = await checkCredits(user.id, THREED_COST);
+  if (!creditCheck.ok) {
+    return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: THREED_COST });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }

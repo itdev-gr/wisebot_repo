@@ -19,6 +19,14 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req);
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
+  // Server-side credit guard — Image generation costs 6 credits
+  const IMAGE_COST = 6;
+  const { checkCredits } = await import('../_lib/auth');
+  const creditCheck = await checkCredits(user.id, IMAGE_COST);
+  if (!creditCheck.ok) {
+    return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: IMAGE_COST });
+  }
+
   const { prompt, style } = req.body || {};
   if (!prompt) return res.status(400).json({ error: 'Prompt required' });
   if (typeof prompt === 'string' && prompt.length > 4000) return res.status(400).json({ error: 'Input too long' });

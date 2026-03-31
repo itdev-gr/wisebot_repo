@@ -24,6 +24,14 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req);
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
+  // Server-side credit guard — Veo 2 costs ~€1.65-2.65 per generation
+  const VIDEO_COST = 80;
+  const { checkCredits } = await import('../_lib/auth');
+  const creditCheck = await checkCredits(user.id, VIDEO_COST);
+  if (!creditCheck.ok) {
+    return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: VIDEO_COST });
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Video service not configured' });
 
