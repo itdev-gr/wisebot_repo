@@ -116,6 +116,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
   const [nicknameError, setNicknameError] = useState('');
   const [nicknameChecking, setNicknameChecking] = useState(false);
   const [nicknameValid, setNicknameValid] = useState(false);
+  const [nicknameSuggestions, setNicknameSuggestions] = useState<string[]>([]);
 
   // Avatar state
   const [avatarState, setAvatarState] = useState<AvatarState>('idle');
@@ -190,8 +191,26 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
       if (data && data.length > 0) {
         setNicknameError(lang === 'el' ? 'Αυτό το ψευδώνυμο υπάρχει ήδη' : 'This nickname is already taken');
+
+        // Generate and check alternative suggestions (e.g. skevis → skevis1, skevis2, skevis3)
+        const candidates = [trimmed + '1', trimmed + '2', trimmed + '3', trimmed + '_'];
+        const available: string[] = [];
+        for (const candidate of candidates) {
+          if (candidate.length > 20) continue;
+          try {
+            const { data: cd } = await supabase
+              .from('profiles')
+              .select('id')
+              .ilike('child_name', candidate)
+              .limit(1);
+            if (!cd || cd.length === 0) available.push(candidate);
+          } catch { /* skip on error */ }
+          if (available.length >= 3) break;
+        }
+        setNicknameSuggestions(available);
         return false;
       } else {
+        setNicknameSuggestions([]);
         setNicknameValid(true);
         return true;
       }
@@ -210,6 +229,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
     setNickname(val);
     setNicknameValid(false);
     setNicknameError('');
+    setNicknameSuggestions([]);
   };
 
   const handleNicknameNext = async () => {
@@ -506,9 +526,36 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 </div>
 
                 {nicknameError && (
-                  <div className="flex items-center gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
-                    <AlertCircle size={14} className="text-red-400 shrink-0" />
-                    <p className="text-red-400 text-xs font-bold">{nicknameError}</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl">
+                      <AlertCircle size={14} className="text-red-400 shrink-0" />
+                      <p className="text-red-400 text-xs font-bold">{nicknameError}</p>
+                    </div>
+
+                    {/* Alternative nickname suggestions */}
+                    {nicknameSuggestions.length > 0 && (
+                      <div className="space-y-1.5">
+                        <p className="text-white/30 text-[10px] font-bold uppercase tracking-wider text-center">
+                          {lang === 'el' ? 'Διαθέσιμες εναλλακτικές:' : 'Available alternatives:'}
+                        </p>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {nicknameSuggestions.map(sug => (
+                            <button
+                              key={sug}
+                              onClick={() => {
+                                setNickname(sug);
+                                setNicknameError('');
+                                setNicknameSuggestions([]);
+                                setNicknameValid(false);
+                              }}
+                              className="px-4 py-2 bg-amber-500/15 border border-amber-500/30 rounded-xl text-amber-300 text-sm font-[1000] hover:bg-amber-500/25 hover:border-amber-500/50 active:scale-95 transition-all"
+                            >
+                              {sug}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
 

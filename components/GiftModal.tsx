@@ -3,9 +3,12 @@
  * =================================================================
  * A bilingual (Greek/English) modal for sending gifts.
  * Tabs: Credits | Images | Songs
+ *
+ * v2: Live username verification (debounce 600ms → /api/auth/lookup-user)
+ *     Send button disabled until recipient is confirmed found in DB.
  */
 import React, { useState, useCallback, useEffect } from 'react';
-import { X, Gift, Search, Send, Sparkles, AlertCircle, Check, Loader2, Image, Music } from 'lucide-react';
+import { X, Gift, Search, Send, Sparkles, AlertCircle, Check, Loader2, Image, Music, CheckCircle2, XCircle } from 'lucide-react';
 import { authFetch } from '../services/backendApi';
 
 interface GiftModalProps {
@@ -33,6 +36,7 @@ const PRESET_MESSAGES = [
 
 type GiftTab = 'credits' | 'image' | 'song';
 type GiftStep = 'form' | 'sending' | 'success' | 'error';
+type UsernameStatus = 'idle' | 'checking' | 'found' | 'not_found';
 
 interface LocalHero {
   id: string;
@@ -72,6 +76,11 @@ function loadLocalSongs(): LocalSong[] {
 export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '', onGiftSent }: GiftModalProps) {
   const [tab, setTab] = useState<GiftTab>('credits');
   const [username, setUsername] = useState(prefilledUsername);
+
+  // ── Live username verification state ─────────────────────────────
+  const [usernameStatus, setUsernameStatus] = useState<UsernameStatus>('idle');
+  const [verifiedName, setVerifiedName] = useState('');   // exact name from DB
+
   const [amount, setAmount] = useState<number>(5);
   const [customAmount, setCustomAmount] = useState('');
   const [selectedPreset, setSelectedPreset] = useState<number>(5);
@@ -86,9 +95,12 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
   const [error, setError] = useState('');
   const [result, setResult] = useState<{ recipientName: string; type: GiftTab; title?: string; newBalance?: number } | null>(null);
 
+  // ── Reset on open ──────────────────────────────────────────────────
   useEffect(() => {
     if (isOpen) {
       setUsername(prefilledUsername);
+      setUsernameStatus(prefilledUsername ? 'idle' : 'idle');
+      setVerifiedName('');
       setAmount(5);
       setCustomAmount('');
       setSelectedPreset(5);
@@ -104,6 +116,39 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
       setSongs(loadLocalSongs().filter(s => s.audioStatus === 'complete' && (s.audioUrl || s.streamUrl)));
     }
   }, [isOpen, prefilledUsername, lang]);
+
+  // ── Live username lookup with 600ms debounce ───────────────────────
+  useEffect(() => {
+    const trimmed = username.trim();
+    if (!trimmed || trimmed.length < 2) {
+      setUsernameStatus('idle');
+      setVerifiedName('');
+      return;
+    }
+
+    setUsernameStatus('checking');
+    setVerifiedName('');
+
+    const timer = setTimeout(async () => {
+      try {
+        const res = await authFetch(`/api/auth/lookup-user?username=${encodeURIComponent(trimmed)}`);
+        const data = await res.json();
+        if (data.found) {
+          setUsernameStatus('found');
+          setVerifiedName(data.name);
+        } else {
+          setUsernameStatus('not_found');
+          setVerifiedName('');
+        }
+      } catch {
+        // On network error, don't block sending — let the backend decide
+        setUsernameStatus('idle');
+        setVerifiedName('');
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [username]);
 
   const handleAmountSelect = useCallback((amt: number) => {
     setSelectedPreset(amt);
@@ -129,7 +174,13 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
       setError(lang === 'el' ? 'Γράψε το username του φίλου σου' : "Enter your friend's username");
       return;
     }
+    if (usernameStatus === 'not_found') {
+      setError(lang === 'el' ? 'Το username δεν βρέθηκε' : 'Username not found');
+      return;
+    }
     const finalMessage = useCustomMessage ? customMessage.trim().slice(0, 100) : message;
+    // Use the verified DB name if available, otherwise the typed username
+    const toUsername = verifiedName || username.trim();
 
     if (tab === 'credits') {
       if (amount < 1) {
@@ -141,7 +192,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
       try {
         const res = await authFetch('/api/auth/gift', {
           method: 'POST',
-          body: JSON.stringify({ toUsername: username.trim(), amount, message: finalMessage }),
+          body: JSON.stringify({ toUsername, amount, message: finalMessage }),
         });
         const data = await res.json();
         if (!res.ok) {
@@ -168,7 +219,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
         const res = await authFetch('/api/auth/send-gift-item', {
           method: 'POST',
           body: JSON.stringify({
-            toUsername: username.trim(),
+            toUsername,
             type: 'image',
             title: selectedHero.name,
             imageData: selectedHero.image,
@@ -200,7 +251,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
         const res = await authFetch('/api/auth/send-gift-item', {
           method: 'POST',
           body: JSON.stringify({
-            toUsername: username.trim(),
+            toUsername,
             type: 'song',
             title: selectedSong.title,
             audioUrl: selectedSong.audioUrl || null,
@@ -224,7 +275,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
         setStep('error');
       }
     }
-  }, [tab, username, amount, message, customMessage, useCustomMessage, selectedHero, selectedSong, lang, onGiftSent]);
+  }, [tab, username, usernameStatus, verifiedName, amount, message, customMessage, useCustomMessage, selectedHero, selectedSong, lang, onGiftSent]);
 
   if (!isOpen) return null;
 
@@ -233,6 +284,18 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
     { key: 'image', icon: <Image size={13} />, label: lang === 'el' ? 'Εικόνα' : 'Image' },
     { key: 'song', icon: <Music size={13} />, label: lang === 'el' ? 'Τραγούδι' : 'Song' },
   ];
+
+  // Send button is disabled if:
+  // - username is empty
+  // - username status is actively checking or confirmed not found
+  // - tab-specific item not selected
+  const sendDisabled =
+    !username.trim() ||
+    usernameStatus === 'not_found' ||
+    usernameStatus === 'checking' ||
+    (tab === 'credits' && amount < 1) ||
+    (tab === 'image' && !selectedHero) ||
+    (tab === 'song' && !selectedSong);
 
   return (
     <div
@@ -291,8 +354,8 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                 ))}
               </div>
 
-              {/* Username Search */}
-              <div className="space-y-2">
+              {/* Username Search with live verification */}
+              <div className="space-y-1.5">
                 <label className="text-white/40 text-[10px] font-black uppercase tracking-widest">
                   {lang === 'el' ? 'ΨΑΞΕ ΦΙΛΟ' : 'SEARCH FRIEND'}
                 </label>
@@ -301,11 +364,44 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                   <input
                     type="text"
                     value={username}
-                    onChange={e => setUsername(e.target.value)}
+                    onChange={e => { setUsername(e.target.value); setError(''); }}
                     placeholder={lang === 'el' ? 'Ψευδώνυμο φίλου...' : "Friend's username..."}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 transition-all"
+                    className={`w-full bg-white/5 border rounded-xl pl-10 pr-10 py-3 text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:ring-1 transition-all ${
+                      usernameStatus === 'found'
+                        ? 'border-emerald-500/50 focus:border-emerald-400 focus:ring-emerald-500/20'
+                        : usernameStatus === 'not_found'
+                        ? 'border-red-500/40 focus:border-red-500/60 focus:ring-red-500/20'
+                        : 'border-white/10 focus:border-purple-500/50 focus:ring-purple-500/20'
+                    }`}
                   />
+                  {/* Status indicator */}
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                    {usernameStatus === 'checking' && (
+                      <Loader2 size={16} className="text-purple-400 animate-spin" />
+                    )}
+                    {usernameStatus === 'found' && (
+                      <CheckCircle2 size={16} className="text-emerald-400" />
+                    )}
+                    {usernameStatus === 'not_found' && (
+                      <XCircle size={16} className="text-red-400" />
+                    )}
+                  </div>
                 </div>
+
+                {/* Inline username status feedback */}
+                {usernameStatus === 'found' && verifiedName && (
+                  <p className="flex items-center gap-1.5 text-emerald-400 text-xs font-bold px-1">
+                    <CheckCircle2 size={12} />
+                    {lang === 'el' ? `Βρέθηκε: ` : 'Found: '}
+                    <span className="text-emerald-300">{verifiedName}</span>
+                  </p>
+                )}
+                {usernameStatus === 'not_found' && username.trim().length >= 2 && (
+                  <p className="flex items-center gap-1.5 text-red-400 text-xs font-bold px-1">
+                    <XCircle size={12} />
+                    {lang === 'el' ? 'Χρήστης δεν βρέθηκε' : 'User not found'}
+                  </p>
+                )}
               </div>
 
               {/* Credits tab content */}
@@ -470,8 +566,8 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                 )}
               </div>
 
-              {/* Preview Card */}
-              {username.trim() && (
+              {/* Preview Card — shows verified name */}
+              {usernameStatus === 'found' && (
                 (tab === 'credits' && amount > 0) ||
                 (tab === 'image' && !!selectedHero) ||
                 (tab === 'song' && !!selectedSong)
@@ -483,7 +579,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
                       : tab === 'image'
                       ? (lang === 'el' ? 'Στέλνεις εικόνα στον ' : "You're sending an image to ")
                       : (lang === 'el' ? 'Στέλνεις τραγούδι στον ' : "You're sending a song to ")}
-                    <span className="text-purple-300 font-[1000]">{username.trim()}</span>
+                    <span className="text-purple-300 font-[1000]">{verifiedName}</span>
                     {' 🎁'}
                   </p>
                   {tab === 'image' && selectedHero && (
@@ -509,12 +605,7 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
               {/* Send Button */}
               <button
                 onClick={handleSend}
-                disabled={
-                  !username.trim() ||
-                  (tab === 'credits' && amount < 1) ||
-                  (tab === 'image' && !selectedHero) ||
-                  (tab === 'song' && !selectedSong)
-                }
+                disabled={sendDisabled}
                 className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-[1000] text-sm uppercase italic tracking-widest hover:brightness-110 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-purple-500/20 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
               >
                 <Send size={16} />
