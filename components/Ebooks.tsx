@@ -321,20 +321,26 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   const [loadedQuizzes, setLoadedQuizzes] = useState<Record<number, any[]>>({});
   const [isLoadingBook, setIsLoadingBook] = useState(false);
 
-  // Load full book data + quiz
+  // Load full book data + quiz (decoupled so quiz failure doesn't prevent book display)
   useEffect(() => {
     if (selectedBookId === null) { setLoadedBook(null); return; }
     const bookId = typeof selectedBookId === 'number' ? selectedBookId : parseInt(String(selectedBookId));
     setIsLoadingBook(true);
-    Promise.all([
-      loadBookData(bookId),
-      Object.keys(loadedQuizzes).length === 0 ? quizImporter().then(m => m.BOOK_QUIZZES) : Promise.resolve(loadedQuizzes),
-    ]).then(([bookArr, quizzes]) => {
-      setLoadedBook(bookArr[0] || null);
-      if (typeof quizzes === 'object' && !Array.isArray(quizzes)) setLoadedQuizzes(quizzes);
-      setIsLoadingBook(false);
-    }).catch(() => setIsLoadingBook(false));
-  }, [selectedBookId]);
+    loadBookData(bookId)
+      .then(bookArr => {
+        setLoadedBook(bookArr[0] || null);
+        setIsLoadingBook(false);
+      })
+      .catch(() => setIsLoadingBook(false));
+    // Load quizzes independently (only once per session)
+    if (Object.keys(loadedQuizzes).length === 0) {
+      quizImporter().then(m => {
+        if (typeof m.BOOK_QUIZZES === 'object' && !Array.isArray(m.BOOK_QUIZZES)) {
+          setLoadedQuizzes(m.BOOK_QUIZZES);
+        }
+      }).catch(() => {});
+    }
+  }, [selectedBookId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const activeBookMeta = BOOKS.find(b => b.id === selectedBookId);
   const activeBook = loadedBook || activeBookMeta;

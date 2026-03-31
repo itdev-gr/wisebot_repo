@@ -420,17 +420,18 @@ function AppContent() {
     setCompletedIds(prev => {
       if (prev.includes(id)) return prev;
 
-      setXp(p => p + amount);
-
-      // Check level up separately to avoid stale closure
-      setLevel(currentLevel => {
-        const totalXp = (parseInt(localStorage.getItem('wb_xp') || '0')) + amount;
-        const nextLevelXp = currentLevel * 500;
-        if (totalXp >= nextLevelXp) {
-          earnCredits(2); // Level up reward
-          return currentLevel + 1;
-        }
-        return currentLevel;
+      // Nest setLevel inside setXp updater so `p` is always the real latest XP
+      setXp(p => {
+        const newXp = p + amount;
+        setLevel(currentLevel => {
+          const nextLevelXp = currentLevel * 500;
+          if (newXp >= nextLevelXp) {
+            earnCredits(2); // Level up reward
+            return currentLevel + 1;
+          }
+          return currentLevel;
+        });
+        return newXp;
       });
 
       if (creditReward > 0) {

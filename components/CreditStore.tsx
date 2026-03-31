@@ -75,7 +75,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
         }
       }).catch(console.error);
     }
-  }, []);
+  }, [searchParams, lang, backendReady]);
 
   const handleBuy = async (packId: string) => {
     if (!backendReady) return;
