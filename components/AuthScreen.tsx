@@ -80,7 +80,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
     }
   }, [user, authLoading, emailVerified, navigate]);
 
-  const [tab, setTab] = useState<'login' | 'register'>('register');
+  const [tab, setTab] = useState<'login' | 'register'>('login');
   const [parentEmail, setParentEmail] = useState('');
   const [password, setPassword] = useState('');
   const [childName, setChildName] = useState('');

@@ -19,7 +19,7 @@ import {
   Quote,
   Globe
 } from 'lucide-react';
-import { backendAI } from '../services/backendApi';
+import { backendAI, authFetch } from '../services/backendApi';
 import { useLocation } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
@@ -488,8 +488,8 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
       const prompt = `Animate the character in this image. Action: ${finalAction}. The character says: "${finalGreeting} ${finalMessage}". Style: cinematic 3D animation, colorful, kid-friendly.`;
 
-      // Step 1: Start async video generation (xAI Grok)
-      const genResp = await fetch('/api/ai/video-generate', {
+      // Step 1: Start async video generation (Veo 2) — authFetch adds Bearer token automatically
+      const genResp = await authFetch('/api/ai/video-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt, imageBytes, mimeType }),
@@ -506,7 +506,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       let videoData = '';
       for (let i = 0; i < 60; i++) {
         await new Promise(r => setTimeout(r, 5000)); // wait 5s between polls
-        const statusResp = await fetch(`/api/ai/video-status?requestId=${encodeURIComponent(requestId)}`);
+        const statusResp = await authFetch(`/api/ai/video-status?requestId=${encodeURIComponent(requestId)}`);
         if (!statusResp.ok) continue;
         const statusData = await statusResp.json();
 

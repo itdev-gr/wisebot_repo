@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { backendAI } from '../services/backendApi';
+import { backendAI, authFetch } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
@@ -381,7 +381,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
       let sunoTaskId = '';
       try {
-        const sunoResp = await fetch('/api/ai/suno-generate', {
+        // authFetch adds Bearer token automatically (required for server-side credit guard)
+        const sunoResp = await authFetch('/api/ai/suno-generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -467,7 +468,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       }
 
       try {
-        const resp = await fetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
+        const resp = await authFetch(`/api/ai/suno-status?taskId=${encodeURIComponent(taskId)}`);
         const data = await resp.json();
 
         if (data.status === 'complete' && (data.audioUrl || data.streamUrl)) {

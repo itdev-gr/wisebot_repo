@@ -75,8 +75,9 @@ export default async function handler(req: any, res: any) {
       console.error('[video-status] Proxy error:', proxyErr.message);
     }
 
-    // Fallback: return URI directly
-    return res.status(200).json({ status: 'complete', videoUrl: `${videoUri}?key=${apiKey}` });
+    // Proxy failed — never expose API key to client
+    console.error('[video-status] Proxy failed for videoUri (key hidden)');
+    return res.status(200).json({ status: 'error', error: 'Failed to retrieve video. Please try generating again.' });
 
   } catch (err: any) {
     console.error('[video-status] Error:', err.message);
