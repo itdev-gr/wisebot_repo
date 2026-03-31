@@ -89,22 +89,10 @@ export const backendAI = {
       body: JSON.stringify({ prompt }),
     }),
 
-  video: (prompt: string, imageBytes?: string, mimeType?: string) =>
-    apiFetch<{ video: string }>('/api/ai/video', {
-      method: 'POST',
-      body: JSON.stringify({ prompt, imageBytes, mimeType }),
-    }),
-
   music: (lyricsPrompt: string, artPrompt?: string) =>
     apiFetch<{ title: string; lyrics: string; cover: string }>('/api/ai/music', {
       method: 'POST',
       body: JSON.stringify({ lyricsPrompt, artPrompt }),
-    }),
-
-  threeD: (prompt: string, imageBytes?: string, mimeType?: string) =>
-    apiFetch<{ image: string }>('/api/ai/3d', {
-      method: 'POST',
-      body: JSON.stringify({ prompt, imageBytes, mimeType }),
     }),
 
   business: (textPrompt: string, logoPrompt?: string) =>

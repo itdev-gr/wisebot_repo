@@ -150,18 +150,13 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       setGenerationError(null);
       const generateHero = async () => {
         try {
-          console.log('[HeroFactory] v4 — Starting image generation via backend...');
-
           const h = heroSnapshot.current;
           const prompt = `A cute anthropomorphic ${h.species} character. IMPORTANT: This must be a ${h.species} — NOT an owl, NOT a bird (unless the user specifically said bird/owl). The character ${h.contribution}. Full body visible from head to toe, dynamic heroic pose. Wearing/holding: ${h.gear}. Style: Cinematic 3D cartoon rendering, Pixar/DreamWorks quality, vibrant saturated colors, soft studio lighting, 4K ultra detailed, big expressive eyes, clean background with subtle glow. Absolutely NO text, NO labels, NO watermarks, NO writing anywhere in the image.`;
 
-          console.log('[HeroFactory] Calling backend API...');
           const result = await backendAI.image(prompt);
-          console.log('[HeroFactory] Backend response received');
 
           if (result.image) {
             const compressed = await compressImageForStorage(result.image, 800);
-            console.log('[HeroFactory] Compressed size:', Math.round(compressed.length / 1024), 'KB');
             setResultImage(compressed);
             trackAction('CREATE_IMAGE');
           } else {

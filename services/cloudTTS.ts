@@ -326,26 +326,6 @@ export async function loadStaticEbookAudio(
   return null;
 }
 
-/**
- * Check how many static audio files exist for given IDs.
- */
-export async function countStaticAudioFiles(
-  ids: number[],
-  lang: 'el' | 'en'
-): Promise<number> {
-  let count = 0;
-  for (const id of ids) {
-    const url = `/audio/academy/story-${id}-${lang}.mp3`;
-    try {
-      const res = await fetch(url, { method: 'HEAD' });
-      if (res.ok) count++;
-    } catch {
-      // ignore
-    }
-  }
-  return count;
-}
-
 // ─── Multi-chunk support (for long texts) ────────────────────────
 const MAX_CHUNK_CHARS = 4000;
 
@@ -473,13 +453,6 @@ export async function getCachedCount(
     if (keySet.has(key)) count++;
   }
   return count;
-}
-
-/**
- * Get total number of cached audio entries.
- */
-export async function getTotalCachedCount(): Promise<number> {
-  return countCachedInDB();
 }
 
 // ─── Cleanup ────────────────────────────────────────────────────
