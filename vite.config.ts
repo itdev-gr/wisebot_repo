@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
       plugins: [
         react(),
         VitePWA({
-          registerType: 'prompt',
+          registerType: 'autoUpdate',
           includeAssets: ['favicon.png'],
           manifest: {
             name: 'WiseBot Academy',
@@ -40,7 +40,8 @@ export default defineConfig(({ mode }) => {
             ],
           },
           workbox: {
-            clientsClaim: false,
+            skipWaiting: true,
+            clientsClaim: true,
             navigateFallbackDenylist: [/^\/api\//],
             // ONLY precache app shell — NO images, NO hero assets
             globPatterns: ['**/*.{js,css,html}'],
