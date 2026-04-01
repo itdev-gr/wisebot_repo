@@ -86,18 +86,46 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   // Initialize: check existing session
-  // NOTE: In Supabase v2, onAuthStateChange fires INITIAL_SESSION immediately with the current
-  // session. We rely on that instead of calling getSession() separately, which would cause
-  // fetchProfile to be called TWICE (once here, once in onAuthStateChange) triggering a double
-  // re-render that makes the landing page appear to "refresh" after a few seconds.
+  // We use getSession() explicitly for the initial load — this reliably reads from localStorage
+  // even when the access token has expired (Supabase handles the refresh transparently).
+  // onAuthStateChange then handles all subsequent events (SIGNED_IN, SIGNED_OUT, TOKEN_REFRESHED).
   useEffect(() => {
     if (!configured) {
       setLoading(false);
       return;
     }
 
+    let mounted = true;
+
+    // Step 1: Read the stored session immediately (localStorage-backed, no network needed)
+    const initSession = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!mounted) return;
+        if (session?.user) {
+          setUser(session.user);
+          setEmailVerified(!!session.user.email_confirmed_at);
+          await fetchProfile(session.user.id);
+        } else {
+          setUser(null);
+          setProfile(null);
+          setEmailVerified(false);
+        }
+      } catch (err) {
+        console.error('[Auth] getSession error:', err);
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    };
+
+    initSession();
+
+    // Step 2: Listen for subsequent auth changes (sign-in, sign-out, token refresh)
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
+        // Skip INITIAL_SESSION — already handled by getSession() above
+        if (event === 'INITIAL_SESSION') return;
+
         if (session?.user) {
           setUser(session.user);
           setEmailVerified(!!session.user.email_confirmed_at);
@@ -108,14 +136,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setEmailVerified(false);
           syncDoneRef.current = false;
         }
-        // INITIAL_SESSION fires immediately — use it as the loading-done signal
-        if (event === 'INITIAL_SESSION') {
-          setLoading(false);
-        }
       }
     );
 
-    return () => subscription.unsubscribe();
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, [configured, fetchProfile]);
 
   // Sign Up — calls server endpoint which creates user + sends verification email

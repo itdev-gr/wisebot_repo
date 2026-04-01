@@ -534,7 +534,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             {lang === 'el' ? 'ΜΑΘΗΜΑΤΑ' : 'LESSONS'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΖΩΗΣ' : 'OF LIFE'}</span>
          </h2>
          <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs">
-            {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 65 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 65 GREAT PEOPLE'}
+            {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 90 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 90 GREAT PEOPLE'}
          </p>
 
          {/* Voice Download Button */}
