@@ -34,6 +34,15 @@ const getStoryImage = (index: number) => STORY_IMAGES[index % STORY_IMAGES.lengt
 
 // CATEGORY CONFIGURATION
 const CATEGORIES = {
+  GREEK_HEROES: {
+    id: 'GREEK_HEROES',
+    icon: Shield,
+    color: "from-blue-500 to-sky-400",
+    border: "border-blue-500/50",
+    bg: "bg-blue-500/10",
+    title: { el: "ΕΛΛΗΝΕΣ ΘΡΥΛΟΙ", en: "GREEK LEGENDS" },
+    desc: { el: "Έλληνες που άλλαξαν τον κόσμο με το μυαλό, την καρδιά και το θάρρος τους", en: "Greeks who changed the world with their mind, heart and courage" }
+  },
   START_SMALL: {
     id: 'START_SMALL',
     icon: Lightbulb,
@@ -79,15 +88,6 @@ const CATEGORIES = {
     title: { el: "ΕΠΙΣΤΗΜΗ", en: "SCIENCE" },
     desc: { el: "Επιστήμονες που αποκάλυψαν τα μυστικά του σύμπαντος", en: "Scientists who revealed the secrets of the universe" }
   },
-  GREEK_HEROES: {
-    id: 'GREEK_HEROES',
-    icon: Shield,
-    color: "from-blue-500 to-sky-400",
-    border: "border-blue-500/50",
-    bg: "bg-blue-500/10",
-    title: { el: "ΕΛΛΗΝΕΣ ΘΡΥΛΟΙ", en: "GREEK LEGENDS" },
-    desc: { el: "Έλληνες που άλλαξαν τον κόσμο με το μυαλό, την καρδιά και το θάρρος τους", en: "Greeks who changed the world with their mind, heart and courage" }
-  }
 };
 
 // --- STORIES DATA (extracted to data/academyCourses.ts) ---
