@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Download, Wifi, WifiOff } from 'lucide-react';
+import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Download, Wifi, WifiOff, Shield } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
@@ -78,6 +78,15 @@ const CATEGORIES = {
     bg: "bg-emerald-500/10",
     title: { el: "ΕΠΙΣΤΗΜΗ", en: "SCIENCE" },
     desc: { el: "Επιστήμονες που αποκάλυψαν τα μυστικά του σύμπαντος", en: "Scientists who revealed the secrets of the universe" }
+  },
+  GREEK_HEROES: {
+    id: 'GREEK_HEROES',
+    icon: Shield,
+    color: "from-blue-500 to-sky-400",
+    border: "border-blue-500/50",
+    bg: "bg-blue-500/10",
+    title: { el: "ΕΛΛΗΝΕΣ ΘΡΥΛΟΙ", en: "GREEK LEGENDS" },
+    desc: { el: "Έλληνες που άλλαξαν τον κόσμο με το μυαλό, την καρδιά και το θάρρος τους", en: "Greeks who changed the world with their mind, heart and courage" }
   }
 };
 

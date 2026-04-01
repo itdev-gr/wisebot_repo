@@ -964,5 +964,189 @@ export const COURSES = [
       el: "Ο Jacques Cousteau ήθελε να γίνει πιλότος στο Ναυτικό. Ένα σοβαρό τροχαίο ατύχημα έσπασε και τα δύο του χέρια — το όνειρο χάθηκε. Για να ανακάμψει, άρχισε να κολυμπάει στη θάλασσα. Εκεί, ανακάλυψε έναν κόσμο που κανείς δεν είχε δει. Μαζί με τον μηχανικό Émile Gagnan, εφηύρε τον αυτόνομο αναπνευστήρα (Aqua-Lung), που επέτρεψε στον άνθρωπο να κολυμπάει ελεύθερα στο βυθό. Η τηλεοπτική σειρά του «Ο Κόσμος της Σιωπής» έδειξε τον ωκεανό σε εκατομμύρια. Δεν ήταν μόνο εξερευνητής — ήταν ακτιβιστής. Πολέμησε ενάντια στη θαλάσσια ρύπανση δεκαετίες πριν γίνει μόδα. Είπε: «Οι άνθρωποι προστατεύουν αυτά που αγαπούν.» Μάθημα: Ένα ατύχημα μπορεί να σε οδηγήσει στον αληθινό σκοπό σου.",
       en: "Jacques Cousteau wanted to become a Navy pilot. A serious car accident broke both his arms — the dream was gone. To recover, he started swimming in the sea. There, he discovered a world nobody had ever seen. Together with engineer Émile Gagnan, he invented the self-contained breathing apparatus (Aqua-Lung), allowing humans to swim freely underwater. His TV series 'The Silent World' showed the ocean to millions. He wasn't just an explorer — he was an activist. He fought against marine pollution decades before it became trendy. He said: 'People protect what they love.' Lesson: An accident can lead you to your true purpose."
     }
+  },
+
+  // ========================================================================
+  // 🏛️ CATEGORY 6: GREEK_HEROES (Έλληνες Θρύλοι)
+  // ========================================================================
+  {
+    id: 76,
+    category: "GREEK_HEROES",
+    subject: { el: "Αλέξανδρος ο Μέγας", en: "Alexander the Great" },
+    title: { el: "Ο Κατακτητής του Κόσμου", en: "Conqueror of the World" },
+    subtitle: { el: "The Unstoppable", en: "The Unstoppable" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Ήταν μόλις 16 ετών όταν ο βασιλιάς-πατέρας του, ο Φίλιππος Β', τον άφησε να κυβερνά τη Μακεδονία ενώ ο ίδιος έλειπε στον πόλεμο. Σε αυτή την ηλικία που άλλοι ανησυχούν για τα μαθήματα, ο Αλέξανδρος κατέπνιξε μια εξέγερση και ίδρυσε μια πόλη. Ο δάσκαλός του ήταν ο Αριστοτέλης — ο σπουδαιότερος φιλόσοφος του κόσμου. Στα 20 του ανέλαβε τον θρόνο. Στα 32 του, ήταν αήττητος και κυβερνούσε το μεγαλύτερο βασίλειο που είχε δει ποτέ ο κόσμος — από την Ελλάδα ως την Αίγυπτο, την Περσία, και τα σύνορα της Ινδίας. Ποτέ δεν έχασε μάχη. Αλλά ο Αλέξανδρος δεν ήταν απλώς πολεμιστής — ήταν οραματιστής. Σε κάθε χώρα που κατακτούσε, δεν κατέστρεφε, αλλά έχτιζε πόλεις. Ίδρυσε την Αλεξάνδρεια στην Αίγυπτο, που έγινε το κέντρο της γνώσης για αιώνες. Σεβόταν τους πολιτισμούς που συναντούσε και έντυνε τους στρατηγούς του με περσικές στολές για να δείξει σεβασμό στους νικημένους. Πέθανε στα 32 του, και οι στρατηγοί του μοιράστηκαν το βασίλειό του με δάκρυα. Ακόμη και στον θάνατό του, τάφηκε ως θεός. Λέγεται ότι, λίγο πριν πεθάνει, είπε: «Ο ισχυρός κληρονομεί.» Μάθημα: Το μεγαλύτερο βασίλειο δεν χτίζεται με φόβο, αλλά με όραμα και σεβασμό.",
+      en: "He was just 16 when his father, King Philip II, left him to rule Macedonia while away at war. At an age when others worry about homework, Alexander crushed a rebellion and founded a city. His teacher was Aristotle — the greatest philosopher in the world. At 20 he took the throne. At 32, he was undefeated and ruled the largest empire the world had ever seen — from Greece to Egypt, Persia, and the borders of India. He never lost a battle. But Alexander wasn't just a warrior — he was a visionary. In every land he conquered, he didn't destroy — he built cities. He founded Alexandria in Egypt, which became the center of knowledge for centuries. He respected the cultures he encountered and dressed his generals in Persian robes to show respect for the defeated. He died at 32, and his generals divided his kingdom in tears. Even in death, he was buried as a god. Legend says that, just before he died, he said: 'The strong shall inherit.' Lesson: The greatest empire is built not with fear, but with vision and respect."
+    }
+  },
+  {
+    id: 77,
+    category: "GREEK_HEROES",
+    subject: { el: "Αρχιμήδης", en: "Archimedes" },
+    title: { el: "Ευρήκα! Η Στιγμή που Άλλαξε τα Πάντα", en: "Eureka! The Moment That Changed Everything" },
+    subtitle: { el: "The Genius", en: "The Genius" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Φαντάσου να μπαίνεις σε μια μπανιέρα και ξαφνικά να ανακαλύπτεις ένα νόμο της φύσης. Ακριβώς αυτό έκανε ο Αρχιμήδης στις Συρακούσες της Σικελίας, πριν από 2.300 χρόνια. Ο βασιλιάς τον είχε παρακαλέσει να βρει αν το στέμμα του ήταν από καθαρό χρυσό χωρίς να το λιώσει. Ο Αρχιμήδης σκεφτόταν συνεχώς, αλλά η λύση δεν ερχόταν. Μια μέρα, μπαίνοντας στο μπάνιο του, είδε το νερό να ξεχειλίζει. Κατάλαβε τότε ότι ένα σώμα βυθισμένο στο νερό εκτοπίζει νερό ίσο με τον όγκο του — κι έτσι μπορούσε να μετρήσει τον όγκο οποιουδήποτε αντικειμένου. Βγήκε τρέχοντας στον δρόμο φωνάζοντας «Ευρήκα! Ευρήκα!» (= «Το βρήκα!»), λέγεται χωρίς ρούχα! Αλλά η αρχή της άντωσης δεν ήταν η μοναδική του ανακάλυψη. Εφηύρε τον κοχλία (σπειροειδή αντλία νερού), κατασκεύασε καταπέλτες για την άμυνα των Συρακουσών, και τα «Νύχια του Αρχιμήδη» — γιγάντια γάντζια που ανύψωναν εχθρικά πλοία από τη θάλασσα. Είπε: «Δώστε μου έναν σταθερό πόντο και θα μετακινήσω τη Γη.» Αυτή η πρόταση για τον μοχλό ισχύει μέχρι σήμερα. Μάθημα: Η ανακάλυψη δεν γεννιέται στο εργαστήριο, αλλά στο μυαλό που ποτέ δεν σταματά να αναρωτιέται.",
+      en: "Imagine stepping into a bathtub and suddenly discovering a law of nature. That's exactly what Archimedes did in Syracuse, Sicily, 2,300 years ago. The king had asked him to determine if his crown was pure gold without melting it down. Archimedes thought constantly, but the solution didn't come. One day, stepping into his bath, he noticed the water overflow. He realized then that a submerged object displaces water equal to its volume — and so he could measure the volume of anything. He ran into the street shouting 'Eureka! Eureka!' (= 'I found it!'), reportedly without any clothes! But the principle of buoyancy wasn't his only discovery. He invented the Archimedes screw (a water pump), built catapults to defend Syracuse, and the 'Claw of Archimedes' — giant hooks that lifted enemy ships out of the sea. He said: 'Give me a fixed point and I will move the Earth.' This statement about the lever holds true to this day. Lesson: Discovery is born not in the laboratory, but in the mind that never stops asking questions."
+    }
+  },
+  {
+    id: 78,
+    category: "GREEK_HEROES",
+    subject: { el: "Ιπποκράτης", en: "Hippocrates" },
+    title: { el: "Ο Πατέρας της Ιατρικής", en: "Father of Medicine" },
+    subtitle: { el: "The Healer", en: "The Healer" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Πριν από 2.500 χρόνια, όταν κάποιος αρρώσταινε, η μόνη εξήγηση ήταν: «Οι θεοί είναι θυμωμένοι». Η θεραπεία; Προσευχή και θυσίες. Ο Ιπποκράτης από την Κω αμφισβήτησε τα πάντα αυτά. Δεν αρκέστηκε σε προσευχές — παρατηρούσε. Εξέταζε ασθενείς, κατέγραφε συμπτώματα, αναζητούσε φυσικές αιτίες για κάθε αρρώστια. Ήταν ο πρώτος που είπε: «Η αρρώστια έχει λογική εξήγηση, όχι θεϊκή τιμωρία». Περιέγραψε ασθένειες που αναγνωρίζουμε ακόμη σήμερα — από την επιληψία ως τον καρκίνο. Εισήγαγε την έννοια της ιατρικής δεοντολογίας: γιατροί που ακόμη σήμερα ορκίζονται τον «Ιπποκρατικό Όρκο», υπόσχονται να βάζουν πάντα την υγεία του ασθενή πρώτα. Ο φημισμένος Όρκος ξεκινά με τη φράση «Πρώτον μη βλάπτειν» — Πρώτα, μη βλάψεις. Αυτή η αρχή είναι ο ακρογωνιαίος λίθος της σύγχρονης ιατρικής. Έζησε πάνω από 90 χρόνια — εκπληκτικό για την εποχή του — και στη ζωή του άνοιξε ιατρικές σχολές και εκπαίδευσε εκατοντάδες γιατρούς. Σήμερα, 2.500 χρόνια μετά, κάθε γιατρός στον κόσμο αναγνωρίζει το όνομά του. Μάθημα: Η καλύτερη θεραπεία ξεκινά από την παρατήρηση, όχι από τη δεισιδαιμονία.",
+      en: "2,500 years ago, when someone fell ill, the only explanation was: 'The gods are angry.' The cure? Prayer and sacrifice. Hippocrates of Kos challenged all of this. He didn't settle for prayers — he observed. He examined patients, recorded symptoms, and searched for natural causes for every illness. He was the first to say: 'Disease has a rational explanation, not divine punishment.' He described diseases we still recognize today — from epilepsy to cancer. He introduced the concept of medical ethics: doctors who still today swear the 'Hippocratic Oath' promise to always put the patient's health first. The famous Oath begins with the phrase 'First, do no harm.' This principle is the cornerstone of modern medicine. He lived over 90 years — remarkable for his era — and in his lifetime opened medical schools and trained hundreds of physicians. Today, 2,500 years later, every doctor in the world recognizes his name. Lesson: The best cure begins with observation, not superstition."
+    }
+  },
+  {
+    id: 79,
+    category: "GREEK_HEROES",
+    subject: { el: "Λεωνίδας Α'", en: "Leonidas I" },
+    title: { el: "Τριακόσιοι Εναντίον Εκατομμυρίων", en: "Three Hundred Against Millions" },
+    subtitle: { el: "The Spartan", en: "The Spartan" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Το 480 π.Χ., ο Πέρσης βασιλιάς Ξέρξης εισέβαλε στην Ελλάδα με έναν στρατό που αριθμούσε εκατοντάδες χιλιάδες στρατιώτες. Στο στενό πέρασμα των Θερμοπυλών, τον περίμενε ο Σπαρτιάτης βασιλιάς Λεωνίδας με μόλις 300 Σπαρτιάτες και περίπου 7.000 άλλους Έλληνες. Ο Ξέρξης έστειλε αγγελιοφόρο: «Παραδώστε τα όπλα σας». Ο Λεωνίδας απάντησε με δύο λέξεις: «Μολών λαβέ» — «Έλα να τα πάρεις». Για τρεις μέρες, οι 300 Σπαρτιάτες κράτησαν το πέρασμα. Εκπαιδευμένοι από παιδιά για να αντέχουν τον πόνο, να μην φοβούνται τον θάνατο, να πολεμούν ως ένα σώμα, απώθησαν τους Πέρσες ξανά και ξανά. Όταν τελικά τους κύκλωσαν, κανείς δεν έτρεξε. Έμειναν και πέθαναν στη θέση τους. Η θυσία τους έδωσε στους Έλληνες χρόνο να οργανωθούν. Λίγους μήνες μετά, στη Σαλαμίνα, ο ελληνικός στόλος κατέστρεψε την περσική αρμάδα και η εισβολή σταμάτησε. Ο Λεωνίδας και οι 300 δεν «νίκησαν» τη μάχη, αλλά νίκησαν την ιστορία. Η λέξη «Μολών λαβέ» είναι σήμερα σύμβολο ανδρείας σε όλο τον κόσμο. Μάθημα: Μια μικρή ομάδα με απόλυτη αφοσίωση μπορεί να αλλάξει την πορεία της ιστορίας.",
+      en: "In 480 BC, Persian King Xerxes invaded Greece with an army that numbered hundreds of thousands of soldiers. At the narrow pass of Thermopylae, Spartan King Leonidas waited with just 300 Spartans and about 7,000 other Greeks. Xerxes sent a messenger: 'Lay down your weapons.' Leonidas replied with two words: 'Molon labe' — 'Come and take them.' For three days, the 300 Spartans held the pass. Trained since childhood to endure pain, to not fear death, to fight as one body, they repelled the Persians again and again. When they were finally surrounded, no one fled. They stayed and died at their post. Their sacrifice gave the Greeks time to organize. Months later, at Salamis, the Greek fleet destroyed the Persian armada and the invasion was stopped. Leonidas and the 300 didn't 'win' the battle, but they won history. The phrase 'Molon labe' is today a global symbol of courage. Lesson: A small group with total dedication can change the course of history."
+    }
+  },
+  {
+    id: 80,
+    category: "GREEK_HEROES",
+    subject: { el: "Πυθαγόρας", en: "Pythagoras" },
+    title: { el: "Ο Άνθρωπος που Βρήκε τη Μουσική στα Νούμερα", en: "The Man Who Found Music in Numbers" },
+    subtitle: { el: "The Mathematician", en: "The Mathematician" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Αν έχεις κάνει ποτέ γεωμετρία, χρωστάς ευχαριστίες σε έναν Έλληνα που έζησε 2.500 χρόνια πριν στη Σάμο. Ο Πυθαγόρας ταξίδεψε στην Αίγυπτο και τη Βαβυλώνα για να μάθει. Επέστρεψε με γνώσεις που άλλαξαν για πάντα τα μαθηματικά. Το πιο διάσημο έργο του; Το θεώρημα: α² + β² = γ². Σε κάθε ορθογώνιο τρίγωνο, το τετράγωνο της υποτείνουσας ισούται με το άθροισμα των τετραγώνων των άλλων δύο πλευρών. Αυτός ο τύπος χρησιμοποιείται σήμερα από αρχιτέκτονες, μηχανικούς, ναυτιλιακούς, και ακόμη και σε GPS. Αλλά ο Πυθαγόρας δεν ήταν μόνο μαθηματικός. Ήταν φιλόσοφος που πίστευε ότι τα νούμερα κρύβουν την αρμονία του σύμπαντος. Ανακάλυψε ότι τα μουσικά διαστήματα μπορούν να εκφραστούν με αριθμητικές αναλογίες — ο ήχος είναι μαθηματικά! Ίδρυσε στον Κρότωνα (νότια Ιταλία) μια από τις πρώτες σχολές φιλοσοφίας, όπου γυναίκες και άνδρες σπούδαζαν ισότιμα — πρωτοποριακό για την εποχή. Ο ίδιος είπε: «Μην πεις λίγα με πολλά λόγια, αλλά πολλά με λίγα λόγια.» Μάθημα: Πίσω από κάθε πολύπλοκο πρόβλημα κρύβεται μια απλή μαθηματική αλήθεια — αρκεί να ψάξεις.",
+      en: "If you've ever done geometry, you owe thanks to a Greek who lived 2,500 years ago on the island of Samos. Pythagoras traveled to Egypt and Babylon to learn. He returned with knowledge that forever changed mathematics. His most famous work? The theorem: a² + b² = c². In every right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides. This formula is used today by architects, engineers, navigators, and even in GPS. But Pythagoras wasn't just a mathematician. He was a philosopher who believed that numbers contain the harmony of the universe. He discovered that musical intervals can be expressed as numerical ratios — sound is mathematics! He founded in Croton (southern Italy) one of the first philosophical schools, where women and men studied as equals — revolutionary for his era. He himself said: 'Do not say little with many words, but much with few words.' Lesson: Behind every complex problem lies a simple mathematical truth — you just have to look for it."
+    }
+  },
+  {
+    id: 81,
+    category: "GREEK_HEROES",
+    subject: { el: "Δομήνικος Θεοτοκόπουλος (Ελ Γκρέκο)", en: "El Greco (Domenikos Theotokopoulos)" },
+    title: { el: "Ο Κρητικός που Κατέκτησε την Ισπανία", en: "The Cretan Who Conquered Spain" },
+    subtitle: { el: "The Visionary", en: "The Visionary" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Γεννήθηκε στην Κρήτη το 1541 και το πλήρες όνομά του ήταν Δομήνικος Θεοτοκόπουλος. Στην Ισπανία, απλώς τον αποκαλούσαν «Ελ Γκρέκο» — ο Έλληνας. Και αυτό το παρατσούκλι έγινε το πιο διάσημο όνομα στην ιστορία της ζωγραφικής. Άρχισε ως βυζαντινός εικονογράφος στην Κρήτη, πήγε στη Βενετία για να σπουδάσει, και κατέληξε στο Τολέδο της Ισπανίας — μια πόλη που τον ερωτεύτηκε και δεν τον άφησε να φύγει ποτέ. Εκεί ανέπτυξε ένα στυλ που δεν μοιαζόταν με τίποτα άλλο: επιμήκεις φιγούρες που σαν να κοιτούν τον ουρανό, χρώματα που φλέγονται, φως που δεν έρχεται από κανένα παράθυρο αλλά φαίνεται να εκπέμπεται από μέσα. Οι σύγχρονοί του τον κατηγόρησαν: «Τα πορτρέτα σου είναι παραμορφωμένα!» Αλλά εκείνος δεν ζωγράφιζε αυτό που έβλεπε — ζωγράφιζε αυτό που αισθανόταν. Πέθανε το 1614, σχεδόν ξεχασμένος. Τον 20ό αιώνα, οι ιμπρεσιονιστές και οι εξπρεσιονιστές «ανακάλυψαν» ξανά τον Ελ Γκρέκο και τον αναγνώρισαν ως πρόδρομό τους — 300 χρόνια μπροστά από την εποχή του. Σήμερα, τα έργα του πωλούνται για δεκάδες εκατομμύρια ευρώ. Μάθημα: Αν ο κόσμος δεν καταλαβαίνει την τέχνη σου σήμερα, ίσως απλώς να είσαι πολύ μπροστά από την εποχή σου.",
+      en: "He was born in Crete in 1541 and his full name was Domenikos Theotokopoulos. In Spain, they simply called him 'El Greco' — The Greek. And this nickname became the most famous name in the history of painting. He started as a Byzantine icon painter in Crete, went to Venice to study, and ended up in Toledo, Spain — a city that fell in love with him and never let him leave. There he developed a style unlike anything else: elongated figures seeming to look toward heaven, burning colors, light that comes from no window but seems to radiate from within. His contemporaries criticized him: 'Your portraits are distorted!' But he didn't paint what he saw — he painted what he felt. He died in 1614, nearly forgotten. In the 20th century, the Impressionists and Expressionists 'rediscovered' El Greco and recognized him as their precursor — 300 years ahead of his time. Today, his works sell for tens of millions of euros. Lesson: If the world doesn't understand your art today, you may simply be too far ahead of your time."
+    }
+  },
+  {
+    id: 82,
+    category: "GREEK_HEROES",
+    subject: { el: "Γεώργιος Παπανικολάου", en: "George Papanicolaou" },
+    title: { el: "Το Τεστ που Έσωσε Εκατομμύρια Γυναίκες", en: "The Test That Saved Millions of Women" },
+    subtitle: { el: "The Lifesaver", en: "The Lifesaver" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Γεννήθηκε στην Κύμη Ευβοίας το 1883 και σπούδασε ιατρική στην Αθήνα και στη Γερμανία. Το 1913 μετανάστευσε στις ΗΠΑ με τη γυναίκα του Μαρία — σχεδόν χωρίς χρήματα. Δούλεψε ως πωλητής χαλιών και βιολιστής σε ορχήστρα μέχρι να βρει δουλειά ως ερευνητής. Το ενδιαφέρον του; Τα κύτταρα. Για χρόνια μελετούσε κύτταρα από τον τράχηλο της μήτρας κάτω από μικροσκόπιο. Παρατήρησε ότι τα καρκινικά κύτταρα διαφέρουν ορατά από τα υγιή — και ότι εμφανίζονται πολύ πριν ο καρκίνος γίνει επικίνδυνος. Αν μπορούσες να τα εντοπίσεις νωρίς, ο καρκίνος ήταν θεραπεύσιμος! Παρουσίασε την ανακάλυψή του το 1928. Τον αγνόησαν. Συνέχισε να δουλεύει για 15 ακόμη χρόνια πριν η επιστημονική κοινότητα τον πάρει στα σοβαρά. Το 1943 δημοσίευσε την πλήρη του μελέτη και το «τεστ Παπ» (Pap smear) έγινε παγκόσμιο. Σήμερα, εκατοντάδες εκατομμύρια γυναίκες κάνουν τεστ Παπ κάθε χρόνο. Σύμφωνα με εκτιμήσεις, έχει σώσει πάνω από 100 εκατομμύρια ζωές μέχρι σήμερα. Ένας μετανάστης που έπαιζε βιολί για να επιβιώσει, άφησε την πιο μεγάλη προσφορά στη γυναικεία υγεία. Μάθημα: Η επιμονή στην αλήθεια, ακόμη και όταν κανείς δεν σε ακούει, μπορεί να σώσει εκατομμύρια.",
+      en: "He was born in Kymi, Euboea in 1883 and studied medicine in Athens and Germany. In 1913 he emigrated to the USA with his wife Mary — nearly penniless. He worked as a carpet salesman and violinist in an orchestra until he found work as a researcher. His interest? Cells. For years he studied cells from the cervix under a microscope. He noticed that cancerous cells differ visibly from healthy ones — and that they appear long before cancer becomes dangerous. If you could detect them early, cancer was curable! He presented his discovery in 1928. They ignored him. He continued working for 15 more years before the scientific community took him seriously. In 1943 he published his complete study and the 'Pap smear' test went global. Today, hundreds of millions of women take Pap tests every year. It is estimated to have saved over 100 million lives to date. An immigrant who played violin to survive left the greatest contribution to women's health. Lesson: Persisting in truth, even when no one listens, can save millions."
+    }
+  },
+  {
+    id: 83,
+    category: "GREEK_HEROES",
+    subject: { el: "Αριστοτέλης Ωνάσης", en: "Aristotle Onassis" },
+    title: { el: "Από Πρόσφυγας, Ο Πλουσιότερος στον Κόσμο", en: "From Refugee to World's Richest Man" },
+    subtitle: { el: "The Mogul", en: "The Mogul" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Ήταν 17 ετών όταν οι Τούρκοι κατέστρεψαν τη Σμύρνη και η οικογένειά του έχασε τα πάντα. Ο Αριστοτέλης Ωνάσης έφυγε μόνος για την Αργεντινή με 250 δολάρια. Δούλεψε νυχτερινή βάρδια στην τηλεφωνική εταιρεία για να επιβιώνει. Κατά τη διάρκεια της ημέρας έμαθε γρήγορα ισπανικά, έμαθε τις επιχειρήσεις, παρατηρούσε, άκουγε, σχεδίαζε. Στα 23 του, ήδη είχε κάνει τις πρώτες επιτυχημένες εμπορικές δουλειές του. Στα 26 του έγινε γενικός πρόξενος της Ελλάδας στην Αργεντινή. Είδε ευκαιρία που άλλοι δεν έβλεπαν: τα πλοία. Κατά τη Μεγάλη Ύφεση, αγόρασε φθηνά εγκαταλελειμμένα πλοία. Επένδυσε στην ιδέα ότι το πετρέλαιο θα γινόταν ο χρυσός του μέλλοντος. Έφτιαξε τα πρώτα σούπερ τάνκερ στον κόσμο — πλοία τεράστια που κανείς άλλος δεν τολμούσε. Έγινε ο μεγαλύτερος ιδιοκτήτης ναυτιλιακής εταιρείας στον κόσμο. Ο πρόσφυγας χωρίς γη, χωρίς χρήματα, χωρίς κανένα πλεονέκτημα, δημιούργησε μια αυτοκρατορία. Γνώρισε βασιλιάδες, πρόεδρους, διάσημους. Νυμφεύθηκε την Jackie Kennedy. Μάθημα: Τα μεγαλύτερα πλεονεκτήματα δεν κληρονομούνται — δημιουργούνται από αυτούς που αρνούνται να παραιτηθούν.",
+      en: "He was 17 when the Turks destroyed Smyrna and his family lost everything. Aristotle Onassis left alone for Argentina with $250. He worked the night shift at a telephone company to survive. During the day he quickly learned Spanish, studied business, observed, listened, planned. At 23, he had already made his first successful business deals. At 26 he became Greece's consul general in Argentina. He saw an opportunity others couldn't see: ships. During the Great Depression, he bought cheaply abandoned vessels. He invested in the idea that oil would become the gold of the future. He built the world's first supertankers — enormous ships no one else dared construct. He became the largest private shipping fleet owner in the world. The refugee without land, without money, without any advantage, built an empire. He met kings, presidents, celebrities. He married Jackie Kennedy. Lesson: The greatest advantages are not inherited — they are created by those who refuse to give up."
+    }
+  },
+  {
+    id: 84,
+    category: "GREEK_HEROES",
+    subject: { el: "Μαρία Κάλλας", en: "Maria Callas" },
+    title: { el: "Η Φωνή που Έκανε τον Κόσμο να Κλαίει", en: "The Voice That Made the World Weep" },
+    subtitle: { el: "La Divina", en: "La Divina" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Γεννήθηκε στη Νέα Υόρκη το 1923, κόρη Ελλήνων μεταναστών, και μεγάλωσε παχύσαρκη, μοναχική, με κακή όραση. Η μητέρα της την έστελνε στα μαθήματα τραγουδιού — όχι από αγάπη, αλλά επειδή ήθελε να κερδίσει χρήματα από το ταλέντο της κόρης της. Στα 13 της, έγινε δεκτή στο Ωδείο Αθηνών. Η δασκάλα της είδε αυτό που άλλοι αγνοούσαν: μια εξαιρετική μουσικότητα και μια φωνή που μπορούσε να επικοινωνεί απευθείας με την ψυχή. Για χρόνια η Μαρία εξασκούσε 8 ώρες την ημέρα. Ήταν τελειομανής — γνώριζε κάθε νότα, κάθε λέξη, κάθε συναίσθημα κάθε ρόλου που έπαιζε. Τα πρώτα χρόνια, πολλοί αμφισβητούσαν τη φωνή της: «Πολύ ιδιαίτερη, πολύ σκοτεινή». Αλλά όταν ανέβηκε στη σκηνή της La Scala στο Μιλάνο, ο κόσμος έκλαψε. Δεν τραγουδούσε απλώς νότες — εκφραζόταν. Έγινε «La Divina» — η Θεϊκή. Ανακάλυψε ξανά και αναβίωσε ξεχασμένες ιταλικές όπερες. Η ζωή της ήταν γεμάτη θλίψη — αλλά αυτή η θλίψη μπήκε στη φωνή της και έγινε τέχνη. Μάθημα: Η μεγαλύτερη τέχνη γεννιέται από αυτούς που έχουν νιώσει βαθιά — και δεν φοβήθηκαν να το δείξουν.",
+      en: "She was born in New York in 1923, daughter of Greek immigrants, and grew up overweight, lonely, with poor eyesight. Her mother sent her to singing lessons — not out of love, but because she wanted to profit from her daughter's talent. At 13, she was accepted to the Athens Conservatory. Her teacher saw what others ignored: exceptional musicality and a voice that could communicate directly with the soul. For years Maria practiced 8 hours a day. She was a perfectionist — she knew every note, every word, every emotion of every role she played. In her early years, many questioned her voice: 'Too unusual, too dark.' But when she stepped onto the stage of La Scala in Milan, the audience wept. She didn't just sing notes — she expressed herself. She became 'La Divina' — The Divine. She rediscovered and revived forgotten Italian operas. Her life was full of sorrow — but this sorrow entered her voice and became art. Lesson: The greatest art is born from those who have felt deeply — and weren't afraid to show it."
+    }
+  },
+  {
+    id: 85,
+    category: "GREEK_HEROES",
+    subject: { el: "Σπύρος Λούης", en: "Spyros Louis" },
+    title: { el: "Ο Τσοπάνος που Έτρεξε στην Αιωνιότητα", en: "The Shepherd Who Ran Into Eternity" },
+    subtitle: { el: "The Champion", en: "The Champion" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Το 1896, στην Αθήνα, πραγματοποιήθηκαν οι πρώτοι σύγχρονοι Ολυμπιακοί Αγώνες. Η πιο συγκινητική στιγμή; Ο Μαραθώνιος — ένα αγώνισμα εμπνευσμένο από τον αρχαίο Φειδιππίδη που έτρεξε από τη Μάχη του Μαραθώνα στην Αθήνα για να φέρει τη νίκη. Ο Σπύρος Λούης ήταν ένας απλός χωρικός από το Μαρούσι. Ήταν νερουλάς — κουβαλούσε νερό με γαϊδούρι και το πουλούσε στην Αθήνα. Δεν ήταν επαγγελματίας αθλητής. Είχε συμμετάσχει σε έναν μόνο επίσημο αγώνα στη ζωή του πριν τους Ολυμπιακούς. Αλλά ήξερε πώς να τρέχει — είχε τρέξει όλη του τη ζωή μεταξύ πηγαδιών και σπιτιών. Στις 10 Απριλίου 1896, 25 αθλητές ξεκίνησαν από τον Μαραθώνα. Ο Λούης, στα 24 km, ήταν τέταρτος. Στα 35 km, ήταν πρώτος. Μπήκε στο Παναθηναϊκό Στάδιο μπροστά σε 100.000 θεατές — η μεγαλύτερη συγκέντρωση ανθρώπων που είχε δει ποτέ η Ελλάδα. Οι δύο πρίγκιπες, Κωνσταντίνος και Γεώργιος, κατέβηκαν στον αγωνιστικό χώρο και τον συνόδευσαν στον τερματισμό. Η Ελλάδα έκλαψε από χαρά. Ο Λούης δεν κέρδισε μόνο ένα μετάλλιο — κέρδισε αθανασία. Μάθημα: Η νίκη δεν ανήκει πάντα στον πιο εκπαιδευμένο — ανήκει σε αυτόν που πιστεύει πιο βαθιά.",
+      en: "In 1896, in Athens, the first modern Olympic Games were held. The most emotionally charged event? The Marathon — a race inspired by the ancient Pheidippides who ran from the Battle of Marathon to Athens to deliver news of victory. Spyros Louis was a simple villager from Maroussi. He was a water carrier — he hauled water with a donkey and sold it in Athens. He was not a professional athlete. He had participated in only one official race in his life before the Olympics. But he knew how to run — he had run his whole life between wells and homes. On April 10, 1896, 25 athletes started from Marathon. Louis, at 24 km, was in fourth place. At 35 km, he was first. He entered the Panathenaic Stadium before 100,000 spectators — the largest gathering of people Greece had ever seen. Two princes, Constantine and George, descended to the track and accompanied him to the finish line. Greece wept with joy. Louis didn't just win a medal — he won immortality. Lesson: Victory doesn't always belong to the most trained — it belongs to the one who believes most deeply."
+    }
+  },
+  {
+    id: 86,
+    category: "GREEK_HEROES",
+    subject: { el: "Νίκος Καζαντζάκης", en: "Nikos Kazantzakis" },
+    title: { el: "Ο Ζορμπάς της Λογοτεχνίας", en: "The Zorba of Literature" },
+    subtitle: { el: "The Free Spirit", en: "The Free Spirit" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Γεννήθηκε στο Ηράκλειο της Κρήτης το 1883, σε εποχή τουρκοκρατίας. Έζησε πολέμους, επαναστάσεις, εξορίες. Έγραψε σε όλα τα είδη: μυθιστορήματα, ποιήματα, θεατρικά, ταξιδιωτικά βιβλία, ακόμη και σενάρια. Αλλά ένα μυθιστόρημα άλλαξε τα πάντα: «Βίος και Πολιτεία του Αλέξη Ζορμπά». Ο Ζορμπάς — ένας άνθρωπος που χόρευε στις καταστροφές, που αγαπούσε τη ζωή άδολα, που έλεγε «Αφεντικό, τι είναι ζωή αν δεν τη ζεις;» — έγινε σύμβολο ελευθερίας για όλο τον κόσμο. Ο Καζαντζάκης τρεις φορές προτάθηκε για Νόμπελ Λογοτεχνίας. Δεν κέρδισε. Ο Αλβέρτος Καμύ, ο Γάλλος φιλόσοφος που τελικά πήρε το βραβείο, δήλωσε δημοσίως: «Το βραβείο έπρεπε να δοθεί στον Καζαντζάκη». Η Καθολική Εκκλησία έβαλε τα βιβλία του στον «Index» — τη λίστα των απαγορευμένων βιβλίων. Αυτό δεν τον σταμάτησε. Στον τάφο του στο Ηράκλειο, η επιτύμβια επιγραφή λέει: «Δεν ελπίζω τίποτα, δε φοβούμαι τίποτα, είμαι λεύτερος». Μάθημα: Η αληθινή ελευθερία ξεκινά όταν σταματάς να φοβάσαι τι θα πουν οι άλλοι.",
+      en: "He was born in Heraklion, Crete in 1883, in an era of Ottoman rule. He lived through wars, revolutions, exiles. He wrote in all genres: novels, poems, plays, travel books, even screenplays. But one novel changed everything: 'Zorba the Greek.' Zorba — a man who danced in the face of disaster, who loved life without pretense, who said 'Boss, what is life if you don't live it?' — became a symbol of freedom for the entire world. Kazantzakis was nominated three times for the Nobel Prize in Literature. He didn't win. Albert Camus, the French philosopher who ultimately received the award, stated publicly: 'The prize should have been given to Kazantzakis.' The Catholic Church placed his books on the 'Index' — the list of forbidden books. That didn't stop him. On his tomb in Heraklion, the inscription reads: 'I hope for nothing, I fear nothing, I am free.' Lesson: True freedom begins when you stop fearing what others will say."
+    }
+  },
+  {
+    id: 87,
+    category: "GREEK_HEROES",
+    subject: { el: "Κωνσταντίνος Καραθεοδωρή", en: "Constantin Carathéodory" },
+    title: { el: "Ο Έλληνας που Βοήθησε τον Αϊνστάιν", en: "The Greek Who Helped Einstein" },
+    subtitle: { el: "The Mastermind", en: "The Mastermind" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Λίγοι Έλληνες γνωρίζουν το όνομά του, αλλά ο Άλμπερτ Αϊνστάιν τον αποκαλούσε «τον αγαπημένο μου φίλο». Γεννήθηκε στο Βερολίνο το 1873, σε αριστοκρατική ελληνική οικογένεια. Σπούδασε μηχανικός, δούλεψε σε αρκετές χώρες, και μόλις στα 27 του αποφάσισε να ξεκινήσει από μηδέν και να σπουδάσει μαθηματικά. Δεν τον τρόμαζε να αρχίζει ξανά. Έγινε καθηγητής σε Βερολίνο, Αθήνα, Μόναχο. Αλλά η πιο σπουδαία του συμβολή ήταν η ανάπτυξη εργαλείων που έκαναν δυνατή τη διατύπωση της Θεωρίας της Σχετικότητας του Αϊνστάιν. Όταν ο Αϊνστάιν έχτιζε τη γενική σχετικότητα, αλληλογραφούσε συνεχώς με τον Καραθεοδωρή ζητώντας μαθηματικές διευκρινίσεις. Σε μία επιστολή του έγραψε: «Χωρίς εσένα, αυτή η θεωρία δεν θα ήταν ποτέ δυνατή». Ο Καραθεοδωρή εργάστηκε επίσης για τη δημιουργία σύγχρονων ελληνικών πανεπιστημίων. Πέθανε στο Μόναχο το 1950, σχεδόν άγνωστος στην Ελλάδα. Μάθημα: Μερικοί ήρωες δεν φωνάζουν — δουλεύουν στη σκιά και φωτίζουν άλλους.",
+      en: "Few Greeks know his name, but Albert Einstein called him 'my dearest friend.' He was born in Berlin in 1873, into an aristocratic Greek family. He studied engineering, worked in several countries, and only at 27 decided to start from scratch and study mathematics. He wasn't afraid to begin again. He became a professor in Berlin, Athens, and Munich. But his most important contribution was developing the mathematical tools that made the formulation of Einstein's Theory of Relativity possible. While Einstein was building general relativity, he corresponded constantly with Carathéodory seeking mathematical clarifications. In one letter he wrote: 'Without you, this theory would never have been possible.' Carathéodory also worked toward creating modern Greek universities. He died in Munich in 1950, nearly unknown in Greece. Lesson: Some heroes don't shout — they work in the shadows and illuminate others."
+    }
+  },
+  {
+    id: 88,
+    category: "GREEK_HEROES",
+    subject: { el: "Βαγγέλης Παπαθανασίου", en: "Vangelis Papathanassiou" },
+    title: { el: "Χωρίς Νότες, Κέρδισε το Όσκαρ", en: "Without Sheet Music, Won the Oscar" },
+    subtitle: { el: "The Synthesizer", en: "The Synthesizer" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Γεννήθηκε το 1943 στη Βόλο. Από μωρό έδειχνε ότι η μουσική ήταν μέσα του — χτυπούσε ρυθμικά αντικείμενα πριν μιλήσει. Ποτέ δεν πήγε σε ωδείο. Ποτέ δεν έμαθε να διαβάζει νότες. Αντ' αυτού, άκουγε και αισθανόταν. Στα 21 του έφτιαξε το πρώτο του συγκρότημα. Στα 70s, ήταν ένα από τα πιο καινοτόμα μουσικά μυαλά της Ευρώπης, πρωτοπόρος στη χρήση των συνθεσάιζερ όταν αυτά ήταν ακόμα αταξινόμητα ηλεκτρονικά εργαλεία. Το 1981, ο σκηνοθέτης Hugh Hudson τον κάλεσε να κάνει τη μουσική για μια ταινία: «Άρματα Πυρός» (Chariots of Fire) — η ιστορία δύο δρομέων στους Ολυμπιακούς Αγώνες του 1924. Ο Βαγγέλης κάθισε στα πλήκτρα, άκουσε τα πλάνα, και έπαιξε. Δεν είχε γράψει τίποτα εκ των προτέρων — η μουσική γεννήθηκε εκείνη τη στιγμή. Το αποτέλεσμα; Ένα από τα πιο αναγνωρίσιμα θέματα στην ιστορία του κινηματογράφου, και Όσκαρ Καλύτερης Πρωτότυπης Μουσικής 1982. Ο αυτοδίδακτος Έλληνας από τη Βόλο κέρδισε το μεγαλύτερο βραβείο που υπάρχει στη μουσική σκηνή. Μάθημα: Τα πτυχία αποδεικνύουν τι έμαθες — το ταλέντο αποδεικνύει τι είσαι.",
+      en: "He was born in 1943 in Volos. As a baby he showed that music was inside him — he rhythmically tapped objects before he could speak. He never attended a conservatory. He never learned to read sheet music. Instead, he listened and felt. At 21 he formed his first band. In the 70s, he was one of Europe's most innovative musical minds, a pioneer in using synthesizers when they were still unclassified electronic contraptions. In 1981, director Hugh Hudson called him to score a film: 'Chariots of Fire' — the story of two runners at the 1924 Olympic Games. Vangelis sat at the keys, watched the footage, and played. He had written nothing in advance — the music was born in that moment. The result? One of the most recognizable themes in film history, and the Academy Award for Best Original Score in 1982. The self-taught Greek from Volos won the most prestigious award that exists in the music world. Lesson: Diplomas prove what you learned — talent proves what you are."
+    }
+  },
+  {
+    id: 89,
+    category: "GREEK_HEROES",
+    subject: { el: "Μελίνα Μερκούρη", en: "Melina Mercouri" },
+    title: { el: "Η Γυναίκα που Είπε 'Όχι' σε Δύο Δικτατορίες", en: "The Woman Who Said No to Two Dictatorships" },
+    subtitle: { el: "The Fighter", en: "The Fighter" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Ήταν ηθοποιός, τραγουδίστρια, και ύστερα πολιτικός — αλλά πάνω απ' όλα ήταν μαχητής. Γεννήθηκε στην Αθήνα το 1920 σε πολιτική οικογένεια. Η ερμηνεία της στο «Ποτέ την Κυριακή» (1960) την κατέστησε διεθνή σταρ και της χάρισε υποψηφιότητα για Όσκαρ. Αλλά η πιο μεγάλη νίκη της δεν ήταν στη σκηνή — ήταν στη ζωή. Το 1967, η χούντα κατέλαβε την Ελλάδα. Η Μελίνα βρισκόταν στο εξωτερικό. Αντί να σιωπήσει, μίλησε παντού: «Δεν γεννήθηκα να υπηρετώ τυράννους». Της αφαίρεσαν την ελληνική ιθαγένεια. Αυτή απάντησε: «Εγεννήθην Ελληνίς και θα αποθάνω Ελληνίς». Επέστρεψε μετά την πτώση της χούντας, εκλέχτηκε βουλευτής και αργότερα έγινε η πρώτη γυναίκα Υπουργός Πολιτισμού της Ελλάδας. Ξεκίνησε έναν αγώνα που κρατά ακόμη: την επιστροφή των Γλυπτών του Παρθενώνα (Μαρμάρων Ελγιν) από το Βρετανικό Μουσείο. Ταξίδεψε στον κόσμο, μίλησε σε κάθε βήμα, πολέμησε με τα λόγια. Πέθανε το 1994 χωρίς να δει τα μάρμαρα να επιστρέφουν — αλλά η μάχη της συνεχίζεται. Μάθημα: Μερικές μάχες δεν κερδίζονται σε μια ζωή — αλλά αξίζει να τις αρχίσεις.",
+      en: "She was an actress, a singer, and later a politician — but above all she was a fighter. She was born in Athens in 1920 into a political family. Her performance in 'Never on Sunday' (1960) made her an international star and earned her an Oscar nomination. But her greatest victory wasn't on stage — it was in life. In 1967, the military junta seized Greece. Melina was abroad. Instead of staying silent, she spoke everywhere: 'I was not born to serve tyrants.' They stripped her of Greek citizenship. She replied: 'I was born Greek and I will die Greek.' She returned after the junta's fall, was elected to parliament, and later became Greece's first female Minister of Culture. She began a fight that continues to this day: the return of the Parthenon Sculptures (Elgin Marbles) from the British Museum. She traveled the world, spoke from every platform, fought with words. She died in 1994 without seeing the marbles return — but her battle continues. Lesson: Some battles are not won in a single lifetime — but they are worth starting."
+    }
+  },
+  {
+    id: 90,
+    category: "GREEK_HEROES",
+    subject: { el: "Πύρρος Δήμας", en: "Pyrros Dimas" },
+    title: { el: "Ο Άνθρωπος με τα Τρία Χρυσά", en: "The Man with Three Golds" },
+    subtitle: { el: "The Legend", en: "The Legend" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Γεννήθηκε το 1971 στην Αλβανία, σε μικρή πόλη κοντά στα ελληνο-αλβανικά σύνορα, σε ελληνική μειονοτική οικογένεια. Ο πατέρας του ήταν αρσιβαρίστας — και ο μικρός Πύρρος μεγάλωσε βλέποντας βάρη και ονειρευόμενος Ολυμπιακό Χρυσό. Ήρθε στην Ελλάδα το 1991, πήρε την ελληνική ιθαγένεια, και άρχισε να γράφει ιστορία. Στους Ολυμπιακούς Αγώνες της Βαρκελώνης το 1992: Χρυσό. Στους Ολυμπιακούς της Ατλάντας το 1996: Χρυσό. Στους Ολυμπιακούς της Σίδνεϊ το 2000: Χρυσό. Τρεις Ολυμπιακοί αγώνες, τρία χρυσά μετάλλια — κάτι που δεν είχε κάνει ποτέ ξανά Έλληνας αθλητής στην άρση βαρών. Στην Αθήνα το 2004, στους «δικούς του» Ολυμπιακούς, 80.000 θεατές τον αποθέωναν. Πρόσφερε όλες τις Ολυμπιακές του διακρίσεις στην Ελλάδα — τη χώρα που του έδωσε την ευκαιρία που χρειαζόταν. Μετά τη σταδιοδρομία του, έγινε προπονητής και αφοσιώθηκε στη νέα γενιά αθλητών. Ο Πύρρος Δήμας δεν ήταν απλώς αθλητής — ήταν σύμβολο: ότι η αφοσίωση, η πειθαρχία και η αγάπη για μια χώρα μπορούν να μεταμορφώσουν έναν άνθρωπο σε θρύλο. Μάθημα: Δεν σε ορίζει το μέρος που γεννήθηκες, αλλά η αξία που επιλέγεις να υπηρετείς.",
+      en: "He was born in 1971 in Albania, in a small town near the Greek-Albanian border, into a Greek minority family. His father was a weightlifter — and young Pyrros grew up watching weights and dreaming of Olympic Gold. He came to Greece in 1991, obtained Greek citizenship, and began writing history. At the Barcelona Olympics in 1992: Gold. At the Atlanta Olympics in 1996: Gold. At the Sydney Olympics in 2000: Gold. Three Olympics, three gold medals — something no Greek athlete had ever achieved in weightlifting. In Athens in 2004, at 'his own' Olympics, 80,000 spectators gave him a standing ovation. He dedicated all his Olympic distinctions to Greece — the country that gave him the opportunity he needed. After his athletic career, he became a coach and devoted himself to the new generation of athletes. Pyrros Dimas wasn't just an athlete — he was a symbol: that dedication, discipline, and love for a country can transform a person into a legend. Lesson: You are not defined by where you were born, but by the values you choose to serve."
+    }
   }
 ];
