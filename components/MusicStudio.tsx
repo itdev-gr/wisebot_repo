@@ -3,6 +3,7 @@ import { backendAI, authFetch } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
+import { useAuth } from '../context/AuthContext';
 
 interface MusicStudioProps {
   lang: 'el' | 'en';
@@ -109,6 +110,7 @@ interface GeneratedSong {
   sunoCover?: string;      // Suno-generated cover
   sunoTaskId?: string;     // For polling
   audioStatus?: 'pending' | 'processing' | 'complete' | 'error';
+  supabaseId?: string;     // Supabase DB row ID (after cloud save)
 }
 
 const GENRES = [
@@ -153,6 +155,7 @@ const WIZARD_STYLES = [
 
 export default function MusicStudio({ lang }: MusicStudioProps) {
   const { spendCredits, showNotification, costs, trackAction } = useEconomy();
+  const { user } = useAuth();
 
   // Mode: 'simple' = describe song, 'custom' = write own lyrics, 'guided' = step wizard
   const [mode, setMode] = useState<'simple' | 'custom' | 'guided'>('guided');
@@ -221,10 +224,48 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   const barsRef = useRef<number[]>(Array(24).fill(0).map(() => Math.random()));
   const pollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Save songs to localStorage
+  // Save songs to localStorage (local cache)
   useEffect(() => {
     localStorage.setItem('wisebot_music_library', JSON.stringify(songs));
   }, [songs]);
+
+  // Load songs from Supabase on mount and merge with localStorage
+  useEffect(() => {
+    if (!user) return;
+    authFetch('/api/auth/user-songs')
+      .then(r => r.json())
+      .then(({ songs: cloudSongs }) => {
+        if (!cloudSongs?.length) return;
+        const mapped: GeneratedSong[] = (cloudSongs as any[]).map((s: any) => ({
+          id: `cloud-${s.id}`,
+          title: s.title,
+          lyrics: s.lyrics || '',
+          cover: s.cover_url || '',
+          style: s.style || '',
+          instrumental: !!s.instrumental,
+          createdAt: new Date(s.created_at).getTime(),
+          audioUrl: s.audio_url,
+          streamUrl: s.stream_url || undefined,
+          sunoCover: s.cover_url || undefined,
+          sunoTaskId: s.suno_task_id || undefined,
+          audioStatus: 'complete' as const,
+          supabaseId: s.id,
+        }));
+        setSongs(prev => {
+          // Merge: cloud songs fill in any localStorage gaps; prefer cloud for deduplication
+          const cloudTaskIds = new Set(mapped.map(s => s.sunoTaskId).filter(Boolean));
+          // Remove local songs that already exist in cloud (by taskId)
+          const localOnly = prev.filter(s =>
+            !s.sunoTaskId || !cloudTaskIds.has(s.sunoTaskId)
+          );
+          // Sort merged result newest-first
+          const merged = [...mapped, ...localOnly].sort((a, b) => b.createdAt - a.createdAt);
+          return merged;
+        });
+      })
+      .catch(err => console.warn('[MusicStudio] Failed to load cloud songs:', err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   // Resume polling for songs that were still processing
   useEffect(() => {
@@ -479,12 +520,19 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
             sunoCover: data.coverUrl,
             audioStatus: 'complete' as const,
           };
-          setSongs(prev => prev.map(s => {
-            if (s.id === songId) {
-              return { ...s, ...updatedSong, cover: data.coverUrl || s.cover };
-            }
-            return s;
-          }));
+          // Get latest song data from state for saving to cloud
+          let songForSave: GeneratedSong | undefined;
+          setSongs(prev => {
+            const updated = prev.map(s => {
+              if (s.id === songId) {
+                const merged = { ...s, ...updatedSong, cover: data.coverUrl || s.cover };
+                songForSave = merged;
+                return merged;
+              }
+              return s;
+            });
+            return updated;
+          });
           // Also update currentSong if it's the same song
           setCurrentSong(prev => {
             if (prev?.id === songId) {
@@ -493,6 +541,40 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
             return prev;
           });
           showNotification('🎵', lang === 'el' ? 'Το τραγούδι σου είναι έτοιμο! Πάτα Play!' : 'Your song is ready! Press Play!');
+
+          // ── Save to Supabase for permanent cloud storage ────────────
+          setTimeout(() => {
+            setSongs(latestSongs => {
+              const song = latestSongs.find(s => s.id === songId);
+              if (song && !song.supabaseId) {
+                authFetch('/api/auth/user-songs', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    title: song.title,
+                    lyrics: song.lyrics,
+                    style: song.style,
+                    audio_url: data.audioUrl || data.streamUrl,
+                    stream_url: data.streamUrl || null,
+                    cover_url: data.coverUrl || song.cover || null,
+                    suno_task_id: taskId,
+                    instrumental: song.instrumental,
+                  }),
+                })
+                  .then(r => r.json())
+                  .then(result => {
+                    if (result.id) {
+                      setSongs(p => p.map(s =>
+                        s.id === songId ? { ...s, supabaseId: result.id } : s
+                      ));
+                      console.log('[MusicStudio] Song saved to Supabase:', result.id);
+                    }
+                  })
+                  .catch(err => console.warn('[MusicStudio] Cloud save failed:', err));
+              }
+              return latestSongs; // Don't modify state here
+            });
+          }, 500);
         } else if (data.status === 'error') {
           if (pollingRef.current) clearInterval(pollingRef.current);
           setSongs(prev => prev.map(s => s.id === songId ? { ...s, audioStatus: 'error' as const } : s));

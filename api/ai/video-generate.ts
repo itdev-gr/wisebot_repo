@@ -24,6 +24,16 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req);
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
+  // Rate limiting: max 3 videos per hour per user (Veo 2 is very expensive)
+  const { checkRateLimit } = await import('../_lib/rateLimit');
+  const rateCheck = await checkRateLimit(user.id, 'video', 3, 60);
+  if (!rateCheck.allowed) {
+    return res.status(429).json({
+      error: `Too many video requests. Please wait ${Math.ceil((rateCheck.retryAfter || 60) / 60)} minutes.`,
+      retryAfter: rateCheck.retryAfter,
+    });
+  }
+
   // Server-side credit guard — Veo 2 costs ~€1.65-2.65 per generation
   const VIDEO_COST = 80;
   const { checkCredits } = await import('../_lib/auth');

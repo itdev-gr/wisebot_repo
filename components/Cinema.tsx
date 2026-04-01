@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { 
-  X, 
-  Zap, 
-  Wand2, 
-  Sparkles, 
-  Upload, 
-  Mic, 
-  Activity, 
-  Download, 
+import {
+  X,
+  Zap,
+  Wand2,
+  Sparkles,
+  Upload,
+  Mic,
+  Activity,
+  Download,
   Film,
   Users,
   MessageCircle,
@@ -24,6 +24,7 @@ import { useLocation } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
+import { useAuth } from '../context/AuthContext';
 
 const motion = m as any;
 
@@ -367,11 +368,48 @@ interface CinemaProps {
 
 const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   const { spendCredits, costs, trackAction, showNotification } = useEconomy();
+  const { user } = useAuth();
   const location = useLocation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Gallery State
   const [gallery, setGallery] = useState<any[]>([...SYSTEM_VIDEOS, ...MARKET_VIDEOS]);
+
+  // Load user's saved videos from Supabase on mount
+  useEffect(() => {
+    if (!user) return;
+    authFetch('/api/auth/user-videos')
+      .then(r => r.json())
+      .then(({ videos }) => {
+        if (!videos?.length) return;
+        const cloudVideos = (videos as any[]).map((v: any) => ({
+          id: `cloud-${v.id}`,
+          title: { el: v.title, en: v.title },
+          hero: v.hero_name || 'My Hero',
+          category: 'user',
+          thumbnail: v.thumbnail || '',
+          videoUrl: v.public_url,
+          duration: '0:06',
+          description: { el: 'Δημιουργία μου', en: 'My creation' },
+          author: 'You',
+          type: 'user',
+          savedAt: v.created_at,
+        }));
+        setGallery(prev => {
+          // Merge: keep system videos + add cloud videos (avoid duplicates)
+          const existingIds = new Set(prev.filter(v => v.type === 'user').map((v: any) => v.id));
+          const newOnes = cloudVideos.filter((v: any) => !existingIds.has(v.id));
+          if (!newOnes.length) return prev;
+          const systemVids = prev.filter(v => v.type !== 'user');
+          // Sort cloud videos newest first
+          const sortedCloud = [...newOnes].sort((a: any, b: any) =>
+            new Date(b.savedAt).getTime() - new Date(a.savedAt).getTime()
+          );
+          return [...systemVids, ...sortedCloud];
+        });
+      })
+      .catch(err => console.warn('[Cinema] Failed to load saved videos:', err));
+  }, [user]);
 
   // Wizard State
   const [isWizardOpen, setIsWizardOpen] = useState(false);
@@ -502,21 +540,32 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       if (!requestId) throw new Error('No requestId from video API');
 
       // Step 2: Poll for completion (up to 5 minutes)
+      // Pass metadata so server can save to Supabase Storage
+      const videoTitle = lang === 'el'
+        ? `Η Ταινία του ${selectedHero.name}`
+        : `${selectedHero.name}'s Movie`;
+      const pollParams = new URLSearchParams({
+        requestId,
+        title: videoTitle,
+        hero: selectedHero.name || '',
+        prompt: prompt.slice(0, 300),
+      }).toString();
+
       let localUrl = '';
-      let videoData = '';
       for (let i = 0; i < 60; i++) {
         await new Promise(r => setTimeout(r, 5000)); // wait 5s between polls
-        const statusResp = await authFetch(`/api/ai/video-status?requestId=${encodeURIComponent(requestId)}`);
+        const statusResp = await authFetch(`/api/ai/video-status?${pollParams}`);
         if (!statusResp.ok) continue;
         const statusData = await statusResp.json();
 
         if (statusData.status === 'complete') {
-          if (statusData.videoData) {
-            // Proxy returned base64 — convert to blob URL
+          if (statusData.videoUrl) {
+            // Permanent Supabase Storage URL — best case
+            localUrl = statusData.videoUrl;
+          } else if (statusData.videoData) {
+            // Fallback: base64 data URL — convert to blob URL for immediate display
             const videoBlob = await fetch(statusData.videoData).then(r => r.blob());
             localUrl = URL.createObjectURL(videoBlob);
-          } else if (statusData.videoUrl) {
-            localUrl = statusData.videoUrl;
           }
           break;
         } else if (statusData.status === 'error') {
@@ -528,7 +577,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
       const newVideoEntry = {
         id: `my-${Date.now()}`,
-        title: { el: `Η Ταινία του ${selectedHero.name}`, en: `${selectedHero.name}'s Movie` },
+        title: { el: videoTitle, en: videoTitle },
         hero: selectedHero.name,
         category: 'user',
         thumbnail: selectedHero.avatar,
@@ -536,13 +585,13 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
         duration: '0:06',
         description: { el: `${finalAction} - ${finalGreeting}`, en: `${finalAction} - ${finalGreeting}` },
         author: 'You',
-        type: 'user'
+        type: 'user',
       };
 
-      setGallery(prev => [newVideoEntry, ...prev]);
+      setGallery(prev => [newVideoEntry, ...prev.filter(v => v.id !== newVideoEntry.id)]);
       setGeneratedVideoUrl(localUrl);
       trackAction('CREATE_VIDEO');
-      showNotification('🎬', lang === 'el' ? 'Το βίντεο είναι έτοιμο!' : 'Video is ready!');
+      showNotification('🎬', lang === 'el' ? 'Το βίντεο αποθηκεύτηκε!' : 'Video saved to your collection!');
 
     } catch (error: any) {
       console.error(error);
@@ -649,7 +698,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
                     </h3>
                     
                     <p className="text-white/60 font-bold uppercase tracking-widest text-xs mb-8">
-                        {lang === 'el' ? 'ΑΠΟΘΗΚΕΥΤΗΚΕ ΣΤΗ ΣΥΛΛΟΓΗ ΣΟΥ' : 'SAVED TO YOUR GALLERY'}
+                        {lang === 'el' ? '☁️ ΑΠΟΘΗΚΕΥΤΗΚΕ ΜΟΝΙΜΑ ΣΤΟ ΛΟΓΑΡΙΑΣΜΟ ΣΟΥ' : '☁️ PERMANENTLY SAVED TO YOUR ACCOUNT'}
                     </p>
 
                     <div className="relative p-1 rounded-[2.5rem] bg-gradient-to-b from-white/20 to-white/5 backdrop-blur-xl border border-white/20 shadow-2xl mb-10 group">

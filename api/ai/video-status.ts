@@ -2,9 +2,11 @@
  * Video Generation Status Polling — Google Veo 2
  * =================================================
  * Polls Google for video generation completion.
+ * On success, uploads the video to Supabase Storage and returns a
+ * permanent public URL (instead of an ephemeral blob URL).
  *
- * GET /api/ai/video-status?requestId=operations/xxx
- * Response: { status: 'processing'|'complete'|'error', videoData?, progress? }
+ * GET /api/ai/video-status?requestId=operations/xxx&title=...&hero=...
+ * Response: { status: 'processing'|'complete'|'error', videoUrl?, progress? }
  */
 
 export default async function handler(req: any, res: any) {
@@ -24,6 +26,12 @@ export default async function handler(req: any, res: any) {
   // requestId = Google operationName (e.g. "operations/xxx")
   const requestId = req.query.requestId as string;
   if (!requestId) return res.status(400).json({ error: 'requestId required' });
+
+  // Optional metadata passed from client for saving to DB
+  const title = (req.query.title as string) || 'WiseBot Video';
+  const heroName = (req.query.hero as string) || '';
+  const prompt = (req.query.prompt as string) || '';
+  const thumbnail = (req.query.thumbnail as string) || '';
 
   try {
     const pollUrl = `https://generativelanguage.googleapis.com/v1beta/${requestId}?key=${apiKey}`;
@@ -60,24 +68,83 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ status: 'error', error: 'No video URL' });
     }
 
-    // Proxy video through server (never expose API key to client)
+    // Download video buffer (never expose API key to client)
+    let videoBuffer: ArrayBuffer | null = null;
     try {
       const videoResp = await fetch(`${videoUri}?key=${apiKey}`);
       if (videoResp.ok) {
-        const videoBuffer = await videoResp.arrayBuffer();
-        const base64 = Buffer.from(videoBuffer).toString('base64');
-        return res.status(200).json({
-          status: 'complete',
-          videoData: `data:video/mp4;base64,${base64}`,
-        });
+        videoBuffer = await videoResp.arrayBuffer();
       }
     } catch (proxyErr: any) {
-      console.error('[video-status] Proxy error:', proxyErr.message);
+      console.error('[video-status] Proxy/download error:', proxyErr.message);
     }
 
-    // Proxy failed — never expose API key to client
-    console.error('[video-status] Proxy failed for videoUri (key hidden)');
-    return res.status(200).json({ status: 'error', error: 'Failed to retrieve video. Please try generating again.' });
+    if (!videoBuffer) {
+      console.error('[video-status] Could not download video from Google');
+      return res.status(200).json({ status: 'error', error: 'Failed to retrieve video. Please try generating again.' });
+    }
+
+    // ── Upload to Supabase Storage for permanent URL ──────────────────
+    let publicUrl: string | null = null;
+    let storagePath: string | null = null;
+    try {
+      const { createClient } = await import('@supabase/supabase-js');
+      const supabase = createClient(
+        process.env.SUPABASE_URL || '',
+        process.env.SUPABASE_SERVICE_KEY || '',
+        { auth: { autoRefreshToken: false, persistSession: false } }
+      );
+
+      const timestamp = Date.now();
+      storagePath = `${user.id}/${timestamp}.mp4`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('user-videos')
+        .upload(storagePath, Buffer.from(videoBuffer), {
+          contentType: 'video/mp4',
+          upsert: false,
+        });
+
+      if (uploadError) {
+        console.error('[video-status] Storage upload error:', uploadError.message);
+      } else {
+        const { data: urlData } = supabase.storage
+          .from('user-videos')
+          .getPublicUrl(storagePath);
+        publicUrl = urlData?.publicUrl || null;
+
+        // Save metadata to user_videos table
+        if (publicUrl) {
+          const { error: dbError } = await supabase
+            .from('user_videos')
+            .insert({
+              user_id: user.id,
+              title: title.slice(0, 200),
+              hero_name: heroName.slice(0, 100),
+              prompt: prompt.slice(0, 500),
+              storage_path: storagePath,
+              public_url: publicUrl,
+              thumbnail: thumbnail.slice(0, 500),
+            });
+          if (dbError) console.error('[video-status] DB insert error:', dbError.message);
+          else console.log('[video-status] Video saved to Supabase Storage for user', user.id);
+        }
+      }
+    } catch (storageErr: any) {
+      console.error('[video-status] Supabase Storage error:', storageErr.message);
+    }
+
+    // Return permanent URL if available, fallback to base64 (so client is never left empty)
+    if (publicUrl) {
+      return res.status(200).json({ status: 'complete', videoUrl: publicUrl });
+    }
+
+    // Fallback: return base64 data URL (ephemeral but at least the user sees their video)
+    const base64 = Buffer.from(videoBuffer).toString('base64');
+    return res.status(200).json({
+      status: 'complete',
+      videoData: `data:video/mp4;base64,${base64}`,
+    });
 
   } catch (err: any) {
     console.error('[video-status] Error:', err.message);

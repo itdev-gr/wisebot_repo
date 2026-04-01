@@ -37,6 +37,16 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req);
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
+  // Rate limiting: max 5 songs per hour per user
+  const { checkRateLimit } = await import('../_lib/rateLimit');
+  const rateCheck = await checkRateLimit(user.id, 'suno', 5, 60);
+  if (!rateCheck.allowed) {
+    return res.status(429).json({
+      error: `Too many song requests. Please wait ${Math.ceil((rateCheck.retryAfter || 60) / 60)} minutes.`,
+      retryAfter: rateCheck.retryAfter,
+    });
+  }
+
   // Server-side credit guard — Suno generation costs credits
   const SONG_COST = 60;
   const { checkCredits } = await import('../_lib/auth');
