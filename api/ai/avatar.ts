@@ -57,8 +57,8 @@ export default async function handler(req: any, res: any) {
     'Bright vivid colors, bold outlines, friendly expression, square crop. ' +
     'NO text, NO watermarks, NO labels anywhere on the image.';
 
-  // ─── ATTEMPT 1: OpenAI gpt-image-1 images.edit ──────────────
-  // Accepts JPEG/PNG input, ~10 s, designed specifically for image editing/transformation
+  // ─── ATTEMPT 1: OpenAI gpt-image-1 images.edit (25 s guard) ──
+  // Accepts JPEG/PNG input, designed specifically for image editing/transformation
   const openaiKey = process.env.OPENAI_API_KEY;
   if (openaiKey) {
     try {
@@ -77,11 +77,18 @@ export default async function handler(req: any, res: any) {
       formData.append('size', '1024x1024');
       formData.append('quality', 'medium');
 
-      const resp = await fetch('https://api.openai.com/v1/images/edits', {
+      const fetchPromise = fetch('https://api.openai.com/v1/images/edits', {
         method: 'POST',
         headers: { Authorization: `Bearer ${openaiKey}` },
         body: formData,
       });
+
+      // 25 s guard — leaves enough time for Gemini fallback within Vercel's 60 s limit
+      const openaiTimeout = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('OPENAI_TIMEOUT')), 25_000),
+      );
+
+      const resp = await Promise.race([fetchPromise, openaiTimeout]) as Response;
 
       if (resp.ok) {
         const data = await resp.json();
@@ -100,12 +107,12 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  // ─── ATTEMPT 2: Gemini 2.0 Flash Exp (45 s timeout guard) ───
-  // Image→image with responseModalities; slow on free tier but correct model
+  // ─── ATTEMPT 2: Gemini 2.0 Flash Exp (28 s timeout guard) ───
+  // Image→image with responseModalities; fallback when gpt-image-1 is slow/fails
   const geminiKey = process.env.GEMINI_API_KEY;
   if (geminiKey) {
     try {
-      console.log('[avatar] Trying gemini-2.0-flash-exp (45 s guard)...');
+      console.log('[avatar] Trying gemini-2.0-flash-exp (28 s guard)...');
       const { GoogleGenAI } = await import('@google/genai');
       const ai = new GoogleGenAI({ apiKey: geminiKey });
 
@@ -126,9 +133,9 @@ export default async function handler(req: any, res: any) {
         },
       });
 
-      // Abort before Vercel's 60 s hard kill — gives us a clean error log instead of silent 500
+      // 28 s guard — together with the 25 s OpenAI guard fits within Vercel's 60 s limit
       const timeoutPromise = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error('GEMINI_TIMEOUT')), 45_000),
+        setTimeout(() => reject(new Error('GEMINI_TIMEOUT')), 28_000),
       );
 
       const response = await Promise.race([geminiPromise, timeoutPromise]) as any;
