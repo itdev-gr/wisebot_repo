@@ -12,10 +12,18 @@
  *   4. Falls back to Web Speech API if all else fails
  */
 
-import { GoogleGenAI } from "./geminiProxy";
+import { authFetch } from "./backendApi";
 import { base64ToUint8Array } from "../utils/audioUtils";
 
-const getAI = () => new GoogleGenAI();
+// Map Gemini voice names to /api/ai/tts voice styles
+const VOICE_STYLE_MAP: Record<string, string> = {
+  Kore:   'friendly',
+  Aoede:  'calm',
+  Puck:   'narrator',
+  Charon: 'adventure',
+  Leda:   'friendly',
+  Zephyr: 'friendly',
+};
 
 // ─── Voice Presets ──────────────────────────────────────────────
 export const TTS_VOICES = {
@@ -223,48 +231,40 @@ export async function generateSpeech(
     return blobUrl;
   }
 
-  // 3️⃣ Generate via Gemini API (one-time cost)
-  const ai = getAI();
-
-  const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash-preview-tts',
-    contents: text,
-    config: {
-      responseModalities: ['AUDIO'],
-      speechConfig: {
-        voiceConfig: {
-          prebuiltVoiceConfig: { voiceName },
-        },
-      },
-    },
+  // 3️⃣ Generate via /api/ai/tts (Gemini TTS — natural Kore voice)
+  const voiceStyle = VOICE_STYLE_MAP[voiceName] || 'friendly';
+  const resp = await authFetch('/api/ai/tts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, voice: voiceStyle }),
   });
 
-  if (response.candidates?.[0]?.content?.parts) {
-    for (const part of response.candidates[0].content.parts) {
-      if (part.inlineData?.data) {
-        const audioBytes = base64ToUint8Array(part.inlineData.data);
-        const mimeType = part.inlineData.mimeType || '';
-
-        let blob: Blob;
-        if (mimeType.includes('wav') || mimeType.includes('mp3') || mimeType.includes('ogg')) {
-          blob = new Blob([audioBytes], { type: mimeType });
-        } else {
-          const rateMatch = mimeType.match(/rate=(\d+)/);
-          const sampleRate = rateMatch ? parseInt(rateMatch[1]) : 24000;
-          blob = pcmToWav(audioBytes, sampleRate);
-        }
-
-        // Save to IndexedDB (persistent — never need to generate again!)
-        await saveToDB(key, blob);
-
-        const blobUrl = URL.createObjectURL(blob);
-        memCacheSet(key, blobUrl);
-        return blobUrl;
-      }
-    }
+  if (!resp.ok) {
+    const errData = await resp.json().catch(() => ({}));
+    throw new Error((errData as any).error || `TTS request failed (${resp.status})`);
   }
 
-  throw new Error('Gemini TTS returned no audio data');
+  const data = await resp.json() as { audio?: string; mimeType?: string };
+  if (!data.audio) throw new Error('Gemini TTS returned no audio data');
+
+  const audioBytes = base64ToUint8Array(data.audio);
+  const mimeType = data.mimeType || '';
+
+  let blob: Blob;
+  if (mimeType.includes('wav') || mimeType.includes('mp3') || mimeType.includes('ogg')) {
+    blob = new Blob([audioBytes], { type: mimeType });
+  } else {
+    const rateMatch = mimeType.match(/rate=(\d+)/);
+    const sampleRate = rateMatch ? parseInt(rateMatch[1]) : 24000;
+    blob = pcmToWav(audioBytes, sampleRate);
+  }
+
+  // Save to IndexedDB (persistent — never need to generate again!)
+  await saveToDB(key, blob);
+
+  const blobUrl = URL.createObjectURL(blob);
+  memCacheSet(key, blobUrl);
+  return blobUrl;
 }
 
 // ═══════════════════════════════════════════════════════════════

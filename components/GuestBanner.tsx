@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, UserPlus, ArrowRight, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 interface GuestBannerProps {
   lang: 'el' | 'en';
@@ -8,6 +9,7 @@ interface GuestBannerProps {
 
 export default function GuestBanner({ lang }: GuestBannerProps) {
   const navigate = useNavigate();
+  const { user, loading } = useAuth();
   const [dismissed, setDismissed] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -30,6 +32,9 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
   const handleEnterPortal = () => {
     navigate('/portal');
   };
+
+  // Never show to authenticated users
+  if (loading || user) return null;
 
   if (dismissed || !visible) return null;
 
