@@ -37,6 +37,17 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ found: false, error: 'Auth failed' });
   }
 
+  // Rate limit: max 30 lookups per 10 minutes per user (prevents username enumeration)
+  const { checkRateLimit } = await import('../_lib/rateLimit');
+  const lookupCheck = await checkRateLimit(callerId, 'lookup', 30, 10);
+  if (!lookupCheck.allowed) {
+    return res.status(429).json({
+      found: false,
+      error: `Πολλές αναζητήσεις. Παρακαλώ περίμενε λίγα λεπτά. / Too many lookups. Please wait a few minutes.`,
+      retryAfter: lookupCheck.retryAfter,
+    });
+  }
+
   const username = (req.query?.username || '').toString().trim();
   if (!username || username.length < 2) {
     return res.status(400).json({ found: false, error: 'Username too short' });

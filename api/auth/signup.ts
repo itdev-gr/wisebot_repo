@@ -38,6 +38,17 @@ export default async function handler(req: any, res: any) {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  // IP rate limit: max 5 signups per 30 minutes per IP (prevents registration spam)
+  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit');
+  const clientIp = getClientIp(req);
+  const ipCheck = await checkIpRateLimit(clientIp, 'signup', 5, 30);
+  if (!ipCheck.allowed) {
+    return res.status(429).json({
+      error: `Πολλές απόπειρες εγγραφής. Παρακαλώ περίμενε ${Math.ceil((ipCheck.retryAfter || 60) / 60)} λεπτά. / Too many signup attempts. Please wait ${Math.ceil((ipCheck.retryAfter || 60) / 60)} minutes.`,
+      retryAfter: ipCheck.retryAfter,
+    });
+  }
+
   try {
     const body = req.body || {};
 

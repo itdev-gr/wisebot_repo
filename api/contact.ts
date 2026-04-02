@@ -32,6 +32,21 @@ export default async function handler(req: any, res: any) {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  // IP rate limit: max 3 contact messages per 10 minutes per IP (prevents spam)
+  try {
+    const { checkIpRateLimit, getClientIp } = await import('./_lib/rateLimit');
+    const clientIp = getClientIp(req);
+    const ipCheck = await checkIpRateLimit(clientIp, 'contact', 3, 10);
+    if (!ipCheck.allowed) {
+      return res.status(429).json({
+        error: `Πολλά μηνύματα. Παρακαλώ περίμενε ${Math.ceil((ipCheck.retryAfter || 60) / 60)} λεπτά. / Too many messages. Please wait ${Math.ceil((ipCheck.retryAfter || 60) / 60)} minutes.`,
+        retryAfter: ipCheck.retryAfter,
+      });
+    }
+  } catch (rlErr: any) {
+    console.warn('[contact] Rate limit check failed (non-fatal):', rlErr.message);
+  }
+
   try {
     const { name, surname, email, phone, orderId, message, type } = req.body || {};
 
@@ -39,7 +54,6 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Name, email and message are required' });
     }
 
-    // Rate limit: simple check (in production, use Redis/Upstash)
     const supportEmail = process.env.SUPPORT_EMAIL || 'info@wisebot.gr';
 
     // Store in Supabase (if table exists)
