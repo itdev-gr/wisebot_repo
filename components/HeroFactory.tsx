@@ -186,10 +186,11 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     }
   }, [step, lang]); // hero removed — use heroSnapshot.current to avoid stale closure re-runs
 
-  // Effect to save hero — image is already compressed in state
+  // Effect to save hero — only when we have a real generated image (not the default placeholder).
+  // This prevents saving a broken hero if the safety timeout fires before generation completes.
   const heroSavedRef = useRef(false);
   useEffect(() => {
-    if (step === 5 && !heroSavedRef.current) {
+    if (step === 5 && !heroSavedRef.current && resultImage !== DEFAULT_IMAGE) {
       heroSavedRef.current = true;
       try {
         addHero({
@@ -207,7 +208,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         console.error('Failed to save hero:', e);
       }
     }
-  }, [step]); 
+  }, [step, resultImage]);
 
   const handleNext = async () => {
     if (step === 0 && !hero.species) return;
@@ -958,7 +959,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           <p className="text-white/40 text-xs">v4 — Gemini Native</p>
           <div className="flex gap-3 justify-center">
             <button
-              onClick={() => { setGenerationError(null); heroSavedRef.current = false; setStep(3); }}
+              onClick={() => { setGenerationError(null); heroSavedRef.current = false; setResultImage(DEFAULT_IMAGE); setStep(4); }}
               className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-[1000] uppercase tracking-widest text-xs hover:brightness-110 transition-all flex items-center gap-2"
             >
               <RefreshCcw size={14} /> {lang === 'el' ? 'ΔΟΚΙΜΑΣΕ ΞΑΝΑ' : 'TRY AGAIN'}

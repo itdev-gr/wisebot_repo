@@ -504,7 +504,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       let imageBytes = "";
       let mimeType = "image/png";
 
-      if (!selectedHero.avatar) {
+      if (!selectedHero?.avatar) {
         showNotification('❌', lang === 'el' ? 'Ο ήρωας δεν έχει εικόνα' : 'Hero has no image');
         setIsGenerating(false);
         return;
