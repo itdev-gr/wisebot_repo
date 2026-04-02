@@ -1,12 +1,12 @@
 
 import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Download, Wifi, WifiOff, Shield } from 'lucide-react';
+import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Wifi, Shield } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
 import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel } from '../utils/ttsVoice';
-import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, preDownloadAll, getCachedCount, PreDownloadProgress, loadStaticAudio } from '../services/cloudTTS';
+import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticAudio } from '../services/cloudTTS';
 
 const motion = m as any;
 
@@ -445,40 +445,6 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const { trackAction } = useEconomy();
   const rewardedRef = useRef<Set<number>>(new Set()); // Prevent double-fire (React StrictMode / motion layout)
 
-  // ─── Voice Pre-Download State ────
-  const [isDownloading, setIsDownloading] = useState(false);
-  const [downloadProgress, setDownloadProgress] = useState<PreDownloadProgress | null>(null);
-  const [cachedVoiceCount, setCachedVoiceCount] = useState(0);
-
-  const storyItems = useMemo(() =>
-    COURSES.map(c => ({
-      id: `story-${c.id}`,
-      text: c.storyContent[lang],
-      lang,
-    })),
-    [lang]
-  );
-
-  // Check how many voices are already cached
-  useEffect(() => {
-    getCachedCount(storyItems).then(setCachedVoiceCount).catch(() => {});
-  }, [storyItems]);
-
-  const handleDownloadAll = useCallback(async () => {
-    if (isDownloading) return;
-    setIsDownloading(true);
-    try {
-      await preDownloadAll(storyItems, (p) => setDownloadProgress(p));
-      const count = await getCachedCount(storyItems);
-      setCachedVoiceCount(count);
-    } catch (err) {
-      console.warn('Pre-download failed:', err);
-    } finally {
-      setIsDownloading(false);
-      setDownloadProgress(null);
-    }
-  }, [storyItems, isDownloading]);
-
   const filteredCourses = COURSES.filter(course => course.category === activeCategory);
 
   const handleReadStory = (course: any, imageUrl?: string) => {
@@ -537,40 +503,6 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 90 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 90 GREAT PEOPLE'}
          </p>
 
-         {/* Voice Download Button */}
-         {isCloudTTSAvailable() && (
-           <div className="flex items-center justify-center gap-3 mt-2">
-             {isDownloading ? (
-               <div className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full">
-                 <Loader2 size={13} className="text-purple-400 animate-spin" />
-                 <span className="text-purple-300/80 text-[10px] font-black uppercase tracking-wider">
-                   {downloadProgress
-                     ? `${lang === 'el' ? 'ΚΑΤΕΒΑΖΩ' : 'DOWNLOADING'} ${downloadProgress.completed}/${downloadProgress.total}...`
-                     : lang === 'el' ? 'ΕΤΟΙΜΑΖΩ...' : 'PREPARING...'}
-                 </span>
-               </div>
-             ) : cachedVoiceCount >= COURSES.length ? (
-               <div className="flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                 <WifiOff size={11} className="text-emerald-400" />
-                 <span className="text-emerald-300/70 text-[10px] font-black uppercase tracking-wider">
-                   {lang === 'el' ? 'ΟΛΕΣ ΟΙ ΦΩΝΕΣ ΑΠΟΘΗΚΕΥΜΕΝΕΣ' : 'ALL VOICES SAVED'} <Sparkles size={10} className="inline text-emerald-400" />
-                 </span>
-               </div>
-             ) : (
-               <button
-                 onClick={handleDownloadAll}
-                 className="flex items-center gap-2 px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full hover:bg-purple-500/20 active:scale-95 transition-all group"
-               >
-                 <Download size={12} className="text-purple-400 group-hover:animate-bounce" />
-                 <span className="text-purple-300/70 text-[10px] font-black uppercase tracking-wider group-hover:text-purple-200">
-                   {lang === 'el'
-                     ? `ΚΑΤΕΒΑΣΕ ΟΛΕΣ ΤΙΣ ΦΩΝΕΣ AI (${cachedVoiceCount}/${COURSES.length})`
-                     : `DOWNLOAD ALL AI VOICES (${cachedVoiceCount}/${COURSES.length})`}
-                 </span>
-               </button>
-             )}
-           </div>
-         )}
       </div>
 
       {/* CATEGORY TABS (Pill Style) */}
