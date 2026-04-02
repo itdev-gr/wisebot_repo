@@ -3,17 +3,27 @@
  * =======================================================
  * Uses the rate_limits table to track request counts in a rolling window.
  *
+ * NOTE: No static imports — uses @supabase/supabase-js dynamic imports inline
+ * to prevent ERR_MODULE_NOT_FOUND when this module is dynamically imported on Vercel.
+ *
  * Usage:
  *   const { allowed, remaining, retryAfter } = await checkRateLimit(userId, 'video', 3, 60);
  *   if (!allowed) return res.status(429).json({ error: 'Too many requests', retryAfter });
  */
 
-import { getSupabaseAdmin } from './supabase';
-
 interface RateLimitResult {
   allowed: boolean;
   remaining: number;
   retryAfter?: number; // seconds until window resets
+}
+
+async function getSupabase() {
+  const { createClient } = await import('@supabase/supabase-js');
+  return createClient(
+    process.env.SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_KEY || '',
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  );
 }
 
 /**
@@ -29,7 +39,7 @@ export async function checkRateLimit(
   windowMinutes: number
 ): Promise<RateLimitResult> {
   try {
-    const supabase = await getSupabaseAdmin();
+    const supabase = await getSupabase();
     const windowMs = windowMinutes * 60 * 1000;
     const now = new Date();
 
@@ -107,7 +117,7 @@ export async function checkIpRateLimit(
   windowMinutes: number,
 ): Promise<RateLimitResult> {
   try {
-    const supabase = await getSupabaseAdmin();
+    const supabase = await getSupabase();
     const windowMs = windowMinutes * 60 * 1000;
     const now = new Date();
 

@@ -4,12 +4,13 @@
  * Verifies the Supabase JWT from the Authorization header.
  * Returns the authenticated user or null.
  *
+ * NOTE: No static imports — uses @supabase/supabase-js dynamic imports inline
+ * to prevent ERR_MODULE_NOT_FOUND when this module is dynamically imported on Vercel.
+ *
  * Usage in any endpoint:
  *   const user = await getAuthUser(req);
  *   if (!user) return res.status(401).json({ error: 'Authentication required' });
  */
-
-import { getSupabaseAdmin } from './supabase';
 
 export interface AuthUser {
   id: string;
@@ -29,7 +30,12 @@ export async function getAuthUser(req: any): Promise<AuthUser | null> {
     const token = authHeader.slice(7);
     if (!token) return null;
 
-    const supabase = await getSupabaseAdmin();
+    const { createClient } = await import('@supabase/supabase-js');
+    const supabase = createClient(
+      process.env.SUPABASE_URL || '',
+      process.env.SUPABASE_SERVICE_KEY || '',
+      { auth: { autoRefreshToken: false, persistSession: false } }
+    );
     const { data: { user }, error } = await supabase.auth.getUser(token);
 
     if (error || !user) return null;
@@ -50,7 +56,12 @@ export async function getAuthUser(req: any): Promise<AuthUser | null> {
  */
 export async function checkCredits(userId: string, cost: number): Promise<{ ok: boolean; credits?: number; error?: string }> {
   try {
-    const supabase = await getSupabaseAdmin();
+    const { createClient } = await import('@supabase/supabase-js');
+    const supabase = createClient(
+      process.env.SUPABASE_URL || '',
+      process.env.SUPABASE_SERVICE_KEY || '',
+      { auth: { autoRefreshToken: false, persistSession: false } }
+    );
     const { data, error } = await supabase
       .from('profiles')
       .select('credits')
@@ -74,9 +85,13 @@ export async function checkCredits(userId: string, cost: number): Promise<{ ok: 
  */
 export async function deductCredits(userId: string, cost: number): Promise<number | null> {
   try {
-    const supabase = await getSupabaseAdmin();
+    const { createClient } = await import('@supabase/supabase-js');
+    const supabase = createClient(
+      process.env.SUPABASE_URL || '',
+      process.env.SUPABASE_SERVICE_KEY || '',
+      { auth: { autoRefreshToken: false, persistSession: false } }
+    );
 
-    // Use RPC or manual update with check
     const { data, error } = await supabase
       .from('profiles')
       .select('credits')

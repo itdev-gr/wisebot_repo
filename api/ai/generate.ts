@@ -191,8 +191,26 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = await (await import('../_lib/auth')).getAuthUser(req);
-  if (!user) return res.status(401).json({ error: 'Authentication required' });
+  // Inline auth — avoids ERR_MODULE_NOT_FOUND with _lib imports on Vercel
+  {
+    const authHeader = req.headers?.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+    try {
+      const token = authHeader.slice(7);
+      const { createClient } = await import('@supabase/supabase-js');
+      const _sb = createClient(
+        process.env.SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_KEY!,
+        { auth: { autoRefreshToken: false, persistSession: false } }
+      );
+      const { data: { user: _u }, error: _e } = await _sb.auth.getUser(token);
+      if (_e || !_u) return res.status(401).json({ error: 'Authentication required' });
+    } catch {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+  }
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
