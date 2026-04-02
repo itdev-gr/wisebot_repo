@@ -14,6 +14,11 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // Never start the timer while auth is resolving or user is already logged in
+    if (loading || user) {
+      setVisible(false);
+      return;
+    }
     // Don't show if user already entered the portal or dismissed the banner this session
     const portalVisited = localStorage.getItem('wb_onboarding_done');
     const bannerDismissed = sessionStorage.getItem('wb_guest_banner_dismissed');
@@ -22,7 +27,7 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
       const timer = setTimeout(() => setVisible(true), 800);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [loading, user]);
 
   const handleDismiss = () => {
     sessionStorage.setItem('wb_guest_banner_dismissed', 'true');
