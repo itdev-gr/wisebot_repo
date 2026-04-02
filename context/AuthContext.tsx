@@ -105,15 +105,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (session?.user) {
           setUser(session.user);
           setEmailVerified(!!session.user.email_confirmed_at);
-          await fetchProfile(session.user.id);
+          // Unblock route navigation immediately — don't wait for profile fetch
+          if (mounted) setLoading(false);
+          // Fetch profile in background (non-blocking)
+          fetchProfile(session.user.id);
         } else {
           setUser(null);
           setProfile(null);
           setEmailVerified(false);
+          if (mounted) setLoading(false);
         }
       } catch (err) {
         console.error('[Auth] getSession error:', err);
-      } finally {
         if (mounted) setLoading(false);
       }
     };
@@ -129,7 +132,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (session?.user) {
           setUser(session.user);
           setEmailVerified(!!session.user.email_confirmed_at);
-          await fetchProfile(session.user.id);
+          fetchProfile(session.user.id); // background — non-blocking
         } else {
           setUser(null);
           setProfile(null);

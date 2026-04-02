@@ -4,6 +4,7 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, User, Shield } from 'lucide-react';
 import { GoogleGenAI } from "../services/geminiProxy";
 import { useEconomy } from '../context/EconomyContext';
+import { useAuth } from '../context/AuthContext';
 
 const motion = m as any;
 
@@ -119,9 +120,10 @@ const pick = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
 export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
   const { credits, badges, stats } = useEconomy();
+  const { user } = useAuth();
 
-  // Check if user is registered (has auth token)
-  const isRegistered = !!localStorage.getItem('wb_auth_token');
+  // Check if user is registered — use Supabase auth (NOT legacy wb_auth_token)
+  const isRegistered = !!user;
 
   // Track free message count for unregistered users
   const [freeMessageCount, setFreeMessageCount] = useState(() => {
