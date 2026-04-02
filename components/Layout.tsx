@@ -100,8 +100,9 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
 
   // --- PROGRESSION LOGIC ---
   // Safe access with fallbacks to prevent crashes
-  const s = stats || {};
-  const b = badges || {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const s = (stats || {}) as any;
+  const b = (badges || {}) as any;
   const isQuizUnlocked = (s.lessonsRead || 0) >= 2 || (s.booksRead || 0) >= 1;
   const isMusicUnlocked = (s.lessonsRead || 0) >= 1;
   const isFactoryUnlocked = (s.lessonsRead || 0) >= 3 || (s.booksRead || 0) >= 2;

@@ -321,12 +321,8 @@ const PendingVerification: React.FC = () => {
 };
 
 // --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
-// Landing page is always accessible — even for logged in users
-// Redirect logged-in users away from the landing page to their dashboard
+// Landing page is always accessible — GuestBanner hides itself for logged-in users
 const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading } = useAuth();
-  if (loading) return <PageLoader />;
-  if (user) return <Navigate to="/dashboard" replace />;
   return <>{children}</>;
 };
 

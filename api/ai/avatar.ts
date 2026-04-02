@@ -127,10 +127,10 @@ export default async function handler(req: any, res: any) {
           },
         ],
         config: {
-          responseModalities: ['IMAGE', 'TEXT'] as any,
+          responseModalities: ['IMAGE', 'TEXT'],
           // Required: without ALLOW_ALL the safety filter refuses to output images of people
-          personGeneration: 'ALLOW_ALL' as any,
-        },
+          personGeneration: 'ALLOW_ALL',
+        } as any,
       });
 
       // 28 s guard — together with the 25 s OpenAI guard fits within Vercel's 60 s limit
