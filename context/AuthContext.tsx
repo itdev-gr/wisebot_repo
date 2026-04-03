@@ -34,6 +34,7 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signInWithGoogle: () => Promise<{ error?: string }>;
   resetPassword: (email: string) => Promise<{ error?: string }>;
+  resendVerification: (email: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
   completeOnboarding: (nickname: string, avatarUrl: string) => Promise<{ error?: string }>;
 }
@@ -49,7 +50,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const configured = isSupabaseConfigured();
 
-  // Fetch profile from Supabase
+  // Fetch profile from Supabase — auto-creates for Google OAuth first-login
   const fetchProfile = useCallback(async (userId: string) => {
     try {
       const { data, error } = await supabase
@@ -57,6 +58,30 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .select('id, child_name, parent_email, avatar_url, parent_verified, onboarding_complete')
         .eq('id', userId)
         .single();
+
+      if ((error?.code === 'PGRST116' || !data) && !error?.message?.includes('JWT')) {
+        // Profile doesn't exist — likely a Google OAuth first-login. Auto-create it.
+        console.log('[Auth] No profile found, auto-creating for user:', userId);
+        const { data: { user: currentUser } } = await supabase.auth.getUser();
+        if (currentUser) {
+          const isGoogleUser = currentUser.app_metadata?.provider === 'google';
+          const email = currentUser.email || '';
+          const childName = currentUser.user_metadata?.child_name || currentUser.user_metadata?.full_name || '';
+
+          await supabase.from('profiles').upsert({
+            id: userId,
+            child_name: childName,
+            parent_email: email,
+            parent_verified: isGoogleUser, // Google email is already verified
+            credits: 50,
+            onboarding_complete: false,
+          });
+
+          // Re-fetch the newly created profile
+          return fetchProfile(userId);
+        }
+        return null;
+      }
 
       if (error || !data) {
         console.warn('[Auth] Could not fetch profile:', error?.message);
@@ -234,6 +259,32 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [configured]);
 
+  // Resend verification email to parent
+  const resendVerification = useCallback(async (email: string): Promise<{ error?: string }> => {
+    try {
+      const response = await authFetch('/api/auth/resend-verification', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json();
+      if (!response.ok) return { error: result.error || 'Failed to resend' };
+      return {};
+    } catch (err: any) {
+      return { error: err.message || 'Failed to resend' };
+    }
+  }, []);
+
+  // Sync parent_verified when email gets verified (backup for DB trigger)
+  useEffect(() => {
+    if (user && emailVerified && profile && !profile.parentVerified) {
+      supabase.from('profiles')
+        .update({ parent_verified: true })
+        .eq('id', user.id)
+        .then(() => fetchProfile(user.id));
+    }
+  }, [user, emailVerified, profile?.parentVerified, fetchProfile]);
+
   // Complete Onboarding — saves nickname + avatar + marks onboarding_complete=true
   const completeOnboarding = useCallback(async (
     nickname: string,
@@ -285,7 +336,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isGuest = !user;
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, signOut, completeOnboarding }}>
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, resendVerification, signOut, completeOnboarding }}>
       {children}
       {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
     </AuthContext.Provider>

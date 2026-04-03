@@ -70,7 +70,9 @@ const TEXT = {
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const navigate = useNavigate();
-  const { user, loading: authLoading, emailVerified, signUp, signIn, signInWithGoogle, resetPassword } = useAuth();
+  const { user, loading: authLoading, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, resendVerification } = useAuth();
+  const [verificationEmail, setVerificationEmail] = useState(''); // email to resend verification to
+  const [resending, setResending] = useState(false);
   const t = TEXT[lang];
 
   // If already logged in AND verified, redirect
@@ -126,19 +128,12 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
         return;
       }
 
-      // Registration successful — auto-login with the new credentials
-      setSuccess(lang === 'el' ? 'Εγγραφή επιτυχής! Μπαίνεις...' : 'Registered! Entering...');
-      const loginResult = await signIn(parentEmail, password);
-      if (loginResult.error) {
-        // If auto-login fails, switch to login tab
-        setTab('login');
-        setSuccess('');
-        setError(lang === 'el' ? 'Η εγγραφή έγινε! Κάνε σύνδεση.' : 'Registered! Please log in.');
-        setSubmitting(false);
-        return;
-      }
-      setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
+      // Registration successful — show "check your email" screen. Do NOT auto-login.
+      // Parent must verify email before the child can use the app.
+      setVerificationEmail(parentEmail);
+      setShowVerificationMsg(true);
       setSubmitting(false);
+      return;
     } else {
       const result = await signIn(parentEmail, password);
 
@@ -201,12 +196,50 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-center space-y-3"
+            className="mb-6 p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-center space-y-4"
           >
-            <CheckCircle size={40} className="text-emerald-400 mx-auto" />
-            <p className="text-emerald-400 text-sm font-bold leading-relaxed">
-              {t.successRegister}
+            <Mail size={40} className="text-emerald-400 mx-auto" />
+            <h3 className="text-white font-[900] text-lg uppercase italic tracking-tight">
+              {lang === 'el' ? 'Τσέκαρε το Email σου!' : 'Check your Email!'}
+            </h3>
+            <p className="text-emerald-400/80 text-sm font-bold leading-relaxed">
+              {lang === 'el'
+                ? `Στείλαμε ένα link επαλήθευσης στο ${verificationEmail}. Ο γονέας πρέπει να πατήσει το link για να ενεργοποιηθεί ο λογαριασμός.`
+                : `We sent a verification link to ${verificationEmail}. The parent must click the link to activate the account.`}
             </p>
+            <p className="text-white/30 text-xs font-bold">
+              {lang === 'el' ? 'Τσέκαρε και τα spam/junk!' : 'Check spam/junk too!'}
+            </p>
+            <button
+              type="button"
+              disabled={resending}
+              onClick={async () => {
+                setResending(true);
+                const result = await resendVerification(verificationEmail);
+                if (result.error) {
+                  setError(result.error);
+                } else {
+                  setSuccess(lang === 'el' ? 'Email στάλθηκε ξανά!' : 'Email resent!');
+                }
+                setResending(false);
+              }}
+              className="text-blue-400 text-xs font-bold hover:text-blue-300 transition-colors underline disabled:opacity-50"
+            >
+              {resending
+                ? (lang === 'el' ? 'Στέλνουμε...' : 'Sending...')
+                : (lang === 'el' ? 'Στείλε ξανά το email επαλήθευσης' : 'Resend verification email')}
+            </button>
+            {error && <ErrorMsg message={error} />}
+            {success && (
+              <p className="text-emerald-400 text-xs font-bold">{success}</p>
+            )}
+            <button
+              type="button"
+              onClick={() => { setShowVerificationMsg(false); setTab('login'); setError(''); setSuccess(''); }}
+              className="text-white/30 text-xs font-bold hover:text-white/50 transition-colors"
+            >
+              {lang === 'el' ? '← Πίσω στη σύνδεση' : '← Back to login'}
+            </button>
           </motion.div>
         )}
 
