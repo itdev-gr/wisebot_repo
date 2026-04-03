@@ -56,6 +56,7 @@ export default async function handler(req: any, res: any) {
     const parentEmail = typeof body.parentEmail === 'string' ? body.parentEmail.trim() : '';
     const password = typeof body.password === 'string' ? body.password : '';
     const childName = typeof body.childName === 'string' ? body.childName.trim() : '';
+    const phoneNumber = typeof body.phoneNumber === 'string' ? body.phoneNumber.trim() : '';
 
     // Backwards compat: accept `email` as fallback for `parentEmail`
     const email = parentEmail || (typeof body.email === 'string' ? body.email.trim() : '');
@@ -157,6 +158,8 @@ export default async function handler(req: any, res: any) {
         child_name: childName,
         parent_email: email,
         parent_verified: false,
+        phone_number: phoneNumber || null,
+        phone_verified: false,
         credits: 50, // starter credits
       });
 

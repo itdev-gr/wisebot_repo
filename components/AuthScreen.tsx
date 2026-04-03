@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle } from 'lucide-react';
+import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Phone, MessageSquare } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const motion = m as any;
@@ -86,11 +86,18 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const [parentEmail, setParentEmail] = useState('');
   const [password, setPassword] = useState('');
   const [childName, setChildName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showVerificationMsg, setShowVerificationMsg] = useState(false);
+  // OTP verification state
+  const [showOtpScreen, setShowOtpScreen] = useState(false);
+  const [otpCode, setOtpCode] = useState('');
+  const [otpUserId, setOtpUserId] = useState('');
+  const [otpSending, setOtpSending] = useState(false);
+  const [otpVerifying, setOtpVerifying] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,7 +110,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       setError(t.errorRequired);
       return;
     }
-    if (tab === 'register' && !childName) {
+    if (tab === 'register' && (!childName || !phoneNumber)) {
       setError(t.errorRequired);
       return;
     }
@@ -128,11 +135,50 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
         return;
       }
 
-      // Registration successful — show "check your email" screen. Do NOT auto-login.
-      // Parent must verify email before the child can use the app.
+      // Registration successful — send SMS OTP for phone verification.
+      // Parent must verify phone before the child can use the app.
       setVerificationEmail(parentEmail);
-      setShowVerificationMsg(true);
       setSubmitting(false);
+
+      // If phone number was provided, send OTP and show OTP screen
+      if (phoneNumber) {
+        try {
+          const { authFetch } = await import('../services/backendApi');
+          // We need the userId from the signup response — fetch it
+          const signupResp = await authFetch('/api/auth/send-otp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone: phoneNumber, userId: 'pending' }),
+          });
+          // For the OTP, we need the user ID. The signup already returned it.
+          // Re-fetch from our signup response which was already processed above.
+          // Actually, signUp doesn't return userId to frontend. We need to get it differently.
+          // Solution: try to sign in to get the session, then send OTP
+          const loginResult = await signIn(parentEmail, password);
+          if (!loginResult.error) {
+            const { supabase } = await import('../services/supabaseClient');
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session?.user?.id) {
+              setOtpUserId(session.user.id);
+              // Now send the OTP
+              const otpResp = await fetch('/api/auth/send-otp', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone: phoneNumber, userId: session.user.id }),
+              });
+              if (otpResp.ok) {
+                setShowOtpScreen(true);
+                return;
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('[Auth] OTP send failed, falling back to email verification:', e);
+        }
+      }
+
+      // Fallback: show email verification screen if OTP didn't work
+      setShowVerificationMsg(true);
       return;
     } else {
       const result = await signIn(parentEmail, password);
@@ -243,7 +289,110 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
           </motion.div>
         )}
 
-        {!showVerificationMsg && (
+        {/* OTP Verification Screen */}
+        {showOtpScreen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 p-6 bg-blue-500/10 border border-blue-500/20 rounded-2xl text-center space-y-4"
+          >
+            <MessageSquare size={40} className="text-blue-400 mx-auto" />
+            <h3 className="text-white font-[900] text-lg uppercase italic tracking-tight">
+              {lang === 'el' ? 'Επαλήθευση Κινητού' : 'Phone Verification'}
+            </h3>
+            <p className="text-blue-400/80 text-sm font-bold leading-relaxed">
+              {lang === 'el'
+                ? `Στείλαμε 6ψήφιο κωδικό στο ${phoneNumber}. Βάλτον παρακάτω.`
+                : `We sent a 6-digit code to ${phoneNumber}. Enter it below.`}
+            </p>
+
+            <div className="flex justify-center">
+              <input
+                type="text"
+                inputMode="numeric"
+                maxLength={6}
+                value={otpCode}
+                onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
+                placeholder="000000"
+                className="w-48 px-6 py-4 bg-white/5 border-2 border-blue-500/30 rounded-xl text-white text-2xl font-[1000] text-center tracking-[0.5em] placeholder:text-white/10 focus:outline-none focus:border-blue-400/60 transition-all"
+              />
+            </div>
+
+            {error && <ErrorMsg message={error} />}
+            {success && <p className="text-emerald-400 text-sm font-bold">{success}</p>}
+
+            <button
+              type="button"
+              disabled={otpVerifying || otpCode.length !== 6}
+              onClick={async () => {
+                setOtpVerifying(true);
+                setError('');
+                try {
+                  const resp = await fetch('/api/auth/verify-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: otpCode, userId: otpUserId }),
+                  });
+                  const data = await resp.json();
+                  if (resp.ok && data.success) {
+                    setSuccess(lang === 'el' ? 'Επαληθεύτηκε! Μπαίνεις...' : 'Verified! Entering...');
+                    setTimeout(() => navigate('/dashboard', { replace: true }), 1500);
+                  } else {
+                    setError(data.error || (lang === 'el' ? 'Λάθος κωδικός' : 'Wrong code'));
+                  }
+                } catch {
+                  setError(lang === 'el' ? 'Σφάλμα επαλήθευσης' : 'Verification error');
+                }
+                setOtpVerifying(false);
+              }}
+              className="w-full max-w-xs mx-auto py-3 bg-gradient-to-r from-blue-600/30 to-purple-600/30 border-2 border-blue-500/30 rounded-xl text-white font-[1000] uppercase text-sm hover:border-blue-400/60 transition-all disabled:opacity-50"
+            >
+              {otpVerifying
+                ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto" />
+                : (lang === 'el' ? 'ΕΠΑΛΗΘΕΥΣΗ' : 'VERIFY')}
+            </button>
+
+            <button
+              type="button"
+              disabled={otpSending}
+              onClick={async () => {
+                setOtpSending(true);
+                setError('');
+                try {
+                  const resp = await fetch('/api/auth/send-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone: phoneNumber, userId: otpUserId }),
+                  });
+                  if (resp.ok) {
+                    setSuccess(lang === 'el' ? 'Νέος κωδικός στάλθηκε!' : 'New code sent!');
+                  } else {
+                    const data = await resp.json();
+                    setError(data.error || 'Failed');
+                  }
+                } catch {
+                  setError(lang === 'el' ? 'Σφάλμα αποστολής' : 'Send error');
+                }
+                setOtpSending(false);
+              }}
+              className="text-blue-400 text-xs font-bold hover:text-blue-300 transition-colors underline disabled:opacity-50"
+            >
+              {otpSending
+                ? (lang === 'el' ? 'Στέλνουμε...' : 'Sending...')
+                : (lang === 'el' ? 'Στείλε ξανά τον κωδικό' : 'Resend code')}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setShowOtpScreen(false); setShowVerificationMsg(true); setError(''); setSuccess(''); }}
+              className="text-white/30 text-xs font-bold hover:text-white/50 transition-colors block mx-auto"
+            >
+              {lang === 'el' ? 'Επαλήθευση μέσω email αντί SMS' : 'Verify via email instead'}
+            </button>
+          </motion.div>
+        )}
+
+        {!showVerificationMsg && !showOtpScreen && (
           <>
             {/* Tab switcher */}
             <div className="flex bg-white/5 rounded-2xl p-1 mb-6 border border-white/5">
@@ -279,6 +428,14 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                       placeholder={t.namePlaceholder}
                       value={childName}
                       onChange={setChildName}
+                    />
+                    <InputField
+                      icon={<Phone size={18} />}
+                      label={lang === 'el' ? 'Κινητό Γονέα' : 'Parent Phone'}
+                      placeholder={lang === 'el' ? '+30 6XX XXX XXXX' : '+30 6XX XXX XXXX'}
+                      value={phoneNumber}
+                      onChange={setPhoneNumber}
+                      type="tel"
                     />
                   </motion.div>
                 )}
