@@ -56,8 +56,11 @@ export default async function handler(req: any, res: any) {
       // Write to Supabase if user is authenticated
       if (userId && userId !== 'anonymous' && creditsAmount > 0) {
         try {
+          // Reuse a single Supabase admin client for the entire webhook
+          const supabase = await getSupabaseAdmin();
+
           // Insert purchase record
-          await (await getSupabaseAdmin())
+          await supabase
             .from('purchases')
             .insert({
               user_id: userId,
@@ -69,7 +72,7 @@ export default async function handler(req: any, res: any) {
             });
 
           // Add credits via atomic function
-          const { error: rpcError } = await (await getSupabaseAdmin()).rpc('earn_credits', {
+          const { error: rpcError } = await supabase.rpc('earn_credits', {
             p_user_id: userId,
             p_amount: creditsAmount,
             p_action: 'PURCHASE',
