@@ -107,19 +107,20 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Create user with admin API (most reliable, works without ANON_KEY)
-    const supabaseAdmin = await getSupabaseAdmin();
+    // Use anon client for signUp — this sends a REAL verification email to the parent.
+    // Parent must click the link before the child can use the app.
+    const supabaseAnon = await getSupabaseAnon();
 
     let data: any = null;
     let error: any = null;
 
-    // First try: admin createUser with email_confirm true (user can login immediately)
-    // We auto-confirm because Supabase admin API doesn't send verification emails
-    const result = await supabaseAdmin.auth.admin.createUser({
+    const result = await supabaseAnon.auth.signUp({
       email,
       password,
-      email_confirm: true,
-      user_metadata: { child_name: childName, parent_email: email },
+      options: {
+        emailRedirectTo: 'https://wisebot.gr/auth',
+        data: { child_name: childName, parent_email: email },
+      },
     });
     data = result.data;
     error = result.error;
