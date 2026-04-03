@@ -96,7 +96,7 @@ export const backendAI = {
     }),
 
   business: (textPrompt: string, logoPrompt?: string) =>
-    apiFetch<{ slogan: string; description: string; logo: string }>('/api/ai/business', {
+    apiFetch<{ slogan: string; description: string; logo?: string }>('/api/ai/business', {
       method: 'POST',
       body: JSON.stringify({ textPrompt, logoPrompt }),
     }),
