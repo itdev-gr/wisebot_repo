@@ -28,19 +28,31 @@ export default async function handler(req: any, res: any) {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  // Server-side credit guard — Business generation costs 4 credits
+  const BUSINESS_COST = 4;
+  const { checkCredits } = await import('../_lib/auth');
+  const creditCheck = await checkCredits(user.id, BUSINESS_COST);
+  if (!creditCheck.ok) {
+    return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: BUSINESS_COST });
+  }
+
   try {
-    const { prompt, type } = req.body;
-    if (!prompt) return res.status(400).json({ error: 'Prompt required' });
+    // Accept both textPrompt (from frontend) and prompt (legacy) for compatibility
+    const { textPrompt, logoPrompt, prompt, type } = req.body;
+    const finalPrompt = textPrompt || prompt;
+    if (!finalPrompt) return res.status(400).json({ error: 'Prompt required' });
 
     // Input length validation
-    if (typeof prompt === 'string' && prompt.length > 4000) {
+    if (typeof finalPrompt === 'string' && finalPrompt.length > 4000) {
       return res.status(400).json({ error: 'Input too long (max 4000 characters)' });
     }
 
     // Content moderation check
-    if (!isContentSafe(prompt)) {
+    if (!isContentSafe(finalPrompt) || (logoPrompt && !isContentSafe(logoPrompt))) {
       return res.status(200).json({
-        result: '🛡️ Αυτό το θέμα δεν είναι κατάλληλο. Δοκίμασε μια πιο δημιουργική ιδέα για επιχείρηση!'
+        slogan: '🛡️ Δοκίμασε μια πιο δημιουργική ιδέα!',
+        description: 'Αυτό το θέμα δεν είναι κατάλληλο. Δοκίμασε κάτι άλλο!',
+        logo: '',
       });
     }
 
@@ -49,16 +61,44 @@ export default async function handler(req: any, res: any) {
 
     const { GoogleGenAI } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey });
+
+    // Ask Gemini to return structured business data
+    const structuredPrompt = `You are a fun business advisor for kids aged 6-13. Based on this business idea: "${finalPrompt}"
+
+Generate a JSON response with exactly these fields:
+- "slogan": A catchy, short slogan (max 10 words, fun and kid-friendly)
+- "description": A brief exciting description of the business (2-3 sentences, enthusiastic tone)
+
+Reply ONLY with valid JSON, no markdown, no code blocks. Example:
+{"slogan": "Fun for everyone!", "description": "An amazing company that makes the world better."}`;
+
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
-      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      contents: [{ role: 'user', parts: [{ text: structuredPrompt }] }],
       config: {
-        maxOutputTokens: 1024,
+        maxOutputTokens: 512,
         safetySettings: SAFETY_SETTINGS,
       }
     });
 
-    res.status(200).json({ result: response.text || '' });
+    const rawText = (response.text || '').trim();
+
+    // Parse the JSON response from Gemini
+    let slogan = '';
+    let description = '';
+    try {
+      // Strip markdown code fences if present
+      const cleaned = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+      const parsed = JSON.parse(cleaned);
+      slogan = parsed.slogan || '';
+      description = parsed.description || '';
+    } catch {
+      // Fallback: use raw text as description
+      description = rawText.slice(0, 300);
+      slogan = 'The best company!';
+    }
+
+    res.status(200).json({ slogan, description, logo: '' });
   } catch (err: any) {
     console.error('AI Business error:', err.message);
     res.status(500).json({ error: 'AI service error' });
