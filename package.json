@@ -9,7 +9,11 @@
     "preview": "vite preview",
     "generate-voices": "node scripts/generate-voices.mjs",
     "generate-ebook-voices": "node scripts/generate-ebook-voices.mjs",
-    "extract-ebook-texts": "node scripts/extract-ebook-texts.mjs"
+    "extract-ebook-texts": "node scripts/extract-ebook-texts.mjs",
+    "extract-ebook-texts-en": "node scripts/extract-ebook-texts-en.mjs",
+    "generate-voices-en": "node scripts/generate-voices-openai.mjs",
+    "generate-ebook-voices-en": "node scripts/generate-ebook-voices-openai.mjs",
+    "generate-all-en": "node scripts/extract-ebook-texts-en.mjs && node scripts/generate-voices-openai.mjs && node scripts/generate-ebook-voices-openai.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.45.0",
