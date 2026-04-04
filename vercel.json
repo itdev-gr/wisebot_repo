@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "buildCommand": "npx vite build",
+  "buildCommand": "npx vite build && node scripts/generate-seo-pages.mjs",
   "outputDirectory": "dist",
   "functions": {
     "api/ai/music-generate.ts": {

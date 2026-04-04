@@ -1,0 +1,350 @@
+import { Helmet } from 'react-helmet-async';
+
+interface SEOProps {
+  lang: 'el' | 'en';
+  page?: string;
+}
+
+interface PageMeta {
+  title: { el: string; en: string };
+  description: { el: string; en: string };
+  keywords: { el: string; en: string };
+  path: string;
+  jsonLd?: object;        // Per-page structured data
+  faq?: { q: string; a: string }[]; // FAQ schema
+}
+
+const BASE_URL = 'https://wisebot.gr';
+
+const PAGE_META: Record<string, PageMeta> = {
+  home: {
+    title: {
+      el: 'WiseBot Academy — Παιδικά Παιχνίδια με AI | Φτιάξε Τραγούδια, Εικόνες & Video Δωρεάν',
+      en: 'WiseBot Academy — AI Kids Games | Create Songs, Images & Videos Free',
+    },
+    description: {
+      el: 'Το 1ο Ελληνικό εκπαιδευτικό παιχνίδι με AI για παιδιά 6-13. Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα, ebooks και παίξε quiz δωρεάν!',
+      en: 'The 1st Greek educational AI game for kids 6-13. Create songs, images, videos, 3D models, ebooks and play quizzes for free!',
+    },
+    keywords: {
+      el: 'παιδικά παιχνίδια AI, εκπαιδευτικά παιχνίδια, WiseBot Academy, τραγούδια για παιδιά, AI εικόνες, δωρεάν παιχνίδια, εκπαιδευτικό AI για παιδιά, wisebot',
+      en: 'AI kids games, educational games, WiseBot Academy, songs for kids, AI images, free games, educational AI for kids, wisebot',
+    },
+    path: '/',
+  },
+  academy: {
+    title: {
+      el: 'Ακαδημία — Μάθε για 90 Σπουδαίους Ανθρώπους | WiseBot Academy',
+      en: 'Academy — Learn About 90 Great People | WiseBot Academy',
+    },
+    description: {
+      el: 'Ανακάλυψε τις ιστορίες 90 σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.',
+      en: 'Discover the stories of 90 great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-13.',
+    },
+    keywords: {
+      el: 'εκπαιδευτικές ιστορίες, σπουδαίοι άνθρωποι για παιδιά, μαθαίνω ιστορία, WiseBot Academy, quiz παιδιά, Αϊνστάιν, Τέσλα, Curie',
+      en: 'educational stories, great people for kids, learn history, WiseBot Academy, kids quiz, Einstein, Tesla, Curie',
+    },
+    path: '/academy',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: 'WiseBot Academy - Ιστορίες 90 Σπουδαίων Ανθρώπων',
+      description: 'Διαδραστικά μαθήματα για 90 σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-13 ετών.',
+      provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
+      audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 13 },
+      isAccessibleForFree: true,
+      inLanguage: ['el', 'en'],
+      numberOfCredits: 90,
+      hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT30M' },
+    },
+    faq: [
+      { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: 'Ιστορίες 90 σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.' },
+      { q: 'Είναι δωρεάν η Ακαδημία;', a: 'Ναι! Η Ακαδημία είναι δωρεάν. Κερδίζεις XP και credits διαβάζοντας ιστορίες και απαντώντας σωστά σε quiz.' },
+    ],
+  },
+  ebooks: {
+    title: {
+      el: 'Ebooks — 26 Διαδραστικά Βιβλία για Παιδιά | WiseBot Academy',
+      en: 'Ebooks — 26 Interactive Books for Kids | WiseBot Academy',
+    },
+    description: {
+      el: 'Διάβασε 26 δωρεάν ebooks με αφήγηση AI! Ιστορίες για Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία. Κάθε βιβλίο έχει quiz! Ελληνικά & Αγγλικά.',
+      en: 'Read 26 free AI-narrated ebooks! Stories about Ancient Greece, Space, Animals, Technology. Every book includes a quiz! Greek & English.',
+    },
+    keywords: {
+      el: 'παιδικά ebooks, δωρεάν βιβλία για παιδιά, ebooks με αφήγηση, εκπαιδευτικά βιβλία, WiseBot ebooks, ebooks ελληνικά',
+      en: 'kids ebooks, free books for kids, narrated ebooks, educational books, WiseBot ebooks',
+    },
+    path: '/ebooks',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'WiseBot Academy - 26 Εκπαιδευτικά Ebooks',
+      description: '26 δωρεάν εκπαιδευτικά ebooks με αφήγηση AI, quiz, Ελληνικά και Αγγλικά.',
+      numberOfItems: 26,
+      isAccessibleForFree: true,
+      inLanguage: ['el', 'en'],
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Αρχαία Ελλάδα & Μυθολογία' },
+          { '@type': 'ListItem', position: 2, name: 'Διάστημα & Αστρονομία' },
+          { '@type': 'ListItem', position: 3, name: 'Ζώα & Φύση' },
+          { '@type': 'ListItem', position: 4, name: 'Τεχνολογία & Επιστήμη' },
+          { '@type': 'ListItem', position: 5, name: 'Τέχνη & Πολιτισμός' },
+          { '@type': 'ListItem', position: 6, name: 'Ιστορία & Γεωγραφία' },
+        ],
+      },
+    },
+    faq: [
+      { q: 'Πόσα ebooks υπάρχουν;', a: '26 εκπαιδευτικά ebooks σε Ελληνικά και Αγγλικά. Καλύπτουν θέματα: Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία, Τέχνη, Ιστορία.' },
+      { q: 'Μπορώ να τα ακούσω;', a: 'Ναι! Κάθε ebook έχει AI text-to-speech αφήγηση. Μπορείς να διαβάσεις ή να ακούσεις.' },
+      { q: 'Έχουν quiz;', a: 'Ναι, κάθε βιβλίο έχει quiz στο τέλος. Κερδίζεις credits αν απαντήσεις σωστά!' },
+    ],
+  },
+  music: {
+    title: {
+      el: 'Music Studio — Φτιάξε Τραγούδια με AI Δωρεάν | WiseBot Academy',
+      en: 'Music Studio — Create Songs with AI Free | WiseBot Academy',
+    },
+    description: {
+      el: 'Δημιούργησε τα δικά σου τραγούδια με AI! Γράψε στίχους, επίλεξε στυλ (Pop, Rock, Hip-Hop), και η AI τραγουδά για σένα. Δωρεάν!',
+      en: 'Create your own songs with AI! Write lyrics, choose a style (Pop, Rock, Hip-Hop), and AI sings for you. Free!',
+    },
+    keywords: {
+      el: 'φτιάξε τραγούδια AI, φτιάξε παιδικά τραγούδια, μουσική για παιδιά, AI τραγούδια, WiseBot Music Studio, δημιουργία μουσικής, τραγούδια μόνος σου',
+      en: 'create songs AI, make kids songs, music for kids, AI songs, WiseBot Music Studio, music creation',
+    },
+    path: '/music',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'WiseBot Music Studio',
+      applicationCategory: 'MusicApplication',
+      description: 'Φτιάξε τραγούδια με τεχνητή νοημοσύνη. Γράψε στίχους, επίλεξε στυλ μουσικής, η AI δημιουργεί πραγματικά τραγούδια.',
+      operatingSystem: 'Web',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+      featureList: ['AI Song Generation', 'Custom Lyrics', 'Guided Wizard', 'Multiple Music Styles', 'Download Songs'],
+    },
+    faq: [
+      { q: 'Πώς φτιάχνω τραγούδια;', a: '3 τρόποι: Guided Wizard (βήμα-βήμα), Custom Lyrics (γράψε δικούς στίχους), ή Simple Description (περίγραψε τι θέλεις). Η AI δημιουργεί πραγματικά τραγούδια!' },
+      { q: 'Τι στυλ μουσικής υπάρχουν;', a: 'Pop, Rock, Hip-Hop, Electronic, Lullaby, Classical και πολλά ακόμα. Επιλέγεις εσύ!' },
+    ],
+  },
+  game: {
+    title: {
+      el: 'Παιχνίδια — 16 Δωρεάν Arcade Games για Παιδιά | WiseBot Academy',
+      en: 'Games — 16 Free Arcade Games for Kids | WiseBot Academy',
+    },
+    description: {
+      el: 'Παίξε 16 δωρεάν arcade παιχνίδια! Wizard Duel, Dungeon Explorer, Geometry Dash, Tower Defense, Memory Cards. Κέρδισε credits παίζοντας!',
+      en: 'Play 16 free arcade games! Wizard Duel, Dungeon Explorer, Geometry Dash, Tower Defense, Memory Cards. Earn credits by playing!',
+    },
+    keywords: {
+      el: 'δωρεάν παιχνίδια για παιδιά, παιδικά παιχνίδια online, arcade games παιδιά, snake, tetris, memory game, WiseBot games, δωρεάν παιχνίδια online',
+      en: 'free kids games, kids games online, arcade games kids, snake, tetris, memory game, WiseBot games, free online games',
+    },
+    path: '/game',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'WiseBot Games - 16 Δωρεάν Παιδικά Παιχνίδια',
+      description: '16 δωρεάν arcade παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, και άλλα.',
+      numberOfItems: 16,
+      isAccessibleForFree: true,
+    },
+    faq: [
+      { q: 'Πόσα παιχνίδια υπάρχουν;', a: '16 δωρεάν παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Endless Runner, Tower Defense, Hero Fusion, Memory Cards, Tactical Football, Nebula Catch, Ball Rush, Puzzle, Broken Company, Sky Metropolis, Slingshot, Spot It.' },
+      { q: 'Κερδίζω κάτι παίζοντας;', a: 'Ναι! Κερδίζεις credits και XP με κάθε παιχνίδι. Τα credits τα χρησιμοποιείς για AI δημιουργίες.' },
+    ],
+  },
+  quiz: {
+    title: {
+      el: 'Quiz — Εκπαιδευτικά Quiz για Παιδιά Δωρεάν | WiseBot Academy',
+      en: 'Quiz — Free Educational Quizzes for Kids | WiseBot Academy',
+    },
+    description: {
+      el: 'Δοκίμασε τις γνώσεις σου! Εκπαιδευτικά quiz σε Ιστορία, Επιστήμη, Γεωγραφία, Τεχνολογία. Κέρδισε credits με σωστές απαντήσεις!',
+      en: 'Test your knowledge! Educational quizzes in History, Science, Geography, Technology. Earn credits with correct answers!',
+    },
+    keywords: {
+      el: 'quiz για παιδιά, εκπαιδευτικά quiz, δωρεάν quiz online, quiz ιστορίας, quiz γνώσεων, WiseBot quiz',
+      en: 'kids quiz, educational quiz, free online quiz, history quiz, knowledge quiz, WiseBot quiz',
+    },
+    path: '/quiz',
+    faq: [
+      { q: 'Τι θέματα έχουν τα quiz;', a: 'Ιστορία, Επιστήμη, Γεωγραφία, Τεχνολογία, Φύση, Τέχνη, Αρχαία Ελλάδα, Διάστημα και πολλά ακόμα!' },
+      { q: 'Κερδίζω credits;', a: 'Ναι! Κάθε σωστή απάντηση σε quiz δίνει XP. Μπορείς να προκαλέσεις και φίλους!' },
+    ],
+  },
+  factory: {
+    title: {
+      el: 'Hero Factory — Φτιάξε Εικόνες με AI Δωρεάν | WiseBot Academy',
+      en: 'Hero Factory — Create AI Images Free | WiseBot Academy',
+    },
+    description: {
+      el: 'Δημιούργησε μοναδικούς ήρωες με AI! Περίγραψε τον ήρωά σου ή ανέβασε φωτογραφία - η AI ζωγραφίζει σε δευτερόλεπτα. Μετατροπή σε 3D!',
+      en: 'Create unique heroes with AI! Describe your hero or upload a photo - AI draws in seconds. Convert to 3D!',
+    },
+    keywords: {
+      el: 'δημιουργία εικόνων AI, AI ζωγραφική παιδιά, φτιάξε ήρωα, WiseBot Hero Factory, AI art generator, δημιούργησε εικόνες',
+      en: 'AI image creation, AI art kids, create hero, WiseBot Hero Factory, AI art generator, create images',
+    },
+    path: '/factory',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'WiseBot Hero Factory',
+      applicationCategory: 'DesignApplication',
+      description: 'Δημιούργησε ήρωες με AI. Γράψε περιγραφή ή ανέβασε φωτογραφία, η AI φτιάχνει εικόνες και 3D μοντέλα.',
+      operatingSystem: 'Web',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+    },
+    faq: [
+      { q: 'Πώς φτιάχνω ήρωα;', a: 'Γράψε μια περιγραφή ή ανέβασε φωτογραφία. Η AI δημιουργεί εικόνα σε δευτερόλεπτα! Μπορείς να τον κάνεις και 3D μοντέλο.' },
+    ],
+  },
+  cinema: {
+    title: {
+      el: 'Cinema — Δημιούργησε Video με AI | WiseBot Academy',
+      en: 'Cinema — Create Videos with AI | WiseBot Academy',
+    },
+    description: {
+      el: 'Ζωντάνεψε τους ήρωές σου με AI video! Γράψε τι θέλεις να δεις και η AI φτιάχνει μαγικά video clips σε δευτερόλεπτα.',
+      en: 'Bring your heroes to life with AI video! Write what you want to see and AI creates magic video clips in seconds.',
+    },
+    keywords: {
+      el: 'AI video δημιουργία, φτιάξε video με AI, WiseBot Cinema, AI κινούμενα σχέδια, video για παιδιά',
+      en: 'AI video creation, create video with AI, WiseBot Cinema, AI animation, video for kids',
+    },
+    path: '/cinema',
+  },
+  business: {
+    title: {
+      el: 'Business Lab — Μάθε Επιχειρηματικότητα Παίζοντας | WiseBot Academy',
+      en: 'Business Lab — Learn Entrepreneurship by Playing | WiseBot Academy',
+    },
+    description: {
+      el: 'Μάθε επιχειρηματικότητα παίζοντας! Δημιούργησε brand, φτιάξε λογότυπο με AI, γίνε CEO. Για παιδιά 6-13.',
+      en: 'Learn entrepreneurship by playing! Create a brand, make a logo with AI, become CEO. For kids 6-13.',
+    },
+    keywords: {
+      el: 'επιχειρηματικότητα παιδιά, business simulation παιδιά, AI λογότυπο, μάθε business, WiseBot Business Lab',
+      en: 'kids entrepreneurship, business simulation kids, AI logo, learn business, WiseBot Business Lab',
+    },
+    path: '/business',
+  },
+  '3d-factory': {
+    title: {
+      el: '3D Factory — Φτιάξε 3D Μοντέλα με AI | WiseBot Academy',
+      en: '3D Factory — Create 3D Models with AI | WiseBot Academy',
+    },
+    description: {
+      el: 'Μετάτρεψε εικόνες σε 3D μοντέλα με AI! Περιέστρεψέ τα, κατέβασέ τα, εκτύπωσέ τα σε 3D printer. Για παιδιά 6-13.',
+      en: 'Transform images into 3D models with AI! Rotate, download, 3D print. For kids 6-13.',
+    },
+    keywords: {
+      el: 'AI 3D μοντέλα, δημιουργία 3D, 3D printing παιδιά, WiseBot 3D Factory',
+      en: 'AI 3D models, 3D creation, 3D printing kids, WiseBot 3D Factory',
+    },
+    path: '/3d-factory',
+  },
+  market: {
+    title: {
+      el: 'Hero Market — Αγορά & Πώληση AI Ηρώων | WiseBot Academy',
+      en: 'Hero Market — Buy & Sell AI Heroes | WiseBot Academy',
+    },
+    description: {
+      el: 'Ανακάλυψε ήρωες από άλλα παιδιά! Αγόρασε, πούλησε, αντάλλαξε AI ήρωες στο Hero Market.',
+      en: 'Discover heroes from other kids! Buy, sell, trade AI heroes in the Hero Market.',
+    },
+    keywords: {
+      el: 'αγορά ηρώων AI, marketplace παιδιών, WiseBot Hero Market, ανταλλαγή ηρώων',
+      en: 'AI heroes marketplace, kids marketplace, WiseBot Hero Market, hero trading',
+    },
+    path: '/market',
+  },
+  'wise-friends': {
+    title: {
+      el: 'Wise Friends — Ασφαλής Κοινότητα για Παιδιά | WiseBot Academy',
+      en: 'Wise Friends — Safe Community for Kids | WiseBot Academy',
+    },
+    description: {
+      el: 'Γνώρισε άλλα παιδιά, πρόκαλέ τους σε quiz, μοιράσου δημιουργίες! Ασφαλής κοινότητα χωρίς ελεύθερο chat.',
+      en: 'Meet other kids, challenge them in quizzes, share creations! Safe community with no open chat.',
+    },
+    keywords: {
+      el: 'κοινότητα παιδιών, ασφαλές κοινωνικό δίκτυο παιδιά, WiseBot Friends, quiz challenges',
+      en: 'kids community, safe social network kids, WiseBot Friends, quiz challenges',
+    },
+    path: '/wise-friends',
+  },
+};
+
+const SEO: React.FC<SEOProps> = ({ lang, page = 'home' }) => {
+  const meta = PAGE_META[page] || PAGE_META.home;
+  const baseUrl = BASE_URL;
+  const fullUrl = `${baseUrl}${meta.path}`;
+
+  // Build FAQ schema if available
+  const faqSchema = meta.faq?.length ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: meta.faq.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }) : null;
+
+  // Build per-page JSON-LD
+  const pageSchema = meta.jsonLd ? JSON.stringify(meta.jsonLd) : null;
+
+  // Build per-page BreadcrumbList
+  const breadcrumb = page !== 'home' ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'WiseBot Academy', item: baseUrl + '/' },
+      { '@type': 'ListItem', position: 2, name: meta.title[lang].split(' — ')[0], item: fullUrl },
+    ],
+  }) : null;
+
+  return (
+    <Helmet>
+      <title>{meta.title[lang]}</title>
+      <meta name="description" content={meta.description[lang]} />
+      <meta name="keywords" content={meta.keywords[lang]} />
+      <link rel="canonical" href={fullUrl} />
+
+      {/* Open Graph */}
+      <meta property="og:title" content={meta.title[lang]} />
+      <meta property="og:description" content={meta.description[lang]} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={`${baseUrl}/images/wisebot-og.jpg`} />
+      <meta property="og:locale" content={lang === 'el' ? 'el_GR' : 'en_US'} />
+      <meta property="og:site_name" content="WiseBot Academy" />
+
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={meta.title[lang]} />
+      <meta name="twitter:description" content={meta.description[lang]} />
+      <meta name="twitter:image" content={`${baseUrl}/images/wisebot-og.jpg`} />
+
+      {/* Per-page structured data */}
+      {pageSchema && (
+        <script type="application/ld+json">{pageSchema}</script>
+      )}
+      {faqSchema && (
+        <script type="application/ld+json">{faqSchema}</script>
+      )}
+      {breadcrumb && (
+        <script type="application/ld+json">{breadcrumb}</script>
+      )}
+    </Helmet>
+  );
+};
+
+export default SEO;

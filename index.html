@@ -29,13 +29,7 @@
   <meta name="author" content="WiseBot Academy">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://wisebot.gr/">
-  <script>
-    // Dynamic canonical for SPA — updates based on current route
-    document.addEventListener('DOMContentLoaded', function() {
-      var canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) canonical.href = window.location.origin + window.location.pathname;
-    });
-  </script>
+  <!-- Canonical URL managed per-route by react-helmet-async + SEO page generator -->
   <link rel="alternate" hreflang="el" href="https://wisebot.gr/">
   <link rel="alternate" hreflang="en" href="https://wisebot.gr/">
   <link rel="alternate" hreflang="x-default" href="https://wisebot.gr/">
@@ -201,11 +195,16 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       {"@type": "ListItem", "position": 1, "name": "WiseBot Academy", "item": "https://wisebot.gr/"},
-      {"@type": "ListItem", "position": 2, "name": "Παιχνίδια", "item": "https://wisebot.gr/game"},
+      {"@type": "ListItem", "position": 2, "name": "Ακαδημία", "item": "https://wisebot.gr/academy"},
       {"@type": "ListItem", "position": 3, "name": "Ebooks", "item": "https://wisebot.gr/ebooks"},
-      {"@type": "ListItem", "position": 4, "name": "Hero Factory", "item": "https://wisebot.gr/factory"},
-      {"@type": "ListItem", "position": 5, "name": "Music Studio", "item": "https://wisebot.gr/music"},
-      {"@type": "ListItem", "position": 6, "name": "Cinema", "item": "https://wisebot.gr/cinema"}
+      {"@type": "ListItem", "position": 4, "name": "Παιχνίδια", "item": "https://wisebot.gr/game"},
+      {"@type": "ListItem", "position": 5, "name": "Quiz", "item": "https://wisebot.gr/quiz"},
+      {"@type": "ListItem", "position": 6, "name": "Music Studio", "item": "https://wisebot.gr/music"},
+      {"@type": "ListItem", "position": 7, "name": "Hero Factory", "item": "https://wisebot.gr/factory"},
+      {"@type": "ListItem", "position": 8, "name": "Cinema", "item": "https://wisebot.gr/cinema"},
+      {"@type": "ListItem", "position": 9, "name": "3D Factory", "item": "https://wisebot.gr/3d-factory"},
+      {"@type": "ListItem", "position": 10, "name": "Business Lab", "item": "https://wisebot.gr/business"},
+      {"@type": "ListItem", "position": 11, "name": "Hero Market", "item": "https://wisebot.gr/market"}
     ]
   }
   </script>

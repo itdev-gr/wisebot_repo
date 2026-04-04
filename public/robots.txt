@@ -1,11 +1,27 @@
 # WiseBot Academy - robots.txt
+# https://wisebot.gr
+
 User-agent: *
 Allow: /
+Allow: /academy
+Allow: /ebooks
+Allow: /music
+Allow: /game
+Allow: /quiz
+Allow: /factory
+Allow: /cinema
+Allow: /3d-factory
+Allow: /business
+Allow: /market
+Allow: /wise-friends
+
+# Protected areas (no public content)
 Disallow: /api/
 Disallow: /admin
+Disallow: /dashboard
+Disallow: /account
+Disallow: /store
+Disallow: /parent
 
 # Sitemap
 Sitemap: https://wisebot.gr/sitemap.xml
-
-# Crawl delay (be nice)
-Crawl-delay: 1

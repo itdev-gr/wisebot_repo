@@ -1,9 +1,12 @@
 
 import React, { useState, useEffect, useCallback, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
 import LandingPage from './components/LandingPage';
 import ErrorBoundary from './components/ErrorBoundary';
+import SEO from './components/SEO';
+import SemiPublicRoute from './components/SemiPublicRoute';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, Zap, WifiOff } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
@@ -457,31 +460,34 @@ function AppContent() {
         <ErrorBoundary lang={lang}>
         <Suspense fallback={<PageLoader />}>
           <Routes>
-            {/* PUBLIC ROUTES */}
-            <Route path="/" element={<AutoRedirectIfLoggedIn><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
+            {/* ═══ PUBLIC ROUTES ═══ */}
+            <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<AuthScreen lang={lang} />} />
             <Route path="/legal" element={<LegalHub lang={lang} />} />
             <Route path="/privacy" element={<LegalHub lang={lang} />} />
             <Route path="/terms" element={<LegalHub lang={lang} />} />
 
-            {/* PROTECTED ROUTES — require authentication */}
+            {/* ═══ SEMI-PUBLIC ROUTES — viewable by everyone, auth required for actions ═══ */}
+            <Route path="/academy" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="academy" /><Academy lang={lang} addXp={addXp} completedIds={completedIds} /></SemiPublicRoute>} />
+            <Route path="/ebooks" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="ebooks" /><Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} /></SemiPublicRoute>} />
+            <Route path="/music" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="music" /><MusicStudio lang={lang} /></SemiPublicRoute>} />
+            <Route path="/game" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="game" /><GameCenter lang={lang} /></SemiPublicRoute>} />
+            <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /></SemiPublicRoute>} />
+            <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><Cinema lang={lang} myHeroes={myHeroes} /></SemiPublicRoute>} />
+            <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><HeroFactory lang={lang} addHero={addHero} /></SemiPublicRoute>} />
+            <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><ThreeDFactory lang={lang} /></SemiPublicRoute>} />
+            <Route path="/business" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="business" /><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /></SemiPublicRoute>} />
+            <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /></SemiPublicRoute>} />
+            <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /></SemiPublicRoute>} />
+
+            {/* ═══ PROTECTED ROUTES — require authentication (dashboard, payment, admin) ═══ */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
-            <Route path="/factory" element={<ProtectedRoute><HeroFactory lang={lang} addHero={addHero} /></ProtectedRoute>} />
-            <Route path="/3d-factory" element={<ProtectedRoute><ThreeDFactory lang={lang} /></ProtectedRoute>} />
-            <Route path="/market" element={<ProtectedRoute><HeroMarket lang={lang} myHeroes={myHeroes} /></ProtectedRoute>} />
-            <Route path="/wise-friends" element={<ProtectedRoute><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /></ProtectedRoute>} />
-            <Route path="/academy" element={<ProtectedRoute><Academy lang={lang} addXp={addXp} completedIds={completedIds} /></ProtectedRoute>} />
-            <Route path="/cinema" element={<ProtectedRoute><Cinema lang={lang} myHeroes={myHeroes} /></ProtectedRoute>} />
-            <Route path="/music" element={<ProtectedRoute><MusicStudio lang={lang} /></ProtectedRoute>} />
-            <Route path="/business" element={<ProtectedRoute><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /></ProtectedRoute>} />
-            <Route path="/ebooks" element={<ProtectedRoute><Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} /></ProtectedRoute>} />
-            <Route path="/quiz" element={<ProtectedRoute><Quiz lang={lang} /></ProtectedRoute>} />
-            <Route path="/game" element={<ProtectedRoute><GameCenter lang={lang} /></ProtectedRoute>} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard lang={lang} /></ProtectedRoute>} />
             <Route path="/account" element={<ProtectedRoute><Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} /></ProtectedRoute>} />
             <Route path="/store" element={<ProtectedRoute><CreditStore lang={lang} /></ProtectedRoute>} />
             <Route path="/parent" element={<ProtectedRoute><ParentDashboard lang={lang} /></ProtectedRoute>} />
+
             {/* 404 catch-all: redirect unknown routes to landing */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
@@ -495,13 +501,15 @@ function AppContent() {
   );
 }
 
-// Wrap with Providers: Economy → Auth (Auth uses useEconomy for sync)
+// Wrap with Providers: Helmet → Economy → Auth (Auth uses useEconomy for sync)
 export default function App() {
   return (
-    <EconomyProvider>
-      <AuthProvider>
-        <AppContent />
-      </AuthProvider>
-    </EconomyProvider>
+    <HelmetProvider>
+      <EconomyProvider>
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
+      </EconomyProvider>
+    </HelmetProvider>
   );
 }
