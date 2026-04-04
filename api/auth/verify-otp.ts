@@ -4,6 +4,7 @@
  * Checks the 6-digit code against the DB.
  * On success: marks phone_verified=true in profile, confirms email in auth.
  * Max 5 attempts per code.
+ * Rate limited: 20 per 30 min per IP (prevents brute force across codes).
  */
 
 export default async function handler(req: any, res: any) {
@@ -12,6 +13,14 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  // IP-based rate limit: max 20 OTP attempts per 30 min per IP
+  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit');
+  const clientIp = getClientIp(req);
+  const ipCheck = await checkIpRateLimit(clientIp, 'verify-otp', 20, 30);
+  if (!ipCheck.allowed) {
+    return res.status(429).json({ error: 'Too many attempts. Please wait before trying again.' });
+  }
 
   try {
     const { code, userId } = req.body || {};

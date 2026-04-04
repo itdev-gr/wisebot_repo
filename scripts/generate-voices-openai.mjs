@@ -57,6 +57,7 @@ const API_KEY = process.env.OPENAI_API_KEY;
 const LANG = getArg('lang') || 'en';
 const VOICE = getArg('voice') || 'nova';
 const MODEL = getArg('model') || 'tts-1-hd';
+const SPEED = getArg('speed') ? parseFloat(getArg('speed')) : 1.0;
 const ID_FILTER = getArg('ids')?.split(',').map(Number) || null;
 const START_FROM = getArg('start') ? parseInt(getArg('start')) : 0;
 const FORCE = hasFlag('force');
@@ -86,6 +87,7 @@ async function generateAudio(text, outputPath) {
       model: MODEL,
       input: text,
       voice: VOICE,
+      speed: SPEED,
       response_format: 'mp3',
     }),
   });
@@ -108,6 +110,7 @@ async function main() {
   console.log('─'.repeat(55));
   console.log(`   Model:  ${MODEL} (highest quality)`);
   console.log(`   Voice:  ${VOICE}`);
+  console.log(`   Speed:  ${SPEED}`);
   console.log(`   Lang:   ${LANG}`);
   console.log(`   Force:  ${FORCE ? 'yes (regenerate all)' : 'no (skip existing)'}`);
   if (START_FROM > 0) console.log(`   Start:  from index ${START_FROM}`);
