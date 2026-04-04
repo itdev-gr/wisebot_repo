@@ -618,9 +618,9 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       {/* Header */}
       {!isWizardOpen && (
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-4xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter">
+          <h1 className="text-4xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter">
             WISE <span className="text-blue-500">CINEMA</span>
-          </h2>
+          </h1>
           <button 
             onClick={() => setIsWizardOpen(true)}
             className="px-8 py-4 bg-white text-black rounded-full font-[1000] uppercase tracking-widest shadow-xl hover:scale-105 transition-transform text-sm md:text-base flex items-center gap-2 mx-auto"

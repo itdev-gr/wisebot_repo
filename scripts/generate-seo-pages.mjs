@@ -152,6 +152,83 @@ const ROUTES = [
       <p><a href="${BASE_URL}/market">🏪 Hero Market</a> | <a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/game">🎮 Παιχνίδια</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
     `,
   },
+  // ═══ SEO LANDING PAGES ═══
+  {
+    path: '/ai-paidia',
+    title: 'AI για Παιδιά — WiseBot Academy | Εκπαίδευση & Δημιουργία με Τεχνητή Νοημοσύνη',
+    description: 'Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες 90 σπουδαίων ανθρώπων. Το 1ο Ελληνικό εκπαιδευτικό AI για παιδιά 6-13.',
+    ogTitle: 'AI για Παιδιά — WiseBot Academy | Εκπαίδευση με Τεχνητή Νοημοσύνη',
+    noscript: `
+      <h1>AI για Παιδιά — WiseBot Academy: Μάθε, Δημιούργησε, Παίξε!</h1>
+      <p>Η τεχνητή νοημοσύνη (AI) δεν είναι μόνο για ενήλικες. Το WiseBot Academy φέρνει τη δύναμη του AI στα χέρια παιδιών 6-13 ετών.</p>
+      <h2>Τι μπορεί να κάνει ένα παιδί με AI;</h2>
+      <ul>
+        <li>🎵 Φτιάχνει δικά του τραγούδια με AI Music Studio</li>
+        <li>🎨 Δημιουργεί εικόνες & ήρωες με Hero Factory</li>
+        <li>🎬 Φτιάχνει AI video με Cinema</li>
+        <li>🧊 Δημιουργεί 3D μοντέλα με 3D Factory</li>
+        <li>📚 Μαθαίνει από ιστορίες 90 σπουδαίων ανθρώπων</li>
+      </ul>
+      <p><a href="${BASE_URL}/academy">🎓 Ακαδημία</a> | <a href="${BASE_URL}/music">🎵 Music Studio</a> | <a href="${BASE_URL}/game">🎮 Παιχνίδια</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
+    path: '/paidika-paixnidia',
+    title: 'Παιδικά Παιχνίδια Online Δωρεάν — 16 Arcade Games | WiseBot Academy',
+    description: '16 δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε credits & badges. Για παιδιά 6-13.',
+    ogTitle: 'Παιδικά Παιχνίδια Online Δωρεάν — 16 Arcade Games | WiseBot',
+    noscript: `
+      <h1>Παιδικά Παιχνίδια Online — 16 Δωρεάν Arcade Games</h1>
+      <p>Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει 16 δωρεάν arcade games για παιδιά 6-13 ετών. Χωρίς διαφημίσεις, 100% ασφαλή.</p>
+      <h2>Ποια παιχνίδια υπάρχουν;</h2>
+      <ul>
+        <li>⚔️ Wizard Duel — μάχη μαγείας</li>
+        <li>🏰 Dungeon Explorer — εξερεύνηση μπουντρουμιών</li>
+        <li>🧠 Memory Cards — παιχνίδι μνήμης</li>
+        <li>🔷 Geometry Dash — endless runner</li>
+        <li>🏰 Tower Defense — στρατηγική</li>
+        <li>⚽ Tactical Football — ποδόσφαιρο</li>
+      </ul>
+      <p><a href="${BASE_URL}/game">🎮 Όλα τα Παιχνίδια</a> | <a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/academy">🎓 Ακαδημία</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
+    path: '/ekpaideutiko-ai',
+    title: 'Εκπαιδευτικό AI για Παιδιά — Μάθε Ιστορία, Επιστήμη, Τέχνη | WiseBot Academy',
+    description: 'Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-13 ετών. Ιστορίες 90 σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Αναγνωρισμένο από εκπαιδευτικούς.',
+    ogTitle: 'Εκπαιδευτικό AI για Παιδιά — WiseBot Academy | Η Ακαδημία του Μέλλοντος',
+    noscript: `
+      <h1>Εκπαιδευτικό AI για Παιδιά — Η Ακαδημία του Μέλλοντος</h1>
+      <p>Το WiseBot Academy είναι το πρώτο Ελληνικό εκπαιδευτικό AI platform για παιδιά. Συνδυάζει gamified μάθηση, τεχνητή νοημοσύνη και εκπαιδευτικό περιεχόμενο.</p>
+      <h2>Τι μαθαίνουν τα παιδιά;</h2>
+      <ul>
+        <li>🧠 Ιστορίες 90 Σπουδαίων Ανθρώπων (Αϊνστάιν, Tesla, Curie, Da Vinci)</li>
+        <li>📖 26 Εκπαιδευτικά Ebooks (Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία)</li>
+        <li>❓ Quiz Γνώσεων σε Ιστορία, Γεωγραφία, Επιστήμη</li>
+        <li>💼 Επιχειρηματικότητα — Δημιούργησε brand, φτιάξε λογότυπο</li>
+      </ul>
+      <p><a href="${BASE_URL}/academy">🎓 Ακαδημία</a> | <a href="${BASE_URL}/ebooks">📚 Ebooks</a> | <a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
+    path: '/ftiaxe-tragoudia-ai',
+    title: 'Φτιάξε Τραγούδια με AI Δωρεάν — Music Studio για Παιδιά | WiseBot',
+    description: 'Φτιάξε δικά σου τραγούδια με AI! Γράψε στίχους, επίλεξε Pop, Rock, Hip-Hop. Η AI τραγουδά για σένα. Δωρεάν AI Music Studio για παιδιά 6-13.',
+    ogTitle: 'Φτιάξε Τραγούδια με AI — WiseBot Music Studio | Δωρεάν',
+    noscript: `
+      <h1>Φτιάξε Δικά σου Τραγούδια με AI — Δωρεάν!</h1>
+      <p>Με το WiseBot Music Studio, κάθε παιδί μπορεί να γίνει δημιουργός μουσικής — χωρίς να ξέρει νότες!</p>
+      <h2>3 τρόποι δημιουργίας τραγουδιών με AI</h2>
+      <ul>
+        <li>🧙 Guided Wizard — βήμα-βήμα οδηγός</li>
+        <li>✏️ Custom Lyrics — γράψε τους δικούς σου στίχους</li>
+        <li>💬 Simple Description — περίγραψε τι θέλεις</li>
+      </ul>
+      <h2>Στυλ μουσικής</h2>
+      <p>Pop, Rock, Hip-Hop, Electronic, Lullaby, Classical και πολλά ακόμα!</p>
+      <p><a href="${BASE_URL}/music">🎵 Music Studio</a> | <a href="${BASE_URL}/factory">🎨 Hero Factory</a> | <a href="${BASE_URL}/cinema">🎬 Cinema</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
 ];
 
 function generatePage(baseHtml, route) {

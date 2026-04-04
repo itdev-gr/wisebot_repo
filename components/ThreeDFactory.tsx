@@ -296,9 +296,9 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
           <Cuboid size={24} className="text-white" />
         </div>
         <div>
-          <h2 className="text-2xl md:text-3xl font-[1000] text-white tracking-tighter uppercase italic leading-none">
+          <h1 className="text-2xl md:text-3xl font-[1000] text-white tracking-tighter uppercase italic leading-none">
             3D <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-cyan-400">FACTORY</span>
-          </h2>
+          </h1>
           <p className="text-white/40 font-bold uppercase tracking-[0.2em] text-[10px]">
             {t.subtitle}
           </p>

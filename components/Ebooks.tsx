@@ -413,9 +413,9 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
       {/* HEADER                                                     */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <div className="text-center py-10 space-y-4 relative z-10">
-        <h2 className="text-3xl sm:text-5xl md:text-7xl font-[1000] text-white uppercase italic tracking-tighter leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-[1000] text-white uppercase italic tracking-tighter leading-none drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
           WISEBOT &{' '}<span className="text-transparent bg-clip-text magic-gradient">{lang === 'el' ? 'ΟΙ ΦΙΛΟΙ' : 'FRIENDS'}</span>
-        </h2>
+        </h1>
         <p className="text-white/50 font-bold uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-lg">
           {lang === 'el' ? '26 ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +2 CREDITS' : '26 STORIES • 1 BOOK = +2 CREDITS'}
         </p>

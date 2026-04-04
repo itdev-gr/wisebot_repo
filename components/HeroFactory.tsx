@@ -486,9 +486,9 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
                   {lang === 'el' ? 'ΕΡΓΟΣΤΑΣΙΟ ΗΡΩΩΝ' : 'HERO FACTORY'}
                 </span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter leading-tight">
+              <h1 className="text-3xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter leading-tight">
                 {lang === 'el' ? 'Πώς θέλεις να φτιάξεις τον ήρωά σου;' : 'How do you want to create your hero?'}
-              </h2>
+              </h1>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

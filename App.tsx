@@ -7,6 +7,8 @@ import LandingPage from './components/LandingPage';
 import ErrorBoundary from './components/ErrorBoundary';
 import SEO from './components/SEO';
 import SemiPublicRoute from './components/SemiPublicRoute';
+import InternalLinks from './components/InternalLinks';
+const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, Zap, WifiOff } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
@@ -469,17 +471,23 @@ function AppContent() {
             <Route path="/terms" element={<LegalHub lang={lang} />} />
 
             {/* ═══ SEMI-PUBLIC ROUTES — viewable by everyone, auth required for actions ═══ */}
-            <Route path="/academy" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="academy" /><Academy lang={lang} addXp={addXp} completedIds={completedIds} /></SemiPublicRoute>} />
-            <Route path="/ebooks" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="ebooks" /><Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} /></SemiPublicRoute>} />
-            <Route path="/music" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="music" /><MusicStudio lang={lang} /></SemiPublicRoute>} />
-            <Route path="/game" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="game" /><GameCenter lang={lang} /></SemiPublicRoute>} />
-            <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /></SemiPublicRoute>} />
-            <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><Cinema lang={lang} myHeroes={myHeroes} /></SemiPublicRoute>} />
-            <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><HeroFactory lang={lang} addHero={addHero} /></SemiPublicRoute>} />
-            <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><ThreeDFactory lang={lang} /></SemiPublicRoute>} />
-            <Route path="/business" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="business" /><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /></SemiPublicRoute>} />
-            <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /></SemiPublicRoute>} />
-            <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /></SemiPublicRoute>} />
+            <Route path="/academy" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="academy" /><Academy lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="academy" /></SemiPublicRoute>} />
+            <Route path="/ebooks" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="ebooks" /><Ebooks lang={lang} addXp={addXp} completedIds={completedIds} xp={xp} level={level} /><InternalLinks lang={lang} currentPage="ebooks" /></SemiPublicRoute>} />
+            <Route path="/music" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="music" /><MusicStudio lang={lang} /><InternalLinks lang={lang} currentPage="music" /></SemiPublicRoute>} />
+            <Route path="/game" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="game" /><GameCenter lang={lang} /><InternalLinks lang={lang} currentPage="game" /></SemiPublicRoute>} />
+            <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /><InternalLinks lang={lang} currentPage="quiz" /></SemiPublicRoute>} />
+            <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><Cinema lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
+            <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><HeroFactory lang={lang} addHero={addHero} /><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
+            <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><ThreeDFactory lang={lang} /><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />
+            <Route path="/business" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="business" /><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="business" /></SemiPublicRoute>} />
+            <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="market" /></SemiPublicRoute>} />
+            <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="wise-friends" /></SemiPublicRoute>} />
+
+            {/* ═══ SEO LANDING PAGES — content-rich pages targeting search queries ═══ */}
+            <Route path="/ai-paidia" element={<SEOLandingPage lang={lang} variant="ai-paidia" />} />
+            <Route path="/paidika-paixnidia" element={<SEOLandingPage lang={lang} variant="paidika-paixnidia" />} />
+            <Route path="/ekpaideutiko-ai" element={<SEOLandingPage lang={lang} variant="ekpaideutiko-ai" />} />
+            <Route path="/ftiaxe-tragoudia-ai" element={<SEOLandingPage lang={lang} variant="ftiaxe-tragoudia-ai" />} />
 
             {/* ═══ PROTECTED ROUTES — require authentication (dashboard, payment, admin) ═══ */}
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />

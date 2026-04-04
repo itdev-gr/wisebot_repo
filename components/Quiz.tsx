@@ -134,9 +134,9 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
             className="space-y-12"
           >
             <div className="text-center space-y-4">
-              <h2 className="text-5xl md:text-7xl font-[1000] text-white tracking-tighter uppercase italic leading-none">
+              <h1 className="text-5xl md:text-7xl font-[1000] text-white tracking-tighter uppercase italic leading-none">
                 WISE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">QUIZ</span>
-              </h2>
+              </h1>
               <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs md:text-sm">
                 {lang === 'el' ? 'ΚΕΡΔΙΣΕ BADGES & CREDITS' : 'EARN BADGES & CREDITS'}
               </p>

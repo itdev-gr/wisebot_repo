@@ -496,9 +496,9 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             <span className="text-[10px] font-black uppercase tracking-widest text-white/60">WISEBOT ACADEMY</span>
             <span className="text-[10px] font-black text-blue-400">{totalCompleted}/{totalStories}</span>
          </div>
-         <h2 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
+         <h1 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
             {lang === 'el' ? 'ΜΑΘΗΜΑΤΑ' : 'LESSONS'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΖΩΗΣ' : 'OF LIFE'}</span>
-         </h2>
+         </h1>
          <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs">
             {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 90 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 90 GREAT PEOPLE'}
          </p>
