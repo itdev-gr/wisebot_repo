@@ -34,8 +34,6 @@ import {
   Cpu,
   Code
 } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 const motion = m as any;
 
 interface WiseCardsProps {
@@ -113,9 +111,6 @@ const ICONS = [
 ];
 
 export default function WiseCards({ lang, onBack }: WiseCardsProps) {
-  const { earnCredits } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'finished'>('menu');
   const [level, setLevel] = useState(LEVELS[0]);
@@ -236,10 +231,7 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
         if (allMatched) {
             setTimeout(() => {
                 setGameState('finished');
-                if (!creditsAwardedRef.current) {
-                  creditsAwardedRef.current = true;
-                  earnCredits(5);
-                }
+                // Game complete
             }, 500);
         }
         return currentCards;

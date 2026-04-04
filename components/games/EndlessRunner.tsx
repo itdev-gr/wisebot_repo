@@ -1,8 +1,6 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, RotateCcw, Play, Trophy, Zap, Heart, Crown } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 interface EndlessRunnerProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -63,9 +61,6 @@ interface BGStar {
 
 export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   const gs = useRef({
     status: 'idle' as 'idle' | 'playing' | 'dead',
     lane: 1 as Lane,
@@ -345,11 +340,6 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
               if (newHi) {
                 g.highScore = total;
                 try { localStorage.setItem('wb_runner_hi', total.toString()); } catch (e) { /* ignore */ }
-              }
-              if (g.score >= 100 && !creditsAwardedRef.current) {
-                creditsAwardedRef.current = true;
-                earnCredits(5);
-                setTimeout(() => showNotification('🏃', 'ENDLESS RUNNER!', '+5 Credits ⚡'), 500);
               }
               setUi({ status: 'dead', score: g.score, coins: g.coins, lives: 0, highScore: g.highScore, newHighScore: newHi });
             }
@@ -1070,7 +1060,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
 
     ctx.restore();
     animRef.current = requestAnimationFrame(loop);
-  }, [spawnObstacle, earnCredits, showNotification, generateBuildings, generateStars]);
+  }, [spawnObstacle, generateBuildings, generateStars]);
 
   // ─── START / ACTIONS ───────────────────────────
   const startGame = useCallback(() => {
@@ -1105,7 +1095,6 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
     g.flashTimer = 0;
     g.milestoneFlash = 0;
     g.lastMilestone = 0;
-    creditsAwardedRef.current = false;
     setUi({ status: 'playing', score: 0, coins: 0, lives: 3, highScore: g.highScore, newHighScore: false });
   }, []);
 

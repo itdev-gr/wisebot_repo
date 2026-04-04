@@ -158,6 +158,7 @@ export default async function handler(req: any, res: any) {
         child_name: childName,
         parent_email: email,
         parent_verified: false,
+        has_password: true, // email/password signups have a password
         phone_number: phoneNumber || null,
         phone_verified: false,
         credits: 50, // starter credits

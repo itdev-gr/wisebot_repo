@@ -1,7 +1,6 @@
 
 import React, { useState, useRef } from 'react';
 import { ArrowLeft, Sparkles, Trophy, Star, Palette, RotateCcw, Loader2, Image, Zap, Crown, ThumbsUp, Clock } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
 import { authFetch } from '../../services/backendApi';
 
 interface ArtBattleProps {
@@ -50,9 +49,6 @@ interface ArtEntry {
 }
 
 export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   const [gameState, setGameState] = useState<'menu' | 'challenge' | 'creating' | 'generating' | 'result' | 'gallery'>('menu');
   const [currentTheme, setCurrentTheme] = useState<typeof THEMES_EL[0] | null>(null);
   const [userPrompt, setUserPrompt] = useState('');
@@ -164,13 +160,6 @@ export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
       setTotalScore(prev => prev + overallScore);
       setGameState('result');
 
-      // Award credits for high scores
-      if (overallScore >= 70 && !creditsAwardedRef.current) {
-        creditsAwardedRef.current = true;
-        const credits = overallScore >= 90 ? 10 : overallScore >= 80 ? 7 : 5;
-        earnCredits(credits);
-        setTimeout(() => showNotification('🎨', 'ART BATTLE!', `+${credits} Credits ⚡`), 500);
-      }
     } catch (err: any) {
       setError(err.message || 'Generation failed');
       setGameState('challenge');

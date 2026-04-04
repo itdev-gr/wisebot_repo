@@ -1,8 +1,6 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, RotateCcw, Sword, Heart, Star, Key, DoorOpen, Shield, Zap, Crown } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 interface DungeonExplorerProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -169,9 +167,6 @@ function generateMaze(floor: number): Cell[][] {
 
 // ─── COMPONENT ──────────────────────────────
 export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) {
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'combat' | 'gameover' | 'floorClear'>('menu');
   const [grid, setGrid] = useState<Cell[][]>([]);
   const [player, setPlayer] = useState<PlayerState>({
@@ -211,7 +206,6 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
     setGameState('playing');
     setCombatMonster(null);
     setCombatLog('');
-    creditsAwardedRef.current = false;
   }, [revealAround]);
 
   const nextFloor = useCallback(() => {
@@ -295,11 +289,6 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
       case 'exit':
         // Floor complete
         newPlayer.gold += 25 * player.floor;
-        if (player.floor >= 5 && !creditsAwardedRef.current) {
-          creditsAwardedRef.current = true;
-          earnCredits(10);
-          setTimeout(() => showNotification('🏰', 'DUNGEON EXPLORER!', '+10 Credits ⚡'), 300);
-        }
         setGameState('floorClear');
         break;
       default:
@@ -314,13 +303,8 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
 
     if (newPlayer.hp <= 0) {
       setGameState('gameover');
-      if (newPlayer.gold >= 20 && !creditsAwardedRef.current) {
-        creditsAwardedRef.current = true;
-        earnCredits(3);
-        setTimeout(() => showNotification('🏰', 'DUNGEON!', '+3 Credits ⚡'), 300);
-      }
     }
-  }, [gameState, player, grid, revealAround, showMsg, isGreek, earnCredits, showNotification]);
+  }, [gameState, player, grid, revealAround, showMsg, isGreek]);
 
   const doCombatAttack = useCallback(() => {
     if (!combatMonster || !combatMonster.monsterHP) return;

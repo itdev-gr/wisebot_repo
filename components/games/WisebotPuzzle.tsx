@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useEconomy } from '../../context/EconomyContext';
 import { ArrowLeft, Play, Eye, EyeOff, CheckCircle, Zap, RefreshCcw } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 
@@ -27,9 +26,6 @@ interface WisebotPuzzleProps {
 }
 
 export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
-  const { earnCredits } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'victory'>('menu');
   const [selectedHero, setSelectedHero] = useState(HEROES[0]);
@@ -122,10 +118,7 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
       if (isFull) {
           setTimeout(() => {
               setGameState('victory');
-              if (!creditsAwardedRef.current) {
-                creditsAwardedRef.current = true;
-                earnCredits(selectedDiff.bonus);
-              }
+              // Puzzle complete
           }, 500);
       }
   };

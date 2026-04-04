@@ -39,7 +39,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
 
   const t = {
     title: lang === 'el' ? 'ΠΑΙΧΝΙΔΙΑ' : 'GAMES',
-    subtitle: lang === 'el' ? 'Παίξε, διασκέδασε και κέρδισε Credits!' : 'Play, have fun and earn Credits!',
+    subtitle: lang === 'el' ? 'Παίξε, διασκέδασε και κέρδισε Badges!' : 'Play, have fun and earn Badges!',
     nebula: { title: 'NEBULA CATCH', desc: lang === 'el' ? 'Πιάσε την ενέργεια!' : 'Catch the energy!' },
     diff: { title: 'SPOT IT', desc: lang === 'el' ? 'Βρες τις διαφορές.' : 'Find the differences.' },
     slingshot: { title: 'SLINGSHOT', desc: lang === 'el' ? 'Στόχευσε!' : 'Aim & fire!' },

@@ -1,8 +1,6 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, RotateCcw, Play, Trophy, Zap } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 interface GeometryDashProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -57,9 +55,6 @@ interface Particle {
 
 export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   // Game state refs (avoid re-renders during gameplay)
   const gameState = useRef({
     status: 'idle' as 'idle' | 'playing' | 'dead',
@@ -264,13 +259,6 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
           if (totalScore > gs.highScore) {
             gs.highScore = totalScore;
             localStorage.setItem('wb_geodash_hi', totalScore.toString());
-          }
-
-          // Credits
-          if (totalScore >= 50 && !creditsAwardedRef.current) {
-            creditsAwardedRef.current = true;
-            earnCredits(5);
-            setTimeout(() => showNotification('🎮', 'GEOMETRY DASH!', '+5 Credits ⚡'), 500);
           }
 
           setUiState({ status: 'dead', score: gs.score, stars: gs.stars, highScore: gs.highScore });
@@ -570,7 +558,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
     ctx.restore();
 
     animFrameRef.current = requestAnimationFrame(gameLoop);
-  }, [spawnObstacle, spawnParticles, earnCredits, showNotification]);
+  }, [spawnObstacle, spawnParticles]);
 
   // ─── START / RESET ─────────────────────────────
   const startGame = useCallback(() => {

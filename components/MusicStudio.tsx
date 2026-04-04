@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { backendAI, authFetch } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
 import { useAuth } from '../context/AuthContext';
@@ -154,6 +155,7 @@ const WIZARD_STYLES = [
 ];
 
 export default function MusicStudio({ lang }: MusicStudioProps) {
+  const navigate = useNavigate();
   const { spendCredits, showNotification, costs, trackAction } = useEconomy();
   const { user } = useAuth();
 
@@ -349,6 +351,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
     if (!spendCredits(costs.song)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      setTimeout(() => navigate('/store'), 1500);
       return;
     }
 

@@ -1,8 +1,6 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, RotateCcw, Play, Trophy, Zap, Shield, Swords, Heart, Clock, ChevronRight } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 interface TowerDefenseProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -97,9 +95,6 @@ const ENEMY_DATA: Record<EnemyType, { hp: number; speed: number; reward: number;
 
 export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   const gs = useRef({
     status: 'idle' as 'idle' | 'playing' | 'won' | 'lost' | 'building',
     gold: 50,
@@ -351,11 +346,6 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
 
         if (g.wave >= WAVE_DATA.length) {
           g.status = 'won';
-          if (!creditsAwardedRef.current) {
-            creditsAwardedRef.current = true;
-            earnCredits(1);
-            setTimeout(() => showNotification('🏰', 'TOWER DEFENSE!', '+1 Credit ⚡'), 500);
-          }
           setUi(prev => ({ ...prev, status: 'won', wave: g.wave, gold: g.gold, totalKills: g.totalKills }));
         } else {
           g.status = 'building';
@@ -544,7 +534,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     ctx.fillText('🏠', g.pathPixels[g.pathPixels.length - 1].x, g.pathPixels[g.pathPixels.length - 1].y + 6);
 
     animRef.current = requestAnimationFrame(loop);
-  }, [spawnParticles, earnCredits, showNotification]);
+  }, [spawnParticles]);
 
   // ─── CLICK TO PLACE TOWER ──────────────────────
   const handleCanvasClick = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {

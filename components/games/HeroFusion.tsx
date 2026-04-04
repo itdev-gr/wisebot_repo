@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { useEconomy } from '../../context/EconomyContext';
 import { ArrowLeft, RefreshCcw, Crown, Play, Trophy, Zap, Flame } from 'lucide-react';
 
 // --- CONFIGURATION ---
@@ -52,8 +51,6 @@ interface HeroFusionProps {
 }
 
 export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
-  const { earnCredits } = useEconomy();
-  const creditsAwardedRef = useRef(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -180,7 +177,6 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     setUiHighestLevel(0);
     setIsGameOver(false);
     setHasStarted(true);
-    creditsAwardedRef.current = false;
 
     if (requestRef.current) cancelAnimationFrame(requestRef.current);
     loop();
@@ -207,10 +203,6 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     if (stateRef.current.score > currentBest) {
       localStorage.setItem('hero_fusion_best', stateRef.current.score.toString());
       setUiBest(stateRef.current.score);
-    }
-    if (stateRef.current.score > 200 && !creditsAwardedRef.current) {
-      creditsAwardedRef.current = true;
-      earnCredits(5);
     }
   };
 

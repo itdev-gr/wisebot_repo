@@ -332,12 +332,21 @@ const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ child
 };
 
 // --- AUTH GUARD: Redirects unauthenticated users to /login ---
-const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading, emailVerified } = useAuth();
+const SetPasswordScreen = React.lazy(() => import('./components/SetPasswordScreen'));
+
+const ProtectedRoute: React.FC<{ children: React.ReactNode; lang?: 'el' | 'en' }> = ({ children, lang = 'el' }) => {
+  const { user, profile, loading, emailVerified } = useAuth();
 
   if (loading) return <PageLoader />;
   if (!user) return <Navigate to="/login" replace />;
   if (!emailVerified) return <PendingVerification />;
+
+  // Google OAuth users must create a password before accessing protected routes
+  const isGoogleUser = user?.app_metadata?.provider === 'google' ||
+    (user?.app_metadata?.providers as string[] | undefined)?.includes('google');
+  if (isGoogleUser && profile && !profile.hasPassword) {
+    return <SetPasswordScreen lang={lang} />;
+  }
 
   return <>{children}</>;
 };
@@ -490,11 +499,11 @@ function AppContent() {
             <Route path="/ftiaxe-tragoudia-ai" element={<SEOLandingPage lang={lang} variant="ftiaxe-tragoudia-ai" />} />
 
             {/* ═══ PROTECTED ROUTES — require authentication (dashboard, payment, admin) ═══ */}
-            <Route path="/dashboard" element={<ProtectedRoute><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
-            <Route path="/admin" element={<ProtectedRoute><AdminDashboard lang={lang} /></ProtectedRoute>} />
-            <Route path="/account" element={<ProtectedRoute><Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} /></ProtectedRoute>} />
-            <Route path="/store" element={<ProtectedRoute><CreditStore lang={lang} /></ProtectedRoute>} />
-            <Route path="/parent" element={<ProtectedRoute><ParentDashboard lang={lang} /></ProtectedRoute>} />
+            <Route path="/dashboard" element={<ProtectedRoute lang={lang}><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute lang={lang}><AdminDashboard lang={lang} /></ProtectedRoute>} />
+            <Route path="/account" element={<ProtectedRoute lang={lang}><Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} /></ProtectedRoute>} />
+            <Route path="/store" element={<ProtectedRoute lang={lang}><CreditStore lang={lang} /></ProtectedRoute>} />
+            <Route path="/parent" element={<ProtectedRoute lang={lang}><ParentDashboard lang={lang} /></ProtectedRoute>} />
 
             {/* 404 catch-all: redirect unknown routes to landing */}
             <Route path="*" element={<Navigate to="/" replace />} />

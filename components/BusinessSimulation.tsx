@@ -5,6 +5,7 @@ import {
   Building2, Pizza, Shirt, Gamepad2, Heart, Music,
   Target, Users, Crown, TrendingUp, Download
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { backendAI } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
 
@@ -36,6 +37,7 @@ const TARGETS = [
 ];
 
 const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
+  const navigate = useNavigate();
   const { credits, spendCredits, trackAction, showNotification, costs } = useEconomy();
   const [step, setStep] = useState(0);
   const [loadingText, setLoadingText] = useState('');
@@ -165,6 +167,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
     if (step === 2) {
       if (!spendCredits(COST)) {
         showNotification('💰', lang === 'el' ? `Χρειάζεσαι ${COST} Credits!` : `You need ${COST} Credits!`);
+        setTimeout(() => navigate('/store'), 1500);
         return;
       }
     }

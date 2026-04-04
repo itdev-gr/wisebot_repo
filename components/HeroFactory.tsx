@@ -221,6 +221,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         const success = spendCredits(costs.image);
         if (!success) {
             showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+            setTimeout(() => navigate('/store'), 1500);
             return;
         }
     }
@@ -268,6 +269,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     const success = spendCredits(costs.image);
     if (!success) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      setTimeout(() => navigate('/store'), 1500);
       return;
     }
     setAvatarLoading(true);
@@ -333,6 +335,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const startMeshy3D = useCallback(async (imageToConvert: string) => {
     if (!spendCredits(costs.threeD)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      setTimeout(() => navigate('/store'), 1500);
       return;
     }
     setMeshy3DStatus('processing');

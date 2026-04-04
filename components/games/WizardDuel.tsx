@@ -1,8 +1,6 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, Zap, Heart, Shield, Flame, Sparkles, Star, RotateCcw } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 interface WizardDuelProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -114,8 +112,6 @@ function getQuestion(difficulty: Difficulty, isGreek: boolean): Question {
 
 // ─── COMPONENT ──────────────────────────────
 export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const particlesRef = useRef<Particle[]>([]);
@@ -203,7 +199,6 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
     setMessage('');
     setCastingSpell(null);
     setShowHit(null);
-    creditsAwardedRef.current = false;
     setDifficulty(bIdx < 2 ? 'easy' : bIdx < 4 ? 'medium' : 'hard');
     setGameState('battle');
   }, []);
@@ -260,11 +255,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
               // Final boss defeated
               setMessage(isGreek ? '🏆 ΝΙΚΗΣΕΣ ΟΛΟΥΣ!' : '🏆 YOU DEFEATED ALL BOSSES!');
               setGameState('victory');
-              if (!creditsAwardedRef.current) {
-                creditsAwardedRef.current = true;
-                earnCredits(15);
-                setTimeout(() => showNotification('🧙', 'WIZARD DUEL!', '+15 Credits ⚡'), 500);
-              }
+              // All bosses defeated
             }
           } else {
             // Enemy turn
@@ -280,7 +271,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
         enemyAttack(bossHP);
       }, 1000);
     }
-  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles, earnCredits, showNotification]);
+  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles]);
 
   const enemyAttack = useCallback((currentBossHP: number) => {
     setGameState('enemy_turn');
@@ -310,18 +301,13 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
         if (newHP <= 0) {
           setGameState('defeat');
           setMessage(isGreek ? '💀 Ηττήθηκες...' : '💀 You were defeated...');
-          if (score >= 50 && !creditsAwardedRef.current) {
-            creditsAwardedRef.current = true;
-            earnCredits(5);
-            setTimeout(() => showNotification('🧙', 'WIZARD DUEL!', '+5 Credits ⚡'), 500);
-          }
         } else {
           setGameState('battle');
           setMessage('');
         }
       }, 500);
     }, 500);
-  }, [bossIndex, playerHP, shieldActive, isGreek, spawnParticles, score, earnCredits, showNotification]);
+  }, [bossIndex, playerHP, shieldActive, isGreek, spawnParticles, score]);
 
   const nextBoss = useCallback(() => {
     const next = bossIndex + 1;

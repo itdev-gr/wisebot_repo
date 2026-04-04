@@ -20,7 +20,7 @@ import {
   Globe
 } from 'lucide-react';
 import { backendAI, authFetch } from '../services/backendApi';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
@@ -367,6 +367,7 @@ interface CinemaProps {
 }
 
 const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
+  const navigate = useNavigate();
   const { spendCredits, costs, trackAction, showNotification } = useEconomy();
   const { user } = useAuth();
   const location = useLocation();
@@ -471,6 +472,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   const handleGenerate = async () => {
     if (!spendCredits(costs.video)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      setTimeout(() => navigate('/store'), 1500);
       return;
     }
 

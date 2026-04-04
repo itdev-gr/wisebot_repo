@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useEconomy } from '../../context/EconomyContext';
 import { ArrowLeft, RotateCcw, Target, RotateCw, Trophy, AlertTriangle } from 'lucide-react';
 
 interface TacticalFootballProps {
@@ -56,8 +55,6 @@ interface Entity {
 }
 
 export default function TacticalFootball({ lang, onBack }: TacticalFootballProps) {
-  const { earnCredits } = useEconomy();
-  const creditsAwardedRef = useRef(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<Record<string, HTMLImageElement>>({});
 
@@ -336,11 +333,6 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
       setUiState(s => ({
           ...s, scoreP: state.scorePlayer, scoreO: state.scoreOpponent, message: t.goal
       }));
-
-      if(scorer === 'player' && !creditsAwardedRef.current) {
-        creditsAwardedRef.current = true;
-        earnCredits(5);
-      }
 
       setTimeout(() => {
           initMatch(); 

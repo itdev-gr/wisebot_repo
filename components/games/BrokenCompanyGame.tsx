@@ -7,8 +7,6 @@ import {
   Briefcase, Ghost, Dice5, CheckCircle, RefreshCcw,
   Trophy
 } from 'lucide-react';
-import { useEconomy } from '../../context/EconomyContext';
-
 const motion = m as any;
 
 // --- CONFIGURATION ---
@@ -59,9 +57,6 @@ interface BrokenCompanyGameProps {
 }
 
 export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGameProps) {
-  const { earnCredits } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   // --- STATE ---
   const [phase, setPhase] = useState<'SETUP' | 'GAME' | 'EVENT' | 'GAMEOVER' | 'VICTORY'>('SETUP');
   
@@ -230,10 +225,6 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
     // Check Victory
     if (turn >= MAX_TURNS) {
       setPhase('VICTORY');
-      if (!creditsAwardedRef.current) {
-        creditsAwardedRef.current = true;
-        earnCredits(20);
-      }
       return;
     }
 

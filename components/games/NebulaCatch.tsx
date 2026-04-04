@@ -2,17 +2,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, Trophy, Play, RefreshCcw, ArrowLeft, Zap } from 'lucide-react';
 import { HEROES } from '../../constants';
-import { useEconomy } from '../../context/EconomyContext';
-
 interface NebulaCatchProps {
   lang: 'el' | 'en';
   onBack: () => void;
 }
 
 export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
-  const { earnCredits } = useEconomy();
-  const creditsAwardedRef = useRef(false);
-
   const [isPlaying, setIsPlaying] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -111,7 +106,6 @@ export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
     particlesRef.current = [];
     speedMultiplier.current = 1;
     heroXRef.current = 50;
-    creditsAwardedRef.current = false;
     lastSpawnTime.current = performance.now();
     gameLoopRef.current = requestAnimationFrame(gameLoop);
   };
@@ -129,10 +123,6 @@ export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
     if (finalScore > highScore) {
       setHighScore(finalScore);
       localStorage.setItem('wb_nebula_hi', finalScore.toString());
-    }
-    if (finalScore > 50 && !creditsAwardedRef.current) {
-      creditsAwardedRef.current = true;
-      earnCredits(5);
     }
   };
 

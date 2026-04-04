@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion as m } from 'framer-motion';
 import { Upload, RefreshCcw, Download, Cuboid, Grid, Sparkles, Cylinder, Box, FileDown, CheckCircle2, X, Zap } from 'lucide-react';
 import { GoogleGenAI } from "../services/geminiProxy";
+import { useNavigate } from 'react-router-dom';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { authFetch } from '../services/backendApi';
@@ -24,6 +25,7 @@ const SAMPLES = [
 
 
 export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
+  const navigate = useNavigate();
   const { badges, showNotification, credits, spendCredits, costs } = useEconomy();
   const t = UI_TEXT[lang].factory3d;
   
@@ -100,6 +102,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
 
     if (!spendCredits(costs.threeD)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      setTimeout(() => navigate('/store'), 1500);
       return;
     }
 
@@ -237,6 +240,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
 
     if (!spendCredits(costs.threeD)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+      setTimeout(() => navigate('/store'), 1500);
       return;
     }
 

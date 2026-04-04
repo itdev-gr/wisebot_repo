@@ -44,8 +44,7 @@ const LEVELS = [
 ];
 
 export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
-  const { earnCredits, showNotification } = useEconomy();
-  const creditsAwardedRef = useRef(false);
+  const { showNotification } = useEconomy();
 
   // Game State
   const [grid, setGrid] = useState<(string | null)[]>(Array(GRID_SIZE * GRID_SIZE).fill(null));
@@ -107,10 +106,7 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
     
     if (currentLvlIndex > level) {
       setLevel(currentLvlIndex);
-      if (!creditsAwardedRef.current) {
-        creditsAwardedRef.current = true;
-        earnCredits(5); // Reward once per game
-      }
+      // Level up
     }
   }, [resources.pop]);
 

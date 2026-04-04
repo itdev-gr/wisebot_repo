@@ -22,6 +22,8 @@ interface Profile {
   avatarUrl: string | null;
   parentVerified: boolean;
   onboardingComplete: boolean;
+  hasPassword: boolean;
+  phoneNumber: string | null;
 }
 
 interface AuthContextType {
@@ -30,11 +32,12 @@ interface AuthContextType {
   loading: boolean;
   isGuest: boolean;
   emailVerified: boolean;
-  signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string }>;
+  signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string; userId?: string }>;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signInWithGoogle: () => Promise<{ error?: string }>;
   resetPassword: (email: string) => Promise<{ error?: string }>;
   resendVerification: (email: string) => Promise<{ error?: string }>;
+  setUserPassword: (newPassword: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
   completeOnboarding: (nickname: string, avatarUrl: string) => Promise<{ error?: string }>;
 }
@@ -55,7 +58,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .select('id, child_name, parent_email, avatar_url, parent_verified, onboarding_complete')
+        .select('id, child_name, parent_email, avatar_url, parent_verified, onboarding_complete, has_password, phone_number')
         .eq('id', userId)
         .single();
 
@@ -73,6 +76,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             child_name: childName,
             parent_email: email,
             parent_verified: isGoogleUser, // Google email is already verified
+            has_password: false, // Google OAuth users need to create a password
             credits: 50,
             onboarding_complete: false,
           });
@@ -95,6 +99,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         avatarUrl: data.avatar_url,
         parentVerified: data.parent_verified,
         onboardingComplete: data.onboarding_complete ?? false,
+        hasPassword: data.has_password ?? false,
+        phoneNumber: data.phone_number ?? null,
       };
       setProfile(p);
 
@@ -180,7 +186,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     password: string,
     childName: string,
     parentEmail?: string,
-  ): Promise<{ error?: string }> => {
+  ): Promise<{ error?: string; userId?: string }> => {
     if (!configured) return { error: 'Auth not configured' };
 
     try {
@@ -198,7 +204,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       // Don't auto-login — email verification is required first
-      return {};
+      // Return userId so caller can send OTP directly
+      return { userId: result.userId };
     } catch (err: any) {
       return { error: err.message || 'Registration failed' };
     }
@@ -312,6 +319,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [user, fetchProfile]);
 
+  // Set Password — for Google OAuth users who need to create a password
+  const setUserPassword = useCallback(async (newPassword: string): Promise<{ error?: string }> => {
+    if (!user) return { error: 'Not authenticated' };
+    try {
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      if (error) return { error: error.message };
+
+      // Mark has_password = true in profiles
+      await supabase.from('profiles').update({ has_password: true }).eq('id', user.id);
+      await fetchProfile(user.id);
+      return {};
+    } catch (err: any) {
+      return { error: err.message || 'Failed to set password' };
+    }
+  }, [user, fetchProfile]);
+
   // Sign Out
   const signOut = useCallback(async () => {
     cancelPendingPush();
@@ -336,7 +359,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isGuest = !user;
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, resendVerification, signOut, completeOnboarding }}>
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, resendVerification, setUserPassword, signOut, completeOnboarding }}>
       {children}
       {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
     </AuthContext.Provider>
