@@ -84,6 +84,53 @@ export default async function handler(req: any, res: any) {
           } else {
             console.log(`[Webhook] Added ${creditsAmount} credits to user ${userId}`);
           }
+
+          // Send email notification to parent about the purchase
+          try {
+            const { data: profileData } = await supabase
+              .from('profiles')
+              .select('parent_email, child_name')
+              .eq('id', userId)
+              .single();
+
+            if (profileData?.parent_email) {
+              const amountEur = ((session.amount_total || 0) / 100).toFixed(2);
+              const date = new Date().toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+              const childName = profileData.child_name || 'Το παιδί σας';
+
+              const RESEND_KEY = process.env.RESEND_API_KEY;
+              if (RESEND_KEY) {
+                await fetch('https://api.resend.com/emails', {
+                  method: 'POST',
+                  headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    from: 'WiseBot Academy <noreply@wisebot.gr>',
+                    to: [profileData.parent_email],
+                    subject: `WiseBot Academy — Αγορά Credits (${creditsAmount} ⚡)`,
+                    html: `
+                      <div style="font-family:system-ui,sans-serif;max-width:500px;margin:0 auto;padding:20px;">
+                        <h2 style="color:#1a1a2e;">WiseBot Academy — Ειδοποίηση Αγοράς</h2>
+                        <p>Αγαπητέ γονέα,</p>
+                        <p>Σας ενημερώνουμε ότι πραγματοποιήθηκε αγορά credits στον λογαριασμό <strong>${childName}</strong>:</p>
+                        <table style="border-collapse:collapse;width:100%;margin:16px 0;">
+                          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Πακέτο</td><td style="padding:8px;border:1px solid #ddd;">${packId || 'Credits'}</td></tr>
+                          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Credits</td><td style="padding:8px;border:1px solid #ddd;">${creditsAmount} ⚡</td></tr>
+                          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Ποσό</td><td style="padding:8px;border:1px solid #ddd;">€${amountEur}</td></tr>
+                          <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Ημερομηνία</td><td style="padding:8px;border:1px solid #ddd;">${date}</td></tr>
+                        </table>
+                        <p style="color:#666;font-size:13px;">Αν δεν αναγνωρίζετε αυτή την αγορά, επικοινωνήστε μαζί μας: info@wisebot.gr</p>
+                        <p style="color:#999;font-size:11px;">© 2026 WiseBot Academy — wisebot.gr</p>
+                      </div>
+                    `,
+                  }),
+                });
+                console.log(`[Webhook] Purchase notification sent to ${profileData.parent_email}`);
+              }
+            }
+          } catch (emailErr: any) {
+            console.error('[Webhook] Email notification error:', emailErr.message);
+            // Don't fail — email is non-critical
+          }
         } catch (dbErr: any) {
           console.error('[Webhook] DB error:', dbErr.message);
           // Don't fail the webhook — Stripe needs 200 to not retry

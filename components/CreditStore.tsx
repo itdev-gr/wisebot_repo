@@ -1,12 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import { motion as m } from 'framer-motion';
-import { Zap, Star, Crown, Rocket, Gift, Sparkles, ArrowRight, BookOpen, Brain, Briefcase, Music, Clapperboard, Box, CheckCircle, Loader2 } from 'lucide-react';
+import { motion as m, AnimatePresence } from 'framer-motion';
+import { Zap, Star, Crown, Rocket, Gift, Sparkles, ArrowRight, BookOpen, Brain, Briefcase, Music, Clapperboard, Box, CheckCircle, Loader2, Shield, AlertCircle, X } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
+import { useAuth } from '../context/AuthContext';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { isBackendAvailable, backendStripe } from '../services/backendApi';
 
 const motion = m as any;
+const AnimatePresenceAny = AnimatePresence as any;
+
+const PARENT_VERIFY_TTL = 15 * 60 * 1000; // 15 minutes
 
 interface CreditStoreProps {
   lang: 'el' | 'en';
@@ -20,11 +24,11 @@ const CREDIT_PACKS = [
 ];
 
 const EARN_METHODS = [
-  { icon: BookOpen, label: { el: 'Διάβασε ιστορία', en: 'Read a story' }, reward: '+1', color: 'text-blue-400' },
-  { icon: BookOpen, label: { el: 'Διάβασε βιβλίο', en: 'Read a book' }, reward: '+2', color: 'text-indigo-400' },
+  { icon: BookOpen, label: { el: 'Διάβασε ιστορία', en: 'Read a story' }, reward: '+2', color: 'text-blue-400' },
+  { icon: BookOpen, label: { el: 'Διάβασε βιβλίο', en: 'Read a book' }, reward: '+3', color: 'text-indigo-400' },
   { icon: Brain, label: { el: 'Πέρασε Quiz', en: 'Pass a Quiz' }, reward: '+2', color: 'text-purple-400' },
   { icon: Star, label: { el: 'Ημερήσια Αποστολή', en: 'Daily Mission' }, reward: '+3', color: 'text-amber-400' },
-  { icon: Gift, label: { el: 'Ημερήσιο Bonus', en: 'Daily Bonus' }, reward: '+2', color: 'text-orange-400' },
+  { icon: Gift, label: { el: 'Ημερήσιο Bonus', en: 'Daily Bonus' }, reward: '+2~10', color: 'text-orange-400' },
 ];
 
 const COST_TABLE = [
@@ -37,11 +41,19 @@ const COST_TABLE = [
 
 export default function CreditStore({ lang }: CreditStoreProps) {
   const { credits, costs, earnCredits, showNotification } = useEconomy();
+  const { user, profile } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [buyingPack, setBuyingPack] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const backendReady = isBackendAvailable();
+
+  // Parent verification modal state
+  const [showParentModal, setShowParentModal] = useState(false);
+  const [pendingPackId, setPendingPackId] = useState<string | null>(null);
+  const [parentPassword, setParentPassword] = useState('');
+  const [verifying, setVerifying] = useState(false);
+  const [verifyError, setVerifyError] = useState('');
 
   // Handle Stripe redirect
   // Stripe redirects to: /store?success=true&session_id=xxx
@@ -77,17 +89,100 @@ export default function CreditStore({ lang }: CreditStoreProps) {
     }
   }, [searchParams, lang, backendReady]);
 
+  // Check if parent was verified recently (within 15 min)
+  const isParentRecentlyVerified = (): boolean => {
+    try {
+      const ts = sessionStorage.getItem('parent_verified_at');
+      if (!ts) return false;
+      return Date.now() - parseInt(ts, 10) < PARENT_VERIFY_TTL;
+    } catch {
+      return false;
+    }
+  };
+
   const handleBuy = async (packId: string) => {
     if (!backendReady) return;
-    setBuyingPack(packId);
-    try {
-      const { url } = await backendStripe.checkout(packId);
-      if (url) window.location.href = url;
-    } catch (err) {
-      showNotification('❌', lang === 'el' ? 'Σφάλμα πληρωμής' : 'Payment error');
-    } finally {
-      setBuyingPack(null);
+
+    // If parent verified recently, proceed directly
+    if (isParentRecentlyVerified()) {
+      setBuyingPack(packId);
+      try {
+        const { url } = await backendStripe.checkout(packId);
+        if (url) window.location.href = url;
+      } catch (err) {
+        showNotification('❌', lang === 'el' ? 'Σφάλμα πληρωμής' : 'Payment error');
+      } finally {
+        setBuyingPack(null);
+      }
+      return;
     }
+
+    // Otherwise, show parent verification modal
+    setPendingPackId(packId);
+    setParentPassword('');
+    setVerifyError('');
+    setShowParentModal(true);
+  };
+
+  const handleParentVerify = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setVerifyError('');
+    setVerifying(true);
+
+    try {
+      const email = user?.email || profile?.parentEmail;
+      if (!email || !parentPassword) {
+        setVerifyError(lang === 'el' ? 'Εισάγετε τον κωδικό' : 'Please enter the password');
+        setVerifying(false);
+        return;
+      }
+
+      // Create a temporary Supabase client to verify password without disrupting the active session
+      const { createClient } = await import('@supabase/supabase-js');
+      const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || '';
+      const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
+
+      if (supabaseUrl && supabaseKey) {
+        const tempClient = createClient(supabaseUrl, supabaseKey, {
+          auth: { autoRefreshToken: false, persistSession: false }
+        });
+        const { error } = await tempClient.auth.signInWithPassword({ email, password: parentPassword });
+
+        if (error) {
+          setVerifyError(lang === 'el' ? 'Λάθος κωδικός' : 'Wrong password');
+          setVerifying(false);
+          return;
+        }
+      }
+
+      // Verification successful — store timestamp and proceed to checkout
+      sessionStorage.setItem('parent_verified_at', Date.now().toString());
+      setShowParentModal(false);
+      setParentPassword('');
+
+      if (pendingPackId) {
+        setBuyingPack(pendingPackId);
+        try {
+          const { url } = await backendStripe.checkout(pendingPackId);
+          if (url) window.location.href = url;
+        } catch (err) {
+          showNotification('❌', lang === 'el' ? 'Σφάλμα πληρωμής' : 'Payment error');
+        } finally {
+          setBuyingPack(null);
+          setPendingPackId(null);
+        }
+      }
+    } catch {
+      setVerifyError(lang === 'el' ? 'Σφάλμα επαλήθευσης' : 'Verification error');
+    }
+    setVerifying(false);
+  };
+
+  const handleCloseParentModal = () => {
+    setShowParentModal(false);
+    setPendingPackId(null);
+    setParentPassword('');
+    setVerifyError('');
   };
 
   const t = {
@@ -272,6 +367,94 @@ export default function CreditStore({ lang }: CreditStoreProps) {
           {t.backBtn}
         </button>
       </div>
+
+      {/* PARENT VERIFICATION MODAL */}
+      <AnimatePresenceAny>
+        {showParentModal && (
+          <motion
+            key="parent-verify-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4"
+            onClick={handleCloseParentModal}
+          >
+            <motion
+              key="parent-verify-modal"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.25, type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+              className="w-full max-w-sm bg-[#0B0F1A] border border-white/10 rounded-3xl p-8 text-center shadow-2xl shadow-blue-500/10 relative"
+            >
+              {/* Close button */}
+              <button
+                onClick={handleCloseParentModal}
+                className="absolute top-4 right-4 w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-white/70 hover:bg-white/10 transition-all"
+              >
+                <X size={16} />
+              </button>
+
+              {/* Shield icon */}
+              <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-5 border border-blue-500/30">
+                <Shield size={32} className="text-blue-400" />
+              </div>
+
+              {/* Title */}
+              <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tighter mb-2">
+                {lang === 'el' ? 'Γονεϊκή Επιβεβαίωση' : 'Parent Verification'}
+              </h2>
+              <p className="text-white/40 text-sm mb-6 leading-relaxed">
+                {lang === 'el'
+                  ? 'Ο γονέας πρέπει να εισάγει τον κωδικό για να συνεχίσει η αγορά'
+                  : 'Parent must enter password to continue the purchase'}
+              </p>
+
+              {/* Password form */}
+              <form onSubmit={handleParentVerify} className="space-y-4">
+                <input
+                  type="password"
+                  value={parentPassword}
+                  onChange={(e) => { setParentPassword(e.target.value); setVerifyError(''); }}
+                  placeholder={lang === 'el' ? 'Κωδικός λογαριασμού' : 'Account password'}
+                  autoFocus
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 text-center"
+                />
+
+                {/* Error message */}
+                {verifyError && (
+                  <p className="text-red-400 text-xs font-bold flex items-center justify-center gap-1">
+                    <AlertCircle size={14} /> {verifyError}
+                  </p>
+                )}
+
+                {/* Buttons */}
+                <button
+                  type="submit"
+                  disabled={verifying || !parentPassword}
+                  className="w-full py-3 bg-blue-600/20 border border-blue-500/30 rounded-xl text-white font-[1000] uppercase tracking-widest text-xs hover:bg-blue-600/30 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {verifying ? (
+                    <><Loader2 size={14} className="animate-spin" /> {lang === 'el' ? 'ΕΛΕΓΧΟΣ...' : 'VERIFYING...'}</>
+                  ) : (
+                    lang === 'el' ? 'ΕΠΙΒΕΒΑΙΩΣΗ' : 'VERIFY'
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleCloseParentModal}
+                  className="w-full py-2.5 text-white/30 font-bold text-xs uppercase tracking-widest hover:text-white/50 transition-all"
+                >
+                  {lang === 'el' ? 'ΑΚΥΡΩΣΗ' : 'CANCEL'}
+                </button>
+              </form>
+            </motion>
+          </motion>
+        )}
+      </AnimatePresenceAny>
     </div>
   );
 }
