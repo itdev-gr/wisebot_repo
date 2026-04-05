@@ -136,6 +136,14 @@ export default async function handler(req: any, res: any) {
         });
       }
 
+      // Password policy error from Supabase — translate to user-friendly message
+      if (error.message.includes('pattern') || error.message.includes('Pattern')) {
+        return res.status(400).json({
+          error: 'Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα, ένα αριθμό και ένα ειδικό σύμβολο (π.χ. !@#$%) / Password must contain at least one uppercase letter, one number, and one special character (e.g. !@#$%)',
+          details: 'password_pattern',
+        });
+      }
+
       return res.status(400).json({ error: error.message });
     }
 

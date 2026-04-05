@@ -137,8 +137,8 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
   const getWelcomeMessage = () => {
     if (isRegistered) {
       return lang === 'el'
-        ? 'Γεια! 🦉 Τι κάνεις σήμερα; Πες μου τι σκέφτεσαι!'
-        : 'Hey! 🦉 How are you today? Tell me what\'s on your mind!';
+        ? 'Γεια! 🦉 Είμαι η WiseBot — η προσωπική σου AI βοηθός! Μπορώ να σε βοηθήσω να μάθεις για σπουδαίους ανθρώπους, να φτιάξεις τραγούδια 🎵, εικόνες 🎨, video 🎬, 3D μοντέλα και πολλά ακόμα. Ρώτα με ό,τι θέλεις!'
+        : 'Hey! 🦉 I\'m WiseBot — your personal AI assistant! I can help you learn about great people, create songs 🎵, images 🎨, videos 🎬, 3D models and much more. Ask me anything!';
     }
     return lang === 'el'
       ? 'Γεια! 🦉 Είμαι η WiseBot! Τώρα είσαι χωρίς εγγραφή — μπορείς να μου στείλεις μερικά μηνύματα δωρεάν. Μόλις κάνεις εγγραφή θα ξεκλειδώσεις τη δημιουργία ηρώων, μουσικής, video και πολλά ακόμα! Πες μου, τι θα ήθελες να μάθεις; 😊'

@@ -31,9 +31,10 @@ const TEXT = {
     registerNote: 'Χρησιμοποιούμε το email του γονέα για τον λογαριασμό',
     namePlaceholder: 'π.χ. Γιώργος',
     parentEmailPlaceholder: 'email-gonea@example.com',
-    passwordPlaceholder: 'Τουλάχιστον 8 χαρακτήρες',
+    passwordPlaceholder: '8+ χαρακτήρες, κεφαλαίο, αριθμός, σύμβολο',
     errorRequired: 'Συμπλήρωσε όλα τα πεδία',
-    errorPassword: 'Ο κωδικός πρέπει να είναι τουλάχιστον 8 χαρακτήρες',
+    errorPassword: 'Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες, ένα κεφαλαίο, ένα αριθμό και ένα σύμβολο (π.χ. !@#$)',
+    errorPasswordPattern: 'Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα, ένα αριθμό και ένα ειδικό σύμβολο (π.χ. !@#$%)',
     successRegister: 'Εγγραφή επιτυχής! Μπαίνεις στο WiseBot Academy...',
     successLogin: 'Συνδέθηκες! Πάμε...',
     alreadyExists: 'Αυτό το email υπάρχει ήδη. Δοκίμασε σύνδεση.',
@@ -55,9 +56,10 @@ const TEXT = {
     registerNote: 'We use the parent\'s email for the account',
     namePlaceholder: 'e.g. George',
     parentEmailPlaceholder: 'parent-email@example.com',
-    passwordPlaceholder: 'At least 8 characters',
+    passwordPlaceholder: '8+ chars, uppercase, number, symbol',
     errorRequired: 'Please fill in all fields',
-    errorPassword: 'Password must be at least 8 characters',
+    errorPassword: 'Password must have at least 8 characters, one uppercase letter, one number, and one symbol (e.g. !@#$)',
+    errorPasswordPattern: 'Password must contain at least one uppercase letter, one number, and one special symbol (e.g. !@#$%)',
     successRegister: 'Registered! Entering WiseBot Academy...',
     successLogin: 'Logged in! Let\'s go...',
     alreadyExists: 'This email already exists. Try logging in.',
@@ -114,10 +116,20 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       setError(t.errorRequired);
       return;
     }
-    // Password length check only for registration — existing users may have shorter passwords
-    if (tab === 'register' && password.length < 8) {
-      setError(t.errorPassword);
-      return;
+    // Password validation for registration
+    if (tab === 'register') {
+      if (password.length < 8) {
+        setError(t.errorPassword);
+        return;
+      }
+      // Check password complexity: uppercase, number, special character
+      const hasUppercase = /[A-Z]/.test(password);
+      const hasNumber = /[0-9]/.test(password);
+      const hasSpecial = /[^A-Za-z0-9]/.test(password);
+      if (!hasUppercase || !hasNumber || !hasSpecial) {
+        setError(t.errorPasswordPattern);
+        return;
+      }
     }
 
     setSubmitting(true);
@@ -128,6 +140,11 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       if (result.error) {
         if (result.error.includes('already exists') || result.error.includes('already been registered')) {
           setError(t.alreadyExists);
+        } else if (result.error.includes('pattern') || result.error.includes('Pattern')) {
+          // Supabase password policy error — show user-friendly message
+          setError(t.errorPasswordPattern);
+        } else if (result.error.includes('nickname') || result.error.includes('child_name_taken')) {
+          setError(result.error);
         } else {
           setError(result.error);
         }
@@ -411,7 +428,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
               ))}
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <AnimatePresence mode="wait">
                 {tab === 'register' && (
                   <motion.div
