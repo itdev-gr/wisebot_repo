@@ -22,6 +22,7 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
 
 const MESHY_TASK_URL = 'https://api.meshy.ai/openapi/v1/image-to-3d';
 
@@ -52,12 +53,12 @@ export default async function handler(req: any, res: any) {
   try {
     const url = `${MESHY_TASK_URL}/${encodeURIComponent(taskId)}`;
 
-    const response = await fetch(url, {
+    const response = await fetchWithTimeout(url, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
       },
-    });
+    }, 15000);
 
     if (!response.ok) {
       const errorText = await response.text();

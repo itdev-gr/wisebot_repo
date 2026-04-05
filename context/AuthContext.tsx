@@ -64,7 +64,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if ((error?.code === 'PGRST116' || !data) && !error?.message?.includes('JWT')) {
         // Profile doesn't exist — likely a Google OAuth first-login. Auto-create it.
-        console.log('[Auth] No profile found, auto-creating for user:', userId);
         const { data: { user: currentUser } } = await supabase.auth.getUser();
         if (currentUser) {
           const isGoogleUser = currentUser.app_metadata?.provider === 'google';
@@ -242,7 +241,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: 'https://wisebot.gr/dashboard',
+          redirectTo: `${window.location.origin}/dashboard`,
         },
       });
       if (error) return { error: error.message };
@@ -257,7 +256,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!configured) return { error: 'Auth not configured' };
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://wisebot.gr/login',
+        redirectTo: `${window.location.origin}/login`,
       });
       if (error) return { error: error.message };
       return {};
@@ -403,7 +402,6 @@ const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject
       await pushToCloud(userId, merged);
 
       syncDoneRef.current = true;
-      console.log('[Sync] Initial sync complete');
     };
 
     doSync();

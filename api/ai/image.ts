@@ -5,6 +5,8 @@
  * All with content moderation for children 6-13.
  */
 
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
+
 const BLOCKED_EN = /(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|blood|gore|gory|torture|murder|decapitat|dismember)/i;
 const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
 function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
@@ -16,156 +18,153 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const user = await (await import('../_lib/auth')).getAuthUser(req);
-  if (!user) return res.status(401).json({ error: 'Authentication required' });
+  try {
+    const user = await (await import('../_lib/auth')).getAuthUser(req);
+    if (!user) return res.status(401).json({ error: 'Authentication required' });
 
-  // Server-side credit guard — Image generation costs 6 credits
-  const IMAGE_COST = 6;
-  const { checkCredits } = await import('../_lib/auth');
-  const creditCheck = await checkCredits(user.id, IMAGE_COST);
-  if (!creditCheck.ok) {
-    return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: IMAGE_COST });
-  }
-
-  const { prompt, style } = req.body || {};
-  if (!prompt) return res.status(400).json({ error: 'Prompt required' });
-  if (typeof prompt === 'string' && prompt.length > 4000) return res.status(400).json({ error: 'Input too long' });
-  if (!isContentSafe(prompt) || !isContentSafe(style || '')) {
-    return res.status(200).json({ image: '', description: 'This image cannot be created. Try something more fun!' });
-  }
-
-  // Pass the prompt as-is — the HeroFactory already constructs perfect prompts
-  // Only add NO TEXT instruction if not already present
-  const hasNoTextRule = prompt.toLowerCase().includes('no text');
-  const safePrompt = hasNoTextRule
-    ? prompt
-    : `${prompt}. IMPORTANT: NO text, NO labels, NO writing anywhere on the image.`;
-
-  // ─── ATTEMPT 1: xAI Grok Imagine — Best quality ───────────────
-  const xaiKey = process.env.XAI_API_KEY;
-  if (xaiKey) {
-    try {
-      console.log('[Image] Trying xAI Grok Imagine...');
-      const resp = await fetch('https://api.x.ai/v1/images/generations', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${xaiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'grok-imagine-image',
-          prompt: safePrompt,
-          n: 1,
-          response_format: 'b64_json',
-        }),
-      });
-
-      if (resp.ok) {
-        const data = await resp.json();
-        const b64 = data.data?.[0]?.b64_json;
-        if (b64) {
-          console.log('[Image] xAI Grok success');
-          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
-        }
-      } else {
-        const err = await resp.text();
-        console.warn('[Image] xAI Grok failed:', resp.status, err.slice(0, 200));
-      }
-    } catch (e: any) {
-      console.warn('[Image] xAI Grok error:', e.message);
+    // Server-side credit guard — Image generation costs 6 credits
+    const IMAGE_COST = 6;
+    const { checkCredits } = await import('../_lib/auth');
+    const creditCheck = await checkCredits(user.id, IMAGE_COST);
+    if (!creditCheck.ok) {
+      return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: IMAGE_COST });
     }
-  }
 
-  // ─── ATTEMPT 2: DALL-E 3 (OpenAI) ────────────────────────────
-  const openaiKey = process.env.OPENAI_API_KEY;
-  if (openaiKey) {
-    try {
-      console.log('[Image] Trying DALL-E 3...');
-      const resp = await fetch('https://api.openai.com/v1/images/generations', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${openaiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'dall-e-3',
-          prompt: safePrompt,
-          n: 1,
-          size: '1024x1024',
-          quality: 'standard',
-          response_format: 'b64_json',
-        }),
-      });
-
-      if (resp.ok) {
-        const data = await resp.json();
-        const b64 = data.data?.[0]?.b64_json;
-        if (b64) {
-          console.log('[Image] DALL-E 3 success');
-          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
-        }
-      } else {
-        const err = await resp.text();
-        console.warn('[Image] DALL-E 3 failed:', resp.status, err.slice(0, 200));
-      }
-    } catch (e: any) {
-      console.warn('[Image] DALL-E 3 error:', e.message);
+    const { prompt, style } = req.body || {};
+    if (!prompt) return res.status(400).json({ error: 'Prompt required' });
+    if (typeof prompt === 'string' && prompt.length > 4000) return res.status(400).json({ error: 'Input too long' });
+    if (!isContentSafe(prompt) || !isContentSafe(style || '')) {
+      return res.status(200).json({ image: '', description: 'This image cannot be created. Try something more fun!' });
     }
-  }
 
-  // ─── ATTEMPT 3: Imagen 4 Fast (Google) ────────────────────────
-  const geminiKey = process.env.GEMINI_API_KEY;
-  if (geminiKey) {
-    try {
-      console.log('[Image] Trying Imagen 4...');
-      const { GoogleGenAI } = await import('@google/genai');
-      const ai = new GoogleGenAI({ apiKey: geminiKey });
+    // Pass the prompt as-is — the HeroFactory already constructs perfect prompts
+    // Only add NO TEXT instruction if not already present
+    const hasNoTextRule = prompt.toLowerCase().includes('no text');
+    const safePrompt = hasNoTextRule
+      ? prompt
+      : `${prompt}. IMPORTANT: NO text, NO labels, NO writing anywhere on the image.`;
 
-      const response = await ai.models.generateImages({
-        model: 'imagen-4.0-fast-generate-001',
-        prompt: safePrompt,
-        config: {
-          numberOfImages: 1,
-          aspectRatio: '1:1',
-          personGeneration: 'DONT_ALLOW' as any,
-        },
-      });
+    // ─── ATTEMPT 1: xAI Grok Imagine — Best quality ───────────────
+    const xaiKey = process.env.XAI_API_KEY;
+    if (xaiKey) {
+      try {
+        const resp = await fetchWithTimeout('https://api.x.ai/v1/images/generations', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${xaiKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'grok-imagine-image',
+            prompt: safePrompt,
+            n: 1,
+            response_format: 'b64_json',
+          }),
+        }, 50000);
 
-      if (response.generatedImages?.[0]?.image?.imageBytes) {
-        console.log('[Image] Imagen 4 success');
-        return res.status(200).json({
-          image: `data:image/png;base64,${response.generatedImages[0].image.imageBytes}`,
+        if (resp.ok) {
+          const data = await resp.json();
+          const b64 = data.data?.[0]?.b64_json;
+          if (b64) {
+            return res.status(200).json({ image: `data:image/png;base64,${b64}` });
+          }
+        } else {
+          const err = await resp.text();
+          console.warn('[Image] xAI Grok failed:', resp.status, err.slice(0, 200));
+        }
+      } catch (e: any) {
+        console.warn('[Image] xAI Grok error:', e.message);
+      }
+    }
+
+    // ─── ATTEMPT 2: DALL-E 3 (OpenAI) ────────────────────────────
+    const openaiKey = process.env.OPENAI_API_KEY;
+    if (openaiKey) {
+      try {
+        const resp = await fetchWithTimeout('https://api.openai.com/v1/images/generations', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${openaiKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'dall-e-3',
+            prompt: safePrompt,
+            n: 1,
+            size: '1024x1024',
+            quality: 'standard',
+            response_format: 'b64_json',
+          }),
+        }, 50000);
+
+        if (resp.ok) {
+          const data = await resp.json();
+          const b64 = data.data?.[0]?.b64_json;
+          if (b64) {
+            return res.status(200).json({ image: `data:image/png;base64,${b64}` });
+          }
+        } else {
+          const err = await resp.text();
+          console.warn('[Image] DALL-E 3 failed:', resp.status, err.slice(0, 200));
+        }
+      } catch (e: any) {
+        console.warn('[Image] DALL-E 3 error:', e.message);
+      }
+    }
+
+    // ─── ATTEMPT 3: Imagen 4 Fast (Google) ────────────────────────
+    const geminiKey = process.env.GEMINI_API_KEY;
+    if (geminiKey) {
+      try {
+        const { GoogleGenAI } = await import('@google/genai');
+        const ai = new GoogleGenAI({ apiKey: geminiKey });
+
+        const response = await ai.models.generateImages({
+          model: 'imagen-4.0-fast-generate-001',
+          prompt: safePrompt,
+          config: {
+            numberOfImages: 1,
+            aspectRatio: '1:1',
+            personGeneration: 'DONT_ALLOW' as any,
+          },
         });
+
+        if (response.generatedImages?.[0]?.image?.imageBytes) {
+          return res.status(200).json({
+            image: `data:image/png;base64,${response.generatedImages[0].image.imageBytes}`,
+          });
+        }
+      } catch (e: any) {
+        console.warn('[Image] Imagen 4 error:', e.message?.slice(0, 200));
       }
-    } catch (e: any) {
-      console.warn('[Image] Imagen 4 error:', e.message?.slice(0, 200));
     }
-  }
 
-  // ─── ATTEMPT 4: Gemini Flash Image ────────────────────────────
-  if (geminiKey) {
-    try {
-      console.log('[Image] Trying Gemini Flash Image...');
-      const { GoogleGenAI: GeminiAI } = await import('@google/genai');
-      const ai = new GeminiAI({ apiKey: geminiKey });
+    // ─── ATTEMPT 4: Gemini Flash Image ────────────────────────────
+    if (geminiKey) {
+      try {
+        const { GoogleGenAI: GeminiAI } = await import('@google/genai');
+        const ai = new GeminiAI({ apiKey: geminiKey });
 
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
-        contents: safePrompt,
-        config: { responseModalities: ['IMAGE'] },
-      });
+        const response = await ai.models.generateContent({
+          model: 'gemini-2.5-flash-image',
+          contents: safePrompt,
+          config: { responseModalities: ['IMAGE'] },
+        });
 
-      const parts = response.candidates?.[0]?.content?.parts;
-      if (parts) {
-        for (const part of parts) {
-          if ((part as any).inlineData?.data) {
-            console.log('[Image] Gemini Flash Image success');
-            return res.status(200).json({
-              image: `data:${(part as any).inlineData.mimeType || 'image/png'};base64,${(part as any).inlineData.data}`,
-            });
+        const parts = response.candidates?.[0]?.content?.parts;
+        if (parts) {
+          for (const part of parts) {
+            if ((part as any).inlineData?.data) {
+              return res.status(200).json({
+                image: `data:${(part as any).inlineData.mimeType || 'image/png'};base64,${(part as any).inlineData.data}`,
+              });
+            }
           }
         }
+      } catch (e: any) {
+        console.warn('[Image] Gemini Flash error:', e.message?.slice(0, 200));
       }
-    } catch (e: any) {
-      console.warn('[Image] Gemini Flash error:', e.message?.slice(0, 200));
     }
-  }
 
-  // All failed
-  console.error('[Image] All providers failed');
-  res.status(500).json({ error: 'Image generation temporarily unavailable. Please try again.' });
+    // All failed
+    console.error('[Image] All providers failed');
+    return res.status(500).json({ error: 'Image generation temporarily unavailable. Please try again.' });
+  } catch (err: any) {
+    console.error('[Image] Handler error:', err.message);
+    return res.status(500).json({ error: err.message || 'Image generation failed' });
+  }
 }

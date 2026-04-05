@@ -138,21 +138,3 @@ export const backendStripe = {
     apiFetch<{ success: boolean; credits: number; packId: string }>(`/api/stripe/verify/${sessionId}`),
 };
 
-// ─── AUTH ENDPOINTS ───────────────────────────────────────
-
-export const backendAuth = {
-  register: (email: string, password: string, parentEmail: string, childName: string) =>
-    apiFetch<{ success: boolean; token?: string }>('/api/auth/register', {
-      method: 'POST',
-      body: JSON.stringify({ email, password, parentEmail, childName }),
-    }),
-
-  login: (email: string, password: string) =>
-    apiFetch<{ success: boolean; token?: string; user?: any }>('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-    }),
-
-  me: () =>
-    apiFetch<{ user: any }>('/api/auth/me'),
-};

@@ -1,3 +1,5 @@
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
+
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');
   return createClient(
@@ -51,8 +53,6 @@ export default async function handler(req: any, res: any) {
       const creditsAmount = parseInt(credits || '0');
       const sessionId = session.id;
 
-      console.log(`[Webhook] Payment completed: user=${userId}, pack=${packId}, credits=${creditsAmount}`);
-
       // Write to Supabase if user is authenticated
       if (userId && userId !== 'anonymous' && creditsAmount > 0) {
         try {
@@ -82,7 +82,6 @@ export default async function handler(req: any, res: any) {
           if (rpcError) {
             console.error('[Webhook] Credit RPC error:', rpcError.message);
           } else {
-            console.log(`[Webhook] Added ${creditsAmount} credits to user ${userId}`);
           }
 
           // Send email notification to parent about the purchase
@@ -100,7 +99,7 @@ export default async function handler(req: any, res: any) {
 
               const RESEND_KEY = process.env.RESEND_API_KEY;
               if (RESEND_KEY) {
-                await fetch('https://api.resend.com/emails', {
+                await fetchWithTimeout('https://api.resend.com/emails', {
                   method: 'POST',
                   headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
                   body: JSON.stringify({
@@ -123,8 +122,7 @@ export default async function handler(req: any, res: any) {
                       </div>
                     `,
                   }),
-                });
-                console.log(`[Webhook] Purchase notification sent to ${profileData.parent_email}`);
+                }, 10000);
               }
             }
           } catch (emailErr: any) {
@@ -136,7 +134,6 @@ export default async function handler(req: any, res: any) {
           // Don't fail the webhook — Stripe needs 200 to not retry
         }
       } else {
-        console.log('[Webhook] Anonymous purchase or no credits — skipping DB write');
       }
     }
 

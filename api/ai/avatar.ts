@@ -62,7 +62,6 @@ export default async function handler(req: any, res: any) {
   const openaiKey = process.env.OPENAI_API_KEY;
   if (openaiKey) {
     try {
-      console.log('[avatar] Trying gpt-image-1 images.edit...');
       const imageBuffer = Buffer.from(imageBytes, 'base64');
 
       const formData = new FormData();
@@ -94,7 +93,6 @@ export default async function handler(req: any, res: any) {
         const data = await resp.json();
         const b64 = data.data?.[0]?.b64_json;
         if (b64) {
-          console.log('[avatar] gpt-image-1 success');
           return res.status(200).json({ image: `data:image/png;base64,${b64}` });
         }
         console.warn('[avatar] gpt-image-1 ok but no b64_json:', JSON.stringify(data).slice(0, 200));
@@ -112,7 +110,6 @@ export default async function handler(req: any, res: any) {
   const geminiKey = process.env.GEMINI_API_KEY;
   if (geminiKey) {
     try {
-      console.log('[avatar] Trying gemini-2.0-flash-exp (28 s guard)...');
       const { GoogleGenAI } = await import('@google/genai');
       const ai = new GoogleGenAI({ apiKey: geminiKey });
 
@@ -143,7 +140,6 @@ export default async function handler(req: any, res: any) {
 
       for (const part of parts) {
         if (part?.inlineData?.data) {
-          console.log('[avatar] Gemini success');
           return res.status(200).json({
             image: `data:${part.inlineData.mimeType || 'image/png'};base64,${part.inlineData.data}`,
           });

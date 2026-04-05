@@ -15,6 +15,5 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   // Accept the callback (we use polling instead, but Suno requires a valid URL)
-  console.log('[suno-callback] Received callback:', JSON.stringify(req.body || {}).slice(0, 500));
   return res.status(200).json({ received: true });
 }

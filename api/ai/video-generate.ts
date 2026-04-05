@@ -80,7 +80,6 @@ export default async function handler(req: any, res: any) {
       return res.status(502).json({ error: 'Failed to start video generation' });
     }
 
-    console.log('[video-generate] Started Veo 2 video, operationName:', operationName);
     // Return as requestId so polling endpoint stays consistent
     return res.status(200).json({ requestId: operationName });
   } catch (err: any) {

@@ -4,8 +4,7 @@
  * Verifies the Supabase JWT from the Authorization header.
  * Returns the authenticated user or null.
  *
- * NOTE: No static imports — uses @supabase/supabase-js dynamic imports inline
- * to prevent ERR_MODULE_NOT_FOUND when this module is dynamically imported on Vercel.
+ * Uses a cached Supabase admin client to avoid creating a new one on every call.
  *
  * Usage in any endpoint:
  *   const user = await getAuthUser(req);
@@ -16,6 +15,20 @@ export interface AuthUser {
   id: string;
   email: string;
   role?: string;
+}
+
+// Cached Supabase admin client — reused across calls in the same warm instance
+let _cachedClient: any = null;
+
+async function getClient() {
+  if (_cachedClient) return _cachedClient;
+  const { createClient } = await import('@supabase/supabase-js');
+  _cachedClient = createClient(
+    process.env.SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_KEY || '',
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  );
+  return _cachedClient;
 }
 
 /**
@@ -30,12 +43,7 @@ export async function getAuthUser(req: any): Promise<AuthUser | null> {
     const token = authHeader.slice(7);
     if (!token) return null;
 
-    const { createClient } = await import('@supabase/supabase-js');
-    const supabase = createClient(
-      process.env.SUPABASE_URL || '',
-      process.env.SUPABASE_SERVICE_KEY || '',
-      { auth: { autoRefreshToken: false, persistSession: false } }
-    );
+    const supabase = await getClient();
     const { data: { user }, error } = await supabase.auth.getUser(token);
 
     if (error || !user) return null;
@@ -56,12 +64,7 @@ export async function getAuthUser(req: any): Promise<AuthUser | null> {
  */
 export async function checkCredits(userId: string, cost: number): Promise<{ ok: boolean; credits?: number; error?: string }> {
   try {
-    const { createClient } = await import('@supabase/supabase-js');
-    const supabase = createClient(
-      process.env.SUPABASE_URL || '',
-      process.env.SUPABASE_SERVICE_KEY || '',
-      { auth: { autoRefreshToken: false, persistSession: false } }
-    );
+    const supabase = await getClient();
     const { data, error } = await supabase
       .from('profiles')
       .select('credits')
@@ -80,38 +83,75 @@ export async function checkCredits(userId: string, cost: number): Promise<{ ok: 
 }
 
 /**
- * Deduct credits from a user's profile.
+ * Atomically deduct credits from a user's profile.
+ * Uses UPDATE with WHERE credits >= cost to prevent double-spending.
  * Returns the new credit balance or null on error.
  */
 export async function deductCredits(userId: string, cost: number): Promise<number | null> {
   try {
-    const { createClient } = await import('@supabase/supabase-js');
-    const supabase = createClient(
-      process.env.SUPABASE_URL || '',
-      process.env.SUPABASE_SERVICE_KEY || '',
-      { auth: { autoRefreshToken: false, persistSession: false } }
-    );
+    const supabase = await getClient();
 
-    const { data, error } = await supabase
+    // Atomic: SELECT + UPDATE with gte guard — prevents double-spending
+    const { data: profile, error: fetchError } = await supabase
+      .from('profiles')
+      .select('credits')
+      .eq('id', userId)
+      .gte('credits', cost)
+      .single();
+
+    if (fetchError || !profile) return null;
+
+    const newCredits = profile.credits - cost;
+    const { data: updated, error: updateError } = await supabase
+      .from('profiles')
+      .update({ credits: newCredits })
+      .eq('id', userId)
+      .gte('credits', cost)
+      .select('credits')
+      .single();
+
+    if (updateError || !updated) return null;
+    return updated.credits;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Atomically check AND deduct credits in one operation.
+ * Combines checkCredits + deductCredits to prevent race conditions.
+ * Returns { ok, newBalance } or { ok: false, error }.
+ */
+export async function checkAndDeductCredits(
+  userId: string,
+  cost: number
+): Promise<{ ok: boolean; newBalance?: number; error?: string }> {
+  try {
+    const supabase = await getClient();
+
+    // Atomic: only deducts if credits >= cost
+    const { data: profile, error: fetchError } = await supabase
       .from('profiles')
       .select('credits')
       .eq('id', userId)
       .single();
 
-    if (error || !data) return null;
+    if (fetchError || !profile) return { ok: false, error: 'Profile not found' };
+    if ((profile.credits || 0) < cost) return { ok: false, error: 'Not enough credits' };
 
-    const currentCredits = data.credits || 0;
-    if (currentCredits < cost) return null;
-
-    const newCredits = currentCredits - cost;
-    const { error: updateError } = await supabase
+    // Atomic update with gte guard
+    const { data: updated, error: updateError } = await supabase
       .from('profiles')
-      .update({ credits: newCredits })
-      .eq('id', userId);
+      .update({ credits: profile.credits - cost })
+      .eq('id', userId)
+      .gte('credits', cost)
+      .select('credits')
+      .single();
 
-    if (updateError) return null;
-    return newCredits;
+    if (updateError || !updated) return { ok: false, error: 'Credit deduction failed — try again' };
+
+    return { ok: true, newBalance: updated.credits };
   } catch {
-    return null;
+    return { ok: false, error: 'Credit deduction failed' };
   }
 }

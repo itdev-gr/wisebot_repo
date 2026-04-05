@@ -18,6 +18,7 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
 
 const SUNO_STATUS_URL = 'https://api.sunoapi.org/api/v1/generate/record-info';
 
@@ -48,12 +49,12 @@ export default async function handler(req: any, res: any) {
   try {
     const url = `${SUNO_STATUS_URL}?taskId=${encodeURIComponent(taskId)}`;
 
-    const response = await fetch(url, {
+    const response = await fetchWithTimeout(url, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
       },
-    });
+    }, 15000);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -72,10 +73,6 @@ export default async function handler(req: any, res: any) {
     if (!taskData) {
       return res.status(404).json({ error: 'Task not found.', status: 'error' });
     }
-
-    // Log raw response for debugging
-    console.log('[suno-status] Raw taskData keys:', Object.keys(taskData));
-    console.log('[suno-status] taskData.status:', taskData.status);
 
     // Map Suno status to our simplified status
     let status: 'pending' | 'processing' | 'complete' | 'error' = 'pending';
@@ -116,8 +113,6 @@ export default async function handler(req: any, res: any) {
       if (taskData.audio_url || taskData.stream_audio_url) {
         songs = [taskData];
       }
-      // Log the full structure to help debug
-      console.log('[suno-status] No songs found. Full taskData:', JSON.stringify(taskData).slice(0, 1000));
     }
 
     const firstSong = songs[0];

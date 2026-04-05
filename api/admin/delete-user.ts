@@ -61,8 +61,6 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: deleteError.message });
     }
 
-    console.log(`[Admin DeleteUser] User ${userId} deleted. Reason: ${reason}`);
-
     return res.status(200).json({
       success: true,
       userId,

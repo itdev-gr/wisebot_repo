@@ -96,8 +96,6 @@ export default async function handler(req: any, res: any) {
       console.error('[Admin Refund] Failed to log transaction:', logError);
     }
 
-    console.log(`[Admin Refund] User ${userId}: +${amount} credits (${reason}). Balance: ${previousCredits} -> ${newCredits}`);
-
     return res.status(200).json({
       success: true,
       userId,

@@ -44,7 +44,6 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to delete account' });
     }
 
-    console.log('[Delete Account] User deleted:', user.userId);
     return res.status(200).json({ success: true, message: 'Account deleted successfully' });
   } catch (err: any) {
     console.error('[Delete Account] Unexpected error:', err);

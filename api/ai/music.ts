@@ -92,6 +92,6 @@ Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
     }
   } catch (err: any) {
     console.error('AI Music error:', err.message);
-    res.status(500).json({ error: 'AI service error' });
+    return res.status(500).json({ error: 'AI service error' });
   }
 }

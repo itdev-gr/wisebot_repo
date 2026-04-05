@@ -1,29 +1,4 @@
 
-export enum AppView {
-  HOME = 'HOME',
-  CHAT = 'CHAT',
-  IMAGE = 'IMAGE',
-  VIDEO = 'VIDEO',
-  LIVE = 'LIVE'
-}
-
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'model';
-  text: string;
-  timestamp: number;
-}
-
-export interface GeneratedImage {
-  url: string;
-  prompt: string;
-}
-
-export interface GeneratedVideo {
-  url: string;
-  prompt: string;
-}
-
 export interface LocalizedString {
   el: string;
   en: string;
@@ -79,15 +54,6 @@ export interface Book {
   videoUrl?: string;
   questions?: QuizQuestion[];
   stepLabel?: LocalizedString;
-}
-
-export interface Song {
-  id: string;
-  title: string;
-  lyrics: string;
-  style: string;
-  coverArt: string;
-  mood: string;
 }
 
 // Declarations for window.aistudio

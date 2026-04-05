@@ -325,12 +325,6 @@ const PendingVerification: React.FC = () => {
   );
 };
 
-// --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
-// Landing page is always accessible — GuestBanner hides itself for logged-in users
-const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <>{children}</>;
-};
-
 // --- AUTH GUARD: Redirects unauthenticated users to /login ---
 const SetPasswordScreen = React.lazy(() => import('./components/SetPasswordScreen'));
 
@@ -472,7 +466,7 @@ function AppContent() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* ═══ PUBLIC ROUTES ═══ */}
-            <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
+            <Route path="/" element={<><SEO lang={lang} page="home" /><LandingPage lang={lang} /></>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<AuthScreen lang={lang} />} />
             <Route path="/legal" element={<LegalHub lang={lang} />} />

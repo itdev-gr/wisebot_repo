@@ -10,6 +10,7 @@
  *    which needs to bypass RLS.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
 
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');
@@ -148,8 +149,6 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    console.log('[Auth Signup] User created:', data.user?.id);
-
     // Step 2: Create profile with admin client (bypasses RLS)
     if (data.user?.id) {
       const supabaseAdminForProfile = await getSupabaseAdmin();
@@ -174,7 +173,7 @@ export default async function handler(req: any, res: any) {
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       try {
-        await fetch('https://api.resend.com/emails', {
+        await fetchWithTimeout('https://api.resend.com/emails', {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${resendKey}`, 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -192,7 +191,7 @@ export default async function handler(req: any, res: any) {
               <p style="color:#888;">Αυτό είναι αυτόματο email από το WiseBot Academy.</p>
             `,
           }),
-        });
+        }, 10000);
       } catch (emailErr) {
         console.warn('[Auth Signup] Notification email failed:', (emailErr as any)?.message);
       }

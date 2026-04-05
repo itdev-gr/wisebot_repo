@@ -6,6 +6,8 @@
  * Only for email/password users (not Google OAuth).
  */
 
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
+
 export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -88,7 +90,7 @@ export default async function handler(req: any, res: any) {
 
     const smsBody = `WiseBot Academy: Ο κωδικός επαλήθευσης είναι ${code}. Λήγει σε 10 λεπτά. / Your verification code is ${code}. Expires in 10 minutes.`;
 
-    const smsResponse = await fetch(twilioUrl, {
+    const smsResponse = await fetchWithTimeout(twilioUrl, {
       method: 'POST',
       headers: {
         'Authorization': `Basic ${twilioAuth}`,
@@ -99,15 +101,13 @@ export default async function handler(req: any, res: any) {
         From: fromNumber,
         Body: smsBody,
       }).toString(),
-    });
+    }, 10000);
 
     if (!smsResponse.ok) {
       const errData = await smsResponse.json().catch(() => ({}));
       console.error('[Send OTP] Twilio error:', errData.message || smsResponse.status);
       return res.status(500).json({ error: 'Failed to send SMS. Check phone number format.' });
     }
-
-    console.log(`[Send OTP] SMS sent to ${normalizedPhone.slice(0, 6)}*** for user ${userId}`);
 
     // Save phone to profile
     await supabase

@@ -161,8 +161,6 @@ export default async function handler(req: any, res: any) {
       created_at: now,
     });
 
-    console.log(`[Gift] ${senderProfile.child_name} -> ${recipient.child_name}: ${amount} credits`);
-
     return res.status(200).json({
       success: true,
       recipientName: recipient.child_name,

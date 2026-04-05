@@ -1,3 +1,5 @@
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
+
 /**
  * Video Generation Status Polling — Google Veo 2
  * =================================================
@@ -35,7 +37,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const pollUrl = `https://generativelanguage.googleapis.com/v1beta/${requestId}?key=${apiKey}`;
-    const pollResp = await fetch(pollUrl);
+    const pollResp = await fetchWithTimeout(pollUrl, {}, 15000);
 
     if (!pollResp.ok) {
       const errText = await pollResp.text();
@@ -71,7 +73,7 @@ export default async function handler(req: any, res: any) {
     // Download video buffer (never expose API key to client)
     let videoBuffer: ArrayBuffer | null = null;
     try {
-      const videoResp = await fetch(`${videoUri}?key=${apiKey}`);
+      const videoResp = await fetchWithTimeout(`${videoUri}?key=${apiKey}`, {}, 55000);
       if (videoResp.ok) {
         videoBuffer = await videoResp.arrayBuffer();
       }
@@ -127,7 +129,6 @@ export default async function handler(req: any, res: any) {
               thumbnail: thumbnail.slice(0, 500),
             });
           if (dbError) console.error('[video-status] DB insert error:', dbError.message);
-          else console.log('[video-status] Video saved to Supabase Storage for user', user.id);
         }
       }
     } catch (storageErr: any) {

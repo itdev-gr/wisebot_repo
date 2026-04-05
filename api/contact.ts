@@ -6,6 +6,7 @@
  * For now, stores in Supabase table + sends via fetch to email service.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { fetchWithTimeout } from './_lib/fetchWithTimeout';
 
 /** Escape HTML special chars to prevent email injection / XSS in HTML email */
 function esc(str: string): string {
@@ -71,7 +72,7 @@ export default async function handler(req: any, res: any) {
       });
     } catch (dbErr) {
       // Table might not exist yet — that's OK, we still log it
-      console.log('[contact] DB insert skipped (table may not exist):', (dbErr as any)?.message);
+      console.warn('[contact] DB insert skipped (table may not exist):', (dbErr as any)?.message);
     }
 
     // Send email notification via Resend API
@@ -79,7 +80,7 @@ export default async function handler(req: any, res: any) {
     if (resendKey) {
       try {
         const fullName = esc(`${name} ${surname || ''}`.trim());
-        await fetch('https://api.resend.com/emails', {
+        await fetchWithTimeout('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${resendKey}`,
@@ -102,23 +103,14 @@ export default async function handler(req: any, res: any) {
               <p style="color:#888;font-size:12px">Αποστολή: ${new Date().toISOString()}</p>
             `,
           }),
-        });
-        console.log('[contact] Email sent to', supportEmail);
+        }, 10000);
       } catch (emailErr) {
         console.error('[contact] Email send failed:', (emailErr as any)?.message);
         // Don't fail the request — message is already saved in Supabase
       }
     } else {
-      console.log('[contact] RESEND_API_KEY not set — email not sent');
+      console.warn('[contact] RESEND_API_KEY not set — email not sent');
     }
-
-    // Also log for Vercel dashboard visibility
-    console.log('[contact] New message:', {
-      from: `${name} ${surname || ''}`.trim(),
-      email,
-      type: type || 'contact',
-      timestamp: new Date().toISOString(),
-    });
 
     return res.status(200).json({
       success: true,

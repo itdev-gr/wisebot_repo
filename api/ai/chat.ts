@@ -5,6 +5,8 @@
  * Content moderation for children ages 6-13.
  */
 
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
+
 const SYSTEM_PROMPT = `Είσαι η WiseBot — ο νους της ομάδας στο WiseBot Academy (wisebot.gr). Είσαι σαν μεγάλη αδερφή/φίλη για παιδιά 6-13. ΔΕΝ είσαι ρομπότ, είσαι χαρακτήρας με ψυχή.
 
 ΠΟΙΑ ΕΙΣΑΙ:
@@ -60,11 +62,11 @@ async function chatWithOpenAI(message: string, history: any[], systemPrompt: str
   }
   messages.push({ role: 'user', content: message });
 
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  const response = await fetchWithTimeout('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({ model: 'gpt-4o-mini', messages, max_tokens: 1024, temperature: 0.7 }),
-  });
+  }, 25000);
 
   if (!response.ok) throw new Error(`OpenAI ${response.status}`);
   const data = await response.json();

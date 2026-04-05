@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Zap, Trophy, Star, X, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe } from 'lucide-react';
+import { Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe } from 'lucide-react';
 
 const motion = m as any;
 

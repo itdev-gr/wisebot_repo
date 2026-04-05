@@ -7,6 +7,8 @@
  * Content moderation applied for kid safety.
  */
 
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
+
 function extractTextFromContents(contents: any): string {
   if (!contents) return '';
   const texts: string[] = [];
@@ -46,7 +48,7 @@ function hasInlineData(contents: any): boolean {
 
 // ─── DALL-E 3 Image Generation ───
 async function generateWithDALLE(prompt: string, openaiKey: string) {
-  const response = await fetch('https://api.openai.com/v1/images/generations', {
+  const response = await fetchWithTimeout('https://api.openai.com/v1/images/generations', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${openaiKey}`,
@@ -60,7 +62,7 @@ async function generateWithDALLE(prompt: string, openaiKey: string) {
       response_format: 'b64_json',
       quality: 'standard',
     }),
-  });
+  }, 50000);
 
   if (!response.ok) {
     const err = await response.text();
@@ -112,14 +114,14 @@ async function generateWithGPT(prompt: string, openaiKey: string, config?: any) 
     body.response_format = { type: 'json_object' };
   }
 
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
+  const response = await fetchWithTimeout('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${openaiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
-  });
+  }, 25000);
 
   if (!response.ok) {
     const err = await response.text();
@@ -245,7 +247,6 @@ export default async function handler(req: any, res: any) {
     // ── GEMINI IMAGE MODEL → Use Gemini API natively ──
     // This handles both text-to-image AND photo-to-avatar (multimodal)
     if (isGeminiImageModel(model) && geminiKey) {
-      console.log(`[generate] Using Gemini natively for image model: ${model}`);
       try {
         const ai = new GoogleGenAI({ apiKey: geminiKey });
         const response = await ai.models.generateContent({
@@ -272,7 +273,6 @@ export default async function handler(req: any, res: any) {
 
         // If Gemini image fails AND it's not multimodal (no photo), try DALL-E as fallback
         if (!hasInlineData(contents) && openaiKey) {
-          console.log('[generate] Falling back to DALL-E 3');
           try {
             const dalleResult = await generateWithDALLE(allText, openaiKey);
             return res.status(200).json(dalleResult);
@@ -287,7 +287,6 @@ export default async function handler(req: any, res: any) {
 
     // ── NON-GEMINI IMAGE REQUEST → DALL-E 3 ──
     if (isImageModel(model) && !isGeminiImageModel(model) && openaiKey) {
-      console.log('[generate] Routing to DALL-E 3 for non-Gemini image model');
       const result = await generateWithDALLE(allText, openaiKey);
       return res.status(200).json(result);
     }
@@ -295,7 +294,6 @@ export default async function handler(req: any, res: any) {
     // ── TEXT REQUEST → GPT-4o primary, Gemini fallback ──
     if (openaiKey) {
       try {
-        console.log('[generate] Using GPT-4o for text generation');
         const result = await generateWithGPT(allText, openaiKey, config);
         return res.status(200).json(result);
       } catch (gptErr: any) {
@@ -307,7 +305,6 @@ export default async function handler(req: any, res: any) {
     // ── FALLBACK: Gemini ──
     if (geminiKey) {
       try {
-        console.log('[generate] Using Gemini fallback for text generation');
         const ai = new GoogleGenAI({ apiKey: geminiKey });
         const mergedConfig = { ...(config || {}), safetySettings: TEXT_SAFETY_SETTINGS };
 

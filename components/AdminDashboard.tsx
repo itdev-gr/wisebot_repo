@@ -864,7 +864,7 @@ function ContentTab({ stats, totals, data }: any) {
   const API_COSTS = [
     { name: 'AI Chat', endpoint: '/api/ai/chat', provider: 'GPT-4o-mini', costPerCall: 0.002, creditsCharged: 0, uses: stats.totalQuizzes + stats.totalBooks, icon: <Brain size={16} />, color: 'text-cyan-400' },
     { name: 'Image Generation', endpoint: '/api/ai/generate', provider: 'DALL-E 3', costPerCall: 0.04, creditsCharged: 6, uses: stats.totalImages, icon: <Image size={16} />, color: 'text-pink-400' },
-    { name: 'Video Generation', endpoint: '/api/ai/video-generate', provider: 'Veo 2', costPerCall: 0.25, creditsCharged: 50, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
+    { name: 'Video Generation', endpoint: '/api/ai/video-generate', provider: 'Veo 2', costPerCall: 0.25, creditsCharged: 80, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
     { name: 'Music Generation', endpoint: '/api/ai/suno-generate', provider: 'Suno AI', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalSongs, icon: <Music size={16} />, color: 'text-fuchsia-400' },
     { name: 'Text-to-Speech', endpoint: '/api/ai/tts', provider: 'Gemini TTS', costPerCall: 0.003, creditsCharged: 0, uses: stats.totalBooks * 3, icon: <Activity size={16} />, color: 'text-emerald-400' },
     { name: '3D Factory', endpoint: '/api/ai/meshy-generate', provider: 'Meshy.ai', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalHeroes, icon: <Box size={16} />, color: 'text-orange-400' },
@@ -888,7 +888,7 @@ function ContentTab({ stats, totals, data }: any) {
   // At Starter rate: 1 credit = €0.05
   const creditEconomy = [
     { label: 'Image (DALL-E 3)', credits: 6, realCost: '€0.04', revenue: '€0.30', margin: '+€0.26', marginPct: '87%', color: 'text-pink-400' },
-    { label: 'Video (Veo 2)', credits: 50, realCost: '€0.25', revenue: '€2.50', margin: '+€2.25', marginPct: '90%', color: 'text-amber-400' },
+    { label: 'Video (Veo 2)', credits: 80, realCost: '€0.25', revenue: '€4.00', margin: '+€3.75', marginPct: '94%', color: 'text-amber-400' },
     { label: 'Song (Suno AI)', credits: 60, realCost: '€0.10', revenue: '€3.00', margin: '+€2.90', marginPct: '97%', color: 'text-fuchsia-400' },
     { label: '3D Model (Meshy)', credits: 60, realCost: '€0.10', revenue: '€3.00', margin: '+€2.90', marginPct: '97%', color: 'text-orange-400' },
     { label: 'Business Sim', credits: 5, realCost: '€0.002', revenue: '€0.25', margin: '+€0.25', marginPct: '99%', color: 'text-violet-400' },

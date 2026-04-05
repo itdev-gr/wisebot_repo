@@ -35,7 +35,7 @@ const COST_TABLE = [
   { icon: Sparkles, label: { el: 'Hero Image', en: 'Hero Image' }, cost: 6, price: '€0.30', color: 'text-fuchsia-400' },
   { icon: Music, label: { el: 'Τραγούδι', en: 'Song' }, cost: 60, price: '€3.00', color: 'text-rose-400' },
   { icon: Box, label: { el: '3D Μοντέλο', en: '3D Model' }, cost: 60, price: '€3.00', color: 'text-cyan-400' },
-  { icon: Clapperboard, label: { el: 'Video', en: 'Video' }, cost: 50, price: '€2.50', color: 'text-purple-400' },
+  { icon: Clapperboard, label: { el: 'Video', en: 'Video' }, cost: 80, price: '€4.00', color: 'text-purple-400' },
   { icon: Briefcase, label: { el: 'Επιχείρηση', en: 'Business' }, cost: 4, price: '€0.20', color: 'text-green-400' },
 ];
 

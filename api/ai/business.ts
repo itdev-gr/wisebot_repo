@@ -98,9 +98,9 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
       slogan = 'The best company!';
     }
 
-    res.status(200).json({ slogan, description, logo: '' });
+    return res.status(200).json({ slogan, description, logo: '' });
   } catch (err: any) {
     console.error('AI Business error:', err.message);
-    res.status(500).json({ error: 'AI service error' });
+    return res.status(500).json({ error: 'AI service error' });
   }
 }

@@ -19,6 +19,7 @@
  */
 
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { fetchWithTimeout } from '../_lib/fetchWithTimeout';
 
 const SUNO_API_URL = 'https://api.sunoapi.org/api/v1/generate';
 
@@ -90,14 +91,14 @@ export default async function handler(req: any, res: any) {
       body.prompt = lyrics.slice(0, 3000);
     }
 
-    const response = await fetch(SUNO_API_URL, {
+    const response = await fetchWithTimeout(SUNO_API_URL, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-    });
+    }, 55000);
 
     if (!response.ok) {
       const errorText = await response.text();

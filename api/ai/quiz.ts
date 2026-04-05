@@ -58,9 +58,9 @@ export default async function handler(req: any, res: any) {
       }
     });
 
-    res.status(200).json({ result: response.text || '' });
+    return res.status(200).json({ result: response.text || '' });
   } catch (err: any) {
     console.error('AI Quiz error:', err.message);
-    res.status(500).json({ error: 'AI service error' });
+    return res.status(500).json({ error: 'AI service error' });
   }
 }

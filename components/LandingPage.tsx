@@ -27,11 +27,11 @@ import GuestBanner from './GuestBanner';
 const motion = m as any;
 
 const HERO_IMAGES = {
-  wisebot: "/images/wisebot.jpg",
-  pencilo: "/images/pencilo.jpg",
-  link: "/images/link.jpg",
-  crocus: "/images/crocus.jpg",
-  sparken: "/images/sparken.jpg"
+  wisebot: { jpg: "/images/wisebot.jpg", webp: "/images/wisebot.webp", webpSm: "/images/wisebot_320.webp" },
+  pencilo: { jpg: "/images/pencilo.jpg", webp: "/images/pencilo.webp", webpSm: "/images/pencilo_400.webp" },
+  link:    { jpg: "/images/link.jpg",    webp: "/images/link.webp",    webpSm: "/images/link_400.webp" },
+  crocus:  { jpg: "/images/crocus.jpg",  webp: "/images/crocus.webp",  webpSm: "/images/crocus_400.webp" },
+  sparken: { jpg: "/images/sparken.jpg", webp: "/images/sparken.webp", webpSm: "/images/sparken_400.webp" },
 };
 
 const LEGACY_ITEMS = [
@@ -96,10 +96,10 @@ const HISTORY_ITEMS = [
 ];
 
 const FEATURED_VIDEOS = [
-  { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
-  { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/sparken.jpg', videoUrl: '/video/sparken%20claude.mp4' },
-  { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/link.jpg', videoUrl: '/video/link%20claude.mp4' },
-  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.webp', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.webp', thumbnailFallback: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/sparken_400.webp', thumbnailFallback: '/images/sparken.jpg', videoUrl: '/video/sparken%20claude.mp4' },
+  { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/link_400.webp', thumbnailFallback: '/images/link.jpg', videoUrl: '/video/link%20claude.mp4' },
+  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.webp', thumbnailFallback: '/images/paidia-kai-wisebot.webp', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
 const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
@@ -257,7 +257,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute top-1/2 left-1/2 z-30 w-36 h-36 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2rem] md:rounded-[3rem] overflow-hidden border-[4px] md:border-[6px] border-blue-400/30 shadow-[0_0_100px_rgba(59,130,246,0.5)] bg-slate-900 drop-shadow-2xl"
             >
-              <img src={HERO_IMAGES.wisebot} className="w-full h-full object-cover" alt="Wisebot" loading="eager" />
+              <picture>
+                <source type="image/webp" srcSet={`${HERO_IMAGES.wisebot.webpSm} 320w, ${HERO_IMAGES.wisebot.webp} 644w`} sizes="(max-width: 767px) 144px, 320px" />
+                <img src={HERO_IMAGES.wisebot.jpg} className="w-full h-full object-cover" alt="Wisebot" loading="eager" fetchPriority="high" />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </motion.div>
 
@@ -269,7 +272,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute top-[5%] left-[0%] md:top-[10%] md:left-[-10%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-yellow-400/20 shadow-2xl -rotate-6 bg-slate-900"
             >
-              <img src={HERO_IMAGES.pencilo} className="w-full h-full object-cover" alt="Pencilo" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcSet={`${HERO_IMAGES.pencilo.webpSm} 400w, ${HERO_IMAGES.pencilo.webp} 1280w`} sizes="(max-width: 767px) 80px, 176px" />
+                <img src={HERO_IMAGES.pencilo.jpg} className="w-full h-full object-cover" alt="Pencilo" loading="lazy" decoding="async" />
+              </picture>
             </motion.div>
 
             {/* TOP RIGHT: SPARKEN - LAZY LOAD */}
@@ -280,7 +286,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute top-[5%] right-[0%] md:top-[5%] md:right-[-5%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-amber-400/20 shadow-2xl rotate-6 bg-slate-900"
             >
-              <img src={HERO_IMAGES.sparken} className="w-full h-full object-cover" alt="Sparken" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcSet={`${HERO_IMAGES.sparken.webpSm} 400w, ${HERO_IMAGES.sparken.webp} 1280w`} sizes="(max-width: 767px) 80px, 176px" />
+                <img src={HERO_IMAGES.sparken.jpg} className="w-full h-full object-cover" alt="Sparken" loading="lazy" decoding="async" />
+              </picture>
             </motion.div>
 
             {/* BOTTOM LEFT: CROCUS - LAZY LOAD */}
@@ -291,7 +300,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute bottom-[10%] left-[0%] md:bottom-[15%] md:left-[-5%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-emerald-400/20 shadow-2xl -rotate-12 bg-slate-900"
             >
-              <img src={HERO_IMAGES.crocus} className="w-full h-full object-cover" alt="Crocus" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcSet={`${HERO_IMAGES.crocus.webpSm} 400w, ${HERO_IMAGES.crocus.webp} 1280w`} sizes="(max-width: 767px) 80px, 176px" />
+                <img src={HERO_IMAGES.crocus.jpg} className="w-full h-full object-cover" alt="Crocus" loading="lazy" decoding="async" />
+              </picture>
             </motion.div>
 
             {/* BOTTOM RIGHT: LINK - LAZY LOAD */}
@@ -302,7 +314,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               style={{ willChange: 'transform' }}
               className="absolute bottom-[10%] right-[0%] md:bottom-[10%] md:right-[-10%] z-20 w-20 h-20 md:w-44 md:h-44 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border-[3px] md:border-4 border-cyan-400/20 shadow-[0_0_50px_rgba(34,211,238,0.2)] rotate-12 bg-slate-900"
             >
-              <img src={HERO_IMAGES.link} className="w-full h-full object-cover" alt="Link" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcSet={`${HERO_IMAGES.link.webpSm} 400w, ${HERO_IMAGES.link.webp} 1280w`} sizes="(max-width: 767px) 80px, 176px" />
+                <img src={HERO_IMAGES.link.jpg} className="w-full h-full object-cover" alt="Link" loading="lazy" decoding="async" />
+              </picture>
             </motion.div>
 
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none -z-10 transform-gpu" />
@@ -399,7 +414,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
                 className="group cursor-pointer rounded-2xl overflow-hidden border border-white/10 bg-black/40 hover:border-blue-500/50 transition-all hover:scale-[1.02]"
               >
                 <div className="aspect-video relative">
-                  <img src={video.thumbnail} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt={video.title[lang]} loading="lazy" />
+                  <picture>
+                    <source type="image/webp" srcSet={video.thumbnail} />
+                    <img src={video.thumbnailFallback} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity" alt={video.title[lang]} loading="lazy" decoding="async" />
+                  </picture>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Play size={16} fill="white" className="text-white" />
