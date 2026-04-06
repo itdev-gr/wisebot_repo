@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /**
- * 🎙️ WiseBot Ebook Voice Generator
+ * 🎙️ WiseBot Ebook Voice Generator — 3-Key Parallel
  *
  * Generates AI audio files for all Ebook pages using Gemini TTS.
- * Run ONCE — after that, all audio plays instantly without API.
+ * Alternates voices per book: odd books = Kore, even books = Leda.
+ * Uses 3 API keys in parallel for 3x throughput.
  *
  * Usage:
- *   GEMINI_API_KEY=your-key node scripts/generate-ebook-voices.mjs
+ *   GEMINI_API_KEY=k1 GEMINI_API_KEY_2=k2 GEMINI_API_KEY_3=k3 \
+ *     node scripts/generate-ebook-voices.mjs --force
  *
  *   Options:
- *     --voice Kore       Voice name (default: Kore)
+ *     --voice Kore       Override to single voice (disables alternating)
  *     --book 1           Generate only specific book ID
  *     --force            Re-generate even if file exists
  *     --start 50         Start from item index (for resuming)
@@ -27,7 +29,13 @@ const PROJECT_ROOT = path.resolve(__dirname, '..');
 const OUTPUT_DIR = path.join(PROJECT_ROOT, 'public', 'audio', 'ebooks');
 const PAGES_FILE = path.join(__dirname, 'ebooks-for-tts.json');
 
-// ─── Parse CLI args ─────────────────────────────────────────────
+// ─── Voice rotation: Kore ↔ Leda per book ──────────────────────
+const VOICE_ROTATION = ['Kore', 'Leda'];
+function getVoiceForBook(bookId) {
+  return VOICE_ROTATION[(bookId - 1) % VOICE_ROTATION.length];
+}
+
+// ─── Parse CLI args ──────────��──────────────────────────────────
 const args = process.argv.slice(2);
 function getArg(name) {
   const idx = args.indexOf(`--${name}`);
@@ -35,28 +43,33 @@ function getArg(name) {
 }
 const hasFlag = (name) => args.includes(`--${name}`);
 
-const API_KEY = process.env.GEMINI_API_KEY || process.env.API_KEY;
-const VOICE = getArg('voice') || 'Kore';
+// ─── Collect all API keys ────────���──────────────────────────────
+const API_KEYS = [
+  process.env.GEMINI_API_KEY,
+  process.env.GEMINI_API_KEY_2,
+  process.env.GEMINI_API_KEY_3,
+  process.env.GEMINI_API_KEY_4,
+].filter(Boolean);
+
+const VOICE_OVERRIDE = getArg('voice');
 const BOOK_FILTER = getArg('book') ? parseInt(getArg('book')) : null;
 const FORCE = hasFlag('force');
 const START_FROM = getArg('start') ? parseInt(getArg('start')) : 0;
 
-// ─── Validate ───────────────────────────────────────────────────
-if (!API_KEY) {
-  console.error('\n❌ Missing API key!');
-  console.error('   Set it as environment variable:');
-  console.error('   GEMINI_API_KEY=your-key node scripts/generate-ebook-voices.mjs\n');
+// ─── Validate ─────────��─────────────────────────────────────────
+if (API_KEYS.length === 0) {
+  console.error('\n❌ Missing API key(s)!');
+  console.error('   GEMINI_API_KEY=k1 GEMINI_API_KEY_2=k2 GEMINI_API_KEY_3=k3 node scripts/generate-ebook-voices.mjs\n');
   process.exit(1);
 }
 
 if (!fs.existsSync(PAGES_FILE)) {
   console.error(`\n❌ Pages file not found: ${PAGES_FILE}`);
-  console.error('   Run the extraction script first:');
-  console.error('   node scripts/extract-ebook-texts.mjs\n');
+  console.error('   Run: node scripts/extract-ebook-texts.mjs\n');
   process.exit(1);
 }
 
-// ─── PCM → WAV conversion ──────────────────────────────────────
+// ─���─ PCM → WAV conversion ──────────────��───────────────────────
 function pcmToWav(pcmBuffer, sampleRate = 24000, channels = 1, bitsPerSample = 16) {
   const dataSize = pcmBuffer.length;
   const buffer = Buffer.alloc(44 + dataSize);
@@ -116,40 +129,69 @@ async function generateAudio(ai, text, outputPath, voiceName) {
   throw new Error('No audio data in response');
 }
 
-// ─── Main ───────────────────────────────────────────────────────
-async function main() {
-  console.log('\n🎙️  WiseBot Ebook Voice Generator');
-  console.log('─'.repeat(50));
-  console.log(`   Voice: ${VOICE}`);
-  console.log(`   Book filter: ${BOOK_FILTER || 'all (1-26)'}`);
-  console.log(`   Force: ${FORCE ? 'yes' : 'no (skip existing)'}`);
-  if (START_FROM > 0) console.log(`   Starting from: item #${START_FROM}`);
-  console.log('─'.repeat(50));
+// ─── Process a single task with retry ───────���───────────────────
+async function processTask(ai, task, keyIndex) {
+  const label = `book-${task.bookId}-p${task.page} [${task.voice}] (key${keyIndex + 1})`;
 
-  // Ensure output directory exists
+  try {
+    const bytes = await generateAudio(ai, task.text, task.outputPath, task.voice);
+    console.log(`   ✅ ${label} → ${(bytes / 1024).toFixed(0)} KB`);
+    return { ok: true, bytes };
+  } catch (err) {
+    // Retry once on rate limit
+    if (err.message.includes('429') || err.message.includes('quota') || err.message.includes('rate')) {
+      console.log(`   ⏳ ${label} → rate limited, waiting 30s...`);
+      await new Promise(r => setTimeout(r, 30000));
+      try {
+        const bytes = await generateAudio(ai, task.text, task.outputPath, task.voice);
+        console.log(`   ✅ ${label} [RETRY] → ${(bytes / 1024).toFixed(0)} KB`);
+        return { ok: true, bytes };
+      } catch (retryErr) {
+        console.log(`   ❌ ${label} [RETRY] → ${retryErr.message}`);
+        return { ok: false, bytes: 0 };
+      }
+    }
+    console.log(`   ❌ ${label} → ${err.message}`);
+    return { ok: false, bytes: 0 };
+  }
+}
+
+// ─── Main ��──────────────────────────────────────────────────────
+async function main() {
+  const voiceMode = VOICE_OVERRIDE
+    ? `Single: ${VOICE_OVERRIDE}`
+    : `Alternating: ${VOICE_ROTATION.join(' ↔ ')} per book`;
+
+  console.log('\n🎙️  WiseBot Ebook Voice Generator — 3-Key Parallel');
+  console.log('═'.repeat(55));
+  console.log(`   Voice:  ${voiceMode}`);
+  console.log(`   Keys:   ${API_KEYS.length} API keys → ${API_KEYS.length}x parallel`);
+  if (!VOICE_OVERRIDE) {
+    process.stdout.write(`   Map:    `);
+    for (let i = 1; i <= 26; i++) {
+      process.stdout.write(`${i}:${getVoiceForBook(i)[0]} `);
+    }
+    console.log();
+  }
+  console.log(`   Book:   ${BOOK_FILTER || 'all (1-26)'}`);
+  console.log(`   Force:  ${FORCE ? 'yes' : 'no (skip existing)'}`);
+  if (START_FROM > 0) console.log(`   Start:  from index ${START_FROM}`);
+  console.log('═'.repeat(55));
+
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  // Load pages
   const allPages = JSON.parse(fs.readFileSync(PAGES_FILE, 'utf8'));
-  console.log(`   Total pages: ${allPages.length}`);
-
-  // Filter
   let pages = allPages;
   if (BOOK_FILTER) {
     pages = pages.filter(p => p.bookId === BOOK_FILTER);
-    console.log(`   Filtered to book ${BOOK_FILTER}: ${pages.length} pages`);
   }
 
-  // Build task list
   const tasks = [];
-
   for (const page of pages) {
     const filename = `book-${page.bookId}-page-${page.page}-el.wav`;
     const outputPath = path.join(OUTPUT_DIR, filename);
 
-    if (!FORCE && fs.existsSync(outputPath)) {
-      continue; // Skip existing
-    }
+    if (!FORCE && fs.existsSync(outputPath)) continue;
 
     tasks.push({
       bookId: page.bookId,
@@ -157,59 +199,71 @@ async function main() {
       text: page.text,
       outputPath,
       filename,
+      voice: VOICE_OVERRIDE || getVoiceForBook(page.bookId),
     });
   }
 
-  // Apply start offset
   const tasksToRun = tasks.slice(START_FROM);
-  const skipped = (pages.length) - tasks.length;
+  const skipped = pages.length - tasks.length;
 
-  console.log(`   To generate: ${tasksToRun.length}`);
-  if (skipped > 0) console.log(`   Skipping: ${skipped} (already exist)`);
-  if (START_FROM > 0) console.log(`   Skipping first: ${START_FROM} (--start)`);
-  console.log('─'.repeat(50));
+  console.log(`   Total:  ${pages.length} pages`);
+  console.log(`   Generate: ${tasksToRun.length}`);
+  if (skipped > 0) console.log(`   Skip:   ${skipped} (exist)`);
+  console.log('─'.repeat(55));
 
   if (tasksToRun.length === 0) {
-    console.log('\n✅ All audio files already exist! Nothing to do.\n');
+    console.log('\n✅ All audio files already exist!\n');
     return;
   }
 
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  // Create AI clients — one per key
+  const aiClients = API_KEYS.map(key => new GoogleGenAI({ apiKey: key }));
+  const PARALLEL = aiClients.length;
+
   let completed = 0;
   let failed = 0;
   let totalBytes = 0;
+  let idx = 0;
 
-  for (const task of tasksToRun) {
-    const progress = `[${completed + failed + 1}/${tasksToRun.length}]`;
-    process.stdout.write(`   ${progress} book-${task.bookId}-p${task.page}... `);
+  // Process in batches of PARALLEL (3)
+  while (idx < tasksToRun.length) {
+    const batch = tasksToRun.slice(idx, idx + PARALLEL);
+    const batchNum = Math.floor(idx / PARALLEL) + 1;
+    const totalBatches = Math.ceil(tasksToRun.length / PARALLEL);
+    console.log(`\n   ── Batch ${batchNum}/${totalBatches} (${batch.length} parallel) ──`);
 
-    try {
-      const bytes = await generateAudio(ai, task.text, task.outputPath, VOICE);
-      totalBytes += bytes;
-      completed++;
-      console.log(`✅ ${(bytes / 1024).toFixed(0)} KB`);
-    } catch (err) {
-      failed++;
-      console.log(`❌ ${err.message}`);
+    const promises = batch.map((task, i) => {
+      const keyIdx = i % aiClients.length;
+      return processTask(aiClients[keyIdx], task, keyIdx);
+    });
 
-      // If rate limited, wait longer
-      if (err.message.includes('429') || err.message.includes('quota') || err.message.includes('rate')) {
-        console.log('   ⏳ Rate limited. Waiting 30s...');
-        await new Promise(r => setTimeout(r, 30000));
+    const results = await Promise.all(promises);
+
+    for (const r of results) {
+      if (r.ok) {
+        completed++;
+        totalBytes += r.bytes;
+      } else {
+        failed++;
       }
     }
 
-    // Rate limit: pause every 5 generations
-    if ((completed + failed) % 5 === 0 && completed + failed < tasksToRun.length) {
-      process.stdout.write('   ⏳ Rate limit pause...\r');
-      await new Promise(r => setTimeout(r, 2000));
+    idx += batch.length;
+
+    // Progress
+    const pct = ((completed + failed) / tasksToRun.length * 100).toFixed(0);
+    console.log(`   📊 Progress: ${completed + failed}/${tasksToRun.length} (${pct}%) — ✅ ${completed} ❌ ${failed}`);
+
+    // Small pause between batches to be safe
+    if (idx < tasksToRun.length) {
+      await new Promise(r => setTimeout(r, 1000));
     }
   }
 
-  console.log('─'.repeat(50));
-  console.log(`\n🎉 Done!`);
+  console.log('\n' + '═'.repeat(55));
+  console.log(`🎉 Done!`);
   console.log(`   ✅ Generated: ${completed}`);
-  if (failed > 0) console.log(`   ❌ Failed: ${failed}`);
+  if (failed > 0) console.log(`   ❌ Failed:    ${failed}`);
   console.log(`   💾 Total size: ${(totalBytes / 1024 / 1024).toFixed(1)} MB`);
   console.log(`   📁 Location: public/audio/ebooks/`);
   console.log(`\n   Audio files are now part of the project.`);

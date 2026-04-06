@@ -1,12 +1,14 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Shield, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe,
   Zap, BookOpen, Image as ImageIcon, Trophy, Briefcase, BarChart3, Clock, Target,
   ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame, Download,
   Send, Lightbulb, Bell, Minus, Plus, ToggleLeft, ToggleRight,
-  Gamepad2, PenTool, GraduationCap, MessageSquare
+  Gamepad2, PenTool, GraduationCap, MessageSquare,
+  Smartphone, Mail, Phone, Loader2, CheckCircle, ArrowRight
 } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { authFetch } from '../services/backendApi';
@@ -19,10 +21,102 @@ interface ParentDashboardProps {
 
 export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const { credits, badges, stats, streak } = useEconomy();
-  const { user } = useAuth();
+  const { user, profile, emailVerified } = useAuth();
+  const [searchParams] = useSearchParams();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [pin, setPin] = useState('');
   const [exporting, setExporting] = useState(false);
+
+  // Phone verification state
+  const verifyRef = useRef<HTMLDivElement>(null);
+  const [phoneNumber, setPhoneNumber] = useState(profile?.phoneNumber || '');
+  const [otpCode, setOtpCode] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+  const [sendingOtp, setSendingOtp] = useState(false);
+  const [verifyingOtp, setVerifyingOtp] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [phoneSuccess, setPhoneSuccess] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
+
+  // Check if coming from store with ?verify=true
+  const fromStore = searchParams.get('verify') === 'true';
+
+  // Auto-scroll to verification section when coming from store
+  useEffect(() => {
+    if (fromStore && isUnlocked && verifyRef.current) {
+      setTimeout(() => {
+        verifyRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  }, [fromStore, isUnlocked]);
+
+  // Resend cooldown timer
+  useEffect(() => {
+    if (resendCooldown <= 0) return;
+    const timer = setInterval(() => setResendCooldown(c => c - 1), 1000);
+    return () => clearInterval(timer);
+  }, [resendCooldown]);
+
+  // Send OTP via Twilio
+  const handleSendOtp = async () => {
+    setPhoneError('');
+    if (!phoneNumber.trim()) {
+      setPhoneError(lang === 'el' ? 'Εισάγετε αριθμό κινητού' : 'Enter phone number');
+      return;
+    }
+    // Normalize: add +30 for Greek numbers if no prefix
+    let normalized = phoneNumber.trim();
+    if (normalized.startsWith('69')) normalized = '+30' + normalized;
+    else if (!normalized.startsWith('+')) normalized = '+' + normalized;
+
+    setSendingOtp(true);
+    try {
+      const res = await authFetch('/api/auth/send-otp', {
+        method: 'POST',
+        body: JSON.stringify({ phone: normalized, userId: user?.id }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setPhoneError(data.error || 'Error sending SMS');
+      } else {
+        setOtpSent(true);
+        setResendCooldown(60);
+        setPhoneNumber(normalized);
+      }
+    } catch {
+      setPhoneError(lang === 'el' ? 'Σφάλμα αποστολής SMS' : 'Error sending SMS');
+    }
+    setSendingOtp(false);
+  };
+
+  // Verify OTP code
+  const handleVerifyOtp = async () => {
+    setPhoneError('');
+    if (otpCode.length !== 6) {
+      setPhoneError(lang === 'el' ? 'Εισάγετε τον 6ψήφιο κωδικό' : 'Enter the 6-digit code');
+      return;
+    }
+    setVerifyingOtp(true);
+    try {
+      const res = await authFetch('/api/auth/verify-otp', {
+        method: 'POST',
+        body: JSON.stringify({ code: otpCode, userId: user?.id }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setPhoneError(data.error || 'Verification failed');
+      } else {
+        setPhoneSuccess(true);
+        // Reload profile to update phoneVerified
+        setTimeout(() => window.location.reload(), 2000);
+      }
+    } catch {
+      setPhoneError(lang === 'el' ? 'Σφάλμα επαλήθευσης' : 'Verification error');
+    }
+    setVerifyingOtp(false);
+  };
+
+  const isVerified = !!(profile?.phoneVerified || emailVerified);
 
   // Screen time controls state
   const [screenLimits, setScreenLimits] = useState<ScreenLimits>(() => getScreenLimits());
@@ -177,6 +271,24 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         exportingBtn: 'Εξαγωγή...',
         deleteBtn: 'Διαγραφή λογαριασμού',
         gdprText: 'Σύμφωνα με τον GDPR, έχετε δικαίωμα εξαγωγής ή διαγραφής των δεδομένων σας ανά πάσα στιγμή.',
+        // Verification
+        verifyTitle: 'ΕΠΑΛΗΘΕΥΣΗ ΓΟΝΕΑ',
+        verifySubtitle: 'Απαιτείται για αγορές — επαληθεύστε κινητό ή email',
+        verifySubtitleDone: 'Η επαλήθευσή σας είναι ενεργή',
+        phoneLabel: 'Κινητό τηλέφωνο',
+        emailLabel: 'Email γονέα',
+        verified: 'Επαληθευμένο',
+        notVerified: 'Μη επαληθευμένο',
+        phonePlaceholder: '69XXXXXXXX ή +30...',
+        sendCode: 'ΑΠΟΣΤΟΛΗ ΚΩΔΙΚΟΥ',
+        sendingCode: 'ΑΠΟΣΤΟΛΗ...',
+        resendIn: 'Επαναποστολή σε',
+        otpPlaceholder: '6-ψήφιος κωδικός',
+        verifyCode: 'ΕΠΑΛΗΘΕΥΣΗ',
+        verifyingCode: 'ΕΛΕΓΧΟΣ...',
+        phoneVerified: 'Το κινητό επαληθεύτηκε!',
+        resendEmail: 'ΕΠΑΝΑΠΟΣΤΟΛΗ EMAIL',
+        checkEmail: 'Ελέγξτε τα εισερχόμενά σας',
       }
     : {
         title: 'PARENT DASHBOARD',
@@ -236,6 +348,24 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         exportingBtn: 'Exporting...',
         deleteBtn: 'Delete account',
         gdprText: 'Under GDPR, you have the right to export or delete your data at any time.',
+        // Verification
+        verifyTitle: 'PARENT VERIFICATION',
+        verifySubtitle: 'Required for purchases — verify your phone or email',
+        verifySubtitleDone: 'Your verification is active',
+        phoneLabel: 'Phone number',
+        emailLabel: 'Parent email',
+        verified: 'Verified',
+        notVerified: 'Not verified',
+        phonePlaceholder: '+30... or 69XXXXXXXX',
+        sendCode: 'SEND CODE',
+        sendingCode: 'SENDING...',
+        resendIn: 'Resend in',
+        otpPlaceholder: '6-digit code',
+        verifyCode: 'VERIFY',
+        verifyingCode: 'VERIFYING...',
+        phoneVerified: 'Phone verified!',
+        resendEmail: 'RESEND EMAIL',
+        checkEmail: 'Check your inbox',
       };
 
   // Analytics stat items for Section B
@@ -396,6 +526,170 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
           <span className="text-xs font-black text-blue-400 uppercase tracking-[0.3em]">{t.title}</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-[1000] text-white uppercase italic tracking-tighter">{t.subtitle}</h1>
+      </div>
+
+      {/* ═══════ VERIFICATION SECTION ═══════ */}
+      <div
+        ref={verifyRef}
+        className={`bg-[#0B0F1A]/60 border rounded-2xl p-6 transition-all ${
+          fromStore && !isVerified
+            ? 'border-purple-500/40 shadow-lg shadow-purple-500/10 ring-1 ring-purple-500/20'
+            : isVerified
+              ? 'border-emerald-500/20'
+              : 'border-white/10'
+        }`}
+      >
+        <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2 flex items-center gap-2">
+          <Shield size={20} className={isVerified ? 'text-emerald-400' : 'text-purple-400'} />
+          {t.verifyTitle}
+        </h3>
+        <p className="text-sm text-white/40 mb-5">
+          {isVerified ? t.verifySubtitleDone : t.verifySubtitle}
+        </p>
+
+        <div className="space-y-4">
+          {/* Phone Verification */}
+          <div className={`rounded-xl border p-4 ${
+            profile?.phoneVerified
+              ? 'bg-emerald-500/10 border-emerald-500/30'
+              : 'bg-white/5 border-white/10'
+          }`}>
+            <div className="flex items-center gap-3 mb-3">
+              <Smartphone size={20} className={profile?.phoneVerified ? 'text-emerald-400' : 'text-white/40'} />
+              <span className="text-sm font-bold text-white/80 flex-1">{t.phoneLabel}</span>
+              {profile?.phoneVerified ? (
+                <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-400">
+                  <CheckCircle size={14} /> {t.verified}
+                </span>
+              ) : (
+                <span className="text-xs font-bold text-red-400">{t.notVerified}</span>
+              )}
+            </div>
+
+            {!profile?.phoneVerified && !phoneSuccess && (
+              <div className="space-y-3">
+                {!otpSent ? (
+                  /* Phone number input */
+                  <div className="flex gap-2">
+                    <input
+                      type="tel"
+                      value={phoneNumber}
+                      onChange={(e) => { setPhoneNumber(e.target.value); setPhoneError(''); }}
+                      placeholder={t.phonePlaceholder}
+                      className="flex-1 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/40"
+                    />
+                    <button
+                      onClick={handleSendOtp}
+                      disabled={sendingOtp || !phoneNumber.trim()}
+                      className="px-4 py-2.5 bg-purple-600/20 border border-purple-500/30 rounded-xl text-purple-300 text-xs font-black uppercase tracking-wider hover:bg-purple-600/30 transition-all disabled:opacity-50 flex items-center gap-2 whitespace-nowrap"
+                    >
+                      {sendingOtp ? (
+                        <><Loader2 size={14} className="animate-spin" /> {t.sendingCode}</>
+                      ) : (
+                        <><Phone size={14} /> {t.sendCode}</>
+                      )}
+                    </button>
+                  </div>
+                ) : (
+                  /* OTP input */
+                  <div className="space-y-3">
+                    <p className="text-xs text-white/50">
+                      {lang === 'el'
+                        ? `Στείλαμε κωδικό στο ${phoneNumber}`
+                        : `We sent a code to ${phoneNumber}`}
+                    </p>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        maxLength={6}
+                        value={otpCode}
+                        onChange={(e) => { setOtpCode(e.target.value.replace(/\D/g, '')); setPhoneError(''); }}
+                        placeholder={t.otpPlaceholder}
+                        autoFocus
+                        className="flex-1 px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-purple-500/40 text-center tracking-[0.3em]"
+                      />
+                      <button
+                        onClick={handleVerifyOtp}
+                        disabled={verifyingOtp || otpCode.length !== 6}
+                        className="px-4 py-2.5 bg-purple-600/20 border border-purple-500/30 rounded-xl text-purple-300 text-xs font-black uppercase tracking-wider hover:bg-purple-600/30 transition-all disabled:opacity-50 flex items-center gap-2 whitespace-nowrap"
+                      >
+                        {verifyingOtp ? (
+                          <><Loader2 size={14} className="animate-spin" /> {t.verifyingCode}</>
+                        ) : (
+                          t.verifyCode
+                        )}
+                      </button>
+                    </div>
+                    {/* Resend button */}
+                    <button
+                      onClick={() => { setOtpSent(false); setOtpCode(''); }}
+                      disabled={resendCooldown > 0}
+                      className="text-xs text-white/30 hover:text-white/50 transition-all disabled:opacity-50"
+                    >
+                      {resendCooldown > 0
+                        ? `${t.resendIn} ${resendCooldown}s`
+                        : lang === 'el' ? 'Αλλαγή αριθμού / Επαναποστολή' : 'Change number / Resend'}
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {phoneSuccess && (
+              <div className="flex items-center gap-2 text-emerald-400 text-sm font-bold">
+                <CheckCircle size={16} /> {t.phoneVerified}
+              </div>
+            )}
+
+            {phoneError && (
+              <p className="text-red-400 text-xs font-bold flex items-center gap-1 mt-2">
+                <AlertCircle size={14} /> {phoneError}
+              </p>
+            )}
+          </div>
+
+          {/* Email Verification */}
+          <div className={`rounded-xl border p-4 ${
+            emailVerified
+              ? 'bg-emerald-500/10 border-emerald-500/30'
+              : 'bg-white/5 border-white/10'
+          }`}>
+            <div className="flex items-center gap-3">
+              <Mail size={20} className={emailVerified ? 'text-emerald-400' : 'text-white/40'} />
+              <div className="flex-1">
+                <span className="text-sm font-bold text-white/80 block">{t.emailLabel}</span>
+                {user?.email && (
+                  <span className="text-xs text-white/30">{user.email}</span>
+                )}
+              </div>
+              {emailVerified ? (
+                <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-400">
+                  <CheckCircle size={14} /> {t.verified}
+                </span>
+              ) : (
+                <span className="text-xs font-bold text-red-400">{t.notVerified}</span>
+              )}
+            </div>
+            {!emailVerified && (
+              <p className="text-xs text-white/30 mt-2">
+                {t.checkEmail}
+              </p>
+            )}
+          </div>
+
+          {/* Status summary */}
+          {isVerified && (
+            <div className="flex items-center gap-2 px-4 py-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
+              <CheckCircle size={16} className="text-emerald-400" />
+              <span className="text-sm font-bold text-emerald-400">
+                {lang === 'el'
+                  ? 'Η επαλήθευση είναι ολοκληρωμένη — μπορείτε να κάνετε αγορές!'
+                  : 'Verification complete — you can make purchases!'}
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* ═══════ SECTION A: Activity Overview ═══════ */}

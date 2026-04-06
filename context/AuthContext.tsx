@@ -24,6 +24,7 @@ interface Profile {
   onboardingComplete: boolean;
   hasPassword: boolean;
   phoneNumber: string | null;
+  phoneVerified: boolean;
 }
 
 interface AuthContextType {
@@ -58,7 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .select('id, child_name, parent_email, avatar_url, parent_verified, onboarding_complete, has_password, phone_number')
+        .select('id, child_name, parent_email, avatar_url, parent_verified, onboarding_complete, has_password, phone_number, phone_verified')
         .eq('id', userId)
         .single();
 
@@ -101,6 +102,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         onboardingComplete: data.onboarding_complete ?? false,
         hasPassword: data.has_password ?? false,
         phoneNumber: data.phone_number ?? null,
+        phoneVerified: data.phone_verified ?? false,
       };
       setProfile(p);
 
