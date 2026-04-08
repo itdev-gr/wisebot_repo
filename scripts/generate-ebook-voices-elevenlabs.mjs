@@ -33,7 +33,8 @@ const VOICES = {
   christina: 'TaxceJVmw8PImjbbbz3w',
 };
 const DEFAULT_VOICE = 'eleni';
-const MODEL = 'eleven_multilingual_v2';
+// eleven_turbo_v2_5 supports SSML (break tags, prosody) — essential for proper narration
+const MODEL = 'eleven_turbo_v2_5';
 
 // ─── Parse CLI args ─────────────────────────────────
 const args = process.argv.slice(2);
@@ -63,6 +64,52 @@ if (!fs.existsSync(PAGES_FILE)) {
   process.exit(1);
 }
 
+// ─── Convert plain text → SSML for proper children's story narration ─────
+// Tells ElevenLabs HOW to read: pauses at commas, questions with rising tone,
+// exclamations with energy, dialogue naturally, paragraphs with breathing room.
+function toSSML(text) {
+  let s = text
+    // ── Paragraph breaks → big breath between scenes (1.1s) ──
+    .replace(/\n\n+/g, ' <break time="1.1s"/> ')
+
+    // ── Single newline → medium pause (0.6s) ──
+    .replace(/\n/g, ' <break time="0.6s"/> ')
+
+    // ── Ellipsis → thinking/suspense pause (0.9s) ──
+    .replace(/…/g, '<break time="0.9s"/>')
+    .replace(/\.\.\./g, '<break time="0.9s"/>')
+
+    // ── Em-dash → dramatic pause on both sides ──
+    .replace(/—/g, '<break time="0.35s"/>—<break time="0.35s"/>')
+
+    // ── After period (end of statement) → sentence pause (0.55s) ──
+    // but NOT after Mr./Mrs./initials (avoid false positives on short words)
+    .replace(/([α-ωΑ-Ωa-zA-Z0-9»"'])\.\s+/g, '$1.<break time="0.55s"/> ')
+
+    // ── After exclamation → energetic pause (0.6s) ──
+    .replace(/!\s+/g, '!<break time="0.6s"/> ')
+    .replace(/!»/g, '!»<break time="0.5s"/>')
+
+    // ── After question mark → curious pause (0.6s) ──
+    .replace(/;\s+/g, ';<break time="0.6s"/> ')   // Greek question mark is ;
+    .replace(/\?\s+/g, '?<break time="0.6s"/> ')  // also support ?
+    .replace(/;»/g, ';»<break time="0.5s"/>')
+
+    // ── After comma → breath pause (0.3s) ──
+    .replace(/,\s*/g, ',<break time="0.3s"/> ')
+
+    // ── After Greek dialogue close » → short pause ──
+    .replace(/»\s*/g, '»<break time="0.45s"/> ')
+
+    // ── Clean up double spaces and breaks ──
+    .replace(/(<break[^/]+\/>)\s+(<break[^/]+\/>)/g, '$1')
+    .replace(/  +/g, ' ')
+    .trim();
+
+  // Wrap: 90% speed = calm story-reading pace, not rushed
+  return `<speak><prosody rate="90%">${s}</prosody></speak>`;
+}
+
 // ─── Generate single audio via ElevenLabs ───────────
 async function generateAudio(text, outputPath) {
   const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
@@ -72,12 +119,15 @@ async function generateAudio(text, outputPath) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      text,
+      text: toSSML(text),
       model_id: MODEL,
+      // Children's story narrator — warm, expressive, natural pacing
+      // stability 0.35: consistent voice but with natural variation
+      // style 0.55: expressive storytelling, not flat
       voice_settings: {
-        stability: 0.50,
-        similarity_boost: 0.75,
-        style: 0.35,
+        stability: 0.35,
+        similarity_boost: 0.80,
+        style: 0.55,
         use_speaker_boost: true,
       },
     }),
