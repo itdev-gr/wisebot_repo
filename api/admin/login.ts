@@ -6,20 +6,18 @@
  * Credentials are NEVER stored in source code.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import crypto from 'crypto';
-
-function safeCompare(a: string, b: string): boolean {
-  // Hash both to ensure equal length for timingSafeEqual
-  const hashA = crypto.createHash('sha256').update(a).digest();
-  const hashB = crypto.createHash('sha256').update(b).digest();
-  return crypto.timingSafeEqual(hashA, hashB);
-}
+import {
+  ADMIN_CORS_HEADERS,
+  createAdminToken,
+  isAdminAuthConfigured,
+  verifyAdminCredentials,
+} from '../_lib/adminAuth';
 
 export default async function handler(req: any, res: any) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', ADMIN_CORS_HEADERS);
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
@@ -31,38 +29,22 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Email and password required' });
     }
 
-    // Credentials are stored ONLY in Vercel Environment Variables
-    const adminEmail = process.env.ADMIN_EMAIL;
-    const adminPassword = process.env.ADMIN_PASSWORD;
-    const adminSecret = process.env.ADMIN_SECRET;
-
-    if (!adminEmail || !adminPassword || !adminSecret) {
+    if (!isAdminAuthConfigured()) {
       console.error('[admin/login] Missing env vars');
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Trim any whitespace/newlines from env vars (common issue with env var injection)
-    const cleanEnvEmail = adminEmail.trim().toLowerCase();
-    const cleanEnvPass = adminPassword.trim();
-    const cleanInputEmail = email.trim().toLowerCase();
-    const cleanInputPass = password.trim();
-
-    // Safe constant-time comparison (hashes ensure equal buffer length)
-    const emailMatch = safeCompare(cleanInputEmail, cleanEnvEmail);
-    const passMatch = safeCompare(cleanInputPass, cleanEnvPass);
-
-    if (!emailMatch || !passMatch) {
+    if (!verifyAdminCredentials(email, password)) {
       // Delay to prevent brute force
       await new Promise(resolve => setTimeout(resolve, 500 + Math.random() * 500));
       return res.status(403).json({ error: 'Invalid credentials' });
     }
 
-    // Generate session token (HMAC of fixed message + secret)
-    // Uses a deterministic message so stats/credits endpoints can verify
-    const token = crypto
-      .createHmac('sha256', adminSecret)
-      .update('wisebot_admin_session')
-      .digest('hex');
+    const token = createAdminToken();
+    if (!token) {
+      console.error('[admin/login] Missing admin secret');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
 
     return res.status(200).json({
       success: true,

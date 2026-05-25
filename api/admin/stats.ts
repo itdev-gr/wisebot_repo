@@ -2,9 +2,10 @@
  * GET /api/admin/stats — Admin dashboard data
  * =============================================
  * Returns users list + aggregate stats from Supabase + Stripe payments.
- * Protected: requires admin PIN in X-Admin-Pin header.
+ * Protected: requires admin token in X-Admin-Token header.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth';
 
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');
@@ -19,25 +20,13 @@ export default async function handler(req: any, res: any) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', ADMIN_CORS_HEADERS);
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
   // Token-based auth — verify HMAC token matches what login generates
-  const token = req.headers['x-admin-token'] as string;
-  const adminSecret = process.env.ADMIN_SECRET;
-  if (!token || !adminSecret) {
-    return res.status(403).json({ error: 'Unauthorized' });
-  }
-  const crypto = await import('crypto');
-  const expectedToken = crypto
-    .createHmac('sha256', adminSecret)
-    .update('wisebot_admin_session')
-    .digest('hex');
-  const tokenBuf = Buffer.from(token);
-  const expectedBuf = Buffer.from(expectedToken);
-  if (tokenBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(tokenBuf, expectedBuf)) {
+  if (!verifyAdminToken(req.headers['x-admin-token'])) {
     return res.status(403).json({ error: 'Unauthorized' });
   }
 
