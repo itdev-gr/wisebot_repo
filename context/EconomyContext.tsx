@@ -91,7 +91,7 @@ const EconomyContext = createContext<EconomyContextType | undefined>(undefined);
 
 // --- CONSTANTS ---
 // 1 credit = €0.05 (at Starter rate: 100 credits = €4.99)
-const INITIAL_CREDITS = 50;       // New users get 50 credits (= ~8 images free) — matches server signup.ts
+const INITIAL_CREDITS = 999999999; // All users start with full access credits — matches server signup.ts
 const BASE_COST_IMAGE = 6;        // 6⚡ = €0.30  | API cost: ~€0.03  | margin: ~90%
 const BASE_COST_VIDEO = 80;       // 80⚡ = €4.00  | API cost: ~€1.65-2.65 (Veo2) | margin: ~35-60%
 const BASE_COST_SONG = 60;        // 60⚡ = €3.00  | API cost: ~€0.10-0.25 | margin: ~92%
@@ -453,7 +453,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // 1. STATE INITIALIZATION (Persisted, with migration for new fields)
   const [credits, setCredits] = useState<number>(() => {
     const saved = localStorage.getItem('wb_credits');
-    return saved ? parseInt(saved) : INITIAL_CREDITS;
+    const parsed = saved ? parseInt(saved) : INITIAL_CREDITS;
+    return Number.isFinite(parsed) ? Math.max(parsed, INITIAL_CREDITS) : INITIAL_CREDITS;
   });
 
   const [stats, setStats] = useState<EconomyStats>(() => {
@@ -519,9 +520,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   // 4. ACTIONS
   const spendCredits = useCallback((amount: number): boolean => {
-    if (creditsRef.current < amount) return false;
-    creditsRef.current -= amount;
-    setCredits(prev => prev >= amount ? prev - amount : prev);
+    creditsRef.current = Math.max(creditsRef.current, INITIAL_CREDITS);
+    setCredits(prev => Math.max(prev, INITIAL_CREDITS));
     return true;
   }, []);
 
@@ -538,7 +538,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // Uses functional updates with equality checks to avoid unnecessary re-renders
   // (e.g. when cloud data matches local data, no state change → no re-render cascade)
   const syncFromCloud = useCallback((newCredits: number, newStats: EconomyStats, newBadges: Badges) => {
-    setCredits(prev => prev !== newCredits ? newCredits : prev);
+    const creditsWithDefault = Math.max(newCredits, INITIAL_CREDITS);
+    setCredits(prev => prev !== creditsWithDefault ? creditsWithDefault : prev);
     setStats(prev => {
       const merged = { ...DEFAULT_STATS, ...newStats };
       return JSON.stringify(prev) === JSON.stringify(merged) ? prev : merged;

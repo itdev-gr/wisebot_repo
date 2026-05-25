@@ -72,17 +72,17 @@ const TEXT = {
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const navigate = useNavigate();
-  const { user, loading: authLoading, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, resendVerification } = useAuth();
+  const { user, loading: authLoading, signUp, signIn, signInWithGoogle, resetPassword, resendVerification } = useAuth();
   const [verificationEmail, setVerificationEmail] = useState(''); // email to resend verification to
   const [resending, setResending] = useState(false);
   const t = TEXT[lang];
 
-  // If already logged in AND verified, redirect
+  // If already logged in, redirect — access is available before verification too.
   useEffect(() => {
-    if (!authLoading && user && emailVerified) {
+    if (!authLoading && user) {
       navigate('/dashboard', { replace: true });
     }
-  }, [user, authLoading, emailVerified, navigate]);
+  }, [user, authLoading, navigate]);
 
   const [tab, setTab] = useState<'login' | 'register'>('login');
   const [parentEmail, setParentEmail] = useState('');
@@ -152,50 +152,9 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
         return;
       }
 
-      // Registration successful — send SMS OTP for phone verification.
-      // Parent must verify phone before the child can use the app.
-      setVerificationEmail(parentEmail);
       setSubmitting(false);
-
-      // If phone number was provided, send OTP and show OTP screen
-      if (phoneNumber) {
-        try {
-          const { authFetch } = await import('../services/backendApi');
-          // We need the userId from the signup response — fetch it
-          const signupResp = await authFetch('/api/auth/send-otp', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ phone: phoneNumber, userId: 'pending' }),
-          });
-          // For the OTP, we need the user ID. The signup already returned it.
-          // Re-fetch from our signup response which was already processed above.
-          // Actually, signUp doesn't return userId to frontend. We need to get it differently.
-          // Solution: try to sign in to get the session, then send OTP
-          const loginResult = await signIn(parentEmail, password);
-          if (!loginResult.error) {
-            const { supabase } = await import('../services/supabaseClient');
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session?.user?.id) {
-              setOtpUserId(session.user.id);
-              // Now send the OTP
-              const otpResp = await fetch('/api/auth/send-otp', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ phone: phoneNumber, userId: session.user.id }),
-              });
-              if (otpResp.ok) {
-                setShowOtpScreen(true);
-                return;
-              }
-            }
-          }
-        } catch (e) {
-          console.warn('[Auth] OTP send failed, falling back to email verification:', e);
-        }
-      }
-
-      // Fallback: show email verification screen if OTP didn't work
-      setShowVerificationMsg(true);
+      setSuccess(t.successRegister);
+      setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
       return;
     } else {
       const result = await signIn(parentEmail, password);
@@ -206,17 +165,6 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
         } else {
           setError(result.error);
         }
-        setSubmitting(false);
-        return;
-      }
-
-      // After login, check email verification
-      // The signIn result won't have user data yet — we need to check via auth context
-      // We rely on the auth state change listener to update emailVerified
-      // For immediate feedback, check the result
-      const { data: sessionData } = await (await import('../services/supabaseClient')).supabase.auth.getSession();
-      if (sessionData?.session?.user && !sessionData.session.user.email_confirmed_at) {
-        setError(t.notVerified);
         setSubmitting(false);
         return;
       }

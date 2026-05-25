@@ -23,23 +23,6 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // ── AUTH — inline (same pattern as gift.ts / delete-account.ts) ─
-  const authHeader = req.headers?.authorization;
-  const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
-  if (!token) return res.status(401).json({ error: 'Authentication required' });
-  try {
-    const { createClient } = await import('@supabase/supabase-js');
-    const supabaseAdmin = createClient(
-      process.env.SUPABASE_URL || '',
-      process.env.SUPABASE_SERVICE_KEY || '',
-      { auth: { autoRefreshToken: false, persistSession: false } },
-    );
-    const { data: { user }, error: authErr } = await supabaseAdmin.auth.getUser(token);
-    if (authErr || !user) return res.status(401).json({ error: 'Authentication required' });
-  } catch {
-    return res.status(401).json({ error: 'Authentication required' });
-  }
-
   const { imageBytes, mimeType } = req.body || {};
   if (!imageBytes) return res.status(400).json({ error: 'Image data required' });
   // Validate base64 size (raw base64 string ≈ 1.33× actual bytes; 10MB limit)

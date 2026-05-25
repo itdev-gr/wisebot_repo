@@ -129,7 +129,7 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
   const [freeMessageCount, setFreeMessageCount] = useState(() => {
     try { return parseInt(localStorage.getItem('wb_free_chat_count') || '0'); } catch { return 0; }
   });
-  const FREE_MESSAGE_LIMIT = 4;
+  const FREE_MESSAGE_LIMIT = Number.POSITIVE_INFINITY;
 
   const [input, setInput] = useState('');
 

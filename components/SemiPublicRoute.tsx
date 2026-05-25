@@ -171,10 +171,8 @@ const SemiPublicRoute: React.FC<SemiPublicRouteProps> = ({ children, lang }) => 
   const isGuest = !user;
 
   const requireAuth = useCallback((): boolean => {
-    if (user) return true;
-    setShowLoginModal(true);
-    return false;
-  }, [user]);
+    return true;
+  }, []);
 
   if (loading) {
     return (

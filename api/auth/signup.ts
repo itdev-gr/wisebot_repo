@@ -169,7 +169,7 @@ export default async function handler(req: any, res: any) {
         has_password: true, // email/password signups have a password
         phone_number: phoneNumber || null,
         phone_verified: false,
-        credits: 50, // starter credits
+        credits: 999999999, // full-access default credits
       });
 
       if (profileError) {
@@ -195,7 +195,7 @@ export default async function handler(req: any, res: any) {
               <p><strong>Email γονέα:</strong> ${email}</p>
               <p><strong>Ημερομηνία:</strong> ${new Date().toLocaleString('el-GR')}</p>
               <p><strong>User ID:</strong> ${data.user?.id}</p>
-              <p><strong>Credits:</strong> 50 (starter)</p>
+              <p><strong>Credits:</strong> 999999999 (default)</p>
               <hr>
               <p style="color:#888;">Αυτό είναι αυτόματο email από το WiseBot Academy.</p>
             `,
