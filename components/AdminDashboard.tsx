@@ -112,6 +112,32 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
   const [refundSending, setRefundSending] = useState(false);
   const [refundMsg, setRefundMsg] = useState('');
 
+  useEffect(() => {
+    if (hasAdminAccess || !user) return;
+
+    let cancelled = false;
+    const unlockWithSupabaseRole = async () => {
+      try {
+        const res = await authFetch('/api/admin/login', {
+          method: 'POST',
+          body: JSON.stringify({}),
+        });
+        const result = await res.json().catch(() => ({}));
+        if (!cancelled && res.ok && result.success && result.auth === 'supabase') {
+          if (result.token) sessionStorage.setItem('wb_admin_token', result.token);
+          setIsUnlocked(true);
+        }
+      } catch {
+        // Non-admin users should keep seeing the explicit admin login form.
+      }
+    };
+
+    unlockWithSupabaseRole();
+    return () => {
+      cancelled = true;
+    };
+  }, [hasAdminAccess, user]);
+
   const handleLoginSubmit = async () => {
     if (!loginEmail.trim() || !loginPassword.trim()) return;
     setLoginLoading(true);
