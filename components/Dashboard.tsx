@@ -411,13 +411,13 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
   // ============================================================
   // 🔓 UNLOCK LOGIC (Progressive Quest-Based)
   // ============================================================
-  const isQuizUnlocked = stats.lessonsRead >= 2 || stats.booksRead >= 1;
-  const isMusicUnlocked = stats.lessonsRead >= 1;
-  const isFactoryUnlocked = stats.lessonsRead >= 3 || stats.booksRead >= 2;
-  const isCinemaUnlocked = stats.imagesCreated >= 1;
-  const isMarketUnlocked = stats.imagesCreated >= 1;
-  const isBusinessUnlocked = stats.lessonsRead >= 2;
-  const is3DUnlocked = badges.creator;
+  const isQuizUnlocked = true;
+  const isMusicUnlocked = true;
+  const isFactoryUnlocked = true;
+  const isCinemaUnlocked = true;
+  const isMarketUnlocked = true;
+  const isBusinessUnlocked = true;
+  const is3DUnlocked = true;
 
   // ============================================================
   // 🗺️ QUEST PROGRESS COMPUTATION

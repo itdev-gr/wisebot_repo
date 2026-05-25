@@ -331,23 +331,10 @@ const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ child
   return <>{children}</>;
 };
 
-// --- AUTH GUARD: Redirects unauthenticated users to /login ---
-const SetPasswordScreen = React.lazy(() => import('./components/SetPasswordScreen'));
-
 const ProtectedRoute: React.FC<{ children: React.ReactNode; lang?: 'el' | 'en' }> = ({ children, lang = 'el' }) => {
-  const { user, profile, loading, emailVerified } = useAuth();
+  const { loading } = useAuth();
 
   if (loading) return <PageLoader />;
-  if (!user) return <Navigate to="/login" replace />;
-  if (!emailVerified) return <PendingVerification />;
-
-  // Google OAuth users must create a password before accessing protected routes
-  const isGoogleUser = user?.app_metadata?.provider === 'google' ||
-    (user?.app_metadata?.providers as string[] | undefined)?.includes('google');
-  if (isGoogleUser && profile && !profile.hasPassword) {
-    return <SetPasswordScreen lang={lang} />;
-  }
-
   return <>{children}</>;
 };
 

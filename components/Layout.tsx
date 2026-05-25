@@ -103,16 +103,16 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const s = (stats || {}) as any;
   const b = (badges || {}) as any;
-  const isQuizUnlocked = (s.lessonsRead || 0) >= 2 || (s.booksRead || 0) >= 1;
-  const isMusicUnlocked = (s.lessonsRead || 0) >= 1;
-  const isFactoryUnlocked = (s.lessonsRead || 0) >= 3 || (s.booksRead || 0) >= 2;
-  const isCinemaUnlocked = (s.imagesCreated || 0) >= 1;
-  const isMarketUnlocked = (s.imagesCreated || 0) >= 1;
-  const isBusinessUnlocked = (s.lessonsRead || 0) >= 2;
-  const is3DUnlocked = !!b.creator;
+  const isQuizUnlocked = true;
+  const isMusicUnlocked = true;
+  const isFactoryUnlocked = true;
+  const isCinemaUnlocked = true;
+  const isMarketUnlocked = true;
+  const isBusinessUnlocked = true;
+  const is3DUnlocked = true;
   const isEbooksUnlocked = true;
   const isFriendsUnlocked = true;
-  const isGamesUnlocked = (s.booksRead || 0) >= 1 || (s.quizzesPassed || 0) >= 1;
+  const isGamesUnlocked = true;
 
   // --- CINEMATIC RANK SYSTEM ---
   const unlockedBadgeCount = Object.values(badges).filter(Boolean).length;
