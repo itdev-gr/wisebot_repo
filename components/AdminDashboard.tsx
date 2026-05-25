@@ -20,6 +20,7 @@ import {
   CreditCard, Hash, Trash2, RotateCcw,
 } from 'lucide-react';
 import { authFetch } from '../services/backendApi';
+import { useAuth } from '../context/AuthContext';
 
 // No credentials in code — auth handled server-side via /api/admin/login
 
@@ -67,12 +68,19 @@ type TabId = 'overview' | 'users' | 'content' | 'system';
 
 // ─── MAIN COMPONENT ─────────────────
 export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
+  const { user } = useAuth();
+  const isSupabaseAdmin = user?.app_metadata?.role === 'admin' || user?.app_metadata?.is_admin === true;
   const [isUnlocked, setIsUnlocked] = useState(() => !!sessionStorage.getItem('wb_admin_token'));
+  const hasAdminAccess = isUnlocked || isSupabaseAdmin;
   const [loginEmail, setLoginEmail] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
   const adminToken = useCallback(() => sessionStorage.getItem('wb_admin_token') || '', []);
+  const adminHeaders = useCallback((headers: Record<string, string> = {}) => {
+    const token = adminToken();
+    return token ? { ...headers, 'X-Admin-Token': token } : headers;
+  }, [adminToken]);
   const [data, setData] = useState<DashData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -142,7 +150,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     setError('');
     try {
       const res = await authFetch('/api/admin/stats', {
-        headers: { 'X-Admin-Token': adminToken() },
+        headers: adminHeaders(),
       });
       if (!res.ok) throw new Error(res.status === 403 ? 'Unauthorized' : 'Failed to fetch');
       const result = await res.json();
@@ -153,18 +161,18 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [adminHeaders]);
 
   useEffect(() => {
-    if (isUnlocked) fetchData();
-  }, [isUnlocked, fetchData]);
+    if (hasAdminAccess) fetchData();
+  }, [hasAdminAccess, fetchData]);
 
   // Auto-refresh every 30 seconds
   useEffect(() => {
-    if (!isUnlocked) return;
+    if (!hasAdminAccess) return;
     const interval = setInterval(fetchData, 30000);
     return () => clearInterval(interval);
-  }, [isUnlocked, fetchData]);
+  }, [hasAdminAccess, fetchData]);
 
   const handleGiveCredits = async () => {
     if (!creditModal || !creditAmount) return;
@@ -175,7 +183,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     try {
       const res = await authFetch('/api/admin/credits', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        headers: adminHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ userId: creditModal.userId, amount }),
       });
       const result = await res.json();
@@ -205,7 +213,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     try {
       const res = await authFetch('/api/admin/delete-user', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        headers: adminHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ userId: deleteModal.userId, reason: 'Admin manual deletion' }),
       });
       const result = await res.json();
@@ -244,7 +252,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     try {
       const res = await authFetch('/api/admin/refund', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        headers: adminHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({ userId: refundModal.userId, amount, reason }),
       });
       const result = await res.json();
@@ -337,7 +345,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
   }, [data, searchQuery, sortBy]);
 
   // ─── LOGIN GATE ─────────────────────
-  if (!isUnlocked) {
+  if (!hasAdminAccess) {
     return (
       <div className="flex items-center justify-center min-h-[60vh] animate-in fade-in duration-700">
         <div className="glass-panel p-10 rounded-[3rem] border-white/10 max-w-sm w-full text-center space-y-6">

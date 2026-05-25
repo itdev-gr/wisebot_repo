@@ -24,22 +24,8 @@ export default async function handler(req: any, res: any) {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // Token-based auth — verify HMAC token matches what login generates
-  const token = req.headers['x-admin-token'] as string;
-  const adminSecret = process.env.ADMIN_SECRET;
-  if (!token || !adminSecret) {
-    return res.status(403).json({ error: 'Unauthorized' });
-  }
-  const crypto = await import('crypto');
-  const expectedToken = crypto
-    .createHmac('sha256', adminSecret)
-    .update('wisebot_admin_session')
-    .digest('hex');
-  const tokenBuf = Buffer.from(token);
-  const expectedBuf = Buffer.from(expectedToken);
-  if (tokenBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(tokenBuf, expectedBuf)) {
-    return res.status(403).json({ error: 'Unauthorized' });
-  }
+  const { requireAdmin } = await import('../_lib/adminAuth');
+  if (!(await requireAdmin(req, res))) return;
 
   try {
     const { userId, amount, reason } = req.body || {};

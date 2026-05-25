@@ -18,27 +18,13 @@ export default async function handler(req: any, res: any) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Token');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  // Token-based auth — verify HMAC token matches what login generates
-  const token = req.headers['x-admin-token'] as string;
-  const adminSecret = process.env.ADMIN_SECRET;
-  if (!token || !adminSecret) {
-    return res.status(403).json({ error: 'Unauthorized' });
-  }
-  const crypto = await import('crypto');
-  const expectedToken = crypto
-    .createHmac('sha256', adminSecret)
-    .update('wisebot_admin_session')
-    .digest('hex');
-  const tokenBuf = Buffer.from(token);
-  const expectedBuf = Buffer.from(expectedToken);
-  if (tokenBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(tokenBuf, expectedBuf)) {
-    return res.status(403).json({ error: 'Unauthorized' });
-  }
+  const { requireAdmin } = await import('../_lib/adminAuth');
+  if (!(await requireAdmin(req, res))) return;
 
   try {
     const { userId, amount } = req.body || {};

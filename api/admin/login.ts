@@ -19,12 +19,21 @@ export default async function handler(req: any, res: any) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Admin-Token');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   try {
+    const { createAdminSessionToken, isAdminRequest } = await import('../_lib/adminAuth');
+    if (await isAdminRequest(req)) {
+      return res.status(200).json({
+        success: true,
+        token: await createAdminSessionToken(),
+        auth: 'supabase',
+      });
+    }
+
     const { email, password } = req.body || {};
 
     if (!email || !password) {
@@ -34,9 +43,8 @@ export default async function handler(req: any, res: any) {
     // Credentials are stored ONLY in Vercel Environment Variables
     const adminEmail = process.env.ADMIN_EMAIL;
     const adminPassword = process.env.ADMIN_PASSWORD;
-    const adminSecret = process.env.ADMIN_SECRET;
 
-    if (!adminEmail || !adminPassword || !adminSecret) {
+    if (!adminEmail || !adminPassword) {
       console.error('[admin/login] Missing env vars');
       return res.status(500).json({ error: 'Server configuration error' });
     }
@@ -57,12 +65,12 @@ export default async function handler(req: any, res: any) {
       return res.status(403).json({ error: 'Invalid credentials' });
     }
 
-    // Generate session token (HMAC of fixed message + secret)
-    // Uses a deterministic message so stats/credits endpoints can verify
-    const token = crypto
-      .createHmac('sha256', adminSecret)
-      .update('wisebot_admin_session')
-      .digest('hex');
+    // Generate session token (HMAC of fixed message + secret).
+    const token = await createAdminSessionToken();
+    if (!token) {
+      console.error('[admin/login] Missing ADMIN_SECRET');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
 
     return res.status(200).json({
       success: true,
