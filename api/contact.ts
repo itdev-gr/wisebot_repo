@@ -25,7 +25,7 @@ async function getSupabase() {
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', (await import('./_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('./_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -34,7 +34,7 @@ export default async function handler(req: any, res: any) {
 
   // IP rate limit: max 3 contact messages per 10 minutes per IP (prevents spam)
   try {
-    const { checkIpRateLimit, getClientIp } = await import('./_lib/rateLimit');
+    const { checkIpRateLimit, getClientIp } = await import('./_lib/rateLimit.js');
     const clientIp = getClientIp(req);
     const ipCheck = await checkIpRateLimit(clientIp, 'contact', 3, 10);
     if (!ipCheck.allowed) {

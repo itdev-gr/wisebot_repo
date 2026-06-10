@@ -8,14 +8,14 @@
  */
 
 export default async function handler(req: any, res: any) {
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   // IP-based rate limit: max 20 OTP attempts per 30 min per IP
-  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit');
+  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit.js');
   const clientIp = getClientIp(req);
   const ipCheck = await checkIpRateLimit(clientIp, 'verify-otp', 20, 30);
   if (!ipCheck.allowed) {

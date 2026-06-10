@@ -7,7 +7,7 @@ const CREDIT_PACKS: Record<string, { name: string; credits: number; price: numbe
 };
 
 export default async function handler(req: any, res: any) {
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -18,7 +18,7 @@ export default async function handler(req: any, res: any) {
     if (!key) return res.status(500).json({ error: 'Stripe not configured' });
 
     // ── AUTH: extract userId from JWT, never trust client-supplied userId ──
-    const { getAuthUser } = await import('../_lib/auth');
+    const { getAuthUser } = await import('../_lib/auth.js');
     const authUser = await getAuthUser(req);
     const userId = authUser?.id || 'anonymous';
 

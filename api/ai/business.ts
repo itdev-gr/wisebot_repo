@@ -18,24 +18,24 @@ function isContentSafe(text: string): boolean { if (!text || typeof text !== 'st
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = await (await import('../_lib/auth')).getAuthUser(req, { allowGuest: true });
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   // Abuse guard — limit guests by IP, authenticated users by id
-  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const { aiRateLimit } = await import('../_lib/rateLimit.js');
   const rl = await aiRateLimit(req, user, 'business', { guest: 10, user: 60, windowMinutes: 60 });
   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 
   // Server-side credit guard — Business generation costs 4 credits
   const BUSINESS_COST = 4;
-  const { checkCredits } = await import('../_lib/auth');
+  const { checkCredits } = await import('../_lib/auth.js');
   const creditCheck = await checkCredits(user.id, BUSINESS_COST);
   if (!creditCheck.ok) {
     return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: BUSINESS_COST });
@@ -103,7 +103,7 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
       slogan = 'The best company!';
     }
 
-    const { deductCredits } = await import('../_lib/auth');
+    const { deductCredits } = await import('../_lib/auth.js');
     await deductCredits(user.id, BUSINESS_COST, 'CREATE_BUSINESS');
     res.status(200).json({ slogan, description, logo: '' });
   } catch (err: any) {

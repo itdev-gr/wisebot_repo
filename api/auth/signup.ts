@@ -31,7 +31,7 @@ async function getSupabaseAnon() {
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -39,7 +39,7 @@ export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   // IP rate limit: max 5 signups per 30 minutes per IP (prevents registration spam)
-  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit');
+  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit.js');
   const clientIp = getClientIp(req);
   const ipCheck = await checkIpRateLimit(clientIp, 'signup', 5, 30);
   if (!ipCheck.allowed) {

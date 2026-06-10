@@ -9,7 +9,7 @@
  * to avoid ERR_MODULE_NOT_FOUND issues with static _lib imports on Vercel.
  */
 export default async function handler(req: any, res: any) {
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -38,7 +38,7 @@ export default async function handler(req: any, res: any) {
   }
 
   // Rate limit: max 30 lookups per 10 minutes per user (prevents username enumeration)
-  const { checkRateLimit } = await import('../_lib/rateLimit');
+  const { checkRateLimit } = await import('../_lib/rateLimit.js');
   const lookupCheck = await checkRateLimit(callerId, 'lookup', 30, 10);
   if (!lookupCheck.allowed) {
     return res.status(429).json({

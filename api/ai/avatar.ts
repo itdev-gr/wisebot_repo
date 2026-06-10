@@ -17,17 +17,17 @@ export const config = { maxDuration: 60 };
 
 export default async function handler(req: any, res: any) {
   // ── CORS ────────────────────────────────────────────────────
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const user = await (await import('../_lib/auth')).getAuthUser(req, { allowGuest: true });
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   // Abuse guard — avatar uses paid image editing; limit guests by IP
-  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const { aiRateLimit } = await import('../_lib/rateLimit.js');
   const rl = await aiRateLimit(req, user, 'avatar', { guest: 6, user: 40, windowMinutes: 60 });
   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 

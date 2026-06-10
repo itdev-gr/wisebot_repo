@@ -29,16 +29,16 @@ function isContentSafe(text: string): boolean { if (!text || typeof text !== 'st
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = await (await import('../_lib/auth')).getAuthUser(req, { allowGuest: true });
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   // Rate limiting — Suno is expensive. Guests limited per IP, users per id.
-  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const { aiRateLimit } = await import('../_lib/rateLimit.js');
   const rateCheck = await aiRateLimit(req, user, 'suno', { guest: 3, user: 15, windowMinutes: 60 });
   if (!rateCheck.allowed) {
     return res.status(429).json({
@@ -49,7 +49,7 @@ export default async function handler(req: any, res: any) {
 
   // Server-side credit guard — Suno generation costs credits
   const SONG_COST = 60;
-  const { checkCredits } = await import('../_lib/auth');
+  const { checkCredits } = await import('../_lib/auth.js');
   const creditCheck = await checkCredits(user.id, SONG_COST);
   if (!creditCheck.ok) {
     return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: SONG_COST });
@@ -112,7 +112,7 @@ export default async function handler(req: any, res: any) {
       return res.status(502).json({ error: data.msg || 'Failed to create song task.' });
     }
 
-    const { deductCredits } = await import('../_lib/auth');
+    const { deductCredits } = await import('../_lib/auth.js');
     await deductCredits(user.id, SONG_COST, 'CREATE_SONG');
     return res.status(200).json({ taskId: data.data.taskId });
   } catch (err: any) {

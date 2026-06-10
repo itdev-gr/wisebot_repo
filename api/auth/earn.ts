@@ -19,19 +19,19 @@ const ALLOWED_ACTIONS = new Set([
 ]);
 
 export default async function handler(req: any, res: any) {
-  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const user = await (await import('../_lib/auth')).getAuthUser(req);
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req);
   if (!user || user.id === 'guest') {
     return res.status(401).json({ error: 'Authentication required' });
   }
 
   // Cap how fast rewards can be banked — generous for real play, stops scripts
-  const { checkRateLimit } = await import('../_lib/rateLimit');
+  const { checkRateLimit } = await import('../_lib/rateLimit.js');
   const rl = await checkRateLimit(user.id, 'earn', 40, 60);
   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 
