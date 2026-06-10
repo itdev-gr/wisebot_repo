@@ -73,7 +73,7 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     try {
       const res = await authFetch('/api/auth/send-otp', {
         method: 'POST',
-        body: JSON.stringify({ phone: normalized, userId: user?.id }),
+        body: JSON.stringify({ phone: normalized }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -100,7 +100,7 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     try {
       const res = await authFetch('/api/auth/verify-otp', {
         method: 'POST',
-        body: JSON.stringify({ code: otpCode, userId: user?.id }),
+        body: JSON.stringify({ code: otpCode }),
       });
       const data = await res.json();
       if (!res.ok) {

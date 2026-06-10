@@ -20,7 +20,7 @@ const PRESET_MESSAGES = [
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -78,7 +78,7 @@ export default async function handler(req: any, res: any) {
     // Find recipient by username (case-insensitive)
     const { data: recipients, error: findError } = await supabaseAdmin
       .from('profiles')
-      .select('id, credits, child_name')
+      .select('id, child_name')
       .ilike('child_name', toUsername)
       .limit(1);
 
@@ -93,82 +93,47 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: "You can't send a gift to yourself" });
     }
 
-    // Check sender has enough credits
-    const { data: senderProfile, error: senderError } = await supabaseAdmin
+    // Resolve sender name for the transaction log
+    const { data: senderProfile } = await supabaseAdmin
       .from('profiles')
-      .select('credits, child_name')
+      .select('child_name')
       .eq('id', senderId)
       .single();
+    const senderName = senderProfile?.child_name || 'A friend';
 
-    if (senderError || !senderProfile) {
-      return res.status(404).json({ error: 'Sender profile not found' });
+    const giftMessage = message || PRESET_MESSAGES[2].text.el; // default gift message
+
+    // Atomic transfer — locks both profile rows, checks balance, moves credits,
+    // and logs both transactions in a single DB transaction (no double-spend).
+    const { data: rpcResult, error: rpcError } = await supabaseAdmin.rpc('transfer_credits', {
+      p_from_user: senderId,
+      p_to_user: recipient.id,
+      p_amount: amount,
+      p_from_reason: `Gift to ${recipient.child_name}: ${giftMessage}`,
+      p_to_reason: `Gift from ${senderName}: ${giftMessage}`,
+    });
+
+    if (rpcError) {
+      console.error('[Gift] transfer_credits RPC error:', rpcError.message);
+      return res.status(500).json({ error: 'Failed to process gift' });
     }
 
-    if ((senderProfile.credits || 0) < amount) {
+    const newBalance = typeof rpcResult === 'number' ? rpcResult : -1;
+    if (newBalance === -3) {
       return res.status(400).json({ error: 'Not enough credits' });
     }
-
-    // Deduct from sender
-    const senderNewBalance = (senderProfile.credits || 0) - amount;
-    const { error: deductError } = await supabaseAdmin
-      .from('profiles')
-      .update({ credits: senderNewBalance })
-      .eq('id', senderId);
-
-    if (deductError) {
-      console.error('[Gift] Failed to deduct from sender:', deductError.message);
-      return res.status(500).json({ error: 'Failed to process gift' });
+    if (newBalance < 0) {
+      return res.status(400).json({ error: 'Gift could not be processed' });
     }
 
-    // Add to recipient
-    const recipientNewBalance = (recipient.credits || 0) + amount;
-    const { error: addError } = await supabaseAdmin
-      .from('profiles')
-      .update({ credits: recipientNewBalance })
-      .eq('id', recipient.id);
-
-    if (addError) {
-      // Rollback sender deduction
-      console.error('[Gift] Failed to add to recipient, rolling back:', addError.message);
-      await supabaseAdmin
-        .from('profiles')
-        .update({ credits: senderProfile.credits })
-        .eq('id', senderId);
-      return res.status(500).json({ error: 'Failed to process gift' });
-    }
-
-    // Log transactions for both users
-    const giftMessage = message || PRESET_MESSAGES[2].text.el; // default gift message
-    const now = new Date().toISOString();
-
-    // Sender transaction (debit)
-    await supabaseAdmin.from('credit_transactions').insert({
-      user_id: senderId,
-      action: 'GIFT_SENT',
-      amount: -amount,
-      reason: `Gift to ${recipient.child_name}: ${giftMessage}`,
-      balance_after: senderNewBalance,
-      created_at: now,
-    });
-
-    // Recipient transaction (credit)
-    await supabaseAdmin.from('credit_transactions').insert({
-      user_id: recipient.id,
-      action: 'GIFT_RECEIVED',
-      amount: amount,
-      reason: `Gift from ${senderProfile.child_name}: ${giftMessage}`,
-      balance_after: recipientNewBalance,
-      created_at: now,
-    });
-
-    console.log(`[Gift] ${senderProfile.child_name} -> ${recipient.child_name}: ${amount} credits`);
+    console.log(`[Gift] ${senderName} -> ${recipient.child_name}: ${amount} credits`);
 
     return res.status(200).json({
       success: true,
       recipientName: recipient.child_name,
       amount,
       message: giftMessage,
-      newBalance: senderNewBalance,
+      newBalance,
     });
   } catch (err: any) {
     console.error('[Gift] Unexpected error:', err);

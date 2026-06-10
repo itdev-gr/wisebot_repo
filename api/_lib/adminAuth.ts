@@ -6,9 +6,14 @@
  */
 import crypto from 'crypto';
 
-const ADMIN_TOKEN_MESSAGE = 'wisebot_admin_session';
+// Admin sessions expire after this window; admins re-authenticate afterwards.
+const ADMIN_TOKEN_TTL_MS = 12 * 60 * 60 * 1000;
 
 export const ADMIN_CORS_HEADERS = 'Content-Type, Authorization, X-Admin-Token';
+
+function b64url(buf: Buffer): string {
+  return buf.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
 
 interface AdminCredential {
   email: string;
@@ -114,25 +119,53 @@ export function verifyAdminCredentials(email: unknown, password: unknown): boole
   );
 }
 
+function signPayload(payloadB64: string, secret: string): string {
+  return b64url(crypto.createHmac('sha256', secret).update(payloadB64).digest());
+}
+
 export function createAdminToken(): string | null {
   const adminSecret = process.env.ADMIN_SECRET?.trim();
   if (!adminSecret) return null;
 
-  return crypto
-    .createHmac('sha256', adminSecret)
-    .update(ADMIN_TOKEN_MESSAGE)
-    .digest('hex');
+  const now = Date.now();
+  const payload = {
+    iat: now,
+    exp: now + ADMIN_TOKEN_TTL_MS,
+    nonce: crypto.randomBytes(8).toString('hex'),
+  };
+  const payloadB64 = b64url(Buffer.from(JSON.stringify(payload)));
+  const sig = signPayload(payloadB64, adminSecret);
+  return `${payloadB64}.${sig}`;
 }
 
 export function verifyAdminToken(token: unknown): boolean {
   const rawToken = Array.isArray(token) ? token[0] : token;
   if (typeof rawToken !== 'string' || !rawToken) return false;
 
-  const expectedToken = createAdminToken();
-  if (!expectedToken) return false;
+  const adminSecret = process.env.ADMIN_SECRET?.trim();
+  if (!adminSecret) return false;
 
-  const tokenBuf = Buffer.from(rawToken);
-  const expectedBuf = Buffer.from(expectedToken);
-  return tokenBuf.length === expectedBuf.length &&
-    crypto.timingSafeEqual(tokenBuf, expectedBuf);
+  const dotIndex = rawToken.indexOf('.');
+  if (dotIndex <= 0) return false;
+
+  const payloadB64 = rawToken.slice(0, dotIndex);
+  const sigB64 = rawToken.slice(dotIndex + 1);
+
+  const expectedSig = signPayload(payloadB64, adminSecret);
+  const sigBuf = Buffer.from(sigB64);
+  const expectedBuf = Buffer.from(expectedSig);
+  if (sigBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(sigBuf, expectedBuf)) {
+    return false;
+  }
+
+  try {
+    const payloadJson = Buffer.from(
+      payloadB64.replace(/-/g, '+').replace(/_/g, '/'),
+      'base64',
+    ).toString('utf8');
+    const payload = JSON.parse(payloadJson) as { exp?: number };
+    return typeof payload.exp === 'number' && Date.now() <= payload.exp;
+  } catch {
+    return false;
+  }
 }

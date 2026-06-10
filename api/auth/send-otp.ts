@@ -7,7 +7,7 @@
  */
 
 export default async function handler(req: any, res: any) {
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -22,13 +22,30 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { phone, userId } = req.body || {};
+    const { phone } = req.body || {};
 
     if (!phone || typeof phone !== 'string') {
       return res.status(400).json({ error: 'Phone number required' });
     }
-    if (!userId || typeof userId !== 'string') {
-      return res.status(400).json({ error: 'User ID required' });
+
+    // Derive userId from the caller's JWT — never trust a client-supplied id,
+    // otherwise anyone could bind their phone to (or trigger OTPs for) any account.
+    const authHeader = req.headers?.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+    let userId: string;
+    {
+      const token = authHeader.slice(7);
+      const { createClient } = await import('@supabase/supabase-js');
+      const authClient = createClient(
+        process.env.SUPABASE_URL || '',
+        process.env.SUPABASE_SERVICE_KEY || '',
+        { auth: { autoRefreshToken: false, persistSession: false } }
+      );
+      const { data: { user: u }, error: authErr } = await authClient.auth.getUser(token);
+      if (authErr || !u) return res.status(401).json({ error: 'Invalid token' });
+      userId = u.id;
     }
 
     // Normalize phone: ensure it starts with +

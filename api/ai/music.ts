@@ -19,7 +19,7 @@ function isContentSafe(text: string): boolean { if (!text || typeof text !== 'st
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -28,6 +28,11 @@ export default async function handler(req: any, res: any) {
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  // Abuse guard — limit guests by IP, authenticated users by id
+  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const rl = await aiRateLimit(req, user, 'music-lyrics', { guest: 15, user: 80, windowMinutes: 60 });
+  if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 
   try {
     const { prompt, lyricsPrompt, genre, mood } = req.body;

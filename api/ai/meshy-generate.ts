@@ -21,9 +21,37 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const MESHY_API_URL = 'https://api.meshy.ai/openapi/v1/image-to-3d';
 
+/**
+ * Validate the supplied imageUrl before forwarding it to Meshy, which fetches
+ * the URL server-side. Accept only image data URIs or public HTTPS URLs, and
+ * reject internal/loopback/link-local hosts to prevent SSRF abuse.
+ */
+function isValidImageUrl(value: unknown): value is string {
+  if (typeof value !== 'string' || value.length > 12_000_000) return false;
+
+  if (/^data:image\/(png|jpe?g|webp|gif);base64,/i.test(value)) return true;
+
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    return false;
+  }
+  if (url.protocol !== 'https:') return false;
+
+  const host = url.hostname.toLowerCase();
+  if (host === 'localhost' || host.endsWith('.localhost') ||
+      host.endsWith('.internal') || host.endsWith('.local')) return false;
+  if (host === '0.0.0.0' || host === '::1' || host === '[::1]') return false;
+  if (/^(0\.|127\.|10\.|169\.254\.|192\.168\.)/.test(host)) return false;
+  if (/^172\.(1[6-9]|2\d|3[0-1])\./.test(host)) return false;
+
+  return true;
+}
+
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -43,6 +71,11 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Abuse guard — 3D generation is expensive; tight limits
+  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const rl = await aiRateLimit(req, user, 'meshy', { guest: 2, user: 10, windowMinutes: 60 });
+  if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
+
   const apiKey = process.env.MESHY_API_KEY;
   if (!apiKey) {
     return res.status(500).json({ error: 'Meshy API key not configured.' });
@@ -52,6 +85,9 @@ export default async function handler(req: any, res: any) {
 
   if (!imageUrl) {
     return res.status(400).json({ error: 'imageUrl is required.' });
+  }
+  if (!isValidImageUrl(imageUrl)) {
+    return res.status(400).json({ error: 'imageUrl must be an image data URI or a public HTTPS image URL.' });
   }
 
   try {

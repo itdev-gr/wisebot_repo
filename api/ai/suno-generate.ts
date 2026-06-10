@@ -29,7 +29,7 @@ function isContentSafe(text: string): boolean { if (!text || typeof text !== 'st
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -37,9 +37,9 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req, { allowGuest: true });
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
-  // Rate limiting: max 5 songs per hour per user
-  const { checkRateLimit } = await import('../_lib/rateLimit');
-  const rateCheck = await checkRateLimit(user.id, 'suno', 5, 60);
+  // Rate limiting — Suno is expensive. Guests limited per IP, users per id.
+  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const rateCheck = await aiRateLimit(req, user, 'suno', { guest: 3, user: 15, windowMinutes: 60 });
   if (!rateCheck.allowed) {
     return res.status(429).json({
       error: `Too many song requests. Please wait ${Math.ceil((rateCheck.retryAfter || 60) / 60)} minutes.`,

@@ -15,7 +15,7 @@ function isContentSafe(text: string): boolean { if (!text || typeof text !== 'st
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -24,9 +24,9 @@ export default async function handler(req: any, res: any) {
   const user = await (await import('../_lib/auth')).getAuthUser(req, { allowGuest: true });
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
-  // Rate limiting: max 3 videos per hour per user (Veo 2 is very expensive)
-  const { checkRateLimit } = await import('../_lib/rateLimit');
-  const rateCheck = await checkRateLimit(user.id, 'video', 3, 60);
+  // Rate limiting — Veo 2 is very expensive. Guests limited per IP, users per id.
+  const { aiRateLimit } = await import('../_lib/rateLimit');
+  const rateCheck = await aiRateLimit(req, user, 'video', { guest: 2, user: 10, windowMinutes: 60 });
   if (!rateCheck.allowed) {
     return res.status(429).json({
       error: `Too many video requests. Please wait ${Math.ceil((rateCheck.retryAfter || 60) / 60)} minutes.`,

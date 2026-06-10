@@ -8,7 +8,7 @@
  */
 
 export default async function handler(req: any, res: any) {
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -23,13 +23,10 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    const { code, userId } = req.body || {};
+    const { code } = req.body || {};
 
     if (!code || typeof code !== 'string' || code.length !== 6) {
       return res.status(400).json({ error: 'Invalid code format' });
-    }
-    if (!userId || typeof userId !== 'string') {
-      return res.status(400).json({ error: 'User ID required' });
     }
 
     const { createClient } = await import('@supabase/supabase-js');
@@ -38,6 +35,17 @@ export default async function handler(req: any, res: any) {
       process.env.SUPABASE_SERVICE_KEY || '',
       { auth: { autoRefreshToken: false, persistSession: false } }
     );
+
+    // Derive userId from the caller's JWT — never trust a client-supplied id,
+    // otherwise an attacker could brute-force / verify another account's code.
+    const authHeader = req.headers?.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+    const { data: { user: authedUser }, error: authErr } =
+      await supabase.auth.getUser(authHeader.slice(7));
+    if (authErr || !authedUser) return res.status(401).json({ error: 'Invalid token' });
+    const userId = authedUser.id;
 
     // Find the latest unverified code for this user
     const { data: verification, error: fetchError } = await supabase

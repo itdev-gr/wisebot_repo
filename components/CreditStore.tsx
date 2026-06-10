@@ -295,7 +295,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
       {/* PARENT VERIFICATION GATE MODAL */}
       <AnimatePresenceAny>
         {showVerifyGate && (
-          <motion
+          <motion.div
             key="verify-gate-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -304,7 +304,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4"
             onClick={() => setShowVerifyGate(false)}
           >
-            <motion
+            <motion.div
               key="verify-gate-modal"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -393,8 +393,8 @@ export default function CreditStore({ lang }: CreditStoreProps) {
               >
                 {lang === 'el' ? 'ΑΚΥΡΩΣΗ' : 'CANCEL'}
               </button>
-            </motion>
-          </motion>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresenceAny>
     </div>

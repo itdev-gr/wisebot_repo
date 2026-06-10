@@ -20,7 +20,7 @@ async function getRawBody(req: any): Promise<Buffer> {
 
 export default async function handler(req: any, res: any) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', req.headers?.origin || 'https://wisebot.gr');
+  res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors')).resolveCorsOrigin(req.headers?.origin));
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
@@ -59,8 +59,21 @@ export default async function handler(req: any, res: any) {
           // Reuse a single Supabase admin client for the entire webhook
           const supabase = await getSupabaseAdmin();
 
+          // Idempotency guard — Stripe may redeliver the same event. If we've
+          // already recorded this session, skip to avoid double-crediting.
+          const { data: existing } = await supabase
+            .from('purchases')
+            .select('id')
+            .eq('stripe_session_id', sessionId)
+            .maybeSingle();
+
+          if (existing) {
+            console.log(`[Webhook] Session ${sessionId} already processed — skipping`);
+            return res.json({ received: true });
+          }
+
           // Insert purchase record
-          await supabase
+          const { error: insertError } = await supabase
             .from('purchases')
             .insert({
               user_id: userId,
@@ -70,6 +83,13 @@ export default async function handler(req: any, res: any) {
               amount_eur: (session.amount_total || 0) / 100,
               status: 'completed',
             });
+
+          // If the insert failed on a unique constraint, another delivery won
+          // the race — treat as already processed and don't credit again.
+          if (insertError) {
+            console.error('[Webhook] Purchase insert error:', insertError.message);
+            return res.json({ received: true });
+          }
 
           // Add credits via atomic function
           const { error: rpcError } = await supabase.rpc('earn_credits', {

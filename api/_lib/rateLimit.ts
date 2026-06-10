@@ -85,10 +85,36 @@ export async function checkRateLimit(
       return { allowed: true, remaining: maxCount - 1 };
     }
   } catch (err: any) {
-    // If rate limiting fails (DB error), allow request through (fail open)
-    console.error('[rateLimit] Error:', err.message);
-    return { allowed: true, remaining: 0 };
+    // Fail closed — if the limiter DB is unreachable we block rather than let
+    // expensive AI calls through unmetered. Clients can retry shortly.
+    console.error('[rateLimit] Error (failing closed):', err.message);
+    return { allowed: false, remaining: 0, retryAfter: 60 };
   }
+}
+
+/**
+ * AI access guard — picks the right rate-limit bucket for the caller.
+ *
+ * Guests (no/invalid token) share the literal id 'guest', so a per-user limit
+ * would be one global bucket for the whole internet. Instead we limit guests
+ * per client IP, while authenticated users keep their own per-user bucket.
+ *
+ * Usage in an AI endpoint (after getAuthUser):
+ *   const rl = await aiRateLimit(req, user, 'image', { guest: 10, user: 60, windowMinutes: 60 });
+ *   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
+ */
+export async function aiRateLimit(
+  req: any,
+  user: { id: string; role?: string } | null,
+  endpoint: string,
+  limits: { guest: number; user: number; windowMinutes: number },
+): Promise<RateLimitResult> {
+  const isGuest = !user || user.id === 'guest' || user.role === 'guest';
+  if (isGuest) {
+    const ip = getClientIp(req);
+    return checkIpRateLimit(ip, `ai:${endpoint}`, limits.guest, limits.windowMinutes);
+  }
+  return checkRateLimit(user.id, `ai:${endpoint}`, limits.user, limits.windowMinutes);
 }
 
 /**
@@ -161,7 +187,8 @@ export async function checkIpRateLimit(
       return { allowed: true, remaining: maxCount - 1 };
     }
   } catch (err: any) {
-    console.error('[rateLimit] IP rate limit error:', err.message);
-    return { allowed: true, remaining: 0 };
+    // Fail closed — see checkRateLimit above for rationale.
+    console.error('[rateLimit] IP rate limit error (failing closed):', err.message);
+    return { allowed: false, remaining: 0, retryAfter: 60 };
   }
 }
