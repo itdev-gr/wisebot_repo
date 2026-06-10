@@ -126,6 +126,8 @@ export default async function handler(req: any, res: any) {
       return res.status(502).json({ error: 'Failed to create 3D task.' });
     }
 
+    const { deductCredits } = await import('../_lib/auth');
+    await deductCredits(user.id, THREED_COST, 'CREATE_3D');
     return res.status(200).json({ taskId: data.result });
   } catch (err: any) {
     console.error('[meshy-generate] Error:', err.message || err);

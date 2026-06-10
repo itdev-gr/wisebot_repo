@@ -26,11 +26,17 @@ export default async function handler(req: any, res: any) {
 
   // Server-side credit guard — Image generation costs 6 credits
   const IMAGE_COST = 6;
-  const { checkCredits } = await import('../_lib/auth');
+  const { checkCredits, deductCredits } = await import('../_lib/auth');
   const creditCheck = await checkCredits(user.id, IMAGE_COST);
   if (!creditCheck.ok) {
     return res.status(402).json({ error: 'Not enough credits', credits: creditCheck.credits ?? 0, required: IMAGE_COST });
   }
+
+  // Charge only after a provider actually returns an image
+  const succeed = async (payload: Record<string, unknown>) => {
+    await deductCredits(user.id, IMAGE_COST, 'CREATE_IMAGE');
+    return res.status(200).json(payload);
+  };
 
   const { prompt, style } = req.body || {};
   if (!prompt) return res.status(400).json({ error: 'Prompt required' });
@@ -67,7 +73,7 @@ export default async function handler(req: any, res: any) {
         const b64 = data.data?.[0]?.b64_json;
         if (b64) {
           console.log('[Image] xAI Grok success');
-          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
+          return succeed({ image: `data:image/png;base64,${b64}` });
         }
       } else {
         const err = await resp.text();
@@ -79,7 +85,7 @@ export default async function handler(req: any, res: any) {
   }
 
   // ─── ATTEMPT 2: DALL-E 3 (OpenAI) ────────────────────────────
-  const openaiKey = process.env.OPENAI_API_KEY;
+  const openaiKey = process.env.OPENAI_API_KEY?.trim();
   if (openaiKey) {
     try {
       console.log('[Image] Trying DALL-E 3...');
@@ -101,7 +107,7 @@ export default async function handler(req: any, res: any) {
         const b64 = data.data?.[0]?.b64_json;
         if (b64) {
           console.log('[Image] DALL-E 3 success');
-          return res.status(200).json({ image: `data:image/png;base64,${b64}` });
+          return succeed({ image: `data:image/png;base64,${b64}` });
         }
       } else {
         const err = await resp.text();
@@ -132,7 +138,7 @@ export default async function handler(req: any, res: any) {
 
       if (response.generatedImages?.[0]?.image?.imageBytes) {
         console.log('[Image] Imagen 4 success');
-        return res.status(200).json({
+        return succeed({
           image: `data:image/png;base64,${response.generatedImages[0].image.imageBytes}`,
         });
       }
@@ -159,8 +165,8 @@ export default async function handler(req: any, res: any) {
         for (const part of parts) {
           if ((part as any).inlineData?.data) {
             console.log('[Image] Gemini Flash Image success');
-            return res.status(200).json({
-              image: `data:${(part as any).inlineData.mimeType || 'image/png'};base64,${(part as any).inlineData.data}`,
+            return succeed({
+              image: `data:${(part as any).inlineData.mimeType || "image/png"};base64,${(part as any).inlineData.data}`,
             });
           }
         }

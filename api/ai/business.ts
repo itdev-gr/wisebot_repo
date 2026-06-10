@@ -103,6 +103,8 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
       slogan = 'The best company!';
     }
 
+    const { deductCredits } = await import('../_lib/auth');
+    await deductCredits(user.id, BUSINESS_COST, 'CREATE_BUSINESS');
     res.status(200).json({ slogan, description, logo: '' });
   } catch (err: any) {
     console.error('AI Business error:', err.message);

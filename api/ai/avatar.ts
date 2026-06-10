@@ -50,7 +50,7 @@ export default async function handler(req: any, res: any) {
 
   // ─── ATTEMPT 1: OpenAI gpt-image-1 images.edit (25 s guard) ──
   // Accepts JPEG/PNG input, designed specifically for image editing/transformation
-  const openaiKey = process.env.OPENAI_API_KEY;
+  const openaiKey = process.env.OPENAI_API_KEY?.trim();
   if (openaiKey) {
     try {
       console.log('[avatar] Trying gpt-image-1 images.edit...');

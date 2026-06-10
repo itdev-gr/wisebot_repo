@@ -80,7 +80,7 @@ interface EconomyContextType {
   dailyMission: DailyMission;
   streak: number;
   spendCredits: (amount: number) => boolean;
-  earnCredits: (amount: number) => void;
+  earnCredits: (amount: number, action?: string) => void;
   trackAction: (action: ActionType) => void;
   showNotification: (emoji: string, title: string, subtitle?: string) => void;
   /** Cloud sync: bulk-update state from Supabase data */
@@ -91,7 +91,12 @@ const EconomyContext = createContext<EconomyContextType | undefined>(undefined);
 
 // --- CONSTANTS ---
 // 1 credit = €0.05 (at Starter rate: 100 credits = €4.99)
-const INITIAL_CREDITS = 999999999; // All users start with full access credits — matches server signup.ts
+// New users (and guests) start with a small free balance — matches the DB
+// default (profiles.credits = 10). Credits are earned through activities or
+// bought in the store; the server enforces balances on paid AI endpoints.
+const INITIAL_CREDITS = 10;
+// Balances from the old "unlimited credits" era — reset them to the default.
+const LEGACY_UNLIMITED_THRESHOLD = 100000;
 const BASE_COST_IMAGE = 6;        // 6⚡ = €0.30  | API cost: ~€0.03  | margin: ~90%
 const BASE_COST_VIDEO = 80;       // 80⚡ = €4.00  | API cost: ~€1.65-2.65 (Veo2) | margin: ~35-60%
 const BASE_COST_SONG = 60;        // 60⚡ = €3.00  | API cost: ~€0.10-0.25 | margin: ~92%
@@ -454,7 +459,10 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [credits, setCredits] = useState<number>(() => {
     const saved = localStorage.getItem('wb_credits');
     const parsed = saved ? parseInt(saved) : INITIAL_CREDITS;
-    return Number.isFinite(parsed) ? Math.max(parsed, INITIAL_CREDITS) : INITIAL_CREDITS;
+    if (!Number.isFinite(parsed) || parsed < 0) return INITIAL_CREDITS;
+    // Migrate balances saved during the old unlimited-credits era
+    if (parsed > LEGACY_UNLIMITED_THRESHOLD) return INITIAL_CREDITS;
+    return parsed;
   });
 
   const [stats, setStats] = useState<EconomyStats>(() => {
@@ -519,14 +527,37 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   }), [badges.thinker, badges.filmmaker, badges.musician]);
 
   // 4. ACTIONS
+  // Real client-side deduction. The server independently enforces and deducts
+  // on paid AI endpoints (profiles.credits is the source of truth for
+  // logged-in users); this keeps the UI in sync without waiting for a round-trip.
   const spendCredits = useCallback((amount: number): boolean => {
-    creditsRef.current = Math.max(creditsRef.current, INITIAL_CREDITS);
-    setCredits(prev => Math.max(prev, INITIAL_CREDITS));
+    if (creditsRef.current < amount) return false;
+    creditsRef.current -= amount;
+    setCredits(prev => Math.max(0, prev - amount));
     return true;
   }, []);
 
-  const earnCredits = useCallback((amount: number) => {
+  // Optimistically add locally, then bank the reward server-side so
+  // profiles.credits stays authoritative. Guests simply get the local add.
+  const earnCredits = useCallback((amount: number, action: string = 'GAME_REWARD') => {
     setCredits(prev => prev + amount);
+    creditsRef.current += amount;
+    (async () => {
+      try {
+        const { authFetch } = await import('../services/backendApi');
+        const res = await authFetch('/api/auth/earn', {
+          method: 'POST',
+          body: JSON.stringify({ amount, action }),
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (typeof data.credits === 'number') {
+            creditsRef.current = data.credits;
+            setCredits(data.credits);
+          }
+        }
+      } catch { /* guest or offline — local balance is fine */ }
+    })();
   }, []);
 
   // General-purpose notification (replaces alert() across the app)
@@ -538,8 +569,10 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // Uses functional updates with equality checks to avoid unnecessary re-renders
   // (e.g. when cloud data matches local data, no state change → no re-render cascade)
   const syncFromCloud = useCallback((newCredits: number, newStats: EconomyStats, newBadges: Badges) => {
-    const creditsWithDefault = Math.max(newCredits, INITIAL_CREDITS);
-    setCredits(prev => prev !== creditsWithDefault ? creditsWithDefault : prev);
+    // Cloud (profiles.credits) is the source of truth for logged-in users.
+    const safeCredits = Number.isFinite(newCredits) && newCredits >= 0 ? newCredits : INITIAL_CREDITS;
+    creditsRef.current = safeCredits;
+    setCredits(prev => prev !== safeCredits ? safeCredits : prev);
     setStats(prev => {
       const merged = { ...DEFAULT_STATS, ...newStats };
       return JSON.stringify(prev) === JSON.stringify(merged) ? prev : merged;
@@ -567,12 +600,12 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
       setDailyMission(updated);
       localStorage.setItem('wb_daily_mission', JSON.stringify(updated));
       const reward = badgesRef.current.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD;
-      earnCredits(reward);
+      earnCredits(reward, 'DAILY_MISSION');
       // Update streak
       const newStreak = updateStreak();
       setStreak(newStreak);
       const streakBonus = newStreak >= 7 ? 3 : newStreak >= 3 ? 1 : 0;
-      if (streakBonus > 0) earnCredits(streakBonus);
+      if (streakBonus > 0) earnCredits(streakBonus, 'DAILY_MISSION');
       setTimeout(() => {
         const streakMsg = newStreak > 1 ? ` (${newStreak} streak!)` : '';
         showReward('🎯', 'DAILY MISSION COMPLETE!', `+${reward + streakBonus} Credits${streakMsg}`, 'achievement');
@@ -686,7 +719,7 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (badgeUnlocked) setBadges(newBadges);
 
     // 3) Side effects: credits & notifications (run once, outside updater)
-    if (creditReward > 0) earnCredits(creditReward);
+    if (creditReward > 0) earnCredits(creditReward, action);
     if (rewardTitle && !badgeUnlocked) {
       showReward(rewardEmoji, rewardTitle, rewardSubtitle, 'credit');
     } else if (rewardTitle && badgeUnlocked) {

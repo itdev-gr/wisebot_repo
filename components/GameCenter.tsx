@@ -1,7 +1,7 @@
 
 import React, { useState, Suspense } from 'react';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA } from 'lucide-react';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
 const NebulaCatch = React.lazy(() => import('./games/NebulaCatch'));
@@ -20,6 +20,8 @@ const TowerDefense = React.lazy(() => import('./games/TowerDefense'));
 const WizardDuel = React.lazy(() => import('./games/WizardDuel'));
 const DungeonExplorer = React.lazy(() => import('./games/DungeonExplorer'));
 const ArtBattle = React.lazy(() => import('./games/ArtBattle'));
+const MathRush = React.lazy(() => import('./games/MathRush'));
+const WordQuest = React.lazy(() => import('./games/WordQuest'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -35,7 +37,7 @@ interface GameCenterProps {
 }
 
 export default function GameCenter({ lang }: GameCenterProps) {
-  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle'>('menu');
+  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest'>('menu');
 
   const t = {
     title: lang === 'el' ? 'ΠΑΙΧΝΙΔΙΑ' : 'GAMES',
@@ -56,6 +58,8 @@ export default function GameCenter({ lang }: GameCenterProps) {
     wizard: { title: 'WIZARD DUEL', desc: lang === 'el' ? 'Μαγικές μάχες!' : 'Magic battles!' },
     dungeon: { title: 'DUNGEON', desc: lang === 'el' ? 'Εξερεύνησε!' : 'Explore!' },
     artbattle: { title: 'AI ART BATTLE', desc: lang === 'el' ? 'Δημιούργησε AI τέχνη!' : 'Create AI art!' },
+    mathrush: { title: 'MATH RUSH', desc: lang === 'el' ? 'Γρήγορα μαθηματικά!' : 'Fast math!' },
+    wordquest: { title: 'WORD QUEST', desc: lang === 'el' ? 'Βρες τη λέξη!' : 'Find the word!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -83,6 +87,8 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'wizard': return <WizardDuel lang={lang} onBack={handleBack} />;
         case 'dungeon': return <DungeonExplorer lang={lang} onBack={handleBack} />;
         case 'artbattle': return <ArtBattle lang={lang} onBack={handleBack} />;
+        case 'mathrush': return <MathRush lang={lang} onBack={handleBack} />;
+        case 'wordquest': return <WordQuest lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -105,6 +111,30 @@ export default function GameCenter({ lang }: GameCenterProps) {
 
   // GAME DATA with static Tailwind classes and thumbnails
   const games = [
+    {
+      key: 'mathrush' as const, icon: Calculator, featured: true,
+      thumbnail: '/images/sparken.jpg',
+      category: lang === 'el' ? 'ΕΚΠΑΙΔΕΥΤΙΚΟ' : 'EDUCATIONAL',
+      cardBg: 'bg-gradient-to-br from-emerald-950/90 to-cyan-950/90',
+      borderColor: 'border-emerald-500/30 hover:border-emerald-400/60',
+      iconBg: 'bg-emerald-500/20 border-emerald-500/30',
+      iconColor: 'text-emerald-400',
+      hoverShadow: 'hover:shadow-emerald-500/20',
+      playBg: 'group-hover:bg-emerald-500',
+      tagBg: 'bg-emerald-500/20 text-emerald-300',
+    },
+    {
+      key: 'wordquest' as const, icon: BookA, featured: true,
+      thumbnail: '/images/pencilo.jpg',
+      category: lang === 'el' ? 'ΕΚΠΑΙΔΕΥΤΙΚΟ' : 'EDUCATIONAL',
+      cardBg: 'bg-gradient-to-br from-amber-950/90 to-rose-950/90',
+      borderColor: 'border-amber-500/30 hover:border-amber-400/60',
+      iconBg: 'bg-amber-500/20 border-amber-500/30',
+      iconColor: 'text-amber-400',
+      hoverShadow: 'hover:shadow-amber-500/20',
+      playBg: 'group-hover:bg-amber-500',
+      tagBg: 'bg-amber-500/20 text-amber-300',
+    },
     {
       key: 'wizard' as const, icon: Wand2, featured: true,
       thumbnail: '/images/wisebot.jpg',

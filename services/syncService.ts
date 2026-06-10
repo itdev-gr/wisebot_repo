@@ -115,10 +115,13 @@ export async function pullFromCloud(userId: string): Promise<SyncState | null> {
   }
 }
 
-// --- MERGE (take higher values, union badges) ---
+// --- MERGE (cloud-authoritative credits, take-higher stats, union badges) ---
 export function mergeState(local: SyncState, cloud: SyncState): SyncState {
   return {
-    credits: Math.max(local.credits, cloud.credits),
+    // Credits: the server (profiles.credits) is the source of truth — it is
+    // the only writer (AI deductions, /api/auth/earn, purchases, gifts).
+    // Math.max here would resurrect spent credits on every login.
+    credits: cloud.credits,
     xp: Math.max(local.xp, cloud.xp),
     level: Math.max(local.level, cloud.level),
     streakCurrent: Math.max(local.streakCurrent, cloud.streakCurrent),
@@ -153,11 +156,11 @@ export async function pushToCloud(userId: string, state: SyncState): Promise<boo
   if (!isSupabaseConfigured()) return false;
 
   try {
-    // Update profile
+    // Update profile — credits intentionally NOT pushed: the server is the
+    // only writer of profiles.credits (deductions, earn endpoint, purchases).
     const { error: profileError } = await supabase
       .from('profiles')
       .update({
-        credits: state.credits,
         xp: state.xp,
         level: state.level,
         streak_current: state.streakCurrent,

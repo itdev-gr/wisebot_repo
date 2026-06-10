@@ -38,7 +38,7 @@ const COST_TABLE = [
 ];
 
 export default function CreditStore({ lang }: CreditStoreProps) {
-  const { credits, costs, earnCredits, showNotification } = useEconomy();
+  const { credits, costs, showNotification, syncFromCloud } = useEconomy();
   const { user, profile, emailVerified } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -69,8 +69,15 @@ export default function CreditStore({ lang }: CreditStoreProps) {
           const updated = [...processedSessions, sessionId];
           localStorage.setItem('wb_verified_sessions', JSON.stringify(updated));
 
-          // Don't call earnCredits — rely on webhook + cloud sync to add credits
-          // This prevents double-crediting if webhook already fired
+          // Don't call earnCredits — the webhook already credited the account.
+          // Pull the fresh balance from the cloud so the UI updates immediately.
+          if (user?.id) {
+            import('../services/syncService').then(({ pullFromCloud }) =>
+              pullFromCloud(user.id).then(cloud => {
+                if (cloud) syncFromCloud(cloud.credits, cloud.stats, cloud.badges);
+              })
+            ).catch(console.error);
+          }
           showNotification('🎉', lang === 'el'
             ? `+${result.credits} Credits! Ευχαριστούμε!`
             : `+${result.credits} Credits! Thank you!`);
@@ -81,7 +88,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
         }
       }).catch(console.error);
     }
-  }, [searchParams, lang, backendReady]);
+  }, [searchParams, lang, backendReady, user?.id, syncFromCloud]);
 
   // Check if parent is verified: phone OR email verified
   const isParentVerified = (): boolean => {

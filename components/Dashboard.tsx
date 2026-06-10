@@ -110,7 +110,7 @@ const QUEST_STAGES: QuestStage[] = [
 const DASHBOARD_VIDEOS = [
   { id: 'dv1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
   { id: 'dv2', title: { el: 'CROCUS', en: 'CROCUS' }, thumbnail: '/images/crocus.jpg', videoUrl: '/video/crocus%20claude.mp4' },
-  { id: 'dv3', title: { el: 'ΤΑ ΠΑΙΔΙΑ ΜΕ ΤΟ WISEBOT', en: 'KIDS WITH WISEBOT' }, thumbnail: '/images/paidia-wisebot-2.webp', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'dv3', title: { el: 'ΤΑ ΠΑΙΔΙΑ ΜΕ ΤΟ WISEBOT', en: 'KIDS WITH WISEBOT' }, thumbnail: '/images/paidia-wisebot-2.webp', videoUrl: '/video/paixnidi%20me%20ai.mp4' },
 ];
 
 // ============================================================

@@ -18,7 +18,9 @@ export interface AuthUser {
   role?: string;
 }
 
-const DEFAULT_FREE_CREDITS = 999999999;
+// Guests get a small free trial enforced client-side + IP rate limits server-side.
+// Authenticated users have a real balance in profiles.credits.
+const GUEST_FREE_CREDITS = 10;
 
 function isAiRequest(req: any): boolean {
   const url = String(req.url || req.originalUrl || '');
@@ -67,18 +69,72 @@ export async function getAuthUser(req: any, options: { allowGuest?: boolean } = 
   }
 }
 
-/**
- * Check if user has enough credits for an action.
- * Returns { ok, credits } or { ok: false, error }.
- */
-export async function checkCredits(userId: string, cost: number): Promise<{ ok: boolean; credits?: number; error?: string }> {
-  return { ok: true, credits: DEFAULT_FREE_CREDITS };
+async function getAdminClient() {
+  const { createClient } = await import('@supabase/supabase-js');
+  return createClient(
+    process.env.SUPABASE_URL || '',
+    process.env.SUPABASE_SERVICE_KEY || '',
+    { auth: { autoRefreshToken: false, persistSession: false } }
+  );
 }
 
 /**
- * Deduct credits from a user's profile.
- * Returns the new credit balance or null on error.
+ * Check if user has enough credits for an action.
+ * Guests are allowed through (their trial is enforced client-side and abuse
+ * is capped by IP rate limits); authenticated users use profiles.credits.
+ * Fails open on DB errors so a Supabase blip never blocks paying users.
  */
-export async function deductCredits(userId: string, cost: number): Promise<number | null> {
-  return DEFAULT_FREE_CREDITS;
+export async function checkCredits(userId: string, cost: number): Promise<{ ok: boolean; credits?: number; error?: string }> {
+  if (!userId || userId === 'guest') {
+    return { ok: true, credits: GUEST_FREE_CREDITS };
+  }
+  try {
+    const supabase = await getAdminClient();
+    const { data: profile, error } = await supabase
+      .from('profiles')
+      .select('credits')
+      .eq('id', userId)
+      .single();
+
+    if (error || !profile) {
+      // Profile lookup failed — don't block the user on our own error.
+      console.error('[credits] check failed:', error?.message);
+      return { ok: true };
+    }
+
+    const credits = profile.credits || 0;
+    if (credits < cost) {
+      return { ok: false, credits, error: 'Insufficient credits' };
+    }
+    return { ok: true, credits };
+  } catch (err: any) {
+    console.error('[credits] check error:', err.message);
+    return { ok: true };
+  }
+}
+
+/**
+ * Deduct credits from an authenticated user's profile via the atomic
+ * spend_credits RPC (row lock + balance check + transaction log).
+ * Guests are a no-op. Returns true if deducted (or guest), false if the
+ * balance was insufficient at deduction time.
+ */
+export async function deductCredits(userId: string, cost: number, action: string = 'AI_GENERATION'): Promise<boolean> {
+  if (!userId || userId === 'guest' || cost <= 0) return true;
+  try {
+    const supabase = await getAdminClient();
+    const { data, error } = await supabase.rpc('spend_credits', {
+      p_user_id: userId,
+      p_amount: cost,
+      p_action: action,
+    });
+    if (error) {
+      console.error('[credits] deduct RPC error:', error.message);
+      return true; // fail open — generation already happened, don't surface an error
+    }
+    return data === true;
+  } catch (err: any) {
+    console.error('[credits] deduct error:', err.message);
+    return true;
+  }
 }

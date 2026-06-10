@@ -78,7 +78,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             parent_email: email,
             parent_verified: isGoogleUser, // Google email is already verified
             has_password: false, // Google OAuth users need to create a password
-            credits: 999999999,
+            credits: 10, // welcome credits — same as email signups
+
             onboarding_complete: false,
           });
 
