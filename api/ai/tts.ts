@@ -57,43 +57,6 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: 'Content not appropriate' });
   }
 
-  // ─── ATTEMPT 1: OpenAI gpt-4o-mini-tts — most human-like voice ───
-  // Matches the pregenerated narration (coral for Greek, fable for English)
-  // so on-demand audio sounds identical to the static story files.
-  const openaiKey = process.env.OPENAI_API_KEY?.trim();
-  if (openaiKey) {
-    try {
-      const isGreek = /[Ͱ-Ͽ]/.test(inputText);
-      const resp = await fetch('https://api.openai.com/v1/audio/speech', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${openaiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'gpt-4o-mini-tts',
-          voice: isGreek ? 'coral' : 'fable',
-          input: inputText,
-          instructions: isGreek
-            ? 'Είσαι επαγγελματίας αφηγητής παιδικών παραμυθιών. Μίλα με άψογη, φυσική ελληνική προφορά, ζεστά και εκφραστικά, με ήρεμο ρυθμό. Απευθύνεσαι σε παιδιά 6-13 ετών.'
-            : 'You are a professional children\'s storyteller. Narrate warmly and expressively with a calm, engaging pace. You are reading to kids aged 6-13.',
-          response_format: 'mp3',
-        }),
-      });
-      if (resp.ok) {
-        const audioBuf = Buffer.from(await resp.arrayBuffer());
-        if (audioBuf.length > 1000) {
-          return res.status(200).json({
-            audio: audioBuf.toString('base64'),
-            mimeType: 'audio/mpeg',
-          });
-        }
-      } else {
-        console.warn('[TTS] OpenAI failed:', resp.status, (await resp.text()).slice(0, 150));
-      }
-    } catch (e: any) {
-      console.warn('[TTS] OpenAI error:', e.message?.slice(0, 150));
-    }
-  }
-
-  // ─── ATTEMPT 2: Gemini TTS fallback ──────────────────────────────
   const geminiKey = process.env.GEMINI_API_KEY;
   if (!geminiKey) {
     return res.status(500).json({ error: 'AI service not configured' });
