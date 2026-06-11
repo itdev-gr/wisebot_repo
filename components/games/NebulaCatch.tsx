@@ -2,12 +2,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, Trophy, Play, RefreshCcw, ArrowLeft, Zap } from 'lucide-react';
 import { HEROES } from '../../constants';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 interface NebulaCatchProps {
   lang: 'el' | 'en';
   onBack: () => void;
 }
 
 export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const [isPlaying, setIsPlaying] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -124,6 +127,8 @@ export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
       setHighScore(finalScore);
       localStorage.setItem('wb_nebula_hi', finalScore.toString());
     }
+    grantGameReward('nebula', finalScore >= 200 ? 3 : finalScore >= 100 ? 2 : finalScore >= 40 ? 1 : 0,
+      earnCredits, showNotification, lang);
   };
 
   const gameLoop = (time: number) => {

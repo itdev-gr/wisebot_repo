@@ -1,7 +1,7 @@
 
 import React, { useState, Suspense } from 'react';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear } from 'lucide-react';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
 const NebulaCatch = React.lazy(() => import('./games/NebulaCatch'));
@@ -22,6 +22,10 @@ const DungeonExplorer = React.lazy(() => import('./games/DungeonExplorer'));
 const ArtBattle = React.lazy(() => import('./games/ArtBattle'));
 const MathRush = React.lazy(() => import('./games/MathRush'));
 const WordQuest = React.lazy(() => import('./games/WordQuest'));
+const GeoExplorer = React.lazy(() => import('./games/GeoExplorer'));
+const EcoHero = React.lazy(() => import('./games/EcoHero'));
+const TimeMachine = React.lazy(() => import('./games/TimeMachine'));
+const SpellListen = React.lazy(() => import('./games/SpellListen'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -37,7 +41,7 @@ interface GameCenterProps {
 }
 
 export default function GameCenter({ lang }: GameCenterProps) {
-  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest'>('menu');
+  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell'>('menu');
 
   const t = {
     title: lang === 'el' ? 'ΠΑΙΧΝΙΔΙΑ' : 'GAMES',
@@ -60,6 +64,10 @@ export default function GameCenter({ lang }: GameCenterProps) {
     artbattle: { title: 'AI ART BATTLE', desc: lang === 'el' ? 'Δημιούργησε AI τέχνη!' : 'Create AI art!' },
     mathrush: { title: 'MATH RUSH', desc: lang === 'el' ? 'Γρήγορα μαθηματικά!' : 'Fast math!' },
     wordquest: { title: 'WORD QUEST', desc: lang === 'el' ? 'Βρες τη λέξη!' : 'Find the word!' },
+    geo: { title: 'GEO EXPLORER', desc: lang === 'el' ? 'Γύρισε τον κόσμο!' : 'Travel the world!' },
+    eco: { title: 'ECO HERO', desc: lang === 'el' ? 'Σώσε τον πλανήτη!' : 'Save the planet!' },
+    time: { title: 'TIME MACHINE', desc: lang === 'el' ? 'Ταξίδι στην ιστορία!' : 'Travel through history!' },
+    spell: { title: 'SPELL & LISTEN', desc: lang === 'el' ? 'Άκου και γράψε!' : 'Listen and spell!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -89,6 +97,10 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'artbattle': return <ArtBattle lang={lang} onBack={handleBack} />;
         case 'mathrush': return <MathRush lang={lang} onBack={handleBack} />;
         case 'wordquest': return <WordQuest lang={lang} onBack={handleBack} />;
+        case 'geo': return <GeoExplorer lang={lang} onBack={handleBack} />;
+        case 'eco': return <EcoHero lang={lang} onBack={handleBack} />;
+        case 'time': return <TimeMachine lang={lang} onBack={handleBack} />;
+        case 'spell': return <SpellListen lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -134,6 +146,54 @@ export default function GameCenter({ lang }: GameCenterProps) {
       hoverShadow: 'hover:shadow-amber-500/20',
       playBg: 'group-hover:bg-amber-500',
       tagBg: 'bg-amber-500/20 text-amber-300',
+    },
+    {
+      key: 'geo' as const, icon: Globe2,
+      thumbnail: '/images/paidia-kai-wisebot.webp',
+      category: lang === 'el' ? 'ΓΕΩΓΡΑΦΙΑ' : 'GEOGRAPHY',
+      cardBg: 'bg-gradient-to-br from-sky-950/90 to-teal-950/90',
+      borderColor: 'border-sky-500/30 hover:border-sky-400/60',
+      iconBg: 'bg-sky-500/20 border-sky-500/30',
+      iconColor: 'text-sky-400',
+      hoverShadow: 'hover:shadow-sky-500/20',
+      playBg: 'group-hover:bg-sky-500',
+      tagBg: 'bg-sky-500/20 text-sky-300',
+    },
+    {
+      key: 'eco' as const, icon: Recycle,
+      thumbnail: '/images/crocus.jpg',
+      category: lang === 'el' ? 'ΠΕΡΙΒΑΛΛΟΝ' : 'ECOLOGY',
+      cardBg: 'bg-gradient-to-br from-lime-950/90 to-green-950/90',
+      borderColor: 'border-lime-500/30 hover:border-lime-400/60',
+      iconBg: 'bg-lime-500/20 border-lime-500/30',
+      iconColor: 'text-lime-400',
+      hoverShadow: 'hover:shadow-lime-500/20',
+      playBg: 'group-hover:bg-lime-500',
+      tagBg: 'bg-lime-500/20 text-lime-300',
+    },
+    {
+      key: 'time' as const, icon: Hourglass,
+      thumbnail: '/images/link.jpg',
+      category: lang === 'el' ? 'ΙΣΤΟΡΙΑ' : 'HISTORY',
+      cardBg: 'bg-gradient-to-br from-cyan-950/90 to-indigo-950/90',
+      borderColor: 'border-cyan-500/30 hover:border-cyan-400/60',
+      iconBg: 'bg-cyan-500/20 border-cyan-500/30',
+      iconColor: 'text-cyan-400',
+      hoverShadow: 'hover:shadow-cyan-500/20',
+      playBg: 'group-hover:bg-cyan-500',
+      tagBg: 'bg-cyan-500/20 text-cyan-300',
+    },
+    {
+      key: 'spell' as const, icon: Ear,
+      thumbnail: '/images/paidia-kai-pencilo.webp',
+      category: lang === 'el' ? 'ΟΡΘΟΓΡΑΦΙΑ' : 'SPELLING',
+      cardBg: 'bg-gradient-to-br from-fuchsia-950/90 to-violet-950/90',
+      borderColor: 'border-fuchsia-500/30 hover:border-fuchsia-400/60',
+      iconBg: 'bg-fuchsia-500/20 border-fuchsia-500/30',
+      iconColor: 'text-fuchsia-400',
+      hoverShadow: 'hover:shadow-fuchsia-500/20',
+      playBg: 'group-hover:bg-fuchsia-500',
+      tagBg: 'bg-fuchsia-500/20 text-fuchsia-300',
     },
     {
       key: 'wizard' as const, icon: Wand2, featured: true,

@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, Eye, EyeOff, CheckCircle, Zap, RefreshCcw } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 const motion = m as any;
 
@@ -26,6 +28,7 @@ interface WisebotPuzzleProps {
 }
 
 export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
+  const { earnCredits, showNotification } = useEconomy();
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'victory'>('menu');
   const [selectedHero, setSelectedHero] = useState(HEROES[0]);
@@ -118,7 +121,7 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
       if (isFull) {
           setTimeout(() => {
               setGameState('victory');
-              // Puzzle complete
+              grantGameReward('puzzle', 2, earnCredits, showNotification, lang);
           }, 500);
       }
   };
@@ -169,7 +172,7 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
                               <h4 className="font-black uppercase italic text-xl">{d.label}</h4>
                               <p className="text-xs font-bold opacity-70 mt-1">{d.grid} x {d.grid} Grid</p>
                               <div className="mt-4 flex items-center gap-2 text-amber-400 font-bold text-xs">
-                                  <Zap size={14} fill="currentColor" /> +{d.bonus} Credits
+                                  <Zap size={14} fill="currentColor" /> {lang === 'el' ? 'Κέρδισε Credits' : 'Earn Credits'}
                               </div>
                           </div>
                           {selectedDiff.id === d.id && <div className="absolute inset-0 bg-blue-500/10 animate-pulse"></div>}

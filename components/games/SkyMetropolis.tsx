@@ -15,6 +15,7 @@ import {
   Info
 } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 const motion = m as any;
 
@@ -44,7 +45,7 @@ const LEVELS = [
 ];
 
 export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
-  const { showNotification } = useEconomy();
+  const { earnCredits, showNotification } = useEconomy();
 
   // Game State
   const [grid, setGrid] = useState<(string | null)[]>(Array(GRID_SIZE * GRID_SIZE).fill(null));
@@ -106,7 +107,10 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
     
     if (currentLvlIndex > level) {
       setLevel(currentLvlIndex);
-      // Level up
+      // Level up — reward meaningful milestones (Town and beyond), capped daily by the helper
+      if (currentLvlIndex >= 2) {
+        grantGameReward('sky', 2, earnCredits, showNotification, lang);
+      }
     }
   }, [resources.pop]);
 

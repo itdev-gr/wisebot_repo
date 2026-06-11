@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { CheckCircle, RefreshCcw, Star, Zap, Bug, Hexagon, Triangle, Circle, Square, Trophy } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 const motion = m as any;
 
 interface DifferenceFinderProps {
@@ -64,6 +66,7 @@ const DIFFERENCES_CONFIG = [
 ];
 
 export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const [level, setLevel] = useState(0);
   const [foundDiffs, setFoundDiffs] = useState<string[]>([]);
   const [gameWon, setGameWon] = useState(false);
@@ -96,7 +99,7 @@ export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps
           }, 1500);
         } else {
           setGameWon(true);
-          // Game complete
+          grantGameReward('diff', 2, earnCredits, showNotification, lang);
         }
       }
     }

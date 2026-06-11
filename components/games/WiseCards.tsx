@@ -34,6 +34,8 @@ import {
   Cpu,
   Code
 } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 const motion = m as any;
 
 interface WiseCardsProps {
@@ -111,6 +113,7 @@ const ICONS = [
 ];
 
 export default function WiseCards({ lang, onBack }: WiseCardsProps) {
+  const { earnCredits, showNotification } = useEconomy();
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'finished'>('menu');
   const [level, setLevel] = useState(LEVELS[0]);
@@ -144,6 +147,13 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
   };
 
   // --- LOGIC ---
+
+  // Grant credit reward once per finished game
+  useEffect(() => {
+    if (gameState === 'finished') {
+      grantGameReward('cards', 2, earnCredits, showNotification, lang);
+    }
+  }, [gameState]);
 
   const startGame = (selectedLevel: typeof LEVELS[0]) => {
     setLevel(selectedLevel);

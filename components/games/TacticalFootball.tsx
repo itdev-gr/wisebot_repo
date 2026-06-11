@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, RotateCcw, Target, RotateCw, Trophy, AlertTriangle } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 interface TacticalFootballProps {
   lang: 'el' | 'en';
@@ -55,6 +57,7 @@ interface Entity {
 }
 
 export default function TacticalFootball({ lang, onBack }: TacticalFootballProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<Record<string, HTMLImageElement>>({});
 
@@ -326,6 +329,11 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
       const state = stateRef.current;
       if (scorer === 'player') state.scorePlayer++; else state.scoreOpponent++;
       state.lastScorer = scorer;
+
+      // Win reward: first time the player reaches 3 goals (score only ever increases)
+      if (scorer === 'player' && state.scorePlayer === 3 && state.scorePlayer > state.scoreOpponent) {
+          grantGameReward('football', 2, earnCredits, showNotification, lang);
+      }
       
       state.entities.forEach(e => { e.vx = 0; e.vy = 0; });
       state.isMoving = true; 

@@ -1,6 +1,8 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, RotateCcw, Sword, Heart, Star, Key, DoorOpen, Shield, Zap, Crown } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 interface DungeonExplorerProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -167,6 +169,7 @@ function generateMaze(floor: number): Cell[][] {
 
 // ─── COMPONENT ──────────────────────────────
 export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'combat' | 'gameover' | 'floorClear'>('menu');
   const [grid, setGrid] = useState<Cell[][]>([]);
   const [player, setPlayer] = useState<PlayerState>({
@@ -289,6 +292,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
       case 'exit':
         // Floor complete
         newPlayer.gold += 25 * player.floor;
+        grantGameReward('dungeon', player.floor >= 4 ? 3 : player.floor >= 2 ? 2 : 1, earnCredits, showNotification, lang);
         setGameState('floorClear');
         break;
       default:
@@ -304,7 +308,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
     if (newPlayer.hp <= 0) {
       setGameState('gameover');
     }
-  }, [gameState, player, grid, revealAround, showMsg, isGreek]);
+  }, [gameState, player, grid, revealAround, showMsg, isGreek, earnCredits, showNotification, lang]);
 
   const doCombatAttack = useCallback(() => {
     if (!combatMonster || !combatMonster.monsterHP) return;

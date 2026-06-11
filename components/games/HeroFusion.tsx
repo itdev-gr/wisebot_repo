@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowLeft, RefreshCcw, Crown, Play, Trophy, Zap, Flame } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 // --- CONFIGURATION ---
 const GRAVITY = 0.55;
@@ -51,6 +53,7 @@ interface HeroFusionProps {
 }
 
 export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -204,6 +207,9 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
       localStorage.setItem('hero_fusion_best', stateRef.current.score.toString());
       setUiBest(stateRef.current.score);
     }
+    const finalScore = stateRef.current.score;
+    grantGameReward('fusion', finalScore >= 500 ? 3 : finalScore >= 250 ? 2 : finalScore >= 80 ? 1 : 0,
+      earnCredits, showNotification, lang);
   };
 
   const update = () => {

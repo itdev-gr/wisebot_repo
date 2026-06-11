@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, Play, Pause, RotateCcw } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 interface BallRushProps {
   lang: 'el' | 'en';
@@ -10,6 +12,7 @@ interface BallRushProps {
 const CROCUS_IMG_URL = "/images/crocus.jpg";
 
 export default function BallRush({ lang, onBack }: BallRushProps) {
+  const { earnCredits, showNotification } = useEconomy();
   // Refs for game state to avoid re-renders during loop
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number | null>(null);
@@ -243,7 +246,9 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
       gameRef.current.over = true;
       gameRef.current.running = false;
       setUiState(s => ({...s, msg: 'GAME OVER'}));
-      
+      const finalScore = Math.floor(gameRef.current.score);
+      grantGameReward('ballrush', finalScore >= 500 ? 3 : finalScore >= 250 ? 2 : finalScore >= 100 ? 1 : 0,
+          earnCredits, showNotification, lang);
   };
 
   const draw = () => {

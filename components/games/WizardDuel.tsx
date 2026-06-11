@@ -1,6 +1,8 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, Zap, Heart, Shield, Flame, Sparkles, Star, RotateCcw } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 interface WizardDuelProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -112,6 +114,7 @@ function getQuestion(difficulty: Difficulty, isGreek: boolean): Question {
 
 // ─── COMPONENT ──────────────────────────────
 export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const particlesRef = useRef<Particle[]>([]);
@@ -248,6 +251,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
 
           if (newBossHP <= 0) {
             // Victory
+            grantGameReward('wizard', 2, earnCredits, showNotification, lang);
             if (bossIndex < BOSSES.length - 1) {
               setMessage(isGreek ? `🎉 Νίκησες ${boss.name}!` : `🎉 You defeated ${boss.name}!`);
               setGameState('victory');
@@ -271,7 +275,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
         enemyAttack(bossHP);
       }, 1000);
     }
-  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles]);
+  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles, earnCredits, showNotification, lang]);
 
   const enemyAttack = useCallback((currentBossHP: number) => {
     setGameState('enemy_turn');

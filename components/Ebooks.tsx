@@ -16,7 +16,8 @@ import {
   ArrowRight,
   Loader2,
   Sparkles,
-  BookOpen
+  BookOpen,
+  Repeat
 } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel, htmlToParagraphs, htmlToPlainText } from '../utils/ttsVoice';
@@ -83,9 +84,16 @@ interface BookTTSPlayerProps {
   contentRef: React.RefObject<HTMLDivElement | null>;
   bookId?: number;
   pageNum?: number;
+  /** Start playback automatically on mount (continuous-reading chain) */
+  autoPlay?: boolean;
+  /** Continuous-reading toggle state + handler (rendered inside the bar) */
+  continuous?: boolean;
+  onToggleContinuous?: () => void;
+  /** Fires when playback finishes naturally (not on stop/pause) */
+  onPlaybackEnd?: () => void;
 }
 
-function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum }: BookTTSPlayerProps) {
+function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum, autoPlay, continuous, onToggleContinuous, onPlaybackEnd }: BookTTSPlayerProps) {
   const paragraphs = useMemo(() => {
     if (htmlContent) return htmlToParagraphs(htmlContent);
     return textContent.split('\n\n').filter(p => p.trim().length > 0);
@@ -113,6 +121,19 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
   const isPlayingRef = useRef(false);
   const chromeFixCleanupRef = useRef<(() => void) | null>(null);
   const bestVoiceRef = useRef<SpeechSynthesisVoice | null>(null);
+  const onPlaybackEndRef = useRef(onPlaybackEnd);
+  useEffect(() => { onPlaybackEndRef.current = onPlaybackEnd; }, [onPlaybackEnd]);
+  // Guard for continuous mode: only chain to the next page when this page
+  // actually narrated something. Without this, a failing audio source (or a
+  // voiceless browser-TTS fallback) would flip through pages in seconds.
+  const playStartedAtRef = useRef(0);
+  const endedOnceRef = useRef(false);
+  const firePlaybackEnd = useCallback(() => {
+    if (endedOnceRef.current) return; // a stale onended/onerror must not re-fire
+    endedOnceRef.current = true;
+    const playedMs = playStartedAtRef.current ? Date.now() - playStartedAtRef.current : 0;
+    if (playedMs > 3000) onPlaybackEndRef.current?.();
+  }, []);
 
   useEffect(() => {
     ensureVoicesLoaded().then(() => {
@@ -125,7 +146,14 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
 
   useEffect(() => {
     return () => {
-      if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null; }
+      if (audioRef.current) {
+        // Detach handlers first — clearing src fires 'error' on the element,
+        // which would otherwise re-enter playCloudChunk from a dead player.
+        audioRef.current.onended = null;
+        audioRef.current.onerror = null;
+        audioRef.current.onplay = null;
+        audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null;
+      }
       window.speechSynthesis.cancel();
       chromeFixCleanupRef.current?.();
       isPlayingRef.current = false;
@@ -134,35 +162,42 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
 
   const playCloudChunk = useCallback((idx: number) => {
     if (idx >= chunkUrlsRef.current.length) {
-      setIsPlaying(false); setIsPaused(false); return;
+      setIsPlaying(false); setIsPaused(false);
+      firePlaybackEnd();
+      return;
     }
-    if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; }
+    if (audioRef.current) {
+      audioRef.current.onended = null; audioRef.current.onerror = null;
+      audioRef.current.pause(); audioRef.current.src = '';
+    }
     const audio = new Audio(chunkUrlsRef.current[idx]);
     audio.playbackRate = rate;
     audioRef.current = audio;
     currentChunkRef.current = idx;
-    audio.onplay = () => setIsPlaying(true);
+    audio.onplay = () => { if (!playStartedAtRef.current) playStartedAtRef.current = Date.now(); setIsPlaying(true); };
     audio.onended = () => playCloudChunk(idx + 1);
     audio.onerror = () => playCloudChunk(idx + 1);
     audio.play().catch(() => setIsPlaying(false));
-  }, [rate]);
+  }, [rate, firePlaybackEnd]);
 
   const speakParagraph = useCallback((idx: number) => {
     if (idx >= paragraphs.length) {
       setIsPlaying(false); setIsPaused(false); setCurrentIdx(-1);
       isPlayingRef.current = false; currentIdxRef.current = -1;
-      chromeFixCleanupRef.current?.(); return;
+      chromeFixCleanupRef.current?.();
+      firePlaybackEnd();
+      return;
     }
     currentIdxRef.current = idx; setCurrentIdx(idx);
     const { utterance, startChromeFix } = createWarmUtterance(paragraphs[idx], lang, rate, bestVoiceRef.current);
-    utterance.onstart = () => { chromeFixCleanupRef.current?.(); chromeFixCleanupRef.current = startChromeFix(); };
+    utterance.onstart = () => { if (!playStartedAtRef.current) playStartedAtRef.current = Date.now(); chromeFixCleanupRef.current?.(); chromeFixCleanupRef.current = startChromeFix(); };
     utterance.onend = () => { if (isPlayingRef.current) setTimeout(() => speakParagraph(currentIdxRef.current + 1), 400); };
     utterance.onerror = (e: any) => {
       if (e.error !== 'interrupted' && e.error !== 'canceled') console.warn('TTS error:', e.error);
       if (isPlayingRef.current) setTimeout(() => speakParagraph(currentIdxRef.current + 1), 200);
     };
     window.speechSynthesis.speak(utterance);
-  }, [paragraphs, lang, rate]);
+  }, [paragraphs, lang, rate, firePlaybackEnd]);
 
   const handlePlay = useCallback(async () => {
     if (isPaused) {
@@ -170,6 +205,9 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
       else { window.speechSynthesis.resume(); isPlayingRef.current = true; }
       setIsPaused(false); setIsPlaying(true); return;
     }
+    // Fresh run — re-arm the end-of-playback guard for replays of this page
+    endedOnceRef.current = false;
+    playStartedAtRef.current = 0;
     if (bookId && pageNum) {
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       try {
@@ -196,6 +234,17 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     setIsPlaying(true); setIsPaused(false); isPlayingRef.current = true;
     setTimeout(() => speakParagraph(0), 100);
   }, [isPaused, ttsMode, plainText, lang, bookId, pageNum, playCloudChunk, speakParagraph]);
+
+  // Continuous-reading chain: when the page remounts with autoPlay, start
+  // narrating after a short beat (gives the page-turn animation time to land).
+  const handlePlayRef = useRef(handlePlay);
+  useEffect(() => { handlePlayRef.current = handlePlay; }, [handlePlay]);
+  useEffect(() => {
+    if (!autoPlay) return;
+    const t = setTimeout(() => { handlePlayRef.current(); }, 700);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoPlay]);
 
   const handlePause = useCallback(() => {
     if (audioRef.current) audioRef.current.pause();
@@ -254,6 +303,19 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
       <button onClick={handleSpeedToggle} className="flex items-center gap-1 px-2 py-1.5 bg-amber-800/5 text-amber-800/50 border border-amber-800/10 rounded-lg font-bold text-[10px] uppercase tracking-wider hover:bg-amber-800/10 active:scale-95 transition-all">
         <FastForward size={11} /> {speedLabel}
       </button>
+      {onToggleContinuous && (
+        <button
+          onClick={onToggleContinuous}
+          title={lang === 'el' ? 'Συνεχόμενη ανάγνωση: όταν τελειώσει η σελίδα, συνεχίζει μόνη της στην επόμενη' : 'Continuous reading: auto-advances to the next page when audio ends'}
+          className={`flex items-center gap-1 px-2 py-1.5 rounded-lg font-bold text-[10px] uppercase tracking-wider active:scale-95 transition-all border ${
+            continuous
+              ? 'bg-emerald-700 text-emerald-50 border-emerald-800 shadow'
+              : 'bg-amber-800/5 text-amber-800/50 border-amber-800/10 hover:bg-amber-800/10'
+          }`}
+        >
+          <Repeat size={11} /> {lang === 'el' ? 'ΣΥΝΕΧΟΜΕΝΗ' : 'AUTO'}
+        </button>
+      )}
       {!active && !isLoading && (
         <span className="flex items-center gap-1 text-amber-800/25 text-[9px] font-bold uppercase tracking-widest ml-auto">
           {isCloud ? <><Sparkles size={8} /> AI</> : voiceLabel || 'Device'}
@@ -313,6 +375,9 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   const [selectedBookId, setSelectedBookId] = useState<number | string | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  // Continuous reading: audio ends → auto-advance page → auto-play next page
+  const [continuousMode, setContinuousMode] = useState(false);
+  const [autoPlayPage, setAutoPlayPage] = useState(false);
   const { trackAction } = useEconomy();
   const bookContentRef = useRef<HTMLDivElement>(null);
   const readerScrollRef = useRef<HTMLDivElement>(null);
@@ -380,6 +445,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
     setSelectedBookId(id);
     setShowQuiz(false);
     setCurrentPage(0);
+    setAutoPlayPage(false);
   };
 
   const handleQuizComplete = (score: number, total: number) => {
@@ -394,6 +460,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
       setSelectedBookId(BOOKS[activeBookIndex + 1].id);
       setShowQuiz(false);
       setCurrentPage(0);
+      setAutoPlayPage(false);
     } else {
       setSelectedBookId(null);
     }
@@ -709,7 +776,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                 {!showQuiz && totalPages > 0 && (
                   <div className="flex items-center justify-between px-5 py-2.5 pr-20 xl:pr-5 border-t border-amber-800/10 bg-gradient-to-r from-amber-900/[0.03] to-transparent shrink-0">
                     <button
-                      onClick={() => setCurrentPage(p => Math.max(0, p - 1))}
+                      onClick={() => { setAutoPlayPage(false); setCurrentPage(p => Math.max(0, p - 1)); }}
                       disabled={isFirstPage}
                       className="flex items-center gap-1 px-3 py-2 rounded-lg text-[11px] font-bold uppercase tracking-wider transition-all disabled:opacity-15 text-amber-800/50 hover:text-amber-900 hover:bg-amber-900/5 active:scale-95"
                     >
@@ -721,7 +788,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                       {Array.from({ length: totalPages }).map((_, i) => (
                         <button
                           key={i}
-                          onClick={() => setCurrentPage(i)}
+                          onClick={() => { setAutoPlayPage(false); setCurrentPage(i); }}
                           className={`w-2 h-2 rounded-full transition-all duration-300 ${
                             i === currentPage
                               ? 'bg-amber-800/60 w-5'
@@ -735,6 +802,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
                     <button
                       onClick={() => {
+                        setAutoPlayPage(false);
                         if (isLastPage) setShowQuiz(true);
                         else setCurrentPage(p => p + 1);
                       }}
@@ -760,6 +828,17 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                       contentRef={bookContentRef}
                       bookId={typeof activeBook.id === 'number' ? activeBook.id : parseInt(String(activeBook.id))}
                       pageNum={currentPage + 1}
+                      autoPlay={autoPlayPage}
+                      continuous={continuousMode}
+                      onToggleContinuous={() => setContinuousMode(c => !c)}
+                      onPlaybackEnd={() => {
+                        if (continuousMode && !isLastPage) {
+                          setAutoPlayPage(true);
+                          setCurrentPage(p => p + 1);
+                        } else {
+                          setAutoPlayPage(false);
+                        }
+                      }}
                     />
                   </React.Fragment>
                 )}

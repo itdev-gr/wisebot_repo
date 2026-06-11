@@ -2,6 +2,8 @@
 import React, { useState, useRef } from 'react';
 import { ArrowLeft, Sparkles, Trophy, Star, Palette, RotateCcw, Loader2, Image, Zap, Crown, ThumbsUp, Clock } from 'lucide-react';
 import { authFetch } from '../../services/backendApi';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 interface ArtBattleProps {
   lang: 'el' | 'en';
@@ -49,6 +51,7 @@ interface ArtEntry {
 }
 
 export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const [gameState, setGameState] = useState<'menu' | 'challenge' | 'creating' | 'generating' | 'result' | 'gallery'>('menu');
   const [currentTheme, setCurrentTheme] = useState<typeof THEMES_EL[0] | null>(null);
   const [userPrompt, setUserPrompt] = useState('');
@@ -158,6 +161,7 @@ export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
       setCurrentEntry(entry);
       setGallery(prev => [...prev, entry]);
       setTotalScore(prev => prev + overallScore);
+      grantGameReward('artbattle', 2, earnCredits, showNotification, lang);
       setGameState('result');
 
     } catch (err: any) {

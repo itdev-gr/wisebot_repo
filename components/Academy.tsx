@@ -486,6 +486,21 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const totalStories = COURSES.length;
   const totalCompleted = COURSES.filter(c => completedIds.includes(`academy-${c.id}`)).length;
 
+  // Story of the Day — seeded by day-of-year so every kid sees the same pick
+  // each day and it rotates through all 90 stories over time.
+  const dailyStory = useMemo(() => {
+    const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+    const idx = (dayOfYear * 7) % COURSES.length; // ×7 so consecutive days jump categories
+    return { course: COURSES[idx], image: getStoryImage(idx) };
+  }, []);
+  const dailyDone = completedIds.includes(`academy-${dailyStory.course.id}`);
+  const dailyCat = CATEGORIES[dailyStory.course.category as keyof typeof CATEGORIES];
+
+  const openDailyStory = () => {
+    setActiveCategory(dailyStory.course.category);
+    handleReadStory(dailyStory.course, dailyStory.image);
+  };
+
   return (
     <div className="relative w-full h-full pb-32 animate-in fade-in duration-700">
 
@@ -503,6 +518,45 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 90 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 90 GREAT PEOPLE'}
          </p>
 
+      </div>
+
+      {/* STORY OF THE DAY */}
+      <div className="max-w-3xl mx-auto px-4 mb-8">
+        <motion.button
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          onClick={openDailyStory}
+          className={`group w-full text-left rounded-3xl border-2 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.99] bg-gradient-to-r ${dailyCat?.color || 'from-blue-500 to-purple-500'} ${dailyDone ? 'opacity-90' : ''} border-white/15 hover:border-white/30 shadow-lg`}
+        >
+          <div className="flex items-center gap-4 bg-black/55 backdrop-blur-sm p-4 md:p-5">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 border border-white/20">
+              <SafeImage src={dailyStory.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <Star size={12} className="text-amber-400 shrink-0" fill="currentColor" />
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-amber-300">
+                  {lang === 'el' ? 'Η ΙΣΤΟΡΙΑ ΤΗΣ ΗΜΕΡΑΣ' : 'STORY OF THE DAY'}
+                </span>
+                {dailyDone && (
+                  <span className="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-emerald-400">
+                    <CheckCircle size={11} /> {lang === 'el' ? 'ΤΗ ΔΙΑΒΑΣΕΣ' : 'READ'}
+                  </span>
+                )}
+              </div>
+              <h3 className="text-white font-[1000] uppercase italic tracking-tight text-base md:text-xl leading-tight truncate">
+                {dailyStory.course.title[lang]}
+              </h3>
+              <p className="text-white/50 text-[11px] md:text-xs font-bold truncate mt-0.5">
+                {dailyStory.course.subject[lang]} · {dailyCat?.title[lang]}
+              </p>
+            </div>
+            <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/25 transition-all">
+              <PlayCircle size={22} />
+            </div>
+          </div>
+        </motion.button>
       </div>
 
       {/* CATEGORY TABS (Pill Style) */}

@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, RefreshCcw, Zap, Target, BrainCircuit, MousePointer2 } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 
 interface HeroSlingshotProps {
   lang: 'el' | 'en';
@@ -24,6 +26,7 @@ const HERO_BUBBLES = [
 ];
 
 export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   // Game State Refs (no re-renders)
@@ -163,6 +166,8 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
         state.gameOver = true;
         state.running = false;
         setGameOver(true);
+        grantGameReward('slingshot', state.score >= 300 ? 3 : state.score >= 150 ? 2 : state.score >= 60 ? 1 : 0,
+            earnCredits, showNotification, lang);
     }
 
     updateAiStrategy();

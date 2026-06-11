@@ -1,6 +1,8 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { ArrowLeft, RotateCcw, Play, Trophy, Zap, Shield, Swords, Heart, Clock, ChevronRight } from 'lucide-react';
+import { useEconomy } from '../../context/EconomyContext';
+import { grantGameReward } from './gameRewards';
 interface TowerDefenseProps {
   lang: 'el' | 'en';
   onBack: () => void;
@@ -94,7 +96,9 @@ const ENEMY_DATA: Record<EnemyType, { hp: number; speed: number; reward: number;
 };
 
 export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
+  const { earnCredits, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rewardedRef = useRef(false);
   const gs = useRef({
     status: 'idle' as 'idle' | 'playing' | 'won' | 'lost' | 'building',
     gold: 50,
@@ -231,6 +235,10 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
           enemy.hp = 0; // mark for removal
           if (g.lives <= 0) {
             g.status = 'lost';
+            if (!rewardedRef.current) {
+              rewardedRef.current = true;
+              grantGameReward('tower', g.wave >= 5 ? 1 : 0, earnCredits, showNotification, lang);
+            }
             setUi(prev => ({ ...prev, status: 'lost', lives: 0 }));
           }
           return;
@@ -346,6 +354,10 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
 
         if (g.wave >= WAVE_DATA.length) {
           g.status = 'won';
+          if (!rewardedRef.current) {
+            rewardedRef.current = true;
+            grantGameReward('tower', 3, earnCredits, showNotification, lang);
+          }
           setUi(prev => ({ ...prev, status: 'won', wave: g.wave, gold: g.gold, totalKills: g.totalKills }));
         } else {
           g.status = 'building';
@@ -534,7 +546,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     ctx.fillText('🏠', g.pathPixels[g.pathPixels.length - 1].x, g.pathPixels[g.pathPixels.length - 1].y + 6);
 
     animRef.current = requestAnimationFrame(loop);
-  }, [spawnParticles]);
+  }, [spawnParticles, earnCredits, showNotification, lang]);
 
   // ─── CLICK TO PLACE TOWER ──────────────────────
   const handleCanvasClick = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -591,6 +603,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
   }, [loop]);
 
   const startPlacing = useCallback(() => {
+    rewardedRef.current = false;
     gs.current.status = 'building';
     gs.current.wave = 0;
     gs.current.gold = 50;
