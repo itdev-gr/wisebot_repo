@@ -5,7 +5,7 @@
  * Uses supabaseAdmin.auth.admin.deleteUser() which cascade deletes all data.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth';
+import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth.js';
 
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');

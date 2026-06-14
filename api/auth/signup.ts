@@ -108,23 +108,45 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Use anon client for signUp — this sends a REAL verification email to the parent.
-    // Parent must click the link before the child can use the app.
-    const supabaseAnon = await getSupabaseAnon();
-
+    // Create the user + verification link via the admin API, then email the
+    // link ourselves through Resend (noreply@wisebot.gr). Supabase's built-in
+    // SMTP is capped at a few emails per hour and lands in spam — signups
+    // beyond that limit silently never received their confirmation email.
     let data: any = null;
     let error: any = null;
+    let verificationLink: string | null = null;
 
-    const result = await supabaseAnon.auth.signUp({
+    const supabaseAdminForLink = await getSupabaseAdmin();
+    const linkResult = await supabaseAdminForLink.auth.admin.generateLink({
+      type: 'signup',
       email,
       password,
       options: {
-        emailRedirectTo: 'https://wisebot.gr/auth',
+        redirectTo: 'https://wisebot.gr/auth',
         data: { child_name: childName, parent_email: email },
       },
     });
-    data = result.data;
-    error = result.error;
+    data = linkResult.data;
+    error = linkResult.error;
+    verificationLink = linkResult.data?.properties?.action_link || null;
+
+    // Fallback: if the admin link path fails for any reason, use the classic
+    // signUp flow (Supabase sends its own email — rate-limited but functional).
+    if (error || !verificationLink) {
+      console.warn('[Auth Signup] generateLink failed, falling back to signUp:', error?.message);
+      const supabaseAnon = await getSupabaseAnon();
+      const result = await supabaseAnon.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: 'https://wisebot.gr/auth',
+          data: { child_name: childName, parent_email: email },
+        },
+      });
+      data = result.data;
+      error = result.error;
+      verificationLink = null;
+    }
 
     if (error) {
       console.error('[Auth Signup] Error:', error.message);
@@ -157,6 +179,53 @@ export default async function handler(req: any, res: any) {
     }
 
     console.log('[Auth Signup] User created:', data.user?.id);
+
+    // Send the verification email through Resend (reliable + branded).
+    // Only when we hold a link from generateLink — the fallback path above
+    // already had Supabase send its own email.
+    if (verificationLink) {
+      const resendKeyForVerify = process.env.RESEND_API_KEY;
+      if (!resendKeyForVerify) {
+        console.error('[Auth Signup] RESEND_API_KEY missing — verification email NOT sent');
+      } else {
+        try {
+          const mailResp = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${resendKeyForVerify}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              from: 'WiseBot Academy <noreply@wisebot.gr>',
+              to: [email],
+              subject: 'WiseBot Academy — Επιβεβαίωση εγγραφής / Confirm your signup',
+              html: `
+                <div style="font-family:system-ui,sans-serif;max-width:520px;margin:0 auto;padding:24px;">
+                  <h2 style="color:#1a1a2e;margin-bottom:4px;">Καλώς ήρθατε στο WiseBot Academy! 🎉</h2>
+                  <p>Αγαπητέ γονέα,</p>
+                  <p>Δημιουργήθηκε λογαριασμός για το παιδί σας <strong>${childName}</strong>.
+                     Πατήστε το κουμπί για να επιβεβαιώσετε το email σας και να ενεργοποιηθεί ο λογαριασμός:</p>
+                  <p style="text-align:center;margin:28px 0;">
+                    <a href="${verificationLink}"
+                       style="background:#4f46e5;color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:bold;display:inline-block;">
+                      ΕΠΙΒΕΒΑΙΩΣΗ EMAIL
+                    </a>
+                  </p>
+                  <p style="color:#666;font-size:13px;">Αν το κουμπί δεν λειτουργεί, αντιγράψτε αυτόν τον σύνδεσμο στον browser σας:<br>
+                    <a href="${verificationLink}" style="color:#4f46e5;word-break:break-all;">${verificationLink}</a></p>
+                  <hr style="border:none;border-top:1px solid #eee;margin:24px 0;">
+                  <p style="color:#999;font-size:12px;">Αν δεν κάνατε εσείς αυτή την εγγραφή, αγνοήστε αυτό το email.<br>© 2026 WiseBot Academy — wisebot.gr</p>
+                </div>
+              `,
+            }),
+          });
+          if (!mailResp.ok) {
+            console.error('[Auth Signup] Resend error:', mailResp.status, (await mailResp.text()).slice(0, 200));
+          } else {
+            console.log('[Auth Signup] Verification email sent via Resend to', email);
+          }
+        } catch (mailErr: any) {
+          console.error('[Auth Signup] Verification email error:', mailErr.message);
+        }
+      }
+    }
 
     // Step 2: Create profile with admin client (bypasses RLS)
     if (data.user?.id) {

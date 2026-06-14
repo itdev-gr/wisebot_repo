@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Wifi, Shield } from 'lucide-react';
+import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Wifi, Shield, Coins } from 'lucide-react';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
@@ -87,6 +87,15 @@ const CATEGORIES = {
     bg: "bg-emerald-500/10",
     title: { el: "ΕΠΙΣΤΗΜΗ", en: "SCIENCE" },
     desc: { el: "Επιστήμονες που αποκάλυψαν τα μυστικά του σύμπαντος", en: "Scientists who revealed the secrets of the universe" }
+  },
+  MONEY_MIND: {
+    id: 'MONEY_MIND',
+    icon: Coins,
+    color: "from-yellow-400 to-amber-600",
+    border: "border-yellow-500/50",
+    bg: "bg-yellow-500/10",
+    title: { el: "BUSINESS MIND", en: "BUSINESS MIND" },
+    desc: { el: "Τα μυστικά του χρήματος που δεν μαθαίνεις στο σχολείο — σοφία από τη Βαβυλώνα μέχρι σήμερα", en: "The money secrets school never teaches — wisdom from Babylon to today" }
   },
 };
 

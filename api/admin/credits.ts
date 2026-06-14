@@ -4,7 +4,7 @@
  * Admin-only endpoint to add credits to any user's profile.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth';
+import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth.js';
 
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');

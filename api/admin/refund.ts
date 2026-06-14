@@ -5,7 +5,7 @@
  * Also logs the refund to the credit_transactions table.
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth';
+import { ADMIN_CORS_HEADERS, verifyAdminToken } from '../_lib/adminAuth.js';
 
 async function getSupabaseAdmin() {
   const { createClient } = await import('@supabase/supabase-js');

@@ -1148,5 +1148,105 @@ export const COURSES = [
       el: "Γεννήθηκε το 1971 στην Αλβανία, σε μικρή πόλη κοντά στα ελληνο-αλβανικά σύνορα, σε ελληνική μειονοτική οικογένεια. Ο πατέρας του ήταν αρσιβαρίστας — και ο μικρός Πύρρος μεγάλωσε βλέποντας βάρη και ονειρευόμενος Ολυμπιακό Χρυσό. Ήρθε στην Ελλάδα το 1991, πήρε την ελληνική ιθαγένεια, και άρχισε να γράφει ιστορία. Στους Ολυμπιακούς Αγώνες της Βαρκελώνης το 1992: Χρυσό. Στους Ολυμπιακούς της Ατλάντας το 1996: Χρυσό. Στους Ολυμπιακούς της Σίδνεϊ το 2000: Χρυσό. Τρεις Ολυμπιακοί αγώνες, τρία χρυσά μετάλλια — κάτι που δεν είχε κάνει ποτέ ξανά Έλληνας αθλητής στην άρση βαρών. Στην Αθήνα το 2004, στους «δικούς του» Ολυμπιακούς, 80.000 θεατές τον αποθέωναν. Πρόσφερε όλες τις Ολυμπιακές του διακρίσεις στην Ελλάδα — τη χώρα που του έδωσε την ευκαιρία που χρειαζόταν. Μετά τη σταδιοδρομία του, έγινε προπονητής και αφοσιώθηκε στη νέα γενιά αθλητών. Ο Πύρρος Δήμας δεν ήταν απλώς αθλητής — ήταν σύμβολο: ότι η αφοσίωση, η πειθαρχία και η αγάπη για μια χώρα μπορούν να μεταμορφώσουν έναν άνθρωπο σε θρύλο. Μάθημα: Δεν σε ορίζει το μέρος που γεννήθηκες, αλλά η αξία που επιλέγεις να υπηρετείς.",
       en: "He was born in 1971 in Albania, in a small town near the Greek-Albanian border, into a Greek minority family. His father was a weightlifter — and young Pyrros grew up watching weights and dreaming of Olympic Gold. He came to Greece in 1991, obtained Greek citizenship, and began writing history. At the Barcelona Olympics in 1992: Gold. At the Atlanta Olympics in 1996: Gold. At the Sydney Olympics in 2000: Gold. Three Olympics, three gold medals — something no Greek athlete had ever achieved in weightlifting. In Athens in 2004, at 'his own' Olympics, 80,000 spectators gave him a standing ovation. He dedicated all his Olympic distinctions to Greece — the country that gave him the opportunity he needed. After his athletic career, he became a coach and devoted himself to the new generation of athletes. Pyrros Dimas wasn't just an athlete — he was a symbol: that dedication, discipline, and love for a country can transform a person into a legend. Lesson: You are not defined by where you were born, but by the values you choose to serve."
     }
+  },
+
+  // ========================================================================
+  // 💰 CATEGORY 7: BUSINESS MIND (Money wisdom for kids — Babylon to today)
+  // ========================================================================
+  {
+    id: 101,
+    category: "MONEY_MIND",
+    subject: { el: "Ο Πλουσιότερος της Βαβυλώνας", en: "The Richest Man in Babylon" },
+    title: { el: "Πλήρωσε Πρώτα τον Εαυτό σου", en: "Pay Yourself First" },
+    subtitle: { el: "The First Rule", en: "The First Rule" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Πριν από 4.000 χρόνια, στην πλουσιότερη πόλη του κόσμου, τη Βαβυλώνα, ζούσε ένας άντρας ονόματι Αρκάδ. Όλοι τον ρωτούσαν: «Πώς έγινες τόσο πλούσιος;». Η απάντησή του ήταν απλή και μαγική: «Ένα μέρος από όσα κερδίζω, το κρατάω για ΜΕΝΑ». Ο Αρκάδ δίδαξε τον κανόνα που λίγοι ακολουθούν: από κάθε 10 νομίσματα που κερδίζεις, κράτα τουλάχιστον 1 για τον εαυτό σου — ΠΡΙΝ πληρώσεις οτιδήποτε άλλο. Οι περισσότεροι άνθρωποι πληρώνουν πρώτα όλους τους άλλους (μαγαζιά, λογαριασμούς) και στο τέλος δεν μένει τίποτα γι' αυτούς. Ο σοφός κάνει το αντίθετο: πληρώνει ΠΡΩΤΑ τον εαυτό του. Αυτό το 1 νόμισμα στα 10 δεν το ξοδεύεις ποτέ — το αφήνεις να μεγαλώνει. Φαντάσου: αν βάζεις στην άκρη 1 ευρώ από κάθε 10 που παίρνεις, σε λίγο καιρό θα έχεις έναν μικρό θησαυρό που δουλεύει για σένα. Μάθημα: Πλούσιος δεν γίνεσαι από όσα κερδίζεις, αλλά από όσα ΚΡΑΤΑΣ.",
+      en: "4,000 years ago, in the richest city in the world — Babylon — lived a man named Arkad. Everyone asked him: 'How did you become so rich?' His answer was simple and magical: 'A part of all I earn, I keep for MYSELF.' Arkad taught the rule few people follow: out of every 10 coins you earn, keep at least 1 for yourself — BEFORE you pay anything else. Most people pay everyone else first (shops, bills) and at the end nothing is left for them. The wise person does the opposite: they pay THEMSELVES first. That 1 coin out of 10 you never spend — you let it grow. Imagine: if you set aside 1 euro out of every 10 you receive, before long you'll have a small treasure working for you. Lesson: You don't get rich from what you earn, but from what you KEEP."
+    }
+  },
+  {
+    id: 102,
+    category: "MONEY_MIND",
+    subject: { el: "Robert Kiyosaki", en: "Robert Kiyosaki" },
+    title: { el: "Πλούσιος Μπαμπάς, Φτωχός Μπαμπάς", en: "Rich Dad, Poor Dad" },
+    subtitle: { el: "Assets vs Liabilities", en: "Assets vs Liabilities" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Ο Robert είχε δύο «μπαμπάδες». Ο ένας ήταν πολύ μορφωμένος αλλά πάντα ανησυχούσε για τα χρήματα. Ο άλλος (ο πατέρας του φίλου του) δεν τελείωσε καν το σχολείο, αλλά έγινε από τους πλουσιότερους. Ποια ήταν η διαφορά; Ο πλούσιος μπαμπάς του έμαθε ένα μυστικό: υπάρχουν δύο ειδών πράγματα που αγοράζεις. Τα ΠΕΡΙΟΥΣΙΑΚΑ ΣΤΟΙΧΕΙΑ (assets) βάζουν λεφτά στην τσέπη σου — όπως ένα ποδήλατο που το νοικιάζεις στους φίλους σου, ή ένα δεντράκι μηλιάς που δίνει μήλα να πουλήσεις. Οι ΥΠΟΧΡΕΩΣΕΙΣ (liabilities) βγάζουν λεφτά από την τσέπη σου — όπως ένα ακριβό παιχνίδι που χαλάει και θέλει μπαταρίες. Οι φτωχοί αγοράζουν συνέχεια πράγματα που τους κοστίζουν. Οι πλούσιοι αγοράζουν πρώτα πράγματα που τους ΦΕΡΝΟΥΝ λεφτά, και μετά με αυτά τα κέρδη αγοράζουν τα παιχνίδια τους. Μάθημα: Πριν αγοράσεις κάτι, ρώτα: «Αυτό θα μου βγάλει λεφτά ή θα μου φάει λεφτά;»",
+      en: "Robert had two 'dads.' One was highly educated but always worried about money. The other (his friend's father) didn't even finish school, yet became one of the richest. What was the difference? His rich dad taught him a secret: there are two kinds of things you buy. ASSETS put money INTO your pocket — like a bike you rent to your friends, or a little apple tree that gives apples to sell. LIABILITIES take money OUT of your pocket — like an expensive toy that breaks and needs batteries. Poor people keep buying things that cost them. Rich people first buy things that BRING them money, and then use those profits to buy their toys. Lesson: Before you buy something, ask: 'Will this make me money, or eat my money?'"
+    }
+  },
+  {
+    id: 103,
+    category: "MONEY_MIND",
+    subject: { el: "Ο Μαγικός Ανατοκισμός", en: "The Magic of Compound Interest" },
+    title: { el: "Το Χιονομπαλάκι που Έγινε Βουνό", en: "The Snowball That Became a Mountain" },
+    subtitle: { el: "Money Grows Money", en: "Money Grows Money" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Φαντάσου ένα μικρό χιονομπαλάκι στην κορυφή ενός χιονισμένου βουνού. Το σπρώχνεις και αρχίζει να κατρακυλάει. Όσο κυλάει, μαζεύει κι άλλο χιόνι — γίνεται μεγαλύτερο, και επειδή είναι μεγαλύτερο μαζεύει ακόμα πιο γρήγορα! Στο τέλος γίνεται τεράστια χιονομπάλα. Έτσι ακριβώς δουλεύουν τα χρήματα όταν τα αφήνεις να μεγαλώνουν. Λέγεται «ανατοκισμός». Αν βάλεις 100 ευρώ και κερδίζουν λίγο κάθε χρόνο, τον επόμενο χρόνο κερδίζεις λεφτά όχι μόνο από τα 100, αλλά και από όσα κέρδισες! Ο Αϊνστάιν το είπε «το όγδοο θαύμα του κόσμου». Το μυστικό; ΧΡΟΝΟΣ. Όσο πιο νωρίς ξεκινάς, τόσο μεγαλύτερο γίνεται το χιονομπαλάκι. Ένα παιδί που αποταμιεύει από μικρό, στα 50 του θα έχει πολύ περισσότερα από κάποιον που ξεκίνησε στα 30 — ακόμα κι αν ο δεύτερος έβαλε διπλάσια λεφτά! Μάθημα: Ο καλύτερος φίλος του χρήματος είναι ο χρόνος. Ξεκίνα νωρίς.",
+      en: "Imagine a small snowball at the top of a snowy mountain. You push it and it starts rolling. As it rolls, it gathers more snow — it gets bigger, and because it's bigger it gathers even faster! In the end it becomes a giant snowball. That's exactly how money works when you let it grow. It's called 'compound interest.' If you put in 100 euros and they earn a little each year, the next year you earn money not only on the 100, but also on what you already earned! Einstein called it 'the eighth wonder of the world.' The secret? TIME. The earlier you start, the bigger the snowball gets. A child who saves from a young age will have far more at 50 than someone who started at 30 — even if the second person put in double the money! Lesson: Money's best friend is time. Start early."
+    }
+  },
+  {
+    id: 104,
+    category: "MONEY_MIND",
+    subject: { el: "Η Χρυσή Χήνα", en: "The Golden Goose" },
+    title: { el: "Μην Φας τη Χήνα", en: "Don't Eat the Goose" },
+    subtitle: { el: "Patience Beats Greed", en: "Patience Beats Greed" },
+    image: SPARKEN_HD,
+    storyContent: {
+      el: "Ένας φτωχός αγρότης βρήκε ένα πρωί στη φωλιά μια χήνα που είχε γεννήσει ένα χρυσό αυγό! Δεν το πίστευε. Την επόμενη μέρα, άλλο ένα χρυσό αυγό. Και την άλλη. Κάθε μέρα, ένα χρυσό αυγό. Ο αγρότης άρχισε να γίνεται πλούσιος. Αλλά σιγά-σιγά έγινε άπληστος και ανυπόμονος. «Γιατί να περιμένω ένα αυγό τη μέρα;» σκέφτηκε. «Μέσα στη χήνα πρέπει να υπάρχει ένας ΣΩΡΟΣ χρυσάφι! Θα τα πάρω όλα μαζί!». Έτσι έσφαξε τη χήνα. Αλλά μέσα της... δεν υπήρχε τίποτα. Και τώρα δεν είχε ούτε χήνα, ούτε χρυσά αυγά. Η χήνα είναι οι αποταμιεύσεις σου που «γεννούν» λεφτά. Τα χρυσά αυγά είναι τα κέρδη. Αν φας τη χήνα (ξοδέψεις όλο το κεφάλαιό σου), τελειώνουν και τα αυγά. Αν την προσέχεις, σου δίνει για πάντα. Μάθημα: Μην ξοδεύεις ποτέ τη «χήνα» — ξόδεψε μόνο τα «αυγά».",
+      en: "One morning a poor farmer found in the nest a goose that had laid a golden egg! He couldn't believe it. The next day, another golden egg. And the next. Every day, one golden egg. The farmer started to grow rich. But slowly he became greedy and impatient. 'Why wait for one egg a day?' he thought. 'Inside the goose there must be a PILE of gold! I'll take it all at once!' So he killed the goose. But inside... there was nothing. And now he had neither goose nor golden eggs. The goose is your savings that 'lay' money. The golden eggs are the profits. If you eat the goose (spend all your capital), the eggs stop too. If you take care of it, it gives forever. Lesson: Never spend the 'goose' — spend only the 'eggs.'"
+    }
+  },
+  {
+    id: 105,
+    category: "MONEY_MIND",
+    subject: { el: "Warren Buffett", en: "Warren Buffett" },
+    title: { el: "Το Παιδί που Πουλούσε Τσίχλες", en: "The Boy Who Sold Gum" },
+    subtitle: { el: "Start Young", en: "Start Young" },
+    image: PENCILO_HD,
+    storyContent: {
+      el: "Ο Warren Buffett είναι από τους πλουσιότερους ανθρώπους στον κόσμο. Αλλά ξεκίνησε ως ένα κανονικό παιδί — που ΛΑΤΡΕΥΕ να βγάζει λεφτά. Στα 6 του, αγόραζε πακέτα με 6 κόκα-κόλες και τις πουλούσε μία-μία στους γείτονες, βγάζοντας μικρό κέρδος. Πουλούσε τσίχλες, εφημερίδες, ακόμα και έβαζε μηχανήματα παιχνιδιών σε κουρεία και μοιραζόταν τα κέρδη! Στα 11 του αγόρασε την πρώτη του μετοχή. Το μυστικό του δεν ήταν να γίνει πλούσιος γρήγορα — ήταν η ΥΠΟΜΟΝΗ. Λέει: «Κάποιος κάθεται σήμερα στη σκιά γιατί κάποιος άλλος φύτεψε ένα δέντρο πριν από πολύ καιρό». Δεν ξόδευε επιδεικτικά. Ζούσε στο ίδιο απλό σπίτι για δεκαετίες. Διάβαζε συνέχεια για να μαθαίνει. Μάθημα: Δεν χρειάζεται να είσαι μεγάλος για να ξεκινήσεις. Ξεκίνα μικρός, μάθε, κάνε υπομονή — και το δεντράκι σου θα γίνει δάσος.",
+      en: "Warren Buffett is one of the richest people in the world. But he started as an ordinary kid — who LOVED making money. At age 6, he bought packs of 6 Coca-Colas and sold them one by one to neighbors, making a small profit. He sold gum, newspapers, even placed pinball machines in barbershops and split the profits! At 11 he bought his first stock. His secret wasn't getting rich fast — it was PATIENCE. He says: 'Someone is sitting in the shade today because someone planted a tree a long time ago.' He didn't spend to show off. He lived in the same simple house for decades. He read constantly to keep learning. Lesson: You don't need to be grown up to start. Start small, learn, be patient — and your little tree will become a forest."
+    }
+  },
+  {
+    id: 106,
+    category: "MONEY_MIND",
+    subject: { el: "Ανάγκες ή Επιθυμίες;", en: "Needs or Wants?" },
+    title: { el: "Το Μεγάλο Παιχνίδι των Επιλογών", en: "The Big Game of Choices" },
+    subtitle: { el: "Needs vs Wants", en: "Needs vs Wants" },
+    image: WISEBOT_HD,
+    storyContent: {
+      el: "Κάθε φορά που θες να ξοδέψεις λεφτά, παίζεις ένα παιχνίδι: «Ανάγκη ή Επιθυμία;». Η ΑΝΑΓΚΗ είναι κάτι που πραγματικά χρειάζεσαι για να ζεις και να μεγαλώσεις: φαγητό, ρούχα, βιβλία για το σχολείο. Η ΕΠΙΘΥΜΙΑ είναι κάτι που απλώς θα ήθελες να έχεις: το τρίτο βιντεοπαιχνίδι, το ακριβό αθλητικό που έχει ο φίλος σου, ένα ακόμα γλυκό. Δεν είναι κακό να έχεις επιθυμίες! Αλλά οι έξυπνοι άνθρωποι ξέρουν να ξεχωρίζουν. Πριν αγοράσεις κάτι, σταμάτα και ρώτα: «Το χρειάζομαι ή απλώς το θέλω;». Ένα κόλπο: όταν θες πολύ κάτι που δεν είναι ανάγκη, περίμενε 3 ημέρες. Πολλές φορές θα δεις ότι δεν το ήθελες και τόσο! Τα λεφτά που γλίτωσες, πήγαινέ τα στη «χήνα» σου. Οι πλούσιοι δεν είναι αυτοί που αγοράζουν τα πάντα — είναι αυτοί που επιλέγουν ΣΟΦΑ τι αξίζει. Μάθημα: Κάθε ευρώ που δεν ξοδεύεις σε μια επιθυμία, είναι ένα ευρώ που δουλεύει για το μέλλον σου.",
+      en: "Every time you want to spend money, you play a game: 'Need or Want?' A NEED is something you truly require to live and grow: food, clothes, school books. A WANT is something you'd simply like to have: the third video game, the expensive sneakers your friend has, one more sweet. It's not bad to have wants! But smart people know how to tell them apart. Before you buy something, stop and ask: 'Do I need it, or do I just want it?' A trick: when you really want something that isn't a need, wait 3 days. Often you'll find you didn't want it that much after all! The money you saved, send it to your 'goose.' Rich people aren't the ones who buy everything — they're the ones who choose WISELY what's worth it. Lesson: Every euro you don't spend on a want is a euro working for your future."
+    }
+  },
+  {
+    id: 107,
+    category: "MONEY_MIND",
+    subject: { el: "Βάλε τα Λεφτά να Δουλεύουν", en: "Make Money Work for You" },
+    title: { el: "Στρατιώτες που Δουλεύουν για Σένα", en: "Soldiers That Work for You" },
+    subtitle: { el: "Passive Income", en: "Passive Income" },
+    image: LINK_HD,
+    storyContent: {
+      el: "Οι περισσότεροι άνθρωποι δουλεύουν για τα λεφτά: δίνουν τον χρόνο και την ενέργειά τους, και παίρνουν μισθό. Αλλά υπάρχει κι ένα μυστικό που ξέρουν οι πλούσιοι: μπορείς να βάλεις ΤΑ ΛΕΦΤΑ να δουλεύουν για ΣΕΝΑ. Φαντάσου κάθε ευρώ σαν έναν μικρό στρατιώτη. Αν τον ξοδέψεις σε μια καραμέλα, ο στρατιώτης φεύγει και δεν γυρίζει ποτέ. Αλλά αν τον βάλεις να «δουλέψει» — π.χ. σε κάτι που μεγαλώνει — ο στρατιώτης πάει και σου φέρνει πίσω άλλους στρατιώτες! Σιγά-σιγά αποκτάς έναν ολόκληρο στρατό που δουλεύει για σένα μέρα-νύχτα, ακόμα κι όταν κοιμάσαι. Αυτό λέγεται «παθητικό εισόδημα»: λεφτά που έρχονται χωρίς να δουλεύεις συνέχεια. Ένας συγγραφέας γράφει ένα βιβλίο μία φορά και κερδίζει για χρόνια. Κάποιος που φτιάχνει ένα παιχνίδι, το πουλάει χιλιάδες φορές. Μάθημα: Μη βάζεις μόνο τον εαυτό σου να δουλεύει — βάλε και τα λεφτά σου να δουλεύουν μαζί σου.",
+      en: "Most people work for money: they give their time and energy, and get a salary. But there's a secret the rich know: you can make MONEY work for YOU. Imagine every euro as a little soldier. If you spend it on candy, the soldier leaves and never returns. But if you put it to 'work' — say, in something that grows — the soldier goes and brings back other soldiers! Slowly you build a whole army working for you day and night, even while you sleep. This is called 'passive income': money that comes in without you working constantly. An author writes a book once and earns for years. Someone who makes a game sells it thousands of times. Lesson: Don't only put yourself to work — put your money to work alongside you."
+    }
+  },
+  {
+    id: 108,
+    category: "MONEY_MIND",
+    subject: { el: "Η Δύναμη του Δίνω", en: "The Power of Giving" },
+    title: { el: "Ο Κύκλος της Αφθονίας", en: "The Circle of Abundance" },
+    subtitle: { el: "Give to Grow", en: "Give to Grow" },
+    image: CROCUS_HD,
+    storyContent: {
+      el: "Ίσως ακούγεται περίεργο: ένα από τα μυστικά των πιο πλούσιων και ευτυχισμένων ανθρώπων είναι ότι... ΔΙΝΟΥΝ. Ο Andrew Carnegie, από τους πλουσιότερους στην ιστορία, χάρισε σχεδόν όλη του την περιουσία χτίζοντας βιβλιοθήκες για να μαθαίνουν όλα τα παιδιά δωρεάν. Γιατί να δίνεις; Πρώτον, σε κάνει ευτυχισμένο — η χαρά του να βοηθάς κάποιον είναι μεγαλύτερη από ένα ακόμα παιχνίδι. Δεύτερον, σε μαθαίνει ότι έχεις ΑΡΚΕΤΑ, και οι άνθρωποι που νιώθουν αφθονία παίρνουν καλύτερες αποφάσεις από αυτούς που φοβούνται. Τρίτον, ο κόσμος είναι ένας κύκλος: αυτό που δίνεις, συχνά επιστρέφει με τρόπους που δεν περιμένεις. Ένας σοφός κανόνας λέει: μοίρασε τα λεφτά σου σε τρία κουτιά — ένα για να ΞΟΔΕΥΕΙΣ, ένα για να ΑΠΟΤΑΜΙΕΥΕΙΣ, κι ένα για να ΔΙΝΕΙΣ. Μάθημα: Το αληθινό πλούτος δεν είναι μόνο πόσα έχεις, αλλά πόσο καλό μπορείς να κάνεις με αυτά.",
+      en: "It may sound strange: one of the secrets of the richest and happiest people is that they... GIVE. Andrew Carnegie, one of the richest in history, gave away almost his entire fortune building libraries so all children could learn for free. Why give? First, it makes you happy — the joy of helping someone is greater than one more toy. Second, it teaches you that you have ENOUGH, and people who feel abundance make better decisions than those who live in fear. Third, the world is a circle: what you give often returns in ways you don't expect. A wise rule says: split your money into three jars — one to SPEND, one to SAVE, and one to GIVE. Lesson: True wealth isn't only how much you have, but how much good you can do with it."
+    }
   }
 ];
