@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users } from 'lucide-react';
+import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap } from 'lucide-react';
 
 interface InternalLinksProps {
   lang: 'el' | 'en';
@@ -13,6 +13,14 @@ interface InternalLinksProps {
 }
 
 const PAGES = [
+  {
+    id: 'school',
+    path: '/school',
+    icon: GraduationCap,
+    color: 'from-blue-500 to-indigo-600',
+    label: { el: 'Σχολείο', en: 'School' },
+    desc: { el: 'Μαθήματα Α′-ΣΤ′ Δημοτικού', en: 'Grades 1-6 lessons' },
+  },
   {
     id: 'academy',
     path: '/academy',

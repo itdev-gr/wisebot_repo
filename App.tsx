@@ -21,6 +21,7 @@ const Quiz = React.lazy(() => import('./components/Quiz'));
 const HeroFactory = React.lazy(() => import('./components/HeroFactory'));
 const Academy = React.lazy(() => import('./components/Academy'));
 const Ebooks = React.lazy(() => import('./components/Ebooks'));
+const School = React.lazy(() => import('./components/School'));
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
 const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
 const Account = React.lazy(() => import('./components/Account'));
@@ -472,6 +473,7 @@ function AppContent() {
             <Route path="/music" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="music" /><MusicStudio lang={lang} /><InternalLinks lang={lang} currentPage="music" /></SemiPublicRoute>} />
             <Route path="/game" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="game" /><GameCenter lang={lang} /><InternalLinks lang={lang} currentPage="game" /></SemiPublicRoute>} />
             <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /><InternalLinks lang={lang} currentPage="quiz" /></SemiPublicRoute>} />
+            <Route path="/school" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="school" /><School lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="school" /></SemiPublicRoute>} />
             <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><Cinema lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
             <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><HeroFactory lang={lang} addHero={addHero} /><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
             <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><ThreeDFactory lang={lang} /><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />

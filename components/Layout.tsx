@@ -41,6 +41,7 @@ import {
   VolumeX,
   FlaskConical,
   Coins,
+  GraduationCap,
   Shield
 } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
@@ -184,6 +185,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
     { icon: <Shield size={24} />, label: t.menu.parent, path: "/parent", locked: false, unlockHint: '' },
     { icon: <Home size={24} />, label: t.menu.home, path: "/", locked: false, unlockHint: '' },
     { icon: <ShieldCheck size={24} />, label: t.menu.dashboard, path: "/dashboard", locked: false, unlockHint: '' },
+    { icon: <GraduationCap size={24} />, label: t.menu.school, path: "/school", locked: false, unlockHint: '' },
     { icon: <PlayCircle size={24} />, label: t.menu.academy, path: "/academy", locked: false, unlockHint: '' },
     { icon: <Book size={24} />, label: t.menu.ebooks, path: "/ebooks", locked: false, unlockHint: '' },
     { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: !isQuizUnlocked, unlockHint: lang === 'el' ? '2 ιστορίες ή 1 βιβλίο' : '2 stories or 1 book' },
