@@ -46,8 +46,11 @@ function extractEnPageTexts(fileContent) {
     const blockEnd = nextTextKeyIdx === -1 ? pagesSection.length : nextTextKeyIdx;
     const textBlock = pagesSection.slice(blockStart, blockEnd);
 
-    // Within this block, find 'en:' then extract the template literal
-    const enIdx = textBlock.indexOf('en:');
+    // Within this block, find the 'en:' KEY (line-anchored, followed by a
+    // template literal) — a bare indexOf('en:') can match inside the Greek
+    // text, e.g. dialogue attributions like «ο Sparken:».
+    const enKeyMatch = textBlock.match(/\n\s*en:\s*`/);
+    const enIdx = enKeyMatch ? enKeyMatch.index + 1 : -1;
     if (enIdx !== -1) {
       // Find opening backtick
       const btOpenIdx = textBlock.indexOf('`', enIdx);
@@ -85,7 +88,7 @@ async function main() {
   const allItems = [];
   let totalChars = 0;
 
-  for (let bookNum = 1; bookNum <= 26; bookNum++) {
+  for (let bookNum = 1; bookNum <= 34; bookNum++) {
     const filePath = path.join(DATA_DIR, `bookData_${bookNum}.ts`);
 
     if (!fs.existsSync(filePath)) {

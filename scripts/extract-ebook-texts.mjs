@@ -63,7 +63,7 @@ async function main() {
   const allItems = [];
   let booksFound = 0;
 
-  for (let bookNum = 1; bookNum <= 26; bookNum++) {
+  for (let bookNum = 1; bookNum <= 34; bookNum++) {
     const filePath = path.join(DATA_DIR, `bookData_${bookNum}.ts`);
 
     if (!fs.existsSync(filePath)) {

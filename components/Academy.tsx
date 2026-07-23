@@ -5,6 +5,7 @@ import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbe
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
+import { EbookQuiz } from './EbookQuiz';
 import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel } from '../utils/ttsVoice';
 import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticAudio } from '../services/cloudTTS';
 
@@ -455,13 +456,34 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const [selectedCourse, setSelectedCourse] = useState<any | null>(null);
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [activeCategory, setActiveCategory] = useState<string>("START_SMALL");
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [quizzes, setQuizzes] = useState<Record<number, any[]>>({});
   const { trackAction } = useEconomy();
   const rewardedRef = useRef<Set<number>>(new Set()); // Prevent double-fire (React StrictMode / motion layout)
+  const quizRewardedRef = useRef<Set<number>>(new Set());
+
+  // Lazy-load quiz data the first time a story opens
+  useEffect(() => {
+    if (selectedCourse && Object.keys(quizzes).length === 0) {
+      import('../data/academyQuizData').then(m => setQuizzes(m.ACADEMY_QUIZZES)).catch(() => {});
+    }
+  }, [selectedCourse]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleQuizComplete = (score: number, total: number) => {
+    if (!selectedCourse || score !== total) return;
+    const quizKey = `academy-quiz-${selectedCourse.id}`;
+    if (!completedIds.includes(quizKey) && !quizRewardedRef.current.has(selectedCourse.id)) {
+      quizRewardedRef.current.add(selectedCourse.id);
+      trackAction('PASS_QUIZ');
+      if (addXp) addXp(0, quizKey);
+    }
+  };
 
   const filteredCourses = COURSES.filter(course => course.category === activeCategory);
 
   const handleReadStory = (course: any, imageUrl?: string) => {
     setSelectedCourse(course);
+    setShowQuiz(false);
     if (imageUrl) setSelectedImage(imageUrl);
 
     // Only award credits for NEW stories (prevent credit farming + double-fire guard)
@@ -763,7 +785,19 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
 
               {/* Right: Story Content */}
               <div className="w-full md:w-7/12 p-8 md:p-12 overflow-y-auto custom-scrollbar flex flex-col bg-[#0B0F1A]">
-                
+                {showQuiz ? (
+                <div className="flex-1">
+                  <EbookQuiz
+                    questions={quizzes[selectedCourse.id] || []}
+                    lang={lang}
+                    onComplete={handleQuizComplete}
+                    onRetry={() => setShowQuiz(false)}
+                    onNextBook={handleNextStory}
+                    hasNextBook={filteredCourses.findIndex(c => c.id === selectedCourse.id) < filteredCourses.length - 1}
+                  />
+                </div>
+                ) : (
+                <>
                 <div className="flex-1 space-y-8">
                   <StoryReader
                     text={selectedCourse.storyContent[lang]}
@@ -863,8 +897,28 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                   </motion.div>
                 </div>
 
-                {/* Next Story Button */}
-                <div className="pt-6 mt-auto">
+                {/* Quiz + Next Story Buttons */}
+                <div className="pt-6 mt-auto space-y-3">
+                  {(quizzes[selectedCourse.id]?.length ?? 0) > 0 && (
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 1.0 }}
+                      onClick={() => setShowQuiz(true)}
+                      className={`w-full py-5 rounded-[2rem] font-[1000] text-sm hover:scale-[1.03] active:scale-[0.97] transition-all uppercase tracking-widest flex items-center justify-center gap-3 group ${
+                        completedIds.includes(`academy-quiz-${selectedCourse.id}`)
+                          ? 'bg-emerald-500/15 text-emerald-300 border-2 border-emerald-500/40'
+                          : 'bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-500 text-white shadow-[0_0_30px_rgba(192,38,211,0.25)]'
+                      }`}
+                    >
+                      <Brain size={18} />
+                      <span>
+                        {completedIds.includes(`academy-quiz-${selectedCourse.id}`)
+                          ? (lang === 'el' ? 'QUIZ ΟΛΟΚΛΗΡΩΜΕΝΟ — ΠΑΙΞΕ ΞΑΝΑ' : 'QUIZ DONE — PLAY AGAIN')
+                          : (lang === 'el' ? 'ΚΑΝΕ ΤΟ QUIZ — ΚΕΡΔΙΣΕ CREDITS' : 'TAKE THE QUIZ — EARN CREDITS')}
+                      </span>
+                    </motion.button>
+                  )}
                   <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -876,6 +930,8 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                     <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                   </motion.button>
                 </div>
+                </>
+                )}
 
               </div>
             </motion.div>
