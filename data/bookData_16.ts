@@ -36,32 +36,32 @@ export const BOOK_16: Book[] = [
         image: "/images/paidia-kai-sparken.webp",
         imageCaption: { el: "Η λαχτάρα ενός παιδιού που δεν τολμά να χτυπήσει την πόρτα.", en: "The longing of a child who doesn't dare knock on the door." },
         text: {
-          el: `Ήταν ένα απόγευμα σαν πολλά άλλα. Ο ήλιος βυθιζόταν αργά πίσω από τα δέντρα και οι σκιές στο εργαστήρι μεγάλωναν σιγά σιγά. Η Αλεξάνδρα ήταν σκυμμένη πάνω από ένα μηχάνημα, ο Φίλιππος σφυρηλατούσε στη γωνία, και η Ελευθερία γέμιζε σελίδες σημειωματάριου με αριθμούς και σκίτσα.
+          el: `Ήταν ένα απόγευμα σαν πολλά άλλα. Ο ήλιος βυθιζόταν αργά πίσω από τα δέντρα και οι σκιές στο εργαστήρι μεγάλωναν σιγά σιγά, απλώνονταν στο πάτωμα σαν χυμένο μελάνι. Η Αλεξάνδρα ήταν σκυμμένη πάνω από ένα μηχάνημα, με τη γλώσσα της να προβάλλει λίγο από τη συγκέντρωση. Ο Φίλιππος σφυρηλατούσε κάτι στη γωνία, χτύπημα το χτύπημα, με σταθερό ρυθμό. Και η Ελευθερία γέμιζε σελίδες του σημειωματάριου της με αριθμούς, βελάκια και μικρά σκίτσα.
 
-Ο Sparken ήταν ξαπλωμένος στη σκεπή, τα φτερά του απλωμένα. Τα μάτια του ήταν μισόκλειστα, αλλά δεν κοιμόταν. Παρατηρούσε. Πάντα παρατηρούσε.
+Ο Sparken ήταν ξαπλωμένος στη σκεπή, με τα μεγάλα φτερά του απλωμένα να μαζεύουν την τελευταία ζέστη του ήλιου. Τα μάτια του ήταν μισόκλειστα, αλλά μην ξεγελιέστε — δεν κοιμόταν. Παρατηρούσε. Ο Sparken πάντα παρατηρούσε.
 
-Η Αλεξάνδρα σήκωσε το κεφάλι ξαφνικά. Κάτι κινήθηκε στην άκρη του οπτικού της πεδίου. Μια σκιά μικρή, που στεκόταν πίσω από τον τοίχο της αυλής.
+Ξαφνικά, η Αλεξάνδρα σήκωσε το κεφάλι. Κάτι είχε κινηθεί στην άκρη του ματιού της. Μια σκιά. Μικρή, δειλή, που στεκόταν πίσω από τον τοίχο της αυλής, μισοκρυμμένη.
 
-«Περίμενε», ψιθύρισε στον Φίλιππο. «Μην κοιτάξεις απότομα.»
+«Περίμενε», ψιθύρισε στον Φίλιππο και του άγγιξε τον ώμο. «Μην κοιτάξεις απότομα. Θα το τρομάξεις.»
 
-Εκεί, πίσω από τη γωνία, ένα παιδί. Μικρότερο από αυτούς. Τα χέρια του κρατούσαν ένα τσαλακωμένο χαρτί. Τα μάτια του ήταν μεγάλα — γεμάτα φόβο ανακατεμένο με λαχτάρα.
+Εκεί, πίσω από τη γωνία, στεκόταν ένα παιδί. Μικρότερο από αυτούς — ίσως δύο, τρία χρόνια μικρότερο. Τα χέρια του έσφιγγαν ένα τσαλακωμένο χαρτί, σαν να κρατούσαν μυστικό. Τα μάτια του ήταν μεγάλα και σκοτεινά — γεμάτα φόβο, ανακατεμένο με κάτι άλλο. Λαχτάρα.
 
-«Μοιάζει όπως ήμασταν εμείς στην αρχή», είπε ο Φίλιππος. Η φωνή του ήταν χαμηλή, σχεδόν τρυφερή.
+«Μοιάζει όπως ήμασταν εμείς στην αρχή», είπε ο Φίλιππος. Η φωνή του βγήκε χαμηλή, σχεδόν τρυφερή — μια φωνή που σπάνια χρησιμοποιούσε.
 
-Η Ελευθερία δεν απάντησε. Θυμήθηκε τον εαυτό της — κρυμμένη πίσω από βιβλία, πίσω από τη γνώση που ήταν τόσο ασφαλής και τόσο μόνη ταυτόχρονα. Ένιωσε ένα βάρος στο στήθος που δεν ήταν θλίψη — ήταν κατανόηση.`,
-          en: `It was an afternoon like many others. The sun was sinking slowly behind the trees and the shadows in the workshop grew quietly. Alexandra was hunched over a machine, Philippos was hammering in the corner, and Eleftheria filled notebook pages with numbers and sketches.
+Η Ελευθερία δεν απάντησε. Θυμήθηκε τον εαυτό της πριν από καιρό — κρυμμένη πίσω από στοίβες βιβλίων, πίσω από μια γνώση που ήταν τόσο ασφαλής και τόσο μοναχική ταυτόχρονα. Ένιωσε ένα βάρος στο στήθος της. Δεν ήταν θλίψη. Ήταν κατανόηση.`,
+          en: `It was an afternoon like many others. The sun was sinking slowly behind the trees, and the shadows in the workshop grew little by little, spreading across the floor like spilled ink. Alexandra was bent over a machine, the tip of her tongue sticking out in concentration. Philippos was hammering something in the corner, blow after blow, in a steady rhythm. And Eleftheria was filling the pages of her notebook with numbers, arrows, and tiny sketches.
 
-Sparken lay on the rooftop, his wings spread wide. His eyes were half-closed, but he wasn't sleeping. He was watching. He always watched.
+Sparken lay stretched out on the roof, his great wings spread wide to catch the last warmth of the sun. His eyes were half-closed, but don't be fooled — he wasn't sleeping. He was watching. Sparken was always watching.
 
-Alexandra raised her head suddenly. Something moved at the edge of her vision. A small shadow, standing behind the courtyard wall.
+Suddenly, Alexandra lifted her head. Something had moved at the edge of her eye. A shadow. Small, shy, standing behind the courtyard wall, half-hidden.
 
-"Wait," she whispered to Philippos. "Don't look suddenly."
+"Wait," she whispered to Philippos, touching his shoulder. "Don't look too quickly. You'll scare it away."
 
-There, behind the corner, a child. Smaller than them. His hands held a crumpled paper. His eyes were large — filled with fear mixed with longing.
+There, behind the corner, stood a child. Younger than them — maybe two or three years younger. His hands were clutching a crumpled piece of paper as if it held a secret. His eyes were big and dark — full of fear, mixed with something else. Longing.
 
-"He looks like we were at the beginning," said Philippos. His voice was low, almost tender.
+"He looks just like we did at the beginning," said Philippos. His voice came out low, almost tender — a voice he rarely used.
 
-Eleftheria didn't answer. She remembered herself — hidden behind books, behind knowledge that was so safe and so lonely at the same time. She felt a weight in her chest that wasn't sadness — it was understanding.`
+Eleftheria didn't answer. She was remembering herself from long ago — hidden behind stacks of books, behind knowledge that was so safe and so lonely at the same time. She felt a weight in her chest. It wasn't sadness. It was understanding.`
         }
       },
       {
@@ -69,40 +69,40 @@ Eleftheria didn't answer. She remembered herself — hidden behind books, behind
         image: "/images/alexandra.webp",
         imageCaption: { el: "«Κι εμείς έτσι λέγαμε. Ακριβώς έτσι.»", en: "\"We used to say that too. Exactly that.\"" },
         text: {
-          el: `Τελικά, το παιδί πλησίασε. Ένα βήμα. Μετά άλλο ένα. Σαν πουλί που πλησιάζει ψίχουλα — έτοιμο να φύγει. Τα χέρια του έτρεμαν.
+          el: `Τελικά, το παιδί πλησίασε. Ένα βήμα. Μετά άλλο ένα. Στάση. Άλλο ένα βήμα. Σαν πουλάκι που πλησιάζει ψίχουλα — έτοιμο να πετάξει μακριά με τον παραμικρό θόρυβο. Τα χέρια του έτρεμαν, και το τσαλακωμένο χαρτί θρόιζε ανάμεσα στα δάχτυλά του.
 
-«Πώς... πώς το φτιάξατε;» ρώτησε. Η φωνή του ήταν τόσο σιγανή που μόλις ακούστηκε. «Δεν είμαι καλός σαν εσάς.»
+«Πώς... πώς το φτιάξατε αυτό;» ρώτησε δείχνοντας το μηχάνημα στο τραπέζι. Η φωνή του ήταν τόσο σιγανή που μόλις ακούστηκε πάνω από τον αέρα. Και μετά πρόσθεσε τη φράση που κουβαλούσε μέσα του: «Εγώ δεν είμαι καλός σαν εσάς.»
 
-Κάτι ράγισε μέσα στην Αλεξάνδρα. Μια μνήμη τόσο ζωντανή που ένιωσε τον εαυτό της να γυρίζει πίσω — στη μέρα που ήταν ξαπλωμένη στο πάτωμα, μπροστά σε ένα παζλ που δεν νοιαζόταν να τελειώσει.
+Κάτι ράγισε μέσα στην Αλεξάνδρα. Μια μνήμη τόσο ζωντανή, που ένιωσε τον εαυτό της να ταξιδεύει πίσω στον χρόνο — στη μέρα που ήταν ξαπλωμένη στο πάτωμα, βαριεστημένη, μπροστά σε ένα παζλ που δεν την ένοιαζε καθόλου να τελειώσει.
 
-«Κι εμείς έτσι λέγαμε», απάντησε ήρεμα. «Ακριβώς έτσι.»
+«Κι εμείς έτσι λέγαμε», απάντησε ήρεμα, κοιτάζοντάς τον στα μάτια. «Ακριβώς αυτές τις λέξεις.»
 
-Ο Φίλιππος χαμογέλασε. Ένα χαμόγελο ζεστό, από αυτά που σπάνια έδειχνε. «Και κάναμε λάθος. Κάναμε τεράστιο λάθος.»
+Ο Φίλιππος χαμογέλασε. Ένα χαμόγελο ζεστό, από εκείνα που σπάνια έδειχνε σε ξένους. «Και κάναμε λάθος. Τεράστιο λάθος. Το "καλός" δεν είναι κάτι που είσαι. Είναι κάτι που γίνεσαι.»
 
-Ο Sparken κατέβηκε από τη σκεπή και προσγειώθηκε μαλακά δίπλα στο παιδί. «Έλα, πάμε!» είπε χαρούμενα. «Θα σου δείξουμε! Ξεκινάμε αμέσως!»
+Ο Sparken κατέβηκε από τη σκεπή με μια φούχτα αέρα και προσγειώθηκε μαλακά δίπλα στο παιδί. «Έλα, πάμε!» φώναξε χαρούμενα, ανοίγοντας τα φτερά του. «Θα σου δείξουμε τα πάντα! Ξεκινάμε αμέσως, τώρα, αυτή τη στιγμή!»
 
-Το παιδί έκανε ένα βήμα πίσω. Τα μάτια του γέμισαν τρόμο. Πολλά, πολύ γρήγορα.
+Το παιδί έκανε απότομα ένα βήμα πίσω. Τα μάτια του γέμισαν τρόμο. Πολλά, πολύ γρήγορα.
 
-Η Ελευθερία σήκωσε το χέρι. «Όχι έτσι. Δεν χρειάζεται να τον τραβήξουμε. Χρειάζεται να τον αφήσουμε να περπατήσει. Με τον ρυθμό του.»
+Η Ελευθερία σήκωσε ήρεμα το χέρι της. «Όχι έτσι, Sparken. Δεν χρειάζεται να τον τραβήξουμε. Χρειάζεται να τον αφήσουμε να περπατήσει μόνος του. Με τον δικό του ρυθμό.»
 
-«Αν τον σηκώσεις στην πλάτη σου», είπε, «δεν θα μάθει ποτέ να περπατά μόνος του.»`,
-          en: `Finally, the child approached. One step. Then another. Like a bird approaching crumbs — ready to flee. His hands trembled.
+Και μετά είπε κάτι που έμεινε στον αέρα σαν άρωμα: «Αν τον σηκώσεις στην πλάτη σου, δεν θα μάθει ποτέ να περπατά.»`,
+          en: `Finally, the child came closer. One step. Then another. A pause. One more step. Like a little bird approaching crumbs — ready to fly away at the slightest sound. His hands were trembling, and the crumpled paper rustled between his fingers.
 
-"How... how did you make it?" he asked. His voice was so quiet it barely carried. "I'm not good like you."
+"How... how did you make that?" he asked, pointing at the machine on the table. His voice was so quiet it barely carried over the breeze. And then he added the sentence he had been carrying inside him: "I'm not good like you."
 
-Something cracked inside Alexandra. A memory so alive she felt herself turning back — to the day she lay on the floor, in front of a puzzle she didn't care to finish.
+Something cracked inside Alexandra. A memory so vivid that she felt herself traveling back in time — to the day she lay on the floor, bored, in front of a puzzle she couldn't care less about finishing.
 
-"We used to say that too," she answered calmly. "Exactly that."
+"We used to say that too," she answered calmly, looking him in the eyes. "Those exact words."
 
-Philippos smiled. A warm smile, one he rarely showed. "And we were wrong. We were incredibly wrong."
+Philippos smiled. A warm smile, the kind he rarely showed to strangers. "And we were wrong. Hugely wrong. 'Good' isn't something you are. It's something you become."
 
-Sparken descended from the rooftop and landed softly next to the child. "Come on, let's go!" he said cheerfully. "We'll show you! Let's start right now!"
+Sparken swooped down from the roof in a rush of air and landed softly beside the child. "Come on, let's go!" he called out cheerfully, spreading his wings. "We'll show you everything! We start right away, right now, this very second!"
 
-The child took a step back. His eyes filled with terror. Too much, too fast.
+The child jerked a step backwards. His eyes filled with alarm. Too much, too fast.
 
-Eleftheria raised her hand. "Not like that. We don't need to pull him. We need to let him walk. At his own pace."
+Eleftheria calmly raised her hand. "Not like that, Sparken. We don't need to pull him. We need to let him walk on his own. At his own pace."
 
-"If you carry him on your back," she said, "he'll never learn to walk on his own."`
+And then she said something that lingered in the air like perfume: "If you carry him on your back, he will never learn to walk."`
         }
       },
       {
@@ -110,40 +110,40 @@ Eleftheria raised her hand. "Not like that. We don't need to pull him. We need t
         image: "/images/paidia-kai-wisebot.webp",
         imageCaption: { el: "Η WiseBot στάθηκε πίσω τους — γιατί τώρα εκείνα στέκονταν μπροστά.", en: "WiseBot stood behind them — because now they were the ones standing in front." },
         text: {
-          el: `Η WiseBot εμφανίστηκε χωρίς προειδοποίηση. Αλλά αυτή τη φορά κάτι ήταν διαφορετικό. Δεν ήρθε μπροστά στα παιδιά. Ήρθε πίσω τους. Ακούμπησε σε ένα ράφι, στη σκιά, τα μωβ μάτια της χαμηλωμένα.
+          el: `Η WiseBot εμφανίστηκε χωρίς καμία προειδοποίηση, όπως το συνήθιζε. Αλλά αυτή τη φορά κάτι ήταν διαφορετικό. Δεν ήρθε να σταθεί μπροστά στα παιδιά, όπως έκανε πάντα όταν είχε να διδάξει κάτι. Ήρθε πίσω τους. Ακούμπησε αθόρυβα σε ένα ράφι, μέσα στη σκιά, με τα μωβ μάτια της χαμηλωμένα σαν φως που χαμηλώνει από σεβασμό.
 
-«Μέχρι τώρα μαθαίνατε να ακούτε, να σκέφτεστε, να δημιουργείτε», είπε. «Τώρα μαθαίνετε κάτι πιο δύσκολο. Μαθαίνετε να χωράτε και άλλους.»
+«Μέχρι τώρα μαθαίνατε να ακούτε, να σκέφτεστε, να δημιουργείτε», είπε σιγανά. «Τώρα μαθαίνετε κάτι πολύ πιο δύσκολο. Μαθαίνετε να χωράτε και άλλους στον κόσμο σας.»
 
-Η Αλεξάνδρα γονάτισε δίπλα στο παιδί. Στο ίδιο ύψος. Μάτια με μάτια.
+Η Αλεξάνδρα γονάτισε δίπλα στο παιδί. Στο ίδιο ύψος. Μάτια με μάτια. Έτσι μιλάς σε κάποιον που φοβάται — όχι από ψηλά, αλλά από δίπλα.
 
-«Δεν είσαι μόνος σου», του είπε απαλά. «Κι αν χαλάσει κάτι, το ξαναφτιάχνουμε. Μαζί.»
+«Δεν είσαι μόνος σου», του είπε απαλά. «Κι αν χαλάσει κάτι, δεν πειράζει καθόλου. Το ξαναφτιάχνουμε. Μαζί.»
 
-Το παιδί χαμογέλασε. Πρώτη φορά. Ένα χαμόγελο μικρό, αδέξιο, σαν λουλούδι που ανοίγει σε βράχο. Αλλά αληθινό. Τρομερά αληθινό.
+Το παιδί χαμογέλασε. Για πρώτη φορά. Ένα χαμόγελο μικρό, αδέξιο, σαν λουλούδι που τολμάει να ανοίξει πάνω σε βράχο. Αλλά αληθινό. Τρομερά αληθινό.
 
-Δούλεψαν μαζί. Ώρες. Τα χέρια του παιδιού τρέμαν, αλλά ο Φίλιππος δεν τα πήρε πίσω. Η Ελευθερία εξηγούσε αργά, βήμα βήμα.
+Δούλεψαν μαζί για ώρες. Τα χέρια του παιδιού έτρεμαν καθώς κρατούσαν τα εργαλεία, αλλά ο Φίλιππος δεν τα πήρε πίσω ούτε μία φορά — κι ας τον έτρωγαν τα δάχτυλά του να το κάνει ο ίδιος, πιο γρήγορα, πιο σωστά. Η Ελευθερία εξηγούσε αργά, καθαρά, βήμα βήμα, χωρίς δύσκολες λέξεις.
 
-Αλλά το αποτέλεσμα δεν ήταν καλό. Μια σύνδεση ήταν λάθος. Ο μηχανισμός δεν γύριζε.
+Αλλά το αποτέλεσμα δεν ήταν καλό. Μια σύνδεση ήταν λάθος. Ο μηχανισμός δεν γύριζε. Έβγαζε μόνο έναν λυπημένο, μικρό ήχο.
 
-«Σας καθυστέρησα», ψιθύρισε το παιδί. «Συγγνώμη.»
+«Σας καθυστέρησα», ψιθύρισε το παιδί με το κεφάλι σκυμμένο. «Συγγνώμη.»
 
-«Όχι», είπε η Αλεξάνδρα. «Μας θύμισες. Ότι κάθε αρχή είναι αδέξια. Η δική μας ήταν ακριβώς ίδια.»`,
-          en: `WiseBot appeared without warning. But this time something was different. She didn't come in front of the children. She came behind them. She settled on a shelf, in the shadow, her purple eyes lowered.
+«Όχι», είπε η Αλεξάνδρα και του σήκωσε απαλά το πιγούνι. «Δεν μας καθυστέρησες. Μας θύμισες κάτι πολύτιμο: ότι κάθε αρχή είναι αδέξια. Η δική μας ήταν ακριβώς, μα ακριβώς, ίδια.»`,
+          en: `WiseBot appeared without any warning, as she liked to do. But this time something was different. She didn't come to stand in front of the children, the way she always did when she had something to teach. She came behind them. She settled quietly on a shelf, in the shadow, her purple eyes dimmed low, like a light lowering itself out of respect.
 
-"Until now you were learning to listen, to think, to create," she said. "Now you are learning something harder. You are learning to make room for others."
+"Until now, you were learning to listen, to think, to create," she said softly. "Now you are learning something much harder. You are learning to make room for others in your world."
 
-Alexandra knelt beside the child. At the same height. Eyes to eyes.
+Alexandra knelt down beside the child. At the same height. Eyes to eyes. That is how you speak to someone who is afraid — not from above, but from beside them.
 
-"You're not alone," she told him gently. "And if something breaks, we fix it again. Together."
+"You're not alone," she told him gently. "And if something breaks, it doesn't matter at all. We build it again. Together."
 
-The child smiled. For the first time. A small smile, clumsy, like a flower opening on a rock. But real. Incredibly real.
+The child smiled. For the first time. A small, clumsy smile, like a flower daring to open on bare rock. But real. Incredibly real.
 
-They worked together. For hours. The child's hands shook, but Philippos didn't take the tools back. Eleftheria explained slowly, step by step.
+They worked together for hours. The child's hands trembled as they held the tools, but Philippos never once took them back — even though his fingers itched to do it himself, faster, more precisely. Eleftheria explained slowly, clearly, step by step, without any difficult words.
 
-But the result wasn't good. A connection was wrong. The mechanism wouldn't turn.
+But the result wasn't good. One connection was wrong. The mechanism wouldn't turn. It only made a small, sad little sound.
 
-"I slowed you down," the child whispered. "Sorry."
+"I slowed you down," the child whispered, head bowed. "I'm sorry."
 
-"No," said Alexandra. "You reminded us. That every beginning is clumsy. Ours was exactly the same."`
+"No," said Alexandra, gently lifting his chin. "You didn't slow us down. You reminded us of something precious: that every beginning is clumsy. Ours was exactly, exactly the same."`
         }
       },
       {
@@ -151,36 +151,36 @@ But the result wasn't good. A connection was wrong. The mechanism wouldn't turn.
         image: "/images/sparken.jpg",
         imageCaption: { el: "Δεν ανεβαίνεις πιο ψηλά. Ανεβαίνεις πιο βαθιά.", en: "You don't climb higher. You climb deeper." },
         text: {
-          el: `Ο ήλιος είχε βυθιστεί εντελώς. Τα πρώτα αστέρια αναβόσβηναν αδύναμα. Ο Sparken κατέβηκε χαμηλά και κάθισε ανάμεσα στα παιδιά.
+          el: `Ο ήλιος είχε βυθιστεί εντελώς πια. Τα πρώτα αστέρια αναβόσβηναν αδύναμα στον σκούρο μπλε ουρανό, σαν μικρές λάμπες που μόλις άναψαν. Ο Sparken κατέβηκε χαμηλά, αθόρυβα, και κάθισε ανάμεσα στα παιδιά. Η ζεστασιά των φτερών του τα σκέπασε σαν κουβέρτα.
 
-«Όταν ανεβαίνεις», είπε, η φωνή του βαθιά σαν ποτάμι, «βλέπεις μακριά. Τα σπίτια γίνονται μικρά. Νιώθεις δυνατός.»
+«Όταν ανεβαίνεις ψηλά», είπε, και η φωνή του ήταν βαθιά σαν ποτάμι που κυλάει μέσα στη νύχτα, «βλέπεις μακριά. Τα σπίτια γίνονται μικρά σαν κουτάκια. Οι δρόμοι μοιάζουν με κλωστές. Νιώθεις δυνατός. Νιώθεις μεγάλος.»
 
-Σταμάτησε. Τα φτερά του ανασηκώθηκαν, σαν να ετοιμαζόταν να πετάξει. Αλλά τα δίπλωσε ξανά.
+Σταμάτησε. Τα φτερά του ανασηκώθηκαν ελαφρά, σαν να ετοιμαζόταν να πετάξει ξανά προς τα σύννεφα. Αλλά τα δίπλωσε πάλι, ήρεμα.
 
-«Αλλά όταν βοηθάς», συνέχισε πιο σιγά, «δεν ανεβαίνεις πιο ψηλά. Ανεβαίνεις πιο βαθιά.»
+«Αλλά όταν βοηθάς κάποιον», συνέχισε πιο σιγά, σχεδόν ψιθυριστά, «δεν ανεβαίνεις πιο ψηλά. Ανεβαίνεις πιο βαθιά. Και το βάθος, παιδιά, κρατάει περισσότερο από το ύψος.»
 
-Κανείς δεν μίλησε. Η Ελευθερία, που πάντα ήθελε να αναλύσει τα πάντα, αυτή τη φορά δεν μίλησε. Τα λόγια του Sparken δεν ήθελαν εξήγηση. Ήθελαν να κατασταλάξουν. Να μπουν μέσα. Να γίνουν ρίζες.
+Κανείς δεν μίλησε για αρκετή ώρα. Ακόμα και η Ελευθερία, που πάντα ήθελε να αναλύει και να εξηγεί τα πάντα, αυτή τη φορά έμεινε σιωπηλή. Τα λόγια του Sparken δεν ήθελαν εξήγηση. Ήθελαν χρόνο για να κατασταλάξουν. Να μπουν βαθιά μέσα τους. Να γίνουν ρίζες.
 
-Ο Φίλιππος κοίταξε τα χέρια του. Τα ίδια χέρια που κάποτε έσπαζαν ό,τι αγγίζαν, τώρα είχαν βοηθήσει κάποιον να χτίσει. Ένιωσε κάτι πιο βαθύ από υπερηφάνεια — κάτι που δεν μπορούσε να ονομάσει.
+Ο Φίλιππος κοίταξε τα χέρια του κάτω από το φως των αστεριών. Τα ίδια χέρια που κάποτε έσπαζαν ό,τι άγγιζαν, σήμερα είχαν βοηθήσει κάποιον άλλον να χτίσει. Ένιωσε κάτι πιο βαθύ από υπερηφάνεια — κάτι ζεστό και ήσυχο, που δεν μπορούσε να το ονομάσει με καμία λέξη που ήξερε.
 
-Η Αλεξάνδρα κοίταξε τον ουρανό. «Νομίζω ότι αυτό ήταν πάντα το νόημα», ψιθύρισε. «Μεγαλώνεις με αυτά που δίνεις.»
+Η Αλεξάνδρα κοίταξε τον ουρανό. «Νομίζω ότι αυτό ήταν πάντα το νόημα», ψιθύρισε. «Δεν μεγαλώνεις μόνο με όσα φτιάχνεις. Μεγαλώνεις με όσα δίνεις.»
 
-Η Ελευθερία πρόσθεσε: «Η αξία δεν μετριέται στο αποτέλεσμα. Μετριέται στο ότι τόλμησες να δοκιμάσεις. Και στο ότι βοήθησες κάποιον άλλον να τολμήσει.»`,
-          en: `The sun had sunk completely. The first stars blinked weakly. Sparken came down low and sat among the children.
+Και η Ελευθερία πρόσθεσε, κλείνοντας απαλά το σημειωματάριό της: «Η αξία δεν μετριέται στο αποτέλεσμα. Μετριέται στο ότι τόλμησες να δοκιμάσεις. Και στο ότι βοήθησες κάποιον άλλον να τολμήσει κι εκείνος.»`,
+          en: `The sun had sunk completely now. The first stars blinked faintly in the deep blue sky, like tiny lamps that had only just been switched on. Sparken came down low, silently, and settled among the children. The warmth of his wings covered them like a blanket.
 
-"When you climb," he said, his voice deep as a river, "you see far. Houses become small. You feel powerful."
+"When you climb high," he said, and his voice was deep like a river flowing through the night, "you see far. Houses become small as matchboxes. Roads look like threads. You feel strong. You feel big."
 
-He paused. His wings lifted slightly, as if to fly. But he folded them again.
+He paused. His wings lifted slightly, as if he were about to fly back up toward the clouds. But he folded them again, calmly.
 
-"But when you help," he continued more quietly, "you don't climb higher. You climb deeper."
+"But when you help someone," he continued more quietly, almost in a whisper, "you don't climb higher. You climb deeper. And depth, children, lasts longer than height."
 
-No one spoke. Eleftheria, who always wanted to analyze everything, this time stayed silent. Sparken's words didn't need explanation. They needed to settle. To go inside. To become roots.
+No one spoke for a long while. Even Eleftheria, who always wanted to analyze and explain everything, stayed silent this time. Sparken's words didn't need explaining. They needed time to settle. To sink deep inside. To become roots.
 
-Philippos looked at his hands. The same hands that once broke everything they touched had now helped someone build. He felt something deeper than pride — something he couldn't name.
+Philippos looked at his hands under the starlight. The same hands that had once broken everything they touched had today helped someone else build. He felt something deeper than pride — something warm and quiet that he couldn't name with any word he knew.
 
-Alexandra looked at the sky. "I think this was always the meaning," she whispered. "You grow by what you give."
+Alexandra looked up at the sky. "I think this was always the point," she whispered. "You don't grow only by what you make. You grow by what you give."
 
-Eleftheria added: "Worth is not measured by the result. It is measured by the fact that you dared to try. And that you helped someone else dare."`
+And Eleftheria added, gently closing her notebook: "Worth isn't measured by the result. It's measured by the fact that you dared to try. And that you helped someone else find the courage to dare too."`
         }
       },
       {
@@ -188,36 +188,36 @@ Eleftheria added: "Worth is not measured by the result. It is measured by the fa
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Τα φτερά του Sparken ανοίχτηκαν κάτω από τα αστέρια.", en: "Sparken's wings opened under the stars." },
         text: {
-          el: `Το παιδί έφυγε. Αλλά δεν έφυγε με άδεια χέρια. Κρατούσε σχέδια — όχι τα δικά τους, τα δικά του. Σχέδια που δεν ήταν τέλεια, αλλά ήταν αρχή. Δική του αρχή.
+          el: `Το παιδί έφυγε καθώς η νύχτα απλωνόταν για τα καλά. Αλλά δεν έφυγε με άδεια χέρια. Κρατούσε σφιχτά σχέδια — όχι τα δικά τους. Τα δικά του. Σχέδια που δεν ήταν τέλεια, που είχαν στραβές γραμμές και μουτζούρες, αλλά ήταν μια αρχή. Η δική του αρχή.
 
-Πριν φύγει, γύρισε μια τελευταία φορά. Στα μάτια του — εκεί που πριν υπήρχε φόβος — τώρα υπήρχε κάτι σαν φλόγα που μόλις ανάβει. Μικρή. Αλλά εκεί.
+Πριν χαθεί πίσω από τη γωνία, γύρισε μια τελευταία φορά και τους κοίταξε. Στα μάτια του — εκεί που το απόγευμα υπήρχε μόνο φόβος — τώρα υπήρχε κάτι σαν φλόγα που μόλις άναψε. Μικρή ακόμα. Τρεμάμενη. Αλλά εκεί.
 
-«Δεν ένιωσα πιο κουρασμένη», είπε η Αλεξάνδρα. «Δούλεψα περισσότερο από ποτέ σήμερα, αλλά νιώθω πιο ελαφριά.»
+«Το περίεργο είναι ότι δεν νιώθω κουρασμένη», είπε η Αλεξάνδρα σπάζοντας τη σιωπή. «Δούλεψα περισσότερο από ποτέ σήμερα. Κι όμως, νιώθω πιο ελαφριά. Πώς γίνεται αυτό;»
 
-Ο Φίλιππος κούνησε αργά το κεφάλι. «Πριν ένιωθα ότι αυτά που φτιάχνουμε ανήκουν σε μας. Τώρα νιώθω ότι ανήκουν σε όλους.»
+Ο Φίλιππος κούνησε αργά το κεφάλι, σαν να ζύγιζε κάτι μέσα του. «Πριν ένιωθα ότι αυτά που φτιάχνουμε ανήκουν μόνο σε εμάς. Τώρα νιώθω ότι ανήκουν σε όλους. Και αυτό, δεν ξέρω γιατί, τα κάνει πιο μεγάλα. Όχι πιο μικρά.»
 
-Η Ελευθερία χαμογέλασε. «Γιατί αυτό είχε νόημα. Όχι νόημα σαν λέξη. Νόημα σαν κάτι που νιώθεις στα κόκαλα.»
+Η Ελευθερία χαμογέλασε. «Γιατί αυτό που κάναμε σήμερα είχε νόημα. Όχι νόημα σαν λέξη στο λεξικό. Νόημα σαν κάτι που το νιώθεις στα κόκαλα. Γεμάτο.» Και τα τρία παιδιά ένευσαν — γιατί ακριβώς έτσι ένιωθαν. Γεμάτα.
 
-Ο Sparken άνοιξε τα φτερά του αργά κάτω από τα αστέρια. Δεν πέταξε. Τα κράτησε ανοιχτά — σαν αγκαλιά που χωράει τον κόσμο.
+Ο Sparken άνοιξε τα φτερά του αργά κάτω από τα αστέρια. Δεν πέταξε. Τα κράτησε απλωμένα — σαν αγκαλιά που χωράει ολόκληρο τον κόσμο.
 
-Η WiseBot, ακόμα πίσω τους, άφησε τα μάτια της να λάμψουν μια τελευταία φορά. Σαν να έλεγε: «Σας βλέπω. Και αυτό που βλέπω αξίζει.»
+Η WiseBot, ακόμα πίσω τους, άφησε τα μωβ μάτια της να λάμψουν μια τελευταία φορά μέσα στο σκοτάδι. Σαν να έλεγε: «Σας βλέπω. Και αυτό που βλέπω αξίζει.»
 
-Η αληθινή ηγεσία δεν είναι να πηγαίνεις μπροστά. Είναι να φτιάχνεις χώρο για αυτούς που έρχονται πίσω σου. Δεν μεγαλώνεις μόνο με αυτά που χτίζεις. Μεγαλώνεις με αυτά που μοιράζεσαι.`,
-          en: `The child left. But he didn't leave with empty hands. He held plans — not theirs, his own. Plans that weren't perfect, but were a beginning. His own beginning.
+Γιατί η αληθινή ηγεσία δεν είναι να τρέχεις πρώτος μπροστά. Είναι να φτιάχνεις χώρο για αυτούς που έρχονται πίσω σου, να τους βοηθάς να ανέβουν. Δεν μεγαλώνεις μόνο με αυτά που χτίζεις. Μεγαλώνεις με αυτά που μοιράζεσαι.`,
+          en: `The child left as the night settled in for good. But he didn't leave empty-handed. He was clutching plans — not theirs. His own. Plans that weren't perfect, that had crooked lines and smudges, but they were a beginning. His very own beginning.
 
-Before leaving, he turned one last time. In his eyes — where fear had been — there was now something like a flame that had just been lit. Small. But there.
+Before disappearing around the corner, he turned one last time and looked at them. In his eyes — where that afternoon there had been only fear — there was now something like a flame that had just been lit. Still small. Still flickering. But there.
 
-"I didn't feel more tired," said Alexandra. "I worked harder than ever today, but I feel lighter."
+"The strange thing is, I don't feel tired," said Alexandra, breaking the silence. "I worked harder today than ever. And yet I feel lighter. How does that work?"
 
-Philippos nodded slowly. "Before I felt like what we build belongs to us. Now I feel like it belongs to everyone."
+Philippos nodded slowly, as if weighing something inside himself. "Before, I felt that the things we make belong only to us. Now I feel they belong to everyone. And somehow that makes them bigger. Not smaller."
 
-Eleftheria smiled. "Because this had meaning. Not meaning like a word. Meaning like something you feel in your bones."
+Eleftheria smiled. "Because what we did today had meaning. Not meaning like a word in a dictionary. Meaning like something you feel in your bones. Full." And all three children nodded — because that was exactly how they felt. Full.
 
-Sparken opened his wings slowly under the stars. He didn't fly. He held them open — like an embrace that holds the world.
+Sparken opened his wings slowly beneath the stars. He didn't fly. He held them spread wide — like an embrace wide enough for the whole world.
 
-WiseBot, still behind them, let her eyes glow one last time. As if saying: "I see you. And what I see is worth it."
+WiseBot, still behind them, let her purple eyes glow one last time. As if to say: "I see you. And what I see is worth it."
 
-True leadership isn't going ahead. It's making room for those who come behind you. You don't grow only by what you build. You grow by what you share.`
+True leadership is not about running out in front. It is about making room for those who come behind you, helping them rise. You don't grow only by what you build. You grow by what you share.`
         }
       }
     ]

@@ -36,28 +36,28 @@ export const BOOK_20: Book[] = [
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Τρία παιδιά. Ένα δωμάτιο. Και η σιωπή που σημαίνει αρχή.", en: "Three children. One room. And the silence that means a beginning." },
         text: {
-          el: `Δεν υπήρχε θόρυβος. Ούτε χαρά. Ούτε πανηγυρισμοί. Απλά — σιωπή. Μια σιωπή τόσο βαθιά που ακουγόταν η σκόνη να πέφτει πάνω στα παλιά σχέδια.
+          el: `Δεν υπήρχε θόρυβος εκείνο το απόγευμα. Ούτε φωνές χαράς. Ούτε πανηγυρισμοί. Απλά — σιωπή. Μια σιωπή τόσο βαθιά, που θα μπορούσες να ακούσεις τη σκόνη να πέφτει απαλά πάνω στα παλιά σχέδια που κρέμονταν ακόμα στους τοίχους.
 
-Τα τρία παιδιά κάθονταν στο πάτωμα του εργαστηρίου. Ο Φίλιππος με τα πόδια σταυρωμένα. Η Αλεξάνδρα με την πλάτη στον τοίχο. Η Ελευθερία με ένα σημειωματάριο μπροστά της — ανοιχτό αλλά κενό.
+Τα τρία παιδιά κάθονταν στο πάτωμα του εργαστηρίου, εκεί όπου όλα είχαν ξεκινήσει. Ο Φίλιππος με τα πόδια σταυρωμένα, να στριφογυρίζει αφηρημένα ένα παλιό γρανάζι στα δάχτυλά του. Η Αλεξάνδρα με την πλάτη ακουμπισμένη στον τοίχο, να κοιτάζει το ταβάνι. Η Ελευθερία με ένα σημειωματάριο μπροστά της — ανοιχτό, αλλά κενό. Για πρώτη φορά εδώ και χρόνια, δεν είχε τίποτα να σημειώσει.
 
-Πέρα από το μεγάλο τζάμι, ο κόσμος κινούνταν. Άλλα παιδιά δημιουργούσαν. Κάποιοι γελούσαν, κάποιοι ξαναδοκίμαζαν μετά από αποτυχία. Χωρίς να κοιτάξουν καν προς το εργαστήριο. Χωρίς να τους χρειάζονται.
+Πέρα από το μεγάλο τζάμι, ο κόσμος κινούνταν. Άλλα παιδιά δημιουργούσαν — στο δικό τους εργαστήρι πια, με τα δικά τους εργαλεία, τα δικά τους σχέδια. Κάποια γελούσαν δυνατά, κάποια ξαναδοκίμαζαν πεισματικά μετά από μια αποτυχία, όπως τους είχαν μάθει. Χωρίς να κοιτάξουν καν προς το παλιό εργαστήρι. Χωρίς να τους χρειάζονται.
 
-«Δεν μας χρειάζονται πια», είπε η Αλεξάνδρα. Η φωνή της ήταν ήρεμη. Κάτι σφιγγόταν στο στήθος της — η αίσθηση ότι κάτι που αγαπούσε δεν την χρειαζόταν πια.
+«Δεν μας χρειάζονται πια», είπε η Αλεξάνδρα. Η φωνή της ήταν ήρεμη, αλλά κάτι σφιγγόταν στο στήθος της — εκείνη η παράξενη αίσθηση όταν κάτι που αγάπησες με όλη σου την καρδιά δεν σε χρειάζεται πια για να ζήσει.
 
-Ο Φίλιππος ένιωσε μούδιασμα στα χέρια του — τα χέρια που είχαν χτίσει, σπάσει, ξαναχτίσει. Περίμενε να θυμώσει. Αντ' αυτού, ένιωσε ελαφρότητα.
+Ο Φίλιππος ένιωσε ένα μούδιασμα στα χέρια του — τα χέρια που είχαν χτίσει, σπάσει, ξαναχτίσει, εκατοντάδες φορές. Περίμενε να θυμώσει, όπως παλιά. Περίμενε τη γνώριμη φωτιά. Αντ' αυτού, ένιωσε κάτι απρόσμενο: ελαφρότητα. Σαν να άφηνε κάτω ένα σακίδιο που κουβαλούσε χρόνια.
 
-«Και όμως... αυτό είναι καλό», ψιθύρισε.`,
-          en: `There was no noise. No celebration. Simply — silence. A silence so deep you could hear dust settling on old blueprints.
+«Και όμως...» ψιθύρισε, σχεδόν έκπληκτος με τον ίδιο του τον εαυτό. «Αυτό είναι καλό. Αυτό ακριβώς θέλαμε. Απλά δεν ήξερα πώς θα είναι όταν συμβεί.»`,
+          en: `There was no noise that afternoon. No shouts of joy. No celebrations. Simply — silence. A silence so deep you could almost hear the dust settling gently on the old blueprints that still hung on the walls.
 
-The three children sat on the workshop floor. Philippos with his legs crossed. Alexandra with her back against the wall. Eleftheria with a notebook — open but empty.
+The three children sat on the workshop floor, right where everything had begun. Philippos with his legs crossed, absently spinning an old gear between his fingers. Alexandra with her back against the wall, staring up at the ceiling. Eleftheria with a notebook in front of her — open, but empty. For the first time in years, she had nothing to write down.
 
-Beyond the glass, the world was moving. Other children were creating. Some laughing, some trying again after failure. Without even glancing toward the workshop. Without needing them.
+Beyond the big glass window, the world was moving. Other children were creating — in their own workshop now, with their own tools, their own designs. Some laughed loudly, some stubbornly tried again after a failure, exactly as they had been taught. Without even glancing toward the old workshop. Without needing them.
 
-"They don't need us anymore," said Alexandra. Her voice was calm. Something tightened in her chest — the feeling that something she loved no longer needed her.
+"They don't need us anymore," said Alexandra. Her voice was calm, but something tightened in her chest — that strange feeling when something you loved with your whole heart no longer needs you in order to live.
 
-Philippos felt numbness in his hands — the hands that had built, broken, rebuilt. He expected anger. Instead, he felt lightness.
+Philippos felt a numbness in his hands — the hands that had built, broken, and rebuilt, hundreds of times. He waited for the anger to come, the way it used to. He waited for the familiar fire. Instead, he felt something unexpected: lightness. As if he were setting down a backpack he had carried for years.
 
-"And yet... this is good," he whispered.`
+"And yet..." he whispered, almost surprised at himself. "This is good. This is exactly what we wanted. I just didn't know what it would feel like when it finally happened."`
         }
       },
       {
@@ -65,36 +65,36 @@ Philippos felt numbness in his hands — the hands that had built, broken, rebui
         image: "/images/sparken.jpg",
         imageCaption: { el: "Ο Sparken μπροστά στον ορίζοντα — τα φτερά του γεμάτα δρόμους.", en: "Sparken before the horizon — his wings full of roads." },
         text: {
-          el: `Πέρασαν ώρες. Ο ήλιος έπεσε πίσω από τα κτίρια. Τα φώτα του εργαστηρίου δεν άναψαν — κανείς δεν πάτησε τον διακόπτη.
+          el: `Πέρασαν ώρες. Ο ήλιος έπεσε αργά πίσω από τα κτίρια, βάφοντας τον ουρανό βυσσινί και μετά βαθύ μπλε. Τα φώτα του εργαστηρίου δεν άναψαν — κανείς δεν σηκώθηκε να πατήσει τον διακόπτη. Δεν χρειαζόταν. Η νύχτα εκείνη ήθελε σκοτάδι για να φανούν τα σωστά πράγματα.
 
-Ο Crocus κάθονταν σε μια γωνία. Ακίνητος. Για πρώτη φορά, δεν φώναζε. «Και τώρα;» ρώτησε. Η φωνή του ακούστηκε μικρή.
+Ο Crocus καθόταν σε μια γωνία. Ακίνητος. Εντελώς ακίνητος — κάτι που δεν είχε ξανασυμβεί ποτέ. Ο κροκόδειλος που πάντα φώναζε «Πάμε!», που πάντα ορμούσε πρώτος, τώρα απλώς καθόταν. «Και τώρα;» ρώτησε μέσα στο μισοσκόταδο. Η φωνή του ακούστηκε μικρή, σχεδόν παιδική.
 
-Τότε ο Sparken κατέβηκε αργά. Τα χρυσαφένια φτερά του αιωρούνταν σαν φύλλα. Για πρώτη φορά, δεν βιαζόταν.
+Τότε ο Sparken κατέβηκε αργά από τη σκεπή. Τα χρυσαφένια φτερά του αιωρούνταν στον αέρα σαν φύλλα το φθινόπωρο. Για πρώτη φορά, ούτε εκείνος βιαζόταν. Ακούμπησε μπροστά στο μεγάλο παράθυρο και κοίταξε έξω.
 
-Ακούμπησε μπροστά στο παράθυρο. Η πόλη ήταν σκοτεινή — αλλά όχι κενή. Φωτάκια αναβόσβηναν. Ο κόσμος που τα παιδιά είχαν δημιουργήσει ήταν πια παντού.
+Η πόλη ήταν σκοτεινή — αλλά όχι κενή. Μικρά φωτάκια αναβόσβηναν παντού: σε ένα μπαλκόνι όπου ένα παιδί κολλούσε κάτι με προσοχή, σε ένα γκαράζ όπου δύο αδέρφια έστηναν έναν πάγκο εργασίας, σε ένα παράθυρο όπου κάποιος διάβαζε σχέδια. Ο κόσμος που τα παιδιά είχαν ονειρευτεί μέσα σε τέσσερις τοίχους ήταν πια παντού.
 
-«Αυτό που ξεκινήσατε», είπε ο Sparken, «δεν είναι πια ένα εργαστήριο. Είναι σπόρος.»
+«Αυτό που ξεκινήσατε», είπε ο Sparken με φωνή γεμάτη ορίζοντες, «δεν είναι πια ένα εργαστήριο. Είναι σπόρος. Και οι σπόροι δεν ρωτάνε άδεια για να ταξιδέψουν με τον άνεμο.»
 
-Ο Φίλιππος ένιωσε τη λέξη μέσα του. Σπόρος. Κάτι μικρό που κρύβει τα πάντα. Κάτι που δεν σου ανήκει πια.
+Ο Φίλιππος ένιωσε τη λέξη να ριζώνει μέσα του. Σπόρος. Κάτι τόσο μικρό που κρύβει μέσα του ολόκληρα δάση. Κάτι που δεν σου ανήκει πια — και γι' αυτό ακριβώς αξίζει.
 
-«Και ποιος τον φροντίζει;» ρώτησε σιγά.
+«Και ποιος τον φροντίζει τώρα;» ρώτησε σιγά.
 
-«Όσοι τον βρίσκουν», απάντησε ο Sparken.`,
-          en: `Hours passed. The sun fell behind the buildings. The workshop lights did not turn on — no one pressed the switch.
+«Όσοι τον βρίσκουν», απάντησε ο Sparken. «Πάντα όσοι τον βρίσκουν.»`,
+          en: `Hours passed. The sun sank slowly behind the buildings, painting the sky crimson and then deep blue. The workshop lights did not come on — nobody got up to press the switch. There was no need. That night wanted darkness, so that the right things could be seen.
 
-Crocus sat in a corner. Still. For the first time, not shouting. "And now?" he asked. His voice sounded small.
+Crocus sat in a corner. Still. Completely still — something that had never, ever happened before. The crocodile who always shouted "Let's go!", who always charged in first, now simply sat. "And now what?" he asked into the half-darkness. His voice sounded small, almost childlike.
 
-Then Sparken descended slowly. His golden wings drifted like leaves. For the first time, he was in no hurry.
+Then Sparken descended slowly from the roof. His golden wings drifted through the air like autumn leaves. For the first time, he too was in no hurry. He landed by the big window and looked out.
 
-He landed by the window. The city was dark — but not empty. Lights flickered. The world the children had created was now everywhere.
+The city was dark — but not empty. Tiny lights flickered everywhere: on a balcony where a child was carefully gluing something together, in a garage where two siblings were setting up a workbench, in a window where someone sat reading blueprints. The world the children had once dreamed of inside four walls was now everywhere.
 
-"What you started," said Sparken, "is no longer a workshop. It is a seed."
+"What you started," said Sparken, his voice full of horizons, "is no longer a workshop. It is a seed. And seeds do not ask permission to travel with the wind."
 
-Philippos felt the word inside him. Seed. Something small that hides everything. Something that no longer belongs to you.
+Philippos felt the word take root inside him. Seed. Something so small that carries entire forests within it. Something that no longer belongs to you — and is worth everything precisely because of that.
 
-"And who takes care of it?" he asked quietly.
+"And who takes care of it now?" he asked quietly.
 
-"Those who find it," Sparken answered.`
+"Those who find it," Sparken answered. "Always those who find it."`
         }
       },
       {
@@ -102,32 +102,40 @@ Philippos felt the word inside him. Seed. Something small that hides everything.
         image: "/images/wisebot.jpg",
         imageCaption: { el: "Η WiseBot εμφανίστηκε μέσα στη σιωπή — σαν να μην είχε φύγει ποτέ.", en: "WiseBot appeared in the silence — as if she had never left." },
         text: {
-          el: `Η Αλεξάνδρα σηκώθηκε. Περπάτησε μέχρι το παράθυρο. Ακούμπησε τα δάχτυλά της στο κρύο τζάμι.
+          el: `Η Αλεξάνδρα σηκώθηκε από το πάτωμα. Περπάτησε αργά μέχρι το παράθυρο και ακούμπησε τα δάχτυλά της στο κρύο τζάμι. Η ανάσα της θάμπωσε το γυαλί.
 
-Κοίταξε έξω. Ανθρώπους που κουβαλούσαν κομμάτια αυτού που είχαν φτιάξει — χωρίς καν να ξέρουν από πού ήρθαν. Και τότε ο φόβος ήρθε. Όχι ο φόβος της αποτυχίας — ο φόβος του αφήνω.
+Κοίταξε έξω. Είδε ανθρώπους να κουβαλούν κομμάτια αυτού που είχαν φτιάξει — ιδέες τους, μεθόδους τους, ακόμα και τις αγαπημένες τους φράσεις — χωρίς καν να ξέρουν από πού είχαν έρθει. Ένα παιδί εκεί κάτω έλεγε σε ένα άλλο «πρώτα κίνηση, μετά τελειότητα», λες και ήταν δικό του. Και τότε ήρθε ο φόβος. Όχι ο φόβος της αποτυχίας — αυτόν τον ήξερε καλά και τον είχε νικήσει. Ένας άλλος, πιο ύπουλος: ο φόβος του να αφήνεις.
 
-«Κι αν χαθεί;» ρώτησε. Η φωνή της ράγισε. «Κι αν μας ξεχάσουν;»
+«Κι αν χαθεί;» ρώτησε, και η φωνή της ράγισε. «Κι αν το αλλάξουν τόσο πολύ που δεν θα το αναγνωρίζουμε; Κι αν... κι αν μας ξεχάσουν;»
 
-Τότε η WiseBot εμφανίστηκε. Απλά ήταν εκεί. Σαν να μην είχε φύγει ποτέ. Το φως στο στήθος της — χρυσό αυτή τη φορά — έλαμψε σταθερά.
+Τότε η WiseBot εμφανίστηκε. Δεν μπήκε από πουθενά — απλά ήταν εκεί, μέσα στη σιωπή, σαν να μην είχε φύγει ποτέ. Το φως στο στήθος της — χρυσό αυτή τη φορά, όχι μωβ — έλαμπε σταθερά, ζεστά.
 
-«Υπάρχουν δύο είδη χάσιμου», είπε κοιτάζοντας την Αλεξάνδρα. «Το πρώτο είναι αυτό που φοβάσαι. Ότι κάτι φεύγει και δεν επιστρέφει.»
+«Υπάρχουν δύο είδη χάσιμου», είπε κοιτάζοντας την Αλεξάνδρα στα μάτια. «Το πρώτο είναι αυτό που φοβάσαι. Ότι κάτι φεύγει μακριά και δεν επιστρέφει ποτέ.»
 
-Τα μάτια της Αλεξάνδρας γέμισαν δάκρυα.
+Τα μάτια της Αλεξάνδρας γέμισαν δάκρυα. Δεν τα σκούπισε.
 
-«Αλλά υπάρχει κι ένα δεύτερο χάσιμο. Το να κρατάς κάτι τόσο σφιχτά, από φόβο, που το πνίγεις. Ό,τι αξίζει, δεν χάνεται επειδή το αφήνεις. Χάνεται μόνο αν το κρατάς από φόβο.»`,
-          en: `Alexandra stood up. Walked to the window. Pressed her fingers against the cold glass.
+«Αλλά υπάρχει και ένα δεύτερο χάσιμο, πιο αθόρυβο και πιο σκληρό. Το να κρατάς κάτι τόσο σφιχτά, από φόβο, που το πνίγεις. Να το κλειδώνεις για να μην το πάρει κανείς — και να το βλέπεις να μαραίνεται μέσα στα ίδια σου τα χέρια.»
 
-She looked outside. People who carried pieces of what they had built — without knowing where they came from. And then the fear came. Not the fear of failure — the fear of letting go.
+Η WiseBot πλησίασε, και το χρυσό φως άγγιξε το πρόσωπο της Αλεξάνδρας.
 
-"What if it gets lost?" she asked. Her voice cracked. "What if they forget us?"
+«Ό,τι αξίζει αληθινά δεν χάνεται επειδή το αφήνεις. Χάνεται μόνο αν το κρατάς από φόβο. Το έργο σας δεν σας ανήκει πια, Αλεξάνδρα. Ανήκει στον κόσμο. Και αυτή είναι η μεγαλύτερη νίκη του.»`,
+          en: `Alexandra rose from the floor. She walked slowly to the window and pressed her fingers against the cold glass. Her breath fogged the pane.
 
-Then WiseBot appeared. She simply was there. As if she had never left. The light on her chest — golden this time — shone steadily.
+She looked outside. She saw people carrying pieces of what they had built — their ideas, their methods, even their favorite phrases — without ever knowing where they had come from. A child down there was telling another one "movement first, perfection later," as if it were his own invention. And then the fear came. Not the fear of failure — she knew that one well and had already defeated it. Another fear, more cunning: the fear of letting go.
 
-"There are two kinds of loss," she said, looking at Alexandra. "The first is the one you fear. That something leaves and never returns."
+"What if it gets lost?" she asked, and her voice cracked. "What if they change it so much that we won't even recognize it? What if... what if they forget us?"
 
-Alexandra's eyes filled with tears.
+Then WiseBot appeared. She was simply there, inside the silence, as if she had never left. The light on her chest — golden this time, not purple — shone steadily, warmly.
 
-"But there is a second kind. Holding something so tightly, out of fear, that you suffocate it. What is worth it, is not lost because you leave it. It is lost only if you keep it out of fear."`
+"There are two kinds of loss," she said, looking at Alexandra. "The first is the one you fear. That something travels far away and never comes back."
+
+Alexandra's eyes filled with tears. She didn't wipe them away.
+
+"But there is a second kind of loss, quieter and crueler. Holding something so tightly, out of fear, that you suffocate it. Locking it away so no one can take it — and watching it wither inside your own hands."
+
+WiseBot came closer, and the golden light touched Alexandra's face.
+
+"What is truly worth something is never lost because you let it go. It is lost only if you hold it out of fear. Your work doesn't belong to you anymore, Alexandra. It belongs to the world. And that is its greatest victory."`
         }
       },
       {
@@ -135,44 +143,52 @@ Alexandra's eyes filled with tears.
         image: "/images/crocus.jpg",
         imageCaption: { el: "Για πρώτη φορά, ο Crocus δεν έτρεχε. Χαμογελούσε.", en: "For the first time, Crocus wasn't running. He was smiling." },
         text: {
-          el: `Η Ελευθερία σηκώθηκε πρώτη. Αργά. Δεν ήταν κούραση. Ήταν ωριμότητα.
+          el: `Η Ελευθερία σηκώθηκε πρώτη. Αργά, με μια κίνηση ήρεμη και αποφασισμένη. Δεν ήταν κούραση αυτό που την έκανε να κινείται τόσο αργά. Ήταν ωριμότητα — η γνώση ότι οι πιο σημαντικές στιγμές δεν χρειάζονται βιασύνη.
 
-Κοίταξε τα χέρια της. Τα χέρια που κάποτε μόνο γύριζαν σελίδες. Που μετά έμαθαν να χτίζουν. Τα χέρια που τώρα ήταν καιρός να ανοίξουν.
+Κοίταξε τα χέρια της για λίγο, κάτω από το αχνό φως που έμπαινε από το παράθυρο. Τα χέρια που κάποτε μόνο γύριζαν σελίδες βιβλίων, κρυμμένα σε μια γωνιά. Που μετά έμαθαν να κρατούν εργαλεία, να μετρούν, να χτίζουν. Τα χέρια που τώρα ήταν καιρός να μάθουν το πιο δύσκολο απ' όλα: να ανοίγουν.
 
-«Μπορούμε να το ανοίξουμε», είπε. «Να αφήσουμε άλλους να το αλλάξουν. Να μην ελέγχουμε πια τα πάντα.»
+«Μπορούμε να το ανοίξουμε», είπε. «Να αφήσουμε άλλους να το πάρουν, να το αλλάξουν, να το κάνουν δικό τους. Να μην ελέγχουμε πια τα πάντα.»
 
-«Δύσκολο», είπε ο Crocus.
+«Δύσκολο», είπε ο Crocus από τη γωνιά του, και η φωνή του είχε μια σπάνια απαλότητα.
 
 «Αλλά σωστό», απάντησε η Ελευθερία.
 
-Κάθισαν στο μεγάλο τραπέζι. Πάνω του — μόνο ένα τετράδιο. Λευκό. Καινούργιο. Έγραψαν. Όχι κανόνες. Οδηγίες — τι αξίζει να θυμάσαι.
+Κάθισαν όλοι γύρω από το μεγάλο τραπέζι — εκεί που είχαν σχεδιάσει, αποτύχει, τσακωθεί και θριαμβεύσει τόσες φορές. Πάνω του υπήρχε μόνο ένα πράγμα: ένα τετράδιο. Λευκό. Καινούργιο. Άγραφο.
 
-Ο Φίλιππος πρώτος: «Μην φοβάσαι να σπάσεις. Φτιάχνεται ξανά. Πάντα.»
+Και έγραψαν. Όχι κανόνες — οι κανόνες κλειδώνουν. Οδηγίες καρδιάς: όσα αξίζει να θυμάται όποιος συνεχίσει.
 
-Η Αλεξάνδρα: «Η αλήθεια πονάει. Αλλά το ψέμα πονάει περισσότερο.»
+Ο Φίλιππος έγραψε πρώτος, με τα γράμματά του γερτά και δυνατά: «Μην φοβάσαι να σπάσεις κάτι. Φτιάχνεται ξανά. Πάντα φτιάχνεται ξανά.»
 
-Η Ελευθερία: «Η γνώση χωρίς πράξη είναι βάρος. Η πράξη χωρίς γνώση είναι τύφλα.»
+Η Αλεξάνδρα ακολούθησε: «Η αλήθεια πονάει. Αλλά το ψέμα πονάει περισσότερο — και για πιο πολύ καιρό.»
 
-Άφησαν σελίδες κενές. Γιατί ένα γεμάτο τετράδιο δεν προσκαλεί κανέναν. Ο Crocus χαμογέλασε αληθινά. «Για πρώτη φορά... δεν τρέχουμε.»`,
-          en: `Eleftheria stood up first. Slowly. It was not exhaustion. It was maturity.
+Η Ελευθερία τελευταία, με τα μικρά προσεκτικά γράμματά της: «Η γνώση χωρίς πράξη είναι βάρος. Η πράξη χωρίς γνώση είναι τύφλα. Χρειάζεσαι και τις δύο.»
 
-She looked at her hands. The hands that once only turned pages. That later learned to build. The hands that now it was time to open.
+Και μετά — άφησαν τις υπόλοιπες σελίδες κενές. Επίτηδες. Γιατί ένα γεμάτο τετράδιο δεν προσκαλεί κανέναν να γράψει.
 
-"We can open it," she said. "Let others change it. Stop controlling everything."
+Ο Crocus κοίταξε το ανοιχτό τετράδιο και χαμογέλασε — ένα αληθινό, πλατύ χαμόγελο. «Για πρώτη φορά στη ζωή μου...» είπε, «δεν τρέχουμε. Και δεν πειράζει.»`,
+          en: `Eleftheria stood up first. Slowly, with a movement calm and decided. It wasn't tiredness that made her move so slowly. It was maturity — the knowledge that the most important moments need no hurry.
 
-"Difficult," said Crocus.
+She looked at her hands for a moment, under the faint light coming through the window. The hands that once only turned the pages of books, hidden away in a corner. That later learned to hold tools, to measure, to build. The hands that now had to learn the hardest thing of all: to open.
+
+"We can open it up," she said. "Let others take it, change it, make it their own. Stop controlling everything."
+
+"Difficult," said Crocus from his corner, and his voice held a rare softness.
 
 "But right," Eleftheria answered.
 
-They sat at the table. On it — only a notebook. White. New. They wrote. Not rules. Guidelines — what is worth remembering.
+They all sat around the big table — the one where they had designed, failed, argued, and triumphed so many times. On it lay only one thing: a notebook. White. New. Unwritten.
 
-Philippos first: "Don't be afraid to break things. They can be fixed again. Always."
+And they wrote. Not rules — rules lock things up. Instructions of the heart: the things worth remembering for whoever carries on.
 
-Alexandra: "The truth hurts. But lies hurt more."
+Philippos wrote first, his letters slanted and strong: "Don't be afraid to break something. It can be built again. It can always be built again."
 
-Eleftheria: "Knowledge without action is burden. Action without knowledge is blindness."
+Alexandra followed: "The truth hurts. But a lie hurts more — and for much longer."
 
-They left pages empty. Because a full notebook invites no one. Crocus smiled truly. "For the first time... we aren't running."`
+Eleftheria wrote last, in her small, careful handwriting: "Knowledge without action is a burden. Action without knowledge is blindness. You need both."
+
+And then — they left the remaining pages empty. On purpose. Because a notebook that is already full invites no one to write in it.
+
+Crocus looked at the open notebook and smiled — a true, wide smile. "For the first time in my life..." he said, "we're not running. And that's okay."`
         }
       },
       {
@@ -180,32 +196,40 @@ They left pages empty. Because a full notebook invites no one. Crocus smiled tru
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Αυτό δεν ήταν τέλος. Ήταν αρχή. Μια αρχή που ανήκει σε όλους.", en: "This was not an end. It was a beginning. A beginning that belongs to everyone." },
         text: {
-          el: `Την επόμενη μέρα, η πόρτα ήταν ολάνοιχτη. Σαν πρόσκληση χωρίς λόγια. Πρώτα ήρθε ένα κορίτσι με μπλε μαλλιά. Μετά ένα αγόρι με γυαλιά. Και μετά άλλοι. Σαν παλίρροια.
+          el: `Την επόμενη μέρα, η πόρτα του εργαστηρίου ήταν ολάνοιχτη. Διάπλατα. Σαν πρόσκληση χωρίς λόγια, σαν αγκαλιά που περιμένει.
 
-Τα τρία παιδιά κοιτούσαν από μια γωνία. «Κάπου, κάποιος ξεκινάει όπως εμείς», σκέφτηκε η Ελευθερία. «Και κάποιος θα κάνει γι' αυτόν αυτό που η WiseBot έκανε για μας.»
+Πρώτα ήρθε ένα κορίτσι με μπλε μαλλιά, που κοντοστάθηκε στο κατώφλι και μετά μπήκε αποφασιστικά. Μετά ένα αγόρι με γυαλιά, που κρατούσε ένα κουτί γεμάτο παλιά ρομποτάκια. Και μετά άλλοι. Και άλλοι. Σαν παλίρροια που δεν σταματάει.
 
-Η WiseBot γύρισε προς τα παιδιά. Τα μάτια της ήταν γεμάτα χρυσό φως. Το ταξίδι ξεκίνησε με ερώτηση. Και τώρα θα τελείωνε με τον ίδιο τρόπο.
+Τα τρία παιδιά κοιτούσαν από μια γωνία, ο ένας δίπλα στον άλλον. «Κάπου, αυτή τη στιγμή, κάποιος ξεκινάει όπως ξεκινήσαμε εμείς», σκέφτηκε η Ελευθερία. «Με τον ίδιο φόβο. Την ίδια σπίθα. Και κάποιος θα κάνει γι' αυτόν αυτό που η WiseBot έκανε για εμάς.»
 
-«Θέλετε να το κρατήσετε; Ή να το δείτε να ταξιδεύει;»
+Η WiseBot γύρισε προς τα παιδιά. Τα μάτια της ήταν γεμάτα χρυσό φως — το ίδιο φως της πρώτης μέρας, όταν όλα ξεκίνησαν με μια ερώτηση. Και τώρα, όλα θα τελείωναν με τον ίδιο τρόπο. Με μια ερώτηση.
 
-Ο Φίλιππος κοίταξε τα χέρια του — τα χέρια που κάποτε έσπαγαν, μετά έχτιζαν, και τώρα άνοιγαν. Η Αλεξάνδρα χαμογέλασε. Τα χέρια της άνοιξαν κι αυτά. Η Ελευθερία — δάκρυα στα μάτια — άνοιξε τα χέρια τρίτη.
+«Θέλετε να το κρατήσετε;» ρώτησε. «Ή να το δείτε να ταξιδεύει;»
 
-Τρία ζευγάρια χέρια. Ανοιχτά. Σαν φτερά. Η WiseBot πέταξε ανάμεσά τους. Βγήκε στη νύχτα. Στο απέραντο. Αλλά δεν έφυγε. Γιατί η WiseBot ήταν σε κάθε ερώτηση. Σε κάθε σπίθα. Σε κάθε λάθος που γίνεται μάθημα.
+Ο Φίλιππος κοίταξε τα χέρια του — τα χέρια που κάποτε έσπαγαν από θυμό, που μετά έμαθαν να χτίζουν, και που τώρα ήξεραν να ανοίγουν. Τα άνοιξε. Η Αλεξάνδρα χαμογέλασε μέσα από τα δάκρυά της — δάκρυα περηφάνιας, όχι λύπης — και άνοιξε κι εκείνη τα δικά της. Η Ελευθερία, τρίτη, άπλωσε τις παλάμες της σαν να άφηνε ένα πουλί να πετάξει.
 
-Τα μεγάλα ταξίδια δεν τελειώνουν. Αλλάζουν χέρια. Αλλάζουν μορφή. Αλλάζουν κόσμο.`,
-          en: `The next day, the door was wide open. Like an invitation without words. First came a girl with blue hair. Then a boy with glasses. And then others. Like a tide.
+Τρία ζευγάρια χέρια. Ανοιχτά. Ελεύθερα. Σαν φτερά.
 
-The three children watched from a corner. "Somewhere, someone is starting as we started," Eleftheria thought. "And someone will do for them what WiseBot did for us."
+Η WiseBot πέταξε ανάμεσά τους, μια χρυσή λάμψη στο σκοτάδι, και βγήκε από το παράθυρο, στη νύχτα, στο απέραντο. Αλλά δεν έφυγε. Γιατί η WiseBot ζούσε πια σε κάθε ερώτηση που ανοίγει δρόμους. Σε κάθε σπίθα που γίνεται φωτιά. Σε κάθε λάθος που γίνεται μάθημα. Σε κάθε παιδί που τολμάει να φτιάξει κάτι από το τίποτα.
 
-WiseBot turned toward the children. Her eyes were full of golden light. The journey began with a question. And now it would end the same way.
+Και τα παιδιά, στην πόρτα, ένιωθαν ελεύθερα και περήφανα. Γιατί τα μεγάλα ταξίδια δεν τελειώνουν ποτέ. Αλλάζουν χέρια. Αλλάζουν μορφή. Αλλάζουν κόσμο.`,
+          en: `The next day, the workshop door stood wide open. Like an invitation without words, like a waiting embrace.
 
-"Do you want to keep it? Or see it travel?"
+First came a girl with blue hair, who paused at the threshold and stepped in. Then a boy with glasses, carrying a box of old toy robots. And then others. Like a tide that would not stop.
 
-Philippos looked at his hands — hands that once broke, then built, and now opened. Alexandra smiled. Her hands opened too. Eleftheria — tears in her eyes — opened her hands third.
+The three children watched from a corner. "Somewhere, at this very moment, someone is starting out just like we did," Eleftheria thought. "With the same fear. The same spark. And someone will do for them what WiseBot did for us."
 
-Three pairs of hands. Open. Like wings. WiseBot flew through them. Out into the night. Into the infinite. But she did not leave. Because WiseBot was in every question. In every spark. In every mistake that becomes a lesson.
+WiseBot turned toward the children. Her eyes were full of golden light — the same light of that very first day, when everything began with a question. And now, everything would end the same way. With a question.
 
-Great journeys do not end. They change hands. They change form. They change the world.`
+"Do you want to keep it?" she asked. "Or would you rather watch it travel?"
+
+Philippos looked at his hands — the hands that once broke things in anger, that later learned to build, and that now knew how to open. He opened them. Alexandra smiled through her tears — tears of pride, not sadness — and opened hers as well. Eleftheria, third, stretched out her palms as if releasing a bird into the sky.
+
+Three pairs of hands. Open. Free. Like wings.
+
+WiseBot flew between them, a golden flash in the darkness, and out through the window, into the night. But she did not leave. Not truly. Because WiseBot now lived in every question that opens new roads. In every spark that becomes a fire. In every mistake that becomes a lesson. In every child who dares to make something out of nothing.
+
+And the children, at the door, felt free and proud. Because great journeys never end. They change hands. They change form. They change the world.`
         }
       }
     ]

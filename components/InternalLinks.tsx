@@ -27,7 +27,7 @@ const PAGES = [
     icon: BookOpen,
     color: 'from-blue-500 to-purple-600',
     label: { el: 'Ακαδημία', en: 'Academy' },
-    desc: { el: '90 σπουδαίοι άνθρωποι', en: '90 great people' },
+    desc: { el: '98 σπουδαίοι άνθρωποι', en: '98 great people' },
   },
   {
     id: 'ebooks',
@@ -35,7 +35,7 @@ const PAGES = [
     icon: BookOpen,
     color: 'from-amber-500 to-orange-600',
     label: { el: 'Ebooks', en: 'Ebooks' },
-    desc: { el: '26 διαδραστικά βιβλία', en: '26 interactive books' },
+    desc: { el: '34 διαδραστικά βιβλία', en: '34 interactive books' },
   },
   {
     id: 'music',

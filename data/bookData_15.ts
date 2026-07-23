@@ -36,32 +36,32 @@ export const BOOK_15: Book[] = [
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Το ίδιο δωμάτιο. Διαφορετικά παιδιά.", en: "The same room. Different children." },
         text: {
-          el: `Το δωμάτιο ήταν ακριβώς το ίδιο. Το τραπέζι με τα σημάδια, τους κύκλους από κούπες, τα μολύβια πεταμένα σαν σπασμένα κλαδιά. Τα ίδια χαρτιά, κάποια τσαλακωμένα, κάποια γραμμένα με γράμματα που κανείς δεν τελείωσε.
+          el: `Το δωμάτιο ήταν ακριβώς το ίδιο. Το τραπέζι με τα σημάδια από τα κατσαβίδια, τους στρογγυλούς κύκλους από τις κούπες, τα μολύβια πεταμένα εδώ κι εκεί σαν σπασμένα κλαδιά μετά από καταιγίδα. Τα ίδια χαρτιά, κάποια τσαλακωμένα σε μπαλάκια, κάποια γραμμένα με προτάσεις που κανείς δεν τελείωσε ποτέ.
 
-Αλλά κάτι είχε αλλάξει. Κάτι αόρατο, κάτι που δεν μπορούσες να δείξεις με το δάχτυλο αλλά το ένιωθες στο δέρμα σου. Σαν να είχε κάποιος ανοίξει παράθυρο σε τοίχο που ποτέ δεν είχε.
+Αλλά κάτι είχε αλλάξει. Κάτι αόρατο, κάτι που δεν μπορούσες να το δείξεις με το δάχτυλο, αλλά το ένιωθες στο δέρμα σου. Σαν να είχε ανοίξει κάποιος παράθυρο σε έναν τοίχο που δεν είχε ποτέ παράθυρο. Ο αέρας μύριζε αλλιώς. Πιο καθαρός. Πιο ζωντανός.
 
-Η Αλεξάνδρα σήκωσε τις ζωγραφιές της από το τραπέζι. Αργά, σαν να κρατούσε κάτι εύθραυστο. Οι πρώτες ήταν βιαστικές, γεμάτες ημιτελείς γραμμές. Αλλά οι τελευταίες είχαν βάθος. Είχαν ψυχή.
+Η Αλεξάνδρα σήκωσε τις ζωγραφιές της από το τραπέζι. Αργά, προσεκτικά, σαν να κρατούσε κάτι εύθραυστο. Τις άπλωσε μπροστά της με τη σειρά, από την πρώτη μέχρι την τελευταία. Οι πρώτες ήταν βιαστικές, γεμάτες μισές γραμμές που σταματούσαν στη μέση, σαν σκέψεις που κάποιος βαρέθηκε να τελειώσει. Αλλά οι τελευταίες είχαν βάθος. Είχαν σκιές και φως. Είχαν ψυχή.
 
-«Παλιά βαριόμουν», είπε σιγά. «Ξεκινούσα, χανόμουν, παρατούσα. Και μετά ένιωθα χειρότερα — σαν να χρωστούσα κάτι στον εαυτό μου.»
+«Παλιά βαριόμουν», είπε σιγά, χωρίς να σηκώσει τα μάτια της. «Ξεκινούσα κάτι, χανόμουν, το παρατούσα. Και μετά ένιωθα χειρότερα από πριν — σαν να χρωστούσα κάτι στον εαυτό μου και να μην το πλήρωνα ποτέ.»
 
-Τα μάτια της γυάλισαν. Όχι από δάκρυα. Από αναγνώριση.
+Τα μάτια της γυάλισαν. Όχι από δάκρυα. Από αναγνώριση — από εκείνη τη σπάνια στιγμή που βλέπεις τον εαυτό σου καθαρά.
 
-«Τώρα θέλω να τελειώνω ό,τι ξεκινάω. Γιατί αυτό που τελειώνεις σου ανήκει. Αυτό που αφήνεις στη μέση, σε κυνηγάει.»
+«Τώρα θέλω να τελειώνω ό,τι ξεκινάω. Γιατί αυτό που τελειώνεις σού ανήκει. Αυτό που αφήνεις στη μέση, σε κυνηγάει.»
 
-Ο ήλιος του δειλινού χρύσισε τα χέρια της. Και μέσα σε εκείνο το φως, η Αλεξάνδρα μοιάζε μεγαλύτερη. Μοιάζε με κάποια που είχε περάσει κάτι και βγήκε από την άλλη πλευρά.`,
-          en: `The room was exactly the same. The table with its marks, the rings from cups, the pencils scattered like broken branches. The same papers, some crumpled, some written with letters nobody ever finished.
+Ο ήλιος του δειλινού χρύσισε τα χέρια της. Και μέσα σε εκείνο το φως, η Αλεξάνδρα έμοιαζε μεγαλύτερη. Έμοιαζε με κάποια που είχε περάσει μέσα από κάτι δύσκολο — και είχε βγει από την άλλη πλευρά πιο δυνατή.`,
+          en: `The room was exactly the same. The table with its screwdriver marks, the round rings left by cups, the pencils scattered here and there like broken branches after a storm. The same papers, some crumpled into little balls, some covered in sentences that nobody had ever finished.
 
-But something had changed. Something invisible, something you couldn't point to but felt on your skin. As if someone had opened a window in a wall that never had one.
+But something had changed. Something invisible, something you couldn't point at with your finger, yet you felt it on your skin. As if someone had opened a window in a wall that had never had one. The air smelled different. Cleaner. More alive.
 
-Alexandra lifted her drawings from the table. Slowly, as if holding something fragile. The first ones were rushed, full of unfinished lines. But the last ones had depth. They had soul.
+Alexandra lifted her drawings from the table. Slowly, carefully, as if she were holding something fragile. She spread them out in front of her in order, from the very first to the very last. The early ones were rushed, full of half-finished lines that stopped in the middle, like thoughts someone got bored of finishing. But the last ones had depth. They had shadow and light. They had soul.
 
-"I used to get bored," she said quietly. "I'd start, get lost, give up. And then I'd feel worse — like I owed something to myself."
+"I used to get bored," she said quietly, without lifting her eyes. "I'd start something, lose my way, give it up. And afterwards I felt even worse — as if I owed something to myself and never paid it back."
 
-Her eyes gleamed. Not from tears. From recognition.
+Her eyes gleamed. Not with tears. With recognition — that rare moment when you see yourself clearly.
 
-"Now I want to finish what I start. Because what you finish belongs to you. What you leave halfway haunts you."
+"Now I want to finish whatever I start. Because what you finish belongs to you. What you leave halfway done chases you."
 
-The evening sun gilded her hands. And in that light, Alexandra looked older. She looked like someone who had been through something and come out the other side.`
+The evening sun turned her hands golden. And in that light, Alexandra looked older. She looked like someone who had walked through something difficult — and had come out the other side stronger.`
         }
       },
       {
@@ -69,36 +69,32 @@ The evening sun gilded her hands. And in that light, Alexandra looked older. She
         image: "/images/filippos.webp",
         imageCaption: { el: "Τα ίδια χέρια. Διαφορετική δύναμη.", en: "The same hands. Different strength." },
         text: {
-          el: `Ο Φίλιππος κοίταξε τα χέρια του. Τα γύρισε, τα εξέτασε — τις γρατζουνιές, τα κομμάτια κόλλας, το μελάνι κάτω από τα νύχια. Αυτά τα χέρια που κάποτε μόνο χτυπούσαν και πετούσαν πράγματα, τώρα είχαν ιστορία. Κάθε σημάδι ήταν μάθημα.
+          el: `Ο Φίλιππος κοίταξε τα χέρια του. Τα γύρισε από τη μία πλευρά και από την άλλη, τα εξέτασε προσεκτικά — τις γρατζουνιές στα δάχτυλα, τα ξεραμένα κομματάκια κόλλας, το μελάνι κάτω από τα νύχια. Αυτά τα χέρια που κάποτε μόνο χτυπούσαν τραπέζια και πετούσαν πράγματα από τα νεύρα τους, τώρα είχαν ιστορία. Κάθε σημάδι ήταν και ένα μάθημα. Κάθε γρατζουνιά, μια μικρή νίκη.
 
-«Δεν θυμώνω όπως πριν», είπε. «Σταματάω. Παίρνω ανάσα. Κοιτάζω τι πήγε στραβά. Και ξαναδοκιμάζω.»
+«Δεν θυμώνω όπως πριν», είπε σκεφτικός. «Δηλαδή... θυμώνω. Αλλά τώρα σταματάω. Παίρνω μια βαθιά ανάσα. Κοιτάζω τι πήγε στραβά. Και ξαναδοκιμάζω.»
 
-Σφίχτηκε ένα κομμάτι πλαστικού μεταξύ των δαχτύλων του. Απαλά αυτή τη φορά. Κατάλαβε ότι η δύναμη δεν σημαίνει να σπας — σημαίνει να κρατάς χωρίς να τσακίζεις.
+Έσφιξε ένα κομμάτι πλαστικού ανάμεσα στα δάχτυλά του. Απαλά αυτή τη φορά. Ήρεμα. Είχε καταλάβει ότι η δύναμη δεν σημαίνει να σπας πράγματα — σημαίνει να κρατάς σταθερά, χωρίς να τσακίζεις.
 
-«Το θυμό τον κρατάω ακόμα», είπε. «Αλλά τώρα τον χρησιμοποιώ σαν καύσιμο, όχι σαν βόμβα.»
+«Τον θυμό τον έχω ακόμα μέσα μου», παραδέχτηκε με ένα μισό χαμόγελο. «Αλλά τώρα τον χρησιμοποιώ σαν καύσιμο. Όχι σαν βόμβα.»
 
-Η Ελευθερία έκλεισε το τετράδιό της. Ίσως η πιο δραματική κίνηση που είχε κάνει ποτέ — γιατί η Ελευθερία ποτέ δεν έκλεινε τετράδια. Τα μάζευε, τα στοίβαζε, τα λάτρευε.
+Δίπλα του, η Ελευθερία έκλεισε το τετράδιό της. Ήταν ίσως η πιο δραματική κίνηση που είχε κάνει ποτέ — γιατί η Ελευθερία δεν έκλεινε ποτέ τετράδια. Τα μάζευε, τα στοίβαζε σε πύργους, τα λάτρευε σαν θησαυρούς.
 
-«Δεν διαβάζω πια για να ξέρω», είπε με φωνή βαθιά και σταθερή. «Διαβάζω για να εφαρμόζω. Η γνώση χωρίς πράξη είναι φυλακή.»
+«Δεν διαβάζω πια μόνο για να ξέρω», είπε με φωνή βαθιά και σταθερή. «Διαβάζω για να εφαρμόζω. Η γνώση που μένει κλειδωμένη στις σελίδες είναι φυλακή. Θέλω να ζω μέσα στον κόσμο. Με τα χέρια μου λερωμένα. Με τα λάθη μου ορατά. Με την καρδιά μου ανοιχτή.»
 
-«Θέλω να ζω μέσα στον κόσμο. Με τα χέρια μου λερωμένα. Με τα λάθη μου ορατά.»
+Κοιτάχτηκαν και οι τρεις. Τρεις κόσμοι τόσο διαφορετικοί, που κάποτε φαινόταν αδύνατον να συνυπάρξουν στο ίδιο δωμάτιο. Και χαμογέλασαν — ήσυχα, βαθιά, σαν ηλιοβασίλεμα που δεν βιάζεται καθόλου να σβήσει.`,
+          en: `Philippos looked at his hands. He turned them over, one side and then the other, examining them carefully — the scratches on his fingers, the dried-up bits of glue, the ink under his nails. These hands, which once only slammed tables and threw things in anger, now had a story to tell. Every mark was a lesson. Every scratch, a small victory.
 
-Κοιτάχτηκαν. Τρεις κόσμοι τόσο διαφορετικοί που κάποτε φαίνονταν αδύνατον να συνυπάρξουν. Και χαμογέλασαν — ήσυχα, βαθιά, σαν ηλιοβασίλεμα που δεν βιάζεται να σβήσει.`,
-          en: `Philippos looked at his hands. He turned them over, examined them — the scratches, the bits of glue, the ink under his nails. These hands that once only hit and threw things now had a story. Every mark was a lesson.
+"I don't get angry the way I used to," he said thoughtfully. "I mean... I still get angry. But now I stop. I take a deep breath. I look at what went wrong. And I try again."
 
-"I don't get angry like before," he said. "I stop. I breathe. I look at what went wrong. And I try again."
+He squeezed a piece of plastic between his fingers. Gently this time. Calmly. He had understood that strength doesn't mean breaking things — it means holding on firmly, without crushing.
 
-He squeezed a plastic piece between his fingers. Gently this time. He understood that strength doesn't mean breaking — it means holding without crushing.
+"The anger is still in there," he admitted with half a smile. "But now I use it as fuel. Not as a bomb."
 
-"I still keep the anger," he said. "But now I use it as fuel, not as a bomb."
+Beside him, Eleftheria closed her notebook. It was perhaps the most dramatic move she had ever made — because Eleftheria never closed notebooks. She collected them, stacked them into towers, treasured them like gold.
 
-Eleftheria closed her notebook. Perhaps the most dramatic move she had ever made — because Eleftheria never closed notebooks. She collected them, stacked them, loved them.
+"I don't read just to know anymore," she said, her voice deep and steady. "I read so I can act. Knowledge that stays locked inside pages is a prison. I want to live inside the world. With my hands dirty. With my mistakes visible. With my heart open."
 
-"I don't read to know anymore," she said, her voice deep and steady. "I read to apply. Knowledge without action is a prison."
-
-"I want to live in the world. With my hands dirty. With my mistakes visible."
-
-They looked at each other. Three worlds so different they once seemed impossible to coexist. And they smiled — quietly, deeply, like a sunset in no hurry to fade.`
+The three of them looked at one another. Three worlds so different that once it had seemed impossible for them to share the same room. And they smiled — quietly, deeply, like a sunset in no hurry at all to fade.`
         }
       },
       {
@@ -106,32 +102,40 @@ They looked at each other. Three worlds so different they once seemed impossible
         image: "/images/paidia-kai-wisebot.webp",
         imageCaption: { el: "Η WiseBot δεν δείχνει πρόσωπα — δείχνει ψυχές.", en: "WiseBot doesn't show faces — she shows souls." },
         text: {
-          el: `Η WiseBot εμφανίστηκε αθόρυβα. Σαν σκιά που αποφάσισε να γίνει φως. Στάθηκε μπροστά τους και τα μάτια της — δύο μωβ κρύσταλλοι — γέμισαν ζεστασιά.
+          el: `Η WiseBot εμφανίστηκε αθόρυβα, όπως πάντα. Σαν σκιά που αποφάσισε ξαφνικά να γίνει φως. Στάθηκε μπροστά τους, και τα μάτια της — δύο μωβ κρύσταλλοι που έλαμπαν απαλά — γέμισαν ζεστασιά.
 
-Η επιφάνεια του μεταλλικού της προσώπου γυάλισε σαν υγρό ασήμι. Και τα παιδιά είδαν μέσα τους εαυτούς τους. Αλλά δεν είδαν πρόσωπα. Είδαν κάτι βαθύτερο.
+«Ελάτε πιο κοντά», είπε. «Θέλω να σας δείξω κάτι.»
 
-Η Αλεξάνδρα είδε θάρρος. Χέρια που ζωγραφίζουν χωρίς δισταγμό. Μάτια που δεν φοβούνται να κοιτάξουν αυτό που δημιούργησαν.
+Η επιφάνεια του μεταλλικού της προσώπου γυάλισε σαν υγρό ασήμι, σαν καθρέφτης από παραμύθι. Και τα τρία παιδιά είδαν μέσα της τους εαυτούς τους. Αλλά δεν είδαν πρόσωπα. Δεν είδαν μαλλιά, μύτες και αυτιά. Είδαν κάτι πολύ βαθύτερο.
 
-Ο Φίλιππος είδε επιμονή. Χέρια που μαζεύουν τα σπασμένα κομμάτια αντί να τα πετούν. Ένα πρόσωπο που ξέρει τη διαφορά ανάμεσα στο «δεν μπορώ» και στο «δεν μπορώ ακόμα».
+Η Αλεξάνδρα είδε θάρρος. Χέρια που ζωγραφίζουν χωρίς δισταγμό, χωρίς να τρέμουν. Μάτια που δεν φοβούνται πια να κοιτάξουν αυτό που δημιούργησαν — ακόμα κι όταν δεν είναι τέλειο.
 
-Η Ελευθερία είδε καθαρότητα. Γνώση που δεν κάθεται σε σελίδες αλλά ζει σε πράξεις.
+Ο Φίλιππος είδε επιμονή. Χέρια που μαζεύουν τα σπασμένα κομμάτια από το πάτωμα αντί να τα κλωτσούν. Ένα πρόσωπο που έμαθε τη μεγάλη διαφορά ανάμεσα στο «δεν μπορώ» και στο «δεν μπορώ ακόμα».
 
-«Δεν σας έδωσα απαντήσεις», είπε η WiseBot τρυφερά. «Σας έμαθα να ρωτάτε. Και αυτός που ξέρει να ρωτά, δεν χρειάζεται ποτέ κάποιον να του δώσει απαντήσεις.»
+Η Ελευθερία είδε καθαρότητα. Γνώση που δεν κάθεται φυλακισμένη σε σελίδες, αλλά ζει και ανασαίνει μέσα σε πράξεις.
 
-Τα μάτια της πάλλονταν πιο αργά τώρα. Σαν καρδιά που χτυπά ήρεμα γιατί ξέρει ότι η δουλειά τελείωσε.`,
-          en: `WiseBot appeared silently. Like a shadow that decided to become light. She stood before them and her eyes — two purple crystals — filled with warmth.
+«Βλέπετε;» ρώτησε η WiseBot τρυφερά. «Δεν σας έδωσα ποτέ απαντήσεις. Σας έμαθα να ρωτάτε. Και όποιος ξέρει να ρωτά, δεν χρειάζεται ποτέ κάποιον να του δίνει έτοιμες απαντήσεις. Βρίσκει τον δρόμο του μόνος.»
 
-The surface of her metallic face gleamed like liquid silver. And the children saw themselves reflected. But they didn't see faces. They saw something deeper.
+Τα παιδιά έμειναν σιωπηλά μπροστά στον παράξενο καθρέφτη. Γιατί καταλάβαιναν, για πρώτη φορά τόσο καθαρά, ότι το έργο τους δεν τα είχε απλώς κουράσει. Τα είχε αλλάξει.
 
-Alexandra saw courage. Hands that draw without hesitation. Eyes that aren't afraid to look at what they created.
+Τα μάτια της WiseBot πάλλονταν πιο αργά τώρα. Σαν καρδιά που χτυπά ήρεμα, γιατί ξέρει ότι η πιο σημαντική δουλειά της έχει τελειώσει.`,
+          en: `WiseBot appeared silently, the way she always did. Like a shadow that suddenly decided to become light. She stood before them, and her eyes — two purple crystals glowing softly — filled with warmth.
 
-Philippos saw persistence. Hands that pick up broken pieces instead of throwing them. A face that knows the difference between "I can't" and "I can't yet."
+"Come closer," she said. "I want to show you something."
 
-Eleftheria saw clarity. Knowledge that doesn't sit in pages but lives in actions.
+The surface of her metallic face gleamed like liquid silver, like a mirror out of a fairy tale. And the three children saw themselves inside it. But they didn't see faces. They didn't see hair, noses, and ears. They saw something much deeper.
 
-"I didn't give you answers," said WiseBot tenderly. "I taught you to ask. And the one who knows how to ask never needs anyone to give them answers."
+Alexandra saw courage. Hands that draw without hesitating, without trembling. Eyes that are no longer afraid to look at what they created — even when it isn't perfect.
 
-Her eyes pulsed more slowly now. Like a heart beating calmly because it knows the work is done.`
+Philippos saw persistence. Hands that gather the broken pieces up off the floor instead of kicking them away. A face that has learned the great difference between "I can't" and "I can't yet."
+
+Eleftheria saw clarity. Knowledge that doesn't sit imprisoned in pages, but lives and breathes inside actions.
+
+"Do you see?" asked WiseBot tenderly. "I never gave you answers. I taught you how to ask. And whoever knows how to ask never needs anyone to hand them ready-made answers. They find their own way."
+
+The children stood silent before the strange mirror. Because they understood, clearly for the first time, that their project hadn't simply tired them out. It had changed them.
+
+WiseBot's eyes pulsed more slowly now. Like a heart beating calmly, because it knows its most important work is done.`
         }
       },
       {
@@ -139,32 +143,36 @@ Her eyes pulsed more slowly now. Like a heart beating calmly because it knows th
         image: "/images/sparken.jpg",
         imageCaption: { el: "Ο Sparken κατέβηκε στο ύψος τους — για πρώτη φορά.", en: "Sparken came down to their level — for the first time." },
         text: {
-          el: `Ο Sparken κατέβηκε χαμηλά. Για πρώτη φορά. Εκείνος, ο αετός που πάντα πετούσε ψηλά, που πάντα μιλούσε με φωνή βροντής — κατέβηκε. Ακούμπησε τα φτερά του στο πάτωμα. Κοίταξε τα παιδιά στα μάτια, στο ίδιο ύψος.
+          el: `Ο Sparken κατέβηκε χαμηλά. Για πρώτη φορά. Εκείνος, ο μεγάλος αετός που πάντα πετούσε ψηλά στα σύννεφα, που πάντα μιλούσε με φωνή βροντής από τον ουρανό — κατέβηκε. Ακούμπησε τα φτερά του στο πάτωμα του εργαστηρίου. Κοίταξε τα παιδιά κατευθείαν στα μάτια, στο ίδιο ακριβώς ύψος με εκείνα.
 
-«Τι φτιάξατε;» ρώτησε. Απλά. Αλλά η ερώτηση δεν ήταν καθόλου απλή.
+Τα παιδιά κράτησαν την ανάσα τους. Όταν ο Sparken κατεβαίνει τόσο χαμηλά, κάτι σημαντικό πρόκειται να συμβεί.
 
-Η Αλεξάνδρα ήθελε να πει «ένα ρομπότ». Αλλά κάτι βαθύτερο σταμάτησε τα λόγια. Ήξερε ότι η απάντηση δεν ήταν αυτό που βρισκόταν στο τραπέζι.
+«Τι φτιάξατε;» ρώτησε. Απλά, ήσυχα. Αλλά η ερώτηση δεν ήταν καθόλου απλή. Την ένιωθες να κρύβει κάτι από κάτω, σαν πέτρα που σκεπάζει μια σπηλιά.
 
-Ο Φίλιππος σκέφτηκε. «Κάτι για παιδιά», είπε. Αλλά κι εκείνος ένιωσε ότι η απάντηση ήταν μεγαλύτερη. Σαν ποτάμι που κρύβεται κάτω από τη γη.
+Η Αλεξάνδρα άνοιξε το στόμα της να πει «ένα ρομπότ». Αλλά κάτι βαθύτερο σταμάτησε τα λόγια στα χείλη της. Ήξερε, χωρίς να ξέρει πώς, ότι η σωστή απάντηση δεν ήταν αυτό που βρισκόταν πάνω στο τραπέζι.
 
-Η Ελευθερία κούνησε αργά το κεφάλι. «Φτιάξαμε κάτι για εμάς. Αλλά δεν νομίζω ότι αυτό ρωτάς πραγματικά.»
+Ο Φίλιππος σκέφτηκε για λίγο. «Κάτι για παιδιά», δοκίμασε. Αλλά κι εκείνος ένιωσε ότι η απάντηση ήταν μεγαλύτερη από τις λέξεις του. Σαν ποτάμι που κρύβεται κάτω από τη γη και ακούς μόνο το μουρμουρητό του.
 
-Η WiseBot μίλησε ήρεμα, σαν νερό που αγγίζει βράχο: «Φτιάξατε τον τρόπο που σκέφτεστε.»
+Η Ελευθερία κούνησε αργά το κεφάλι. «Φτιάξαμε κάτι για εμάς», είπε. «Αλλά δεν νομίζω ότι αυτό ρωτάς πραγματικά, έτσι δεν είναι;»
 
-Η πρόταση έπεσε σαν σταγόνα σε λίμνη. Αθόρυβα. Αλλά οι κυματισμοί πήγαν παντού. Δεν φτιάξατε αντικείμενο. Φτιάξατε μυαλό. Τρεις ανθρώπους που ξέρουν τι σημαίνει να δοκιμάζεις, να αποτυγχάνεις, και να μην σταματάς.`,
-          en: `Sparken came down low. For the first time. He, the eagle who always flew high, who always spoke with a voice of thunder — came down. He rested his wings on the floor. He looked the children in the eyes, at the same height.
+Και τότε η WiseBot μίλησε ήρεμα, σαν νερό που αγγίζει βράχο: «Φτιάξατε τον τρόπο που σκέφτεστε.»
 
-"What did you make?" he asked. Simply. But the question was not simple at all.
+Η πρόταση έπεσε σαν σταγόνα σε ήρεμη λίμνη. Αθόρυβα. Αλλά οι κυματισμοί της απλώθηκαν παντού. Δεν φτιάξατε ένα αντικείμενο. Φτιάξατε μυαλό. Φτιάξατε χαρακτήρα. Τρεις ανθρώπους που ξέρουν πια τι σημαίνει να δοκιμάζεις, να αποτυγχάνεις, να σηκώνεσαι — και να μην σταματάς ποτέ.`,
+          en: `Sparken came down low. For the very first time. He, the great eagle who always soared high among the clouds, who always spoke with a voice of thunder from the sky — came down. He rested his wings on the workshop floor. He looked the children straight in the eyes, at exactly their height.
 
-Alexandra wanted to say "a robot." But something deeper stopped the words. She knew the answer wasn't what sat on the table.
+The children held their breath. When Sparken comes down that low, something important is about to happen.
 
-Philippos thought. "Something for kids," he said. But even he felt the answer was bigger. Like a river hiding underground.
+"What did you make?" he asked. Simply, quietly. But the question was not simple at all. You could feel it hiding something underneath, like a stone covering the mouth of a cave.
 
-Eleftheria slowly shook her head. "We made something for us. But I don't think that's what you're really asking."
+Alexandra opened her mouth to say "a robot." But something deeper stopped the words on her lips. She knew, without knowing how, that the true answer was not the thing sitting on the table.
 
-WiseBot spoke calmly, like water touching rock: "You built the way you think."
+Philippos thought for a moment. "Something for kids," he tried. But he too felt that the answer was bigger than his words. Like a river hidden under the ground, where you can only hear its murmur.
 
-The sentence fell like a drop in a lake. Silently. But the ripples went everywhere. You didn't build an object. You built a mind. Three humans who know what it means to try, to fail, and to never stop.`
+Eleftheria slowly shook her head. "We made something for us," she said. "But that's not what you're really asking, is it?"
+
+And then WiseBot spoke calmly, like water touching rock: "You built the way you think."
+
+The sentence fell like a single drop into a still lake. Silently. But its ripples spread everywhere. You didn't build an object. You built a mind. You built character. Three people who now know what it means to try, to fail, to get back up — and to never, ever stop.`
         }
       },
       {
@@ -172,36 +180,36 @@ The sentence fell like a drop in a lake. Silently. But the ripples went everywhe
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Κάθε τέλος είναι μια αρχή.", en: "Every end is a beginning." },
         text: {
-          el: `Κατάλαβαν κάτι που κάποιοι μεγάλοι δεν μαθαίνουν ποτέ. Δεν περιμένουν άδεια για να ξεκινήσουν. Δεν φοβούνται το λάθος — γιατί κάθε σπασμένο κομμάτι τους δείχνει πού να κοιτάξουν. Δεν χρειάζονται χειροκρότημα — γιατί η ικανοποίηση δεν έρχεται από τους άλλους, έρχεται από μέσα τους.
+          el: `Εκείνο το απόγευμα, τα τρία παιδιά κατάλαβαν κάτι που κάποιοι μεγάλοι δεν μαθαίνουν ποτέ, όσα χρόνια κι αν ζήσουν. Δεν περιμένουν πια άδεια για να ξεκινήσουν κάτι καινούργιο. Δεν φοβούνται το λάθος — γιατί κάθε σπασμένο κομμάτι τούς δείχνει ακριβώς πού να κοιτάξουν. Δεν χρειάζονται χειροκρότημα — γιατί η πραγματική ικανοποίηση δεν έρχεται από τους άλλους. Έρχεται από μέσα τους, ζεστή και ήσυχη, σαν φως από τζάκι.
 
-«Τι κάνουμε τώρα;» ρώτησε ο Φίλιππος. Χωρίς αγωνία. Ήταν η ερώτηση ενός ανθρώπου που ξέρει ότι ο δρόμος δεν τελειώνει ποτέ — και χαίρεται γι' αυτό.
+«Τι κάνουμε τώρα;» ρώτησε ο Φίλιππος. Χωρίς αγωνία. Χωρίς φόβο. Ήταν η ερώτηση ενός ανθρώπου που ξέρει ότι ο δρόμος δεν τελειώνει ποτέ — και χαίρεται πραγματικά γι' αυτό.
 
-Η Αλεξάνδρα χαμογέλασε. «Συνεχίζουμε.»
+Η Αλεξάνδρα χαμογέλασε πλατιά. «Συνεχίζουμε. Τι άλλο;»
 
-Η Ελευθερία πρόσθεσε: «Και ό,τι φτιάξουμε μετά, θα μας φτιάχνει ξανά. Κάθε φορά λίγο αλλιώτικα. Κάθε φορά λίγο καλύτερα. Γιατί η δημιουργία δεν είναι κάτι που κάνεις — είναι κάτι που σε κάνει.»
+Η Ελευθερία πρόσθεσε, με τα μάτια της να λάμπουν: «Και ό,τι φτιάξουμε μετά, θα μας φτιάχνει κι εκείνο με τη σειρά του. Κάθε φορά λίγο αλλιώτικα. Κάθε φορά λίγο καλύτερα. Γιατί η δημιουργία δεν είναι κάτι που απλώς κάνεις — είναι κάτι που σε κάνει. Γι' αυτό φτιάχνουμε πράγματα: για να γινόμαστε εμείς καλύτεροι.»
 
-Ο Sparken άνοιξε τα φτερά του. Αργά. Μεγαλοπρεπώς. Σαν αυλαία που ανοίγει σε τελευταία πράξη. Γέμισαν τον χώρο με χρυσό φως.
+Ο Sparken άνοιξε τα φτερά του. Αργά. Μεγαλοπρεπώς. Σαν αυλαία που ανοίγει για την τελευταία πράξη μιας μεγάλης παράστασης. Τα φτερά του γέμισαν τον χώρο με χρυσό, ζεστό φως.
 
-«Τώρα μπορείτε να πετάξετε μόνοι σας», είπε.
+«Τώρα μπορείτε να πετάξετε μόνοι σας», είπε με τη βαθιά φωνή του.
 
-Τα παιδιά δεν φοβήθηκαν. Δεν αμφέβαλαν. Για πρώτη φορά, δεν χρειάζονταν κάποιον να τους πει τι να κάνουν. Ήξεραν.
+Τα παιδιά δεν φοβήθηκαν. Δεν αμφέβαλαν ούτε στιγμή. Για πρώτη φορά στη ζωή τους, δεν χρειάζονταν κάποιον να τους πει τι να κάνουν. Ήξεραν.
 
-Το δωμάτιο βυθίστηκε στο σούρουπο. Οι σκιές μάκρυναν. Αλλά κάτι αόρατο μέσα σε εκείνο το δωμάτιο λαμπύριζε. Δυνατά. Σταθερά. Χωρίς τέλος.`,
-          en: `They understood something that some adults never learn. They don't wait for permission to start. They don't fear mistakes — because every broken piece shows them where to look. They don't need applause — because satisfaction doesn't come from others, it comes from within.
+Το δωμάτιο βυθίστηκε σιγά σιγά στο σούρουπο. Οι σκιές μάκρυναν στους τοίχους. Αλλά κάτι αόρατο μέσα σε εκείνο το δωμάτιο λαμπύριζε. Δυνατά. Σταθερά. Χωρίς τέλος.`,
+          en: `That evening, the three children understood something that some grown-ups never learn, no matter how many years they live. They no longer wait for permission to begin something new. They don't fear mistakes — because every broken piece shows them exactly where to look. They don't need applause — because true satisfaction doesn't come from other people. It comes from within, warm and quiet, like light from a fireplace.
 
-"What do we do now?" asked Philippos. Without anxiety. It was the question of a human who knows the road never ends — and is glad about it.
+"So what do we do now?" asked Philippos. Without worry. Without fear. It was the question of a person who knows the road never ends — and is genuinely glad about it.
 
-Alexandra smiled. "We continue."
+Alexandra smiled wide. "We keep going. What else?"
 
-Eleftheria added: "And whatever we make next will make us again. Each time a little different. Each time a little better. Because creation isn't something you do — it's something that does you."
+Eleftheria added, her eyes shining: "And whatever we make next will make us in return. A little different each time. A little better each time. Because creating isn't something you simply do — it's something that shapes you. That's why we make things: so that we become better ourselves."
 
-Sparken spread his wings. Slowly. Majestically. Like a curtain opening on the final act. They filled the space with golden light.
+Sparken spread his wings. Slowly. Majestically. Like a curtain opening on the final act of a great performance. His wings filled the room with warm, golden light.
 
-"Now you can fly on your own," he said.
+"Now you can fly on your own," he said in his deep voice.
 
-The children were not afraid. They did not doubt. For the first time, they didn't need someone to tell them what to do. They knew.
+The children were not afraid. They didn't doubt for a second. For the first time in their lives, they didn't need anyone to tell them what to do. They knew.
 
-The room sank into dusk. The shadows lengthened. But something invisible inside that room glowed. Strongly. Steadily. Without end.`
+The room sank slowly into dusk. The shadows stretched long across the walls. But something invisible inside that room kept glowing. Strongly. Steadily. Without end.`
         }
       }
     ]

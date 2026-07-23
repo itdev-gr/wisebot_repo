@@ -37,36 +37,36 @@ export const BOOK_5: Book[] = [
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Δεν είναι τέλειο. Και αν γελάσουν;", en: "It's not perfect. What if they laugh?" },
         text: {
-          el: `Το είχαν μπροστά τους. Στο τραπέζι, κάτω από το φως. Το πράγμα που έφτιαξαν.
+          el: `Το είχαν μπροστά τους. Στη μέση του τραπεζιού, κάτω από το κίτρινο φως της λάμπας. Το πράγμα που έφτιαξαν με τα ίδια τους τα χέρια, μέρα με τη μέρα, κομμάτι κομμάτι.
 
-Δεν ήταν όπως το είχαν φανταστεί. Μικρό. Λίγο στραβό. Με γρατζουνιές που φαίνονταν κάτω από το φως. Αλλά υπήρχε. Πραγματικό.
+Δεν ήταν όπως το είχαν φανταστεί. Στη φαντασία τους έλαμπε, μεγάλο και εντυπωσιακό. Στην πραγματικότητα ήταν μικρό. Λίγο στραβό στη μία πλευρά. Με γρατζουνιές που φαίνονταν καθαρά κάτω από το φως, όσο κι αν προσπαθούσαν να μην τις κοιτάζουν. Αλλά υπήρχε. Ήταν πραγματικό. Μπορούσες να απλώσεις το χέρι και να το αγγίξεις.
 
-«Δεν είναι τέλειο», μουρμούρισε ο Φίλιππος.
+«Δεν είναι τέλειο», μουρμούρισε ο Φίλιππος, τρίβοντας νευρικά τα δάχτυλά του.
 
-«Και αν γελάσουν;» Η φωνή της Αλεξάνδρας ήταν σχεδόν ψίθυρος.
+«Και αν γελάσουν;» Η φωνή της Αλεξάνδρας ήταν σχεδόν ψίθυρος. «Αν το δουν και πουν... μα τι είναι αυτό;»
 
-Η Ελευθερία δεν μιλούσε. Μέσα της πάλευε — η θέληση να δείξει εναντίον του φόβου να κριθεί.
+Η Ελευθερία δεν μιλούσε καθόλου. Μέσα της γινόταν μάχη — από τη μια η θέληση να το δείξει σε όλο τον κόσμο, από την άλλη ο φόβος μήπως το κρίνουν. Οι δύο φωνές πάλευαν, και καμία δεν κέρδιζε.
 
-Κανείς δεν έλεγε «πάμε». Ούτε ο Crocus. Για πρώτη φορά, κοιτούσε τον φόβο τους και τον αναγνώριζε — γιατί κάποτε ήταν δικός του.
+Κανείς δεν έλεγε «πάμε». Ούτε καν ο Crocus, που πάντα το φώναζε πρώτος. Στεκόταν στη γωνία, ασυνήθιστα ήσυχος. Για πρώτη φορά κοιτούσε τον φόβο τους και τον αναγνώριζε — γιατί κάποτε, πριν από πολύ καιρό, ήταν και δικός του.
 
-«Τι περιμένετε;» ρώτησε χαμηλά.
+«Τι περιμένετε;» ρώτησε χαμηλά, σχεδόν τρυφερά.
 
-Κανείς δεν απάντησε. Αλλά η σιωπή ήταν η απάντηση.`,
-          en: `They had it in front of them. On the table, under the light. The thing they built.
+Κανείς δεν απάντησε. Το ρολόι στον τοίχο χτυπούσε. Το φως τρεμόπαιζε. Και η σιωπή, βαριά σαν κουβέρτα, ήταν από μόνη της η απάντηση.`,
+          en: `They had it right in front of them. In the middle of the table, under the yellow light of the lamp. The thing they had built with their own hands, day after day, piece by piece.
 
-It wasn't what they'd imagined. Small. Slightly crooked. With scratches that showed under the light. But it existed. Real.
+It wasn't what they had imagined. In their imagination it gleamed, big and impressive. In reality it was small. Slightly crooked on one side. With scratches that showed clearly under the light, no matter how hard they tried not to look at them. But it existed. It was real. You could reach out and touch it.
 
-"It's not perfect," murmured Philippos.
+"It's not perfect," murmured Philippos, rubbing his fingers together nervously.
 
-"What if they laugh?" Alexandra's voice was almost a whisper.
+"What if they laugh?" Alexandra's voice was almost a whisper. "What if they see it and say... what on earth is that?"
 
-Eleftheria didn't speak. Inside her, a battle — the will to show versus the fear of being judged.
+Eleftheria didn't speak at all. A battle was raging inside her — on one side the will to show it to the whole world, on the other the fear of being judged. The two voices wrestled, and neither one was winning.
 
-Nobody said "let's go." Not even Crocus. For the first time, he watched their fear and recognized it — because once, it had been his own.
+Nobody said "let's go." Not even Crocus, who always shouted it first. He stood in the corner, unusually quiet. For the first time he was watching their fear and recognizing it — because once, long ago, it had been his own.
 
-"What are you waiting for?" he asked softly.
+"What are you waiting for?" he asked softly, almost tenderly.
 
-Nobody answered. But the silence was the answer.`
+Nobody answered. The clock on the wall ticked. The lamp flickered. And the silence, heavy as a blanket, was itself the answer.`
         }
       },
       {
@@ -74,32 +74,40 @@ Nobody answered. But the silence was the answer.`
         image: "/images/paidia-kai-sparken.webp",
         imageCaption: { el: "Ο Sparken — ο αετός που βλέπει πέρα από το τώρα.", en: "Sparken — the eagle who sees beyond the now." },
         text: {
-          el: `Ένας αέρας μπήκε στο δωμάτιο. Όχι δυνατός — ψηλός. Σαν αέρας που κατεβαίνει από κορυφή βουνού. Μύρισε ελευθερία.
+          el: `Και τότε, ένας αέρας μπήκε στο δωμάτιο. Όχι δυνατός αέρας, από αυτούς που ρίχνουν χαρτιά στο πάτωμα — ψηλός αέρας. Σαν αέρας που κατεβαίνει από κορυφή βουνού, καθαρός και δροσερός. Η Αλεξάνδρα πήρε μια βαθιά ανάσα και της φάνηκε πως μύριζε ελευθερία.
 
-Σκιά πλατιά. Σαν σύννεφο μπροστά από τον ήλιο.
+Μετά ήρθε η σκιά. Πλατιά, ήρεμη, σαν σύννεφο που περνά αργά μπροστά από τον ήλιο. Τα τρία παιδιά σήκωσαν το κεφάλι την ίδια στιγμή.
 
-Ένας αετός προσγειώθηκε αθόρυβα. Τα φτερά του ήταν σαν ολόγραμμα — χρώματα που άλλαζαν σαν ηλιοβασίλεμα σε κίνηση. Τα μάτια του χρυσά, βαθιά. Μάτια που δεν κοιτούσαν αυτό που ήταν μπροστά — κοιτούσαν αυτό που θα γινόταν.
+Ένας αετός προσγειώθηκε στο περβάζι, εντελώς αθόρυβα. Τα φτερά του δεν έμοιαζαν με φτερά κανονικού πουλιού — ήταν σαν ολόγραμμα, με χρώματα που άλλαζαν συνέχεια, σαν ηλιοβασίλεμα σε κίνηση. Πορτοκαλί, μωβ, χρυσό. Τα μάτια του ήταν χρυσά και βαθιά. Παράξενα μάτια. Μάτια που δεν κοιτούσαν αυτό που ήταν μπροστά τους — κοιτούσαν αυτό που θα γινόταν.
 
-«Τι κοιτάτε;» ρώτησε. Η φωνή του βαθιά, ήρεμη, σαν αέρας σε φαράγγι.
+«Τι κοιτάτε;» ρώτησε. Η φωνή του ήταν βαθιά και ήρεμη, σαν αέρας που περνά μέσα από φαράγγι.
 
-«Κοιτάτε πολύ κοντά.»
+Τα παιδιά κοιτάχτηκαν μπερδεμένα. Κοιτούσαν το αντικείμενο στο τραπέζι. Τι άλλο να κοιτούσαν;
 
-«Ποιος είσαι;» ρώτησε η Αλεξάνδρα, γεμάτη δέος.
+«Κοιτάτε πολύ κοντά», είπε ο αετός, σαν να είχε διαβάσει τη σκέψη τους.
 
-«Με λένε Sparken. Κι εγώ δεν βλέπω τα πράγματα. Βλέπω πού πάνε.»`,
-          en: `A breeze entered the room. Not strong — high. Like wind descending from a mountain peak. It smelled of freedom.
+«Ποιος... ποιος είσαι;» ρώτησε η Αλεξάνδρα, γεμάτη δέος. Η καρδιά της χτυπούσε δυνατά — αλλά, παράξενο, όχι από φόβο.
 
-A wide shadow. Like a cloud in front of the sun.
+Ο αετός δίπλωσε τα φτερά του με μια αργή, βασιλική κίνηση και τους κοίταξε έναν έναν.
 
-An eagle landed silently. His wings were like holograms — colors shifting like a sunset in motion. His eyes golden, deep. Eyes that didn't look at what was here — they looked at what would be.
+«Με λένε Sparken. Κι εγώ δεν βλέπω τα πράγματα όπως εσείς. Δεν βλέπω τι είναι. Βλέπω πού πάνε.»`,
+          en: `And then, a breeze entered the room. Not a strong wind, the kind that knocks papers to the floor — a high wind. Like air descending from a mountain peak, clean and cool. Alexandra took a deep breath, and it seemed to her that it smelled of freedom.
 
-"What are you looking at?" he asked. His voice deep, calm, like wind in a canyon.
+Then came the shadow. Wide, calm, like a cloud passing slowly in front of the sun. The three children raised their heads at the very same moment.
 
-"You're looking too close."
+An eagle landed on the windowsill, completely silent. His wings didn't look like the wings of an ordinary bird — they were like holograms, with colors that kept changing, like a sunset in motion. Orange, purple, gold. His eyes were golden and deep. Strange eyes. Eyes that didn't look at what was in front of them — they looked at what would be.
 
-"Who are you?" asked Alexandra, full of awe.
+"What are you looking at?" he asked. His voice was deep and calm, like wind moving through a canyon.
 
-"My name is Sparken. And I don't see things. I see where they're going."`
+The children exchanged confused glances. They were looking at the object on the table. What else would they be looking at?
+
+"You're looking too close," said the eagle, as if he had read their minds.
+
+"Who... who are you?" asked Alexandra, full of awe. Her heart was pounding — but, strangely, not from fear.
+
+The eagle folded his wings with a slow, royal motion and looked at them one by one.
+
+"My name is Sparken. And I don't see things the way you do. I don't see what they are. I see where they're going."`
         }
       },
       {
@@ -107,44 +115,48 @@ An eagle landed silently. His wings were like holograms — colors shifting like
         image: "/images/sparken.jpg",
         imageCaption: { el: "«Η εξέλιξη χρειάζεται φως. Όχι τελειότητα.»", en: "\"Evolution needs light. Not perfection.\"" },
         text: {
-          el: `Ο Sparken δεν άγγιξε το αντικείμενο. Κοίταξε πέρα από αυτό.
+          el: `Ο Sparken πέταξε από το περβάζι και στάθηκε δίπλα στο τραπέζι. Δεν άγγιξε το αντικείμενο. Δεν το περιεργάστηκε καν. Κοίταξε πέρα από αυτό, σαν να έβλεπε κάτι που τα παιδιά δεν μπορούσαν ακόμη να δουν.
 
-«Ξέρετε τι είναι αυτό που κρατάτε;»
+«Ξέρετε τι είναι αυτό που κρατάτε;» ρώτησε.
 
-«Μια πρώτη προσπάθεια», είπε η Ελευθερία.
+Τα παιδιά κοιτάχτηκαν. Η Ελευθερία βρήκε πρώτη το θάρρος να μιλήσει. «Μια... πρώτη προσπάθεια;»
 
-«Σωστά. Και ξέρετε τι ΔΕΝ είναι; Δεν είναι τελικό.»
+«Σωστά.» Τα χρυσά μάτια έλαμψαν. «Και ξέρετε τι ΔΕΝ είναι; Δεν είναι τελικό.»
 
-Ο Φίλιππος ένιωσε κάτι να αλλάζει μέσα του. Σαν πόρτα που ανοίγει σε δωμάτιο που νόμιζε κλειδωμένο.
+Ο Φίλιππος ένιωσε κάτι να αλλάζει μέσα του. Σαν πόρτα που ανοίγει αργά σε ένα δωμάτιο που νόμιζε κλειδωμένο για πάντα. Δεν είναι τελικό. Άρα μπορεί να αλλάξει. Άρα τα λάθη δεν είναι ντροπή — είναι σκαλοπάτια.
 
-«Δεν χρειάζεται να είναι τελικό. Χρειάζεται μόνο να βγει. Γιατί μόνο στο φως μπορεί να αλλάξει.»
+«Δεν χρειάζεται να είναι τέλειο», συνέχισε ο Sparken. «Χρειάζεται μόνο να βγει έξω. Γιατί μόνο στο φως μπορεί να μεγαλώσει. Στο σκοτάδι δεν βελτιώνεται τίποτα — ούτε τα πράγματα, ούτε οι άνθρωποι.»
 
-«Αν το δείξουμε έτσι, θα νομίζουν ότι δεν ξέρουμε τι κάνουμε!» είπε η Αλεξάνδρα.
+«Μα αν το δείξουμε έτσι, στραβό και γρατζουνισμένο», είπε η Αλεξάνδρα, «θα νομίζουν ότι δεν ξέρουμε τι κάνουμε!»
 
-Τα χρυσά μάτια του Sparken ήταν ζεστά. Χωρίς κρίση.
+Ο Sparken γύρισε προς το μέρος της. Τα χρυσά μάτια του ήταν ζεστά. Χωρίς ίχνος κρίσης.
 
-«Και αν δεν το δείξετε, θα νομίζετε εσείς ότι δεν μπορείτε.»
+«Και αν δεν το δείξετε ποτέ, θα νομίζετε εσείς ότι δεν μπορείτε. Ποιο από τα δύο σε τρομάζει περισσότερο;»
 
-Η WiseBot μίλησε τελευταία: «Η εξέλιξη χρειάζεται φως. Όχι τελειότητα.»`,
-          en: `Sparken didn't touch the object. He looked beyond it.
+Η Αλεξάνδρα άνοιξε το στόμα να απαντήσει. Το ξανάκλεισε. Δεν χρειαζόταν απάντηση.
 
-"Do you know what this thing you're holding is?"
+Η WiseBot, που τους παρακολουθούσε σιωπηλά, μίλησε τελευταία, με φωνή απαλή σαν φως: «Η εξέλιξη χρειάζεται φως. Όχι τελειότητα.»`,
+          en: `Sparken glided down from the windowsill and stood beside the table. He didn't touch the object. He didn't even examine it. He looked beyond it, as if he could see something the children couldn't see yet.
 
-"A first attempt," said Eleftheria.
+"Do you know what this thing you're holding is?" he asked.
 
-"Right. And do you know what it is NOT? It is not final."
+The children looked at each other. Eleftheria was the first to find the courage to speak. "A... first attempt?"
 
-Philippos felt something shift inside him. Like a door opening in a room he thought was locked.
+"Right." The golden eyes gleamed. "And do you know what it is NOT? It is not final."
 
-"It doesn't need to be final. It just needs to come out. Because only in the light can it change."
+Philippos felt something shift inside him. Like a door slowly opening into a room he had thought was locked forever. It is not final. So it can change. So mistakes are not shameful — they are stepping stones.
 
-"If we show it like this, they'll think we don't know what we're doing!" said Alexandra.
+"It doesn't need to be perfect," Sparken continued. "It only needs to come out. Because only in the light can it grow. In the dark, nothing improves — not things, and not people."
 
-Sparken's golden eyes were warm. Without judgment.
+"But if we show it like this, crooked and scratched," said Alexandra, "they'll think we don't know what we're doing!"
 
-"And if you don't show it, you will think you can't."
+Sparken turned toward her. His golden eyes were warm. Without a trace of judgment.
 
-WiseBot spoke last: "Evolution needs light. Not perfection."`
+"And if you never show it, you will be the ones thinking you can't. Which of the two frightens you more?"
+
+Alexandra opened her mouth to answer. Then closed it again. No answer was needed.
+
+WiseBot, who had been watching them silently, spoke last, her voice soft as light: "Evolution needs light. Not perfection."`
         }
       },
       {
@@ -152,48 +164,52 @@ WiseBot spoke last: "Evolution needs light. Not perfection."`
         image: "/images/alexandra.webp",
         imageCaption: { el: "«Δεν είναι τέλειο. Αλλά είναι ωραίο.»", en: "\"It's not perfect. But it's nice.\"" },
         text: {
-          el: `Δεν έκαναν παρουσίαση. Δεν κάλεσαν κόσμο.
+          el: `Δεν έκαναν μεγάλη παρουσίαση. Δεν κάλεσαν κόσμο, δεν έστησαν καρέκλες, δεν έμαθαν λόγια απέξω.
 
-Το έδειξαν σε έναν. Ένα παιδί από τη διπλανή αυλή. Κάποιον που δεν ήξερε τίποτα.
+Το έδειξαν σε έναν. Έναν μόνο. Ένα παιδί από τη διπλανή αυλή. Κάποιον που δεν ήξερε τίποτα — ούτε για τα απογεύματα που το έφτιαχναν, ούτε για τα σχέδια, ούτε για τους φόβους τους. Κάποιον με καθαρά μάτια.
 
-«Τι είναι αυτό;» ρώτησε το παιδί.
+«Τι είναι αυτό;» ρώτησε το παιδί, σκύβοντας πάνω από το τραπέζι με περιέργεια.
 
-«Είναι… κάτι που φτιάχνουμε.» Η φωνή του Φίλιππου τρεμόπαιξε στο «φτιάχνουμε» — γιατί δεν ήταν σίγουρος αν αξίζει αυτή η λέξη.
+«Είναι... κάτι που φτιάχνουμε.» Η φωνή του Φίλιππου τρεμόπαιξε στη λέξη «φτιάχνουμε» — γιατί μέσα του δεν ήταν σίγουρος αν αυτό που είχαν άξιζε μια τόσο μεγάλη λέξη.
 
-Το παιδί το πήρε στα χέρια. Το γύρισε. Σιωπή.
+Το παιδί το πήρε προσεκτικά στα χέρια του. Το γύρισε από τη μια πλευρά. Μετά από την άλλη. Το κοίταξε από πολύ κοντά. Σιωπή. Μια σιωπή που κράτησε τρία δευτερόλεπτα και φάνηκε σαν τρεις ώρες.
 
-«Δεν είναι τέλειο», είπε.
+«Δεν είναι τέλειο», είπε τελικά.
 
-Η καρδιά της Αλεξάνδρας βούλιαξε.
+Η καρδιά της Αλεξάνδρας βούλιαξε σαν πέτρα σε πηγάδι. Ορίστε. Το ήξερε. Δεν έπρεπε ποτέ να το δείξουν.
 
 Μετά—
 
-«Αλλά είναι ωραίο.»
+«Αλλά είναι ωραίο. Πώς το σκεφτήκατε; Μπορώ να δοκιμάσω κι εγώ;»
 
-Ένα χαμόγελο ειλικρινές. Αυτό που δεν μπορείς να ψεύσεις.
+Και χαμογέλασε. Ένα χαμόγελο ειλικρινές, αυθόρμητο — από αυτά που δεν μπορείς να προσποιηθείς όσο κι αν προσπαθήσεις.
 
-Η Αλεξάνδρα ένιωσε τα μάτια της να καίνε. Ο Φίλιππος κούνησε τη γροθιά σιωπηλά. Η Ελευθερία χαμογέλασε. Αυτό ήταν αρκετό.`,
-          en: `They didn't do a presentation. Didn't invite a crowd.
+Η Αλεξάνδρα ένιωσε τα μάτια της να καίνε — αυτή τη φορά από χαρά. Ο Φίλιππος κούνησε τη γροθιά του σιωπηλά στον αέρα, σαν να είχε βάλει γκολ. Η Ελευθερία χαμογέλασε βαθιά και ήσυχα.
 
-They showed it to one person. A kid from the yard next door. Someone who knew nothing.
+Δεν χρειάζονταν χειροκροτήματα. Ένα ειλικρινές «είναι ωραίο» ήταν αρκετό.`,
+          en: `They didn't put on a big presentation. They didn't invite a crowd, didn't set up chairs, didn't memorize speeches.
 
-"What is this?" the kid asked.
+They showed it to one person. Just one. A kid from the yard next door. Someone who knew nothing — not about the afternoons spent building it, not about the plans, not about their fears. Someone with clear eyes.
 
-"It's… something we're making." Philippos's voice wavered on "making" — because he wasn't sure the word was deserved.
+"What is this?" the kid asked, leaning over the table with curiosity.
 
-The kid took it in his hands. Turned it. Silence.
+"It's... something we're making." Philippos's voice wavered on the word "making" — because deep down he wasn't sure that what they had deserved such a big word.
 
-"It's not perfect," he said.
+The kid took it carefully in his hands. Turned it one way. Then the other. Looked at it up close. Silence. A silence that lasted three seconds and felt like three hours.
 
-Alexandra's heart sank.
+"It's not perfect," he said at last.
+
+Alexandra's heart sank like a stone in a well. There it was. She knew it. They should never have shown it.
 
 Then—
 
-"But it's nice."
+"But it's nice. How did you come up with it? Can I try it too?"
 
-An honest smile. The kind you can't fake.
+And he smiled. An honest, spontaneous smile — the kind you can't fake no matter how hard you try.
 
-Alexandra felt her eyes burn. Philippos silently pumped his fist. Eleftheria smiled. That was enough.`
+Alexandra felt her eyes burn — this time with joy. Philippos silently pumped his fist in the air, as if he had scored a goal. Eleftheria smiled, deep and quiet.
+
+They didn't need applause. One honest "it's nice" was enough.`
         }
       },
       {
@@ -201,38 +217,42 @@ Alexandra felt her eyes burn. Philippos silently pumped his fist. Eleftheria smi
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Πέντε μαθήματα. Μία αρχή.", en: "Five lessons. One beginning." },
         text: {
-          el: `Το βράδυ, γύρισαν στο τραπέζι. Τα πρόσωπά τους ήταν διαφορετικά. Πιο γαλήνια. Πιο ανοιχτά. Σαν παράθυρα που ξεθόλωσαν μετά τη βροχή.
+          el: `Το ίδιο βράδυ, γύρισαν στο τραπέζι. Τα πρόσωπά τους όμως ήταν διαφορετικά. Πιο γαλήνια. Πιο ανοιχτά. Σαν παράθυρα που ξεθόλωσαν μετά τη βροχή και άφησαν επιτέλους το φως να μπει.
 
-Δεν κάθισαν να φτιάξουν κάτι τέλειο. Κάθισαν να φτιάξουν κάτι καλύτερο. Μικρή αλλαγή στη λέξη. Τεράστια αλλαγή στη σημασία.
+Δεν κάθισαν να φτιάξουν κάτι τέλειο. Κάθισαν να φτιάξουν κάτι καλύτερο. Μικρή αλλαγή στη λέξη — τεράστια αλλαγή στη σημασία. Το «τέλειο» σε παγώνει. Το «καλύτερο» σε βάζει σε κίνηση.
+
+Η Αλεξάνδρα διόρθωνε τις γρατζουνιές χωρίς ντροπή πια. Ο Φίλιππος δοκίμαζε ιδέες που χθες θα φοβόταν ακόμα και να πει δυνατά. Η Ελευθερία κρατούσε σημειώσεις: τι δούλεψε, τι όχι, τι θα δοκιμάσουν αύριο.
 
 Οι πέντε ήρωες στέκονταν γύρω τους. Σαν φρουρά. Σαν οικογένεια.
 
-«Σκεφτήκατε», είπε η WiseBot.
-«Ξεκινήσατε», χαμογέλασε ο Crocus.
-«Σχεδιάσατε», είπε ο Pencilo.
-«Το φτιάξατε», είπε η Link.
+«Σκεφτήκατε», είπε η WiseBot, και το φως στο στήθος της έλαμψε απαλά.
+«Ξεκινήσατε», χαμογέλασε ο Crocus, με τη γνωστή σπίθα στα μάτια.
+«Σχεδιάσατε», είπε ο Pencilo, κουνώντας ένα μολύβι σαν σημαία.
+«Το κάνατε αληθινό», είπε η Link.
 
-Ο Sparken άπλωσε τα φτερά. Χρώματα γέμισαν το δωμάτιο — σαν ουράνιο τόξο σε σκοτεινό ουρανό.
+Ο Sparken άπλωσε τα φτερά του αργά. Χρώματα γέμισαν το δωμάτιο — πορτοκαλί, μωβ, χρυσό — σαν ουράνιο τόξο μέσα σε σκοτεινό ουρανό.
 
-«Τώρα… κοιτάτε μπροστά.»
+«Και τώρα», είπε, «κοιτάτε μπροστά. Μην κολλάτε στα λάθη του χθες. Τα λάθη είναι σκαλοπάτια — και η εξέλιξη είναι η σκάλα.»
 
-Κάθε ταξίδι τελειώνει κάπου. Αλλά τα σωστά ταξίδια τελειώνουν εκεί — στην αρχή του επόμενου.`,
-          en: `That night, they returned to the table. Their faces were different. More peaceful. More open. Like windows cleared after rain.
+Κάθε ταξίδι τελειώνει κάπου. Αλλά τα σωστά ταξίδια τελειώνουν εκεί ακριβώς — στην αρχή του επόμενου.`,
+          en: `That same evening, they returned to the table. But their faces were different. More peaceful. More open. Like windows cleared after the rain, finally letting the light come in.
 
-They didn't sit down to make something perfect. They sat down to make something better. Small change in the word. Enormous change in meaning.
+They didn't sit down to make something perfect. They sat down to make something better. A small change in the word — an enormous change in meaning. "Perfect" freezes you. "Better" sets you in motion.
+
+Alexandra fixed the scratches without shame now. Philippos tried out ideas that yesterday he would have been afraid even to say out loud. Eleftheria kept notes: what worked, what didn't, what they would try tomorrow.
 
 The five heroes stood around them. Like guardians. Like family.
 
-"You thought," said WiseBot.
-"You started," smiled Crocus.
-"You planned," said Pencilo.
-"You built it," said Link.
+"You thought," said WiseBot, the light on her chest glowing gently.
+"You started," smiled Crocus, with that familiar spark in his eyes.
+"You planned," said Pencilo, waving a pencil like a flag.
+"You made it real," said Link.
 
-Sparken spread his wings. Colors filled the room — like a rainbow in a dark sky.
+Sparken spread his wings slowly. Colors filled the room — orange, purple, gold — like a rainbow in a dark sky.
 
-"Now… you look ahead."
+"And now," he said, "you look ahead. Don't get stuck on yesterday's mistakes. Mistakes are the steps — and evolution is the staircase."
 
-Every journey ends somewhere. But the right journeys end there — at the beginning of the next one.`
+Every journey ends somewhere. But the right journeys end exactly there — at the beginning of the next one.`
         }
       }
     ]

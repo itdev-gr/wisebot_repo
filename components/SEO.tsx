@@ -34,12 +34,12 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   academy: {
     title: {
-      el: 'Ακαδημία — Μάθε για 90 Σπουδαίους Ανθρώπους | WiseBot Academy',
-      en: 'Academy — Learn About 90 Great People | WiseBot Academy',
+      el: 'Ακαδημία — Μάθε για 98 Σπουδαίους Ανθρώπους | WiseBot Academy',
+      en: 'Academy — Learn About 98 Great People | WiseBot Academy',
     },
     description: {
-      el: 'Ανακάλυψε τις ιστορίες 90 σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.',
-      en: 'Discover the stories of 90 great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-13.',
+      el: 'Ανακάλυψε τις ιστορίες 98 σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.',
+      en: 'Discover the stories of 98 great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-13.',
     },
     keywords: {
       el: 'εκπαιδευτικές ιστορίες, σπουδαίοι άνθρωποι για παιδιά, μαθαίνω ιστορία, WiseBot Academy, quiz παιδιά, Αϊνστάιν, Τέσλα, Curie',
@@ -49,8 +49,8 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Course',
-      name: 'WiseBot Academy - Ιστορίες 90 Σπουδαίων Ανθρώπων',
-      description: 'Διαδραστικά μαθήματα για 90 σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-13 ετών.',
+      name: 'WiseBot Academy - Ιστορίες 98 Σπουδαίων Ανθρώπων',
+      description: 'Διαδραστικά μαθήματα για 98 σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-13 ετών.',
       provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
       audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 13 },
       isAccessibleForFree: true,
@@ -59,18 +59,18 @@ const PAGE_META: Record<string, PageMeta> = {
       hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT30M' },
     },
     faq: [
-      { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: 'Ιστορίες 90 σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.' },
+      { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: 'Ιστορίες 98 σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.' },
       { q: 'Είναι δωρεάν η Ακαδημία;', a: 'Ναι! Η Ακαδημία είναι δωρεάν. Κερδίζεις XP και credits διαβάζοντας ιστορίες και απαντώντας σωστά σε quiz.' },
     ],
   },
   ebooks: {
     title: {
-      el: 'Ebooks — 26 Διαδραστικά Βιβλία για Παιδιά | WiseBot Academy',
-      en: 'Ebooks — 26 Interactive Books for Kids | WiseBot Academy',
+      el: 'Ebooks — 34 Διαδραστικά Βιβλία για Παιδιά | WiseBot Academy',
+      en: 'Ebooks — 34 Interactive Books for Kids | WiseBot Academy',
     },
     description: {
-      el: 'Διάβασε 26 δωρεάν ebooks με αφήγηση AI! Ιστορίες για Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία. Κάθε βιβλίο έχει quiz! Ελληνικά & Αγγλικά.',
-      en: 'Read 26 free AI-narrated ebooks! Stories about Ancient Greece, Space, Animals, Technology. Every book includes a quiz! Greek & English.',
+      el: 'Διάβασε 34 δωρεάν ebooks με αφήγηση AI! Ιστορίες για Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία. Κάθε βιβλίο έχει quiz! Ελληνικά & Αγγλικά.',
+      en: 'Read 34 free AI-narrated ebooks! Stories about Ancient Greece, Space, Animals, Technology. Every book includes a quiz! Greek & English.',
     },
     keywords: {
       el: 'παιδικά ebooks, δωρεάν βιβλία για παιδιά, ebooks με αφήγηση, εκπαιδευτικά βιβλία, WiseBot ebooks, ebooks ελληνικά',
@@ -80,8 +80,8 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'WiseBot Academy - 26 Εκπαιδευτικά Ebooks',
-      description: '26 δωρεάν εκπαιδευτικά ebooks με αφήγηση AI, quiz, Ελληνικά και Αγγλικά.',
+      name: 'WiseBot Academy - 34 Εκπαιδευτικά Ebooks',
+      description: '34 δωρεάν εκπαιδευτικά ebooks με αφήγηση AI, quiz, Ελληνικά και Αγγλικά.',
       numberOfItems: 26,
       isAccessibleForFree: true,
       inLanguage: ['el', 'en'],
@@ -98,7 +98,7 @@ const PAGE_META: Record<string, PageMeta> = {
       },
     },
     faq: [
-      { q: 'Πόσα ebooks υπάρχουν;', a: '26 εκπαιδευτικά ebooks σε Ελληνικά και Αγγλικά. Καλύπτουν θέματα: Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία, Τέχνη, Ιστορία.' },
+      { q: 'Πόσα ebooks υπάρχουν;', a: '34 εκπαιδευτικά ebooks σε Ελληνικά και Αγγλικά. Καλύπτουν θέματα: Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία, Τέχνη, Ιστορία.' },
       { q: 'Μπορώ να τα ακούσω;', a: 'Ναι! Κάθε ebook έχει AI text-to-speech αφήγηση. Μπορείς να διαβάσεις ή να ακούσεις.' },
       { q: 'Έχουν quiz;', a: 'Ναι, κάθε βιβλίο έχει quiz στο τέλος. Κερδίζεις credits αν απαντήσεις σωστά!' },
     ],

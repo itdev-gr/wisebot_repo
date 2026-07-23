@@ -52,7 +52,19 @@ const bookImporters: Record<number, () => Promise<{ default?: any; [key: string]
   24: () => import('../data/bookData_24'),
   25: () => import('../data/bookData_25'),
   26: () => import('../data/bookData_26'),
+  27: () => import('../data/bookData_27'),
+  28: () => import('../data/bookData_28'),
+  29: () => import('../data/bookData_29'),
+  30: () => import('../data/bookData_30'),
+  31: () => import('../data/bookData_31'),
+  32: () => import('../data/bookData_32'),
+  33: () => import('../data/bookData_33'),
+  34: () => import('../data/bookData_34'),
 };
+
+// Static narration mp3s (/audio/ebooks) were recorded for the pre-2026-07 page
+// texts. Re-enable after regenerating them for the enriched books.
+const STATIC_AUDIO_READY = false;
 
 const bookCache = new Map<number, any[]>();
 
@@ -208,7 +220,7 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     // Fresh run — re-arm the end-of-playback guard for replays of this page
     endedOnceRef.current = false;
     playStartedAtRef.current = 0;
-    if (bookId && pageNum) {
+    if (STATIC_AUDIO_READY && bookId && pageNum) {
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       try {
         const staticUrl = await loadStaticEbookAudio(bookId, pageNum, lang);
@@ -484,7 +496,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
           WISEBOT &{' '}<span className="text-transparent bg-clip-text magic-gradient">{lang === 'el' ? 'ΟΙ ΦΙΛΟΙ' : 'FRIENDS'}</span>
         </h1>
         <p className="text-white/50 font-bold uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-lg">
-          {lang === 'el' ? '26 ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +2 CREDITS' : '26 STORIES • 1 BOOK = +2 CREDITS'}
+          {lang === 'el' ? `${BOOKS.length} ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +2 CREDITS` : `${BOOKS.length} STORIES • 1 BOOK = +2 CREDITS`}
         </p>
       </div>
 

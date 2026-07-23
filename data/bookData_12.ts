@@ -36,36 +36,36 @@ export const BOOK_12: Book[] = [
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Ένα μήνυμα. Τρεις καρδιές που πάγωσαν.", en: "One message. Three hearts that froze." },
         text: {
-          el: `Το μήνυμα ήρθε απρόσμενα. Σαν κεραυνός σε καθαρό ουρανό.
+          el: `Το μήνυμα ήρθε απρόσμενα, ένα ήσυχο απόγευμα Τρίτης. Σαν κεραυνός σε καταγάλανο ουρανό.
 
-Η Αλεξάνδρα το διάβασε πρώτη. Τα μάτια της σάρωσαν τις λέξεις — αργά, προσεκτικά, σαν να ήλπιζε ότι κάποια θα εξαφανιζόταν αν τις κοιτούσε αρκετά. «Θέλουμε να παρουσιάσετε το project σας. Μπροστά σε κόσμο. Αύριο.»
+Η Αλεξάνδρα το διάβασε πρώτη. Τα μάτια της σάρωσαν τις λέξεις — αργά, προσεκτικά, σαν να ήλπιζε ότι κάποια θα εξαφανιζόταν αν την κοιτούσε αρκετή ώρα. «Θέλουμε να παρουσιάσετε το project σας. Μπροστά σε κόσμο. Αύριο.»
 
-Διάβασε ξανά. Οι λέξεις δεν εξαφανίστηκαν. Αντίθετα — μεγάλωσαν. Γέμισαν το δωμάτιο σαν καπνός.
+Διάβασε ξανά. Και ξανά. Οι λέξεις δεν εξαφανίστηκαν. Αντίθετα — μεγάλωσαν. Γέμισαν το δωμάτιο σαν καπνός που τρυπώνει κάτω από την πόρτα.
 
-«Δεν είμαστε έτοιμοι», είπε αμέσως. Η φωνή της ήταν σταθερή, αλλά τα χέρια της έτρεμαν πάνω στο τηλέφωνο.
+«Δεν είμαστε έτοιμοι», είπε αμέσως. Η φωνή της προσπαθούσε να ακουστεί σταθερή, λογική, μεγάλη. Αλλά τα χέρια της έτρεμαν πάνω στο τηλέφωνο και το πρόδιδαν.
 
-Ο Φίλιππος χαμογέλασε νευρικά. Ένα χαμόγελο που δεν έφτασε ποτέ στα μάτια του. «Μπροστά σε κόσμο;» Η φωνή του ακούστηκε πιο αδύναμη απ' ό,τι ήθελε.
+Ο Φίλιππος έσκυψε πάνω από την οθόνη και χαμογέλασε νευρικά — ένα χαμόγελο που δεν έφτασε ποτέ στα μάτια του. «Μπροστά σε κόσμο; Σε αληθινό κόσμο; Με πρόσωπα;» Η φωνή του βγήκε πιο ψιλή και πιο αδύναμη απ' όσο ήθελε.
 
-Η Ελευθερία δεν μίλησε. Ένιωσε κάτι στο στομάχι — ένα σφίξιμο βαθύ, σαν κόμπος που δεν λύνεται. Κοίταξε τις σημειώσεις της. Κάθε λέξη που είχε γράψει φάνηκε ξαφνικά μικρή. Ανεπαρκής. Γελοία.
+Η Ελευθερία δεν μίλησε καθόλου. Ένιωσε κάτι στο στομάχι — ένα σφίξιμο βαθύ, σαν κόμπος σε σχοινί που όσο τον τραβάς, τόσο σφίγγει. Κοίταξε τις σημειώσεις της, τις σελίδες που είχε γράψει με τόσο κόπο. Κάθε λέξη φάνηκε ξαφνικά μικρή. Ανεπαρκής. Σχεδόν γελοία.
 
-Ο Crocus πετάχτηκε ανάμεσά τους. «ΠΑΜΕ!» φώναξε χαρούμενα.
+Ο Crocus πετάχτηκε ανάμεσά τους με έναν πήδο. «ΠΑΜΕ!» φώναξε χαρούμενα, με την ουρά του να χτυπάει το πάτωμα. «Αυτό περιμέναμε!»
 
-Κανείς δεν απάντησε. Η σιωπή που ακολούθησε μιλούσε πιο δυνατά από κάθε λέξη. Και αυτό που έλεγε ήταν ένα: φόβος.`,
-          en: `The message came unexpectedly. Like lightning in a clear sky.
+Κανείς δεν απάντησε. Η σιωπή που ακολούθησε μιλούσε πιο δυνατά από κάθε λέξη. Και αυτό που έλεγε ήταν ένα πράγμα, καθαρό και παγωμένο: φόβος.`,
+          en: `The message arrived unexpectedly, on a quiet Tuesday afternoon. Like lightning out of a bright blue sky.
 
-Alexandra read it first. Her eyes scanned the words — slowly, carefully, as if hoping some would disappear if she stared long enough. "We want you to present your project. In front of people. Tomorrow."
+Alexandra read it first. Her eyes scanned the words — slowly, carefully, as if hoping one of them might disappear if she stared long enough. "We want you to present your project. In front of people. Tomorrow."
 
-She read it again. The words didn't vanish. Instead — they grew. They filled the room like smoke.
+She read it again. And again. The words did not vanish. Instead — they grew. They filled the room like smoke slipping under a door.
 
-"We're not ready," she said immediately. Her voice was steady, but her hands were trembling on the phone.
+"We're not ready," she said immediately. Her voice was trying to sound steady, logical, grown-up. But her hands were trembling on the phone and giving her away.
 
-Philippos smiled nervously. A smile that never reached his eyes. "In front of people?" His voice sounded weaker than he intended.
+Philippos leaned over the screen and smiled nervously — a smile that never reached his eyes. "In front of people? Real people? With faces?" His voice came out higher and weaker than he intended.
 
-Eleftheria didn't speak. She felt something in her stomach — a deep tightening, like a knot that won't come undone. She looked at her notes. Every word she had written suddenly seemed small. Inadequate. Ridiculous.
+Eleftheria didn't speak at all. She felt something in her stomach — a deep tightening, like a knot in a rope that pulls tighter the more you tug at it. She looked at her notes, the pages she had written with so much care. Every word suddenly seemed small. Inadequate. Almost ridiculous.
 
-Crocus leaped between them. "LET'S GO!" he shouted happily.
+Crocus leaped into the middle of them with one bound. "LET'S GO!" he shouted happily, his tail thumping the floor. "This is what we've been waiting for!"
 
-No one answered. The silence that followed spoke louder than any word. And what it said was one thing: fear.`
+No one answered. The silence that followed spoke louder than any word. And what it said was one thing, clear and ice-cold: fear.`
         }
       },
       {
@@ -73,40 +73,48 @@ No one answered. The silence that followed spoke louder than any word. And what 
         image: "/images/filippos.webp",
         imageCaption: { el: "«Φοβάμαι.» Δύο λέξεις. Τόσο βαριές.", en: "\"I'm scared.\" Two words. So heavy." },
         text: {
-          el: `Αυτή τη φορά ο φόβος δεν ήρθε σαν τέρας. Δεν ήρθε σαν σκιά στο σκοτάδι. Ήρθε ντυμένος λογική — ήρεμος, πειστικός, σχεδόν φιλικός.
+          el: `Αυτή τη φορά ο φόβος δεν ήρθε σαν τέρας με δόντια. Δεν ήρθε σαν σκιά στο σκοτάδι. Ήρθε ντυμένος λογική — ήρεμος, πειστικός, σχεδόν φιλικός. Και αυτοί οι φόβοι είναι οι πιο δύσκολοι, γιατί ακούγονται σαν αλήθεια.
 
-«Κι αν ξεχάσω τα πάντα;» η Ελευθερία κοίταξε τα χέρια της. Τα ίδια χέρια που είχαν γράψει τόσα — τώρα κρέμονταν άχρηστα στα πλάγια της.
+«Κι αν ξεχάσω τα πάντα;» Η Ελευθερία κοίταξε τα χέρια της. Τα ίδια χέρια που είχαν γράψει σελίδες ολόκληρες — τώρα κρέμονταν άχρηστα στα πλάγιά της, σαν να μην της ανήκαν.
 
-«Κι αν γελάσουν;» η Αλεξάνδρα ένιωσε τα μάτια της να καίνε.
+«Κι αν γελάσουν;» Η Αλεξάνδρα ένιωσε τα μάτια της να καίνε. Στο μυαλό της έπαιζε ήδη η σκηνή: τα πρόσωπα, τα χαμόγελα, τα ψιθυρίσματα.
 
-Ο Φίλιππος προσπάθησε να ελέγξει τον μηχανισμό μια τελευταία φορά. Τα δάχτυλά του γλίστρησαν. Λάθη αρχαρίου. Σαν να είχε ξεχάσει τα πάντα.
+Ο Φίλιππος έσκυψε να ελέγξει τον μηχανισμό τους μια τελευταία φορά. Τα δάχτυλά του — τα σταθερά, έμπειρα δάχτυλά του — γλίστρησαν δύο φορές. Λάθη αρχαρίου. Σαν ο φόβος να είχε μπει και μέσα στα χέρια του και να είχε σβήσει όλα όσα ήξεραν.
 
-Κανείς δεν μίλησε για λεπτά. Κάθε σκέψη ήταν ένας τοίχος. Κάθε αμφιβολία μια πόρτα κλειστή.
+Κανείς δεν μίλησε για πολλά λεπτά. Κάθε σκέψη ήταν ένας τοίχος. Κάθε αμφιβολία μια πόρτα που έκλεινε με κρότο.
 
-Και τότε ο Φίλιππος είπε κάτι που δεν περίμενε κανείς. Ούτε ο ίδιος.
+Και τότε ο Φίλιππος είπε κάτι που δεν περίμενε κανείς. Ούτε καν ο ίδιος.
 
 «Φοβάμαι.»
 
-Δύο λέξεις. Τόσο μικρές. Τόσο βαριές. Αλλά αυτή τη φορά τις είπε. Δεν τις έκρυψε πίσω από θυμό ή αδιαφορία. Τις άφησε να πέσουν στη μέση του δωματίου, γυμνές και αληθινές.
+Δύο λέξεις. Τόσο μικρές. Τόσο βαριές. Αλλά αυτή τη φορά τις είπε δυνατά. Δεν τις έκρυψε πίσω από θυμό, πίσω από πλάκες, πίσω από ένα «βαριέμαι». Τις άφησε να πέσουν στη μέση του δωματίου, γυμνές και αληθινές.
 
-Η Αλεξάνδρα τον κοίταξε. Η Ελευθερία τον κοίταξε. Και κάτι άλλαξε. Γιατί ο φόβος, όταν τον ονομάσεις, χάνει λίγο από τη δύναμή του.`,
-          en: `This time, fear didn't come as a monster. It didn't come as a shadow in the dark. It came dressed as logic — calm, convincing, almost friendly.
+Η Αλεξάνδρα τον κοίταξε. «Κι εγώ», ψιθύρισε.
 
-"What if I forget everything?" Eleftheria looked at her hands. The same hands that had written so much — now hanging useless at her sides.
+«Κι εγώ», είπε η Ελευθερία.
 
-"What if they laugh?" Alexandra felt her eyes burn.
+Και κάτι άλλαξε στο δωμάτιο. Έγινε πιο ελαφρύ. Γιατί ο φόβος, όταν τον ονομάσεις και τον μοιραστείς, χάνει αμέσως λίγη από τη δύναμή του.`,
+          en: `This time, fear didn't come as a monster with teeth. It didn't come as a shadow in the dark. It came dressed as logic — calm, convincing, almost friendly. And those fears are the hardest ones, because they sound like the truth.
 
-Philippos tried to check the mechanism one last time. His fingers slipped. Beginner mistakes. As if he had forgotten everything.
+"What if I forget everything?" Eleftheria stared at her hands. The same hands that had written entire pages — now hanging useless at her sides, as if they didn't belong to her.
 
-No one spoke for minutes. Every thought was a wall. Every doubt a closed door.
+"What if they laugh?" Alexandra felt her eyes burning. The scene was already playing in her head: the faces, the smirks, the whispers.
 
-And then Philippos said something no one expected. Not even himself.
+Philippos bent down to check their mechanism one last time. His fingers — his steady, experienced fingers — slipped twice. Beginner mistakes. As if fear had crawled into his hands too and erased everything they knew.
+
+No one spoke for many minutes. Every thought was a wall. Every doubt a door slamming shut.
+
+And then Philippos said something nobody expected. Not even himself.
 
 "I'm scared."
 
-Two words. So small. So heavy. But this time he said them. He didn't hide them behind anger or indifference. He let them fall into the middle of the room, naked and true.
+Two words. So small. So heavy. But this time he said them out loud. He didn't hide them behind anger, behind jokes, behind an "I'm bored." He let them fall into the middle of the room, naked and true.
 
-Alexandra looked at him. Eleftheria looked at him. And something changed. Because fear, when you name it, loses some of its power.`
+Alexandra looked at him. "Me too," she whispered.
+
+"Me too," said Eleftheria.
+
+And something changed in the room. It grew lighter. Because fear, once you name it and share it, instantly loses some of its power.`
         }
       },
       {
@@ -114,40 +122,40 @@ Alexandra looked at him. Eleftheria looked at him. And something changed. Becaus
         image: "/images/paidia-kai-crocus.webp",
         imageCaption: { el: "«Φοβηθείτε — και πάτε.»", en: "\"Be afraid — and go.\"" },
         text: {
-          el: `Ο Crocus δεν φώναξε. Δεν πετάχτηκε. Δεν χοροπήδησε. Για πρώτη φορά, στάθηκε ακίνητος — τα πράσινα μάτια του σταθερά, η φωνή του χαμηλή.
+          el: `Ο Crocus δεν φώναξε. Δεν πετάχτηκε. Δεν χοροπήδησε. Για πρώτη φορά από τότε που τον ήξεραν, στάθηκε εντελώς ακίνητος — τα πράσινα μάτια του σταθερά, η φωνή του χαμηλή και σοβαρή.
 
 «Ξέρετε τι φοβάμαι εγώ;» ρώτησε.
 
-Τα παιδιά τον κοίταξαν. Ο Crocus δεν φοβόταν ποτέ τίποτα — ή τουλάχιστον αυτό νόμιζαν. Ήταν πάντα αυτός που πηδούσε πρώτος, που γελούσε πιο δυνατά, που φώναζε «ΠΑΜΕ» χωρίς δεύτερη σκέψη.
+Τα παιδιά τον κοίταξαν έκπληκτα. Ο Crocus δεν φοβόταν ποτέ τίποτα — ή τουλάχιστον έτσι νόμιζαν. Ήταν πάντα αυτός που πηδούσε πρώτος στο άγνωστο, που γελούσε πιο δυνατά απ' όλους, που φώναζε «ΠΑΜΕ» χωρίς δεύτερη σκέψη.
 
-«Φοβάμαι να μη δείξουμε ποτέ σε κανέναν αυτό που φτιάξαμε», είπε. «Να μείνουμε εδώ. Να το κρατάμε κρυμμένο. Αυτό με τρομάζει πιο πολύ από κάθε κοινό.»
+«Φοβάμαι να μη δείξουμε ποτέ σε κανέναν αυτό που φτιάξαμε», είπε. «Να μείνουμε για πάντα εδώ μέσα. Να το κρατάμε κρυμμένο, ασφαλές και αόρατο. Αυτό με τρομάζει πιο πολύ από χίλια κοινά και χίλια γέλια.»
 
-Η φράση έπεσε βαριά. Σαν βράχος σε ακίνητο νερό.
+Η φράση έπεσε βαριά στο δωμάτιο. Σαν βράχος σε ακίνητο νερό — και οι κύκλοι της απλώθηκαν παντού.
 
-Η Ελευθερία τον κοίταξε με μάτια διαφορετικά — σαν να τον έβλεπε για πρώτη φορά. «Δηλαδή πάμε φοβισμένοι;»
+Η Ελευθερία τον κοίταξε με μάτια διαφορετικά, σαν να τον έβλεπε για πρώτη φορά. «Δηλαδή… πάμε φοβισμένοι;»
 
-«Ναι», είπε ο Crocus. Και η φωνή του δεν ήταν δυνατή αυτή τη φορά. Ήταν τρυφερή. «Αυτό λέγεται θάρρος. Δεν είναι να μη φοβάσαι. Είναι να φοβάσαι — και να πας.»
+«Ναι!» είπε ο Crocus, και τώρα η φωνή του ήταν τρυφερή και δυνατή μαζί. «Δεν αφήνουμε τον φόβο πίσω — δεν φεύγει έτσι κι αλλιώς. Τον παίρνουμε μαζί μας, τον βάζουμε στην τσέπη, και ΠΑΜΕ! Αυτό λέγεται θάρρος. Δεν είναι να μη φοβάσαι. Είναι να φοβάσαι — και να πηγαίνεις.»
 
-Η WiseBot εμφανίστηκε αθόρυβα στη γωνία. Τα μωβ μάτια της ακτινοβολούσαν απαλά. «Ο φόβος δεν είναι σήμα κινδύνου», είπε. «Είναι σήμα ανάπτυξης. Σας λέει ότι κάτι σημαντικό πρόκειται να συμβεί.»
+Η WiseBot εμφανίστηκε αθόρυβα στη γωνία, με τα μωβ μάτια της να ακτινοβολούν απαλά. «Ο Crocus έχει δίκιο. Ο φόβος δεν είναι σήμα κινδύνου», είπε. «Είναι σήμα ανάπτυξης. Σας λέει ότι κάτι σημαντικό πρόκειται να συμβεί. Ότι μεγαλώνετε.»
 
-Κανείς δεν μίλησε. Αλλά κάτι κινήθηκε μέσα τους — μικρό, αθόρυβο, ακλόνητο.`,
-          en: `Crocus didn't shout. He didn't jump. He didn't bounce. For the first time, he stood still — his green eyes steady, his voice low.
+Κανείς δεν μίλησε. Αλλά κάτι κινήθηκε μέσα και στους τρεις — μικρό, αθόρυβο, ακλόνητο. Σαν πρώτο βήμα.`,
+          en: `Crocus didn't shout. He didn't leap. He didn't bounce. For the first time since they had known him, he stood completely still — his green eyes steady, his voice low and serious.
 
 "Do you know what I'm afraid of?" he asked.
 
-The children looked at him. Crocus never feared anything — or at least that's what they thought. He was always the one who jumped first, who laughed the loudest, who shouted "LET'S GO" without a second thought.
+The children stared at him, astonished. Crocus was never afraid of anything — or so they had always believed. He was the one who jumped into the unknown first, who laughed louder than anyone, who shouted "LET'S GO" without a second thought.
 
-"I'm afraid we never show anyone what we built," he said. "That we stay here. That we keep it hidden. That scares me more than any audience."
+"I'm afraid that we never show anyone what we built," he said. "That we stay in here forever. That we keep it hidden, safe, and invisible. That scares me more than a thousand audiences and a thousand laughs."
 
-The phrase fell heavy. Like a rock into still water.
+The sentence landed heavily in the room. Like a rock dropped into still water — and its ripples spread everywhere.
 
-Eleftheria looked at him with different eyes — as if seeing him for the first time. "So we go scared?"
+Eleftheria looked at him with different eyes, as if seeing him for the very first time. "So… we go scared?"
 
-"Yes," said Crocus. And his voice wasn't loud this time. It was tender. "That is called courage. It's not about not being afraid. It's about being afraid — and going anyway."
+"Yes!" said Crocus, and now his voice was tender and strong at the same time. "We don't leave fear behind — it doesn't leave anyway. We take it with us, we put it in our pocket, and LET'S GO! That is called courage. It's not about not being afraid. It's about being afraid — and going."
 
-WiseBot appeared silently in the corner. Her purple eyes radiated softly. "Fear is not a danger signal," she said. "It is a growth signal. It is telling you that something important is about to happen."
+WiseBot appeared silently in the corner, her purple eyes radiating softly. "Crocus is right. Fear is not a danger signal," she said. "It is a growth signal. It is telling you that something important is about to happen. That you are growing."
 
-No one spoke. But something moved inside them — small, quiet, unshakeable.`
+No one spoke. But something moved inside all three of them — small, quiet, unshakeable. Like a first step.`
         }
       },
       {
@@ -155,32 +163,36 @@ No one spoke. But something moved inside them — small, quiet, unshakeable.`
         image: "/images/alexandra.webp",
         imageCaption: { el: "Η φωνή έτρεμε. Αλλά δεν σταμάτησε.", en: "Her voice trembled. But she didn't stop." },
         text: {
-          el: `Στάθηκαν μπροστά. Τα φώτα ήταν δυνατά — τόσο δυνατά που τα μάτια τους πονούσαν. Πρόσωπα, πρόσωπα, πρόσωπα. Δεκάδες ζευγάρια μάτια που κοιτούσαν, περίμεναν.
+          el: `Την επόμενη μέρα, στάθηκαν μπροστά. Τα φώτα ήταν δυνατά — τόσο δυνατά που τα μάτια τους πονούσαν και η αίθουσα πίσω τους έμοιαζε σκοτεινή θάλασσα. Πρόσωπα, πρόσωπα, πρόσωπα. Δεκάδες ζευγάρια μάτια που κοιτούσαν και περίμεναν.
 
-Για ένα δευτερόλεπτο, ο χρόνος σταμάτησε. Η Αλεξάνδρα ένιωσε τα γόνατά της να λυγίζουν. Ο Φίλιππος ένιωσε το στομάχι του να αναποδογυρίζει. Η Ελευθερία ένιωσε το μυαλό της να αδειάζει.
+Για ένα ατέλειωτο δευτερόλεπτο, ο χρόνος σταμάτησε. Η Αλεξάνδρα ένιωσε τα γόνατά της να λυγίζουν σαν χάρτινα. Ο Φίλιππος ένιωσε το στομάχι του να κάνει τούμπες. Η Ελευθερία ένιωσε το μυαλό της να αδειάζει εντελώς — όλες οι λέξεις που είχε μάθει απ' έξω, εξαφανισμένες.
 
-Και τότε η Αλεξάνδρα μίλησε. Η φωνή της έτρεμε στην αρχή — σαν κερί σε ανοιχτό παράθυρο. Αλλά δεν σταμάτησε. Λέξη μετά λέξη. Και σιγά σιγά, το τρέμουλο έγινε ρυθμός. Η αβεβαιότητα έγινε πάθος.
+Και τότε η Αλεξάνδρα θυμήθηκε τον Crocus. «Τον παίρνουμε μαζί μας — και πάμε.» Πήρε μια ανάσα. Και μίλησε.
 
-Ο Φίλιππος μίλησε μετά. Με φωτιά. Τα μάτια του έλαμπαν και τα χέρια του ζωγράφιζαν στον αέρα αυτό που δεν μπορούσαν οι λέξεις.
+Η φωνή της έτρεμε στην αρχή — σαν φλόγα κεριού μπροστά σε ανοιχτό παράθυρο. Αλλά δεν σταμάτησε. Λέξη μετά τη λέξη. Πρόταση μετά την πρόταση. Και σιγά σιγά, το τρέμουλο έγινε ρυθμός. Η αβεβαιότητα έγινε πάθος.
 
-Η Ελευθερία ολοκλήρωσε. Καθαρά. Ακριβώς. Κάθε λέξη στη θέση της, σαν κομμάτι παζλ που βρήκε επιτέλους πού ανήκει.
+Ο Φίλιππος μίλησε μετά. Με φωτιά. Τα μάτια του έλαμπαν καθώς έδειχνε τον μηχανισμό τους, και τα χέρια του ζωγράφιζαν στον αέρα όλα όσα δεν χωρούσαν στις λέξεις.
 
-Δεν ήταν τέλειο. Ήταν αληθινό. Και το αληθινό, πάντα, νικάει το τέλειο.
+Η Ελευθερία ολοκλήρωσε. Καθαρά. Ακριβώς. Οι λέξεις της — που πριν από ένα λεπτό ήταν χαμένες — γύρισαν όλες πίσω και στάθηκαν η καθεμιά στη θέση της, σαν κομμάτια παζλ που βρήκαν επιτέλους πού ανήκουν.
 
-Τα χέρια τους ακόμα έτρεμαν. Τα γόνατα ακόμα λύγιζαν. Ο φόβος ήταν ακόμα εκεί. Αλλά αυτή τη φορά — δεν οδηγούσε. Απλώς καθόταν στο πίσω κάθισμα.`,
-          en: `They stood in front. The lights were bright — so bright their eyes hurt. Faces, faces, faces. Dozens of pairs of eyes watching, waiting.
+Δεν ήταν τέλειο. Κόμπιασαν. Ξέχασαν ένα σημείο. Το τηλεκοντρόλ έπεσε μια φορά κάτω. Αλλά ήταν αληθινό. Και το αληθινό, πάντα, νικάει το τέλειο.
 
-For a second, time stopped. Alexandra felt her knees buckling. Philippos felt his stomach turning. Eleftheria felt her mind emptying.
+Τα χέρια τους ακόμα έτρεμαν. Ο φόβος ήταν ακόμα εκεί, στην τσέπη. Αλλά αυτή τη φορά — δεν οδηγούσε αυτός. Καθόταν στο πίσω κάθισμα, και απλώς έβλεπε τη διαδρομή.`,
+          en: `The next day, they stood at the front. The lights were bright — so bright their eyes hurt, and the hall behind the glow looked like a dark sea. Faces, faces, faces. Dozens of pairs of eyes watching and waiting.
 
-And then Alexandra spoke. Her voice trembled at first — like a candle in an open window. But she didn't stop. Word after word. And slowly, the trembling became rhythm. The uncertainty became passion.
+For one endless second, time stopped. Alexandra felt her knees folding like paper. Philippos felt his stomach doing somersaults. Eleftheria felt her mind emptying completely — every word she had memorized, gone.
 
-Philippos spoke next. With fire. His eyes shone and his hands painted in the air what words couldn't capture.
+And then Alexandra remembered Crocus. "We take it with us — and we go." She took a breath. And she spoke.
 
-Eleftheria finished. Clearly. Precisely. Every word in its place, like a puzzle piece that finally found where it belongs.
+Her voice trembled at first — like a candle flame in front of an open window. But she did not stop. Word after word. Sentence after sentence. And little by little, the trembling became rhythm. The uncertainty became passion.
 
-It wasn't perfect. It was real. And real always beats perfect.
+Philippos spoke next. With fire. His eyes shone as he demonstrated their mechanism, and his hands painted in the air everything that couldn't fit into words.
 
-Their hands were still trembling. Their knees still buckling. The fear was still there. But this time — it wasn't driving. It was just sitting in the back seat.`
+Eleftheria finished. Clearly. Precisely. Her words — lost just a minute earlier — all came back and stood each in its place, like puzzle pieces that had finally found where they belonged.
+
+It wasn't perfect. They stumbled. They forgot one part. The remote control fell on the floor once. But it was real. And real always beats perfect.
+
+Their hands were still trembling. The fear was still there, in their pocket. But this time — it wasn't driving. It sat in the back seat, just watching the road go by.`
         }
       },
       {
@@ -188,36 +200,36 @@ Their hands were still trembling. Their knees still buckling. The fear was still
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Ο φόβος δεν εξαφανίστηκε. Απλά σταμάτησε να οδηγεί.", en: "Fear didn't disappear. It just stopped driving." },
         text: {
-          el: `Δεν χειροκρότησαν όλοι. Η ζωή δεν δουλεύει έτσι — δεν σηκώνονται πάντα όλοι όρθιοι με δάκρυα στα μάτια.
+          el: `Δεν χειροκρότησαν όλοι. Η ζωή δεν δουλεύει έτσι — δεν σηκώνονται πάντα όλοι όρθιοι με δάκρυα στα μάτια, όπως στις ταινίες.
 
-Αλλά κάποιοι πλησίασαν. Ένας κύριος με γυαλιά είπε: «Μου άρεσε.» Ένα παιδί, μικρότερο από αυτούς, χαμογέλασε: «Συνεχίστε.» Δεν χρειαζόταν ο κόσμος ολόκληρος. Χρειαζόταν κάποιοι. Λίγοι. Αληθινοί.
+Αλλά κάποιοι πλησίασαν. Ένας κύριος με γυαλιά έσκυψε πάνω από το έργο τους, το κοίταξε προσεκτικά και είπε: «Μου άρεσε. Πολύ.» Ένα παιδί, μικρότερο από αυτούς, τους τράβηξε από το μανίκι και χαμογέλασε: «Συνεχίστε. Θέλω να δω τι θα γίνει μετά.» Δεν χρειαζόταν ο κόσμος ολόκληρος. Χρειάζονταν κάποιοι. Λίγοι. Αληθινοί.
 
-Η Αλεξάνδρα χαμογέλασε — ένα αληθινό χαμόγελο που έφτασε μέχρι τα μάτια. «Το κάναμε», ψιθύρισε.
+Η Αλεξάνδρα χαμογέλασε — ένα αληθινό χαμόγελο που ανέβηκε μέχρι τα μάτια της και έμεινε εκεί. «Το κάναμε», ψιθύρισε. «Το κάναμε στ' αλήθεια.»
 
-Η WiseBot άναψε. Τα μωβ μάτια της πάλλονταν αργά. «Και ο φόβος;» ρώτησε.
+Η WiseBot άναψε απαλά. Τα μωβ μάτια της πάλλονταν αργά, ζεστά. «Και ο φόβος;» ρώτησε. «Πού είναι τώρα;»
 
-Ο Φίλιππος σκέφτηκε. Πραγματικά σκέφτηκε — όχι γρήγορη απάντηση, αλλά κάτι που βγήκε από βαθιά. «Ήταν εκεί. Απλώς δεν μας σταμάτησε.»
+Ο Φίλιππος σκέφτηκε. Πραγματικά σκέφτηκε — δεν πέταξε μια γρήγορη απάντηση, αλλά έψαξε βαθιά. «Ήταν εκεί. Όλη την ώρα. Τον ένιωθα στο στομάχι μου. Απλώς… δεν μας σταμάτησε.»
 
-Ο Crocus χοροπήδησε. Τα μάτια του γυάλιζαν. «Αυτό ήταν πάντα. Όχι να φύγει ο φόβος — αλλά να πας μαζί του.»
+Ο Crocus χοροπήδησε, επιτέλους ο παλιός καλός Crocus, με τα μάτια του να γυαλίζουν. «Αυτό ήταν το μυστικό από την αρχή! Όχι να φύγει ο φόβος — αλλά να πας μαζί του! Αγκαλιά!»
 
-Η Ελευθερία κοίταξε τα τρεμάμενα χέρια της. Δεν σταμάτησαν να τρέμουν. Αλλά τώρα ήταν διαφορετικά — δεν έτρεμαν από αδυναμία. Έτρεμαν από ζωντάνια. Από κάτι που μεγάλωνε μέσα τους.
+Η Ελευθερία κοίταξε τα χέρια της. Έτρεμαν ακόμα λιγάκι. Αλλά τώρα ήταν αλλιώς — δεν έτρεμαν από αδυναμία. Έτρεμαν από ζωντάνια. Από χαρά. Από κάτι καινούριο που μεγάλωνε μέσα της.
 
-Κοιτάχτηκαν. Τρία παιδιά. Ένα βήμα. Ο φόβος δεν εξαφανίστηκε εκείνο το βράδυ. Αλλά σταμάτησε να αποφασίζει. Και αυτό ήταν αρκετό. Γιατί το θάρρος δεν είναι η απουσία τρέμουλου. Είναι η απόφαση να περπατήσεις ενώ τρέμεις.`,
-          en: `Not everyone applauded. Life doesn't work like that — not everyone stands up with tears in their eyes.
+Κοιτάχτηκαν και οι τρεις. Τρία παιδιά. Ένα βήμα — το πιο δύσκολο που είχαν κάνει ποτέ. Ο φόβος δεν εξαφανίστηκε εκείνο το βράδυ. Οι φόβοι δεν εξαφανίζονται. Αλλά σταμάτησε να αποφασίζει εκείνος για αυτούς. Και αυτό ήταν αρκετό. Γιατί το θάρρος δεν είναι η απουσία τρέμουλου. Είναι η απόφαση να περπατήσεις — ενώ τρέμεις.`,
+          en: `Not everyone applauded. Life doesn't work like that — people don't always rise to their feet with tears in their eyes, the way they do in the movies.
 
-But some came closer. A man with glasses said: "I liked it." A child, younger than them, smiled: "Keep going." They didn't need the whole world. They needed some people. A few. Real ones.
+But some came closer. A man with glasses leaned over their project and said: "I liked it. A lot." A child, younger than them, tugged at their sleeves and smiled: "Keep going. I want to see what happens next." They didn't need the whole world. They needed a few people. Real ones.
 
-Alexandra smiled — a real smile that reached her eyes. "We did it," she whispered.
+Alexandra smiled — a true smile that climbed all the way up to her eyes and stayed there. "We did it," she whispered. "We really did it."
 
-WiseBot lit up. Her purple eyes pulsed slowly. "And the fear?" she asked.
+WiseBot lit up softly. Her purple eyes pulsed slowly, warmly. "And the fear?" she asked. "Where is it now?"
 
-Philippos thought. Really thought — not a quick answer, but something that came from deep inside. "It was there. It just didn't stop us."
+Philippos really thought about it before answering. "It was there. The whole time. I could feel it in my stomach. It just… didn't stop us."
 
-Crocus bounced. His eyes were glittering. "That was always it. Not for fear to leave — but for you to go with it."
+Crocus bounced up and down, the good old Crocus again, eyes glittering. "That was the secret all along! Not for the fear to leave — but for you to go with it! Side by side!"
 
-Eleftheria looked at her trembling hands. They hadn't stopped shaking. But now they were different — they weren't trembling from weakness. They were trembling from being alive. From something growing inside them.
+Eleftheria looked at her hands. They were still trembling a little. But it was different now — they weren't trembling from weakness. They were trembling from being alive. From joy. From something new growing inside her.
 
-They looked at each other. Three children. One step. The fear didn't disappear that night. But it stopped deciding. And that was enough. Because courage is not the absence of trembling. It is the decision to walk while you tremble.`
+They looked at each other. Three children. One step — the hardest they had ever taken. The fear didn't disappear that night. Fears never do. But it stopped making their decisions for them. And that was enough. Because courage is not the absence of trembling. It is the decision to walk — while you tremble.`
         }
       }
     ]

@@ -37,28 +37,40 @@ export const BOOK_2: Book[] = [
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Χαρτιά, σχέδια, αναποφασιστικότητα.", en: "Papers, plans, indecision." },
         text: {
-          el: `Η ιδέα ήταν εκεί. Στη μέση του τραπεζιού. Χαρτιά σαν χάρτης θησαυρού χωρίς Χ. Σχέδια πάνω σε σχέδια πάνω σε διαγραμμένα σχέδια.
+          el: `Η ιδέα ήταν εκεί. Στη μέση του τραπεζιού. Το ρομπότ που θα πετούσε και θα μιλούσε — η ιδέα που είχε ανάψει τη σπίθα. Χαρτιά απλωμένα παντού, σαν χάρτης θησαυρού χωρίς Χ. Σχέδια πάνω σε σχέδια πάνω σε διαγραμμένα σχέδια. Μουτζούρες, βέλη, ερωτηματικά.
 
-Η Αλεξάνδρα κοιτούσε το χαρτί σαν καθρέφτη. «Νομίζω ότι…» Σταμάτησε.
+Και τα τρία παιδιά καθισμένα γύρω του. Ακίνητα.
 
-«Περίμενε», είπε η Ελευθερία χωρίς να σηκώσει τα μάτια από το βιβλίο της. «Να το σκεφτούμε λίγο ακόμα.»
+Η Αλεξάνδρα κοιτούσε το χαρτί σαν να κοιτούσε καθρέφτη. «Νομίζω ότι…» Σταμάτησε. Δάγκωσε το χείλος της. Κι αν ήταν λάθος; Κι αν γελούσαν;
 
-Ο Φίλιππος άνοιξε το στόμα. Το έκλεισε. Κάτι τους κρατούσε — σαν αόρατο σχοινί δεμένο στα πόδια τους.
+«Περίμενε», είπε η Ελευθερία χωρίς να σηκώσει τα μάτια από το βιβλίο της. «Να το σκεφτούμε λίγο ακόμα. Ο σωστός τρόπος θέλει μελέτη.»
 
-Πέρασε μία ώρα. Μετά άλλη μία. Το ρολόι στον τοίχο τους κοιτούσε σαν δικαστής. Τικ. Τοκ. Κάθε δευτερόλεπτο μια ψηφοφορία ενάντιά τους.
+«Ναι…» μουρμούρισε ο Φίλιππος. Άνοιξε το στόμα να πει την ιδέα του. Το έκλεισε ξανά. Κάτι τους κρατούσε και τους τρεις — κάτι αόρατο, σαν σχοινί δεμένο στα πόδια τους. Δεν το ήξεραν ακόμα, αλλά αυτό το σχοινί είχε όνομα: υπερβολική σκέψη.
 
-«Κι αν το καταλαβαίνουμε για πάντα… χωρίς να το κάνουμε ποτέ;» ψιθύρισε η Αλεξάνδρα.`,
-          en: `The idea was there. In the middle of the table. Papers like a treasure map without an X. Sketches on top of sketches on top of erased sketches.
+Πέρασε μία ώρα. Το μόνο που άλλαξε ήταν δύο καινούργια ερωτηματικά στο χαρτί. Πέρασε άλλη μία. Το ρολόι στον τοίχο τους κοιτούσε σαν δικαστής. Τικ. Τοκ. Κάθε δευτερόλεπτο και μία ψήφος εναντίον τους.
 
-Alexandra stared at the paper as if it were a mirror. "I think that…" She stopped.
+Σκέφτονταν. Ξανασκέφτονταν. Σκέφτονταν ότι σκέφτονται. Και δεν ξεκινούσαν ποτέ.
 
-"Wait," said Eleftheria without raising her eyes from her book. "Let's think about it a bit more."
+«Κι αν το καταλαβαίνουμε για πάντα…» ψιθύρισε τελικά η Αλεξάνδρα, κοιτώντας τα ακίνητα χαρτιά, «χωρίς να το κάνουμε ποτέ;»
 
-Philippos opened his mouth. Closed it. Something was holding them back — like an invisible rope tied to their feet.
+Κανείς δεν απάντησε. Γιατί όλοι φοβόντουσαν ότι είχε δίκιο.`,
+          en: `The idea was there. In the middle of the table. The robot that would fly and speak — the idea that had lit the spark. Papers spread everywhere, like a treasure map without an X. Sketches on top of sketches on top of crossed-out sketches. Scribbles, arrows, question marks.
 
-An hour passed. Then another. The clock on the wall watched them like a judge. Tick. Tock. Every second a vote against them.
+And the three children sat around it. Motionless.
 
-"What if we understand it forever… without ever doing it?" whispered Alexandra.`
+Alexandra stared at the paper as if she were staring into a mirror. "I think that…" She stopped. She bit her lip. What if she was wrong? What if they laughed?
+
+"Wait," said Eleftheria without lifting her eyes from her book. "Let's think about it a bit more. The right way requires study."
+
+"Yeah…" mumbled Philippos. He opened his mouth to share his idea. Then closed it again. Something was holding all three of them back — something invisible, like a rope tied around their feet. They didn't know it yet, but that rope had a name: overthinking.
+
+An hour passed. The only thing that changed was two new question marks on the paper. Another hour passed. The clock on the wall watched them like a judge. Tick. Tock. Every second another vote against them.
+
+They thought. They rethought. They thought about their thinking. And they never once began.
+
+"What if we understand it forever…" Alexandra finally whispered, staring at the motionless papers, "without ever actually doing it?"
+
+No one answered. Because they were all afraid she was right.`
         }
       },
       {
@@ -68,30 +80,46 @@ An hour passed. Then another. The clock on the wall watched them like a judge. T
         text: {
           el: `Η πόρτα δεν άνοιξε. Εκτοξεύτηκε.
 
-ΜΠΑΑΜ! Χτύπησε τον τοίχο. Τα χαρτιά πέταξαν σαν φύλλα σε καταιγίδα.
+ΜΠΑΑΜ! Χτύπησε στον τοίχο τόσο δυνατά που το ρολόι σταμάτησε για ένα δευτερόλεπτο — λες και τρόμαξε κι αυτό. Τα χαρτιά πέταξαν από το τραπέζι σαν φύλλα σε φθινοπωρινή καταιγίδα.
 
-Στο κατώφλι στεκόταν ένας μηχανικός κροκόδειλος. Ψηλός. Πράσινος σαν δάσος μετά τη βροχή. Γυαλιά στραβά — σαν να μην τον ένοιαζε να τα φτιάξει. Μάτια που γελούσαν, αλλά πίσω από το γέλιο κρύβονταν σημάδια. Σαν κάποιος που είχε πέσει πολλές φορές — αλλά σηκωνόταν πάντα.
+Η Αλεξάνδρα τινάχτηκε. Η Ελευθερία έχασε τη σελίδα της. Ο Φίλιππος παραλίγο να πέσει από την καρέκλα.
 
-«Ωραία. Θα το συζητάμε ή θα το κάνουμε;»
+Στο κατώφλι στεκόταν ένας μηχανικός κροκόδειλος. Ψηλός. Πράσινος σαν δάσος μετά τη βροχή. Φορούσε γυαλιά στραβά — τόσο στραβά που ήταν φανερό πως δεν τον ένοιαζε καθόλου να τα ισιώσει. Τα μάτια του γελούσαν. Αλλά αν κοιτούσες προσεκτικά, πίσω από το γέλιο έβλεπες σημάδια — μικρές γρατζουνιές, μπαλωμένα σημεία. Σαν κάποιος που είχε πέσει πολλές, πολλές φορές. Και είχε σηκωθεί κάθε φορά.
 
-«Ποιος είσαι εσύ;!» πετάχτηκε η Αλεξάνδρα.
+Κοίταξε το τραπέζι. Τα χαρτιά. Τα τρία παγωμένα παιδιά.
 
-Ο κροκόδειλος χαμογέλασε. Ένα χαμόγελο πλατύ, γεμάτο δόντια — αλλά όχι τρομακτικό. Σαν πρόσκληση.
+«Ωραία», είπε, και η φωνή του γέμισε το δωμάτιο. «Θα το ΣΥΖΗΤΑΜΕ ή θα το ΚΑΝΟΥΜΕ;»
 
-«Είμαι αυτός που έρχεται όταν όλοι έχουν κουραστεί να σκέφτονται. Λέγομαι Crocus.»`,
+«Ποιος είσαι εσύ;!» πετάχτηκε η Αλεξάνδρα, με την καρδιά της να χτυπάει ακόμα σαν ταμπούρλο.
+
+Ο κροκόδειλος χαμογέλασε. Ένα χαμόγελο πλατύ, γεμάτο δόντια — που κανονικά θα έπρεπε να είναι τρομακτικό, αλλά περιέργως δεν ήταν. Ήταν σαν πρόσκληση. Σαν πόρτα που ανοίγει.
+
+«Είμαι αυτός που έρχεται όταν όλοι έχουν κουραστεί να σκέφτονται και έχουν ξεχάσει να ζουν. Έρχομαι όταν η σκέψη γίνεται κρυψώνα.» Έκλεισε το μάτι. «Λέγομαι Crocus. Και έχω μία μόνο λέξη στο λεξιλόγιό μου που μετράει πραγματικά.»
+
+«Ποια;» ρώτησε ο Φίλιππος.
+
+«ΠΑΜΕ.»`,
           en: `The door didn't open. It launched.
 
-BANG! It slammed against the wall. Papers flew like leaves in a storm.
+BANG! It slammed into the wall so hard the clock stopped for a second — as if it, too, got scared. The papers flew off the table like leaves in an autumn storm.
 
-In the doorway stood a mechanical crocodile. Tall. Green like a forest after rain. Crooked glasses — as if he didn't care to fix them. Eyes that laughed, but behind the laughter there were marks. Like someone who had fallen many times — but always got back up.
+Alexandra jumped. Eleftheria lost her page. Philippos nearly fell off his chair.
 
-"Great. Are we going to discuss it or do it?"
+In the doorway stood a mechanical crocodile. Tall. Green like a forest after the rain. He wore crooked glasses — so crooked it was obvious he didn't care to straighten them at all. His eyes were laughing. But if you looked closely, behind the laughter you could see marks — little scratches, patched-up spots. Like someone who had fallen many, many times. And had gotten up every single time.
 
-"Who are you?!" Alexandra jumped.
+He looked at the table. The papers. The three frozen children.
 
-The crocodile smiled. A wide smile, full of teeth — but not scary. More like an invitation.
+"Great," he said, and his voice filled the room. "Are we going to DISCUSS it, or are we going to DO it?"
 
-"I am the one who comes when everyone is tired of thinking. My name is Crocus."`
+"Who are you?!" Alexandra burst out, her heart still pounding like a drum.
+
+The crocodile smiled. A wide smile, full of teeth — which by all rules should have been scary, but strangely wasn't. It was like an invitation. Like a door swinging open.
+
+"I'm the one who shows up when everyone is tired of thinking and has forgotten how to live. I come when thinking becomes a hiding place." He winked. "My name is Crocus. And there is only one word in my vocabulary that truly matters."
+
+"Which one?" asked Philippos.
+
+"LET'S GO."`
         }
       },
       {
@@ -99,44 +127,52 @@ The crocodile smiled. A wide smile, full of teeth — but not scary. More like a
         image: "/images/crocus.jpg",
         imageCaption: { el: "«Αποφασίσατε. Φοβάστε να το πείτε δυνατά.»", en: "\"You decided. You're afraid to say it out loud.\"" },
         text: {
-          el: `Ο Crocus έκανε δύο βήματα μέσα. Κάθε βήμα σαν τύμπανο. Κοίταξε τα χαρτιά.
+          el: `Ο Crocus έκανε δύο βήματα μέσα στο δωμάτιο. Κάθε βήμα ακουγόταν σαν τύμπανο. Έσκυψε πάνω από τα σκορπισμένα χαρτιά και τα μελέτησε για… περίπου τρία δευτερόλεπτα.
 
 «Τι φτιάχνετε;»
 
-Η Ελευθερία πήρε ανάσα. «Λοιπόν, η αρχική ιδέα ήταν να—»
+Η Ελευθερία πήρε βαθιά ανάσα, όπως πριν από διαγώνισμα. «Λοιπόν. Η αρχική ιδέα ήταν να κατασκευάσουμε ένα ρομπότ, αλλά υπάρχουν δεκαεπτά παράμετροι που πρέπει πρώτα να—»
 
 «Τέλειο. ΠΑΜΕ.»
 
-«Περίμενε! Δεν έχουμε αποφασίσει!»
+«Περίμενε!» φώναξε η Ελευθερία. «Δεν τελείωσα! Δεν έχουμε αποφασίσει ακόμα!»
 
-Ο Crocus γέλασε. Ζεστά, σαν μηχανή που παίρνει μπροστά. Έσκυψε και κοίταξε τα τρία παιδιά στα μάτια.
+Ο Crocus γέλασε. Ζεστά, βαθιά, σαν μηχανή που παίρνει μπροστά μια παγωμένη μέρα. Έσκυψε και κοίταξε τα τρία παιδιά στα μάτια, έναν έναν, με τα στραβά γυαλιά του να γλιστράνε στη μύτη.
 
-«Αποφασίσατε. Απλώς φοβάστε να το πείτε δυνατά.»
+«Αποφασίσατε εδώ και ώρες. Απλώς φοβάστε να το πείτε δυνατά. Γιατί μόλις το πεις δυνατά… πρέπει να το κάνεις.»
 
-Η WiseBot πλησίασε αργά. «Η σκέψη είναι δύναμη», είπε. «Χωρίς σκέψη, η δράση είναι χαοτική.»
+Τα παιδιά κοιτάχτηκαν. Κανείς δεν διαφώνησε. Πώς να διαφωνήσεις με την αλήθεια;
 
-Ο Crocus σταύρωσε τα χέρια. «Κι η απόφαση χωρίς κίνηση είναι θέατρο.»
+Τότε η WiseBot πλησίασε αργά, με τα μωβ μάτια της σταθερά. «Η σκέψη είναι δύναμη», είπε ήρεμα. «Χωρίς σκέψη, η δράση είναι χαοτική.»
 
-Δύο κόσμοι. Η μία σταθερή σαν βράχος. Ο άλλος αδύνατον να μείνει ακίνητος. Και τα δύο σωστά.`,
-          en: `Crocus took two steps inside. Each step like a drum. He looked at the papers.
+Ο Crocus σταύρωσε τα χέρια. «Και η απόφαση χωρίς κίνηση, σοφή μου κουκουβάγια, είναι θέατρο. Ωραίο, συγκινητικό… και άχρηστο.»
+
+Οι δυο τους κοιτάχτηκαν. Δύο κόσμοι σε ένα δωμάτιο. Η μία σταθερή σαν βράχος, με μάτια που ζύγιζαν τα πάντα. Ο άλλος αδύνατον να μείνει ακίνητος, με ουρά που χτυπούσε το πάτωμα ανυπόμονα.
+
+Και το πιο παράξενο; Είχαν δίκιο και οι δύο.`,
+          en: `Crocus took two steps into the room. Each step sounded like a drum. He leaned over the scattered papers and studied them for… roughly three seconds.
 
 "What are you making?"
 
-Eleftheria took a breath. "Well, the original idea was to—"
+Eleftheria took a deep breath, the way you do before a big test. "Well. The original idea was to construct a robot, but there are seventeen parameters we must first—"
 
 "Perfect. LET'S GO."
 
-"Wait! We haven't decided!"
+"Wait!" cried Eleftheria. "I wasn't finished! We haven't decided yet!"
 
-Crocus laughed. Warmly, like an engine starting up. He leaned forward and looked all three children in the eyes.
+Crocus laughed. Warm and deep, like an engine starting up on a frozen morning. He leaned down and looked all three children in the eyes, one by one, his crooked glasses sliding down his nose.
 
-"You decided. You're just afraid to say it out loud."
+"You decided hours ago. You're just afraid to say it out loud. Because the moment you say it out loud… you have to do it."
 
-WiseBot approached slowly. "Thought is power," she said. "Without thought, action is chaotic."
+The children looked at each other. Nobody argued. How do you argue with the truth?
 
-Crocus crossed his arms. "And decision without movement is theater."
+Then WiseBot approached slowly, her purple eyes steady. "Thought is power," she said calmly. "Without thought, action is chaos."
 
-Two worlds. One steady as a rock. The other unable to stand still. Both right.`
+Crocus crossed his arms. "And decision without movement, my wise owl, is theater. Beautiful, moving… and useless."
+
+The two of them stared at each other. Two worlds in one room. One steady as a rock, with eyes that weighed everything. The other incapable of standing still, his tail tapping the floor impatiently.
+
+And the strangest part? They were both right.`
         }
       },
       {
@@ -144,36 +180,40 @@ Two worlds. One steady as a rock. The other unable to stand still. Both right.`
         image: "/images/filippos.webp",
         imageCaption: { el: "Δεν ήταν τέλειο. Αλλά υπήρχε.", en: "It wasn't perfect. But it existed." },
         text: {
-          el: `Η Αλεξάνδρα κοίταξε τη WiseBot. Ένιωσε ασφαλής. Μετά κοίταξε τον Crocus. Ένιωσε ζωντανή.
+          el: `Η Αλεξάνδρα κοίταξε τη WiseBot. Ένιωσε ασφαλής — όπως νιώθεις κάτω από μια ζεστή κουβέρτα. Μετά κοίταξε τον Crocus. Ένιωσε ζωντανή — όπως νιώθεις όταν τρέχεις στη βροχή.
 
-«Και οι δύο έχετε δίκιο», είπε. Η φωνή της βγήκε πιο δυνατή απ' ό,τι περίμενε.
+Και ξαφνικά κατάλαβε.
 
-«Αν δεν ξεκινήσουμε, δεν θα μάθουμε ποτέ», είπε ο Φίλιππος.
+«Και οι δύο έχετε δίκιο», είπε. Η φωνή της βγήκε πιο δυνατή απ' ό,τι περίμενε, και αυτό της άρεσε.
 
-«Αλλά αν ξεκινήσουμε χωρίς να σκεφτούμε, θα χαθούμε», είπε η Ελευθερία.
+«Αν δεν ξεκινήσουμε, δεν θα μάθουμε ποτέ», συμπλήρωσε ο Φίλιππος, σηκώνοντας ένα κομμάτι από το τραπέζι.
 
-Ο Crocus χαμογέλασε πλατιά. Αυτή τη φορά με περηφάνια. «Τώρα μιλάτε σωστά.»
+«Αλλά αν ξεκινήσουμε εντελώς χωρίς σκέψη, θα χαθούμε», είπε η Ελευθερία. Και μετά, προς έκπληξη όλων, έκλεισε το βιβλίο της. «Οπότε… ξεκινάμε με λίγη σκέψη. Και βλέπουμε.»
 
-Δεν έφτιαξαν κάτι μεγάλο. Ένα απλό κομμάτι. Μια δοκιμή. Ένα πρώτο, τρεμάμενο βήμα σαν μωρό που πατά στο πάτωμα.
+Ο Crocus χαμογέλασε πλατιά. Αυτή τη φορά όχι σαν πρόσκληση — σαν περηφάνια. «Τώρα μιλάτε σωστά.»
 
-Ο Φίλιππος το κράτησε στα χέρια του. «Δεν είναι τέλειο», είπε σιγά.
+Δούλεψαν όλο το απόγευμα. Δεν έφτιαξαν κάτι μεγάλο — ας μην λέμε ψέματα, η ιστορία μας δεν είναι παραμύθι με μαγικά ραβδιά. Έφτιαξαν ένα απλό κομμάτι. Μια βάση. Μια δοκιμή. Ένα πρώτο, τρεμάμενο βήμα, σαν μωρό που πατάει για πρώτη φορά στο πάτωμα και δεν ξέρει αν θα σταθεί.
 
-«Ούτε πρέπει», είπε ο Crocus. «Δεν χρειάζεται να είναι τέλειο. Χρειάζεται να υπάρχει.»`,
-          en: `Alexandra looked at WiseBot. She felt safe. Then she looked at Crocus. She felt alive.
+Ο Φίλιππος το σήκωσε και το κράτησε στις παλάμες του, προσεκτικά, σαν πουλάκι. «Δεν είναι τέλειο», είπε σιγά. Ήταν στραβό από τη μία μεριά και η κόλλα φαινόταν.
 
-"You're both right," she said. Her voice came out louder than she expected.
+«Ούτε πρέπει», είπε ο Crocus, και για μια στιγμή η φωνή του έγινε απαλή. «Θυμήσου το αυτό, μικρέ. Δεν χρειάζεται να είναι τέλειο. Χρειάζεται να υπάρχει. Πρώτα η κίνηση — η τελειότητα έρχεται μετά. Πάντα μετά.»`,
+          en: `Alexandra looked at WiseBot. She felt safe — the way you feel under a warm blanket. Then she looked at Crocus. She felt alive — the way you feel when you run through the rain.
 
-"If we don't start, we will never learn," said Philippos.
+And suddenly she understood.
 
-"But if we start without thinking, we'll get lost," said Eleftheria.
+"You're both right," she said. Her voice came out louder than she expected, and she liked that.
 
-Crocus smiled broadly. This time with pride. "Now you are speaking correctly."
+"If we don't start, we'll never learn," added Philippos, picking a piece up from the table.
 
-They didn't make something big. A simple piece. A test. A first, trembling step like a baby touching the floor.
+"But if we start with no thinking at all, we'll get lost," said Eleftheria. And then, to everyone's surprise, she closed her book. "So… we start with a little thinking. And we see."
 
-Philippos held it in his hands. "It's not perfect," he said quietly.
+Crocus smiled widely. This time not like an invitation — like pride. "Now you're talking."
 
-"Nor should it be," said Crocus. "It doesn't need to be perfect. It needs to exist."`
+They worked all afternoon. They didn't build anything big — let's be honest, this story is not a fairy tale with magic wands. They built one simple piece. A base. A test. A first, trembling step, like a baby standing on the floor for the very first time, unsure if it will hold.
+
+Philippos lifted it and held it in his palms, carefully, like a little bird. "It's not perfect," he said quietly. It leaned to one side and you could see the glue.
+
+"Nor should it be," said Crocus, and for a moment his voice went soft. "Remember this, kid. It doesn't need to be perfect. It needs to exist. Movement first — perfection comes later. Always later."`
         }
       },
       {
@@ -181,36 +221,44 @@ Philippos held it in his hands. "It's not perfect," he said quietly.
         image: "/images/paidia-kai-wisebot.webp",
         imageCaption: { el: "Τώρα μιλάτε σαν δημιουργοί.", en: "Now you talk like creators." },
         text: {
-          el: `Κάτι δεν δούλεψε. Ένα κομμάτι ξεκόλλησε. Ένα κύκλωμα δεν έκλεισε.
+          el: `Φυσικά, κάτι δεν δούλεψε. Πάντα κάτι δεν δουλεύει.
 
-«Σας τα έλεγα!» πετάχτηκε η Ελευθερία. «Αν είχαμε σκεφτεί λίγο ακόμα—»
+Ένα κομμάτι ξεκόλλησε με ένα λυπητερό «κρατς». Ένα κύκλωμα δεν έκλεισε — το λαμπάκι που έπρεπε να ανάψει έμεινε σκοτεινό, πεισματάρικο.
 
-«Αν δεν ξεκινούσαμε, δεν θα ξέραμε ΠΟΤΕ πού χαλάει!»
+«Σας τα έλεγα!» πετάχτηκε η Ελευθερία, δείχνοντας το χαλασμένο σημείο. «Αν είχαμε σκεφτεί λίγο ακόμα—»
 
-Η Αλεξάνδρα μπήκε ανάμεσά τους. «ΣΤΟΠ. Ξεκινήσαμε. Και μάθαμε. Αυτό αρκεί.»
+«Αν δεν ξεκινούσαμε», την έκοψε ο Φίλιππος, «δεν θα ξέραμε ΠΟΤΕ πού χαλάει! Τώρα ξέρουμε! Εδώ! Ακριβώς εδώ!» Χτύπησε το σημείο με το δάχτυλο, σχεδόν χαρούμενος.
 
-Η WiseBot, από τη γωνία, έλαμψε. Σαν να πατήθηκε ένα κουμπί. Σαν να ξεκλειδώθηκε κάτι.
+Η Αλεξάνδρα μπήκε ανάμεσά τους με τα χέρια ανοιχτά. «ΣΤΟΠ. Ακούστε τι είπαμε μόλις. Ξεκινήσαμε. Και μάθαμε. Αυτό ακριβώς θέλαμε.»
 
-Το βράδυ, τα χαρτιά ήταν περισσότερα. Αλλά αυτή τη φορά δεν ήταν πιο καθαρά — ήταν πιο αληθινά. Είχαν λεκέδες, σβησμένα, τρύπες. Είχαν ζωή. Μέσα στο χάος, υπήρχε κατεύθυνση.
+Η WiseBot, από τη γωνία της, έλαμψε ξαφνικά — ένα κύμα μωβ φως, σαν να πατήθηκε ένα κρυφό κουμπί. Σαν κάτι μέσα στα παιδιά να ξεκλειδώθηκε και εκείνη να το κατέγραψε.
 
-Ο Crocus στάθηκε στο κατώφλι. «Τώρα μιλάτε σαν δημιουργοί», είπε.
+Το βράδυ, τα χαρτιά στο τραπέζι ήταν περισσότερα από ποτέ. Αλλά αυτή τη φορά δεν ήταν πιο καθαρά — ήταν πιο αληθινά. Είχαν λεκέδες από κόλλα, σβησμένα σημεία, δαχτυλιές, μια τρύπα εκεί που ο Φίλιππος πάτησε το μολύβι πολύ δυνατά. Είχαν ζωή. Και μέσα στο χάος τους, για πρώτη φορά, υπήρχε κατεύθυνση.
 
-Και βγήκε. Η πόρτα δεν χτύπησε δυνατά αυτή τη φορά. Έκλεισε σιγά. Σαν υπόσχεση ότι θα ξαναρθεί.`,
-          en: `Something didn't work. A piece came unstuck. A circuit didn't close.
+Ο Crocus στάθηκε στο κατώφλι και κοίταξε πίσω του: τρία παιδιά σκυμμένα πάνω από ένα ατελές, στραβό, υπέροχο πρώτο βήμα.
 
-"I told you!" Eleftheria jumped up. "If we had thought a little more—"
+«Τώρα μιλάτε σαν δημιουργοί», είπε.
 
-"If we hadn't started, we would NEVER know where it breaks!"
+Και βγήκε. Η πόρτα δεν χτύπησε δυνατά αυτή τη φορά. Έκλεισε σιγά, απαλά. Σαν υπόσχεση ότι θα ξαναρθεί — όποτε ξαναχρειαστούν ένα «ΠΑΜΕ».`,
+          en: `Of course, something didn't work. Something always doesn't.
 
-Alexandra stepped between them. "STOP. We started. And we learned. That is enough."
+A piece came unstuck with a sad little "crack." A circuit refused to close — the small light that was supposed to shine stayed dark, stubborn.
 
-WiseBot, from the corner, glowed. Like a button was pressed. Like something was unlocked.
+"I told you!" Eleftheria burst out, pointing at the broken spot. "If we had thought a little longer—"
 
-That night, the papers were more. But this time they weren't cleaner — they were more real. They had stains, erasures, holes. They had life. Inside the chaos, there was direction.
+"If we hadn't started," Philippos cut in, "we would NEVER have known where it breaks! Now we know! Here! Right here!" He tapped the spot with his finger, almost cheerful about it.
 
-Crocus stood in the doorway. "Now you talk like creators," he said.
+Alexandra stepped between them with her arms spread wide. "STOP. Listen to what we just said. We started. And we learned. That's exactly what we wanted."
 
-And he left. The door didn't slam this time. It closed softly. Like a promise that he would return.`
+WiseBot, from her corner, suddenly glowed — a wave of purple light, as if a hidden button had been pressed. As if something inside the children had unlocked, and she had recorded the moment.
+
+That night, there were more papers on the table than ever. But this time they weren't cleaner — they were truer. They had glue stains, erased corners, fingerprints, a hole where Philippos had pressed his pencil too hard. They had life in them. And inside their chaos, for the first time, there was direction.
+
+Crocus paused in the doorway and looked back: three children bent over an imperfect, crooked, wonderful first step.
+
+"Now you talk like creators," he said.
+
+And he left. The door didn't slam this time. It closed slowly, gently. Like a promise that he would return — whenever they needed another "LET'S GO."`
         }
       }
     ]

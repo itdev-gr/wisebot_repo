@@ -37,32 +37,36 @@ export const BOOK_14: Book[] = [
         image: "/images/alexandra.webp",
         imageCaption: { el: "Η Αλεξάνδρα — πάντα έτρεχε, πάντα για τους άλλους", en: "Alexandra — always running, always for others" },
         text: {
-          el: `Η Αλεξάνδρα δεν περπατούσε ποτέ. Έτρεχε. Πάντα. Από πρωί μέχρι βράδυ, τα πόδια της χτυπούσαν στο πάτωμα σαν τύμπανα — αδιάκοπα, ξέπνοα, χωρίς παύση.
+          el: `Η Αλεξάνδρα δεν περπατούσε ποτέ. Έτρεχε. Πάντα. Από το πρωί μέχρι το βράδυ, τα πόδια της χτυπούσαν στο πάτωμα σαν τύμπανα — αδιάκοπα, ξέπνοα, χωρίς παύση.
 
-Δεν ήταν γιατί αγαπούσε το τρέξιμο. Ήταν γιατί δεν μπορούσε να σταματήσει. Κάποιος πάντα τη χρειαζόταν. Κάποιος πάντα ζητούσε κάτι. Και εκείνη — πάντα — έλεγε ναι.
+Δεν ήταν επειδή αγαπούσε το τρέξιμο. Ήταν επειδή δεν μπορούσε να σταματήσει. Κάποιος πάντα τη χρειαζόταν. Κάποιος πάντα ζητούσε κάτι. Και εκείνη — πάντα, μα πάντα — έλεγε ναι.
 
-«Αλεξάνδρα, μπορείς να κρατήσεις αυτό;» — «Ναι.»
-«Αλεξάνδρα, θα έρθεις να βοηθήσεις;» — «Ναι.»
-«Αλεξάνδρα, θα το κάνεις εσύ;» — «Ναι.»
+«Αλεξάνδρα, μπορείς να μου κρατήσεις αυτό;» — «Ναι.»
+«Αλεξάνδρα, θα έρθεις να με βοηθήσεις με την εργασία;» — «Ναι.»
+«Αλεξάνδρα, θα το κάνεις εσύ; Εσύ τα καταφέρνεις καλύτερα.» — «Ναι.»
 
-Τα «ναι» ήταν αυτόματα. Βγαίναν πριν σκεφτεί. Πριν πάρει ανάσα. Σαν αντανακλαστικό — σαν κάτι που δεν ελέγχεις πια.
+Τα «ναι» της ήταν αυτόματα. Έβγαιναν από το στόμα της πριν προλάβει να σκεφτεί. Πριν προλάβει καν να πάρει ανάσα. Σαν αντανακλαστικό — σαν κάτι που δεν ελέγχεις πια, όπως το ανοιγόκλεισμα των ματιών.
 
-Στο τέλος κάθε μέρας, ήταν εξαντλημένη. Τα μάτια της έκαιγαν. Τα χέρια της έτρεμαν. Και το δικό της έργο — αυτό που πραγματικά ήθελε να τελειώσει — ακουμπισμένο στη γωνία, σκεπασμένο με σκόνη και ενοχή.
+Στο διάλειμμα κουβαλούσε τσάντες που δεν ήταν δικές της. Το μεσημέρι πότιζε τα φυτά της τάξης. Το απόγευμα έφτιαχνε αφίσες για γιορτές που είχαν αναλάβει άλλοι. Κι ανάμεσα σε όλα αυτά, έτρεχε.
 
-Η αλήθεια δεν ήταν ότι δεν πρόλαβε. Η αλήθεια ήταν ότι είχε δώσει ολόκληρο τον χρόνο της σε άλλους — και δεν είχε κρατήσει ούτε ένα λεπτό για τον εαυτό της.`,
-          en: `Alexandra never walked. She ran. Always. From morning to night, her feet hit the floor like drums — relentless, breathless, without pause.
+Στο τέλος κάθε μέρας, ήταν εξαντλημένη. Τα μάτια της έκαιγαν. Τα χέρια της έτρεμαν. Και το δικό της έργο — αυτό που πραγματικά λαχταρούσε να τελειώσει — καθόταν ακουμπισμένο στη γωνία, σκεπασμένο με σκόνη και ενοχή. Κάθε βράδυ το κοίταζε και του υποσχόταν σιωπηλά: «Αύριο.» Και κάθε αύριο γινόταν πάλι σήμερα, γεμάτο ξένα «ναι».
 
-It wasn't because she loved running. It was because she couldn't stop. Someone always needed her. Someone always asked for something. And she — always — said yes.
+Η αλήθεια δεν ήταν ότι δεν προλάβαινε. Η αλήθεια ήταν ότι είχε χαρίσει ολόκληρο τον χρόνο της στους άλλους — και δεν είχε κρατήσει ούτε ένα λεπτό για τον εαυτό της. Ούτε ένα.`,
+          en: `Alexandra never walked. She ran. Always. From morning to night, her feet drummed against the floor — relentless, breathless, without pause.
 
-"Alexandra, can you hold this?" — "Yes."
-"Alexandra, will you come help?" — "Yes."
-"Alexandra, will you do it?" — "Yes."
+It wasn't because she loved running. It was because she couldn't stop. Someone always needed her. Someone always wanted something. And she — always, every single time — said yes.
 
-The "yeses" were automatic. They came out before she thought. Before she breathed. Like a reflex — like something you no longer control.
+"Alexandra, can you hold this for me?" — "Yes."
+"Alexandra, will you come help me with my homework?" — "Yes."
+"Alexandra, will you do it? You're better at it anyway." — "Yes."
 
-At the end of each day, she was exhausted. Her eyes burned. Her hands trembled. And her own project — the one she truly wanted to finish — sat in the corner, covered in dust and guilt.
+Her yeses were automatic. They slipped out of her mouth before she could think. Before she could even take a breath. Like a reflex — like something you no longer control, like the blinking of your eyes.
 
-The truth wasn't that she ran out of time. The truth was she had given all her time to others — and hadn't kept a single minute for herself.`
+At break she carried bags that weren't hers. At lunch she watered the classroom plants. In the afternoon she made posters for events other people had signed up for. And in between all of it, she ran.
+
+At the end of every day, she was exhausted. Her eyes burned. Her hands trembled. And her own project — the one she truly longed to finish — sat in the corner, covered in dust and guilt. Every night she looked at it and silently promised: "Tomorrow." And every tomorrow turned into another today, filled with other people's yeses.
+
+The truth wasn't that she ran out of time. The truth was that she had given her whole day away to others — and hadn't kept a single minute for herself. Not one.`
         }
       },
       {
@@ -70,40 +74,40 @@ The truth wasn't that she ran out of time. The truth was she had given all her t
         image: "/images/paidia-kai-wisebot.webp",
         imageCaption: { el: "Η WiseBot εμφανίζεται όταν η Αλεξάνδρα είναι έτοιμη να σπάσει", en: "WiseBot appears when Alexandra is about to break" },
         text: {
-          el: `Νόμιζε ότι ήταν καλή φίλη. Νόμιζε ότι αυτό σήμαινε «να είσαι πάντα διαθέσιμη». Νόμιζε ότι η αγάπη κερδίζεται με την εξάντληση.
+          el: `Η Αλεξάνδρα νόμιζε ότι ήταν καλή φίλη. Νόμιζε ότι αυτό σήμαινε «να είσαι πάντα διαθέσιμη». Νόμιζε ότι η αγάπη κερδίζεται με την εξάντληση — ότι όσο πιο κουρασμένη είσαι, τόσο πιο πολύ σε χρειάζονται, και άρα τόσο πιο πολύ σε αγαπούν.
 
-Αλλά κάτω από το χαμόγελο, κάτι άλλο φούντωνε. Θυμός. Όχι θυμός με τους άλλους — θυμός με τον εαυτό της. Γιατί κάθε φορά που έλεγε «ναι» σε κάποιον άλλο, έλεγε «όχι» στα δικά της όνειρα.
+Αλλά κάτω από το χαμόγελο, κάτι άλλο φούντωνε σιγά σιγά. Θυμός. Όχι θυμός με τους άλλους — θυμός με τον εαυτό της. Γιατί κάθε φορά που έλεγε «ναι» σε κάποιον άλλο, έλεγε κρυφά «όχι» στα δικά της όνειρα. Και τα όνειρα, όταν τους λες συνέχεια «όχι», αρχίζουν να μαραίνονται.
 
-Ένιωθε σαν μπαλόνι που κάποιος φούσκωνε χωρίς σταματημό — ένα τελευταίο «ναι» ακόμα, και θα σκάσει.
+Ένιωθε σαν μπαλόνι που κάποιος φούσκωνε χωρίς σταματημό — ένα τελευταίο «ναι» ακόμα, και θα έσκαγε.
 
-Ο αέρας στο δωμάτιο άλλαξε. Ένα απαλό μπλε φως τρεμόπαιξε στη γωνία. Η WiseBot ήταν εκεί. Τα μωβ μάτια της πάλλονταν αργά, σαν κύμα στη θάλασσα.
+Εκείνο το απόγευμα, ο αέρας στο δωμάτιο άλλαξε. Ένα απαλό μπλε φως τρεμόπαιξε στη γωνία. Η WiseBot ήταν εκεί. Τα μωβ μάτια της πάλλονταν αργά, ήρεμα, σαν κύμα στη θάλασσα.
 
-«Είσαι κουρασμένη», είπε απαλά.
+«Είσαι κουρασμένη», είπε απαλά. Δεν ήταν ερώτηση.
 
-«Πρέπει να βοηθάω», απάντησε η Αλεξάνδρα με φωνή ραγισμένη.
+«Πρέπει να βοηθάω», απάντησε η Αλεξάνδρα με φωνή ραγισμένη. «Αυτό κάνουν οι καλοί άνθρωποι. Βοηθάνε.»
 
-«Πρέπει;» ρώτησε η WiseBot. «Ή φοβάσαι ότι αν πεις ΟΧΙ... δεν θα σε αγαπάνε;»
+«Πρέπει;» ρώτησε η WiseBot και έγειρε το κεφάλι της. «Ή φοβάσαι ότι αν πεις ΟΧΙ... δεν θα σε αγαπάνε πια;»
 
-Η Αλεξάνδρα πάγωσε. Ήταν σαν κάποιος να άνοιξε μια πόρτα που κρατούσε κλειδωμένη για χρόνια — και πίσω από αυτήν δεν υπήρχε τέρας. Υπήρχε μόνο ένα μικρό κορίτσι, καθισμένο μόνο, που φοβόταν ότι αν σταματήσει να τρέχει, κανείς δεν θα μείνει κοντά της.
+Η Αλεξάνδρα πάγωσε. Ήταν σαν να άνοιξε κάποιος μια πόρτα που κρατούσε κλειδωμένη για χρόνια — και πίσω από αυτήν δεν υπήρχε κανένα τέρας. Υπήρχε μόνο ένα μικρό κορίτσι, καθισμένο μόνο του, που φοβόταν ότι αν σταματήσει να τρέχει, κανείς δεν θα μείνει κοντά του.
 
-Η καλοσύνη χωρίς όρια δεν είναι αγάπη. Είναι φυλακή με χρυσά κάγκελα.`,
-          en: `She thought she was a good friend. She thought that meant "always being available." She thought love was earned through exhaustion.
+Και τότε κατάλαβε κάτι που πονούσε και ελευθέρωνε ταυτόχρονα: η καλοσύνη χωρίς όρια δεν είναι αγάπη. Είναι φυλακή με χρυσά κάγκελα.`,
+          en: `Alexandra thought she was a good friend. She thought that meant "always being available." She thought love was earned through exhaustion — that the more tired you are, the more people need you, and so the more they love you.
 
-But underneath the smile, something else was growing. Anger. Not anger at others — anger at herself. Because every time she said "yes" to someone else, she said "no" to her own dreams.
+But underneath the smile, something else was quietly growing. Anger. Not anger at others — anger at herself. Because every time she said "yes" to someone else, she was secretly saying "no" to her own dreams. And dreams, when you keep telling them "no," slowly begin to wilt.
 
 She felt like a balloon someone kept inflating without stopping — one more "yes," and she would burst.
 
-The air in the room shifted. A soft blue light flickered in the corner. WiseBot was there. Her purple eyes pulsed slowly, like a wave in the sea.
+That afternoon, the air in the room changed. A soft blue light flickered in the corner. WiseBot was there. Her purple eyes pulsed slowly, calmly, like a wave in the sea.
 
-"You are tired," she said softly.
+"You are tired," she said gently. It was not a question.
 
-"I have to help," Alexandra replied, her voice cracked.
+"I have to help," Alexandra answered, her voice cracking. "That's what good people do. They help."
 
-"Have to?" asked WiseBot. "Or are you afraid that if you say NO... they won't love you?"
+"Have to?" asked WiseBot, tilting her head. "Or are you afraid that if you say NO... they won't love you anymore?"
 
-Alexandra froze. It was as if someone had opened a door she had kept locked for years — and behind it there was no monster. There was only a small girl, sitting alone, afraid that if she stopped running, no one would stay close to her.
+Alexandra froze. It was as if someone had opened a door she had kept locked for years — and behind it there was no monster at all. There was only a small girl, sitting alone, afraid that if she ever stopped running, no one would stay close to her.
 
-Kindness without boundaries is not love. It is a prison with golden bars.`
+And then she understood something that hurt and set her free at the same time: kindness without boundaries is not love. It is a prison with golden bars.`
         }
       },
       {
@@ -111,48 +115,48 @@ Kindness without boundaries is not love. It is a prison with golden bars.`
         image: "/images/wisebot.jpg",
         imageCaption: { el: "Η WiseBot αποκαλύπτει την αλήθεια πίσω από κάθε «ναι»", en: "WiseBot reveals the truth behind every 'yes'" },
         text: {
-          el: `«Πες μου», ξεκίνησε η WiseBot, «αν κάποιος σου ζητούσε να πετάξεις στον αέρα — θα έλεγες ναι;»
+          el: `«Πες μου», ξεκίνησε η WiseBot, και το φως της γέμισε το δωμάτιο σαν ζεστό απόγευμα, «αν κάποιος σου ζητούσε να πετάξεις στον αέρα — θα έλεγες ναι;»
 
-«Φυσικά και όχι. Δεν μπορώ να πετάξω.»
+Η Αλεξάνδρα γέλασε παρά την κούρασή της. «Φυσικά και όχι. Δεν μπορώ να πετάξω.»
 
 «Τότε γιατί λες ναι σε πράγματα που σε ρίχνουν κάτω;»
 
-Σιωπή. Μόνο ο ήχος της καρδιάς της, που χτυπούσε πιο γρήγορα από πριν.
+Σιωπή. Μόνο ο ήχος της καρδιάς της, που χτυπούσε πιο γρήγορα από πριν. Η ερώτηση ήταν τόσο απλή. Και όμως δεν είχε καμία απάντηση.
 
-«Το "ΟΧΙ" δεν είναι κακία. Δεν είναι αγένεια. Δεν είναι εγωισμός. Το "ΟΧΙ" είναι ασπίδα. Προστατεύει τον χρόνο σου. Την ενέργειά σου. Τα όνειρά σου.»
+«Άκουσέ με προσεκτικά», συνέχισε η WiseBot. «Το "ΟΧΙ" δεν είναι κακία. Δεν είναι αγένεια. Δεν είναι εγωισμός. Το "ΟΧΙ" είναι ασπίδα. Προστατεύει τον χρόνο σου. Την ενέργειά σου. Τα όνειρά σου.»
 
-«Αλλά θα θυμώσουν», ψέλλισε η Αλεξάνδρα. Τα μάτια της γέμισαν δάκρυα.
+«Αλλά θα θυμώσουν», ψέλλισε η Αλεξάνδρα. Τα μάτια της γέμισαν δάκρυα. «Θα πουν ότι άλλαξα. Ότι έγινα κακιά.»
 
 Η WiseBot την κοίταξε βαθιά, με μια ζεστασιά που δεν περίμενε κανείς από μεταλλικά μάτια.
 
-«Αν θυμώσουν επειδή προσέχεις τον εαυτό σου... τότε δεν σέβονται εσένα. Σέβονται μόνο αυτό που κάνεις για αυτούς.»
+«Αν θυμώσουν επειδή προσέχεις τον εαυτό σου... τότε δεν σέβονται εσένα. Σέβονται μόνο αυτό που κάνεις για εκείνους. Και αυτό, Αλεξάνδρα, δεν είναι φιλία. Είναι συναλλαγή.»
 
-Η Αλεξάνδρα ένιωσε κάτι να σπάει μέσα της. Όχι κάτι που πονάει — κάτι που ελευθερώνει. Σαν αλυσίδα που λύνεται. Σαν παράθυρο που ανοίγει σε δωμάτιο γεμάτο σκόνη.
+Η Αλεξάνδρα ένιωσε κάτι να σπάει μέσα της. Όχι κάτι που πονάει — κάτι που ελευθερώνει. Σαν αλυσίδα που λύνεται κρίκο κρίκο. Σαν παράθυρο που ανοίγει σε δωμάτιο γεμάτο σκόνη.
 
 «Κάθε φορά που λες ΝΑΙ σε κάτι, λες ΟΧΙ σε κάτι άλλο. Το ερώτημα είναι: σε τι λες ΟΧΙ χωρίς να το καταλαβαίνεις;»
 
-Και η Αλεξάνδρα κατάλαβε. Κάθε «ναι» στους άλλους ήταν ένα «όχι» στον εαυτό της. Και αυτό δεν ήταν καλοσύνη. Ήταν αυτοκαταστροφή ντυμένη με χαμόγελο.`,
-          en: `"Tell me," WiseBot began, "if someone asked you to fly into the air — would you say yes?"
+Και η Αλεξάνδρα κατάλαβε, με μια καθαρότητα που την τρόμαξε. Κάθε «ναι» στους άλλους ήταν ένα κρυφό «όχι» στον εαυτό της. Και αυτό δεν ήταν καλοσύνη. Ήταν αυτοκαταστροφή ντυμένη με χαμόγελο.`,
+          en: `"Tell me," WiseBot began, her light filling the room like a warm afternoon, "if someone asked you to fly into the air — would you say yes?"
 
-"Of course not. I can't fly."
+Alexandra laughed despite her tiredness. "Of course not. I can't fly."
 
-"Then why do you say yes to things that bring you down?"
+"Then why do you say yes to things that drag you down?"
 
-Silence. Only the sound of her heart, beating faster than before.
+Silence. Only the sound of her heart, beating faster than before. The question was so simple. And yet she had no answer at all.
 
-"'NO' is not cruelty. It is not rudeness. It is not selfishness. 'NO' is a shield. It protects your time. Your energy. Your dreams."
+"Listen to me carefully," WiseBot continued. "'NO' is not cruelty. It is not rudeness. It is not selfishness. 'NO' is a shield. It protects your time. Your energy. Your dreams."
 
-"But they will get angry," Alexandra stammered. Her eyes filled with tears.
+"But they'll get angry," Alexandra stammered. Her eyes filled with tears. "They'll say I've changed. That I've become mean."
 
-WiseBot looked at her deeply, with a warmth no one expected from metallic eyes.
+WiseBot looked at her deeply, with a warmth nobody would expect from metallic eyes.
 
-"If they get angry because you take care of yourself... then they don't respect you. They only respect what you do for them."
+"If they get angry because you take care of yourself... then they don't respect you. They only respect what you do for them. And that, Alexandra, is not friendship. It is a transaction."
 
-Alexandra felt something break inside her. Not something that hurts — something that frees. Like a chain coming undone. Like a window opening in a room full of dust.
+Alexandra felt something break inside her. Not something that hurts — something that sets you free. Like a chain coming undone, link by link. Like a window opening in a room full of dust.
 
-"Every time you say YES to something, you say NO to something else. The question is: what are you saying NO to without realizing it?"
+"Every time you say YES to something, you say NO to something else. The question is: what are you saying NO to without even realizing it?"
 
-And Alexandra understood. Every "yes" to others was a "no" to herself. And that wasn't kindness. It was self-destruction dressed in a smile.`
+And Alexandra understood, with a clarity that startled her. Every "yes" to others was a hidden "no" to herself. And that wasn't kindness. It was self-destruction dressed in a smile.`
         }
       },
       {
@@ -164,7 +168,7 @@ And Alexandra understood. Every "yes" to others was a "no" to herself. And that 
 
 «Θα σου μάθω κάτι. Κάτι που δεν γράφεται στα βιβλία. Κάτι που πρέπει να νιώσεις μέσα σου. Κλείσε τα μάτια σου.»
 
-Η Αλεξάνδρα δίστασε. Ύστερα υπάκουσε. Σκοτάδι.
+Η Αλεξάνδρα δίστασε. Ύστερα υπάκουσε. Σκοτάδι. Μόνο η ανάσα της ακουγόταν, γρήγορη ακόμα από το τρέξιμο της ημέρας.
 
 «Τώρα φαντάσου ότι γύρω σου υπάρχει μια σφαίρα. Μια μπάλα από φως. Αυτό είναι ο χώρος σου. Ο χρόνος σου. Η ενέργειά σου.»
 
@@ -172,7 +176,7 @@ And Alexandra understood. Every "yes" to others was a "no" to herself. And that 
 
 «Κάθε φορά που λες ΝΑΙ χωρίς να το εννοείς, κάνεις μια τρύπα σε αυτή τη σφαίρα. Η ενέργειά σου χύνεται. Διαρρέει. Στάζει σε χέρια που δεν τη χρειάζονται πραγματικά.»
 
-Η Αλεξάνδρα ένιωσε ένα ρίγος. Γιατί μπορούσε να δει τη σφαίρα. Και ήταν γεμάτη τρύπες. Σχεδόν άδεια.
+Η Αλεξάνδρα ένιωσε ένα ρίγος να τη διαπερνά. Γιατί μπορούσε πραγματικά να τη δει, τη σφαίρα της. Και ήταν γεμάτη τρύπες. Σχεδόν άδεια.
 
 «Κάθε φορά που λες ΟΧΙ — ένα αληθινό, τίμιο, ήρεμο "ΟΧΙ" — κλείνεις μια τρύπα. Και η ενέργεια μένει μέσα σου. Για σένα. Για τα πραγματικά σου "ΝΑΙ".»
 
@@ -191,7 +195,7 @@ And Alexandra understood. Every "yes" to others was a "no" to herself. And that 
 
 "I will teach you something. Something not written in books. Something you must feel inside. Close your eyes."
 
-Alexandra hesitated. Then she obeyed. Darkness.
+Alexandra hesitated. Then she obeyed. Darkness. Only her breathing could be heard, still quick from the day's running.
 
 "Now imagine a sphere around you. A ball of light. That is your space. Your time. Your energy."
 
@@ -199,7 +203,7 @@ Alexandra imagined it. Blue. Warm. Safe.
 
 "Every time you say YES without meaning it, you make a hole in that sphere. Your energy spills out. Leaks. Drips into hands that don't truly need it."
 
-Alexandra felt a shiver. Because she could see the sphere. And it was full of holes. Almost empty.
+Alexandra felt a shiver run through her. Because she truly could see it, her own sphere. And it was full of holes. Almost empty.
 
 "Every time you say NO — a true, honest, calm 'NO' — you seal a hole. And your energy stays inside you. For you. For your real 'YES' moments."
 
@@ -221,44 +225,44 @@ And she felt light. For the first time in months, her feet didn't want to run. T
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Η δύναμη δεν είναι να λες πάντα ΝΑΙ — είναι να ξέρεις πότε να πεις ΟΧΙ", en: "True strength is not always saying YES — it is knowing when to say NO" },
         text: {
-          el: `Εκείνο το απόγευμα, η Αλεξάνδρα δεν έτρεξε πουθενά. Κάθισε στο γραφείο της. Άνοιξε το ημιτελές έργο της. Και για πρώτη φορά μετά από εβδομάδες, τα χέρια της δεν έτρεμαν.
+          el: `Εκείνο το απόγευμα, η Αλεξάνδρα δεν έτρεξε πουθενά. Κάθισε στο γραφείο της. Άνοιξε το ημιτελές έργο της, αυτό που την περίμενε σκονισμένο στη γωνία. Και για πρώτη φορά μετά από εβδομάδες, τα χέρια της δεν έτρεμαν.
 
-Δούλεψε. Ήρεμα. Σταθερά. Χωρίς να κοιτάζει το ρολόι. Χωρίς να ακούει αν κάποιος τη φωνάζει. Χωρίς να τρέχει.
+Δούλεψε. Ήρεμα. Σταθερά. Χωρίς να κοιτάζει το ρολόι. Χωρίς να στήνει αυτί μήπως τη φωνάξει κάποιος. Χωρίς να τρέχει. Είχε κερδίσει κάτι πολύτιμο, κάτι που δεν αγοράζεται πουθενά: χρόνο για τα όνειρά της.
 
-Ο ήλιος χαμήλωσε. Σκιές μπήκαν στο δωμάτιο σαν χρυσά ποτάμια. Και η Αλεξάνδρα χαμογελούσε. Όχι το χαμόγελο που έβαζε για τους άλλους. Ένα αληθινό χαμόγελο. Μικρό. Ήσυχο. Δικό της.
+Ο ήλιος χαμήλωσε. Σκιές μπήκαν στο δωμάτιο σαν χρυσά ποτάμια. Και η Αλεξάνδρα χαμογελούσε. Όχι το χαμόγελο που φορούσε για τους άλλους. Ένα αληθινό χαμόγελο. Μικρό. Ήσυχο. Δικό της.
 
-«Τελείωσες;» ρώτησε ο Φίλιππος.
+«Τελείωσες;» ρώτησε ο Φίλιππος, που πέρασε να τη δει.
 
-«Ναι», είπε η Αλεξάνδρα. Και η φωνή της ήταν γεμάτη. Σταθερή. Ζωντανή. «Και έχω ακόμα ενέργεια.»
+«Ναι», είπε η Αλεξάνδρα. Και η φωνή της ήταν γεμάτη. Σταθερή. Ζωντανή. «Και το πιο περίεργο; Έχω ακόμα ενέργεια.»
 
-Εκείνο το βράδυ, πήρε έναν μπλε μαρκαδόρο — του ίδιου χρώματος με τα μάτια της WiseBot. Στάθηκε μπροστά στον τοίχο πάνω από το γραφείο της, εκεί που κρεμόταν μια λίστα με υποχρεώσεις για τους άλλους. Διέγραψε τη λίστα. Και στη θέση της έγραψε μια μόνο πρόταση:
+Εκείνο το βράδυ, πήρε έναν μπλε μαρκαδόρο — στο χρώμα του φωτός της WiseBot. Στάθηκε μπροστά στον τοίχο πάνω από το γραφείο της, εκεί που κρεμόταν μια μακριά λίστα με υποχρεώσεις για τους άλλους. Διέγραψε τη λίστα, γραμμή γραμμή. Και στη θέση της έγραψε μία μόνο πρόταση:
 
 «Λέω ΟΧΙ στους άλλους, για να πω ΝΑΙ σε μένα.»
 
-Η WiseBot δεν ήταν εκεί. Δεν χρειαζόταν. Γιατί το μάθημα δεν ήταν πια λόγια κάποιου άλλου. Ήταν λέξεις δικές της, γραμμένες με τα δικά της χέρια, πάνω στον δικό της τοίχο.
+Η WiseBot δεν ήταν εκεί. Δεν χρειαζόταν πια. Γιατί το μάθημα δεν ήταν πια λόγια κάποιου άλλου. Ήταν λέξεις δικές της, γραμμένες με τα δικά της χέρια, πάνω στον δικό της τοίχο.
 
-Έσβησε το φως. Ξάπλωσε. Και για πρώτη φορά μετά από πολύ καιρό, δεν σκέφτηκε τι θα ζητήσει αύριο κάποιος άλλος. Σκέφτηκε τι θα κάνει εκείνη.
+Έσβησε το φως. Ξάπλωσε. Και για πρώτη φορά μετά από πολύ καιρό, δεν σκέφτηκε τι θα της ζητήσει αύριο κάποιος άλλος. Σκέφτηκε τι θα κάνει εκείνη. Πού θα βάλει το χρώμα. Πώς θα τελειώσει την επόμενη ιδέα της.
 
-Η δύναμη του «ΟΧΙ» δεν είναι να απομακρύνεις τους ανθρώπους. Είναι να βρεις ξανά τον εαυτό σου ανάμεσα στα «ΝΑΙ» που δεν εννοούσες ποτέ.`,
-          en: `That afternoon, Alexandra didn't run anywhere. She sat at her desk. Opened her unfinished project. And for the first time in weeks, her hands didn't tremble.
+Γιατί η δύναμη του «ΟΧΙ» δεν είναι να απομακρύνεις τους ανθρώπους. Είναι να βρεις ξανά τον εαυτό σου ανάμεσα στα «ΝΑΙ» που δεν εννοούσες ποτέ.`,
+          en: `That afternoon, Alexandra didn't run anywhere. She sat at her desk. She opened her unfinished project, the one that had gathered dust in the corner for months. For the first time in weeks, her hands didn't tremble.
 
-She worked. Calmly. Steadily. Without watching the clock. Without listening for someone calling her. Without running.
+She worked. Calmly. Steadily. Without watching the clock. Without listening for anyone calling her. Without running. She had won something precious, something no shop sells: time for her dreams.
 
-The sun sank low. Shadows crept into the room like golden rivers. And Alexandra was smiling. Not the smile she wore for others. A real smile. Small. Quiet. Her own.
+The sun sank low. Shadows slipped into the room like golden rivers. And Alexandra was smiling. Not the smile she wore for others. A real smile. Small. Quiet. Her own.
 
-"Finished?" asked Philippos.
+"Did you finish?" asked Philippos, stopping by.
 
-"Yes," said Alexandra. And her voice was full. Steady. Alive. "And I still have energy."
+"Yes," said Alexandra. And her voice was full. Steady. Alive. "And strangely enough, I still have energy."
 
-That evening, she grabbed a blue marker — the same color as WiseBot's eyes. She stood before the wall above her desk, where a list of obligations for others used to hang. She crossed out the list. And in its place, she wrote a single sentence:
+That evening, she picked up a blue marker — the same color as WiseBot's light. She stood before the wall above her desk, where a long list of obligations to others used to hang. She crossed out the list, line by line. In its place she wrote a single sentence:
 
 "I say NO to others, to say YES to me."
 
 WiseBot wasn't there. She didn't need to be. Because the lesson was no longer someone else's words. It was her own words, written by her own hands, on her own wall.
 
-She turned off the light. Lay down. And for the first time in a long while, she didn't think about what someone else would ask tomorrow. She thought about what she would do.
+She turned off the light and lay down. For the first time in a long while, she didn't think about what someone might ask of her tomorrow. She thought about what she would do. Where she would put the color. How she would finish her next idea.
 
-The power of "NO" is not about pushing people away. It is about finding yourself again among the "yeses" you never truly meant.`
+The power of "NO" is not about pushing people away. It is about finding yourself again among the "yeses" you never meant.`
         }
       }
     ]

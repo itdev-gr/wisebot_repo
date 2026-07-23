@@ -37,32 +37,32 @@ export const BOOK_7: Book[] = [
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Τρία παιδιά που ένιωθαν πολύ μικρά για τον κόσμο.", en: "Three kids who felt too small for the world." },
         text: {
-          el: `Πέρασαν τρεις μέρες από τα γέλια στην αυλή. Τρεις μέρες που κανένα από τα τρία παιδιά δεν μίλησε για αυτό που συνέβη. Αλλά η σιωπή δεν σήμαινε ότι ξέχασαν. Σήμαινε ότι πονούσαν ακόμα.
+          el: `Πέρασαν τρεις μέρες από τα γέλια στην αυλή. Τρεις ολόκληρες μέρες που κανένα από τα τρία παιδιά δεν μίλησε για αυτό που συνέβη. Αλλά η σιωπή δεν σήμαινε ότι ξέχασαν. Σήμαινε ότι πονούσαν ακόμα.
 
-Η Αλεξάνδρα σταμάτησε να ζωγραφίζει. Τα μολύβια της έμεναν ακίνητα μέσα στη θήκη, ακουμπισμένα πάνω στο γραφείο σαν αντικείμενα κάποιου άλλου. Κάθε φορά που τα κοιτούσε, άκουγε εκείνο το γέλιο. Σαν ηχώ που δεν σβήνει.
+Η Αλεξάνδρα σταμάτησε να ζωγραφίζει. Τα μολύβια της έμεναν ακίνητα μέσα στη θήκη, ακουμπισμένα πάνω στο γραφείο σαν αντικείμενα κάποιου άλλου. Κάθε φορά που τα κοιτούσε, άκουγε εκείνο το γέλιο. Σαν ηχώ που δεν σβήνει, όσο κι αν κλείνεις τα αυτιά.
 
-Ο Φίλιππος αντέδρασε αλλιώς. Δεν σταμάτησε — εξαφανίστηκε. Κλεινόταν στο δωμάτιό του, κοιτούσε βίντεο στο τάμπλετ, δεν μιλούσε σε κανέναν. «Είμαι καλά», έλεγε, με φωνή που ακουγόταν σαν τοίχος.
+Ο Φίλιππος αντέδρασε αλλιώς. Δεν σταμάτησε — εξαφανίστηκε. Κλεινόταν στο δωμάτιό του, κοιτούσε βίντεο στο τάμπλετ με άδειο βλέμμα, δεν μιλούσε σε κανέναν. «Είμαι καλά», έλεγε στη μαμά του, με φωνή που ακουγόταν σαν τοίχος. Αλλά το πιάτο του έμενε μισογεμάτο, και η πόρτα του κλειστή.
 
-Η Ελευθερία ήταν αυτή που φαινόταν πιο ήρεμη. Αλλά η ηρεμία της ήταν ψεύτικη. Μέσα της κυλούσε μια σκέψη, ξανά και ξανά, σαν σπασμένο ρολόι: «Κι αν δεν ταιριάζω πουθενά;»
+Η Ελευθερία ήταν αυτή που φαινόταν πιο ήρεμη. Διάβαζε, τακτοποιούσε, χαμογελούσε όταν έπρεπε. Αλλά η ηρεμία της ήταν ψεύτικη. Μέσα της κυλούσε μια σκέψη, ξανά και ξανά, σαν σπασμένο ρολόι που δείχνει πάντα την ίδια ώρα: «Κι αν δεν ταιριάζω πουθενά;»
 
-Ο κόσμος τους — το σχολείο, η γειτονιά, η αυλή — ένιωθε ξαφνικά πολύ μικρός. Και πολύ εχθρικός. Σαν δωμάτιο που μικραίνει κάθε μέρα.
+Ο κόσμος τους — το σχολείο, η γειτονιά, η αυλή — ένιωθε ξαφνικά πολύ μικρός. Και πολύ εχθρικός. Σαν δωμάτιο που μικραίνει λίγο περισσότερο κάθε μέρα, μέχρι να μη χωράς ούτε εσύ ο ίδιος.
 
-Αυτή τη μέρα, η Αλεξάνδρα κάθισε στο παράθυρο και κοίταξε τον ουρανό. Ήταν γεμάτος σύννεφα — βαριά, γκρίζα, αδιάφορα. Ακριβώς σαν τη διάθεσή της.
+Εκείνη τη μέρα, η Αλεξάνδρα κάθισε στο παράθυρο και κοίταξε τον ουρανό. Ήταν γεμάτος σύννεφα — βαριά, γκρίζα, αδιάφορα. Ακριβώς σαν τη διάθεσή της.
 
-Κι εκεί, ψηλά, ανάμεσα στα σύννεφα, είδε κάτι. Κάτι που λαμπύριζε χρυσό.`,
-          en: `Three days had passed since the laughter in the schoolyard. Three days during which none of the three children spoke about what happened. But silence did not mean they had forgotten. It meant they were still hurting.
+Κι εκεί, ψηλά, ανάμεσα στα σύννεφα, είδε κάτι. Κάτι που λαμπύριζε χρυσό. Και η καρδιά της, χωρίς να ξέρει γιατί, χτύπησε πιο γρήγορα.`,
+          en: `Three days had passed since the laughter in the schoolyard. Three whole days during which none of the three children spoke about what happened. But silence did not mean they had forgotten. It meant they were still hurting.
 
-Alexandra stopped drawing. Her pencils remained motionless inside their case, resting on the desk like objects belonging to someone else. Every time she looked at them, she heard that laughter. Like an echo that never fades.
+Alexandra stopped drawing. Her pencils remained motionless inside their case, resting on the desk like objects belonging to someone else. Every time she looked at them, she heard that laughter. Like an echo that never fades, no matter how tightly you cover your ears.
 
-Philippos reacted differently. He didn't stop — he disappeared. He shut himself in his room, watched videos on his tablet, spoke to no one. "I'm fine," he said, in a voice that sounded like a wall.
+Philippos reacted differently. He didn't stop — he disappeared. He shut himself in his room, watched videos on his tablet with an empty gaze, spoke to no one. "I'm fine," he told his mom, in a voice that sounded like a wall. But his plate stayed half full, and his door stayed closed.
 
-Eleftheria was the one who seemed the calmest. But her calm was false. Inside her, a thought was running, again and again, like a broken clock: "What if I don't belong anywhere?"
+Eleftheria was the one who seemed the calmest. She read, she tidied up, she smiled when she was supposed to. But her calm was false. Inside her, one thought kept running, again and again, like a broken clock that always shows the same time: "What if I don't belong anywhere?"
 
-Their world — the school, the neighborhood, the yard — suddenly felt very small. And very hostile. Like a room that shrinks a little more each day.
+Their world — the school, the neighborhood, the yard — suddenly felt very small. And very hostile. Like a room that shrinks a little more each day, until even you no longer fit inside it.
 
 That day, Alexandra sat by the window and looked at the sky. It was full of clouds — heavy, grey, indifferent. Exactly like her mood.
 
-And there, high above, between the clouds, she saw something. Something that shimmered gold.`
+And there, high above, between the clouds, she saw something. Something that shimmered gold. And her heart, without knowing why, began to beat faster.`
         }
       },
       {
@@ -84,9 +84,9 @@ And there, high above, between the clouds, she saw something. Something that shi
 
 «Εγώ είμαι ο Sparken», είπε, ανοίγοντας τα φτερά του αργά. Φως χύθηκε στο δωμάτιο — χρυσό, απαλό, ζεστό. Σαν ανατολή μέσα σε τέσσερις τοίχους. «Και ήρθα γιατί κοιτάτε πολύ χαμηλά.»
 
-«Πολύ χαμηλά;» ρώτησε η Ελευθερία.
+«Πολύ χαμηλά;» ρώτησε η Ελευθερία, κάνοντας ένα δειλό βήμα πιο κοντά.
 
-«Ναι», είπε ο Sparken. «Βλέπετε μόνο αυτό που είναι γύρω σας. Την αυλή. Τα γέλια. Τις γνώμες πέντε ανθρώπων. Και νομίζετε ότι αυτός είναι ο κόσμος.» Έκανε παύση. Τα χρυσά μάτια του λάμπρυναν. «Αλλά ο κόσμος είναι πολύ, πολύ μεγαλύτερος.»`,
+«Ναι», είπε ο Sparken. «Βλέπετε μόνο αυτό που είναι γύρω σας. Την αυλή. Τα γέλια. Τις γνώμες πέντε ανθρώπων. Ζείτε μέσα σε μια μικρή φούσκα και νομίζετε ότι αυτή η φούσκα είναι ο κόσμος.» Έκανε παύση. Τα χρυσά μάτια του λάμπρυναν σαν δύο μικροί ήλιοι. «Αλλά ο κόσμος είναι πολύ, πολύ μεγαλύτερος. Και απόψε θα σας το αποδείξω.»`,
           en: `He didn't come down slowly. He didn't need to. Sparken arrived like lightning that makes no sound — a line of golden light that split the sky and landed on the balcony railing.
 
 He was an eagle. But not like the eagles in books. His wings were almost transparent — constructed from light, like holograms that flickered under the sun. His eyes were golden, deep, like two miniature suns.
@@ -101,9 +101,9 @@ Philippos came running into the room. Eleftheria followed him. They stared at th
 
 "I am Sparken," he said, spreading his wings slowly. Light poured into the room — golden, soft, warm. Like a sunrise inside four walls. "And I came because you are looking too low."
 
-"Too low?" asked Eleftheria.
+"Too low?" asked Eleftheria, taking one timid step closer.
 
-"Yes," said Sparken. "You only see what is around you. The schoolyard. The laughter. The opinions of five people. And you think that is the world." He paused. His golden eyes brightened. "But the world is much, much bigger."`
+"Yes," said Sparken. "You only see what is around you. The schoolyard. The laughter. The opinions of five people. You live inside a small bubble and you think that bubble is the world." He paused. His golden eyes brightened like two small suns. "But the world is much, much bigger. And tonight I will prove it to you."`
         }
       },
       {
@@ -125,7 +125,7 @@ Philippos came running into the room. Eleftheria followed him. They stared at th
 
 Τα παιδιά κοίταξαν κάτω. Το σχολείο τους φαινόταν τώρα μικρό. Σαν κουτί παπουτσιών. Η αυλή — ένα τετραγωνάκι. Τα παιδιά που γελούσαν — κουκκίδες. Απλές, μικροσκοπικές κουκκίδες.
 
-«Βλέπετε;» είπε ο Sparken. «Από εδώ ψηλά, οι φωνές τους δεν ακούγονται. Όχι γιατί δεν υπάρχουν. Αλλά γιατί υπάρχουν τόσα πολλά ακόμη πέρα από αυτές.»
+«Βλέπετε;» είπε ο Sparken. «Από εδώ ψηλά, οι φωνές τους δεν ακούγονται. Όχι γιατί δεν υπάρχουν. Αλλά γιατί υπάρχουν τόσα πολλά ακόμη πέρα από αυτές.» Έγειρε ελαφρά τα φτερά του και η πόλη γύρισε από κάτω τους σαν χάρτης. «Αυτό θα πει να σπας τη φούσκα σου: βγαίνεις από το μικρό σου περιβάλλον — και βλέπεις επιτέλους τον κόσμο.»
 
 Η Αλεξάνδρα ένιωσε τα μάτια της να καίνε. Όχι από λύπη αυτή τη φορά. Από κάτι εντελώς διαφορετικό — σαν να ξεκλειδωνόταν κάτι μέσα στο στήθος της. Ελευθερία.
 
@@ -146,7 +146,7 @@ Sparken took off. Silently, like a thought being set free. First above the house
 
 The children looked down. Their school seemed small now. Like a shoebox. The yard — a tiny square. The kids who had laughed — dots. Simple, microscopic dots.
 
-"Do you see?" said Sparken. "From up here, their voices cannot be heard. Not because they don't exist. But because there is so much more beyond them."
+"Do you see?" said Sparken. "From up here, their voices cannot be heard. Not because they don't exist. But because there is so much more beyond them." He tilted his wings slightly, and the city turned beneath them like a map. "That is what it means to break your bubble: you step out of your small environment — and you finally see the world."
 
 Alexandra felt her eyes burn. Not from sadness this time. From something completely different — as if something was unlocking inside her chest. Freedom.
 
@@ -181,13 +181,13 @@ Alexandra felt her eyes burn. Not from sadness this time. From something complet
 
 They were children. Dozens of them. Some were building machines from wood and wire. Some were painting murals on a massive wall, with colors so vivid they lit up the whole corner. Some were writing in notebooks, so focused they didn't even look up.
 
-"Who are they?" whispered Alexandra, as if afraid that speaking loudly would wake her from a dream.
+"Who are they?" whispered Alexandra, as if afraid of waking from a dream.
 
 "They," said Sparken, "are like you. Children who were once mocked. Who were told that what they make is worthless. Who felt small inside a world that didn't understand them. But instead of shrinking, they found those who are like them."
 
 A girl with short hair and paint on her fingers raised her head. She smiled. "New here?" she asked. "Come see what we're making."
 
-Philippos felt something he hadn't felt in days — curiosity. Pure, real curiosity. He slowly approached a table covered in circuits and batteries. "What are you making?" A boy answered without looking up: "A bridge that holds ten kilos. Made from cardboard." Philippos couldn't believe his ears.
+Philippos felt something he hadn't felt in days — curiosity. Pure, real curiosity. He approached a table covered in circuits and batteries. "What are you making?" A boy answered without looking up: "A bridge that holds ten kilos. Made from cardboard." Philippos couldn't believe his ears.
 
 Eleftheria found a group of children reading aloud stories they had written themselves. She sat down beside them. No one laughed. No one asked "why." They simply made room for her. As if they had been waiting.
 
@@ -201,7 +201,7 @@ And in that moment — without words, without explanations, without permission �
         image: "/images/eleftheria.webp",
         imageCaption: { el: "Ο κόσμος δεν άλλαξε. Τα μάτια τους άλλαξαν.", en: "The world didn't change. Their eyes did." },
         text: {
-          el: `Ο Sparken τα έφερε πίσω πριν νυχτώσει. Τα φτερά του ολογράμματος σιγόσβηναν στο δειλινό, αλλά τα χρυσά μάτια του ήταν ακόμα φωτεινά — πιο φωτεινά, ίσως, από πριν.
+          el: `Ο Sparken τα έφερε πίσω πριν νυχτώσει. Τα φτερά του ολογράμματος σιγόσβηναν στο δειλινό, αλλά τα χρυσά μάτια του έλαμπαν ακόμα.
 
 «Πρέπει να φύγεις;» ρώτησε η Αλεξάνδρα, και η φωνή της είχε κάτι που δεν υπήρχε πριν — σταθερότητα.
 
@@ -213,16 +213,16 @@ And in that moment — without words, without explanations, without permission �
 
 «Σίγουρα θα γελάσουν», είπε ο Sparken, χωρίς να κρύψει την αλήθεια.
 
-«Δεν πειράζει», είπε η Ελευθερία. Και η φωνή της ακούστηκε σαν κάποια που μόλις ανακάλυψε μυστικό πολύ μεγάλο για λέξεις. «Γιατί τώρα ξέρω. Εκεί έξω υπάρχουν άνθρωποι σαν εμάς. Η γνώμη πέντε ανθρώπων δεν είναι ο κόσμος.»
+«Δεν πειράζει», είπε η Ελευθερία, σαν κάποια που μόλις ανακάλυψε ένα μεγάλο μυστικό. «Γιατί τώρα ξέρω. Εκεί έξω υπάρχουν άνθρωποι σαν εμάς. Η γνώμη πέντε ανθρώπων δεν είναι ο κόσμος.»
 
-Η Αλεξάνδρα άνοιξε τη θήκη με τα μολύβια. Για πρώτη φορά εδώ και μέρες, τα δάχτυλά της ήθελαν να ζωγραφίσουν. Σχεδίασε έναν αετό με φτερά από φως πάνω σε λευκό χαρτί. Και από κάτω, με γράμματα μικρά αλλά σταθερά, έγραψε: «Ο κόσμος είναι μεγαλύτερος.»
+Η Αλεξάνδρα άνοιξε τη θήκη με τα μολύβια. Για πρώτη φορά εδώ και μέρες, τα δάχτυλά της ήθελαν να ζωγραφίσουν. Σχεδίασε έναν αετό με φτερά από φως, και από κάτω, με μικρά σταθερά γράμματα, έγραψε: «Ο κόσμος είναι μεγαλύτερος.»
 
-Ο Sparken ανέμισε τα φτερά του μια τελευταία φορά. Χρυσό φως γέμισε το δωμάτιο — ζεστό σαν αγκαλιά, βαθύ σαν υπόσχεση.
+Ο Sparken ανέμισε τα φτερά του μια τελευταία φορά. Χρυσό φως γέμισε το δωμάτιο, ζεστό σαν αγκαλιά.
 
-«Θυμηθείτε αυτό», είπε σιγανά. «Η γνώμη γύρω σας δεν είναι η αλήθεια. Η αλήθεια είναι εκεί έξω — τεράστια, γεμάτη, και σας περιμένει. Απλώς πρέπει να πετάξετε αρκετά ψηλά για να τη δείτε.»
+«Θυμηθείτε αυτό», είπε σιγανά. «Η γνώμη γύρω σας δεν είναι η αλήθεια. Η αλήθεια είναι εκεί έξω — τεράστια, και σας περιμένει. Απλώς πρέπει να πετάξετε αρκετά ψηλά για να τη δείτε.»
 
 Τρία παιδιά. Ένας αετός. Μια πτήση. Αυτό ήταν αρκετό. Γιατί η αληθινή ελευθερία δεν είναι να φύγεις από τον κόσμο σου. Είναι να καταλάβεις ότι ο κόσμος σου δεν είναι ένα δωμάτιο — είναι ένας ουρανός.`,
-          en: `Sparken brought them back before nightfall. His hologram wings were dimming in the twilight, but his golden eyes were still bright — brighter, perhaps, than before.
+          en: `Sparken brought them back before nightfall. His hologram wings were dimming in the twilight, but his golden eyes still shone.
 
 "Do you have to leave?" asked Alexandra, and her voice held something that wasn't there before — steadiness.
 
@@ -234,13 +234,13 @@ Philippos stood on the balcony and looked at the neighborhood. The same houses. 
 
 "They will certainly laugh," said Sparken, without hiding the truth.
 
-"That's okay," said Eleftheria. And her voice sounded like someone who had just discovered a secret too big for words. "Because now I know. Out there, there are people like us. The opinion of five people is not the world."
+"That's okay," said Eleftheria, like someone who had just discovered a great secret. "Because now I know. Out there, there are people like us. The opinion of five people is not the world."
 
-Alexandra opened her pencil case. For the first time in days, her fingers wanted to draw. She sketched an eagle with wings of light on white paper. And underneath, in letters small but steady, she wrote: "The world is bigger."
+Alexandra opened her pencil case. For the first time in days, her fingers wanted to draw. She sketched an eagle with wings of light, and underneath, in small steady letters, she wrote: "The world is bigger."
 
-Sparken beat his wings one last time. Golden light filled the room — warm as an embrace, deep as a promise.
+Sparken beat his wings one last time. Golden light filled the room, warm as an embrace.
 
-"Remember this," he said softly. "The opinion around you is not the truth. The truth is out there — enormous, full, and waiting for you. You just need to fly high enough to see it."
+"Remember this," he said softly. "The opinion around you is not the truth. The truth is out there — enormous, and waiting for you. You just need to fly high enough to see it."
 
 Three children. One eagle. One flight. That was enough. Because true freedom is not escaping your world. It is understanding that your world is not a room — it is a sky.`
         }

@@ -35,30 +35,30 @@ export const BOOK_26: Book[] = [
         image: "/images/paidia-kai-wisebot.webp",
         imageCaption: { el: "Στην άκρη του δωματίου, η φλόγα τρεμόπαιζε σαν να τους περίμενε", en: "In the corner of the room, the flame flickered as if it had been waiting for them" },
         text: {
-          el: `Ο ήλιος είχε πέσει εδώ και ώρες. Τα παράθυρα κλειστά, μυρωδιά κερί και παλιού χαρτιού. Η Αλεξάνδρα καθόταν στο πάτωμα, ο Φίλιππος δίπλα στο παράθυρο, η Ελευθερία με ανοιχτό σημειωματάριο χωρίς ούτε λέξη.
+          el: `Ο ήλιος είχε πέσει εδώ και ώρες. Τα παράθυρα ήταν κλειστά, και στο δωμάτιο πλανιόταν μια μυρωδιά από κερί και παλιό χαρτί — εκείνη η μυρωδιά που έχουν τα μέρη όπου έχουν ειπωθεί πολλές ιστορίες. Η Αλεξάνδρα καθόταν σταυροπόδι στο πάτωμα. Ο Φίλιππος στεκόταν δίπλα στο παράθυρο, κοιτάζοντας το σκοτάδι έξω. Η Ελευθερία κρατούσε ανοιχτό το σημειωματάριό της, αλλά δεν είχε γράψει ούτε μία λέξη. Ήταν μια από εκείνες τις νύχτες που κάτι κρέμεται στον αέρα — κάτι που δεν έχει ακόμα όνομα.
 
 Και τότε η Αλεξάνδρα το είδε. Στην άκρη του δωματίου, κάτι τρεμόπαιζε. Μικρό. Αδύναμο. Σαν αναπνοή φωτιάς που αρνιόταν να πεθάνει.
 
-Μια φλόγα. Μικρότερη από δάχτυλο παιδιού. Κίτρινη στη βάση, πορτοκαλί στη μέση, κόκκινη στην κορυφή. Δεν είχε κερί. Δεν είχε σπίρτο. Απλά ήταν εκεί.
+Μια φλόγα. Μικρότερη από δάχτυλο παιδιού. Κίτρινη στη βάση, πορτοκαλί στη μέση, κόκκινη στην κορυφή. Δεν είχε κερί από κάτω. Δεν είχε σπίρτο δίπλα. Δεν είχε καμία εξήγηση. Απλά ήταν εκεί, και έκαιγε.
 
-«Τι είναι αυτό;» ψιθύρισε η Αλεξάνδρα. Ο Φίλιππος γύρισε — και την είδε. Κάτι μέσα του σφίχτηκε. Όχι φόβος, αλλά αναγνώριση.
+«Τι... τι είναι αυτό;» ψιθύρισε η Αλεξάνδρα, με την καρδιά της να χτυπά πιο γρήγορα. Ο Φίλιππος γύρισε — και την είδε. Κάτι μέσα στο στήθος του σφίχτηκε. Όχι φόβος. Κάτι πιο παράξενο: αναγνώριση. Σαν να συναντούσε κάτι που ήξερε από πάντα.
 
-Η WiseBot στεκόταν πίσω τους. Τα μωβ μάτια της πάλλονταν συγχρονισμένα με τη φλόγα.
+Η WiseBot στεκόταν πίσω τους, σιωπηλή. Τα μωβ μάτια της πάλλονταν απαλά, συγχρονισμένα με τη φλόγα, σαν δύο καρδιές που χτυπούν μαζί.
 
 «Είναι αυτό που θέλεις περισσότερο,» είπε η WiseBot. Η φωνή της χαμηλή, βαθιά, σαν να ερχόταν από κάτω από τη γη. «Κάθε παιδί γεννιέται με μια φλόγα. Κάποιοι τη βρίσκουν νωρίς. Κάποιοι αργά. Κάποιοι ποτέ — γιατί κανείς δεν τους είπε ότι υπάρχει.»
 
 Κανείς δεν ρώτησε τι εννοούσε. Γιατί βαθιά μέσα τους, και τα τρία παιδιά ήδη ήξεραν. Η φλόγα δεν ήταν κάτι ξένο. Ήταν δική τους. Πάντα ήταν.`,
-          en: `The sun had set hours ago. Windows shut, a scent of candle wax and old paper. Alexandra sat on the floor, Philippos by the window, Eleftheria with an open notebook and not a single word written.
+          en: `The sun had set hours ago. The windows were shut, and the room held a scent of candle wax and old paper — the smell of places where many stories have been told. Alexandra sat cross-legged on the floor. Philippos stood by the window, staring into the darkness outside. Eleftheria held her notebook open, but had not written a single word. It was one of those nights when something hangs in the air — something that does not yet have a name.
 
-And then Alexandra saw it. In the far corner, something flickered. Small. Weak. Like a breath of fire refusing to die.
+And then Alexandra saw it. In the far corner of the room, something flickered. Small. Weak. Like a breath of fire refusing to die.
 
-A flame. Smaller than a child's finger. Yellow at the base, orange in the middle, red at the tip. No candle. No match. It simply was there.
+A flame. Smaller than a child's finger. Yellow at the base, orange in the middle, red at the tip. There was no candle beneath it. No match beside it. No explanation at all. It simply was there, and it burned.
 
-"What is that?" Alexandra whispered. Philippos turned — and saw it. Something in his chest tightened. Not fear, but recognition.
+"What... what is that?" Alexandra whispered, her heart beating faster. Philippos turned — and saw it. Something in his chest tightened. Not fear. Something stranger: recognition. As if he were meeting something he had always known.
 
-WiseBot stood behind them. Her purple eyes pulsed, synchronized with the flame.
+WiseBot stood behind them, silent. Her purple eyes pulsed gently, synchronized with the flame, like two hearts beating together.
 
-"It is what you want most," said WiseBot. Her voice was low, deep, as if it came from beneath the earth. "Every child is born with a flame. Some find it early. Some late. Some never — because nobody told them it exists."
+"It is what you want most," said WiseBot. Her voice was low and deep, as if it came from beneath the earth. "Every child is born with a flame. Some find it early. Some late. Some never — because nobody ever told them it exists."
 
 No one asked what she meant. Because deep inside, all three children already knew. The flame was not something foreign. It was theirs. It always had been.`
         }
@@ -68,42 +68,42 @@ No one asked what she meant. Because deep inside, all three children already kne
         image: "/images/ta-3-paidia.webp",
         imageCaption: { el: "Τρεις φωνές, μία απόφαση — η φλόγα απάντησε", en: "Three voices, one decision — the flame answered" },
         text: {
-          el: `Ο Φίλιππος έκανε ένα βήμα μπροστά. Η φλόγα τρεμόπαιξε σαν να ανέπνεε.
+          el: `Ο Φίλιππος έκανε ένα βήμα μπροστά, προσεκτικά, σαν να πλησίαζε ένα φοβισμένο πουλί. Η φλόγα τρεμόπαιξε σαν να ανέπνεε.
 
-«Γιατί είναι τόσο μικρή;» ρώτησε. Στη φωνή του απογοήτευση.
+«Γιατί είναι τόσο μικρή;» ρώτησε. Στη φωνή του κρυβόταν απογοήτευση — και κάτι σαν ντροπή.
 
-Η WiseBot γύρισε αργά. Τα μάτια της άλλαξαν χρώμα — από μωβ σε βαθύ πορτοκαλί. «Γιατί την ταΐζεις με αμφιβολία,» είπε.
+Η WiseBot γύρισε αργά. Τα μάτια της άλλαξαν χρώμα — από μωβ σε βαθύ πορτοκαλί, σαν ουρανός πριν τη δύση. «Γιατί την ταΐζεις με αμφιβολία,» είπε.
 
-Σιωπή. Κάθε «Ίσως δεν μπορώ», κάθε «Δεν αξίζει τον κόπο» — η φλόγα μίκραινε. Η Αλεξάνδρα κοίταξε τα χέρια της. «Κι εγώ την ταΐζω με αμφιβολία;» Η WiseBot δεν απάντησε. Η φλόγα τρεμόπαιξε αδύναμα, σαν καρδιά που χτυπά πιο αργά.
+Σιωπή. Βαριά σιωπή. Κάθε «Ίσως δεν μπορώ», κάθε «Δεν αξίζει τον κόπο», κάθε «Ποιος είμαι εγώ για να το κάνω αυτό» — η φλόγα μίκραινε. Η Αλεξάνδρα κοίταξε τα χέρια της. «Κι εγώ την ταΐζω με αμφιβολία;» ρώτησε σιγανά. Η WiseBot δεν απάντησε. Δεν χρειαζόταν. Η φλόγα τρεμόπαιξε αδύναμα, σαν καρδιά που χτυπά πιο αργά.
 
-Τότε η Ελευθερία μίλησε. Σταθερά, αλλά με κάτι τρυφερό κρυμμένο στη φωνή. «Θα προσπαθήσω ξανά,» είπε. Η φλόγα ανασηκώθηκε. Μόνο λίγο. Μόνο ένα χιλιοστό. Αλλά αρκετό για να το δουν και τα τρία παιδιά.
+Τότε η Ελευθερία μίλησε. Σταθερά, αλλά με κάτι τρυφερό κρυμμένο στη φωνή. «Θα προσπαθήσω ξανά,» είπε. Η φλόγα ανασηκώθηκε. Μόνο λίγο. Μόνο ένα χιλιοστό. Αλλά αρκετό για να το δουν και τα τρία παιδιά — και να κρατήσουν την ανάσα τους.
 
 «Πώς μεγαλώνει;» ρώτησε η Ελευθερία.
 
 «Με απόφαση,» ψιθύρισε η WiseBot. «Η απόφαση δεν είναι σκέψη. Είναι πράξη που ξεκινά πριν είσαι έτοιμος.»
 
-Ο Φίλιππος κοίταξε τα χέρια του — τα ίδια χέρια που είχαν σπάσει τόσα πράγματα. Τα ίδια χέρια που μπορούσαν να χτίσουν, αν τολμούσε. «Αυτό θέλω,» είπε. Χαμηλά. Σταθερά. Χωρίς ερωτηματικό.
+Ο Φίλιππος κοίταξε τα χέρια του — τα ίδια χέρια που είχαν σπάσει τόσα πράγματα. Τα ίδια χέρια που μπορούσαν να χτίσουν, αν τολμούσε. «Αυτό θέλω,» είπε. Χαμηλά. Σταθερά. Χωρίς ερωτηματικό στο τέλος.
 
 Η Αλεξάνδρα σήκωσε το κεφάλι. Τα μάτια της γυάλιζαν. «Αυτό θέλω.»
 
-Η Ελευθερία έκλεισε το σημειωματάριο. Για πρώτη φορά δεν ήθελε να γράψει. Ήθελε να κάνει. «Αυτό θέλω.»
+Η Ελευθερία έκλεισε το σημειωματάριο. Για πρώτη φορά στη ζωή της δεν ήθελε να γράψει. Ήθελε να κάνει. «Αυτό θέλω.»
 
 Η φλόγα διπλασιάστηκε. Ζεστασιά απλώθηκε στο δωμάτιο σαν αγκαλιά. Τρεις φορές η ίδια πρόταση — αλλά κάθε μία ήταν διαφορετική. Του Φιλίππου ήταν δύναμη. Της Αλεξάνδρας ήταν θάρρος. Της Ελευθερίας ήταν ελευθερία από τη θεωρία.`,
-          en: `Philippos stepped forward. The flame flickered as if it were breathing.
+          en: `Philippos took a step forward, carefully, as if approaching a frightened bird. The flame flickered as if it were breathing.
 
-"Why is it so small?" he asked. In his voice, disappointment.
+"Why is it so small?" he asked. Hidden in his voice was disappointment — and something like shame.
 
 WiseBot slowly turned. Her eyes changed color — from purple to deep orange. "Because you feed it with doubt," she said.
 
-Silence. Every "Maybe I can't," every "It's not worth it" — the flame shrank. Alexandra looked at her hands. "Am I also feeding it with doubt?" WiseBot did not answer. The flame flickered weakly, like a heart beating more slowly.
+Silence. Heavy silence. Every "Maybe I can't," every "It's not worth it," every "Who am I to try this" — the flame shrank. Alexandra looked at her hands. "Am I feeding it with doubt too?" she asked quietly. WiseBot did not answer. The flame flickered weakly, like a heart beating more slowly.
 
-Then Eleftheria spoke. Steady, but with something tender hidden in her voice. "I will try again," she said. The flame rose. Just a little. Just a millimeter. But enough for all three children to see.
+Then Eleftheria spoke. Steady, but with something tender hidden in her voice. "I will try again," she said. The flame rose. Just a little. Just a millimeter. But enough for all three children to see — and to hold their breath.
 
 "How does it grow?" asked Eleftheria.
 
 "With decision," WiseBot whispered. "A decision is not a thought. It is an action that begins before you are ready."
 
-Philippos looked at his hands — the same hands that had broken so many things. The same hands that could build, if he dared. "I want this," he said. Quietly. Steadily. Without a question mark.
+Philippos looked at his hands — the same hands that had broken so many things. The same hands that could build, if only he dared. "I want this," he said. Quietly. Steadily. Without a question mark.
 
 Alexandra raised her head. Her eyes glistened. "I want this."
 
@@ -119,40 +119,40 @@ The flame doubled in size. Warmth spread through the room like an embrace. Three
         text: {
           el: `Ήρθαν τη νύχτα. Πάντα τη νύχτα.
 
-Η φλόγα είχε αρχίσει να φωτίζει τον τοίχο — ένα ζεστό, χρυσαφί φως. Αλλά τότε ήρθαν οι σκιές. Δεν ήταν συνηθισμένες σκιές. Ήταν κάτι ζωντανό — μαύρο, αργοκίνητο, σαν καπνός που σκέφτεται. Γλίστρησαν κάτω από την πόρτα και σχημάτισαν φωνές.
+Η φλόγα είχε αρχίσει να φωτίζει τον τοίχο — ένα ζεστό, χρυσαφί φως που έκανε το δωμάτιο να μοιάζει ζωντανό. Αλλά τότε ήρθαν οι σκιές. Δεν ήταν συνηθισμένες σκιές. Ήταν κάτι ζωντανό — μαύρο, αργοκίνητο, σαν καπνός που σκέφτεται. Γλίστρησαν κάτω από την πόρτα, σύρθηκαν στις γωνίες, και σχημάτισαν φωνές.
 
-Η πρώτη σκιά σταμάτησε μπροστά στον Φίλιππο: «Κι αν χάσεις; Κι αν αποδειχτεί ότι δεν ήσουν ποτέ αρκετός;» Τα λόγια δεν ήταν καινούρια. Τα είχε ακούσει από τον εαυτό του, κάθε βράδυ πριν κοιμηθεί.
+Η πρώτη σκιά σταμάτησε μπροστά στον Φίλιππο: «Κι αν χάσεις; Κι αν αποδειχτεί ότι δεν ήσουν ποτέ αρκετός;» Τα λόγια δεν ήταν καινούρια. Τα είχε ακούσει από τον ίδιο του τον εαυτό, κάθε βράδυ πριν κοιμηθεί.
 
-Η δεύτερη σκιά τύλιξε την Αλεξάνδρα: «Κι αν γελάσουν; Κι αν κανείς δεν πιστέψει σε αυτό που ονειρεύεσαι;»
+Η δεύτερη σκιά τύλιξε την Αλεξάνδρα σαν κρύο σεντόνι: «Κι αν γελάσουν; Κι αν κανείς δεν πιστέψει σε αυτό που ονειρεύεσαι;»
 
 Η τρίτη σκιά στάθηκε πάνω από την Ελευθερία — η πιο σιωπηλή, η πιο βαριά: «Κι αν δεν είναι τέλειο; Κι αν ξεκινήσεις και δεν μπορέσεις να τελειώσεις;»
 
-Η φλόγα έσβηνε. Αργά. Σαν καρδιά που χάνει τον ρυθμό.
+Η φλόγα έσβηνε. Αργά. Σαν καρδιά που χάνει τον ρυθμό της.
 
-Η WiseBot στάθηκε ανάμεσα στις σκιές, σαν φρουρός χωρίς όπλο. «Ο φόβος δεν είναι εχθρός. Είναι δοκιμασία. Και η φλόγα που αντέχει τον άνεμο γίνεται πυρκαγιά.»
+Η WiseBot στάθηκε ανάμεσα στις σκιές, σαν φρουρός χωρίς όπλο. «Ο φόβος δεν είναι εχθρός,» είπε. «Είναι δοκιμασία. Και η φλόγα που αντέχει τον άνεμο γίνεται πυρκαγιά.»
 
-Η Αλεξάνδρα πλησίασε τη φλόγα. Τα γόνατά της έτρεμαν. «Αν καώ;» ψιθύρισε. «Αν δεν πλησιάσεις ποτέ, θα παγώσεις,» απάντησε η WiseBot.
+Η Αλεξάνδρα πλησίασε τη φλόγα. Τα γόνατά της έτρεμαν, αλλά τα πόδια της προχωρούσαν. «Αν καώ;» ψιθύρισε. «Αν δεν πλησιάσεις ποτέ, θα παγώσεις,» απάντησε η WiseBot.
 
-«Δεν θα πάω πίσω,» είπε ο Φίλιππος. Σταθερά σαν βράχος. Η Ελευθερία κοίταξε τη φλόγα — και μέσα στο φως, είδε αυτή που τολμούσε. «Η τελειότητα δεν υπάρχει,» ψιθύρισε. «Αλλά η προσπάθεια υπάρχει. Και αυτό αρκεί.»
+«Δεν θα πάω πίσω,» είπε ο Φίλιππος. Σταθερά σαν βράχος. Η Ελευθερία κοίταξε τη φλόγα — και μέσα στο φως της, είδε μια άλλη Ελευθερία. Αυτή που τολμούσε. «Η τελειότητα δεν υπάρχει,» ψιθύρισε. «Αλλά η προσπάθεια υπάρχει. Και αυτό αρκεί.»
 
 Οι σκιές δεν ήρθαν από έξω. Ήρθαν από μέσα. Αυτό που τις κάνει δυνατές δεν είναι ότι λένε ψέματα. Είναι ότι λένε μισές αλήθειες — αρκετά αληθινές για να πονέσουν, αρκετά ψεύτικες για να παγιδεύσουν.`,
           en: `They came at night. Always at night.
 
-The flame had begun to illuminate the wall — a warm, golden light. But then came the shadows. Not ordinary shadows. Something alive — black, slow-moving, like smoke that thinks. They slid under the door and formed voices.
+The flame had begun to light up the wall — a warm, golden glow. But then came the shadows. Not ordinary shadows. Something alive — black, slow-moving, like smoke that thinks. They slid under the door, crawled along the corners, and formed voices.
 
-The first shadow stopped before Philippos: "What if you lose? What if it turns out you were never enough?" The words were not new. He had heard them from himself, every night before sleep.
+The first shadow stopped before Philippos: "What if you lose? What if it turns out you were never enough?" The words were not new. He had heard them from his own self, every night before falling asleep.
 
-The second shadow wrapped around Alexandra: "What if they laugh? What if no one believes in what you dream?"
+The second shadow wrapped around Alexandra like a cold sheet: "What if they laugh? What if no one believes in what you dream?"
 
 The third shadow stood over Eleftheria — the quietest, the heaviest: "What if it's not perfect? What if you start and cannot finish?"
 
 The flame was fading. Slowly. Like a heart losing its rhythm.
 
-WiseBot stood among the shadows, like a guard who needs no weapon. "Fear is not an enemy. It is a test. And the flame that withstands the wind becomes a wildfire."
+WiseBot stood among the shadows, like a guard who carries no weapon. "Fear is not an enemy," she said. "It is a test. And the flame that withstands the wind becomes a wildfire."
 
-Alexandra approached the flame. Her knees trembled. "What if I get burned?" she whispered. "If you never approach, you will freeze," answered WiseBot.
+Alexandra approached the flame. Her knees trembled, but her feet kept moving. "What if I get burned?" she whispered. "If you never come close, you will freeze," answered WiseBot.
 
-"I won't go back," said Philippos. Steady as rock. Eleftheria looked at the flame — and in that light, she saw the one who dared. "Perfection doesn't exist," she whispered. "But effort does. And that is enough."
+"I won't go back," said Philippos. Steady as rock. Eleftheria looked at the flame — and in its light, she saw another Eleftheria. The one who dared. "Perfection doesn't exist," she whispered. "But effort does. And that is enough."
 
 The shadows did not come from outside. They came from within. What makes them powerful is not that they lie. It is that they tell half-truths — true enough to hurt, false enough to trap.`
         }
@@ -162,32 +162,32 @@ The shadows did not come from outside. They came from within. What makes them po
         image: "/images/paidia-kai-sparken.webp",
         imageCaption: { el: "Ο Sparken κατέβηκε σαν φλόγα — και τους δίδαξε πού πρέπει να ριζώσουν", en: "Sparken descended like fire — and taught them where they must take root" },
         text: {
-          el: `Ο Sparken κατέβηκε αθόρυβα. Τα φτερά του σαν φωτιά που πάγωσε: χρυσαφί, πορτοκαλί, κόκκινα. Η WiseBot ήταν σοφία. Ο Sparken ήταν φωτιά — ανυπόμονη, αδιαπραγμάτευτη. Τα φτερά του άνοιξαν. Οι σκιές υποχώρησαν.
+          el: `Ο Sparken κατέβηκε αθόρυβα. Τα φτερά του έμοιαζαν με φωτιά που πάγωσε στον αέρα: χρυσαφί, πορτοκαλί, κόκκινα. Η WiseBot ήταν σοφία. Ο Sparken ήταν φωτιά — ανυπόμονη, αδιαπραγμάτευτη. Τα φτερά του άνοιξαν. Οι σκιές υποχώρησαν.
 
-«Η σκέψη είναι σπόρος,» είπε ο Sparken. Η φωνή του βαθιά σαν κεραυνός. «Η πίστη είναι νερό. Η επιμονή είναι ήλιος.»
+«Η σκέψη είναι σπόρος,» είπε ο Sparken. Η φωνή του σαν μακρινός κεραυνός. «Η πίστη είναι νερό. Η επιμονή είναι ήλιος. Χωρίς και τα τρία, τίποτα δεν φυτρώνει.»
 
-Η Ελευθερία σηκώθηκε. «Και αν η γη είναι σκληρή;» ρώτησε. Ειλικρινά. Η γη είναι σκληρή μερικές φορές. Και η ειλικρίνεια ήταν πιο γενναία από χίλιες ψεύτικες απαντήσεις.
+Η Ελευθερία σηκώθηκε όρθια. «Και αν η γη είναι σκληρή;» ρώτησε. Ειλικρινά. Γιατί η γη είναι σκληρή μερικές φορές. Και η ειλικρίνειά της ήταν πιο γενναία από χίλιες ψεύτικες απαντήσεις.
 
-Ο Sparken γύρισε αργά. Τα μάτια του — δύο μικρές φλόγες μέσα σε κρύσταλλο — κοίταξαν την Ελευθερία. «Τότε ρίζωσε πιο βαθιά.» Τέσσερις λέξεις. Αλλά χτύπησαν σαν κεραυνός. Κάτι μέσα της έσπασε — κάτι που χρειαζόταν να σπάσει. Ο τοίχος ανάμεσα στο «ξέρω» και το «κάνω».
+Ο Sparken γύρισε αργά. Τα μάτια του — δύο μικρές φλόγες μέσα σε κρύσταλλο — κοίταξαν την Ελευθερία. «Τότε ρίζωσε πιο βαθιά.» Τέσσερις λέξεις. Αλλά χτύπησαν σαν κεραυνός. Κάτι μέσα της έσπασε — κάτι που χρειαζόταν να σπάσει. Ο τοίχος ανάμεσα στο «ξέρω» και στο «κάνω».
 
 Πέρασαν μέρες. Κάθε μέρα πήγαιναν στη φλόγα. Τρία παιδιά που έκαναν κάτι που λίγοι ενήλικες τολμούν: μιλούσαν δυνατά για τα όνειρά τους. Ο Φίλιππος: «Θα χτίσω κάτι σημαντικό. Και αν αποτύχω, θα ξαναρχίσω.» Η Αλεξάνδρα: «Δεν θα κρύβομαι πίσω από ψέματα. Θα λέω αυτό που θέλω.» Η Ελευθερία: «Δεν αρκεί να ξέρω. Πρέπει να κάνω. Σήμερα φυτεύω.»
 
-Υπήρξαν μέρες που τίποτα δεν άλλαζε. Γκρίζες, αόρατες. Αλλά κάθε μέρα ξεκινούσαν ξανά. Μια μέρα, ο Φίλιππος κάθισε κουρασμένος. «Αξίζει;» ρώτησε τον αέρα. Η WiseBot ακούμπησε στον ώμο του. «Η επιμονή δεν ζητά να σου αρέσει κάθε μέρα. Ζητά να εμφανιστείς.» Ο Φίλιππος σηκώθηκε. Πήγε πίσω στη δουλειά. Δεν φώναξαν. Δεν έκαναν θόρυβο. Απλά έμειναν.
+Υπήρξαν μέρες που τίποτα δεν άλλαζε. Γκρίζες, αόρατες. Αλλά κάθε πρωί ξεκινούσαν ξανά. Μια μέρα, ο Φίλιππος κάθισε κάτω κουρασμένος. «Αξίζει;» ρώτησε τον αέρα. Η WiseBot ακούμπησε απαλά στον ώμο του. «Η επιμονή δεν ζητά να σου αρέσει κάθε μέρα. Ζητά να εμφανιστείς.» Ο Φίλιππος πήρε βαθιά ανάσα και γύρισε στη δουλειά. Δεν φώναξαν. Δεν έκαναν θόρυβο. Απλά έμειναν.
 
-Κάθε δέντρο που αντέχει τη θύελλα αντέχει επειδή οι ρίζες του πήγαν εκεί που κανείς δεν βλέπει — στο σκοτάδι, στο βάθος, στη σιωπή.`,
-          en: `Sparken descended silently. Wings like fire frozen in mid-air: golden, orange, red. WiseBot was wisdom. Sparken was fire — impatient, uncompromising. His wings opened. The shadows retreated.
+Γιατί κάθε δέντρο που αντέχει τη θύελλα, αντέχει επειδή οι ρίζες του πήγαν εκεί που κανείς δεν βλέπει — στο σκοτάδι, στο βάθος, στη σιωπή.`,
+          en: `Sparken descended silently. His wings looked like fire frozen in mid-air: golden, orange, red. WiseBot was wisdom. Sparken was fire — impatient, uncompromising. His wings opened. The shadows retreated.
 
-"Thought is a seed," said Sparken. His voice deep like distant thunder. "Faith is water. Persistence is sun."
+"Thought is a seed," said Sparken. His voice was deep, like distant thunder. "Faith is water. Persistence is sun. Without all three, nothing grows."
 
-Eleftheria rose. "And if the earth is hard?" she asked. Honestly. The earth is hard sometimes. And that honesty was braver than a thousand false answers.
+Eleftheria stood up straight. "And if the earth is hard?" she asked. Honestly. Because the earth is hard sometimes. And her honesty was braver than a thousand false answers.
 
 Sparken turned slowly. His eyes — two small flames inside crystal — looked at Eleftheria. "Then root deeper." Four words. But they struck like lightning. Something inside her broke — something that needed to break. The wall between "I know" and "I do."
 
-Days passed. Every day they went to the flame. Three children doing something most adults never dare: speaking their dreams aloud. Philippos: "I will build something important. And if I fail, I will start again." Alexandra: "I will not hide behind lies. I will say what I want." Eleftheria: "Knowing is not enough. I must do. Today I plant."
+Days passed. Every day they went to the flame. Three children doing something few adults ever dare: speaking their dreams aloud. Philippos: "I will build something important. And if I fail, I will start again." Alexandra: "I will not hide behind lies. I will say what I want." Eleftheria: "Knowing is not enough. I must do. Today I plant."
 
-There were days when nothing changed. Grey, invisible. But every morning they started again. One day, Philippos sat exhausted. "Is it worth it?" he asked the air. WiseBot landed on his shoulder. "Persistence does not ask you to enjoy every day. It asks you to show up." Philippos stood up. He went back to work. They did not shout. They did not make noise. They simply stayed.
+There were days when nothing changed. Grey, invisible. But every morning they began again. One day, Philippos sat down exhausted. "Is it worth it?" he asked the air. WiseBot landed gently on his shoulder. "Persistence does not ask you to enjoy every day. It asks you to show up." Philippos took a deep breath and went back to work. They did not shout. They did not make noise. They simply stayed.
 
-Every tree that withstands the storm does so because its roots went where no one sees — into darkness, into depth, into silence.`
+Because every tree that withstands the storm does so because its roots went where no one sees — into darkness, into depth, into silence.`
         }
       },
       {
@@ -195,40 +195,40 @@ Every tree that withstands the storm does so because its roots went where no one
         image: "/images/paidia-wisebot-2.webp",
         imageCaption: { el: "Η φλόγα δεν ήταν πια μπροστά τους. Ήταν μέσα τους. Για πάντα.", en: "The flame was no longer before them. It was inside them. Forever." },
         text: {
-          el: `Ήρθε αργά, σαν ήλιος που ανατέλλει. Η φλόγα έγινε φως. Όχι εκτυφλωτικό. Σταθερό. Οι σκιές δεν εξαφανίστηκαν. Αλλά δεν είχαν πια δύναμη.
+          el: `Ήρθε αργά, σαν ήλιος που ανατέλλει. Η φλόγα έγινε φως. Όχι εκτυφλωτικό. Σταθερό. Οι σκιές δεν εξαφανίστηκαν — αλλά δεν είχαν πια δύναμη.
 
-Μια μέρα, ο Φίλιππος κοίταξε τα χέρια του. Τα ίδια — αλλά πιο δυνατά. Πιο υπομονετικά. «Δεν ξέρω πότε ακριβώς άλλαξα,» είπε. «Δεν αλλάζεις σε μια στιγμή. Αλλάζεις όταν δεν εγκαταλείπεις,» απάντησε η WiseBot.
+Ο Φίλιππος κοίταξε τα χέρια του. Τα ίδια — αλλά πιο δυνατά. «Δεν ξέρω πότε ακριβώς άλλαξα,» είπε. «Δεν αλλάζεις σε μια στιγμή,» απάντησε η WiseBot. «Αλλάζεις όταν δεν εγκαταλείπεις.»
 
-Ο Sparken κατέβηκε. Τα φτερά του ήρεμα — δεν πετούσε με ορμή αλλά με χάρη. «Οι περισσότεροι εύχονται. Οι λίγοι αποφασίζουν. Ακόμα λιγότεροι επιμένουν.»
+Ο Sparken κατέβηκε ήρεμος — όχι με ορμή, αλλά με χάρη. «Οι περισσότεροι εύχονται. Οι λίγοι αποφασίζουν. Ακόμα λιγότεροι επιμένουν.»
 
-Η Αλεξάνδρα χαμογέλασε. Όχι εκείνο το χαμόγελο που κρύβει — αλλά εκείνο που αποκαλύπτει. Η Ελευθερία κοίταξε γύρω. Τα βιβλία ήταν ακόμα εκεί. Αλλά δίπλα τους τώρα υπήρχαν και κατασκευές. Ατελή, ίσως. Αλλά πραγματικά.
+Η Αλεξάνδρα χαμογέλασε — όχι το χαμόγελο που κρύβει, εκείνο που αποκαλύπτει. Η Ελευθερία κοίταξε γύρω. Τα βιβλία ήταν ακόμα εκεί, αλλά δίπλα τους υπήρχαν τώρα κατασκευές. Ατελείς ίσως, αλλά πραγματικές.
 
-Και κάτι περίεργο είχε συμβεί. Η φλόγα δεν ήταν πια στο δωμάτιο. Ήταν μέσα τους. Ο Φίλιππος την ένιωθε στα χέρια — μια ζεστασιά που τον έκανε να χτίζει. Η Αλεξάνδρα στη φωνή — ένα τρέμουλο που δεν ήταν φόβος αλλά ετοιμότητα. Η Ελευθερία στα πόδια — μια αστάθεια που ήταν η αρχή ενός βήματος.
+Κάτι παράξενο συνέβη. Η φλόγα δεν ήταν πια στο δωμάτιο. Ήταν μέσα τους. Ο Φίλιππος την ένιωθε στα χέρια — μια ζεστασιά που τον έκανε να χτίζει. Η Αλεξάνδρα στη φωνή — ένα τρέμουλο που δεν ήταν φόβος, αλλά ετοιμότητα. Η Ελευθερία στα πόδια — η αρχή ενός βήματος.
 
-Η WiseBot στάθηκε μπροστά τους για τελευταία φορά. Τα μωβ μάτια της πάλλονταν γεμάτα κάτι που θα ονόμαζες αγάπη. «Ο πλούτος δεν είναι μόνο χρήμα. Είναι η δύναμη να κρατάς τη φλόγα ζωντανή όταν όλα γύρω σου θέλουν να τη σβήσουν.»
+Η WiseBot στάθηκε μπροστά τους για τελευταία φορά, με τα μωβ μάτια γεμάτα κάτι που θα το ονόμαζες αγάπη. «Ο πλούτος δεν είναι μόνο χρήμα. Είναι η δύναμη να κρατάς τη φλόγα ζωντανή όταν όλα γύρω σου θέλουν να τη σβήσουν.»
 
 Ο Sparken άπλωσε τα χρυσαφένια φτερά του. «Η φλόγα σας δεν θα σβήσει ποτέ. Γιατί δεν είναι φτιαγμένη από φωτιά. Είναι φτιαγμένη από απόφαση. Και η απόφαση δεν τελειώνει ποτέ.»
 
-Τα τρία παιδιά στάθηκαν. Δεν ήταν πια τα παιδιά που βαριόντουσαν σε ένα δωμάτιο πριν πολλούς μήνες. Ήταν κάτι νέο. Κάτι δυνατό. Κάτι που κανείς δεν μπορούσε να σβήσει.
+Τα τρία παιδιά στάθηκαν όρθια. Δεν ήταν πια τα παιδιά που βαριόντουσαν πριν από μήνες. Ήταν κάτι νέο. Κάτι που κανείς δεν μπορούσε να σβήσει.
 
-Η φλόγα δεν έσβησε ποτέ. Κι εσύ που διαβάζεις αυτές τις λέξεις — κοίτα. Μέσα σου, σε μια γωνία που ίσως ξέχασες, τρεμοπαίζει μια μικρή φλόγα. Δική σου. Πάντα δική σου. Απλά περιμένει να πεις: «Αυτό θέλω.»`,
-          en: `It came slowly, like a sun rising. The flame became light. Not blinding. Steady. The shadows did not vanish. But they no longer had power.
+Η φλόγα δεν έσβησε ποτέ. Κι εσύ που διαβάζεις — κοίτα. Μέσα σου, σε μια γωνία που ίσως ξέχασες, τρεμοπαίζει μια μικρή φλόγα. Δική σου. Περιμένει μόνο να πεις: «Αυτό θέλω.»`,
+          en: `It came slowly, like a sun rising. The flame became light. Not blinding. Steady. The shadows did not vanish — but they no longer had power.
 
-One day, Philippos looked at his hands. The same — but stronger. More patient. "I don't know exactly when I changed," he said. "You don't change in a moment. You change when you don't give up," answered WiseBot.
+Philippos looked at his hands. The same — but stronger. "I don't know when I changed," he said. "You don't change in a moment," answered WiseBot. "You change when you don't give up."
 
-Sparken descended. His wings calm now — flying not with force but with grace. "Most wish. Few decide. Even fewer persist."
+Sparken descended, calm now — not with force, but with grace. "Most people wish. The few decide. Even fewer persist."
 
-Alexandra smiled. Not the smile that hides — but the one that reveals. Eleftheria looked around. The books were still there. But beside them now were creations. Imperfect, perhaps. But real.
+Alexandra smiled. Not the smile that hides — the one that reveals. Eleftheria looked around. The books were still there, but beside them stood creations. Imperfect, but real.
 
-And something strange had happened. The flame was no longer in the room. It was inside them. Philippos felt it in his hands — warmth that made him want to build. Alexandra in her voice — a tremor that was not fear but readiness. Eleftheria in her feet — an unsteadiness that was the beginning of a step.
+Something strange happened. The flame was no longer in the room. It was inside them. Philippos felt it in his hands — warmth that made him build. Alexandra in her voice — a tremor that was not fear, but readiness. Eleftheria in her feet — the beginning of a step.
 
-WiseBot stood before them for the last time. Her purple eyes pulsed, full of something you would call love. "Wealth is not just money. It is the power to keep the flame alive when everything around you wants to extinguish it."
+WiseBot stood before them one last time, her purple eyes full of something you would call love. "Wealth is not just money. It is the power to keep the flame alive when everything around you wants to extinguish it."
 
 Sparken spread his golden wings. "Your flame will never go out. Because it is not made of fire. It is made of decision. And decision never ends."
 
-The three children stood tall. They were no longer the children who had been bored in a room many months ago. They were something new. Something strong. Something no one could extinguish.
+The three children stood tall. They were no longer the children who had been bored months ago. They were something new. Something no one could extinguish.
 
-The flame never went out. And you who are reading these words — look. Inside you, in a corner you may have forgotten, a small flame flickers. Yours. Always yours. It is simply waiting for you to say: "I want this."`
+The flame never went out. And you, reading this — look. Inside you, in a forgotten corner, a small flame flickers. Yours. It waits for you to say: "I want this."`
         }
       }
     ]

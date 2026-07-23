@@ -43,11 +43,13 @@ export const BOOK_8: Book[] = [
 
 Η Αλεξάνδρα σήκωσε το κεφάλι αργά. Ήταν ξαπλωμένη μπρούμυτα πάνω σε μαξιλάρια, σχεδιάζοντας νέα levels για το παιχνίδι τους. Η Ελευθερία ήταν στη γωνία, με τρία σημειωματάρια ανοιχτά μπροστά της, γράφοντας σημειώσεις για το επόμενο update.
 
-Πλησίασαν την οθόνη. Ο Φίλιππος είχε ανοίξει μια ιστοσελίδα. Ένα παιχνίδι. Με χαρακτήρες, χρώματα, μηχανισμούς. Γνωστούς. Πολύ γνωστούς.
+Πλησίασαν την οθόνη. Ο Φίλιππος είχε ανοίξει μια ιστοσελίδα. Ένα παιχνίδι. Με χαρακτήρες, χρώματα, μηχανισμούς. Γνωστούς. Πολύ γνωστούς. Ο ίδιος ήρωας με το μπλε κράνος. Οι ίδιες χρυσές πόρτες. Ακόμα και το όνομα ήταν σχεδόν ίδιο — μία μόνο λέξη αλλαγμένη.
 
 Η Αλεξάνδρα ένιωσε ένα παράξενο τσίμπημα στο στομάχι. Σαν να αναγνώριζε τον εαυτό της σε καθρέφτη που κάποιος άλλος κρατούσε. «Μα... αυτό είναι σαν το δικό μας», είπε σιγά.
 
 «Όχι σαν», είπε ο Φίλιππος. Η φωνή του ήταν σκληρή. Γυάλινη. Σαν μαχαίρι που ακονίζεται. «ΕΙΝΑΙ.»
+
+Η Ελευθερία πήρε το ποντίκι και κατέβασε τη σελίδα αργά. Επίπεδο με επίπεδο. Χρώμα με χρώμα. Όλα δικά τους. Όλα με ξένο όνομα από κάτω.
 
 Η σιωπή που ακολούθησε ήταν βαριά. Σαν πέτρα που πέφτει στο νερό και δεν βγαίνει ποτέ στην επιφάνεια. Τα τρία παιδιά κοιτούσαν την οθόνη χωρίς να μιλάνε. Κάθε pixel ήταν μια κλοπή. Κάθε γραμμή κώδικα, μια προδοσία.
 
@@ -58,11 +60,13 @@ export const BOOK_8: Book[] = [
 
 Alexandra lifted her head slowly. She had been lying face-down on pillows, designing new levels for their game. Eleftheria was in the corner with three notebooks open before her, writing notes for the next update.
 
-They approached the screen. Philippos had opened a website. A game. With characters, colours, mechanics. Familiar. Very familiar.
+They approached the screen. Philippos had opened a website. A game. With characters, colours, mechanics. Familiar. Very familiar. The same hero with the blue helmet. The same golden doors. Even the name was almost identical — only one word changed.
 
 Alexandra felt a strange sting in her stomach. Like recognizing yourself in a mirror that someone else is holding. "But... this is like ours," she said quietly.
 
 "Not like," said Philippos. His voice was hard. Glass-like. Like a knife being sharpened. "IT IS."
+
+Eleftheria took the mouse and scrolled down the page slowly. Level by level. Colour by colour. All of it theirs. All of it with a stranger's name underneath.
 
 The silence that followed was heavy. Like a stone falling into water and never reaching the surface. The three children stared at the screen without speaking. Every pixel was a theft. Every line of code, a betrayal.
 
@@ -86,7 +90,9 @@ There is a pain that has no body. It doesn't hit, doesn't bleed, doesn't leave m
 
 «Δεν αντέχω», είπε. Η φωνή του ήταν σπασμένη. Σαν μολύβι που σπάει στη μέση. «Κάθε γραμμή μου... είναι εκεί.» Κράτησε ψηλά ένα σχέδιο. Το ίδιο ακριβώς υπήρχε στο αντιγραμμένο παιχνίδι. Χρώμα προς χρώμα. Σχήμα προς σχήμα.
 
-«Αν μας αντιγράφουν, τότε τι νόημα είχε όλο αυτό;»
+Η Αλεξάνδρα πλησίασε και ακούμπησε απαλά το χέρι της στη μικρή αγκαθωτή πλάτη του. Δεν είπε τίποτα. Μερικές φορές ένα χέρι λέει περισσότερα από όλες τις λέξεις μαζί.
+
+«Αν μας αντιγράφουν», ψιθύρισε ο Pencilo, «τότε τι νόημα είχε όλο αυτό;»
 
 Η ερώτηση κρεμάστηκε στον αέρα σαν σύννεφο βαρύ από βροχή. Ο θυμός είναι ο πρώτος φρουρός κάθε πληγωμένης καρδιάς. Μπαίνει μπροστά για να κρύψει αυτό που πραγματικά πονάει: τον φόβο ότι δεν είσαι μοναδικός.`,
           en: `Philippos stood up. His entire body was taut like a guitar string about to snap. His hands were fists. His eyes were flames.
@@ -101,7 +107,9 @@ Then Pencilo appeared. Slower than ever. As if dragging through thick fog. The c
 
 "I can't take it," he said. His voice was broken. Like a pencil snapping in half. "Every line of mine... is there." He held up a drawing. The exact same one existed in the copied game. Colour for colour. Shape for shape.
 
-"If they copy us, then what was the point of all this?"
+Alexandra came closer and gently rested her hand on his small spiky back. She said nothing. Sometimes a hand says more than all the words put together.
+
+"If they copy us," whispered Pencilo, "then what was the point of all this?"
 
 The question hung in the air like a cloud heavy with rain. Anger is the first guard of every wounded heart. It steps in front to hide what truly hurts: the fear that you are not unique.`
         }
@@ -119,7 +127,7 @@ The question hung in the air like a cloud heavy with rain. Anger is the first gu
 
 Και μετά... γέλασε. Όχι δυνατά. Αλλά ένα γέλιο τόσο ειλικρινές, τόσο ξαφνικό, που ο Φίλιππος σταμάτησε στη μέση βήματος. Σαν να πάτησε αόρατο φρένο. «Τι λες τώρα;» ρώτησε ο Φίλιππος άγρια.
 
-«Λέω ότι αν σε αντέγραψαν... είδαν κάτι που δουλεύει.»
+«Λέω ότι αν σε αντέγραψαν... είδαν κάτι που δουλεύει. Σκεφτείτε το λίγο. Κανείς δεν κάθεται να αντιγράψει κάτι βαρετό. Η αντιγραφή είναι απόδειξη ότι κάναμε κάτι καλό.»
 
 Οι λέξεις έπεσαν σαν σταγόνες σε καυτή πλάκα. Τσίξιμο. Ατμός. Σιωπή. Ο Pencilo γύρισε απότομα. «Δεν είναι παιχνίδι! Είναι ιδέα! Κάτι που βγήκε από μέσα μας!»
 
@@ -136,7 +144,7 @@ Link appeared in a flash of digital light. Wires, circuits, speed. Her eyes — 
 
 And then... she laughed. Not loudly. But a laugh so sincere, so sudden, that Philippos stopped mid-step. As if he had hit an invisible brake. "What are you saying now?" asked Philippos fiercely.
 
-"I'm saying that if they copied you... they saw something that works."
+"I'm saying that if they copied you... they saw something that works. Think about it for a second. Nobody bothers to copy something boring. Copying is proof that we made something good."
 
 The words fell like drops on a hot surface. Sizzle. Steam. Silence. Pencilo turned abruptly. "It's not a game! It's an idea! Something that came from inside us!"
 
@@ -164,6 +172,8 @@ Link wasn't cruel. She was clear. And sometimes, the clear truth hurts more than
 
 «Όχι», είπε η Link, αυτή τη φορά πιο απαλά. Τα LED μάτια της ήταν σταθερά, θερμά. «Απλώς μπήκαμε στο επόμενο επίπεδο.»
 
+Ο Φίλιππος άφησε ένα μικρό γέλιο να του ξεφύγει — κοφτό, ξαφνιασμένο, το πρώτο εδώ και ώρες. «Το επόμενο επίπεδο», επανέλαβε σιγανά. Του άρεσε ο ήχος αυτής της φράσης.
+
 Η αντιγραφή είναι ο σκιάχτρος του δημιουργού. Τρομάζει — αλλά αν τον κοιτάξεις καλά, θα δεις ότι δεν έχει σώμα. Δεν μπορεί να σε πιάσει. Μόνο εσύ μπορείς να σταματήσεις τον εαυτό σου.
 
 Ο πόνος του δημιουργού δεν είναι ματαιοδοξία. Είναι η πληγή αυτού που έβαλε κομμάτι της ψυχής του σε κάτι, και κάποιος το αντιμετώπισε σαν αντικείμενο. Αλλά η πληγή δεν είναι το τέλος. Είναι η αρχή μιας νέας δύναμης.`,
@@ -178,6 +188,8 @@ Pencilo lowered his head. His colours flickered — between grey and something w
 Philippos stopped pacing. He took a deep breath. Slow. Deliberate. As if drawing courage from the air. "Meaning... we didn't lose?" he asked.
 
 "No," said Link, softer this time. Her LED eyes were steady, warm. "We just entered the next level."
+
+Philippos let out a small laugh — short, surprised, the first one in hours. "The next level," he repeated quietly. He liked the sound of that phrase.
 
 Copying is the creator's scarecrow. It frightens — but if you look closely, you'll see it has no body. It cannot hold you. Only you can stop yourself.
 

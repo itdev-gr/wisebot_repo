@@ -102,6 +102,10 @@ const CATEGORIES = {
 // --- STORIES DATA (extracted to data/academyCourses.ts) ---
 import { COURSES } from '../data/academyCourses';
 
+// Static narration mp3s (/audio/academy) were recorded for the pre-2026-07 story
+// texts. Re-enable after regenerating them for the enriched stories.
+const STATIC_AUDIO_READY = false;
+
 // ─── STORY READER WITH CLOUD TTS + BROWSER FALLBACK ────────────
 // Uses Gemini TTS API for natural, human-sounding voices.
 // Falls back to Web Speech API if cloud TTS is unavailable.
@@ -496,7 +500,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const totalCompleted = COURSES.filter(c => completedIds.includes(`academy-${c.id}`)).length;
 
   // Story of the Day — seeded by day-of-year so every kid sees the same pick
-  // each day and it rotates through all 90 stories over time.
+  // each day and it rotates through all stories over time.
   const dailyStory = useMemo(() => {
     const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
     const idx = (dayOfYear * 7) % COURSES.length; // ×7 so consecutive days jump categories
@@ -524,7 +528,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             {lang === 'el' ? 'ΜΑΘΗΜΑΤΑ' : 'LESSONS'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΖΩΗΣ' : 'OF LIFE'}</span>
          </h1>
          <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs">
-            {lang === 'el' ? 'ΔΙΑΒΑΣΕ ΤΙΣ ΙΣΤΟΡΙΕΣ 90 ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ' : 'READ THE STORIES OF 90 GREAT PEOPLE'}
+            {lang === 'el' ? `ΔΙΑΒΑΣΕ ΤΙΣ ${totalStories} ΙΣΤΟΡΙΕΣ ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ` : `READ THE ${totalStories} STORIES OF GREAT PEOPLE`}
          </p>
 
       </div>
@@ -764,7 +768,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                   <StoryReader
                     text={selectedCourse.storyContent[lang]}
                     lang={lang}
-                    storyId={selectedCourse.id}
+                    storyId={STATIC_AUDIO_READY ? selectedCourse.id : undefined}
                   />
 
                   {/* ── STORY COMPLETE CELEBRATION ── */}

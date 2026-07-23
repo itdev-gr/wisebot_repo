@@ -164,5 +164,53 @@ export const BOOK_QUIZZES: Record<number, QuizQuestion[]> = {
     q("Γιατί ήταν μικρή η φλόγα στην αρχή;", "Why was the flame small at first?", ["Γιατί την τάιζαν με αμφιβολία", "Δεν είχε οξυγόνο", "Ήταν κερί"], ["Because they fed it with doubt", "No oxygen", "It was a candle"], 0),
     q("Πώς μεγαλώνει η φλόγα;", "How does the flame grow?", ["Με απόφαση", "Με ευχές", "Με τύχη"], ["With decision", "With wishes", "With luck"], 0),
     q("Τι είπε ο Sparken για την πίστη;", "What did Sparken say about faith?", ["Είναι νερό για τον σπόρο της σκέψης", "Είναι φωτιά", "Είναι αέρας"], ["It is water for the seed of thought", "It is fire", "It is air"], 0)
+  ],
+  // BOOK 27: TINY HABITS, BIG MIRACLES
+  27: [
+    q("Γιατί τα παράτησαν τα παιδιά μέσα σε τρεις μέρες στην αρχή;", "Why did the kids quit within three days at the start?", ["Ξεκίνησαν με τεράστια βήματα που δεν άντεχαν","Δεν είχαν καθόλου ταλέντο","Τους το απαγόρευσε η WiseBot"], ["They started with huge steps they couldn't sustain","They had no talent at all","WiseBot forbade them"], 0),
+    q("Τι είναι η «Κοιλάδα της Απογοήτευσης»;", "What is the 'Valley of Disappointment'?", ["Ένα μέρος όπου πας όταν χάνεις","Η περίοδος που προσπαθείς αλλά τα αποτελέσματα δεν φαίνονται ακόμα","Το τέλος κάθε προσπάθειας"], ["A place you go when you lose","The period when you keep trying but results don't show yet","The end of every effort"], 1),
+    q("Ποιο κόλπο έμαθε ο Pencilo για να μην ξεχνάς τη νέα συνήθεια;", "What trick did Pencilo teach so you don't forget the new habit?", ["Να προσπαθείς πιο σκληρά με τη θέληση","Να τη γράφεις εκατό φορές","Να την κολλάς πάνω σε μια παλιά συνήθεια, όπως μετά το πλύσιμο δοντιών"], ["Try harder using willpower","Write it down a hundred times","Stack it onto an old habit, like right after brushing your teeth"], 2)
+  ],
+  // BOOK 28: LIMITLESS
+  28: [
+    q("Τι λέξη πρότεινε ο Sparken να προσθέτει η Αλεξάνδρα στα «δεν μπορώ»;", "What word did Sparken suggest Alexandra add to her 'I can't'?", ["«Ποτέ»","«Ακόμα» — δεν το έμαθα ΑΚΟΜΑ","«Ίσως»"], ["'Never'","'Yet' — I haven't learned it YET","'Maybe'"], 1),
+    q("Γιατί δεν προχωρούσε το διάβασμα της Αλεξάνδρας την πρώτη μέρα;", "Why did Alexandra's studying go nowhere on the first day?", ["Το ποίημα ήταν πολύ δύσκολο για παιδιά","Δεν είχε αρκετό φως στο δωμάτιο","Οι ειδοποιήσεις τραβούσαν συνέχεια τον «προβολέα» του εγκεφάλου αλλού"], ["The poem was too hard for kids","There wasn't enough light in the room","Notifications kept dragging the brain's 'spotlight' somewhere else"], 2),
+    q("Πώς έμαθε τελικά η Αλεξάνδρα και τους είκοσι στίχους;", "How did Alexandra finally learn all twenty lines?", ["Έκανε κάθε στίχο τρελή εικόνα και τον έβαλε σε μια γωνιά του δωματίου της","Τους διάβασε εκατό φορές δυνατά","Τους έγραψε στο χέρι της"], ["She turned each line into a crazy picture and placed it in a corner of her room","She read them out loud a hundred times","She wrote them on her hand"], 0)
+  ],
+  // BOOK 29: THE GREATEST SALESMAN IN THE WORLD
+  29: [
+    q("Γιατί δεν πουλούσαν τίποτα την πρώτη μέρα στην πλατεία;", "Why did they sell nothing on the first day in the square?", ["Η λεμονάδα ήταν πολύ ακριβή","Φώναζαν δυνατά αλλά δεν βοηθούσαν κανέναν","Η πλατεία ήταν εντελώς άδεια"], ["The lemonade was too expensive","They shouted loudly but helped no one","The square was completely empty"], 1),
+    q("Τι έλεγε ο έκτος πάπυρος για το «όχι»;", "What did the sixth scroll say about «no»?", ["Κάθε όχι με φέρνει ένα βήμα πιο κοντά στο ναι","Όταν ακούς όχι, σταματάς αμέσως","Το όχι σημαίνει ότι δεν αξίζεις"], ["Every no brings me one step closer to a yes","When you hear no, you stop immediately","A no means you are not worthy"], 0),
+    q("Τι σημαίνει «πουλάω» σύμφωνα με τη WiseBot;", "What does «selling» mean according to WiseBot?", ["Παίρνω όσα πιο πολλά λεφτά μπορώ","Μιλάω πιο δυνατά από όλους","Λύνω τίμια το πρόβλημα κάποιου"], ["Taking as much money as I can","Talking louder than everyone","Solving someone's problem honestly"], 2)
+  ],
+  // BOOK 30: THE 10X RULE
+  30: [
+    q("Τι έγινε ο στόχος των παιδιών με τον κανόνα του 10X;", "What happened to the children's goal with the 10X rule?", ["Από 20 βιβλία έγινε 200 βιβλία","Από 200 βιβλία έγινε 20 βιβλία","Από 20 ευρώ έγινε 200 ευρώ"], ["From 20 books it became 200 books","From 200 books it became 20 books","From 20 euros it became 200 euros"], 0),
+    q("Τι έκαναν όταν η βροχή κατέστρεψε τις αφίσες;", "What did they do when the rain destroyed the posters?", ["Κατηγόρησαν τον καιρό και σταμάτησαν","Τα παράτησαν για πάντα","Πήραν την ευθύνη και έβαλαν τις αφίσες σε ζελατίνες"], ["They blamed the weather and stopped","They gave up forever","They took responsibility and put the posters in plastic sleeves"], 2),
+    q("Τι είπε η WiseBot για την ξεκούραση;", "What did WiseBot say about rest?", ["Η ξεκούραση είναι για τους τεμπέληδες","Η μεγάλη προσπάθεια χρειάζεται και μεγάλη ξεκούραση — αλλιώς η φλόγα σβήνει","Δεν χρειάζεται ποτέ ξεκούραση"], ["Rest is for lazy people","Big effort needs big rest — otherwise the flame goes out","You never need rest"], 1)
+  ],
+  // BOOK 31: THE ART OF THE DEAL
+  31: [
+    q("Γιατί χάλασε η πρώτη ανταλλαγή του Φίλιππου με τον Πέτρο;", "Why did Philippos's first trade with Petros go wrong?", ["Ο Πέτρος έχασε την κάρτα","Η δασκάλα απαγόρευσε τις ανταλλαγές","Ο Φίλιππος έκρυψε τη γρατζουνιά της κάρτας του"], ["Petros lost the card","The teacher banned trades","Philippos hid the scratch on his card"], 2),
+    q("Τι σε βοηθάει να διαπραγματεύεσαι ήρεμα, σύμφωνα με τη WiseBot;", "What helps you negotiate calmly, according to WiseBot?", ["Το να έχεις και δεύτερο σχέδιο","Το να φωνάζεις πιο δυνατά","Το να δέχεσαι ό,τι σου προτείνουν"], ["Having a second plan","Shouting louder","Accepting whatever they offer"], 0),
+    q("Τι πρότειναν τα παιδιά στην κυρία Ελένη για να πάρουν τη γωνιά;", "What did the kids offer Mrs Eleni to get the corner?", ["Της έδωσαν τον Χρυσό Δράκο","Παράσταση με το ρομπότ και καθάρισμα της αυλής","Της υποσχέθηκαν χρήματα"], ["They gave her the Golden Dragon","A robot show and cleaning the yard","They promised her money"], 1)
+  ],
+  // BOOK 32: HOW TO WIN FRIENDS
+  32: [
+    q("Ποιο είναι το πιο γλυκό άκουσμα για κάθε άνθρωπο, σύμφωνα με τη WiseBot;", "What is the sweetest sound to any person, according to WiseBot?", ["Η μουσική","Το όνομά του","Τα κομπλιμέντα"], ["Music","Their own name","Compliments"], 1),
+    q("Γιατί απέτυχαν τα κομπλιμέντα του Φίλιππου στον καινούριο;", "Why did Philippos's compliments fail with the new kid?", ["Ήταν πολύ σιγανά","Ο καινούριος δεν μιλούσε ελληνικά","Ήταν ψεύτικη κολακεία, όχι αληθινά λόγια"], ["They were too quiet","The new kid spoke another language","It was fake flattery, not real words"], 2),
+    q("Πώς κέρδισε η Ελευθερία τον Άρη στο παγκάκι;", "How did Eleftheria win Aris over at the bench?", ["Ρώτησε για το βιβλίο του και απλώς άκουγε","Του έδωσε γλυκά","Του έδειξε το ρομπότ"], ["She asked about his book and simply listened","She gave him sweets","She showed him the robot"], 0)
+  ],
+  // BOOK 33: THINK AND YOU WILL SUCCEED
+  33: [
+    q("Τι έμαθε ο Φίλιππος από τον Sparken για τα όνειρα;", "What did Filippos learn from Sparken about dreams?", ["Να τα κρατάει μυστικά για να μην τα κλέψουν","Να τα κάνει συγκεκριμένα, να τα γράφει και να τα βλέπει καθαρά κάθε μέρα","Να περιμένει να μεγαλώσει για να ξεκινήσει"], ["Keep them secret so nobody steals them","Make them specific, write them down and picture them clearly every day","Wait until you grow up before you start"], 1),
+    q("Στον θρύλο που είπε η WiseBot, τι έγινε με τον άνθρωπο που έψαχνε χρυσάφι;", "In the legend WiseBot told, what happened to the man who was digging for gold?", ["Τα παράτησε ένα μόνο μέτρο πριν βρει τον χρυσό","Βρήκε τον χρυσό την πρώτη κιόλας μέρα","Έσκαβε σε λάθος βουνό από την αρχή"], ["He gave up just one meter before reaching the gold","He found the gold on the very first day","He was digging in the wrong mountain all along"], 0),
+    q("Τι κρύβει μέσα του κάθε εμπόδιο, σύμφωνα με την ιστορία;", "According to the story, what does every obstacle hide inside it?", ["Ένα μήνυμα ότι πρέπει να σταματήσεις","Μια τιμωρία για όσους βιάζονται","Έναν σπόρο ίσου ή μεγαλύτερου οφέλους — όπως ο σπασμένος άξονας που οδήγησε σε καλύτερο σχέδιο"], ["A message that you should stop","A punishment for those who rush","A seed of equal or greater benefit — like the broken axle that led to a better design"], 2)
+  ],
+  // BOOK 34: THE GROWING MIND
+  34: [
+    q("Με τι μοιάζει το μυαλό, σύμφωνα με τη WiseBot;", "According to WiseBot, what is the brain like?", ["Με μυ που δυναμώνει όταν παλεύει με τα δύσκολα","Με κουτί που γεμίζει μια φορά και μετά κλείνει","Με μηχανή που δουλεύει μόνο για τους ταλαντούχους"], ["A muscle that grows stronger when it wrestles with hard things","A box that fills up once and then closes","A machine that only works for talented people"], 0),
+    q("Γιατί η κρυφή προπόνηση της Αλεξάνδρας δεν δούλεψε στην αρχή;", "Why did the secret training of Alexandra not work at first?", ["Γιατί δεν είχε αρκετό ταλέντο στα μαθηματικά","Γιατί η WiseBot τής έδωσε λάθος ασκήσεις","Γιατί έλυνε μόνο εύκολες ασκήσεις — σαν να σήκωνε κάθε μέρα ένα φτερό"], ["Because she did not have enough talent in math","Because WiseBot gave her the wrong exercises","Because she only solved easy exercises — like lifting a feather every day"], 2),
+    q("Τι είναι τα λάθη, σύμφωνα με την ιστορία;", "According to the story, what are mistakes?", ["Απόδειξη ότι κάποιος δεν είναι έξυπνος","Πληροφορίες — ένας χάρτης που δείχνει πού να προσέξεις","Κάτι που πρέπει να κρύβεις κάτω από το στρώμα"], ["Proof that someone is not smart","Information — a map that shows you where to be careful","Something you should hide under your mattress"], 1)
   ]
 };

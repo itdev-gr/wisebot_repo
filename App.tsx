@@ -49,7 +49,7 @@ interface PortalProps {
 // ─── DISCOVERY FEATURES ───
 const DISCOVER_FEATURES = {
   el: [
-    { emoji: '🧠', title: 'ΜΑΘΕ', desc: 'Ιστορίες 90 σπουδαίων ανθρώπων', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { emoji: '🧠', title: 'ΜΑΘΕ', desc: 'Ιστορίες 98 σπουδαίων ανθρώπων', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
     { emoji: '📚', title: 'ΔΙΑΒΑΣΕ', desc: 'Βιβλία που σου δίνουν δύναμη', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
     { emoji: '🎨', title: 'ΔΗΜΙΟΥΡΓΗΣΕ', desc: 'Τον δικό σου ήρωα με AI', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
     { emoji: '🎵', title: 'ΤΡΑΓΟΥΔΑ', desc: 'Φτιάξε δικά σου τραγούδια', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
@@ -59,7 +59,7 @@ const DISCOVER_FEATURES = {
     { emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
   ],
   en: [
-    { emoji: '🧠', title: 'LEARN', desc: 'Stories of 90 great people', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { emoji: '🧠', title: 'LEARN', desc: 'Stories of 98 great people', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
     { emoji: '📚', title: 'READ', desc: 'Books that give you power', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
     { emoji: '🎨', title: 'CREATE', desc: 'Your own AI hero', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
     { emoji: '🎵', title: 'SING', desc: 'Make your own songs', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
