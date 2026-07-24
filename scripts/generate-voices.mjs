@@ -158,7 +158,12 @@ async function main() {
       const filename = `story-${story.id}-${lang}.wav`;
       const outputPath = path.join(OUTPUT_DIR, filename);
 
-      if (!FORCE && fs.existsSync(outputPath)) {
+      // Fresh = wav exists, or an mp3 generated AFTER the current texts JSON
+      // (old-text mp3s from previous batches must NOT be skipped)
+      const mp3Path = outputPath.replace(/\.wav$/, '.mp3');
+      const textsTime = fs.statSync(STORIES_FILE).mtimeMs;
+      const freshMp3 = fs.existsSync(mp3Path) && fs.statSync(mp3Path).mtimeMs > textsTime;
+      if (!FORCE && (fs.existsSync(outputPath) || freshMp3)) {
         continue; // Skip existing
       }
 

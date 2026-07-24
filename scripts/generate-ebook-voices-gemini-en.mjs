@@ -110,7 +110,10 @@ async function main() {
   for (const page of filtered) {
     const wavPath = path.join(OUTPUT_DIR, `book-${page.bookId}-page-${page.page}-en.wav`);
     const mp3Path = path.join(OUTPUT_DIR, `book-${page.bookId}-page-${page.page}-en.mp3`);
-    if (!FORCE && (fs.existsSync(wavPath) || fs.existsSync(mp3Path))) continue;
+    // Fresh = wav exists, or an mp3 generated AFTER the current texts JSON
+    // (old-text mp3s from previous batches must NOT be skipped)
+    const freshMp3 = fs.existsSync(mp3Path) && fs.statSync(mp3Path).mtimeMs > fs.statSync(EBOOKS_FILE).mtimeMs;
+    if (!FORCE && (fs.existsSync(wavPath) || freshMp3)) continue;
     tasks.push({ bookId: page.bookId, page: page.page, text: page.text, outputPath: wavPath });
   }
 
