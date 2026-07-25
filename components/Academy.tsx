@@ -103,9 +103,10 @@ const CATEGORIES = {
 // --- STORIES DATA (extracted to data/academyCourses.ts) ---
 import { COURSES } from '../data/academyCourses';
 
-// Static narration mp3s (/audio/academy) were recorded for the pre-2026-07 story
-// texts. Re-enable after regenerating them for the enriched stories.
-const STATIC_AUDIO_READY = false;
+// Static narration mp3s (/audio/academy), regenerated 2026-07 with Gemini Kore
+// for the enriched story texts. Stories without a file fall back to cloud TTS
+// automatically (loadStaticAudio HEAD-checks before playing).
+const STATIC_AUDIO_READY = true;
 
 // ─── STORY READER WITH CLOUD TTS + BROWSER FALLBACK ────────────
 // Uses Gemini TTS API for natural, human-sounding voices.

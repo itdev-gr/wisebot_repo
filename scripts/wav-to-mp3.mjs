@@ -37,7 +37,9 @@ function wavToMp3(wavPath, mp3Path) {
   const { channels, sampleRate, bitsPerSample, pcmData } = readWavFile(wavPath);
   if (bitsPerSample !== 16) throw new Error(`Need 16-bit PCM, got ${bitsPerSample}-bit`);
 
-  const mp3enc = new lamejs.Mp3Encoder(channels, sampleRate, 128);
+  // 64kbps is transparent for 24kHz mono narration and halves the repo/deploy
+  // weight vs 128kbps (536 files ≈ 400MB instead of 800MB)
+  const mp3enc = new lamejs.Mp3Encoder(channels, sampleRate, 64);
   const samples = new Int16Array(pcmData.buffer, pcmData.byteOffset, pcmData.byteLength / 2);
   const BLOCK = 1152;
   const chunks = [];

@@ -32,3 +32,6 @@ dist-ssr
 .claude/worktrees/
 .env*.local
 .env.vercel
+
+# TTS intermediates — only the final .mp3 files are committed
+public/audio/**/*.wav
