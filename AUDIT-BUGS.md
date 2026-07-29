@@ -1,5 +1,14 @@
 # WiseBot Academy — Full Bug Audit (28 Μαρτίου 2026)
 
+> **Re-audit 30 Ιουλίου 2026:** τα περισσότερα items έχουν διορθωθεί σε προηγούμενα
+> commits. Στο commit `477b8f4` διορθώθηκαν επιπλέον: B2/B4 (BusinessSimulation
+> race + double save), L4 (max rank), AC2 (join date), API2 (Stripe checkout/verify
+> auth). Παραμένουν ανοιχτά, χαμηλής προτεραιότητας: H2 (blind 90s timeout στο
+> HeroFactory — πλέον αβλαβές), H4 (free retry μόνο σε error screen — server
+> χρεώνει ούτως ή άλλως), CTX6 (/admin route χωρίς client guard — προστατεύεται
+> server-side με PIN + 12h HMAC token), API5 (mismatches μόνο σε νεκρό κώδικα:
+> backendAI.chat/quiz χωρίς callers).
+
 Backup tag: `backup-before-audit-20260328-010406`
 Rollback commit: `52a5483` (reverted to `38a5619`)
 
