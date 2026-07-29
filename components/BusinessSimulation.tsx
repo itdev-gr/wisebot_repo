@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Briefcase, ArrowRight, ArrowLeft, Sparkles, Zap,
   Building2, Pizza, Shirt, Gamepad2, Heart, Music,
@@ -44,6 +44,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
   const [resultLogo, setResultLogo] = useState('');
   const [resultSlogan, setResultSlogan] = useState('');
   const [resultDesc, setResultDesc] = useState('');
+  const bizSavedRef = useRef(false);
 
   const [biz, setBiz] = useState({
     industry: '',
@@ -99,6 +100,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
         timeoutIds.push(setTimeout(() => setLoadingText(text), delay));
       });
 
+      const startedAt = Date.now();
       const generateBusiness = async () => {
         try {
           const industryName = INDUSTRIES.find(i => i.id === biz.industry)?.[lang === 'el' ? 'el' : 'en'] || biz.industry;
@@ -116,12 +118,18 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
           console.error("Business generation failed:", error);
           setResultSlogan(lang === 'el' ? 'Η καλύτερη εταιρεία!' : 'The best company!');
           setResultDesc(lang === 'el' ? 'Μια φανταστική επιχείρηση που θα αλλάξει τον κόσμο.' : 'An amazing business that will change the world.');
+        } finally {
+          // Advance when generation actually finishes — min 6s on screen so
+          // the loading sequence doesn't flash by
+          const wait = Math.max(0, 6000 - (Date.now() - startedAt));
+          timeoutIds.push(setTimeout(() => setStep(4), wait));
         }
       };
 
       generateBusiness();
 
-      const finishId = setTimeout(() => setStep(4), 15000);
+      // Safety net only — fires if the API hangs past the function timeout
+      const finishId = setTimeout(() => setStep(4), 45000);
       timeoutIds.push(finishId);
 
       return () => timeoutIds.forEach(clearTimeout);
@@ -132,7 +140,8 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
   useEffect(() => {
     if (step === 4 && resultLogo) {
       const bizId = `business-${Date.now()}`;
-      if (!completedIds.includes(bizId)) {
+      if (!bizSavedRef.current) {
+        bizSavedRef.current = true;
         trackAction('CREATE_BUSINESS');
         addXp(50, bizId);
 
@@ -175,6 +184,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
   };
 
   const handleReset = () => {
+    bizSavedRef.current = false;
     setStep(0);
     setBiz({ industry: '', name: '', product: '', pricing: '', target: '' });
     setResultLogo('');

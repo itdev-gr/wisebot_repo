@@ -57,6 +57,7 @@ export default async function handler(req: any, res: any) {
     const password = typeof body.password === 'string' ? body.password : '';
     const childName = typeof body.childName === 'string' ? body.childName.trim() : '';
     const phoneNumber = typeof body.phoneNumber === 'string' ? body.phoneNumber.trim() : '';
+    const referralCode = typeof body.referralCode === 'string' ? body.referralCode.trim().toUpperCase() : '';
 
     // Backwards compat: accept `email` as fallback for `parentEmail`
     const email = parentEmail || (typeof body.email === 'string' ? body.email.trim() : '');
@@ -227,6 +228,21 @@ export default async function handler(req: any, res: any) {
       }
     }
 
+    // Referral: resolve the invite code to the inviter's profile. The invited
+    // child gets +5 bonus credits now; the inviter is paid via claim_referral()
+    // only after this account verifies + logs in (see /api/auth/referral).
+    let referredBy: string | null = null;
+    if (referralCode && /^[A-Z2-9]{4,12}$/.test(referralCode)) {
+      const supabaseForRef = await getSupabaseAdmin();
+      const { data: inviter } = await supabaseForRef
+        .from('profiles')
+        .select('id')
+        .eq('referral_code', referralCode)
+        .limit(1)
+        .maybeSingle();
+      if (inviter?.id && inviter.id !== data.user?.id) referredBy = inviter.id;
+    }
+
     // Step 2: Create profile with admin client (bypasses RLS)
     if (data.user?.id) {
       const supabaseAdminForProfile = await getSupabaseAdmin();
@@ -238,7 +254,8 @@ export default async function handler(req: any, res: any) {
         has_password: true, // email/password signups have a password
         phone_number: phoneNumber || null,
         phone_verified: false,
-        credits: 10, // welcome credits — matches the landing page promise & DB default
+        credits: referredBy ? 15 : 10, // welcome credits (+5 referral bonus)
+        referred_by: referredBy,
       });
 
       if (profileError) {

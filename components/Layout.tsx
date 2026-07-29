@@ -708,7 +708,11 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                        {currentRank.title}
                     </h2>
                     <p className="text-blue-200/60 text-sm font-bold uppercase tracking-widest mt-4 flex items-center justify-center lg:justify-start gap-2">
-                       {lang === 'el' ? 'Επόμενος Στόχος:' : 'Next Target:'} <span className="text-white">{nextRank.title}</span> <ChevronRight size={14} />
+                       {unlockedBadgeCount >= 8 ? (
+                         <span className="text-amber-300">{lang === 'el' ? '👑 Μέγιστη Βαθμίδα!' : '👑 Max Rank!'}</span>
+                       ) : (
+                         <>{lang === 'el' ? 'Επόμενος Στόχος:' : 'Next Target:'} <span className="text-white">{nextRank.title}</span> <ChevronRight size={14} /></>
+                       )}
                     </p>
                   </div>
 

@@ -194,10 +194,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       // Create user via server API (sends verification email to parent)
+      const referralCode = localStorage.getItem('wb_ref') || undefined;
       const response = await authFetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, childName, parentEmail: parentEmail || email }),
+        body: JSON.stringify({ email, password, childName, parentEmail: parentEmail || email, referralCode }),
       });
 
       const result = await response.json();
@@ -407,6 +408,16 @@ const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject
 
       syncDoneRef.current = true;
       console.log('[Sync] Initial sync complete');
+
+      // Referral: pay the inviter once this (now verified) account logs in.
+      // The server is idempotent — the flag only avoids a request per login.
+      if (!localStorage.getItem('wb_ref_claimed')) {
+        try {
+          const { backendReferral } = await import('../services/backendApi');
+          await backendReferral.claim();
+          localStorage.setItem('wb_ref_claimed', '1');
+        } catch { /* non-fatal — retried on next login */ }
+      }
     };
 
     doSync();

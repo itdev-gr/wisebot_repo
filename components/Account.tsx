@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   CreditCard,
   Award,
@@ -27,13 +27,16 @@ import {
   LogOut,
   Cloud,
   Trash2,
-  AlertTriangle
+  AlertTriangle,
+  Copy,
+  Share2,
+  Users
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { USER_GROUP_PHOTO } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
-import { authFetch } from '../services/backendApi';
+import { authFetch, backendReferral } from '../services/backendApi';
 
 // Available avatars from hero images
 const AVATAR_OPTIONS = [
@@ -85,6 +88,36 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
     setShowAvatarPicker(false);
   };
   
+  // Referral / invite-a-friend
+  const [referral, setReferral] = useState<{ code: string; invitedCount: number; creditsEarned: number } | null>(null);
+  const [inviteCopied, setInviteCopied] = useState(false);
+
+  useEffect(() => {
+    if (isGuest) return;
+    backendReferral.get().then(setReferral).catch(() => {});
+  }, [isGuest]);
+
+  const inviteLink = referral ? `https://wisebot.gr/?ref=${referral.code}` : '';
+
+  const copyInvite = async () => {
+    try {
+      await navigator.clipboard.writeText(inviteLink);
+      setInviteCopied(true);
+      setTimeout(() => setInviteCopied(false), 2000);
+    } catch { /* clipboard unavailable */ }
+  };
+
+  const shareInvite = async () => {
+    const shareText = text[lang].inviteShareText;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'WiseBot Academy', text: `${shareText} ${referral?.code}`, url: inviteLink });
+      } else {
+        await copyInvite();
+      }
+    } catch { /* user cancelled share */ }
+  };
+
   const today = new Date().toDateString();
   const alreadyClaimed = lastClaimDate === today;
   const canClaim = !alreadyClaimed && !claimedJustNow;
@@ -117,6 +150,14 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
       claim: 'ΠΑΡΕ 3 CREDITS',
       comeBack: 'ΕΛΑ ΑΥΡΙΟ ΓΙΑ ΑΛΛΑ',
       claimed: 'ΤΑ ΠΗΡΕΣ!',
+      inviteTitle: 'Προσκάλεσε Φίλους',
+      inviteDesc: 'Στείλε τον κωδικό σου! Ο φίλος σου παίρνει +5⚡ στην εγγραφή κι εσύ +10⚡ μόλις συνδεθεί.',
+      inviteCopy: 'ΑΝΤΙΓΡΑΦΗ',
+      inviteCopied: 'ΑΝΤΙΓΡΑΦΗΚΕ!',
+      inviteShare: 'ΜΟΙΡΑΣΟΥ ΤΟ',
+      inviteFriends: 'Φίλοι που ήρθαν',
+      inviteEarned: 'Credits που κέρδισες',
+      inviteShareText: 'Έλα στο WiseBot Academy — μάθε, παίξε και δημιούργησε με AI! Με τον κωδικό μου παίρνεις +5 credits δώρο:',
       badgeLocked: 'Κλειδωμένο',
       badges: {
         thinker: 'Thinker',
@@ -147,6 +188,14 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
       claim: 'CLAIM 3 CREDITS',
       comeBack: 'COME BACK TOMORROW',
       claimed: 'CLAIMED!',
+      inviteTitle: 'Invite Friends',
+      inviteDesc: 'Share your code! Your friend gets +5⚡ at signup and you get +10⚡ once they log in.',
+      inviteCopy: 'COPY',
+      inviteCopied: 'COPIED!',
+      inviteShare: 'SHARE',
+      inviteFriends: 'Friends joined',
+      inviteEarned: 'Credits earned',
+      inviteShareText: 'Join WiseBot Academy — learn, play and create with AI! Use my code for +5 free credits:',
       badgeLocked: 'Locked',
       badges: {
         thinker: 'Thinker',
@@ -267,7 +316,7 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
             )}
           </div>
           <p className="text-white/50 font-bold italic flex items-center justify-center md:justify-start gap-2">
-             <Calendar size={14}/> {t.joined} {new Date().getFullYear()}
+             <Calendar size={14}/> {t.joined} {new Date((user as any)?.created_at || Date.now()).getFullYear()}
           </p>
 
           {/* Current Balance Pill */}
@@ -335,6 +384,53 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
                 </div>
              </div>
           </section>
+
+          {/* INVITE A FRIEND */}
+          {!isGuest && (
+            <section className="glass-panel p-8 rounded-[2.5rem] border border-amber-400/20 space-y-5 relative overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+              <h3 className="text-xl font-black text-white uppercase italic flex items-center gap-3">
+                <Gift size={20} className="text-amber-400" /> {t.inviteTitle}
+              </h3>
+              <p className="text-white/60 text-sm font-bold">{t.inviteDesc}</p>
+
+              {referral && (
+                <>
+                  <div className="flex flex-col md:flex-row items-stretch gap-3">
+                    <div className="flex-1 bg-black/40 border border-amber-400/30 rounded-2xl px-5 py-4 flex items-center justify-between gap-3">
+                      <span className="text-amber-300 font-[1000] text-2xl md:text-3xl tracking-[0.35em] select-all">{referral.code}</span>
+                      <button
+                        onClick={copyInvite}
+                        className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white/70 font-black uppercase tracking-widest text-[10px] hover:bg-white/10 transition-all flex items-center gap-2"
+                      >
+                        {inviteCopied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
+                        {inviteCopied ? t.inviteCopied : t.inviteCopy}
+                      </button>
+                    </div>
+                    <button
+                      onClick={shareInvite}
+                      className="px-6 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-black font-[1000] uppercase tracking-widest text-xs hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20"
+                    >
+                      <Share2 size={16} /> {t.inviteShare}
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5 flex flex-col items-center gap-1">
+                      <Users className="text-amber-400" size={20} />
+                      <span className="text-2xl font-[1000] text-white">{referral.invitedCount}</span>
+                      <span className="text-[9px] font-black text-white/40 uppercase tracking-widest">{t.inviteFriends}</span>
+                    </div>
+                    <div className="bg-white/5 p-4 rounded-2xl border border-white/5 flex flex-col items-center gap-1">
+                      <Zap className="text-amber-400" size={20} fill="currentColor" />
+                      <span className="text-2xl font-[1000] text-white">{referral.creditsEarned}</span>
+                      <span className="text-[9px] font-black text-white/40 uppercase tracking-widest">{t.inviteEarned}</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </section>
+          )}
 
           {/* MEMBERSHIP CARD */}
           <section className="relative h-64 rounded-[2.5rem] overflow-hidden shadow-2xl group transition-transform hover:scale-[1.01]">

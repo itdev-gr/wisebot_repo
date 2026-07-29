@@ -399,6 +399,14 @@ function AppContent() {
     return localStorage.getItem('wb_last_claim_date') || '';
   });
 
+  // Capture ?ref= invite codes from shared links — consumed at signup
+  useEffect(() => {
+    try {
+      const ref = new URLSearchParams(window.location.search).get('ref');
+      if (ref && /^[A-Za-z2-9]{4,12}$/.test(ref)) localStorage.setItem('wb_ref', ref.toUpperCase());
+    } catch { /* ignore malformed URLs */ }
+  }, []);
+
   useEffect(() => {
     if (lastClaimDate) localStorage.setItem('wb_last_claim_date', lastClaimDate);
   }, [lastClaimDate]);

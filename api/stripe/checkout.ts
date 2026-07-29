@@ -18,9 +18,14 @@ export default async function handler(req: any, res: any) {
     if (!key) return res.status(500).json({ error: 'Stripe not configured' });
 
     // ── AUTH: extract userId from JWT, never trust client-supplied userId ──
+    // Purchases require a real account — an 'anonymous' metadata userId would
+    // mean the webhook has nobody to credit after payment.
     const { getAuthUser } = await import('../_lib/auth.js');
     const authUser = await getAuthUser(req);
-    const userId = authUser?.id || 'anonymous';
+    if (!authUser || authUser.id === 'guest') {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+    const userId = authUser.id;
 
     const Stripe = (await import('stripe')).default;
     const stripe = new Stripe(key);

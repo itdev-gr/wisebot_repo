@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Phone } from 'lucide-react';
+import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Phone, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const motion = m as any;
@@ -94,6 +94,8 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showVerificationMsg, setShowVerificationMsg] = useState(false);
+  // Pre-filled when the user arrived via an invite link (?ref=CODE)
+  const [referralCode, setReferralCode] = useState(() => localStorage.getItem('wb_ref') || '');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,6 +131,10 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
     setSubmitting(true);
 
     if (tab === 'register') {
+      // Persist the (possibly hand-typed) invite code where signUp reads it
+      const cleanRef = referralCode.trim().toUpperCase();
+      if (cleanRef) localStorage.setItem('wb_ref', cleanRef);
+
       const result = await signUp(parentEmail, password, childName, parentEmail);
 
       if (result.error) {
@@ -293,6 +299,13 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                       value={phoneNumber}
                       onChange={setPhoneNumber}
                       type="tel"
+                    />
+                    <InputField
+                      icon={<Gift size={18} />}
+                      label={lang === 'el' ? 'Κωδικός Πρόσκλησης (+5⚡, προαιρετικό)' : 'Invite Code (+5⚡, optional)'}
+                      placeholder={lang === 'el' ? 'π.χ. WB2K7X' : 'e.g. WB2K7X'}
+                      value={referralCode}
+                      onChange={(v: string) => setReferralCode(v.toUpperCase())}
                     />
                   </motion.div>
                 )}

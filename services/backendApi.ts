@@ -138,21 +138,16 @@ export const backendStripe = {
     apiFetch<{ success: boolean; credits: number; packId: string }>(`/api/stripe/verify/${sessionId}`),
 };
 
-// ─── AUTH ENDPOINTS ───────────────────────────────────────
+// ─── REFERRAL ENDPOINTS ───────────────────────────────────
 
-export const backendAuth = {
-  register: (email: string, password: string, parentEmail: string, childName: string) =>
-    apiFetch<{ success: boolean; token?: string }>('/api/auth/register', {
-      method: 'POST',
-      body: JSON.stringify({ email, password, parentEmail, childName }),
-    }),
+export const backendReferral = {
+  /** The caller's invite code + stats (code is created on first call) */
+  get: () =>
+    apiFetch<{ code: string; invitedCount: number; creditsEarned: number; rewardPerFriend: number }>(
+      '/api/auth/referral'
+    ),
 
-  login: (email: string, password: string) =>
-    apiFetch<{ success: boolean; token?: string; user?: any }>('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-    }),
-
-  me: () =>
-    apiFetch<{ user: any }>('/api/auth/me'),
+  /** Pay the inviter for THIS user's signup (idempotent, safe to re-call) */
+  claim: () =>
+    apiFetch<{ rewarded: boolean }>('/api/auth/referral', { method: 'POST' }),
 };

@@ -11,6 +11,12 @@ export default async function handler(req: any, res: any) {
     const key = process.env.STRIPE_SECRET_KEY;
     if (!key) return res.status(500).json({ error: 'Stripe not configured' });
 
+    const { getAuthUser } = await import('../../_lib/auth.js');
+    const authUser = await getAuthUser(req);
+    if (!authUser || authUser.id === 'guest') {
+      return res.status(401).json({ error: 'Authentication required' });
+    }
+
     const Stripe = (await import('stripe')).default;
     const stripe = new Stripe(key);
     const { sessionId } = req.query;
@@ -20,6 +26,11 @@ export default async function handler(req: any, res: any) {
     }
 
     const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+    // Only the buyer may read their session's outcome
+    if (session.metadata?.userId && session.metadata.userId !== authUser.id) {
+      return res.status(403).json({ error: 'Not your session' });
+    }
 
     if (session.payment_status === 'paid') {
       const packId = session.metadata?.packId || '';
