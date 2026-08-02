@@ -61,6 +61,43 @@ export const getQuizProgress = (categoryId: string): QuizProgress | null => {
   return loadQuizProgress(categoryId);
 };
 
+// ─── BEST RESULT PERSISTENCE (permanent — drives School stars & diplomas) ───
+export interface QuizBest {
+  score: number;   // correct answers on the best run
+  total: number;   // questions in that run
+  timestamp: number;
+}
+
+const BEST_KEY_PREFIX = 'wb_quiz_best_';
+
+export const getQuizBest = (categoryId: string): QuizBest | null => {
+  try {
+    const saved = localStorage.getItem(BEST_KEY_PREFIX + categoryId);
+    return saved ? (JSON.parse(saved) as QuizBest) : null;
+  } catch { return null; }
+};
+
+const saveQuizBest = (categoryId: string, score: number, total: number) => {
+  try {
+    const prev = getQuizBest(categoryId);
+    const prevPct = prev && prev.total > 0 ? prev.score / prev.total : -1;
+    if (total > 0 && score / total > prevPct) {
+      localStorage.setItem(BEST_KEY_PREFIX + categoryId, JSON.stringify({ score, total, timestamp: Date.now() }));
+    }
+  } catch { /* storage full */ }
+};
+
+/** 0-3 stars from the best run: 100% → 3★, ≥75% → 2★, ≥50% → 1★ */
+export const getQuizStars = (categoryId: string): 0 | 1 | 2 | 3 => {
+  const best = getQuizBest(categoryId);
+  if (!best || best.total === 0) return 0;
+  const pct = best.score / best.total;
+  if (pct >= 1) return 3;
+  if (pct >= 0.75) return 2;
+  if (pct >= 0.5) return 1;
+  return 0;
+};
+
 const QUESTIONS_PER_LEVEL = 4;
 const PASS_THRESHOLD = 3;
 const TIMER_SECONDS = 15;
@@ -266,8 +303,11 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
   useEffect(() => {
     if (isFinished) {
       if (totalScore > 0) trackAction('PASS_QUIZ');
-      // Clear saved progress — quiz is done
-      if (categoryId) clearQuizProgress(categoryId);
+      // Clear saved progress — quiz is done; record the run for stars/diplomas
+      if (categoryId) {
+        clearQuizProgress(categoryId);
+        saveQuizBest(categoryId, totalScore, questions.length);
+      }
     }
   }, [isFinished]);
 
