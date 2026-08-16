@@ -100,10 +100,16 @@ export default async function handler(req: any, res: any) {
           });
 
           if (rpcError) {
+            // The parent has paid, but crediting failed. The purchase row we just
+            // inserted is what makes this session look "already processed", so if we
+            // leave it behind, Stripe's retry would skip the credit forever and the
+            // child would never receive what was bought. Remove it and fail loudly so
+            // Stripe redelivers and the whole block runs again cleanly.
             console.error('[Webhook] Credit RPC error:', rpcError.message);
-          } else {
-            console.log(`[Webhook] Added ${creditsAmount} credits to user ${userId}`);
+            await supabase.from('purchases').delete().eq('stripe_session_id', sessionId);
+            return res.status(500).json({ error: 'Crediting failed; will retry' });
           }
+          console.log(`[Webhook] Added ${creditsAmount} credits to user ${userId}`);
 
           // Send email notification to parent about the purchase
           try {
