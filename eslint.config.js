@@ -50,4 +50,16 @@ export default tseslint.config(
       globals: { ...globals.node, ...globals.es2022 },
     },
   },
+
+  {
+    // CommonJS scripts — `require` and `__dirname` are correct here.
+    files: ['**/*.cjs'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: { ...globals.node, ...globals.es2022 },
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
 );

@@ -47,6 +47,8 @@ scripts/           TTS + ebook generation, SEO page prerender
 npm run dev       # vite, port 3000
 npm run build     # vite build
 npm run preview
+npm run typecheck # tsc --noEmit
+npm run lint      # eslint . — flat config in eslint.config.js
 ```
 
 Vercel build additionally runs `node scripts/generate-seo-pages.mjs`.
@@ -56,8 +58,9 @@ Vercel build additionally runs `node scripts/generate-seo-pages.mjs`.
 `AUDIT-BUGS.md` lists ~38 audited bugs. Most are fixed; still open and low priority: `H2`,
 `H4`, `CTX6`, `API3`, `API5`.
 
-**There is no automated safety net in this repo**: no tests, no ESLint, no `typecheck`
-script, no CI. `tsconfig.json` does **not** enable `strict`. Reviews are the only line of
+**The safety net is still thin**: no tests, no CI, and `tsconfig.json` does **not** enable
+`strict`. `typecheck` and `lint` now exist; lint reports a 655-error baseline that has not
+been burned down, so a clean run is not yet a passing gate. Reviews remain the main line of
 defence, which is why the `.claude/skills/` here encode the failure modes this codebase
 actually produces:
 

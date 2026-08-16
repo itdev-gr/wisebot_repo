@@ -12,7 +12,13 @@ verified instead of hoped-for.
 
 ## Tier 1 — the safety net (do these first)
 
-- [ ] **ESLint + `eslint-plugin-react-hooks`.** The single highest-value change in the repo.
+- [x] **ESLint + `eslint-plugin-react-hooks`.** Installed 16 Αυγούστου 2026 — flat config in
+      `eslint.config.js`, `npm run lint` added. Baseline over 200 files: **655 errors, 2
+      warnings**, of which **22 `react-hooks/exhaustive-deps`** across 14 files and 2
+      `react-hooks/rules-of-hooks` in `components/games/DungeonExplorer.tsx`. Nothing fixed yet
+      — that is Task 2. The bulk (368 `no-explicit-any`, 232 `no-unused-vars`) is noise by
+      comparison; do not let it hide the hook errors.
+      The single highest-value change in the repo.
       At least 8 audited bugs (`H1`, `H3`, `B2`, `B4`, `CS1`, `CTX3`, `CTX4`, `D1`) are
       dependency-array or stale-closure mistakes that `react-hooks/exhaustive-deps` reports
       automatically. Expect a large initial error count — do not fix them all at once; record
@@ -78,9 +84,13 @@ verified instead of hoped-for.
       `api/ai/suno-callback.ts` (logs, does nothing), and the three `backendAuth` routes the
       client calls but which never existed server-side. Grep for callers first.
 
-- [ ] **Check the Node version on Vercel.** The dashboard warns that one project still builds
-      on Node 20 and **builds start failing 1 Οκτωβρίου 2026**. Confirm whether
-      `wisebot-claude-ok` is that project; local development is now on Node 24 LTS.
+- [x] **Node version on Vercel — checked 16 Αυγούστου 2026, no action needed here.**
+      `wisebot-claude-ok` already builds on **Node 24.x**, so it is *not* the project the
+      dashboard warns about. Some other project under the `itdev-gr` team is still on Node 20
+      and will start failing on 1 Οκτωβρίου 2026 — worth finding, but it is not this one.
+      Note also that this project is **live on `wisebot.gr` and `www.wisebot.gr`**, with a
+      `…-git-main-…` domain, i.e. git integration on `main`: **pushing to `main` deploys to
+      production.**
 
 ## Tier 4 — worth doing, not urgent
 

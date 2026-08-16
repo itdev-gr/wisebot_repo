@@ -12,8 +12,10 @@ findings with `file:line`, and say plainly when a category does not apply.
 ## 1. React hook dependencies (the single biggest source)
 
 At least eight audited bugs were dependency-array mistakes: H3, CS1, CTX3, CTX4, D1, B4, H1.
-There is **no ESLint in this project**, so nothing catches these automatically. You are the
-linter.
+`npm run lint` now catches these, but the existing 22 violations have **not** been fixed, so
+a file you touch may already be reporting. Run it and compare against the baseline rather
+than assuming a clean run — and keep reading the hooks yourself for the identity and
+stale-closure shapes below, which the rule does not always report.
 
 For every `useEffect`, `useMemo`, `useCallback` you touch or read:
 

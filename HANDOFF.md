@@ -84,10 +84,21 @@ Why first: at least 8 bugs in `AUDIT-BUGS.md` (`H1`, `H3`, `B2`, `B4`, `CS1`, `C
 ### Task 2 — Burn down the hook violations
 
 > Using the `wisebot-review` skill, fix the `react-hooks/exhaustive-deps` violations file by
-> file, starting with the files that touch credits: `context/EconomyContext.tsx`,
-> `components/HeroFactory.tsx`, `components/BusinessSimulation.tsx`, `components/CreditStore.tsx`.
+> file, in this order: `components/HeroFactory.tsx` (3), `context/AuthContext.tsx` (2),
+> `components/BusinessSimulation.tsx` (2), `components/CreditStore.tsx` (1) — the credit and
+> auth paths first — then `components/QuizEngine.tsx` (2), then the games.
 > After each file, run `npm run typecheck` and `npm run lint` and show me the diff before
 > moving on. Do not batch several files into one change.
+
+Two corrections from the ESLint baseline of 16 Αυγούστου 2026:
+
+- **`context/EconomyContext.tsx` has zero violations.** An earlier draft of this task listed it
+  first; there is nothing to fix there. Its bugs (`CTX1`, `CTX3`, `CTX5`) are the object-identity
+  and contract shapes the rule does not report — use the `wisebot-review` skill, not the linter.
+- **The 2 `rules-of-hooks` errors in `components/games/DungeonExplorer.tsx` are false positives.**
+  Line 355 declares `const usePotion = useCallback(...)`, an ordinary game function whose name
+  begins with `use`, so the linter treats every call as a hook call. Rename it to `drinkPotion`;
+  do not disable the rule.
 
 ### Task 3 — `strictNullChecks`
 
