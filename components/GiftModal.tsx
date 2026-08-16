@@ -278,7 +278,9 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
         setStep('error');
       }
     }
-  }, [tab, username, usernameStatus, verifiedName, amount, message, customMessage, useCustomMessage, selectedHero, selectedSong, lang, onGiftSent]);
+    // usernameStatus removed: it is not read anywhere in the callback body, and its
+    // rapid pending→ok transitions were needlessly re-creating this send handler.
+  }, [tab, username, verifiedName, amount, message, customMessage, useCustomMessage, selectedHero, selectedSong, lang, onGiftSent]);
 
   if (!isOpen) return null;
 

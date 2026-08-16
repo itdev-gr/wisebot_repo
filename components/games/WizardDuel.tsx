@@ -215,6 +215,45 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
     setTimeout(() => inputRef.current?.focus(), 100);
   }, [bossIndex, isGreek]);
 
+  // Defined before submitAnswer, which lists it as a dependency — a const in the
+  // same scope must be initialised before that dep array is evaluated (TDZ).
+  const enemyAttack = useCallback((currentBossHP: number) => {
+    setGameState('enemy_turn');
+    const bossData = BOSSES[bossIndex];
+    let damage = bossData.attack + Math.floor(Math.random() * 5);
+
+    if (shieldActive) {
+      damage = Math.floor(damage * 0.4);
+      setShieldActive(false);
+      setMessage(isGreek ? '🛡️ Η ασπίδα απορρόφησε τη ζημιά!' : '🛡️ Shield absorbed damage!');
+    } else {
+      setMessage(isGreek ? `${bossData.emoji} ${bossData.name} επιτίθεται! -${damage}HP` : `${bossData.emoji} ${bossData.name} attacks! -${damage}HP`);
+    }
+
+    const canvas = canvasRef.current;
+    if (canvas) {
+      spawnParticles(canvas.width / 2, canvas.height * 0.65, bossData.color, 20, 6);
+    }
+
+    setTimeout(() => {
+      setShowHit('player');
+      const newHP = Math.max(0, playerHP - damage);
+      setPlayerHP(newHP);
+
+      setTimeout(() => {
+        setShowHit(null);
+        if (newHP <= 0) {
+          setGameState('defeat');
+          setMessage(isGreek ? '💀 Ηττήθηκες...' : '💀 You were defeated...');
+        } else {
+          setGameState('battle');
+          setMessage('');
+        }
+      }, 500);
+    }, 500);
+    // `score` removed: not read in this callback body.
+  }, [bossIndex, playerHP, shieldActive, isGreek, spawnParticles]);
+
   const submitAnswer = useCallback(() => {
     if (!currentQuestion) return;
     const correct = userAnswer.trim().toLowerCase() === currentQuestion.answer.toLowerCase();
@@ -275,43 +314,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
         enemyAttack(bossHP);
       }, 1000);
     }
-  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles, earnCredits, showNotification, lang]);
-
-  const enemyAttack = useCallback((currentBossHP: number) => {
-    setGameState('enemy_turn');
-    const bossData = BOSSES[bossIndex];
-    let damage = bossData.attack + Math.floor(Math.random() * 5);
-
-    if (shieldActive) {
-      damage = Math.floor(damage * 0.4);
-      setShieldActive(false);
-      setMessage(isGreek ? '🛡️ Η ασπίδα απορρόφησε τη ζημιά!' : '🛡️ Shield absorbed damage!');
-    } else {
-      setMessage(isGreek ? `${bossData.emoji} ${bossData.name} επιτίθεται! -${damage}HP` : `${bossData.emoji} ${bossData.name} attacks! -${damage}HP`);
-    }
-
-    const canvas = canvasRef.current;
-    if (canvas) {
-      spawnParticles(canvas.width / 2, canvas.height * 0.65, bossData.color, 20, 6);
-    }
-
-    setTimeout(() => {
-      setShowHit('player');
-      const newHP = Math.max(0, playerHP - damage);
-      setPlayerHP(newHP);
-
-      setTimeout(() => {
-        setShowHit(null);
-        if (newHP <= 0) {
-          setGameState('defeat');
-          setMessage(isGreek ? '💀 Ηττήθηκες...' : '💀 You were defeated...');
-        } else {
-          setGameState('battle');
-          setMessage('');
-        }
-      }, 500);
-    }, 500);
-  }, [bossIndex, playerHP, shieldActive, isGreek, spawnParticles, score]);
+  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles, earnCredits, showNotification, lang, enemyAttack]);
 
   const nextBoss = useCallback(() => {
     const next = bossIndex + 1;

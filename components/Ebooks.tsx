@@ -255,7 +255,7 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     if (!autoPlay) return;
     const t = setTimeout(() => { handlePlayRef.current(); }, 700);
     return () => clearTimeout(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, [autoPlay]);
 
   const handlePause = useCallback(() => {

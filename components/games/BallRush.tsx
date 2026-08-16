@@ -64,6 +64,10 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
     return () => {
         if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
+    // Mount-only by design: game state lives in refs and `loop` reads them, so its
+    // per-render identity is irrelevant — while listing it (or `lang`, used only for
+    // the initial message) would cancel and restart the running game on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // --- GAME ENGINE ---
@@ -437,6 +441,9 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
           window.removeEventListener("keydown", handleKeyDown);
           window.removeEventListener("keyup", handleKeyUp);
       };
+    // Mount-only by design: the handlers only mutate keysRef, so a stale closure is
+    // harmless, while re-subscribing per render would leak listeners mid-game.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const togglePause = () => {

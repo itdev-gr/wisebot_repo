@@ -108,6 +108,10 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
     return () => {
       if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
+    // Mount-only by design: initMatch and loop operate on ref-held game state, so
+    // their per-render identity is irrelevant — listing them would cancel and restart
+    // the match on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getRandomHero = () => HERO_KEYS[Math.floor(Math.random() * HERO_KEYS.length)];

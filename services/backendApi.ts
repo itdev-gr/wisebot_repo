@@ -8,7 +8,8 @@
  * "coming soon" messages (API keys have been removed from frontend).
  */
 
-// @ts-ignore - Vite env variable
+// The `as any` cast already silences the env typing; a @ts-ignore on top of it
+// suppressed nothing and eslint rightly flagged it.
 const API_BASE: string = (import.meta as any).env?.VITE_API_URL || '';
 
 /**

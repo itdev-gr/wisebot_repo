@@ -30,7 +30,7 @@ export default async function handler(req: any, res: any) {
         const { data: { user } } = await supabase.auth.getUser(authHeader.slice(7));
         userId = user?.id || null;
       }
-    } catch {}
+    } catch { /* anonymous error report */ }
 
     const { createClient } = await import('@supabase/supabase-js');
     const supabase = createClient(

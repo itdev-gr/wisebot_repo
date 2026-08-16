@@ -140,7 +140,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         { text: lang === 'el' ? "⏳ Λίγο ακόμα..." : "⏳ Just a little longer...", delay: 70000 },
       ];
 
-      let timeoutIds: ReturnType<typeof setTimeout>[] = [];
+      const timeoutIds: ReturnType<typeof setTimeout>[] = [];
 
       sequence.forEach(({ text, delay, isQuote }) => {
         const id = setTimeout(() => {
@@ -1130,7 +1130,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
                 </p>
                 {meshy3DUrls.glb && (
                   <div className="rounded-2xl overflow-hidden border border-white/10 bg-black/40" style={{ height: '250px' }}>
-                    {/* @ts-ignore */}
+                    {/* @ts-expect-error -- model-viewer is a custom element unknown to JSX */}
                     <model-viewer
                       src={meshy3DUrls.glb}
                       alt={hero.name || 'Hero 3D'}

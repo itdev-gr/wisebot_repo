@@ -38,7 +38,7 @@ export class ErrorBoundary extends Component<Props, State> {
           page_url: window.location.pathname,
         }),
       }).catch(() => {});
-    } catch {}
+    } catch { /* reporting must never crash the boundary itself */ }
     console.error('[ErrorBoundary] Caught error:', error, info);
   }
 

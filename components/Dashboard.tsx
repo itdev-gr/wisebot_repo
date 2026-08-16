@@ -1171,7 +1171,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
               heroClass: 'creator',
             });
             localStorage.setItem('wb_heroes', JSON.stringify(existing));
-          } catch {}
+          } catch { /* storage full or blocked — gift still claimed server-side */ }
         }}
         onClaimSong={(gift) => {
           // Add song to local songs list
@@ -1191,7 +1191,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
               instrumental: false,
             });
             localStorage.setItem('wisebot_music_library', JSON.stringify(existing));
-          } catch {}
+          } catch { /* storage full or blocked — gift still claimed server-side */ }
         }}
       />
 

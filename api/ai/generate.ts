@@ -158,7 +158,7 @@ const IMAGE_SAFETY_SETTINGS: any[] = [
 // Helper: process Gemini response into our standard format
 function processGeminiResponse(response: any) {
   let text = '';
-  try { text = response.text || ''; } catch (_) {}
+  try { text = response.text || ''; } catch { /* keep empty string */ }
 
   const candidates = (response.candidates || []).map((c: any) => ({
     content: {
