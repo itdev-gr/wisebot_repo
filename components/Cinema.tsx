@@ -491,7 +491,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       { text: lang === 'el' ? "🎬 Σχεδόν έτοιμο..." : "🎬 Almost ready...", delay: 35000 },
     ];
 
-    let timeoutIds: ReturnType<typeof setTimeout>[] = [];
+    const timeoutIds: ReturnType<typeof setTimeout>[] = [];
     sequence.forEach(({ text, delay }) => {
       const id = setTimeout(() => setLoadingText(text), delay);
       timeoutIds.push(id);

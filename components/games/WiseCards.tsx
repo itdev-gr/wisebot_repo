@@ -149,11 +149,17 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
   // --- LOGIC ---
 
   // Grant credit reward once per finished game
+  const rewardGrantedRef = useRef(false);
   useEffect(() => {
-    if (gameState === 'finished') {
+    if (gameState === 'finished' && !rewardGrantedRef.current) {
+      // Ref guard: grantGameReward consumes one of the two daily grants for this game,
+      // so a re-fire from a lang/context change on the finish screen must not call it
+      // twice (same double-award shape as audit bugs H1/B4).
+      rewardGrantedRef.current = true;
       grantGameReward('cards', 2, earnCredits, showNotification, lang);
     }
-  }, [gameState]);
+    if (gameState !== 'finished') rewardGrantedRef.current = false;
+  }, [gameState, earnCredits, showNotification, lang]);
 
   const startGame = (selectedLevel: typeof LEVELS[0]) => {
     setLevel(selectedLevel);
@@ -163,7 +169,7 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
     const selectedIcons = ICONS.slice(0, pairCount);
     
     // Duplicate for pairs
-    let deck = [...selectedIcons, ...selectedIcons].map((icon, i) => ({
+    const deck = [...selectedIcons, ...selectedIcons].map((icon, i) => ({
         id: i, // Unique ID for key
         contentId: icon.id, // ID to match
         isFlipped: false,

@@ -38,7 +38,7 @@ for (const file of files) {
     // Parse WAV header
     const channels = wavBuffer.readUInt16LE(22);
     const sampleRate = wavBuffer.readUInt32LE(24);
-    const bitsPerSample = wavBuffer.readUInt16LE(34);
+    // bits-per-sample lives at offset 34 but the encoder derives it itself
     const dataOffset = 44; // Standard WAV header size
 
     // Extract PCM samples as Int16

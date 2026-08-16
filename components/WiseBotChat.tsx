@@ -28,7 +28,7 @@ const BLOCKED_PATTERNS: RegExp[] = [
   /\b(κοκαΐν|ηρωίν|χασίσ|ναρκωτ|μεθυσ|τσιγάρ|ντρογκ)\b/i,
 
   // Sexual / Explicit
-  /\b(porn|nude|naked|erotic|orgasm|f[u\*]ck|dick|pussy|blowjob|masturbat)\b/i,
+  /\b(porn|nude|naked|erotic|orgasm|f[u*]ck|dick|pussy|blowjob|masturbat)\b/i,
   /\b(πορνό|πορν|γυμνό|ερωτικ[οό]|γαμ[ωώ]|μαλάκ[αά]|πούτσ|αρχίδ)\b/i,
 
   // Hate Speech & Slurs
@@ -154,7 +154,7 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
 
   // auto-scroll
   useEffect(() => {
-    scrollRef.current && (scrollRef.current.scrollTop = scrollRef.current.scrollHeight);
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, isTyping]);
 
   const isRateLimited = useCallback(() => {

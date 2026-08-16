@@ -59,7 +59,7 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
     const timer = setInterval(() => {
       setResources(prev => {
         let newPop = 0;
-        let newEnergy = prev.energy; // Accumulates? Or Rate? Let's do Rate based.
+        const newEnergy = prev.energy; // Accumulates? Or Rate? Let's do Rate based.
         let newNature = 0;
         let newTech = 0;
         let income = 0;
@@ -112,7 +112,10 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
         grantGameReward('sky', 2, earnCredits, showNotification, lang);
       }
     }
-  }, [resources.pop]);
+    // `level` in the deps fixes a real stale read: with only [resources.pop], the
+    // comparison used the level captured at mount. The `currentLvlIndex > level` guard
+    // plus setLevel keeps the reward single-fire even when the other deps change.
+  }, [resources.pop, level, earnCredits, showNotification, lang]);
 
   const handleCellClick = (index: number) => {
     if (!selectedTool) return;

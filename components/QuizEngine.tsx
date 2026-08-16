@@ -259,7 +259,9 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
         timestamp: Date.now(),
       });
     }
-  }, [currentIdx, categoryId, challengeData, isFinished]);
+    // The score values are listed so the saved snapshot is never stale (same shape as
+    // audit bug H3). Extra runs only rewrite the same localStorage key — idempotent.
+  }, [currentIdx, categoryId, challengeData, isFinished, totalScore, levelScore, totalPoints, streak, bestStreak]);
 
   const currentLevel = Math.floor(currentIdx / QUESTIONS_PER_LEVEL) + 1;
   const totalLevels = Math.ceil(questions.length / QUESTIONS_PER_LEVEL);
@@ -300,8 +302,13 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
   }, [timeLeft, showExplanation, isFinished, showLevelReward, showFailScreen]);
 
   // Track completion & clear saved progress
+  const completionRecordedRef = useRef(false);
   useEffect(() => {
-    if (isFinished) {
+    if (isFinished && !completionRecordedRef.current) {
+      // Ref guard, not bare isFinished: trackAction('PASS_QUIZ') awards credits, so this
+      // block must run exactly once per quiz even now that the full dep list can re-fire
+      // the effect (same double-award shape as audit bugs H1/B4).
+      completionRecordedRef.current = true;
       if (totalScore > 0) trackAction('PASS_QUIZ');
       // Clear saved progress — quiz is done; record the run for stars/diplomas
       if (categoryId) {
@@ -309,7 +316,8 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, la
         saveQuizBest(categoryId, totalScore, questions.length);
       }
     }
-  }, [isFinished]);
+    if (!isFinished) completionRecordedRef.current = false;
+  }, [isFinished, categoryId, questions.length, totalScore, trackAction]);
 
   const getSpeedMultiplier = (): number => {
     const elapsed = (Date.now() - questionStartRef.current) / 1000;

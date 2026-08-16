@@ -250,7 +250,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
 
     // Process cell
     const newGrid = [...grid.map(r => [...r])];
-    let newPlayer = { ...player, x: nx, y: ny };
+    const newPlayer = { ...player, x: nx, y: ny };
 
     switch (cell.type) {
       case 'key':
@@ -277,18 +277,20 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
         }
         newGrid[ny][nx] = { type: 'floor', revealed: true, visited: true };
         break;
-      case 'trap':
+      case 'trap': {
         const trapDmg = cell.trapDmg || 10;
         newPlayer.hp = Math.max(0, newPlayer.hp - trapDmg);
         showMsg(isGreek ? `⚡ Παγίδα! -${trapDmg}HP` : `⚡ Trap! -${trapDmg}HP`);
         newGrid[ny][nx] = { type: 'floor', revealed: true, visited: true };
         break;
-      case 'potion':
+      }
+      case 'potion': {
         const heal = 20 + player.floor * 3;
         newPlayer.hp = Math.min(newPlayer.maxHP, newPlayer.hp + heal);
         showMsg(isGreek ? `🧪 +${heal}HP!` : `🧪 +${heal}HP!`);
         newGrid[ny][nx] = { type: 'floor', revealed: true, visited: true };
         break;
+      }
       case 'exit':
         // Floor complete
         newPlayer.gold += 25 * player.floor;
@@ -352,7 +354,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
     }
   }, [combatMonster, player, grid, showMsg, isGreek]);
 
-  const usePotion = useCallback(() => {
+  const drinkPotion = useCallback(() => {
     if (player.potions <= 0) return;
     const heal = 30;
     setPlayer(p => ({ ...p, hp: Math.min(p.maxHP, p.hp + heal), potions: p.potions - 1 }));
@@ -515,7 +517,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
                     <Sword size={14} /> {isGreek ? 'ΕΠΙΘΕΣΗ' : 'ATTACK'}
                   </button>
                   {player.potions > 0 && (
-                    <button onClick={() => { usePotion(); }} className="py-2.5 px-4 bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold text-xs rounded-xl active:scale-95 transition-all">
+                    <button onClick={() => { drinkPotion(); }} className="py-2.5 px-4 bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold text-xs rounded-xl active:scale-95 transition-all">
                       🧪 {player.potions}
                     </button>
                   )}
@@ -530,7 +532,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
                 <button onClick={() => movePlayer(0, -1)} className="w-10 h-10 mx-auto bg-white/10 rounded-lg text-white/60 active:bg-white/20 flex items-center justify-center text-lg font-bold">↑</button>
                 <div />
                 <button onClick={() => movePlayer(-1, 0)} className="w-10 h-10 mx-auto bg-white/10 rounded-lg text-white/60 active:bg-white/20 flex items-center justify-center text-lg font-bold">←</button>
-                <button onClick={() => usePotion()} className={`w-10 h-10 mx-auto rounded-lg flex items-center justify-center text-sm ${player.potions > 0 ? 'bg-emerald-500/20 text-emerald-400 active:bg-emerald-500/30' : 'bg-white/5 text-white/20'}`}>🧪</button>
+                <button onClick={() => drinkPotion()} className={`w-10 h-10 mx-auto rounded-lg flex items-center justify-center text-sm ${player.potions > 0 ? 'bg-emerald-500/20 text-emerald-400 active:bg-emerald-500/30' : 'bg-white/5 text-white/20'}`}>🧪</button>
                 <button onClick={() => movePlayer(1, 0)} className="w-10 h-10 mx-auto bg-white/10 rounded-lg text-white/60 active:bg-white/20 flex items-center justify-center text-lg font-bold">→</button>
                 <div />
                 <button onClick={() => movePlayer(0, 1)} className="w-10 h-10 mx-auto bg-white/10 rounded-lg text-white/60 active:bg-white/20 flex items-center justify-center text-lg font-bold">↓</button>

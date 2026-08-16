@@ -64,6 +64,9 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
     return () => {
         if (requestRef.current) cancelAnimationFrame(requestRef.current);
     };
+    // Mount-only by design: initGame seeds ref-held game state once; listing it
+    // (a new function every render) would reset the board on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const initGame = () => {
@@ -239,7 +242,7 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
       // If user drags below shooter, treat it as aim up (invert) or clamp?
       // Since it's "point to shoot", touching below shooter means aiming down. We should prevent that.
       
-      let angle = Math.atan2(dy, dx);
+      const angle = Math.atan2(dy, dx);
       
       // Constraint: Angle must be between -PI and 0 (Upwards arc)
       // Actually closer to -170 deg to -10 deg.
@@ -269,7 +272,7 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
       const scaleX = internalW / rect.width;
       const scaleY = internalH / rect.height;
 
-      let x = (clientX - rect.left) * scaleX;
+      const x = (clientX - rect.left) * scaleX;
       let y = (clientY - rect.top) * scaleY;
 
       // Clamp target Y to allow only upward aiming visual

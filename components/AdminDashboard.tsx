@@ -153,7 +153,9 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     } finally {
       setLoading(false);
     }
-  }, []);
+    // adminToken is a []-stable useCallback (line 75), so listing it cannot re-create
+    // fetchData or re-fire the effects that depend on it.
+  }, [adminToken]);
 
   useEffect(() => {
     if (isUnlocked) fetchData();

@@ -25,7 +25,7 @@ const getStreakData = (): StreakData => {
   try {
     const raw = localStorage.getItem('wb_daily_streak');
     if (raw) return JSON.parse(raw);
-  } catch {}
+  } catch { /* corrupted localStorage, fall through to default */ }
   return { lastClaimDate: '', streak: 0, totalClaimed: 0 };
 };
 

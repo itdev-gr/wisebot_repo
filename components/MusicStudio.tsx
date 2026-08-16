@@ -266,7 +266,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         });
       })
       .catch(err => console.warn('[MusicStudio] Failed to load cloud songs:', err));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+   
   }, [user]);
 
   // Resume polling for songs that were still processing
@@ -288,6 +288,18 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     }, 150);
     return () => clearInterval(id);
   }, [isPlaying]);
+
+  // Declared before the progress effect below, which lists it as a dependency
+  // (a const must be initialised before that dep array is evaluated).
+  const stopPlayback = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    synthRef.current.cancel();
+    setIsPlaying(false);
+    setPlayProgress(0);
+  }, []);
 
   // Track progress during playback (HTML5 Audio or fallback)
   useEffect(() => {
@@ -316,7 +328,9 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       if (progressInterval.current) clearInterval(progressInterval.current);
     }
     return () => { if (progressInterval.current) clearInterval(progressInterval.current); };
-  }, [isPlaying, currentSong]);
+    // stopPlayback is a []-stable useCallback — listing it satisfies the rule without
+    // ever re-creating this interval.
+  }, [isPlaying, currentSong, stopPlayback]);
 
   const t = {
     title: 'MUSIC STUDIO',
@@ -485,16 +499,6 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     }
   };
 
-  const stopPlayback = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    }
-    synthRef.current.cancel();
-    setIsPlaying(false);
-    setPlayProgress(0);
-  }, []);
-
   // Poll Suno for audio completion
   const startSunoPolling = useCallback((songId: string, taskId: string) => {
     // Clear any existing polling
@@ -648,8 +652,11 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   };
 
   useEffect(() => {
+    // Capture the synth once: reading synthRef.current inside the cleanup directly
+    // races against the ref being reassigned before unmount (the lint warning).
+    const synth = synthRef.current;
     return () => {
-      synthRef.current.cancel();
+      synth.cancel();
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current = null; }
       if (progressInterval.current) clearInterval(progressInterval.current);

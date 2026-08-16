@@ -129,7 +129,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         }
 
         let prompt = "";
-        let model = 'gemini-2.5-flash-image';
+        const model = 'gemini-2.5-flash-image';
 
         if (styleMode === 'voxel') {
             prompt = `
