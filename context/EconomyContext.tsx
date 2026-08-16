@@ -621,13 +621,13 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     // 1) Compute new stats & badges from current state (pure computation via refs)
     const newStats = { ...statsRef.current };
-    let newBadges = { ...badgesRef.current };
+    const newBadges = { ...badgesRef.current };
     let badgeUnlocked = false;
     let creditReward = 0;
     let rewardEmoji = '';
     let rewardTitle = '';
     let rewardSubtitle = '';
-    let pendingBadgeCelebrations: Array<{ key: string; emoji: string; delay: number }> = [];
+    const pendingBadgeCelebrations: Array<{ key: string; emoji: string; delay: number }> = [];
 
     switch (action) {
       case 'PASS_QUIZ':
