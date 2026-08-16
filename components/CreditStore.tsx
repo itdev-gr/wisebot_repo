@@ -88,7 +88,10 @@ export default function CreditStore({ lang }: CreditStoreProps) {
         }
       }).catch(console.error);
     }
-  }, [searchParams, lang, backendReady, user?.id, syncFromCloud]);
+    // `showNotification` added: it was read from a closure captured on first render,
+    // which is bug CS1 in AUDIT-BUGS.md. It is a `[]`-stable useCallback, so listing it
+    // fixes the stale closure without making this Stripe-verification effect re-run.
+  }, [searchParams, lang, backendReady, user?.id, syncFromCloud, showNotification]);
 
   // Check if parent is verified: phone OR email verified
   const isParentVerified = (): boolean => {

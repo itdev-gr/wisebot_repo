@@ -294,7 +294,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .eq('id', user.id)
         .then(() => fetchProfile(user.id));
     }
-  }, [user, emailVerified, profile?.parentVerified, fetchProfile]);
+    // Depends on the whole `profile`, not just the field: the body null-checks the
+    // object itself. The `!profile.parentVerified` guard stops this from looping once
+    // the update lands.
+  }, [user, emailVerified, profile, fetchProfile]);
 
   // Complete Onboarding — saves nickname + avatar + marks onboarding_complete=true
   const completeOnboarding = useCallback(async (
@@ -444,7 +447,9 @@ const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject
     };
 
     debouncedPush(userId, state);
-  }, [credits, stats, badges, userId]);
+    // syncDoneRef comes from the enclosing provider scope, so the rule wants it listed.
+    // A ref object identity never changes, so this cannot cause an extra push.
+  }, [credits, stats, badges, userId, syncDoneRef]);
 
   return null;
 };

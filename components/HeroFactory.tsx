@@ -68,6 +68,20 @@ interface HeroFactoryProps {
   addHero: (hero: any) => void;
 }
 
+// Module scope on purpose: this array only varies with `lang`, and the generation
+// effect below already depends on `lang`. Kept inside the component it was rebuilt
+// on every render, which made it a dependency the linter could never see satisfied.
+const quotesFor = (lang: 'el' | 'en') => [
+  {
+    text: lang === 'el' ? "Η φαντασία είναι πιο σημαντική από τη γνώση." : "Imagination is more important than knowledge.",
+    author: "Albert Einstein"
+  },
+  {
+    text: lang === 'el' ? "Κάθε ήρωας ήταν κάποτε ένα παιδί που ονειρευόταν." : "Every hero was once a child who dreamed.",
+    author: "WiseBot"
+  }
+];
+
 export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const navigate = useNavigate();
   const { credits, spendCredits, costs, trackAction, showNotification } = useEconomy();
@@ -107,22 +121,11 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const heroSnapshot = useRef(hero);
   useEffect(() => { heroSnapshot.current = hero; });
 
-  // --- INSPIRATION POOL ---
-  const QUOTES = [
-    {
-      text: lang === 'el' ? "Η φαντασία είναι πιο σημαντική από τη γνώση." : "Imagination is more important than knowledge.",
-      author: "Albert Einstein"
-    },
-    {
-      text: lang === 'el' ? "Κάθε ήρωας ήταν κάποτε ένα παιδί που ονειρευόταν." : "Every hero was once a child who dreamed.",
-      author: "WiseBot"
-    }
-  ];
-
   // --- LOADING SEQUENCE & GENERATION LOGIC ---
   useEffect(() => {
     if (step === 4) {
-      const randomQuote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+      const quotes = quotesFor(lang);
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       setQuoteData(randomQuote);
 
       // 1. Visual Loading Sequence (xAI Grok takes 20-60s)
@@ -184,7 +187,13 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
 
       return () => timeoutIds.forEach(clearTimeout);
     }
-  }, [step, lang]); // hero removed — use heroSnapshot.current to avoid stale closure re-runs
+    // `hero` stays out deliberately — read it through heroSnapshot.current instead.
+    // Adding it would re-fire this effect (and the paid generation inside it) every
+    // time the hero object identity changed: that was bug H1. The three added below
+    // are all verified stable — `costs` is a `[]`-memo, `showNotification` and
+    // `trackAction` are useCallbacks whose own deps are `[]`-stable — so including
+    // them satisfies the rule without any risk of re-running generation.
+  }, [step, lang, costs.image, showNotification, trackAction]);
 
   // Effect to save hero — only when we have a real generated image (not the default placeholder).
   // This prevents saving a broken hero if the safety timeout fires before generation completes.
@@ -208,7 +217,11 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         console.error('Failed to save hero:', e);
       }
     }
-  }, [step, resultImage]);
+    // Safe to depend on all of these: `heroSavedRef` makes the body run at most once,
+    // so extra re-renders cannot save a second hero. Including hero.name/species/gear
+    // also removes the stale-closure risk flagged as H3 — the saved hero now always
+    // reflects what the child actually built.
+  }, [step, resultImage, addHero, hero.gear, hero.name, hero.species, lang, trackAction]);
 
   const handleNext = async () => {
     if (step === 0 && !hero.species) return;
@@ -392,7 +405,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       setMeshy3DStatus('error');
       showNotification('❌', err.message || '3D Error');
     }
-  }, [costs.threeD, lang, showNotification, spendCredits]);
+  }, [costs.threeD, lang, showNotification, spendCredits, navigate]);
 
   // Cleanup meshy polling
   useEffect(() => {

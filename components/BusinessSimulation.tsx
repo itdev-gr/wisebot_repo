@@ -134,7 +134,11 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
       return () => timeoutIds.forEach(clearTimeout);
     }
-  }, [step]);
+    // The biz.* values are listed as primitives, never as the `biz` object: by the time
+    // step reaches 3 the child can no longer edit them, so they are effectively frozen
+    // and cannot re-trigger this paid generation. Depending on `biz` itself would —
+    // that object-identity shape is bugs B2/B4 in AUDIT-BUGS.md.
+  }, [step, biz.industry, biz.name, biz.pricing, biz.product, biz.target, lang]);
 
   // Save business on final step
   useEffect(() => {
@@ -163,7 +167,10 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
         localStorage.setItem('wb_businesses', JSON.stringify(saved));
       }
     }
-  }, [step, resultLogo]);
+    // Safe to list everything: `bizSavedRef` makes the body run at most once, so extra
+    // renders cannot save a second business. Including the biz.* values also removes the
+    // stale-closure risk — the saved record now matches what the child actually built.
+  }, [step, resultLogo, addXp, biz.industry, biz.name, biz.pricing, biz.product, biz.target, resultDesc, resultSlogan, trackAction]);
 
   const canProceed = () => {
     if (step === 0) return biz.industry && biz.name.trim().length >= 2;
