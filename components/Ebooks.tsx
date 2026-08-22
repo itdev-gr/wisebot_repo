@@ -375,6 +375,7 @@ function splitIntoPages(html: string): string[] {
 
 // Lightweight metadata for the book list
 import { BOOK_METADATA } from '../data/bookMetadata';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 const BOOKS = BOOK_METADATA as any[];
 
 interface EbooksProps {
@@ -386,6 +387,7 @@ interface EbooksProps {
 }
 
 export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => {
+  const childName = useChildName(lang);
   const [selectedBookId, setSelectedBookId] = useState<number | string | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
@@ -489,6 +491,9 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
   return (
     <div className="relative w-full h-full overflow-y-auto overflow-x-hidden custom-scrollbar pb-32">
+      <FirstTimeTip id="library" lang={lang} text={lang === 'el'
+        ? <>🦉 Διάλεξε όποιο βιβλίο θες, {childName}. Αν βαριέσαι να διαβάζεις, πάτα <strong>ΑΚΟΥΣΕ</strong> και σου το διαβάζω εγώ. Κάθε βιβλίο που τελειώνεις = 3⚡.</>
+        : <>🦉 Pick any book you like, {childName}. If reading feels like a chore, press <strong>LISTEN</strong> and I'll read it to you. Every finished book = 3⚡.</>} />
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* HEADER                                                     */}
@@ -498,7 +503,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
           WISEBOT &{' '}<span className="text-transparent bg-clip-text magic-gradient">{lang === 'el' ? 'ΟΙ ΦΙΛΟΙ' : 'FRIENDS'}</span>
         </h1>
         <p className="text-white/50 font-bold uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-lg">
-          {lang === 'el' ? `${BOOKS.length} ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +2 CREDITS` : `${BOOKS.length} STORIES • 1 BOOK = +2 CREDITS`}
+          {lang === 'el' ? `${BOOKS.length} ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +3 CREDITS` : `${BOOKS.length} STORIES • 1 BOOK = +3 CREDITS`}
         </p>
       </div>
 
@@ -573,7 +578,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
                 {/* Credit reward */}
                 <div className="mt-2 flex items-center justify-center gap-1 text-amber-400/50 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Zap size={9} fill="currentColor" /> +2 CREDITS
+                  <Zap size={9} fill="currentColor" /> +3 CREDITS
                 </div>
               </motion.div>
             );

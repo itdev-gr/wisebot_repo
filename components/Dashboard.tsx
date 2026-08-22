@@ -41,6 +41,8 @@ import { useAuth } from '../context/AuthContext';
 import DailyMission from './DailyMission';
 import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
+import { isUnlocked, unlockHint } from '../utils/unlocks';
 import GiftModal from './GiftModal';
 import GiftInbox, { useGiftCount } from './GiftInbox';
 
@@ -385,8 +387,11 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
-  const { credits, badges, stats, earnCredits, syncFromCloud } = useEconomy();
-  const { user } = useAuth();
+  const { credits, badges, stats, earnCredits, syncFromCloud, showNotification } = useEconomy();
+  const { user, profile, isGuest } = useAuth();
+  const childName = useChildName(lang);
+  // Greeting uses the real name only for signed-in children; guests get the headline alone.
+  const greetName = !isGuest && profile?.childName?.trim() ? profile.childName.trim() : null;
   const [dashboardVideo, setDashboardVideo] = useState<typeof DASHBOARD_VIDEOS[0] | null>(null);
   const [showGiftModal, setShowGiftModal] = useState(false);
   const [showGiftInbox, setShowGiftInbox] = useState(false);
@@ -411,13 +416,16 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
   // ============================================================
   // 🔓 UNLOCK LOGIC (Progressive Quest-Based)
   // ============================================================
+  // Learning rooms and the Music Studio are always open; the other creation rooms open
+  // as the child reads and creates. Rules live in utils/unlocks.ts — one source of truth
+  // shared with the menu, the route gate and the unlock celebration.
   const isQuizUnlocked = true;
   const isMusicUnlocked = true;
-  const isFactoryUnlocked = true;
-  const isCinemaUnlocked = true;
   const isMarketUnlocked = true;
-  const isBusinessUnlocked = true;
-  const is3DUnlocked = true;
+  const isFactoryUnlocked = isUnlocked('factory', stats);
+  const isCinemaUnlocked = isUnlocked('cinema', stats);
+  const isBusinessUnlocked = isUnlocked('business', stats);
+  const is3DUnlocked = isUnlocked('3d', stats);
 
   // ============================================================
   // 🗺️ QUEST PROGRESS COMPUTATION
@@ -467,7 +475,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
     const c = COLOR_MAP[color] || COLOR_MAP.blue;
     return (
     <div
-      onClick={() => !locked && navigate(path)}
+      onClick={() => locked ? showNotification('🔒', unlockHint.replace(/^🔓 /, '')) : navigate(path)}
       className={`relative group cursor-pointer rounded-[2.5rem] border-2 transition-all duration-500 overflow-hidden flex flex-col h-full
         ${locked
           ? 'border-white/5 bg-[#0a0b10] opacity-50 grayscale pointer-events-none'
@@ -565,6 +573,15 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       {/* 🎁 DAILY REWARD POPUP */}
       <DailyRewardPopup lang={lang} />
       <OnboardingOverlay lang={lang} />
+      {/* Not while the 4-step onboarding modal is up — the tip is the step after it. */}
+      {(isGuest || profile?.onboardingComplete) && <FirstTimeTip
+        id="dashboard"
+        lang={lang}
+        delayMs={1200}
+        text={lang === 'el'
+          ? <>🦉 <strong>Εγώ είμαι η WiseBot, {childName}.</strong> Εδώ διαβάζεις, κερδίζεις, δημιουργείς — και στο τέλος στήνεις τη δική σου εταιρεία. Ξεκίνα από την <strong>ΑΚΑΔΗΜΙΑ</strong>: διάβασε τον Walt Disney και ξεκλειδώνεις το Εργαστήριο Ηρώων.</>
+          : <>🦉 <strong>I'm WiseBot, {childName}.</strong> Here you read, earn, create — and in the end build your own company. Start in the <strong>ACADEMY</strong>: read Walt Disney and you unlock the Hero Factory.</>}
+      />}
 
       {/* 🎉 CELEBRATION OVERLAY */}
       {celebrateStage !== null && (
@@ -598,6 +615,11 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                 <span className="text-[10px] font-black uppercase tracking-[0.2em]">WISEBOT ACADEMY HQ</span>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-[1000] text-white italic tracking-tighter uppercase leading-none">
+                {greetName && (
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 text-2xl md:text-4xl lg:text-5xl mb-1">
+                    {lang === 'el' ? `ΓΕΙΑ ΣΟΥ, ${greetName.toUpperCase()}!` : `HI, ${greetName.toUpperCase()}!`}
+                  </span>
+                )}
                 {lang === 'el' ? 'ΤΙ ΘΑ ΜΑΘΟΥΜΕ' : 'WHAT WILL WE LEARN'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΣΗΜΕΡΑ;' : 'TODAY?'}</span>
               </h1>
               <p className="text-white/60 font-bold text-sm md:text-base max-w-2xl leading-relaxed mt-3">
@@ -619,7 +641,9 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         ].map((item, i) => (
           <button
             key={i}
-            onClick={() => !item.locked && navigate(item.path)}
+            onClick={() => item.locked
+              ? showNotification('🔒', item.path === '/factory' ? unlockHint('factory', stats, lang) : (lang === 'el' ? 'Κλειδωμένο ακόμα' : 'Still locked'))
+              : navigate(item.path)}
             className={`relative flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 transition-all overflow-hidden group ${
               item.locked
                 ? 'border-white/5 bg-white/5 opacity-40 cursor-not-allowed'
@@ -926,7 +950,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          <ModuleCard
             title={t.dashboard.modules.ebooks.title}
             subtitle={lang === 'el' ? 'Η Βιβλιοθήκη της Σοφίας. Κάθε βιβλίο σου δίνει ενέργεια.' : 'The Library of Wisdom. Every book gives you energy.'}
-            rewardText={lang === 'el' ? '+1 CREDIT' : '+1 CREDIT'}
+            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
             icon={Book}
             color="indigo"
             path="/ebooks"
@@ -977,12 +1001,12 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          <ModuleCard
             title={t.dashboard.modules.business.title}
             subtitle={lang === 'el' ? 'Φτιάξε εταιρεία, λογότυπο και μάθε επιχειρηματικότητα.' : 'Build a company, create a logo and learn entrepreneurship.'}
-            rewardText={lang === 'el' ? '+2 CREDITS' : '+2 CREDITS'}
+            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
             icon={Briefcase}
             color="green"
             path="/business"
             locked={!isBusinessUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Διάβασε 2 ιστορίες' : '🔓 Read 2 stories'}
+            unlockHint={'🔓 ' + unlockHint('business', stats, lang)}
             delay={450}
          />
 
@@ -1003,7 +1027,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="fuchsia"
             path="/factory"
             locked={!isFactoryUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Διάβασε 3 ιστορίες ή 2 βιβλία' : '🔓 Read 3 stories or 2 books'}
+            unlockHint={'🔓 ' + unlockHint('factory', stats, lang)}
             delay={500}
             isNext={currentQuestIdx === 2 && isFactoryUnlocked}
          />
@@ -1025,7 +1049,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="pink"
             path="/cinema"
             locked={!isCinemaUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Δημιούργησε 1 ήρωα' : '🔓 Create 1 hero'}
+            unlockHint={'🔓 ' + unlockHint('cinema', stats, lang)}
             delay={600}
             isNext={currentQuestIdx === 3 && isCinemaUnlocked}
          />
@@ -1058,7 +1082,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="emerald"
             path="/3d-factory"
             locked={!is3DUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Κέρδισε Creator Badge' : '🔓 Earn Creator Badge'}
+            unlockHint={'🔓 ' + unlockHint('3d', stats, lang)}
             delay={800}
             isNext={currentQuestIdx === 4 && is3DUnlocked}
          />

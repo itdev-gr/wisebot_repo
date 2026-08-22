@@ -119,7 +119,10 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
   const [nicknameSuggestions, setNicknameSuggestions] = useState<string[]>([]);
 
   // Avatar state
-  const [avatarState, setAvatarState] = useState<AvatarState>('idle');
+  // Hero picker first: it needs no photo of the child. The camera/upload path is the
+  // alternative, and only for accounts whose parent is verified (same rule as HeroFactory).
+  const [avatarState, setAvatarState] = useState<AvatarState>('character-picker');
+  const photoAllowed = !!profile?.parentVerified;
   const [cartoonUrl, setCartoonUrl] = useState<string | null>(null);
   const [selectedCharacterUrl, setSelectedCharacterUrl] = useState<string | null>(null);
   const [avatarError, setAvatarError] = useState('');
@@ -714,12 +717,14 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                   )}
 
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => { setAvatarState('idle'); setSelectedCharacterUrl(null); }}
-                      className="flex-none px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
-                    >
-                      ← {lang === 'el' ? 'Πίσω' : 'Back'}
-                    </button>
+                    {photoAllowed && (
+                      <button
+                        onClick={() => { setAvatarState('idle'); setSelectedCharacterUrl(null); }}
+                        className="flex-none px-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all"
+                      >
+                        📸 {lang === 'el' ? 'Φωτογραφία' : 'Photo'}
+                      </button>
+                    )}
                     <button
                       onClick={() => handleComplete(false)}
                       disabled={!selectedCharacterUrl || saving}
@@ -732,8 +737,8 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                 </>
               )}
 
-              {/* Idle — show camera/upload options */}
-              {avatarState === 'idle' && !showCamera && (
+              {/* Idle — show camera/upload options (verified-parent accounts only) */}
+              {avatarState === 'idle' && !showCamera && photoAllowed && (
                 <div className="flex flex-col gap-3">
                   <div className="grid grid-cols-2 gap-3">
                     <button
@@ -807,7 +812,7 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
                       disabled={saving || avatarState === 'generating'}
                       className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white/40 font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all disabled:opacity-30"
                     >
-                      {lang === 'el' ? '🦸 Διάλεξε ήρωα αντ\' αυτού' : '🦸 Choose a hero instead'}
+                      {lang === 'el' ? '🦸 Πίσω στους ήρωες' : '🦸 Back to heroes'}
                     </button>
                   )}
                 </div>
@@ -842,12 +847,12 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
                 <div className="space-y-2 mt-3">
                   <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tight">
-                    {lang === 'el' ? 'ΑΠΟΣΤΟΛΕΣ\nΞΕΚΙΝΑΝΕ!' : 'MISSIONS\nBEGIN!'}
+                    {lang === 'el' ? `ΕΤΟΙΜΟΣ,\n${nickname.toUpperCase()}.` : `READY,\n${nickname.toUpperCase()}.`}
                   </h2>
                   <p className="text-white/50 text-sm font-bold leading-relaxed">
                     {lang === 'el'
-                      ? 'Ολοκλήρωσε 3 ιστορίες Academy + 1 Ebook για να κερδίσεις ένα δωρεάν τραγούδι!'
-                      : 'Complete 3 Academy stories + 1 Ebook to unlock a free song!'}
+                      ? 'Διάβασε 3 ιστορίες και 1 βιβλίο και κερδίζεις το πρώτο σου τραγούδι. Η WiseBot θα σου δείχνει τον δρόμο.'
+                      : 'Read 3 stories and 1 book and you earn your first song. WiseBot will show you the way.'}
                   </p>
                 </div>
 
