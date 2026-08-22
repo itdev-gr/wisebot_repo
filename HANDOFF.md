@@ -3,6 +3,29 @@
 Start here. Written at the end of the setup session (15–16 Αυγούστου 2026), when the new
 MacBook had no toolchain and no local project context.
 
+---
+
+## ⚡ STATUS 17 Αυγούστου 2026 — read this first, it supersedes the task list below
+
+GitHub auth **works** (`gh` logged in as itdev-gr, keyring token, push verified). The full
+chain folder → commit → push → Vercel auto-deploy → wisebot.gr is proven. Git identity set
+(`vskevis@itdev.gr`). `AUDIT-2026-08-16.md` is the current findings document.
+
+**Done and live in production (main):** the 9 credit/auth hook fixes; the Stripe webhook
+no longer swallows failed crediting. **Done and live in the database:** anon EXECUTE revoked
+on all credit RPCs (P0), `add_purchased_credits` race+search_path fixed, 8 FK indexes added
+— all recorded in `supabase/migrations/`.
+
+**Open PR #8 (`ci/setup` branch): CI workflow + migrations folder + the big lint burn-down**
+(655 errors → 0, including a **dead English kid-safety blocklist in 7 AI endpoints** — `\b`
+had become literal 0x08; fixed and proven by execution). Last commit `2efc002`. If the PR is
+merged, all of it deploys to wisebot.gr automatically. **Merging is the owner's call.**
+
+Old tasks 1–2 below are DONE. Task 3 (`strictNullChecks`), 4 (**API3 is stale — already
+race-safe, see audit**), 5 (tests), 6 (cleanup), 7 (CI — in PR #8) accordingly updated.
+Next after merge: tests for EconomyContext, `strictNullChecks`, Γ' Δημοτικού sample unit
+(`CONTENT-PLAN.md`).
+
 `CLAUDE.md` describes the codebase. `FIX-PLAN.md` is the prioritised backlog. This file is the
 state of the machine, what was already done, and the order to work in.
 
