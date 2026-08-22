@@ -19,16 +19,16 @@ const BASE_URL = 'https://wisebot.gr';
 const PAGE_META: Record<string, PageMeta> = {
   home: {
     title: {
-      el: 'WiseBot Academy — Παιδικά Παιχνίδια με AI | Φτιάξε Τραγούδια, Εικόνες & Video Δωρεάν',
-      en: 'WiseBot Academy — AI Kids Games | Create Songs, Images & Videos Free',
+      el: "WiseBot Academy — Το Διάβασμα Έγινε Παιχνίδι | Βιβλία, Σχολείο Α'–ΣΤ' & AI για Παιδιά 6–12",
+      en: 'WiseBot Academy — Reading Just Became a Game | Books, Grades 1–6 & AI for Kids 6–12',
     },
     description: {
-      el: 'Το 1ο Ελληνικό εκπαιδευτικό παιχνίδι με AI για παιδιά 6-13. Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα, ebooks και παίξε quiz δωρεάν!',
-      en: 'The 1st Greek educational AI game for kids 6-13. Create songs, images, videos, 3D models, ebooks and play quizzes for free!',
+      el: "34 βιβλία με αφήγηση, 98 ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Κάθε σελίδα που διαβάζει το παιδί κερδίζει credits για ήρωες, τραγούδια και βίντεο με AI. Ασφαλές, με γονεϊκό πίνακα.",
+      en: '34 narrated books, 98 stories of great people and a Grade 1–6 school track — free. Every page a child reads earns credits for AI heroes, songs and videos. Safe, with a parent dashboard.',
     },
     keywords: {
-      el: 'παιδικά παιχνίδια AI, εκπαιδευτικά παιχνίδια, WiseBot Academy, τραγούδια για παιδιά, AI εικόνες, δωρεάν παιχνίδια, εκπαιδευτικό AI για παιδιά, wisebot',
-      en: 'AI kids games, educational games, WiseBot Academy, songs for kids, AI images, free games, educational AI for kids, wisebot',
+      el: 'παιδικά βιβλία με αφήγηση, σχολείο δημοτικού quiz, εκπαιδευτική εφαρμογή για παιδιά, ασφαλής εφαρμογή για παιδιά, μάθηση μέσα από παιχνίδι, WiseBot Academy, AI για παιδιά, wisebot',
+      en: 'narrated books for kids, primary school quiz, educational app for kids, safe app for kids, learning through play, WiseBot Academy, AI for kids, wisebot',
     },
     path: '/',
   },

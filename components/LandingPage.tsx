@@ -19,7 +19,10 @@ import {
   Sparkles,
   Shield,
   Landmark,
-  Wand2
+  Wand2,
+  BookOpen,
+  GraduationCap,
+  Zap
 } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import GuestBanner from './GuestBanner';
@@ -176,28 +179,18 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             <div className="flex items-center gap-4">
               <span className="w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></span>
               <p className="text-xs md:text-lg font-black text-white/60 tracking-[0.15em] md:tracking-[0.3em] uppercase italic">
-                {lang === 'el' ? "Η ΙΣΤΟΡΙΑ ΣΥΝΕΧΙΖΕΤΑΙ..." : "HISTORY CONTINUES..."}
+                {lang === 'el' ? "ΓΙΑ ΠΑΙΔΙΑ 6–12 · Α' ΕΩΣ ΣΤ' ΔΗΜΟΤΙΚΟΥ" : "FOR AGES 6–12 · GRADES 1–6"}
               </p>
             </div>
             
             {/* Main Title with improved line-height to prevent cutting off Greek accents */}
             <h1 className="text-[2rem] sm:text-4xl md:text-7xl lg:text-[6rem] font-[1000] tracking-tighter uppercase italic leading-[1.15] md:leading-[1.05] py-1 md:py-2 break-words">
-              {lang === 'el' ? (
-                <>
-                  <span className="text-white drop-shadow-xl">ΤΟ 1</span>
-                  <sup className="text-blue-400 text-xl sm:text-3xl md:text-5xl ml-1 align-top drop-shadow-[0_0_20px_rgba(34,211,238,0.5)]">ο</sup>
-                  <span className="text-white ml-1 md:ml-2 drop-shadow-xl"> ΕΛΛΗΝΙΚΟ</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-white drop-shadow-xl">THE 1</span>
-                  <sup className="text-blue-400 text-xl sm:text-3xl md:text-5xl ml-1 align-top drop-shadow-[0_0_20px_rgba(34,211,238,0.5)]">st</sup>
-                  <span className="text-white ml-1 md:ml-2 drop-shadow-xl"> GREEK</span>
-                </>
-              )}
+              <span className="text-white drop-shadow-xl">
+                {lang === 'el' ? 'ΤΟ ΔΙΑΒΑΣΜΑ' : 'READING'}
+              </span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 drop-shadow-[0_0_40px_rgba(59,130,246,0.4)] pb-2 block">
-                {lang === 'el' ? "ΕΞΥΠΝΟ ΠΑΙΧΝΙΔΙ." : "SMART AI GAME."}
+                {lang === 'el' ? "ΕΓΙΝΕ ΠΑΙΧΝΙΔΙ." : "JUST BECAME A GAME."}
               </span>
             </h1>
 
@@ -205,23 +198,23 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             <div className="space-y-4">
               <p className="text-base sm:text-lg md:text-3xl text-white font-[1000] italic leading-snug max-w-2xl tracking-tight">
                 {lang === 'el'
-                  ? "Το παιδί σου μαθαίνει ζωή μέσα από παιχνίδι."
-                  : "Your child learns life through play."}
+                  ? "Βιβλία με αφήγηση, ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' — και κάθε σελίδα που διαβάζει, κερδίζει."
+                  : "Narrated books, stories of great people and the Grade 1–6 school track — every page they read earns them something."}
               </p>
               <p className="text-xs sm:text-sm md:text-xl text-gray-400 font-bold italic leading-relaxed max-w-2xl">
                 {lang === 'el'
-                  ? "Δημιούργησε 3D Ήρωες με AI. Διάβασε ιστορίες. Παίξε Quiz. Κάνε μουσική και βίντεο."
-                  : "Create 3D Heroes with AI. Read stories. Play quizzes. Make music and videos."}
+                  ? "Με τα credits που κερδίζει διαβάζοντας, φτιάχνει ήρωες, τραγούδια και βίντεο με AI. Πρώτα η μάθηση, μετά η μαγεία."
+                  : "With the credits earned by reading, they create heroes, songs and videos with AI. Learning first, magic second."}
               </p>
             </div>
 
             {/* DIFFERENTIATOR PILLS */}
             <div className="flex flex-wrap gap-2 md:gap-3 max-w-2xl">
               {[
-                { icon: <Sparkles size={14} />, label: lang === 'el' ? 'AI-Powered' : 'AI-Powered', color: 'text-blue-400 border-blue-500/30 bg-blue-500/10' },
-                { icon: <Shield size={14} />, label: lang === 'el' ? 'Ασφαλές' : 'Safe for Kids', color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10' },
-                { icon: <Landmark size={14} />, label: lang === 'el' ? 'Ελληνική Κληρονομιά' : 'Greek Heritage', color: 'text-amber-400 border-amber-500/30 bg-amber-500/10' },
-                { icon: <Wand2 size={14} />, label: lang === 'el' ? 'Φτιάξε 3D Ήρωες' : 'Create 3D Heroes', color: 'text-fuchsia-400 border-fuchsia-500/30 bg-fuchsia-500/10' },
+                { icon: <BookOpen size={14} />, label: lang === 'el' ? '34 Βιβλία με αφήγηση' : '34 Narrated books', color: 'text-blue-400 border-blue-500/30 bg-blue-500/10' },
+                { icon: <GraduationCap size={14} />, label: lang === 'el' ? "Σχολείο Α'–ΣΤ' Δημοτικού" : 'School, grades 1–6', color: 'text-amber-400 border-amber-500/30 bg-amber-500/10' },
+                { icon: <Shield size={14} />, label: lang === 'el' ? 'Ασφαλές για παιδιά' : 'Safe for kids', color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10' },
+                { icon: <Wand2 size={14} />, label: lang === 'el' ? 'AI ως επιβράβευση' : 'AI as the reward', color: 'text-fuchsia-400 border-fuchsia-500/30 bg-fuchsia-500/10' },
               ].map((pill, i) => (
                 <span key={i} className={`inline-flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 rounded-full border text-[10px] md:text-xs font-black uppercase tracking-wider backdrop-blur-md ${pill.color}`}>
                   {pill.icon} {pill.label}
@@ -332,15 +325,15 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               {lang === 'el' ? 'ΠΩΣ ΔΟΥΛΕΥΕΙ;' : 'HOW DOES IT WORK?'}
             </h2>
             <p className="text-white/40 text-xs md:text-sm font-bold uppercase tracking-[0.2em] mt-2">
-              {lang === 'el' ? '4 ΒΗΜΑΤΑ ΠΡΟΣ ΤΗΝ ΠΕΡΙΠΕΤΕΙΑ' : '4 STEPS TO ADVENTURE'}
+              {lang === 'el' ? 'ΔΙΑΒΑΖΕΙ → ΜΑΘΑΙΝΕΙ → ΚΕΡΔΙΖΕΙ → ΔΗΜΙΟΥΡΓΕΙ' : 'READ → LEARN → EARN → CREATE'}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {[
-              { step: '01', emoji: '📖', title: { el: 'ΔΙΑΒΑΣΕ', en: 'READ' }, desc: { el: 'Ιστορίες σπουδαίων ανθρώπων. Einstein, Μέσσι, Jobs — μάθε πώς τα κατάφεραν.', en: 'Stories of great people. Einstein, Messi, Jobs — learn how they made it.' }, color: 'from-blue-500/20 to-indigo-500/10', border: 'border-blue-500/20' },
-              { step: '02', emoji: '🎨', title: { el: 'ΔΗΜΙΟΥΡΓΗΣΕ', en: 'CREATE' }, desc: { el: 'Φτιάξε τον δικό σου ήρωα με AI. Ζωγράφισε, πες του τι κάνει — δες τον να ζωντανεύει!', en: 'Build your own hero with AI. Describe it, customize it — watch it come to life!' }, color: 'from-purple-500/20 to-fuchsia-500/10', border: 'border-purple-500/20' },
-              { step: '03', emoji: '🎵', title: { el: 'ΕΞΕΡΕΥΝΗΣΕ', en: 'EXPLORE' }, desc: { el: 'Φτιάξε τραγούδια, βίντεο, εταιρείες. Κάθε δημιουργία σου κερδίζει Credits!', en: 'Make songs, videos, businesses. Every creation earns you Credits!' }, color: 'from-pink-500/20 to-rose-500/10', border: 'border-pink-500/20' },
-              { step: '04', emoji: '🏆', title: { el: 'ΓΙΝΕ ΘΡΥΛΟΣ', en: 'BECOME LEGEND' }, desc: { el: 'Κέρδισε badges, σκαρφάλωσε στην κατάταξη, πρόκαλε τους φίλους σου!', en: 'Earn badges, climb the leaderboard, challenge your friends!' }, color: 'from-amber-500/20 to-orange-500/10', border: 'border-amber-500/20' },
+              { step: '01', emoji: '📚', title: { el: 'ΔΙΑΒΑΖΕΙ', en: 'READS' }, desc: { el: '34 βιβλία με αφήγηση και 98 ιστορίες σπουδαίων ανθρώπων. Κάθε βιβλίο που τελειώνει δίνει credits.', en: '34 narrated books and 98 stories of great people. Every finished book earns credits.' }, color: 'from-blue-500/20 to-indigo-500/10', border: 'border-blue-500/20' },
+              { step: '02', emoji: '🏫', title: { el: 'ΜΑΘΑΙΝΕΙ', en: 'LEARNS' }, desc: { el: "Σχολείο Α'–ΣΤ' Δημοτικού: Γλώσσα, Μαθηματικά, Ιστορία, Αγγλικά — quiz με αστέρια και απολυτήρια ανά τάξη.", en: 'Grade 1–6 school track: Language, Maths, History, English — quizzes with stars and a diploma per grade.' }, color: 'from-amber-500/20 to-orange-500/10', border: 'border-amber-500/20' },
+              { step: '03', emoji: '⚡', title: { el: 'ΚΕΡΔΙΖΕΙ', en: 'EARNS' }, desc: { el: 'Διάβασμα, quiz και ημερήσιες αποστολές γεμίζουν το πορτοφόλι του με credits. Χωρίς να αγοράσει τίποτα.', en: 'Reading, quizzes and daily missions fill their wallet with credits. Without buying anything.' }, color: 'from-emerald-500/20 to-teal-500/10', border: 'border-emerald-500/20' },
+              { step: '04', emoji: '🎨', title: { el: 'ΔΗΜΙΟΥΡΓΕΙ', en: 'CREATES' }, desc: { el: 'Με τα credits φτιάχνει ήρωες, τραγούδια και βίντεο με AI. Η επιβράβευση έρχεται μετά τη μάθηση — όχι αντί για αυτήν.', en: 'With the credits they create heroes, songs and videos with AI. The reward comes after the learning — not instead of it.' }, color: 'from-purple-500/20 to-fuchsia-500/10', border: 'border-purple-500/20' },
             ].map((item, i) => (
               <div key={i} className={`relative p-4 md:p-6 rounded-2xl md:rounded-3xl bg-gradient-to-br ${item.color} border ${item.border} backdrop-blur-md group`}>
                 <div className="text-3xl md:text-4xl mb-3">{item.emoji}</div>
@@ -382,6 +375,57 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* 👨‍👩‍👧 FOR PARENTS — the three questions every parent asks before paying */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.45, duration: 0.45 }}
+        className="relative z-20 w-full px-6 md:px-12 py-8"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <GraduationCap size={18} className="text-amber-400" />
+            <h3 className="text-sm font-black text-white/60 uppercase tracking-[0.3em] italic">
+              {lang === 'el' ? 'ΓΙΑ ΓΟΝΕΙΣ' : 'FOR PARENTS'}
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                icon: <BookOpen size={22} className="text-blue-400" />,
+                title: { el: 'Τι θα μάθει', en: 'What they learn' },
+                body: {
+                  el: "Ύλη Δημοτικού Α'–ΣΤ' (Γλώσσα, Μαθηματικά, Ιστορία, Αγγλικά), 34 βιβλία με αφήγηση για να διαβάζει μόνο του, και 98 ιστορίες ανθρώπων που ξεκίνησαν από το μηδέν. Στα ελληνικά και στα αγγλικά.",
+                  en: 'Grade 1–6 curriculum (Language, Maths, History, English), 34 narrated books to read on their own, and 98 stories of people who started from nothing. In Greek and English.',
+                },
+              },
+              {
+                icon: <Zap size={22} className="text-emerald-400" />,
+                title: { el: 'Τι κοστίζει', en: 'What it costs' },
+                body: {
+                  el: 'Το διάβασμα, τα quiz και το σχολείο είναι δωρεάν, πάντα. Τα credits για AI δημιουργίες κερδίζονται διαβάζοντας — ή αγοράζονται από €4,99, μόνο με επαλήθευση γονέα. Καμία αγορά δεν γίνεται από το παιδί.',
+                  en: 'Reading, quizzes and school are free, always. Credits for AI creations are earned by reading — or bought from €4.99, only with parent verification. A child cannot make a purchase.',
+                },
+              },
+              {
+                icon: <Shield size={22} className="text-amber-400" />,
+                title: { el: 'Πώς το ελέγχεις', en: 'How you stay in control' },
+                body: {
+                  el: 'Γονεϊκός πίνακας με την πρόοδο ανά μάθημα, email επαλήθευσης, φίλτρα περιεχομένου σε κάθε AI, και καμία συνομιλία με αγνώστους. Η φωτογραφία του παιδιού ανεβαίνει μόνο από επαληθευμένο γονέα.',
+                  en: 'A parent dashboard with progress per subject, email verification, content filters on every AI, and no chat with strangers. A child photo can only be uploaded by a verified parent.',
+                },
+              },
+            ].map((card, i) => (
+              <div key={i} className="p-5 md:p-6 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm space-y-3">
+                <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">{card.icon}</div>
+                <h4 className="text-white font-[1000] text-sm uppercase italic tracking-wide">{card.title[lang]}</h4>
+                <p className="text-white/55 text-xs md:text-sm font-semibold leading-relaxed">{card.body[lang]}</p>
+              </div>
+            ))}
           </div>
         </div>
       </motion.div>
