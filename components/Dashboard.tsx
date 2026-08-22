@@ -575,8 +575,8 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         lang={lang}
         delayMs={1200}
         text={lang === 'el'
-          ? <>🦉 <strong>Εγώ είμαι η WiseBot, {childName}.</strong> Εδώ διαβάζεις, κερδίζεις, δημιουργείς — και στο τέλος στήνεις τη δική σου εταιρεία. Ξεκίνα από το <strong>ΔΙΑΒΑΣΕ</strong>: το πρώτο σου βιβλίο σου δίνει 2⚡.</>
-          : <>🦉 <strong>I'm WiseBot, {childName}.</strong> Here you read, earn, create — and in the end build your own company. Start with <strong>READ</strong>: your first book gives you 2⚡.</>}
+          ? <>🦉 <strong>Εγώ είμαι η WiseBot, {childName}.</strong> Εδώ διαβάζεις, κερδίζεις, δημιουργείς — και στο τέλος στήνεις τη δική σου εταιρεία. Ξεκίνα από το <strong>ΔΙΑΒΑΣΕ</strong>: το πρώτο σου βιβλίο σου δίνει 3⚡.</>
+          : <>🦉 <strong>I'm WiseBot, {childName}.</strong> Here you read, earn, create — and in the end build your own company. Start with <strong>READ</strong>: your first book gives you 3⚡.</>}
       />}
 
       {/* 🎉 CELEBRATION OVERLAY */}
@@ -944,7 +944,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          <ModuleCard
             title={t.dashboard.modules.ebooks.title}
             subtitle={lang === 'el' ? 'Η Βιβλιοθήκη της Σοφίας. Κάθε βιβλίο σου δίνει ενέργεια.' : 'The Library of Wisdom. Every book gives you energy.'}
-            rewardText={lang === 'el' ? '+1 CREDIT' : '+1 CREDIT'}
+            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
             icon={Book}
             color="indigo"
             path="/ebooks"
@@ -995,7 +995,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          <ModuleCard
             title={t.dashboard.modules.business.title}
             subtitle={lang === 'el' ? 'Φτιάξε εταιρεία, λογότυπο και μάθε επιχειρηματικότητα.' : 'Build a company, create a logo and learn entrepreneurship.'}
-            rewardText={lang === 'el' ? '+2 CREDITS' : '+2 CREDITS'}
+            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
             icon={Briefcase}
             color="green"
             path="/business"

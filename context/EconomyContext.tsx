@@ -454,7 +454,12 @@ const RewardToast: React.FC<{ notification: RewardNotification; onDismiss: () =>
 }
 
 // ─── ECONOMY PROVIDER ────────────────────────────────────────────
-export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' | 'en' }> = ({ children, lang = 'el' }) => {
+  // Read through a ref inside trackAction: listing `lang` in that useCallback's deps would
+  // change its identity on a language switch and re-fire every effect that depends on it —
+  // including paid generations (the H1 shape from AUDIT-BUGS.md).
+  const langRef = useRef<'el' | 'en'>(lang);
+  useEffect(() => { langRef.current = lang; }, [lang]);
   // 1. STATE INITIALIZATION (Persisted, with migration for new fields)
   const [credits, setCredits] = useState<number>(() => {
     const saved = localStorage.getItem('wb_credits');
@@ -633,7 +638,7 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
       case 'PASS_QUIZ':
         newStats.quizzesPassed += 1;
         creditReward = newBadges.scientist ? 3 : 2;
-        rewardEmoji = '🎉'; rewardTitle = 'QUIZ PASS!'; rewardSubtitle = `+${creditReward} Credits ⚡`;
+        rewardEmoji = '🎉'; rewardTitle = langRef.current === 'el' ? 'ΠΕΡΑΣΕΣ ΤΟ QUIZ!' : 'QUIZ PASSED!'; rewardSubtitle = `+${creditReward} ⚡`;
         if (newStats.quizzesPassed >= 5 && !newBadges.thinker) {
           newBadges.thinker = true; badgeUnlocked = true;
           pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });
@@ -647,13 +652,21 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode }> = ({ child
       case 'READ_BOOK':
         newStats.booksRead += 1;
         creditReward = 3;
-        rewardEmoji = '📚'; rewardTitle = 'BOOK COMPLETE!'; rewardSubtitle = '+3 Credits ⚡';
+        rewardEmoji = '📚';
+        // The first book is the moment the loop clicks for a child — say so, once.
+        if (newStats.booksRead === 1) {
+          rewardTitle = langRef.current === 'el' ? 'ΤΟ ΠΡΩΤΟ ΣΟΥ ΒΙΒΛΙΟ!' : 'YOUR FIRST BOOK!';
+          rewardSubtitle = langRef.current === 'el' ? '+3 ⚡ · Συνέχισε — το τραγούδι σου πλησιάζει!' : '+3 ⚡ · Keep going — your song is getting closer!';
+        } else {
+          rewardTitle = langRef.current === 'el' ? 'ΤΕΛΕΙΩΣΕΣ ΤΟ ΒΙΒΛΙΟ!' : 'BOOK COMPLETE!';
+          rewardSubtitle = '+3 ⚡';
+        }
         break;
 
       case 'READ_ACADEMY':
         newStats.lessonsRead += 1;
         creditReward = 2;
-        rewardEmoji = '📖'; rewardTitle = 'STORY COMPLETE!'; rewardSubtitle = '+2 Credits ⚡';
+        rewardEmoji = '📖'; rewardTitle = langRef.current === 'el' ? 'ΤΕΛΕΙΩΣΕΣ ΤΗΝ ΙΣΤΟΡΙΑ!' : 'STORY COMPLETE!'; rewardSubtitle = '+2 ⚡';
         if (newStats.lessonsRead >= 5 && !newBadges.thinker) {
           newBadges.thinker = true; badgeUnlocked = true;
           pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });

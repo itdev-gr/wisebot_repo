@@ -224,12 +224,12 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
           >
             <Mail size={40} className="text-emerald-400 mx-auto" />
             <h3 className="text-white font-[900] text-lg uppercase italic tracking-tight">
-              {lang === 'el' ? 'Τσέκαρε το Email σου!' : 'Check your Email!'}
+              {lang === 'el' ? 'Σχεδόν έτοιμοι!' : 'Almost there!'}
             </h3>
             <p className="text-emerald-400/80 text-sm font-bold leading-relaxed">
               {lang === 'el'
-                ? `Στείλαμε ένα link επαλήθευσης στο ${verificationEmail}. Ο γονέας πρέπει να πατήσει το link για να ενεργοποιηθεί ο λογαριασμός.`
-                : `We sent a verification link to ${verificationEmail}. The parent must click the link to activate the account.`}
+                ? `Στείλαμε email στο ${verificationEmail}. Πάτησε τον σύνδεσμο μέσα του — και μετά γυρίστε εδώ μαζί: το πρώτο βήμα το κάνει το παιδί.`
+                : `We sent an email to ${verificationEmail}. Click the link inside — then come back here together: the first step is the child's.`}
             </p>
             <p className="text-white/30 text-xs font-bold">
               {lang === 'el' ? 'Τσέκαρε και τα spam/junk!' : 'Check spam/junk too!'}

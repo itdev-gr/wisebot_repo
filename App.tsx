@@ -306,35 +306,6 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
 };
 
 // --- PENDING VERIFICATION SCREEN ---
-const PendingVerification: React.FC = () => {
-  const navigate = useNavigate();
-  const { signOut } = useAuth();
-
-  return (
-    <div className="min-h-screen bg-[#0B0F1A] flex items-center justify-center p-4 font-['Nunito']">
-      <div className="text-center max-w-md space-y-6">
-        <div className="w-20 h-20 mx-auto bg-amber-500/10 rounded-3xl flex items-center justify-center border border-amber-500/20">
-          <Shield size={36} className="text-amber-400" />
-        </div>
-        <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter">
-          Pending Verification
-        </h2>
-        <p className="text-white/50 text-sm font-bold leading-relaxed">
-          Account not activated yet. Ask your parent to click the link in the email we sent them.
-        </p>
-        <div className="space-y-3 pt-4">
-          <button
-            onClick={async () => { await signOut(); navigate('/login', { replace: true }); }}
-            className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white/60 text-sm font-bold hover:bg-white/10 transition-all"
-          >
-            Back to Login
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 // --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
 // Landing page is always accessible — GuestBanner hides itself for logged-in users
 const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -380,8 +351,7 @@ const OfflineBanner = () => {
 };
 
 // --- MAIN APP CONTENT ---
-function AppContent() {
-  const [lang, setLang] = useState<'el' | 'en'>('el');
+function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispatch<React.SetStateAction<'el' | 'en'>> }) {
   const [xp, setXp] = useState<number>(() => {
     const saved = localStorage.getItem('wb_xp');
     return saved ? parseInt(saved) : 0;
@@ -526,11 +496,14 @@ function AppContent() {
 
 // Wrap with Providers: Helmet → Economy → Auth (Auth uses useEconomy for sync)
 export default function App() {
+  // Lives here, above EconomyProvider, so reward copy can be localized without the
+  // provider reaching into the tree below it.
+  const [lang, setLang] = useState<'el' | 'en'>('el');
   return (
     <HelmetProvider>
-      <EconomyProvider>
+      <EconomyProvider lang={lang}>
         <AuthProvider>
-          <AppContent />
+          <AppContent lang={lang} setLang={setLang} />
         </AuthProvider>
       </EconomyProvider>
     </HelmetProvider>
