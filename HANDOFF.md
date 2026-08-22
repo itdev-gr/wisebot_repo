@@ -3,6 +3,47 @@
 Start here. Written at the end of the setup session (15–16 Αυγούστου 2026), when the new
 MacBook had no toolchain and no local project context.
 
+---
+
+## ⚡ STATUS 17 Αυγούστου 2026 — read this first; it supersedes the task list below
+
+**Infrastructure is done.** `gh` is logged in as itdev-gr (keyring), git identity set, push →
+Vercel auto-deploy → wisebot.gr proven. CI (`.github/workflows/ci.yml`: typecheck + lint +
+build) gates `main`; lint is at **0 errors**. Database security fixes are live and recorded in
+`supabase/migrations/`. `AUDIT-2026-08-16.md` is the technical audit; `AUDIT-BUGS.md`'s API3
+entry is stale (already race-safe).
+
+**Open PR #9 — `ux/parent-trust`** (3 commits, CI green, Vercel preview up). From the UX
+audit of the live site. Merging deploys to wisebot.gr — **owner's call**:
+- P0 parent trust: photo upload only for verified-parent accounts (+ honest "not stored"
+  note); parent-consent checkbox on signup; "Χωρίς chat" → "Χωρίς chat με αγνώστους";
+  store buttons show the parent-verification lock.
+- P1 first run: one overlay instead of four; entrance ~2.5s → ~1s; portal intro plays once;
+  the 8 portal cards navigate; "Σύνδεση" link on the landing; FAB/mute overlaps fixed.
+- P2 landing repositioned: "Το διάβασμα έγινε παιχνίδι." Age/grades first, books + school
+  track lead, AI framed as the reward, new "Για γονείς" section, SEO title/OG updated.
+
+**Remaining UX (P3, small, separate PR):** Music Studio shows "-2⚡" while the store says a
+song costs 60 — verify which is real; Parent Dashboard is a dead end for guests (asks for a
+password with no explanation); signup form lacks field labels and does not say why it asks
+for a phone number; password rule (upper+digit+symbol) is friction — length 8+ plus the
+Supabase leaked-password check (currently OFF, one dashboard toggle) is better.
+
+**Repo moved (17 Αυγούστου, later the same day): `~/Projects/wisebot`.** Fresh clone off
+iCloud, no space in the path; `.env`, `.env.vercel`, `server/.env`, `.vercel/`, and
+`.claude/{settings.local,launch}.json` copied over by hand (they are gitignored). The old
+`~/Desktop/Projects/wisebot-claude-ok 3` still exists as a stale copy — **work only in
+`~/Projects/wisebot`**. `~/.claude/launch.json` (`wisebot-dev`) points to the new path.
+
+**Parked:** `wip/tests` branch holds a Vitest setup + EconomyContext tests. They could not run
+at the old path (the space in the folder name was URL-encoded by vitest's fork pool). Retry
+them here first — the move may be the whole fix.
+
+**Next after PR #9:** P3 UX items · move the repo · unpark tests · `strictNullChecks` ·
+CONTENT-PLAN.md Phase 1b (Γ' Δημοτικού multiplication sample unit).
+
+Tasks 1, 2, 4, 7 below are DONE; 5 is parked; 3 and 6 remain.
+
 `CLAUDE.md` describes the codebase. `FIX-PLAN.md` is the prioritised backlog. This file is the
 state of the machine, what was already done, and the order to work in.
 
@@ -55,10 +96,8 @@ token · security headers set in `vercel.json` · caching strategy sound.
 
 ## 5. Known environment problems
 
-- **The repo lives on the iCloud-synced Desktop.** The typecheck used 4.8s of CPU spread over
-  3 minutes of wall clock — 2% CPU, the rest waiting on disk. `git status` can hang past two
-  minutes. Moving the repo to `~/Projects/` would remove this entirely, and is the cheapest
-  large win available. Doing so invalidates the paths in this file.
+- ~~The repo lives on the iCloud-synced Desktop.~~ Resolved 17 Αυγούστου — see STATUS above.
+  Old observation kept for context: typecheck used 4.8s CPU over 3 min wall clock there.
 - **`server/` must not be deleted.** It looks like a dead 44 MB `node_modules`, but a hidden
   `server/.env` holds the only local copy of `SUPABASE_SERVICE_KEY`, `STRIPE_SECRET_KEY`,
   `STRIPE_WEBHOOK_SECRET` and `GEMINI_API_KEY` — untracked by git and absent from the root

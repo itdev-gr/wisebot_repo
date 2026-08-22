@@ -81,7 +81,9 @@ them: any `VITE_`-prefixed value is compiled into the public browser bundle.
 
 ## Working notes
 
-- `git status` in this directory can hang past two minutes (iCloud Desktop sync). Run git
-  commands in the background rather than blocking on them.
+- The repo lives at `~/Projects/wisebot` (moved off the iCloud-synced Desktop on 17 Αυγούστου
+  2026; the old `~/Desktop/Projects/wisebot-claude-ok 3` is a stale copy — do not work there).
+  git, typecheck and vitest are fast here; the old path had a space in its name that broke
+  vitest's worker and iCloud I/O that made typechecks take minutes.
 - Node 24 LTS and `gh` live in `~/.local/bin`, which is **not** on PATH for non-interactive
   shells — `export PATH="$HOME/.local/bin:$PATH"` first.

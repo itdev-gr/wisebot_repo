@@ -33,6 +33,9 @@ const TEXT = {
     parentEmailPlaceholder: 'email-gonea@example.com',
     passwordPlaceholder: '8+ χαρακτήρες, κεφαλαίο, αριθμός, σύμβολο',
     errorRequired: 'Συμπλήρωσε όλα τα πεδία',
+    consentLabel: 'Είμαι ο γονέας ή κηδεμόνας του παιδιού και αποδέχομαι τους',
+    consentTerms: 'Όρους Χρήσης & Πολιτική Απορρήτου',
+    errorConsent: 'Χρειάζεται η συναίνεση του γονέα ή κηδεμόνα',
     errorPassword: 'Ο κωδικός πρέπει να έχει τουλάχιστον 8 χαρακτήρες, ένα κεφαλαίο, ένα αριθμό και ένα σύμβολο (π.χ. !@#$)',
     errorPasswordPattern: 'Ο κωδικός πρέπει να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα, ένα αριθμό και ένα ειδικό σύμβολο (π.χ. !@#$%)',
     successRegister: 'Εγγραφή επιτυχής! Μπαίνεις στο WiseBot Academy...',
@@ -58,6 +61,9 @@ const TEXT = {
     parentEmailPlaceholder: 'parent-email@example.com',
     passwordPlaceholder: '8+ chars, uppercase, number, symbol',
     errorRequired: 'Please fill in all fields',
+    consentLabel: "I am the child's parent or guardian and I accept the",
+    consentTerms: 'Terms of Use & Privacy Policy',
+    errorConsent: "A parent or guardian's consent is required",
     errorPassword: 'Password must have at least 8 characters, one uppercase letter, one number, and one symbol (e.g. !@#$)',
     errorPasswordPattern: 'Password must contain at least one uppercase letter, one number, and one special symbol (e.g. !@#$%)',
     successRegister: 'Registered! Entering WiseBot Academy...',
@@ -89,6 +95,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const [password, setPassword] = useState('');
   const [childName, setChildName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [parentConsent, setParentConsent] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -110,6 +117,12 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
     }
     if (tab === 'register' && (!childName || !phoneNumber)) {
       setError(t.errorRequired);
+      return;
+    }
+    // The account holder must be an adult acting for the child. Under GDPR Art. 8 (Greece:
+    // digital consent age 15) a 6–12-year-old cannot consent alone, so this is a hard gate.
+    if (tab === 'register' && !parentConsent) {
+      setError(t.errorConsent);
       return;
     }
     // Password validation for registration
@@ -382,6 +395,20 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                       <Sparkles size={12} className="inline mr-1" />
                       {t.registerNote}
                     </p>
+                    <label className="mt-3 flex items-start gap-3 px-2 cursor-pointer select-none">
+                      <input
+                        type="checkbox"
+                        checked={parentConsent}
+                        onChange={e => setParentConsent(e.target.checked)}
+                        className="mt-0.5 h-5 w-5 shrink-0 rounded border-white/30 bg-white/5 accent-purple-500"
+                      />
+                      <span className="text-white/60 text-xs font-bold leading-snug">
+                        {t.consentLabel}{' '}
+                        <a href="/legal" target="_blank" rel="noopener" className="text-purple-300 underline underline-offset-2">
+                          {t.consentTerms}
+                        </a>
+                      </span>
+                    </label>
                   </motion.div>
                 )}
               </AnimatePresence>

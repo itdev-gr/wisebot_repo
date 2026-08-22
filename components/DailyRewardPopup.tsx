@@ -68,10 +68,15 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
   useEffect(() => {
     injectStyles();
     const data = getStreakData();
-    if (!isToday(data.lastClaimDate)) {
-      const timer = setTimeout(() => setShow(true), 800);
-      return () => clearTimeout(timer);
+    if (isToday(data.lastClaimDate)) return;
+    // The very first time a child reaches the dashboard, let them look at it. This was
+    // the fourth overlay in a row on a first visit (audit P1-5); it returns next visit.
+    if (data.totalClaimed === 0 && !localStorage.getItem('wb_daily_intro_skipped')) {
+      localStorage.setItem('wb_daily_intro_skipped', '1');
+      return;
     }
+    const timer = setTimeout(() => setShow(true), 800);
+    return () => clearTimeout(timer);
   }, []);
 
   const currentStreak = useMemo(() => {
@@ -117,16 +122,19 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
     }))
   , []);
 
+  // "You're back" greeted brand-new visitors on their very first screen (audit P1-5).
+  const isFirstVisit = getStreakData().totalClaimed === 0;
+
   const txt = lang === 'el' ? {
     title: 'ΗΜΕΡΗΣΙΟ ΔΩΡΟ!',
-    subtitle: 'Επέστρεψες! Πάρε την ανταμοιβή σου.',
+    subtitle: isFirstVisit ? 'Καλώς ήρθες! Ένα δώρο για την αρχή.' : 'Επέστρεψες! Πάρε την ανταμοιβή σου.',
     claim: 'ΠΑΡΕ ΤΟ ΔΩΡΟ',
     credits: 'CREDITS',
     congrats: 'Μπράβο! Συνέχισε αύριο!',
     day7: 'MEGA ΔΩΡΟ!',
   } : {
     title: 'DAILY REWARD!',
-    subtitle: "You're back! Claim your reward.",
+    subtitle: isFirstVisit ? "Welcome! A little gift to start." : "You're back! Claim your reward.",
     claim: 'CLAIM REWARD',
     credits: 'CREDITS',
     congrats: 'Nice! Come back tomorrow!',

@@ -284,8 +284,10 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
   const isCloud = ttsMode === 'cloud';
   if (paragraphs.length === 0) return null;
 
+  // pr-24 on phones keeps the last control clear of the fixed rocket FAB that Layout
+  // pins at bottom-right (audit P1-8).
   return (
-    <div className="bg-[#f0e6d2]/95 backdrop-blur-sm border-t border-amber-800/15 px-4 py-2.5 flex items-center gap-2 flex-wrap shrink-0">
+    <div className="bg-[#f0e6d2]/95 backdrop-blur-sm border-t border-amber-800/15 px-4 pr-24 sm:pr-4 py-2.5 flex items-center gap-2 flex-wrap shrink-0">
       {isLoading ? (
         <button disabled className="flex items-center gap-2 px-3 py-1.5 bg-amber-800/20 text-amber-900/70 rounded-lg font-bold text-[11px] uppercase tracking-wider animate-pulse">
           <Loader2 size={13} className="animate-spin" />

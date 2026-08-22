@@ -22,11 +22,19 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
     // Don't show if user already entered the portal or dismissed the banner this session
     const portalVisited = localStorage.getItem('wb_onboarding_done');
     const bannerDismissed = sessionStorage.getItem('wb_guest_banner_dismissed');
-    if (!portalVisited && !bannerDismissed) {
-      // Small delay so it doesn't flash on page load
-      const timer = setTimeout(() => setVisible(true), 800);
-      return () => clearTimeout(timer);
-    }
+    if (portalVisited || bannerDismissed) return;
+
+    // Appear only once the visitor has scrolled past the hero. Showing it at 0.8s put a
+    // fixed card on top of the primary CTA on phones (audit P1-8) — the landing's
+    // scroll container is the inner .overflow-y-auto div, not the window.
+    const scroller = document.querySelector<HTMLElement>('.overflow-y-auto.custom-scrollbar');
+    const target = scroller ?? window;
+    const pastHero = () => (scroller ? scroller.scrollTop : window.scrollY) > 480;
+    const onScroll = () => { if (pastHero()) { setVisible(true); target.removeEventListener('scroll', onScroll); } };
+    target.addEventListener('scroll', onScroll, { passive: true });
+    // Fallback for visitors who never scroll — they have had time to read the hero by then.
+    const timer = setTimeout(() => setVisible(true), 25000);
+    return () => { target.removeEventListener('scroll', onScroll); clearTimeout(timer); };
   }, [loading, user]);
 
   const handleDismiss = () => {
@@ -45,8 +53,10 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-[9999] px-4 pb-4 sm:px-6 sm:pb-6"
+      className="fixed bottom-0 left-0 right-0 z-[9999] pl-[76px] pr-3 pb-3 sm:px-6 sm:pb-6"
       style={{ animation: 'guestBannerSlideUp 0.5s ease-out forwards' }}
+      // pl-[84px] on phones: Layout pins the mute button at bottom-left (24px + 48px wide),
+      // and the card used to sit on top of it (audit P1-8).
     >
       <style>{`
         @keyframes guestBannerSlideUp {
@@ -75,7 +85,7 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
             </p>
 
             {/* Buttons */}
-            <div className="flex items-center gap-2 mt-3">
+            <div className="flex items-center gap-2 mt-3 flex-wrap">
               <button
                 onClick={handleEnterPortal}
                 className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-[900] text-xs uppercase tracking-wider hover:brightness-110 hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-500/20"
