@@ -173,7 +173,14 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       const result = await signIn(parentEmail, password);
 
       if (result.error) {
-        if (result.error.includes('Invalid login') || result.error.includes('invalid')) {
+        const msg = result.error.toLowerCase();
+        if (msg.includes('not confirmed')) {
+          // Account exists, link never clicked. Say so, and reuse the post-signup screen
+          // which already has the 'resend verification email' button.
+          setVerificationEmail(parentEmail);
+          setShowVerificationMsg(true);
+          setError(t.notVerified);
+        } else if (msg.includes('invalid login') || msg.includes('invalid')) {
           setError(t.invalidLogin);
         } else {
           setError(result.error);
