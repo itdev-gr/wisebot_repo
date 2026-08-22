@@ -29,11 +29,15 @@ password with no explanation); signup form lacks field labels and does not say w
 for a phone number; password rule (upper+digit+symbol) is friction — length 8+ plus the
 Supabase leaked-password check (currently OFF, one dashboard toggle) is better.
 
-**Parked:** `wip/tests` branch holds a Vitest setup + EconomyContext tests that cannot run
-here — the space in the folder name (`wisebot-claude-ok 3`) is URL-encoded to `%203` by
-vitest's fork pool and the worker never starts. Moving the repo to a path without spaces
-(and off iCloud — `~/Projects/wisebot`) fixes this and the 3-minute typechecks. Safe now:
-GitHub has everything.
+**Repo moved (17 Αυγούστου, later the same day): `~/Projects/wisebot`.** Fresh clone off
+iCloud, no space in the path; `.env`, `.env.vercel`, `server/.env`, `.vercel/`, and
+`.claude/{settings.local,launch}.json` copied over by hand (they are gitignored). The old
+`~/Desktop/Projects/wisebot-claude-ok 3` still exists as a stale copy — **work only in
+`~/Projects/wisebot`**. `~/.claude/launch.json` (`wisebot-dev`) points to the new path.
+
+**Parked:** `wip/tests` branch holds a Vitest setup + EconomyContext tests. They could not run
+at the old path (the space in the folder name was URL-encoded by vitest's fork pool). Retry
+them here first — the move may be the whole fix.
 
 **Next after PR #9:** P3 UX items · move the repo · unpark tests · `strictNullChecks` ·
 CONTENT-PLAN.md Phase 1b (Γ' Δημοτικού multiplication sample unit).
@@ -92,10 +96,8 @@ token · security headers set in `vercel.json` · caching strategy sound.
 
 ## 5. Known environment problems
 
-- **The repo lives on the iCloud-synced Desktop.** The typecheck used 4.8s of CPU spread over
-  3 minutes of wall clock — 2% CPU, the rest waiting on disk. `git status` can hang past two
-  minutes. Moving the repo to `~/Projects/` would remove this entirely, and is the cheapest
-  large win available. Doing so invalidates the paths in this file.
+- ~~The repo lives on the iCloud-synced Desktop.~~ Resolved 17 Αυγούστου — see STATUS above.
+  Old observation kept for context: typecheck used 4.8s CPU over 3 min wall clock there.
 - **`server/` must not be deleted.** It looks like a dead 44 MB `node_modules`, but a hidden
   `server/.env` holds the only local copy of `SUPABASE_SERVICE_KEY`, `STRIPE_SECRET_KEY`,
   `STRIPE_WEBHOOK_SECRET` and `GEMINI_API_KEY` — untracked by git and absent from the root
