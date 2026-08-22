@@ -13,6 +13,7 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, Zap, WifiOff } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import UnlockGate from './components/UnlockGate';
 
 // --- LAZY LOAD COMPONENTS (Performance Optimization) ---
 // These components will only load when the user clicks on them,
@@ -461,10 +462,10 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/game" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="game" /><GameCenter lang={lang} /><InternalLinks lang={lang} currentPage="game" /></SemiPublicRoute>} />
             <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /><InternalLinks lang={lang} currentPage="quiz" /></SemiPublicRoute>} />
             <Route path="/school" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="school" /><School lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="school" /></SemiPublicRoute>} />
-            <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><Cinema lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
-            <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><HeroFactory lang={lang} addHero={addHero} /><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
-            <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><ThreeDFactory lang={lang} /><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />
-            <Route path="/business" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="business" /><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="business" /></SemiPublicRoute>} />
+            <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><UnlockGate feature="cinema" lang={lang}><Cinema lang={lang} myHeroes={myHeroes} /></UnlockGate><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
+            <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><UnlockGate feature="factory" lang={lang}><HeroFactory lang={lang} addHero={addHero} /></UnlockGate><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
+            <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><UnlockGate feature="3d" lang={lang}><ThreeDFactory lang={lang} /></UnlockGate><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />
+            <Route path="/business" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="business" /><UnlockGate feature="business" lang={lang}><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /></UnlockGate><InternalLinks lang={lang} currentPage="business" /></SemiPublicRoute>} />
             <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="market" /></SemiPublicRoute>} />
             <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="wise-friends" /></SemiPublicRoute>} />
 

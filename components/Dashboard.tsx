@@ -42,6 +42,7 @@ import DailyMission from './DailyMission';
 import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
+import { isUnlocked, unlockHint } from '../utils/unlocks';
 import GiftModal from './GiftModal';
 import GiftInbox, { useGiftCount } from './GiftInbox';
 
@@ -386,7 +387,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
-  const { credits, badges, stats, earnCredits, syncFromCloud } = useEconomy();
+  const { credits, badges, stats, earnCredits, syncFromCloud, showNotification } = useEconomy();
   const { user, profile, isGuest } = useAuth();
   const childName = useChildName(lang);
   // Greeting uses the real name only for signed-in children; guests get the headline alone.
@@ -415,13 +416,16 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
   // ============================================================
   // 🔓 UNLOCK LOGIC (Progressive Quest-Based)
   // ============================================================
+  // Learning rooms and the Music Studio are always open; the other creation rooms open
+  // as the child reads and creates. Rules live in utils/unlocks.ts — one source of truth
+  // shared with the menu, the route gate and the unlock celebration.
   const isQuizUnlocked = true;
   const isMusicUnlocked = true;
-  const isFactoryUnlocked = true;
-  const isCinemaUnlocked = true;
   const isMarketUnlocked = true;
-  const isBusinessUnlocked = true;
-  const is3DUnlocked = true;
+  const isFactoryUnlocked = isUnlocked('factory', stats);
+  const isCinemaUnlocked = isUnlocked('cinema', stats);
+  const isBusinessUnlocked = isUnlocked('business', stats);
+  const is3DUnlocked = isUnlocked('3d', stats);
 
   // ============================================================
   // 🗺️ QUEST PROGRESS COMPUTATION
@@ -471,7 +475,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
     const c = COLOR_MAP[color] || COLOR_MAP.blue;
     return (
     <div
-      onClick={() => !locked && navigate(path)}
+      onClick={() => locked ? showNotification('🔒', unlockHint.replace(/^🔓 /, '')) : navigate(path)}
       className={`relative group cursor-pointer rounded-[2.5rem] border-2 transition-all duration-500 overflow-hidden flex flex-col h-full
         ${locked
           ? 'border-white/5 bg-[#0a0b10] opacity-50 grayscale pointer-events-none'
@@ -575,8 +579,8 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         lang={lang}
         delayMs={1200}
         text={lang === 'el'
-          ? <>🦉 <strong>Εγώ είμαι η WiseBot, {childName}.</strong> Εδώ διαβάζεις, κερδίζεις, δημιουργείς — και στο τέλος στήνεις τη δική σου εταιρεία. Ξεκίνα από το <strong>ΔΙΑΒΑΣΕ</strong>: το πρώτο σου βιβλίο σου δίνει 3⚡.</>
-          : <>🦉 <strong>I'm WiseBot, {childName}.</strong> Here you read, earn, create — and in the end build your own company. Start with <strong>READ</strong>: your first book gives you 3⚡.</>}
+          ? <>🦉 <strong>Εγώ είμαι η WiseBot, {childName}.</strong> Εδώ διαβάζεις, κερδίζεις, δημιουργείς — και στο τέλος στήνεις τη δική σου εταιρεία. Ξεκίνα από την <strong>ΑΚΑΔΗΜΙΑ</strong>: διάβασε τον Walt Disney και ξεκλειδώνεις το Εργαστήριο Ηρώων.</>
+          : <>🦉 <strong>I'm WiseBot, {childName}.</strong> Here you read, earn, create — and in the end build your own company. Start in the <strong>ACADEMY</strong>: read Walt Disney and you unlock the Hero Factory.</>}
       />}
 
       {/* 🎉 CELEBRATION OVERLAY */}
@@ -637,7 +641,9 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         ].map((item, i) => (
           <button
             key={i}
-            onClick={() => !item.locked && navigate(item.path)}
+            onClick={() => item.locked
+              ? showNotification('🔒', item.path === '/factory' ? unlockHint('factory', stats, lang) : (lang === 'el' ? 'Κλειδωμένο ακόμα' : 'Still locked'))
+              : navigate(item.path)}
             className={`relative flex flex-col items-center justify-center gap-2 py-5 rounded-2xl border-2 transition-all overflow-hidden group ${
               item.locked
                 ? 'border-white/5 bg-white/5 opacity-40 cursor-not-allowed'
@@ -1000,7 +1006,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="green"
             path="/business"
             locked={!isBusinessUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Διάβασε 2 ιστορίες' : '🔓 Read 2 stories'}
+            unlockHint={'🔓 ' + unlockHint('business', stats, lang)}
             delay={450}
          />
 
@@ -1021,7 +1027,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="fuchsia"
             path="/factory"
             locked={!isFactoryUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Διάβασε 3 ιστορίες ή 2 βιβλία' : '🔓 Read 3 stories or 2 books'}
+            unlockHint={'🔓 ' + unlockHint('factory', stats, lang)}
             delay={500}
             isNext={currentQuestIdx === 2 && isFactoryUnlocked}
          />
@@ -1043,7 +1049,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="pink"
             path="/cinema"
             locked={!isCinemaUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Δημιούργησε 1 ήρωα' : '🔓 Create 1 hero'}
+            unlockHint={'🔓 ' + unlockHint('cinema', stats, lang)}
             delay={600}
             isNext={currentQuestIdx === 3 && isCinemaUnlocked}
          />
@@ -1076,7 +1082,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             color="emerald"
             path="/3d-factory"
             locked={!is3DUnlocked}
-            unlockHint={lang === 'el' ? '🔓 Κέρδισε Creator Badge' : '🔓 Earn Creator Badge'}
+            unlockHint={'🔓 ' + unlockHint('3d', stats, lang)}
             delay={800}
             isNext={currentQuestIdx === 4 && is3DUnlocked}
          />

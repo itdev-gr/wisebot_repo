@@ -48,6 +48,7 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import { UI_TEXT } from '../constants'; 
 import { USER_GROUP_PHOTO } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
+import { isUnlocked, unlockHint, UNLOCK_RULES, wasCelebrated, markCelebrated, type UnlockKey } from '../utils/unlocks';
 const WiseBotChat = React.lazy(() => import('./WiseBotChat')); // Lazy load Chat (pulls in genai SDK)
 const PWAInstallPrompt = React.lazy(() => import('./PWAInstallPrompt'));
 
@@ -77,7 +78,25 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   const [isChatOpen, setIsChatOpen] = useState(false);
   
   // ECONOMY DATA
-  const { credits, badges, stats } = useEconomy();
+  const { credits, badges, stats, showNotification } = useEconomy();
+
+  // Unlock celebrations: the first time a rule flips to open, WiseBot announces it.
+  // The very first run seeds silently — someone who already has everything open must not
+  // be greeted with four toasts at once.
+  useEffect(() => {
+    const keys = Object.keys(UNLOCK_RULES) as UnlockKey[];
+    let seeded = false;
+    try { seeded = localStorage.getItem('wb_unlock_seeded') === '1'; } catch { seeded = true; }
+    for (const key of keys) {
+      if (!isUnlocked(key, stats) || wasCelebrated(key)) continue;
+      markCelebrated(key);
+      if (seeded) {
+        const c = UNLOCK_RULES[key].celebrate[lang];
+        showNotification('🔓', c.title, c.subtitle);
+      }
+    }
+    try { localStorage.setItem('wb_unlock_seeded', '1'); } catch { /* private mode */ }
+  }, [stats, lang, showNotification]);
 
   // BACKGROUND MUSIC
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -104,13 +123,15 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const s = (stats || {}) as any;
   const b = (badges || {}) as any;
+  // Same rules as the dashboard and the route gate — utils/unlocks.ts is the only source.
+  // Quiz, music, market and games stay open by design.
   const isQuizUnlocked = true;
   const isMusicUnlocked = true;
-  const isFactoryUnlocked = true;
-  const isCinemaUnlocked = true;
   const isMarketUnlocked = true;
-  const isBusinessUnlocked = true;
-  const is3DUnlocked = true;
+  const isFactoryUnlocked = isUnlocked('factory', stats);
+  const isCinemaUnlocked = isUnlocked('cinema', stats);
+  const isBusinessUnlocked = isUnlocked('business', stats);
+  const is3DUnlocked = isUnlocked('3d', stats);
   const isEbooksUnlocked = true;
   const isFriendsUnlocked = true;
   const isGamesUnlocked = true;
@@ -189,12 +210,12 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
     { icon: <PlayCircle size={24} />, label: t.menu.academy, path: "/academy", locked: false, unlockHint: '' },
     { icon: <Book size={24} />, label: t.menu.ebooks, path: "/ebooks", locked: false, unlockHint: '' },
     { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: !isQuizUnlocked, unlockHint: lang === 'el' ? '2 ιστορίες ή 1 βιβλίο' : '2 stories or 1 book' },
-    { icon: <Wand2 size={24} />, label: t.menu.factory, path: "/factory", locked: !isFactoryUnlocked, unlockHint: lang === 'el' ? '3 ιστορίες ή 2 βιβλία' : '3 stories or 2 books' },
+    { icon: <Wand2 size={24} />, label: t.menu.factory, path: "/factory", locked: !isFactoryUnlocked, unlockHint: unlockHint('factory', stats, lang) },
     { icon: <Gamepad2 size={24} />, label: t.menu.game, path: "/game", locked: !isGamesUnlocked, unlockHint: lang === 'el' ? '1 βιβλίο ή 1 quiz' : '1 book or 1 quiz' },
     { icon: <Music size={24} />, label: t.menu.music, path: "/music", locked: !isMusicUnlocked, unlockHint: lang === 'el' ? '1 ιστορία' : '1 story' },
-    { icon: <Clapperboard size={24} />, label: t.menu.cinema, path: "/cinema", locked: !isCinemaUnlocked, unlockHint: lang === 'el' ? '1 ήρωας' : '1 hero' },
-    { icon: <Box size={24} />, label: t.menu.factory3d, path: "/3d-factory", locked: !is3DUnlocked, unlockHint: lang === 'el' ? 'Creator Badge' : 'Creator Badge' },
-    { icon: <Briefcase size={24} />, label: t.menu.business, path: "/business", locked: !isBusinessUnlocked, unlockHint: lang === 'el' ? '2 ιστορίες' : '2 stories' },
+    { icon: <Clapperboard size={24} />, label: t.menu.cinema, path: "/cinema", locked: !isCinemaUnlocked, unlockHint: unlockHint('cinema', stats, lang) },
+    { icon: <Box size={24} />, label: t.menu.factory3d, path: "/3d-factory", locked: !is3DUnlocked, unlockHint: unlockHint('3d', stats, lang) },
+    { icon: <Briefcase size={24} />, label: t.menu.business, path: "/business", locked: !isBusinessUnlocked, unlockHint: unlockHint('business', stats, lang) },
     { icon: <Store size={24} />, label: t.menu.market, path: "/market", locked: !isMarketUnlocked, unlockHint: lang === 'el' ? '1 ήρωας' : '1 hero' },
     { icon: <Users size={24} />, label: t.menu.wiseFriends, path: "/wise-friends", locked: false, unlockHint: '' },
     { icon: <Coins size={24} />, label: t.menu.store, path: "/store", locked: false, unlockHint: '' },
