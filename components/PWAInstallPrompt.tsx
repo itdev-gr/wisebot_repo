@@ -22,6 +22,16 @@ export default function PWAInstallPrompt({ lang }: { lang: 'el' | 'en' }) {
     const dismissed = localStorage.getItem('pwa_dismissed');
     if (dismissed && Date.now() - parseInt(dismissed) < 7 * 24 * 60 * 60 * 1000) return;
 
+    // Only ask someone to install what they have already come back to. On a first visit
+    // this was the third overlay in under a minute (audit P1-5); count visits per day so
+    // a single long session does not inflate the number.
+    const today = new Date().toISOString().slice(0, 10);
+    const lastDay = localStorage.getItem('wb_visit_day');
+    const visits = parseInt(localStorage.getItem('wb_visits') || '0', 10) + (lastDay === today ? 0 : 1);
+    localStorage.setItem('wb_visit_day', today);
+    localStorage.setItem('wb_visits', String(visits));
+    if (visits < 3) return;
+
     // Detect iOS
     const ua = navigator.userAgent;
     const isiOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);

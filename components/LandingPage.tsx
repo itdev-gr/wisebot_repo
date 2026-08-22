@@ -114,7 +114,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       repeatType: "reverse" as const,
       delay
     },
-    opacity: { duration: 1, delay }
+    opacity: { duration: 0.5, delay }
   });
 
   return (
@@ -128,11 +128,20 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
       </div>
 
+      {/* Returning parents had no way in except guessing that the hero CTA leads to login
+          (audit P1-9). Kept deliberately small so it never competes with the CTA. */}
+      <RouterLink
+        to="/login"
+        className="absolute top-3 right-3 md:top-5 md:right-6 z-40 px-3.5 py-2 rounded-full bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 text-[11px] md:text-xs font-black uppercase tracking-widest transition-all"
+      >
+        {lang === 'el' ? 'Σύνδεση' : 'Log in'}
+      </RouterLink>
+
       {/* 🏛️ 1. TOP ROOTS BAR (CLICKABLE) */}
-      <motion.div 
+      <motion.div
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative z-30 w-full pt-8 pb-4 flex justify-center items-center px-4"
       >
         <div className="text-[8px] md:text-xs font-black text-amber-500/90 uppercase tracking-[0.15em] md:tracking-[0.3em] italic drop-shadow-[0_0_15px_rgba(245,158,11,0.3)] bg-black/40 px-3 md:px-8 py-3 rounded-full border border-amber-500/20 backdrop-blur-xl flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 gap-y-1 md:gap-y-2 shadow-2xl max-w-full">
@@ -161,7 +170,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
             className="space-y-6"
           >
             <div className="flex items-center gap-4">
@@ -231,7 +240,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
+            transition={{ delay: 0.25, duration: 0.4 }}
           >
             <RouterLink 
               to="/portal" 
@@ -314,7 +323,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.0, duration: 0.8 }}
+        transition={{ delay: 0.3, duration: 0.45 }}
         className="relative z-20 w-full px-6 md:px-12 py-8 md:py-16"
       >
         <div className="max-w-6xl mx-auto">
@@ -348,7 +357,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.8 }}
+        transition={{ delay: 0.35, duration: 0.45 }}
         className="relative z-20 w-full px-6 md:px-12 py-4 md:py-8"
       >
         <div className="max-w-4xl mx-auto">
@@ -381,7 +390,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
+        transition={{ delay: 0.4, duration: 0.45 }}
         className="relative z-20 w-full px-6 md:px-12 py-8"
       >
         <div className="max-w-6xl mx-auto">
@@ -439,7 +448,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       <motion.div 
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         className="relative z-30 w-full bg-black/40 backdrop-blur-md border-t border-white/5 py-4"
       >
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4">

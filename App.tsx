@@ -49,38 +49,42 @@ interface PortalProps {
 // ─── DISCOVERY FEATURES ───
 const DISCOVER_FEATURES = {
   el: [
-    { emoji: '🧠', title: 'ΜΑΘΕ', desc: 'Ιστορίες 98 σπουδαίων ανθρώπων', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
-    { emoji: '📚', title: 'ΔΙΑΒΑΣΕ', desc: 'Βιβλία που σου δίνουν δύναμη', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
-    { emoji: '🎨', title: 'ΔΗΜΙΟΥΡΓΗΣΕ', desc: 'Τον δικό σου ήρωα με AI', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
-    { emoji: '🎵', title: 'ΤΡΑΓΟΥΔΑ', desc: 'Φτιάξε δικά σου τραγούδια', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
-    { emoji: '🏢', title: 'ΕΠΙΧΕΙΡΗΣΕ', desc: 'Κάνε το πρώτο σου business', color: 'from-emerald-500/20 to-teal-600/10', border: 'border-emerald-500/30', glow: 'shadow-emerald-500/20' },
-    { emoji: '🧊', title: '3D & VIDEO', desc: 'Ζωντάνεψε τους ήρωές σου', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
-    { emoji: '🧩', title: 'ΠΑΙΞΕ', desc: 'Quiz, παιχνίδια & προκλήσεις', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
-    { emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
+    { to: '/academy', emoji: '🧠', title: 'ΜΑΘΕ', desc: 'Ιστορίες 98 σπουδαίων ανθρώπων', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { to: '/ebooks', emoji: '📚', title: 'ΔΙΑΒΑΣΕ', desc: 'Βιβλία που σου δίνουν δύναμη', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
+    { to: '/factory', emoji: '🎨', title: 'ΔΗΜΙΟΥΡΓΗΣΕ', desc: 'Τον δικό σου ήρωα με AI', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
+    { to: '/music', emoji: '🎵', title: 'ΤΡΑΓΟΥΔΑ', desc: 'Φτιάξε δικά σου τραγούδια', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
+    { to: '/business', emoji: '🏢', title: 'ΕΠΙΧΕΙΡΗΣΕ', desc: 'Κάνε το πρώτο σου business', color: 'from-emerald-500/20 to-teal-600/10', border: 'border-emerald-500/30', glow: 'shadow-emerald-500/20' },
+    { to: '/cinema', emoji: '🧊', title: '3D & VIDEO', desc: 'Ζωντάνεψε τους ήρωές σου', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
+    { to: '/game', emoji: '🧩', title: 'ΠΑΙΞΕ', desc: 'Quiz, παιχνίδια & προκλήσεις', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
+    { to: '/wise-friends', emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
   ],
   en: [
-    { emoji: '🧠', title: 'LEARN', desc: 'Stories of 98 great people', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
-    { emoji: '📚', title: 'READ', desc: 'Books that give you power', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
-    { emoji: '🎨', title: 'CREATE', desc: 'Your own AI hero', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
-    { emoji: '🎵', title: 'SING', desc: 'Make your own songs', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
-    { emoji: '🏢', title: 'BUILD', desc: 'Start your first business', color: 'from-emerald-500/20 to-teal-600/10', border: 'border-emerald-500/30', glow: 'shadow-emerald-500/20' },
-    { emoji: '🧊', title: '3D & VIDEO', desc: 'Bring your heroes to life', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
-    { emoji: '🧩', title: 'PLAY', desc: 'Quizzes, games & challenges', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
-    { emoji: '👫', title: 'SHARE', desc: 'Challenge friends & compete', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
+    { to: '/academy', emoji: '🧠', title: 'LEARN', desc: 'Stories of 98 great people', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { to: '/ebooks', emoji: '📚', title: 'READ', desc: 'Books that give you power', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
+    { to: '/factory', emoji: '🎨', title: 'CREATE', desc: 'Your own AI hero', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
+    { to: '/music', emoji: '🎵', title: 'SING', desc: 'Make your own songs', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
+    { to: '/business', emoji: '🏢', title: 'BUILD', desc: 'Start your first business', color: 'from-emerald-500/20 to-teal-600/10', border: 'border-emerald-500/30', glow: 'shadow-emerald-500/20' },
+    { to: '/cinema', emoji: '🧊', title: '3D & VIDEO', desc: 'Bring your heroes to life', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
+    { to: '/game', emoji: '🧩', title: 'PLAY', desc: 'Quizzes, games & challenges', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
+    { to: '/wise-friends', emoji: '👫', title: 'SHARE', desc: 'Challenge friends & compete', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
   ],
 };
 
 const Portal: React.FC<PortalProps> = ({ lang }) => {
   const navigate = useNavigate();
-  const [phase, setPhase] = useState<RitualPhase>('intro');
+  // The cinematic intro is a 3-second ritual: worth it once, an obstacle every time
+  // after (audit P1-7). Returning visitors go straight to the gateway.
+  const seenBefore = typeof localStorage !== 'undefined' && !!localStorage.getItem('wb_portal_seen');
+  const [phase, setPhase] = useState<RitualPhase>(seenBefore ? 'gateway' : 'intro');
   const [showLine2, setShowLine2] = useState(false);
   const { earnCredits } = useEconomy();
 
   useEffect(() => {
+    if (seenBefore) return;
     const t1 = setTimeout(() => setShowLine2(true), 500);
     const t2 = setTimeout(() => setPhase('ritual'), 1500);
     const t3 = setTimeout(() => setPhase('discover'), 3000);
-    const t4 = setTimeout(() => setPhase('gateway'), 3200);
+    const t4 = setTimeout(() => { setPhase('gateway'); localStorage.setItem('wb_portal_seen', '1'); }, 3200);
 
     return () => {
       clearTimeout(t1);
@@ -88,7 +92,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
       clearTimeout(t3);
       clearTimeout(t4);
     };
-  }, []);
+  }, [seenBefore]);
 
   const t = {
     el: {
@@ -131,7 +135,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              transition={{ duration: 0.45, ease: "easeInOut" }}
               className="space-y-12 md:space-y-16"
             >
               <motion.p
@@ -165,7 +169,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
               initial={{ opacity: 0, scale: 0.95, y: 60 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
               className="max-w-md mx-auto space-y-8 md:space-y-10"
             >
               <div className="glass-panel p-8 rounded-[3rem] border-2 border-white/10 shadow-[0_0_80px_rgba(59,130,246,0.15)] space-y-8 relative">
@@ -227,8 +231,11 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
               {/* Feature grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                 {features.map((feat, i) => (
-                  <motion.div
+                  <motion.button
+                    type="button"
                     key={feat.title}
+                    onClick={() => navigate(feat.to)}
+                    aria-label={`${feat.title} — ${feat.desc}`}
                     initial={{ opacity: 0, y: 30, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{
@@ -238,7 +245,9 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
                       stiffness: 200,
                       damping: 20,
                     }}
-                    className={`relative p-4 md:p-5 rounded-2xl bg-gradient-to-br ${feat.color} border ${feat.border} shadow-lg ${feat.glow} backdrop-blur-sm overflow-hidden group hover:scale-105 transition-transform`}
+                    // A card that says "READ" and does nothing when tapped confuses a child
+                    // (audit P1-7): each one now opens its section directly.
+                    className={`relative p-4 md:p-5 rounded-2xl bg-gradient-to-br ${feat.color} border ${feat.border} shadow-lg ${feat.glow} backdrop-blur-sm overflow-hidden group hover:scale-105 active:scale-95 transition-transform cursor-pointer text-left`}
                   >
                     {/* Ambient glow */}
                     <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/5 rounded-full blur-xl pointer-events-none" />
@@ -258,7 +267,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
                         {feat.desc}
                       </p>
                     </div>
-                  </motion.div>
+                  </motion.button>
                 ))}
               </div>
 
@@ -267,7 +276,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
                   className="space-y-6 pt-2"
                 >
                   <button
