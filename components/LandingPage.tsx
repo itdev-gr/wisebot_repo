@@ -223,8 +223,8 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             {/* PARENT TRUST LINE */}
             <p className="text-[10px] md:text-xs text-white/30 font-bold uppercase tracking-[0.2em] italic max-w-xl">
               {lang === 'el'
-                ? "Χωρίς chat. Χωρίς αγνώστους. Μόνο μάθηση μεταμφιεσμένη σε παιχνίδι."
-                : "No chat. No strangers. Just learning disguised as fun."}
+                ? "Χωρίς chat με αγνώστους. Μόνο η WiseBot. Μόνο μάθηση μεταμφιεσμένη σε παιχνίδι."
+                : "No chat with strangers. Only WiseBot. Just learning disguised as fun."}
             </p>
           </motion.div>
 
@@ -362,8 +362,8 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               </h3>
               <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3">
                 {[
-                  { el: 'Χωρίς chat', en: 'No chat' },
-                  { el: 'Χωρίς αγνώστους', en: 'No strangers' },
+                  { el: 'Χωρίς chat με αγνώστους', en: 'No chat with strangers' },
+                  { el: 'Φίλτρα περιεχομένου σε κάθε AI', en: 'Content filters on every AI' },
                   { el: 'Γονεϊκός Πίνακας', en: 'Parent Dashboard' },
                   { el: 'Email επαλήθευση', en: 'Email verification' },
                 ].map((item, i) => (

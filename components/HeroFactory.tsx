@@ -18,6 +18,7 @@ import {
   Download,
   Share2,
   Camera,
+  Lock,
   Upload,
   UserCircle,
   ImageIcon
@@ -25,6 +26,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { backendAI, isBackendAvailable } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
+import { useAuth } from '../context/AuthContext';
 import { renderHeroCard, shareHeroCard, downloadDataUrl } from '../utils/heroCardCanvas';
 import ShareButton from './ShareButton';
 
@@ -85,6 +87,10 @@ const quotesFor = (lang: 'el' | 'en') => [
 export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const navigate = useNavigate();
   const { credits, spendCredits, costs, trackAction, showNotification } = useEconomy();
+  const { isGuest, profile } = useAuth();
+  // A child's face goes to a third-party model. That is only acceptable behind an account
+  // whose parent has actually been verified — never for a guest, and not before verification.
+  const photoAllowed = !isGuest && !!profile?.parentVerified;
 
   const [step, setStep] = useState(-1); // Start at mode selection
   const [mode, setMode] = useState<'create' | 'avatar' | null>(null);
@@ -279,6 +285,13 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   // Avatar mode: generate avatar from photo
   const handleGenerateAvatar = async () => {
     if (!uploadedPhoto || !avatarName) return;
+    // Second gate, independent of the mode-selection button: nothing leaves the device
+    // unless a verified parent account is present, whatever path led to this step.
+    if (!photoAllowed) {
+      showNotification('🔒', lang === 'el' ? 'Χρειάζεται επαληθευμένος γονέας.' : 'A verified parent is required.');
+      setStep(-1);
+      return;
+    }
     const success = spendCredits(costs.image);
     if (!success) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
@@ -512,15 +525,26 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => { setMode('avatar'); setStep(6); }}
-                className="group relative p-6 rounded-[2rem] border-2 border-cyan-500/30 bg-gradient-to-br from-cyan-900/30 to-blue-900/20 text-left hover:border-cyan-400/60 transition-all overflow-hidden"
+                onClick={() => {
+                  if (!photoAllowed) {
+                    showNotification('🔒', lang === 'el'
+                      ? (isGuest ? 'Η φωτογραφία θέλει λογαριασμό γονέα.' : 'Ο γονέας πρέπει πρώτα να επαληθευτεί.')
+                      : (isGuest ? 'Photos need a parent account.' : 'A parent must verify first.'));
+                    setTimeout(() => navigate(isGuest ? '/login' : '/parent'), 900);
+                    return;
+                  }
+                  setMode('avatar'); setStep(6);
+                }}
+                className={`group relative p-6 rounded-[2rem] border-2 text-left transition-all overflow-hidden ${photoAllowed
+                  ? 'border-cyan-500/30 bg-gradient-to-br from-cyan-900/30 to-blue-900/20 hover:border-cyan-400/60'
+                  : 'border-white/10 bg-white/[0.03] hover:border-white/20'}`}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-all" />
                 <div className="relative z-10 space-y-3">
-                  <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
-                    <Camera size={32} className="text-cyan-400" />
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${photoAllowed ? 'bg-cyan-500/20' : 'bg-white/5'}`}>
+                    {photoAllowed ? <Camera size={32} className="text-cyan-400" /> : <Lock size={30} className="text-white/40" />}
                   </div>
-                  <h3 className="text-xl font-[1000] text-white uppercase italic tracking-tight">
+                  <h3 className={`text-xl font-[1000] uppercase italic tracking-tight ${photoAllowed ? 'text-white' : 'text-white/60'}`}>
                     {lang === 'el' ? 'ΓΙΝΕ ΗΡΩΑΣ!' : 'BECOME A HERO!'}
                   </h3>
                   <p className="text-white/50 text-sm font-bold">
@@ -528,9 +552,20 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
                       ? 'Ανέβασε τη φωτογραφία σου και το AI θα σε κάνει ήρωα Pixar!'
                       : 'Upload your photo and AI will turn you into a Pixar hero!'}
                   </p>
-                  <div className="flex items-center gap-2 text-cyan-400 text-xs font-black uppercase tracking-wider">
-                    <Sparkles size={14} /> {lang === 'el' ? 'ΝΕΟ!' : 'NEW!'}
-                  </div>
+                  {photoAllowed ? (
+                    <div className="flex items-center gap-2 text-cyan-400 text-xs font-black uppercase tracking-wider">
+                      <Sparkles size={14} /> {lang === 'el' ? 'ΝΕΟ!' : 'NEW!'}
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2 text-amber-300/90 text-xs font-black uppercase tracking-wider">
+                      <Lock size={13} /> {lang === 'el' ? 'ΜΟΝΟ ΜΕ ΕΠΑΛΗΘΕΥΜΕΝΟ ΓΟΝΕΑ' : 'VERIFIED PARENT ONLY'}
+                    </div>
+                  )}
+                  <p className="text-white/35 text-[11px] leading-snug">
+                    {lang === 'el'
+                      ? 'Η φωτογραφία χρησιμοποιείται μόνο για να φτιαχτεί ο ήρωας και δεν αποθηκεύεται.'
+                      : 'The photo is used only to create the hero and is not stored.'}
+                  </p>
                 </div>
               </motion.button>
 

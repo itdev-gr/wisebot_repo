@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Zap, Star, Crown, Rocket, Gift, Sparkles, ArrowRight, BookOpen, Brain, Briefcase, Music, Clapperboard, Box, CheckCircle, Loader2, Shield, AlertCircle, X, Smartphone, Mail } from 'lucide-react';
+import { Zap, Star, Crown, Rocket, Gift, Sparkles, ArrowRight, BookOpen, Brain, Briefcase, Music, Clapperboard, Box, CheckCircle, Loader2, Shield, AlertCircle, X, Smartphone, Mail, Lock } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -211,7 +211,12 @@ export default function CreditStore({ lang }: CreditStoreProps) {
                 {buyingPack === pack.id ? (
                   <><Loader2 size={14} className="animate-spin" /> {lang === 'el' ? 'ΦΟΡΤΩΣΗ...' : 'LOADING...'}</>
                 ) : backendReady ? (
-                  <>{lang === 'el' ? 'ΑΓΟΡΑ' : 'BUY NOW'} <ArrowRight size={14} /></>
+                  // The verification gate already exists in handleBuy; this only makes it
+                  // visible, so a child sees the lock before tapping and a parent sees that
+                  // buying is gated — instead of discovering it one screen later.
+                  isParentVerified()
+                    ? <>{lang === 'el' ? 'ΑΓΟΡΑ' : 'BUY NOW'} <ArrowRight size={14} /></>
+                    : <><Lock size={13} /> {lang === 'el' ? 'ΜΕ ΕΠΑΛΗΘΕΥΣΗ ΓΟΝΕΑ' : 'PARENT VERIFICATION'}</>
                 ) : (
                   t.comingSoon
                 )}
