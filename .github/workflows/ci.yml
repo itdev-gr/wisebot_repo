@@ -37,6 +37,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Test
+        run: npm test
+
       # No secrets needed: all AI keys live server-side, and the Supabase client falls
       # back to placeholders when VITE_* vars are absent. This proves the bundle builds,
       # not that it can reach production services.
