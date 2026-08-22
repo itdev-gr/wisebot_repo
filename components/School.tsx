@@ -17,6 +17,7 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import { GraduationCap, ArrowLeft, Play, BookMarked, Star, Trophy, Lock } from 'lucide-react';
 import QuizEngine, { getQuizProgress, getQuizStars, getQuizBest } from './QuizEngine';
 import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 const motion = m as any;
 
@@ -64,6 +65,7 @@ const StarRow = ({ stars, size = 13 }: { stars: number; size?: number }) => (
 );
 
 export default function School({ lang }: SchoolProps) {
+  const childName = useChildName(lang);
   const [activeGrade, setActiveGrade] = useState<SchoolGrade | null>(null);
   const [activeSubject, setActiveSubject] = useState<SchoolSubject | null>(null);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
@@ -106,6 +108,9 @@ export default function School({ lang }: SchoolProps) {
   if (activeGrade && activeSubject) {
     return (
       <div className="max-w-6xl mx-auto px-4 min-h-full py-2 pb-4">
+      <FirstTimeTip id="school" lang={lang} text={lang === 'el'
+        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Τα quiz δίνουν αστέρια, credits — και απολυτήριο όταν τα περάσεις όλα!</>
+        : <>🦉 Pick your grade, {childName}. Quizzes give stars, credits — and a diploma when you pass them all!</>} />
         <button
           onClick={() => { setActiveSubject(null); refreshSaved(); }}
           className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-3 transition-colors"

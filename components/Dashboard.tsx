@@ -41,6 +41,7 @@ import { useAuth } from '../context/AuthContext';
 import DailyMission from './DailyMission';
 import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 import GiftModal from './GiftModal';
 import GiftInbox, { useGiftCount } from './GiftInbox';
 
@@ -386,7 +387,10 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
   const { credits, badges, stats, earnCredits, syncFromCloud } = useEconomy();
-  const { user } = useAuth();
+  const { user, profile, isGuest } = useAuth();
+  const childName = useChildName(lang);
+  // Greeting uses the real name only for signed-in children; guests get the headline alone.
+  const greetName = !isGuest && profile?.childName?.trim() ? profile.childName.trim() : null;
   const [dashboardVideo, setDashboardVideo] = useState<typeof DASHBOARD_VIDEOS[0] | null>(null);
   const [showGiftModal, setShowGiftModal] = useState(false);
   const [showGiftInbox, setShowGiftInbox] = useState(false);
@@ -565,6 +569,15 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       {/* 🎁 DAILY REWARD POPUP */}
       <DailyRewardPopup lang={lang} />
       <OnboardingOverlay lang={lang} />
+      {/* Not while the 4-step onboarding modal is up — the tip is the step after it. */}
+      {(isGuest || profile?.onboardingComplete) && <FirstTimeTip
+        id="dashboard"
+        lang={lang}
+        delayMs={1200}
+        text={lang === 'el'
+          ? <>🦉 <strong>Εγώ είμαι η WiseBot, {childName}.</strong> Εδώ διαβάζεις, κερδίζεις, δημιουργείς — και στο τέλος στήνεις τη δική σου εταιρεία. Ξεκίνα από το <strong>ΔΙΑΒΑΣΕ</strong>: το πρώτο σου βιβλίο σου δίνει 2⚡.</>
+          : <>🦉 <strong>I'm WiseBot, {childName}.</strong> Here you read, earn, create — and in the end build your own company. Start with <strong>READ</strong>: your first book gives you 2⚡.</>}
+      />}
 
       {/* 🎉 CELEBRATION OVERLAY */}
       {celebrateStage !== null && (
@@ -598,6 +611,11 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                 <span className="text-[10px] font-black uppercase tracking-[0.2em]">WISEBOT ACADEMY HQ</span>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-[1000] text-white italic tracking-tighter uppercase leading-none">
+                {greetName && (
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 text-2xl md:text-4xl lg:text-5xl mb-1">
+                    {lang === 'el' ? `ΓΕΙΑ ΣΟΥ, ${greetName.toUpperCase()}!` : `HI, ${greetName.toUpperCase()}!`}
+                  </span>
+                )}
                 {lang === 'el' ? 'ΤΙ ΘΑ ΜΑΘΟΥΜΕ' : 'WHAT WILL WE LEARN'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΣΗΜΕΡΑ;' : 'TODAY?'}</span>
               </h1>
               <p className="text-white/60 font-bold text-sm md:text-base max-w-2xl leading-relaxed mt-3">

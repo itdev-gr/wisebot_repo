@@ -29,6 +29,7 @@ import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { renderHeroCard, shareHeroCard, downloadDataUrl } from '../utils/heroCardCanvas';
 import ShareButton from './ShareButton';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 const motion = m as any;
 
@@ -85,6 +86,7 @@ const quotesFor = (lang: 'el' | 'en') => [
 ];
 
 export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
+  const childName = useChildName(lang);
   const navigate = useNavigate();
   const { credits, spendCredits, costs, trackAction, showNotification } = useEconomy();
   const { isGuest, profile } = useAuth();
@@ -505,6 +507,9 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           transition={{ duration: 0.35 }}
           className="glass-panel p-8 md:p-12 rounded-[3rem] border-2 border-white/10 shadow-[0_0_60px_rgba(124,58,237,0.15)] relative backdrop-blur-2xl overflow-hidden"
         >
+      <FirstTimeTip id="factory" lang={lang} text={lang === 'el'
+        ? <>🦉 Εδώ φτιάχνεις τον δικό σου ήρωα με μαγεία, {childName}. Κοστίζει 6⚡. Πρώτα διάβασε, μετά φτιάξε!</>
+        : <>🦉 This is where you make your own hero with magic, {childName}. It costs 6⚡. Read first, then create!</>} />
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse" />
 
           <div className="relative z-10 text-center space-y-8">

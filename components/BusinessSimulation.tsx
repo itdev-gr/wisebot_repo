@@ -8,6 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { backendAI } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 interface Props {
   lang: 'el' | 'en';
@@ -37,6 +38,7 @@ const TARGETS = [
 ];
 
 const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
+  const childName = useChildName(lang);
   const navigate = useNavigate();
   const { credits, spendCredits, trackAction, showNotification, costs } = useEconomy();
   const [step, setStep] = useState(0);
@@ -201,6 +203,9 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
   return (
     <div className="pb-32 px-4 max-w-4xl mx-auto animate-in fade-in duration-700 space-y-8">
+      <FirstTimeTip id="business" lang={lang} text={lang === 'el'
+        ? <>🦉 Εδώ γίνεσαι αφεντικό, {childName}. Διάλεξε τι πουλάς, βάλε όνομα, φτιάξε λογότυπο — και η εταιρεία σου είναι αληθινή. Κοστίζει 4⚡.</>
+        : <>🦉 Here you're the boss, {childName}. Choose what you sell, name it, design a logo — and your company is real. It costs 4⚡.</>} />
 
       {/* Header */}
       <header className="pt-6 text-center space-y-3">

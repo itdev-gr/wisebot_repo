@@ -6,6 +6,7 @@ import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { isBackendAvailable, backendStripe } from '../services/backendApi';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 const motion = m as any;
 const AnimatePresenceAny = AnimatePresence as any;
@@ -38,6 +39,7 @@ const COST_TABLE = [
 ];
 
 export default function CreditStore({ lang }: CreditStoreProps) {
+  const childName = useChildName(lang);
   const { credits, costs, showNotification, syncFromCloud } = useEconomy();
   const { user, profile, emailVerified } = useAuth();
   const navigate = useNavigate();
@@ -136,6 +138,9 @@ export default function CreditStore({ lang }: CreditStoreProps) {
 
   return (
     <div className="max-w-5xl mx-auto py-8 px-4 pb-32 min-h-screen space-y-10">
+      <FirstTimeTip id="store" lang={lang} text={lang === 'el'
+        ? <>🦉 Εδώ αγοράζει credits ο μπαμπάς ή η μαμά, {childName}. Εσύ τα κερδίζεις διαβάζοντας — δωρεάν, πάντα.</>
+        : <>🦉 This is where mum or dad buys credits, {childName}. You earn them by reading — free, always.</>} />
 
       {/* HEADER */}
       <motion.div

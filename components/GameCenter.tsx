@@ -2,6 +2,7 @@
 import React, { useState, Suspense } from 'react';
 import { motion as m } from 'framer-motion';
 import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear } from 'lucide-react';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
 const NebulaCatch = React.lazy(() => import('./games/NebulaCatch'));
@@ -41,6 +42,7 @@ interface GameCenterProps {
 }
 
 export default function GameCenter({ lang }: GameCenterProps) {
+  const childName = useChildName(lang);
   const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell'>('menu');
 
   const t = {
@@ -107,6 +109,9 @@ export default function GameCenter({ lang }: GameCenterProps) {
 
     return (
       <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col overflow-hidden">
+      <FirstTimeTip id="games" lang={lang} text={lang === 'el'
+        ? <>🦉 16 παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει credits — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
+        : <>🦉 16 games, all free, {childName}. Every win gives credits — up to twice a day per game.</>} />
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img src="/images/paidia-kai-wisebot.webp" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.04]" />

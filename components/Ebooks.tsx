@@ -375,6 +375,7 @@ function splitIntoPages(html: string): string[] {
 
 // Lightweight metadata for the book list
 import { BOOK_METADATA } from '../data/bookMetadata';
+import FirstTimeTip, { useChildName } from './FirstTimeTip';
 const BOOKS = BOOK_METADATA as any[];
 
 interface EbooksProps {
@@ -386,6 +387,7 @@ interface EbooksProps {
 }
 
 export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => {
+  const childName = useChildName(lang);
   const [selectedBookId, setSelectedBookId] = useState<number | string | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
@@ -489,6 +491,9 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
   return (
     <div className="relative w-full h-full overflow-y-auto overflow-x-hidden custom-scrollbar pb-32">
+      <FirstTimeTip id="library" lang={lang} text={lang === 'el'
+        ? <>🦉 Διάλεξε όποιο βιβλίο θες, {childName}. Αν βαριέσαι να διαβάζεις, πάτα <strong>ΑΚΟΥΣΕ</strong> και σου το διαβάζω εγώ. Κάθε βιβλίο που τελειώνεις = 2⚡.</>
+        : <>🦉 Pick any book you like, {childName}. If reading feels like a chore, press <strong>LISTEN</strong> and I'll read it to you. Every finished book = 2⚡.</>} />
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* HEADER                                                     */}
