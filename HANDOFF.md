@@ -3,6 +3,43 @@
 Start here. Written at the end of the setup session (15–16 Αυγούστου 2026), when the new
 MacBook had no toolchain and no local project context.
 
+---
+
+## ⚡ STATUS 17 Αυγούστου 2026 — read this first; it supersedes the task list below
+
+**Infrastructure is done.** `gh` is logged in as itdev-gr (keyring), git identity set, push →
+Vercel auto-deploy → wisebot.gr proven. CI (`.github/workflows/ci.yml`: typecheck + lint +
+build) gates `main`; lint is at **0 errors**. Database security fixes are live and recorded in
+`supabase/migrations/`. `AUDIT-2026-08-16.md` is the technical audit; `AUDIT-BUGS.md`'s API3
+entry is stale (already race-safe).
+
+**Open PR #9 — `ux/parent-trust`** (3 commits, CI green, Vercel preview up). From the UX
+audit of the live site. Merging deploys to wisebot.gr — **owner's call**:
+- P0 parent trust: photo upload only for verified-parent accounts (+ honest "not stored"
+  note); parent-consent checkbox on signup; "Χωρίς chat" → "Χωρίς chat με αγνώστους";
+  store buttons show the parent-verification lock.
+- P1 first run: one overlay instead of four; entrance ~2.5s → ~1s; portal intro plays once;
+  the 8 portal cards navigate; "Σύνδεση" link on the landing; FAB/mute overlaps fixed.
+- P2 landing repositioned: "Το διάβασμα έγινε παιχνίδι." Age/grades first, books + school
+  track lead, AI framed as the reward, new "Για γονείς" section, SEO title/OG updated.
+
+**Remaining UX (P3, small, separate PR):** Music Studio shows "-2⚡" while the store says a
+song costs 60 — verify which is real; Parent Dashboard is a dead end for guests (asks for a
+password with no explanation); signup form lacks field labels and does not say why it asks
+for a phone number; password rule (upper+digit+symbol) is friction — length 8+ plus the
+Supabase leaked-password check (currently OFF, one dashboard toggle) is better.
+
+**Parked:** `wip/tests` branch holds a Vitest setup + EconomyContext tests that cannot run
+here — the space in the folder name (`wisebot-claude-ok 3`) is URL-encoded to `%203` by
+vitest's fork pool and the worker never starts. Moving the repo to a path without spaces
+(and off iCloud — `~/Projects/wisebot`) fixes this and the 3-minute typechecks. Safe now:
+GitHub has everything.
+
+**Next after PR #9:** P3 UX items · move the repo · unpark tests · `strictNullChecks` ·
+CONTENT-PLAN.md Phase 1b (Γ' Δημοτικού multiplication sample unit).
+
+Tasks 1, 2, 4, 7 below are DONE; 5 is parked; 3 and 6 remain.
+
 `CLAUDE.md` describes the codebase. `FIX-PLAN.md` is the prioritised backlog. This file is the
 state of the machine, what was already done, and the order to work in.
 
