@@ -108,9 +108,6 @@ export default function School({ lang }: SchoolProps) {
   if (activeGrade && activeSubject) {
     return (
       <div className="max-w-6xl mx-auto px-4 min-h-full py-2 pb-4">
-      <FirstTimeTip id="school" lang={lang} text={lang === 'el'
-        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Τα quiz δίνουν αστέρια, credits — και απολυτήριο όταν τα περάσεις όλα!</>
-        : <>🦉 Pick your grade, {childName}. Quizzes give stars, credits — and a diploma when you pass them all!</>} />
         <button
           onClick={() => { setActiveSubject(null); refreshSaved(); }}
           className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-3 transition-colors"
@@ -234,6 +231,9 @@ export default function School({ lang }: SchoolProps) {
   // ─── SCREEN 1: GRADE PICKER ─────────────────────────────────────
   return (
     <div className="max-w-6xl mx-auto px-4 min-h-full py-8 pb-32">
+      <FirstTimeTip id="school" lang={lang} text={lang === 'el'
+        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Τα quiz δίνουν αστέρια, credits — και απολυτήριο όταν τα περάσεις όλα!</>
+        : <>🦉 Pick your grade, {childName}. Quizzes give stars, credits — and a diploma when you pass them all!</>} />
       <div className="text-center space-y-4 mb-12">
         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
           <GraduationCap size={14} className="text-blue-400" />

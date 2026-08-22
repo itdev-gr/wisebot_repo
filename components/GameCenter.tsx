@@ -109,9 +109,6 @@ export default function GameCenter({ lang }: GameCenterProps) {
 
     return (
       <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col overflow-hidden">
-      <FirstTimeTip id="games" lang={lang} text={lang === 'el'
-        ? <>🦉 16 παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει credits — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
-        : <>🦉 16 games, all free, {childName}. Every win gives credits — up to twice a day per game.</>} />
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img src="/images/paidia-kai-wisebot.webp" alt="" className="absolute inset-0 w-full h-full object-cover opacity-[0.04]" />
@@ -396,6 +393,9 @@ export default function GameCenter({ lang }: GameCenterProps) {
 
   return (
     <div className="max-w-5xl mx-auto py-6 px-4 pb-32 animate-in fade-in">
+      <FirstTimeTip id="games" lang={lang} text={lang === 'el'
+        ? <>🦉 16 παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει credits — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
+        : <>🦉 16 games, all free, {childName}. Every win gives credits — up to twice a day per game.</>} />
 
       {/* HEADER */}
       <div className="text-center space-y-3 mb-8">
