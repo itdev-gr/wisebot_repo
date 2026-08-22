@@ -5,6 +5,34 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 23 Αυγούστου 2026 — read this first
+
+**Live on wisebot.gr (merged today, PR #11):** the whole first-run experience from
+`ONBOARDING-PLAN.md` — greeting by name, WiseBot's one-time tip in each room
+(`components/FirstTimeTip.tsx`), onboarding picks a hero before any photo, localized reward
+toasts with a first-book moment, honest credit labels, and **progressive unlocks**
+(`utils/unlocks.ts`, `components/UnlockGate.tsx`): Hero Factory ← 1 story, Cinema/3D ← 1 hero,
+My Company ← 2 stories; Music and all learning rooms always open. Existing users are
+grandfathered by their stats.
+
+**Earlier today (PR #9, #10):** parent-trust gates, first-run overlay cleanup, landing
+repositioned ('Το διάβασμα έγινε παιχνίδι'), Vitest in CI (10 tests).
+
+**Repo:** `~/Projects/wisebot` (not the old Desktop copy). typecheck ~3s, tests ~0.5s.
+
+**Next, in order:**
+1. P3 UX leftovers — Music Studio shows "-2⚡" vs store "-60": verify which is real;
+   Parent Dashboard dead-ends guests; signup form needs labels + why the phone is asked.
+2. Category by category, as the owner wants: Βιβλία → Ακαδημία → Quiz → Σχολείο. The
+   School is where the promise becomes content: `CONTENT-PLAN.md` Phase 1b, Γ' Δημοτικού
+   multiplication sample unit (18 questions) for approval before the other 29 units.
+3. `strictNullChecks`; cleanup (dead endpoints, unused PINs).
+
+**Owner decisions made:** merge only on explicit say-so; music stays unlocked (it is the ad
+hook); unlocks must be easy; tips/unlocks in localStorage are fine for v1.
+
+---
+
 ## ⚡ STATUS 17 Αυγούστου 2026 — read this first; it supersedes the task list below
 
 **Infrastructure is done.** `gh` is logged in as itdev-gr (keyring), git identity set, push →
