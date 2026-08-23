@@ -785,6 +785,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                       <EbookQuiz
                         questions={loadedQuizzes[Number(activeBook.id)] || []}
                         lang={lang}
+                        reward={3}
                         onComplete={handleQuizComplete}
                         onRetry={() => setShowQuiz(false)}
                         onNextBook={handleNextBook}
