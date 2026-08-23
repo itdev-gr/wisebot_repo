@@ -32,10 +32,17 @@ What PR #16 shipped:
 - Known cosmetic: the Δ' grade file names its science subject «Φυσικά» (should be «Μελέτη
   Περιβάλλοντος» — Φυσικά starts in Ε'); the name comes from `data/schoolGrade4.ts`.
 
-**Next for School, in order:** (1) parent view: which missions are weak;
-(2) per-grade diploma should require Master in every subject — all grades now have units;
-(3) rename Δ' «Φυσικά» → «Μελέτη Περιβάλλοντος» in `data/schoolGrade4.ts`;
-(4) owner still reads samples per subject on the phone and reports anything off.
+**Open: PR #25 `feat/school-parent-view`** (CI green, for the owner's say-so) — the three
+School follow-ups in one: Parent Dashboard «Σχολείο» section (`components/
+ParentSchoolProgress.tsx`: per played grade, stars/Master per subject, exam/diploma, and the
+missions under 2 stars — replaces the stale "Coming Soon — school subjects" block); the
+grade exam now unlocks only with Master in every subject; grade cards count missions; Δ'
+«Φυσικά» → «Μελέτη Περιβάλλοντος». Note: Α' still has a 5th flat subject «Ο τόπος μου»
+(12 questions, not in the unit skeleton) — fold it into Μελέτη Περιβάλλοντος or leave.
+
+**Next for School:** owner reads samples per subject on the phone and reports anything
+off; then the parent view could move server-side (today it reads this device's
+localStorage, so a parent on another phone sees nothing).
 
 ---
 
