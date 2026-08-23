@@ -14,7 +14,8 @@ interface StreakData {
   totalClaimed: number;
 }
 
-const STREAK_REWARDS = [1, 2, 2, 3, 3, 5, 10];
+// XP per consecutive day. (Credits are bought, not handed out daily — 24 Αυγούστου 2026.)
+const STREAK_REWARDS = [10, 20, 20, 30, 30, 50, 100];
 
 const DAY_LABELS = {
   el: ['ΔΕΥ', 'ΤΡΙ', 'ΤΕΤ', 'ΠΕΜ', 'ΠΑΡ', 'ΣΑΒ', 'ΚΥΡ'],
@@ -59,7 +60,7 @@ const injectStyles = () => {
 };
 
 export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
-  const { earnCredits } = useEconomy();
+  const { earnXp } = useEconomy();
   const [show, setShow] = useState(false);
   const [claimed, setClaimed] = useState(false);
   const [rewardAmount, setRewardAmount] = useState(0);
@@ -96,7 +97,7 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
     const clampedStreak = Math.min(newStreak, STREAK_REWARDS.length);
     const reward = STREAK_REWARDS[Math.min(clampedStreak - 1, STREAK_REWARDS.length - 1)];
 
-    earnCredits(reward);
+    earnXp(reward, 'DAILY_STREAK');
     setRewardAmount(reward);
     setClaimed(true);
     setShowConfetti(true);
@@ -129,14 +130,14 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
     title: 'ΗΜΕΡΗΣΙΟ ΔΩΡΟ!',
     subtitle: isFirstVisit ? 'Καλώς ήρθες! Ένα δώρο για την αρχή.' : 'Επέστρεψες! Πάρε την ανταμοιβή σου.',
     claim: 'ΠΑΡΕ ΤΟ ΔΩΡΟ',
-    credits: 'CREDITS',
+    credits: '⭐ XP',
     congrats: 'Μπράβο! Συνέχισε αύριο!',
     day7: 'MEGA ΔΩΡΟ!',
   } : {
     title: 'DAILY REWARD!',
     subtitle: isFirstVisit ? "Welcome! A little gift to start." : "You're back! Claim your reward.",
     claim: 'CLAIM REWARD',
-    credits: 'CREDITS',
+    credits: '⭐ XP',
     congrats: 'Nice! Come back tomorrow!',
     day7: 'MEGA REWARD!',
   };

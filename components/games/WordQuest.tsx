@@ -103,7 +103,7 @@ function consumeReward() {
 }
 
 export default function WordQuest({ lang, onBack }: WordQuestProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [phase, setPhase] = useState<'start' | 'play' | 'end'>('start');
   const [runWords, setRunWords] = useState<Array<{ word: string; hint: string }>>([]);
   const [wordIdx, setWordIdx] = useState(0);
@@ -182,10 +182,10 @@ export default function WordQuest({ lang, onBack }: WordQuestProps) {
     const reward = solved >= 7 ? 3 : solved >= 5 ? 2 : solved >= 3 ? 1 : 0;
     if (reward > 0 && rewardsLeftToday() > 0) {
       consumeReward();
-      earnCredits(reward, 'GAME_REWARD');
-      showNotification('📝', lang === 'el' ? 'ΛΕΞΟΜΑΧΕ!' : 'WORD MASTER!', `+${reward} Credits ⚡`);
+      earnXp(reward * 10, 'GAME_REWARD');
+      showNotification('📝', lang === 'el' ? 'ΛΕΞΟΜΑΧΕ!' : 'WORD MASTER!', `+${reward * 10} ⭐ XP`);
     }
-  }, [phase, solved, earnCredits, showNotification, lang]);
+  }, [phase, solved, earnXp, showNotification, lang]);
 
   const tapLetter = useCallback((idx: number) => {
     if (phase !== 'play' || pool[idx].used || flash) return;

@@ -67,46 +67,33 @@ describe('spendCredits — balance checks', () => {
   });
 });
 
-describe('costs — badge discounts', () => {
+describe('costs — same for everyone', () => {
   it('charges base prices when no badge is unlocked', () => {
     const { result } = renderEconomy();
     expect(result.current.costs).toEqual(BASE);
   });
 
-  it('applies thinker (-1 image), filmmaker (-2 video), musician (-2 song)', () => {
+  it('badges change nothing about prices (the server charges base; the UI must agree)', () => {
+    // Until 24 Αυγούστου 2026 badges discounted the displayed price only, so a
+    // badged child was told 58 and charged 60. Prices are now equal to api/_lib/costs.ts.
     seedBadges({ thinker: true, filmmaker: true, musician: true });
     const { result } = renderEconomy();
-
-    expect(result.current.costs.image).toBe(BASE.image - 1);
-    expect(result.current.costs.video).toBe(BASE.video - 2);
-    expect(result.current.costs.song).toBe(BASE.song - 2);
-    // No badge discounts these two
-    expect(result.current.costs.threeD).toBe(BASE.threeD);
-    expect(result.current.costs.business).toBe(BASE.business);
+    expect(result.current.costs).toEqual(BASE);
   });
+});
 
-  it('the discount changes the amount actually charged, not only the display', () => {
-    seedBadges({ thinker: true });
-    seedCredits(20);
+describe('earnXp — effort pays in XP, not credits', () => {
+  it('never changes the credit balance and dispatches wb:xp', () => {
+    seedCredits(10);
     const { result } = renderEconomy();
+    const seen: number[] = [];
+    const onXp = (e: Event) => seen.push((e as CustomEvent).detail.amount);
+    window.addEventListener('wb:xp', onXp);
+    act(() => { result.current.earnXp(30, 'GAME_REWARD'); });
+    window.removeEventListener('wb:xp', onXp);
 
-    act(() => { result.current.spendCredits(result.current.costs.image); });
-
-    // CTX3 regression: a [] dependency on the costs memo made discounts
-    // display-only. Charged must be base - 1, so 20 - 5 = 15, not 14.
-    expect(result.current.credits).toBe(20 - (BASE.image - 1));
-  });
-
-  it('a discount lets a balance pass that the base price would refuse', () => {
-    seedBadges({ musician: true });
-    seedCredits(BASE.song - 2); // exactly the discounted price, below base
-    const { result } = renderEconomy();
-
-    let allowed: boolean | undefined;
-    act(() => { allowed = result.current.spendCredits(result.current.costs.song); });
-
-    expect(allowed).toBe(true);
-    expect(result.current.credits).toBe(0);
+    expect(seen).toEqual([30]);
+    expect(result.current.credits).toBe(10);
   });
 });
 

@@ -561,8 +561,8 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
       }}
     >
       <FirstTimeTip id="academy" lang={lang} text={lang === 'el'
-        ? <>🦉 {ACADEMY_STORY_COUNT} άνθρωποι που ξεκίνησαν από το τίποτα, {childName} — ο Messi, ο Disney, η Rowling. Πάτα έναν και δες πώς τα κατάφερε. Κάθε ιστορία = 2⚡.</>
-        : <>🦉 {ACADEMY_STORY_COUNT} people who started from nothing, {childName} — Messi, Disney, Rowling. Tap one and see how they did it. Every story = 2⚡.</>} />
+        ? <>🦉 {ACADEMY_STORY_COUNT} άνθρωποι που ξεκίνησαν από το τίποτα, {childName} — ο Messi, ο Disney, η Rowling. Πάτα έναν και δες πώς τα κατάφερε. Κάθε ιστορία = 20 XP.</>
+        : <>🦉 {ACADEMY_STORY_COUNT} people who started from nothing, {childName} — Messi, Disney, Rowling. Tap one and see how they did it. Every story = 20 XP.</>} />
 
       {/* HEADER */}
       <div className="text-center pt-8 pb-6 px-4 space-y-3 relative z-10">

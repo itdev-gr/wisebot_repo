@@ -15,7 +15,7 @@ export const UI_TEXT = {
       modules: {
         academy: { title: 'ΑΚΑΔΗΜΙΑ', sub: 'Μαθήματα & Ιστορίες', btn: 'ΣΥΝΕΧΙΣΕ ΤΗΝ ΕΚΠΑΙΔΕΥΣΗ', prog: 'Πρόοδος Μαθημάτων' },
         ebooks: { title: 'ΒΙΒΛΙΟΘΗΚΗ', sub: 'Ξεκλείδωσε τη Σοφία', btn: 'ΑΝΟΙΞΕ ΒΙΒΛΙΑ', remaining: 'Βιβλία προς ανάγνωση' },
-        factory: { title: 'ΕΡΓΑΣΤΗΡΙΟ', sub: 'Δημιούργησε Ήρωες', btn: 'ΝΕΑ ΔΗΜΙΟΥΡΓΙΑ', cost: '⚡ 50 Credits για μαγεία!' },
+        factory: { title: 'ΕΡΓΑΣΤΗΡΙΟ', sub: 'Δημιούργησε Ήρωες', btn: 'ΝΕΑ ΔΗΜΙΟΥΡΓΙΑ', cost: '⚡ 6 Credits για μαγεία!' },
         market: { title: 'ΑΓΟΡΑ ΗΡΩΩΝ', sub: 'Πούλα & Αγόρασε', btn: 'ΕΙΣΟΔΟΣ ΣΤΗΝ ΑΓΟΡΑ', profit: 'Κέρδη από πωλήσεις' },
         quiz: { title: 'ΖΩΝΗ ΚΟΥΙΖ', sub: 'Κέρδισε XP & Δώρα', btn: 'ΠΑΙΞΕ ΤΩΡΑ', status: 'Διαθέσιμη Πρόκληση' },
         friends: { title: 'WISE & ΦΙΛΟΙ', sub: 'Γνώρισε την Ομάδα', btn: 'ΔΕΣ ΤΟΥΣ ΗΡΩΕΣ' },
@@ -34,7 +34,7 @@ export const UI_TEXT = {
         game: { title: 'ΖΩΝΗ ΠΑΙΧΝΙΔΙΩΝ', desc: 'Διασκέδαση & Μάθηση' },
         music: { title: 'ΣΤΟΥΝΤΙΟ ΜΟΥΣΙΚΗΣ', desc: 'Τραγούδια με AI' }
     },
-    factory: { title: 'Εργαστήριο Ήρωα', desc: 'Μετάτρεψε τη φαντασία σου σε πραγματικότητα', nameLabel: 'Όνομα Ήρωα', styleLabel: 'Καλλιτεχνικό Στυλ', promptLabel: 'Περιγραφή Δυνάμεων & Εμφάνισης', promptPlace: 'Περίγραψε τον ήρωά σου... (π.χ. Ένας πράσινος δράκος με γυαλιά)', btn: 'ΔΗΜΙΟΥΡΓΗΣΕ ΤΟ (-50⚡)', download: 'ΛΗΨΗ', share: 'ΚΟΙΝΟΠΟΙΗΣΗ', print: '3D ΕΚΤΥΠΩΣΗ (20€)', credits: 'Πόντοι' },
+    factory: { title: 'Εργαστήριο Ήρωα', desc: 'Μετάτρεψε τη φαντασία σου σε πραγματικότητα', nameLabel: 'Όνομα Ήρωα', styleLabel: 'Καλλιτεχνικό Στυλ', promptLabel: 'Περιγραφή Δυνάμεων & Εμφάνισης', promptPlace: 'Περίγραψε τον ήρωά σου... (π.χ. Ένας πράσινος δράκος με γυαλιά)', btn: 'ΔΗΜΙΟΥΡΓΗΣΕ ΤΟ (-6⚡)', download: 'ΛΗΨΗ', share: 'ΚΟΙΝΟΠΟΙΗΣΗ', print: '3D ΕΚΤΥΠΩΣΗ', credits: 'Πόντοι' },
     factory3d: {
       title: '3D Εργοστάσιο',
       subtitle: 'Ανέβασε τη ζωγραφιά σου και δες την να γίνεται 3D!',
@@ -75,7 +75,7 @@ export const UI_TEXT = {
       modules: {
         academy: { title: 'ACADEMY', sub: 'Lessons & Stories', btn: 'CONTINUE TRAINING', prog: 'Course Progress' },
         ebooks: { title: 'LIBRARY', sub: 'Unlock Wisdom', btn: 'OPEN EBOOKS', remaining: 'Books left to read' },
-        factory: { title: 'FACTORY', sub: 'Create Heroes', btn: 'CREATE NEW', cost: '⚡ 50 Credits for magic!' },
+        factory: { title: 'FACTORY', sub: 'Create Heroes', btn: 'CREATE NEW', cost: '⚡ 6 Credits for magic!' },
         market: { title: 'HERO MARKET', sub: 'Sell & Buy', btn: 'ENTER MARKET', profit: 'Sales Profit' },
         quiz: { title: 'QUIZ ZONE', sub: 'Earn XP & Rewards', btn: 'PLAY NOW', status: 'Challenge Available' },
         friends: { title: 'WISE & FRIENDS', sub: 'Meet the Team', btn: 'VIEW HEROES' },
@@ -95,7 +95,7 @@ export const UI_TEXT = {
         game: { title: 'GAME ZONE', desc: 'Arcade Fun' },
         music: { title: 'MUSIC STUDIO', desc: 'AI Songs' }
     },
-    factory: { title: 'Hero Factory', desc: 'Turn your imagination into 3D reality with one click!', nameLabel: 'Hero Name', styleLabel: 'Art Style', promptLabel: 'Description & Powers', promptPlace: 'Describe your hero... (e.g., A green dragon with glasses)', btn: 'CREATE IT (-50⚡)', download: 'DOWNLOAD', share: 'SHARE', print: '3D ORDER (20€)', credits: 'Credits' },
+    factory: { title: 'Hero Factory', desc: 'Turn your imagination into 3D reality with one click!', nameLabel: 'Hero Name', styleLabel: 'Art Style', promptLabel: 'Description & Powers', promptPlace: 'Describe your hero... (e.g., A green dragon with glasses)', btn: 'CREATE IT (-6⚡)', download: 'DOWNLOAD', share: 'SHARE', print: '3D PRINT', credits: 'Credits' },
     factory3d: { 
       title: '3D Factory', 
       subtitle: 'Upload your drawing and watch it become 3D!', 

@@ -97,7 +97,7 @@ const ENEMY_DATA: Record<EnemyType, { hp: number; speed: number; reward: number;
 };
 
 export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rewardedRef = useRef(false);
   const gs = useRef({
@@ -238,7 +238,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
             g.status = 'lost';
             if (!rewardedRef.current) {
               rewardedRef.current = true;
-              grantGameReward('tower', g.wave >= 5 ? 1 : 0, earnCredits, showNotification, lang);
+              grantGameReward('tower', g.wave >= 5 ? 1 : 0, earnXp, showNotification, lang);
             }
             setUi(prev => ({ ...prev, status: 'lost', lives: 0 }));
           }
@@ -358,7 +358,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
           g.status = 'won';
           if (!rewardedRef.current) {
             rewardedRef.current = true;
-            grantGameReward('tower', 3, earnCredits, showNotification, lang);
+            grantGameReward('tower', 3, earnXp, showNotification, lang);
           }
           setUi(prev => ({ ...prev, status: 'won', wave: g.wave, gold: g.gold, totalKills: g.totalKills }));
         } else {
@@ -548,7 +548,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     ctx.fillText('🏠', g.pathPixels[g.pathPixels.length - 1].x, g.pathPixels[g.pathPixels.length - 1].y + 6);
 
     animRef.current = requestAnimationFrame(loop);
-  }, [spawnParticles, earnCredits, showNotification, lang]);
+  }, [spawnParticles, earnXp, showNotification, lang]);
 
   // ─── CLICK TO PLACE TOWER ──────────────────────
   const handleCanvasClick = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {

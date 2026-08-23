@@ -24,8 +24,8 @@ const PAGE_META: Record<string, PageMeta> = {
       en: 'WiseBot Academy — Reading Just Became a Game | Books, Grades 1–6 & AI for Kids 6–12',
     },
     description: {
-      el: `${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Κάθε σελίδα που διαβάζει το παιδί κερδίζει credits για ήρωες, τραγούδια και βίντεο με AI. Ασφαλές, με γονεϊκό πίνακα.`,
-      en: `${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people and a Grade 1–6 school track — free. Every page a child reads earns credits for AI heroes, songs and videos. Safe, with a parent dashboard.`,
+      el: `${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Το παιδί διαβάζει, ανεβαίνει επίπεδα και ξεκλειδώνει AI ήρωες, τραγούδια και βίντεο. Ασφαλές, με γονεϊκό πίνακα.`,
+      en: `${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people and a Grade 1–6 school track — free. Children read, level up and unlock AI heroes, songs and videos. Safe, with a parent dashboard.`,
     },
     keywords: {
       el: 'παιδικά βιβλία με αφήγηση, σχολείο δημοτικού quiz, εκπαιδευτική εφαρμογή για παιδιά, ασφαλής εφαρμογή για παιδιά, μάθηση μέσα από παιχνίδι, WiseBot Academy, AI για παιδιά, wisebot',

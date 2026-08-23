@@ -29,7 +29,7 @@ interface WisebotPuzzleProps {
 }
 
 export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'victory'>('menu');
   const [selectedHero, setSelectedHero] = useState(HEROES[0]);
@@ -122,7 +122,7 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
       if (isFull) {
           setTimeout(() => {
               setGameState('victory');
-              grantGameReward('puzzle', 2, earnCredits, showNotification, lang);
+              grantGameReward('puzzle', 2, earnXp, showNotification, lang);
           }, 500);
       }
   };

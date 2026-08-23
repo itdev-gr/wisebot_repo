@@ -63,7 +63,7 @@ interface BGStar {
 }
 
 export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const gs = useRef({
     status: 'idle' as 'idle' | 'playing' | 'dead',
@@ -345,7 +345,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
                 g.highScore = total;
                 try { localStorage.setItem('wb_runner_hi', total.toString()); } catch (e) { /* ignore */ }
               }
-              grantGameReward('runner', total >= 300 ? 3 : total >= 150 ? 2 : total >= 50 ? 1 : 0, earnCredits, showNotification, lang);
+              grantGameReward('runner', total >= 300 ? 3 : total >= 150 ? 2 : total >= 50 ? 1 : 0, earnXp, showNotification, lang);
               setUi({ status: 'dead', score: g.score, coins: g.coins, lives: 0, highScore: g.highScore, newHighScore: newHi });
             }
             return false;
@@ -1065,7 +1065,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
 
     ctx.restore();
     animRef.current = requestAnimationFrame(loop);
-  }, [spawnObstacle, generateBuildings, generateStars, earnCredits, showNotification, lang]);
+  }, [spawnObstacle, generateBuildings, generateStars, earnXp, showNotification, lang]);
 
   // ─── START / ACTIONS ───────────────────────────
   const startGame = useCallback(() => {

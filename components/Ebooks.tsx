@@ -523,7 +523,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   // Continuous reading: audio ends → auto-advance page → auto-play next page
   const [continuousMode, setContinuousMode] = useState(false);
   const [autoPlayPage, setAutoPlayPage] = useState(false);
-  const { trackAction } = useEconomy();
+  const { trackAction, claimBookReward } = useEconomy();
   const bookContentRef = useRef<HTMLDivElement>(null);
   const readerScrollRef = useRef<HTMLDivElement>(null);
 
@@ -596,10 +596,16 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   };
 
   const handleQuizComplete = (score: number, total: number) => {
-    if (activeBook && score === total) {
+    if (!activeBook || score !== total) return;
+    const key = `ebook-${activeBook.id}`;
+    // A book counts once: stats/XP locally, and the single 1⚡ reward is verified
+    // and recorded per book by the server (so a retake can never pay twice).
+    if (!completedIds.includes(key)) {
       trackAction('READ_BOOK');
-      if (addXp) addXp(0, `ebook-${activeBook.id}`);
+      if (addXp) addXp(0, key);
     }
+    const id = typeof activeBook.id === 'number' ? activeBook.id : parseInt(String(activeBook.id), 10);
+    if (Number.isInteger(id)) claimBookReward(id);
   };
 
   const handleNextBook = () => {
@@ -623,8 +629,8 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   return (
     <div className="relative w-full h-full overflow-y-auto overflow-x-hidden custom-scrollbar pb-32">
       <FirstTimeTip id="library" lang={lang} text={lang === 'el'
-        ? <>🦉 Διάλεξε όποιο βιβλίο θες, {childName}. Αν βαριέσαι να διαβάζεις, πάτα <strong>ΑΚΟΥΣΕ</strong> και σου το διαβάζω εγώ. Κάθε βιβλίο που τελειώνεις = 3⚡.</>
-        : <>🦉 Pick any book you like, {childName}. If reading feels like a chore, press <strong>LISTEN</strong> and I'll read it to you. Every finished book = 3⚡.</>} />
+        ? <>🦉 Διάλεξε όποιο βιβλίο θες, {childName}. Αν βαριέσαι να διαβάζεις, πάτα <strong>ΑΚΟΥΣΕ</strong> και σου το διαβάζω εγώ. Ολόκληρο βιβλίο + quiz = 1⚡ δικό σου.</>
+        : <>🦉 Pick any book you like, {childName}. If reading feels like a chore, press <strong>LISTEN</strong> and I'll read it to you. Whole book + quiz = 1⚡ of your own.</>} />
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* HEADER                                                     */}
@@ -634,7 +640,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
           WISEBOT &{' '}<span className="text-transparent bg-clip-text magic-gradient">{lang === 'el' ? 'ΟΙ ΦΙΛΟΙ' : 'FRIENDS'}</span>
         </h1>
         <p className="text-white/50 font-bold uppercase tracking-[0.3em] text-xs md:text-sm drop-shadow-lg">
-          {lang === 'el' ? `${BOOKS.length} ΙΣΤΟΡΙΕΣ • 1 ΒΙΒΛΙΟ = +3 CREDITS` : `${BOOKS.length} STORIES • 1 BOOK = +3 CREDITS`}
+          {lang === 'el' ? `${BOOKS.length} ΙΣΤΟΡΙΕΣ • ΒΙΒΛΙΟ + QUIZ = +1 CREDIT` : `${BOOKS.length} STORIES • BOOK + QUIZ = +1 CREDIT`}
         </p>
       </div>
 
@@ -709,7 +715,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
                 {/* Credit reward */}
                 <div className="mt-2 flex items-center justify-center gap-1 text-amber-400/50 text-[9px] font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Zap size={9} fill="currentColor" /> +3 CREDITS
+                  <Zap size={9} fill="currentColor" /> +1 CREDIT
                 </div>
               </motion.div>
             );

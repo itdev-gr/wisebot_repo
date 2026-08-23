@@ -84,7 +84,7 @@ const CONTENT = {
         h2: { el: 'Γιατί τα παιχνίδια στο WiseBot είναι εκπαιδευτικά;', en: 'Why are games at WiseBot educational?' },
         items: [
           { icon: '📚', h3: { el: 'Κερδίζεις γνώση παίζοντας', en: 'Gain knowledge by playing' }, text: { el: 'Πολλά παιχνίδια βασίζονται σε ερωτήσεις από την Ακαδημία. Μαθαίνεις ιστορία, επιστήμη, γεωγραφία.', en: 'Many games are based on questions from the Academy. Learn history, science, geography.' }, link: '/academy' },
-          { icon: '🏆', h3: { el: 'Credits & XP', en: 'Credits & XP' }, text: { el: 'Κάθε παιχνίδι δίνει credits και XP. Τα credits τα χρησιμοποιείς για AI δημιουργίες!', en: 'Every game gives credits and XP. Use credits for AI creations!' }, link: '/game' },
+          { icon: '🏆', h3: { el: 'Credits & XP', en: 'Credits & XP' }, text: { el: 'Κάθε παιχνίδι δίνει XP και επίπεδα. Τα credits για AI δημιουργίες τα αγοράζει ο γονιός — ή τα κερδίζεις με ολόκληρα βιβλία.', en: 'Every game gives XP and levels. Credits for AI creations are bought by a parent — or earned with whole books.' }, link: '/game' },
           { icon: '👫', h3: { el: 'Πρόκαλε φίλους', en: 'Challenge friends' }, text: { el: 'Πρόκαλε φίλους σε quiz και παιχνίδια. Δες ποιος είναι καλύτερος!', en: 'Challenge friends to quizzes and games. See who is better!' }, link: '/wise-friends' },
         ],
       },

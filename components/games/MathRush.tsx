@@ -80,7 +80,7 @@ function consumeReward() {
 }
 
 export default function MathRush({ lang, onBack }: MathRushProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [phase, setPhase] = useState<'start' | 'play' | 'end'>('start');
   const [score, setScore] = useState(0);
   const [combo, setCombo] = useState(0);
@@ -122,10 +122,10 @@ export default function MathRush({ lang, onBack }: MathRushProps) {
     const reward = score >= 15 ? 3 : score >= 8 ? 2 : score >= 3 ? 1 : 0;
     if (reward > 0 && rewardsLeftToday() > 0) {
       consumeReward();
-      earnCredits(reward, 'GAME_REWARD');
-      showNotification('🧮', lang === 'el' ? 'ΜΑΘΗΜΑΤΙΚΕ!' : 'MATH STAR!', `+${reward} Credits ⚡`);
+      earnXp(reward * 10, 'GAME_REWARD');
+      showNotification('🧮', lang === 'el' ? 'ΜΑΘΗΜΑΤΙΚΕ!' : 'MATH STAR!', `+${reward * 10} ⭐ XP`);
     }
-  }, [phase, score, best, earnCredits, showNotification, lang]);
+  }, [phase, score, best, earnXp, showNotification, lang]);
 
   const start = useCallback(() => {
     rewardedRef.current = false;

@@ -53,7 +53,7 @@ function normalizeWord(s: string): string {
 }
 
 export default function SpellListen({ lang, onBack }: SpellListenProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [phase, setPhase] = useState<'start' | 'play' | 'end'>('start');
   const [runWords, setRunWords] = useState<string[]>([]);
   const [wordIdx, setWordIdx] = useState(0);
@@ -153,8 +153,8 @@ export default function SpellListen({ lang, onBack }: SpellListenProps) {
     if (phase !== 'end' || rewardedRef.current) return;
     rewardedRef.current = true;
     const reward = solved >= 7 ? 3 : solved >= 5 ? 2 : solved >= 3 ? 1 : 0;
-    grantGameReward('spell', reward, earnCredits, showNotification, lang);
-  }, [phase, solved, earnCredits, showNotification, lang]);
+    grantGameReward('spell', reward, earnXp, showNotification, lang);
+  }, [phase, solved, earnXp, showNotification, lang]);
 
   const progressDots = useMemo(() => Array.from({ length: WORDS_PER_RUN }, (_, i) => i), []);
 

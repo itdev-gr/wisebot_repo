@@ -114,7 +114,7 @@ const ICONS = [
 ];
 
 export default function WiseCards({ lang, onBack }: WiseCardsProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   // Game State
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'finished'>('menu');
   const [level, setLevel] = useState(LEVELS[0]);
@@ -157,10 +157,10 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
       // so a re-fire from a lang/context change on the finish screen must not call it
       // twice (same double-award shape as audit bugs H1/B4).
       rewardGrantedRef.current = true;
-      grantGameReward('cards', 2, earnCredits, showNotification, lang);
+      grantGameReward('cards', 2, earnXp, showNotification, lang);
     }
     if (gameState !== 'finished') rewardGrantedRef.current = false;
-  }, [gameState, earnCredits, showNotification, lang]);
+  }, [gameState, earnXp, showNotification, lang]);
 
   const startGame = (selectedLevel: typeof LEVELS[0]) => {
     setLevel(selectedLevel);

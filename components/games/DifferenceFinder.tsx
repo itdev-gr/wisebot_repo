@@ -67,7 +67,7 @@ const DIFFERENCES_CONFIG = [
 ];
 
 export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [level, setLevel] = useState(0);
   const [foundDiffs, setFoundDiffs] = useState<string[]>([]);
   const [gameWon, setGameWon] = useState(false);
@@ -100,7 +100,7 @@ export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps
           }, 1500);
         } else {
           setGameWon(true);
-          grantGameReward('diff', 2, earnCredits, showNotification, lang);
+          grantGameReward('diff', 2, earnXp, showNotification, lang);
         }
       }
     }

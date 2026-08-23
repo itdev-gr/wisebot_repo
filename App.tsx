@@ -80,7 +80,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
   const seenBefore = typeof localStorage !== 'undefined' && !!localStorage.getItem('wb_portal_seen');
   const [phase, setPhase] = useState<RitualPhase>(seenBefore ? 'gateway' : 'intro');
   const [showLine2, setShowLine2] = useState(false);
-  const { earnCredits } = useEconomy();
+  const { earnXp } = useEconomy();
 
   useEffect(() => {
     if (seenBefore) return;
@@ -345,7 +345,7 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
     const saved = localStorage.getItem('wb_level');
     return saved ? parseInt(saved) : 1;
   });
-  const { earnCredits } = useEconomy();
+  const { earnXp } = useEconomy();
 
   const [myHeroes, setMyHeroes] = useState<any[]>(() => {
     const saved = localStorage.getItem('wb_heroes');
@@ -378,10 +378,26 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
   const handleClaimBonus = useCallback((): boolean => {
     const today = new Date().toDateString();
     if (lastClaimDate === today) return false;
-    earnCredits(3);
+    earnXp(30, 'DAILY_BONUS');
     setLastClaimDate(today);
     return true;
-  }, [lastClaimDate, earnCredits]);
+  }, [lastClaimDate, earnXp]);
+
+  // XP rewards from anywhere in the app (EconomyContext.earnXp dispatches `wb:xp`).
+  // Levels every 500 XP; levelling up is its own reward — no credits attached.
+  useEffect(() => {
+    const onXp = (e: Event) => {
+      const amount = Number((e as CustomEvent).detail?.amount);
+      if (!Number.isFinite(amount) || amount <= 0) return;
+      setXp(p => {
+        const newXp = p + amount;
+        setLevel(currentLevel => (newXp >= currentLevel * 500 ? currentLevel + 1 : currentLevel));
+        return newXp;
+      });
+    };
+    window.addEventListener('wb:xp', onXp);
+    return () => window.removeEventListener('wb:xp', onXp);
+  }, []);
 
   // Persist XP, Level, Heroes, CompletedIds to localStorage
   useEffect(() => { localStorage.setItem('wb_xp', xp.toString()); }, [xp]);
@@ -389,31 +405,20 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
   useEffect(() => { try { localStorage.setItem('wb_heroes', JSON.stringify(myHeroes)); } catch (e) { console.warn('Failed to save heroes to localStorage:', e); } }, [myHeroes]);
   useEffect(() => { localStorage.setItem('wb_completed_ids', JSON.stringify(completedIds)); }, [completedIds]);
 
-  const addXp = useCallback((amount: number, id: string, creditReward: number = 0) => {
+  const addXp = useCallback((amount: number, id: string) => {
     setCompletedIds(prev => {
       if (prev.includes(id)) return prev;
 
       // Nest setLevel inside setXp updater so `p` is always the real latest XP
       setXp(p => {
         const newXp = p + amount;
-        setLevel(currentLevel => {
-          const nextLevelXp = currentLevel * 500;
-          if (newXp >= nextLevelXp) {
-            earnCredits(2); // Level up reward
-            return currentLevel + 1;
-          }
-          return currentLevel;
-        });
+        setLevel(currentLevel => (newXp >= currentLevel * 500 ? currentLevel + 1 : currentLevel));
         return newXp;
       });
 
-      if (creditReward > 0) {
-        earnCredits(creditReward);
-      }
-
       return [...prev, id];
     });
-  }, [earnCredits]);
+  }, []);
 
   const addHero = useCallback((hero: any) => {
     setMyHeroes(prev => [...prev, hero]);

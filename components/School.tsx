@@ -356,8 +356,8 @@ export default function School({ lang }: SchoolProps) {
   return (
     <div className="max-w-6xl mx-auto px-4 min-h-full py-8 pb-32">
       <FirstTimeTip id="school" lang={lang} text={lang === 'el'
-        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Οι αποστολές δίνουν αστέρια και credits — Μάστερ σε όλα τα μαθήματα και το απολυτήριο είναι δικό σου!</>
-        : <>🦉 Pick your grade, {childName}. Missions give stars and credits — Master every subject and the diploma is yours!</>} />
+        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Οι αποστολές δίνουν αστέρια και XP — Μάστερ σε όλα τα μαθήματα και το απολυτήριο είναι δικό σου!</>
+        : <>🦉 Pick your grade, {childName}. Missions give stars and XP — Master every subject and the diploma is yours!</>} />
       <div className="text-center space-y-4 mb-12">
         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
           <GraduationCap size={14} className="text-blue-400" />

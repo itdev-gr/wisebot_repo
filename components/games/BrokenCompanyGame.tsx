@@ -60,7 +60,7 @@ interface BrokenCompanyGameProps {
 }
 
 export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGameProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   // --- STATE ---
   const [phase, setPhase] = useState<'SETUP' | 'GAME' | 'EVENT' | 'GAMEOVER' | 'VICTORY'>('SETUP');
   
@@ -229,7 +229,7 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
     // Check Victory
     if (turn >= MAX_TURNS) {
       setPhase('VICTORY');
-      grantGameReward('company', 2, earnCredits, showNotification, lang);
+      grantGameReward('company', 2, earnXp, showNotification, lang);
       return;
     }
 

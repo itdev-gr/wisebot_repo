@@ -421,7 +421,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
           <div className="flex items-center justify-center gap-3 py-4 rounded-xl bg-green-500/10 border border-green-500/20">
             <TrendingUp size={20} className="text-green-400" />
             <span className="text-green-300 font-black text-sm">
-              {lang === 'el' ? 'ΚΕΡΔΙΣΕΣ +3 CREDITS & +50 XP!' : 'YOU EARNED +3 CREDITS & +50 XP!'}
+              {lang === 'el' ? 'ΚΕΡΔΙΣΕΣ +80 XP!' : 'YOU EARNED +80 XP!'}
             </span>
           </div>
 

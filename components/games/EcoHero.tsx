@@ -98,7 +98,7 @@ function pickItem(previous: EcoItem | null): EcoItem {
 }
 
 export default function EcoHero({ lang, onBack }: EcoHeroProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [phase, setPhase] = useState<'start' | 'play' | 'end'>('start');
   const [score, setScore] = useState(0);
   const [combo, setCombo] = useState(0);
@@ -141,8 +141,8 @@ export default function EcoHero({ lang, onBack }: EcoHeroProps) {
       localStorage.setItem('wb_eco_best', String(score));
     }
     const reward = score >= 15 ? 3 : score >= 8 ? 2 : score >= 4 ? 1 : 0;
-    grantGameReward('eco', reward, earnCredits, showNotification, lang);
-  }, [phase, score, best, earnCredits, showNotification, lang]);
+    grantGameReward('eco', reward, earnXp, showNotification, lang);
+  }, [phase, score, best, earnXp, showNotification, lang]);
 
   const start = useCallback(() => {
     rewardedRef.current = false;

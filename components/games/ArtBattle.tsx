@@ -52,7 +52,7 @@ interface ArtEntry {
 }
 
 export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [gameState, setGameState] = useState<'menu' | 'challenge' | 'creating' | 'generating' | 'result' | 'gallery'>('menu');
   const [currentTheme, setCurrentTheme] = useState<typeof THEMES_EL[0] | null>(null);
   const [userPrompt, setUserPrompt] = useState('');
@@ -164,7 +164,7 @@ export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
       setCurrentEntry(entry);
       setGallery(prev => [...prev, entry]);
       setTotalScore(prev => prev + overallScore);
-      grantGameReward('artbattle', 2, earnCredits, showNotification, lang);
+      grantGameReward('artbattle', 2, earnXp, showNotification, lang);
       setGameState('result');
 
     } catch (err: any) {

@@ -58,7 +58,7 @@ interface Entity {
 }
 
 export default function TacticalFootball({ lang, onBack }: TacticalFootballProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<Record<string, HTMLImageElement>>({});
 
@@ -337,7 +337,7 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
 
       // Win reward: first time the player reaches 3 goals (score only ever increases)
       if (scorer === 'player' && state.scorePlayer === 3 && state.scorePlayer > state.scoreOpponent) {
-          grantGameReward('football', 2, earnCredits, showNotification, lang);
+          grantGameReward('football', 2, earnXp, showNotification, lang);
       }
       
       state.entities.forEach(e => { e.vx = 0; e.vy = 0; });

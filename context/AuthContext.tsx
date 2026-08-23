@@ -286,17 +286,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  // Sync parent_verified when email gets verified (backup for DB trigger)
+  // parent_verified is set by the on_auth_user_email_confirmed trigger in the DB
+  // (migration 20260824090000); the column is no longer client-writable, so just
+  // refresh the profile once the session reports a confirmed email.
   useEffect(() => {
     if (user && emailVerified && profile && !profile.parentVerified) {
-      supabase.from('profiles')
-        .update({ parent_verified: true })
-        .eq('id', user.id)
-        .then(() => fetchProfile(user.id));
+      fetchProfile(user.id);
     }
-    // Depends on the whole `profile`, not just the field: the body null-checks the
-    // object itself. The `!profile.parentVerified` guard stops this from looping once
-    // the update lands.
   }, [user, emailVerified, profile, fetchProfile]);
 
   // Complete Onboarding — saves nickname + avatar + marks onboarding_complete=true
@@ -412,15 +408,8 @@ const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject
       syncDoneRef.current = true;
       console.log('[Sync] Initial sync complete');
 
-      // Referral: pay the inviter once this (now verified) account logs in.
-      // The server is idempotent — the flag only avoids a request per login.
-      if (!localStorage.getItem('wb_ref_claimed')) {
-        try {
-          const { backendReferral } = await import('../services/backendApi');
-          await backendReferral.claim();
-          localStorage.setItem('wb_ref_claimed', '1');
-        } catch { /* non-fatal — retried on next login */ }
-      }
+      // Referral rewards are paid server-side when the invited child's parent makes
+      // a first purchase (api/stripe/webhook.ts) — nothing to claim at login.
     };
 
     doSync();

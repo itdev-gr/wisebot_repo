@@ -11,7 +11,7 @@ interface NebulaCatchProps {
 }
 
 export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [isPlaying, setIsPlaying] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
@@ -129,7 +129,7 @@ export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
       localStorage.setItem('wb_nebula_hi', finalScore.toString());
     }
     grantGameReward('nebula', finalScore >= 200 ? 3 : finalScore >= 100 ? 2 : finalScore >= 40 ? 1 : 0,
-      earnCredits, showNotification, lang);
+      earnXp, showNotification, lang);
   };
 
   const gameLoop = (time: number) => {
