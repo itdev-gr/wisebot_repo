@@ -56,11 +56,13 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
-  if (!user) return res.status(401).json({ error: 'Authentication required' });
+  // 3D costs 60⚡ — more than a guest's 10⚡ trial — so signed-in children only.
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: false });
+  if (!user) return res.status(401).json({ error: 'login_required' });
 
   // Server-side credit guard — Meshy 3D generation costs credits
-  const THREED_COST = 60;
+  const { COSTS } = await import('../_lib/costs.js');
+  const THREED_COST = COSTS.THREE_D;
   const { checkCredits } = await import('../_lib/auth.js');
   const creditCheck = await checkCredits(user.id, THREED_COST);
   if (!creditCheck.ok) {
@@ -131,6 +133,6 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({ taskId: data.result });
   } catch (err: any) {
     console.error('[meshy-generate] Error:', err.message || err);
-    return res.status(500).json({ error: err.message || 'Internal server error.' });
+    return res.status(500).json({ error: '3D generation failed.' });
   }
 }

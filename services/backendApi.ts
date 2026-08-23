@@ -90,16 +90,16 @@ export const backendAI = {
       body: JSON.stringify({ prompt }),
     }),
 
-  music: (lyricsPrompt: string, artPrompt?: string) =>
+  music: (lyricsPrompt: string, artPrompt?: string, lang: 'el' | 'en' = 'el') =>
     apiFetch<{ title: string; lyrics: string; cover: string }>('/api/ai/music', {
       method: 'POST',
-      body: JSON.stringify({ lyricsPrompt, artPrompt }),
+      body: JSON.stringify({ lyricsPrompt, artPrompt, lang }),
     }),
 
-  business: (textPrompt: string, logoPrompt?: string) =>
+  business: (textPrompt: string, logoPrompt?: string, lang: 'el' | 'en' = 'el') =>
     apiFetch<{ slogan: string; description: string; logo?: string }>('/api/ai/business', {
       method: 'POST',
-      body: JSON.stringify({ textPrompt, logoPrompt }),
+      body: JSON.stringify({ textPrompt, logoPrompt, lang }),
     }),
 
   tts: (text: string, voice?: string) =>

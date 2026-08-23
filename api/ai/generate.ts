@@ -22,8 +22,19 @@ function extractTextFromContents(contents: any): string {
 }
 
 // Check if this is an image generation request
+function lastUserText(contents: any): string {
+  const list = Array.isArray(contents) ? contents : [contents];
+  for (let i = list.length - 1; i >= 0; i--) {
+    const c = list[i];
+    if (typeof c === 'string') return c;
+    if (c?.role && c.role !== 'user') continue;
+    return (c?.parts || []).map((p: any) => (typeof p === 'string' ? p : p?.text || '')).join('\n');
+  }
+  return '';
+}
+
 function isImageModel(model: string): boolean {
-  return model.includes('image') || model.includes('imagen') || model === 'gemini-2.0-flash-exp';
+  return model.includes('image') || model.includes('imagen');
 }
 
 // Check if this is a Gemini-native image model
@@ -53,12 +64,12 @@ async function generateWithDALLE(prompt: string, openaiKey: string) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'dall-e-3',
+      // dall-e-3 is no longer available on the account; gpt-image-1 returns b64_json by default.
+      model: 'gpt-image-1',
       prompt: `Kid-friendly, safe for children, cartoon style: ${prompt}`,
       n: 1,
       size: '1024x1024',
-      response_format: 'b64_json',
-      quality: 'standard',
+      quality: 'medium',
     }),
   });
 
@@ -92,14 +103,32 @@ async function generateWithDALLE(prompt: string, openaiKey: string) {
 }
 
 // ─── OpenAI GPT Text Generation ───
-async function generateWithGPT(prompt: string, openaiKey: string, config?: any) {
-  const messages: any[] = [
-    { role: 'user', content: prompt },
-  ];
-
-  if (config?.systemInstruction) {
-    messages.unshift({ role: 'system', content: config.systemInstruction });
+/** Gemini `contents` → OpenAI messages, keeping who said what. */
+function contentsToMessages(contents: any): any[] {
+  const list = Array.isArray(contents) ? contents : [contents];
+  const messages: any[] = [];
+  for (const c of list) {
+    if (typeof c === 'string') { messages.push({ role: 'user', content: c }); continue; }
+    const text = (c?.parts || [])
+      .map((p: any) => (typeof p === 'string' ? p : p?.text || ''))
+      .filter(Boolean)
+      .join('\n');
+    if (!text) continue;
+    messages.push({ role: c.role === 'model' || c.role === 'assistant' ? 'assistant' : 'user', content: text });
   }
+  return messages;
+}
+
+async function generateWithGPT(contents: any, openaiKey: string, config?: any) {
+  // Until 23 Αυγούστου 2026 the whole history (including the model's own replies)
+  // was flattened into one user message, so GPT answered a transcript, not a child.
+  const messages = contentsToMessages(contents);
+  if (!messages.length) throw new Error('No text in contents');
+
+  // The kid-safety preamble is ours; the client's systemInstruction only adds to it.
+  const system = [KID_SAFETY_PREAMBLE, typeof config?.systemInstruction === 'string' ? config.systemInstruction : '']
+    .filter(Boolean).join('\n\n');
+  messages.unshift({ role: 'system', content: system });
 
   const body: any = {
     model: 'gpt-4o',
@@ -180,9 +209,7 @@ function processGeminiResponse(response: any) {
 }
 
 
-const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)\b/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
+import { isContentSafe, KID_SAFETY_PREAMBLE } from '../_lib/safety.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -213,8 +240,13 @@ export default async function handler(req: any, res: any) {
     // Content moderation
     const allText = extractTextFromContents(contents);
 
-    // Input length validation
-    if (typeof allText === 'string' && allText.length > 4000) {
+    // Input length validation — the whole history may be long (10 turns), so cap
+    // the total generously and the newest message tightly.
+    if (typeof allText === 'string' && allText.length > 16000) {
+      return res.status(400).json({ error: 'Conversation too long' });
+    }
+    const lastText = lastUserText(contents);
+    if (lastText.length > 4000) {
       return res.status(400).json({ error: 'Input too long (max 4000 characters)' });
     }
     if (!isContentSafe(allText)) {
@@ -283,7 +315,7 @@ export default async function handler(req: any, res: any) {
     if (openaiKey) {
       try {
         console.log('[generate] Using GPT-4o for text generation');
-        const result = await generateWithGPT(allText, openaiKey, config);
+        const result = await generateWithGPT(contents, openaiKey, config);
         return res.status(200).json(result);
       } catch (gptErr: any) {
         console.warn('[generate] GPT-4o failed, trying Gemini fallback:', gptErr.message?.slice(0, 100));
@@ -296,7 +328,12 @@ export default async function handler(req: any, res: any) {
       try {
         console.log('[generate] Using Gemini fallback for text generation');
         const ai = new GoogleGenAI({ apiKey: geminiKey });
-        const mergedConfig = { ...(config || {}), safetySettings: TEXT_SAFETY_SETTINGS };
+        const mergedConfig = {
+          ...(config || {}),
+          systemInstruction: [KID_SAFETY_PREAMBLE, typeof config?.systemInstruction === 'string' ? config.systemInstruction : '']
+            .filter(Boolean).join('\n\n'),
+          safetySettings: TEXT_SAFETY_SETTINGS,
+        };
 
         const response = await ai.models.generateContent({
           model,

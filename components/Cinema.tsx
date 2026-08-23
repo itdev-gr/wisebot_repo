@@ -368,7 +368,7 @@ interface CinemaProps {
 
 const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   const navigate = useNavigate();
-  const { spendCredits, costs, trackAction, showNotification } = useEconomy();
+  const { spendCredits, refundCredits, costs, trackAction, showNotification } = useEconomy();
   const { user } = useAuth();
   const location = useLocation();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -470,11 +470,15 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   };
 
   const handleGenerate = async () => {
-    if (!spendCredits(costs.video)) {
+    const videoCost = costs.video;
+    if (!spendCredits(videoCost)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
     }
+    // Set when the server reports it already refunded its own charge, so the
+    // catch block doesn't add the credits back a second time.
+    let serverRefund: number | null | undefined;
 
     setIsGenerating(true);
     setGeneratedVideoUrl(null);
@@ -507,6 +511,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       let mimeType = "image/png";
 
       if (!selectedHero?.avatar) {
+        refundCredits(videoCost);
         showNotification('❌', lang === 'el' ? 'Ο ήρωας δεν έχει εικόνα' : 'Hero has no image');
         setIsGenerating(false);
         return;
@@ -536,6 +541,14 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       });
       if (!genResp.ok) {
         const errData = await genResp.json().catch(() => ({}));
+        if (genResp.status === 401 && errData.error === 'login_required') {
+          refundCredits(videoCost);
+          showNotification('🎬', lang === 'el' ? 'Για να γυρίσεις ταινία, φτιάξε λογαριασμό!' : 'Create an account to make a movie!');
+          setTimeout(() => navigate('/login?mode=register'), 1500);
+          setIsGenerating(false);
+          return;
+        }
+        if (genResp.status === 402 && typeof errData.credits === 'number') serverRefund = errData.credits;
         throw new Error(errData.error || `Video start failed: ${genResp.status}`);
       }
       const { requestId } = await genResp.json();
@@ -571,11 +584,17 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
           }
           break;
         } else if (statusData.status === 'error') {
+          if (statusData.refunded) serverRefund = statusData.credits ?? null;
           throw new Error(statusData.error || 'Video generation failed');
         }
         // still processing → keep polling
       }
-      if (!localUrl) throw new Error(lang === 'el' ? 'Το βίντεο δεν ολοκληρώθηκε.' : 'Video timed out.');
+      if (!localUrl) {
+        // Still rendering on Google's side — it may finish and land in "My videos"
+        // later, so this is not a refund case.
+        showNotification('⏳', lang === 'el' ? 'Το βίντεο αργεί λίγο ακόμα.' : 'The video needs a little longer.', lang === 'el' ? 'Κοίτα σε λίγο στα βίντεό σου.' : 'Check your videos in a bit.');
+        return;
+      }
 
       const newVideoEntry = {
         id: `my-${Date.now()}`,
@@ -597,7 +616,10 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
     } catch (error: any) {
       console.error(error);
-      showNotification('❌', error.message || (lang === 'el' ? 'Σφάλμα βίντεο' : 'Video error'));
+      // Nothing was delivered, so the child keeps their credits. The server's
+      // balance (if it sent one) wins over the local estimate.
+      refundCredits(videoCost, serverRefund);
+      showNotification('❌', error.message || (lang === 'el' ? 'Σφάλμα βίντεο' : 'Video error'), lang === 'el' ? 'Τα credits σου επέστρεψαν.' : 'Your credits are back.');
     } finally {
       setIsGenerating(false);
       timeoutIds.forEach(clearTimeout);

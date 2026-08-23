@@ -110,9 +110,20 @@ export default async function handler(req: any, res: any) {
       result.error = typeof data.task_error === 'string' ? data.task_error : data.task_error.message || 'Unknown error';
     }
 
+    // Charged at task creation (meshy-generate); a failed/cancelled task gives it back once.
+    if (status === 'error') {
+      const { refundCredits } = await import('../_lib/auth.js');
+      const { COSTS } = await import('../_lib/costs.js');
+      const credits = await refundCredits(user.id, COSTS.THREE_D, 'REFUND_3D', taskId);
+      console.warn('[meshy-status] task failed:', taskId, data.status, result.error || '');
+      result.error = 'Η δημιουργία του 3D μοντέλου απέτυχε.';
+      result.refunded = credits !== null;
+      result.credits = credits;
+    }
+
     return res.status(200).json(result);
   } catch (err: any) {
     console.error('[meshy-status] Error:', err.message || err);
-    return res.status(500).json({ error: err.message || 'Internal server error.' });
+    return res.status(500).json({ error: 'Failed to check 3D status.' });
   }
 }

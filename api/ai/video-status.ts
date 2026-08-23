@@ -51,27 +51,40 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ status: 'processing', progress });
     }
 
+    // The child was charged when the job started (video-generate). Any terminal
+    // failure from here on gives the credits back — once per operation.
+    const fail = async (message: string) => {
+      const { refundCredits } = await import('../_lib/auth.js');
+      const { COSTS } = await import('../_lib/costs.js');
+      const credits = await refundCredits(user.id, COSTS.VIDEO, 'REFUND_VIDEO', requestId);
+      return res.status(200).json({ status: 'error', error: message, refunded: credits !== null, credits });
+    };
+
     // Error
     if (data.error) {
       console.error('[video-status] Veo 2 error:', JSON.stringify(data.error).slice(0, 300));
-      return res.status(200).json({ status: 'error', error: data.error.message || 'Video generation failed' });
+      return fail('Video generation failed');
     }
 
-    // Done — get video URI
+    // Done — get video URI. Veo's safety filter removes the sample and explains
+    // why in raiMediaFilteredReasons; the child is not charged for that.
     const videos = data.response?.generateVideoResponse?.generatedSamples;
     if (!videos?.length) {
-      return res.status(200).json({ status: 'error', error: 'No video generated' });
+      const reasons = data.response?.generateVideoResponse?.raiMediaFilteredReasons;
+      if (reasons) console.warn('[video-status] filtered:', JSON.stringify(reasons).slice(0, 300));
+      return fail('No video generated');
     }
 
     const videoUri = videos[0].video?.uri;
     if (!videoUri) {
-      return res.status(200).json({ status: 'error', error: 'No video URL' });
+      return fail('No video URL');
     }
 
-    // Download video buffer (never expose API key to client)
+    // Download video buffer (never expose API key to client). Veo file URIs
+    // already carry `?alt=media`, so the key goes in a header, not the query.
     let videoBuffer: ArrayBuffer | null = null;
     try {
-      const videoResp = await fetch(`${videoUri}?key=${apiKey}`);
+      const videoResp = await fetch(videoUri, { headers: { 'x-goog-api-key': apiKey } });
       if (videoResp.ok) {
         videoBuffer = await videoResp.arrayBuffer();
       }
@@ -81,7 +94,7 @@ export default async function handler(req: any, res: any) {
 
     if (!videoBuffer) {
       console.error('[video-status] Could not download video from Google');
-      return res.status(200).json({ status: 'error', error: 'Failed to retrieve video. Please try generating again.' });
+      return fail('Failed to retrieve video. Please try generating again.');
     }
 
     // ── Upload to Supabase Storage for permanent URL ──────────────────
@@ -148,6 +161,6 @@ export default async function handler(req: any, res: any) {
 
   } catch (err: any) {
     console.error('[video-status] Error:', err.message);
-    return res.status(500).json({ error: err.message || 'Failed to check video status' });
+    return res.status(500).json({ error: 'Failed to check video status' });
   }
 }

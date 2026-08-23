@@ -107,7 +107,9 @@ export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'gemini-2.5-flash-preview-04-17',
+          // A Gemini image model: the proxy routes anything else to a text model,
+          // which can never return an image (the old preview id did exactly that).
+          model: 'gemini-2.5-flash-image',
           contents: [{ role: 'user', parts: [{ text: enhancedPrompt }] }],
           config: {
             responseModalities: ['TEXT', 'IMAGE'],

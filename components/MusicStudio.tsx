@@ -156,7 +156,7 @@ const WIZARD_STYLES = [
 
 export default function MusicStudio({ lang }: MusicStudioProps) {
   const navigate = useNavigate();
-  const { spendCredits, showNotification, costs, trackAction } = useEconomy();
+  const { spendCredits, refundCredits, showNotification, costs, trackAction } = useEconomy();
   const { user } = useAuth();
 
   // Mode: 'simple' = describe song, 'custom' = write own lyrics, 'guided' = step wizard
@@ -364,7 +364,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     const input = mode === 'simple' ? description.trim() : customLyrics.trim();
     if (!input) return;
 
-    if (!spendCredits(costs.song)) {
+    const songCost = costs.song;
+    if (!spendCredits(songCost)) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
@@ -429,7 +430,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       }
 
       const artPrompt = `A detailed album cover for a ${finalStyle} song, modern, artistic, vibrant`;
-      const lyricsData = await backendAI.music(lyricsPrompt, artPrompt);
+      const lyricsData = await backendAI.music(lyricsPrompt, artPrompt, lang);
       const coverUrl = lyricsData.cover || '';
 
       setGenStep(2);
@@ -451,12 +452,27 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
             instrumental,
           }),
         });
-        const sunoData = await sunoResp.json();
-        if (sunoData.taskId) {
+        const sunoData = await sunoResp.json().catch(() => ({}));
+        if (sunoResp.status === 401 && sunoData.error === 'login_required') {
+          // Guests can write lyrics but the real song needs an account (it costs
+          // real money). Give the credits back and point to sign-up.
+          refundCredits(songCost);
+          showNotification('🎤', lang === 'el' ? 'Για να ακούσεις το τραγούδι σου, φτιάξε λογαριασμό!' : 'Create an account to hear your song!');
+          setTimeout(() => navigate('/login?mode=register'), 1500);
+        } else if (sunoResp.status === 402) {
+          refundCredits(songCost, typeof sunoData.credits === 'number' ? sunoData.credits : undefined);
+          showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
+        } else if (sunoData.taskId) {
           sunoTaskId = sunoData.taskId;
+        } else {
+          throw new Error(sunoData.error || `suno-generate ${sunoResp.status}`);
         }
       } catch (sunoErr) {
+        // The server only charges once it has a task id, so nothing was charged
+        // there — undo the local charge and keep the lyrics as a consolation.
         console.warn('Suno generation failed, song will be lyrics-only:', sunoErr);
+        refundCredits(songCost);
+        showNotification('🎵', lang === 'el' ? 'Η μουσική δεν βγήκε — τα credits σου επέστρεψαν.' : 'The music failed — your credits are back.');
       }
 
       clearInterval(stepTimer);
@@ -493,7 +509,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       console.error("Music Gen Error", error);
       clearInterval(stepTimer);
       clearInterval(progTimer);
-      showNotification('❌', lang === 'el' ? 'Σφάλμα. Δοκίμασε ξανά.' : 'Error. Try again.');
+      refundCredits(songCost);
+      showNotification('❌', lang === 'el' ? 'Σφάλμα — τα credits σου επέστρεψαν. Δοκίμασε ξανά.' : 'Error — your credits are back. Try again.');
     } finally {
       setIsGenerating(false);
       setGenProgress(0);
@@ -586,13 +603,16 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         } else if (data.status === 'error') {
           if (pollingRef.current) clearInterval(pollingRef.current);
           setSongs(prev => prev.map(s => s.id === songId ? { ...s, audioStatus: 'error' as const } : s));
+          // The server refunded its charge (once per task); mirror it locally.
+          if (data.refunded) refundCredits(costs.song, data.credits);
+          showNotification('🎵', data.error || (lang === 'el' ? 'Η μουσική δεν βγήκε — τα credits σου επέστρεψαν.' : 'The music failed — your credits are back.'));
         }
         // else keep polling (pending/processing)
       } catch (err) {
         console.warn('Suno poll error:', err);
       }
     }, 5000); // Poll every 5 seconds
-  }, [lang, showNotification]);
+  }, [lang, showNotification, refundCredits, costs.song]);
 
   const togglePlay = (song?: GeneratedSong) => {
     // Get the LATEST version of the song from the songs array

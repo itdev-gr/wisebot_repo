@@ -26,7 +26,7 @@ const SAMPLES = [
 
 export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const navigate = useNavigate();
-  const { badges, showNotification, credits, spendCredits, costs } = useEconomy();
+  const { badges, showNotification, credits, spendCredits, refundCredits, costs } = useEconomy();
   const t = UI_TEXT[lang].factory3d;
   
   const [image, setImage] = useState<string | null>(null);
@@ -183,7 +183,8 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
 
     } catch (error: any) {
         console.error("3D Generation Error:", error);
-        showNotification('❌', lang === 'el' ? "Σφάλμα δημιουργίας" : "Generation error");
+        refundCredits(costs.threeD);
+        showNotification('❌', lang === 'el' ? "Σφάλμα δημιουργίας — τα credits σου επέστρεψαν." : "Generation error — your credits are back.");
     } finally {
         setIsProcessing(false);
     }
@@ -227,13 +228,15 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         } else if (data.status === 'error') {
           if (meshyPollingRef.current) clearInterval(meshyPollingRef.current);
           setMeshyStatus('error');
-          showNotification('❌', data.error || (lang === 'el' ? 'Σφάλμα 3D' : '3D Error'));
+          // The server refunded its charge (once per task); mirror it locally.
+          if (data.refunded) refundCredits(costs.threeD, data.credits);
+          showNotification('❌', data.error || (lang === 'el' ? 'Σφάλμα 3D' : '3D Error'), data.refunded ? (lang === 'el' ? 'Τα credits σου επέστρεψαν.' : 'Your credits are back.') : undefined);
         }
       } catch (err) {
         console.warn('Meshy poll error:', err);
       }
     }, 5000);
-  }, [lang, showNotification]);
+  }, [lang, showNotification, refundCredits, costs.threeD]);
 
   const generateReal3D = async () => {
     if (!image) return;
@@ -270,11 +273,20 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         body: JSON.stringify({ imageUrl }),
       });
 
-      const data = await resp.json();
+      const data = await resp.json().catch(() => ({}));
+      if (resp.status === 401 && data.error === 'login_required') {
+        refundCredits(costs.threeD);
+        setMeshyStatus('idle');
+        showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
+        setTimeout(() => navigate('/login?mode=register'), 1500);
+        return;
+      }
       if (data.taskId) {
         setMeshyTaskId(data.taskId);
         startMeshyPolling(data.taskId);
       } else {
+        // No task id → the server charged nothing; undo the local charge.
+        refundCredits(costs.threeD, resp.status === 402 && typeof data.credits === 'number' ? data.credits : undefined);
         throw new Error(data.error || 'Failed to start 3D generation');
       }
     } catch (error: any) {

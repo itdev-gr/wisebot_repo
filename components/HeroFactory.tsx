@@ -24,7 +24,7 @@ import {
   ImageIcon
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { backendAI, isBackendAvailable } from '../services/backendApi';
+import { backendAI, isBackendAvailable, authFetch } from '../services/backendApi';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { renderHeroCard, shareHeroCard, downloadDataUrl } from '../utils/heroCardCanvas';
@@ -88,7 +88,7 @@ const quotesFor = (lang: 'el' | 'en') => [
 export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
   const childName = useChildName(lang);
   const navigate = useNavigate();
-  const { credits, spendCredits, costs, trackAction, showNotification } = useEconomy();
+  const { credits, spendCredits, refundCredits, costs, trackAction, showNotification } = useEconomy();
   const { isGuest, profile } = useAuth();
   // A child's face goes to a third-party model. That is only acceptable behind an account
   // whose parent has actually been verified — never for a guest, and not before verification.
@@ -383,13 +383,25 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         });
       }
 
-      const resp = await fetch('/api/ai/meshy-generate', {
+      // authFetch sends the Bearer token: without it the server saw every child as
+      // a guest, charged nothing, and the local charge was undone on the next sync.
+      const resp = await authFetch('/api/ai/meshy-generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageUrl }),
       });
-      const data = await resp.json();
-      if (!data.taskId) throw new Error(data.error || 'Failed');
+      const data = await resp.json().catch(() => ({}));
+      if (resp.status === 401 && data.error === 'login_required') {
+        refundCredits(costs.threeD);
+        setMeshy3DStatus('idle');
+        showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
+        setTimeout(() => navigate('/login?mode=register'), 1500);
+        return;
+      }
+      if (!data.taskId) {
+        refundCredits(costs.threeD, resp.status === 402 && typeof data.credits === 'number' ? data.credits : undefined);
+        throw new Error(data.error || 'Failed');
+      }
 
       // Poll for completion
       if (meshyPollRef.current) clearInterval(meshyPollRef.current);
@@ -402,7 +414,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           return;
         }
         try {
-          const sr = await fetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
+          const sr = await authFetch(`/api/ai/meshy-status?taskId=${encodeURIComponent(data.taskId)}`);
           const sd = await sr.json();
           setMeshy3DProgress(sd.progress || 0);
           if (sd.status === 'complete' && sd.modelUrls) {
@@ -413,6 +425,8 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
           } else if (sd.status === 'error') {
             if (meshyPollRef.current) clearInterval(meshyPollRef.current);
             setMeshy3DStatus('error');
+            if (sd.refunded) refundCredits(costs.threeD, sd.credits);
+            showNotification('❌', sd.error || '3D Error', sd.refunded ? (lang === 'el' ? 'Τα credits σου επέστρεψαν.' : 'Your credits are back.') : undefined);
           }
         } catch (e) { /* keep polling */ }
       }, 5000);
@@ -420,7 +434,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       setMeshy3DStatus('error');
       showNotification('❌', err.message || '3D Error');
     }
-  }, [costs.threeD, lang, showNotification, spendCredits, navigate]);
+  }, [costs.threeD, lang, showNotification, spendCredits, refundCredits, navigate]);
 
   // Cleanup meshy polling
   useEffect(() => {

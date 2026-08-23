@@ -111,7 +111,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
           const logoPrompt = `Modern minimalist logo for ${industryName} company "${biz.name}". Clean, professional, vibrant, flat design, dark background. No text.`;
 
           // Use backend API (never expose API keys client-side)
-          const result = await backendAI.business(textPrompt, logoPrompt);
+          const result = await backendAI.business(textPrompt, logoPrompt, lang);
 
           if (result.slogan) setResultSlogan(result.slogan);
           if (result.description) setResultDesc(result.description);

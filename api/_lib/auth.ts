@@ -22,13 +22,11 @@ export interface AuthUser {
 // Authenticated users have a real balance in profiles.credits.
 const GUEST_FREE_CREDITS = 10;
 
-function isAiRequest(req: any): boolean {
-  const url = String(req.url || req.originalUrl || '');
-  return url.includes('/api/ai/') || url.startsWith('/ai/');
-}
-
-function guestUser(req: any, allowGuest?: boolean): AuthUser | null {
-  return allowGuest || isAiRequest(req)
+// `allowGuest` is the endpoint's explicit decision. (An earlier version also
+// let every /api/ai/* request through as a guest regardless, which made
+// `allowGuest: false` meaningless for exactly the endpoints that spend money.)
+function guestUser(allowGuest?: boolean): AuthUser | null {
+  return allowGuest
     ? { id: 'guest', email: 'guest@wisebot.local', role: 'guest' }
     : null;
 }
@@ -41,7 +39,7 @@ export async function getAuthUser(req: any, options: { allowGuest?: boolean } = 
   try {
     const authHeader = req.headers?.authorization;
     if (!authHeader?.startsWith('Bearer ')) {
-      return guestUser(req, options.allowGuest);
+      return guestUser(options.allowGuest);
     }
 
     const token = authHeader.slice(7);
@@ -56,7 +54,7 @@ export async function getAuthUser(req: any, options: { allowGuest?: boolean } = 
     const { data: { user }, error } = await supabase.auth.getUser(token);
 
     if (error || !user) {
-      return guestUser(req, options.allowGuest);
+      return guestUser(options.allowGuest);
     }
 
     return {
@@ -65,7 +63,7 @@ export async function getAuthUser(req: any, options: { allowGuest?: boolean } = 
       role: user.role,
     };
   } catch {
-    return guestUser(req, options.allowGuest);
+    return guestUser(options.allowGuest);
   }
 }
 
@@ -136,5 +134,46 @@ export async function deductCredits(userId: string, cost: number, action: string
   } catch (err: any) {
     console.error('[credits] deduct error:', err.message);
     return true;
+  }
+}
+
+/**
+ * Give credits back for a paid task that failed after the charge.
+ * ----------------------------------------------------------------
+ * Tasks (song, 3D, video) are charged when the provider accepts the job, and the
+ * job can still fail minutes later. The status endpoint calls this when it sees
+ * a terminal failure. It is idempotent per `taskId`: a unique index on
+ * credit_transactions(user_id, action, action_id) makes a second refund for the
+ * same task fail inside earn_credits, which rolls the whole RPC back — so a
+ * client polling every few seconds can never be refunded twice.
+ *
+ * Returns the new balance if a refund happened, null if it was already refunded,
+ * skipped (guest) or failed.
+ */
+export async function refundCredits(
+  userId: string,
+  amount: number,
+  action: string,
+  taskId: string,
+): Promise<number | null> {
+  if (!userId || userId === 'guest' || amount <= 0 || !taskId) return null;
+  try {
+    const supabase = await getAdminClient();
+    const { data, error } = await supabase.rpc('earn_credits', {
+      p_user_id: userId,
+      p_amount: amount,
+      p_action: action,
+      p_action_id: taskId,
+    });
+    if (error) {
+      // 23505 = unique_violation → this task was refunded by an earlier poll.
+      if (error.code !== '23505') console.error('[credits] refund RPC error:', error.message);
+      return null;
+    }
+    console.log(`[credits] refunded ${amount} to ${userId} for ${action} ${taskId}`);
+    return typeof data === 'number' ? data : null;
+  } catch (err: any) {
+    console.error('[credits] refund error:', err.message);
+    return null;
   }
 }
