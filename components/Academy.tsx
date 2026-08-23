@@ -104,6 +104,7 @@ const CATEGORIES = {
 
 // --- STORIES DATA (extracted to data/academyCourses.ts) ---
 import { COURSES } from '../data/academyCourses';
+import { ACADEMY_STORY_COUNT } from '../data/contentCounts';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // Static narration mp3s (/audio/academy), regenerated 2026-07 with Gemini Kore
@@ -560,8 +561,8 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
       }}
     >
       <FirstTimeTip id="academy" lang={lang} text={lang === 'el'
-        ? <>🦉 98 άνθρωποι που ξεκίνησαν από το τίποτα, {childName} — ο Messi, ο Disney, η Rowling. Πάτα έναν και δες πώς τα κατάφερε. Κάθε ιστορία = 2⚡.</>
-        : <>🦉 98 people who started from nothing, {childName} — Messi, Disney, Rowling. Tap one and see how they did it. Every story = 2⚡.</>} />
+        ? <>🦉 {ACADEMY_STORY_COUNT} άνθρωποι που ξεκίνησαν από το τίποτα, {childName} — ο Messi, ο Disney, η Rowling. Πάτα έναν και δες πώς τα κατάφερε. Κάθε ιστορία = 2⚡.</>
+        : <>🦉 {ACADEMY_STORY_COUNT} people who started from nothing, {childName} — Messi, Disney, Rowling. Tap one and see how they did it. Every story = 2⚡.</>} />
 
       {/* HEADER */}
       <div className="text-center pt-8 pb-6 px-4 space-y-3 relative z-10">

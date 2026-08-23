@@ -6,6 +6,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap } from 'lucide-react';
+import { ACADEMY_STORY_COUNT } from '../data/contentCounts';
 
 interface InternalLinksProps {
   lang: 'el' | 'en';
@@ -27,7 +28,7 @@ const PAGES = [
     icon: BookOpen,
     color: 'from-blue-500 to-purple-600',
     label: { el: 'Ακαδημία', en: 'Academy' },
-    desc: { el: '98 σπουδαίοι άνθρωποι', en: '98 great people' },
+    desc: { el: `${ACADEMY_STORY_COUNT} σπουδαίοι άνθρωποι`, en: `${ACADEMY_STORY_COUNT} great people` },
   },
   {
     id: 'ebooks',

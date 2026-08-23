@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import GuestBanner from './GuestBanner';
+import { ACADEMY_STORY_COUNT, BOOK_COUNT } from '../data/contentCounts';
 
 const motion = m as any;
 
@@ -330,7 +331,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {[
-              { step: '01', emoji: '📚', title: { el: 'ΔΙΑΒΑΖΕΙ', en: 'READS' }, desc: { el: '34 βιβλία με αφήγηση και 98 ιστορίες σπουδαίων ανθρώπων. Κάθε βιβλίο που τελειώνει δίνει credits.', en: '34 narrated books and 98 stories of great people. Every finished book earns credits.' }, color: 'from-blue-500/20 to-indigo-500/10', border: 'border-blue-500/20' },
+              { step: '01', emoji: '📚', title: { el: 'ΔΙΑΒΑΖΕΙ', en: 'READS' }, desc: { el: `${BOOK_COUNT} βιβλία με αφήγηση και ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων. Κάθε βιβλίο που τελειώνει δίνει credits.`, en: `${BOOK_COUNT} narrated books and ${ACADEMY_STORY_COUNT} stories of great people. Every finished book earns credits.` }, color: 'from-blue-500/20 to-indigo-500/10', border: 'border-blue-500/20' },
               { step: '02', emoji: '🏫', title: { el: 'ΜΑΘΑΙΝΕΙ', en: 'LEARNS' }, desc: { el: "Σχολείο Α'–ΣΤ' Δημοτικού: Γλώσσα, Μαθηματικά, Ιστορία, Αγγλικά — quiz με αστέρια και απολυτήρια ανά τάξη.", en: 'Grade 1–6 school track: Language, Maths, History, English — quizzes with stars and a diploma per grade.' }, color: 'from-amber-500/20 to-orange-500/10', border: 'border-amber-500/20' },
               { step: '03', emoji: '⚡', title: { el: 'ΚΕΡΔΙΖΕΙ', en: 'EARNS' }, desc: { el: 'Διάβασμα, quiz και ημερήσιες αποστολές γεμίζουν το πορτοφόλι του με credits. Χωρίς να αγοράσει τίποτα.', en: 'Reading, quizzes and daily missions fill their wallet with credits. Without buying anything.' }, color: 'from-emerald-500/20 to-teal-500/10', border: 'border-emerald-500/20' },
               { step: '04', emoji: '🎨', title: { el: 'ΔΗΜΙΟΥΡΓΕΙ', en: 'CREATES' }, desc: { el: 'Με τα credits φτιάχνει ήρωες, τραγούδια και βίντεο με AI. Η επιβράβευση έρχεται μετά τη μάθηση — όχι αντί για αυτήν.', en: 'With the credits they create heroes, songs and videos with AI. The reward comes after the learning — not instead of it.' }, color: 'from-purple-500/20 to-fuchsia-500/10', border: 'border-purple-500/20' },
@@ -399,8 +400,8 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
                 icon: <BookOpen size={22} className="text-blue-400" />,
                 title: { el: 'Τι θα μάθει', en: 'What they learn' },
                 body: {
-                  el: "Ύλη Δημοτικού Α'–ΣΤ' (Γλώσσα, Μαθηματικά, Ιστορία, Αγγλικά), 34 βιβλία με αφήγηση για να διαβάζει μόνο του, και 98 ιστορίες ανθρώπων που ξεκίνησαν από το μηδέν. Στα ελληνικά και στα αγγλικά.",
-                  en: 'Grade 1–6 curriculum (Language, Maths, History, English), 34 narrated books to read on their own, and 98 stories of people who started from nothing. In Greek and English.',
+                  el: `Ύλη Δημοτικού Α'–ΣΤ' (Γλώσσα, Μαθηματικά, Ιστορία, Αγγλικά), ${BOOK_COUNT} βιβλία με αφήγηση για να διαβάζει μόνο του, και ${ACADEMY_STORY_COUNT} ιστορίες ανθρώπων που ξεκίνησαν από το μηδέν. Στα ελληνικά και στα αγγλικά.`,
+                  en: `Grade 1–6 curriculum (Language, Maths, History, English), ${BOOK_COUNT} narrated books to read on their own, and ${ACADEMY_STORY_COUNT} stories of people who started from nothing. In Greek and English.`,
                 },
               },
               {
