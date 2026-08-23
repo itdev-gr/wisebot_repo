@@ -5,6 +5,27 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 24 Αυγούστου 2026 (βράδυ) — WiseBot Journey step 1: server-side progress
+
+**Open: PR #29 `feat/quiz-best-cloud-sync`** (typecheck + 42/42 tests green, for the owner's
+say-so — do not merge). First infrastructure step of the Journey from PRODUCT-VISION.md:
+the child's quiz best runs (`wb_quiz_best_*`, School stars/Master/diplomas) now sync to a
+new `quiz_best` Supabase table through the existing syncService pattern.
+
+- **Merge rule enforced in the database**: a `BEFORE UPDATE` trigger only accepts a strictly
+  better score/total ratio — no client can ever lower a best run. RLS: own rows only, no
+  delete. Migration: `supabase/migrations/20260824220000_quiz_best_sync.sql` —
+  **NOT yet applied to Supabase**; apply it (dashboard/CLI/MCP) before or with the merge.
+  Until then pushes fail quietly (console warn) and everything behaves as today.
+- Sync points: login (`SyncBridge` in AuthContext), each improved run (QuizEngine
+  `saveQuizBest`, fire-and-forget), and Parent Dashboard mount (`ParentSchoolProgress`
+  pulls cloud runs first — the parent now sees progress from other devices; its copy
+  drops «σε αυτή τη συσκευή» for signed-in accounts). Guests: localStorage only, unchanged.
+- Merge/round-trip invariants pinned in `services/syncService.test.ts` (10 tests).
+- Maker Levels / Passport / weekly report can build on `quiz_best` next.
+
+---
+
 ## ⚡ STATUS 24 Αυγούστου 2026 (μέρα) — SCHOOL overhaul, read this first
 
 **Owner's instruction for this phase: work only on the School; touch nothing else.**
@@ -91,7 +112,11 @@ What it fixes, each verified on a 375×812 viewport in dev:
 - A proper "back" in games/quiz instead of dropping to home → the navigation bug is done;
   **unifying the look of the 22 in-game back buttons is still open** (a shared floating
   button was tried and collides with Ball Rush's controls — do it per game, or not at all).
-- **Re-record Academy + ebook narration with top voices.** Not started. Facts: 558 MB of mp3
+- **Re-record Academy + ebook narration with top voices.** Demos done (24 Αυγούστου,
+  βράδυ): 4 Gemini samples on an Academy excerpt (Kore/Puck flash, Kore/Charon pro) were
+  sent to the owner — **waiting for the owner to pick a voice**; parked until then. The
+  OpenAI key in `.env.vercel` is invalid (401) and there is no ElevenLabs key. Batch
+  estimate: 113 stories ≈ 280k chars → Pro TTS ~€5–6, Flash ~€1. Facts: 558 MB of mp3
   in `public/audio/` (189 academy, 260 ebook pages), generated with a mix of OpenAI
   `coral`/`fable`, Gemini `Kore`, ElevenLabs; scripts in `scripts/generate-*voices*.mjs`.
   Proposed first step: one ebook page in 4–5 candidate voices for the owner to hear on a
