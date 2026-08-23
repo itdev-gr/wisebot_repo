@@ -77,13 +77,9 @@ export async function authFetch(url: string, options?: RequestInit): Promise<Res
 
 // ─── AI ENDPOINTS ─────────────────────────────────────────
 
+// Only the callers that exist: MusicStudio (music), HeroFactory (image, avatar),
+// BusinessSimulation (business). chat/tts/quiz go through services/geminiProxy.ts.
 export const backendAI = {
-  chat: (message: string, history: any[], systemInstruction: string) =>
-    apiFetch<{ text: string }>('/api/ai/chat', {
-      method: 'POST',
-      body: JSON.stringify({ message, history, systemInstruction }),
-    }),
-
   image: (prompt: string) =>
     apiFetch<{ image: string }>('/api/ai/image', {
       method: 'POST',
@@ -100,18 +96,6 @@ export const backendAI = {
     apiFetch<{ slogan: string; description: string; logo?: string }>('/api/ai/business', {
       method: 'POST',
       body: JSON.stringify({ textPrompt, logoPrompt }),
-    }),
-
-  tts: (text: string, voice?: string) =>
-    apiFetch<{ audio: string; mimeType: string }>('/api/ai/tts', {
-      method: 'POST',
-      body: JSON.stringify({ text, voice }),
-    }),
-
-  quiz: (prompt: string) =>
-    apiFetch<any>('/api/ai/quiz', {
-      method: 'POST',
-      body: JSON.stringify({ prompt }),
     }),
 
   avatar: async (imageBytes: string, mimeType: string): Promise<{ image: string }> => {
