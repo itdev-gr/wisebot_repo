@@ -35,3 +35,6 @@ dist-ssr
 
 # TTS intermediates — only the final .mp3 files are committed
 public/audio/**/*.wav
+
+# TTS voice comparison samples — generated on demand, not shipped
+public/audio/samples/

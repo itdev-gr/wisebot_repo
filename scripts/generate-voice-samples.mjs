@@ -6,7 +6,12 @@
  * so you can pick the best one for the Greek narration.
  *
  * Usage:
- *   OPENAI_API_KEY=sk-... GEMINI_API_KEY=... node scripts/generate-voice-samples.mjs
+ *   OPENAI_API_KEY=sk-... GEMINI_API_KEY=... ELEVENLABS_API_KEY=sk_... node scripts/generate-voice-samples.mjs
+ *   Any provider whose key is missing is skipped. Output is gitignored; copy what you
+ *   want to keep. Costs real money (≈ €0.30–1.00 for the full set) — run on purpose.
+ *
+ * 24 Αυγούστου 2026: OpenAI moved to gpt-4o-mini-tts with a storyteller instruction,
+ * ElevenLabs added (the only provider with native Greek voices), Gemini Pro TTS added.
  *
  * Output: public/audio/samples/sample-{provider}-{voice}.mp3
  */
@@ -49,6 +54,8 @@ function pcmToWav(pcmBuffer, sampleRate = 24000, channels = 1, bitsPerSample = 1
 }
 
 // ─── OpenAI TTS ─────────────────────────────────────────────────
+const STORYTELLER_INSTRUCTIONS = 'Διαβάζεις παραμύθι σε παιδιά 7 ετών στα ελληνικά. Ζεστή, ήρεμη, καθαρή φωνή, λίγο πιο αργά από κανονική ομιλία. Ζωντάνεψε τους διαλόγους, παύσεις στις τελείες. Σωστός τονισμός ελληνικών λέξεων.';
+
 async function generateOpenAI(text, voice, outputPath) {
   const response = await fetch('https://api.openai.com/v1/audio/speech', {
     method: 'POST',
@@ -57,9 +64,10 @@ async function generateOpenAI(text, voice, outputPath) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'tts-1-hd',
+      model: 'gpt-4o-mini-tts',
       input: text,
       voice: voice,
+      instructions: STORYTELLER_INSTRUCTIONS,
       response_format: 'mp3',
     }),
   });
@@ -75,9 +83,9 @@ async function generateOpenAI(text, voice, outputPath) {
 }
 
 // ─── Gemini TTS ─────────────────────────────────────────────────
-async function generateGemini(ai, text, voiceName, outputPath) {
+async function generateGemini(ai, text, voiceName, outputPath, model = 'gemini-2.5-flash-preview-tts') {
   const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash-preview-tts',
+    model,
     contents: text,
     config: {
       responseModalities: ['AUDIO'],
@@ -127,15 +135,15 @@ async function main() {
   // ── OpenAI voices ──
   if (process.env.OPENAI_API_KEY) {
     const openaiVoices = [
-      { id: 'alloy',   desc: 'Neutral, balanced' },
-      { id: 'echo',    desc: 'Warm, male' },
-      { id: 'fable',   desc: 'Expressive, storytelling' },
-      { id: 'onyx',    desc: 'Deep, authoritative' },
-      { id: 'nova',    desc: 'Natural, friendly (= English version)' },
+      { id: 'coral',   desc: 'Current Greek voice — BASELINE' },
+      { id: 'nova',    desc: 'Natural, friendly' },
       { id: 'shimmer', desc: 'Gentle, soft' },
+      { id: 'fable',   desc: 'Expressive, storytelling (current English voice)' },
+      { id: 'sage',    desc: 'Calm, clear' },
+      { id: 'ballad',  desc: 'Warm, melodic' },
     ];
 
-    console.log('\n📦 OpenAI TTS (tts-1-hd) — 6 voices');
+    console.log('\n📦 OpenAI TTS (gpt-4o-mini-tts + storyteller instruction) — 6 voices');
     console.log('─'.repeat(55));
 
     for (const voice of openaiVoices) {
@@ -169,22 +177,22 @@ async function main() {
       { id: 'Aoede',   desc: 'Calm, soothing female' },
       { id: 'Leda',    desc: 'Soft, gentle female' },
       { id: 'Puck',    desc: 'Narrator, storytelling' },
-      { id: 'Zephyr',  desc: 'Light, airy' },
-      { id: 'Charon',  desc: 'Deep, dramatic' },
+      { id: 'Kore',    desc: 'Kore on Pro TTS (higher quality, slower)', model: 'gemini-2.5-pro-preview-tts', suffix: '-pro' },
+      { id: 'Leda',    desc: 'Leda on Pro TTS', model: 'gemini-2.5-pro-preview-tts', suffix: '-pro' },
     ];
 
-    console.log('\n📦 Gemini TTS (flash-preview) — 6 voices');
+    console.log('\n📦 Gemini TTS (flash + pro preview) — 6 samples');
     console.log('─'.repeat(55));
 
     for (const voice of geminiVoices) {
-      const filename = `sample-gemini-${voice.id.toLowerCase()}.wav`;
+      const filename = `sample-gemini-${voice.id.toLowerCase()}${voice.suffix || ''}.wav`;
       const outputPath = path.join(OUTPUT_DIR, filename);
       process.stdout.write(`   ${voice.id.padEnd(10)} (${voice.desc})... `);
 
       try {
-        const bytes = await generateGemini(ai, SAMPLE_TEXT, voice.id, outputPath);
+        const bytes = await generateGemini(ai, SAMPLE_TEXT, voice.id, outputPath, voice.model);
         console.log(`✅ ${(bytes / 1024).toFixed(0)} KB`);
-        results.push({ provider: 'Gemini', voice: voice.id, desc: voice.desc, file: filename, ok: true });
+        results.push({ provider: 'Gemini', voice: voice.id + (voice.suffix || ''), desc: voice.desc, file: filename, ok: true });
       } catch (err) {
         console.log(`❌ ${err.message}`);
         results.push({ provider: 'Gemini', voice: voice.id, desc: voice.desc, file: filename, ok: false });
@@ -195,6 +203,46 @@ async function main() {
     }
   } else {
     console.log('\n⚠️  No GEMINI_API_KEY — skipping Gemini voices');
+  }
+
+  // ── ElevenLabs voices — the only provider with native Greek voices ──
+  if (process.env.ELEVENLABS_API_KEY) {
+    const elevenVoices = [
+      { id: 'aTP4J5SJLQl74WTSRXKW', name: 'eleni',     desc: 'Greek female (used before)' },
+      { id: 'JrrE7QTGDmQKQuUnqk7H', name: 'martha',    desc: 'Greek female' },
+      { id: 'TaxceJVmw8PImjbbbz3w', name: 'christina', desc: 'Greek female' },
+    ];
+
+    console.log('\n📦 ElevenLabs (eleven_multilingual_v2) — 3 Greek voices');
+    console.log('─'.repeat(55));
+
+    for (const voice of elevenVoices) {
+      const filename = `sample-elevenlabs-${voice.name}.mp3`;
+      const outputPath = path.join(OUTPUT_DIR, filename);
+      process.stdout.write(`   ${voice.name.padEnd(10)} (${voice.desc})... `);
+      try {
+        const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voice.id}?output_format=mp3_44100_128`, {
+          method: 'POST',
+          headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            text: SAMPLE_TEXT,
+            model_id: 'eleven_multilingual_v2',
+            voice_settings: { stability: 0.4, similarity_boost: 0.8, style: 0.2, use_speaker_boost: true },
+          }),
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${(await response.text()).slice(0, 120)}`);
+        const buffer = Buffer.from(await response.arrayBuffer());
+        fs.writeFileSync(outputPath, buffer);
+        console.log(`✅ ${(buffer.length / 1024).toFixed(0)} KB`);
+        results.push({ provider: 'ElevenLabs', voice: voice.name, desc: voice.desc, file: filename, ok: true });
+      } catch (err) {
+        console.log(`❌ ${err.message}`);
+        results.push({ provider: 'ElevenLabs', voice: voice.name, desc: voice.desc, file: filename, ok: false });
+      }
+      await new Promise(r => setTimeout(r, 800));
+    }
+  } else {
+    console.log('\n⚠️  No ELEVENLABS_API_KEY — skipping ElevenLabs (the Greek-native voices!)');
   }
 
   // ── Summary ──
@@ -245,6 +293,7 @@ function generatePlayerHTML(samples) {
     .provider { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem; }
     .provider.openai { color: #10a37f; }
     .provider.gemini { color: #4285f4; }
+    .provider.elevenlabs { color: #f0b429; }
     .voice { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
     .desc { color: #888; font-size: 0.85rem; margin-bottom: 0.8rem; }
     audio { width: 100%; height: 40px; }
