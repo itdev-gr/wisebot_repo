@@ -1,4 +1,5 @@
 import type { SchoolGrade } from './schoolTypes';
+import { GRADE3_MATH_UNITS } from './schoolGrade3Units';
 
 export const GRADE_3: SchoolGrade = {
   grade: 3,
@@ -9,6 +10,7 @@ export const GRADE_3: SchoolGrade = {
       id: 'math',
       name: { el: 'Μαθηματικά', en: 'Math' },
       emoji: '🔢',
+      units: GRADE3_MATH_UNITS,
       questions: [
         {
           q: { el: 'Πόσο κάνει 7 × 6;', en: 'What is 7 × 6?' },
