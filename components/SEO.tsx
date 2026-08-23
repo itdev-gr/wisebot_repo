@@ -20,12 +20,12 @@ const BASE_URL = 'https://wisebot.gr';
 const PAGE_META: Record<string, PageMeta> = {
   home: {
     title: {
-      el: "WiseBot Academy — Το Διάβασμα Έγινε Παιχνίδι | Βιβλία, Σχολείο Α'–ΣΤ' & AI για Παιδιά 6–12",
-      en: 'WiseBot Academy — Reading Just Became a Game | Books, Grades 1–6 & AI for Kids 6–12',
+      el: "WiseBot Academy — Οι Ιδέες σου Γίνονται Πραγματικότητα | Σχολείο Α'–ΣΤ', Βιβλία & AI Δημιουργία για Παιδιά",
+      en: 'WiseBot Academy — Your Ideas Become Real | School, Books & AI Creation for Kids 6–12',
     },
     description: {
-      el: `${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Το παιδί διαβάζει, ανεβαίνει επίπεδα και ξεκλειδώνει AI ήρωες, τραγούδια και βίντεο. Ασφαλές, με γονεϊκό πίνακα.`,
-      en: `${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people and a Grade 1–6 school track — free. Children read, level up and unlock AI heroes, songs and videos. Safe, with a parent dashboard.`,
+      el: `Η ψηφιακή ακαδημία δημιουργών για παιδιά 6–12: Σχολείο Α'–ΣΤ' σε ${SCHOOL_MISSION_COUNT} αποστολές, ${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων — δωρεάν. Ό,τι μαθαίνει το παιδί γίνεται δικές του δημιουργίες: ήρωες, τραγούδια, βίντεο, 3D, επιχείρηση. Ασφαλές, χωρίς ελεύθερο chat.`,
+      en: `The digital maker academy for kids 6–12: a Grade 1–6 school track with ${SCHOOL_MISSION_COUNT} missions, ${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people — free. What a child learns becomes their own creations: heroes, songs, videos, 3D, a business. Safe, no open chat.`,
     },
     keywords: {
       el: 'παιδικά βιβλία με αφήγηση, σχολείο δημοτικού quiz, εκπαιδευτική εφαρμογή για παιδιά, ασφαλής εφαρμογή για παιδιά, μάθηση μέσα από παιχνίδι, WiseBot Academy, AI για παιδιά, wisebot',

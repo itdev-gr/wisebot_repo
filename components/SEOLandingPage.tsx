@@ -21,8 +21,8 @@ const CONTENT = {
       en: 'AI for Kids — WiseBot Academy | Education & Creation with Artificial Intelligence',
     },
     description: {
-      el: `Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων. Το 1ο Ελληνικό εκπαιδευτικό AI για παιδιά 6-13.`,
-      en: `Discover the world of AI for kids! Create songs, images, videos, 3D models. Learn stories of ${ACADEMY_STORY_COUNT} great people. The 1st Greek educational AI for kids 6-13.`,
+      el: `Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων. Η ελληνική ψηφιακή ακαδημία δημιουργών για παιδιά 6-13.`,
+      en: `Discover the world of AI for kids! Create songs, images, videos, 3D models. Learn stories of ${ACADEMY_STORY_COUNT} great people. The Greek digital maker academy for kids 6-13.`,
     },
     path: '/ai-paidia',
     h1: { el: 'AI για Παιδιά — Μάθε, Δημιούργησε, Παίξε!', en: 'AI for Kids — Learn, Create, Play!' },
