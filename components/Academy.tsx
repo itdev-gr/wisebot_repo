@@ -1,5 +1,6 @@
 
 import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react';
+import { useBackCloses } from '../utils/useBackCloses';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { BookOpen, Star, Lock, X, PlayCircle, Zap, ArrowRight, Lightbulb, Dumbbell, Cpu, Palette, Globe, CheckCircle, Brain, Book, Volume2, Pause, Square, FastForward, Loader2, Sparkles, Wifi, Shield, Coins } from 'lucide-react';
 import { UI_TEXT } from '../constants';
@@ -457,6 +458,8 @@ interface AcademyProps {
 export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const childName = useChildName(lang);
   const [selectedCourse, setSelectedCourse] = useState<any | null>(null);
+  // Phone back gesture closes the story instead of leaving the Academy.
+  const closeCourse = useBackCloses(selectedCourse !== null, () => setSelectedCourse(null));
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [activeCategory, setActiveCategory] = useState<string>("START_SMALL");
   const [showQuiz, setShowQuiz] = useState(false);
@@ -749,7 +752,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-8 xl:pl-80 bg-black/95 backdrop-blur-xl"
-            onClick={() => setSelectedCourse(null)}
+            onClick={closeCourse}
           >
             <motion.div
               initial={{ scale: 0.95, y: 20 }}
@@ -760,7 +763,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             >
               {/* Close Button */}
               <button 
-                onClick={() => setSelectedCourse(null)}
+                onClick={closeCourse}
                 className="absolute top-6 right-6 z-50 p-3 bg-black/50 hover:bg-white/10 rounded-full text-white transition-all border border-white/10 backdrop-blur-md"
               >
                 <X size={20} />

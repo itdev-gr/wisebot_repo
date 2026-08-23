@@ -90,7 +90,10 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
     }
   }, [user, authLoading, navigate]);
 
-  const [tab, setTab] = useState<'login' | 'register'>('login');
+  // /login?mode=register (guest banner, parent dashboard) opens straight on the signup tab.
+  const [tab, setTab] = useState<'login' | 'register'>(() =>
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('mode') === 'register' ? 'register' : 'login'
+  );
   const [parentEmail, setParentEmail] = useState('');
   const [password, setPassword] = useState('');
   const [childName, setChildName] = useState('');
@@ -311,6 +314,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                       placeholder={t.namePlaceholder}
                       value={childName}
                       onChange={setChildName}
+                      autoComplete="off"
                     />
                     <InputField
                       icon={<Phone size={18} />}
@@ -319,6 +323,10 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                       value={phoneNumber}
                       onChange={setPhoneNumber}
                       type="tel"
+                      autoComplete="tel"
+                      hint={lang === 'el'
+                        ? 'Μόνο για να επιβεβαιώσουμε ότι είσαι γονέας πριν από αγορές. Δεν το δίνουμε σε κανέναν.'
+                        : 'Only to confirm you are a parent before any purchase. Never shared.'}
                     />
                     <InputField
                       icon={<Gift size={18} />}
@@ -338,19 +346,25 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                 value={parentEmail}
                 onChange={setParentEmail}
                 type="email"
+                autoComplete="email"
               />
 
               {/* Password with toggle */}
+              <div>
+              <label htmlFor="auth-password" className="block text-white/50 text-[11px] font-black uppercase tracking-widest mb-1.5 ml-1">
+                {t.password}
+              </label>
               <div className="relative">
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">
                   <Lock size={18} />
                 </div>
                 <input
+                  id="auth-password"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder={t.passwordPlaceholder}
-                  aria-label={t.password}
+                  autoComplete={tab === 'register' ? 'new-password' : 'current-password'}
                   className="w-full pl-12 pr-12 py-4 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 focus:bg-white/[0.07] transition-all"
                 />
                 <button
@@ -360,6 +374,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
+              </div>
               </div>
 
               {/* Forgot password — only show on login tab */}
@@ -500,6 +515,8 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
 };
 
 // --- Reusable components ---
+// Visible label above every field (placeholders vanish as soon as the parent types) and an
+// optional one-line hint under it, e.g. why the phone number is asked.
 const InputField: React.FC<{
   icon: React.ReactNode;
   label: string;
@@ -507,21 +524,33 @@ const InputField: React.FC<{
   value: string;
   onChange: (v: string) => void;
   type?: string;
-}> = ({ icon, label, placeholder, value, onChange, type = 'text' }) => (
-  <div className="relative">
-    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">
-      {icon}
+  hint?: string;
+  autoComplete?: string;
+}> = ({ icon, label, placeholder, value, onChange, type = 'text', hint, autoComplete }) => {
+  const id = React.useId();
+  return (
+    <div>
+      <label htmlFor={id} className="block text-white/50 text-[11px] font-black uppercase tracking-widest mb-1.5 ml-1">
+        {label}
+      </label>
+      <div className="relative">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30">
+          {icon}
+        </div>
+        <input
+          id={id}
+          type={type}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 focus:bg-white/[0.07] transition-all"
+        />
+      </div>
+      {hint && <p className="text-white/40 text-xs mt-1.5 ml-1 leading-snug">{hint}</p>}
     </div>
-    <input
-      type={type}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={placeholder}
-      aria-label={label}
-      className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 focus:bg-white/[0.07] transition-all"
-    />
-  </div>
-);
+  );
+};
 
 const ErrorMsg: React.FC<{ message: string }> = ({ message }) => (
   <motion.div

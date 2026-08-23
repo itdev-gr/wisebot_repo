@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { CheckCircle, XCircle, ArrowRight, RefreshCcw, BookOpen, Zap, Star, Trophy } from 'lucide-react';
 import { QuizQuestion } from '../types';
+import { shuffleAllOptions } from '../utils/shuffleOptions';
 
 const motion = m as any;
 
@@ -81,13 +82,15 @@ interface EbookQuizProps {
 }
 
 export const EbookQuiz: React.FC<EbookQuizProps> = ({
-  questions,
+  questions: sourceQuestions,
   lang,
   onComplete,
   onRetry,
   onNextBook,
   hasNextBook
 }) => {
+  // The stored order leaks the answer (see utils/shuffleOptions.ts) — shuffle once per quiz.
+  const questions = useMemo(() => shuffleAllOptions(sourceQuestions), [sourceQuestions]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswerChecked, setIsAnswerChecked] = useState(false);

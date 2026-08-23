@@ -1,5 +1,6 @@
 
 import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
+import { useBackCloses } from '../utils/useBackCloses';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import {
   Book as BookIcon,
@@ -452,10 +453,12 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
   const isBookLocked = () => false;
 
-  const closeBook = () => {
+  const closeBookNow = () => {
     window.speechSynthesis.cancel();
     setSelectedBookId(null);
   };
+  // Phone back gesture closes the book instead of leaving the library.
+  const closeBook = useBackCloses(selectedBookId !== null, closeBookNow);
 
   const openBook = (id: number | string) => {
     setSelectedBookId(id);

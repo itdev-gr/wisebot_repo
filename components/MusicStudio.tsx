@@ -346,7 +346,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     createBtn: lang === 'el' ? 'Δημιουργία' : 'Create',
     library: lang === 'el' ? 'Η Μουσική μου' : 'My Music',
     empty: lang === 'el' ? 'Δεν έχεις τραγούδια ακόμα. Φτιάξε το πρώτο σου!' : "No songs yet. Create your first one!",
-    credits: '-2⚡',
+    // Always the amount spendCredits will actually charge (60, or 58 with the musician badge).
+    credits: `-${costs.song}⚡`,
   };
 
   const GEN_STEPS = lang === 'el'

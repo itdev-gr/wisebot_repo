@@ -1,5 +1,6 @@
 
-import React, { useState, Suspense } from 'react';
+import React, { Suspense, useCallback } from 'react';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
 import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear } from 'lucide-react';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
@@ -37,13 +38,25 @@ const GameLoader = () => (
 
 const motion = m as any;
 
+type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell';
+const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell'];
+
 interface GameCenterProps {
   lang: 'el' | 'en';
 }
 
 export default function GameCenter({ lang }: GameCenterProps) {
   const childName = useChildName(lang);
-  const [activeGame, setActiveGame] = useState<'menu' | 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell'>('menu');
+  // The active game lives in the URL (/game?g=ballrush), not in component state: the phone's
+  // back button/gesture then returns to the game list instead of leaving /game entirely.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const g = searchParams.get('g');
+  const activeGame: GameKey | 'menu' = g && (GAME_KEYS as string[]).includes(g) ? (g as GameKey) : 'menu';
+  const setActiveGame = useCallback((key: GameKey) => {
+    setSearchParams({ g: key }, { state: { fromGameMenu: true } });
+  }, [setSearchParams]);
 
   const t = {
     title: lang === 'el' ? 'ΠΑΙΧΝΙΔΙΑ' : 'GAMES',
@@ -73,7 +86,11 @@ export default function GameCenter({ lang }: GameCenterProps) {
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
-  const handleBack = () => setActiveGame('menu');
+  const handleBack = useCallback(() => {
+    // Came here from the list → real history back (keeps the stack clean). Deep link → replace.
+    if (location.state?.fromGameMenu) navigate(-1);
+    else navigate('/game', { replace: true });
+  }, [location.state, navigate]);
 
   // When a game is active, render it in a full-screen overlay
   // This covers the Layout header so the game's own back button
@@ -421,7 +438,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
           return (
             <div
               key={game.key}
-              onClick={() => setActiveGame(game.key as any)}
+              onClick={() => setActiveGame(game.key)}
               className={`group relative cursor-pointer rounded-2xl md:rounded-3xl border-2 transition-all duration-300 overflow-hidden backdrop-blur-xl
                 ${game.cardBg} ${game.borderColor} ${game.hoverShadow}
                 hover:-translate-y-1 hover:shadow-xl active:scale-[0.98]

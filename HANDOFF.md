@@ -5,7 +5,63 @@ MacBook had no toolchain and no local project context.
 
 ---
 
-## ⚡ STATUS 23 Αυγούστου 2026 — read this first
+## ⚡ STATUS 24 Αυγούστου 2026 (νύχτα) — read this first
+
+**Four open PRs, all CI green, all independent of each other (each branches off `main`).
+Merge only on the owner's explicit say-so.** Content (books, academy texts) must never be
+changed in meaning — none was.
+
+| PR | Branch | What |
+|---|---|---|
+| #13 | `fix/quiz-offline-back` | the list below |
+| #15 | `ux/game-back-button` | one 44px «ΠΙΣΩ» pill in all 22 games (`components/games/GameBackButton.tsx`); Puzzle menu no longer clips its top |
+| #16 | `content/grade3-multiplication` | **for approval**: Γ' Πολλαπλασιασμός, 18 original questions (`data/units/grade3/math-multiplication.ts`), wired into the unit skeleton only — UI unchanged. Plus `data/schoolData.test.ts` validating every school question; it found and fixed 2 duplicate English options (Δ', ΣΤ' Γλώσσα) |
+| #17 | `tooling/voice-sampler` | `scripts/generate-voice-samples.mjs` upgraded (gpt-4o-mini-tts + storyteller instruction, ElevenLabs Greek voices, Gemini Pro). **Not run** — needs keys and the owner's go |
+
+**PR #13** (7 commits):
+
+What it fixes, each verified on a 375×812 viewport in dev:
+1. **Quiz answers were predictable** — correct option in slot 0/1 for 93% of book questions,
+   86% school, fixed 0-1-2 pattern in academy. `utils/shuffleOptions.ts` shuffles options per
+   question once per quiz in `EbookQuiz` and `QuizEngine` (+6 tests). Data untouched.
+2. **Offline banner** covered the header/back button (`fixed top-0`). Now `components/
+   OfflineBanner.tsx` in flow above the header, child wording in `UI_TEXT.offline`.
+3. **Phone back gesture threw the child to the home page** from a game. Active game is now
+   in the URL (`/game?g=ballrush`).
+4. Same bug in Quiz / School (2 levels) / Academy / Ebooks → `utils/useBackCloses.ts`
+   (pushes a history entry per open sub-view, closes it on pop). Read its header before reuse.
+5. P3 leftovers: Music button shows `costs.song` (60) instead of "-2⚡"; `/parent` for guests
+   explains itself + Log in / Create account; signup form has labels, a one-line "why the
+   phone" hint, correct autocomplete; `/login?mode=register` actually opens the signup tab.
+
+**Owner's new ideas (23 Αυγούστου, evening), with status:**
+- Random answer order in book quizzes → done (PR #13).
+- Offline bar hides the back button → done (PR #13).
+- A proper "back" in games/quiz instead of dropping to home → the navigation bug is done;
+  **unifying the look of the 22 in-game back buttons is still open** (a shared floating
+  button was tried and collides with Ball Rush's controls — do it per game, or not at all).
+- **Re-record Academy + ebook narration with top voices.** Not started. Facts: 558 MB of mp3
+  in `public/audio/` (189 academy, 260 ebook pages), generated with a mix of OpenAI
+  `coral`/`fable`, Gemini `Kore`, ElevenLabs; scripts in `scripts/generate-*voices*.mjs`.
+  Proposed first step: one ebook page in 4–5 candidate voices for the owner to hear on a
+  phone, then batch. Costs API money — get a go-ahead first. Consider moving audio to
+  Supabase Storage/CDN instead of the repo.
+- Before ads: sign up with a Gmail address and confirm the verification email arrives
+  promptly (needs a real mailbox — owner's task, or switch Supabase auth SMTP to a
+  dedicated provider if it lands in spam).
+
+**Found while reviewing, not fixed (pre-existing):** badge discounts are client-only —
+`costs.song` shows 58 with the musician badge but `api/ai/suno-generate.ts` always deducts
+`SONG_COST = 60` (same shape for image/video badges). Displayed ≠ charged by the discount.
+Either the server reads the badge, or the discount goes. Owner's call.
+
+**PR #6 (Cursor, May, Supabase-role admin access):** recommended to close — 46 commits
+behind, rewrites files `main` has since rewritten, and its token never expires. Not closed;
+waiting for the owner.
+
+---
+
+## ⚡ STATUS 23 Αυγούστου 2026
 
 **Live on wisebot.gr (merged today, PR #11):** the whole first-run experience from
 `ONBOARDING-PLAN.md` — greeting by name, WiseBot's one-time tip in each room

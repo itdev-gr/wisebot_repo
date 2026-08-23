@@ -8,7 +8,7 @@ import {
   Gamepad2, PenTool, GraduationCap, MessageSquare,
   Smartphone, Mail, Phone, Loader2, CheckCircle, ArrowRight
 } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { authFetch } from '../services/backendApi';
@@ -23,6 +23,7 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const { credits, badges, stats, streak } = useEconomy();
   const { user, profile, emailVerified } = useAuth();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [pin, setPin] = useState('');
   const [exporting, setExporting] = useState(false);
@@ -217,7 +218,11 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         title: 'ΓΟΝΕΪΚΟΣ ΠΙΝΑΚΑΣ',
         subtitle: 'Παρακολουθήστε την πρόοδο του παιδιού σας',
         pinTitle: 'Επαλήθευση Γονέα',
-        pinDesc: 'Εισάγετε τον κωδικό του λογαριασμού σας',
+        pinDesc: 'Εδώ μπαίνουν μόνο οι γονείς. Βάλε τον κωδικό του λογαριασμού σου για να δεις την πρόοδο και τα credits του παιδιού.',
+        guestTitle: 'Για γονείς',
+        guestDesc: 'Εδώ ο γονέας βλέπει τι διάβασε το παιδί, πόσο χρόνο έπαιξε και πόσα credits έχει — και βάζει όρια. Χρειάζεται λογαριασμό.',
+        guestLogin: 'ΣΥΝΔΕΣΗ',
+        guestRegister: 'ΔΗΜΙΟΥΡΓΙΑ ΛΟΓΑΡΙΑΣΜΟΥ',
         pinBtn: 'ΕΠΑΛΗΘΕΥΣΗ',
         pinError: 'Λάθος κωδικός',
         // Section A
@@ -294,7 +299,11 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         title: 'PARENT DASHBOARD',
         subtitle: 'Monitor your child\'s progress',
         pinTitle: 'Parent Verification',
-        pinDesc: 'Enter your account password',
+        pinDesc: 'Parents only. Enter your account password to see your child\'s progress and credits.',
+        guestTitle: 'For parents',
+        guestDesc: 'Here a parent sees what the child read, how long they played and how many credits they have — and sets limits. It needs an account.',
+        guestLogin: 'LOG IN',
+        guestRegister: 'CREATE ACCOUNT',
         pinBtn: 'VERIFY',
         pinError: 'Wrong password',
         // Section A
@@ -447,6 +456,37 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     lang === 'el' ? 'Κώδικας' : 'Coding',
     lang === 'el' ? 'Μουσική θεωρία' : 'Music Theory',
   ];
+
+  // ─── GUEST: explain what this is and where to go, instead of a password box that can never work ───
+  if (!user) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="w-full max-w-sm bg-[#0B0F1A]/80 border border-white/10 rounded-3xl p-10 text-center backdrop-blur-xl">
+          <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-blue-500/30">
+            <Shield size={32} className="text-blue-400" />
+          </div>
+          <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-2">{t.guestTitle}</h2>
+          <p className="text-white/60 text-sm mb-6 leading-relaxed">{t.guestDesc}</p>
+          <div className="space-y-3">
+            <button
+              type="button"
+              onClick={() => navigate('/login')}
+              className="w-full py-3 bg-blue-600 rounded-xl text-white font-black uppercase text-sm hover:bg-blue-500 transition-all"
+            >
+              {t.guestLogin}
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/login?mode=register')}
+              className="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-white/80 font-black uppercase text-sm hover:bg-white/10 transition-all"
+            >
+              {t.guestRegister}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // ─── AUTH GATE ─────────────────────────────────────────────────────
   if (!isUnlocked) {
