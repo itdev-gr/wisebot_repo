@@ -130,12 +130,42 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const [suggestionSending, setSuggestionSending] = useState(false);
 
 
-  // Activity log for today's count
+  // Activity log for today's count (local fallback while the server summary loads)
   const todayActivities = getActivityLog().filter(
     (e) => e.timestamp.startsWith(new Date().toISOString().slice(0, 10))
   );
 
   const unlockedCount = Object.values(badges).filter(Boolean).length;
+
+  // ─── Server summary: the child's REAL numbers ───────────────────────
+  // EconomyContext is this device's localStorage — a parent opening /parent on
+  // their own phone would see zeros. /api/auth/parent-summary reads profiles,
+  // stats and the credit ledger for the account, whatever device the child uses.
+  const [summary, setSummary] = useState<any>(null);
+  const [summaryFailed, setSummaryFailed] = useState(false);
+  useEffect(() => {
+    if (!isUnlocked || !user) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await authFetch('/api/auth/parent-summary');
+        if (!res.ok) throw new Error(String(res.status));
+        const data = await res.json();
+        if (!cancelled) { setSummary(data); setSummaryFailed(false); }
+      } catch {
+        if (!cancelled) setSummaryFailed(true);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [isUnlocked, user]);
+
+  // Prefer the account's numbers; fall back to this device while loading/offline.
+  const view = {
+    credits: summary ? summary.profile.credits : credits,
+    streak: summary ? summary.activity.streakDays : streak,
+    todayCount: summary ? summary.activity.todayCount : todayActivities.length,
+    stats: summary ? summary.stats : stats,
+  };
 
 
   // Data export handler
@@ -343,14 +373,14 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
 
   // Analytics stat items for Section B
   const analyticsItems = [
-    { icon: Trophy, label: t.quizzes, value: stats.quizzesPassed, color: 'bg-amber-500', barColor: 'bg-amber-500/80' },
-    { icon: BookOpen, label: t.booksRead, value: stats.booksRead, color: 'bg-purple-500', barColor: 'bg-purple-500/80' },
-    { icon: GraduationCap, label: t.storiesLessons, value: stats.lessonsRead, color: 'bg-blue-500', barColor: 'bg-blue-500/80' },
-    { icon: ImageIcon, label: t.images, value: stats.imagesCreated, color: 'bg-pink-500', barColor: 'bg-pink-500/80' },
-    { icon: Music, label: t.songs, value: stats.songsCreated, color: 'bg-fuchsia-500', barColor: 'bg-fuchsia-500/80' },
-    { icon: Clapperboard, label: t.videos, value: stats.videosCreated, color: 'bg-orange-500', barColor: 'bg-orange-500/80' },
-    { icon: Briefcase, label: t.businesses, value: stats.businessesCreated, color: 'bg-emerald-500', barColor: 'bg-emerald-500/80' },
-    { icon: Store, label: t.heroesUploaded, value: stats.heroesUploaded, color: 'bg-violet-500', barColor: 'bg-violet-500/80' },
+    { icon: Trophy, label: t.quizzes, value: view.stats.quizzesPassed, color: 'bg-amber-500', barColor: 'bg-amber-500/80' },
+    { icon: BookOpen, label: t.booksRead, value: view.stats.booksRead, color: 'bg-purple-500', barColor: 'bg-purple-500/80' },
+    { icon: GraduationCap, label: t.storiesLessons, value: view.stats.lessonsRead, color: 'bg-blue-500', barColor: 'bg-blue-500/80' },
+    { icon: ImageIcon, label: t.images, value: view.stats.imagesCreated, color: 'bg-pink-500', barColor: 'bg-pink-500/80' },
+    { icon: Music, label: t.songs, value: view.stats.songsCreated, color: 'bg-fuchsia-500', barColor: 'bg-fuchsia-500/80' },
+    { icon: Clapperboard, label: t.videos, value: view.stats.videosCreated, color: 'bg-orange-500', barColor: 'bg-orange-500/80' },
+    { icon: Briefcase, label: t.businesses, value: view.stats.businessesCreated, color: 'bg-emerald-500', barColor: 'bg-emerald-500/80' },
+    { icon: Store, label: t.heroesUploaded, value: view.stats.heroesUploaded, color: 'bg-violet-500', barColor: 'bg-violet-500/80' },
   ];
   const maxStatValue = Math.max(1, ...analyticsItems.map((s) => s.value));
 
@@ -584,19 +614,19 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         {/* Activities today */}
         <div className="bg-gradient-to-br from-blue-900/60 to-slate-900/80 border border-blue-500/20 rounded-2xl p-5 text-center">
           <div className="text-2xl mb-1">{'\u{1F3AF}'}</div>
-          <p className="text-3xl font-[1000] text-white italic">{todayActivities.length}</p>
+          <p className="text-3xl font-[1000] text-white italic">{view.todayCount}</p>
           <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider mt-1">{t.activitiesToday}</p>
         </div>
         {/* Streak */}
         <div className="bg-gradient-to-br from-orange-900/60 to-slate-900/80 border border-orange-500/20 rounded-2xl p-5 text-center">
           <div className="text-2xl mb-1">{'\u{1F525}'}</div>
-          <p className="text-3xl font-[1000] text-white italic">{streak}</p>
+          <p className="text-3xl font-[1000] text-white italic">{view.streak}</p>
           <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider mt-1">{t.activeStreak}</p>
         </div>
         {/* Credits */}
         <div className="bg-gradient-to-br from-indigo-900/60 to-slate-900/80 border border-indigo-500/20 rounded-2xl p-5 text-center">
           <div className="text-2xl mb-1">{'\u{1F48E}'}</div>
-          <p className="text-3xl font-[1000] text-white italic">{credits}</p>
+          <p className="text-3xl font-[1000] text-white italic">{view.credits}</p>
           <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider mt-1">{t.creditsBalance}</p>
         </div>
         {/* Badges */}
@@ -612,6 +642,13 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         <h3 className="text-lg font-black text-white uppercase tracking-wider mb-6 flex items-center gap-2">
           <BarChart3 size={20} className="text-blue-400" /> {t.analyticsTitle}
         </h3>
+        <p className="text-[10px] text-white/30 font-bold uppercase tracking-wider -mt-4 mb-5">
+          {summary
+            ? (lang === 'el' ? 'Από τον λογαριασμό — ό,τι κι αν χρησιμοποιεί συσκευή το παιδί' : 'From the account — whatever device your child uses')
+            : summaryFailed
+              ? (lang === 'el' ? 'Εκτός σύνδεσης — νούμερα αυτής της συσκευής μόνο' : 'Offline — this device’s numbers only')
+              : (lang === 'el' ? 'Φόρτωση από τον λογαριασμό...' : 'Loading from the account...')}
+        </p>
         <div className="space-y-4">
           {analyticsItems.map((item, idx) => (
             <div key={idx} className="flex items-center gap-3">
@@ -634,6 +671,45 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
           ))}
         </div>
       </div>
+
+      {/* ═══════ Recent activity (from the credit ledger) ═══════ */}
+      {summary && summary.activity.recent.length > 0 && (
+        <div className="bg-[#0B0F1A]/60 border border-white/10 rounded-2xl p-6">
+          <h3 className="text-lg font-black text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+            <Clock size={20} className="text-emerald-400" /> {lang === 'el' ? 'ΠΡΟΣΦΑΤΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ' : 'RECENT ACTIVITY'}
+          </h3>
+          <div className="divide-y divide-white/5">
+            {summary.activity.recent.map((a: any, i: number) => {
+              const L: Record<string, { el: string; en: string; emoji: string }> = {
+                READ_ACADEMY: { el: 'Διάβασε μια ιστορία', en: 'Read a story', emoji: '📖' },
+                READ_BOOK: { el: 'Τελείωσε ένα βιβλίο', en: 'Finished a book', emoji: '📚' },
+                PASS_QUIZ: { el: 'Πέρασε ένα quiz', en: 'Passed a quiz', emoji: '🧠' },
+                GAME_REWARD: { el: 'Κέρδισε σε παιχνίδι', en: 'Won a game reward', emoji: '🎮' },
+                DAILY_MISSION: { el: 'Ολοκλήρωσε την αποστολή ημέρας', en: 'Completed the daily mission', emoji: '⭐' },
+                CREATE_IMAGE: { el: 'Έφτιαξε εικόνα με AI', en: 'Created an AI image', emoji: '🎨' },
+                CREATE_SONG: { el: 'Έφτιαξε τραγούδι', en: 'Created a song', emoji: '🎵' },
+                CREATE_VIDEO: { el: 'Έφτιαξε βίντεο', en: 'Created a video', emoji: '🎬' },
+                CREATE_3D: { el: 'Έφτιαξε 3D μοντέλο', en: 'Created a 3D model', emoji: '🧊' },
+                CREATE_BUSINESS: { el: 'Έπαιξε «Η Εταιρεία μου»', en: 'Played My Company', emoji: '🏢' },
+                GIFT_SENT: { el: 'Έστειλε δώρο', en: 'Sent a gift', emoji: '🎁' },
+                GIFT_RECEIVED: { el: 'Έλαβε δώρο', en: 'Received a gift', emoji: '🎁' },
+                PURCHASE: { el: 'Αγορά credits', en: 'Credits purchase', emoji: '💳' },
+              };
+              const info = L[a.action] || { el: a.action, en: a.action, emoji: '✨' };
+              const when = new Date(a.at).toLocaleString(lang === 'el' ? 'el-GR' : 'en-GB', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+              return (
+                <div key={i} className="py-2.5 flex items-center justify-between gap-3">
+                  <p className="text-sm text-white/80 truncate"><span className="mr-2">{info.emoji}</span>{lang === 'el' ? info.el : info.en}</p>
+                  <p className="text-xs font-black shrink-0 tabular-nums">
+                    <span className={a.amount < 0 ? 'text-red-400' : 'text-emerald-400'}>{a.amount > 0 ? '+' : ''}{a.amount}⚡</span>
+                    <span className="text-white/30 ml-2">{when}</span>
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* ═══════ SECTION C: School progress ═══════ */}
       <ParentSchoolProgress lang={lang} />
