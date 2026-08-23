@@ -7,9 +7,18 @@ MacBook had no toolchain and no local project context.
 
 ## ⚡ STATUS 24 Αυγούστου 2026 (νύχτα) — read this first
 
-**Open PR #13 — `fix/quiz-offline-back`** (6 commits, pushed, CI/preview pending when written).
-The owner gave blanket approval for branch → PR work overnight; **merge only on explicit
-say-so**. Content (books, academy texts) must never be changed in meaning — none was.
+**Four open PRs, all CI green, all independent of each other (each branches off `main`).
+Merge only on the owner's explicit say-so.** Content (books, academy texts) must never be
+changed in meaning — none was.
+
+| PR | Branch | What |
+|---|---|---|
+| #13 | `fix/quiz-offline-back` | the list below |
+| #15 | `ux/game-back-button` | one 44px «ΠΙΣΩ» pill in all 22 games (`components/games/GameBackButton.tsx`); Puzzle menu no longer clips its top |
+| #16 | `content/grade3-multiplication` | **for approval**: Γ' Πολλαπλασιασμός, 18 original questions (`data/units/grade3/math-multiplication.ts`), wired into the unit skeleton only — UI unchanged. Plus `data/schoolData.test.ts` validating every school question; it found and fixed 2 duplicate English options (Δ', ΣΤ' Γλώσσα) |
+| #17 | `tooling/voice-sampler` | `scripts/generate-voice-samples.mjs` upgraded (gpt-4o-mini-tts + storyteller instruction, ElevenLabs Greek voices, Gemini Pro). **Not run** — needs keys and the owner's go |
+
+**PR #13** (7 commits):
 
 What it fixes, each verified on a 375×812 viewport in dev:
 1. **Quiz answers were predictable** — correct option in slot 0/1 for 93% of book questions,
