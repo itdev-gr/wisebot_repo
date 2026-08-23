@@ -74,10 +74,11 @@ are specific and repeat.
 ## Environment
 
 `.env` (gitignored, never commit or paste) holds `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`,
-`VITE_STRIPE_PUBLISHABLE_KEY`, `VITE_API_URL`. `VITE_ADMIN_PIN` and `VITE_PARENT_PIN` are
-**stale leftovers referenced by no code** — admin auth is server-side via
-`api/_lib/adminAuth.ts` (email + password → 12h HMAC token). Delete them rather than reusing
-them: any `VITE_`-prefixed value is compiled into the public browser bundle.
+`VITE_STRIPE_PUBLISHABLE_KEY`, `VITE_API_URL`. Admin auth is server-side via
+`api/_lib/adminAuth.ts` (email + password → 12h HMAC token) — there is no PIN. The old
+`VITE_ADMIN_PIN` / `VITE_PARENT_PIN` were removed from the local `.env` on 24 Αυγούστου 2026;
+if they still exist in the Vercel dashboard, delete them there too. Never add a secret with a
+`VITE_` prefix: it is compiled into the public browser bundle.
 
 ## Working notes
 

@@ -17,6 +17,16 @@ changed in meaning — none was.
 | #15 | `ux/game-back-button` | one 44px «ΠΙΣΩ» pill in all 22 games (`components/games/GameBackButton.tsx`); Puzzle menu no longer clips its top |
 | #16 | `content/grade3-multiplication` | **for approval**: Γ' Πολλαπλασιασμός, 18 original questions (`data/units/grade3/math-multiplication.ts`), wired into the unit skeleton only — UI unchanged. Plus `data/schoolData.test.ts` validating every school question; it found and fixed 2 duplicate English options (Δ', ΣΤ' Γλώσσα) |
 | #17 | `tooling/voice-sampler` | `scripts/generate-voice-samples.mjs` upgraded (gpt-4o-mini-tts + storyteller instruction, ElevenLabs Greek voices, Gemini Pro). **Not run** — needs keys and the owner's go |
+| #18 | `fix/academy-count` | UI/SEO said «98 ιστορίες»; it is 113 since PR #14 (MONEY_MIND 101–123). Counts now in `data/contentCounts.ts`, locked by `contentCounts.test.ts` (also: unique ids, 3 quiz per story) |
+| #19 | `chore/strict-null-checks` | `strictNullChecks: true` — only 15 errors, all `let x = null` / forEach-narrowing inference gaps, fixed, no behaviour change. Task 3 done |
+| #20 | `chore/cleanup-dead-endpoints` | Task 6 re-verified: API6/API7 are **not** dead (kept), API8 already gone, dead `backendAI.chat/tts/quiz` removed, admin endpoint list fixed, PINs out of `.env`. **Owner:** delete `VITE_*_PIN` from Vercel env if present |
+
+**Done today, merged:** PR #14 — 15 new MONEY_MIND Academy stories (ids 109–123: Thiel, Vaynerchuk,
+Girard, Knight, Housel, Newport, Voss, Schwartz, Kim & Mauborgne, Tracy, Peale, Kiyosaki ×2, Sharma,
+Dyer). Academy = 113 stories.
+
+**Still undefined:** the «Βιβλία» pass from the category-by-category plan — no concrete brief
+exists for what to change in the 34 books. Needs the owner's input before anyone starts.
 
 **PR #13** (7 commits):
 

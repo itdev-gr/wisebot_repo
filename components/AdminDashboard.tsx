@@ -1131,7 +1131,7 @@ function SystemTab({ totals, lastRefresh, users }: any) {
     { name: '/api/ai/chat', desc: 'AI Chat (GPT-4o-mini)', status: 'active' },
     { name: '/api/ai/generate', desc: 'Image Gen (DALL-E 3) + Text (Gemini)', status: 'active' },
     { name: '/api/ai/tts', desc: 'Text-to-Speech', status: 'active' },
-    { name: '/api/ai/video', desc: 'Video Gen (Veo)', status: 'active' },
+    { name: '/api/ai/video-generate', desc: 'Video Gen (Veo)', status: 'active' },
     { name: '/api/ai/music', desc: 'Music Gen', status: 'active' },
     { name: '/api/ai/quiz', desc: 'Quiz Gen', status: 'active' },
     { name: '/api/auth/signup', desc: 'User Registration', status: 'active' },
