@@ -3,16 +3,20 @@
  * ===================================
  * What a parent wants to know in ten seconds: which grade the child plays, how far each
  * subject is, and — above all — which missions are weak (played, but under 2 stars).
- * Reads the same localStorage best-runs the child's School screen uses (QuizEngine), so it
- * is exact for this device and shows nothing if the child has not played here.
+ * Reads the same localStorage best-runs the child's School screen uses (QuizEngine).
+ * With an account, those best-runs sync through quiz_best (services/syncService.ts), so on
+ * mount this view pulls the cloud runs into localStorage first — a parent on a different
+ * device sees what the child played elsewhere. Guests stay device-local, as before.
  *
  * Words here are for the parent, not the child: they may be a little more formal.
  */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { GraduationCap, Star, AlertTriangle, Award } from 'lucide-react';
 import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
 import { getQuizStars, getQuizBest } from './QuizEngine';
 import { playableUnits, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
+import { useAuth } from '../context/AuthContext';
+import { syncQuizBests } from '../services/syncService';
 
 const examId = (grade: number) => `school-g${grade}-exam`;
 
@@ -78,11 +82,29 @@ const StarRow = ({ stars }: { stars: number }) => (
 );
 
 export default function ParentSchoolProgress({ lang }: { lang: 'el' | 'en' }) {
+  const { user } = useAuth();
+  const userId: string | null = user?.id ?? null;
+  // Bump after the cloud pull lands so buildSchoolReport re-reads localStorage.
+  const [, setCloudRefresh] = useState(0);
+
+  useEffect(() => {
+    if (!userId) return;
+    let cancelled = false;
+    syncQuizBests(userId).then(() => {
+      if (!cancelled) setCloudRefresh(n => n + 1);
+    });
+    return () => { cancelled = true; };
+  }, [userId]);
+
   const report = buildSchoolReport(lang);
   const t = lang === 'el' ? {
     title: 'ΣΧΟΛΕΙΟ',
-    subtitle: 'Πρόοδος ανά τάξη και μάθημα, από τις αποστολές που έπαιξε το παιδί σε αυτή τη συσκευή',
-    empty: 'Το παιδί δεν έχει παίξει ακόμα καμία αποστολή στο Σχολείο σε αυτή τη συσκευή.',
+    subtitle: userId
+      ? 'Πρόοδος ανά τάξη και μάθημα, από τις αποστολές που έπαιξε το παιδί — από όλες τις συσκευές του λογαριασμού'
+      : 'Πρόοδος ανά τάξη και μάθημα, από τις αποστολές που έπαιξε το παιδί σε αυτή τη συσκευή',
+    empty: userId
+      ? 'Το παιδί δεν έχει παίξει ακόμα καμία αποστολή στο Σχολείο.'
+      : 'Το παιδί δεν έχει παίξει ακόμα καμία αποστολή στο Σχολείο σε αυτή τη συσκευή.',
     missions: 'αποστολές',
     played: 'παιγμένες',
     stars: 'αστέρια',
@@ -95,8 +117,12 @@ export default function ParentSchoolProgress({ lang }: { lang: 'el' | 'en' }) {
     examPending: 'Ξεκλειδώνει με Μάστερ σε κάθε μάθημα',
   } : {
     title: 'SCHOOL',
-    subtitle: 'Progress per grade and subject, from the missions played on this device',
-    empty: 'No School missions have been played on this device yet.',
+    subtitle: userId
+      ? 'Progress per grade and subject, from missions played on any of the account’s devices'
+      : 'Progress per grade and subject, from the missions played on this device',
+    empty: userId
+      ? 'No School missions have been played yet.'
+      : 'No School missions have been played on this device yet.',
     missions: 'missions',
     played: 'played',
     stars: 'stars',

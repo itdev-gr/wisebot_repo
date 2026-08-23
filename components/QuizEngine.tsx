@@ -87,7 +87,14 @@ const saveQuizBest = (categoryId: string, score: number, total: number) => {
     const prev = getQuizBest(categoryId);
     const prevPct = prev && prev.total > 0 ? prev.score / prev.total : -1;
     if (total > 0 && score / total > prevPct) {
-      localStorage.setItem(BEST_KEY_PREFIX + categoryId, JSON.stringify({ score, total, timestamp: Date.now() }));
+      const entry = { score, total, timestamp: Date.now() };
+      localStorage.setItem(BEST_KEY_PREFIX + categoryId, JSON.stringify(entry));
+      // Mirror the improved run to the account (no-op for guests). Fire-and-forget:
+      // localStorage stays the source the UI reads, and a lost push self-heals on the
+      // next login sync (syncQuizBests).
+      import('../services/syncService')
+        .then(({ pushQuizBest }) => pushQuizBest(categoryId, entry))
+        .catch(() => { /* offline — next sync covers it */ });
     }
   } catch { /* storage full */ }
 };
