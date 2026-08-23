@@ -628,5 +628,35 @@ export const ACADEMY_QUIZZES: Record<number, QuizQuestion[]> = {
     q("Σύμφωνα με τον Morgan Housel, τι είναι ο πλούτος;", "According to Morgan Housel, what is wealth?", ["Τα χρήματα που ΔΕΝ ξόδεψες","Τα ακριβά πράγματα που φοράς","Ένα πανάκριβο αυτοκίνητο"], ["The money you did NOT spend","The expensive things you wear","A very expensive car"], 0),
     q("Τι δουλειά έκανε ο Ronald Read, που άφησε πίσω του εκατομμύρια;", "What job did Ronald Read do, the man who left behind millions?", ["Ήταν τραπεζίτης","Ήταν επιστάτης — έβαζε βενζίνη και σφουγγάριζε πατώματα","Ήταν διάσημος ηθοποιός"], ["He was a banker","He was a janitor — he pumped gas and mopped floors","He was a famous actor"], 1),
     q("Τι χρειάζεται για να τα πας καλά με τα χρήματα, σύμφωνα με τη θεία Μαρίνα;", "What do you need to do well with money, according to Aunt Marina?", ["Να είσαι ιδιοφυΐα στα μαθηματικά","Να έχεις πλούσιους γονείς","Καλή συμπεριφορά: υπομονή, ηρεμία και να ξέρεις τη λέξη «αρκετά»"], ["To be a genius at maths","To have rich parents","Good behavior: patience, calm, and knowing the word enough"], 2)
+  ],
+  // MONEY_MIND — story 114
+  114: [
+    q("Σύμφωνα με τον Cal Newport, τι συμβαίνει στο μυαλό κάθε φορά που ακούς ένα «ντινγκ» και γυρίζεις πίσω στη δουλειά σου;", "According to Cal Newport, what happens to your brain every time you hear a ding and return to your work?", ["Χρειάζεται λεπτά ολόκληρα για να ξαναβρεί πού ήταν","Δουλεύει πιο γρήγορα από πριν","Δεν αλλάζει τίποτα"], ["It needs whole minutes to find where it was","It works faster than before","Nothing changes"], 0),
+    q("Ποιος είναι ο απλός κανόνας του Newport για το κινητό, όπως τον είπε ο Δημήτρης;", "What is Newport's simple rule about the phone, as Dimitris put it?", ["Να το βάζεις μπρούμυτα στο γραφείο","Να το βάζεις στο αθόρυβο","Να το πηγαίνεις σε άλλο δωμάτιο"], ["Put it face down on the desk","Put it on silent","Take it to another room"], 2),
+    q("Πόσο χρόνο χρειάστηκε η Ελένη για την έκθεση με τον καινούργιο τρόπο, αντί για τρεις ώρες;", "How long did Helen need for the essay the new way, instead of three hours?", ["Δέκα λεπτά","Πενήντα λεπτά","Έξι ώρες"], ["Ten minutes","Fifty minutes","Six hours"], 1)
+  ],
+  // MONEY_MIND — story 115
+  115: [
+    q("Με ποιους μιλούσε ο Chris Voss για το FBI;", "Who did Chris Voss talk to on behalf of the FBI?", ["Με τους πιο επικίνδυνους απαγωγείς, για να ελευθερώσει ομήρους","Με ποδοσφαιριστές, για μεταγραφές","Με παιδιά, για τα μαθήματά τους"], ["With the most dangerous kidnappers, to free hostages","With footballers, about transfers","With children, about their homework"], 0),
+    q("Τι παράδειγμα έφερε ο παππούς για το «μοίρασμα στη μέση»;", "What example did Grandpa give for splitting things down the middle?", ["Μια πίτσα κομμένη στα δύο","Μία ώρα τηλεόραση ο καθένας","Ένα μαύρο κι ένα καφέ παπούτσι"], ["A pizza cut in two","One hour of TV each","One black shoe and one brown shoe"], 2),
+    q("Ποια λύση βρήκαν τελικά ο Γιώργος και η Κατερίνα;", "What solution did George and Kate find in the end?", ["Ο Γιώργος παραιτήθηκε από τον αγώνα","Ο αγώνας τελείωνε οχτώ παρά δέκα και η ταινία άρχιζε στις οχτώ — χωρούσαν και τα δύο","Αγόρασαν δεύτερη τηλεόραση"], ["George gave up the match","The match ended at ten to eight and the movie began at eight — both fit","They bought a second TV"], 1)
+  ],
+  // MONEY_MIND — story 116
+  116: [
+    q("Πώς ονόμασε η γιαγιά την «αρρώστια» του Χρήστου;", "What did Grandma call Chris's disease?", ["Φοβίτιδα","Δικαιολογίτιδα","Ρομποτίτιδα"], ["Fear-itis","Excuse-itis","Robot-itis"], 1),
+    q("Ποια ερώτηση προτείνει ο David Schwartz αντί για το «δεν μπορώ»;", "Which question does David Schwartz suggest instead of I can't?", ["«ΠΩΣ μπορώ;»","«Ποιος φταίει;»","«Γιατί εγώ;»"], ["HOW can I?","Whose fault is it?","Why me?"], 0),
+    q("Ποια θέση πήρε το ρομπότ του Χρήστου στον διαγωνισμό;", "What place did Chris's robot take in the contest?", ["Πρώτο","Τελευταίο","Τρίτο, ανάμεσα σε δεκατέσσερις ομάδες"], ["First","Last","Third, out of fourteen teams"], 2)
+  ],
+  // MONEY_MIND — story 117
+  117: [
+    q("Τι είναι η «κόκκινη θάλασσα», σύμφωνα με την κυρία Ιωάννα;", "What is the red sea, according to Mrs. Joanna?", ["Μια θάλασσα όπου κολυμπάς μόνος σου","Εκεί που όλοι πουλάνε το ίδιο και παλεύουν σαν καρχαρίες για τους ίδιους πελάτες","Μια θάλασσα με κόκκινα ψάρια"], ["A sea where you swim on your own","Where everybody sells the same thing and fights like sharks over the same customers","A sea full of red fish"], 1),
+    q("Τι έκανε το Cirque du Soleil διαφορετικά από τα άλλα τσίρκα;", "What did Cirque du Soleil do differently from other circuses?", ["Έβγαλε τα ζώα και πρόσθεσε μουσική, ιστορία και στολές σαν του θεάτρου","Έβαλε περισσότερα ζώα και κλόουν","Έκανε τα εισιτήρια δωρεάν"], ["It took out the animals and added music, a story and theater-style costumes","It added more animals and clowns","It made the tickets free"], 0),
+    q("Τι πρόσθεσαν τα κορίτσια στον χορό τους που δεν είχε καμία άλλη ομάδα;", "What did the girls add to their dance that no other group had?", ["Πιο δύσκολες φιγούρες","Ένα καινούργιο τραγούδι","Χάρτινες μάσκες ζώων και κατέβαιναν να χορέψουν με τα μικρά παιδιά"], ["Harder moves","A new song","Paper animal masks, and they came down to dance with the little kids"], 2)
+  ],
+  // MONEY_MIND — story 118
+  118: [
+    q("Τι δουλειές έκανε ο Brian Tracy πριν αρχίσει να γράφει τους στόχους του;", "What jobs did Brian Tracy do before he started writing down his goals?", ["Ήταν προπονητής μπάσκετ","Εργάτης, έπλενε πιάτα και κοιμόταν στο αμάξι του","Ήταν δάσκαλος σε σχολείο"], ["He was a basketball coach","Laborer, dishwasher, and he slept in his car","He was a school teacher"], 1),
+    q("Τι έγραψε ο Θάνος στο χαρτί του;", "What did Tom write on his piece of paper?", ["«Μέχρι τις 20 Μαΐου θα βάζω 8 στις 10 ελεύθερες βολές»","«Θέλω να γίνω καλός στο μπάσκετ»","«Θα παίζω μπάσκετ κάθε Κυριακή»"], ["By May 20th I will make 8 out of 10 free throws","I want to get good at basketball","I will play basketball every Sunday"], 0),
+    q("Ποιος είναι ο πέμπτος κανόνας του Tracy, όπως τον είπε ο προπονητής;", "What is Tracy's fifth rule, as the coach put it?", ["Να λες τον στόχο σου σε όλους","Να αλλάζεις στόχο κάθε εβδομάδα","Να κάνεις κάτι γι' αυτόν κάθε μέρα, έστω λίγο"], ["Tell everyone your goal","Change your goal every week","Do something about it every day, even a little"], 2)
   ]
 };
