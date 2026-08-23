@@ -18,6 +18,10 @@ import { motion as m, AnimatePresence } from 'framer-motion';
 import { GraduationCap, ArrowLeft, Play, BookMarked, Star, Trophy, Lock } from 'lucide-react';
 import QuizEngine, { getQuizProgress, getQuizStars, getQuizBest } from './QuizEngine';
 import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
+import { type SchoolUnit } from '../data/schoolTypes';
+import { loadGradeQuestions } from '../data/units/registry';
+import type { QuizQuestion } from '../types';
+import SchoolUnitMap, { playableUnits, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 const motion = m as any;
@@ -34,15 +38,22 @@ const examId = (grade: number) => `school-g${grade}-exam`;
 const EXAM_QUESTIONS = 12;
 const DIPLOMA_MIN_STARS = 2; // ≥75% on the exam
 
-/** All subjects of a grade completed at least once → exam unlocks. */
-const isExamUnlocked = (g: SchoolGrade) =>
-  g.subjects.every(s => getQuizBest(catId(g.grade, s.id)) !== null);
+/** A subject counts as "played" once its flat quiz — or any of its missions — has a best run. */
+const subjectPlayed = (g: SchoolGrade, s: SchoolSubject) =>
+  getQuizBest(catId(g.grade, s.id)) !== null ||
+  playableUnits(s).some(u => getQuizBest(unitCatId(g.grade, s.id, u.id)) !== null);
+
+/** All subjects of a grade played at least once → exam unlocks. */
+const isExamUnlocked = (g: SchoolGrade) => g.subjects.every(s => subjectPlayed(g, s));
 
 const hasDiploma = (g: SchoolGrade) => getQuizStars(examId(g.grade)) >= DIPLOMA_MIN_STARS;
 
-/** Mixed exam: shuffle every question of the grade, keep 12. */
-const buildExam = (g: SchoolGrade): SchoolSubject => {
-  const pool = g.subjects.flatMap(s => s.questions);
+/** Mixed exam: shuffle every question of the grade (missions included), keep 12. */
+const buildExam = (g: SchoolGrade, loaded: Record<string, QuizQuestion[]>): SchoolSubject => {
+  const pool = g.subjects.flatMap(s => [
+    ...s.questions,
+    ...playableUnits(s).flatMap(u => u.questions.length ? u.questions : loaded[`${g.grade}/${s.id}/${u.id}`] || []),
+  ]);
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
   return {
     id: 'exam',
@@ -50,6 +61,35 @@ const buildExam = (g: SchoolGrade): SchoolSubject => {
     emoji: '🏆',
     questions: shuffled.slice(0, EXAM_QUESTIONS),
   };
+};
+
+/** Stars for one run: 100% → 3, ≥75% → 2, ≥50% → 1 (same rule as getQuizStars). */
+const starsFor = (score: number, total: number): 0 | 1 | 2 | 3 => {
+  const pct = total ? score / total : 0;
+  return pct >= 1 ? 3 : pct >= 0.75 ? 2 : pct >= 0.5 ? 1 : 0;
+};
+
+/** The WiseBot card at the end of a mission: stars won and one sentence about what's next. */
+const MissionResult = ({ lang, score, total, childName }: { lang: 'el' | 'en'; score: number; total: number; childName: string }) => {
+  const stars = starsFor(score, total);
+  const line = lang === 'el'
+    ? stars === 3 ? `Τέλεια, ${childName}! Τρία αστέρια — η αποστολή είναι δική σου.`
+    : stars === 2 ? `Μπράβο, ${childName}! Δύο αστέρια — μετράει για Μάστερ. Θες και το τρίτο;`
+    : stars === 1 ? `Καλή αρχή, ${childName}! Ένα αστέρι. Ξαναπαίξε για 2 — τότε μετράει για Μάστερ.`
+    : `Δεν πειράζει, ${childName}. Διάβασε τις εξηγήσεις και ξαναδοκίμασε — θα τα καταφέρεις!`
+    : stars === 3 ? `Perfect, ${childName}! Three stars — this mission is yours.`
+    : stars === 2 ? `Well done, ${childName}! Two stars — that counts for Master. Want the third?`
+    : stars === 1 ? `Good start, ${childName}! One star. Play again for 2 — then it counts for Master.`
+    : `That's okay, ${childName}. Read the explanations and try again — you'll get it!`;
+  return (
+    <div className="p-4 bg-white/5 border border-white/10 rounded-2xl text-left flex items-start gap-3">
+      <span className="text-3xl leading-none">🦉</span>
+      <div className="flex-1">
+        <StarRow stars={stars} size={22} />
+        <p className="text-white/80 text-sm font-bold mt-1.5 leading-snug">{line}</p>
+      </div>
+    </div>
+  );
 };
 
 const StarRow = ({ stars, size = 13 }: { stars: number; size?: number }) => (
@@ -69,11 +109,23 @@ export default function School({ lang }: SchoolProps) {
   const childName = useChildName(lang);
   const [activeGrade, setActiveGrade] = useState<SchoolGrade | null>(null);
   const [activeSubject, setActiveSubject] = useState<SchoolSubject | null>(null);
+  const [activeUnit, setActiveUnit] = useState<SchoolUnit | null>(null);
+  // Mission questions arrive per grade, on demand (keeps the School chunk under the PWA limit).
+  const [unitQuestions, setUnitQuestions] = useState<Record<string, QuizQuestion[]>>({});
+  useEffect(() => {
+    if (!activeGrade) return;
+    let alive = true;
+    loadGradeQuestions(activeGrade.grade).then(q => { if (alive) setUnitQuestions(prev => ({ ...prev, ...q })); });
+    return () => { alive = false; };
+  }, [activeGrade]);
+  const questionsOf = (unit: SchoolUnit) =>
+    unit.questions.length ? unit.questions : (activeGrade ? unitQuestions[`${activeGrade.grade}/${activeSubject?.id}/${unit.id}`] : undefined) || [];
   const [saved, setSaved] = useState<Record<string, boolean>>({});
   const [, setTick] = useState(0); // re-read localStorage-derived stars/diplomas
   // Phone back gesture steps out one level (subject → grade → grade list) instead of leaving.
   const backFromGrade = useBackCloses(activeGrade !== null, () => setActiveGrade(null));
-  const backFromSubject = useBackCloses(activeSubject !== null, () => { setActiveSubject(null); refreshSaved(); });
+  const backFromSubject = useBackCloses(activeSubject !== null, () => { setActiveSubject(null); setActiveUnit(null); refreshSaved(); });
+  const backFromUnit = useBackCloses(activeUnit !== null, () => { setActiveUnit(null); refreshSaved(); });
 
   // Track which subject quizzes have saved (in-progress) state → "CONTINUE" badge
   const refreshSaved = () => {
@@ -81,6 +133,10 @@ export default function School({ lang }: SchoolProps) {
     SCHOOL_CURRICULUM.forEach(g =>
       g.subjects.forEach(s => {
         if (getQuizProgress(catId(g.grade, s.id))) map[catId(g.grade, s.id)] = true;
+        playableUnits(s).forEach(u => {
+          const id = unitCatId(g.grade, s.id, u.id);
+          if (getQuizProgress(id)) map[id] = true;
+        });
       })
     );
     setSaved(map);
@@ -106,7 +162,57 @@ export default function School({ lang }: SchoolProps) {
     diplomaWon: lang === 'el' ? 'Πήρες το Απολυτήριο!' : 'You earned the Diploma!',
     diplomaHint: lang === 'el' ? 'Γράψε 75%+ στο διαγώνισμα για Απολυτήριο 🎓' : 'Score 75%+ on the exam for the Diploma 🎓',
     done: lang === 'el' ? 'ολοκληρωμένα' : 'done',
+    backMissions: lang === 'el' ? 'ΠΙΣΩ ΣΤΙΣ ΑΠΟΣΤΟΛΕΣ' : 'BACK TO MISSIONS',
+    missions: lang === 'el' ? 'αποστολές' : 'missions',
+    stars: lang === 'el' ? 'αστέρια' : 'stars',
+    master: lang === 'el' ? 'ΜΑΣΤΕΡ' : 'MASTER',
   };
+
+  // ─── SCREEN 3b: MISSION QUIZ (unit-based subjects) ───────────────
+  if (activeGrade && activeSubject && activeUnit) {
+    const qs = questionsOf(activeUnit);
+    if (qs.length === 0) {
+      return (
+        <div className="max-w-6xl mx-auto px-4 min-h-[50vh] flex items-center justify-center">
+          <p className="text-white/40 font-black text-xs uppercase tracking-widest animate-pulse">{lang === 'el' ? 'ΦΟΡΤΩΣΗ...' : 'LOADING...'}</p>
+        </div>
+      );
+    }
+    return (
+      <div className="max-w-6xl mx-auto px-4 min-h-full py-2 pb-4">
+        <button
+          onClick={backFromUnit}
+          className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-3 transition-colors"
+        >
+          <ArrowLeft size={16} /> {t.backMissions}
+        </button>
+        <QuizEngine
+          topic={`${activeUnit.emoji} ${activeUnit.name[lang]}`}
+          questions={qs}
+          onRestart={() => { setActiveUnit(null); refreshSaved(); }}
+          lang={lang}
+          categoryId={unitCatId(activeGrade.grade, activeSubject.id, activeUnit.id)}
+          restartLabel={t.backMissions}
+          finishSlot={(score, total) => <MissionResult lang={lang} score={score} total={total} childName={childName} />}
+        />
+      </div>
+    );
+  }
+
+  // ─── SCREEN 3a: MISSION TRAIL (unit-based subjects) ──────────────
+  if (activeGrade && activeSubject && playableUnits(activeSubject).length > 0) {
+    return (
+      <div className="max-w-5xl mx-auto px-4 min-h-full py-6 pb-32">
+        <button
+          onClick={backFromSubject}
+          className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-6 transition-colors"
+        >
+          <ArrowLeft size={16} /> {t.backSubjects}
+        </button>
+        <SchoolUnitMap lang={lang} grade={activeGrade} subject={activeSubject} onPlay={setActiveUnit} />
+      </div>
+    );
+  }
 
   // ─── SCREEN 3: QUIZ ─────────────────────────────────────────────
   if (activeGrade && activeSubject) {
@@ -159,9 +265,14 @@ export default function School({ lang }: SchoolProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {activeGrade.subjects.map((subject, i) => {
             const id = catId(activeGrade.grade, subject.id);
-            const hasProgress = saved[id];
+            const units = playableUnits(subject);
+            const hasMissions = units.length > 0;
+            const hasProgress = hasMissions
+              ? units.some(u => saved[unitCatId(activeGrade.grade, subject.id, u.id)])
+              : saved[id];
             const stars = getQuizStars(id);
-            const completed = getQuizBest(id) !== null;
+            const mastered = hasMissions && subjectMastered(activeGrade.grade, subject);
+            const completed = hasMissions ? mastered : getQuizBest(id) !== null;
             return (
               <motion.button
                 key={subject.id}
@@ -184,10 +295,14 @@ export default function School({ lang }: SchoolProps) {
                 <div className="relative z-10 h-full flex flex-col justify-end">
                   <div className="flex items-center gap-2">
                     <h3 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter">{subject.name[lang]}</h3>
-                    {completed && <StarRow stars={stars} />}
+                    {hasMissions
+                      ? mastered && <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[9px] font-black uppercase tracking-widest">🏅 {t.master}</span>
+                      : completed && <StarRow stars={stars} />}
                   </div>
                   <p className="text-white/40 text-xs font-bold uppercase tracking-widest mt-1">
-                    {subject.questions.length} {t.questions}
+                    {hasMissions
+                      ? `${units.length} ${t.missions} · ${subjectStarTotal(activeGrade.grade, subject)}/${units.length * 3} ${t.stars}`
+                      : `${subject.questions.length} ${t.questions}`}
                   </p>
                 </div>
               </motion.button>
@@ -200,7 +315,7 @@ export default function School({ lang }: SchoolProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: activeGrade.subjects.length * 0.06 }}
             disabled={!examUnlocked}
-            onClick={() => examUnlocked && setActiveSubject(buildExam(activeGrade))}
+            onClick={() => examUnlocked && setActiveSubject(buildExam(activeGrade, unitQuestions))}
             className={`group relative h-36 rounded-[2rem] overflow-hidden border text-left p-7 transition-all duration-300 ${
               examUnlocked
                 ? 'border-amber-400/40 bg-gradient-to-br from-amber-500/[0.12] to-orange-600/[0.08] backdrop-blur-xl hover:border-amber-400/70 hover:-translate-y-1 active:scale-[0.98] cursor-pointer'
@@ -254,8 +369,8 @@ export default function School({ lang }: SchoolProps) {
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
         {SCHOOL_CURRICULUM.map((g, i) => {
-          const totalQ = g.subjects.reduce((s, sub) => s + sub.questions.length, 0);
-          const doneCount = g.subjects.filter(s => getQuizBest(catId(g.grade, s.id)) !== null).length;
+          const totalQ = g.subjects.reduce((s, sub) => s + sub.questions.length + playableUnits(sub).reduce((a, u) => a + u.questions.length, 0), 0);
+          const doneCount = g.subjects.filter(s => subjectPlayed(g, s)).length;
           const diploma = hasDiploma(g);
           const pct = Math.round((doneCount / g.subjects.length) * 100);
           return (

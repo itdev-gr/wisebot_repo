@@ -97,7 +97,7 @@ export const GRADE_6: SchoolGrade = {
         },
         {
           q: { el: 'Στην πρόταση «Η Μαρία τρώει το μήλο», ποιο είναι το αντικείμενο;', en: 'In "Η Μαρία τρώει το μήλο" (Maria eats the apple), what is the object?' },
-          options: { el: ['Η Μαρία', 'τρώει', 'το μήλο', 'Μαρία'], en: ['Maria', 'eats', 'the apple', 'Maria'] },
+          options: { el: ['Η Μαρία', 'τρώει', 'το μήλο', 'Μαρία'], en: ['The Maria', 'eats', 'the apple', 'Maria'] },
           correct: 2,
           explanation: { el: 'Το αντικείμενο δέχεται την ενέργεια του ρήματος· εδώ το μήλο.', en: 'The object receives the action of the verb; here it is the apple.' },
         },

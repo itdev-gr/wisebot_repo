@@ -97,7 +97,7 @@ export const GRADE_4: SchoolGrade = {
         },
         {
           q: { el: 'Στην πρόταση «Η Μαρία διαβάζει», ποιο είναι το ρήμα;', en: 'In the sentence "Maria reads", what is the verb?' },
-          options: { el: ['διαβάζει', 'Η Μαρία', 'Μαρία', 'Η'], en: ['reads', 'Maria', 'Maria', 'The'] },
+          options: { el: ['διαβάζει', 'Η Μαρία', 'Μαρία', 'Η'], en: ['reads', 'The Maria', 'Maria', 'The'] },
           correct: 0,
           explanation: { el: 'Το ρήμα δείχνει την ενέργεια, εδώ «διαβάζει».', en: 'The verb shows the action, here "reads".' },
         },

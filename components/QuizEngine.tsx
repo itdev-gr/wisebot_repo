@@ -28,6 +28,10 @@ interface QuizEngineProps {
   lang: 'el' | 'en';
   categoryId?: string;
   challengeData?: { from: string; score: number } | null;
+  /** Rendered on the finish screen above the buttons — School uses it for the mission card. */
+  finishSlot?: (score: number, total: number) => React.ReactNode;
+  /** Label of the last button (default "ΠΑΙΞΕ ΑΛΛΟ"). */
+  restartLabel?: string;
 }
 
 // ─── PROGRESS PERSISTENCE ───
@@ -210,7 +214,7 @@ const CircleTimer = ({ timeLeft, total }: { timeLeft: number; total: number }) =
 // ═══════════════════════════════════════
 // MAIN COMPONENT
 // ═══════════════════════════════════════
-const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestions, onRestart, lang, categoryId, challengeData }) => {
+const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestions, onRestart, lang, categoryId, challengeData, finishSlot, restartLabel }) => {
   const { trackAction } = useEconomy();
   // The stored option order leaks the answer (see utils/shuffleOptions.ts). Question order is
   // kept, so a resumed quiz (currentIdx from localStorage) still lands on the same question.
@@ -520,15 +524,17 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
           </div>
         </div>
 
+        {finishSlot?.(totalScore, questions.length)}
+
         {/* Quiz completed notice */}
-        <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
+        {!finishSlot && <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
           <p className="text-emerald-400 font-black uppercase tracking-widest italic text-sm flex items-center justify-center gap-2">
             <Zap size={18} fill="currentColor" /> QUIZ COMPLETED
           </p>
           <p className="text-white/40 text-xs font-bold mt-1">
             {lang === 'el' ? 'Πρόοδος για Credits & Thinker Badge' : 'Progress toward Credits & Thinker Badge'}
           </p>
-        </div>
+        </div>}
 
         {/* Action buttons */}
         <div className="space-y-3">
@@ -544,7 +550,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
           </button>
           <button onClick={onRestart}
             className="w-full py-4 bg-white/10 text-white rounded-2xl font-[1000] text-base uppercase italic tracking-widest hover:bg-white/20 transition-all flex items-center justify-center gap-3 border border-white/10">
-            <RefreshCcw size={20} /> {lang === 'el' ? 'ΠΑΙΞΕ ΑΛΛΟ' : 'PLAY ANOTHER'}
+            <RefreshCcw size={20} /> {restartLabel ?? (lang === 'el' ? 'ΠΑΙΞΕ ΑΛΛΟ' : 'PLAY ANOTHER')}
           </button>
         </div>
       </motion.div>
