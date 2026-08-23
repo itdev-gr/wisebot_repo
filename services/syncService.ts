@@ -218,6 +218,151 @@ export async function pushToCloud(userId: string, state: SyncState): Promise<boo
   }
 }
 
+// ─── QUIZ BEST RUNS (wb_quiz_best_* ↔ public.quiz_best) ───
+// Best quiz runs drive School stars, Master badges and diplomas (QuizEngine.saveQuizBest).
+// They sync per key with the same "strictly better ratio wins" rule saveQuizBest uses, so
+// a best run can never be lowered — the quiz_best table's trigger enforces the same rule
+// server-side against stale or concurrent writers.
+
+export interface QuizBestEntry {
+  score: number;
+  total: number;
+  timestamp: number;
+}
+
+const QUIZ_BEST_PREFIX = 'wb_quiz_best_';
+// Mirrors the table's CHECK constraints — invalid junk must not poison a batch upsert.
+const isValidQuizBest = (e: QuizBestEntry): boolean =>
+  Number.isFinite(e.score) && Number.isFinite(e.total) &&
+  Number.isInteger(e.score) && Number.isInteger(e.total) &&
+  e.total >= 1 && e.total <= 500 && e.score >= 0 && e.score <= e.total;
+
+/** Same comparison as QuizEngine.saveQuizBest: strictly higher score/total wins. */
+export function isBetterQuizBest(candidate: QuizBestEntry, incumbent: QuizBestEntry | null): boolean {
+  if (!isValidQuizBest(candidate)) return false;
+  if (!incumbent || !isValidQuizBest(incumbent)) return true;
+  return candidate.score / candidate.total > incumbent.score / incumbent.total;
+}
+
+/** Per-key take-better merge. Ties keep the local entry (no churn, matches saveQuizBest). */
+export function mergeQuizBests(
+  local: Record<string, QuizBestEntry>,
+  cloud: Record<string, QuizBestEntry>,
+): Record<string, QuizBestEntry> {
+  const merged: Record<string, QuizBestEntry> = {};
+  for (const [key, entry] of Object.entries(local)) {
+    if (isValidQuizBest(entry)) merged[key] = entry;
+  }
+  for (const [key, entry] of Object.entries(cloud)) {
+    if (isBetterQuizBest(entry, merged[key] ?? null)) merged[key] = entry;
+  }
+  return merged;
+}
+
+export function readLocalQuizBests(): Record<string, QuizBestEntry> {
+  const out: Record<string, QuizBestEntry> = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key || !key.startsWith(QUIZ_BEST_PREFIX)) continue;
+    const categoryId = key.slice(QUIZ_BEST_PREFIX.length);
+    if (!categoryId || categoryId.length > 120) continue;
+    try {
+      const parsed = JSON.parse(localStorage.getItem(key) || '') as QuizBestEntry;
+      if (isValidQuizBest(parsed)) out[categoryId] = parsed;
+    } catch { /* corrupt entry — skip */ }
+  }
+  return out;
+}
+
+export function writeLocalQuizBests(bests: Record<string, QuizBestEntry>) {
+  for (const [categoryId, entry] of Object.entries(bests)) {
+    try {
+      localStorage.setItem(QUIZ_BEST_PREFIX + categoryId, JSON.stringify(entry));
+    } catch { /* storage full */ }
+  }
+}
+
+async function pullQuizBests(userId: string): Promise<Record<string, QuizBestEntry> | null> {
+  const { data, error } = await supabase
+    .from('quiz_best')
+    .select('category_id, score, total, achieved_at')
+    .eq('user_id', userId);
+  if (error) {
+    console.warn('[Sync] Quiz best pull error:', error.message);
+    return null;
+  }
+  const out: Record<string, QuizBestEntry> = {};
+  for (const row of data || []) {
+    const entry: QuizBestEntry = {
+      score: row.score,
+      total: row.total,
+      timestamp: Date.parse(row.achieved_at) || Date.now(),
+    };
+    if (isValidQuizBest(entry)) out[row.category_id] = entry;
+  }
+  return out;
+}
+
+async function upsertQuizBests(userId: string, bests: Record<string, QuizBestEntry>): Promise<boolean> {
+  const rows = Object.entries(bests).map(([categoryId, e]) => ({
+    user_id: userId,
+    category_id: categoryId,
+    score: e.score,
+    total: e.total,
+  }));
+  if (rows.length === 0) return true;
+  const { error } = await supabase
+    .from('quiz_best')
+    .upsert(rows, { onConflict: 'user_id,category_id' });
+  if (error) {
+    console.warn('[Sync] Quiz best push error:', error.message);
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Full two-way sync: pull cloud rows, take the better run per key, write the result to
+ * localStorage and push back only the keys where local was the better one. Called on
+ * login (SyncBridge) and when the Parent Dashboard opens the School report.
+ */
+export async function syncQuizBests(userId: string): Promise<boolean> {
+  if (!isSupabaseConfigured()) return false;
+  try {
+    const cloud = await pullQuizBests(userId);
+    if (cloud === null) return false;
+    const local = readLocalQuizBests();
+    const merged = mergeQuizBests(local, cloud);
+    writeLocalQuizBests(merged);
+    const localBetter: Record<string, QuizBestEntry> = {};
+    for (const [key, entry] of Object.entries(merged)) {
+      if (isBetterQuizBest(entry, cloud[key] ?? null)) localBetter[key] = entry;
+    }
+    return await upsertQuizBests(userId, localBetter);
+  } catch (err) {
+    console.error('[Sync] Quiz best sync error:', err);
+    return false;
+  }
+}
+
+/**
+ * Fire-and-forget push of a single improved run (QuizEngine.saveQuizBest). Guests have no
+ * session — the run stays in localStorage exactly as before. The table trigger drops the
+ * write if the cloud already holds a better run, so no pre-read is needed.
+ */
+export async function pushQuizBest(categoryId: string, entry: QuizBestEntry): Promise<void> {
+  if (!isSupabaseConfigured()) return;
+  if (!isValidQuizBest(entry) || !categoryId || categoryId.length > 120) return;
+  try {
+    const { data } = await supabase.auth.getSession();
+    const userId = data.session?.user?.id;
+    if (!userId) return;
+    await upsertQuizBests(userId, { [categoryId]: entry });
+  } catch (err) {
+    console.warn('[Sync] Quiz best push error:', err);
+  }
+}
+
 // --- DEBOUNCE HELPER ---
 let pushTimer: ReturnType<typeof setTimeout> | null = null;
 

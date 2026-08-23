@@ -10,7 +10,7 @@
  */
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
-import { pullFromCloud, pushToCloud, mergeState, debouncedPush, cancelPendingPush, type SyncState } from '../services/syncService';
+import { pullFromCloud, pushToCloud, mergeState, debouncedPush, cancelPendingPush, syncQuizBests, type SyncState } from '../services/syncService';
 import { useEconomy } from './EconomyContext';
 import { authFetch } from '../services/backendApi';
 import type { User } from '@supabase/supabase-js';
@@ -381,6 +381,10 @@ const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject
     if (syncDoneRef.current) return;
 
     const doSync = async () => {
+      // Quiz best runs (School stars/diplomas) sync independently of profile/stats —
+      // a failed profile fetch below must not stop them.
+      void syncQuizBests(userId);
+
       const cloudState = await pullFromCloud(userId);
       if (!cloudState) {
         syncDoneRef.current = true;
