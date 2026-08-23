@@ -7,8 +7,9 @@
  * Earns real credits via the shared game-reward helper.
  */
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import GameBackButton from './GameBackButton';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Recycle, Timer, Flame, Trophy, Zap, Play, RotateCcw } from 'lucide-react';
+import { Recycle, Timer, Flame, Trophy, Zap, Play, RotateCcw } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 
@@ -182,9 +183,7 @@ export default function EcoHero({ lang, onBack }: EcoHeroProps) {
     <div className="h-full flex flex-col items-center p-3 select-none overflow-hidden">
       {/* HEADER */}
       <div className="flex justify-between items-center w-full max-w-md mb-2 bg-black/50 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 z-10 shrink-0">
-        <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-1.5 py-1 px-2">
-          <ArrowLeft size={14} /> {t.back}
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         <h2 className="text-xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-lime-300 via-green-400 to-emerald-500 italic tracking-tighter leading-none">
           {t.title}
         </h2>

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import GameBackButton from './GameBackButton';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { 
   ArrowLeft, 
@@ -259,9 +260,7 @@ export default function WiseCards({ lang, onBack }: WiseCardsProps) {
   if (gameState === 'menu') {
       return (
         <div className="h-full flex flex-col items-center justify-center p-6 bg-[#0B0F1A] animate-in fade-in">
-            <button onClick={onBack} className="absolute top-4 right-4 text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg">
-               {t.back}
-            </button>
+            <GameBackButton onClick={onBack} lang={lang} className="self-start mb-4" />
 
             <div className="text-center mb-12">
                 <h1 className="text-5xl md:text-7xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 italic uppercase tracking-tighter mb-2">

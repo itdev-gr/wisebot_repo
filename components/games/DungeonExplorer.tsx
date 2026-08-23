@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { ArrowLeft, RotateCcw, Sword, Heart, Star, Key, DoorOpen, Shield, Zap, Crown } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { RotateCcw, Sword, Heart, Star, Key, DoorOpen, Shield, Zap, Crown } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 interface DungeonExplorerProps {
@@ -398,9 +399,7 @@ export default function DungeonExplorer({ lang, onBack }: DungeonExplorerProps) 
     <div className="flex flex-col h-full w-full bg-[#0B0F1A] select-none overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-1.5 bg-black/70 backdrop-blur-xl border-b border-emerald-500/20 z-20 relative shrink-0">
-        <button onClick={onBack} className="flex items-center justify-center w-9 h-9 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-          <ArrowLeft size={20} />
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         {gameState !== 'menu' && (
           <div className="flex items-center gap-2 text-xs font-bold">
             <span className="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">🏰 F{player.floor}</span>

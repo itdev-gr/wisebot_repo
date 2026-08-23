@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowLeft, RefreshCcw, Crown, Play, Trophy, Zap, Flame } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { RefreshCcw, Crown, Play, Trophy, Zap, Flame } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 
@@ -668,9 +669,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
 
       {/* HEADER UI */}
       <div className="flex justify-between items-center w-full max-w-md mb-1.5 bg-black/50 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 z-10 shrink-0">
-        <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-1.5 py-1 px-2">
-          <ArrowLeft size={14}/> {t.back}
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
 
         <div className="flex flex-col items-center">
           <h2 className="text-xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 italic tracking-tighter leading-none">HERO FUSION</h2>
