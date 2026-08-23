@@ -19,7 +19,9 @@ export default defineConfig(({ mode }) => {
       plugins: [
         react(),
         VitePWA({
-          registerType: 'autoUpdate',
+          // 'prompt': the new service worker waits; UpdatePrompt offers the reload instead of
+          // the page reloading itself a few seconds after every deploy (mid-book, mid-quiz).
+          registerType: 'prompt',
           includeAssets: ['favicon.png'],
           manifest: {
             name: 'WiseBot Academy',
@@ -40,7 +42,7 @@ export default defineConfig(({ mode }) => {
             ],
           },
           workbox: {
-            skipWaiting: true,
+            skipWaiting: false,
             clientsClaim: true,
             navigateFallbackDenylist: [/^\/api\//],
             // ONLY precache app shell — NO images, NO hero assets

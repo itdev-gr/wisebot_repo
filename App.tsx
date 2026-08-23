@@ -14,6 +14,7 @@ import { Shield, ArrowRight, Zap, WifiOff } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import UnlockGate from './components/UnlockGate';
+import UpdatePrompt from './components/UpdatePrompt';
 
 // --- LAZY LOAD COMPONENTS (Performance Optimization) ---
 // These components will only load when the user clicks on them,
@@ -505,6 +506,7 @@ export default function App() {
       <EconomyProvider lang={lang}>
         <AuthProvider>
           <AppContent lang={lang} setLang={setLang} />
+          <UpdatePrompt lang={lang} />
         </AuthProvider>
       </EconomyProvider>
     </HelmetProvider>
