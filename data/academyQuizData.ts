@@ -598,5 +598,35 @@ export const ACADEMY_QUIZZES: Record<number, QuizQuestion[]> = {
     q("Τι έκανε ο συνταγματάρχης Anderson κάθε Σάββατο;", "What did Colonel Anderson do every Saturday?", ["Άνοιγε τη βιβλιοθήκη του στα παιδιά που δούλευαν","Μοίραζε χρήματα στους φτωχούς","Έκανε μαθήματα τηλεγράφου στα παιδιά"], ["He opened his library to the boys who worked","He handed out money to the poor","He gave telegraph lessons to children"], 0),
     q("Τι έχτισε ο Andrew Carnegie όταν έγινε πλούσιος, θυμούμενος τα παιδικά του χρόνια;", "What did Andrew Carnegie build when he became rich, remembering his childhood?", ["Ένα τεράστιο κάστρο στη Σκωτία","Ένα εργοστάσιο σοκολάτας για παιδιά","Πάνω από δυόμισι χιλιάδες δωρεάν βιβλιοθήκες"], ["A huge castle in Scotland","A chocolate factory for kids","More than two and a half thousand free libraries"], 2),
     q("Σε πόσα βαζάκια μοιράζουν οι σοφοί τα χρήματά τους και για ποιους σκοπούς;", "Into how many jars do wise people split their money, and for what purposes?", ["Σε δύο: ένα για παιχνίδια και ένα για γλυκά","Σε τρία: ένα για να ξοδεύουν, ένα για να αποταμιεύουν και ένα για να δίνουν","Σε πέντε: ένα για κάθε εργάσιμη μέρα"], ["Two: one for toys and one for sweets","Three: one to spend, one to save and one to give","Five: one for each working day"], 1)
+  ],
+  // MONEY_MIND — story 109
+  109: [
+    q("Πόσοι άλλοι πάγκοι πουλούσαν λεμονάδα στο ανοιξιάτικο παζάρι, εκτός από τον πάγκο του Ηλία;", "How many other stands were selling lemonade at the spring fair, besides Elias's stand?", ["Δύο","Εφτά","Κανένας"], ["Two","Seven","None"], 1),
+    q("Τι πουλούσε ο πάγκος του Ηλία στο καλοκαιρινό παζάρι;", "What was Elias's stand selling at the summer fair?", ["Παγωμένα γλειφιτζούρια λεμονάδας — ο μόνος σε όλο το σχολείο","Την πιο φτηνή λεμονάδα από όλους","Χειροποίητα βραχιολάκια"], ["Ice-cold lemonade pops — the only one in the whole school","The cheapest lemonade of all","Handmade bracelets"], 0),
+    q("Σύμφωνα με τον Peter Thiel, τι σημαίνει να πας «από το 0 στο 1»;", "According to Peter Thiel, what does it mean to go from zero to one?", ["Να αντιγράψεις ό,τι πουλάει πιο πολύ","Να κατεβάσεις πρώτος την τιμή σου","Να φτιάξεις κάτι που δεν υπάρχει"], ["To copy whatever sells the most","To be the first to lower your price","To make something that doesn't exist"], 2)
+  ],
+  // MONEY_MIND — story 110
+  110: [
+    q("Τι έκανε ο Gary Vaynerchuk κάθε μέρα για το μαγαζί κρασιών του πατέρα του;", "What did Gary Vaynerchuk do every day for his father's wine shop?", ["Κολλούσε αφίσες σε όλη την πόλη","Γύριζε ένα βίντεο απαντώντας δωρεάν στις ερωτήσεις των ανθρώπων","Χαμήλωνε τις τιμές κάθε πρωί"], ["He put up posters all over town","He filmed a video answering people's questions for free","He lowered the prices every morning"], 1),
+    q("Τι έκανε η Αναστασία στο διάλειμμα, κάθε μέρα για δύο εβδομάδες;", "What did Anna do at recess, every day for two weeks?", ["Έδειχνε δωρεάν σε όποιον ήθελε πώς φτιάχνονται τα βραχιολάκια","Πουλούσε τα βραχιολάκια της στη μισή τιμή","Έκρυβε τις χάντρες της από τα άλλα παιδιά"], ["She showed anyone who wanted how the bracelets are made, for free","She sold her bracelets at half price","She hid her beads from the other kids"], 0),
+    q("Ποιος είναι ο απλός κανόνας του Gary, σύμφωνα με τον Πέτρο;", "What is Gary's simple rule, according to Peter?", ["Ζήτα πρώτα, δώσε αργότερα","Μην απαντάς ποτέ σε ερωτήσεις δωρεάν","Δώσε, δώσε, δώσε — και μετά ζήτα"], ["Ask first, give later","Never answer questions for free","Give, give, give — and then ask"], 2)
+  ],
+  // MONEY_MIND — story 111
+  111: [
+    q("Σύμφωνα με τον Κανόνα του Joe Girard, πόσους άλλους ανθρώπους ξέρει κάθε άνθρωπος που συναντάς;", "According to Joe Girard's rule, how many other people does every person you meet know?", ["Περίπου διακόσιους πενήντα","Περίπου δέκα","Περίπου χίλιους"], ["About two hundred and fifty","About ten","About a thousand"], 0),
+    q("Τι έστελνε ο Joe Girard σε κάθε πελάτη του κάθε μήνα;", "What did Joe Girard send to every customer every month?", ["Ένα καινούργιο αυτοκίνητο","Μια κάρτα, μόνο για να πει «σε σκέφτομαι»","Έναν λογαριασμό"], ["A brand-new car","A card, just to say I'm thinking of you","A bill"], 1),
+    q("Τι έκανε η κυρία Ρένα αφού ο Μάρκος της εξήγησε τα πάντα και της είπε ευχαριστώ;", "What did Mrs. Rena do after Mark explained everything and said thank you?", ["Του έκλεισε την πόρτα","Του ζήτησε πίσω τα χρήματά της","Φώναξε τις δύο φίλες της από τον πέμπτο όροφο"], ["She closed the door on him","She asked for her money back","She called her two friends from the fifth floor"], 2)
+  ],
+  // MONEY_MIND — story 112
+  112: [
+    q("Από πού πουλούσε ο Phil Knight τα παπούτσια στην αρχή;", "Where did Phil Knight sell the shoes from, in the beginning?", ["Από ένα μεγάλο μαγαζί στο κέντρο","Από το πορτμπαγκάζ του αυτοκινήτου του, στους αγώνες στίβου","Από το διαδίκτυο"], ["From a big store downtown","From the trunk of his car, at track meets","From the internet"], 1),
+    q("Τι χρησιμοποίησε ο Bill Bowerman για να φτιάξει μια σόλα με κυψέλες;", "What did Bill Bowerman use to make a sole with little honeycombs?", ["Τη βαφλιέρα της γυναίκας του","Ένα παλιό λάστιχο ποδηλάτου","Ένα καλούπι από την Ιαπωνία"], ["His wife's waffle iron","An old bicycle tire","A mold from Japan"], 0),
+    q("Πόσα πλήρωσαν τη φοιτήτρια που σχεδίασε το σήμα της Nike;", "How much did they pay the student who drew the Nike logo?", ["Ένα εκατομμύριο δολάρια","Τίποτα — το έκανε δωρεάν","Τριάντα πέντε δολάρια"], ["One million dollars","Nothing — she did it for free","Thirty-five dollars"], 2)
+  ],
+  // MONEY_MIND — story 113
+  113: [
+    q("Σύμφωνα με τον Morgan Housel, τι είναι ο πλούτος;", "According to Morgan Housel, what is wealth?", ["Τα χρήματα που ΔΕΝ ξόδεψες","Τα ακριβά πράγματα που φοράς","Ένα πανάκριβο αυτοκίνητο"], ["The money you did NOT spend","The expensive things you wear","A very expensive car"], 0),
+    q("Τι δουλειά έκανε ο Ronald Read, που άφησε πίσω του εκατομμύρια;", "What job did Ronald Read do, the man who left behind millions?", ["Ήταν τραπεζίτης","Ήταν επιστάτης — έβαζε βενζίνη και σφουγγάριζε πατώματα","Ήταν διάσημος ηθοποιός"], ["He was a banker","He was a janitor — he pumped gas and mopped floors","He was a famous actor"], 1),
+    q("Τι χρειάζεται για να τα πας καλά με τα χρήματα, σύμφωνα με τη θεία Μαρίνα;", "What do you need to do well with money, according to Aunt Marina?", ["Να είσαι ιδιοφυΐα στα μαθηματικά","Να έχεις πλούσιους γονείς","Καλή συμπεριφορά: υπομονή, ηρεμία και να ξέρεις τη λέξη «αρκετά»"], ["To be a genius at maths","To have rich parents","Good behavior: patience, calm, and knowing the word enough"], 2)
   ]
 };
