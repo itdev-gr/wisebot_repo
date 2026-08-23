@@ -77,6 +77,49 @@ import { GRADE4_SCIENCE_JOBS_AND_PRODUCTS } from './grade4/science-jobs-and-prod
 import { GRADE4_SCIENCE_NATURE_IS_OUR_HOME } from './grade4/science-nature-is-our-home';
 import { GRADE4_SCIENCE_OUR_BODY } from './grade4/science-our-body';
 import { GRADE4_SCIENCE_PHYSICAL_WORLD } from './grade4/science-physical-world';
+import { GRADE5_ENGLISH_CELEBRATIONS } from './grade5/english-celebrations';
+import { GRADE5_ENGLISH_COMPARISONS } from './grade5/english-comparisons';
+import { GRADE5_ENGLISH_DIRECTIONS } from './grade5/english-directions';
+import { GRADE5_ENGLISH_ENVIRONMENT } from './grade5/english-environment';
+import { GRADE5_ENGLISH_EUROPE_AND_COMPUTERS } from './grade5/english-europe-and-computers';
+import { GRADE5_ENGLISH_FEELINGS_AND_HABITS } from './grade5/english-feelings-and-habits';
+import { GRADE5_ENGLISH_STORIES_AND_HOLIDAYS } from './grade5/english-stories-and-holidays';
+import { GRADE5_ENGLISH_THE_PAST } from './grade5/english-the-past';
+import { GRADE5_GEOGRAPHY_CLIMATE_RIVERS_LAKES } from './grade5/geography-climate-rivers-lakes';
+import { GRADE5_GEOGRAPHY_ISLANDS } from './grade5/geography-islands';
+import { GRADE5_GEOGRAPHY_MAPS_AND_ORIENTATION } from './grade5/geography-maps-and-orientation';
+import { GRADE5_GEOGRAPHY_MOUNTAINS_AND_PLAINS } from './grade5/geography-mountains-and-plains';
+import { GRADE5_GEOGRAPHY_NATURE_AND_DISASTERS } from './grade5/geography-nature-and-disasters';
+import { GRADE5_GEOGRAPHY_PEOPLE_REGIONS_ECONOMY } from './grade5/geography-people-regions-economy';
+import { GRADE5_GEOGRAPHY_SHAPE_POSITION_SEAS } from './grade5/geography-shape-position-seas';
+import { GRADE5_GREEK_ADVERBS_PREPOSITIONS } from './grade5/greek-adverbs-prepositions';
+import { GRADE5_GREEK_NOUN_ADJECTIVE_REVIEW } from './grade5/greek-noun-adjective-review';
+import { GRADE5_GREEK_ORTHOGRAPHY_MORPHOLOGY } from './grade5/greek-orthography-morphology';
+import { GRADE5_GREEK_READING_GENRES } from './grade5/greek-reading-genres';
+import { GRADE5_GREEK_SYNTAX_BASICS } from './grade5/greek-syntax-basics';
+import { GRADE5_GREEK_VERBS_MOODS } from './grade5/greek-verbs-moods';
+import { GRADE5_GREEK_VOCABULARY_MEANING } from './grade5/greek-vocabulary-meaning';
+import { GRADE5_HISTORY_BYZANTINE_DAILY_LIFE } from './grade5/history-byzantine-daily-life';
+import { GRADE5_HISTORY_BYZANTINE_GOLDEN_AGE } from './grade5/history-byzantine-golden-age';
+import { GRADE5_HISTORY_BYZANTIUM_GROWS } from './grade5/history-byzantium-grows';
+import { GRADE5_HISTORY_BYZANTIUM_NEIGHBOURS } from './grade5/history-byzantium-neighbours';
+import { GRADE5_HISTORY_DECLINE_AND_FALL } from './grade5/history-decline-and-fall';
+import { GRADE5_HISTORY_EMPIRE_TRANSFORMS } from './grade5/history-empire-transforms';
+import { GRADE5_HISTORY_GREEKS_AND_ROMANS } from './grade5/history-greeks-and-romans';
+import { GRADE5_MATH_ANGLES_TRIANGLES_CIRCLE } from './grade5/math-angles-triangles-circle';
+import { GRADE5_MATH_DATA_AND_PROBABILITY } from './grade5/math-data-and-probability';
+import { GRADE5_MATH_DECIMALS_AND_PERCENT } from './grade5/math-decimals-and-percent';
+import { GRADE5_MATH_FRACTIONS } from './grade5/math-fractions';
+import { GRADE5_MATH_MEASUREMENT_AREA_VOLUME } from './grade5/math-measurement-area-volume';
+import { GRADE5_MATH_NATURAL_NUMBERS } from './grade5/math-natural-numbers';
+import { GRADE5_MATH_PATTERNS_EQUATIONS } from './grade5/math-patterns-equations';
+import { GRADE5_SCIENCE_DIGESTIVE_SYSTEM } from './grade5/science-digestive-system';
+import { GRADE5_SCIENCE_ELECTRICITY } from './grade5/science-electricity';
+import { GRADE5_SCIENCE_ENERGY } from './grade5/science-energy';
+import { GRADE5_SCIENCE_HEAT } from './grade5/science-heat';
+import { GRADE5_SCIENCE_LIGHT_SOUND } from './grade5/science-light-sound';
+import { GRADE5_SCIENCE_MATERIALS_MIXTURES } from './grade5/science-materials-mixtures';
+import { GRADE5_SCIENCE_MECHANICS } from './grade5/science-mechanics';
 
 export const UNIT_QUESTIONS: Record<string, QuizQuestion[]> = {
   '3/english/alphabet-spelling': GRADE3_ENGLISH_ALPHABET_SPELLING,
@@ -151,4 +194,47 @@ export const UNIT_QUESTIONS: Record<string, QuizQuestion[]> = {
   '4/science/nature-is-our-home': GRADE4_SCIENCE_NATURE_IS_OUR_HOME,
   '4/science/our-body': GRADE4_SCIENCE_OUR_BODY,
   '4/science/physical-world': GRADE4_SCIENCE_PHYSICAL_WORLD,
+  '5/english/celebrations': GRADE5_ENGLISH_CELEBRATIONS,
+  '5/english/comparisons': GRADE5_ENGLISH_COMPARISONS,
+  '5/english/directions': GRADE5_ENGLISH_DIRECTIONS,
+  '5/english/environment': GRADE5_ENGLISH_ENVIRONMENT,
+  '5/english/europe-and-computers': GRADE5_ENGLISH_EUROPE_AND_COMPUTERS,
+  '5/english/feelings-and-habits': GRADE5_ENGLISH_FEELINGS_AND_HABITS,
+  '5/english/stories-and-holidays': GRADE5_ENGLISH_STORIES_AND_HOLIDAYS,
+  '5/english/the-past': GRADE5_ENGLISH_THE_PAST,
+  '5/geography/climate-rivers-lakes': GRADE5_GEOGRAPHY_CLIMATE_RIVERS_LAKES,
+  '5/geography/islands': GRADE5_GEOGRAPHY_ISLANDS,
+  '5/geography/maps-and-orientation': GRADE5_GEOGRAPHY_MAPS_AND_ORIENTATION,
+  '5/geography/mountains-and-plains': GRADE5_GEOGRAPHY_MOUNTAINS_AND_PLAINS,
+  '5/geography/nature-and-disasters': GRADE5_GEOGRAPHY_NATURE_AND_DISASTERS,
+  '5/geography/people-regions-economy': GRADE5_GEOGRAPHY_PEOPLE_REGIONS_ECONOMY,
+  '5/geography/shape-position-seas': GRADE5_GEOGRAPHY_SHAPE_POSITION_SEAS,
+  '5/greek/adverbs-prepositions': GRADE5_GREEK_ADVERBS_PREPOSITIONS,
+  '5/greek/noun-adjective-review': GRADE5_GREEK_NOUN_ADJECTIVE_REVIEW,
+  '5/greek/orthography-morphology': GRADE5_GREEK_ORTHOGRAPHY_MORPHOLOGY,
+  '5/greek/reading-genres': GRADE5_GREEK_READING_GENRES,
+  '5/greek/syntax-basics': GRADE5_GREEK_SYNTAX_BASICS,
+  '5/greek/verbs-moods': GRADE5_GREEK_VERBS_MOODS,
+  '5/greek/vocabulary-meaning': GRADE5_GREEK_VOCABULARY_MEANING,
+  '5/history/byzantine-daily-life': GRADE5_HISTORY_BYZANTINE_DAILY_LIFE,
+  '5/history/byzantine-golden-age': GRADE5_HISTORY_BYZANTINE_GOLDEN_AGE,
+  '5/history/byzantium-grows': GRADE5_HISTORY_BYZANTIUM_GROWS,
+  '5/history/byzantium-neighbours': GRADE5_HISTORY_BYZANTIUM_NEIGHBOURS,
+  '5/history/decline-and-fall': GRADE5_HISTORY_DECLINE_AND_FALL,
+  '5/history/empire-transforms': GRADE5_HISTORY_EMPIRE_TRANSFORMS,
+  '5/history/greeks-and-romans': GRADE5_HISTORY_GREEKS_AND_ROMANS,
+  '5/math/angles-triangles-circle': GRADE5_MATH_ANGLES_TRIANGLES_CIRCLE,
+  '5/math/data-and-probability': GRADE5_MATH_DATA_AND_PROBABILITY,
+  '5/math/decimals-and-percent': GRADE5_MATH_DECIMALS_AND_PERCENT,
+  '5/math/fractions': GRADE5_MATH_FRACTIONS,
+  '5/math/measurement-area-volume': GRADE5_MATH_MEASUREMENT_AREA_VOLUME,
+  '5/math/natural-numbers': GRADE5_MATH_NATURAL_NUMBERS,
+  '5/math/patterns-equations': GRADE5_MATH_PATTERNS_EQUATIONS,
+  '5/science/digestive-system': GRADE5_SCIENCE_DIGESTIVE_SYSTEM,
+  '5/science/electricity': GRADE5_SCIENCE_ELECTRICITY,
+  '5/science/energy': GRADE5_SCIENCE_ENERGY,
+  '5/science/heat': GRADE5_SCIENCE_HEAT,
+  '5/science/light-sound': GRADE5_SCIENCE_LIGHT_SOUND,
+  '5/science/materials-mixtures': GRADE5_SCIENCE_MATERIALS_MIXTURES,
+  '5/science/mechanics': GRADE5_SCIENCE_MECHANICS,
 };
