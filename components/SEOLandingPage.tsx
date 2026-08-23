@@ -7,6 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BookOpen, Music, Gamepad2, HelpCircle, Wand2, Film, Cuboid, ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { ACADEMY_STORY_COUNT } from '../data/contentCounts';
 
 interface SEOLandingPageProps {
   lang: 'el' | 'en';
@@ -20,8 +21,8 @@ const CONTENT = {
       en: 'AI for Kids — WiseBot Academy | Education & Creation with Artificial Intelligence',
     },
     description: {
-      el: 'Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες 98 σπουδαίων ανθρώπων. Το 1ο Ελληνικό εκπαιδευτικό AI για παιδιά 6-13.',
-      en: 'Discover the world of AI for kids! Create songs, images, videos, 3D models. Learn stories of 98 great people. The 1st Greek educational AI for kids 6-13.',
+      el: `Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων. Το 1ο Ελληνικό εκπαιδευτικό AI για παιδιά 6-13.`,
+      en: `Discover the world of AI for kids! Create songs, images, videos, 3D models. Learn stories of ${ACADEMY_STORY_COUNT} great people. The 1st Greek educational AI for kids 6-13.`,
     },
     path: '/ai-paidia',
     h1: { el: 'AI για Παιδιά — Μάθε, Δημιούργησε, Παίξε!', en: 'AI for Kids — Learn, Create, Play!' },
@@ -100,8 +101,8 @@ const CONTENT = {
       en: 'Educational AI for Kids — Learn History, Science, Art | WiseBot Academy',
     },
     description: {
-      el: 'Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-13 ετών. Ιστορίες 98 σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Αναγνωρισμένο από εκπαιδευτικούς.',
-      en: 'Educational AI that teaches kids aged 6-13. Stories of 98 great people, ebooks, quizzes, entrepreneurship. Recognized by educators.',
+      el: `Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-13 ετών. Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Αναγνωρισμένο από εκπαιδευτικούς.`,
+      en: `Educational AI that teaches kids aged 6-13. Stories of ${ACADEMY_STORY_COUNT} great people, ebooks, quizzes, entrepreneurship. Recognized by educators.`,
     },
     path: '/ekpaideutiko-ai',
     h1: { el: 'Εκπαιδευτικό AI για Παιδιά — Η Ακαδημία του Μέλλοντος', en: 'Educational AI for Kids — The Academy of the Future' },
@@ -113,7 +114,7 @@ const CONTENT = {
       {
         h2: { el: 'Τι μαθαίνουν τα παιδιά;', en: 'What do kids learn?' },
         items: [
-          { icon: '🧠', h3: { el: 'Ιστορίες 98 Σπουδαίων Ανθρώπων', en: 'Stories of 98 Great People' }, text: { el: 'Αϊνστάιν, Tesla, Curie, Da Vinci, Mandela — διαδραστικές ιστορίες με ήχο, εικόνες και quiz.', en: 'Einstein, Tesla, Curie, Da Vinci, Mandela — interactive stories with audio, images and quizzes.' }, link: '/academy' },
+          { icon: '🧠', h3: { el: `Ιστορίες ${ACADEMY_STORY_COUNT} Σπουδαίων Ανθρώπων`, en: `Stories of ${ACADEMY_STORY_COUNT} Great People` }, text: { el: 'Αϊνστάιν, Tesla, Curie, Da Vinci, Mandela — διαδραστικές ιστορίες με ήχο, εικόνες και quiz.', en: 'Einstein, Tesla, Curie, Da Vinci, Mandela — interactive stories with audio, images and quizzes.' }, link: '/academy' },
           { icon: '📖', h3: { el: '34 Εκπαιδευτικά Ebooks', en: '34 Educational Ebooks' }, text: { el: 'Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία — κάθε βιβλίο έχει AI αφήγηση και quiz.', en: 'Ancient Greece, Space, Animals, Technology — every book has AI narration and quiz.' }, link: '/ebooks' },
           { icon: '❓', h3: { el: 'Quiz Γνώσεων', en: 'Knowledge Quizzes' }, text: { el: 'Ιστορία, Γεωγραφία, Επιστήμη, Τέχνη. Κερδίζεις credits και XP με κάθε σωστή απάντηση!', en: 'History, Geography, Science, Art. Earn credits and XP with every correct answer!' }, link: '/quiz' },
           { icon: '💼', h3: { el: 'Επιχειρηματικότητα για Παιδιά', en: 'Entrepreneurship for Kids' }, text: { el: 'Δημιούργησε brand, φτιάξε λογότυπο με AI, γίνε CEO. Μαθαίνεις business σκέψη παίζοντας!', en: 'Create a brand, make a logo with AI, become CEO. Learn business thinking by playing!' }, link: '/business' },

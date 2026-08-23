@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { ACADEMY_STORY_COUNT, BOOK_COUNT } from '../data/contentCounts';
 
 interface SEOProps {
   lang: 'el' | 'en';
@@ -23,8 +24,8 @@ const PAGE_META: Record<string, PageMeta> = {
       en: 'WiseBot Academy — Reading Just Became a Game | Books, Grades 1–6 & AI for Kids 6–12',
     },
     description: {
-      el: "34 βιβλία με αφήγηση, 98 ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Κάθε σελίδα που διαβάζει το παιδί κερδίζει credits για ήρωες, τραγούδια και βίντεο με AI. Ασφαλές, με γονεϊκό πίνακα.",
-      en: '34 narrated books, 98 stories of great people and a Grade 1–6 school track — free. Every page a child reads earns credits for AI heroes, songs and videos. Safe, with a parent dashboard.',
+      el: `${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Κάθε σελίδα που διαβάζει το παιδί κερδίζει credits για ήρωες, τραγούδια και βίντεο με AI. Ασφαλές, με γονεϊκό πίνακα.`,
+      en: `${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people and a Grade 1–6 school track — free. Every page a child reads earns credits for AI heroes, songs and videos. Safe, with a parent dashboard.`,
     },
     keywords: {
       el: 'παιδικά βιβλία με αφήγηση, σχολείο δημοτικού quiz, εκπαιδευτική εφαρμογή για παιδιά, ασφαλής εφαρμογή για παιδιά, μάθηση μέσα από παιχνίδι, WiseBot Academy, AI για παιδιά, wisebot',
@@ -34,12 +35,12 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   academy: {
     title: {
-      el: 'Ακαδημία — Μάθε για 98 Σπουδαίους Ανθρώπους | WiseBot Academy',
-      en: 'Academy — Learn About 98 Great People | WiseBot Academy',
+      el: `Ακαδημία — Μάθε για ${ACADEMY_STORY_COUNT} Σπουδαίους Ανθρώπους | WiseBot Academy`,
+      en: `Academy — Learn About ${ACADEMY_STORY_COUNT} Great People | WiseBot Academy`,
     },
     description: {
-      el: 'Ανακάλυψε τις ιστορίες 98 σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.',
-      en: 'Discover the stories of 98 great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-13.',
+      el: `Ανακάλυψε τις ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.`,
+      en: `Discover the stories of ${ACADEMY_STORY_COUNT} great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-13.`,
     },
     keywords: {
       el: 'εκπαιδευτικές ιστορίες, σπουδαίοι άνθρωποι για παιδιά, μαθαίνω ιστορία, WiseBot Academy, quiz παιδιά, Αϊνστάιν, Τέσλα, Curie',
@@ -49,8 +50,8 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Course',
-      name: 'WiseBot Academy - Ιστορίες 98 Σπουδαίων Ανθρώπων',
-      description: 'Διαδραστικά μαθήματα για 98 σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-13 ετών.',
+      name: `WiseBot Academy - Ιστορίες ${ACADEMY_STORY_COUNT} Σπουδαίων Ανθρώπων`,
+      description: `Διαδραστικά μαθήματα για ${ACADEMY_STORY_COUNT} σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-13 ετών.`,
       provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
       audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 13 },
       isAccessibleForFree: true,
@@ -59,7 +60,7 @@ const PAGE_META: Record<string, PageMeta> = {
       hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT30M' },
     },
     faq: [
-      { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: 'Ιστορίες 98 σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.' },
+      { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: `Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.` },
       { q: 'Είναι δωρεάν η Ακαδημία;', a: 'Ναι! Η Ακαδημία είναι δωρεάν. Κερδίζεις XP και credits διαβάζοντας ιστορίες και απαντώντας σωστά σε quiz.' },
     ],
   },

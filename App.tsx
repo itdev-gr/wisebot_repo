@@ -15,6 +15,7 @@ import { EconomyProvider, useEconomy } from './context/EconomyContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import UnlockGate from './components/UnlockGate';
 import UpdatePrompt from './components/UpdatePrompt';
+import { ACADEMY_STORY_COUNT } from './data/contentCounts';
 
 // --- LAZY LOAD COMPONENTS (Performance Optimization) ---
 // These components will only load when the user clicks on them,
@@ -51,7 +52,7 @@ interface PortalProps {
 // ─── DISCOVERY FEATURES ───
 const DISCOVER_FEATURES = {
   el: [
-    { to: '/academy', emoji: '🧠', title: 'ΜΑΘΕ', desc: 'Ιστορίες 98 σπουδαίων ανθρώπων', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { to: '/academy', emoji: '🧠', title: 'ΜΑΘΕ', desc: `Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων`, color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
     { to: '/ebooks', emoji: '📚', title: 'ΔΙΑΒΑΣΕ', desc: 'Βιβλία που σου δίνουν δύναμη', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
     { to: '/factory', emoji: '🎨', title: 'ΔΗΜΙΟΥΡΓΗΣΕ', desc: 'Τον δικό σου ήρωα με AI', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
     { to: '/music', emoji: '🎵', title: 'ΤΡΑΓΟΥΔΑ', desc: 'Φτιάξε δικά σου τραγούδια', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
@@ -61,7 +62,7 @@ const DISCOVER_FEATURES = {
     { to: '/wise-friends', emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
   ],
   en: [
-    { to: '/academy', emoji: '🧠', title: 'LEARN', desc: 'Stories of 98 great people', color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
+    { to: '/academy', emoji: '🧠', title: 'LEARN', desc: `Stories of ${ACADEMY_STORY_COUNT} great people`, color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
     { to: '/ebooks', emoji: '📚', title: 'READ', desc: 'Books that give you power', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30', glow: 'shadow-blue-500/20' },
     { to: '/factory', emoji: '🎨', title: 'CREATE', desc: 'Your own AI hero', color: 'from-pink-500/20 to-fuchsia-600/10', border: 'border-pink-500/30', glow: 'shadow-pink-500/20' },
     { to: '/music', emoji: '🎵', title: 'SING', desc: 'Make your own songs', color: 'from-rose-500/20 to-red-600/10', border: 'border-rose-500/30', glow: 'shadow-rose-500/20' },
