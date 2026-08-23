@@ -1,7 +1,8 @@
 /**
  * Γ' Δημοτικού — unit skeleton
  * ============================
- * Structure only. Questions are filled in Phase 1b, after this breakdown is approved.
+ * Questions live in data/units/grade3/<subject>-<unit>.ts, one file per unit, and are
+ * filled in Phase 1b. First sample: math-multiplication (awaiting the owner's approval).
  *
  * Units follow the chapters of the national curriculum (Πρόγραμμα Σπουδών). The topic
  * names are curriculum structure, not textbook content — every question, explanation and
@@ -11,12 +12,13 @@
  * See CONTENT-PLAN.md.
  */
 import type { SchoolUnit } from './schoolTypes';
+import { GRADE3_MATH_MULTIPLICATION } from './units/grade3/math-multiplication';
 
 /** Μαθηματικά — 4 ώρες/εβδομάδα στη Γ'. */
 export const GRADE3_MATH_UNITS: SchoolUnit[] = [
   { id: 'numbers-1000', emoji: '🔢', name: { el: 'Αριθμοί ως το 1.000', en: 'Numbers up to 1,000' }, questions: [] },
   { id: 'add-subtract', emoji: '➕', name: { el: 'Πρόσθεση & Αφαίρεση', en: 'Addition & Subtraction' }, questions: [] },
-  { id: 'multiplication', emoji: '✖️', name: { el: 'Πολλαπλασιασμός & Προπαίδεια', en: 'Multiplication & Times Tables' }, questions: [] },
+  { id: 'multiplication', emoji: '✖️', name: { el: 'Πολλαπλασιασμός & Προπαίδεια', en: 'Multiplication & Times Tables' }, questions: GRADE3_MATH_MULTIPLICATION },
   { id: 'division', emoji: '➗', name: { el: 'Διαίρεση', en: 'Division' }, questions: [] },
   { id: 'fractions', emoji: '🍕', name: { el: 'Κλάσματα', en: 'Fractions' }, questions: [] },
   { id: 'measure-geometry', emoji: '📐', name: { el: 'Μετρήσεις & Γεωμετρία', en: 'Measurement & Geometry' }, questions: [] },
