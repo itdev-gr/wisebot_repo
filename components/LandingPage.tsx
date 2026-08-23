@@ -187,11 +187,11 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             {/* Main Title with improved line-height to prevent cutting off Greek accents */}
             <h1 className="text-[2rem] sm:text-4xl md:text-7xl lg:text-[6rem] font-[1000] tracking-tighter uppercase italic leading-[1.15] md:leading-[1.05] py-1 md:py-2 break-words">
               <span className="text-white drop-shadow-xl">
-                {lang === 'el' ? 'ΤΟ ΔΙΑΒΑΣΜΑ' : 'READING'}
+                {lang === 'el' ? 'ΟΙ ΙΔΕΕΣ ΣΟΥ' : 'YOUR IDEAS'}
               </span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 drop-shadow-[0_0_40px_rgba(59,130,246,0.4)] pb-2 block">
-                {lang === 'el' ? "ΕΓΙΝΕ ΠΑΙΧΝΙΔΙ." : "JUST BECAME A GAME."}
+                {lang === 'el' ? "ΓΙΝΟΝΤΑΙ ΠΡΑΓΜΑΤΙΚΟΤΗΤΑ." : "BECOME REAL."}
               </span>
             </h1>
 
@@ -204,8 +204,8 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               </p>
               <p className="text-xs sm:text-sm md:text-xl text-gray-400 font-bold italic leading-relaxed max-w-2xl">
                 {lang === 'el'
-                  ? "Με τα credits που κερδίζει διαβάζοντας, φτιάχνει ήρωες, τραγούδια και βίντεο με AI. Πρώτα η μάθηση, μετά η μαγεία."
-                  : "With the credits earned by reading, they create heroes, songs and videos with AI. Learning first, magic second."}
+                  ? "Με όσα κερδίζει δεν καταναλώνει — δημιουργεί: ήρωες, τραγούδια, βίντεο, 3D, ακόμα και τη δική του επιχείρηση. Πρώτα η μάθηση, μετά η μαγεία."
+                  : "With what they earn they don't consume — they create: heroes, songs, videos, 3D, even their own business. Learning first, magic second."}
               </p>
             </div>
 

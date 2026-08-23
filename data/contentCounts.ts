@@ -6,3 +6,5 @@
 // real data lengths, so CI fails if content is added without updating them.
 export const ACADEMY_STORY_COUNT = 113;
 export const BOOK_COUNT = 34;
+export const SCHOOL_MISSION_COUNT = 212;   // written units across Α'–ΣΤ' (registry UNIT_COUNTS)
+export const SCHOOL_QUESTION_COUNT = 3816; // sum of those units' questions

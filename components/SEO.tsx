@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ACADEMY_STORY_COUNT, BOOK_COUNT } from '../data/contentCounts';
+import { ACADEMY_STORY_COUNT, BOOK_COUNT, SCHOOL_MISSION_COUNT, SCHOOL_QUESTION_COUNT } from '../data/contentCounts';
 
 interface SEOProps {
   lang: 'el' | 'en';
@@ -20,12 +20,12 @@ const BASE_URL = 'https://wisebot.gr';
 const PAGE_META: Record<string, PageMeta> = {
   home: {
     title: {
-      el: "WiseBot Academy — Το Διάβασμα Έγινε Παιχνίδι | Βιβλία, Σχολείο Α'–ΣΤ' & AI για Παιδιά 6–12",
-      en: 'WiseBot Academy — Reading Just Became a Game | Books, Grades 1–6 & AI for Kids 6–12',
+      el: "WiseBot Academy — Οι Ιδέες σου Γίνονται Πραγματικότητα | Σχολείο Α'–ΣΤ', Βιβλία & AI Δημιουργία για Παιδιά",
+      en: 'WiseBot Academy — Your Ideas Become Real | School, Books & AI Creation for Kids 6–12',
     },
     description: {
-      el: `${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' Δημοτικού — δωρεάν. Το παιδί διαβάζει, ανεβαίνει επίπεδα και ξεκλειδώνει AI ήρωες, τραγούδια και βίντεο. Ασφαλές, με γονεϊκό πίνακα.`,
-      en: `${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people and a Grade 1–6 school track — free. Children read, level up and unlock AI heroes, songs and videos. Safe, with a parent dashboard.`,
+      el: `Η ψηφιακή ακαδημία δημιουργών για παιδιά 6–12: Σχολείο Α'–ΣΤ' σε ${SCHOOL_MISSION_COUNT} αποστολές, ${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων — δωρεάν. Ό,τι μαθαίνει το παιδί γίνεται δικές του δημιουργίες: ήρωες, τραγούδια, βίντεο, 3D, επιχείρηση. Ασφαλές, χωρίς ελεύθερο chat.`,
+      en: `The digital maker academy for kids 6–12: a Grade 1–6 school track with ${SCHOOL_MISSION_COUNT} missions, ${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people — free. What a child learns becomes their own creations: heroes, songs, videos, 3D, a business. Safe, no open chat.`,
     },
     keywords: {
       el: 'παιδικά βιβλία με αφήγηση, σχολείο δημοτικού quiz, εκπαιδευτική εφαρμογή για παιδιά, ασφαλής εφαρμογή για παιδιά, μάθηση μέσα από παιχνίδι, WiseBot Academy, AI για παιδιά, wisebot',
@@ -62,6 +62,38 @@ const PAGE_META: Record<string, PageMeta> = {
     faq: [
       { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: `Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.` },
       { q: 'Είναι δωρεάν η Ακαδημία;', a: 'Ναι! Η Ακαδημία είναι δωρεάν. Κερδίζεις XP και credits διαβάζοντας ιστορίες και απαντώντας σωστά σε quiz.' },
+    ],
+  },
+  school: {
+    title: {
+      el: `Σχολείο Α'–ΣΤ' Δημοτικού — ${SCHOOL_MISSION_COUNT} Αποστολές & Quiz Δωρεάν | WiseBot Academy`,
+      en: `School Grades 1–6 — ${SCHOOL_MISSION_COUNT} Missions & Quizzes Free | WiseBot Academy`,
+    },
+    description: {
+      el: `Όλο το Δημοτικό σε αποστολές: Μαθηματικά, Γλώσσα, Ιστορία, Μελέτη/Φυσικά, Γεωγραφία, Αγγλικά. ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις με εξηγήσεις, αστέρια, διαγώνισμα και απολυτήριο ανά τάξη — δωρεάν, βασισμένο στα Προγράμματα Σπουδών.`,
+      en: `All of primary school as missions: Math, Greek, History, Science, Geography, English. ${SCHOOL_QUESTION_COUNT} original questions with explanations, stars, a grade exam and a diploma per grade — free, aligned with the Greek national curriculum.`,
+    },
+    keywords: {
+      el: "ασκήσεις δημοτικού, quiz δημοτικού δωρεάν, μαθηματικά δημοτικού, γλώσσα δημοτικού, ιστορία δημοτικού, επανάληψη δημοτικού, εξάσκηση για παιδιά δημοτικού, WiseBot Σχολείο",
+      en: 'primary school exercises, elementary school quiz free, math practice kids, Greek school curriculum, WiseBot School',
+    },
+    path: '/school',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: "WiseBot Σχολείο — Α'–ΣΤ' Δημοτικού",
+      description: `${SCHOOL_MISSION_COUNT} αποστολές με ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις σε όλα τα μαθήματα του Δημοτικού, με αστέρια, διαγωνίσματα και απολυτήρια.`,
+      provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
+      audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 12 },
+      educationalLevel: 'Primary School',
+      isAccessibleForFree: true,
+      inLanguage: ['el', 'en'],
+      hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online' },
+    },
+    faq: [
+      { q: 'Ποιες τάξεις καλύπτει το Σχολείο;', a: `Όλες τις τάξεις του Δημοτικού, Α' έως ΣΤ', με ${SCHOOL_MISSION_COUNT} αποστολές οργανωμένες ανά μάθημα σύμφωνα με τα Προγράμματα Σπουδών.` },
+      { q: 'Είναι δωρεάν;', a: 'Ναι, το Σχολείο είναι εντελώς δωρεάν. Κάθε αποστολή δίνει 0–3 αστέρια και XP· με Master σε όλα τα μαθήματα ξεκλειδώνει το διαγώνισμα της τάξης και το απολυτήριο.' },
+      { q: 'Οι ερωτήσεις είναι από τα σχολικά βιβλία;', a: `Όχι — και οι ${SCHOOL_QUESTION_COUNT} ερωτήσεις είναι πρωτότυπες, γραμμένες πάνω στη δομή της ύλης, με εξήγηση σε κάθε απάντηση, στα Ελληνικά και τα Αγγλικά.` },
     ],
   },
   ebooks: {

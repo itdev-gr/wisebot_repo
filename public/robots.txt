@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 Allow: /academy
+Allow: /school
 Allow: /ebooks
 Allow: /music
 Allow: /game

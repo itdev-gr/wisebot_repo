@@ -33,6 +33,26 @@ const ROUTES = [
     `,
   },
   {
+    path: '/school',
+    title: "Σχολείο Α'–ΣΤ' Δημοτικού — 212 Αποστολές & Quiz Δωρεάν | WiseBot Academy",
+    description: "Όλο το Δημοτικό σε αποστολές: Μαθηματικά, Γλώσσα, Ιστορία, Μελέτη/Φυσικά, Γεωγραφία, Αγγλικά. 3816 πρωτότυπες ερωτήσεις με εξηγήσεις, αστέρια, διαγώνισμα και απολυτήριο ανά τάξη — δωρεάν.",
+    ogTitle: "WiseBot Σχολείο — Α'–ΣΤ' Δημοτικού σε Αποστολές, Δωρεάν",
+    noscript: `
+      <h1>WiseBot Σχολείο — Α'–ΣΤ' Δημοτικού σε 212 Αποστολές</h1>
+      <p>Όλη η ύλη του Δημοτικού έγινε διαδρομή αποστολών: κάθε ενότητα είναι ένα quiz με 0–3 αστέρια, κάθε μάθημα έχει Master badge, και κάθε τάξη διαγώνισμα και απολυτήριο. 3.816 πρωτότυπες ερωτήσεις με εξήγηση σε κάθε απάντηση — δωρεάν, στα Ελληνικά και τα Αγγλικά.</p>
+      <h2>Μαθήματα ανά τάξη</h2>
+      <ul>
+        <li>🔢 Μαθηματικά — Α' έως ΣΤ'</li>
+        <li>✏️ Γλώσσα — Α' έως ΣΤ'</li>
+        <li>🔬 Μελέτη Περιβάλλοντος & Φυσικά</li>
+        <li>🏛️ Ιστορία — από Γ' Δημοτικού</li>
+        <li>🗺️ Γεωγραφία — Ε' και ΣΤ'</li>
+        <li>🇬🇧 Αγγλικά — όλες οι τάξεις</li>
+      </ul>
+      <p><a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/ebooks">📚 Ebooks</a> | <a href="${BASE_URL}/academy">🎓 Ακαδημία</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
     path: '/ebooks',
     title: 'Ebooks — Διαδραστικά Βιβλία για Παιδιά με AI | WiseBot Academy',
     description: 'Διάβασε δωρεάν ebooks με αφήγηση AI! Ιστορίες για Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία και πολλά ακόμα. Κάθε βιβλίο έχει quiz!',
@@ -156,7 +176,7 @@ const ROUTES = [
   {
     path: '/ai-paidia',
     title: 'AI για Παιδιά — WiseBot Academy | Εκπαίδευση & Δημιουργία με Τεχνητή Νοημοσύνη',
-    description: 'Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες 90 σπουδαίων ανθρώπων. Το 1ο Ελληνικό εκπαιδευτικό AI για παιδιά 6-13.',
+    description: 'Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες 113 σπουδαίων ανθρώπων. Η ελληνική ψηφιακή ακαδημία δημιουργών για παιδιά 6-13.',
     ogTitle: 'AI για Παιδιά — WiseBot Academy | Εκπαίδευση με Τεχνητή Νοημοσύνη',
     noscript: `
       <h1>AI για Παιδιά — WiseBot Academy: Μάθε, Δημιούργησε, Παίξε!</h1>
@@ -230,6 +250,34 @@ const ROUTES = [
     `,
   },
 ];
+
+// Per-grade School landing pages (/askiseis-<grade>-dimotikou). Slugs are duplicated in
+// App.tsx routes and public/sitemap.xml — keep the three in sync. Unit/question counts
+// come from data/units/registry.ts (18 questions per unit).
+const GRADE_PAGES = [
+  { slug: 'askiseis-a-dimotikou', name: "Α' Δημοτικού", units: 27, subjects: 'Μαθηματικά, Γλώσσα, Μελέτη Περιβάλλοντος, Αγγλικά' },
+  { slug: 'askiseis-b-dimotikou', name: "Β' Δημοτικού", units: 28, subjects: 'Μαθηματικά, Γλώσσα, Μελέτη Περιβάλλοντος, Αγγλικά' },
+  { slug: 'askiseis-g-dimotikou', name: "Γ' Δημοτικού", units: 35, subjects: 'Μαθηματικά, Γλώσσα, Ιστορία, Μελέτη Περιβάλλοντος, Αγγλικά' },
+  { slug: 'askiseis-d-dimotikou', name: "Δ' Δημοτικού", units: 37, subjects: 'Μαθηματικά, Γλώσσα, Ιστορία, Μελέτη Περιβάλλοντος, Αγγλικά' },
+  { slug: 'askiseis-e-dimotikou', name: "Ε' Δημοτικού", units: 43, subjects: 'Μαθηματικά, Γλώσσα, Φυσικά, Ιστορία, Γεωγραφία, Αγγλικά' },
+  { slug: 'askiseis-st-dimotikou', name: "ΣΤ' Δημοτικού", units: 42, subjects: 'Μαθηματικά, Γλώσσα, Φυσικά, Ιστορία, Γεωγραφία, Αγγλικά' },
+];
+for (const g of GRADE_PAGES) {
+  const questions = g.units * 18;
+  ROUTES.push({
+    path: `/${g.slug}`,
+    title: `Ασκήσεις & Quiz ${g.name} Δωρεάν — ${g.units} Αποστολές σε Όλα τα Μαθήματα | WiseBot`,
+    description: `Δωρεάν εξάσκηση ${g.name}: ${questions} πρωτότυπες ερωτήσεις με εξήγηση σε ${g.units} αποστολές — ${g.subjects}. Με αστέρια ανά αποστολή, Master ανά μάθημα, διαγώνισμα και απολυτήριο τάξης.`,
+    ogTitle: `Ασκήσεις & Quiz ${g.name} — Δωρεάν, σε Αποστολές | WiseBot`,
+    noscript: `
+      <h1>Ασκήσεις & Quiz ${g.name} — Δωρεάν, σε Αποστολές</h1>
+      <p>Όλη η ύλη της ${g.name} έγινε διαδρομή ${g.units} αποστολών με ${questions} πρωτότυπες ερωτήσεις και εξήγηση σε κάθε απάντηση, βασισμένη στα Προγράμματα Σπουδών. Κάθε αποστολή δίνει 0–3 αστέρια· με Master σε όλα τα μαθήματα ξεκλειδώνει το διαγώνισμα και το απολυτήριο της τάξης. Εντελώς δωρεάν.</p>
+      <h2>Μαθήματα ${g.name}</h2>
+      <p>${g.subjects}.</p>
+      <p><a href="${BASE_URL}/school">🎓 Όλο το Σχολείο</a> | <a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/ebooks">📚 Ebooks</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  });
+}
 
 function generatePage(baseHtml, route) {
   let html = baseHtml;
