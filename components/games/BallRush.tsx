@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, Play, Pause, RotateCcw } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { Play, Pause, RotateCcw } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 
@@ -489,9 +490,7 @@ export default function BallRush({ lang, onBack }: BallRushProps) {
 
       {/* Header */}
       <div className="flex justify-between items-center mb-2 bg-black/40 px-3 py-2 rounded-xl border border-white/10 backdrop-blur-md shadow-lg shrink-0">
-         <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2">
-            <ArrowLeft size={16} /> {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
-         </button>
+         <GameBackButton onClick={onBack} lang={lang} />
          <div className="flex flex-col items-center">
             <h2 className="text-2xl font-[1000] text-emerald-400 italic tracking-tighter">BALL RUSH</h2>
             <p className="text-[10px] text-white/50 font-bold uppercase">{uiState.msg}</p>

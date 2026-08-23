@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { ArrowLeft, RotateCcw, Play, Trophy, Zap, Heart, Crown } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { RotateCcw, Play, Trophy, Zap, Heart, Crown } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 interface EndlessRunnerProps {
@@ -1223,9 +1224,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
     <div className="flex flex-col h-full w-full bg-[#030518] select-none">
       {/* HEADER */}
       <div className="flex items-center justify-between px-3 py-1.5 bg-black/70 backdrop-blur-xl border-b border-purple-500/20 z-20 relative">
-        <button onClick={(e) => { e.stopPropagation(); onBack(); }} className="flex items-center justify-center w-9 h-9 -ml-1 rounded-lg text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors">
-          <ArrowLeft size={20} />
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-0.5">
             {[...Array(3)].map((_, i) => (

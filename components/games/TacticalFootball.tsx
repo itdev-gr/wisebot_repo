@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, RotateCcw, Target, RotateCw, Trophy, AlertTriangle } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { RotateCcw, Target, RotateCw, Trophy, AlertTriangle } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 
@@ -579,9 +580,7 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
 
       {/* HEADER — compact */}
       <div className="flex justify-between items-center w-full max-w-lg mx-auto bg-[#0B0F1A] px-3 py-2 rounded-xl border border-white/10 shadow-lg z-10 shrink-0">
-         <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-1">
-            <ArrowLeft size={14} />
-         </button>
+         <GameBackButton onClick={onBack} lang={lang} />
 
          <div className="flex items-center gap-3 md:gap-5">
              <div className="text-center">

@@ -1,6 +1,7 @@
 
 import React, { useState, useRef } from 'react';
-import { ArrowLeft, Sparkles, Trophy, Star, Palette, RotateCcw, Loader2, Image, Zap, Crown, ThumbsUp, Clock } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { Sparkles, Trophy, Star, Palette, RotateCcw, Loader2, Image, Zap, Crown, ThumbsUp, Clock } from 'lucide-react';
 import { authFetch } from '../../services/backendApi';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
@@ -182,9 +183,7 @@ export default function ArtBattle({ lang, onBack }: ArtBattleProps) {
     <div className="flex flex-col h-full w-full bg-[#0B0F1A] select-none overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-1.5 bg-black/70 backdrop-blur-xl border-b border-fuchsia-500/20 z-20 relative shrink-0">
-        <button onClick={onBack} className="flex items-center justify-center w-9 h-9 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-          <ArrowLeft size={20} />
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         <div className="flex items-center gap-2">
           <span className="text-white/60 text-xs font-bold uppercase tracking-wider">{isGreek ? 'ΜΑΧΗ ΤΕΧΝΗΣ' : 'ART BATTLE'}</span>
           {totalScore > 0 && (

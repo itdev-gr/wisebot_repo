@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Heart, Trophy, Play, RefreshCcw, ArrowLeft, Zap } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { Heart, Trophy, Play, RefreshCcw, Zap } from 'lucide-react';
 import { HEROES } from '../../constants';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
@@ -344,9 +345,7 @@ export default function NebulaCatch({ lang, onBack }: NebulaCatchProps) {
 
       {/* HEADER */}
       <div className="flex justify-between items-center bg-black/60 backdrop-blur-xl px-3 py-2 rounded-xl border border-white/10 shadow-xl relative z-10 mx-2 mt-1 shrink-0">
-         <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-1.5 py-1 px-2">
-           <ArrowLeft size={14} /> {t.back}
-         </button>
+         <GameBackButton onClick={onBack} lang={lang} />
 
          {/* LIVES */}
          <div className="flex gap-1.5">

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import GameBackButton from './GameBackButton';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { 
   Users, DollarSign, AlertTriangle, 
@@ -253,9 +254,7 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
   if (phase === 'SETUP') {
     return (
       <div className="h-full flex flex-col items-center justify-center p-6 animate-in fade-in bg-[#0B0F1A]">
-        <button onClick={onBack} className="absolute top-4 right-4 text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg">
-           {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} className="self-start mb-4" />
         
         <div className="mb-8 text-center">
             <h1 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter mb-2">

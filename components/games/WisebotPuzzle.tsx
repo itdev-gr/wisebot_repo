@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import GameBackButton from './GameBackButton';
 import { ArrowLeft, Play, Eye, EyeOff, CheckCircle, Zap, RefreshCcw } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { useEconomy } from '../../context/EconomyContext';
@@ -135,10 +136,8 @@ export default function WisebotPuzzle({ lang, onBack }: WisebotPuzzleProps) {
 
   if (gameState === 'menu') {
       return (
-          <div className="h-full flex flex-col items-center justify-center p-4 max-w-4xl mx-auto animate-in fade-in overflow-y-auto pb-24">
-              <button onClick={onBack} className="absolute top-6 right-6 text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full transition-all">
-                  <ArrowLeft size={16} /> {t.back}
-              </button>
+          <div className="h-full flex flex-col items-center justify-start p-4 max-w-4xl mx-auto animate-in fade-in overflow-y-auto pb-24">
+              <GameBackButton onClick={onBack} lang={lang} className="self-start mb-4" />
 
               <div className="text-center mb-10">
                   <h1 className="text-5xl md:text-7xl font-[1000] text-white italic uppercase tracking-tighter mb-2">

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Play, RefreshCcw, Zap, Target, BrainCircuit, MousePointer2 } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { Play, RefreshCcw, Zap, Target, BrainCircuit, MousePointer2 } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 
@@ -408,9 +409,7 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
 
       {/* HEADER */}
       <div className="w-full max-w-md bg-[#1e293b] px-3 py-2 rounded-xl border border-white/10 flex justify-between items-center mb-2 shadow-lg z-10 shrink-0">
-         <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2">
-            <ArrowLeft size={16} /> {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
-         </button>
+         <GameBackButton onClick={onBack} lang={lang} />
          <div className="text-center">
             <h2 className="text-xl font-[1000] text-indigo-400 italic">HERO SLINGSHOT</h2>
             <div className="text-[10px] text-white/50 font-bold uppercase tracking-widest flex items-center justify-center gap-1">

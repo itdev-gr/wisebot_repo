@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { ArrowLeft, RotateCcw, Play, Trophy, Zap, Shield, Swords, Heart, Clock, ChevronRight } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { RotateCcw, Play, Trophy, Zap, Shield, Swords, Heart, Clock, ChevronRight } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 interface TowerDefenseProps {
@@ -628,9 +629,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     <div className="flex flex-col h-full w-full bg-[#0B0F1A] select-none">
       {/* HEADER */}
       <div className="flex items-center justify-between px-4 py-2 bg-black/60 backdrop-blur-md border-b border-white/10 z-20 relative">
-        <button onClick={(e) => { e.stopPropagation(); onBack(); }} className="flex items-center justify-center w-10 h-10 -ml-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors">
-          <ArrowLeft size={22} />
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         <div className="flex items-center gap-4 text-sm">
           <div className="flex items-center gap-1">
             <Heart size={14} className="text-red-500 fill-red-500" />

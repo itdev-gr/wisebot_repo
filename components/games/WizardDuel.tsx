@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { ArrowLeft, Zap, Heart, Shield, Flame, Sparkles, Star, RotateCcw } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { Zap, Heart, Shield, Flame, Sparkles, Star, RotateCcw } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 interface WizardDuelProps {
@@ -328,9 +329,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
     <div className="flex flex-col h-full w-full bg-[#0B0F1A] select-none overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between px-3 py-1.5 bg-black/70 backdrop-blur-xl border-b border-purple-500/20 z-20 relative shrink-0">
-        <button onClick={(e) => { e.stopPropagation(); onBack(); }} className="flex items-center justify-center w-9 h-9 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-          <ArrowLeft size={20} />
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         <div className="flex items-center gap-2">
           <span className="text-white/60 text-xs font-bold uppercase tracking-wider">
             {isGreek ? 'ΜΑΧΗ ΜΑΓΩΝ' : 'WIZARD DUEL'}

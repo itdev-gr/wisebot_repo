@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import GameBackButton from './GameBackButton';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { CheckCircle, RefreshCcw, Star, Zap, Bug, Hexagon, Triangle, Circle, Square, Trophy } from 'lucide-react';
+import { CheckCircle, Star, Zap, Bug, Hexagon, Triangle, Circle, Square, Trophy } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 const motion = m as any;
@@ -133,9 +134,7 @@ export default function DifferenceFinder({ lang, onBack }: DifferenceFinderProps
     <div className="h-full flex flex-col relative overflow-hidden">
       {/* Header */}
       <div className="flex justify-between items-center mb-2 bg-black/40 px-3 py-2 rounded-xl border border-white/10 shrink-0">
-        <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2">
-           <RefreshCcw size={14}/> {t.back}
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
         <div className="flex flex-col items-center">
            <h3 className="text-lg font-black text-white italic uppercase tracking-tighter">{t.title}</h3>
            <span className="text-[10px] text-fuchsia-400 font-bold uppercase tracking-widest">{t.level} {level + 1}/5 • {currentLevelConfig.difficulty}</span>

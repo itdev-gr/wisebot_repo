@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { ArrowLeft, RotateCcw, Play, Trophy, Zap } from 'lucide-react';
+import GameBackButton from './GameBackButton';
+import { RotateCcw, Play, Trophy, Zap } from 'lucide-react';
 import { useEconomy } from '../../context/EconomyContext';
 import { grantGameReward } from './gameRewards';
 interface GeometryDashProps {
@@ -662,12 +663,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
     <div className="flex flex-col h-full w-full bg-[#0B0F1A] select-none">
       {/* HEADER BAR */}
       <div className="flex items-center justify-between px-4 py-2 bg-black/60 backdrop-blur-md border-b border-white/10 z-20 relative">
-        <button onClick={(e) => { e.stopPropagation(); onBack(); }} className="flex items-center justify-center w-10 h-10 -ml-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 active:bg-white/20 transition-colors gap-2">
-          <ArrowLeft size={22} />
-          <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">
-            {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
-          </span>
-        </button>
+        <GameBackButton onClick={onBack} lang={lang} />
 
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">

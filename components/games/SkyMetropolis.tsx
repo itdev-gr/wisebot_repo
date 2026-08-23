@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import GameBackButton from './GameBackButton';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { 
-  ArrowLeft, 
   Zap, 
   Leaf, 
   Cpu, 
@@ -157,9 +157,7 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
 
       {/* 1. TOP HUD */}
       <div className="z-20 bg-black/40 backdrop-blur-md px-3 py-2 border-b border-white/10 flex justify-between items-center shrink-0">
-         <button onClick={onBack} className="text-white/50 hover:text-white font-bold uppercase text-xs flex items-center gap-2">
-            <ArrowLeft size={16} /> {lang === 'el' ? 'ΠΙΣΩ' : 'BACK'}
-         </button>
+         <GameBackButton onClick={onBack} lang={lang} />
          
          <div className="flex gap-6 text-xs md:text-sm font-black">
             <div className="flex flex-col items-center">
