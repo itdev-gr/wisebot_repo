@@ -98,17 +98,18 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  // ─── ATTEMPT 2: Gemini 2.0 Flash Exp (28 s timeout guard) ───
+  // ─── ATTEMPT 2: Gemini 2.5 Flash Image (28 s timeout guard) ───
   // Image→image with responseModalities; fallback when gpt-image-1 is slow/fails
   const geminiKey = process.env.GEMINI_API_KEY;
   if (geminiKey) {
     try {
-      console.log('[avatar] Trying gemini-2.0-flash-exp (28 s guard)...');
+      console.log('[avatar] Trying gemini-2.5-flash-image (28 s guard)...');
       const { GoogleGenAI } = await import('@google/genai');
       const ai = new GoogleGenAI({ apiKey: geminiKey });
 
       const geminiPromise = ai.models.generateContent({
-        model: 'gemini-2.0-flash-exp',
+        // gemini-2.0-flash-exp image output was retired in 2025; this is the GA image model.
+        model: 'gemini-2.5-flash-image',
         contents: [
           {
             parts: [
@@ -119,9 +120,7 @@ export default async function handler(req: any, res: any) {
         ],
         config: {
           responseModalities: ['IMAGE', 'TEXT'],
-          // Required: without ALLOW_ALL the safety filter refuses to output images of people
-          personGeneration: 'ALLOW_ALL',
-        } as any,
+        },
       });
 
       // 28 s guard — together with the 25 s OpenAI guard fits within Vercel's 60 s limit

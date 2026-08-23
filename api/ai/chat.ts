@@ -83,9 +83,7 @@ async function chatWithGemini(message: string, history: any[], systemPrompt: str
 }
 
 
-const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)\b/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
+import { isContentSafe } from '../_lib/safety.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -105,7 +103,7 @@ export default async function handler(req: any, res: any) {
   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 
   try {
-    const { message, systemPrompt } = req.body;
+    const { message, systemPrompt, systemInstruction } = req.body;
     let { history } = req.body;
     if (!message) return res.status(400).json({ error: 'Message required' });
 
@@ -122,7 +120,10 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const prompt = systemPrompt || SYSTEM_PROMPT;
+    // Our prompt always comes first; a client-supplied one can only add to it.
+    // (services/backendApi.ts sends `systemInstruction`; older callers sent `systemPrompt`.)
+    const extra = typeof systemInstruction === 'string' ? systemInstruction : typeof systemPrompt === 'string' ? systemPrompt : '';
+    const prompt = extra ? `${SYSTEM_PROMPT}\n\n${extra}` : SYSTEM_PROMPT;
     const openaiKey = process.env.OPENAI_API_KEY;
     const geminiKey = process.env.GEMINI_API_KEY;
 
@@ -144,6 +145,6 @@ export default async function handler(req: any, res: any) {
     return res.status(500).json({ error: 'No AI service configured' });
   } catch (err: any) {
     console.error('AI Chat error:', err.message);
-    return res.status(500).json({ error: err.message || 'Unknown error' });
+    return res.status(500).json({ error: 'Chat failed' });
   }
 }

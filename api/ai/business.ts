@@ -12,9 +12,7 @@ const SAFETY_SETTINGS: any[] = [
 ];
 
 
-const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)\b/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
+import { isContentSafe } from '../_lib/safety.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -43,7 +41,8 @@ export default async function handler(req: any, res: any) {
 
   try {
     // Accept both textPrompt (from frontend) and prompt (legacy) for compatibility
-    const { textPrompt, logoPrompt, prompt, type } = req.body;
+    const { textPrompt, logoPrompt, prompt, type, lang } = req.body;
+    const language = lang === 'en' ? 'English' : 'Greek';
     const finalPrompt = textPrompt || prompt;
     if (!finalPrompt) return res.status(400).json({ error: 'Prompt required' });
 
@@ -70,7 +69,7 @@ export default async function handler(req: any, res: any) {
     // Ask Gemini to return structured business data
     const structuredPrompt = `You are a fun business advisor for kids aged 6-13. Based on this business idea: "${finalPrompt}"
 
-Generate a JSON response with exactly these fields:
+Write in ${language}. Generate a JSON response with exactly these fields:
 - "slogan": A catchy, short slogan (max 10 words, fun and kid-friendly)
 - "description": A brief exciting description of the business (2-3 sentences, enthusiastic tone)
 
@@ -81,7 +80,9 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
       model: 'gemini-2.5-flash',
       contents: [{ role: 'user', parts: [{ text: structuredPrompt }] }],
       config: {
-        maxOutputTokens: 512,
+        maxOutputTokens: 1024,
+        thinkingConfig: { thinkingBudget: 0 },
+        responseMimeType: 'application/json',
         safetySettings: SAFETY_SETTINGS,
       }
     });
@@ -100,7 +101,7 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
     } catch {
       // Fallback: use raw text as description
       description = rawText.slice(0, 300);
-      slogan = 'The best company!';
+      slogan = lang === 'en' ? 'The best company!' : 'Η καλύτερη εταιρεία!';
     }
 
     const { deductCredits } = await import('../_lib/auth.js');

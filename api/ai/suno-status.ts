@@ -81,14 +81,32 @@ export default async function handler(req: any, res: any) {
     let status: 'pending' | 'processing' | 'complete' | 'error' = 'pending';
 
     const rawStatus = String(taskData.status || '').toUpperCase();
+    // sunoapi.org terminal failures: CREATE_TASK_FAILED, GENERATE_AUDIO_FAILED,
+    // CALLBACK_EXCEPTION, SENSITIVE_WORD_ERROR. Until 23 Αυγούστου 2026 none of
+    // these matched, so a failed song stayed 'pending' until the client gave up
+    // — and the 60⚡ charged at task creation were never returned.
     if (rawStatus === 'SUCCESS' || rawStatus === 'COMPLETED' || rawStatus === 'COMPLETE') {
       status = 'complete';
-    } else if (rawStatus === 'FAILED' || rawStatus === 'ERROR') {
+    } else if (rawStatus === 'FAILED' || rawStatus === 'ERROR' || rawStatus.endsWith('_FAILED') || rawStatus.endsWith('_ERROR') || rawStatus.endsWith('_EXCEPTION')) {
       status = 'error';
-    } else if (rawStatus === 'PROCESSING' || rawStatus === 'RUNNING') {
+    } else if (rawStatus === 'PROCESSING' || rawStatus === 'RUNNING' || rawStatus === 'TEXT_SUCCESS' || rawStatus === 'FIRST_SUCCESS') {
       status = 'processing';
     } else if (rawStatus === 'PENDING' || rawStatus === 'QUEUED') {
       status = 'pending';
+    }
+
+    if (status === 'error') {
+      const { refundCredits } = await import('../_lib/auth.js');
+      const { COSTS } = await import('../_lib/costs.js');
+      const credits = await refundCredits(user.id, COSTS.SONG, 'REFUND_SONG', taskId);
+      const sensitive = rawStatus === 'SENSITIVE_WORD_ERROR';
+      console.warn('[suno-status] task failed:', taskId, rawStatus, taskData.errorMessage || '');
+      return res.status(200).json({
+        status: 'error',
+        error: sensitive ? 'Το τραγούδι είχε λέξεις που δεν επιτρέπονται.' : 'Η δημιουργία του τραγουδιού απέτυχε.',
+        refunded: credits !== null,
+        credits,
+      });
     }
 
     // Extract songs from multiple possible response structures
@@ -162,6 +180,6 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json(result);
   } catch (err: any) {
     console.error('[suno-status] Error:', err.message || err);
-    return res.status(500).json({ error: err.message || 'Internal server error.' });
+    return res.status(500).json({ error: 'Failed to check song status.' });
   }
 }

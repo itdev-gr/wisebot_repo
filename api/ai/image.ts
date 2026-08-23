@@ -5,9 +5,7 @@
  * All with content moderation for children 6-13.
  */
 
-const BLOCKED_EN = /(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|blood|gore|gory|torture|murder|decapitat|dismember)/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
+import { isContentSafe } from '../_lib/safety.js';
 
 export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
@@ -84,21 +82,21 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  // ─── ATTEMPT 2: DALL-E 3 (OpenAI) ────────────────────────────
+  // ─── ATTEMPT 2: gpt-image-1 (OpenAI) — dall-e-3 is no longer on the account ──
   const openaiKey = process.env.OPENAI_API_KEY?.trim();
   if (openaiKey) {
     try {
-      console.log('[Image] Trying DALL-E 3...');
+      console.log('[Image] Trying gpt-image-1...');
       const resp = await fetch('https://api.openai.com/v1/images/generations', {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${openaiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'dall-e-3',
+          model: 'gpt-image-1',
           prompt: safePrompt,
           n: 1,
           size: '1024x1024',
-          quality: 'standard',
-          response_format: 'b64_json',
+          quality: 'medium',
+          // gpt-image-* always returns b64_json; `response_format` is rejected.
         }),
       });
 
@@ -106,48 +104,23 @@ export default async function handler(req: any, res: any) {
         const data = await resp.json();
         const b64 = data.data?.[0]?.b64_json;
         if (b64) {
-          console.log('[Image] DALL-E 3 success');
+          console.log('[Image] gpt-image-1 success');
           return succeed({ image: `data:image/png;base64,${b64}` });
         }
       } else {
         const err = await resp.text();
-        console.warn('[Image] DALL-E 3 failed:', resp.status, err.slice(0, 200));
+        console.warn('[Image] gpt-image-1 failed:', resp.status, err.slice(0, 200));
       }
     } catch (e: any) {
-      console.warn('[Image] DALL-E 3 error:', e.message);
+      console.warn('[Image] gpt-image-1 error:', e.message);
     }
   }
 
-  // ─── ATTEMPT 3: Imagen 4 Fast (Google) ────────────────────────
+  // (Imagen 4 Fast used to sit here. The API no longer lists imagen-4.0-fast-generate-001,
+  // so the attempt only burned seconds of the 60 s budget before falling through.)
   const geminiKey = process.env.GEMINI_API_KEY;
-  if (geminiKey) {
-    try {
-      console.log('[Image] Trying Imagen 4...');
-      const { GoogleGenAI } = await import('@google/genai');
-      const ai = new GoogleGenAI({ apiKey: geminiKey });
 
-      const response = await ai.models.generateImages({
-        model: 'imagen-4.0-fast-generate-001',
-        prompt: safePrompt,
-        config: {
-          numberOfImages: 1,
-          aspectRatio: '1:1',
-          personGeneration: 'DONT_ALLOW' as any,
-        },
-      });
-
-      if (response.generatedImages?.[0]?.image?.imageBytes) {
-        console.log('[Image] Imagen 4 success');
-        return succeed({
-          image: `data:image/png;base64,${response.generatedImages[0].image.imageBytes}`,
-        });
-      }
-    } catch (e: any) {
-      console.warn('[Image] Imagen 4 error:', e.message?.slice(0, 200));
-    }
-  }
-
-  // ─── ATTEMPT 4: Gemini Flash Image ────────────────────────────
+  // ─── ATTEMPT 3: Gemini Flash Image ────────────────────────────
   if (geminiKey) {
     try {
       console.log('[Image] Trying Gemini Flash Image...');

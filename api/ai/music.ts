@@ -13,9 +13,7 @@ const SAFETY_SETTINGS: any[] = [
 ];
 
 
-const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)\b/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
+import { isContentSafe } from '../_lib/safety.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -35,7 +33,8 @@ export default async function handler(req: any, res: any) {
   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 
   try {
-    const { prompt, lyricsPrompt, genre, mood } = req.body;
+    const { prompt, lyricsPrompt, genre, mood, lang } = req.body;
+    const language = lang === 'en' ? 'English' : 'Greek';
     const songTopic = lyricsPrompt || prompt;
     if (!songTopic) return res.status(400).json({ error: 'Prompt required' });
 
@@ -58,8 +57,15 @@ export default async function handler(req: any, res: any) {
 
     const { GoogleGenAI } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey });
-    const fullPrompt = `Create a fun children's song about: ${songTopic}. Genre: ${genre || 'pop'}. Mood: ${mood || 'happy'}.
+    // MusicStudio sends a complete brief (style, structure, names) in `lyricsPrompt`;
+    // this wrapper only fixes the audience, the language and the output shape.
+    const fullPrompt = `You write songs for children aged 6-12 in WiseBot Academy.
+Write the title and lyrics in ${language} unless the brief below explicitly asks for another language.
+${genre || mood ? `Genre: ${genre || 'pop'}. Mood: ${mood || 'happy'}.` : ''}
 The song must be 100% kid-friendly, educational, and positive. No violence, scary themes, or adult topics.
+
+Brief:
+${songTopic}
 
 Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
 {
@@ -71,7 +77,11 @@ Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
       model: 'gemini-2.5-flash',
       contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
       config: {
-        maxOutputTokens: 1024,
+        maxOutputTokens: 2048,
+        // gemini-2.5-flash spends "thinking" tokens from the same budget; a short
+        // JSON answer does not need them and they were truncating lyrics.
+        thinkingConfig: { thinkingBudget: 0 },
+        responseMimeType: 'application/json',
         safetySettings: SAFETY_SETTINGS,
       }
     });
@@ -83,14 +93,14 @@ Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
       const cleaned = text.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
       const parsed = JSON.parse(cleaned);
       return res.status(200).json({
-        title: parsed.title || 'My Song',
+        title: parsed.title || (lang === 'en' ? 'My Song' : 'Το Τραγούδι Μου'),
         lyrics: parsed.lyrics || text,
         cover: '',
       });
     } catch {
       // If JSON parsing fails, return as plain lyrics
       return res.status(200).json({
-        title: 'My Song',
+        title: lang === 'en' ? 'My Song' : 'Το Τραγούδι Μου',
         lyrics: text,
         cover: '',
       });

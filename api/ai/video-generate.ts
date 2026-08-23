@@ -1,7 +1,7 @@
 /**
- * Video Generation Endpoint — Google Veo 2
+ * Video Generation Endpoint — Google Veo 3.1
  * ==========================================
- * Starts async video generation via Google Veo 2.
+ * Starts async video generation via Google Veo 3.1 (fast).
  * Returns requestId (operationName) for polling with /api/ai/video-status.
  *
  * POST /api/ai/video-generate
@@ -9,9 +9,7 @@
  * Response: { requestId }
  */
 
-const BLOCKED_EN = /\b(porn|xxx|hentai|nsfw|erotic|orgasm|genital|penis|vagina|masturbat|ejaculat|bdsm|bondage|dildo|vibrator|blowjob|handjob|threesome|gangbang|rape|molest|pedophil|incest|nude|naked|stripper|prostitut|suicide|self.?harm|slit.?wrist|hang.?myself|overdose|cocaine|heroin|methamphetamine|lsd|ecstasy|crack.?pipe|fuck|shit|bitch|cunt|nigger|faggot|retard|nazi|hitler|white.?power|jihad|isis|terrorist|kill.?myself|kill.?yourself|how.?to.?die|idiot|stupid|dumb|shut.?up|hate.?you|blood|gore|gory|torture|murder|decapitat|dismember)\b/i;
-const BLOCKED_GR = /γαμ[ωώ]|σκατ[αά]|πούτ[αά]ν|μαλάκ[αά]|αρχίδ|μουν[ιί]|καριόλ|πουστ|αυτοκτον[ίι]|ναρκωτικ|βλάκα|χαζ[εέό]|ηλίθι|θα σε ?γαμ|βρωμ[ιί]|σκουπίδι|ψόφα|πέθανε|σκάσε|σε μισ[ωώ]|άντε γαμ|γαμ[ηή]σ|μαλακ[ίι]|πουτάν|αρχιδ|γκόμεν/i;
-function isContentSafe(text: string): boolean { if (!text || typeof text !== 'string') return true; return !BLOCKED_EN.test(text) && !BLOCKED_GR.test(text); }
+import { isContentSafe } from '../_lib/safety.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -21,8 +19,10 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
-  if (!user) return res.status(401).json({ error: 'Authentication required' });
+  // A video costs 80⚡ — more than a guest's 10⚡ trial — so this is for signed-in
+  // children only. Guests get a clear "login_required" the client turns into a prompt.
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: false });
+  if (!user) return res.status(401).json({ error: 'login_required' });
 
   // Rate limiting — Veo 2 is very expensive. Guests limited per IP, users per id.
   const { aiRateLimit } = await import('../_lib/rateLimit.js');
@@ -35,7 +35,8 @@ export default async function handler(req: any, res: any) {
   }
 
   // Server-side credit guard — Veo 2 costs ~€1.65-2.65 per generation
-  const VIDEO_COST = 80;
+  const { COSTS } = await import('../_lib/costs.js');
+  const VIDEO_COST = COSTS.VIDEO;
   const { checkCredits } = await import('../_lib/auth.js');
   const creditCheck = await checkCredits(user.id, VIDEO_COST);
   if (!creditCheck.ok) {
@@ -58,19 +59,22 @@ export default async function handler(req: any, res: any) {
 
     const videoPrompt = `Kid-friendly animated video for children: ${prompt}. Style: colorful, fun, educational, safe for children ages 6-13. No violence, no scary elements.`;
 
-    const config: any = { model: 'veo-2.0-generate-001' };
-
-    // Add image if provided (image-to-video)
-    if (imageBytes && mimeType) {
-      config.image = { imageBytes, mimeType };
-    }
-
-    const operation = await (ai.models as any).generateVideo({
-      ...config,
+    // @google/genai exposes `generateVideos` (plural). The previous `generateVideo`
+    // call did not exist on the SDK, so every request threw after the rate-limit
+    // and credit checks — Cinema had never produced a video on this SDK version.
+    // veo-2.0-generate-001 is no longer served by the API (checked 23 Αυγούστου 2026);
+    // Veo 3.1 fast is the cheapest current model and has native audio, so the
+    // "The character says: …" line in Cinema's prompt is finally heard.
+    const operation = await ai.models.generateVideos({
+      model: 'veo-3.1-fast-generate-preview',
       prompt: videoPrompt,
+      // image-to-video when the child animates their hero
+      ...(imageBytes && mimeType ? { image: { imageBytes, mimeType } } : {}),
       config: {
         aspectRatio: '9:16',
         numberOfVideos: 1,
+        durationSeconds: 6,
+        personGeneration: 'allow_all',
       },
     });
 
@@ -87,6 +91,6 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({ requestId: operationName });
   } catch (err: any) {
     console.error('[video-generate] Error:', err.message);
-    return res.status(500).json({ error: err.message || 'Video generation failed' });
+    return res.status(500).json({ error: 'Video generation failed' });
   }
 }

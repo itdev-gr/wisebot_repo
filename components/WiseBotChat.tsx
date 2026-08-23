@@ -285,14 +285,14 @@ Use to personalize. Only mention when the child asks.
 
 === APP KNOWLEDGE ===
 1. 📚 Academy — Stories about inspiring people (Elon Musk, Frida Kahlo, Da Vinci, Tesla, etc.)
-2. 🎨 Hero Factory — Create AI hero images (3 Credits)
-3. 🎬 Cinema — Animate heroes into videos (7 Credits)
-4. 🏗️ 3D Factory — Turn drawings into 3D models
-5. 📖 eBooks — Reading library (+1 Credit per book)
+2. 🎨 Hero Factory — Create AI hero images (6 Credits)
+3. 🎬 Cinema — Animate heroes into 6-second videos with sound (80 Credits)
+4. 🏗️ 3D Factory — Turn drawings into 3D models (60 Credits)
+5. 📖 eBooks — Reading library (+3 Credits per finished book)
 6. 🎮 Wise Games — Arcade games (Nebula Catch, Snake, Sky Metropolis)
 7. 🧠 Quiz Zone — Trivia to earn Thinker Badge
-8. 🎵 Music Studio — Create songs with AI
-9. 💼 My Business — Learn entrepreneurship
+8. 🎵 Music Studio — Create real songs with AI (60 Credits)
+9. 💼 My Business — Build your own company (4 Credits)
 10. 🛒 Hero Market — Trade hero creations
 11. 👥 Wise & Friends — The WiseBot team
 

@@ -81,6 +81,12 @@ interface EconomyContextType {
   streak: number;
   spendCredits: (amount: number) => boolean;
   earnCredits: (amount: number, action?: string) => void;
+  /**
+   * Undo a local `spendCredits` after a paid request failed. Local only — the
+   * server refunds its own charge (api/_lib/auth.ts refundCredits) and may send
+   * the authoritative balance, which wins when provided.
+   */
+  refundCredits: (amount: number, serverBalance?: number | null) => void;
   trackAction: (action: ActionType) => void;
   showNotification: (emoji: string, title: string, subtitle?: string) => void;
   /** Cloud sync: bulk-update state from Supabase data */
@@ -565,6 +571,17 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
     })();
   }, []);
 
+  const refundCredits = useCallback((amount: number, serverBalance?: number | null) => {
+    if (typeof serverBalance === 'number' && Number.isFinite(serverBalance) && serverBalance >= 0) {
+      creditsRef.current = serverBalance;
+      setCredits(serverBalance);
+      return;
+    }
+    if (amount <= 0) return;
+    creditsRef.current += amount;
+    setCredits(prev => prev + amount);
+  }, []);
+
   // General-purpose notification (replaces alert() across the app)
   const showNotification = useCallback((emoji: string, title: string, subtitle?: string) => {
     showReward(emoji, title, subtitle, 'credit');
@@ -753,8 +770,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
 
   const contextValue = useMemo(() => ({
     credits, badges, stats, costs, dailyMission, streak,
-    spendCredits, earnCredits, trackAction, showNotification, syncFromCloud,
-  }), [credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, trackAction, showNotification, syncFromCloud]);
+    spendCredits, earnCredits, refundCredits, trackAction, showNotification, syncFromCloud,
+  }), [credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, refundCredits, trackAction, showNotification, syncFromCloud]);
 
 
   return (
