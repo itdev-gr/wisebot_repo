@@ -58,6 +58,35 @@ const buildExam = (g: SchoolGrade): SchoolSubject => {
   };
 };
 
+/** Stars for one run: 100% → 3, ≥75% → 2, ≥50% → 1 (same rule as getQuizStars). */
+const starsFor = (score: number, total: number): 0 | 1 | 2 | 3 => {
+  const pct = total ? score / total : 0;
+  return pct >= 1 ? 3 : pct >= 0.75 ? 2 : pct >= 0.5 ? 1 : 0;
+};
+
+/** The WiseBot card at the end of a mission: stars won and one sentence about what's next. */
+const MissionResult = ({ lang, score, total, childName }: { lang: 'el' | 'en'; score: number; total: number; childName: string }) => {
+  const stars = starsFor(score, total);
+  const line = lang === 'el'
+    ? stars === 3 ? `Τέλεια, ${childName}! Τρία αστέρια — η αποστολή είναι δική σου.`
+    : stars === 2 ? `Μπράβο, ${childName}! Δύο αστέρια — μετράει για Μάστερ. Θες και το τρίτο;`
+    : stars === 1 ? `Καλή αρχή, ${childName}! Ένα αστέρι. Ξαναπαίξε για 2 — τότε μετράει για Μάστερ.`
+    : `Δεν πειράζει, ${childName}. Διάβασε τις εξηγήσεις και ξαναδοκίμασε — θα τα καταφέρεις!`
+    : stars === 3 ? `Perfect, ${childName}! Three stars — this mission is yours.`
+    : stars === 2 ? `Well done, ${childName}! Two stars — that counts for Master. Want the third?`
+    : stars === 1 ? `Good start, ${childName}! One star. Play again for 2 — then it counts for Master.`
+    : `That's okay, ${childName}. Read the explanations and try again — you'll get it!`;
+  return (
+    <div className="p-4 bg-white/5 border border-white/10 rounded-2xl text-left flex items-start gap-3">
+      <span className="text-3xl leading-none">🦉</span>
+      <div className="flex-1">
+        <StarRow stars={stars} size={22} />
+        <p className="text-white/80 text-sm font-bold mt-1.5 leading-snug">{line}</p>
+      </div>
+    </div>
+  );
+};
+
 const StarRow = ({ stars, size = 13 }: { stars: number; size?: number }) => (
   <span className="inline-flex items-center gap-0.5">
     {[0, 1, 2].map(i => (
@@ -140,6 +169,8 @@ export default function School({ lang }: SchoolProps) {
           onRestart={() => { setActiveUnit(null); refreshSaved(); }}
           lang={lang}
           categoryId={unitCatId(activeGrade.grade, activeSubject.id, activeUnit.id)}
+          restartLabel={t.backMissions}
+          finishSlot={(score, total) => <MissionResult lang={lang} score={score} total={total} childName={childName} />}
         />
       </div>
     );
