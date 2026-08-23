@@ -64,7 +64,7 @@ interface DashData {
 }
 
 // ─── TAB TYPES ──────────────────────
-type TabId = 'overview' | 'health' | 'users' | 'content' | 'system';
+type TabId = 'overview' | 'health' | 'users' | 'market' | 'content' | 'system';
 
 // ─── MAIN COMPONENT ─────────────────
 export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
@@ -406,6 +406,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     { id: 'overview', label: 'Overview', icon: <BarChart3 size={16} /> },
     { id: 'health', label: health && (health.errors.last24h > 0 || health.payments.stripe.failedWebhookMatches > 0) ? `Health (!)` : 'Health', icon: <Activity size={16} /> },
     { id: 'users', label: `Users (${totals.userCount})`, icon: <Users size={16} /> },
+    { id: 'market', label: 'Market', icon: <Star size={16} /> },
     { id: 'content', label: 'Content & Costs', icon: <DollarSign size={16} /> },
     { id: 'system', label: 'System', icon: <Server size={16} /> },
   ];
@@ -601,6 +602,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
           formatDate={formatDate} timeAgo={timeAgo}
         />
       )}
+      {activeTab === 'market' && <MarketTab adminToken={adminToken} />}
       {activeTab === 'content' && <ContentTab stats={computedStats} totals={totals} data={data} />}
       {activeTab === 'system' && <SystemTab totals={totals} lastRefresh={lastRefresh} users={data?.users || []} health={health} />}
     </div>
@@ -1456,6 +1458,107 @@ function StatBadge({ icon, label, val }: { icon: string; label: string; val: num
       <p className="text-sm">{icon}</p>
       <p className="text-white font-[1000] text-xs italic">{val}</p>
       <p className="text-white/20 text-[7px] font-bold uppercase">{label}</p>
+    </div>
+  );
+}
+
+
+// ─── MARKET MODERATION ────────────────────────────────────────────────────────
+// Every child listing must pass a human before other children see it, and 3D
+// print orders are tracked (cancelling one refunds the credits server-side).
+function MarketTab({ adminToken }: { adminToken: () => string }) {
+  const [pending, setPending] = useState<any[]>([]);
+  const [orders, setOrders] = useState<any[]>([]);
+  const [busy, setBusy] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const load = useCallback(async () => {
+    try {
+      const res = await fetch('/api/admin/market', { headers: { 'X-Admin-Token': adminToken() } });
+      if (!res.ok) return;
+      const d = await res.json();
+      setPending(d.pending || []);
+      setOrders(d.orders || []);
+    } finally { setLoading(false); }
+  }, [adminToken]);
+  useEffect(() => { load(); }, [load]);
+
+  const decide = async (listingId: string, decision: 'approved' | 'rejected') => {
+    setBusy(listingId);
+    try {
+      await fetch('/api/admin/market', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        body: JSON.stringify({ listingId, decision }),
+      });
+      setPending(p => p.filter(l => l.id !== listingId));
+    } finally { setBusy(null); }
+  };
+
+  const setOrderStatus = async (orderId: string, orderStatus: string) => {
+    setBusy(orderId);
+    try {
+      await fetch('/api/admin/market', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Token': adminToken() },
+        body: JSON.stringify({ orderId, orderStatus }),
+      });
+      setOrders(o => o.map(x => x.id === orderId ? { ...x, status: orderStatus } : x));
+    } finally { setBusy(null); }
+  };
+
+  if (loading) return <div className="py-16 text-center text-white/40"><Loader2 className="animate-spin mx-auto" /></div>;
+
+  return (
+    <div className="space-y-10">
+      <div>
+        <h3 className="text-white font-bold text-lg mb-3">Αγγελίες σε αναμονή ({pending.length})</h3>
+        {pending.length === 0 ? <p className="text-white/40 text-sm">Τίποτα για έλεγχο. 🎉</p> : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {pending.map(l => (
+              <div key={l.id} className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+                {l.image_url && <img src={l.image_url} alt="" className="w-full aspect-video object-cover" />}
+                <div className="p-3 space-y-2">
+                  <p className="text-white font-bold text-sm">{l.type === 'song' ? '🎵' : '🎨'} {l.title}</p>
+                  <p className="text-white/40 text-xs">από {l.seller_name} · {l.price}⚡</p>
+                  {l.audio_url || l.stream_url ? <audio controls src={l.audio_url || l.stream_url} className="w-full h-8" /> : null}
+                  {l.lyrics && <p className="text-white/30 text-[11px] max-h-20 overflow-y-auto whitespace-pre-wrap">{l.lyrics}</p>}
+                  <div className="flex gap-2 pt-1">
+                    <button onClick={() => decide(l.id, 'approved')} disabled={busy === l.id}
+                      className="flex-1 py-2 rounded-xl bg-emerald-600/30 border border-emerald-400/40 text-emerald-100 text-xs font-black uppercase">Έγκριση</button>
+                    <button onClick={() => decide(l.id, 'rejected')} disabled={busy === l.id}
+                      className="flex-1 py-2 rounded-xl bg-red-600/20 border border-red-400/30 text-red-200 text-xs font-black uppercase">Απόρριψη</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div>
+        <h3 className="text-white font-bold text-lg mb-3">Παραγγελίες 3D ({orders.length})</h3>
+        {orders.length === 0 ? <p className="text-white/40 text-sm">Καμία παραγγελία ακόμα.</p> : (
+          <div className="space-y-2">
+            {orders.map(o => (
+              <div key={o.id} className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10">
+                <img src={o.image_url} alt="" className="w-12 h-12 rounded-xl object-cover" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-bold text-sm truncate">{o.hero_name} · {o.credits}⚡</p>
+                  <p className="text-white/40 text-xs">{new Date(o.created_at).toLocaleString('el-GR')} · {o.status}</p>
+                </div>
+                <select value={o.status} onChange={e => setOrderStatus(o.id, e.target.value)} disabled={busy === o.id || o.status === 'cancelled'}
+                  className="bg-black/40 border border-white/15 rounded-lg text-white text-xs p-2">
+                  <option value="pending">pending</option>
+                  <option value="in_progress">in_progress</option>
+                  <option value="shipped">shipped</option>
+                  <option value="cancelled">cancelled (refund)</option>
+                </select>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
