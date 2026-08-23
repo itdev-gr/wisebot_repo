@@ -69,7 +69,8 @@ async function audit() {
         if (Number.isFinite(exp) && Math.abs(got - exp) > 1e-9) issues.push(`#${n}: "${q.el}" marks ${q.oel[q.correct]} but ${exp} is right`);
       }
     });
-    if (qs.length && Math.max(...dist) > qs.length * 0.6) issues.push(`correct index too predictable: ${dist.join('/')}`);
+    // Advisory only: the app shuffles options (utils/shuffleOptions.ts), so a skewed index is not a bug.
+    if (qs.length && Math.max(...dist) > qs.length * 0.6) console.log(`  note ${u.key}: correct index skewed ${dist.join('/')} (harmless — options are shuffled in the app)`);
     if (!name) issues.push('no exported array found');
     if (issues.length) { problems += issues.length; console.log(`✗ ${u.key}\n   ${issues.join('\n   ')}`); }
     else console.log(`✓ ${u.key} (${qs.length})`);
