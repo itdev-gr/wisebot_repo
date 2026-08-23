@@ -79,6 +79,10 @@ interface EbookQuizProps {
   onRetry: () => void;
   onNextBook: () => void;
   hasNextBook: boolean;
+  /** 'book' (default) says «βιβλίο» in the buttons; 'story' (Academy) says «ιστορία». Same paper palette. */
+  variant?: 'book' | 'story';
+  /** Credits a perfect score actually earns — EconomyContext decides, the quiz only displays it. 0 hides the chip. */
+  reward?: number;
 }
 
 export const EbookQuiz: React.FC<EbookQuizProps> = ({
@@ -87,8 +91,11 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
   onComplete,
   onRetry,
   onNextBook,
-  hasNextBook
+  hasNextBook,
+  variant = 'book',
+  reward = 0,
 }) => {
+  const isStory = variant === 'story';
   // The stored order leaks the answer (see utils/shuffleOptions.ts) — shuffle once per quiz.
   const questions = useMemo(() => shuffleAllOptions(sourceQuestions), [sourceQuestions]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -273,14 +280,16 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                   {score}/{questions.length}
                 </span>
               </div>
+              {reward > 0 && (
               <motion.div
                 animate={{ boxShadow: ['0 0 20px rgba(180,120,30,0.15)', '0 0 40px rgba(180,120,30,0.3)', '0 0 20px rgba(180,120,30,0.15)'] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 className="px-6 py-3 bg-amber-500/20 rounded-2xl border border-amber-600/30 flex items-center gap-2"
               >
                 <Zap size={18} className="text-amber-600" />
-                <span className="text-amber-700 font-[1000] text-base uppercase tracking-wider">+1 Credit</span>
+                <span className="text-amber-700 font-[1000] text-base uppercase tracking-wider">+{reward} ⚡</span>
               </motion.div>
+              )}
             </motion.div>
 
             {/* Motivational message */}
@@ -305,13 +314,17 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                   onClick={onNextBook}
                   className="w-full py-5 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 rounded-[2rem] font-[1000] text-white text-xl uppercase italic tracking-widest shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 group"
                 >
-                  {lang === 'el' ? 'ΕΠΟΜΕΝΟ ΒΙΒΛΙΟ' : 'NEXT BOOK'}
+                  {isStory
+                    ? (lang === 'el' ? 'ΕΠΟΜΕΝΗ ΙΣΤΟΡΙΑ' : 'NEXT STORY')
+                    : (lang === 'el' ? 'ΕΠΟΜΕΝΟ ΒΙΒΛΙΟ' : 'NEXT BOOK')}
                   <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
                 </button>
               ) : (
                 <div className="p-5 bg-emerald-50 rounded-2xl border border-emerald-300/40 text-center">
                   <p className="text-emerald-700 font-[1000] uppercase italic tracking-wider">
-                    {lang === 'el' ? 'ΟΛΟΚΛΗΡΩΣΕΣ ΟΛΑ ΤΑ ΒΙΒΛΙΑ!' : 'ALL BOOKS COMPLETE!'}
+                    {isStory
+                      ? (lang === 'el' ? 'ΟΛΟΚΛΗΡΩΣΕΣ ΟΛΕΣ ΤΙΣ ΙΣΤΟΡΙΕΣ!' : 'ALL STORIES COMPLETE!')
+                      : (lang === 'el' ? 'ΟΛΟΚΛΗΡΩΣΕΣ ΟΛΑ ΤΑ ΒΙΒΛΙΑ!' : 'ALL BOOKS COMPLETE!')}
                   </p>
                   <p className="text-emerald-600/50 text-xs font-bold uppercase tracking-wider mt-1">
                     {lang === 'el' ? 'Είσαι θρύλος!' : 'You are a legend!'}
@@ -435,7 +448,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               const isCorrect = idx === questions[currentQuestion].correct;
 
               let btnStyle = "bg-white/70 border-2 border-amber-800/20 text-amber-950 hover:bg-white hover:border-amber-600/40 shadow-sm";
-              let icon = null;
+              let icon: React.ReactNode = null;
 
               if (isAnswerChecked) {
                  if (isCorrect) {
@@ -445,7 +458,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
                     btnStyle = "bg-red-50 border-2 border-red-400 text-red-700";
                     icon = <XCircle size={20} className="text-red-500" />;
                  } else {
-                    btnStyle = "opacity-40 border-2 border-transparent";
+                    btnStyle = "opacity-50 bg-white/40 border-2 border-transparent text-amber-950";
                  }
               }
 

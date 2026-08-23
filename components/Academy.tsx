@@ -384,45 +384,46 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
         ) : (
           <>
             {isPlaying ? (
-              <button onClick={handlePause} className="flex items-center gap-2 px-4 py-2.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-amber-500/30 active:scale-95 transition-all">
+              <button onClick={handlePause} className="flex items-center gap-2 px-4 py-2.5 bg-amber-500/20 text-amber-900 border border-amber-700/30 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-amber-500/30 active:scale-95 transition-all">
                 <Pause size={16} /> {lang === 'el' ? 'ΠΑΥΣΗ' : 'PAUSE'}
               </button>
             ) : (
-              <button onClick={handlePlay} className="flex items-center gap-2 px-4 py-2.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-emerald-500/30 active:scale-95 transition-all">
+              <button onClick={handlePlay} className="flex items-center gap-2 px-4 py-2.5 bg-emerald-500/20 text-emerald-800 border border-emerald-600/30 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-emerald-500/30 active:scale-95 transition-all">
                 <Volume2 size={16} /> {lang === 'el' ? 'ΣΥΝΕΧΕΙΑ' : 'RESUME'}
               </button>
             )}
-            <button onClick={handleStop} className="p-2.5 bg-red-500/10 text-red-400 border border-red-500/20 rounded-xl hover:bg-red-500/20 active:scale-95 transition-all" title={lang === 'el' ? 'Σταμάτα' : 'Stop'}>
+            <button onClick={handleStop} className="p-2.5 bg-red-500/10 text-red-600 border border-red-500/20 rounded-xl hover:bg-red-500/20 active:scale-95 transition-all" title={lang === 'el' ? 'Σταμάτα' : 'Stop'}>
               <Square size={14} />
             </button>
           </>
         )}
 
-        <button onClick={handleSpeedToggle} className="flex items-center gap-1.5 px-3 py-2.5 bg-white/5 text-white/60 border border-white/10 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-white/10 hover:text-white active:scale-95 transition-all">
+        <button onClick={handleSpeedToggle} className="flex items-center gap-1.5 px-3 py-2.5 bg-amber-900/5 text-amber-900/60 border border-amber-800/15 rounded-xl font-black text-xs uppercase tracking-wider hover:bg-amber-900/10 hover:text-amber-950 active:scale-95 transition-all">
           <FastForward size={14} /> {speedLabel}
         </button>
 
         {/* Voice mode indicator */}
         {!active && !isLoading && (
-          <span className="flex items-center gap-1 text-white/25 text-[10px] font-bold uppercase tracking-widest">
-            {isCloud ? <><Sparkles size={10} className="text-purple-400" /> AI Voice</> : voiceLabel || 'Device'}
+          <span className="flex items-center gap-1 text-amber-800/40 text-[10px] font-bold uppercase tracking-widest">
+            {isCloud ? <><Sparkles size={10} className="text-purple-600" /> AI Voice</> : voiceLabel || 'Device'}
           </span>
         )}
         {/* Cloud: playing indicator */}
         {active && isCloud && (
-          <span className="flex items-center gap-1.5 text-purple-300/50 text-[10px] font-bold uppercase tracking-widest ml-auto animate-pulse">
+          <span className="flex items-center gap-1.5 text-purple-700/60 text-[10px] font-bold uppercase tracking-widest ml-auto animate-pulse">
             <Sparkles size={10} /> AI Voice
           </span>
         )}
         {/* Browser: sentence counter */}
         {active && !isCloud && currentIdx >= 0 && (
-          <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest ml-auto">{currentIdx + 1}/{sentences.length}</span>
+          <span className="text-amber-800/40 text-[10px] font-bold uppercase tracking-widest ml-auto">{currentIdx + 1}/{sentences.length}</span>
         )}
       </div>
 
       {/* Story text — sentence highlighting only in browser mode */}
-      <div className="prose prose-invert prose-lg max-w-none">
-        <p className="text-lg md:text-xl text-gray-300 font-medium leading-relaxed first-letter:text-5xl first-letter:font-black first-letter:text-white first-letter:mr-3 first-letter:float-left">
+      {/* Same serif page as the ebook reader — dark ink on cream is the restful reading surface. */}
+      <div className="max-w-none">
+        <p className="text-lg md:text-xl text-amber-950/85 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-amber-900 first-letter:mr-3 first-letter:float-left" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
           {sentences.map((sentence, i) => (
             <span
               key={i}
@@ -430,12 +431,12 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
               onClick={() => handleSentenceClick(i)}
               className={`transition-all duration-300 rounded-sm ${
                 isCloud
-                  ? 'text-gray-300' // Cloud mode: no highlighting
+                  ? '' // Cloud mode: no highlighting
                   : currentIdx === i
-                    ? 'bg-amber-400/20 text-white px-0.5 -mx-0.5 cursor-pointer'
+                    ? 'bg-amber-400/40 text-amber-950 px-0.5 -mx-0.5 cursor-pointer'
                     : active && currentIdx >= 0
-                      ? i < currentIdx ? 'text-white/30 cursor-pointer' : 'text-gray-300 hover:text-white hover:bg-white/5 cursor-pointer'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5 cursor-pointer'
+                      ? i < currentIdx ? 'text-amber-900/35 cursor-pointer' : 'hover:bg-amber-900/5 cursor-pointer'
+                      : 'hover:bg-amber-900/5 cursor-pointer'
               }`}
             >
               {sentence}{' '}
@@ -463,8 +464,14 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   const [selectedImage, setSelectedImage] = useState<string>('');
   const [activeCategory, setActiveCategory] = useState<string>("START_SMALL");
   const [showQuiz, setShowQuiz] = useState(false);
+  // The story pane is scrolled to the bottom when the child taps the quiz button — jump back up
+  // so question 1 is visible instead of cut off at the top.
+  const storyPaneRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (showQuiz) storyPaneRef.current?.scrollTo({ top: 0 });
+  }, [showQuiz]);
   const [quizzes, setQuizzes] = useState<Record<number, any[]>>({});
-  const { trackAction } = useEconomy();
+  const { trackAction, badges } = useEconomy();
   const rewardedRef = useRef<Set<number>>(new Set()); // Prevent double-fire (React StrictMode / motion layout)
   const quizRewardedRef = useRef<Set<number>>(new Set());
 
@@ -543,25 +550,31 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   };
 
   return (
-    <div className="relative w-full h-full pb-32 animate-in fade-in duration-700">
+    <div
+      className="relative w-full min-h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden pb-20 animate-in fade-in duration-700"
+      style={{
+        // One open page on the dark desk — same paper as the reader, so the room is restful end to end.
+        background: 'linear-gradient(135deg, #faf5eb 0%, #f5ead6 50%, #f0e4cc 100%)',
+        boxShadow: '0 30px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(139,90,43,0.15), inset 0 1px 0 rgba(255,255,255,0.6)',
+      }}
+    >
       <FirstTimeTip id="academy" lang={lang} text={lang === 'el'
         ? <>🦉 98 άνθρωποι που ξεκίνησαν από το τίποτα, {childName} — ο Messi, ο Disney, η Rowling. Πάτα έναν και δες πώς τα κατάφερε. Κάθε ιστορία = 2⚡.</>
         : <>🦉 98 people who started from nothing, {childName} — Messi, Disney, Rowling. Tap one and see how they did it. Every story = 2⚡.</>} />
 
       {/* HEADER */}
-      <div className="text-center py-8 space-y-3 relative z-10">
-         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-2 backdrop-blur-md">
-            <BookOpen size={14} className="text-blue-400" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-white/60">WISEBOT ACADEMY</span>
-            <span className="text-[10px] font-black text-blue-400">{totalCompleted}/{totalStories}</span>
+      <div className="text-center pt-8 pb-6 px-4 space-y-3 relative z-10">
+         <div className="inline-flex items-center gap-2 bg-white/60 border border-amber-800/15 px-4 py-1.5 rounded-full mb-1">
+            <BookOpen size={14} className="text-amber-700" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-800/70">WiseBot Academy</span>
+            <span className="text-[10px] font-black text-amber-700">{totalCompleted}/{totalStories}</span>
          </div>
-         <h1 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
-            {lang === 'el' ? 'ΜΑΘΗΜΑΤΑ' : 'LESSONS'} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{lang === 'el' ? 'ΖΩΗΣ' : 'OF LIFE'}</span>
+         <h1 className="text-3xl md:text-5xl text-amber-950 leading-tight" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 700 }}>
+            {lang === 'el' ? 'Μαθήματα Ζωής' : 'Lessons of Life'}
          </h1>
-         <p className="text-white/40 font-bold uppercase tracking-[0.3em] text-xs">
-            {lang === 'el' ? `ΔΙΑΒΑΣΕ ΤΙΣ ${totalStories} ΙΣΤΟΡΙΕΣ ΣΠΟΥΔΑΙΩΝ ΑΝΘΡΩΠΩΝ` : `READ THE ${totalStories} STORIES OF GREAT PEOPLE`}
+         <p className="text-amber-900/60 text-sm md:text-base max-w-md mx-auto">
+            {lang === 'el' ? `${totalStories} ιστορίες ανθρώπων που ξεκίνησαν από το μηδέν. Διάλεξε μία — κάθε ιστορία δίνει 2⚡.` : `${totalStories} stories of people who started from nothing. Pick one — every story earns 2⚡.`}
          </p>
-
       </div>
 
       {/* STORY OF THE DAY */}
@@ -571,32 +584,32 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
           onClick={openDailyStory}
-          className={`group w-full text-left rounded-3xl border-2 overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.99] bg-gradient-to-r ${dailyCat?.color || 'from-blue-500 to-purple-500'} ${dailyDone ? 'opacity-90' : ''} border-white/15 hover:border-white/30 shadow-lg`}
+          className={`group w-full text-left rounded-3xl border overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.99] bg-white/70 border-amber-800/15 hover:border-amber-700/40 shadow-sm ${dailyDone ? 'opacity-90' : ''}`}
         >
-          <div className="flex items-center gap-4 bg-black/55 backdrop-blur-sm p-4 md:p-5">
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 border border-white/20">
+          <div className="flex items-center gap-4 p-4 md:p-5">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden shrink-0 border border-amber-800/10 shadow">
               <SafeImage src={dailyStory.image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <Star size={12} className="text-amber-400 shrink-0" fill="currentColor" />
-                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-amber-300">
+                <Star size={12} className="text-amber-500 shrink-0" fill="currentColor" />
+                <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-amber-700">
                   {lang === 'el' ? 'Η ΙΣΤΟΡΙΑ ΤΗΣ ΗΜΕΡΑΣ' : 'STORY OF THE DAY'}
                 </span>
                 {dailyDone && (
-                  <span className="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-emerald-400">
+                  <span className="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-emerald-700">
                     <CheckCircle size={11} /> {lang === 'el' ? 'ΤΗ ΔΙΑΒΑΣΕΣ' : 'READ'}
                   </span>
                 )}
               </div>
-              <h3 className="text-white font-[1000] uppercase italic tracking-tight text-base md:text-xl leading-tight truncate">
+              <h3 className="text-amber-950 text-base md:text-xl leading-tight line-clamp-2" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 700 }}>
                 {dailyStory.course.title[lang]}
               </h3>
-              <p className="text-white/50 text-[11px] md:text-xs font-bold truncate mt-0.5">
+              <p className="text-amber-900/60 text-[11px] md:text-xs font-semibold truncate mt-0.5">
                 {dailyStory.course.subject[lang]} · {dailyCat?.title[lang]}
               </p>
             </div>
-            <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white group-hover:bg-white/25 transition-all">
+            <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-all">
               <PlayCircle size={22} />
             </div>
           </div>
@@ -606,8 +619,8 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
       {/* CATEGORY TABS (Pill Style) */}
       <div className="relative max-w-7xl mx-auto mb-4">
         {/* Fade hint right */}
-        <div className="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-[#0B0F1A] to-transparent z-10 pointer-events-none md:hidden" />
-        <div className="px-4 overflow-x-auto custom-scrollbar pb-4">
+        <div className="absolute right-0 top-0 bottom-4 w-12 z-10 pointer-events-none md:hidden" style={{ background: 'linear-gradient(to left, #f5ead6, transparent)' }} />
+        <div className="px-4 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none' }}>
           <div className="flex gap-2 md:gap-3 justify-start md:justify-center min-w-max">
             {Object.values(CATEGORIES).map((cat) => {
               const isActive = activeCategory === cat.id;
@@ -621,8 +634,8 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                   className={`
                     relative px-3 md:px-6 py-2.5 md:py-3 rounded-2xl flex items-center gap-2 md:gap-3 transition-all duration-300 border group shrink-0
                     ${isActive
-                      ? `bg-gradient-to-r ${cat.color} border-white/20 text-white shadow-lg scale-105`
-                      : 'bg-white/5 border-white/10 text-white/50 hover:bg-white/10 hover:text-white'
+                      ? `bg-gradient-to-r ${cat.color} border-transparent text-white shadow-md scale-105`
+                      : 'bg-white/60 border-amber-800/15 text-amber-900/80 hover:bg-white hover:border-amber-700/30'
                     }
                   `}
                 >
@@ -632,7 +645,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                         <span className="block font-black text-[10px] md:text-xs uppercase tracking-wide leading-none">
                           {lang === 'el' ? cat.title.el : cat.title.en}
                         </span>
-                        <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-md ${isActive ? 'bg-white/20 text-white' : 'bg-white/10 text-white/40'}`}>
+                        <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-md ${isActive ? 'bg-white/25 text-white' : 'bg-amber-900/10 text-amber-900/60'}`}>
                           {catCount}
                         </span>
                       </div>
@@ -658,7 +671,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
-            className="text-center text-white/30 text-sm font-bold"
+            className="text-center text-amber-900/60 text-sm"
           >
             {activeCat.desc[lang]} &middot; {filteredCourses.length} {lang === 'el' ? 'ιστορίες' : 'stories'} &middot; {getProgress(activeCategory)}% {lang === 'el' ? 'ολοκληρωμένο' : 'complete'}
           </motion.p>
@@ -682,24 +695,24 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                      transition={{ duration: 0.2, delay: index * 0.03 }}
                      onClick={() => handleReadStory(course, getStoryImage(index))}
                      className={`
-                        group relative rounded-[1.5rem] overflow-hidden border bg-[#0B0F1A] cursor-pointer transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl flex
-                        ${isCompleted ? 'border-emerald-500/40' : 'border-white/10 hover:border-white/20'}
+                        group relative rounded-[1.5rem] overflow-hidden border bg-white/70 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-white flex
+                        ${isCompleted ? 'border-emerald-500/50' : 'border-amber-800/12 hover:border-amber-700/35'}
                      `}
                   >
                      {/* Left: Image (compact) — uses rotating images for variety */}
-                     <div className="w-28 sm:w-32 shrink-0 relative overflow-hidden bg-[#0B0F1A]">
+                     <div className="w-28 sm:w-32 shrink-0 relative overflow-hidden bg-amber-950/5">
                         <SafeImage
                           src={getStoryImage(index)}
                           alt={course.title[lang]}
                           loading="eager"
                           wrapperClassName="absolute inset-0"
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0B0F1A]/80" />
+                        <div className="absolute inset-y-0 right-0 w-6" style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.55))' }} />
 
                         {/* Number Badge */}
                         <div className="absolute top-2.5 left-2.5">
-                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center font-[1000] text-[10px] text-white shadow-lg border border-white/20 ${isCompleted ? 'bg-emerald-500' : 'bg-black/60 backdrop-blur-md'}`}>
+                            <div className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-[10px] text-white shadow-md ${isCompleted ? 'bg-emerald-500' : 'bg-amber-900/80'}`}>
                                 {index + 1}
                             </div>
                         </div>
@@ -708,24 +721,24 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                      {/* Right: Content */}
                      <div className="flex-1 p-4 flex flex-col justify-center relative min-h-[120px]">
                         {/* Glow effect on hover */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${CategoryConfig.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                        <div className={`absolute inset-0 bg-gradient-to-br ${CategoryConfig.color} opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500`} />
 
                         <div className="relative z-10 space-y-1.5">
                             {/* Person name */}
-                            <span className={`inline-block text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md border ${CategoryConfig.bg} ${CategoryConfig.border} text-white/80`}>
+                            <span className={`inline-block text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md border ${CategoryConfig.bg} ${CategoryConfig.border} text-amber-900`}>
                                 {course.subject[lang]}
                             </span>
                             {/* Title */}
-                            <h3 className="text-sm md:text-base font-[1000] text-white uppercase italic tracking-tight leading-tight group-hover:text-blue-300 transition-colors">
+                            <h3 className="text-base md:text-lg text-amber-950 leading-snug group-hover:text-amber-800 transition-colors" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 700 }}>
                                 {course.title[lang]}
                             </h3>
                             {/* Subtitle + Status */}
                             <div className="flex items-center gap-2">
-                              <p className="text-white/30 text-[10px] font-bold uppercase tracking-wider">
+                              <p className="text-amber-800/60 text-[10px] font-bold uppercase tracking-wider">
                                   {course.subtitle[lang]}
                               </p>
                               {isCompleted && (
-                                <div className="flex items-center gap-1 text-emerald-400">
+                                <div className="flex items-center gap-1 text-emerald-700">
                                   <CheckCircle size={10} />
                                   <span className="text-[9px] font-black uppercase">{lang === 'el' ? 'OK' : 'DONE'}</span>
                                 </div>
@@ -735,7 +748,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
 
                         {/* Arrow hint */}
                         <div className="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <ArrowRight size={16} className="text-white/30" />
+                          <ArrowRight size={16} className="text-amber-800/40" />
                         </div>
                      </div>
                   </motion.div>
@@ -751,7 +764,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 lg:p-8 xl:pl-80 bg-black/95 backdrop-blur-xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-6 xl:pl-80 bg-[#1a0f08]/95 backdrop-blur-sm"
             onClick={closeCourse}
           >
             <motion.div
@@ -759,46 +772,59 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#0B0F1A] border border-white/10 w-full max-w-4xl h-[90vh] md:h-auto md:max-h-[90vh] rounded-[3rem] overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
+              className="w-full max-w-3xl h-[94vh] md:h-[90vh] rounded-2xl md:rounded-3xl overflow-hidden flex flex-col relative"
+              style={{
+                // Same paper as the ebook reader (components/Ebooks.tsx) — the two reading rooms share one surface.
+                background: 'linear-gradient(135deg, #faf5eb 0%, #f5ead6 50%, #f0e4cc 100%)',
+                boxShadow: '0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,90,43,0.15), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -2px 8px rgba(139,90,43,0.08)',
+              }}
             >
               {/* Close Button */}
               <button 
                 onClick={closeCourse}
-                className="absolute top-6 right-6 z-50 p-3 bg-black/50 hover:bg-white/10 rounded-full text-white transition-all border border-white/10 backdrop-blur-md"
+                className="absolute top-4 right-4 z-50 p-2.5 bg-black/40 hover:bg-black/60 rounded-full text-white transition-all border border-white/20 backdrop-blur-md"
+                aria-label={lang === 'el' ? 'Κλείσιμο' : 'Close'}
               >
                 <X size={20} />
               </button>
 
-              {/* Left: Visuals */}
-              <div className="w-full md:w-5/12 min-h-[16rem] md:min-h-[24rem] relative shrink-0 bg-[#0B0F1A]">
+              {/* Everything scrolls together: illustration, title, story, quiz — like a book page */}
+              <div ref={storyPaneRef} className="flex-1 overflow-y-auto flex flex-col" style={{ scrollbarWidth: 'thin', scrollbarColor: '#c4a16a #f0e4cc' }}>
+              {/* Illustration — fades into the paper */}
+              <div className="relative w-full h-52 md:h-72 shrink-0 overflow-hidden bg-amber-950/5">
                 <SafeImage
                   src={selectedImage || selectedCourse.image}
                   alt={selectedCourse.title[lang]}
                   loading="eager"
                   wrapperClassName="absolute inset-0"
-                  className="w-full h-full object-cover min-h-[16rem] md:min-h-[24rem]"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F1A] via-transparent to-transparent md:bg-gradient-to-r" />
-                
-                <div className="absolute bottom-8 left-8 right-8">
-                    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-black/40 backdrop-blur-md mb-4 border-white/20`}>
-                      <span className="text-[10px] font-black uppercase tracking-widest text-white">
-                        {selectedCourse.subject[lang]}
-                      </span>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-[1000] text-white drop-shadow-xl uppercase italic tracking-tighter leading-[0.9]">
-                      {selectedCourse.title[lang]}
-                    </h2>
-                </div>
+                <div className="absolute bottom-0 inset-x-0 h-20" style={{ background: 'linear-gradient(to top, #faf5eb, transparent)' }} />
               </div>
 
-              {/* Right: Story Content */}
-              <div className="w-full md:w-7/12 p-8 md:p-12 overflow-y-auto custom-scrollbar flex flex-col bg-[#0B0F1A]">
+              {/* Title block */}
+              <div className="px-6 md:px-14 pt-2 pb-6 text-center shrink-0">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <div className="h-px flex-1 max-w-12 bg-amber-800/20" />
+                  <span className="text-amber-800/50 text-[10px] font-bold uppercase tracking-[0.3em]">
+                    {selectedCourse.subject[lang]}
+                  </span>
+                  <div className="h-px flex-1 max-w-12 bg-amber-800/20" />
+                </div>
+                <h2 className="text-2xl md:text-4xl text-amber-950 leading-tight" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 700 }}>
+                  {selectedCourse.title[lang]}
+                </h2>
+              </div>
+
+              {/* Story / quiz */}
+              <div className="px-6 pb-28 md:px-14 md:pb-12 flex flex-col flex-1">
                 {showQuiz ? (
                 <div className="flex-1">
                   <EbookQuiz
                     questions={quizzes[selectedCourse.id] || []}
                     lang={lang}
+                    variant="story"
+                    reward={completedIds.includes(`academy-quiz-${selectedCourse.id}`) ? 0 : (badges.scientist ? 3 : 2)}
                     onComplete={handleQuizComplete}
                     onRetry={() => setShowQuiz(false)}
                     onNextBook={handleNextStory}
@@ -819,7 +845,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.7, type: 'spring' }}
-                    className="relative overflow-hidden rounded-[2rem] border-2 border-amber-500/30 bg-gradient-to-br from-amber-900/20 via-amber-800/10 to-transparent p-8"
+                    className="relative overflow-hidden rounded-[2rem] border-2 border-amber-600/25 bg-gradient-to-br from-amber-200/40 via-amber-100/30 to-transparent p-8"
                   >
                     {/* Ambient glow */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
@@ -865,7 +891,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.7 }}
-                        className="text-xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 uppercase italic tracking-tight"
+                        className="text-xl font-[1000] text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-yellow-600 to-amber-800 uppercase italic tracking-tight"
                       >
                         {lang === 'el' ? 'ΙΣΤΟΡΙΑ ΟΛΟΚΛΗΡΩΘΗΚΕ!' : 'STORY COMPLETE!'}
                       </motion.h5>
@@ -875,7 +901,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.9 }}
-                        className="text-amber-300/60 text-xs font-bold uppercase tracking-wide leading-relaxed max-w-sm mx-auto"
+                        className="text-amber-900/60 text-xs font-bold uppercase tracking-wide leading-relaxed max-w-sm mx-auto"
                       >
                         {lang === 'el'
                           ? 'Κάθε ιστορία κρύβει μια δύναμη. Κράτησέ την.'
@@ -889,15 +915,15 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                         transition={{ delay: 1.1, type: 'spring' }}
                         className="flex items-center justify-center gap-3"
                       >
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 rounded-xl border border-amber-500/20">
-                          <Brain size={13} className="text-amber-400" />
-                          <span className="text-amber-300/80 text-[10px] font-[1000] uppercase tracking-wider">
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/15 rounded-xl border border-amber-600/25">
+                          <Brain size={13} className="text-amber-700" />
+                          <span className="text-amber-900/80 text-[10px] font-[1000] uppercase tracking-wider">
                             {lang === 'el' ? 'ΣΟΦΟΤΕΡΟΣ' : 'WISER'}
                           </span>
                         </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 rounded-xl border border-emerald-500/20">
-                          <CheckCircle size={13} className="text-emerald-400" />
-                          <span className="text-emerald-300/80 text-[10px] font-[1000] uppercase tracking-wider">
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 rounded-xl border border-emerald-600/25">
+                          <CheckCircle size={13} className="text-emerald-700" />
+                          <span className="text-emerald-800/80 text-[10px] font-[1000] uppercase tracking-wider">
                             {lang === 'el' ? 'ΟΛΟΚΛΗΡΩΘΗΚΕ' : 'COMPLETED'}
                           </span>
                         </div>
@@ -916,15 +942,15 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                       onClick={() => setShowQuiz(true)}
                       className={`w-full py-5 rounded-[2rem] font-[1000] text-sm hover:scale-[1.03] active:scale-[0.97] transition-all uppercase tracking-widest flex items-center justify-center gap-3 group ${
                         completedIds.includes(`academy-quiz-${selectedCourse.id}`)
-                          ? 'bg-emerald-500/15 text-emerald-300 border-2 border-emerald-500/40'
+                          ? 'bg-emerald-500/15 text-emerald-800 border-2 border-emerald-600/40'
                           : 'bg-gradient-to-r from-purple-500 via-fuchsia-500 to-purple-500 text-white shadow-[0_0_30px_rgba(192,38,211,0.25)]'
                       }`}
                     >
-                      <Brain size={18} />
+                      <Brain size={18} className="shrink-0" />
                       <span>
                         {completedIds.includes(`academy-quiz-${selectedCourse.id}`)
-                          ? (lang === 'el' ? 'QUIZ ΟΛΟΚΛΗΡΩΜΕΝΟ — ΠΑΙΞΕ ΞΑΝΑ' : 'QUIZ DONE — PLAY AGAIN')
-                          : (lang === 'el' ? 'ΚΑΝΕ ΤΟ QUIZ — ΚΕΡΔΙΣΕ CREDITS' : 'TAKE THE QUIZ — EARN CREDITS')}
+                          ? (lang === 'el' ? 'ΠΑΙΞΕ ΞΑΝΑ ΤΟ QUIZ' : 'PLAY THE QUIZ AGAIN')
+                          : (lang === 'el' ? `ΚΑΝΕ ΤΟ QUIZ · +${badges.scientist ? 3 : 2}⚡` : `TAKE THE QUIZ · +${badges.scientist ? 3 : 2}⚡`)}
                       </span>
                     </motion.button>
                   )}
@@ -941,7 +967,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
                 </div>
                 </>
                 )}
-
+              </div>
               </div>
             </motion.div>
           </motion.div>

@@ -13,7 +13,8 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       server: {
-        port: 3000,
+        // PORT lets a second checkout (git worktree) run alongside the main one.
+        port: Number(process.env.PORT) || 3000,
         host: '0.0.0.0',
       },
       plugins: [
