@@ -3,14 +3,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Shield, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe,
   Zap, BookOpen, Image as ImageIcon, Trophy, Briefcase, BarChart3, Clock, Target,
-  ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame, Download,
-  Send, Lightbulb, Bell, Minus, Plus, ToggleLeft, ToggleRight,
+  ArrowLeft, Unlock, CheckCircle2, AlertCircle, Flame, Download,
+  Send, Lightbulb, Minus, Plus, ToggleLeft, ToggleRight,
   Gamepad2, PenTool, GraduationCap, MessageSquare,
   Smartphone, Mail, Phone, Loader2, CheckCircle, ArrowRight
 } from 'lucide-react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
+import ParentSchoolProgress from './ParentSchoolProgress';
 import { authFetch } from '../services/backendApi';
 import ParentPinGate, { ParentPinChange } from './ParentPinGate';
 import { getActivityLog, getScreenLimits, getTodayMinutes } from '../context/EconomyContext';
@@ -128,13 +129,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const [suggestionSent, setSuggestionSent] = useState(false);
   const [suggestionSending, setSuggestionSending] = useState(false);
 
-  // Subject interest notifications
-  const [subjectInterests, setSubjectInterests] = useState<string[]>(() => {
-    try {
-      const raw = localStorage.getItem('wb_subject_interests');
-      return raw ? JSON.parse(raw) : [];
-    } catch { return []; }
-  });
 
   // Activity log for today's count
   const todayActivities = getActivityLog().filter(
@@ -170,16 +164,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     setTimeout(() => setScreenLimitsSaved(false), 2500);
   };
 
-  // Toggle subject interest
-  const toggleSubjectInterest = (subjectId: string) => {
-    setSubjectInterests((prev) => {
-      const next = prev.includes(subjectId)
-        ? prev.filter((s) => s !== subjectId)
-        : [...prev, subjectId];
-      localStorage.setItem('wb_subject_interests', JSON.stringify(next));
-      return next;
-    });
-  };
 
   // Submit feature suggestion
   const handleSuggestionSubmit = async () => {
@@ -235,11 +219,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         businesses: 'Επιχειρήσεις',
         heroesUploaded: 'Ανεβασμένοι Ήρωες',
         // Section C
-        comingSoonTitle: 'ΕΡΧΟΝΤΑΙ ΣΥΝΤΟΜΑ',
-        comingSoonSubtitle: 'Μαθήματα σχολείου μέσα από παιχνίδια',
-        comingSoonBadge: 'COMING SOON',
-        notifyMe: 'Ενημέρωσέ με',
-        notified: 'Θα ενημερωθείς!',
         // Section D
         screenTimeTitle: 'ΕΛΕΓΧΟΣ ΧΡΟΝΟΥ ΟΘΟΝΗΣ',
         enableLimits: 'Ενεργοποίηση ορίων',
@@ -312,11 +291,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         businesses: 'Businesses',
         heroesUploaded: 'Heroes Uploaded',
         // Section C
-        comingSoonTitle: 'COMING SOON',
-        comingSoonSubtitle: 'School subjects through games',
-        comingSoonBadge: 'COMING SOON',
-        notifyMe: 'Notify me',
-        notified: 'You\'ll be notified!',
         // Section D
         screenTimeTitle: 'SCREEN TIME CONTROLS',
         enableLimits: 'Enable limits',
@@ -380,63 +354,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   ];
   const maxStatValue = Math.max(1, ...analyticsItems.map((s) => s.value));
 
-  // Coming soon subjects for Section C
-  const subjects = [
-    {
-      id: 'math',
-      emoji: '\u{1F4D0}',
-      titleEl: 'Μαθηματικά (1η-6η Δημοτικού)',
-      titleEn: 'Mathematics',
-      descEl: 'Πρόσθεση, αφαίρεση, πολλαπλασιασμός μέσα από παιχνίδια',
-      descEn: 'Addition, subtraction, multiplication through games',
-      borderColor: 'border-l-blue-500',
-    },
-    {
-      id: 'language',
-      emoji: '\u{1F4DD}',
-      titleEl: 'Γλώσσα & Ορθογραφία',
-      titleEn: 'Language & Spelling',
-      descEl: 'Μάθε σωστή ορθογραφία με fun τρόπο',
-      descEn: 'Learn correct spelling the fun way',
-      borderColor: 'border-l-purple-500',
-    },
-    {
-      id: 'history',
-      emoji: '\u{1F4DC}',
-      titleEl: 'Ιστορία',
-      titleEn: 'History',
-      descEl: 'Ζωντανές ιστορίες από την αρχαιότητα ως σήμερα',
-      descEn: 'Vivid stories from antiquity to today',
-      borderColor: 'border-l-amber-500',
-    },
-    {
-      id: 'science',
-      emoji: '\u{1F52C}',
-      titleEl: 'Φυσικές Επιστήμες',
-      titleEn: 'Science',
-      descEl: 'Πειράματα και ανακαλύψεις για μικρούς επιστήμονες',
-      descEn: 'Experiments and discoveries for young scientists',
-      borderColor: 'border-l-emerald-500',
-    },
-    {
-      id: 'geography',
-      emoji: '\u{1F30D}',
-      titleEl: 'Γεωγραφία',
-      titleEn: 'Geography',
-      descEl: 'Ταξίδεψε στον κόσμο μέσα από quizzes',
-      descEn: 'Travel the world through quizzes',
-      borderColor: 'border-l-pink-500',
-    },
-    {
-      id: 'ancient-greek',
-      emoji: '\u{1F3DB}\uFE0F',
-      titleEl: 'Αρχαία Ελληνικά',
-      titleEn: 'Ancient Greek',
-      descEl: 'Μυθολογία και γλώσσα για το Γυμνάσιο',
-      descEn: 'Mythology and language for Middle School',
-      borderColor: 'border-l-fuchsia-500',
-    },
-  ];
 
   // Popular tags for feature suggestions
   const popularTags = [
@@ -718,54 +635,8 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         </div>
       </div>
 
-      {/* ═══════ SECTION C: Coming Soon - School Subjects ═══════ */}
-      <div className="bg-[#0B0F1A]/60 border border-white/10 rounded-2xl p-6">
-        <div className="mb-6">
-          <h3 className="text-lg font-black text-white uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap size={20} className="text-amber-400" /> {t.comingSoonTitle}
-          </h3>
-          <p className="text-sm text-white/40 mt-1">{t.comingSoonSubtitle}</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {subjects.map((subj) => {
-            const isInterested = subjectInterests.includes(subj.id);
-            return (
-              <div
-                key={subj.id}
-                className={`relative bg-white/5 border border-white/10 rounded-2xl p-5 border-l-4 ${subj.borderColor} overflow-hidden`}
-              >
-                {/* Lock overlay */}
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
-                  <Lock size={14} className="text-white/20" />
-                </div>
-                <div className="text-3xl mb-2">{subj.emoji}</div>
-                <h4 className="text-sm font-black text-white uppercase tracking-tight mb-1">
-                  {lang === 'el' ? subj.titleEl : subj.titleEn}
-                </h4>
-                <p className="text-xs text-white/40 mb-3 leading-relaxed">
-                  {lang === 'el' ? subj.descEl : subj.descEn}
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/30 rounded-md text-[10px] font-black text-amber-400 uppercase tracking-wider">
-                    {t.comingSoonBadge}
-                  </span>
-                  <button
-                    onClick={() => toggleSubjectInterest(subj.id)}
-                    className={`ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all ${
-                      isInterested
-                        ? 'bg-emerald-500/20 border border-emerald-500/30 text-emerald-400'
-                        : 'bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white/70'
-                    }`}
-                  >
-                    <Bell size={12} />
-                    {isInterested ? t.notified : t.notifyMe}
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      {/* ═══════ SECTION C: School progress ═══════ */}
+      <ParentSchoolProgress lang={lang} />
 
       {/* ═══════ SECTION D: Screen Time Controls ═══════ */}
       <div className="bg-[#0B0F1A]/60 border border-white/10 rounded-2xl p-6">

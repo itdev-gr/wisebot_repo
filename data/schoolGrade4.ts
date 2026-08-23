@@ -165,7 +165,7 @@ export const GRADE_4: SchoolGrade = {
     },
     {
       id: 'science',
-      name: { el: 'Φυσικά', en: 'Science' },
+      name: { el: 'Μελέτη Περιβάλλοντος', en: 'Science' },
       emoji: '🔬',
       questions: [
         {

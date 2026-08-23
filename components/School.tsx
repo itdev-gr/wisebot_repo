@@ -8,8 +8,8 @@
  *
  * Gamification layer:
  * - 0-3 stars per subject from the best run (QuizEngine best records)
- * - ΔΙΑΓΩΝΙΣΜΑ ΤΑΞΗΣ: a mixed final exam that unlocks once every subject
- *   of the grade has been completed at least once
+ * - ΔΙΑΓΩΝΙΣΜΑ ΤΑΞΗΣ: a mixed final exam that unlocks once the child is Master
+ *   (≥2 stars on every mission) in every subject of the grade
  * - Απολυτήριο (diploma 🎓) per grade for scoring ≥75% on the exam
  */
 import React, { useState, useEffect } from 'react';
@@ -21,7 +21,7 @@ import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data
 import { type SchoolUnit } from '../data/schoolTypes';
 import { loadGradeQuestions } from '../data/units/registry';
 import type { QuizQuestion } from '../types';
-import SchoolUnitMap, { playableUnits, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
+import SchoolUnitMap, { playableUnits, unitSize, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 const motion = m as any;
@@ -43,8 +43,13 @@ const subjectPlayed = (g: SchoolGrade, s: SchoolSubject) =>
   getQuizBest(catId(g.grade, s.id)) !== null ||
   playableUnits(s).some(u => getQuizBest(unitCatId(g.grade, s.id, u.id)) !== null);
 
-/** All subjects of a grade played at least once → exam unlocks. */
-const isExamUnlocked = (g: SchoolGrade) => g.subjects.every(s => subjectPlayed(g, s));
+/**
+ * Exam unlocks when the child is Master (≥2 stars on every mission) in every subject.
+ * A subject still on the old flat quiz only needs to have been played once.
+ */
+const subjectDone = (g: SchoolGrade, s: SchoolSubject) =>
+  playableUnits(s).length > 0 ? subjectMastered(g.grade, s) : subjectPlayed(g, s);
+const isExamUnlocked = (g: SchoolGrade) => g.subjects.every(s => subjectDone(g, s));
 
 const hasDiploma = (g: SchoolGrade) => getQuizStars(examId(g.grade)) >= DIPLOMA_MIN_STARS;
 
@@ -157,11 +162,11 @@ export default function School({ lang }: SchoolProps) {
     earn: lang === 'el' ? 'ΚΕΡΔΙΣΕ ΑΣΤΕΡΙΑ, CREDITS & ΑΠΟΛΥΤΗΡΙΑ' : 'EARN STARS, CREDITS & DIPLOMAS',
     exam: lang === 'el' ? 'ΔΙΑΓΩΝΙΣΜΑ ΤΑΞΗΣ' : 'GRADE EXAM',
     examDesc: lang === 'el' ? '12 ερωτήσεις απ’ όλα τα μαθήματα' : '12 questions from all subjects',
-    examLocked: lang === 'el' ? 'Ολοκλήρωσε όλα τα μαθήματα για να ξεκλειδώσει' : 'Complete every subject to unlock',
+    examLocked: lang === 'el' ? 'Γίνε Μάστερ σε όλα τα μαθήματα για να ξεκλειδώσει' : 'Become Master in every subject to unlock',
     diploma: lang === 'el' ? 'ΑΠΟΛΥΤΗΡΙΟ' : 'DIPLOMA',
     diplomaWon: lang === 'el' ? 'Πήρες το Απολυτήριο!' : 'You earned the Diploma!',
     diplomaHint: lang === 'el' ? 'Γράψε 75%+ στο διαγώνισμα για Απολυτήριο 🎓' : 'Score 75%+ on the exam for the Diploma 🎓',
-    done: lang === 'el' ? 'ολοκληρωμένα' : 'done',
+    done: lang === 'el' ? 'μάστερ' : 'master',
     backMissions: lang === 'el' ? 'ΠΙΣΩ ΣΤΙΣ ΑΠΟΣΤΟΛΕΣ' : 'BACK TO MISSIONS',
     missions: lang === 'el' ? 'αποστολές' : 'missions',
     stars: lang === 'el' ? 'αστέρια' : 'stars',
@@ -351,8 +356,8 @@ export default function School({ lang }: SchoolProps) {
   return (
     <div className="max-w-6xl mx-auto px-4 min-h-full py-8 pb-32">
       <FirstTimeTip id="school" lang={lang} text={lang === 'el'
-        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Τα quiz δίνουν αστέρια, credits — και απολυτήριο όταν τα περάσεις όλα!</>
-        : <>🦉 Pick your grade, {childName}. Quizzes give stars, credits — and a diploma when you pass them all!</>} />
+        ? <>🦉 Διάλεξε την τάξη σου, {childName}. Οι αποστολές δίνουν αστέρια και credits — Μάστερ σε όλα τα μαθήματα και το απολυτήριο είναι δικό σου!</>
+        : <>🦉 Pick your grade, {childName}. Missions give stars and credits — Master every subject and the diploma is yours!</>} />
       <div className="text-center space-y-4 mb-12">
         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
           <GraduationCap size={14} className="text-blue-400" />
@@ -369,8 +374,9 @@ export default function School({ lang }: SchoolProps) {
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
         {SCHOOL_CURRICULUM.map((g, i) => {
-          const totalQ = g.subjects.reduce((s, sub) => s + sub.questions.length + playableUnits(sub).reduce((a, u) => a + u.questions.length, 0), 0);
-          const doneCount = g.subjects.filter(s => subjectPlayed(g, s)).length;
+          const missions = g.subjects.reduce((n, sub) => n + playableUnits(sub).length, 0);
+          const totalQ = g.subjects.reduce((n, sub) => n + sub.questions.length + playableUnits(sub).reduce((a, u) => a + unitSize(u), 0), 0);
+          const doneCount = g.subjects.filter(s => subjectDone(g, s)).length;
           const diploma = hasDiploma(g);
           const pct = Math.round((doneCount / g.subjects.length) * 100);
           return (
@@ -396,7 +402,7 @@ export default function School({ lang }: SchoolProps) {
                   {g.name[lang]}
                 </h3>
                 <p className="text-white/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                  <BookMarked size={10} /> {g.subjects.length} {t.subjects} · {totalQ} {t.questions}
+                  <BookMarked size={10} /> {g.subjects.length} {t.subjects} · {missions > 0 ? `${missions} ${t.missions}` : `${totalQ} ${t.questions}`}
                 </p>
                 {/* Progress bar: subjects completed */}
                 {doneCount > 0 && (
