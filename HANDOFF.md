@@ -8,10 +8,10 @@ MacBook had no toolchain and no local project context.
 ## ⚡ STATUS 24 Αυγούστου 2026 (μέρα) — SCHOOL overhaul, read this first
 
 **Owner's instruction for this phase: work only on the School; touch nothing else.**
-Merged today: #13 and #15 (live). Open: **PR #16** (`content/grade3-multiplication`, now
-the whole School overhaul — CI green after the lazy-loading fix), #17 (voice sampler).
+Merged today: #13, #15 and — at 21:30, on the owner's say-so — **#16, the whole School
+overhaul (live on wisebot.gr)**. Still open: #17 (voice sampler).
 
-What PR #16 contains:
+What PR #16 shipped:
 - **School = mission trail.** `components/SchoolUnitMap.tsx`: grade → subject → trail of
   "αποστολές" with 0–3 stars each, Master badge at 2+ stars everywhere, WiseBot card at the
   end of each mission (`MissionResult` in `School.tsx`, via QuizEngine's new `finishSlot`).
@@ -32,10 +32,10 @@ What PR #16 contains:
 - Known cosmetic: the Δ' grade file names its science subject «Φυσικά» (should be «Μελέτη
   Περιβάλλοντος» — Φυσικά starts in Ε'); the name comes from `data/schoolGrade4.ts`.
 
-**Next for School, in order:** (1) owner reads a sample per subject on the phone
-(`print` makes that easy) and approves PR #16; (2) parent view: which missions are weak;
-(3) per-grade diploma should require Master in every subject — all grades now have units;
-(4) rename Δ' «Φυσικά» → «Μελέτη Περιβάλλοντος» in `data/schoolGrade4.ts`.
+**Next for School, in order:** (1) parent view: which missions are weak;
+(2) per-grade diploma should require Master in every subject — all grades now have units;
+(3) rename Δ' «Φυσικά» → «Μελέτη Περιβάλλοντος» in `data/schoolGrade4.ts`;
+(4) owner still reads samples per subject on the phone and reports anything off.
 
 ---
 
