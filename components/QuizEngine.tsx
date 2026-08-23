@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { QuizQuestion } from '../types';
+import { shuffleAllOptions } from '../utils/shuffleOptions';
 import {
   CheckCircle2, XCircle, ArrowRight, RefreshCcw, Brain, Trophy, Star,
   AlertTriangle, Zap, Flame, Share2, Users, Clock
@@ -209,8 +210,11 @@ const CircleTimer = ({ timeLeft, total }: { timeLeft: number; total: number }) =
 // ═══════════════════════════════════════
 // MAIN COMPONENT
 // ═══════════════════════════════════════
-const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions, onRestart, lang, categoryId, challengeData }) => {
+const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestions, onRestart, lang, categoryId, challengeData }) => {
   const { trackAction } = useEconomy();
+  // The stored option order leaks the answer (see utils/shuffleOptions.ts). Question order is
+  // kept, so a resumed quiz (currentIdx from localStorage) still lands on the same question.
+  const questions = useMemo(() => shuffleAllOptions(sourceQuestions), [sourceQuestions]);
 
   // Load saved progress (if any)
   const savedProgress = categoryId && !challengeData ? loadQuizProgress(categoryId) : null;
