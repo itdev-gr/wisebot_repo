@@ -598,5 +598,95 @@ export const ACADEMY_QUIZZES: Record<number, QuizQuestion[]> = {
     q("Τι έκανε ο συνταγματάρχης Anderson κάθε Σάββατο;", "What did Colonel Anderson do every Saturday?", ["Άνοιγε τη βιβλιοθήκη του στα παιδιά που δούλευαν","Μοίραζε χρήματα στους φτωχούς","Έκανε μαθήματα τηλεγράφου στα παιδιά"], ["He opened his library to the boys who worked","He handed out money to the poor","He gave telegraph lessons to children"], 0),
     q("Τι έχτισε ο Andrew Carnegie όταν έγινε πλούσιος, θυμούμενος τα παιδικά του χρόνια;", "What did Andrew Carnegie build when he became rich, remembering his childhood?", ["Ένα τεράστιο κάστρο στη Σκωτία","Ένα εργοστάσιο σοκολάτας για παιδιά","Πάνω από δυόμισι χιλιάδες δωρεάν βιβλιοθήκες"], ["A huge castle in Scotland","A chocolate factory for kids","More than two and a half thousand free libraries"], 2),
     q("Σε πόσα βαζάκια μοιράζουν οι σοφοί τα χρήματά τους και για ποιους σκοπούς;", "Into how many jars do wise people split their money, and for what purposes?", ["Σε δύο: ένα για παιχνίδια και ένα για γλυκά","Σε τρία: ένα για να ξοδεύουν, ένα για να αποταμιεύουν και ένα για να δίνουν","Σε πέντε: ένα για κάθε εργάσιμη μέρα"], ["Two: one for toys and one for sweets","Three: one to spend, one to save and one to give","Five: one for each working day"], 1)
+  ],
+  // MONEY_MIND — story 109
+  109: [
+    q("Πόσοι άλλοι πάγκοι πουλούσαν λεμονάδα στο ανοιξιάτικο παζάρι, εκτός από τον πάγκο του Ηλία;", "How many other stands were selling lemonade at the spring fair, besides Elias's stand?", ["Δύο","Εφτά","Κανένας"], ["Two","Seven","None"], 1),
+    q("Τι πουλούσε ο πάγκος του Ηλία στο καλοκαιρινό παζάρι;", "What was Elias's stand selling at the summer fair?", ["Παγωμένα γλειφιτζούρια λεμονάδας — ο μόνος σε όλο το σχολείο","Την πιο φτηνή λεμονάδα από όλους","Χειροποίητα βραχιολάκια"], ["Ice-cold lemonade pops — the only one in the whole school","The cheapest lemonade of all","Handmade bracelets"], 0),
+    q("Σύμφωνα με τον Peter Thiel, τι σημαίνει να πας «από το 0 στο 1»;", "According to Peter Thiel, what does it mean to go from zero to one?", ["Να αντιγράψεις ό,τι πουλάει πιο πολύ","Να κατεβάσεις πρώτος την τιμή σου","Να φτιάξεις κάτι που δεν υπάρχει"], ["To copy whatever sells the most","To be the first to lower your price","To make something that doesn't exist"], 2)
+  ],
+  // MONEY_MIND — story 110
+  110: [
+    q("Τι έκανε ο Gary Vaynerchuk κάθε μέρα για το μαγαζί κρασιών του πατέρα του;", "What did Gary Vaynerchuk do every day for his father's wine shop?", ["Κολλούσε αφίσες σε όλη την πόλη","Γύριζε ένα βίντεο απαντώντας δωρεάν στις ερωτήσεις των ανθρώπων","Χαμήλωνε τις τιμές κάθε πρωί"], ["He put up posters all over town","He filmed a video answering people's questions for free","He lowered the prices every morning"], 1),
+    q("Τι έκανε η Αναστασία στο διάλειμμα, κάθε μέρα για δύο εβδομάδες;", "What did Anna do at recess, every day for two weeks?", ["Έδειχνε δωρεάν σε όποιον ήθελε πώς φτιάχνονται τα βραχιολάκια","Πουλούσε τα βραχιολάκια της στη μισή τιμή","Έκρυβε τις χάντρες της από τα άλλα παιδιά"], ["She showed anyone who wanted how the bracelets are made, for free","She sold her bracelets at half price","She hid her beads from the other kids"], 0),
+    q("Ποιος είναι ο απλός κανόνας του Gary, σύμφωνα με τον Πέτρο;", "What is Gary's simple rule, according to Peter?", ["Ζήτα πρώτα, δώσε αργότερα","Μην απαντάς ποτέ σε ερωτήσεις δωρεάν","Δώσε, δώσε, δώσε — και μετά ζήτα"], ["Ask first, give later","Never answer questions for free","Give, give, give — and then ask"], 2)
+  ],
+  // MONEY_MIND — story 111
+  111: [
+    q("Σύμφωνα με τον Κανόνα του Joe Girard, πόσους άλλους ανθρώπους ξέρει κάθε άνθρωπος που συναντάς;", "According to Joe Girard's rule, how many other people does every person you meet know?", ["Περίπου διακόσιους πενήντα","Περίπου δέκα","Περίπου χίλιους"], ["About two hundred and fifty","About ten","About a thousand"], 0),
+    q("Τι έστελνε ο Joe Girard σε κάθε πελάτη του κάθε μήνα;", "What did Joe Girard send to every customer every month?", ["Ένα καινούργιο αυτοκίνητο","Μια κάρτα, μόνο για να πει «σε σκέφτομαι»","Έναν λογαριασμό"], ["A brand-new car","A card, just to say I'm thinking of you","A bill"], 1),
+    q("Τι έκανε η κυρία Ρένα αφού ο Μάρκος της εξήγησε τα πάντα και της είπε ευχαριστώ;", "What did Mrs. Rena do after Mark explained everything and said thank you?", ["Του έκλεισε την πόρτα","Του ζήτησε πίσω τα χρήματά της","Φώναξε τις δύο φίλες της από τον πέμπτο όροφο"], ["She closed the door on him","She asked for her money back","She called her two friends from the fifth floor"], 2)
+  ],
+  // MONEY_MIND — story 112
+  112: [
+    q("Από πού πουλούσε ο Phil Knight τα παπούτσια στην αρχή;", "Where did Phil Knight sell the shoes from, in the beginning?", ["Από ένα μεγάλο μαγαζί στο κέντρο","Από το πορτμπαγκάζ του αυτοκινήτου του, στους αγώνες στίβου","Από το διαδίκτυο"], ["From a big store downtown","From the trunk of his car, at track meets","From the internet"], 1),
+    q("Τι χρησιμοποίησε ο Bill Bowerman για να φτιάξει μια σόλα με κυψέλες;", "What did Bill Bowerman use to make a sole with little honeycombs?", ["Τη βαφλιέρα της γυναίκας του","Ένα παλιό λάστιχο ποδηλάτου","Ένα καλούπι από την Ιαπωνία"], ["His wife's waffle iron","An old bicycle tire","A mold from Japan"], 0),
+    q("Πόσα πλήρωσαν τη φοιτήτρια που σχεδίασε το σήμα της Nike;", "How much did they pay the student who drew the Nike logo?", ["Ένα εκατομμύριο δολάρια","Τίποτα — το έκανε δωρεάν","Τριάντα πέντε δολάρια"], ["One million dollars","Nothing — she did it for free","Thirty-five dollars"], 2)
+  ],
+  // MONEY_MIND — story 113
+  113: [
+    q("Σύμφωνα με τον Morgan Housel, τι είναι ο πλούτος;", "According to Morgan Housel, what is wealth?", ["Τα χρήματα που ΔΕΝ ξόδεψες","Τα ακριβά πράγματα που φοράς","Ένα πανάκριβο αυτοκίνητο"], ["The money you did NOT spend","The expensive things you wear","A very expensive car"], 0),
+    q("Τι δουλειά έκανε ο Ronald Read, που άφησε πίσω του εκατομμύρια;", "What job did Ronald Read do, the man who left behind millions?", ["Ήταν τραπεζίτης","Ήταν επιστάτης — έβαζε βενζίνη και σφουγγάριζε πατώματα","Ήταν διάσημος ηθοποιός"], ["He was a banker","He was a janitor — he pumped gas and mopped floors","He was a famous actor"], 1),
+    q("Τι χρειάζεται για να τα πας καλά με τα χρήματα, σύμφωνα με τη θεία Μαρίνα;", "What do you need to do well with money, according to Aunt Marina?", ["Να είσαι ιδιοφυΐα στα μαθηματικά","Να έχεις πλούσιους γονείς","Καλή συμπεριφορά: υπομονή, ηρεμία και να ξέρεις τη λέξη «αρκετά»"], ["To be a genius at maths","To have rich parents","Good behavior: patience, calm, and knowing the word enough"], 2)
+  ],
+  // MONEY_MIND — story 114
+  114: [
+    q("Σύμφωνα με τον Cal Newport, τι συμβαίνει στο μυαλό κάθε φορά που ακούς ένα «ντινγκ» και γυρίζεις πίσω στη δουλειά σου;", "According to Cal Newport, what happens to your brain every time you hear a ding and return to your work?", ["Χρειάζεται λεπτά ολόκληρα για να ξαναβρεί πού ήταν","Δουλεύει πιο γρήγορα από πριν","Δεν αλλάζει τίποτα"], ["It needs whole minutes to find where it was","It works faster than before","Nothing changes"], 0),
+    q("Ποιος είναι ο απλός κανόνας του Newport για το κινητό, όπως τον είπε ο Δημήτρης;", "What is Newport's simple rule about the phone, as Dimitris put it?", ["Να το βάζεις μπρούμυτα στο γραφείο","Να το βάζεις στο αθόρυβο","Να το πηγαίνεις σε άλλο δωμάτιο"], ["Put it face down on the desk","Put it on silent","Take it to another room"], 2),
+    q("Πόσο χρόνο χρειάστηκε η Ελένη για την έκθεση με τον καινούργιο τρόπο, αντί για τρεις ώρες;", "How long did Helen need for the essay the new way, instead of three hours?", ["Δέκα λεπτά","Πενήντα λεπτά","Έξι ώρες"], ["Ten minutes","Fifty minutes","Six hours"], 1)
+  ],
+  // MONEY_MIND — story 115
+  115: [
+    q("Με ποιους μιλούσε ο Chris Voss για το FBI;", "Who did Chris Voss talk to on behalf of the FBI?", ["Με τους πιο επικίνδυνους απαγωγείς, για να ελευθερώσει ομήρους","Με ποδοσφαιριστές, για μεταγραφές","Με παιδιά, για τα μαθήματά τους"], ["With the most dangerous kidnappers, to free hostages","With footballers, about transfers","With children, about their homework"], 0),
+    q("Τι παράδειγμα έφερε ο παππούς για το «μοίρασμα στη μέση»;", "What example did Grandpa give for splitting things down the middle?", ["Μια πίτσα κομμένη στα δύο","Μία ώρα τηλεόραση ο καθένας","Ένα μαύρο κι ένα καφέ παπούτσι"], ["A pizza cut in two","One hour of TV each","One black shoe and one brown shoe"], 2),
+    q("Ποια λύση βρήκαν τελικά ο Γιώργος και η Κατερίνα;", "What solution did George and Kate find in the end?", ["Ο Γιώργος παραιτήθηκε από τον αγώνα","Ο αγώνας τελείωνε οχτώ παρά δέκα και η ταινία άρχιζε στις οχτώ — χωρούσαν και τα δύο","Αγόρασαν δεύτερη τηλεόραση"], ["George gave up the match","The match ended at ten to eight and the movie began at eight — both fit","They bought a second TV"], 1)
+  ],
+  // MONEY_MIND — story 116
+  116: [
+    q("Πώς ονόμασε η γιαγιά την «αρρώστια» του Χρήστου;", "What did Grandma call Chris's disease?", ["Φοβίτιδα","Δικαιολογίτιδα","Ρομποτίτιδα"], ["Fear-itis","Excuse-itis","Robot-itis"], 1),
+    q("Ποια ερώτηση προτείνει ο David Schwartz αντί για το «δεν μπορώ»;", "Which question does David Schwartz suggest instead of I can't?", ["«ΠΩΣ μπορώ;»","«Ποιος φταίει;»","«Γιατί εγώ;»"], ["HOW can I?","Whose fault is it?","Why me?"], 0),
+    q("Ποια θέση πήρε το ρομπότ του Χρήστου στον διαγωνισμό;", "What place did Chris's robot take in the contest?", ["Πρώτο","Τελευταίο","Τρίτο, ανάμεσα σε δεκατέσσερις ομάδες"], ["First","Last","Third, out of fourteen teams"], 2)
+  ],
+  // MONEY_MIND — story 117
+  117: [
+    q("Τι είναι η «κόκκινη θάλασσα», σύμφωνα με την κυρία Ιωάννα;", "What is the red sea, according to Mrs. Joanna?", ["Μια θάλασσα όπου κολυμπάς μόνος σου","Εκεί που όλοι πουλάνε το ίδιο και παλεύουν σαν καρχαρίες για τους ίδιους πελάτες","Μια θάλασσα με κόκκινα ψάρια"], ["A sea where you swim on your own","Where everybody sells the same thing and fights like sharks over the same customers","A sea full of red fish"], 1),
+    q("Τι έκανε το Cirque du Soleil διαφορετικά από τα άλλα τσίρκα;", "What did Cirque du Soleil do differently from other circuses?", ["Έβγαλε τα ζώα και πρόσθεσε μουσική, ιστορία και στολές σαν του θεάτρου","Έβαλε περισσότερα ζώα και κλόουν","Έκανε τα εισιτήρια δωρεάν"], ["It took out the animals and added music, a story and theater-style costumes","It added more animals and clowns","It made the tickets free"], 0),
+    q("Τι πρόσθεσαν τα κορίτσια στον χορό τους που δεν είχε καμία άλλη ομάδα;", "What did the girls add to their dance that no other group had?", ["Πιο δύσκολες φιγούρες","Ένα καινούργιο τραγούδι","Χάρτινες μάσκες ζώων και κατέβαιναν να χορέψουν με τα μικρά παιδιά"], ["Harder moves","A new song","Paper animal masks, and they came down to dance with the little kids"], 2)
+  ],
+  // MONEY_MIND — story 118
+  118: [
+    q("Τι δουλειές έκανε ο Brian Tracy πριν αρχίσει να γράφει τους στόχους του;", "What jobs did Brian Tracy do before he started writing down his goals?", ["Ήταν προπονητής μπάσκετ","Εργάτης, έπλενε πιάτα και κοιμόταν στο αμάξι του","Ήταν δάσκαλος σε σχολείο"], ["He was a basketball coach","Laborer, dishwasher, and he slept in his car","He was a school teacher"], 1),
+    q("Τι έγραψε ο Θάνος στο χαρτί του;", "What did Tom write on his piece of paper?", ["«Μέχρι τις 20 Μαΐου θα βάζω 8 στις 10 ελεύθερες βολές»","«Θέλω να γίνω καλός στο μπάσκετ»","«Θα παίζω μπάσκετ κάθε Κυριακή»"], ["By May 20th I will make 8 out of 10 free throws","I want to get good at basketball","I will play basketball every Sunday"], 0),
+    q("Ποιος είναι ο πέμπτος κανόνας του Tracy, όπως τον είπε ο προπονητής;", "What is Tracy's fifth rule, as the coach put it?", ["Να λες τον στόχο σου σε όλους","Να αλλάζεις στόχο κάθε εβδομάδα","Να κάνεις κάτι γι' αυτόν κάθε μέρα, έστω λίγο"], ["Tell everyone your goal","Change your goal every week","Do something about it every day, even a little"], 2)
+  ],
+  // MONEY_MIND — story 119
+  119: [
+    q("Τι έκανε η Αντιγόνη, σύμφωνα με τον παππού, όταν έβλεπε ξανά και ξανά τα λάθη της στο μυαλό της;", "According to Grandpa, what was Annie doing when she kept seeing her mistakes in her mind?", ["Προβάριζε την αποτυχία","Ξεκουραζόταν","Μάθαινε το κομμάτι καλύτερα"], ["Rehearsing failure","Resting","Learning the piece better"], 0),
+    q("Με τι παρομοιάζει ο Norman Vincent Peale τις ανησυχίες;", "What does Norman Vincent Peale compare worries to?", ["Με σύννεφα που περνούν","Με ζιζάνια που πνίγουν τον κήπο","Με νότες σε ένα κομμάτι"], ["Clouds passing by","Weeds that choke the garden","Notes in a piece of music"], 1),
+    q("Ποια άσκηση έδωσε ο παππούς στην Αντιγόνη για κάθε βράδυ;", "What exercise did Grandpa give Annie for every night?", ["Να παίζει το κομμάτι δέκα φορές στο πιάνο","Να μην σκέφτεται καθόλου τη συναυλία","Να κλείνει τα μάτια και να βλέπει όλη τη συναυλία να πηγαίνει τέλεια"], ["Play the piece ten times on the piano","Not think about the recital at all","Close her eyes and watch the whole recital going perfectly"], 2)
+  ],
+  // MONEY_MIND — story 120
+  120: [
+    q("Σε ποιο γράμμα ανήκει η Ζωή, που οργάνωσε πέντε παιδιά να βγάζουν βόλτα τα σκυλιά;", "Which letter does Zoe belong to, the one who organized five kids to walk dogs?", ["E — εργαζόμενος","B — ιδιοκτήτης επιχείρησης","I — επενδυτής"], ["E — Employee","B — Business owner","I — Investor"], 1),
+    q("Τι έκανε η γιαγιά του Άγγελου για να είναι στο τετράγωνο I;", "What did Angelo's grandma do to be in the I square?", ["Αγόρασε ένα μικρό κατάστημα και το νοικιάζει","Δουλεύει στο μαγαζί με τα ζωάκια","Βγάζει βόλτα σκυλιά"], ["She bought a small shop and rents it out","She works at the pet shop","She walks dogs"], 0),
+    q("Τι συμβαίνει με τις βόλτες των σκύλων αν ο Άγγελος αρρωστήσει, αφού είναι στο S;", "What happens to the dog walks if Angelo gets sick, since he is in the S square?", ["Τις κάνει η γιαγιά του","Πληρώνεται κανονικά","Σταματούν — η δουλειά είναι ο ίδιος"], ["His grandma does them","He still gets paid","They stop — he is the business"], 2)
+  ],
+  // MONEY_MIND — story 121
+  121: [
+    q("Πόσες ψήφους πήρε η Μυρτώ όταν η τάξη ψήφισε πρόεδρο;", "How many votes did Mia get when the class voted for a president?", ["Καμία","Δύο — τη δική της και της φίλης της","Τις περισσότερες"], ["None","Two — her own and her best friend's","The most"], 1),
+    q("Ποιος είναι ο κανόνας του «ένα τοις εκατό» του Robin Sharma;", "What is Robin Sharma's one percent rule?", ["Να γίνεσαι ένα τοις εκατό καλύτερος κάθε μέρα σε κάτι μικρό","Να δίνεις το ένα τοις εκατό των χρημάτων σου","Να δουλεύεις μόνο μία ώρα τη μέρα"], ["Get one percent better every day at something small","Give away one percent of your money","Work only one hour a day"], 0),
+    q("Τι έγινε μετά από δύο εβδομάδες που η Μυρτώ πήγαινε νωρίτερα στο σχολείο;", "What happened after two weeks of Mia going to school early?", ["Η δασκάλα τη μάλωσε","Κανείς δεν το πρόσεξε","Τρία παιδιά άρχισαν να έρχονται κι αυτά νωρίτερα για να βοηθήσουν"], ["The teacher told her off","Nobody noticed","Three kids started coming early too, to help"], 2)
+  ],
+  // MONEY_MIND — story 122
+  122: [
+    q("Ποια ήταν η πρώτη ερώτηση της γιαγιάς στον Λεωνίδα;", "What was Grandma's first question to Leon?", ["«Μπορείς να αλλάξεις τη βροχή;»","«Θέλεις κακάο;»","«Γιατί φωνάζεις;»"], ["Can you change the rain?","Do you want cocoa?","Why are you shouting?"], 0),
+    q("Γιατί αγαπούσαν οι παλιοί σοφοί το νερό, σύμφωνα με τη γιαγιά;", "Why did the old sages love water, according to Grandma?", ["Επειδή είναι κρύο και καθαρό","Επειδή είναι μαλακό, αλλά σκαλίζει τα βράχια και βρίσκει δρόμο","Επειδή σβήνει τη δίψα"], ["Because it is cold and clean","Because it is soft, yet carves rock and finds a way","Because it quenches thirst"], 1),
+    q("Τι έφτιαξαν ο Λεωνίδας και οι φίλοι του στο σαλόνι;", "What did Leon and his friends build in the living room?", ["Ένα γήπεδο ποδοσφαίρου","Μια τούρτα","Ένα κάστρο από κουβέρτες"], ["A football pitch","A cake","A blanket castle"], 2)
+  ],
+  // MONEY_MIND — story 123
+  123: [
+    q("Ποια είναι τα τρία είδη εξυπνάδας, σύμφωνα με τον Robert Kiyosaki;", "What are the three kinds of smart, according to Robert Kiyosaki?", ["Του σχολείου, της δουλειάς και του χρήματος","Των μαθηματικών, της γλώσσας και της ιστορίας","Του πιάνου, του μπάσκετ και της ζωγραφικής"], ["School smart, job smart and money smart","Maths, language and history","Piano, basketball and drawing"], 0),
+    q("Γιατί είναι το παιχνίδι ο καλύτερος τρόπος να μάθεις για τα χρήματα, σύμφωνα με τον μπαμπά;", "Why is a game the best way to learn about money, according to Dad?", ["Επειδή κερδίζεις πάντα","Επειδή τα λάθη δεν κοστίζουν αληθινά χρήματα — μόνο ένα μάθημα","Επειδή διαρκεί λίγο"], ["Because you always win","Because mistakes don't cost real money — only a lesson","Because it doesn't take long"], 1),
+    q("Τι έκανε διαφορετικά η Φαίη στο δεύτερο παιχνίδι;", "What did Faye do differently in the second game?", ["Αγόρασε ό,τι πατούσε","Δεν αγόρασε τίποτα","Αγόρασε μια σειρά από τρία οικόπεδα, κράτησε αποθεματικό και έχτισε σπίτια"], ["She bought everything she landed on","She bought nothing","She bought one set of three plots, kept a reserve and built houses"], 2)
   ]
 };
