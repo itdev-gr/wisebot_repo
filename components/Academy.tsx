@@ -36,6 +36,16 @@ const getStoryImage = (index: number) => STORY_IMAGES[index % STORY_IMAGES.lengt
 
 // CATEGORY CONFIGURATION
 const CATEGORIES = {
+  // Display order is the owner's (24 Αυγούστου 2026): Business Mind first, then Greece, Tech, Start Small, Sports, Arts, Science.
+  MONEY_MIND: {
+    id: 'MONEY_MIND',
+    icon: Coins,
+    color: "from-yellow-400 to-amber-600",
+    border: "border-yellow-500/50",
+    bg: "bg-yellow-500/10",
+    title: { el: "BUSINESS MIND", en: "BUSINESS MIND" },
+    desc: { el: "Τα μυστικά του χρήματος που δεν μαθαίνεις στο σχολείο — σοφία από τη Βαβυλώνα μέχρι σήμερα", en: "The money secrets school never teaches — wisdom from Babylon to today" }
+  },
   GREEK_HEROES: {
     id: 'GREEK_HEROES',
     icon: Shield,
@@ -44,6 +54,15 @@ const CATEGORIES = {
     bg: "bg-blue-500/10",
     title: { el: "ΕΛΛΗΝΕΣ ΘΡΥΛΟΙ", en: "GREEK LEGENDS" },
     desc: { el: "Έλληνες που άλλαξαν τον κόσμο με το μυαλό, την καρδιά και το θάρρος τους", en: "Greeks who changed the world with their mind, heart and courage" }
+  },
+  TECH: {
+    id: 'TECH',
+    icon: Cpu,
+    color: "from-cyan-400 to-blue-600",
+    border: "border-cyan-500/50",
+    bg: "bg-cyan-500/10",
+    title: { el: "ΤΕΧΝΟΛΟΓΙΑ", en: "TECHNOLOGY" },
+    desc: { el: "Εφευρέτες και οραματιστές που έφτιαξαν το μέλλον", en: "Inventors and visionaries who built the future" }
   },
   START_SMALL: {
     id: 'START_SMALL',
@@ -63,15 +82,6 @@ const CATEGORIES = {
     title: { el: "ΑΘΛΗΤΙΣΜΟΣ & ΘΕΛΗΣΗ", en: "SPORTS & RESILIENCE" },
     desc: { el: "Αθλητές που νίκησαν πρώτα τον εαυτό τους", en: "Athletes who defeated themselves first" }
   },
-  TECH: {
-    id: 'TECH',
-    icon: Cpu,
-    color: "from-cyan-400 to-blue-600",
-    border: "border-cyan-500/50",
-    bg: "bg-cyan-500/10",
-    title: { el: "ΤΕΧΝΟΛΟΓΙΑ", en: "TECHNOLOGY" },
-    desc: { el: "Εφευρέτες και οραματιστές που έφτιαξαν το μέλλον", en: "Inventors and visionaries who built the future" }
-  },
   ARTS: {
     id: 'ARTS',
     icon: Palette,
@@ -89,15 +99,6 @@ const CATEGORIES = {
     bg: "bg-emerald-500/10",
     title: { el: "ΕΠΙΣΤΗΜΗ", en: "SCIENCE" },
     desc: { el: "Επιστήμονες που αποκάλυψαν τα μυστικά του σύμπαντος", en: "Scientists who revealed the secrets of the universe" }
-  },
-  MONEY_MIND: {
-    id: 'MONEY_MIND',
-    icon: Coins,
-    color: "from-yellow-400 to-amber-600",
-    border: "border-yellow-500/50",
-    bg: "bg-yellow-500/10",
-    title: { el: "BUSINESS MIND", en: "BUSINESS MIND" },
-    desc: { el: "Τα μυστικά του χρήματος που δεν μαθαίνεις στο σχολείο — σοφία από τη Βαβυλώνα μέχρι σήμερα", en: "The money secrets school never teaches — wisdom from Babylon to today" }
   },
 };
 
@@ -462,7 +463,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
   // Phone back gesture closes the story instead of leaving the Academy.
   const closeCourse = useBackCloses(selectedCourse !== null, () => setSelectedCourse(null));
   const [selectedImage, setSelectedImage] = useState<string>('');
-  const [activeCategory, setActiveCategory] = useState<string>("START_SMALL");
+  const [activeCategory, setActiveCategory] = useState<string>("MONEY_MIND");
   const [showQuiz, setShowQuiz] = useState(false);
   // The story pane is scrolled to the bottom when the child taps the quiz button — jump back up
   // so question 1 is visible instead of cut off at the top.
