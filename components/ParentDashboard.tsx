@@ -3,15 +3,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Shield, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe,
   Zap, BookOpen, Image as ImageIcon, Trophy, Briefcase, BarChart3, Clock, Target,
-  ArrowLeft, Lock, Unlock, CheckCircle2, AlertCircle, Flame, Download,
-  Send, Lightbulb, Bell, Minus, Plus, ToggleLeft, ToggleRight,
+  ArrowLeft, Unlock, CheckCircle2, AlertCircle, Flame, Download,
+  Send, Lightbulb, Minus, Plus, ToggleLeft, ToggleRight,
   Gamepad2, PenTool, GraduationCap, MessageSquare,
   Smartphone, Mail, Phone, Loader2, CheckCircle, ArrowRight
 } from 'lucide-react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
+import ParentSchoolProgress from './ParentSchoolProgress';
 import { authFetch } from '../services/backendApi';
+import ParentPinGate, { ParentPinChange } from './ParentPinGate';
 import { getActivityLog, getScreenLimits, getTodayMinutes } from '../context/EconomyContext';
 import type { ScreenLimits } from '../context/EconomyContext';
 
@@ -25,7 +27,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const [pin, setPin] = useState('');
   const [exporting, setExporting] = useState(false);
 
   // Phone verification state
@@ -128,13 +129,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   const [suggestionSent, setSuggestionSent] = useState(false);
   const [suggestionSending, setSuggestionSending] = useState(false);
 
-  // Subject interest notifications
-  const [subjectInterests, setSubjectInterests] = useState<string[]>(() => {
-    try {
-      const raw = localStorage.getItem('wb_subject_interests');
-      return raw ? JSON.parse(raw) : [];
-    } catch { return []; }
-  });
 
   // Activity log for today's count
   const todayActivities = getActivityLog().filter(
@@ -143,8 +137,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
 
   const unlockedCount = Object.values(badges).filter(Boolean).length;
 
-  const [authError, setAuthError] = useState('');
-  const [verifying, setVerifying] = useState(false);
 
   // Data export handler
   const handleExport = async () => {
@@ -172,16 +164,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     setTimeout(() => setScreenLimitsSaved(false), 2500);
   };
 
-  // Toggle subject interest
-  const toggleSubjectInterest = (subjectId: string) => {
-    setSubjectInterests((prev) => {
-      const next = prev.includes(subjectId)
-        ? prev.filter((s) => s !== subjectId)
-        : [...prev, subjectId];
-      localStorage.setItem('wb_subject_interests', JSON.stringify(next));
-      return next;
-    });
-  };
 
   // Submit feature suggestion
   const handleSuggestionSubmit = async () => {
@@ -217,14 +199,10 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     ? {
         title: 'ΓΟΝΕΪΚΟΣ ΠΙΝΑΚΑΣ',
         subtitle: 'Παρακολουθήστε την πρόοδο του παιδιού σας',
-        pinTitle: 'Επαλήθευση Γονέα',
-        pinDesc: 'Εδώ μπαίνουν μόνο οι γονείς. Βάλε τον κωδικό του λογαριασμού σου για να δεις την πρόοδο και τα credits του παιδιού.',
         guestTitle: 'Για γονείς',
         guestDesc: 'Εδώ ο γονέας βλέπει τι διάβασε το παιδί, πόσο χρόνο έπαιξε και πόσα credits έχει — και βάζει όρια. Χρειάζεται λογαριασμό.',
         guestLogin: 'ΣΥΝΔΕΣΗ',
         guestRegister: 'ΔΗΜΙΟΥΡΓΙΑ ΛΟΓΑΡΙΑΣΜΟΥ',
-        pinBtn: 'ΕΠΑΛΗΘΕΥΣΗ',
-        pinError: 'Λάθος κωδικός',
         // Section A
         activitiesToday: 'Δραστηριότητες σήμερα',
         activeStreak: 'Σερί ημερών',
@@ -241,11 +219,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         businesses: 'Επιχειρήσεις',
         heroesUploaded: 'Ανεβασμένοι Ήρωες',
         // Section C
-        comingSoonTitle: 'ΕΡΧΟΝΤΑΙ ΣΥΝΤΟΜΑ',
-        comingSoonSubtitle: 'Μαθήματα σχολείου μέσα από παιχνίδια',
-        comingSoonBadge: 'COMING SOON',
-        notifyMe: 'Ενημέρωσέ με',
-        notified: 'Θα ενημερωθείς!',
         // Section D
         screenTimeTitle: 'ΕΛΕΓΧΟΣ ΧΡΟΝΟΥ ΟΘΟΝΗΣ',
         enableLimits: 'Ενεργοποίηση ορίων',
@@ -298,14 +271,10 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     : {
         title: 'PARENT DASHBOARD',
         subtitle: 'Monitor your child\'s progress',
-        pinTitle: 'Parent Verification',
-        pinDesc: 'Parents only. Enter your account password to see your child\'s progress and credits.',
         guestTitle: 'For parents',
         guestDesc: 'Here a parent sees what the child read, how long they played and how many credits they have — and sets limits. It needs an account.',
         guestLogin: 'LOG IN',
         guestRegister: 'CREATE ACCOUNT',
-        pinBtn: 'VERIFY',
-        pinError: 'Wrong password',
         // Section A
         activitiesToday: 'Activities today',
         activeStreak: 'Day streak',
@@ -322,11 +291,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         businesses: 'Businesses',
         heroesUploaded: 'Heroes Uploaded',
         // Section C
-        comingSoonTitle: 'COMING SOON',
-        comingSoonSubtitle: 'School subjects through games',
-        comingSoonBadge: 'COMING SOON',
-        notifyMe: 'Notify me',
-        notified: 'You\'ll be notified!',
         // Section D
         screenTimeTitle: 'SCREEN TIME CONTROLS',
         enableLimits: 'Enable limits',
@@ -390,63 +354,6 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
   ];
   const maxStatValue = Math.max(1, ...analyticsItems.map((s) => s.value));
 
-  // Coming soon subjects for Section C
-  const subjects = [
-    {
-      id: 'math',
-      emoji: '\u{1F4D0}',
-      titleEl: 'Μαθηματικά (1η-6η Δημοτικού)',
-      titleEn: 'Mathematics',
-      descEl: 'Πρόσθεση, αφαίρεση, πολλαπλασιασμός μέσα από παιχνίδια',
-      descEn: 'Addition, subtraction, multiplication through games',
-      borderColor: 'border-l-blue-500',
-    },
-    {
-      id: 'language',
-      emoji: '\u{1F4DD}',
-      titleEl: 'Γλώσσα & Ορθογραφία',
-      titleEn: 'Language & Spelling',
-      descEl: 'Μάθε σωστή ορθογραφία με fun τρόπο',
-      descEn: 'Learn correct spelling the fun way',
-      borderColor: 'border-l-purple-500',
-    },
-    {
-      id: 'history',
-      emoji: '\u{1F4DC}',
-      titleEl: 'Ιστορία',
-      titleEn: 'History',
-      descEl: 'Ζωντανές ιστορίες από την αρχαιότητα ως σήμερα',
-      descEn: 'Vivid stories from antiquity to today',
-      borderColor: 'border-l-amber-500',
-    },
-    {
-      id: 'science',
-      emoji: '\u{1F52C}',
-      titleEl: 'Φυσικές Επιστήμες',
-      titleEn: 'Science',
-      descEl: 'Πειράματα και ανακαλύψεις για μικρούς επιστήμονες',
-      descEn: 'Experiments and discoveries for young scientists',
-      borderColor: 'border-l-emerald-500',
-    },
-    {
-      id: 'geography',
-      emoji: '\u{1F30D}',
-      titleEl: 'Γεωγραφία',
-      titleEn: 'Geography',
-      descEl: 'Ταξίδεψε στον κόσμο μέσα από quizzes',
-      descEn: 'Travel the world through quizzes',
-      borderColor: 'border-l-pink-500',
-    },
-    {
-      id: 'ancient-greek',
-      emoji: '\u{1F3DB}\uFE0F',
-      titleEl: 'Αρχαία Ελληνικά',
-      titleEn: 'Ancient Greek',
-      descEl: 'Μυθολογία και γλώσσα για το Γυμνάσιο',
-      descEn: 'Mythology and language for Middle School',
-      borderColor: 'border-l-fuchsia-500',
-    },
-  ];
 
   // Popular tags for feature suggestions
   const popularTags = [
@@ -488,72 +395,12 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
     );
   }
 
-  // ─── AUTH GATE ─────────────────────────────────────────────────────
+  // ─── AUTH GATE: separate parent PIN (components/ParentPinGate.tsx) ───
   if (!isUnlocked) {
-    return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="w-full max-w-sm bg-[#0B0F1A]/80 border border-white/10 rounded-3xl p-10 text-center backdrop-blur-xl">
-          <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-blue-500/30">
-            <Shield size={32} className="text-blue-400" />
-          </div>
-          <h2 className="text-2xl font-black text-white uppercase italic tracking-tighter mb-2">{t.pinTitle}</h2>
-          <p className="text-white/50 text-sm mb-6">{t.pinDesc}</p>
-
-          <form onSubmit={async (e) => {
-              e.preventDefault();
-              setAuthError('');
-              setVerifying(true);
-              try {
-                const email = user?.email;
-                if (!email || !pin) {
-                  setAuthError(t.pinError);
-                  setVerifying(false);
-                  return;
-                }
-                const { createClient } = await import('@supabase/supabase-js');
-                const supabaseUrl = (import.meta as any).env?.VITE_SUPABASE_URL || '';
-                const supabaseKey = (import.meta as any).env?.VITE_SUPABASE_ANON_KEY || '';
-                if (supabaseUrl && supabaseKey) {
-                  const tempClient = createClient(supabaseUrl, supabaseKey, {
-                    auth: { autoRefreshToken: false, persistSession: false }
-                  });
-                  const { error } = await tempClient.auth.signInWithPassword({ email, password: pin });
-                  if (error) {
-                    setAuthError(t.pinError);
-                  } else {
-                    setIsUnlocked(true);
-                  }
-                } else {
-                  setIsUnlocked(true);
-                }
-              } catch {
-                setAuthError(t.pinError);
-              }
-              setVerifying(false);
-            }} className="space-y-4">
-              <input
-                type="password"
-                value={pin}
-                onChange={(e) => setPin(e.target.value)}
-                placeholder={lang === 'el' ? 'Κωδικός λογαριασμού' : 'Account password'}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm font-bold placeholder:text-white/20 focus:outline-none focus:border-blue-500/40 text-center"
-              />
-              {authError && (
-                <p className="text-red-400 text-xs font-bold flex items-center justify-center gap-1">
-                  <AlertCircle size={14} /> {authError}
-                </p>
-              )}
-              <button
-                type="submit"
-                disabled={verifying || !pin}
-                className="w-full py-3 bg-blue-600/20 border border-blue-500/30 rounded-xl text-white font-black uppercase text-sm hover:bg-blue-600/30 transition-all disabled:opacity-50"
-              >
-                {verifying ? '...' : t.pinBtn}
-              </button>
-            </form>
-        </div>
-      </div>
-    );
+    // Google sign-ins have no password, so "forgot PIN → account password" is not offered to them.
+    const providers: string[] = (user as any)?.app_metadata?.providers || [(user as any)?.app_metadata?.provider].filter(Boolean);
+    const hasPassword = providers.includes('email');
+    return <ParentPinGate lang={lang} hasPassword={hasPassword} onUnlocked={() => setIsUnlocked(true)} />;
   }
 
   // ─── MAIN DASHBOARD ─────────────────────────────────────────────────
@@ -788,54 +635,8 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
         </div>
       </div>
 
-      {/* ═══════ SECTION C: Coming Soon - School Subjects ═══════ */}
-      <div className="bg-[#0B0F1A]/60 border border-white/10 rounded-2xl p-6">
-        <div className="mb-6">
-          <h3 className="text-lg font-black text-white uppercase tracking-wider flex items-center gap-2">
-            <GraduationCap size={20} className="text-amber-400" /> {t.comingSoonTitle}
-          </h3>
-          <p className="text-sm text-white/40 mt-1">{t.comingSoonSubtitle}</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {subjects.map((subj) => {
-            const isInterested = subjectInterests.includes(subj.id);
-            return (
-              <div
-                key={subj.id}
-                className={`relative bg-white/5 border border-white/10 rounded-2xl p-5 border-l-4 ${subj.borderColor} overflow-hidden`}
-              >
-                {/* Lock overlay */}
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
-                  <Lock size={14} className="text-white/20" />
-                </div>
-                <div className="text-3xl mb-2">{subj.emoji}</div>
-                <h4 className="text-sm font-black text-white uppercase tracking-tight mb-1">
-                  {lang === 'el' ? subj.titleEl : subj.titleEn}
-                </h4>
-                <p className="text-xs text-white/40 mb-3 leading-relaxed">
-                  {lang === 'el' ? subj.descEl : subj.descEn}
-                </p>
-                <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 bg-amber-500/20 border border-amber-500/30 rounded-md text-[10px] font-black text-amber-400 uppercase tracking-wider">
-                    {t.comingSoonBadge}
-                  </span>
-                  <button
-                    onClick={() => toggleSubjectInterest(subj.id)}
-                    className={`ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all ${
-                      isInterested
-                        ? 'bg-emerald-500/20 border border-emerald-500/30 text-emerald-400'
-                        : 'bg-white/5 border border-white/10 text-white/50 hover:bg-white/10 hover:text-white/70'
-                    }`}
-                  >
-                    <Bell size={12} />
-                    {isInterested ? t.notified : t.notifyMe}
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+      {/* ═══════ SECTION C: School progress ═══════ */}
+      <ParentSchoolProgress lang={lang} />
 
       {/* ═══════ SECTION D: Screen Time Controls ═══════ */}
       <div className="bg-[#0B0F1A]/60 border border-white/10 rounded-2xl p-6">
@@ -985,6 +786,9 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
           </ul>
         </div>
       </div>
+
+      {/* ═══════ Parent PIN ═══════ */}
+      <ParentPinChange lang={lang} />
 
       {/* ═══════ Data Management (GDPR) ═══════ */}
       <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
