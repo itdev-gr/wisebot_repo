@@ -10,7 +10,7 @@ import SemiPublicRoute from './components/SemiPublicRoute';
 import InternalLinks from './components/InternalLinks';
 const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Shield, ArrowRight, Zap, WifiOff } from 'lucide-react';
+import { Shield, ArrowRight, Zap } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import UnlockGate from './components/UnlockGate';
@@ -334,24 +334,6 @@ const PageLoader = () => (
   </div>
 );
 
-// --- OFFLINE BANNER ---
-const OfflineBanner = () => {
-  const [isOffline, setIsOffline] = useState(!navigator.onLine);
-  useEffect(() => {
-    const goOffline = () => setIsOffline(true);
-    const goOnline = () => setIsOffline(false);
-    window.addEventListener('offline', goOffline);
-    window.addEventListener('online', goOnline);
-    return () => { window.removeEventListener('offline', goOffline); window.removeEventListener('online', goOnline); };
-  }, []);
-  if (!isOffline) return null;
-  return (
-    <div className="fixed top-0 left-0 right-0 z-[99998] bg-gradient-to-r from-red-600 to-orange-600 text-white text-center py-2 px-4 flex items-center justify-center gap-2 text-xs font-black uppercase tracking-wider shadow-lg">
-      <WifiOff size={14} /> Δεν υπάρχει σύνδεση στο internet — Κάποιες λειτουργίες δεν θα δουλέψουν
-    </div>
-  );
-};
-
 // --- MAIN APP CONTENT ---
 function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispatch<React.SetStateAction<'el' | 'en'>> }) {
   const [xp, setXp] = useState<number>(() => {
@@ -442,7 +424,6 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
 
   return (
     <BrowserRouter>
-      <OfflineBanner />
       <Layout lang={lang} setLang={setLang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes}>
         {/* ErrorBoundary catches crashes, Suspense handles lazy loading */}
         <ErrorBoundary lang={lang}>

@@ -46,6 +46,7 @@ import {
 } from 'lucide-react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { UI_TEXT } from '../constants'; 
+import OfflineBanner from './OfflineBanner';
 import { USER_GROUP_PHOTO } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { isUnlocked, unlockHint, UNLOCK_RULES, wasCelebrated, markCelebrated, type UnlockKey } from '../utils/unlocks';
@@ -818,6 +819,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
         </AnimatePresence>
 
         <main className="flex-1 flex flex-col overflow-hidden relative">
+          <OfflineBanner lang={lang} />
           {!isImmersive && (
             <header className="h-20 xl:h-28 flex items-center justify-between px-6 md:px-10 lg:px-14 z-10 bg-[#0B0F1A]/60 backdrop-blur-xl border border-white/[0.06] m-2 md:m-4 xl:m-4 mb-0 rounded-2xl xl:rounded-[3rem] shadow-xl">
               <div className="flex items-center gap-3 md:gap-5 flex-1 min-w-0">
