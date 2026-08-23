@@ -40,6 +40,43 @@ import { GRADE3_SCIENCE_LIVING_TOGETHER } from './grade3/science-living-together
 import { GRADE3_SCIENCE_MY_PLACE } from './grade3/science-my-place';
 import { GRADE3_SCIENCE_PLANTS } from './grade3/science-plants';
 import { GRADE3_SCIENCE_TRANSPORT } from './grade3/science-transport';
+import { GRADE4_ENGLISH_ANIMALS_IN_DANGER } from './grade4/english-animals-in-danger';
+import { GRADE4_ENGLISH_COUNTRIES_AND_NATIONALITIES } from './grade4/english-countries-and-nationalities';
+import { GRADE4_ENGLISH_DAILY_ROUTINE } from './grade4/english-daily-routine';
+import { GRADE4_ENGLISH_FOOD_AND_SHOPPING } from './grade4/english-food-and-shopping';
+import { GRADE4_ENGLISH_HOBBIES_AND_SPORTS } from './grade4/english-hobbies-and-sports';
+import { GRADE4_ENGLISH_IN_THE_CITY } from './grade4/english-in-the-city';
+import { GRADE4_ENGLISH_SCHOOL_AND_SUBJECTS } from './grade4/english-school-and-subjects';
+import { GRADE4_ENGLISH_TIME_AND_DATES } from './grade4/english-time-and-dates';
+import { GRADE4_ENGLISH_WHAT_ARE_YOU_DOING } from './grade4/english-what-are-you-doing';
+import { GRADE4_GREEK_ADJECTIVES_COMPARISON } from './grade4/greek-adjectives-comparison';
+import { GRADE4_GREEK_NOUNS_DECLENSION } from './grade4/greek-nouns-declension';
+import { GRADE4_GREEK_PRONOUNS } from './grade4/greek-pronouns';
+import { GRADE4_GREEK_PUNCTUATION_DIALOGUE } from './grade4/greek-punctuation-dialogue';
+import { GRADE4_GREEK_READING_TEXTS } from './grade4/greek-reading-texts';
+import { GRADE4_GREEK_SPELLING_ADVANCED } from './grade4/greek-spelling-advanced';
+import { GRADE4_GREEK_VERBS_FULL } from './grade4/greek-verbs-full';
+import { GRADE4_HISTORY_ALEXANDER_THE_GREAT } from './grade4/history-alexander-the-great';
+import { GRADE4_HISTORY_ARCHAIC_SPARTA_ATHENS } from './grade4/history-archaic-sparta-athens';
+import { GRADE4_HISTORY_GEOMETRIC_PERIOD } from './grade4/history-geometric-period';
+import { GRADE4_HISTORY_GOLDEN_AGE_PERICLES } from './grade4/history-golden-age-pericles';
+import { GRADE4_HISTORY_HELLENISTIC_AND_ROME } from './grade4/history-hellenistic-and-rome';
+import { GRADE4_HISTORY_PELOPONNESIAN_WAR } from './grade4/history-peloponnesian-war';
+import { GRADE4_HISTORY_PERSIAN_WARS } from './grade4/history-persian-wars';
+import { GRADE4_MATH_DECIMALS } from './grade4/math-decimals';
+import { GRADE4_MATH_LINES_AND_POLYGONS } from './grade4/math-lines-and-polygons';
+import { GRADE4_MATH_MEASURES_AND_DATA } from './grade4/math-measures-and-data';
+import { GRADE4_MATH_MULTIPLY_DIVIDE_BIG } from './grade4/math-multiply-divide-big';
+import { GRADE4_MATH_NUMBERS_TO_MILLION } from './grade4/math-numbers-to-million';
+import { GRADE4_MATH_PERIMETER_AREA } from './grade4/math-perimeter-area';
+import { GRADE4_MATH_PROBLEM_SOLVING } from './grade4/math-problem-solving';
+import { GRADE4_SCIENCE_COMMUNICATION_MEDIA } from './grade4/science-communication-media';
+import { GRADE4_SCIENCE_CULTURE_OF_GREEKS } from './grade4/science-culture-of-greeks';
+import { GRADE4_SCIENCE_GREECE_OUR_COUNTRY } from './grade4/science-greece-our-country';
+import { GRADE4_SCIENCE_JOBS_AND_PRODUCTS } from './grade4/science-jobs-and-products';
+import { GRADE4_SCIENCE_NATURE_IS_OUR_HOME } from './grade4/science-nature-is-our-home';
+import { GRADE4_SCIENCE_OUR_BODY } from './grade4/science-our-body';
+import { GRADE4_SCIENCE_PHYSICAL_WORLD } from './grade4/science-physical-world';
 
 export const UNIT_QUESTIONS: Record<string, QuizQuestion[]> = {
   '3/english/alphabet-spelling': GRADE3_ENGLISH_ALPHABET_SPELLING,
@@ -77,4 +114,41 @@ export const UNIT_QUESTIONS: Record<string, QuizQuestion[]> = {
   '3/science/my-place': GRADE3_SCIENCE_MY_PLACE,
   '3/science/plants': GRADE3_SCIENCE_PLANTS,
   '3/science/transport': GRADE3_SCIENCE_TRANSPORT,
+  '4/english/animals-in-danger': GRADE4_ENGLISH_ANIMALS_IN_DANGER,
+  '4/english/countries-and-nationalities': GRADE4_ENGLISH_COUNTRIES_AND_NATIONALITIES,
+  '4/english/daily-routine': GRADE4_ENGLISH_DAILY_ROUTINE,
+  '4/english/food-and-shopping': GRADE4_ENGLISH_FOOD_AND_SHOPPING,
+  '4/english/hobbies-and-sports': GRADE4_ENGLISH_HOBBIES_AND_SPORTS,
+  '4/english/in-the-city': GRADE4_ENGLISH_IN_THE_CITY,
+  '4/english/school-and-subjects': GRADE4_ENGLISH_SCHOOL_AND_SUBJECTS,
+  '4/english/time-and-dates': GRADE4_ENGLISH_TIME_AND_DATES,
+  '4/english/what-are-you-doing': GRADE4_ENGLISH_WHAT_ARE_YOU_DOING,
+  '4/greek/adjectives-comparison': GRADE4_GREEK_ADJECTIVES_COMPARISON,
+  '4/greek/nouns-declension': GRADE4_GREEK_NOUNS_DECLENSION,
+  '4/greek/pronouns': GRADE4_GREEK_PRONOUNS,
+  '4/greek/punctuation-dialogue': GRADE4_GREEK_PUNCTUATION_DIALOGUE,
+  '4/greek/reading-texts': GRADE4_GREEK_READING_TEXTS,
+  '4/greek/spelling-advanced': GRADE4_GREEK_SPELLING_ADVANCED,
+  '4/greek/verbs-full': GRADE4_GREEK_VERBS_FULL,
+  '4/history/alexander-the-great': GRADE4_HISTORY_ALEXANDER_THE_GREAT,
+  '4/history/archaic-sparta-athens': GRADE4_HISTORY_ARCHAIC_SPARTA_ATHENS,
+  '4/history/geometric-period': GRADE4_HISTORY_GEOMETRIC_PERIOD,
+  '4/history/golden-age-pericles': GRADE4_HISTORY_GOLDEN_AGE_PERICLES,
+  '4/history/hellenistic-and-rome': GRADE4_HISTORY_HELLENISTIC_AND_ROME,
+  '4/history/peloponnesian-war': GRADE4_HISTORY_PELOPONNESIAN_WAR,
+  '4/history/persian-wars': GRADE4_HISTORY_PERSIAN_WARS,
+  '4/math/decimals': GRADE4_MATH_DECIMALS,
+  '4/math/lines-and-polygons': GRADE4_MATH_LINES_AND_POLYGONS,
+  '4/math/measures-and-data': GRADE4_MATH_MEASURES_AND_DATA,
+  '4/math/multiply-divide-big': GRADE4_MATH_MULTIPLY_DIVIDE_BIG,
+  '4/math/numbers-to-million': GRADE4_MATH_NUMBERS_TO_MILLION,
+  '4/math/perimeter-area': GRADE4_MATH_PERIMETER_AREA,
+  '4/math/problem-solving': GRADE4_MATH_PROBLEM_SOLVING,
+  '4/science/communication-media': GRADE4_SCIENCE_COMMUNICATION_MEDIA,
+  '4/science/culture-of-greeks': GRADE4_SCIENCE_CULTURE_OF_GREEKS,
+  '4/science/greece-our-country': GRADE4_SCIENCE_GREECE_OUR_COUNTRY,
+  '4/science/jobs-and-products': GRADE4_SCIENCE_JOBS_AND_PRODUCTS,
+  '4/science/nature-is-our-home': GRADE4_SCIENCE_NATURE_IS_OUR_HOME,
+  '4/science/our-body': GRADE4_SCIENCE_OUR_BODY,
+  '4/science/physical-world': GRADE4_SCIENCE_PHYSICAL_WORLD,
 };

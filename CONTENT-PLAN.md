@@ -90,6 +90,28 @@ it. This is both the safe path and the better product.
 
 Never paste textbook text into a data file "temporarily".
 
+## STATUS 24 Αυγούστου 2026 — what exists now
+
+- **Unit skeleton for all six grades** in `data/units/curriculum.ts` (212 units) — from the
+  ΙΕΠ Προγράμματα Σπουδών and the chapter titles of the official textbooks. Each unit has a
+  one-line `topics` brief for whoever writes its questions.
+- **Questions** live one file per unit in `data/units/grade<N>/<subject>-<unit>.ts` and are
+  attached in `data/units/registry.ts`. A unit without questions is invisible in the app.
+- **Γ' Δημοτικού: complete** (35 units × 18 = 630 questions). Δ' in progress.
+- **UI**: `components/SchoolUnitMap.tsx` — a subject with units is a trail of "αποστολές"
+  with 0–3 stars each, a Master badge at 2+ stars everywhere, WiseBot card at the end of
+  each mission. Subjects without units keep the old flat quiz.
+- **Tooling**: `node scripts/school-units.mjs audit | print <grade/subject> | registry`.
+  `data/schoolData.test.ts` validates every question in CI.
+
+### How a unit is written (the recipe that produced Γ')
+1. Prompt = the unit's `topics` brief + `data/units/grade3/math-multiplication.ts` as the
+   format/quality bar + the rules: 18 questions, el/en, explanation, original, child-level
+   language, plausible distractors, varied `correct`, no textbook text.
+2. Write the file, `npx tsc --noEmit`, then `node scripts/school-units.mjs audit`.
+3. Read it with `print` — a human reads every maths answer and every Greek accent.
+4. Regenerate `registry.ts` (`school-units.mjs registry`), run `npx vitest run`.
+
 ## Build order
 
 Do **one grade in depth first** and prove it, before writing thousands of questions.
