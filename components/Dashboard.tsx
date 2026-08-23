@@ -387,7 +387,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 
 const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, myHeroes = [] }) => {
   const navigate = useNavigate();
-  const { credits, badges, stats, earnCredits, syncFromCloud, showNotification } = useEconomy();
+  const { credits, badges, stats, earnXp, syncFromCloud, showNotification } = useEconomy();
   const { user, profile, isGuest } = useAuth();
   const childName = useChildName(lang);
   // Greeting uses the real name only for signed-in children; guests get the headline alone.
@@ -408,7 +408,8 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
   useEffect(() => {
     if (missionComplete && localStorage.getItem('wb_free_song_claimed') !== 'true') {
       localStorage.setItem('wb_free_song_claimed', 'true');
-      earnCredits(60);
+      // The big first mission pays in XP (24 Αυγούστου 2026): credits are bought, effort earns levels.
+      earnXp(200, 'BIG_MISSION');
       setShowFreeSongModal(true);
     }
   }, [missionComplete]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -787,10 +788,10 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             </div>
             <div>
               <h2 className="font-[1000] text-white text-lg italic uppercase tracking-tight">
-                {lang === 'el' ? 'ΑΠΟΣΤΟΛΗ: ΔΩΡΕΑΝ ΤΡΑΓΟΥΔΙ' : 'MISSION: FREE SONG'}
+                {lang === 'el' ? 'Η ΜΕΓΑΛΗ ΑΠΟΣΤΟΛΗ' : 'THE BIG MISSION'}
               </h2>
               <p className="text-amber-400/70 text-[10px] font-bold uppercase tracking-widest">
-                {lang === 'el' ? 'Ολοκλήρωσε & κέρδισε +60 Credits' : 'Complete & earn +60 Credits'}
+                {lang === 'el' ? 'Ολοκλήρωσε & κέρδισε +200 XP' : 'Complete & earn +200 XP'}
               </p>
             </div>
           </div>
@@ -839,8 +840,8 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
             <Music size={18} className="text-amber-400 shrink-0" />
             <p className="text-white/60 text-xs font-bold leading-relaxed">
               {lang === 'el'
-                ? 'Διάβασε 3 ιστορίες στο Academy + 1 Ebook για να ξεκλειδώσεις 1 δωρεάν τραγούδι!'
-                : 'Read 3 Academy stories + 1 Ebook to unlock 1 free song!'}
+                ? 'Διάβασε 3 ιστορίες στην Ακαδημία + 1 βιβλίο. Κάθε ολόκληρο βιβλίο με quiz δίνει και 1⚡!'
+                : 'Read 3 Academy stories + 1 book. Every whole book with its quiz also earns 1⚡!'}
             </p>
           </div>
         </div>
@@ -854,7 +855,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
               {lang === 'el' ? 'ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ ✓' : 'MISSION COMPLETE ✓'}
             </p>
             <p className="text-white/50 text-xs font-bold">
-              {lang === 'el' ? '+60 Credits κερδήθηκαν! Πήγαινε στη Μουσική!' : '+60 Credits earned! Head to Music!'}
+              {lang === 'el' ? '+200 XP! Συνέχισε στη Μουσική!' : '+200 XP! Head to Music!'}
             </p>
           </div>
           <button
@@ -949,8 +950,8 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          />
          <ModuleCard
             title={t.dashboard.modules.ebooks.title}
-            subtitle={lang === 'el' ? 'Η Βιβλιοθήκη της Σοφίας. Κάθε βιβλίο σου δίνει ενέργεια.' : 'The Library of Wisdom. Every book gives you energy.'}
-            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
+            subtitle={lang === 'el' ? 'Η Βιβλιοθήκη της Σοφίας. Ολόκληρο βιβλίο + quiz = 1 credit.' : 'The Library of Wisdom. Whole book + quiz = 1 credit.'}
+            rewardText={lang === 'el' ? '+1 CREDIT' : '+1 CREDIT'}
             icon={Book}
             color="indigo"
             path="/ebooks"
@@ -1001,7 +1002,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
          <ModuleCard
             title={t.dashboard.modules.business.title}
             subtitle={lang === 'el' ? 'Φτιάξε εταιρεία, λογότυπο και μάθε επιχειρηματικότητα.' : 'Build a company, create a logo and learn entrepreneurship.'}
-            rewardText={lang === 'el' ? '+3 CREDITS' : '+3 CREDITS'}
+            rewardText={lang === 'el' ? '+30 XP' : '+30 XP'}
             icon={Briefcase}
             color="green"
             path="/business"
@@ -1243,16 +1244,16 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                   {lang === 'el' ? 'ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ' : 'MISSION COMPLETE'}
                 </p>
                 <h2 className="text-3xl font-[1000] text-white italic uppercase tracking-tighter leading-tight">
-                  {lang === 'el' ? 'ΔΩΡΕΑΝ ΤΡΑΓΟΥΔΙ' : 'FREE SONG'}
+                  {lang === 'el' ? 'ΜΕΓΑΛΗ ΑΠΟΣΤΟΛΗ' : 'BIG MISSION'}
                   <br />
                   <span className="text-amber-400">
-                    {lang === 'el' ? 'ΞΕΚΛΕΙΔΩΘΗΚΕ!' : 'UNLOCKED!'}
+                    {lang === 'el' ? 'ΟΛΟΚΛΗΡΩΘΗΚΕ!' : 'COMPLETE!'}
                   </span>
                 </h2>
               </div>
               <div className="flex items-center justify-center gap-3 bg-amber-500/10 border border-amber-500/25 rounded-2xl p-4">
                 <Zap size={22} className="text-amber-400 fill-current" />
-                <span className="text-amber-300 font-[1000] text-2xl">+60 Credits</span>
+                <span className="text-amber-300 font-[1000] text-2xl">+200 ⭐ XP</span>
               </div>
               <div className="space-y-3">
                 <button

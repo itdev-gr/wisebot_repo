@@ -111,6 +111,36 @@ export default async function handler(req: any, res: any) {
           }
           console.log(`[Webhook] Added ${creditsAmount} credits to user ${userId}`);
 
+          // Referral: the inviter is rewarded when the friend they brought becomes a
+          // customer — not at signup, which a throwaway email could repeat for free.
+          // Once per invitee (referral_rewarded), 10⚡, logged with the invitee's id.
+          try {
+            const { data: invitee } = await supabase
+              .from('profiles')
+              .select('referred_by, referral_rewarded')
+              .eq('id', userId)
+              .single();
+            if (invitee?.referred_by && !invitee.referral_rewarded) {
+              const { error: refErr } = await supabase.rpc('earn_credits', {
+                p_user_id: invitee.referred_by,
+                p_amount: 10,
+                p_action: 'REFERRAL',
+                p_action_id: `invitee:${userId}`,
+              });
+              if (!refErr) {
+                await supabase.from('profiles').update({ referral_rewarded: true }).eq('id', userId);
+                await supabase.rpc('increment_referral_count', { p_user_id: invitee.referred_by }).then(
+                  (r: any) => { if (r.error) console.warn('[Webhook] referral_count not incremented:', r.error.message); },
+                );
+                console.log(`[Webhook] Referral reward: 10 credits to ${invitee.referred_by} for ${userId}`);
+              } else if (refErr.code !== '23505') {
+                console.error('[Webhook] Referral reward failed:', refErr.message);
+              }
+            }
+          } catch (refCatch: any) {
+            console.error('[Webhook] Referral check failed:', refCatch.message);
+          }
+
           // Send email notification to parent about the purchase
           try {
             const { data: profileData } = await supabase

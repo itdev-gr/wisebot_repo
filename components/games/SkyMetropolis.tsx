@@ -45,7 +45,7 @@ const LEVELS = [
 ];
 
 export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
 
   // Game State
   const [grid, setGrid] = useState<(string | null)[]>(Array(GRID_SIZE * GRID_SIZE).fill(null));
@@ -109,13 +109,13 @@ export default function SkyMetropolis({ lang, onBack }: SkyMetropolisProps) {
       setLevel(currentLvlIndex);
       // Level up — reward meaningful milestones (Town and beyond), capped daily by the helper
       if (currentLvlIndex >= 2) {
-        grantGameReward('sky', 2, earnCredits, showNotification, lang);
+        grantGameReward('sky', 2, earnXp, showNotification, lang);
       }
     }
     // `level` in the deps fixes a real stale read: with only [resources.pop], the
     // comparison used the level captured at mount. The `currentLvlIndex > level` guard
     // plus setLevel keeps the reward single-fire even when the other deps change.
-  }, [resources.pop, level, earnCredits, showNotification, lang]);
+  }, [resources.pop, level, earnXp, showNotification, lang]);
 
   const handleCellClick = (index: number) => {
     if (!selectedTool) return;

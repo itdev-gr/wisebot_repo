@@ -1,16 +1,19 @@
 /**
  * SHARED GAME REWARDS
  * ===================
- * Every mini-game banks small credit rewards through this helper so the
- * rules live in one place:
+ * Every mini-game rewards a finished run through this helper so the rules live
+ * in one place:
  *   - max 2 reward grants per game per day (localStorage-tracked)
- *   - reward size is decided by the game (1-3⚡, validated here)
+ *   - the game passes a tier 1-3; it becomes 10/20/30 ⭐ XP
+ *
+ * Games pay in XP, never in credits (24 Αυγούστου 2026): credits are bought by
+ * parents; effort earns levels and badges.
  *
  * Usage inside a game component:
- *   const { earnCredits, showNotification } = useEconomy();
+ *   const { earnXp, showNotification } = useEconomy();
  *   ...on game over:
  *   grantGameReward('nebula', score >= 20 ? 3 : score >= 10 ? 2 : score >= 4 ? 1 : 0,
- *     earnCredits, showNotification, lang);
+ *     earnXp, showNotification, lang);
  */
 
 const REWARDS_PER_DAY = 2;
@@ -36,21 +39,24 @@ function consumeGameReward(gameKey: string) {
   localStorage.setItem(storageKey(gameKey), JSON.stringify({ date: today, count }));
 }
 
+const XP_PER_TIER = 10;
+
 /**
- * Grant a credit reward for a finished game run. No-op when the amount is 0
- * or the daily cap for this game is reached. Returns the credits granted.
+ * Grant an XP reward for a finished game run. No-op when the tier is 0 or the
+ * daily cap for this game is reached. Returns the XP granted.
  */
 export function grantGameReward(
   gameKey: string,
-  amount: number,
-  earnCredits: (amount: number, action?: string) => void,
+  tier: number,
+  earnXp: (amount: number, action?: string) => void,
   showNotification: (emoji: string, title: string, subtitle?: string) => void,
   lang: 'el' | 'en',
 ): number {
-  const reward = Math.min(Math.max(0, Math.floor(amount)), MAX_REWARD);
-  if (reward <= 0 || gameRewardsLeftToday(gameKey) <= 0) return 0;
+  const level = Math.min(Math.max(0, Math.floor(tier)), MAX_REWARD);
+  if (level <= 0 || gameRewardsLeftToday(gameKey) <= 0) return 0;
   consumeGameReward(gameKey);
-  earnCredits(reward, 'GAME_REWARD');
-  showNotification('🏆', lang === 'el' ? 'ΝΙΚΗ!' : 'VICTORY!', `+${reward} Credits ⚡`);
-  return reward;
+  const xp = level * XP_PER_TIER;
+  earnXp(xp, 'GAME_REWARD');
+  showNotification('🏆', lang === 'el' ? 'ΝΙΚΗ!' : 'VICTORY!', `+${xp} ⭐ XP`);
+  return xp;
 }

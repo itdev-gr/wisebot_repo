@@ -62,6 +62,16 @@ export default async function handler(req: any, res: any) {
     if (!toUsername) return res.status(400).json({ error: 'toUsername is required' });
     if (!type || !['image', 'song'].includes(type)) return res.status(400).json({ error: 'type must be image or song' });
 
+    // Kid safety: everything a child writes to another child goes through the blocklist,
+    // and nobody can flood an inbox — 5 gifts a day is plenty for a friend.
+    const { isContentSafe } = await import('../_lib/safety.js');
+    if (!isContentSafe(title) || !isContentSafe(message) || !isContentSafe(typeof body.lyrics === 'string' ? body.lyrics : '')) {
+      return res.status(400).json({ error: 'Αυτό το μήνυμα δεν επιτρέπεται.' });
+    }
+    const { checkRateLimit } = await import('../_lib/rateLimit.js');
+    const rl = await checkRateLimit(senderId, 'gift-item', 5, 24 * 60);
+    if (!rl.allowed) return res.status(429).json({ error: 'Μέχρι 5 δώρα τη μέρα. Δοκίμασε αύριο!', retryAfter: rl.retryAfter });
+
     // Get sender profile
     const { data: senderProfile, error: senderError } = await supabaseAdmin
       .from('profiles')
@@ -132,6 +142,17 @@ export default async function handler(req: any, res: any) {
 
       if (!audioUrl && !streamUrl) {
         return res.status(400).json({ error: 'audioUrl or streamUrl is required for song gifts' });
+      }
+      // Only a song the sender actually made can be gifted — the URL must match one
+      // of their saved songs. Stops arbitrary links being pushed into a child's inbox.
+      const { data: own } = await supabaseAdmin
+        .from('user_songs')
+        .select('id')
+        .eq('user_id', senderId)
+        .or([audioUrl ? `audio_url.eq.${audioUrl}` : null, streamUrl ? `stream_url.eq.${streamUrl}` : null].filter(Boolean).join(','))
+        .limit(1);
+      if (!own || own.length === 0) {
+        return res.status(400).json({ error: 'Μπορείς να χαρίσεις μόνο τραγούδι που έφτιαξες εσύ.' });
       }
     }
 

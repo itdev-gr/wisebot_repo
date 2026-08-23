@@ -411,8 +411,8 @@ export default function GameCenter({ lang }: GameCenterProps) {
   return (
     <div className="max-w-5xl mx-auto py-6 px-4 pb-32 animate-in fade-in">
       <FirstTimeTip id="games" lang={lang} text={lang === 'el'
-        ? <>🦉 16 παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει credits — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
-        : <>🦉 16 games, all free, {childName}. Every win gives credits — up to twice a day per game.</>} />
+        ? <>🦉 16 παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει XP — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
+        : <>🦉 16 games, all free, {childName}. Every win gives XP — up to twice a day per game.</>} />
 
       {/* HEADER */}
       <div className="text-center space-y-3 mb-8">

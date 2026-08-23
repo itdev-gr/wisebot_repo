@@ -115,7 +115,7 @@ function getQuestion(difficulty: Difficulty, isGreek: boolean): Question {
 
 // ─── COMPONENT ──────────────────────────────
 export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const particlesRef = useRef<Particle[]>([]);
@@ -291,7 +291,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
 
           if (newBossHP <= 0) {
             // Victory
-            grantGameReward('wizard', 2, earnCredits, showNotification, lang);
+            grantGameReward('wizard', 2, earnXp, showNotification, lang);
             if (bossIndex < BOSSES.length - 1) {
               setMessage(isGreek ? `🎉 Νίκησες ${boss.name}!` : `🎉 You defeated ${boss.name}!`);
               setGameState('victory');
@@ -315,7 +315,7 @@ export default function WizardDuel({ lang, onBack }: WizardDuelProps) {
         enemyAttack(bossHP);
       }, 1000);
     }
-  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles, earnCredits, showNotification, lang, enemyAttack]);
+  }, [currentQuestion, userAnswer, selectedSpell, combo, streak, bossHP, bossIndex, boss, isGreek, spawnParticles, earnXp, showNotification, lang, enemyAttack]);
 
   const nextBoss = useCallback(() => {
     const next = bossIndex + 1;

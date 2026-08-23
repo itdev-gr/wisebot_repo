@@ -80,7 +80,16 @@ interface EconomyContextType {
   dailyMission: DailyMission;
   streak: number;
   spendCredits: (amount: number) => boolean;
-  earnCredits: (amount: number, action?: string) => void;
+  /**
+   * Reward effort with XP (⭐), never with credits. Credits are bought; XP, levels
+   * and badges are earned. Dispatches `wb:xp` for App.tsx, which owns XP/level.
+   */
+  earnXp: (amount: number, action?: string) => void;
+  /**
+   * The single free credit: finish a whole book AND pass its quiz → +1⚡, once per
+   * book, verified and recorded by the server (api/auth/earn.ts).
+   */
+  claimBookReward: (bookId: number) => Promise<void>;
   /**
    * Undo a local `spendCredits` after a paid request failed. Local only — the
    * server refunds its own charge (api/_lib/auth.ts refundCredits) and may send
@@ -108,7 +117,13 @@ const BASE_COST_VIDEO = 80;       // 80⚡ = €4.00  | API cost: ~€1.65-2.65 
 const BASE_COST_SONG = 60;        // 60⚡ = €3.00  | API cost: ~€0.10-0.25 | margin: ~92%
 const BASE_COST_3D = 60;          // 60⚡ = €3.00  | API cost: ~€0.20-0.45 (Meshy) | margin: ~85%
 const BASE_COST_BUSINESS = 4;     // 4⚡ = €0.20   | API cost: ~€0.001 (Gemini) | margin: ~99%
-const DAILY_MISSION_REWARD = 3;
+// XP (⭐) for effort. Credits are not earned by activity (24 Αυγούστου 2026): the
+// one exception is claimBookReward → 1⚡ for a finished book + passed quiz.
+const XP_DAILY_MISSION = 30;
+const XP_QUIZ = 20;
+const XP_STORY = 20;
+const XP_BOOK = 50;
+const XP_BUSINESS = 30;
 
 // Default state shapes (used for initialization & migration)
 const DEFAULT_BADGES: Badges = { thinker: false, creator: false, filmmaker: false, builder: false, market: false, musician: false, scientist: false, explorer: false };
@@ -132,14 +147,14 @@ export const MISSION_POOL = [
 
 // Badge metadata for celebration
 const BADGE_META: Record<string, { icon: any; gradient: string; titleEl: string; titleEn: string; subtitleEl: string; subtitleEn: string }> = {
-  thinker:   { icon: Brain,        gradient: 'from-blue-400 via-cyan-500 to-blue-600',       titleEl: 'ΣΤΟΧΑΣΤΗΣ',     titleEn: 'THINKER',    subtitleEl: 'Ηρώων -1⚡',              subtitleEn: 'Hero Image -1⚡' },
-  creator:   { icon: Palette,      gradient: 'from-pink-400 via-rose-500 to-red-600',        titleEl: 'ΔΗΜΙΟΥΡΓΟΣ',    titleEn: 'CREATOR',    subtitleEl: 'Μάστερ Τέχνης',           subtitleEn: 'Art Master' },
-  filmmaker: { icon: Clapperboard, gradient: 'from-amber-400 via-orange-500 to-red-600',     titleEl: 'ΣΚΗΝΟΘΕΤΗΣ',    titleEn: 'DIRECTOR',   subtitleEl: 'Βίντεο -2⚡',             subtitleEn: 'Video -2⚡' },
-  builder:   { icon: Hammer,       gradient: 'from-emerald-400 via-green-500 to-teal-600',   titleEl: 'ΜΑΣΤΟΡΑΣ',      titleEn: 'BUILDER',    subtitleEl: 'Hero +1⚡ Bonus',         subtitleEn: 'Hero +1⚡ Bonus' },
-  market:    { icon: Store,        gradient: 'from-violet-400 via-purple-500 to-indigo-600',  titleEl: 'ΕΜΠΟΡΟΣ',       titleEn: 'TRADER',     subtitleEl: 'Κοινότητα',               subtitleEn: 'Community' },
-  musician:  { icon: Music,        gradient: 'from-fuchsia-400 via-pink-500 to-purple-600',   titleEl: 'ΜΟΥΣΙΚΟΣ',      titleEn: 'MUSICIAN',   subtitleEl: 'Τραγούδι -2⚡',           subtitleEn: 'Song -2⚡' },
-  scientist: { icon: FlaskConical, gradient: 'from-lime-400 via-green-500 to-emerald-600',   titleEl: 'ΕΠΙΣΤΗΜΟΝΑΣ',   titleEn: 'SCIENTIST',  subtitleEl: 'Quiz +1⚡ Bonus',         subtitleEn: 'Quiz +1⚡ Bonus' },
-  explorer:  { icon: Globe,        gradient: 'from-sky-400 via-blue-500 to-indigo-600',      titleEl: 'ΕΞΕΡΕΥΝΗΤΗΣ',   titleEn: 'EXPLORER',   subtitleEl: 'Αποστολή +2⚡',           subtitleEn: 'Mission +2⚡' },
+  thinker:   { icon: Brain,        gradient: 'from-blue-400 via-cyan-500 to-blue-600',       titleEl: 'ΣΤΟΧΑΣΤΗΣ',     titleEn: 'THINKER',    subtitleEl: '5 quiz ή 5 ιστορίες',              subtitleEn: '5 quizzes or 5 stories' },
+  creator:   { icon: Palette,      gradient: 'from-pink-400 via-rose-500 to-red-600',        titleEl: 'ΔΗΜΙΟΥΡΓΟΣ',    titleEn: 'CREATOR',    subtitleEl: '5 ήρωες',           subtitleEn: '5 heroes' },
+  filmmaker: { icon: Clapperboard, gradient: 'from-amber-400 via-orange-500 to-red-600',     titleEl: 'ΣΚΗΝΟΘΕΤΗΣ',    titleEn: 'DIRECTOR',   subtitleEl: '2 ταινίες',             subtitleEn: '2 movies' },
+  builder:   { icon: Hammer,       gradient: 'from-emerald-400 via-green-500 to-teal-600',   titleEl: 'ΜΑΣΤΟΡΑΣ',      titleEn: 'BUILDER',    subtitleEl: 'Ολοκληρωμένος ήρωας',         subtitleEn: 'Completed hero' },
+  market:    { icon: Store,        gradient: 'from-violet-400 via-purple-500 to-indigo-600',  titleEl: 'ΕΜΠΟΡΟΣ',       titleEn: 'TRADER',     subtitleEl: 'Πρώτη πώληση στην Αγορά',               subtitleEn: 'First sale in the Market' },
+  musician:  { icon: Music,        gradient: 'from-fuchsia-400 via-pink-500 to-purple-600',   titleEl: 'ΜΟΥΣΙΚΟΣ',      titleEn: 'MUSICIAN',   subtitleEl: '3 τραγούδια',           subtitleEn: '3 songs' },
+  scientist: { icon: FlaskConical, gradient: 'from-lime-400 via-green-500 to-emerald-600',   titleEl: 'ΕΠΙΣΤΗΜΟΝΑΣ',   titleEn: 'SCIENTIST',  subtitleEl: '10 quiz · Quiz +10 XP',         subtitleEn: '10 quizzes · Quiz +10 XP' },
+  explorer:  { icon: Globe,        gradient: 'from-sky-400 via-blue-500 to-indigo-600',      titleEl: 'ΕΞΕΡΕΥΝΗΤΗΣ',   titleEn: 'EXPLORER',   subtitleEl: '10 ιστορίες · Αποστολή +20 XP',           subtitleEn: '10 stories · Mission +20 XP' },
 };
 
 // ─── ACTIVITY LOG HELPERS ────────────────────────────────────────
@@ -528,14 +543,16 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
   useEffect(() => { localStorage.setItem('wb_stats', JSON.stringify(stats)); }, [stats]);
   useEffect(() => { localStorage.setItem('wb_badges', JSON.stringify(badges)); }, [badges]);
 
-  // 3. DYNAMIC COSTS (badge discounts applied)
+  // 3. COSTS — identical to api/_lib/costs.ts. Badge discounts were removed on
+  // 24 Αυγούστου 2026: they only ever applied to the displayed price, the server
+  // charged the base cost, so a badged child was told 58 and charged 60.
   const costs = useMemo(() => ({
-    image: BASE_COST_IMAGE - (badges.thinker ? 1 : 0),   // thinker badge: -1⚡
-    video: BASE_COST_VIDEO - (badges.filmmaker ? 2 : 0),  // filmmaker badge: -2⚡
-    song: BASE_COST_SONG - (badges.musician ? 2 : 0),     // musician badge: -2⚡
+    image: BASE_COST_IMAGE,
+    video: BASE_COST_VIDEO,
+    song: BASE_COST_SONG,
     threeD: BASE_COST_3D,
     business: BASE_COST_BUSINESS,
-  }), [badges.thinker, badges.filmmaker, badges.musician]);
+  }), []);
 
   // 4. ACTIONS
   // Real client-side deduction. The server independently enforces and deducts
@@ -548,28 +565,32 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
     return true;
   }, []);
 
-  // Optimistically add locally, then bank the reward server-side so
-  // profiles.credits stays authoritative. Guests simply get the local add.
-  const earnCredits = useCallback((amount: number, action: string = 'GAME_REWARD') => {
-    setCredits(prev => prev + amount);
-    creditsRef.current += amount;
-    (async () => {
-      try {
-        const { authFetch } = await import('../services/backendApi');
-        const res = await authFetch('/api/auth/earn', {
-          method: 'POST',
-          body: JSON.stringify({ amount, action }),
-        });
-        if (res.ok) {
-          const data = await res.json();
-          if (typeof data.credits === 'number') {
-            creditsRef.current = data.credits;
-            setCredits(data.credits);
-          }
-        }
-      } catch { /* guest or offline — local balance is fine */ }
-    })();
+  const earnXp = useCallback((amount: number, action: string = 'ACTIVITY') => {
+    if (!Number.isFinite(amount) || amount <= 0) return;
+    try {
+      window.dispatchEvent(new CustomEvent('wb:xp', { detail: { amount: Math.round(amount), action } }));
+    } catch { /* SSR / very old browsers */ }
   }, []);
+
+  const claimBookReward = useCallback(async (bookId: number) => {
+    try {
+      const { authFetch } = await import('../services/backendApi');
+      const res = await authFetch('/api/auth/earn', {
+        method: 'POST',
+        body: JSON.stringify({ action: 'READ_BOOK', bookId }),
+      });
+      if (!res.ok) return; // guests (401) and rate limits: no credit, no noise
+      const data = await res.json();
+      if (typeof data.credits === 'number') {
+        creditsRef.current = data.credits;
+        setCredits(data.credits);
+      }
+      if (data.earned > 0) {
+        showReward('⚡', langRef.current === 'el' ? '+1 CREDIT!' : '+1 CREDIT!',
+          langRef.current === 'el' ? 'Ολόκληρο βιβλίο + quiz. Το κέρδισες.' : 'Whole book + quiz. You earned it.', 'credit');
+      }
+    } catch { /* offline — the book stays claimable next time */ }
+  }, [showReward]);
 
   const refundCredits = useCallback((amount: number, serverBalance?: number | null) => {
     if (typeof serverBalance === 'number' && Number.isFinite(serverBalance) && serverBalance >= 0) {
@@ -621,22 +642,21 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
       const updated = { ...currentMission, completed: true };
       setDailyMission(updated);
       localStorage.setItem('wb_daily_mission', JSON.stringify(updated));
-      const reward = badgesRef.current.explorer ? DAILY_MISSION_REWARD + 2 : DAILY_MISSION_REWARD;
-      earnCredits(reward, 'DAILY_MISSION');
+      const reward = badgesRef.current.explorer ? XP_DAILY_MISSION + 20 : XP_DAILY_MISSION;
       // Update streak
       const newStreak = updateStreak();
       setStreak(newStreak);
-      const streakBonus = newStreak >= 7 ? 3 : newStreak >= 3 ? 1 : 0;
-      if (streakBonus > 0) earnCredits(streakBonus, 'DAILY_MISSION');
+      const streakBonus = newStreak >= 7 ? 30 : newStreak >= 3 ? 10 : 0;
+      earnXp(reward + streakBonus, 'DAILY_MISSION');
       setTimeout(() => {
         const streakMsg = newStreak > 1 ? ` (${newStreak} streak!)` : '';
-        showReward('🎯', 'DAILY MISSION COMPLETE!', `+${reward + streakBonus} Credits${streakMsg}`, 'achievement');
+        showReward('🎯', langRef.current === 'el' ? 'ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ!' : 'DAILY MISSION COMPLETE!', `+${reward + streakBonus} ⭐ XP${streakMsg}`, 'achievement');
       }, 800);
     }
-  }, [earnCredits, showReward]);
+  }, [earnXp, showReward]);
 
   // trackAction: Updates stats, awards credits, shows notifications, and unlocks badges.
-  // IMPORTANT: Side effects (earnCredits, showReward) must happen OUTSIDE setStats()
+  // IMPORTANT: Side effects (earnXp, showReward) must happen OUTSIDE setStats()
   // because React StrictMode calls state updater functions twice in development.
   const trackAction = useCallback((action: ActionType) => {
     completeDailyMission(action);
@@ -645,7 +665,7 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
     const newStats = { ...statsRef.current };
     const newBadges = { ...badgesRef.current };
     let badgeUnlocked = false;
-    let creditReward = 0;
+    let xpReward = 0;
     let rewardEmoji = '';
     let rewardTitle = '';
     let rewardSubtitle = '';
@@ -654,8 +674,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
     switch (action) {
       case 'PASS_QUIZ':
         newStats.quizzesPassed += 1;
-        creditReward = newBadges.scientist ? 3 : 2;
-        rewardEmoji = '🎉'; rewardTitle = langRef.current === 'el' ? 'ΠΕΡΑΣΕΣ ΤΟ QUIZ!' : 'QUIZ PASSED!'; rewardSubtitle = `+${creditReward} ⚡`;
+        xpReward = newBadges.scientist ? XP_QUIZ + 10 : XP_QUIZ;
+        rewardEmoji = '🎉'; rewardTitle = langRef.current === 'el' ? 'ΠΕΡΑΣΕΣ ΤΟ QUIZ!' : 'QUIZ PASSED!'; rewardSubtitle = `+${xpReward} ⭐ XP`;
         if (newStats.quizzesPassed >= 5 && !newBadges.thinker) {
           newBadges.thinker = true; badgeUnlocked = true;
           pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });
@@ -668,22 +688,23 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
 
       case 'READ_BOOK':
         newStats.booksRead += 1;
-        creditReward = 3;
+        xpReward = XP_BOOK;
         rewardEmoji = '📚';
         // The first book is the moment the loop clicks for a child — say so, once.
+        // (The 1⚡ for book + quiz arrives separately via claimBookReward.)
         if (newStats.booksRead === 1) {
           rewardTitle = langRef.current === 'el' ? 'ΤΟ ΠΡΩΤΟ ΣΟΥ ΒΙΒΛΙΟ!' : 'YOUR FIRST BOOK!';
-          rewardSubtitle = langRef.current === 'el' ? '+3 ⚡ · Συνέχισε — το τραγούδι σου πλησιάζει!' : '+3 ⚡ · Keep going — your song is getting closer!';
+          rewardSubtitle = `+${XP_BOOK} ⭐ XP`;
         } else {
           rewardTitle = langRef.current === 'el' ? 'ΤΕΛΕΙΩΣΕΣ ΤΟ ΒΙΒΛΙΟ!' : 'BOOK COMPLETE!';
-          rewardSubtitle = '+3 ⚡';
+          rewardSubtitle = `+${XP_BOOK} ⭐ XP`;
         }
         break;
 
       case 'READ_ACADEMY':
         newStats.lessonsRead += 1;
-        creditReward = 2;
-        rewardEmoji = '📖'; rewardTitle = langRef.current === 'el' ? 'ΤΕΛΕΙΩΣΕΣ ΤΗΝ ΙΣΤΟΡΙΑ!' : 'STORY COMPLETE!'; rewardSubtitle = '+2 ⚡';
+        xpReward = XP_STORY;
+        rewardEmoji = '📖'; rewardTitle = langRef.current === 'el' ? 'ΤΕΛΕΙΩΣΕΣ ΤΗΝ ΙΣΤΟΡΙΑ!' : 'STORY COMPLETE!'; rewardSubtitle = `+${XP_STORY} ⭐ XP`;
         if (newStats.lessonsRead >= 5 && !newBadges.thinker) {
           newBadges.thinker = true; badgeUnlocked = true;
           pendingBadgeCelebrations.push({ key: 'thinker', emoji: '🧠', delay: 800 });
@@ -696,10 +717,7 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
 
       case 'CREATE_IMAGE':
         newStats.imagesCreated += 1;
-        if (newBadges.builder) {
-          creditReward = 1;
-          rewardEmoji = '⚙️'; rewardTitle = 'BUILDER BONUS!'; rewardSubtitle = '+1 Credit ⚡';
-        }
+        xpReward = 10;
         if (newStats.imagesCreated >= 5 && !newBadges.creator) {
           newBadges.creator = true; badgeUnlocked = true;
           pendingBadgeCelebrations.push({ key: 'creator', emoji: '🎨', delay: 800 });
@@ -731,8 +749,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
 
       case 'CREATE_BUSINESS':
         newStats.businessesCreated += 1;
-        creditReward = 3;
-        rewardEmoji = '💼'; rewardTitle = 'BUSINESS CREATED!'; rewardSubtitle = '+3 Credits ⚡';
+        xpReward = XP_BUSINESS;
+        rewardEmoji = '💼'; rewardTitle = langRef.current === 'el' ? 'Η ΕΤΑΙΡΕΙΑ ΣΟΥ ΙΔΡΥΘΗΚΕ!' : 'BUSINESS CREATED!'; rewardSubtitle = `+${XP_BUSINESS} ⭐ XP`;
         break;
 
       case 'CREATE_SONG':
@@ -748,8 +766,8 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
     setStats(newStats);
     if (badgeUnlocked) setBadges(newBadges);
 
-    // 3) Side effects: credits & notifications (run once, outside updater)
-    if (creditReward > 0) earnCredits(creditReward, action);
+    // 3) Side effects: XP & notifications (run once, outside updater)
+    if (xpReward > 0) earnXp(xpReward, action);
     if (rewardTitle && !badgeUnlocked) {
       showReward(rewardEmoji, rewardTitle, rewardSubtitle, 'credit');
     } else if (rewardTitle && badgeUnlocked) {
@@ -766,12 +784,12 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
     const log = getActivityLog();
     log.push({ action, category, timestamp: new Date().toISOString() });
     saveActivityLog(log);
-  }, [completeDailyMission, earnCredits, showReward, showBadgeCelebration]);
+  }, [completeDailyMission, earnXp, showReward, showBadgeCelebration]);
 
   const contextValue = useMemo(() => ({
     credits, badges, stats, costs, dailyMission, streak,
-    spendCredits, earnCredits, refundCredits, trackAction, showNotification, syncFromCloud,
-  }), [credits, badges, stats, costs, dailyMission, streak, spendCredits, earnCredits, refundCredits, trackAction, showNotification, syncFromCloud]);
+    spendCredits, earnXp, claimBookReward, refundCredits, trackAction, showNotification, syncFromCloud,
+  }), [credits, badges, stats, costs, dailyMission, streak, spendCredits, earnXp, claimBookReward, refundCredits, trackAction, showNotification, syncFromCloud]);
 
 
   return (

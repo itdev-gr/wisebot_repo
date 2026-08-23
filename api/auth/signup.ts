@@ -254,7 +254,7 @@ export default async function handler(req: any, res: any) {
         has_password: true, // email/password signups have a password
         phone_number: phoneNumber || null,
         phone_verified: false,
-        credits: referredBy ? 15 : 10, // welcome credits (+5 referral bonus)
+        credits: 10, // welcome credits — the referral reward is paid to the inviter at the invitee's first purchase (stripe/webhook.ts)
         referred_by: referredBy,
       });
 

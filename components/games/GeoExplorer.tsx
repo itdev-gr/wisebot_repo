@@ -100,7 +100,7 @@ function buildRun(): RunQuestion[] {
 }
 
 export default function GeoExplorer({ lang, onBack }: GeoExplorerProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [phase, setPhase] = useState<'start' | 'play' | 'end'>('start');
   const [run, setRun] = useState<RunQuestion[]>([]);
   const [qIdx, setQIdx] = useState(0);
@@ -133,8 +133,8 @@ export default function GeoExplorer({ lang, onBack }: GeoExplorerProps) {
       localStorage.setItem('wb_geo_best', String(score));
     }
     const reward = score >= 10 ? 3 : score >= 7 ? 2 : score >= 5 ? 1 : 0;
-    grantGameReward('geo', reward, earnCredits, showNotification, lang);
-  }, [phase, score, best, earnCredits, showNotification, lang]);
+    grantGameReward('geo', reward, earnXp, showNotification, lang);
+  }, [phase, score, best, earnXp, showNotification, lang]);
 
   const start = useCallback(() => {
     rewardedRef.current = false;

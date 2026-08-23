@@ -57,7 +57,7 @@ interface Particle {
 }
 
 export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   // Game state refs (avoid re-renders during gameplay)
   const gameState = useRef({
@@ -265,7 +265,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
             localStorage.setItem('wb_geodash_hi', totalScore.toString());
           }
 
-          grantGameReward('geodash', totalScore >= 25 ? 3 : totalScore >= 12 ? 2 : totalScore >= 5 ? 1 : 0, earnCredits, showNotification, lang);
+          grantGameReward('geodash', totalScore >= 25 ? 3 : totalScore >= 12 ? 2 : totalScore >= 5 ? 1 : 0, earnXp, showNotification, lang);
 
           setUiState({ status: 'dead', score: gs.score, stars: gs.stars, highScore: gs.highScore });
         }
@@ -564,7 +564,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
     ctx.restore();
 
     animFrameRef.current = requestAnimationFrame(gameLoop);
-  }, [spawnObstacle, spawnParticles, earnCredits, showNotification, lang]);
+  }, [spawnObstacle, spawnParticles, earnXp, showNotification, lang]);
 
   // ─── START / RESET ─────────────────────────────
   const startGame = useCallback(() => {

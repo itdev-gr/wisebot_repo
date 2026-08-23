@@ -22,12 +22,14 @@ const CREDIT_PACKS = [
   { id: 'ultimate', credits: 1600, price: '€39.99', emoji: '🏆', label: { el: 'Ultimate', en: 'Ultimate' }, perCredit: '€0.025', popular: false, color: 'from-emerald-500 to-teal-500', songPrice: '€1.50' },
 ];
 
+// Credits are bought. The one way to earn one is real work: a whole book plus its
+// quiz. Everything else pays XP (levels, badges, unlocks) — see EconomyContext.
 const EARN_METHODS = [
-  { icon: BookOpen, label: { el: 'Διάβασε ιστορία', en: 'Read a story' }, reward: '+2', color: 'text-blue-400' },
-  { icon: BookOpen, label: { el: 'Διάβασε βιβλίο', en: 'Read a book' }, reward: '+3', color: 'text-indigo-400' },
-  { icon: Brain, label: { el: 'Πέρασε Quiz', en: 'Pass a Quiz' }, reward: '+2', color: 'text-purple-400' },
-  { icon: Star, label: { el: 'Ημερήσια Αποστολή', en: 'Daily Mission' }, reward: '+3', color: 'text-amber-400' },
-  { icon: Gift, label: { el: 'Ημερήσιο Bonus', en: 'Daily Bonus' }, reward: '+2~10', color: 'text-orange-400' },
+  { icon: BookOpen, label: { el: 'Ολόκληρο βιβλίο + quiz', en: 'Whole book + quiz' }, reward: '+1 ⚡', color: 'text-indigo-400' },
+  { icon: Brain, label: { el: 'Πέρασε Quiz', en: 'Pass a Quiz' }, reward: '+20 XP', color: 'text-purple-400' },
+  { icon: BookOpen, label: { el: 'Διάβασε ιστορία', en: 'Read a story' }, reward: '+20 XP', color: 'text-blue-400' },
+  { icon: Star, label: { el: 'Ημερήσια Αποστολή', en: 'Daily Mission' }, reward: '+30 XP', color: 'text-amber-400' },
+  { icon: Gift, label: { el: 'Σειρά ημερών', en: 'Daily streak' }, reward: '+10~100 XP', color: 'text-orange-400' },
 ];
 
 const COST_TABLE = [
@@ -126,7 +128,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
     subtitle: lang === 'el' ? 'Ενίσχυσε τη δημιουργικότητά σου' : 'Boost your creativity',
     balance: lang === 'el' ? 'Το Πορτοφόλι σου' : 'Your Wallet',
     comingSoon: lang === 'el' ? 'ΕΡΧΕΤΑΙ ΣΥΝΤΟΜΑ' : 'COMING SOON',
-    earnTitle: lang === 'el' ? 'Πώς κερδίζεις Credits ΔΩΡΕΑΝ' : 'How to earn Credits FREE',
+    earnTitle: lang === 'el' ? 'Πώς κερδίζεις 1 Credit με δουλειά' : 'How to earn 1 Credit by working',
     costTitle: lang === 'el' ? 'Τι κοστίζει' : 'What it costs',
     parentNote: lang === 'el'
       ? 'Ζήτα βοήθεια από τον γονέα ή κηδεμόνα σου για αγορές.'
@@ -139,8 +141,8 @@ export default function CreditStore({ lang }: CreditStoreProps) {
   return (
     <div className="max-w-5xl mx-auto py-8 px-4 pb-32 min-h-screen space-y-10">
       <FirstTimeTip id="store" lang={lang} text={lang === 'el'
-        ? <>🦉 Εδώ αγοράζει credits ο μπαμπάς ή η μαμά, {childName}. Εσύ τα κερδίζεις διαβάζοντας — δωρεάν, πάντα.</>
-        : <>🦉 This is where mum or dad buys credits, {childName}. You earn them by reading — free, always.</>} />
+        ? <>🦉 Εδώ αγοράζει credits ο μπαμπάς ή η μαμά, {childName}. Εσύ κερδίζεις 1⚡ για κάθε ολόκληρο βιβλίο με quiz — τα υπόλοιπα δίνουν XP.</>
+        : <>🦉 This is where mum or dad buys credits, {childName}. You earn 1⚡ for every whole book with its quiz — everything else gives XP.</>} />
 
       {/* HEADER */}
       <motion.div
@@ -262,13 +264,13 @@ export default function CreditStore({ lang }: CreditStoreProps) {
                 <method.icon size={18} className={method.color} />
                 <span className="text-white/70 text-sm font-bold flex-1">{method.label[lang]}</span>
                 <span className="text-emerald-400 font-[1000] text-sm italic flex items-center gap-1">
-                  <Zap size={12} fill="currentColor" /> {method.reward}
+                  {method.reward}
                 </span>
               </div>
             ))}
           </div>
           <p className="text-white/20 text-xs font-bold text-center">
-            {lang === 'el' ? '~15-19 credits/μέρα χωρίς αγορές!' : '~15-19 credits/day without purchases!'}
+            {lang === 'el' ? '34 βιβλία = 34 credits με δουλειά. Τα υπόλοιπα, από εδώ.' : '34 books = 34 credits through work. The rest, from here.'}
           </p>
         </motion.div>
 

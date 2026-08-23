@@ -54,7 +54,7 @@ interface HeroFusionProps {
 }
 
 export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -210,7 +210,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     }
     const finalScore = stateRef.current.score;
     grantGameReward('fusion', finalScore >= 500 ? 3 : finalScore >= 250 ? 2 : finalScore >= 80 ? 1 : 0,
-      earnCredits, showNotification, lang);
+      earnXp, showNotification, lang);
   };
 
   const update = () => {

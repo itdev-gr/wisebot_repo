@@ -91,16 +91,9 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // POST — claim pending referral (called once after first verified login)
-    const { data: inviterId, error: claimErr } = await supabase.rpc('claim_referral', {
-      p_user_id: user.id,
-      p_reward: INVITER_REWARD,
-    });
-    if (claimErr) {
-      console.error('[Referral] claim error:', claimErr.message);
-      return res.status(500).json({ error: 'Claim failed' });
-    }
-    return res.status(200).json({ rewarded: !!inviterId });
+    // POST used to claim the reward at first login. Since 24 Αυγούστου 2026 the
+    // inviter is paid by the Stripe webhook when the invitee first buys credits.
+    return res.status(410).json({ error: 'Referral rewards are paid automatically on your friend\'s first purchase.' });
   } catch (err: any) {
     console.error('[Referral] Unexpected error:', err.message);
     return res.status(500).json({ error: 'Internal server error' });

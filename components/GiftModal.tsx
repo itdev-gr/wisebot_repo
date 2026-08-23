@@ -1,5 +1,6 @@
 /**
- * GiftModal — Send credits, images, or songs as a gift to a friend
+ * GiftModal — gift a hero image or a song you made to a friend.
+ * (Credit gifts were removed on 24 Αυγούστου 2026: credits are parents' money.)
  * =================================================================
  * A bilingual (Greek/English) modal for sending gifts.
  * Tabs: Credits | Images | Songs
@@ -74,7 +75,7 @@ function loadLocalSongs(): LocalSong[] {
 }
 
 export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '', onGiftSent }: GiftModalProps) {
-  const [tab, setTab] = useState<GiftTab>('credits');
+  const [tab, setTab] = useState<GiftTab>('image');
   const [username, setUsername] = useState(prefilledUsername);
 
   // ── Live username verification state ─────────────────────────────
@@ -285,7 +286,6 @@ export default function GiftModal({ lang, isOpen, onClose, prefilledUsername = '
   if (!isOpen) return null;
 
   const tabItems: { key: GiftTab; icon: React.ReactNode; label: string }[] = [
-    { key: 'credits', icon: <span className="text-xs">💰</span>, label: 'Credits' },
     { key: 'image', icon: <Image size={13} />, label: lang === 'el' ? 'Εικόνα' : 'Image' },
     { key: 'song', icon: <Music size={13} />, label: lang === 'el' ? 'Τραγούδι' : 'Song' },
   ];

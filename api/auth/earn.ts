@@ -1,22 +1,21 @@
 /**
- * POST /api/auth/earn — Bank client-side activity rewards
- * =========================================================
- * The app rewards kids with small credit amounts for activities the server
- * can't verify (passing a quiz, reading a story, daily missions). The client
- * reports them here so the server-side balance (profiles.credits) stays the
- * source of truth.
+ * POST /api/auth/earn — the one way a child earns a credit without paying
+ * ========================================================================
+ * Credits (⚡) are bought by parents. Reading, quizzes, games and missions pay
+ * in XP, levels and badges — never in credits — with a single exception that
+ * rewards finishing real work: read a whole book AND pass its quiz → 1⚡, once
+ * per book, ever.
  *
- * Abuse guards: auth required, amount capped per call, rate limited per user.
+ * Until 24 Αυγούστου 2026 this endpoint accepted "give me up to 10⚡ for
+ * <any action>" 40 times an hour with no proof, which made it a mint.
  *
- * Body: { amount: number, action: string }
- * Response: { credits: number } — the new balance
+ * Body: { action: 'READ_BOOK', bookId: number }
+ * Response: { credits: number, earned: number }  — earned is 0 when the book
+ *           was already rewarded (not an error: the client just shows nothing)
  */
 
-const MAX_EARN_PER_CALL = 10;
-const ALLOWED_ACTIONS = new Set([
-  'PASS_QUIZ', 'READ_ACADEMY', 'READ_BOOK', 'CREATE_IMAGE', 'CREATE_BUSINESS',
-  'DAILY_MISSION', 'GAME_REWARD', 'BADGE_BONUS',
-]);
+const BOOK_REWARD = 1;
+const MAX_BOOK_ID = 200;
 
 export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
@@ -30,20 +29,17 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Authentication required' });
   }
 
-  // Cap how fast rewards can be banked — generous for real play, stops scripts
   const { checkRateLimit } = await import('../_lib/rateLimit.js');
-  const rl = await checkRateLimit(user.id, 'earn', 40, 60);
+  const rl = await checkRateLimit(user.id, 'earn', 20, 60); // 20 per hour — nobody finishes more books than that
   if (!rl.allowed) return res.status(429).json({ error: 'Too many requests', retryAfter: rl.retryAfter });
 
   const body = req.body || {};
-  const amount = Number(body.amount);
   const action = typeof body.action === 'string' ? body.action.toUpperCase() : '';
+  const bookId = Number(body.bookId);
 
-  if (!Number.isInteger(amount) || amount < 1 || amount > MAX_EARN_PER_CALL) {
-    return res.status(400).json({ error: `amount must be an integer 1-${MAX_EARN_PER_CALL}` });
-  }
-  if (!ALLOWED_ACTIONS.has(action)) {
-    return res.status(400).json({ error: 'Unknown action' });
+  if (action !== 'READ_BOOK') return res.status(400).json({ error: 'Unknown action' });
+  if (!Number.isInteger(bookId) || bookId < 1 || bookId > MAX_BOOK_ID) {
+    return res.status(400).json({ error: 'bookId required' });
   }
 
   try {
@@ -53,18 +49,25 @@ export default async function handler(req: any, res: any) {
       process.env.SUPABASE_SERVICE_KEY || '',
       { auth: { autoRefreshToken: false, persistSession: false } }
     );
+    // earn_credits logs (user, action, action_id); the unique index on that triple
+    // makes a second claim for the same book fail before the balance changes.
     const { data, error } = await supabase.rpc('earn_credits', {
       p_user_id: user.id,
-      p_amount: amount,
-      p_action: action,
+      p_amount: BOOK_REWARD,
+      p_action: 'READ_BOOK',
+      p_action_id: `book:${bookId}`,
     });
 
     if (error) {
+      if (error.code === '23505') {
+        const { data: profile } = await supabase.from('profiles').select('credits').eq('id', user.id).single();
+        return res.status(200).json({ credits: profile?.credits ?? null, earned: 0 });
+      }
       console.error('[earn] RPC error:', error.message);
       return res.status(500).json({ error: 'Failed to add credits' });
     }
 
-    return res.status(200).json({ credits: data });
+    return res.status(200).json({ credits: data, earned: BOOK_REWARD });
   } catch (err: any) {
     console.error('[earn] Error:', err.message);
     return res.status(500).json({ error: 'Internal server error' });

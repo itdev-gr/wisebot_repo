@@ -137,7 +137,7 @@ function formatYear(year: number, lang: 'el' | 'en'): string {
 }
 
 export default function TimeMachine({ lang, onBack }: TimeMachineProps) {
-  const { earnCredits, showNotification } = useEconomy();
+  const { earnXp, showNotification } = useEconomy();
   const [phase, setPhase] = useState<'start' | 'play' | 'end'>('start');
   const [runRounds, setRunRounds] = useState<TimeRound[]>([]);
   const [roundIdx, setRoundIdx] = useState(0);
@@ -235,8 +235,8 @@ export default function TimeMachine({ lang, onBack }: TimeMachineProps) {
     if (phase !== 'end' || rewardedRef.current) return;
     rewardedRef.current = true;
     const reward = solved >= 6 ? 3 : solved >= 4 ? 2 : solved >= 2 ? 1 : 0;
-    grantGameReward('time', reward, earnCredits, showNotification, lang);
-  }, [phase, solved, earnCredits, showNotification, lang]);
+    grantGameReward('time', reward, earnXp, showNotification, lang);
+  }, [phase, solved, earnXp, showNotification, lang]);
 
   // Chronological rank of each event (used in the "failed" reveal)
   const chronoRank = useMemo(() => {
