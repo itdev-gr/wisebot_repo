@@ -108,6 +108,9 @@ const BASE_COST_VIDEO = 80;       // 80⚡ = €4.00  | API cost: ~€1.65-2.65 
 const BASE_COST_SONG = 60;        // 60⚡ = €3.00  | API cost: ~€0.10-0.25 | margin: ~92%
 const BASE_COST_3D = 60;          // 60⚡ = €3.00  | API cost: ~€0.20-0.45 (Meshy) | margin: ~85%
 const BASE_COST_BUSINESS = 4;     // 4⚡ = €0.20   | API cost: ~€0.001 (Gemini) | margin: ~99%
+// Single source of truth for the undiscounted prices — the admin "Content & Costs" tab reads
+// these so its tables cannot drift from what children are actually charged.
+export const BASE_COSTS = { image: BASE_COST_IMAGE, video: BASE_COST_VIDEO, song: BASE_COST_SONG, threeD: BASE_COST_3D, business: BASE_COST_BUSINESS } as const;
 const DAILY_MISSION_REWARD = 3;
 
 // Default state shapes (used for initialization & migration)

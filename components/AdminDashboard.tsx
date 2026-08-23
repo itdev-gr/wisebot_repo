@@ -20,6 +20,7 @@ import {
   CreditCard, Hash, Trash2, RotateCcw,
 } from 'lucide-react';
 import { authFetch } from '../services/backendApi';
+import { BASE_COSTS } from '../context/EconomyContext';
 
 // No credentials in code — auth handled server-side via /api/admin/login
 
@@ -63,7 +64,7 @@ interface DashData {
 }
 
 // ─── TAB TYPES ──────────────────────
-type TabId = 'overview' | 'users' | 'content' | 'system';
+type TabId = 'overview' | 'health' | 'users' | 'content' | 'system';
 
 // ─── MAIN COMPONENT ─────────────────
 export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
@@ -74,6 +75,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
   const [loginLoading, setLoginLoading] = useState(false);
   const adminToken = useCallback(() => sessionStorage.getItem('wb_admin_token') || '', []);
   const [data, setData] = useState<DashData | null>(null);
+  const [health, setHealth] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [activeTab, setActiveTab] = useState<TabId>('overview');
@@ -141,12 +143,15 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     setLoading(true);
     setError('');
     try {
-      const res = await authFetch('/api/admin/stats', {
-        headers: { 'X-Admin-Token': adminToken() },
-      });
+      const [res, healthRes] = await Promise.all([
+        authFetch('/api/admin/stats', { headers: { 'X-Admin-Token': adminToken() } }),
+        authFetch('/api/admin/health', { headers: { 'X-Admin-Token': adminToken() } }),
+      ]);
       if (!res.ok) throw new Error(res.status === 403 ? 'Unauthorized' : 'Failed to fetch');
       const result = await res.json();
       setData(result);
+      // Health is additive: if it fails, the rest of the dashboard still works.
+      setHealth(healthRes.ok ? await healthRes.json() : null);
       setLastRefresh(new Date());
     } catch (err: any) {
       setError(err.message || 'Failed to load data');
@@ -399,6 +404,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
 
   const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
     { id: 'overview', label: 'Overview', icon: <BarChart3 size={16} /> },
+    { id: 'health', label: health && (health.errors.last24h > 0 || health.payments.stripe.failedWebhookMatches > 0) ? `Health (!)` : 'Health', icon: <Activity size={16} /> },
     { id: 'users', label: `Users (${totals.userCount})`, icon: <Users size={16} /> },
     { id: 'content', label: 'Content & Costs', icon: <DollarSign size={16} /> },
     { id: 'system', label: 'System', icon: <Server size={16} /> },
@@ -581,7 +587,8 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
       </div>
 
       {/* ─── TAB CONTENT ──────────── */}
-      {activeTab === 'overview' && <OverviewTab totals={totals} stats={computedStats} users={data?.users || []} onGiveCredits={setCreditModal} />}
+      {activeTab === 'overview' && <OverviewTab totals={totals} stats={computedStats} users={data?.users || []} onGiveCredits={setCreditModal} health={health} onOpenHealth={() => setActiveTab('health')} />}
+      {activeTab === 'health' && <HealthTab health={health} formatDate={formatDate} timeAgo={timeAgo} />}
       {activeTab === 'users' && (
         <UsersTab
           users={filteredUsers}
@@ -595,7 +602,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
         />
       )}
       {activeTab === 'content' && <ContentTab stats={computedStats} totals={totals} data={data} />}
-      {activeTab === 'system' && <SystemTab totals={totals} lastRefresh={lastRefresh} users={data?.users || []} />}
+      {activeTab === 'system' && <SystemTab totals={totals} lastRefresh={lastRefresh} users={data?.users || []} health={health} />}
     </div>
   );
 }
@@ -603,7 +610,7 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
 // ═══════════════════════════════════════
 // TAB: OVERVIEW
 // ═══════════════════════════════════════
-function OverviewTab({ totals, stats, users, onGiveCredits }: any) {
+function OverviewTab({ totals, stats, users, onGiveCredits, health, onOpenHealth }: any) {
   if (!stats) return null;
 
   const kpis = [
@@ -617,6 +624,9 @@ function OverviewTab({ totals, stats, users, onGiveCredits }: any) {
 
   return (
     <div className="space-y-6">
+      {/* Health strip — real records (error_logs, credit_transactions, Stripe), not estimates */}
+      {health && <HealthStrip health={health} onOpen={onOpenHealth} />}
+
       {/* KPI Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
         {kpis.map((kpi, i) => (
@@ -865,13 +875,13 @@ function ContentTab({ stats, totals, data }: any) {
   // ─── API COST PER CALL (in EUR) ────
   const API_COSTS = [
     { name: 'AI Chat', endpoint: '/api/ai/chat', provider: 'GPT-4o-mini', costPerCall: 0.002, creditsCharged: 0, uses: stats.totalQuizzes + stats.totalBooks, icon: <Brain size={16} />, color: 'text-cyan-400' },
-    { name: 'Image Generation', endpoint: '/api/ai/generate', provider: 'DALL-E 3', costPerCall: 0.04, creditsCharged: 6, uses: stats.totalImages, icon: <Image size={16} />, color: 'text-pink-400' },
-    { name: 'Video Generation', endpoint: '/api/ai/video-generate', provider: 'Veo 2', costPerCall: 0.25, creditsCharged: 50, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
-    { name: 'Music Generation', endpoint: '/api/ai/suno-generate', provider: 'Suno AI', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalSongs, icon: <Music size={16} />, color: 'text-fuchsia-400' },
+    { name: 'Image Generation', endpoint: '/api/ai/generate', provider: 'Gemini (Imagen)', costPerCall: 0.04, creditsCharged: BASE_COSTS.image, uses: stats.totalImages, icon: <Image size={16} />, color: 'text-pink-400' },
+    { name: 'Video Generation', endpoint: '/api/ai/video-generate', provider: 'Veo 2', costPerCall: 0.25, creditsCharged: BASE_COSTS.video, uses: stats.totalVideos, icon: <Film size={16} />, color: 'text-amber-400' },
+    { name: 'Music Generation', endpoint: '/api/ai/suno-generate', provider: 'Suno AI', costPerCall: 0.10, creditsCharged: BASE_COSTS.song, uses: stats.totalSongs, icon: <Music size={16} />, color: 'text-fuchsia-400' },
     { name: 'Text-to-Speech', endpoint: '/api/ai/tts', provider: 'Gemini TTS', costPerCall: 0.003, creditsCharged: 0, uses: stats.totalBooks * 3, icon: <Activity size={16} />, color: 'text-emerald-400' },
-    { name: '3D Factory', endpoint: '/api/ai/meshy-generate', provider: 'Meshy.ai', costPerCall: 0.10, creditsCharged: 60, uses: stats.totalHeroes, icon: <Box size={16} />, color: 'text-orange-400' },
+    { name: '3D Factory', endpoint: '/api/ai/meshy-generate', provider: 'Meshy.ai', costPerCall: 0.10, creditsCharged: BASE_COSTS.threeD, uses: stats.totalHeroes, icon: <Box size={16} />, color: 'text-orange-400' },
     { name: 'Quiz Generation', endpoint: '/api/ai/quiz', provider: 'Gemini 2.5 Flash', costPerCall: 0.002, creditsCharged: 0, uses: stats.totalQuizzes, icon: <Brain size={16} />, color: 'text-blue-400' },
-    { name: 'Business Sim', endpoint: '/api/ai/business', provider: 'Gemini 2.5 Flash', costPerCall: 0.002, creditsCharged: 5, uses: stats.totalBusiness, icon: <Briefcase size={16} />, color: 'text-violet-400' },
+    { name: 'Business Sim', endpoint: '/api/ai/business', provider: 'Gemini 2.5 Flash', costPerCall: 0.002, creditsCharged: BASE_COSTS.business, uses: stats.totalBusiness, icon: <Briefcase size={16} />, color: 'text-violet-400' },
   ];
 
   const totalAPICost = API_COSTS.reduce((s, a) => s + a.costPerCall * a.uses, 0);
@@ -886,15 +896,27 @@ function ContentTab({ stats, totals, data }: any) {
   const estimatedRevenue = realRevenue > 0 ? realRevenue : totals.purchaseCount * 7.99;
   const profitMargin = estimatedRevenue > 0 ? ((estimatedRevenue - totalAPICost) / estimatedRevenue * 100).toFixed(0) : '—';
 
-  // ─── CREDIT ECONOMY (updated pricing) ────
-  // At Starter rate: 1 credit = €0.05
+  // ─── CREDIT ECONOMY ────
+  // Credits come from BASE_COSTS (what the server charges). Provider costs are estimates per call;
+  // revenue is at the Starter rate (1 credit = €0.05). Margin = revenue − cost, computed, never typed.
+  const CREDIT_EUR = 0.05;
+  const econ = (label: string, credits: number, cost: number, color: string) => {
+    const revenue = credits * CREDIT_EUR;
+    return {
+      label, credits, color,
+      realCost: `€${cost.toFixed(cost < 0.01 ? 3 : 2)}`,
+      revenue: credits ? `€${revenue.toFixed(2)}` : 'Free',
+      margin: credits ? `+€${(revenue - cost).toFixed(2)}` : 'Free',
+      marginPct: credits ? `${Math.round((revenue - cost) / revenue * 100)}%` : '—',
+    };
+  };
   const creditEconomy = [
-    { label: 'Image (DALL-E 3)', credits: 6, realCost: '€0.04', revenue: '€0.30', margin: '+€0.26', marginPct: '87%', color: 'text-pink-400' },
-    { label: 'Video (Veo 2)', credits: 50, realCost: '€0.25', revenue: '€2.50', margin: '+€2.25', marginPct: '90%', color: 'text-amber-400' },
-    { label: 'Song (Suno AI)', credits: 60, realCost: '€0.10', revenue: '€3.00', margin: '+€2.90', marginPct: '97%', color: 'text-fuchsia-400' },
-    { label: '3D Model (Meshy)', credits: 60, realCost: '€0.10', revenue: '€3.00', margin: '+€2.90', marginPct: '97%', color: 'text-orange-400' },
-    { label: 'Business Sim', credits: 5, realCost: '€0.002', revenue: '€0.25', margin: '+€0.25', marginPct: '99%', color: 'text-violet-400' },
-    { label: 'Chat / Quiz', credits: 0, realCost: '€0.002', revenue: 'Free', margin: 'Free', marginPct: '—', color: 'text-cyan-400' },
+    econ('Image (Gemini)', BASE_COSTS.image, 0.04, 'text-pink-400'),
+    econ('Video (Veo 2)', BASE_COSTS.video, 0.25, 'text-amber-400'),
+    econ('Song (Suno AI)', BASE_COSTS.song, 0.10, 'text-fuchsia-400'),
+    econ('3D Model (Meshy)', BASE_COSTS.threeD, 0.10, 'text-orange-400'),
+    econ('Business Sim', BASE_COSTS.business, 0.002, 'text-violet-400'),
+    econ('Chat / Quiz', 0, 0.002, 'text-cyan-400'),
   ];
 
   // Content breakdown
@@ -1126,7 +1148,8 @@ function ContentTab({ stats, totals, data }: any) {
 // ═══════════════════════════════════════
 // TAB: SYSTEM
 // ═══════════════════════════════════════
-function SystemTab({ totals, lastRefresh, users }: any) {
+function SystemTab({ totals, lastRefresh, users, health }: any) {
+  // Names only — liveness comes from /api/admin/health (checks + keys), not from this list.
   const endpoints = [
     { name: '/api/ai/chat', desc: 'AI Chat (GPT-4o-mini)', status: 'active' },
     { name: '/api/ai/generate', desc: 'Image Gen (DALL-E 3) + Text (Gemini)', status: 'active' },
@@ -1155,12 +1178,20 @@ function SystemTab({ totals, lastRefresh, users }: any) {
 
   return (
     <div className="space-y-6">
-      {/* API Endpoints */}
+      {/* Live checks */}
+      {health ? <ChecksPanel checks={health.checks} generatedAt={health.generatedAt} /> : (
+        <div className="glass-panel rounded-2xl border-red-500/20 p-4 text-red-400 text-xs font-bold">
+          /api/admin/health did not answer — checks unavailable.
+        </div>
+      )}
+
+      {/* API Endpoints (inventory) */}
       <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
         <div className="p-4 border-b border-white/5">
           <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2">
             <Globe size={14} className="text-blue-400" /> API Endpoints
           </h3>
+          <p className="text-white/30 text-[10px] mt-1">Inventory. Liveness is in the checks above.</p>
         </div>
         <div className="divide-y divide-white/5">
           {endpoints.map((ep, i) => (
@@ -1169,9 +1200,6 @@ function SystemTab({ totals, lastRefresh, users }: any) {
                 <p className="text-white font-bold text-xs font-mono">{ep.name}</p>
                 <p className="text-white/30 text-[10px]">{ep.desc}</p>
               </div>
-              <span className="flex items-center gap-1.5 text-[9px] font-black uppercase px-2 py-1 rounded-md bg-emerald-500/10 text-emerald-400">
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" /> Active
-              </span>
             </div>
           ))}
         </div>
@@ -1200,6 +1228,199 @@ function SystemTab({ totals, lastRefresh, users }: any) {
         <QuickStat label="API Endpoints" value={endpoints.length} icon={<Globe size={14} />} color="text-emerald-400" />
         <QuickStat label="Purchases" value={totals.purchaseCount} icon={<CreditCard size={14} />} color="text-orange-400" />
         <QuickStat label="Last Refresh" value={lastRefresh ? new Date(lastRefresh).toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' }) : '—'} icon={<Clock size={14} />} color="text-purple-400" />
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════
+// HEALTH — everything here is read from real records via /api/admin/health
+// ═══════════════════════════════════════
+const ACTION_LABELS: Record<string, string> = {
+  CREATE_IMAGE: 'Εικόνες', CREATE_SONG: 'Τραγούδια', CREATE_VIDEO: 'Βίντεο', CREATE_3D: '3D μοντέλα',
+  CREATE_BUSINESS: 'Επιχειρήσεις', READ_ACADEMY: 'Ιστορίες (+)', READ_BOOK: 'Βιβλία (+)', PASS_QUIZ: 'Quiz (+)',
+  GAME_REWARD: 'Παιχνίδια (+)', DAILY_MISSION: 'Αποστολές (+)', GIFT_SENT: 'Δώρο (−)', GIFT_RECEIVED: 'Δώρο (+)',
+  PURCHASE: 'Αγορά (+)', ADMIN_GIFT: 'Admin (+)', REFUND: 'Επιστροφή (+)',
+};
+const label = (a: string) => ACTION_LABELS[a] || a;
+
+function HealthStrip({ health, onOpen }: { health: any; onOpen: () => void }) {
+  const errs = health.errors.last24h;
+  const mism = health.payments.stripe.failedWebhookMatches;
+  const keysMissing = Object.entries(health.checks.keys).filter(([, v]) => !v).map(([k]) => k);
+  const allOk = health.checks.supabase.ok && (health.checks.stripe.ok || !health.checks.stripe.configured) && errs === 0 && mism === 0;
+  const cards = [
+    { label: 'Σφάλματα 24h', value: errs, sub: `${health.errors.last7d} σε 7 ημέρες`, tone: errs === 0 ? 'ok' : 'bad', icon: <AlertTriangle size={16} /> },
+    { label: 'Credits ξοδεύτηκαν 7d', value: `${Object.values(health.ledger.spend7 as Record<string, { credits: number }>).reduce((s, v) => s - v.credits, 0)}⚡`, sub: `${health.ledger.totalSpent30}⚡ σε 30 ημέρες`, tone: 'neutral', icon: <Zap size={16} /> },
+    { label: 'Έσοδα Stripe', value: `€${health.payments.stripe.revenue.toFixed(2)}`, sub: `${health.payments.stripe.paid} πληρωμές · ${health.payments.stripe.open} ανοιχτές`, tone: health.checks.stripe.ok ? 'ok' : 'warn', icon: <CreditCard size={16} /> },
+    { label: 'Πληρωμές χωρίς credits', value: mism, sub: mism === 0 ? 'webhook OK' : 'Stripe paid, purchases empty', tone: mism === 0 ? 'ok' : 'bad', icon: <Shield size={16} /> },
+    { label: 'Υπηρεσίες', value: allOk ? 'OK' : 'Προσοχή', sub: keysMissing.length ? `λείπουν: ${keysMissing.join(', ')}` : `Supabase ${health.checks.supabase.ms}ms · Stripe ${health.checks.stripe.ms}ms`, tone: allOk ? 'ok' : 'warn', icon: <Server size={16} /> },
+    { label: 'Ενεργοί 7d', value: health.activeUsers7d, sub: 'προφίλ με δραστηριότητα', tone: 'neutral', icon: <Activity size={16} /> },
+  ];
+  const tones: Record<string, string> = { ok: 'border-emerald-500/30 text-emerald-400', bad: 'border-red-500/40 text-red-400', warn: 'border-amber-500/40 text-amber-400', neutral: 'border-white/10 text-white' };
+  return (
+    <div role="button" tabIndex={0} onClick={onOpen} onKeyDown={e => { if (e.key === 'Enter') onOpen(); }} className="w-full text-left grid grid-cols-2 lg:grid-cols-6 gap-2 cursor-pointer">
+      {cards.map((c, i) => (
+        <div key={i} className={`glass-panel p-3 rounded-xl border ${tones[c.tone]} hover:bg-white/[0.03] transition-colors`}>
+          <div className="flex items-center gap-2 mb-1 opacity-80">{c.icon}<span className="text-[9px] font-black uppercase tracking-wider text-white/50">{c.label}</span></div>
+          <p className="text-xl font-[1000] italic">{c.value}</p>
+          <p className="text-white/30 text-[9px] font-bold truncate">{c.sub}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ChecksPanel({ checks, generatedAt }: { checks: any; generatedAt: string }) {
+  const rows = [
+    { name: 'Supabase (Postgres + Auth)', ok: checks.supabase.ok, detail: `${checks.supabase.ms} ms` },
+    { name: 'Stripe API', ok: checks.stripe.configured ? checks.stripe.ok : null, detail: checks.stripe.configured ? `${checks.stripe.ms} ms` : 'no STRIPE_SECRET_KEY' },
+    ...Object.entries(checks.keys as Record<string, boolean>).map(([k, v]) => ({ name: `Key: ${k}`, ok: v, detail: v ? 'set' : 'MISSING' })),
+  ];
+  return (
+    <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+      <div className="p-4 border-b border-white/5 flex items-center justify-between">
+        <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><Server size={14} className="text-emerald-400" /> Live checks</h3>
+        <span className="text-white/30 text-[10px]">{new Date(generatedAt).toLocaleTimeString('el-GR')}</span>
+      </div>
+      <div className="divide-y divide-white/5">
+        {rows.map((r, i) => (
+          <div key={i} className="px-4 py-2.5 flex items-center justify-between">
+            <p className="text-white text-xs font-bold">{r.name}</p>
+            <span className={`flex items-center gap-1.5 text-[9px] font-black uppercase px-2 py-1 rounded-md ${r.ok === null ? 'bg-white/5 text-white/40' : r.ok ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'}`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${r.ok === null ? 'bg-white/30' : r.ok ? 'bg-emerald-400' : 'bg-red-400'}`} /> {r.detail}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HealthTab({ health, formatDate, timeAgo }: any) {
+  if (!health) {
+    return <div className="glass-panel rounded-2xl border-red-500/20 p-6 text-red-400 text-sm font-bold">/api/admin/health δεν απάντησε. Δες τα Vercel logs.</div>;
+  }
+  const spendRows = Object.entries(health.ledger.spend30 as Record<string, { count: number; credits: number }>)
+    .sort((a, b) => a[1].credits - b[1].credits);
+  const earnRows = Object.entries(health.ledger.earn30 as Record<string, { count: number; credits: number }>)
+    .sort((a, b) => b[1].credits - a[1].credits);
+  const st = health.payments.stripe;
+  return (
+    <div className="space-y-6">
+      <HealthStrip health={health} onOpen={() => {}} />
+
+      {/* Errors */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5 flex items-center justify-between">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><AlertTriangle size={14} className={health.errors.last24h ? 'text-red-400' : 'text-emerald-400'} /> Σφάλματα (error_logs)</h3>
+          <span className="text-white/40 text-[10px] font-bold">{health.errors.last24h} / 24h · {health.errors.last7d} / 7d</span>
+        </div>
+        {health.errors.recent.length === 0 ? (
+          <p className="p-4 text-emerald-400 text-xs font-bold">Κανένα καταγεγραμμένο σφάλμα. 🎉</p>
+        ) : (
+          <div className="divide-y divide-white/5 max-h-96 overflow-y-auto custom-scrollbar">
+            {health.errors.recent.map((e: any) => (
+              <div key={e.id} className="px-4 py-3 hover:bg-white/[0.02]">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-red-300 text-xs font-bold font-mono truncate">{e.message}</p>
+                  <span className="text-white/30 text-[10px] shrink-0">{timeAgo(e.at)}</span>
+                </div>
+                <p className="text-white/30 text-[10px] mt-0.5 truncate">{e.component || '—'} · {e.page || '—'} · {e.user || 'guest'}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Ledger */}
+      <div className="grid lg:grid-cols-2 gap-4">
+        <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+          <div className="p-4 border-b border-white/5">
+            <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><TrendingDown size={14} className="text-red-400" /> Χρεώσεις 30 ημερών</h3>
+            <p className="text-white/30 text-[10px] mt-1">Από credit_transactions — ό,τι χρέωσε πραγματικά ο server.</p>
+          </div>
+          <div className="divide-y divide-white/5">
+            {spendRows.length === 0 && <p className="p-4 text-white/40 text-xs">Καμία χρέωση τις τελευταίες 30 ημέρες.</p>}
+            {spendRows.map(([a, v]) => (
+              <div key={a} className="px-4 py-2.5 flex items-center justify-between">
+                <p className="text-white text-xs font-bold">{label(a)} <span className="text-white/30 font-mono text-[10px]">{a}</span></p>
+                <p className="text-xs font-black"><span className="text-white/40">{v.count}×</span> <span className="text-red-400">{v.credits}⚡</span></p>
+              </div>
+            ))}
+            <div className="px-4 py-2.5 flex items-center justify-between bg-white/[0.02]">
+              <p className="text-white/60 text-xs font-black uppercase">Σύνολο</p>
+              <p className="text-red-400 text-xs font-black">−{health.ledger.totalSpent30}⚡</p>
+            </div>
+          </div>
+        </div>
+        <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+          <div className="p-4 border-b border-white/5">
+            <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><TrendingUp size={14} className="text-emerald-400" /> Πιστώσεις 30 ημερών</h3>
+            <p className="text-white/30 text-[10px] mt-1">Ανταμοιβές, δώρα, αγορές, επιστροφές.</p>
+          </div>
+          <div className="divide-y divide-white/5">
+            {earnRows.map(([a, v]) => (
+              <div key={a} className="px-4 py-2.5 flex items-center justify-between">
+                <p className="text-white text-xs font-bold">{label(a)} <span className="text-white/30 font-mono text-[10px]">{a}</span></p>
+                <p className="text-xs font-black"><span className="text-white/40">{v.count}×</span> <span className="text-emerald-400">+{v.credits}⚡</span></p>
+              </div>
+            ))}
+            <div className="px-4 py-2.5 flex items-center justify-between bg-white/[0.02]">
+              <p className="text-white/60 text-xs font-black uppercase">Σύνολο</p>
+              <p className="text-emerald-400 text-xs font-black">+{health.ledger.totalEarned30}⚡</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Top spenders + recent */}
+      <div className="grid lg:grid-cols-3 gap-4">
+        <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+          <div className="p-4 border-b border-white/5"><h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><Crown size={14} className="text-amber-400" /> Ξόδεψαν περισσότερα (30d)</h3></div>
+          <div className="divide-y divide-white/5">
+            {health.ledger.topSpenders.length === 0 && <p className="p-4 text-white/40 text-xs">—</p>}
+            {health.ledger.topSpenders.map((u: any) => (
+              <div key={u.userId} className="px-4 py-2.5 flex items-center justify-between">
+                <p className="text-white text-xs font-bold truncate">{u.name}</p>
+                <p className="text-amber-400 text-xs font-black">{u.credits}⚡</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="lg:col-span-2 glass-panel rounded-2xl border-white/5 overflow-hidden">
+          <div className="p-4 border-b border-white/5"><h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><Clock size={14} className="text-blue-400" /> Τελευταίες κινήσεις</h3></div>
+          <div className="divide-y divide-white/5 max-h-96 overflow-y-auto custom-scrollbar">
+            {health.ledger.recent.map((t: any, i: number) => (
+              <div key={i} className="px-4 py-2 flex items-center justify-between gap-3">
+                <p className="text-white/80 text-xs truncate"><span className="font-bold text-white">{t.user || 'guest'}</span> · {label(t.action)}{t.reason ? <span className="text-white/30"> · {t.reason}</span> : null}</p>
+                <p className={`text-xs font-black shrink-0 ${t.amount < 0 ? 'text-red-400' : 'text-emerald-400'}`}>{t.amount > 0 ? '+' : ''}{t.amount}⚡ <span className="text-white/30 font-bold">{timeAgo(t.at)}</span></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Payments */}
+      <div className="glass-panel rounded-2xl border-white/5 overflow-hidden">
+        <div className="p-4 border-b border-white/5 flex items-center justify-between">
+          <h3 className="text-sm font-black text-white uppercase italic flex items-center gap-2"><CreditCard size={14} className="text-orange-400" /> Πληρωμές</h3>
+          <span className="text-white/40 text-[10px] font-bold">Stripe: {st.paid} paid · €{st.revenue.toFixed(2)} · {st.open} open · {st.expired} expired</span>
+        </div>
+        {st.failedWebhookMatches > 0 && (
+          <div className="m-4 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs font-bold">
+            {st.failedWebhookMatches} πληρωμή/ές εμφανίζονται paid στο Stripe αλλά δεν υπάρχουν στον πίνακα purchases — ο γονιός πλήρωσε και το παιδί δεν πήρε credits. Έλεγξε το webhook και δώσε τα credits από τους Users.
+          </div>
+        )}
+        <div className="divide-y divide-white/5 max-h-80 overflow-y-auto custom-scrollbar">
+          {health.payments.recorded.length === 0 && <p className="p-4 text-white/40 text-xs">Καμία καταγεγραμμένη αγορά.</p>}
+          {health.payments.recorded.map((p: any, i: number) => (
+            <div key={i} className="px-4 py-2.5 flex items-center justify-between gap-3">
+              <p className="text-white text-xs font-bold truncate">{p.user || '—'} <span className="text-white/30 font-mono text-[10px]">{p.pack}</span></p>
+              <p className="text-xs font-black shrink-0"><span className="text-emerald-400">€{p.eur.toFixed(2)}</span> <span className="text-amber-400">+{p.credits}⚡</span> <span className={`ml-2 text-[9px] uppercase ${p.status === 'completed' || p.status === 'paid' ? 'text-emerald-400' : 'text-amber-400'}`}>{p.status}</span> <span className="text-white/30 ml-2">{formatDate(p.at)}</span></p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
