@@ -23,7 +23,7 @@ const withUnits = (g: SchoolGrade): SchoolGrade => {
   });
   for (const [sid, units] of Object.entries(skeleton) as [SubjectId, typeof skeleton[SubjectId]][]) {
     if (!units || subjects.some(s => s.id === sid)) continue;
-    if (!units.some(u => u.questions.length > 0)) continue;
+    if (!units.some(u => u.questions.length > 0 || (u.count ?? 0) > 0)) continue;
     subjects.push({ id: sid, ...SUBJECT_META[sid], questions: [], units });
   }
   return { ...g, subjects };

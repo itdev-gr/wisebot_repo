@@ -19,6 +19,8 @@ import { GraduationCap, ArrowLeft, Play, BookMarked, Star, Trophy, Lock } from '
 import QuizEngine, { getQuizProgress, getQuizStars, getQuizBest } from './QuizEngine';
 import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
 import { type SchoolUnit } from '../data/schoolTypes';
+import { loadGradeQuestions } from '../data/units/registry';
+import type { QuizQuestion } from '../types';
 import SchoolUnitMap, { playableUnits, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
@@ -47,8 +49,11 @@ const isExamUnlocked = (g: SchoolGrade) => g.subjects.every(s => subjectPlayed(g
 const hasDiploma = (g: SchoolGrade) => getQuizStars(examId(g.grade)) >= DIPLOMA_MIN_STARS;
 
 /** Mixed exam: shuffle every question of the grade (missions included), keep 12. */
-const buildExam = (g: SchoolGrade): SchoolSubject => {
-  const pool = g.subjects.flatMap(s => [...s.questions, ...playableUnits(s).flatMap(u => u.questions)]);
+const buildExam = (g: SchoolGrade, loaded: Record<string, QuizQuestion[]>): SchoolSubject => {
+  const pool = g.subjects.flatMap(s => [
+    ...s.questions,
+    ...playableUnits(s).flatMap(u => u.questions.length ? u.questions : loaded[`${g.grade}/${s.id}/${u.id}`] || []),
+  ]);
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
   return {
     id: 'exam',
@@ -105,6 +110,16 @@ export default function School({ lang }: SchoolProps) {
   const [activeGrade, setActiveGrade] = useState<SchoolGrade | null>(null);
   const [activeSubject, setActiveSubject] = useState<SchoolSubject | null>(null);
   const [activeUnit, setActiveUnit] = useState<SchoolUnit | null>(null);
+  // Mission questions arrive per grade, on demand (keeps the School chunk under the PWA limit).
+  const [unitQuestions, setUnitQuestions] = useState<Record<string, QuizQuestion[]>>({});
+  useEffect(() => {
+    if (!activeGrade) return;
+    let alive = true;
+    loadGradeQuestions(activeGrade.grade).then(q => { if (alive) setUnitQuestions(prev => ({ ...prev, ...q })); });
+    return () => { alive = false; };
+  }, [activeGrade]);
+  const questionsOf = (unit: SchoolUnit) =>
+    unit.questions.length ? unit.questions : (activeGrade ? unitQuestions[`${activeGrade.grade}/${activeSubject?.id}/${unit.id}`] : undefined) || [];
   const [saved, setSaved] = useState<Record<string, boolean>>({});
   const [, setTick] = useState(0); // re-read localStorage-derived stars/diplomas
   // Phone back gesture steps out one level (subject → grade → grade list) instead of leaving.
@@ -155,6 +170,14 @@ export default function School({ lang }: SchoolProps) {
 
   // ─── SCREEN 3b: MISSION QUIZ (unit-based subjects) ───────────────
   if (activeGrade && activeSubject && activeUnit) {
+    const qs = questionsOf(activeUnit);
+    if (qs.length === 0) {
+      return (
+        <div className="max-w-6xl mx-auto px-4 min-h-[50vh] flex items-center justify-center">
+          <p className="text-white/40 font-black text-xs uppercase tracking-widest animate-pulse">{lang === 'el' ? 'ΦΟΡΤΩΣΗ...' : 'LOADING...'}</p>
+        </div>
+      );
+    }
     return (
       <div className="max-w-6xl mx-auto px-4 min-h-full py-2 pb-4">
         <button
@@ -165,7 +188,7 @@ export default function School({ lang }: SchoolProps) {
         </button>
         <QuizEngine
           topic={`${activeUnit.emoji} ${activeUnit.name[lang]}`}
-          questions={activeUnit.questions}
+          questions={qs}
           onRestart={() => { setActiveUnit(null); refreshSaved(); }}
           lang={lang}
           categoryId={unitCatId(activeGrade.grade, activeSubject.id, activeUnit.id)}
@@ -292,7 +315,7 @@ export default function School({ lang }: SchoolProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: activeGrade.subjects.length * 0.06 }}
             disabled={!examUnlocked}
-            onClick={() => examUnlocked && setActiveSubject(buildExam(activeGrade))}
+            onClick={() => examUnlocked && setActiveSubject(buildExam(activeGrade, unitQuestions))}
             className={`group relative h-36 rounded-[2rem] overflow-hidden border text-left p-7 transition-all duration-300 ${
               examUnlocked
                 ? 'border-amber-400/40 bg-gradient-to-br from-amber-500/[0.12] to-orange-600/[0.08] backdrop-blur-xl hover:border-amber-400/70 hover:-translate-y-1 active:scale-[0.98] cursor-pointer'

@@ -22,7 +22,10 @@ export const unitCatId = (grade: number, subjectId: string, unitId: string) =>
 
 /** Units that actually have questions — the skeleton entries stay invisible until written. */
 export const playableUnits = (subject: SchoolSubject): SchoolUnit[] =>
-  (subject.units || []).filter(u => u.questions.length > 0);
+  (subject.units || []).filter(u => unitSize(u) > 0);
+
+/** Question count without forcing the grade's questions to load. */
+export const unitSize = (u: SchoolUnit) => u.questions.length || u.count || 0;
 
 /** Subject mastered when every playable mission has ≥2 stars (≥75%). */
 export const subjectMastered = (grade: number, subject: SchoolSubject): boolean => {
@@ -135,7 +138,7 @@ export default function SchoolUnitMap({ lang, grade, subject, onPlay }: Props) {
                   </div>
                   <div className="flex items-center gap-3 mt-1">
                     <StarRow stars={stars} />
-                    <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest">{unit.questions.length} {t.questions}</span>
+                    <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest">{unitSize(unit)} {t.questions}</span>
                   </div>
                 </div>
 

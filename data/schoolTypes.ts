@@ -11,6 +11,8 @@ export interface SchoolUnit {
   name: { el: string; en: string };
   emoji: string;
   questions: QuizQuestion[];
+  /** Number of questions when they are loaded lazily (data/units/registry.ts). */
+  count?: number;
 }
 
 /** One subject within a grade (e.g. Μαθηματικά for Γ' Δημοτικού). */

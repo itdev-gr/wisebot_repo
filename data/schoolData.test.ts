@@ -6,10 +6,12 @@
 import { describe, it, expect } from 'vitest';
 import { SCHOOL_CURRICULUM } from './schoolQuizData';
 import { CURRICULUM_UNITS, ALL_UNIT_KEYS } from './units/curriculum';
-import { UNIT_QUESTIONS } from './units/registry';
+import { UNIT_COUNTS, loadGradeQuestions } from './units/registry';
 import type { QuizQuestion } from '../types';
 
 const UNIT_SETS: Record<string, { id: string; questions: QuizQuestion[] }[]> = {};
+const questionsFor = async (gradeSubject: string, unitId: string): Promise<QuizQuestion[]> =>
+  (await loadGradeQuestions(Number(gradeSubject.split('/')[0])))[`${gradeSubject}/${unitId}`] || [];
 for (const [g, subs] of Object.entries(CURRICULUM_UNITS))
   for (const [sid, units] of Object.entries(subs)) UNIT_SETS[`${g}/${sid}`] = units || [];
 
@@ -43,8 +45,12 @@ describe('unit skeleton', () => {
     expect(ALL_UNIT_KEYS.length).toBe(212);
     expect(new Set(ALL_UNIT_KEYS).size).toBe(ALL_UNIT_KEYS.length);
   });
-  it('every registry entry points at a real unit', () => {
-    for (const key of Object.keys(UNIT_QUESTIONS)) expect(ALL_UNIT_KEYS, key).toContain(key);
+  it('every registry entry points at a real unit and its count matches the file', async () => {
+    for (const key of Object.keys(UNIT_COUNTS)) expect(ALL_UNIT_KEYS, key).toContain(key);
+    for (const g of [1, 2, 3, 4, 5, 6]) {
+      const loaded = await loadGradeQuestions(g);
+      for (const [key, qs] of Object.entries(loaded)) expect(UNIT_COUNTS[key], key).toBe(qs.length);
+    }
   });
 });
 
@@ -54,25 +60,25 @@ describe('curriculum units', () => {
       expect(new Set(units.map(u => u.id)).size, name).toBe(units.length);
     }
   });
-  it('every unit question is well-formed and has an explanation in both languages', () => {
-    for (const [name, units] of Object.entries(UNIT_SETS)) for (const u of units) u.questions.forEach((q, i) => {
+  it('every unit question is well-formed and has an explanation in both languages', async () => {
+    for (const [name, units] of Object.entries(UNIT_SETS)) for (const u of units) (await questionsFor(name, u.id)).forEach((q, i) => {
       const where = `${name} / ${u.id} #${i + 1}`;
       checkQuestion(q, where);
       expect(q.explanation?.el?.trim(), `${where}: missing Greek explanation`).toBeTruthy();
       expect(q.explanation?.en?.trim(), `${where}: missing English explanation`).toBeTruthy();
     });
   });
-  it('a filled unit has 15–20 questions (CONTENT-PLAN target)', () => {
+  it('a filled unit has 15–20 questions (CONTENT-PLAN target)', async () => {
     for (const [name, units] of Object.entries(UNIT_SETS)) for (const u of units) {
-      if (u.questions.length === 0) continue; // skeleton, not yet written
-      expect(u.questions.length, `${name} / ${u.id}`).toBeGreaterThanOrEqual(15);
-      expect(u.questions.length, `${name} / ${u.id}`).toBeLessThanOrEqual(20);
+      const n = (await questionsFor(name, u.id)).length;
+      if (n === 0) continue; // skeleton, not yet written
+      expect(n, `${name} / ${u.id}`).toBeGreaterThanOrEqual(15);
+      expect(n, `${name} / ${u.id}`).toBeLessThanOrEqual(20);
     }
   });
-  it('multiplication sample: "a × b" questions have the arithmetically correct answer marked', () => {
-    const unit = CURRICULUM_UNITS[3].math!.find(u => u.id === 'multiplication')!;
+  it('multiplication sample: "a × b" questions have the arithmetically correct answer marked', async () => {
     let checked = 0;
-    for (const q of unit.questions) {
+    for (const q of await questionsFor('3/math', 'multiplication')) {
       const m = /^Πόσο κάνει (\d+) × (\d+);$/.exec(q.q.el);
       if (!m) continue;
       const expected = Number(m[1]) * Number(m[2]);
