@@ -13,6 +13,7 @@
  * - Απολυτήριο (diploma 🎓) per grade for scoring ≥75% on the exam
  */
 import React, { useState, useEffect } from 'react';
+import { useBackCloses } from '../utils/useBackCloses';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { GraduationCap, ArrowLeft, Play, BookMarked, Star, Trophy, Lock } from 'lucide-react';
 import QuizEngine, { getQuizProgress, getQuizStars, getQuizBest } from './QuizEngine';
@@ -70,6 +71,9 @@ export default function School({ lang }: SchoolProps) {
   const [activeSubject, setActiveSubject] = useState<SchoolSubject | null>(null);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
   const [, setTick] = useState(0); // re-read localStorage-derived stars/diplomas
+  // Phone back gesture steps out one level (subject → grade → grade list) instead of leaving.
+  const backFromGrade = useBackCloses(activeGrade !== null, () => setActiveGrade(null));
+  const backFromSubject = useBackCloses(activeSubject !== null, () => { setActiveSubject(null); refreshSaved(); });
 
   // Track which subject quizzes have saved (in-progress) state → "CONTINUE" badge
   const refreshSaved = () => {
@@ -109,7 +113,7 @@ export default function School({ lang }: SchoolProps) {
     return (
       <div className="max-w-6xl mx-auto px-4 min-h-full py-2 pb-4">
         <button
-          onClick={() => { setActiveSubject(null); refreshSaved(); }}
+          onClick={backFromSubject}
           className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-3 transition-colors"
         >
           <ArrowLeft size={16} /> {t.backSubjects}
@@ -133,7 +137,7 @@ export default function School({ lang }: SchoolProps) {
     return (
       <div className="max-w-5xl mx-auto px-4 min-h-full py-8 pb-32">
         <button
-          onClick={() => setActiveGrade(null)}
+          onClick={backFromGrade}
           className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-6 transition-colors"
         >
           <ArrowLeft size={16} /> {t.backGrades}

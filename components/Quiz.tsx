@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useBackCloses } from '../utils/useBackCloses';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import {
   BookOpen, Microscope, Map, Medal, Anchor, Rocket,
@@ -29,6 +30,9 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
   const [challengeData, setChallengeData] = useState<{ from: string; score: number } | null>(null);
   // Track which categories have saved progress (for showing CONTINUE badge)
   const [savedCategories, setSavedCategories] = useState<Record<string, number>>({});
+  const closeQuiz = () => { setActiveQuiz(null); setChallengeData(null); refreshSavedProgress(); };
+  // Phone back gesture closes the quiz instead of leaving the room.
+  const goBack = useBackCloses(activeQuiz !== null, closeQuiz);
 
   // Check for saved progress across all categories
   const refreshSavedProgress = () => {
@@ -98,7 +102,7 @@ export default function Quiz({ lang }: { lang: 'el' | 'en' }) {
             exit={{ opacity: 0, x: -50 }}
           >
             <button
-              onClick={() => { setActiveQuiz(null); setChallengeData(null); refreshSavedProgress(); }}
+              onClick={goBack}
               className="flex items-center gap-2 text-white/50 hover:text-white font-bold uppercase tracking-widest text-xs mb-3 transition-colors"
             >
               <ArrowLeft size={16} /> {t.back}
