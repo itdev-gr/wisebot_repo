@@ -5,15 +5,13 @@
  */
 import { describe, it, expect } from 'vitest';
 import { SCHOOL_CURRICULUM } from './schoolQuizData';
-import {
-  GRADE3_MATH_UNITS, GRADE3_GREEK_UNITS, GRADE3_SCIENCE_UNITS, GRADE3_HISTORY_UNITS, GRADE3_ENGLISH_UNITS,
-} from './schoolGrade3Units';
+import { CURRICULUM_UNITS, ALL_UNIT_KEYS } from './units/curriculum';
+import { UNIT_QUESTIONS } from './units/registry';
 import type { QuizQuestion } from '../types';
 
-const UNIT_SETS = {
-  'Γ math': GRADE3_MATH_UNITS, 'Γ greek': GRADE3_GREEK_UNITS, 'Γ science': GRADE3_SCIENCE_UNITS,
-  'Γ history': GRADE3_HISTORY_UNITS, 'Γ english': GRADE3_ENGLISH_UNITS,
-};
+const UNIT_SETS: Record<string, { id: string; questions: QuizQuestion[] }[]> = {};
+for (const [g, subs] of Object.entries(CURRICULUM_UNITS))
+  for (const [sid, units] of Object.entries(subs)) UNIT_SETS[`${g}/${sid}`] = units || [];
 
 function checkQuestion(q: QuizQuestion, where: string) {
   expect(q.q.el.trim(), `${where}: empty Greek question`).not.toBe('');
@@ -40,7 +38,17 @@ describe('school curriculum (flat pools)', () => {
   });
 });
 
-describe('Γ΄ Δημοτικού units', () => {
+describe('unit skeleton', () => {
+  it('has 212 units with unique keys', () => {
+    expect(ALL_UNIT_KEYS.length).toBe(212);
+    expect(new Set(ALL_UNIT_KEYS).size).toBe(ALL_UNIT_KEYS.length);
+  });
+  it('every registry entry points at a real unit', () => {
+    for (const key of Object.keys(UNIT_QUESTIONS)) expect(ALL_UNIT_KEYS, key).toContain(key);
+  });
+});
+
+describe('curriculum units', () => {
   it('unit ids are unique within a subject', () => {
     for (const [name, units] of Object.entries(UNIT_SETS)) {
       expect(new Set(units.map(u => u.id)).size, name).toBe(units.length);
@@ -62,7 +70,7 @@ describe('Γ΄ Δημοτικού units', () => {
     }
   });
   it('multiplication sample: "a × b" questions have the arithmetically correct answer marked', () => {
-    const unit = GRADE3_MATH_UNITS.find(u => u.id === 'multiplication')!;
+    const unit = CURRICULUM_UNITS[3].math!.find(u => u.id === 'multiplication')!;
     let checked = 0;
     for (const q of unit.questions) {
       const m = /^Πόσο κάνει (\d+) × (\d+);$/.exec(q.q.el);
