@@ -5,18 +5,36 @@ MacBook had no toolchain and no local project context.
 
 ---
 
-## ⚡ STATUS 24 Αυγούστου 2026 (βράδυ) — WiseBot Journey step 1: server-side progress
+## ⚡ STATUS 25 Αυγούστου 2026 (ξημερώματα) — SEO overhaul live + Journey step 1 merged
 
-**Open: PR #29 `feat/quiz-best-cloud-sync`** (typecheck + 42/42 tests green, for the owner's
-say-so — do not merge). First infrastructure step of the Journey from PRODUCT-VISION.md:
-the child's quiz best runs (`wb_quiz_best_*`, School stars/Master/diplomas) now sync to a
-new `quiz_best` Supabase table through the existing syncService pattern.
+On the owner's say-so, **PR #32 (SEO) and PR #29 (server-side progress) are merged and
+live on wisebot.gr**; the `quiz_best` migration was applied to Supabase via MCP (advisors
+clean). #17 (voice sampler) and #30 (real Hero Market) also merged today by other sessions.
+
+**PR #32 — SEO/positioning** (three commits):
+- Fixed: `/school` had no PAGE_META entry — it served the home meta with a canonical to `/`
+  and was absent from sitemap/robots. Google's verdict for it was literally «Discovered —
+  currently not indexed». Now: full meta + Course/FAQ JSON-LD, prerendered page, sitemap.
+- Repositioned per PRODUCT-VISION.md: title/OG/JSON-LD/noscript and the landing hero are now
+  «Οι Ιδέες σου Γίνονται Πραγματικότητα» (maker academy), not «Το Διάβασμα Έγινε Παιχνίδι».
+  Removed the fabricated `aggregateRating` 4.8/156 (Google guidelines risk).
+- New: 6 per-grade pages `/askiseis-<τάξη>-dimotikou` targeting «ασκήσεις Χ' δημοτικού»
+  queries, generated from the curriculum skeleton (`components/SchoolGradeSEOPage.tsx`),
+  prerendered + in sitemap (now 25 URLs). Slugs duplicated in App.tsx / generator / sitemap.
+- **GSC (access via the owner's Chrome + Claude extension works):** baseline over 16 months
+  was 51 clicks (40 branded), 9 queries total, 8 pages indexed. On 23/8 late night the new
+  sitemap was resubmitted (Success, 25 discovered) and indexing was requested for /school +
+  all 6 grade pages («Indexing requested» confirmed each). Check Coverage again ~end of week.
+- Owner offered Instagram/Facebook/TikTok links for the Organization `sameAs` — not yet
+  provided; small follow-up when they arrive.
+
+**Journey step 1 (PR #29, merged, migration applied):** the child's quiz best runs sync to
+a new `quiz_best` Supabase table (`wb_quiz_best_*` keys — School stars/Master/diplomas)
+through the existing syncService pattern.
 
 - **Merge rule enforced in the database**: a `BEFORE UPDATE` trigger only accepts a strictly
   better score/total ratio — no client can ever lower a best run. RLS: own rows only, no
-  delete. Migration: `supabase/migrations/20260824220000_quiz_best_sync.sql` —
-  **NOT yet applied to Supabase**; apply it (dashboard/CLI/MCP) before or with the merge.
-  Until then pushes fail quietly (console warn) and everything behaves as today.
+  delete. Migration: `supabase/migrations/20260824220000_quiz_best_sync.sql` — applied.
 - Sync points: login (`SyncBridge` in AuthContext), each improved run (QuizEngine
   `saveQuizBest`, fire-and-forget), and Parent Dashboard mount (`ParentSchoolProgress`
   pulls cloud runs first — the parent now sees progress from other devices; its copy
