@@ -23,6 +23,42 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://wisebot.gr/askiseis-a-dimotikou</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wisebot.gr/askiseis-b-dimotikou</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wisebot.gr/askiseis-g-dimotikou</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wisebot.gr/askiseis-d-dimotikou</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wisebot.gr/askiseis-e-dimotikou</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://wisebot.gr/askiseis-st-dimotikou</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://wisebot.gr/academy</loc>
     <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
