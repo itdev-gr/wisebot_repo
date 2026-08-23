@@ -360,14 +360,15 @@ export default function TacticalFootball({ lang, onBack }: TacticalFootballProps
       const opponents = state.entities.filter(e => e.team === 'opponent');
       
       // AI Logic: Find closest to ball (excluding goalie usually, unless ball is close)
-      let bestUnit = null;
+      // for..of (not forEach) so TypeScript sees the assignment and narrows bestUnit below.
+      let bestUnit: Entity | null = null;
       let minDist = Infinity;
 
-      opponents.forEach(u => {
-          if (u.isGoalie) return; // Basic AI doesn't shoot with goalie
+      for (const u of opponents) {
+          if (u.isGoalie) continue; // Basic AI doesn't shoot with goalie
           const d = Math.hypot(u.x - ball.x, u.y - ball.y);
           if(d < minDist) { minDist = d; bestUnit = u; }
-      });
+      }
 
       if (bestUnit) {
           const dx = ball.x - bestUnit.x;
