@@ -435,7 +435,7 @@ export const EbookQuiz: React.FC<EbookQuizProps> = ({
               const isCorrect = idx === questions[currentQuestion].correct;
 
               let btnStyle = "bg-white/70 border-2 border-amber-800/20 text-amber-950 hover:bg-white hover:border-amber-600/40 shadow-sm";
-              let icon = null;
+              let icon: React.ReactNode = null;
 
               if (isAnswerChecked) {
                  if (isCorrect) {

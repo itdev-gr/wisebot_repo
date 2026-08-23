@@ -71,7 +71,7 @@ export default function HeroSlingshot({ lang, onBack }: HeroSlingshotProps) {
   }, []);
 
   const initGame = () => {
-    const grid = [];
+    const grid: { x: number; y: number; type: number; row: number; col: number }[] = [];
     // Generate initial grid (top 5 rows)
     for (let r = 0; r < 5; r++) {
         for (let c = 0; c < (r % 2 === 0 ? COLS : COLS - 1); c++) {

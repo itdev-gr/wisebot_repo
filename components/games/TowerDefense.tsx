@@ -277,13 +277,14 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
         // Find closest enemy in range
         let closest: Enemy | null = null;
         let closestDist = Infinity;
-        g.enemies.forEach(enemy => {
+        // for..of (not forEach) so TypeScript sees the assignment and narrows closest below.
+        for (const enemy of g.enemies) {
           const d = dist(tx, ty, enemy.x, enemy.y);
           if (d < range && d < closestDist) {
             closest = enemy;
             closestDist = d;
           }
-        });
+        }
 
         if (closest) {
           tower.cooldown = Math.floor(tData.fireRate / (1 + tower.level * 0.3));

@@ -739,7 +739,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
             let borderClass = 'border-white/[0.08]';
             let bgClass = 'hover:bg-white/[0.06] hover:border-white/20';
             let textClass = 'text-white/80';
-            let icon = null;
+            let icon: React.ReactNode = null;
 
             if (showExplanation) {
               if (idx === currentQuestion.correct) {
