@@ -298,32 +298,50 @@ export async function loadStaticAudio(
   return null;
 }
 
+/** Per-word timings for a narrated page: `words[i] = [start, end]` in seconds, where
+ *  `i` indexes `text.split(/\s+/).filter(Boolean)` of the page's text. */
+export interface StaticNarration {
+  url: string;
+  words: number[][] | null;
+}
+
+// Pages that have a recording (missing pages are re-checked: a HEAD is cheap and
+// the recordings ship with deploys, so a null today may be a file tomorrow).
+const narrationCache = new Map<string, StaticNarration>();
+
 /**
- * Check if a pre-generated static audio file exists for an ebook page.
- * Returns the URL if found, null otherwise.
- * Files are at: /audio/ebooks/book-{bookId}-page-{page}-{lang}.mp3
+ * Real narration recorded for an ebook page (the owner's children reading), with
+ * optional word timings for the read-along highlight.
+ * Files: /audio/ebooks/book-{bookId}-page-{page}-{lang}.m4a (+ .json timings)
+ * Produced by scripts/ebook-narration.md. Returns null when the page has none,
+ * in which case the reader falls back to cloud/browser TTS.
  */
 export async function loadStaticEbookAudio(
   bookId: number,
   page: number,
   lang: 'el' | 'en'
-): Promise<string | null> {
-  const memKey = `static-ebook:${bookId}:${page}:${lang}`;
-  const memHit = memCache.get(memKey);
-  if (memHit) return memHit;
+): Promise<StaticNarration | null> {
+  const memKey = `${bookId}:${page}:${lang}`;
+  if (narrationCache.has(memKey)) return narrationCache.get(memKey)!;
 
-  const url = `/audio/ebooks/book-${bookId}-page-${page}-${lang}.mp3`;
-
+  const base = `/audio/ebooks/book-${bookId}-page-${page}-${lang}`;
   try {
-    const res = await fetch(url, { method: 'HEAD' });
-    if (res.ok) {
-      memCacheSet(memKey, url);
-      return url;
-    }
+    const res = await fetch(`${base}.m4a`, { method: 'HEAD' });
+    if (!res.ok) return null;
+    let words: number[][] | null = null;
+    try {
+      const t = await fetch(`${base}.json`);
+      if (t.ok) {
+        const data = await t.json();
+        if (Array.isArray(data?.words)) words = data.words;
+      }
+    } catch { /* narration without timings still plays */ }
+    const result: StaticNarration = { url: `${base}.m4a`, words };
+    narrationCache.set(memKey, result);
+    return result;
   } catch {
-    // File doesn't exist
+    return null;
   }
-  return null;
 }
 
 // ─── Multi-chunk support (for long texts) ────────────────────────

@@ -63,9 +63,15 @@ const bookImporters: Record<number, () => Promise<{ default?: any; [key: string]
   34: () => import('../data/bookData_34'),
 };
 
-// Static narration mp3s (/audio/ebooks) were recorded for the pre-2026-07 page
-// texts. Re-enable after regenerating them for the enriched books.
-const STATIC_AUDIO_READY = false;
+// Real narration (the owner's children reading, /audio/ebooks/book-N-page-M-el.m4a)
+// is preferred whenever a page has it; see scripts/ebook-narration.md for how a
+// recording becomes a page with read-along word timings.
+
+/** Which word of a narrated page is being spoken, by index into `text.split(/\s+/)`. */
+export interface NarrationApi {
+  /** Jump playback to the start of word `i` (read-along tap). */
+  seekWord: (i: number) => void;
+}
 
 const bookCache = new Map<number, any[]>();
 
@@ -104,9 +110,14 @@ interface BookTTSPlayerProps {
   onToggleContinuous?: () => void;
   /** Fires when playback finishes naturally (not on stop/pause) */
   onPlaybackEnd?: () => void;
+  /** Read-along: the index of the word being spoken (-1 = none). Only fires for pages
+   *  with real narration + timings. */
+  onActiveWord?: (i: number) => void;
+  /** Read-along: set while a timed narration is loaded, so the page can seek on tap. */
+  narrationApiRef?: React.MutableRefObject<NarrationApi | null>;
 }
 
-function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum, autoPlay, continuous, onToggleContinuous, onPlaybackEnd }: BookTTSPlayerProps) {
+function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum, autoPlay, continuous, onToggleContinuous, onPlaybackEnd, onActiveWord, narrationApiRef }: BookTTSPlayerProps) {
   const paragraphs = useMemo(() => {
     if (htmlContent) return htmlToParagraphs(htmlContent);
     return textContent.split('\n\n').filter(p => p.trim().length > 0);
@@ -127,6 +138,64 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const chunkUrlsRef = useRef<string[]>([]);
+  // Read-along: per-word [start, end] for the loaded real narration, or null.
+  const wordTimesRef = useRef<number[][] | null>(null);
+  const [isRealVoice, setIsRealVoice] = useState(false);
+  const activeWordRef = useRef(-1);
+  const rafRef = useRef(0);
+  const onActiveWordRef = useRef(onActiveWord);
+  useEffect(() => { onActiveWordRef.current = onActiveWord; }, [onActiveWord]);
+
+  const setActiveWord = useCallback((i: number) => {
+    if (activeWordRef.current === i) return;
+    activeWordRef.current = i;
+    onActiveWordRef.current?.(i);
+  }, []);
+
+  // Follow the audio clock while a timed narration plays. rAF (not `timeupdate`,
+  // which fires ~4×/s) keeps the highlight on the word, not a beat behind it.
+  const stopFollowing = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = 0;
+  }, []);
+  const syncActiveWord = useCallback(() => {
+    const audio = audioRef.current;
+    const times = wordTimesRef.current;
+    if (!audio || !times) { setActiveWord(-1); return false; }
+    const t = audio.currentTime;
+    // Binary search for the last word whose start <= t.
+    let lo = 0, hi = times.length - 1, idx = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (times[mid][0] <= t) { idx = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    setActiveWord(idx);
+    return !audio.paused && !audio.ended;
+  }, [setActiveWord]);
+  const follow = useCallback(() => {
+    stopFollowing();
+    const tick = () => { rafRef.current = syncActiveWord() ? requestAnimationFrame(tick) : 0; };
+    rafRef.current = requestAnimationFrame(tick);
+    // rAF stops in a background tab / locked phone; `timeupdate` (~4×/s) keeps the
+    // highlight roughly in place there and the loop resumes on return.
+    if (audioRef.current) audioRef.current.ontimeupdate = () => { if (!rafRef.current) follow(); else syncActiveWord(); };
+  }, [syncActiveWord, stopFollowing]);
+
+  // Expose seeking to the page for word taps; cleared when this player goes away.
+  useEffect(() => {
+    if (!narrationApiRef) return;
+    narrationApiRef.current = {
+      seekWord: (i: number) => {
+        const audio = audioRef.current;
+        const times = wordTimesRef.current;
+        if (!audio || !times || !times[i]) return;
+        audio.currentTime = Math.max(0, times[i][0] - 0.05);
+        if (audio.paused) { audio.play().catch(() => {}); setIsPaused(false); setIsPlaying(true); }
+        follow();
+      },
+    };
+    return () => { narrationApiRef.current = null; };
+  }, [narrationApiRef, follow]);
   const currentChunkRef = useRef(0);
   const [voiceReady, setVoiceReady] = useState(false);
   const [voiceLabel, setVoiceLabelState] = useState('');
@@ -170,12 +239,16 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
       window.speechSynthesis.cancel();
       chromeFixCleanupRef.current?.();
       isPlayingRef.current = false;
+      stopFollowing();
+      wordTimesRef.current = null;
+      setActiveWord(-1);
     };
-  }, [textContent, htmlContent]);
+  }, [textContent, htmlContent, stopFollowing, setActiveWord]);
 
   const playCloudChunk = useCallback((idx: number) => {
     if (idx >= chunkUrlsRef.current.length) {
       setIsPlaying(false); setIsPaused(false);
+      stopFollowing(); setActiveWord(-1);
       firePlaybackEnd();
       return;
     }
@@ -187,11 +260,15 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     audio.playbackRate = rate;
     audioRef.current = audio;
     currentChunkRef.current = idx;
-    audio.onplay = () => { if (!playStartedAtRef.current) playStartedAtRef.current = Date.now(); setIsPlaying(true); };
+    audio.onplay = () => {
+      if (!playStartedAtRef.current) playStartedAtRef.current = Date.now();
+      setIsPlaying(true);
+      if (wordTimesRef.current) follow();
+    };
     audio.onended = () => playCloudChunk(idx + 1);
     audio.onerror = () => playCloudChunk(idx + 1);
     audio.play().catch(() => setIsPlaying(false));
-  }, [rate, firePlaybackEnd]);
+  }, [rate, firePlaybackEnd, follow, stopFollowing, setActiveWord]);
 
   const speakParagraph = useCallback((idx: number) => {
     if (idx >= paragraphs.length) {
@@ -214,23 +291,26 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
 
   const handlePlay = useCallback(async () => {
     if (isPaused) {
-      if (audioRef.current) audioRef.current.play();
+      if (audioRef.current) { audioRef.current.play(); if (wordTimesRef.current) follow(); }
       else { window.speechSynthesis.resume(); isPlayingRef.current = true; }
       setIsPaused(false); setIsPlaying(true); return;
     }
     // Fresh run — re-arm the end-of-playback guard for replays of this page
     endedOnceRef.current = false;
     playStartedAtRef.current = 0;
-    if (STATIC_AUDIO_READY && bookId && pageNum) {
+    wordTimesRef.current = null; setIsRealVoice(false);
+    if (bookId && pageNum) {
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       try {
-        const staticUrl = await loadStaticEbookAudio(bookId, pageNum, lang);
-        if (staticUrl) {
+        const narration = await loadStaticEbookAudio(bookId, pageNum, lang);
+        if (narration) {
           setTtsMode('cloud');
-          chunkUrlsRef.current = [staticUrl];
+          setIsRealVoice(true);
+          wordTimesRef.current = narration.words;
+          chunkUrlsRef.current = [narration.url];
           playCloudChunk(0); return;
         }
-      } catch { /* no static file */ }
+      } catch { /* no recording for this page */ }
     }
     if (ttsMode === 'cloud') {
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
@@ -246,7 +326,7 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     window.speechSynthesis.cancel();
     setIsPlaying(true); setIsPaused(false); isPlayingRef.current = true;
     setTimeout(() => speakParagraph(0), 100);
-  }, [isPaused, ttsMode, plainText, lang, bookId, pageNum, playCloudChunk, speakParagraph]);
+  }, [isPaused, ttsMode, plainText, lang, bookId, pageNum, playCloudChunk, speakParagraph, follow]);
 
   // Continuous-reading chain: when the page remounts with autoPlay, start
   // narrating after a short beat (gives the page-turn animation time to land).
@@ -262,15 +342,17 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
   const handlePause = useCallback(() => {
     if (audioRef.current) audioRef.current.pause();
     else { window.speechSynthesis.pause(); isPlayingRef.current = false; }
+    stopFollowing();
     setIsPaused(true); setIsPlaying(false);
-  }, []);
+  }, [stopFollowing]);
 
   const handleStop = useCallback(() => {
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
     window.speechSynthesis.cancel(); chromeFixCleanupRef.current?.();
+    stopFollowing(); setActiveWord(-1); setIsRealVoice(false);
     setIsPlaying(false); setIsPaused(false); setCurrentIdx(-1);
     isPlayingRef.current = false; currentIdxRef.current = -1;
-  }, []);
+  }, [stopFollowing, setActiveWord]);
 
   const handleSpeedToggle = useCallback(() => {
     setRate(r => {
@@ -331,12 +413,55 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
           <Repeat size={11} /> {lang === 'el' ? 'ΣΥΝΕΧΟΜΕΝΗ' : 'AUTO'}
         </button>
       )}
+      {active && isRealVoice && (
+        <span className="flex items-center gap-1 text-amber-900/60 text-[9px] font-bold uppercase tracking-widest ml-auto">
+          🎙️ {lang === 'el' ? 'Διαβάζουν παιδιά' : 'Read by kids'}
+        </span>
+      )}
       {!active && !isLoading && (
         <span className="flex items-center gap-1 text-amber-800/25 text-[9px] font-bold uppercase tracking-widest ml-auto">
           {isCloud ? <><Sparkles size={8} /> AI</> : voiceLabel || 'Device'}
         </span>
       )}
     </div>
+  );
+}
+
+/**
+ * Page text with read-along highlight. Words are split exactly like the timing
+ * files (`text.split(/\s+/)`, empty tokens dropped) so index i here is word i there.
+ * Paragraphs keep their look; only the spoken word gets the marker. Tapping a word
+ * seeks the narration to it.
+ */
+function NarratedText({ text, activeWord, onWordTap }: { text: string; activeWord: number; onWordTap?: (i: number) => void }) {
+  const paragraphs = useMemo(() => {
+    let index = 0;
+    return text.split('\n\n').filter(p => p.trim().length > 0).map(p => {
+      const words = p.split(/\s+/).filter(Boolean).map(w => ({ w, i: index++ }));
+      return { words, quote: p.startsWith('«') || p.startsWith('"') };
+    });
+  }, [text]);
+  const interactive = !!onWordTap;
+  return (
+    <>
+      {paragraphs.map((p, pIdx) => (
+        <p key={pIdx} className={p.quote ? 'text-amber-900 font-semibold' : ''}>
+          {p.words.map(({ w, i }, k) => (
+            <React.Fragment key={i}>
+              {k > 0 && ' '}
+              <span
+                onClick={interactive ? () => onWordTap(i) : undefined}
+                className={`rounded-[3px] transition-colors duration-100 ${interactive ? 'cursor-pointer' : ''} ${
+                  i === activeWord ? 'bg-amber-400/60 text-amber-950 shadow-[0_0_0_2px_rgba(251,191,36,0.35)]' : ''
+                }`}
+              >
+                {w}
+              </span>
+            </React.Fragment>
+          ))}
+        </p>
+      ))}
+    </>
   );
 }
 
@@ -392,6 +517,9 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   const [selectedBookId, setSelectedBookId] = useState<number | string | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  // Read-along: which word the real narration is on (-1 = none / not narrated).
+  const [activeWord, setActiveWord] = useState(-1);
+  const narrationApiRef = useRef<NarrationApi | null>(null);
   // Continuous reading: audio ends → auto-advance page → auto-play next page
   const [continuousMode, setContinuousMode] = useState(false);
   const [autoPlayPage, setAutoPlayPage] = useState(false);
@@ -706,15 +834,11 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
 
                               {/* Text content */}
                               <div className="space-y-4 text-amber-950/85 leading-[1.9] md:leading-[2]" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '1.05rem' }}>
-                                {currentStructuredPage.text[lang].split('\n\n').map((paragraph, pIdx) => (
-                                  <p key={pIdx} className={
-                                    paragraph.startsWith('«') || paragraph.startsWith('"')
-                                      ? 'text-amber-900 font-semibold'
-                                      : ''
-                                  }>
-                                    {paragraph}
-                                  </p>
-                                ))}
+                                <NarratedText
+                                  text={currentStructuredPage.text[lang]}
+                                  activeWord={activeWord}
+                                  onWordTap={narrationApiRef.current ? (i) => narrationApiRef.current?.seekWord(i) : undefined}
+                                />
                               </div>
 
                               {/* Bottom page ornament */}
@@ -854,6 +978,8 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
                       autoPlay={autoPlayPage}
                       continuous={continuousMode}
                       onToggleContinuous={() => setContinuousMode(c => !c)}
+                      onActiveWord={setActiveWord}
+                      narrationApiRef={narrationApiRef}
                       onPlaybackEnd={() => {
                         if (continuousMode && !isLastPage) {
                           setAutoPlayPage(true);
