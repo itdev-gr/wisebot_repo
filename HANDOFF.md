@@ -5,6 +5,20 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 25 Αυγούστου 2026 (απόγευμα) — Journey Νο3: Maker Levels + Passport
+
+**Open: PR #34 `feat/maker-levels-passport`** (CI green, for the owner's say-so).
+Dreamer→Explorer→Creator→Maker→Inventor→Founder→Legend from total XP.
+`data/makerLevels.ts` is the single source of truth (thresholds/taglines tune there);
+the numeric `wb_level` counter is untouched. `/passport` (lazy, SemiPublicRoute): tier +
+ladder + portfolio from EconomyContext stats and the School `wb_quiz_best_*` keys — shows
+only, awards nothing. `MakerLevelUp` overlay celebrates tier-ups; `wb_maker_level` is
+written before showing (double-run safe) and the first run only baselines. Entry points:
+Dashboard header tier pill + the wallet level chip. 10 tests pin the ladder invariants
+(suite 56/56). Verified in dev: desktop + mobile, celebration flow, both entry points.
+
+---
+
 ## ⚡ STATUS 25 Αυγούστου 2026 (ξημερώματα) — SEO overhaul live + Journey step 1 merged
 
 On the owner's say-so, **PR #32 (SEO) and PR #29 (server-side progress) are merged and
