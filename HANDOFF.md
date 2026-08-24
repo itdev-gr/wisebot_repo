@@ -25,8 +25,8 @@ clean). #17 (voice sampler) and #30 (real Hero Market) also merged today by othe
   was 51 clicks (40 branded), 9 queries total, 8 pages indexed. On 23/8 late night the new
   sitemap was resubmitted (Success, 25 discovered) and indexing was requested for /school +
   all 6 grade pages («Indexing requested» confirmed each). Check Coverage again ~end of week.
-- Owner offered Instagram/Facebook/TikTok links for the Organization `sameAs` — not yet
-  provided; small follow-up when they arrive.
+- Socials in Organization `sameAs` since PR #33 (merged, live): Instagram wisebot.gr,
+  Facebook page 100094647660224, TikTok @wisebotgr, YouTube @wisebotfriends.
 
 **Journey step 1 (PR #29, merged, migration applied):** the child's quiz best runs sync to
 a new `quiz_best` Supabase table (`wb_quiz_best_*` keys — School stars/Master/diplomas)
