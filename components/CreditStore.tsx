@@ -82,6 +82,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
               })
             ).catch(console.error);
           }
+          import('../utils/analytics').then(({ trackPurchase }) => trackPurchase(result.credits)).catch(() => {});
           showNotification('🎉', lang === 'el'
             ? `+${result.credits} Credits! Ευχαριστούμε!`
             : `+${result.credits} Credits! Thank you!`);
@@ -113,6 +114,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
 
     // Parent is verified — proceed to checkout
     setBuyingPack(packId);
+    import('../utils/analytics').then(({ trackBeginCheckout }) => trackBeginCheckout(packId)).catch(() => {});
     try {
       const { url } = await backendStripe.checkout(packId);
       if (url) window.location.href = url;

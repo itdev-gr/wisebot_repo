@@ -663,6 +663,9 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
   // because React StrictMode calls state updater functions twice in development.
   const trackAction = useCallback((action: ActionType) => {
     completeDailyMission(action);
+    // GA4 funnel event (consent-gated stub — see utils/analytics.ts). Fire-and-forget,
+    // touches no credits/stats; the idempotence guards live at the call sites as before.
+    import('../utils/analytics').then(({ track }) => track('wb_' + action.toLowerCase())).catch(() => {});
 
     // 1) Compute new stats & badges from current state (pure computation via refs)
     const newStats = { ...statsRef.current };
