@@ -43,6 +43,7 @@ import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 import { isUnlocked, unlockHint } from '../utils/unlocks';
+import { makerLevelForXp } from '../data/makerLevels';
 import GiftModal from './GiftModal';
 import GiftInbox, { useGiftCount } from './GiftInbox';
 
@@ -611,9 +612,20 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
               loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent flex flex-col justify-end p-6 md:p-10">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/40 border border-blue-500/30 text-blue-300 mb-3 w-fit backdrop-blur-sm">
-                <Compass size={16} />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em]">WISEBOT ACADEMY HQ</span>
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/40 border border-blue-500/30 text-blue-300 w-fit backdrop-blur-sm">
+                  <Compass size={16} />
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em]">WISEBOT ACADEMY HQ</span>
+                </div>
+                {/* Maker tier → Passport (data/makerLevels.ts) */}
+                <button
+                  onClick={() => navigate('/passport')}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${makerLevelForXp(xp).gradient} text-white w-fit border border-white/25 shadow-lg hover:scale-105 active:scale-95 transition-transform`}
+                >
+                  <span className="text-sm leading-none" role="img" aria-hidden>{makerLevelForXp(xp).emoji}</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em]">{makerLevelForXp(xp).name}</span>
+                  <ChevronRight size={12} />
+                </button>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-[1000] text-white italic tracking-tighter uppercase leading-none">
                 {greetName && (
@@ -1128,9 +1140,13 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
                     <h4 className="text-white/40 font-black uppercase tracking-widest text-xs">
                         {lang === 'el' ? 'ΤΑ ΠΑΡΑΣΗΜΑ ΣΟΥ' : 'YOUR BADGES'}
                     </h4>
-                    <span className="text-xs font-bold text-white/30 bg-white/5 px-2 py-1 rounded">
-                        {lang === 'el' ? 'Επίπεδο' : 'Level'} {level}
-                    </span>
+                    <button
+                        onClick={() => navigate('/passport')}
+                        className="text-xs font-bold text-white/40 bg-white/5 px-2 py-1 rounded hover:bg-white/10 hover:text-white/70 transition-colors inline-flex items-center gap-1.5"
+                    >
+                        <span role="img" aria-hidden>{makerLevelForXp(xp).emoji}</span>
+                        {makerLevelForXp(xp).name} · {lang === 'el' ? 'Επίπεδο' : 'Level'} {level}
+                    </button>
                 </div>
                 <div className="flex justify-between gap-2">
                     <BadgeItem icon={Brain} title={lang === 'el' ? 'Στοχαστής' : 'Thinker'} unlocked={badges.thinker} />
