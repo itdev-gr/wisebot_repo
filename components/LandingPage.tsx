@@ -30,12 +30,15 @@ import { ACADEMY_STORY_COUNT, BOOK_COUNT } from '../data/contentCounts';
 
 const motion = m as any;
 
+// 640px WebP (29-34KB each) — the originals are 256-276KB jpgs shown in ≤320px boxes;
+// together they were ~1.2MB of the landing's weight (PSI audit 25/8). Regenerate with
+// Pillow: thumbnail 640, WEBP q78. Originals stay in /images for full-size consumers.
 const HERO_IMAGES = {
-  wisebot: "/images/wisebot.jpg",
-  pencilo: "/images/pencilo.jpg",
-  link: "/images/link.jpg",
-  crocus: "/images/crocus.jpg",
-  sparken: "/images/sparken.jpg"
+  wisebot: "/images/opt/wisebot-640.webp",
+  pencilo: "/images/opt/pencilo-640.webp",
+  link: "/images/opt/link-640.webp",
+  crocus: "/images/opt/crocus-640.webp",
+  sparken: "/images/opt/sparken-640.webp"
 };
 
 const LEGACY_ITEMS = [
