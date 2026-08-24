@@ -17,8 +17,9 @@ everywhere (6–12, 35 occurrences of 6-13 swept incl. JSON-LD and the chat prom
 308 Permanent** (was 307). Audit items that were stale (already done before it): home
 title/positioning, sitemap/GSC/indexing, grade pages, /ai-paidia. Still valid backlog from
 it: subject pages (/mathimatika-dimotikou …), /epixeirimatikotita-gia-paidia landing,
-articles, backlinks/PR/entity building (owner-side). Pending owner: Bing Webmaster import
-(or extension site access so Claude does it), Resend API key for the Sunday email.
+articles, backlinks/PR/entity building (owner-side). Bing Webmaster: DONE 24/8 —
+owner imported wisebot.gr from GSC (success); Bing/DuckDuckGo/Copilot indexing now begins.
+Pending owner: Resend API key for the Sunday email (phase 2 of the weekly report).
 
 ---
 
