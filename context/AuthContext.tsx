@@ -11,6 +11,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 import { pullFromCloud, pushToCloud, mergeState, debouncedPush, cancelPendingPush, syncQuizBests, type SyncState } from '../services/syncService';
+import { trackSignUp, trackLogin } from '../utils/analytics';
 import { useEconomy } from './EconomyContext';
 import { authFetch } from '../services/backendApi';
 import type { User } from '@supabase/supabase-js';
@@ -209,6 +210,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       // Don't auto-login — email verification is required first
       // Return userId so caller can send OTP directly
+      trackSignUp('password');
       return { userId: result.userId };
     } catch (err: any) {
       return { error: err.message || 'Registration failed' };
@@ -233,6 +235,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
 
       syncDoneRef.current = false;
+      trackLogin('password');
       return {};
     } catch (err: any) {
       return { error: err.message || 'Login failed' };
