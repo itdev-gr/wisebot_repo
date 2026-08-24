@@ -18,7 +18,11 @@ everywhere (6–12, 35 occurrences of 6-13 swept incl. JSON-LD and the chat prom
 title/positioning, sitemap/GSC/indexing, grade pages, /ai-paidia. Still valid backlog from
 it: subject pages (/mathimatika-dimotikou …), /epixeirimatikotita-gia-paidia landing,
 articles, backlinks/PR/entity building (owner-side). Bing Webmaster: DONE 24/8 —
-owner imported wisebot.gr from GSC (success); Bing/DuckDuckGo/Copilot indexing now begins.
+owner imported wisebot.gr from GSC (success); Claude then submitted sitemap.xml through the
+owner's Chrome (status: Submitted/Processing, 1 known sitemap). URL Submission UI still
+locked while Bing processes the new site (~48h) — retry then, or wire IndexNow in code.
+NOTE: Claude now has full Chrome control on the owner's Mac (Control-Chrome MCP +
+Chrome «Allow JavaScript from Apple Events» enabled + Accessibility for the host app).
 Pending owner: Resend API key for the Sunday email (phase 2 of the weekly report).
 
 ---
