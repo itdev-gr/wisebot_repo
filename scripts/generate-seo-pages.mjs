@@ -22,12 +22,12 @@ const BASE_URL = 'https://wisebot.gr';
 const ROUTES = [
   {
     path: '/academy',
-    title: 'Ακαδημία — Μάθε για 90 Σπουδαίους Ανθρώπων | WiseBot Academy',
-    description: 'Ανακάλυψε τις ιστορίες 90 σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.',
-    ogTitle: 'WiseBot Academy — Ακαδημία | Μάθε για 90 Σπουδαίους Ανθρώπους',
+    title: 'Ακαδημία — Μάθε για 113 Σπουδαίους Ανθρώπους | WiseBot Academy',
+    description: 'Ανακάλυψε τις ιστορίες 113 σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-12.',
+    ogTitle: 'WiseBot Academy — Ακαδημία | Μάθε για 113 Σπουδαίους Ανθρώπους',
     noscript: `
-      <h1>WiseBot Academy — Ακαδημία: Μάθε για 90 Σπουδαίους Ανθρώπους</h1>
-      <p>Ανακάλυψε τις ιστορίες 90 σπουδαίων ανθρώπων που άλλαξαν τον κόσμο! Διαδραστικά μαθήματα με ήχο, εικόνες και quiz.</p>
+      <h1>WiseBot Academy — Ακαδημία: Μάθε για 113 Σπουδαίους Ανθρώπους</h1>
+      <p>Ανακάλυψε τις ιστορίες 113 σπουδαίων ανθρώπων που άλλαξαν τον κόσμο! Διαδραστικά μαθήματα με ήχο, εικόνες και quiz.</p>
       <p>Από τον Albert Einstein μέχρι τη Frida Kahlo, από τον Νικόλα Τέσλα μέχρι τη Marie Curie. Κάθε ιστορία γίνεται μάθημα ζωής.</p>
       <p><a href="${BASE_URL}/ebooks">📚 Ebooks</a> | <a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/game">🎮 Παιχνίδια</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
     `,
@@ -176,18 +176,18 @@ const ROUTES = [
   {
     path: '/ai-paidia',
     title: 'AI για Παιδιά — WiseBot Academy | Εκπαίδευση & Δημιουργία με Τεχνητή Νοημοσύνη',
-    description: 'Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες 113 σπουδαίων ανθρώπων. Η ελληνική ψηφιακή ακαδημία δημιουργών για παιδιά 6-13.',
+    description: 'Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες 113 σπουδαίων ανθρώπων. Η ελληνική ψηφιακή ακαδημία δημιουργών για παιδιά 6-12.',
     ogTitle: 'AI για Παιδιά — WiseBot Academy | Εκπαίδευση με Τεχνητή Νοημοσύνη',
     noscript: `
       <h1>AI για Παιδιά — WiseBot Academy: Μάθε, Δημιούργησε, Παίξε!</h1>
-      <p>Η τεχνητή νοημοσύνη (AI) δεν είναι μόνο για ενήλικες. Το WiseBot Academy φέρνει τη δύναμη του AI στα χέρια παιδιών 6-13 ετών.</p>
+      <p>Η τεχνητή νοημοσύνη (AI) δεν είναι μόνο για ενήλικες. Το WiseBot Academy φέρνει τη δύναμη του AI στα χέρια παιδιών 6-12 ετών.</p>
       <h2>Τι μπορεί να κάνει ένα παιδί με AI;</h2>
       <ul>
         <li>🎵 Φτιάχνει δικά του τραγούδια με AI Music Studio</li>
         <li>🎨 Δημιουργεί εικόνες & ήρωες με Hero Factory</li>
         <li>🎬 Φτιάχνει AI video με Cinema</li>
         <li>🧊 Δημιουργεί 3D μοντέλα με 3D Factory</li>
-        <li>📚 Μαθαίνει από ιστορίες 90 σπουδαίων ανθρώπων</li>
+        <li>📚 Μαθαίνει από ιστορίες 113 σπουδαίων ανθρώπων</li>
       </ul>
       <p><a href="${BASE_URL}/academy">🎓 Ακαδημία</a> | <a href="${BASE_URL}/music">🎵 Music Studio</a> | <a href="${BASE_URL}/game">🎮 Παιχνίδια</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
     `,
@@ -195,11 +195,11 @@ const ROUTES = [
   {
     path: '/paidika-paixnidia',
     title: 'Παιδικά Παιχνίδια Online Δωρεάν — 16 Arcade Games | WiseBot Academy',
-    description: '16 δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε credits & badges. Για παιδιά 6-13.',
+    description: '16 δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε credits & badges. Για παιδιά 6-12.',
     ogTitle: 'Παιδικά Παιχνίδια Online Δωρεάν — 16 Arcade Games | WiseBot',
     noscript: `
       <h1>Παιδικά Παιχνίδια Online — 16 Δωρεάν Arcade Games</h1>
-      <p>Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει 16 δωρεάν arcade games για παιδιά 6-13 ετών. Χωρίς διαφημίσεις, 100% ασφαλή.</p>
+      <p>Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει 16 δωρεάν arcade games για παιδιά 6-12 ετών. Χωρίς διαφημίσεις, 100% ασφαλή.</p>
       <h2>Ποια παιχνίδια υπάρχουν;</h2>
       <ul>
         <li>⚔️ Wizard Duel — μάχη μαγείας</li>
@@ -215,14 +215,14 @@ const ROUTES = [
   {
     path: '/ekpaideutiko-ai',
     title: 'Εκπαιδευτικό AI για Παιδιά — Μάθε Ιστορία, Επιστήμη, Τέχνη | WiseBot Academy',
-    description: 'Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-13 ετών. Ιστορίες 90 σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Αναγνωρισμένο από εκπαιδευτικούς.',
+    description: 'Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-12 ετών. Ιστορίες 113 σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Με πρωτότυπο ελληνικό περιεχόμενο.',
     ogTitle: 'Εκπαιδευτικό AI για Παιδιά — WiseBot Academy | Η Ακαδημία του Μέλλοντος',
     noscript: `
       <h1>Εκπαιδευτικό AI για Παιδιά — Η Ακαδημία του Μέλλοντος</h1>
-      <p>Το WiseBot Academy είναι το πρώτο Ελληνικό εκπαιδευτικό AI platform για παιδιά. Συνδυάζει gamified μάθηση, τεχνητή νοημοσύνη και εκπαιδευτικό περιεχόμενο.</p>
+      <p>Το WiseBot Academy είναι η ελληνική AI ακαδημία δημιουργών για παιδιά. Συνδυάζει gamified μάθηση, τεχνητή νοημοσύνη και εκπαιδευτικό περιεχόμενο.</p>
       <h2>Τι μαθαίνουν τα παιδιά;</h2>
       <ul>
-        <li>🧠 Ιστορίες 90 Σπουδαίων Ανθρώπων (Αϊνστάιν, Tesla, Curie, Da Vinci)</li>
+        <li>🧠 Ιστορίες 113 Σπουδαίων Ανθρώπων (Αϊνστάιν, Tesla, Curie, Da Vinci)</li>
         <li>📖 26 Εκπαιδευτικά Ebooks (Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία)</li>
         <li>❓ Quiz Γνώσεων σε Ιστορία, Γεωγραφία, Επιστήμη</li>
         <li>💼 Επιχειρηματικότητα — Δημιούργησε brand, φτιάξε λογότυπο</li>
@@ -233,7 +233,7 @@ const ROUTES = [
   {
     path: '/ftiaxe-tragoudia-ai',
     title: 'Φτιάξε Τραγούδια με AI Δωρεάν — Music Studio για Παιδιά | WiseBot',
-    description: 'Φτιάξε δικά σου τραγούδια με AI! Γράψε στίχους, επίλεξε Pop, Rock, Hip-Hop. Η AI τραγουδά για σένα. Δωρεάν AI Music Studio για παιδιά 6-13.',
+    description: 'Φτιάξε δικά σου τραγούδια με AI! Γράψε στίχους, επίλεξε Pop, Rock, Hip-Hop. Η AI τραγουδά για σένα. Δωρεάν AI Music Studio για παιδιά 6-12.',
     ogTitle: 'Φτιάξε Τραγούδια με AI — WiseBot Music Studio | Δωρεάν',
     noscript: `
       <h1>Φτιάξε Δικά σου Τραγούδια με AI — Δωρεάν!</h1>
@@ -250,6 +250,56 @@ const ROUTES = [
     `,
   },
 ];
+
+// Utility pages — without these, the SPA fallback serves them with the HOME meta and a
+// canonical pointing to "/", so the crawler sees the homepage on /legal & /login (found
+// in the 24/8 SEO audit). Thin but honest meta, self-canonical each.
+ROUTES.push(
+  {
+    path: '/legal',
+    title: 'Νομικά — Όροι Χρήσης & Πολιτική Απορρήτου | WiseBot Academy',
+    description: 'Οι όροι χρήσης, η πολιτική απορρήτου και η προστασία προσωπικών δεδομένων του WiseBot Academy — γραμμένα καθαρά, για γονείς.',
+    ogTitle: 'WiseBot Academy — Νομικά',
+    noscript: `
+      <h1>WiseBot Academy — Όροι Χρήσης & Πολιτική Απορρήτου</h1>
+      <p>Οι όροι χρήσης, η πολιτική απορρήτου και η προστασία προσωπικών δεδομένων του WiseBot Academy.</p>
+      <p><a href="${BASE_URL}/privacy">Πολιτική Απορρήτου</a> | <a href="${BASE_URL}/terms">Όροι Χρήσης</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
+    path: '/privacy',
+    title: 'Πολιτική Απορρήτου | WiseBot Academy',
+    description: 'Πώς προστατεύει το WiseBot Academy τα δεδομένα του παιδιού σας: τι συλλέγεται, πού αποθηκεύεται, και τα δικαιώματά σας ως γονέας.',
+    ogTitle: 'WiseBot Academy — Πολιτική Απορρήτου',
+    noscript: `
+      <h1>WiseBot Academy — Πολιτική Απορρήτου</h1>
+      <p>Πώς προστατεύει το WiseBot Academy τα δεδομένα του παιδιού σας.</p>
+      <p><a href="${BASE_URL}/legal">Νομικά</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
+    path: '/terms',
+    title: 'Όροι Χρήσης | WiseBot Academy',
+    description: 'Οι όροι χρήσης του WiseBot Academy: λογαριασμοί, credits, περιεχόμενο που δημιουργείται με AI, και οι κανόνες της πλατφόρμας.',
+    ogTitle: 'WiseBot Academy — Όροι Χρήσης',
+    noscript: `
+      <h1>WiseBot Academy — Όροι Χρήσης</h1>
+      <p>Οι όροι χρήσης του WiseBot Academy.</p>
+      <p><a href="${BASE_URL}/legal">Νομικά</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+  {
+    path: '/login',
+    title: 'Σύνδεση & Δωρεάν Εγγραφή | WiseBot Academy',
+    description: 'Συνδέσου ή φτιάξε δωρεάν λογαριασμό WiseBot: το παιδί κρατά την πρόοδο και τις δημιουργίες του σε κάθε συσκευή, με email γονέα.',
+    ogTitle: 'WiseBot Academy — Σύνδεση & Δωρεάν Εγγραφή',
+    noscript: `
+      <h1>WiseBot Academy — Σύνδεση & Δωρεάν Εγγραφή</h1>
+      <p>Φτιάξε δωρεάν λογαριασμό: το παιδί κρατά την πρόοδο και τις δημιουργίες του σε κάθε συσκευή, με email γονέα.</p>
+      <p><a href="${BASE_URL}/school">🎓 Σχολείο</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  },
+);
 
 // Per-grade School landing pages (/askiseis-<grade>-dimotikou). Slugs are duplicated in
 // App.tsx routes and public/sitemap.xml — keep the three in sync. Unit/question counts

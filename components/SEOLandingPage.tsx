@@ -21,14 +21,14 @@ const CONTENT = {
       en: 'AI for Kids — WiseBot Academy | Education & Creation with Artificial Intelligence',
     },
     description: {
-      el: `Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων. Η ελληνική ψηφιακή ακαδημία δημιουργών για παιδιά 6-13.`,
-      en: `Discover the world of AI for kids! Create songs, images, videos, 3D models. Learn stories of ${ACADEMY_STORY_COUNT} great people. The Greek digital maker academy for kids 6-13.`,
+      el: `Ανακάλυψε τον κόσμο του AI για παιδιά! Φτιάξε τραγούδια, εικόνες, video, 3D μοντέλα. Μάθε ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων. Η ελληνική ψηφιακή ακαδημία δημιουργών για παιδιά 6-12.`,
+      en: `Discover the world of AI for kids! Create songs, images, videos, 3D models. Learn stories of ${ACADEMY_STORY_COUNT} great people. The Greek digital maker academy for kids 6-12.`,
     },
     path: '/ai-paidia',
     h1: { el: 'AI για Παιδιά — Μάθε, Δημιούργησε, Παίξε!', en: 'AI for Kids — Learn, Create, Play!' },
     intro: {
-      el: 'Η τεχνητή νοημοσύνη (AI) δεν είναι μόνο για ενήλικες. Το WiseBot Academy φέρνει τη δύναμη του AI στα χέρια παιδιών 6-13 ετών — με ασφαλή, εκπαιδευτικό και διασκεδαστικό τρόπο.',
-      en: 'Artificial intelligence (AI) is not just for adults. WiseBot Academy puts the power of AI in the hands of kids aged 6-13 — in a safe, educational and fun way.',
+      el: 'Η τεχνητή νοημοσύνη (AI) δεν είναι μόνο για ενήλικες. Το WiseBot Academy φέρνει τη δύναμη του AI στα χέρια παιδιών 6-12 ετών — με ασφαλή, εκπαιδευτικό και διασκεδαστικό τρόπο.',
+      en: 'Artificial intelligence (AI) is not just for adults. WiseBot Academy puts the power of AI in the hands of kids aged 6-12 — in a safe, educational and fun way.',
     },
     sections: [
       {
@@ -50,7 +50,7 @@ const CONTENT = {
       },
     ],
     faq: [
-      { q: { el: 'Για ποιες ηλικίες είναι το WiseBot Academy;', en: 'What ages is WiseBot Academy for?' }, a: { el: 'Για παιδιά 6-13 ετών. Κάθε λειτουργία έχει σχεδιαστεί με βάση την ηλικία.', en: 'For kids aged 6-13. Every feature is designed with age in mind.' } },
+      { q: { el: 'Για ποιες ηλικίες είναι το WiseBot Academy;', en: 'What ages is WiseBot Academy for?' }, a: { el: 'Για παιδιά 6-12 ετών. Κάθε λειτουργία έχει σχεδιαστεί με βάση την ηλικία.', en: 'For kids aged 6-12. Every feature is designed with age in mind.' } },
       { q: { el: 'Κοστίζει κάτι;', en: 'Does it cost anything?' }, a: { el: 'Η βασική χρήση είναι ΔΩΡΕΑΝ! Υπάρχουν και premium δυνατότητες με συνδρομή.', en: 'Basic use is FREE! There are also premium features with a subscription.' } },
       { q: { el: 'Πώς είναι ασφαλές για παιδιά;', en: 'How is it safe for kids?' }, a: { el: 'Δεν υπάρχει ελεύθερο chat. Οι γονείς έχουν dashboard ελέγχου. Ακολουθούμε GDPR και COPPA.', en: 'No open chat. Parents have a control dashboard. We follow GDPR and COPPA.' } },
     ],
@@ -61,14 +61,14 @@ const CONTENT = {
       en: 'Free Kids Games Online — 16 Arcade Games | WiseBot Academy',
     },
     description: {
-      el: '16 δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε credits & badges. Για παιδιά 6-13.',
-      en: '16 free kids games online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Earn credits & badges. For kids 6-13.',
+      el: '16 δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε credits & badges. Για παιδιά 6-12.',
+      en: '16 free kids games online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Earn credits & badges. For kids 6-12.',
     },
     path: '/paidika-paixnidia',
     h1: { el: 'Παιδικά Παιχνίδια Online — 16 Δωρεάν Arcade Games', en: 'Kids Games Online — 16 Free Arcade Games' },
     intro: {
-      el: 'Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει 16 δωρεάν arcade games ειδικά για παιδιά 6-13 ετών. Χωρίς διαφημίσεις, χωρίς in-app purchases, 100% ασφαλή.',
-      en: 'Looking for free kids games online? WiseBot Academy has 16 free arcade games specially for kids 6-13. No ads, no in-app purchases, 100% safe.',
+      el: 'Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει 16 δωρεάν arcade games ειδικά για παιδιά 6-12 ετών. Χωρίς διαφημίσεις, χωρίς in-app purchases, 100% ασφαλή.',
+      en: 'Looking for free kids games online? WiseBot Academy has 16 free arcade games specially for kids 6-12. No ads, no in-app purchases, 100% safe.',
     },
     sections: [
       {
@@ -101,13 +101,13 @@ const CONTENT = {
       en: 'Educational AI for Kids — Learn History, Science, Art | WiseBot Academy',
     },
     description: {
-      el: `Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-13 ετών. Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Αναγνωρισμένο από εκπαιδευτικούς.`,
-      en: `Educational AI that teaches kids aged 6-13. Stories of ${ACADEMY_STORY_COUNT} great people, ebooks, quizzes, entrepreneurship. Recognized by educators.`,
+      el: `Εκπαιδευτικό AI που μαθαίνει στα παιδιά 6-12 ετών. Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων, ebooks, quiz, επιχειρηματικότητα. Με πρωτότυπο ελληνικό περιεχόμενο.`,
+      en: `Educational AI that teaches kids aged 6-12. Stories of ${ACADEMY_STORY_COUNT} great people, ebooks, quizzes, entrepreneurship. With original Greek content.`,
     },
     path: '/ekpaideutiko-ai',
     h1: { el: 'Εκπαιδευτικό AI για Παιδιά — Η Ακαδημία του Μέλλοντος', en: 'Educational AI for Kids — The Academy of the Future' },
     intro: {
-      el: 'Το WiseBot Academy είναι το πρώτο Ελληνικό εκπαιδευτικό AI platform για παιδιά. Συνδυάζει gamified μάθηση, τεχνητή νοημοσύνη και εκπαιδευτικό περιεχόμενο για να κάνει τη μάθηση διασκεδαστική.',
+      el: 'Το WiseBot Academy είναι η ελληνική AI ακαδημία δημιουργών για παιδιά. Συνδυάζει gamified μάθηση, τεχνητή νοημοσύνη και εκπαιδευτικό περιεχόμενο για να κάνει τη μάθηση διασκεδαστική.',
       en: 'WiseBot Academy is the first Greek educational AI platform for kids. It combines gamified learning, artificial intelligence and educational content to make learning fun.',
     },
     sections: [
@@ -139,8 +139,8 @@ const CONTENT = {
       en: 'Create Songs with AI Free — Music Studio for Kids | WiseBot',
     },
     description: {
-      el: 'Φτιάξε δικά σου τραγούδια με AI! Γράψε στίχους, επίλεξε Pop, Rock, Hip-Hop. Η AI τραγουδά για σένα. Δωρεάν AI Music Studio για παιδιά 6-13.',
-      en: 'Create your own songs with AI! Write lyrics, choose Pop, Rock, Hip-Hop. AI sings for you. Free AI Music Studio for kids 6-13.',
+      el: 'Φτιάξε δικά σου τραγούδια με AI! Γράψε στίχους, επίλεξε Pop, Rock, Hip-Hop. Η AI τραγουδά για σένα. Δωρεάν AI Music Studio για παιδιά 6-12.',
+      en: 'Create your own songs with AI! Write lyrics, choose Pop, Rock, Hip-Hop. AI sings for you. Free AI Music Studio for kids 6-12.',
     },
     path: '/ftiaxe-tragoudia-ai',
     h1: { el: 'Φτιάξε Δικά σου Τραγούδια με AI — Δωρεάν!', en: 'Create Your Own Songs with AI — Free!' },
@@ -316,7 +316,7 @@ const SEOLandingPage: React.FC<SEOLandingPageProps> = ({ lang, variant }) => {
             {lang === 'el' ? 'Έτοιμος να ξεκινήσεις;' : 'Ready to start?'}
           </h2>
           <p className="text-white/40 text-sm mb-6">
-            {lang === 'el' ? 'Δωρεάν εγγραφή · Χωρίς κάρτα · Για παιδιά 6-13' : 'Free registration · No card · For kids 6-13'}
+            {lang === 'el' ? 'Δωρεάν εγγραφή · Χωρίς κάρτα · Για παιδιά 6-12' : 'Free registration · No card · For kids 6-12'}
           </p>
           <Link
             to="/portal"

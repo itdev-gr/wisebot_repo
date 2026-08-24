@@ -441,10 +441,10 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             {/* ═══ PUBLIC ROUTES ═══ */}
             <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
-            <Route path="/login" element={<AuthScreen lang={lang} />} />
-            <Route path="/legal" element={<LegalHub lang={lang} />} />
-            <Route path="/privacy" element={<LegalHub lang={lang} />} />
-            <Route path="/terms" element={<LegalHub lang={lang} />} />
+            <Route path="/login" element={<><SEO lang={lang} page="login" /><AuthScreen lang={lang} /></>} />
+            <Route path="/legal" element={<><SEO lang={lang} page="legal" /><LegalHub lang={lang} /></>} />
+            <Route path="/privacy" element={<><SEO lang={lang} page="privacy" /><LegalHub lang={lang} /></>} />
+            <Route path="/terms" element={<><SEO lang={lang} page="terms" /><LegalHub lang={lang} /></>} />
 
             {/* ═══ SEMI-PUBLIC ROUTES — viewable by everyone, auth required for actions ═══ */}
             <Route path="/academy" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="academy" /><Academy lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="academy" /></SemiPublicRoute>} />
