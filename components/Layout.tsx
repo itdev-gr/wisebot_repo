@@ -869,8 +869,10 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
         </main>
       </div>
 
-      {/* BACKGROUND MUSIC */}
-      <audio ref={audioRef} src="/songs/wisebots-song-2.mp3" preload="auto" />
+      {/* BACKGROUND MUSIC — preload="none": the file is 3.2MB, which with preload="auto"
+          was 64% of the landing page's weight and throttled the LCP image on slow
+          connections (PSI audit 25/8). The browser fetches it only when play() runs. */}
+      <audio ref={audioRef} src="/songs/wisebots-song-2.mp3" preload="none" />
 
       {/* PWA INSTALL PROMPT */}
       <React.Suspense fallback={null}>
