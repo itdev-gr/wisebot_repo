@@ -27,6 +27,15 @@ clean). #17 (voice sampler) and #30 (real Hero Market) also merged today by othe
   all 6 grade pages («Indexing requested» confirmed each). Check Coverage again ~end of week.
 - Socials in Organization `sameAs` since PR #33 (merged, live): Instagram wisebot.gr,
   Facebook page 100094647660224, TikTok @wisebotgr, YouTube @wisebotfriends.
+- **Visibility audit (24/8):** only 8 URLs indexed (/, /game, /quiz, /music, /wise-friends
+  + 3 SEO landing pages) — /academy and /ebooks were «crawled/discovered - not indexed»
+  since April; indexing re-requested for both (daily manual quota now used: 9 URLs).
+  **www.wisebot.gr redirects with 307 (temporary)** so Google keeps www as a separate URL —
+  OWNER: Vercel → wisebot-claude-ok → Settings → Domains → www.wisebot.gr → set the
+  redirect to 308/permanent. **Bing has zero pages indexed** — OWNER: open Bing Webmaster
+  Tools once, «Import from Google Search Console», done. GSC has no Brand profile section
+  for this property yet (Google gates it on brand recognition); the sameAs schema is the
+  signal that feeds it. No knowledge panel exists yet to claim.
 
 **Journey step 1 (PR #29, merged, migration applied):** the child's quiz best runs sync to
 a new `quiz_best` Supabase table (`wb_quiz_best_*` keys — School stars/Master/diplomas)
