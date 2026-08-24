@@ -103,10 +103,10 @@ const HISTORY_ITEMS = [
 ];
 
 const FEATURED_VIDEOS = [
-  { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/wisebot.jpg', videoUrl: '/video/wisebot%20claude.mp4' },
-  { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/sparken.jpg', videoUrl: '/video/sparken%20claude.mp4' },
-  { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/link.jpg', videoUrl: '/video/link%20claude.mp4' },
-  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/paidia-kai-wisebot.webp', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v1', title: { el: 'WISEBOT', en: 'WISEBOT' }, thumbnail: '/images/opt/wisebot-640.webp', videoUrl: '/video/wisebot%20claude.mp4' },
+  { id: 'v2', title: { el: 'SPARKEN', en: 'SPARKEN' }, thumbnail: '/images/opt/sparken-640.webp', videoUrl: '/video/sparken%20claude.mp4' },
+  { id: 'v3', title: { el: 'LINK', en: 'LINK' }, thumbnail: '/images/opt/link-640.webp', videoUrl: '/video/link%20claude.mp4' },
+  { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/opt/paidia-kai-wisebot-640.webp', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
 const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
