@@ -208,8 +208,10 @@
   }
   </script>
 
-  <!-- ═══ PRELOAD LCP IMAGE (small optimized version) ═══ -->
-  <link rel="preload" as="image" href="/images/wisebot_sm.jpg" fetchpriority="high">
+  <!-- ═══ PRELOAD LCP IMAGE — must match the image the landing hero actually renders
+       (components/LandingPage.tsx HERO_IMAGES.wisebot), otherwise the preload is wasted
+       and the real hero image is only discovered after React renders. ═══ -->
+  <link rel="preload" as="image" href="/images/wisebot.jpg" fetchpriority="high">
 
   <!-- ═══ INLINE CRITICAL CSS ═══ -->
   <style>
@@ -221,13 +223,16 @@
   <!-- ═══ ICONS & LINKS ═══ -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
-  <!-- Self-hosted Nunito font (GDPR — no Google Fonts IP leakage) -->
+  <!-- Self-hosted Nunito font (GDPR — no Google Fonts IP leakage).
+       woff2 first (~42KB/weight vs ~125KB ttf); ttf kept as fallback for old browsers. -->
   <style>
-    @font-face { font-family: 'Nunito'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/nunito-400.ttf') format('truetype'); }
-    @font-face { font-family: 'Nunito'; font-weight: 700; font-style: normal; font-display: swap; src: url('/fonts/nunito-700.ttf') format('truetype'); }
-    @font-face { font-family: 'Nunito'; font-weight: 800; font-style: normal; font-display: swap; src: url('/fonts/nunito-800.ttf') format('truetype'); }
-    @font-face { font-family: 'Nunito'; font-weight: 900; font-style: normal; font-display: swap; src: url('/fonts/nunito-900.ttf') format('truetype'); }
+    @font-face { font-family: 'Nunito'; font-weight: 400; font-style: normal; font-display: swap; src: url('/fonts/nunito-400.woff2') format('woff2'), url('/fonts/nunito-400.ttf') format('truetype'); }
+    @font-face { font-family: 'Nunito'; font-weight: 700; font-style: normal; font-display: swap; src: url('/fonts/nunito-700.woff2') format('woff2'), url('/fonts/nunito-700.ttf') format('truetype'); }
+    @font-face { font-family: 'Nunito'; font-weight: 800; font-style: normal; font-display: swap; src: url('/fonts/nunito-800.woff2') format('woff2'), url('/fonts/nunito-800.ttf') format('truetype'); }
+    @font-face { font-family: 'Nunito'; font-weight: 900; font-style: normal; font-display: swap; src: url('/fonts/nunito-900.woff2') format('woff2'), url('/fonts/nunito-900.ttf') format('truetype'); }
   </style>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/nunito-900.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/nunito-400.woff2" crossorigin>
   <link rel="preload" as="style" href="/index.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/index.css"></noscript>
 </head>

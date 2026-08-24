@@ -171,9 +171,11 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
 
         {/* LEFT: TEXT & CTA */}
         <div className="flex-1 flex flex-col justify-center space-y-6 md:space-y-12 z-40 max-w-4xl pt-6 pb-4 md:py-12 lg:py-0">
+          {/* Slide-only entrance — the H1 is the LCP candidate on mobile, and an
+              opacity-from-0 start would delay the measured (and felt) first paint. */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ x: -50 }}
+            animate={{ x: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
             className="space-y-6"
           >
@@ -252,15 +254,18 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         <div className="flex-1 relative w-full h-[300px] md:h-[650px] pointer-events-none mt-4 md:mt-12 lg:mt-0 flex items-center justify-center lg:justify-end">
           <div className="relative w-full h-full max-w-xl">
 
-            {/* CENTER HERO: WISEBOT - EAGER LOAD */}
+            {/* CENTER HERO: WISEBOT - EAGER LOAD.
+                No opacity-from-0 here: this is the page's LCP element, and Google only
+                counts LCP when the element is actually painted — a fade-in used to push
+                LCP to ~10s. It scales in (transform doesn't delay paint) and floats. */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.5, x: "-50%", y: "-50%" }}
-              animate={{ opacity: 1, scale: 1, x: "-50%", y: ["-50%", "-52%", "-50%"] }}
+              initial={{ scale: 0.5, x: "-50%", y: "-50%" }}
+              animate={{ scale: 1, x: "-50%", y: ["-50%", "-52%", "-50%"] }}
               transition={floatTransition(0)}
               style={{ willChange: 'transform' }}
               className="absolute top-1/2 left-1/2 z-30 w-36 h-36 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-[2rem] md:rounded-[3rem] overflow-hidden border-[4px] md:border-[6px] border-blue-400/30 shadow-[0_0_100px_rgba(59,130,246,0.5)] bg-slate-900 drop-shadow-2xl"
             >
-              <img src={HERO_IMAGES.wisebot} className="w-full h-full object-cover" alt="Wisebot" loading="eager" />
+              <img src={HERO_IMAGES.wisebot} className="w-full h-full object-cover" alt="Wisebot" loading="eager" fetchPriority="high" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </motion.div>
 
