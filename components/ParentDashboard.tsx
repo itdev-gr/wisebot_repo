@@ -12,6 +12,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import ParentSchoolProgress from './ParentSchoolProgress';
+import ParentWeeklyReport from './ParentWeeklyReport';
 import { authFetch } from '../services/backendApi';
 import ParentPinGate, { ParentPinChange } from './ParentPinGate';
 import { getActivityLog, getScreenLimits, getTodayMinutes } from '../context/EconomyContext';
@@ -710,6 +711,9 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
           </div>
         </div>
       )}
+
+      {/* ═══════ SECTION B2: The child's week (server-side, cross-device) ═══════ */}
+      <ParentWeeklyReport lang={lang} />
 
       {/* ═══════ SECTION C: School progress ═══════ */}
       <ParentSchoolProgress lang={lang} />
