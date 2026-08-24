@@ -39,8 +39,8 @@ const PAGE_META: Record<string, PageMeta> = {
       en: `Academy — Learn About ${ACADEMY_STORY_COUNT} Great People | WiseBot Academy`,
     },
     description: {
-      el: `Ανακάλυψε τις ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-13.`,
-      en: `Discover the stories of ${ACADEMY_STORY_COUNT} great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-13.`,
+      el: `Ανακάλυψε τις ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων! Από τον Αϊνστάιν μέχρι τη Frida Kahlo. Διαδραστικά μαθήματα με ήχο και quiz για παιδιά 6-12.`,
+      en: `Discover the stories of ${ACADEMY_STORY_COUNT} great people! From Einstein to Frida Kahlo. Interactive lessons with audio and quizzes for kids 6-12.`,
     },
     keywords: {
       el: 'εκπαιδευτικές ιστορίες, σπουδαίοι άνθρωποι για παιδιά, μαθαίνω ιστορία, WiseBot Academy, quiz παιδιά, Αϊνστάιν, Τέσλα, Curie',
@@ -51,9 +51,9 @@ const PAGE_META: Record<string, PageMeta> = {
       '@context': 'https://schema.org',
       '@type': 'Course',
       name: `WiseBot Academy - Ιστορίες ${ACADEMY_STORY_COUNT} Σπουδαίων Ανθρώπων`,
-      description: `Διαδραστικά μαθήματα για ${ACADEMY_STORY_COUNT} σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-13 ετών.`,
+      description: `Διαδραστικά μαθήματα για ${ACADEMY_STORY_COUNT} σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-12 ετών.`,
       provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
-      audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 13 },
+      audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 12 },
       isAccessibleForFree: true,
       inLanguage: ['el', 'en'],
       numberOfCredits: 90,
@@ -259,8 +259,8 @@ const PAGE_META: Record<string, PageMeta> = {
       en: 'Business Lab — Learn Entrepreneurship by Playing | WiseBot Academy',
     },
     description: {
-      el: 'Μάθε επιχειρηματικότητα παίζοντας! Δημιούργησε brand, φτιάξε λογότυπο με AI, γίνε CEO. Για παιδιά 6-13.',
-      en: 'Learn entrepreneurship by playing! Create a brand, make a logo with AI, become CEO. For kids 6-13.',
+      el: 'Μάθε επιχειρηματικότητα παίζοντας! Δημιούργησε brand, φτιάξε λογότυπο με AI, γίνε CEO. Για παιδιά 6-12.',
+      en: 'Learn entrepreneurship by playing! Create a brand, make a logo with AI, become CEO. For kids 6-12.',
     },
     keywords: {
       el: 'επιχειρηματικότητα παιδιά, business simulation παιδιά, AI λογότυπο, μάθε business, WiseBot Business Lab',
@@ -274,8 +274,8 @@ const PAGE_META: Record<string, PageMeta> = {
       en: '3D Factory — Create 3D Models with AI | WiseBot Academy',
     },
     description: {
-      el: 'Μετάτρεψε εικόνες σε 3D μοντέλα με AI! Περιέστρεψέ τα, κατέβασέ τα, εκτύπωσέ τα σε 3D printer. Για παιδιά 6-13.',
-      en: 'Transform images into 3D models with AI! Rotate, download, 3D print. For kids 6-13.',
+      el: 'Μετάτρεψε εικόνες σε 3D μοντέλα με AI! Περιέστρεψέ τα, κατέβασέ τα, εκτύπωσέ τα σε 3D printer. Για παιδιά 6-12.',
+      en: 'Transform images into 3D models with AI! Rotate, download, 3D print. For kids 6-12.',
     },
     keywords: {
       el: 'AI 3D μοντέλα, δημιουργία 3D, 3D printing παιδιά, WiseBot 3D Factory',
@@ -297,6 +297,66 @@ const PAGE_META: Record<string, PageMeta> = {
       en: 'AI heroes marketplace, kids marketplace, WiseBot Hero Market, hero trading',
     },
     path: '/market',
+  },
+  legal: {
+    title: {
+      el: 'Νομικά — Όροι Χρήσης & Πολιτική Απορρήτου | WiseBot Academy',
+      en: 'Legal — Terms of Use & Privacy Policy | WiseBot Academy',
+    },
+    description: {
+      el: 'Οι όροι χρήσης, η πολιτική απορρήτου και η προστασία προσωπικών δεδομένων του WiseBot Academy — γραμμένα καθαρά, για γονείς.',
+      en: 'The terms of use, privacy policy and data protection of WiseBot Academy — written clearly, for parents.',
+    },
+    keywords: {
+      el: 'όροι χρήσης WiseBot, πολιτική απορρήτου, προσωπικά δεδομένα παιδιών',
+      en: 'WiseBot terms of use, privacy policy, children data protection',
+    },
+    path: '/legal',
+  },
+  privacy: {
+    title: {
+      el: 'Πολιτική Απορρήτου | WiseBot Academy',
+      en: 'Privacy Policy | WiseBot Academy',
+    },
+    description: {
+      el: 'Πώς προστατεύει το WiseBot Academy τα δεδομένα του παιδιού σας: τι συλλέγεται, πού αποθηκεύεται, και τα δικαιώματά σας ως γονέας.',
+      en: "How WiseBot Academy protects your child's data: what is collected, where it is stored, and your rights as a parent.",
+    },
+    keywords: {
+      el: 'πολιτική απορρήτου WiseBot, δεδομένα παιδιών, ασφάλεια παιδιών online',
+      en: 'WiseBot privacy policy, children data, kids online safety',
+    },
+    path: '/privacy',
+  },
+  terms: {
+    title: {
+      el: 'Όροι Χρήσης | WiseBot Academy',
+      en: 'Terms of Use | WiseBot Academy',
+    },
+    description: {
+      el: 'Οι όροι χρήσης του WiseBot Academy: λογαριασμοί, credits, περιεχόμενο που δημιουργείται με AI, και οι κανόνες της πλατφόρμας.',
+      en: 'The WiseBot Academy terms of use: accounts, credits, AI-generated content, and the platform rules.',
+    },
+    keywords: {
+      el: 'όροι χρήσης WiseBot, κανόνες πλατφόρμας',
+      en: 'WiseBot terms of use, platform rules',
+    },
+    path: '/terms',
+  },
+  login: {
+    title: {
+      el: 'Σύνδεση & Δωρεάν Εγγραφή | WiseBot Academy',
+      en: 'Sign In & Free Registration | WiseBot Academy',
+    },
+    description: {
+      el: 'Συνδέσου ή φτιάξε δωρεάν λογαριασμό WiseBot: το παιδί κρατά την πρόοδο και τις δημιουργίες του σε κάθε συσκευή, με email γονέα.',
+      en: 'Sign in or create a free WiseBot account: your child keeps their progress and creations on every device, with a parent email.',
+    },
+    keywords: {
+      el: 'WiseBot εγγραφή, WiseBot σύνδεση, δωρεάν λογαριασμός',
+      en: 'WiseBot registration, WiseBot sign in, free account',
+    },
+    path: '/login',
   },
   'wise-friends': {
     title: {
