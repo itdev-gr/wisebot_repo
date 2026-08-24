@@ -1469,6 +1469,7 @@ function StatBadge({ icon, label, val }: { icon: string; label: string; val: num
 function MarketTab({ adminToken }: { adminToken: () => string }) {
   const [pending, setPending] = useState<any[]>([]);
   const [orders, setOrders] = useState<any[]>([]);
+  const [reports, setReports] = useState<any[]>([]);
   const [busy, setBusy] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -1479,6 +1480,7 @@ function MarketTab({ adminToken }: { adminToken: () => string }) {
       const d = await res.json();
       setPending(d.pending || []);
       setOrders(d.orders || []);
+      setReports(d.reports || []);
     } finally { setLoading(false); }
   }, [adminToken]);
   useEffect(() => { load(); }, [load]);
@@ -1492,7 +1494,29 @@ function MarketTab({ adminToken }: { adminToken: () => string }) {
         body: JSON.stringify({ listingId, decision }),
       });
       setPending(p => p.filter(l => l.id !== listingId));
+      // A decision resolves the listing's open reports server-side too.
+      setReports(r => r.filter(x => x.listing?.id !== listingId));
     } finally { setBusy(null); }
+  };
+
+  // Group open reports per listing for one card per listing with reason counts.
+  const reportedListings = React.useMemo(() => {
+    const byId = new Map<string, { listing: any; count: number; reasons: Record<string, number>; latest: string }>();
+    for (const r of reports) {
+      if (!r.listing) continue;
+      const e = byId.get(r.listing.id) || { listing: r.listing, count: 0, reasons: {}, latest: r.created_at };
+      e.count += 1;
+      e.reasons[r.reason] = (e.reasons[r.reason] || 0) + 1;
+      if (r.created_at > e.latest) e.latest = r.created_at;
+      byId.set(r.listing.id, e);
+    }
+    return [...byId.values()].sort((a, b) => b.count - a.count);
+  }, [reports]);
+
+  const REASON_LABEL: Record<string, string> = {
+    upsetting: '😟 Ενοχλητικό / όχι για παιδιά',
+    mean: '😠 Κοροϊδεύει κάποιον',
+    other: '🤔 Κάτι άλλο',
   };
 
   const setOrderStatus = async (orderId: string, orderStatus: string) => {
@@ -1511,6 +1535,36 @@ function MarketTab({ adminToken }: { adminToken: () => string }) {
 
   return (
     <div className="space-y-10">
+      {reportedListings.length > 0 && (
+        <div>
+          <h3 className="text-red-300 font-bold text-lg mb-3">🚩 Αναφορές παιδιών ({reportedListings.length})</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {reportedListings.map(({ listing: l, count, reasons }) => (
+              <div key={l.id} className="rounded-2xl bg-red-500/[0.06] border border-red-400/25 overflow-hidden">
+                {l.image_url && <img src={l.image_url} alt="" className="w-full aspect-video object-cover" />}
+                <div className="p-3 space-y-2">
+                  <p className="text-white font-bold text-sm">{l.type === 'song' ? '🎵' : '🎨'} {l.title}</p>
+                  <p className="text-white/40 text-xs">από {l.seller_name} · {l.price}⚡ · status: {l.status}</p>
+                  {(l.audio_url || l.stream_url) && <audio controls src={l.audio_url || l.stream_url} className="w-full h-8" />}
+                  <div className="text-[11px] text-red-200/80 font-bold space-y-0.5">
+                    <p>{count} {count === 1 ? 'αναφορά' : 'αναφορές'} (στις 3 κατεβαίνει αυτόματα):</p>
+                    {Object.entries(reasons).map(([k, n]) => (
+                      <p key={k}>· {REASON_LABEL[k] || k} × {n}</p>
+                    ))}
+                  </div>
+                  <div className="flex gap-2 pt-1">
+                    <button onClick={() => decide(l.id, 'approved')} disabled={busy === l.id}
+                      className="flex-1 py-2 rounded-xl bg-emerald-600/30 border border-emerald-400/40 text-emerald-100 text-xs font-black uppercase">ΟΚ, μένει</button>
+                    <button onClick={() => decide(l.id, 'rejected')} disabled={busy === l.id}
+                      className="flex-1 py-2 rounded-xl bg-red-600/20 border border-red-400/30 text-red-200 text-xs font-black uppercase">Κατέβασμα</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div>
         <h3 className="text-white font-bold text-lg mb-3">Αγγελίες σε αναμονή ({pending.length})</h3>
         {pending.length === 0 ? <p className="text-white/40 text-sm">Τίποτα για έλεγχο. 🎉</p> : (
