@@ -10,6 +10,8 @@ import SemiPublicRoute from './components/SemiPublicRoute';
 import InternalLinks from './components/InternalLinks';
 const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 const SchoolGradeSEOPage = React.lazy(() => import('./components/SchoolGradeSEOPage'));
+const MakerPassport = React.lazy(() => import('./components/MakerPassport'));
+const MakerLevelUp = React.lazy(() => import('./components/MakerLevelUp'));
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, Zap } from 'lucide-react';
 import { EconomyProvider, useEconomy } from './context/EconomyContext';
@@ -457,6 +459,7 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/business" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="business" /><UnlockGate feature="business" lang={lang}><BusinessSimulation lang={lang} addXp={addXp} completedIds={completedIds} /></UnlockGate><InternalLinks lang={lang} currentPage="business" /></SemiPublicRoute>} />
             <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="market" /></SemiPublicRoute>} />
             <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="wise-friends" /></SemiPublicRoute>} />
+            <Route path="/passport" element={<SemiPublicRoute lang={lang}><MakerPassport lang={lang} xp={xp} level={level} /></SemiPublicRoute>} />
 
             {/* ═══ SEO LANDING PAGES — content-rich pages targeting search queries ═══ */}
             {/* Slugs are duplicated in scripts/generate-seo-pages.mjs and public/sitemap.xml — keep in sync. */}
@@ -483,6 +486,10 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
       </Layout>
       <Suspense fallback={null}>
         <CookieConsent lang={lang} />
+      </Suspense>
+      {/* Maker tier-up celebration — watches the same xp state, records in wb_maker_level */}
+      <Suspense fallback={null}>
+        <MakerLevelUp lang={lang} xp={xp} />
       </Suspense>
     </BrowserRouter>
   );
