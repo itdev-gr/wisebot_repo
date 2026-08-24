@@ -5,6 +5,36 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 25 Αυγούστου 2026 — τα 3 P0 του γενικού audit: merged & live
+
+**PR #37 — Market report button + auto-unpublish.** `market_reports` table (migration
+applied): children insert-only (own rows, approved listings only, one per listing, no
+SELECT — anonymity); SECURITY DEFINER trigger pulls a listing to 'pending' at 3 open
+reports. HeroMarket flag button + kid-worded modal; AdminDashboard Market tab shows a red
+«Αναφορές παιδιών» queue (reasons, ΟΚ-μένει/Κατέβασμα); either decision resolves reports,
+and decisions now apply to reported-but-live listings too.
+
+**PR #38 — LCP fix, measured live: 9.9s → 3.9s (score 67 → 79).** The preload pointed at
+wisebot_sm.jpg while the hero renders wisebot.jpg (fixed + fetchPriority=high); the hero
+image and H1 entered via framer-motion opacity-0 (LCP counts painted pixels — both are
+transform-only now); Nunito ttf→woff2 (500KB→168KB, ttf fallback kept, 2 weights
+preloaded). Next step toward <2.5s (later): static hero shell in index.html.
+
+**PR #39 — GA4 conversion events.** `utils/analytics.ts` (consent-safe: GA script loads
+only after cookie accept; events without consent never leave the browser; no child data).
+Wired: sign_up/login, wb_<action> for every EconomyContext trackAction, begin_checkout,
+purchase (inside the idempotent Stripe verify). GA4 property: G-7834HP8GYV — owner should
+mark sign_up/purchase as key events in GA4 admin when convenient.
+
+Also that afternoon: Bing sitemap submitted via the owner's Chrome (Control-Chrome MCP +
+AppleScript JS — note: the Chrome «Allow JavaScript from Apple Events» toggle is
+per-profile and currently OFF again after diagnostics; re-tick via View→Developer when
+needed). Full audit findings live in the 24/8 session; remaining backlog: subject pages,
+/epixeirimatikotita-gia-paidia, «Η ιστορία μας» page (needs the owner's story), Missions
+2.0, Resend key (owner), Bing URL submission (~48h), GSC/Bing check end of week.
+
+---
+
 ## ⚡ STATUS 26 Αυγούστου 2026 — SEO P0 cleanup live (external audit verified)
 
 The owner brought an external SEO audit; verified against the live site. Confirmed & fixed
