@@ -13,10 +13,11 @@
  */
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Store, Music, Image as ImageIcon, Box, ArrowRight, Play, Pause, Zap, Clock, CheckCircle2, XCircle, Plus, Loader2 } from 'lucide-react';
+import { Store, Music, Image as ImageIcon, Box, ArrowRight, Play, Pause, Zap, Clock, CheckCircle2, XCircle, Plus, Loader2, Flag, X } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { authFetch } from '../services/backendApi';
+import { supabase } from '../services/supabaseClient';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 interface HeroMarketProps {
@@ -56,6 +57,8 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [printHero, setPrintHero] = useState<any | null>(null);
   const [printDone, setPrintDone] = useState<string | null>(null);
+  const [reportTarget, setReportTarget] = useState<Listing | null>(null);
+  const [reportBusy, setReportBusy] = useState(false);
 
   const load = useCallback(async () => {
     try {
@@ -171,6 +174,32 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
     } finally { setBusyId(null); }
   };
 
+  // Report a live listing (post-approval safety net; RLS: insert-own, one per listing).
+  // At 3 open reports the listing auto-unpublishes for re-review (DB trigger).
+  const sendReport = async (reason: 'upsetting' | 'mean' | 'other') => {
+    if (!reportTarget || !user) return;
+    setReportBusy(true);
+    try {
+      const { error } = await supabase.from('market_reports').insert({
+        listing_id: reportTarget.id,
+        reporter_id: user.id,
+        reason,
+      });
+      if (error && error.code === '23505') {
+        showNotification('🦉', el ? 'Το έχεις ήδη αναφέρει — η WiseBot θα το κοιτάξει!' : "You already reported this — WiseBot is on it!");
+      } else if (error) {
+        showNotification('😕', el ? 'Κάτι πήγε στραβά, δοκίμασε ξανά.' : 'Something went wrong, try again.');
+      } else {
+        showNotification('💙', el ? 'Ευχαριστούμε! Η WiseBot θα το κοιτάξει αμέσως.' : 'Thank you! WiseBot will look right away.');
+      }
+    } catch {
+      showNotification('😕', el ? 'Κάτι πήγε στραβά, δοκίμασε ξανά.' : 'Something went wrong, try again.');
+    } finally {
+      setReportBusy(false);
+      setReportTarget(null);
+    }
+  };
+
   const statusChip = (status?: string) => {
     if (status === 'approved') return <span className="flex items-center gap-1 text-emerald-300 text-[10px] font-black uppercase"><CheckCircle2 size={11} /> {el ? 'Στην αγορά' : 'Live'}</span>;
     if (status === 'rejected') return <span className="flex items-center gap-1 text-red-300 text-[10px] font-black uppercase"><XCircle size={11} /> {el ? 'Δεν εγκρίθηκε' : 'Not approved'}</span>;
@@ -185,6 +214,16 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
           : <div className="w-full h-full flex items-center justify-center text-white/20"><Music size={40} /></div>}
         {l.type === 'song' && (
           <span className="absolute top-2 left-2 px-2 py-0.5 rounded-lg bg-black/60 text-fuchsia-300 text-[9px] font-black uppercase tracking-wider flex items-center gap-1"><Music size={10} /> {el ? 'Τραγούδι' : 'Song'}</span>
+        )}
+        {l.seller_id !== user?.id && (
+          <button
+            onClick={() => (isGuest ? requireLogin() : setReportTarget(l))}
+            aria-label={el ? 'Αναφορά στη WiseBot' : 'Report to WiseBot'}
+            title={el ? 'Αναφορά στη WiseBot' : 'Report to WiseBot'}
+            className="absolute top-2 right-2 p-1.5 rounded-lg bg-black/50 text-white/35 hover:text-red-300 hover:bg-black/70 transition-colors"
+          >
+            <Flag size={12} />
+          </button>
         )}
       </div>
       <div className="p-3 flex-1 flex flex-col gap-1.5">
@@ -364,6 +403,40 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
               )}
             </>
           )}
+        </div>
+      )}
+
+      {/* ── REPORT MODAL — kid-friendly, one tap per reason ── */}
+      {reportTarget && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/70 backdrop-blur-sm p-6" onClick={() => !reportBusy && setReportTarget(null)}>
+          <div className="max-w-sm w-full rounded-[2rem] border border-white/15 bg-gradient-to-b from-slate-900 to-black p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-1">
+              <p className="text-white font-[1000] text-sm uppercase tracking-wider flex items-center gap-2">
+                <Flag size={14} className="text-red-300" /> {el ? 'Αναφορά στη WiseBot' : 'Report to WiseBot'}
+              </p>
+              <button onClick={() => !reportBusy && setReportTarget(null)} aria-label={el ? 'Κλείσιμο' : 'Close'} className="p-1 text-white/40 hover:text-white/80">
+                <X size={16} />
+              </button>
+            </div>
+            <p className="text-white/50 text-xs font-bold mb-4 truncate">
+              {el ? 'Τι δεν πάει καλά με' : "What's wrong with"} «{reportTarget.title}»;
+            </p>
+            <div className="space-y-2">
+              {([
+                ['upsetting', '😟', el ? 'Με ενοχλεί / δεν είναι για παιδιά' : "It upsets me / it's not for kids"],
+                ['mean', '😠', el ? 'Κοροϊδεύει ή πληγώνει κάποιον' : 'It mocks or hurts someone'],
+                ['other', '🤔', el ? 'Κάτι άλλο' : 'Something else'],
+              ] as const).map(([key, emoji, label]) => (
+                <button key={key} onClick={() => sendReport(key)} disabled={reportBusy}
+                  className="w-full flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 text-left text-white/80 text-sm font-bold hover:bg-white/10 hover:border-white/25 transition-all disabled:opacity-50">
+                  <span className="text-xl leading-none">{emoji}</span> {label}
+                </button>
+              ))}
+            </div>
+            <p className="text-white/25 text-[10px] font-bold mt-4 text-center">
+              {el ? 'Η αναφορά σου είναι ανώνυμη για τα άλλα παιδιά — τη βλέπει μόνο η WiseBot.' : 'Your report is anonymous to other kids — only WiseBot sees it.'}
+            </p>
+          </div>
         </div>
       )}
     </div>
