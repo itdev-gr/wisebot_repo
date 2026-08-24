@@ -14,7 +14,14 @@ reports. HeroMarket flag button + kid-worded modal; AdminDashboard Market tab sh
 «Αναφορές παιδιών» queue (reasons, ΟΚ-μένει/Κατέβασμα); either decision resolves reports,
 and decisions now apply to reported-but-live listings too.
 
-**PR #38 — LCP fix, measured live: 9.9s → 3.9s (score 67 → 79).** The preload pointed at
+**PR #38 + #40 — the speed arc.** The owner's PSI kept showing LCP ~20s after #38; the
+network breakdown found the real culprits: Layout's <audio preload="auto"> pulled the
+3.2MB theme song on EVERY page load (64% of a 4,956KiB payload), and the 5 hero-cluster
+images were 256-276KB jpgs in ≤320px boxes. #40: preload="none" + 640px WebP set in
+/images/opt/ (29-34KB each; also wired into Cinema thumbnails; originals kept). Live
+after both, devtools-throttled Lighthouse: **payload 5,049→~460KiB critical, LCP 3.6s,
+Perf 82**. Remaining path to <2.5s (backlog): static hero shell in index.html.
+**PR #38 — LCP fix (first half):** The preload pointed at
 wisebot_sm.jpg while the hero renders wisebot.jpg (fixed + fetchPriority=high); the hero
 image and H1 entered via framer-motion opacity-0 (LCP counts painted pixels — both are
 transform-only now); Nunito ttf→woff2 (500KB→168KB, ttf fallback kept, 2 weights
