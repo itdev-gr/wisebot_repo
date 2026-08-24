@@ -5,9 +5,21 @@ MacBook had no toolchain and no local project context.
 
 ---
 
-## ⚡ STATUS 25 Αυγούστου 2026 (απόγευμα) — Journey Νο3: Maker Levels + Passport
+## ⚡ STATUS 25 Αυγούστου 2026 (βράδυ) — Journey Νο3 + Νο5 φάση 1 LIVE
 
-**Open: PR #34 `feat/maker-levels-passport`** (CI green, for the owner's say-so).
+**Merged & live on the owner's say-so: PR #34 (Maker Levels + Passport) and PR #35
+(Parent weekly report, phase 1).**
+
+**PR #35 — «Η εβδομάδα του παιδιού»** (Parent Dashboard, above School progress): School
+missions improved in the last 7 days (+stars, top subject), weighted quiz %, creations
+with their names, current Maker rank, and a rotating «Ρωτήστε το σήμερα…» conversation
+starter tied to what the child actually did. Only real server timestamps are used
+(quiz_best.achieved_at, created_at on heroes/user_songs/user_videos — own-rows RLS
+verified). Pure aggregation in `utils/weeklyReport.ts`, pinned by 10 tests (suite 66/66).
+Guests/failed fetches: section hidden, never wrong zeros. **Phase 2 = the same data as a
+Sunday email: needs a Resend (or similar) API key from the owner + a Vercel cron.**
+
+**PR #34 — Maker Levels + Passport** (details below, merged same day).
 Dreamer→Explorer→Creator→Maker→Inventor→Founder→Legend from total XP.
 `data/makerLevels.ts` is the single source of truth (thresholds/taglines tune there);
 the numeric `wb_level` counter is untouched. `/passport` (lazy, SemiPublicRoute): tier +
