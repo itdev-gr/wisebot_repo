@@ -5,6 +5,23 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 26 Αυγούστου 2026 — SEO P0 cleanup live (external audit verified)
+
+The owner brought an external SEO audit; verified against the live site. Confirmed & fixed
+in **PR #36 (merged, live)**: /legal, /privacy, /terms, /login were served by the SPA
+fallback with the HOME meta and canonical to «/» (crawler saw the homepage on /legal) —
+all four now have prerendered pages with self-canonicals + client PAGE_META; one age range
+everywhere (6–12, 35 occurrences of 6-13 swept incl. JSON-LD and the chat prompt); last
+«πρώτο Ελληνικό» and «Αναγνωρισμένο από εκπαιδευτικούς» claims removed; stale «90
+σπουδαίων» → 113. Also fixed same day via Vercel API: **www.wisebot.gr redirect is now
+308 Permanent** (was 307). Audit items that were stale (already done before it): home
+title/positioning, sitemap/GSC/indexing, grade pages, /ai-paidia. Still valid backlog from
+it: subject pages (/mathimatika-dimotikou …), /epixeirimatikotita-gia-paidia landing,
+articles, backlinks/PR/entity building (owner-side). Pending owner: Bing Webmaster import
+(or extension site access so Claude does it), Resend API key for the Sunday email.
+
+---
+
 ## ⚡ STATUS 25 Αυγούστου 2026 (βράδυ) — Journey Νο3 + Νο5 φάση 1 LIVE
 
 **Merged & live on the owner's say-so: PR #34 (Maker Levels + Passport) and PR #35
