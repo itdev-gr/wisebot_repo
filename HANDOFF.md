@@ -52,6 +52,55 @@ needed). Full audit findings live in the 24/8 session; remaining backlog: subjec
 
 ---
 
+## ⚡⚡ SEASON HANDOFF — 25 Αυγούστου 2026. READ THIS FIRST, THEN WORK TOP-DOWN.
+
+**What the 23-25/8 season shipped (all merged & live on wisebot.gr):** server-side quiz
+progress (#29, quiz_best + trigger, migration applied) · SEO overhaul + «Οι Ιδέες σου
+Γίνονται Πραγματικότητα» repositioning + 6 grade pages (#32) · socials sameAs (#33) ·
+Maker Levels + /passport (#34) · Parent weekly report in-app (#35) · SEO P0 fixes:
+legal/login meta, one age 6-12, honest claims (#36) · Market child-report button +
+auto-unpublish at 3 reports + admin queue (#37, migration applied) · the speed war
+(#38/40/41/43/44): PSI mobile 65 & LCP 20.3s → 86 & 3.3s (audio preload=none saved
+3.2MB/load, 640px WebP set, static hero shell) · «Η Ιστορία μας» /istoria-mas + menu &
+explore-grid links (#45/46). GSC: sitemap 27 URLs + 9 indexing requests. Bing: verified,
+sitemap submitted 24/8. www→308. Full Chrome/Mac automation for the owner's machine works
+(see memory + NOTE in the 26/8 block below).
+
+**BACKLOG for the new season, in the order the last audit ranked it:**
+1. **GA4 conversion events** (signup, first creation, purchase) — audit P0, NOT done.
+   GA loads after CookieConsent accept; G-7834HP8GYV.
+2. **Resend key → Sunday parent email** (phase 2): owner signs up at resend.com (2'),
+   then Claude can extract the key via Chrome, `vercel env add`, api endpoint + Vercel
+   cron; reuses utils/weeklyReport.ts aggregation as-is.
+3. **Subject SEO pages** (/mathimatika-dimotikou, /glossa-, /istoria-, /fysiki-,
+   /geografia-, /agglika-dimotikou) + **/epixeirimatikotita-gia-paidia** — same recipe
+   as the grade pages (component + generator ROUTES + sitemap; slugs in 3 places).
+4. **Missions 2.0** (PRODUCT-VISION Νο2, the core loop: one mission = Academy + Quiz +
+   Factory), then **onboarding «Τι ονειρεύεσαι να γίνεις;»** (Νο1), then AI Mentor (Νο4).
+5. **Search follow-ups**: Bing URL Submission unlocks ~26/8 (Chrome automation);
+   check GSC coverage for the 9 requested pages + refreshed titles ~end of week;
+   IndexNow wiring is a nice code-side add; GSC Brand profile still gated by Google.
+6. **Speed (parked at 86)**: next lever = metric-matched fallback font
+   (size-adjust/ascent-override for Nunito) so the font swap can't grow the H1;
+   PR #44's slightly-larger shell H1 did NOT hold the LCP record — consider reverting
+   its 2.15rem if the font fix lands.
+7. **Trust/GDPR hardening**: leaked-password protection toggle in Supabase Auth
+   (1 click, dashboard), retention-policy wording in /legal, moderation docs.
+8. **DB hygiene** (one migration): wrap auth.uid() as (select auth.uid()) in the 24
+   flagged RLS policies; drop duplicate permissive SELECT policies on heroes.
+9. Later/needs owner: Academy story pages (113, after GSC shows query data) ·
+   2-3 άρθρα/εβδομάδα + 30-50 ελληνικά backlinks + PR (Claude drafts, owner sends) ·
+   «Βιβλία pass» still undefined — needs the owner's brief · Weekly Global Challenge,
+   Teams, Hero Market creator economy (vision, after the top-5).
+
+**Ground rules that survived the season:** branch+PR per piece, CI green, merge on the
+owner's say-so (he has been saying «κάντα merge» — still ask unless he pre-authorizes);
+never touch book/unit/academy content meaning; content counts live in
+data/contentCounts.ts locked by tests; wisebot-review before commit; HANDOFF STATUS
+updated after every merged piece.
+
+---
+
 ## ⚡ STATUS 25 Αυγούστου 2026 (μεσημέρι) — «Η Ιστορία μας» live + speed parked at 86
 
 **PR #45 (merged, live): /istoria-mas** — the founder's story in his own words (family
