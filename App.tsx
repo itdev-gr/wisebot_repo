@@ -11,6 +11,7 @@ import InternalLinks from './components/InternalLinks';
 const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 const SchoolGradeSEOPage = React.lazy(() => import('./components/SchoolGradeSEOPage'));
 const MakerPassport = React.lazy(() => import('./components/MakerPassport'));
+const OurStoryPage = React.lazy(() => import('./components/OurStoryPage'));
 const MakerLevelUp = React.lazy(() => import('./components/MakerLevelUp'));
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, Zap } from 'lucide-react';
@@ -466,6 +467,7 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             {([[1, 'askiseis-a-dimotikou'], [2, 'askiseis-b-dimotikou'], [3, 'askiseis-g-dimotikou'], [4, 'askiseis-d-dimotikou'], [5, 'askiseis-e-dimotikou'], [6, 'askiseis-st-dimotikou']] as const).map(([g, slug]) => (
               <Route key={g} path={`/${slug}`} element={<SchoolGradeSEOPage lang={lang} grade={g} />} />
             ))}
+            <Route path="/istoria-mas" element={<OurStoryPage lang={lang} />} />
             <Route path="/ai-paidia" element={<SEOLandingPage lang={lang} variant="ai-paidia" />} />
             <Route path="/paidika-paixnidia" element={<SEOLandingPage lang={lang} variant="paidika-paixnidia" />} />
             <Route path="/ekpaideutiko-ai" element={<SEOLandingPage lang={lang} variant="ekpaideutiko-ai" />} />

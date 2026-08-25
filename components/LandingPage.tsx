@@ -233,6 +233,10 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
               {lang === 'el'
                 ? "Χωρίς chat με αγνώστους. Μόνο η WiseBot. Μόνο μάθηση μεταμφιεσμένη σε παιχνίδι."
                 : "No chat with strangers. Only WiseBot. Just learning disguised as fun."}
+              {' '}
+              <RouterLink to="/istoria-mas" className="text-white/50 hover:text-white/80 underline underline-offset-2 transition-colors not-italic">
+                {lang === 'el' ? 'Φτιαγμένο από μια οικογένεια με 3 παιδιά →' : 'Built by a family with 3 kids →'}
+              </RouterLink>
             </p>
           </motion.div>
 
