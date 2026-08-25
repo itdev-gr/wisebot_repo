@@ -314,15 +314,31 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
 
 // --- PENDING VERIFICATION SCREEN ---
 // --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
-// Landing page is always accessible — GuestBanner hides itself for logged-in users
+// Was a no-op passthrough (CRO-AUDIT P2-14). Children render while auth resolves so
+// the static hero shell's instant first paint (PR #43) is not delayed; the redirect
+// kicks in the moment a session is known.
 const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user, loading } = useAuth();
+  if (!loading && user) return <Navigate to="/dashboard" replace />;
   return <>{children}</>;
 };
 
+// NOT a login gate on purpose: guest mode routes visitors through /dashboard,
+// /account and /parent render their own logged-out CTAs, and the server APIs
+// enforce auth. It only holds rendering until the session is known.
 const ProtectedRoute: React.FC<{ children: React.ReactNode; lang?: 'el' | 'en' }> = ({ children, lang = 'el' }) => {
   const { loading } = useAuth();
 
   if (loading) return <PageLoader />;
+  return <>{children}</>;
+};
+
+// The admin dashboard is the one client route with no logged-out story at all —
+// guests got a confusing empty shell (server auth always protected the data).
+const AdminRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { user, loading } = useAuth();
+  if (loading) return <PageLoader />;
+  if (!user) return <Navigate to="/login" replace />;
   return <>{children}</>;
 };
 
@@ -475,9 +491,9 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
 
             {/* ═══ PROTECTED ROUTES — require authentication (dashboard, payment, admin) ═══ */}
             <Route path="/dashboard" element={<ProtectedRoute lang={lang}><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
-            <Route path="/admin" element={<ProtectedRoute lang={lang}><AdminDashboard lang={lang} /></ProtectedRoute>} />
+            <Route path="/admin" element={<AdminRoute><AdminDashboard lang={lang} /></AdminRoute>} />
             <Route path="/account" element={<ProtectedRoute lang={lang}><Account lang={lang} onClaimBonus={handleClaimBonus} lastClaimDate={lastClaimDate} /></ProtectedRoute>} />
-            <Route path="/store" element={<ProtectedRoute lang={lang}><CreditStore lang={lang} /></ProtectedRoute>} />
+            <Route path="/store" element={<SemiPublicRoute lang={lang}><CreditStore lang={lang} /></SemiPublicRoute>} />
             <Route path="/parent" element={<ProtectedRoute lang={lang}><ParentDashboard lang={lang} /></ProtectedRoute>} />
 
             {/* 404 catch-all: redirect unknown routes to landing */}

@@ -3,6 +3,14 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
+  <!-- ═══ PRICING / CREDIT STORE — public so parents can see prices pre-signup ═══ -->
+  <url>
+    <loc>https://wisebot.gr/store</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- ═══ MAIN LANDING PAGE ═══ -->
   <url>
     <loc>https://wisebot.gr/</loc>
