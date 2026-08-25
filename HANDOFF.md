@@ -24,8 +24,13 @@ Perf 82**. PR #41 finished the sweep: the landing's
 video-gallery thumbs still loaded full-size jpgs (+82KB webp) and the 97KB PWA icon —
 now 640 WebP / 17KB icon. PR #42: PSI tap-target a11y fix (history ticker + ΣΥΝΔΕΣΗ pill).
 **Owner-verified PSI mobile: 65 → 89, LCP 20.3s → 3.2s.** Functional check passed: hero
-renders webp, audio preload=none still plays on demand, zero console errors. Remaining
-path to <2.5s/green (backlog): static hero shell in index.html.
+renders webp, audio preload=none still plays on demand, zero console errors. PR #43 (merged, live): the
+static hero shell — #root ships an inline-styled copy of the hero text that paints
+straight from HTML; React replaces it on mount (CLS 0 verified), and
+generate-seo-pages.mjs strips the WB-SHELL block from every non-home route (verified:
+/ has it, /school doesn't). Local throttled proof: FCP 0.1s/LCP 0.3s; live numbers now
+dominated by network noise in the local harness — the owner's next PSI run is the
+ground truth (morning runs sat at 86-89).
 **PR #38 — LCP fix (first half):** The preload pointed at
 wisebot_sm.jpg while the hero renders wisebot.jpg (fixed + fetchPriority=high); the hero
 image and H1 entered via framer-motion opacity-0 (LCP counts painted pixels — both are
