@@ -139,7 +139,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           (audit P1-9). Kept deliberately small so it never competes with the CTA. */}
       <RouterLink
         to="/login"
-        className="absolute top-3 right-3 md:top-5 md:right-6 z-40 px-3.5 py-2 rounded-full bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 text-[11px] md:text-xs font-black uppercase tracking-widest transition-all"
+        className="absolute top-3 right-3 md:top-5 md:right-6 z-40 px-5 py-3 min-h-[44px] inline-flex items-center rounded-full bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 text-[11px] md:text-xs font-black uppercase tracking-widest transition-all"
       >
         {lang === 'el' ? 'Σύνδεση' : 'Log in'}
       </RouterLink>
@@ -157,9 +157,9 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
           </span>
           {HISTORY_ITEMS.map((item, idx) => (
             <React.Fragment key={item.id}>
-              <button 
+              <button
                 onClick={() => setSelectedHistory(item)}
-                className="hover:text-cyan-400 hover:scale-105 transition-all cursor-pointer outline-none focus:text-cyan-400 uppercase font-black tracking-widest"
+                className="px-2 py-2.5 -my-1 min-h-[32px] hover:text-cyan-400 hover:scale-105 transition-all cursor-pointer outline-none focus:text-cyan-400 uppercase font-black tracking-widest"
               >
                 {item.label[lang]}
               </button>
