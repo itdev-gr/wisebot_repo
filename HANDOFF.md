@@ -70,6 +70,16 @@ sitemap submitted 24/8. www→308. Full Chrome/Mac automation for the owner's ma
 conversion events (consent-safe, sign_up/login/trackAction/purchase — owner still needs
 to mark sign_up & purchase as key events in GA4 admin) and PR #42 tap-target a11y fix.
 
+**SEASON OPENER — CRO audit (owner's call, 25/8):** walk the whole conversion funnel
+as a skeptical parent on a phone: landing → /portal → signup (parent email/verification
+friction) → onboarding → first creation (activation moment) → unlock gates →
+credits/pricing (/store is login-gated — can a parent see prices before committing?) →
+purchase. Deliverable: ranked friction list with concrete fixes, shipped as small PRs.
+Heuristic pass now (use the Chrome automation to actually click through as guest AND as
+a fresh account); re-check with GA4 funnel data (~2 weeks after PR #39 collects:
+sign_up, wb_* actions, begin_checkout, purchase). Watch especially: how many taps from
+landing to «κοίτα τι έφτιαξα» and where guests hit walls.
+
 **BACKLOG for the new season, in the order the last audit ranked it:**
 1. **Resend key → Sunday parent email** (phase 2): owner signs up at resend.com (2'),
    then Claude can extract the key via Chrome, `vercel env add`, api endpoint + Vercel
