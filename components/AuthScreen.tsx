@@ -169,8 +169,13 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       }
 
       setSubmitting(false);
-      setSuccess(t.successRegister);
-      setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
+      // Signup deliberately creates no session (AuthContext: "Don't auto-login"), so
+      // navigating to /dashboard here silently dropped the new user into guest mode
+      // (CRO-AUDIT P0-4). Show the check-your-email screen instead — it already has
+      // the resend button.
+      setVerificationEmail(parentEmail);
+      setShowVerificationMsg(true);
+      setSuccess('');
       return;
     } else {
       const result = await signIn(parentEmail, password);
