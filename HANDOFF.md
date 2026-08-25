@@ -5,6 +5,30 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 26 Αυγούστου 2026 — CRO audit ολοκληρώθηκε, και τα 7 PRs (#47–#53) merged
+
+Το season-opener CRO audit έγινε (live mobile walkthrough ως guest + πλήρες code
+trace· λογαριασμός ΔΕΝ δημιουργήθηκε — τα auth flows ελέγχθηκαν από τον κώδικα).
+Παραδοτέο: **CRO-AUDIT.md** (ranked P0/P1/P2 λίστα, μπαίνει με το #47). Κορυφαία:
+το κουμπί «Εγγραφή» του GuestBanner δεν πήγαινε σε εγγραφή· το κύριο CTA path
+(landing→portal→dashboard) δεν ζητούσε ποτέ λογαριασμό· το verification email
+οδηγούσε σε ανύπαρκτο route /auth (κατέληγε στο landing)· purchase GA4 revenue σε
+credits αντί για EUR. Όλα τα fixes merged 26/8 με το «κάντα merge» του ιδιοκτήτη
+(σειρά #47→#53· το #50 έκανε rebase πάνω στο #49 — ίδια lab αρχεία):
+**#47** A: Register CTAs → signup + signup ask στο portal · **#48** B: /auth route
++ post-signup «τσέκαρε το email» · **#49** C: analytics fixes (EUR, OAuth, gate
+events) · **#50** D: login ask πριν τη δημιουργία + return-to μετά την αγορά ·
+**#51** E: κινητό εκτός signup (δεν στελνόταν καν στο API) · **#52** F: guest
+branch στο store verify modal (το inline OTP αποδείχθηκε περιττό: κάθε logged-in
+χρήστης περνάει ήδη μέσω emailVerified) · **#53** G: τιμές public (landing links +
+sitemap + /store semi-public), AutoRedirect πραγματικό, /admin guard, dead code
+out, «24 credits»→10. Merged main: typecheck + vitest 66/66 + πλήρες build green.
+**Εκκρεμεί απόφαση ιδιοκτήτη (audit #10):** welcome credits 10⚡ vs 60-80⚡ marquee
+features + inline story στο UnlockGate. **Μετά τα merges:** GA4 funnel re-check ~10/9
+(τα σωστά νούμερα ξεκινούν να μαζεύονται αφού βγει live το #49).
+
+---
+
 ## ⚡ STATUS 25 Αυγούστου 2026 — τα 3 P0 του γενικού audit: merged & live
 
 **PR #37 — Market report button + auto-unpublish.** `market_reports` table (migration
