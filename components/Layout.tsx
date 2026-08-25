@@ -31,6 +31,7 @@ import {
   Medal,
   ChevronRight,
   Scale,
+  Heart,
   Gamepad2,
   Menu,
   MessageCircle,
@@ -428,6 +429,18 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                        <span className="font-black text-lg uppercase tracking-wide">{lang === 'el' ? 'Όροι & Ασφάλεια' : 'Terms & Safety'}</span>
                      </Link>
                    </div>
+
+                   {/* Our Story Mobile */}
+                   <div className="mt-2">
+                     <Link
+                       to="/istoria-mas"
+                       onClick={() => setIsMobileMenuOpen(false)}
+                       className="flex items-center gap-4 px-6 py-4 rounded-2xl transition-all bg-white/5 text-white/50 border border-white/5"
+                     >
+                       <Heart size={24} />
+                       <span className="font-black text-lg uppercase tracking-wide">{lang === 'el' ? 'Η Ιστορία μας' : 'Our Story'}</span>
+                     </Link>
+                   </div>
                 </div>
                 {/* Mobile Language Toggle */}
                 <div className="p-6 border-t border-white/10">
@@ -609,12 +622,21 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                </button>
 
                {/* Legal Button */}
-               <Link 
+               <Link
                   to="/legal"
                   className="w-full flex items-center justify-center gap-2 p-2 text-[9px] font-bold uppercase tracking-widest text-white/30 hover:text-white transition-colors"
                >
                   <Scale size={12} />
                   {lang === 'el' ? 'Όροι & Ασφάλεια' : 'Terms & Safety'}
+               </Link>
+
+               {/* Our Story */}
+               <Link
+                  to="/istoria-mas"
+                  className="w-full flex items-center justify-center gap-2 p-2 text-[9px] font-bold uppercase tracking-widest text-white/30 hover:text-white transition-colors"
+               >
+                  <Heart size={12} />
+                  {lang === 'el' ? 'Η Ιστορία μας' : 'Our Story'}
                </Link>
 
                {/* 🌟 HOLOGRAPHIC RANK CARD (SIDEBAR - BLUE THEME) */}
