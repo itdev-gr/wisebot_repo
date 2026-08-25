@@ -352,14 +352,23 @@ export default function CreditStore({ lang }: CreditStoreProps) {
 
               {/* Title */}
               <h2 className="text-xl font-[1000] text-white uppercase italic tracking-tighter mb-2">
-                {lang === 'el' ? 'Επαλήθευση Γονέα' : 'Parent Verification Required'}
+                {!user
+                  ? (lang === 'el' ? 'Χρειάζεσαι λογαριασμό γονέα' : 'A parent account is needed')
+                  : (lang === 'el' ? 'Επαλήθευση Γονέα' : 'Parent Verification Required')}
               </h2>
               <p className="text-white/40 text-sm mb-6 leading-relaxed">
-                {lang === 'el'
-                  ? 'Για αγορές απαιτείται επαλήθευση κινητού ή email από τον γονέα/κηδεμόνα.'
-                  : 'Purchases require phone or email verification by a parent/guardian.'}
+                {!user
+                  ? (lang === 'el'
+                      ? 'Οι αγορές γίνονται μόνο από επαληθευμένο γονέα. Φτιάξε δωρεάν λογαριασμό με το email του γονέα — παίρνει 1 λεπτό.'
+                      : 'Purchases are made only by a verified parent. Create a free account with the parent\'s email — it takes a minute.')
+                  : (lang === 'el'
+                      ? 'Για αγορές απαιτείται επαλήθευση κινητού ή email από τον γονέα/κηδεμόνα.'
+                      : 'Purchases require phone or email verification by a parent/guardian.')}
               </p>
 
+              {/* Verification status — meaningless for guests (there is no profile
+                  to be unverified), so shown only when logged in (CRO-AUDIT P1-8). */}
+              {user && (<>
               {/* Verification status */}
               <div className="space-y-3 mb-6">
                 <div className={`flex items-center gap-3 px-4 py-3 rounded-xl border ${
@@ -397,8 +406,24 @@ export default function CreditStore({ lang }: CreditStoreProps) {
                   )}
                 </div>
               </div>
+              </>)}
 
-              {/* CTA Button — go to Parents Control */}
+              {/* Guests were sent to /parent?verify=true, which dead-ends at a login
+                  CTA behind a PIN gate — the longest leg of the purchase maze
+                  (CRO-AUDIT P1-8). Send them straight to signup instead. */}
+              {!user ? (
+                <button
+                  onClick={() => {
+                    setShowVerifyGate(false);
+                    navigate('/login?mode=register');
+                  }}
+                  className="w-full py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-xl text-white font-[1000] uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20"
+                >
+                  <Shield size={14} />
+                  {lang === 'el' ? 'ΔΩΡΕΑΝ ΕΓΓΡΑΦΗ / ΣΥΝΔΕΣΗ' : 'FREE SIGN-UP / LOG IN'}
+                  <ArrowRight size={14} />
+                </button>
+              ) : (
               <button
                 onClick={() => {
                   setShowVerifyGate(false);
@@ -410,6 +435,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
                 {lang === 'el' ? 'ΠΗΓΑΙΝΕ ΣΤΟ PARENTS CONTROL' : 'GO TO PARENTS CONTROL'}
                 <ArrowRight size={14} />
               </button>
+              )}
 
               <button
                 onClick={() => setShowVerifyGate(false)}
