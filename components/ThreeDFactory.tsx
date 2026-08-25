@@ -6,6 +6,7 @@ import { GoogleGenAI } from "../services/geminiProxy";
 import { useNavigate } from 'react-router-dom';
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
+import { useAuth } from '../context/AuthContext';
 import { authFetch } from '../services/backendApi';
 
 const motion = m as any;
@@ -26,6 +27,7 @@ const SAMPLES = [
 
 export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const { badges, showNotification, credits, spendCredits, refundCredits, costs } = useEconomy();
   const t = UI_TEXT[lang].factory3d;
   
@@ -102,7 +104,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
 
     if (!spendCredits(costs.threeD, '3d')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1500);
+      setTimeout(() => navigate('/store?from=/3d-factory'), 1500);
       return;
     }
 
@@ -241,9 +243,19 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generateReal3D = async () => {
     if (!image) return;
 
+    // Real 3D is guest-blocked server-side (meshy-generate: allowGuest false).
+    // Ask for the account BEFORE the child invests in the creation, not via a
+    // 401 after submit (CRO-AUDIT P1-6).
+    if (!user) {
+      import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', '3d')).catch(() => {});
+      showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
+      setTimeout(() => navigate('/login?mode=register'), 1500);
+      return;
+    }
+
     if (!spendCredits(costs.threeD, '3d')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1500);
+      setTimeout(() => navigate('/store?from=/3d-factory'), 1500);
       return;
     }
 

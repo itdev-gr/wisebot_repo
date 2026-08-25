@@ -242,7 +242,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         const success = spendCredits(costs.image, 'image');
         if (!success) {
             showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-            setTimeout(() => navigate('/store'), 1500);
+            setTimeout(() => navigate('/store?from=/factory'), 1500);
             return;
         }
     }
@@ -297,7 +297,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     const success = spendCredits(costs.image, 'image');
     if (!success) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1500);
+      setTimeout(() => navigate('/store?from=/factory'), 1500);
       return;
     }
     setAvatarLoading(true);
@@ -361,9 +361,17 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
 
   // ─── Meshy 3D Conversion ───
   const startMeshy3D = useCallback(async (imageToConvert: string) => {
+    // 3D is guest-blocked server-side (meshy-generate: allowGuest false).
+    // Ask before spending/submitting, not via a 401 after (P1-6).
+    if (isGuest) {
+      import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', '3d')).catch(() => {});
+      showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
+      setTimeout(() => navigate('/login?mode=register'), 1500);
+      return;
+    }
     if (!spendCredits(costs.threeD, '3d')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1500);
+      setTimeout(() => navigate('/store?from=/factory'), 1500);
       return;
     }
     setMeshy3DStatus('processing');
@@ -435,7 +443,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       setMeshy3DStatus('error');
       showNotification('❌', err.message || '3D Error');
     }
-  }, [costs.threeD, lang, showNotification, spendCredits, refundCredits, navigate]);
+  }, [costs.threeD, lang, showNotification, spendCredits, refundCredits, navigate, isGuest]);
 
   // Cleanup meshy polling
   useEffect(() => {

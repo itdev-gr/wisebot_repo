@@ -99,13 +99,20 @@ export default function CreditStore({ lang }: CreditStoreProps) {
           setTimeout(() => setShowSuccess(false), 5000);
           // Clean up URL params after processing
           window.history.replaceState({}, '', '/store');
+          // Return the buyer to the creation that sent them here (P1-7) — after a
+          // beat so the +credits notification is seen.
+          const returnTo = localStorage.getItem('wb_store_return_to');
+          if (returnTo && /^\/[a-z0-9\-/]*$/i.test(returnTo)) {
+            localStorage.removeItem('wb_store_return_to');
+            setTimeout(() => navigate(returnTo), 2000);
+          }
         }
       }).catch(console.error);
     }
     // `showNotification` added: it was read from a closure captured on first render,
     // which is bug CS1 in AUDIT-BUGS.md. It is a `[]`-stable useCallback, so listing it
     // fixes the stale closure without making this Stripe-verification effect re-run.
-  }, [searchParams, lang, backendReady, user?.id, syncFromCloud, showNotification]);
+  }, [searchParams, lang, backendReady, user?.id, syncFromCloud, showNotification, navigate]);
 
   // Check if parent is verified: phone OR email verified
   const isParentVerified = (): boolean => {
@@ -124,6 +131,16 @@ export default function CreditStore({ lang }: CreditStoreProps) {
 
     // Parent is verified — proceed to checkout
     setBuyingPack(packId);
+    // Remember where the buyer came from (labs redirect here as /store?from=/music
+    // etc.) so a successful purchase can return them to the blocked creation
+    // instead of leaving them in the shop (CRO-AUDIT P1-7). localStorage survives
+    // the Stripe round-trip; success_url stays on /store where verification runs.
+    const from = searchParams.get('from');
+    if (from && /^\/[a-z0-9\-/]*$/i.test(from)) {
+      localStorage.setItem('wb_store_return_to', from);
+    } else {
+      localStorage.removeItem('wb_store_return_to');
+    }
     import('../utils/analytics').then(({ trackBeginCheckout }) => trackBeginCheckout(packId)).catch(() => {});
     try {
       const { url } = await backendStripe.checkout(packId);
