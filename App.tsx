@@ -86,6 +86,12 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
   const [showLine2, setShowLine2] = useState(false);
   const { earnXp } = useEconomy();
 
+  // The portal is the primary landing CTA's destination; without this event the
+  // top of the funnel is invisible in GA4 (CRO-AUDIT P0-5).
+  useEffect(() => {
+    import('./utils/analytics').then(({ trackPortalEnter }) => trackPortalEnter()).catch(() => {});
+  }, []);
+
   useEffect(() => {
     if (seenBefore) return;
     const t1 = setTimeout(() => setShowLine2(true), 500);

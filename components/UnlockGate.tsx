@@ -5,12 +5,13 @@
  * Otherwise WiseBot explains the one thing that opens it and offers to take the child
  * there. Never a dead end, never a plain "locked".
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Lock, ArrowRight } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import { isUnlocked, unlockHint, UNLOCK_RULES, type UnlockKey } from '../utils/unlocks';
 import { useChildName } from './FirstTimeTip';
+import { trackGateBlock } from '../utils/analytics';
 
 interface Props {
   feature: UnlockKey;
@@ -23,7 +24,14 @@ export default function UnlockGate({ feature, lang, children }: Props) {
   const navigate = useNavigate();
   const name = useChildName(lang);
 
-  if (isUnlocked(feature, stats)) return <>{children}</>;
+  const blocked = !isUnlocked(feature, stats);
+  // Gate impressions were invisible in GA4 (CRO-AUDIT P0-5). Effect must sit above
+  // the early return — hooks can't be conditional.
+  useEffect(() => {
+    if (blocked) trackGateBlock('unlock', feature);
+  }, [blocked, feature]);
+
+  if (!blocked) return <>{children}</>;
 
   const rule = UNLOCK_RULES[feature];
   const hint = unlockHint(feature, stats, lang);

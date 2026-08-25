@@ -53,6 +53,11 @@ export default function CreditStore({ lang }: CreditStoreProps) {
   // Parent verification gate modal
   const [showVerifyGate, setShowVerifyGate] = useState(false);
 
+  // Store views were invisible in GA4 — every drop-off analysis starts here (P0-5).
+  useEffect(() => {
+    import('../utils/analytics').then(({ trackViewStore }) => trackViewStore()).catch(() => {});
+  }, []);
+
   // Handle Stripe redirect
   // Stripe redirects to: /store?success=true&session_id=xxx
   useEffect(() => {
@@ -82,7 +87,11 @@ export default function CreditStore({ lang }: CreditStoreProps) {
               })
             ).catch(console.error);
           }
-          import('../utils/analytics').then(({ trackPurchase }) => trackPurchase(result.credits)).catch(() => {});
+          // GA4 revenue must be euros, not credits (CRO-AUDIT P0-5). The verify
+          // endpoint only returns credits, so map back to the pack's price.
+          const pack = CREDIT_PACKS.find(p => p.credits === result.credits);
+          const valueEur = pack ? Number(pack.price.replace('€', '')) : Math.round(result.credits * 5) / 100;
+          import('../utils/analytics').then(({ trackPurchase }) => trackPurchase(valueEur, result.credits)).catch(() => {});
           showNotification('🎉', lang === 'el'
             ? `+${result.credits} Credits! Ευχαριστούμε!`
             : `+${result.credits} Credits! Thank you!`);
@@ -108,6 +117,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
 
     // Check parent verification (phone or email)
     if (!isParentVerified()) {
+      import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('verify', packId)).catch(() => {});
       setShowVerifyGate(true);
       return;
     }

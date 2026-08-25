@@ -79,7 +79,7 @@ interface EconomyContextType {
   };
   dailyMission: DailyMission;
   streak: number;
-  spendCredits: (amount: number) => boolean;
+  spendCredits: (amount: number, feature?: string) => boolean;
   /**
    * Reward effort with XP (⭐), never with credits. Credits are bought; XP, levels
    * and badges are earned. Dispatches `wb:xp` for App.tsx, which owns XP/level.
@@ -561,8 +561,13 @@ export const EconomyProvider: React.FC<{ children: React.ReactNode; lang?: 'el' 
   // Real client-side deduction. The server independently enforces and deducts
   // on paid AI endpoints (profiles.credits is the source of truth for
   // logged-in users); this keeps the UI in sync without waiting for a round-trip.
-  const spendCredits = useCallback((amount: number): boolean => {
-    if (creditsRef.current < amount) return false;
+  const spendCredits = useCallback((amount: number, feature?: string): boolean => {
+    if (creditsRef.current < amount) {
+      // The credit wall is a top drop-off candidate; make it visible in GA4
+      // (CRO-AUDIT P0-5). Fire-and-forget, never blocks the deduction path.
+      import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('credits', feature || 'unknown')).catch(() => {});
+      return false;
+    }
     creditsRef.current -= amount;
     setCredits(prev => Math.max(0, prev - amount));
     return true;

@@ -84,6 +84,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
             onboarding_complete: false,
           });
 
+          // First-ever profile for an OAuth user = a signup GA4 never saw (CRO-AUDIT P0-5).
+          if (isGoogleUser) trackSignUp('google');
+
           // Re-fetch the newly created profile
           return fetchProfile(userId);
         }
@@ -165,6 +168,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (event === 'INITIAL_SESSION') return;
 
         if (session?.user) {
+          // OAuth logins return via redirect, so signInWithGoogle can't track them —
+          // this is the only place a completed Google login is observable (CRO-AUDIT
+          // P0-5). Password logins are tracked in signIn; the provider check keeps
+          // them from double-counting.
+          if (event === 'SIGNED_IN' && session.user.app_metadata?.provider === 'google') {
+            trackLogin('google');
+          }
           setUser(session.user);
           setEmailVerified(!!session.user.email_confirmed_at);
           fetchProfile(session.user.id); // background — non-blocking

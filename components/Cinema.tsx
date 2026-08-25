@@ -471,7 +471,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
   const handleGenerate = async () => {
     const videoCost = costs.video;
-    if (!spendCredits(videoCost)) {
+    if (!spendCredits(videoCost, 'video')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
@@ -542,6 +542,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       if (!genResp.ok) {
         const errData = await genResp.json().catch(() => ({}));
         if (genResp.status === 401 && errData.error === 'login_required') {
+          import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'video')).catch(() => {});
           refundCredits(videoCost);
           showNotification('🎬', lang === 'el' ? 'Για να γυρίσεις ταινία, φτιάξε λογαριασμό!' : 'Create an account to make a movie!');
           setTimeout(() => navigate('/login?mode=register'), 1500);

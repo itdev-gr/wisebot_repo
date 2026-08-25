@@ -365,7 +365,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     if (!input) return;
 
     const songCost = costs.song;
-    if (!spendCredits(songCost)) {
+    if (!spendCredits(songCost, 'song')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
@@ -454,6 +454,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         });
         const sunoData = await sunoResp.json().catch(() => ({}));
         if (sunoResp.status === 401 && sunoData.error === 'login_required') {
+          import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'song')).catch(() => {});
           // Guests can write lyrics but the real song needs an account (it costs
           // real money). Give the credits back and point to sign-up.
           refundCredits(songCost);
