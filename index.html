@@ -237,7 +237,21 @@
   <noscript><link rel="stylesheet" href="/index.css"></noscript>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root"><!-- WB-SHELL-START: static hero painted before React loads (LCP).
+       React's createRoot().render() replaces this wholesale on mount. Inline styles only —
+       index.css loads async. Geometry mirrors the real hero so the swap doesn't shift
+       layout (CLS). generate-seo-pages.mjs STRIPS this block from every non-home route. -->
+    <div style="min-height:100vh;background:#0B0F1A;display:flex;flex-direction:column;justify-content:flex-start;padding:88px 24px 24px;box-sizing:border-box;">
+      <div style="max-width:56rem;">
+        <p style="margin:0 0 24px;color:rgba(255,255,255,0.6);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:0.15em;font-size:12px;">ΓΙΑ ΠΑΙΔΙΑ 6–12 · Α' ΕΩΣ ΣΤ' ΔΗΜΟΤΙΚΟΥ</p>
+        <h1 style="margin:0;padding:4px 0;font-weight:1000;font-style:italic;text-transform:uppercase;letter-spacing:-0.05em;line-height:1.15;font-size:2rem;overflow-wrap:break-word;">
+          <span style="color:#fff;">ΟΙ ΙΔΕΕΣ ΣΟΥ</span><br>
+          <span style="display:block;padding-bottom:8px;background:linear-gradient(90deg,#60a5fa,#818cf8,#a855f7);-webkit-background-clip:text;background-clip:text;color:transparent;">ΓΙΝΟΝΤΑΙ ΠΡΑΓΜΑΤΙΚΟΤΗΤΑ.</span>
+        </h1>
+        <p style="margin:24px 0 0;color:#fff;font-weight:1000;font-style:italic;line-height:1.375;letter-spacing:-0.025em;font-size:1rem;max-width:42rem;">Βιβλία με αφήγηση, ιστορίες σπουδαίων ανθρώπων και το Σχολείο Α'–ΣΤ' — και κάθε σελίδα που διαβάζει, κερδίζει.</p>
+      </div>
+    </div>
+  <!-- WB-SHELL-END --></div>
   <!-- SW update: reload once when new version detected (with loop protection) -->
   <script>
     if ('serviceWorker' in navigator) {
