@@ -177,8 +177,8 @@ export default function WiseBotChat({ lang, onClose }: WiseBotChatProps) {
         {
           role: 'model' as const,
           text: lang === 'el'
-            ? '🔒 Τα δωρεάν μηνύματα τελείωσαν!\n\nΓια να συνεχίσουμε, πρέπει να κάνεις **εγγραφή**! Κερδίζεις αμέσως **24 δωρεάν credits** και ξεκλειδώνεις:\n\n🦸 Δημιουργία ηρώων\n🎵 Δημιουργία τραγουδιών\n🎬 Δημιουργία video\n🧊 3D μοντέλα\n\nΠάτα **Λογαριασμός** στο μενού για εγγραφή! 🚀'
-            : '🔒 Free messages used up!\n\nTo continue, you need to **register**! You get **24 free credits** instantly and unlock:\n\n🦸 Hero creation\n🎵 Song creation\n🎬 Video creation\n🧊 3D models\n\nTap **Account** in the menu to register! 🚀',
+            ? '🔒 Τα δωρεάν μηνύματα τελείωσαν!\n\nΓια να συνεχίσουμε, πρέπει να κάνεις **εγγραφή**! Κερδίζεις αμέσως **10 δωρεάν credits** και ξεκλειδώνεις:\n\n🦸 Δημιουργία ηρώων\n🎵 Δημιουργία τραγουδιών\n🎬 Δημιουργία video\n🧊 3D μοντέλα\n\nΠάτα **Λογαριασμός** στο μενού για εγγραφή! 🚀'
+            : '🔒 Free messages used up!\n\nTo continue, you need to **register**! You get **10 free credits** instantly and unlock:\n\n🦸 Hero creation\n🎵 Song creation\n🎬 Video creation\n🧊 3D models\n\nTap **Account** in the menu to register! 🚀',
         },
       ]);
       setInput('');

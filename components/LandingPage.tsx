@@ -423,6 +423,8 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
                   el: 'Το διάβασμα, τα quiz και το σχολείο είναι δωρεάν, πάντα. Τα credits για AI δημιουργίες κερδίζονται διαβάζοντας — ή αγοράζονται από €4,99, μόνο με επαλήθευση γονέα. Καμία αγορά δεν γίνεται από το παιδί.',
                   en: 'Reading, quizzes and school are free, always. Credits for AI creations are earned by reading — or bought from €4.99, only with parent verification. A child cannot make a purchase.',
                 },
+                // The full price list was invisible before signup (CRO-AUDIT P2-11).
+                link: { href: '/store', label: { el: 'Δες όλες τις τιμές →', en: 'See all prices →' } },
               },
               {
                 icon: <Shield size={22} className="text-amber-400" />,
@@ -437,6 +439,11 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
                 <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">{card.icon}</div>
                 <h4 className="text-white font-[1000] text-sm uppercase italic tracking-wide">{card.title[lang]}</h4>
                 <p className="text-white/55 text-xs md:text-sm font-semibold leading-relaxed">{card.body[lang]}</p>
+                {'link' in card && card.link && (
+                  <a href={card.link.href} className="inline-block text-emerald-400/80 hover:text-emerald-300 text-xs font-black uppercase tracking-wider transition-colors">
+                    {card.link.label[lang]}
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -522,6 +529,8 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
             ))}
           </div>
           <div className="flex items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-white/20">
+            <a href="/store" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Τιμές' : 'Pricing'}</a>
+            <span>·</span>
             <a href="/privacy" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Πολιτική Απορρήτου' : 'Privacy Policy'}</a>
             <span>·</span>
             <a href="/terms" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Όροι Χρήσης' : 'Terms of Service'}</a>
