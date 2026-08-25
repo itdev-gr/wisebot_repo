@@ -85,6 +85,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
   const [phase, setPhase] = useState<RitualPhase>(seenBefore ? 'gateway' : 'intro');
   const [showLine2, setShowLine2] = useState(false);
   const { earnXp } = useEconomy();
+  const { user } = useAuth();
 
   useEffect(() => {
     if (seenBefore) return;
@@ -110,6 +111,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
       credits: 'Χρησιμοποίησέ τα για να φτιάξεις κάτι που δεν υπήρχε.',
       discoverTitle: 'ΤΙ ΘΑ ΑΝΑΚΑΛΥΨΕΙΣ',
       btn: 'ΞΕΚΙΝΑ ΤΟ ΤΑΞΙΔΙ',
+      register: 'Δωρεάν εγγραφή — κράτα ό,τι φτιάξεις',
       footer: 'ΟΙ ΦΥΛΑΚΕΣ ΔΕΝ ΠΕΡΙΜΕΝΟΥΝ. ΔΗΜΙΟΥΡΓΟΥΝ.'
     },
     en: {
@@ -120,6 +122,7 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
       credits: 'Use them to create something that didn\'t exist.',
       discoverTitle: 'WHAT YOU\'LL DISCOVER',
       btn: 'START YOUR JOURNEY',
+      register: 'Free account — keep what you create',
       footer: 'GUARDIANS DON\'T WAIT. THEY CREATE.'
     }
   };
@@ -298,6 +301,17 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
                       <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
                     </span>
                   </button>
+
+                  {/* Guests were never asked for an account anywhere on the primary
+                      landing → portal → dashboard path (CRO-AUDIT P0-2). */}
+                  {!user && (
+                    <button
+                      onClick={() => navigate('/login?mode=register')}
+                      className="block mx-auto text-sm font-[900] text-purple-300/80 hover:text-purple-200 underline underline-offset-4 decoration-purple-500/40 transition-colors"
+                    >
+                      {text.register}
+                    </button>
+                  )}
 
                   <p className="text-[10px] font-[1000] uppercase tracking-[0.6em] text-white/10 italic animate-pulse">
                     {text.footer}

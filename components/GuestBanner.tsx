@@ -46,6 +46,10 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
     navigate('/portal');
   };
 
+  const handleRegister = () => {
+    navigate('/login?mode=register');
+  };
+
   // Never show to authenticated users
   if (loading || user) return null;
 
@@ -87,7 +91,7 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
             {/* Buttons */}
             <div className="flex items-center gap-2 mt-3 flex-wrap">
               <button
-                onClick={handleEnterPortal}
+                onClick={handleRegister}
                 className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-[900] text-xs uppercase tracking-wider hover:brightness-110 hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-500/20"
               >
                 <UserPlus size={14} />
