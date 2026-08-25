@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap } from 'lucide-react';
+import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap, Heart } from 'lucide-react';
 import { ACADEMY_STORY_COUNT } from '../data/contentCounts';
 
 interface InternalLinksProps {
@@ -109,6 +109,14 @@ const PAGES = [
     color: 'from-violet-500 to-purple-700',
     label: { el: 'Wise Friends', en: 'Wise Friends' },
     desc: { el: 'Κοινότητα για παιδιά', en: 'Kids community' },
+  },
+  {
+    id: 'story',
+    path: '/istoria-mas',
+    icon: Heart,
+    color: 'from-rose-500 to-pink-600',
+    label: { el: 'Η Ιστορία μας', en: 'Our Story' },
+    desc: { el: 'Η οικογένεια πίσω από το WiseBot', en: 'The family behind WiseBot' },
   },
 ];
 
