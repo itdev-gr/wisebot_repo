@@ -183,7 +183,7 @@ const BusinessSimulation: React.FC<Props> = ({ lang, addXp, completedIds }) => {
 
   const handleNext = () => {
     if (step === 2) {
-      if (!spendCredits(COST)) {
+      if (!spendCredits(COST, 'business')) {
         showNotification('💰', lang === 'el' ? `Χρειάζεσαι ${COST} Credits!` : `You need ${COST} Credits!`);
         setTimeout(() => navigate('/store'), 1500);
         return;

@@ -239,7 +239,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     
     if (step === 3) {
         // Attempt to spend credits before proceeding (server-validated)
-        const success = spendCredits(costs.image);
+        const success = spendCredits(costs.image, 'image');
         if (!success) {
             showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
             setTimeout(() => navigate('/store'), 1500);
@@ -294,7 +294,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       setStep(-1);
       return;
     }
-    const success = spendCredits(costs.image);
+    const success = spendCredits(costs.image, 'image');
     if (!success) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
@@ -361,7 +361,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
 
   // ─── Meshy 3D Conversion ───
   const startMeshy3D = useCallback(async (imageToConvert: string) => {
-    if (!spendCredits(costs.threeD)) {
+    if (!spendCredits(costs.threeD, '3d')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
@@ -392,6 +392,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
       });
       const data = await resp.json().catch(() => ({}));
       if (resp.status === 401 && data.error === 'login_required') {
+        import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', '3d')).catch(() => {});
         refundCredits(costs.threeD);
         setMeshy3DStatus('idle');
         showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');

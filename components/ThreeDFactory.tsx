@@ -100,7 +100,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generate3DPreview = async () => {
     if (!image) return;
 
-    if (!spendCredits(costs.threeD)) {
+    if (!spendCredits(costs.threeD, '3d')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
@@ -241,7 +241,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const generateReal3D = async () => {
     if (!image) return;
 
-    if (!spendCredits(costs.threeD)) {
+    if (!spendCredits(costs.threeD, '3d')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
       setTimeout(() => navigate('/store'), 1500);
       return;
@@ -275,6 +275,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
 
       const data = await resp.json().catch(() => ({}));
       if (resp.status === 401 && data.error === 'login_required') {
+        import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', '3d')).catch(() => {});
         refundCredits(costs.threeD);
         setMeshyStatus('idle');
         showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
