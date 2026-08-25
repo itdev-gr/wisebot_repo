@@ -52,6 +52,23 @@ needed). Full audit findings live in the 24/8 session; remaining backlog: subjec
 
 ---
 
+## ⚡ STATUS 25 Αυγούστου 2026 (μεσημέρι) — «Η Ιστορία μας» live + speed parked at 86
+
+**PR #45 (merged, live): /istoria-mas** — the founder's story in his own words (family
+with three children; the kids' REAL voices narrate the 34 ebooks and their school days
+became the stories; the father-entrepreneur teaching big goals / resilience / creative
+screen time; closing belief «όλα τα παιδιά έχουν μεγάλα όνειρα…»). Deliberately no child
+names/faces. AboutPage JSON-LD, prerendered, in sitemap, linked from the landing trust
+line. This closes the audit's E-E-A-T gap.
+
+Speed: PR #44 (shell H1 slightly larger) did NOT move LCP — lcp-breakdown still shows
+the React H1 span repainting larger at ~3.5s (Nunito wider than the shell's fallback
+font). PSI parked at 86 (LCP 3.3s, CLS 0) — from 65/20.3s. Next candidate if ever
+resumed: metric-matched fallback font (size-adjust/ascent-override for Nunito) so the
+font swap doesn't grow the H1 box; or font-display:optional on the 900 weight.
+
+---
+
 ## ⚡ STATUS 26 Αυγούστου 2026 — SEO P0 cleanup live (external audit verified)
 
 The owner brought an external SEO audit; verified against the live site. Confirmed & fixed
