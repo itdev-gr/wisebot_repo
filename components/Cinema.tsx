@@ -470,10 +470,19 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   };
 
   const handleGenerate = async () => {
+    // Video is guest-blocked server-side (video-generate: allowGuest false).
+    // Ask before the work is invested, not via a 401 after submit (P1-6).
+    if (!user) {
+      import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'video')).catch(() => {});
+      showNotification('🎬', lang === 'el' ? 'Για να γυρίσεις ταινία, φτιάξε λογαριασμό!' : 'Create an account to make a movie!');
+      setTimeout(() => navigate('/login?mode=register'), 1500);
+      return;
+    }
+
     const videoCost = costs.video;
     if (!spendCredits(videoCost, 'video')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1500);
+      setTimeout(() => navigate('/store?from=/cinema'), 1500);
       return;
     }
     // Set when the server reports it already refunded its own charge, so the

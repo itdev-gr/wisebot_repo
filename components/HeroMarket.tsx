@@ -102,7 +102,7 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
     if (isGuest) return requireLogin();
     if (!spendCredits(listing.price, 'market_buy')) {
       showNotification('💰', el ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1200);
+      setTimeout(() => navigate('/store?from=/market'), 1200);
       return;
     }
     setBusyId(listing.id);
@@ -154,7 +154,7 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
     if (!printHero) return;
     if (!spendCredits(PRINT_COST, 'market_print')) {
       showNotification('💰', el ? `Η 3D εκτύπωση κοστίζει ${PRINT_COST}⚡.` : `3D printing costs ${PRINT_COST}⚡.`);
-      setTimeout(() => navigate('/store'), 1200);
+      setTimeout(() => navigate('/store?from=/market'), 1200);
       return;
     }
     setBusyId('print');

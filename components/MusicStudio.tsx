@@ -364,10 +364,19 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     const input = mode === 'simple' ? description.trim() : customLyrics.trim();
     if (!input) return;
 
+    // Songs are guest-blocked server-side (suno-generate: allowGuest false).
+    // Ask before the work is invested, not via a 401 after submit (P1-6).
+    if (!user) {
+      import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'song')).catch(() => {});
+      showNotification('🎤', lang === 'el' ? 'Για να ακούσεις το τραγούδι σου, φτιάξε λογαριασμό!' : 'Create an account to hear your song!');
+      setTimeout(() => navigate('/login?mode=register'), 1500);
+      return;
+    }
+
     const songCost = costs.song;
     if (!spendCredits(songCost, 'song')) {
       showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');
-      setTimeout(() => navigate('/store'), 1500);
+      setTimeout(() => navigate('/store?from=/music'), 1500);
       return;
     }
 
