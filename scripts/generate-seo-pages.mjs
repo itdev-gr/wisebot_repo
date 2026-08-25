@@ -333,6 +333,10 @@ function generatePage(baseHtml, route) {
   let html = baseHtml;
   const url = `${BASE_URL}${route.path}`;
 
+  // The static hero shell inside #root belongs to the homepage only — on any other
+  // route it would flash the wrong content and hand crawlers a duplicate hero.
+  html = html.replace(/<!-- WB-SHELL-START[\s\S]*?<!-- WB-SHELL-END -->/, '');
+
   // Replace <title>
   html = html.replace(
     /<title>[^<]*<\/title>/,
