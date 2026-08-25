@@ -20,7 +20,12 @@ network breakdown found the real culprits: Layout's <audio preload="auto"> pulle
 images were 256-276KB jpgs in ≤320px boxes. #40: preload="none" + 640px WebP set in
 /images/opt/ (29-34KB each; also wired into Cinema thumbnails; originals kept). Live
 after both, devtools-throttled Lighthouse: **payload 5,049→~460KiB critical, LCP 3.6s,
-Perf 82**. Remaining path to <2.5s (backlog): static hero shell in index.html.
+Perf 82**. PR #41 finished the sweep: the landing's
+video-gallery thumbs still loaded full-size jpgs (+82KB webp) and the 97KB PWA icon —
+now 640 WebP / 17KB icon. PR #42: PSI tap-target a11y fix (history ticker + ΣΥΝΔΕΣΗ pill).
+**Owner-verified PSI mobile: 65 → 89, LCP 20.3s → 3.2s.** Functional check passed: hero
+renders webp, audio preload=none still plays on demand, zero console errors. Remaining
+path to <2.5s/green (backlog): static hero shell in index.html.
 **PR #38 — LCP fix (first half):** The preload pointed at
 wisebot_sm.jpg while the hero renders wisebot.jpg (fixed + fetchPriority=high); the hero
 image and H1 entered via framer-motion opacity-0 (LCP counts painted pixels — both are
