@@ -11,6 +11,56 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ═══ SUBJECT & ENTREPRENEURSHIP LANDING PAGES ═══ -->
+  <url>
+    <loc>https://wisebot.gr/mathimatika-dimotikou</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wisebot.gr/glossa-dimotikou</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wisebot.gr/istoria-dimotikou</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wisebot.gr/fysiki-dimotikou</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wisebot.gr/geografia-dimotikou</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wisebot.gr/agglika-dimotikou</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://wisebot.gr/epixeirimatikotita-gia-paidia</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ═══ MAIN LANDING PAGE ═══ -->
   <url>
     <loc>https://wisebot.gr/</loc>

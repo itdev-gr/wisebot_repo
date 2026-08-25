@@ -10,6 +10,7 @@ import SemiPublicRoute from './components/SemiPublicRoute';
 import InternalLinks from './components/InternalLinks';
 const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 const SchoolGradeSEOPage = React.lazy(() => import('./components/SchoolGradeSEOPage'));
+const SubjectSEOPage = React.lazy(() => import('./components/SubjectSEOPage'));
 const MakerPassport = React.lazy(() => import('./components/MakerPassport'));
 const OurStoryPage = React.lazy(() => import('./components/OurStoryPage'));
 const MakerLevelUp = React.lazy(() => import('./components/MakerLevelUp'));
@@ -506,11 +507,17 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             {([[1, 'askiseis-a-dimotikou'], [2, 'askiseis-b-dimotikou'], [3, 'askiseis-g-dimotikou'], [4, 'askiseis-d-dimotikou'], [5, 'askiseis-e-dimotikou'], [6, 'askiseis-st-dimotikou']] as const).map(([g, slug]) => (
               <Route key={g} path={`/${slug}`} element={<SchoolGradeSEOPage lang={lang} grade={g} />} />
             ))}
+            {/* Per-subject School pages (/mathimatika-dimotikou …). Slugs also live in
+                SubjectSEOPage, generate-seo-pages.mjs and sitemap.xml — keep in sync. */}
+            {(['mathimatika-dimotikou', 'glossa-dimotikou', 'istoria-dimotikou', 'fysiki-dimotikou', 'geografia-dimotikou', 'agglika-dimotikou'] as const).map(slug => (
+              <Route key={slug} path={`/${slug}`} element={<SubjectSEOPage lang={lang} slug={slug} />} />
+            ))}
             <Route path="/istoria-mas" element={<OurStoryPage lang={lang} />} />
             <Route path="/ai-paidia" element={<SEOLandingPage lang={lang} variant="ai-paidia" />} />
             <Route path="/paidika-paixnidia" element={<SEOLandingPage lang={lang} variant="paidika-paixnidia" />} />
             <Route path="/ekpaideutiko-ai" element={<SEOLandingPage lang={lang} variant="ekpaideutiko-ai" />} />
             <Route path="/ftiaxe-tragoudia-ai" element={<SEOLandingPage lang={lang} variant="ftiaxe-tragoudia-ai" />} />
+            <Route path="/epixeirimatikotita-gia-paidia" element={<SEOLandingPage lang={lang} variant="epixeirimatikotita-gia-paidia" />} />
 
             {/* ═══ PROTECTED ROUTES — require authentication (dashboard, payment, admin) ═══ */}
             <Route path="/dashboard" element={<ProtectedRoute lang={lang}><Dashboard lang={lang} xp={xp} level={level} completedIds={completedIds} myHeroes={myHeroes} /></ProtectedRoute>} />
