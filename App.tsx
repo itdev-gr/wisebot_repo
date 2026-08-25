@@ -43,6 +43,7 @@ const BusinessSimulation = React.lazy(() => import('./components/BusinessSimulat
 const CreditStore = React.lazy(() => import('./components/CreditStore'));
 const ParentDashboard = React.lazy(() => import('./components/ParentDashboard'));
 const AuthScreen = React.lazy(() => import('./components/AuthScreen'));
+const VerifyEmailLanding = React.lazy(() => import('./components/VerifyEmailLanding'));
 const CookieConsent = React.lazy(() => import('./components/CookieConsent'));
 
 const motion = m as any;
@@ -457,6 +458,8 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<><SEO lang={lang} page="login" /><AuthScreen lang={lang} /></>} />
+            {/* Signup verification emails redirect here (api/auth/signup.ts redirectTo). */}
+            <Route path="/auth" element={<VerifyEmailLanding lang={lang} />} />
             <Route path="/legal" element={<><SEO lang={lang} page="legal" /><LegalHub lang={lang} /></>} />
             <Route path="/privacy" element={<><SEO lang={lang} page="privacy" /><LegalHub lang={lang} /></>} />
             <Route path="/terms" element={<><SEO lang={lang} page="terms" /><LegalHub lang={lang} /></>} />
