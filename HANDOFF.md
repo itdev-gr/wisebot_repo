@@ -66,29 +66,31 @@ explore-grid links (#45/46). GSC: sitemap 27 URLs + 9 indexing requests. Bing: v
 sitemap submitted 24/8. www→308. Full Chrome/Mac automation for the owner's machine works
 (see memory + NOTE in the 26/8 block below).
 
+**Also shipped in parallel by another session (see the block above):** PR #39 GA4
+conversion events (consent-safe, sign_up/login/trackAction/purchase — owner still needs
+to mark sign_up & purchase as key events in GA4 admin) and PR #42 tap-target a11y fix.
+
 **BACKLOG for the new season, in the order the last audit ranked it:**
-1. **GA4 conversion events** (signup, first creation, purchase) — audit P0, NOT done.
-   GA loads after CookieConsent accept; G-7834HP8GYV.
-2. **Resend key → Sunday parent email** (phase 2): owner signs up at resend.com (2'),
+1. **Resend key → Sunday parent email** (phase 2): owner signs up at resend.com (2'),
    then Claude can extract the key via Chrome, `vercel env add`, api endpoint + Vercel
    cron; reuses utils/weeklyReport.ts aggregation as-is.
-3. **Subject SEO pages** (/mathimatika-dimotikou, /glossa-, /istoria-, /fysiki-,
+2. **Subject SEO pages** (/mathimatika-dimotikou, /glossa-, /istoria-, /fysiki-,
    /geografia-, /agglika-dimotikou) + **/epixeirimatikotita-gia-paidia** — same recipe
    as the grade pages (component + generator ROUTES + sitemap; slugs in 3 places).
-4. **Missions 2.0** (PRODUCT-VISION Νο2, the core loop: one mission = Academy + Quiz +
+3. **Missions 2.0** (PRODUCT-VISION Νο2, the core loop: one mission = Academy + Quiz +
    Factory), then **onboarding «Τι ονειρεύεσαι να γίνεις;»** (Νο1), then AI Mentor (Νο4).
-5. **Search follow-ups**: Bing URL Submission unlocks ~26/8 (Chrome automation);
+4. **Search follow-ups**: Bing URL Submission unlocks ~26/8 (Chrome automation);
    check GSC coverage for the 9 requested pages + refreshed titles ~end of week;
    IndexNow wiring is a nice code-side add; GSC Brand profile still gated by Google.
-6. **Speed (parked at 86)**: next lever = metric-matched fallback font
+5. **Speed (parked at 86)**: next lever = metric-matched fallback font
    (size-adjust/ascent-override for Nunito) so the font swap can't grow the H1;
    PR #44's slightly-larger shell H1 did NOT hold the LCP record — consider reverting
    its 2.15rem if the font fix lands.
-7. **Trust/GDPR hardening**: leaked-password protection toggle in Supabase Auth
+6. **Trust/GDPR hardening**: leaked-password protection toggle in Supabase Auth
    (1 click, dashboard), retention-policy wording in /legal, moderation docs.
-8. **DB hygiene** (one migration): wrap auth.uid() as (select auth.uid()) in the 24
+7. **DB hygiene** (one migration): wrap auth.uid() as (select auth.uid()) in the 24
    flagged RLS policies; drop duplicate permissive SELECT policies on heroes.
-9. Later/needs owner: Academy story pages (113, after GSC shows query data) ·
+8. Later/needs owner: Academy story pages (113, after GSC shows query data) ·
    2-3 άρθρα/εβδομάδα + 30-50 ελληνικά backlinks + PR (Claude drafts, owner sends) ·
    «Βιβλία pass» still undefined — needs the owner's brief · Weekly Global Challenge,
    Teams, Hero Market creator economy (vision, after the top-5).
