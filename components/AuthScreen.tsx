@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Phone, Gift } from 'lucide-react';
+import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const motion = m as any;
@@ -97,7 +97,6 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const [parentEmail, setParentEmail] = useState('');
   const [password, setPassword] = useState('');
   const [childName, setChildName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [parentConsent, setParentConsent] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -118,7 +117,10 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       setError(t.errorRequired);
       return;
     }
-    if (tab === 'register' && (!childName || !phoneNumber)) {
+    // The parent's phone used to be a required signup field, but it was never even
+    // sent to the API — it is only needed (and OTP-verified) at the first purchase
+    // (CRO-AUDIT P1-9). One less field on first touch.
+    if (tab === 'register' && !childName) {
       setError(t.errorRequired);
       return;
     }
@@ -315,18 +317,6 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                       value={childName}
                       onChange={setChildName}
                       autoComplete="off"
-                    />
-                    <InputField
-                      icon={<Phone size={18} />}
-                      label={lang === 'el' ? 'Κινητό Γονέα' : 'Parent Phone'}
-                      placeholder={lang === 'el' ? '+30 6XX XXX XXXX' : '+30 6XX XXX XXXX'}
-                      value={phoneNumber}
-                      onChange={setPhoneNumber}
-                      type="tel"
-                      autoComplete="tel"
-                      hint={lang === 'el'
-                        ? 'Μόνο για να επιβεβαιώσουμε ότι είσαι γονέας πριν από αγορές. Δεν το δίνουμε σε κανέναν.'
-                        : 'Only to confirm you are a parent before any purchase. Never shared.'}
                     />
                     <InputField
                       icon={<Gift size={18} />}
