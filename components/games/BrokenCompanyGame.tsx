@@ -37,14 +37,14 @@ const BOARD_TILES = Array.from({ length: 24 }, (_, i) => {
 });
 
 const OBSTACLES = [
-  { id: 'fear', title: 'Fear of Starting', desc: 'Η ομάδα φοβάται ότι η ιδέα δεν είναι καλή.', type: 'MINDSET', req: 'wisebot', damage: -2, cost: 2 },
-  { id: 'mess', title: 'Messy Plan', desc: 'Δεν ξέρουμε τι φτιάχνουμε.', type: 'STRATEGY', req: 'pencilo', damage: -3, cost: 5 },
-  { id: 'bug', title: 'Spaghetti Code', desc: 'Το σύστημα κρέμασε τελείως.', type: 'TECH', req: 'link', damage: -4, cost: 8 },
-  { id: 'broke', title: 'No Money', desc: 'Το ταμείο είναι μείον.', type: 'SALES', req: 'crocus', damage: -5, cost: 0 },
-  { id: 'lost', title: 'Lost Direction', desc: 'Γιατί το κάνουμε αυτό;', type: 'VISION', req: 'sparken', damage: -2, cost: 0 },
-  { id: 'boredom', title: 'Boredom', desc: 'Κανείς δεν έχει όρεξη σήμερα.', type: 'MINDSET', req: 'wisebot', damage: -2, cost: 0 },
-  { id: 'copycat', title: 'The Copycat', desc: 'Κάποιος αντέγραψε την ιδέα μας!', type: 'STRATEGY', req: 'pencilo', damage: -5, cost: 5 },
-  { id: 'wifi', title: 'No Wifi', desc: 'Κόπηκε το ίντερνετ στο γραφείο.', type: 'TECH', req: 'link', damage: -2, cost: 3 }
+  { id: 'fear', title: 'Fear of Starting', desc: { el: 'Η ομάδα φοβάται ότι η ιδέα δεν είναι καλή.', en: 'The team is afraid the idea is no good.' }, type: 'MINDSET', req: 'wisebot', damage: -2, cost: 2 },
+  { id: 'mess', title: 'Messy Plan', desc: { el: 'Δεν ξέρουμε τι φτιάχνουμε.', en: "We don't know what we're building." }, type: 'STRATEGY', req: 'pencilo', damage: -3, cost: 5 },
+  { id: 'bug', title: 'Spaghetti Code', desc: { el: 'Το σύστημα κρέμασε τελείως.', en: 'The system crashed completely.' }, type: 'TECH', req: 'link', damage: -4, cost: 8 },
+  { id: 'broke', title: 'No Money', desc: { el: 'Το ταμείο είναι μείον.', en: 'The cash box is in the red.' }, type: 'SALES', req: 'crocus', damage: -5, cost: 0 },
+  { id: 'lost', title: 'Lost Direction', desc: { el: 'Γιατί το κάνουμε αυτό;', en: 'Why are we even doing this?' }, type: 'VISION', req: 'sparken', damage: -2, cost: 0 },
+  { id: 'boredom', title: 'Boredom', desc: { el: 'Κανείς δεν έχει όρεξη σήμερα.', en: 'Nobody feels like working today.' }, type: 'MINDSET', req: 'wisebot', damage: -2, cost: 0 },
+  { id: 'copycat', title: 'The Copycat', desc: { el: 'Κάποιος αντέγραψε την ιδέα μας!', en: 'Someone copied our idea!' }, type: 'STRATEGY', req: 'pencilo', damage: -5, cost: 5 },
+  { id: 'wifi', title: 'No Wifi', desc: { el: 'Κόπηκε το ίντερνετ στο γραφείο.', en: 'The office internet went down.' }, type: 'TECH', req: 'link', damage: -2, cost: 3 }
 ];
 
 interface Player {
@@ -410,7 +410,7 @@ export default function BrokenCompanyGame({ lang, onBack }: BrokenCompanyGamePro
                       </div>
                    </div>
                    <p className="text-white/70 font-bold text-sm mb-6 bg-black/20 p-4 rounded-xl border border-white/5">
-                      {currentObstacle.desc}
+                      {currentObstacle.desc[lang]}
                    </p>
 
                    <div className="space-y-2">

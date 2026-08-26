@@ -19,7 +19,7 @@ export const BOOK_30: Book[] = [
     videoUrl: "",
     description: {
       el: "Είκοσι βιβλία για το άδειο ραφάκι της πλατείας. Μικρός στόχος, μικρή προσπάθεια, μεγάλη αποτυχία. Μέχρι που ο Crocus φώναξε: επί δέκα! Βασισμένο στις ιδέες του βιβλίου «The 10X Rule» του Grant Cardone.",
-      en: "Twenty books for the empty little shelf in the square. Small goal, small effort, big failure. Until Crocus shouted: times ten! Based on the ideas of the book «The 10X Rule» by Grant Cardone."
+      en: "Twenty books for the empty little shelf in the square. Small goal, small effort, big failure. Until Crocus shouted: times ten! Based on the ideas of the book 'The 10X Rule' by Grant Cardone."
     },
     meaning: {
       el: "Βάλε στόχο δέκα φορές πιο μεγάλο και ετοιμάσου για δέκα φορές πιο πολλή προσπάθεια. Η μέτρια προσπάθεια είναι ο πιο σίγουρος τρόπος να αποτύχεις.",
@@ -28,7 +28,7 @@ export const BOOK_30: Book[] = [
     xp: 100,
     parentMessage: {
       el: "Τα παιδιά συχνά βάζουν μικρούς στόχους για να μην απογοητευτούν. Όμως οι μικροί στόχοι φέρνουν μικρή ενέργεια. Δοκιμάστε σήμερα: όταν το παιδί σας πει έναν στόχο, ρωτήστε παιχνιδιάρικα «και αν τον κάναμε δέκα φορές πιο μεγάλο, τι θα χρειαζόταν;» Και θυμίστε του το άλλο μισό του κανόνα: η μεγάλη προσπάθεια θέλει και μεγάλη ξεκούραση — ο ύπνος, το παιχνίδι και η οικογένεια δεν είναι χάσιμο χρόνου.",
-      en: "Children often set small goals so they will not be disappointed. But small goals bring small energy. Try today: when your child states a goal, ask playfully «and if we made it ten times bigger, what would it take?» And remind them of the other half of the rule: big effort needs big rest — sleep, play and family are not a waste of time."
+      en: "Children often set small goals so they will not be disappointed. But small goals bring small energy. Try today: when your child states a goal, ask playfully 'and if we made it ten times bigger, what would it take?' And remind them of the other half of the rule: big effort needs big rest — sleep, play and family are not a waste of time."
     },
 
     pages: [
@@ -58,33 +58,33 @@ export const BOOK_30: Book[] = [
 «Το βλέπεις αυτό που βλέπω;» ψιθύρισε ο Sparken.
 
 «Το βλέπω», είπε ο Crocus και έτριξε τα δόντια του χαμογελώντας. «Μικρός στόχος. Μικρή προσπάθεια. Ώρα για το μάθημα.»`,
-          en: `In the corner of the square stood a little wooden shelf with a sign: «Take a book, leave a book.» Once it was full. Now it held only dust and an old phone directory.
+          en: `In the corner of the square stood a little wooden shelf with a sign: "Take a book, leave a book." Once it was full. Now it held only dust and an old phone directory.
 
-«Let's fill it up!» said Alexandra one Wednesday afternoon. «Goal: twenty books!»
+"Let's fill it up!" said Alexandra one Wednesday afternoon. "Goal: twenty books!"
 
-«Twenty?» asked Philippos. «Is that not a lot?»
+"Twenty?" asked Philippos. "Is that not a lot?"
 
-«Better few and certain», she answered. «So we do not get disappointed.»
+"Better few and certain", she answered. "So we do not get disappointed."
 
 Their plan was simple. Too simple. They made one poster — just one — and stuck it on the neighbourhood bakery window. Then they sat and waited. On Thursday they checked the shelf. Nothing. On Friday, nothing. On Saturday, one cookbook with no cover.
 
 By the next Wednesday they had gathered three books. Two of them were their own.
 
-«I do not understand», said Alexandra. «The goal was small. Reasonable. Easy. Why did we fail even at that?»
+"I do not understand", said Alexandra. "The goal was small. Reasonable. Easy. Why did we fail even at that?"
 
-Philippos lay back on the bench and sighed. «Maybe people just do not care about books.»
+Philippos lay back on the bench and sighed. "Maybe people just do not care about books."
 
 From above, two eyes green as a jungle were watching them. And next to them, two eyes throwing sparks.
 
-«Do you see what I see?» whispered Sparken.
+"Do you see what I see?" whispered Sparken.
 
-«I see it», said Crocus, grinning with all his teeth. «Small goal. Small effort. Time for the lesson.»`
+"I see it", said Crocus, grinning with all his teeth. "Small goal. Small effort. Time for the lesson."`
         }
       },
       {
         title: { el: "Επί Δέκα!", en: "Times Ten!" },
         image: "/images/crocus.jpg",
-        imageCaption: { el: "«Όχι είκοσι. ΔΙΑΚΟΣΙΑ!»", en: "«Not twenty. TWO HUNDRED!»" },
+        imageCaption: { el: "«Όχι είκοσι. ΔΙΑΚΟΣΙΑ!»", en: "'Not twenty. TWO HUNDRED!'" },
         text: {
           el: `Ο Crocus προσγειώθηκε μπροστά τους με έναν πήδο που σήκωσε σκόνη.
 
@@ -111,27 +111,27 @@ From above, two eyes green as a jungle were watching them. And next to them, two
 «Από παντού!» είπε ο Crocus. «ΠΑΜΕ!»`,
           en: `Crocus landed in front of them with a jump that raised a cloud of dust.
 
-«I heard you are looking for twenty books», he said. «Wrong goal.»
+"I heard you are looking for twenty books", he said. "Wrong goal."
 
-«We know», muttered Philippos. «It was too big.»
+"We know", muttered Philippos. "It was too big."
 
-«TOO SMALL!» roared Crocus, and the pigeons of the square flew off in a panic. «Your goal was so small it woke up nobody. Not even you! One poster? That is not effort. That is a yawn.»
+"TOO SMALL!" roared Crocus, and the pigeons of the square flew off in a panic. "Your goal was so small it woke up nobody. Not even you! One poster? That is not effort. That is a yawn."
 
-Sparken came down beside him, calmer, his eyes glowing. «Close your eyes», he said. «Imagine the little shelf with no room for more books. Imagine a second shelf. A third. Children reading on the benches. Grandparents telling stories. The whole square a library without walls.»
+Sparken came down beside him, calmer, his eyes glowing. "Close your eyes", he said. "Imagine the little shelf with no room for more books. Imagine a second shelf. A third. Children reading on the benches. Grandparents telling stories. The whole square a library without walls."
 
 Alexandra opened her eyes. Something had caught fire inside them.
 
-«New goal», said Crocus. «Take the twenty and multiply it by ten. Two hundred books.»
+"New goal", said Crocus. "Take the twenty and multiply it by ten. Two hundred books."
 
-«TWO HUNDRED?» the children shouted together. «That is crazy!»
+"TWO HUNDRED?" the children shouted together. "That is crazy!"
 
-«Yes!» laughed Crocus. «And now the second half of the rule, the most important part: it will take ten times more effort than you imagine. I am not saying this to scare you. I am saying it so you will not be surprised. When it gets hard, it will not mean something is going wrong. It will mean the plan is working.»
+"Yes!" laughed Crocus. "And now the second half of the rule, the most important part: it will take ten times more effort than you imagine. I am not saying this to scare you. I am saying it so you will not be surprised. When it gets hard, it will not mean something is going wrong. It will mean the plan is working."
 
 Philippos felt his heart beating differently. Stronger. More alive.
 
-«So where do we start?» he asked.
+"So where do we start?" he asked.
 
-«Everywhere!» said Crocus. «LET'S GO!»`
+"Everywhere!" said Crocus. "LET'S GO!"`
         }
       },
       {
@@ -160,21 +160,21 @@ Philippos felt his heart beating differently. Stronger. More alive.
 Σαράντα δύο βιβλία. Με μία κουβέντα.`,
           en: `The following week, the neighbourhood did not know what had hit it.
 
-Not one poster. Thirty. At the bakery, the pharmacy, the barbershop, the bus stop. They spoke to their teacher, who announced it to every class. They knocked on doors: «Good evening! We are collecting books for the little shelf in the square. Do you have any you no longer read?» Alexandra's grandmother told all her friends — and grandmother's friends were many.
+Not one poster. Thirty. At the bakery, the pharmacy, the barbershop, the bus stop. They spoke to their teacher, who announced it to every class. They knocked on doors: "Good evening! We are collecting books for the little shelf in the square. Do you have any you no longer read?" Alexandra's grandmother told all her friends — and grandmother's friends were many.
 
 Some people said no. Many people said no. The children kept going.
 
 Then came the disaster. A night storm soaked half the posters. The colours ran, the letters washed away.
 
-«It is our bad luck!» shouted Philippos. «It is the rain! It is the weather that...»
+"It is our bad luck!" shouted Philippos. "It is the rain! It is the weather that..."
 
-«Stop», said Alexandra quietly. She remembered something Crocus used to say. «If the rain is to blame, we can do nothing. If we are to blame, we can fix it. We left the posters uncovered.»
+"Stop", said Alexandra quietly. She remembered something Crocus used to say. "If the rain is to blame, we can do nothing. If we are to blame, we can fix it. We left the posters uncovered."
 
-Philippos went silent. He did not like what he heard. But he knew it was true. «Plastic sleeves», he said at last. «We will put them in plastic sleeves.»
+Philippos went silent. He did not like what he heard. But he knew it was true. "Plastic sleeves", he said at last. "We will put them in plastic sleeves."
 
-That same afternoon they also went to the town bookshop. The owner listened to their plan and shook his head: «I cannot give away new books, kids.»
+That same afternoon they also went to the town bookshop. The owner listened to their plan and shook his head: "I cannot give away new books, kids."
 
-One more no. They took a breath to leave — and then he added: «But I have a storeroom full of children's books that never sold. If you want them... they are yours.»
+One more no. They took a breath to leave — and then he added: "But I have a storeroom full of children's books that never sold. If you want them... they are yours."
 
 Forty-two books. With one conversation.`
         }
@@ -205,17 +205,17 @@ Forty-two books. With one conversation.`
 
 It was a lot. It was more than four times their old goal. And yet, it was less than half of the new one.
 
-Their feet ached from walking. Alexandra's voice had gone hoarse. A classmate told them, laughing: «Are you still busy with those books? Give it up. Ninety is fine.»
+Their feet ached from walking. Alexandra's voice had gone hoarse. A classmate told them, laughing: "Are you still busy with those books? Give it up. Ninety is fine."
 
-That evening, Philippos sat on the bench with his head in his hands. «Maybe he is right. Ninety-one is plenty. No one will blame us if we stop.»
+That evening, Philippos sat on the bench with his head in his hands. "Maybe he is right. Ninety-one is plenty. No one will blame us if we stop."
 
-Crocus appeared beside him. He did not shout this time. «Correct. No one will blame you. This is exactly where almost everyone stops — at the point where no one would blame them. Do you want to know the secret of the great ones? Where others stop, they make one more try. Just one. And then, if needed, one more.»
+Crocus appeared beside him. He did not shout this time. "Correct. No one will blame you. This is exactly where almost everyone stops — at the point where no one would blame them. Do you want to know the secret of the great ones? Where others stop, they make one more try. Just one. And then, if needed, one more."
 
-«And what is our one more?» asked Alexandra.
+"And what is our one more?" asked Alexandra.
 
-The answer came from WiseBot, who fluttered onto the lamp post. «The biggest idea you have not tried yet. A Book Day at school. Ask the principal for it.»
+The answer came from WiseBot, who fluttered onto the lamp post. "The biggest idea you have not tried yet. A Book Day at school. Ask the principal for it."
 
-«And one more thing», she added strictly. «Tomorrow is Sunday. Tomorrow nobody works. Sleep, play, family. Big effort needs big rest — otherwise the flame goes out.»
+"And one more thing", she added strictly. "Tomorrow is Sunday. Tomorrow nobody works. Sleep, play, family. Big effort needs big rest — otherwise the flame goes out."
 
 On Sunday they rested. On Monday they knocked on the principal's door.`
         }
@@ -240,21 +240,21 @@ On Sunday they rested. On Monday they knocked on the principal's door.`
 «Θα είχατε μαζέψει τρία», γέλασε ο Crocus. «Ο μεγάλος στόχος σας ξύπνησε. Η δεκαπλάσια προσπάθεια σας πήγε μακριά. Η ευθύνη σας κράτησε στον δρόμο. Και η άλλη μία προσπάθεια... αυτή σας πήγε στο τέρμα.»
 
 Ο Sparken κοίταξε την πλατεία που διάβαζε. «Θυμηθείτε το για πάντα», είπε. «Αν σκοπεύεις στα αστέρια και φτάσεις στο φεγγάρι, πάλι ψηλότερα είσαι από όλους όσους δεν σημάδεψαν ποτέ.»`,
-          en: `The principal listened to their idea and smiled. «A Book Day, eh? This Friday.»
+          en: `The principal listened to their idea and smiled. "A Book Day, eh? This Friday."
 
 On Friday, the schoolyard filled with bags. Children from every class brought books they had loved and grown up with. Fairy tales, comics, encyclopedias, atlases full of maps. The pile grew, and grew, and grew.
 
-On Saturday morning, in the square, the great counting took place. Alexandra called out the numbers and Philippos wrote them down. «Two hundred and ten... two hundred and eleven... two hundred and fourteen!»
+On Saturday morning, in the square, the great counting took place. Alexandra called out the numbers and Philippos wrote them down. "Two hundred and ten... two hundred and eleven... two hundred and fourteen!"
 
-The old little shelf was not enough anymore. Link appeared with tools and drawings. «Time for implementation», she said practically. Together with the neighbourhood carpenter they built two new shelves with a small canopy against the rain. The children painted the sign: «Take a book, leave a book.»
+The old little shelf was not enough anymore. Link appeared with tools and drawings. "Time for implementation", she said practically. Together with the neighbourhood carpenter they built two new shelves with a small canopy against the rain. The children painted the sign: "Take a book, leave a book."
 
 In the afternoon, the square looked exactly like Sparken's vision: children reading on the benches, a grandfather telling a story, a mother choosing a fairy tale for her baby.
 
-«And if we had stayed at twenty?» asked Philippos.
+"And if we had stayed at twenty?" asked Philippos.
 
-«You would have collected three», laughed Crocus. «The big goal woke you up. The tenfold effort took you far. Responsibility kept you on the road. And the one more try... that took you all the way.»
+"You would have collected three", laughed Crocus. "The big goal woke you up. The tenfold effort took you far. Responsibility kept you on the road. And the one more try... that took you all the way."
 
-Sparken looked at the reading square. «Remember this forever», he said. «If you aim for the stars and reach the moon, you are still higher than everyone who never aimed at all.»`
+Sparken looked at the reading square. "Remember this forever", he said. "If you aim for the stars and reach the moon, you are still higher than everyone who never aimed at all."`
         }
       }
     ]

@@ -40,7 +40,7 @@ export const BOOK_METADATA: Pick<Book, "id" | "title" | "theme" | "stepLabel" | 
     stepLabel: { el: "LINK & Η ΥΛΟΠΟΙΗΣΗ", en: "LINK & REALITY" },
     author: "Link",
     cover: "/images/link.jpg",
-    description: { el: "Το σχέδιο ήταν τέλειο, αλλά αδύνατο. Η Link εμφανίζεται για να κάνει την ερώτηση που πονάει: «Ωραία όλα αυτά... αλλά με τι θα τα φτιάξετε;»", en: "The plan was perfect, but impossible. Link appears to ask the painful question: \\" },
+    description: { el: "Το σχέδιο ήταν τέλειο, αλλά αδύνατο. Η Link εμφανίζεται για να κάνει την ερώτηση που πονάει: «Ωραία όλα αυτά... αλλά με τι θα τα φτιάξετε;»", en: "The plan was perfect, but impossible. Link appears to ask the painful question: 'Nice... but what will you build it with?'" },
     meaning: { el: "Το σχέδιο που δεν γίνεται δεν σε πάει μπροστά. Το απλό που δουλεύει σε μαθαίνει τα πάντα.", en: "A plan that can't happen doesn't move you forward. A simple one that works teaches you everything." },
   },
   {

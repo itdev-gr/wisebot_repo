@@ -401,7 +401,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         You are an expert lyric writer for Suno AI music generation. You write songs that are ready to paste into Suno.
 
         RULES:
-        - Write catchy hooks and strong choruses (ρεφρέν)
+        - Write catchy hooks and strong choruses
         - Write natural lyrics, NOT wooden/generic
         - Keep the vibe matching the style requested
         - If names are given, incorporate them naturally

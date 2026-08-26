@@ -135,12 +135,20 @@ const getISOWeek = (date: Date): number => {
   return Math.ceil((((d.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
 };
 
-const FAKE_NAMES = [
-  'Αλέξανδρος', 'Μαρία', 'Γιώργος', 'Σοφία', 'Νίκος',
-  'Ελένη', 'Δημήτρης', 'Κατερίνα', 'Παναγιώτης', 'Αθηνά',
-  'Στέφανος', 'Ιωάννα', 'Κώστας', 'Εύα', 'Βασίλης',
-  'Χριστίνα', 'Μιχάλης', 'Δέσποινα', 'Ανδρέας', 'Μαρίνα',
-];
+const FAKE_NAMES = {
+  el: [
+    'Αλέξανδρος', 'Μαρία', 'Γιώργος', 'Σοφία', 'Νίκος',
+    'Ελένη', 'Δημήτρης', 'Κατερίνα', 'Παναγιώτης', 'Αθηνά',
+    'Στέφανος', 'Ιωάννα', 'Κώστας', 'Εύα', 'Βασίλης',
+    'Χριστίνα', 'Μιχάλης', 'Δέσποινα', 'Ανδρέας', 'Μαρίνα',
+  ],
+  en: [
+    'Alex', 'Maria', 'George', 'Sophie', 'Nick',
+    'Helen', 'James', 'Kate', 'Peter', 'Athena',
+    'Steven', 'Joanna', 'Gus', 'Eva', 'Billy',
+    'Christine', 'Michael', 'Debbie', 'Andrew', 'Marina',
+  ],
+};
 
 const FAKE_ACHIEVEMENTS = [
   { el: 'Διάβασε 5 ιστορίες', en: 'Read 5 stories' },
@@ -190,7 +198,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
 
   // Generate 9 fake players with seeded random (deterministic per week)
   const fakePlayers: LeaderboardEntry[] = React.useMemo(() => {
-    const shuffled = [...FAKE_NAMES];
+    const shuffled = [...FAKE_NAMES[lang]];
     // Fisher-Yates with seeded random
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(seededRandom(yearWeekSeed * 1000 + i) * (i + 1));
@@ -211,7 +219,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
         isPlayer: false,
       };
     });
-  }, [yearWeekSeed]);
+  }, [yearWeekSeed, lang]);
 
   // Insert player and sort
   const allPlayers = React.useMemo(() => {

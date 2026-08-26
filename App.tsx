@@ -372,7 +372,9 @@ const PageLoader = () => (
            <Zap size={16} className="text-blue-400 animate-pulse" fill="currentColor" />
         </div>
      </div>
-     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">ΦΟΡΤΩΣΗ...</p>
+     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">
+        {(typeof localStorage !== 'undefined' && localStorage.getItem('wb_lang') === 'en') ? 'LOADING...' : 'ΦΟΡΤΩΣΗ...'}
+     </p>
   </div>
 );
 

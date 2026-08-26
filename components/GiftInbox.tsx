@@ -165,7 +165,7 @@ export default function GiftInbox({ lang, isOpen, onClose, onClaimImage, onClaim
                       ? (lang === 'el' ? 'ΕΙΚΟΝΑ' : 'IMAGE')
                       : (lang === 'el' ? 'ΤΡΑΓΟΥΔΙ' : 'SONG')}
                   </span>
-                  <span className="text-white/30 text-[10px] font-bold">από {gift.from_name}</span>
+                  <span className="text-white/30 text-[10px] font-bold">{lang === 'el' ? 'από' : 'from'} {gift.from_name}</span>
                 </div>
                 <p className="text-white text-sm font-bold truncate">{gift.title}</p>
                 {gift.message && (

@@ -458,7 +458,9 @@ export default function OnboardingOverlay({ lang }: OnboardingOverlayProps) {
 
                 {/* Feature pills */}
                 <div className="flex flex-wrap justify-center gap-2">
-                  {(['🎵 Τραγούδια', '🎨 Εικόνες', '🎬 Video', '🧠 Quiz'] as const).map(f => (
+                  {(lang === 'el'
+                    ? ['🎵 Τραγούδια', '🎨 Εικόνες', '🎬 Video', '🧠 Quiz']
+                    : ['🎵 Songs', '🎨 Images', '🎬 Video', '🧠 Quiz']).map(f => (
                     <span key={f} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-white/50 text-[10px] font-black uppercase tracking-wider">
                       {f}
                     </span>

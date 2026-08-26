@@ -128,7 +128,7 @@ export const GRADE5_GREEK_SYNTAX_BASICS: QuizQuestion[] = [
     },
   },
   {
-    q: { el: 'Ποιο από τα παρακάτω ρήματα είναι συνδετικό;', en: 'Which of these verbs is a linking verb (συνδετικό);' },
+    q: { el: 'Ποιο από τα παρακάτω ρήματα είναι συνδετικό;', en: 'Which of these verbs is a linking verb (συνδετικό)?' },
     options: { el: ['τρέχω', 'γίνομαι', 'γράφω', 'πίνω'], en: ['τρέχω (I run)', 'γίνομαι (I become)', 'γράφω (I write)', 'πίνω (I drink)'] },
     correct: 1,
     explanation: {
