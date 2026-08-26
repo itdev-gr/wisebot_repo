@@ -11,8 +11,10 @@ interface PageMeta {
   description: { el: string; en: string };
   keywords: { el: string; en: string };
   path: string;
-  jsonLd?: object;        // Per-page structured data
-  faq?: { q: string; a: string }[]; // FAQ schema
+  // Per-page structured data. Any {el, en} leaf inside is resolved to the active
+  // language at render time (see localizeSchema) — the schema used to be Greek-only.
+  jsonLd?: object;
+  faq?: { q: { el: string; en: string }; a: { el: string; en: string } }[]; // FAQ schema
 }
 
 const BASE_URL = 'https://wisebot.gr';
@@ -50,8 +52,8 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Course',
-      name: `WiseBot Academy - Ιστορίες ${ACADEMY_STORY_COUNT} Σπουδαίων Ανθρώπων`,
-      description: `Διαδραστικά μαθήματα για ${ACADEMY_STORY_COUNT} σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-12 ετών.`,
+      name: { el: `WiseBot Academy - Ιστορίες ${ACADEMY_STORY_COUNT} Σπουδαίων Ανθρώπων`, en: `WiseBot Academy - Stories of ${ACADEMY_STORY_COUNT} Great People` },
+      description: { el: `Διαδραστικά μαθήματα για ${ACADEMY_STORY_COUNT} σπουδαίους ανθρώπους με ήχο, εικόνες και quiz. Για παιδιά 6-12 ετών.`, en: `Interactive lessons about ${ACADEMY_STORY_COUNT} great people with audio, images and quizzes. For kids aged 6-12.` },
       provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
       audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 12 },
       isAccessibleForFree: true,
@@ -60,8 +62,8 @@ const PAGE_META: Record<string, PageMeta> = {
       hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'PT30M' },
     },
     faq: [
-      { q: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', a: `Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.` },
-      { q: 'Είναι δωρεάν η Ακαδημία;', a: 'Ναι! Η Ακαδημία είναι δωρεάν. Κερδίζεις XP και credits διαβάζοντας ιστορίες και απαντώντας σωστά σε quiz.' },
+      { q: { el: 'Τι μαθαίνουν τα παιδιά στην Ακαδημία;', en: 'What do kids learn in the Academy?' }, a: { el: `Ιστορίες ${ACADEMY_STORY_COUNT} σπουδαίων ανθρώπων - από επιστήμονες μέχρι καλλιτέχνες. Κάθε ιστορία γίνεται μάθημα ζωής με quiz στο τέλος.`, en: `Stories of ${ACADEMY_STORY_COUNT} great people - from scientists to artists. Every story becomes a life lesson with a quiz at the end.` } },
+      { q: { el: 'Είναι δωρεάν η Ακαδημία;', en: 'Is the Academy free?' }, a: { el: 'Ναι! Η Ακαδημία είναι δωρεάν. Κερδίζεις XP και credits διαβάζοντας ιστορίες και απαντώντας σωστά σε quiz.', en: 'Yes! The Academy is free. You earn XP and credits by reading stories and answering quizzes correctly.' } },
     ],
   },
   school: {
@@ -81,8 +83,8 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Course',
-      name: "WiseBot Σχολείο — Α'–ΣΤ' Δημοτικού",
-      description: `${SCHOOL_MISSION_COUNT} αποστολές με ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις σε όλα τα μαθήματα του Δημοτικού, με αστέρια, διαγωνίσματα και απολυτήρια.`,
+      name: { el: "WiseBot Σχολείο — Α'–ΣΤ' Δημοτικού", en: 'WiseBot School — Grades 1-6' },
+      description: { el: `${SCHOOL_MISSION_COUNT} αποστολές με ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις σε όλα τα μαθήματα του Δημοτικού, με αστέρια, διαγωνίσματα και απολυτήρια.`, en: `${SCHOOL_MISSION_COUNT} missions with ${SCHOOL_QUESTION_COUNT} original questions across all primary-school subjects, with stars, exams and diplomas.` },
       provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
       audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 12 },
       educationalLevel: 'Primary School',
@@ -91,9 +93,9 @@ const PAGE_META: Record<string, PageMeta> = {
       hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online' },
     },
     faq: [
-      { q: 'Ποιες τάξεις καλύπτει το Σχολείο;', a: `Όλες τις τάξεις του Δημοτικού, Α' έως ΣΤ', με ${SCHOOL_MISSION_COUNT} αποστολές οργανωμένες ανά μάθημα σύμφωνα με τα Προγράμματα Σπουδών.` },
-      { q: 'Είναι δωρεάν;', a: 'Ναι, το Σχολείο είναι εντελώς δωρεάν. Κάθε αποστολή δίνει 0–3 αστέρια και XP· με Master σε όλα τα μαθήματα ξεκλειδώνει το διαγώνισμα της τάξης και το απολυτήριο.' },
-      { q: 'Οι ερωτήσεις είναι από τα σχολικά βιβλία;', a: `Όχι — και οι ${SCHOOL_QUESTION_COUNT} ερωτήσεις είναι πρωτότυπες, γραμμένες πάνω στη δομή της ύλης, με εξήγηση σε κάθε απάντηση, στα Ελληνικά και τα Αγγλικά.` },
+      { q: { el: 'Ποιες τάξεις καλύπτει το Σχολείο;', en: 'Which grades does the School cover?' }, a: { el: `Όλες τις τάξεις του Δημοτικού, Α' έως ΣΤ', με ${SCHOOL_MISSION_COUNT} αποστολές οργανωμένες ανά μάθημα σύμφωνα με τα Προγράμματα Σπουδών.`, en: `All primary-school grades, 1 through 6, with ${SCHOOL_MISSION_COUNT} missions organized per subject following the Greek national curriculum.` } },
+      { q: { el: 'Είναι δωρεάν;', en: 'Is it free?' }, a: { el: 'Ναι, το Σχολείο είναι εντελώς δωρεάν. Κάθε αποστολή δίνει 0–3 αστέρια και XP· με Master σε όλα τα μαθήματα ξεκλειδώνει το διαγώνισμα της τάξης και το απολυτήριο.', en: 'Yes, the School is completely free. Every mission gives 0-3 stars and XP; Master in all subjects unlocks the grade exam and the diploma.' } },
+      { q: { el: 'Οι ερωτήσεις είναι από τα σχολικά βιβλία;', en: 'Are the questions taken from schoolbooks?' }, a: { el: `Όχι — και οι ${SCHOOL_QUESTION_COUNT} ερωτήσεις είναι πρωτότυπες, γραμμένες πάνω στη δομή της ύλης, με εξήγηση σε κάθε απάντηση, στα Ελληνικά και τα Αγγλικά.`, en: `No — all ${SCHOOL_QUESTION_COUNT} questions are original, written on the structure of the curriculum, with an explanation on every answer, in Greek and English.` } },
     ],
   },
   ebooks: {
@@ -113,27 +115,27 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'WiseBot Academy - 34 Εκπαιδευτικά Ebooks',
-      description: '34 δωρεάν εκπαιδευτικά ebooks με αφήγηση AI, quiz, Ελληνικά και Αγγλικά.',
+      name: { el: 'WiseBot Academy - 34 Εκπαιδευτικά Ebooks', en: 'WiseBot Academy - 34 Educational Ebooks' },
+      description: { el: '34 δωρεάν εκπαιδευτικά ebooks με αφήγηση AI, quiz, Ελληνικά και Αγγλικά.', en: '34 free educational ebooks with AI narration and quizzes, in Greek and English.' },
       numberOfItems: 26,
       isAccessibleForFree: true,
       inLanguage: ['el', 'en'],
       mainEntity: {
         '@type': 'ItemList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Αρχαία Ελλάδα & Μυθολογία' },
-          { '@type': 'ListItem', position: 2, name: 'Διάστημα & Αστρονομία' },
-          { '@type': 'ListItem', position: 3, name: 'Ζώα & Φύση' },
-          { '@type': 'ListItem', position: 4, name: 'Τεχνολογία & Επιστήμη' },
-          { '@type': 'ListItem', position: 5, name: 'Τέχνη & Πολιτισμός' },
-          { '@type': 'ListItem', position: 6, name: 'Ιστορία & Γεωγραφία' },
+          { '@type': 'ListItem', position: 1, name: { el: 'Αρχαία Ελλάδα & Μυθολογία', en: 'Ancient Greece & Mythology' } },
+          { '@type': 'ListItem', position: 2, name: { el: 'Διάστημα & Αστρονομία', en: 'Space & Astronomy' } },
+          { '@type': 'ListItem', position: 3, name: { el: 'Ζώα & Φύση', en: 'Animals & Nature' } },
+          { '@type': 'ListItem', position: 4, name: { el: 'Τεχνολογία & Επιστήμη', en: 'Technology & Science' } },
+          { '@type': 'ListItem', position: 5, name: { el: 'Τέχνη & Πολιτισμός', en: 'Art & Culture' } },
+          { '@type': 'ListItem', position: 6, name: { el: 'Ιστορία & Γεωγραφία', en: 'History & Geography' } },
         ],
       },
     },
     faq: [
-      { q: 'Πόσα ebooks υπάρχουν;', a: '34 εκπαιδευτικά ebooks σε Ελληνικά και Αγγλικά. Καλύπτουν θέματα: Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία, Τέχνη, Ιστορία.' },
-      { q: 'Μπορώ να τα ακούσω;', a: 'Ναι! Κάθε ebook έχει AI text-to-speech αφήγηση. Μπορείς να διαβάσεις ή να ακούσεις.' },
-      { q: 'Έχουν quiz;', a: 'Ναι, κάθε βιβλίο έχει quiz στο τέλος. Κερδίζεις credits αν απαντήσεις σωστά!' },
+      { q: { el: 'Πόσα ebooks υπάρχουν;', en: 'How many ebooks are there?' }, a: { el: '34 εκπαιδευτικά ebooks σε Ελληνικά και Αγγλικά. Καλύπτουν θέματα: Αρχαία Ελλάδα, Διάστημα, Ζώα, Τεχνολογία, Τέχνη, Ιστορία.', en: '34 educational ebooks in Greek and English. They cover Ancient Greece, Space, Animals, Technology, Art and History.' } },
+      { q: { el: 'Μπορώ να τα ακούσω;', en: 'Can I listen to them?' }, a: { el: 'Ναι! Κάθε ebook έχει AI text-to-speech αφήγηση. Μπορείς να διαβάσεις ή να ακούσεις.', en: 'Yes! Every ebook has AI text-to-speech narration. You can read or listen.' } },
+      { q: { el: 'Έχουν quiz;', en: 'Do they have quizzes?' }, a: { el: 'Ναι, κάθε βιβλίο έχει quiz στο τέλος. Κερδίζεις credits αν απαντήσεις σωστά!', en: 'Yes, every book has a quiz at the end. Answer correctly and you earn credits!' } },
     ],
   },
   music: {
@@ -155,14 +157,14 @@ const PAGE_META: Record<string, PageMeta> = {
       '@type': 'WebApplication',
       name: 'WiseBot Music Studio',
       applicationCategory: 'MusicApplication',
-      description: 'Φτιάξε τραγούδια με τεχνητή νοημοσύνη. Γράψε στίχους, επίλεξε στυλ μουσικής, η AI δημιουργεί πραγματικά τραγούδια.',
+      description: { el: 'Φτιάξε τραγούδια με τεχνητή νοημοσύνη. Γράψε στίχους, επίλεξε στυλ μουσικής, η AI δημιουργεί πραγματικά τραγούδια.', en: 'Create songs with artificial intelligence. Write lyrics, choose a music style, and AI creates real songs.' },
       operatingSystem: 'Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
       featureList: ['AI Song Generation', 'Custom Lyrics', 'Guided Wizard', 'Multiple Music Styles', 'Download Songs'],
     },
     faq: [
-      { q: 'Πώς φτιάχνω τραγούδια;', a: '3 τρόποι: Guided Wizard (βήμα-βήμα), Custom Lyrics (γράψε δικούς στίχους), ή Simple Description (περίγραψε τι θέλεις). Η AI δημιουργεί πραγματικά τραγούδια!' },
-      { q: 'Τι στυλ μουσικής υπάρχουν;', a: 'Pop, Rock, Hip-Hop, Electronic, Lullaby, Classical και πολλά ακόμα. Επιλέγεις εσύ!' },
+      { q: { el: 'Πώς φτιάχνω τραγούδια;', en: 'How do I create songs?' }, a: { el: '3 τρόποι: Guided Wizard (βήμα-βήμα), Custom Lyrics (γράψε δικούς στίχους), ή Simple Description (περίγραψε τι θέλεις). Η AI δημιουργεί πραγματικά τραγούδια!', en: '3 ways: the Guided Wizard (step by step), Custom Lyrics (write your own), or a Simple Description of what you want. The AI creates real songs!' } },
+      { q: { el: 'Τι στυλ μουσικής υπάρχουν;', en: 'What music styles are there?' }, a: { el: 'Pop, Rock, Hip-Hop, Electronic, Lullaby, Classical και πολλά ακόμα. Επιλέγεις εσύ!', en: 'Pop, Rock, Hip-Hop, Electronic, Lullaby, Classical and many more. You choose!' } },
     ],
   },
   game: {
@@ -182,14 +184,14 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'WiseBot Games - 16 Δωρεάν Παιδικά Παιχνίδια',
-      description: '16 δωρεάν arcade παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, και άλλα.',
+      name: { el: 'WiseBot Games - 16 Δωρεάν Παιδικά Παιχνίδια', en: 'WiseBot Games - 16 Free Kids Games' },
+      description: { el: '16 δωρεάν arcade παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, και άλλα.', en: '16 free arcade games: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, and more.' },
       numberOfItems: 16,
       isAccessibleForFree: true,
     },
     faq: [
-      { q: 'Πόσα παιχνίδια υπάρχουν;', a: '16 δωρεάν παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Endless Runner, Tower Defense, Hero Fusion, Memory Cards, Tactical Football, Nebula Catch, Ball Rush, Puzzle, Broken Company, Sky Metropolis, Slingshot, Spot It.' },
-      { q: 'Κερδίζω κάτι παίζοντας;', a: 'Ναι! Κερδίζεις credits και XP με κάθε παιχνίδι. Τα credits τα χρησιμοποιείς για AI δημιουργίες.' },
+      { q: { el: 'Πόσα παιχνίδια υπάρχουν;', en: 'How many games are there?' }, a: { el: '16 δωρεάν παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Endless Runner, Tower Defense, Hero Fusion, Memory Cards, Tactical Football, Nebula Catch, Ball Rush, Puzzle, Broken Company, Sky Metropolis, Slingshot, Spot It.', en: '16 free games: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Endless Runner, Tower Defense, Hero Fusion, Memory Cards, Tactical Football, Nebula Catch, Ball Rush, Puzzle, Broken Company, Sky Metropolis, Slingshot, Spot It.' } },
+      { q: { el: 'Κερδίζω κάτι παίζοντας;', en: 'Do I earn anything by playing?' }, a: { el: 'Ναι! Κερδίζεις credits και XP με κάθε παιχνίδι. Τα credits τα χρησιμοποιείς για AI δημιουργίες.', en: 'Yes! You earn credits and XP with every game. Credits are used for AI creations.' } },
     ],
   },
   quiz: {
@@ -207,8 +209,8 @@ const PAGE_META: Record<string, PageMeta> = {
     },
     path: '/quiz',
     faq: [
-      { q: 'Τι θέματα έχουν τα quiz;', a: 'Ιστορία, Επιστήμη, Γεωγραφία, Τεχνολογία, Φύση, Τέχνη, Αρχαία Ελλάδα, Διάστημα και πολλά ακόμα!' },
-      { q: 'Κερδίζω credits;', a: 'Ναι! Κάθε σωστή απάντηση σε quiz δίνει XP. Μπορείς να προκαλέσεις και φίλους!' },
+      { q: { el: 'Τι θέματα έχουν τα quiz;', en: 'What topics do the quizzes cover?' }, a: { el: 'Ιστορία, Επιστήμη, Γεωγραφία, Τεχνολογία, Φύση, Τέχνη, Αρχαία Ελλάδα, Διάστημα και πολλά ακόμα!', en: 'History, Science, Geography, Technology, Nature, Art, Ancient Greece, Space and much more!' } },
+      { q: { el: 'Κερδίζω credits;', en: 'Do I earn credits?' }, a: { el: 'Ναι! Κάθε σωστή απάντηση σε quiz δίνει XP. Μπορείς να προκαλέσεις και φίλους!', en: 'Yes! Every correct quiz answer gives XP. You can also challenge your friends!' } },
     ],
   },
   factory: {
@@ -230,12 +232,12 @@ const PAGE_META: Record<string, PageMeta> = {
       '@type': 'WebApplication',
       name: 'WiseBot Hero Factory',
       applicationCategory: 'DesignApplication',
-      description: 'Δημιούργησε ήρωες με AI. Γράψε περιγραφή ή ανέβασε φωτογραφία, η AI φτιάχνει εικόνες και 3D μοντέλα.',
+      description: { el: 'Δημιούργησε ήρωες με AI. Γράψε περιγραφή ή ανέβασε φωτογραφία, η AI φτιάχνει εικόνες και 3D μοντέλα.', en: 'Create heroes with AI. Write a description or upload a photo, and AI creates images and 3D models.' },
       operatingSystem: 'Web',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
     },
     faq: [
-      { q: 'Πώς φτιάχνω ήρωα;', a: 'Γράψε μια περιγραφή ή ανέβασε φωτογραφία. Η AI δημιουργεί εικόνα σε δευτερόλεπτα! Μπορείς να τον κάνεις και 3D μοντέλο.' },
+      { q: { el: 'Πώς φτιάχνω ήρωα;', en: 'How do I create a hero?' }, a: { el: 'Γράψε μια περιγραφή ή ανέβασε φωτογραφία. Η AI δημιουργεί εικόνα σε δευτερόλεπτα! Μπορείς να τον κάνεις και 3D μοντέλο.', en: 'Write a description or upload a photo. The AI creates an image in seconds! You can also turn it into a 3D model.' } },
     ],
   },
   cinema: {
@@ -375,6 +377,20 @@ const PAGE_META: Record<string, PageMeta> = {
   },
 };
 
+// Replace every {el, en} leaf in a schema object with the active language's string,
+// so structured data follows the page language instead of being Greek-only.
+const localizeSchema = (node: unknown, lang: 'el' | 'en'): unknown => {
+  if (Array.isArray(node)) return node.map(item => localizeSchema(item, lang));
+  if (node && typeof node === 'object') {
+    const record = node as Record<string, unknown>;
+    if (typeof record.el === 'string' && typeof record.en === 'string' && Object.keys(record).length === 2) {
+      return record[lang];
+    }
+    return Object.fromEntries(Object.entries(record).map(([k, v]) => [k, localizeSchema(v, lang)]));
+  }
+  return node;
+};
+
 const SEO: React.FC<SEOProps> = ({ lang, page = 'home' }) => {
   const meta = PAGE_META[page] || PAGE_META.home;
   const baseUrl = BASE_URL;
@@ -386,13 +402,13 @@ const SEO: React.FC<SEOProps> = ({ lang, page = 'home' }) => {
     '@type': 'FAQPage',
     mainEntity: meta.faq.map(f => ({
       '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
+      name: f.q[lang],
+      acceptedAnswer: { '@type': 'Answer', text: f.a[lang] },
     })),
   }) : null;
 
   // Build per-page JSON-LD
-  const pageSchema = meta.jsonLd ? JSON.stringify(meta.jsonLd) : null;
+  const pageSchema = meta.jsonLd ? JSON.stringify(localizeSchema(meta.jsonLd, lang)) : null;
 
   // Build per-page BreadcrumbList
   const breadcrumb = page !== 'home' ? JSON.stringify({

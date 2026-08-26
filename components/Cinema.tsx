@@ -355,10 +355,10 @@ const MESSAGES = [
 
 // QUOTES FOR LOADING SCREEN
 const LOADING_QUOTES = [
-  { text: "Η φαντασία είναι το μάτι της ψυχής.", author: "Joseph Joubert" },
-  { text: "Κάθε καλλιτέχνης ήταν κάποτε ερασιτέχνης.", author: "Ralph Waldo Emerson" },
-  { text: "Η δημιουργία θέλει θάρρος.", author: "Henri Matisse" },
-  { text: "Όλα ξεκίνησαν από ένα ποντίκι.", author: "Walt Disney" }
+  { text: { el: "Η φαντασία είναι το μάτι της ψυχής.", en: "Imagination is the eye of the soul." }, author: "Joseph Joubert" },
+  { text: { el: "Κάθε καλλιτέχνης ήταν κάποτε ερασιτέχνης.", en: "Every artist was first an amateur." }, author: "Ralph Waldo Emerson" },
+  { text: { el: "Η δημιουργία θέλει θάρρος.", en: "Creativity takes courage." }, author: "Henri Matisse" },
+  { text: { el: "Όλα ξεκίνησαν από ένα ποντίκι.", en: "It all started with a mouse." }, author: "Walt Disney" }
 ];
 
 interface CinemaProps {
@@ -493,13 +493,13 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
     setGeneratedVideoUrl(null);
 
     const randomQuote = LOADING_QUOTES[Math.floor(Math.random() * LOADING_QUOTES.length)];
-    setQuoteData(randomQuote);
+    setQuoteData({ text: randomQuote.text[lang], author: randomQuote.author });
 
     const sequence = [
       { text: lang === 'el' ? "🎥 Ρυθμίζουμε τα φώτα..." : "🎥 Setting the lights...", delay: 0 },
       { text: lang === 'el' ? "🎭 Ο ηθοποιός ετοιμάζεται..." : "🎭 The actor is getting ready...", delay: 3000 },
       { text: lang === 'el' ? "🎬 Ησυχία στο πλατό..." : "🎬 Quiet on set...", delay: 7000 },
-      { text: randomQuote.text, author: randomQuote.author, isQuote: true, delay: 12000 },
+      { text: randomQuote.text[lang], author: randomQuote.author, isQuote: true, delay: 12000 },
       { text: lang === 'el' ? "✨ Προσθέτουμε μαγεία..." : "✨ Adding magic...", delay: 20000 },
       { text: lang === 'el' ? "🎬 Σχεδόν έτοιμο..." : "🎬 Almost ready...", delay: 35000 },
     ];

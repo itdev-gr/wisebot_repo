@@ -17,7 +17,7 @@ export const BOOK_33: Book[] = [
     videoUrl: '',
     description: {
       el: 'Βασισμένο στις ιδέες του βιβλίου «Think and Grow Rich» του Napoleon Hill. Ο Φίλιππος έχει ένα όνειρο θολό — μέχρι που ο Sparken του μαθαίνει το μυστικό: στόχος συγκεκριμένος, σχέδιο, δράση τώρα και επιμονή ένα βήμα ακόμα.',
-      en: 'Based on the ideas of «Think and Grow Rich» by Napoleon Hill. Filippos has a blurry dream — until Sparken teaches him the secret: a specific goal, a plan, action now, and persistence one more step.'
+      en: 'Based on the ideas of "Think and Grow Rich" by Napoleon Hill. Filippos has a blurry dream — until Sparken teaches him the secret: a specific goal, a plan, action now, and persistence one more step.'
     },
     meaning: {
       el: 'Τα θολά όνειρα μένουν όνειρα. Όταν ξέρεις ΤΙ ακριβώς θέλεις, το βλέπεις καθαρά, φτιάχνεις σχέδιο, ξεκινάς τώρα και δεν τα παρατάς — γιατί οι περισσότεροι σταματούν ένα μέτρο πριν από τον χρυσό.',
@@ -26,7 +26,7 @@ export const BOOK_33: Book[] = [
     xp: 100,
     parentMessage: {
       el: 'Ο Napoleon Hill έγραψε ότι κάθε επίτευγμα ξεκινά από μια συγκεκριμένη, φλογερή επιθυμία. Στα παιδιά αυτό μεταφράζεται απλά: βοηθήστε τα να μετατρέψουν το «θέλω να γίνω σπουδαίος» σε «θέλω να φτιάξω αυτό, μέχρι τότε». Όταν κάτι τους αποτύχει, μην τους λύσετε το πρόβλημα — θυμίστε τους ότι το εμπόδιο συνήθως κρύβει μια καλύτερη ιδέα, και ρωτήστε: «Τι σου έμαθε αυτό που έσπασε;»',
-      en: 'Napoleon Hill wrote that every achievement starts with a specific, burning desire. For kids this translates simply: help them turn «I want to be great» into «I want to build this, by then». When something fails, do not solve it for them — remind them that the obstacle usually hides a better idea, and ask: «What did the broken thing teach you?»'
+      en: 'Napoleon Hill wrote that every achievement starts with a specific, burning desire. For kids this translates simply: help them turn "I want to be great" into "I want to build this, by then". When something fails, do not solve it for them — remind them that the obstacle usually hides a better idea, and ask: "What did the broken thing teach you?"'
     },
     pages: [
       {
@@ -59,23 +59,23 @@ export const BOOK_33: Book[] = [
 Μια φλόγα άναψε μέσα του. Μια φλόγα που δεν έσβηνε εύκολα.`,
           en: `Filippos sat on the bench in the yard and sighed.
 
-«I want to be great» he said out loud. «Someday. Somehow.»
+"I want to be great" he said out loud. "Someday. Somehow."
 
 Next to him, pinned on the fence, was a poster: The Great Neighborhood Race. Homemade carts, no engine, just a downhill road. In thirty days.
 
 Suddenly the air filled with golden sparks. In front of him appeared Sparken, the hero of vision, with eyes that shone like stars.
 
-«I heard a dream» he said. «But it was blurry. And blurry dreams, my friend, lead nowhere.»
+"I heard a dream" he said. "But it was blurry. And blurry dreams, my friend, lead nowhere."
 
-«What do you mean?» asked Filippos.
+"What do you mean?" asked Filippos.
 
-«Tell me exactly WHAT you want. Not someday. Not somehow. Exactly.»
+"Tell me exactly WHAT you want. Not someday. Not somehow. Exactly."
 
 Filippos looked at the poster. His heart beat faster.
 
-«I want to build my own cart. And race in the Great Race. Thirty days from today.»
+"I want to build my own cart. And race in the Great Race. Thirty days from today."
 
-Sparken smiled widely. «Now you are talking. Write it on a piece of paper. Read it every morning and every night. Then close your eyes. See yourself at the finish line. Hear the crowd cheering. Feel the steering wheel in your hands.»
+Sparken smiled widely. "Now you are talking. Write it on a piece of paper. Read it every morning and every night. Then close your eyes. See yourself at the finish line. Hear the crowd cheering. Feel the steering wheel in your hands."
 
 Filippos closed his eyes. And for the first time, his dream had color, sound and a name.
 
@@ -106,19 +106,19 @@ A flame lit up inside him. A flame that would not go out easily.`
 Το βράδυ κοίταξε τον μισοτελειωμένο σκελετό στη γωνία της αυλής και χαμογέλασε.
 
 Δεν ήταν πια όνειρο. Ήταν έργο σε εξέλιξη.`,
-          en: `The next morning, Filippos read his paper out loud: «I will build my own cart and race in the Great Race in thirty days.»
+          en: `The next morning, Filippos read his paper out loud: "I will build my own cart and race in the Great Race in thirty days."
 
-«Nice words!» a voice rang out. «And now, what do we DO?»
+"Nice words!" a voice rang out. "And now, what do we DO?"
 
 It was Crocus, the hero of action, who never sat still. With him came Pencilo, his big pencil at the ready.
 
-«A dream without a plan stays a dream» said Pencilo. «Let us design it.»
+"A dream without a plan stays a dream" said Pencilo. "Let us design it."
 
 They spread a big sheet of paper on the floor. Pencilo drew the cart: four wheels, a steering wheel, a strong wooden base. Next to it they wrote the steps. First: find materials. Second: build the base. Third: attach the wheels and the steering. Fourth: test it on the hill.
 
-«And when do we start?» asked Filippos. «On Monday?»
+"And when do we start?" asked Filippos. "On Monday?"
 
-«NOW!» shouted Crocus and jumped in the air. «The plan does not need to be perfect for you to start. You need to start for the plan to become perfect. You fix it along the way!»
+"NOW!" shouted Crocus and jumped in the air. "The plan does not need to be perfect for you to start. You need to start for the plan to become perfect. You fix it along the way!"
 
 That very afternoon, Filippos found old planks in the shed and four wheels from a broken cart. His hands filled with dust and sawdust. His heart filled with joy.
 
@@ -165,11 +165,11 @@ And then... CRACK!
 
 The front axle snapped in half. The wheels flew left and right. The cart skidded and stopped in the bushes. Filippos tumbled onto the grass.
 
-Two older kids passing by burst out laughing. «Nice piece of junk!» one of them shouted.
+Two older kids passing by burst out laughing. "Nice piece of junk!" one of them shouted.
 
 Filippos gathered the pieces with his head down. In his room, he threw the paper with his goal into the bin.
 
-«It is over» he said. «I know nothing about axles. I know nothing about steering. Who am I fooling?»
+"It is over" he said. "I know nothing about axles. I know nothing about steering. Who am I fooling?"
 
 Three whole days went by. The cart sat broken in the corner. The paper sat crumpled in the bin. The flame inside him had turned to smoke.
 
@@ -206,19 +206,19 @@ A story about a man who stopped digging... just one meter before the treasure.`
 Και έτρεξε να βρει την Αλεξάνδρα.`,
           en: `WiseBot, the wise owl, landed silently on the window of Filippos.
 
-«Let me tell you an old legend» she said softly. «They say that once, in the years of the gold rush, a man was searching for gold. He dug deep, with sweat and dreams. One day the vein of gold disappeared. He dug a little more. Nothing. Disappointed, he sold his tools and left.»
+"Let me tell you an old legend" she said softly. "They say that once, in the years of the gold rush, a man was searching for gold. He dug deep, with sweat and dreams. One day the vein of gold disappeared. He dug a little more. Nothing. Disappointed, he sold his tools and left."
 
-«And then?» asked Filippos.
+"And then?" asked Filippos.
 
-«The man who bought the tools asked an expert. The expert studied the mine and said: keep digging right here. And do you know where the gold was found? Just one meter below the spot where the first man had stopped.»
+"The man who bought the tools asked an expert. The expert studied the mine and said: keep digging right here. And do you know where the gold was found? Just one meter below the spot where the first man had stopped."
 
 Filippos sat in silence.
 
-«Most people give up one step before the victory» WiseBot continued. «And one more thing, little one. Every obstacle carries a seed inside it. A seed of equal or even greater benefit. The axle that broke showed you the weak spot. Now you know what to build better.»
+"Most people give up one step before the victory" WiseBot continued. "And one more thing, little one. Every obstacle carries a seed inside it. A seed of equal or even greater benefit. The axle that broke showed you the weak spot. Now you know what to build better."
 
-«But I do not know how...» whispered Filippos.
+"But I do not know how..." whispered Filippos.
 
-«Alone, maybe not. No great person ever did it completely alone. Build your team. Two minds together create ideas that neither would find alone.»
+"Alone, maybe not. No great person ever did it completely alone. Build your team. Two minds together create ideas that neither would find alone."
 
 Filippos took the paper out of the bin. He smoothed it out carefully.
 
@@ -255,19 +255,19 @@ Every night Filippos read his paper. Every night he closed his eyes and saw the 
 
 Race day arrived. Eight carts lined up at the top of the hill. The heart of Filippos was beating like a drum.
 
-«Ready... GO!»
+"Ready... GO!"
 
 The cart shot forward. The big turn came fast — and the new steering worked perfectly. On the final stretch, Filippos passed two rivals and finished second, one breath behind the winner.
 
 Second place! The crowd was cheering. The team hugged and shouted with joy.
 
-«But I did not win...» Filippos began.
+"But I did not win..." Filippos began.
 
-«You built a real cart in thirty days» laughed Alexandra. «A month ago you did not even know how to hammer a nail!»
+"You built a real cart in thirty days" laughed Alexandra. "A month ago you did not even know how to hammer a nail!"
 
-Sparken appeared in a shower of golden sparks. «Remember the keys» he said. «A specific goal. Faith that it can be done. A plan and action now. Persistence, one more step. A team. And inside every obstacle, a seed.»
+Sparken appeared in a shower of golden sparks. "Remember the keys" he said. "A specific goal. Faith that it can be done. A plan and action now. Persistence, one more step. A team. And inside every obstacle, a seed."
 
-«Next year» said Filippos with a smile, «the finish line will see me first.»`
+"Next year" said Filippos with a smile, "the finish line will see me first."`
         }
       }
     ]

@@ -29,7 +29,7 @@ const ENGLISH_1 = subject([
     q: { el: 'Πώς λέμε το «ένα» στα αγγλικά;', en: 'How do we say «ένα» in English?' },
     options: { el: ['Two', 'One', 'Three'], en: ['Two', 'One', 'Three'] },
     correct: 1,
-    explanation: { el: 'One, two, three — ένα, δύο, τρία!', en: 'One, two, three — ένα, δύο, τρία!' },
+    explanation: { el: 'One, two, three — ένα, δύο, τρία!', en: 'One, two, three — that is how we count!' },
   },
   {
     q: { el: 'Ποιο ζώο είναι το "dog";', en: 'Which animal is a "dog"?' },

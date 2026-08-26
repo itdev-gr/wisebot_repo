@@ -325,17 +325,19 @@ export default function LegalHub({ lang }: LegalHubProps) {
                             
                             <div className="space-y-6 text-gray-300 leading-relaxed font-medium">
                                 <p className="text-lg text-white">
-                                    Το Wisebot είναι ένα εκπαιδευτικό οικοσύστημα όπου τα παιδιά μαθαίνουν, δημιουργούν, πειραματίζονται και ανταμείβονται.
+                                    {lang === 'el'
+                                      ? 'Το Wisebot είναι ένα εκπαιδευτικό οικοσύστημα όπου τα παιδιά μαθαίνουν, δημιουργούν, πειραματίζονται και ανταμείβονται.'
+                                      : 'Wisebot is an educational ecosystem where children learn, create, experiment and get rewarded.'}
                                 </p>
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="bg-white/5 p-5 rounded-2xl border border-white/10">
-                                        <h4 className="text-white font-black uppercase tracking-widest text-xs mb-2">ΣΤΟΧΟΣ</h4>
-                                        <p className="text-sm opacity-80">Η μετατροπή της γνώσης σε δημιουργία. Όχι παιχνίδι για το παιχνίδι.</p>
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs mb-2">{lang === 'el' ? 'ΣΤΟΧΟΣ' : 'GOAL'}</h4>
+                                        <p className="text-sm opacity-80">{lang === 'el' ? 'Η μετατροπή της γνώσης σε δημιουργία. Όχι παιχνίδι για το παιχνίδι.' : 'Turning knowledge into creation. Not play for play\'s sake.'}</p>
                                     </div>
                                     <div className="bg-white/5 p-5 rounded-2xl border border-white/10">
-                                        <h4 className="text-white font-black uppercase tracking-widest text-xs mb-2">ΕΙΣΟΔΟΣ</h4>
-                                        <p className="text-sm opacity-80">Μέσω φυσικής 3D φιγούρας ή NFC κάρτας (Entry Pack).</p>
+                                        <h4 className="text-white font-black uppercase tracking-widest text-xs mb-2">{lang === 'el' ? 'ΕΙΣΟΔΟΣ' : 'ENTRY'}</h4>
+                                        <p className="text-sm opacity-80">{lang === 'el' ? 'Μέσω φυσικής 3D φιγούρας ή NFC κάρτας (Entry Pack).' : 'Via a physical 3D figure or NFC card (Entry Pack).'}</p>
                                     </div>
                                 </div>
 
@@ -343,11 +345,11 @@ export default function LegalHub({ lang }: LegalHubProps) {
                                 <ul className="space-y-3">
                                     <li className="flex gap-3">
                                         <CheckCircle size={20} className="text-emerald-500 shrink-0" />
-                                        <span>Τα credits είναι εσωτερικό εκπαιδευτικό εργαλείο. Δεν είναι χρήματα και δεν ανταλλάσσονται εκτός πλατφόρμας.</span>
+                                        <span>{lang === 'el' ? 'Τα credits είναι εσωτερικό εκπαιδευτικό εργαλείο. Δεν είναι χρήματα και δεν ανταλλάσσονται εκτός πλατφόρμας.' : 'Credits are an internal educational tool. They are not money and cannot be exchanged outside the platform.'}</span>
                                     </li>
                                     <li className="flex gap-3">
                                         <CheckCircle size={20} className="text-emerald-500 shrink-0" />
-                                        <span>Τα Badges δείχνουν ταυτότητα και ξεκλειδώνουν δυνατότητες (π.χ. Thinker, Creator, Builder).</span>
+                                        <span>{lang === 'el' ? 'Τα Badges δείχνουν ταυτότητα και ξεκλειδώνουν δυνατότητες (π.χ. Thinker, Creator, Builder).' : 'Badges express identity and unlock abilities (e.g. Thinker, Creator, Builder).'}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -358,32 +360,38 @@ export default function LegalHub({ lang }: LegalHubProps) {
                     {activeSection === 'safety' && (
                         <motion.div key="safety" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-8">
                             <h2 className="text-3xl font-[1000] text-white uppercase italic tracking-tighter mb-6 flex items-center gap-3">
-                                <Shield className="text-emerald-400" /> ΑΣΦΑΛΕΙΑ & ΓΟΝΙΚΗ ΕΥΘΥΝΗ
+                                <Shield className="text-emerald-400" /> {lang === 'el' ? 'ΑΣΦΑΛΕΙΑ & ΓΟΝΙΚΗ ΕΥΘΥΝΗ' : 'SAFETY & PARENTAL RESPONSIBILITY'}
                             </h2>
 
                             <div className="p-6 bg-emerald-900/20 border border-emerald-500/30 rounded-3xl">
                                 <h4 className="text-emerald-400 font-black uppercase tracking-widest text-sm mb-3 flex items-center gap-2">
-                                    <AlertTriangle size={16} /> ΓΟΝΙΚΗ ΕΠΙΒΛΕΨΗ
+                                    <AlertTriangle size={16} /> {lang === 'el' ? 'ΓΟΝΙΚΗ ΕΠΙΒΛΕΨΗ' : 'PARENTAL SUPERVISION'}
                                 </h4>
                                 <p className="text-gray-300 text-sm leading-relaxed">
-                                    Η χρήση της πλατφόρμας από ανήλικους γίνεται αποκλειστικά με ευθύνη του γονέα ή κηδεμόνα. Ο γονέας οφείλει να εξηγεί στο παιδί πώς να χρησιμοποιεί σωστά τα εργαλεία δημιουργίας.
+                                    {lang === 'el'
+                                      ? 'Η χρήση της πλατφόρμας από ανήλικους γίνεται αποκλειστικά με ευθύνη του γονέα ή κηδεμόνα. Ο γονέας οφείλει να εξηγεί στο παιδί πώς να χρησιμοποιεί σωστά τα εργαλεία δημιουργίας.'
+                                      : 'Use of the platform by minors takes place solely under the responsibility of a parent or guardian. The parent should explain to the child how to use the creation tools properly.'}
                                 </p>
                             </div>
 
                             <div className="space-y-6 text-gray-300">
-                                <h3 className="text-xl font-black text-white">AI DISCLAIMER (Τεχνητή Νοημοσύνη)</h3>
+                                <h3 className="text-xl font-black text-white">{lang === 'el' ? 'AI DISCLAIMER (Τεχνητή Νοημοσύνη)' : 'AI DISCLAIMER (Artificial Intelligence)'}</h3>
                                 <p>
-                                    Το Wisebot χρησιμοποιεί τεχνολογίες AI για τη δημιουργία εικόνων, videos και 3D μοντέλων.
+                                    {lang === 'el'
+                                      ? 'Το Wisebot χρησιμοποιεί τεχνολογίες AI για τη δημιουργία εικόνων, videos και 3D μοντέλων.'
+                                      : 'Wisebot uses AI technologies to create images, videos and 3D models.'}
                                 </p>
                                 <ul className="space-y-3 border-l-2 border-white/10 pl-6">
-                                    <li className="text-sm">🤖 Το τελικό αποτέλεσμα ενδέχεται να διαφέρει από την αρχική ιδέα.</li>
-                                    <li className="text-sm">🤖 Η απρόβλεπτη φύση είναι μέρος της εκπαιδευτικής εμπειρίας (πειραματισμός, αποδοχή).</li>
-                                    <li className="text-sm">🤖 Το σύστημα διαθέτει φίλτρα ασφαλείας, αλλά η ανθρώπινη επίβλεψη είναι απαραίτητη.</li>
+                                    <li className="text-sm">🤖 {lang === 'el' ? 'Το τελικό αποτέλεσμα ενδέχεται να διαφέρει από την αρχική ιδέα.' : 'The final result may differ from the original idea.'}</li>
+                                    <li className="text-sm">🤖 {lang === 'el' ? 'Η απρόβλεπτη φύση είναι μέρος της εκπαιδευτικής εμπειρίας (πειραματισμός, αποδοχή).' : 'The unpredictable nature is part of the educational experience (experimentation, acceptance).'}</li>
+                                    <li className="text-sm">🤖 {lang === 'el' ? 'Το σύστημα διαθέτει φίλτρα ασφαλείας, αλλά η ανθρώπινη επίβλεψη είναι απαραίτητη.' : 'The system has safety filters, but human supervision remains essential.'}</li>
                                 </ul>
 
-                                <h3 className="text-xl font-black text-white">ΚΑΤΑΧΡΗΣΗ & ΠΡΟΣΤΑΣΙΑ</h3>
+                                <h3 className="text-xl font-black text-white">{lang === 'el' ? 'ΚΑΤΑΧΡΗΣΗ & ΠΡΟΣΤΑΣΙΑ' : 'ABUSE & PROTECTION'}</h3>
                                 <p className="text-sm">
-                                    Σε περίπτωση εντοπισμού ακατάλληλου περιεχομένου ή παραβίασης κανόνων, το Wisebot διατηρεί το δικαίωμα αφαίρεσης περιεχομένου και αναστολής πρόσβασης. Δεν υπάρχει άμεση επικοινωνία (chat) μεταξύ παιδιών χωρίς επίβλεψη.
+                                    {lang === 'el'
+                                      ? 'Σε περίπτωση εντοπισμού ακατάλληλου περιεχομένου ή παραβίασης κανόνων, το Wisebot διατηρεί το δικαίωμα αφαίρεσης περιεχομένου και αναστολής πρόσβασης. Δεν υπάρχει άμεση επικοινωνία (chat) μεταξύ παιδιών χωρίς επίβλεψη.'
+                                      : 'If inappropriate content or a rule violation is detected, Wisebot reserves the right to remove content and suspend access. There is no direct communication (chat) between children without supervision.'}
                                 </p>
                             </div>
                         </motion.div>
@@ -393,36 +401,36 @@ export default function LegalHub({ lang }: LegalHubProps) {
                     {activeSection === 'terms' && (
                         <motion.div key="terms" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-8">
                             <h2 className="text-3xl font-[1000] text-white uppercase italic tracking-tighter mb-6 flex items-center gap-3">
-                                <Scale className="text-amber-400" /> ΟΡΟΙ ΧΡΗΣΗΣ & ΙΔΙΟΚΤΗΣΙΑ
+                                <Scale className="text-amber-400" /> {lang === 'el' ? 'ΟΡΟΙ ΧΡΗΣΗΣ & ΙΔΙΟΚΤΗΣΙΑ' : 'TERMS OF USE & OWNERSHIP'}
                             </h2>
 
                             <div className="space-y-6 text-gray-300">
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-black text-white">ΙΔΙΟΚΤΗΣΙΑ ΔΗΜΙΟΥΡΓΙΩΝ</h3>
+                                    <h3 className="text-xl font-black text-white">{lang === 'el' ? 'ΙΔΙΟΚΤΗΣΙΑ ΔΗΜΙΟΥΡΓΙΩΝ' : 'OWNERSHIP OF CREATIONS'}</h3>
                                     <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                                        <p className="font-bold text-white mb-2">Κάθε εικόνα, video ή 3D μοντέλο που δημιουργείται:</p>
+                                        <p className="font-bold text-white mb-2">{lang === 'el' ? 'Κάθε εικόνα, video ή 3D μοντέλο που δημιουργείται:' : 'Every image, video or 3D model that is created:'}</p>
                                         <ul className="space-y-2 text-sm opacity-80 list-disc list-inside">
-                                            <li>Ανήκει στο παιδί που το δημιούργησε.</li>
-                                            <li>Μπορεί να κατέβει (download) για προσωπική χρήση.</li>
-                                            <li>Δεν αφαιρείται η ιδιοκτησία από το παιδί.</li>
+                                            <li>{lang === 'el' ? 'Ανήκει στο παιδί που το δημιούργησε.' : 'Belongs to the child who created it.'}</li>
+                                            <li>{lang === 'el' ? 'Μπορεί να κατέβει (download) για προσωπική χρήση.' : 'Can be downloaded for personal use.'}</li>
+                                            <li>{lang === 'el' ? 'Δεν αφαιρείται η ιδιοκτησία από το παιδί.' : 'Ownership is never taken away from the child.'}</li>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-black text-white">ΑΓΟΡΕΣ & CREDITS</h3>
+                                    <h3 className="text-xl font-black text-white">{lang === 'el' ? 'ΑΓΟΡΕΣ & CREDITS' : 'PURCHASES & CREDITS'}</h3>
                                     <ul className="space-y-3">
                                         <li className="flex gap-3 items-start">
                                             <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2"></div>
-                                            <span className="text-sm">Όλες οι αγορές πραγματοποιούνται αποκλειστικά από γονέα.</span>
+                                            <span className="text-sm">{lang === 'el' ? 'Όλες οι αγορές πραγματοποιούνται αποκλειστικά από γονέα.' : 'All purchases are made exclusively by a parent.'}</span>
                                         </li>
                                         <li className="flex gap-3 items-start">
                                             <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2"></div>
-                                            <span className="text-sm">Τα παιδιά δεν μπορούν να αγοράσουν credits μόνα τους.</span>
+                                            <span className="text-sm">{lang === 'el' ? 'Τα παιδιά δεν μπορούν να αγοράσουν credits μόνα τους.' : 'Children cannot buy credits on their own.'}</span>
                                         </li>
                                         <li className="flex gap-3 items-start">
                                             <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-2"></div>
-                                            <span className="text-sm">Τα credits δεν αποτελούν πραγματικό χρήμα και δεν εξαργυρώνονται.</span>
+                                            <span className="text-sm">{lang === 'el' ? 'Τα credits δεν αποτελούν πραγματικό χρήμα και δεν εξαργυρώνονται.' : 'Credits are not real money and cannot be redeemed.'}</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -434,7 +442,7 @@ export default function LegalHub({ lang }: LegalHubProps) {
                     {activeSection === 'refund' && (
                         <motion.div key="refund" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-8">
                             <h2 className="text-3xl font-[1000] text-white uppercase italic tracking-tighter mb-6 flex items-center gap-3">
-                                <CreditCard className="text-fuchsia-400" /> ΠΟΛΙΤΙΚΗ ΕΠΙΣΤΡΟΦΩΝ
+                                <CreditCard className="text-fuchsia-400" /> {lang === 'el' ? 'ΠΟΛΙΤΙΚΗ ΕΠΙΣΤΡΟΦΩΝ' : 'REFUND POLICY'}
                             </h2>
 
                             <div className="p-8 bg-gradient-to-br from-fuchsia-900/20 to-purple-900/20 border border-fuchsia-500/30 rounded-3xl text-center space-y-6">
@@ -442,25 +450,27 @@ export default function LegalHub({ lang }: LegalHubProps) {
                                     <AlertTriangle size={32} />
                                 </div>
                                 
-                                <h3 className="text-2xl font-black text-white uppercase italic">ΨΗΦΙΑΚΕΣ ΥΠΗΡΕΣΙΕΣ</h3>
+                                <h3 className="text-2xl font-black text-white uppercase italic">{lang === 'el' ? 'ΨΗΦΙΑΚΕΣ ΥΠΗΡΕΣΙΕΣ' : 'DIGITAL SERVICES'}</h3>
                                 
                                 <p className="text-white/80 leading-relaxed">
-                                    Οι υπηρεσίες δημιουργίας περιεχομένου (εικόνες, videos, 3D μοντέλα) θεωρούνται ψηφιακές υπηρεσίες που <strong>εκτελούνται άμεσα</strong>.
+                                    {lang === 'el'
+                                      ? <>Οι υπηρεσίες δημιουργίας περιεχομένου (εικόνες, videos, 3D μοντέλα) θεωρούνται ψηφιακές υπηρεσίες που <strong>εκτελούνται άμεσα</strong>.</>
+                                      : <>Content-creation services (images, videos, 3D models) are digital services that are <strong>performed immediately</strong>.</>}
                                 </p>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
                                     <div className="bg-black/40 p-4 rounded-xl border border-white/5 flex items-center gap-3">
                                         <span className="text-red-400 font-bold">❌</span>
-                                        <span className="text-sm text-gray-300">Δεν παρέχεται επιστροφή χρημάτων (refund).</span>
+                                        <span className="text-sm text-gray-300">{lang === 'el' ? 'Δεν παρέχεται επιστροφή χρημάτων (refund).' : 'No refunds are provided.'}</span>
                                     </div>
                                     <div className="bg-black/40 p-4 rounded-xl border border-white/5 flex items-center gap-3">
                                         <span className="text-red-400 font-bold">❌</span>
-                                        <span className="text-sm text-gray-300">Δεν γίνεται ακύρωση μετά τη χρήση credits.</span>
+                                        <span className="text-sm text-gray-300">{lang === 'el' ? 'Δεν γίνεται ακύρωση μετά τη χρήση credits.' : 'No cancellation once credits have been used.'}</span>
                                     </div>
                                 </div>
 
                                 <p className="text-xs text-white/40 uppercase tracking-widest font-bold pt-4">
-                                    ΤΟ ΣΥΣΤΗΜΑ ΕΧΕΙ ΣΧΕΔΙΑΣΤΕΙ ΩΣΤΕ ΤΑ ΠΑΙΔΙΑ ΝΑ ΜΑΘΑΙΝΟΥΝ ΤΗΝ ΑΞΙΑ ΤΗΣ ΕΠΙΛΟΓΗΣ.
+                                    {lang === 'el' ? 'ΤΟ ΣΥΣΤΗΜΑ ΕΧΕΙ ΣΧΕΔΙΑΣΤΕΙ ΩΣΤΕ ΤΑ ΠΑΙΔΙΑ ΝΑ ΜΑΘΑΙΝΟΥΝ ΤΗΝ ΑΞΙΑ ΤΗΣ ΕΠΙΛΟΓΗΣ.' : 'THE SYSTEM IS DESIGNED SO CHILDREN LEARN THE VALUE OF CHOICE.'}
                                 </p>
                             </div>
                         </motion.div>

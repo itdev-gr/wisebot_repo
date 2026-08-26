@@ -109,7 +109,7 @@ const FEATURED_VIDEOS = [
   { id: 'v4', title: { el: 'ΟΙ ΗΡΩΕΣ ΜΑΖΙ', en: 'HEROES TOGETHER' }, thumbnail: '/images/opt/paidia-kai-wisebot-640.webp', videoUrl: '/video/wisebot%20claude.mp4' },
 ];
 
-const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
+const LandingPage: React.FC<{ lang: 'el' | 'en'; setLang?: (lang: 'el' | 'en') => void }> = ({ lang, setLang }) => {
   const [selectedHistory, setSelectedHistory] = useState<typeof HISTORY_ITEMS[0] | null>(null);
   const [playingVideo, setPlayingVideo] = useState<typeof FEATURED_VIDEOS[0] | null>(null);
 
@@ -143,6 +143,19 @@ const LandingPage: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
       >
         {lang === 'el' ? 'Σύνδεση' : 'Log in'}
       </RouterLink>
+
+      {/* The Layout language toggle lives in the app chrome, which the immersive
+          landing hides — so a visitor had no way to switch language before entering
+          the app. EN/EL here is the English edition's front door. */}
+      {setLang && (
+        <button
+          onClick={() => setLang(lang === 'el' ? 'en' : 'el')}
+          aria-label={lang === 'el' ? 'Switch to English' : 'Αλλαγή σε Ελληνικά'}
+          className="absolute top-3 right-[7.5rem] md:top-5 md:right-36 z-40 px-4 py-3 min-h-[44px] inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] border border-white/10 text-white/70 hover:text-white hover:bg-white/10 text-[11px] md:text-xs font-black uppercase tracking-widest transition-all"
+        >
+          🌐 {lang === 'el' ? 'EN' : 'ΕΛ'}
+        </button>
+      )}
 
       {/* 🏛️ 1. TOP ROOTS BAR (CLICKABLE) */}
       <motion.div

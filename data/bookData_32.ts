@@ -58,7 +58,7 @@ export const BOOK_32: Book[] = [
 Από το ράφι ακούστηκε ένα απαλό φτερούγισμα. «Ωραία», είπε η WiseBot. «Και τα τρία προβλήματα έχουν την ίδια λύση.»`,
           en: `The new kid arrived on Monday morning. He stood at the classroom door with a schoolbag bigger than himself and stared at the floor.
 
-“Class, from today we have a new classmate,” said the teacher. She said his name too, but at that exact moment a pencil case fell, two kids laughed, and the name drowned in the noise.
+"Class, from today we have a new classmate," said the teacher. She said his name too, but at that exact moment a pencil case fell, two kids laughed, and the name drowned in the noise.
 
 And so he became the boy with no name. The new kid.
 
@@ -66,15 +66,15 @@ At break, he sat alone on the yard bench. On Tuesday, again. By Wednesday, the b
 
 Alexandra noticed him from afar, but she had her own problems. Their team had taken on the big project for Science Week — a volcano that would puff real smoke. Except the team was not building anything. The team was fighting.
 
-“My idea is better!” shouted Philippos.
+"My idea is better!" shouted Philippos.
 
-“You never listen to me!” shouted Maria.
+"You never listen to me!" shouted Maria.
 
-“You are all talking at the same time,” whispered Eleftheria, but nobody heard her — which proved her point.
+"You are all talking at the same time," whispered Eleftheria, but nobody heard her — which proved her point.
 
-That evening, Alexandra collapsed into her chair. “We have a volcano that will not get built, a team that will not talk, and a new kid who talks to nobody.”
+That evening, Alexandra collapsed into her chair. "We have a volcano that will not get built, a team that will not talk, and a new kid who talks to nobody."
 
-From the shelf came a soft flutter. “Good,” said WiseBot. “All three problems have the same solution.”`
+From the shelf came a soft flutter. "Good," said WiseBot. "All three problems have the same solution."`
         }
       },
       {
@@ -107,27 +107,27 @@ From the shelf came a soft flutter. “Good,” said WiseBot. “All three probl
 «Αύριο», είπε η Αλεξάνδρα αποφασισμένη, «θα μάθουμε το όνομά του.»`,
           en: `WiseBot landed on the desk, right between the volcano drawings.
 
-“You want to learn how people are won? Not with magic. With three little secrets everyone forgets.”
+"You want to learn how people are won? Not with magic. With three little secrets everyone forgets."
 
 The kids gathered around her.
 
-“First secret: the name. To every person, their own name is the sweetest sound in the world. The new kid has a name. Who knows it?”
+"First secret: the name. To every person, their own name is the sweetest sound in the world. The new kid has a name. Who knows it?"
 
 Silence. Nobody knew it. Alexandra felt her cheeks turn red.
 
-“Second secret: genuine interest. You win more friends in two weeks by being truly interested in others than in two years of trying to make others interested in you. Do not ask questions to look kind. Ask because you honestly want to hear the answer.”
+"Second secret: genuine interest. You win more friends in two weeks by being truly interested in others than in two years of trying to make others interested in you. Do not ask questions to look kind. Ask because you honestly want to hear the answer."
 
-“And the third?” asked Philippos.
+"And the third?" asked Philippos.
 
-“The third one you already carry with you. You have two ears and one mouth. Nature gave you the recipe: listen twice as much as you speak.”
+"The third one you already carry with you. You have two ears and one mouth. Nature gave you the recipe: listen twice as much as you speak."
 
-Philippos frowned. “So in the team... when I shout louder so my idea gets heard...”
+Philippos frowned. "So in the team... when I shout louder so my idea gets heard..."
 
-“...then you are loud, but nobody is listening,” said WiseBot. “A voice opens ears only after you have opened your own.”
+"...then you are loud, but nobody is listening," said WiseBot. "A voice opens ears only after you have opened your own."
 
 Eleftheria smiled for the first time that day. At last, somebody had said it out loud.
 
-“Tomorrow,” said Alexandra with determination, “we will learn his name.”`
+"Tomorrow," said Alexandra with determination, "we will learn his name."`
         }
       },
       {
@@ -156,23 +156,23 @@ Eleftheria smiled for the first time that day. At last, somebody had said it out
 «Απλό», είπε η WiseBot από το σκοτάδι. «Η κριτική δεν αλλάζει ανθρώπους. Τους κλείνει.»`,
           en: `The next day, things went... backwards.
 
-Philippos decided to win the new kid over in his own style. He walked up to him at break and began: “Awesome shirt! Awesome bag! And your shoes are the coolest I have ever seen in my whole life!”
+Philippos decided to win the new kid over in his own style. He walked up to him at break and began: "Awesome shirt! Awesome bag! And your shoes are the coolest I have ever seen in my whole life!"
 
 The new kid looked at him with suspicion. His shoes were old, with a hole on the side. He knew it. And he understood instantly: the big kid was not telling the truth. He picked up his bag and walked away.
 
-“I do not get it!” Philippos complained to WiseBot. “I only said nice things!”
+"I do not get it!" Philippos complained to WiseBot. "I only said nice things!"
 
-“You said fake things. Flattery is like a counterfeit coin — it shines, but everyone can tell it is worthless. A real compliment sees something real.”
+"You said fake things. Flattery is like a counterfeit coin — it shines, but everyone can tell it is worthless. A real compliment sees something real."
 
 At the other end of the yard, Alexandra made her own mistake. Maria showed her the volcano drawing — she had worked on it all night.
 
-“It is all wrong,” Alexandra said sharply. “The smoke does not come out from there. We will redo it from scratch.”
+"It is all wrong," Alexandra said sharply. "The smoke does not come out from there. We will redo it from scratch."
 
-Maria slowly folded her paper. “You know what? Build the volcano yourself.” And she left the team.
+Maria slowly folded her paper. "You know what? Build the volcano yourself." And she left the team.
 
 That night, Alexandra stared at the ceiling. She had been right about the smoke. And yet she had lost. How can you be right and still lose?
 
-“Simple,” said WiseBot from the darkness. “Criticism does not change people. It closes them.”`
+"Simple," said WiseBot from the darkness. "Criticism does not change people. It closes them."`
         }
       },
       {
@@ -199,17 +199,17 @@ That night, Alexandra stared at the ceiling. She had been right about the smoke.
 Γιατί έτσι ανοίγουν οι άνθρωποι. Όχι όταν τους εντυπωσιάζεις. Όταν τους ρωτάς με το όνομά τους — και μετά σωπαίνεις.`,
           en: `In the morning, Alexandra found Maria at the school entrance. She took a deep breath.
 
-“I was wrong. Not about the smoke — about the way I said it. You worked all night and all I saw was the mistake. Your drawing had three ideas I would never have thought of. The staircase on the side is excellent.”
+"I was wrong. Not about the smoke — about the way I said it. You worked all night and all I saw was the mistake. Your drawing had three ideas I would never have thought of. The staircase on the side is excellent."
 
 Maria looked her in the eyes, searching for mockery. She found none. She found something rare: a person who admits her own mistake first.
 
-“Okay,” she said quietly. “The smoke really does come out of the wrong spot. Shall we fix it together?”
+"Okay," she said quietly. "The smoke really does come out of the wrong spot. Shall we fix it together?"
 
 At break, Eleftheria approached the new kid's bench. She offered no flattery. She did something simpler — she pointed at the book he was holding.
 
-“Volcanoes of the Earth,” she read. “I have read it twice. Which chapter are you on?”
+"Volcanoes of the Earth," she read. "I have read it twice. Which chapter are you on?"
 
-The new kid's eyes opened wide. “Chapter six. Active volcanoes.” He hesitated for a moment. “My name is Aris. At my old school we built a volcano model. I know how to make smoke without fire.”
+The new kid's eyes opened wide. "Chapter six. Active volcanoes." He hesitated for a moment. "My name is Aris. At my old school we built a volcano model. I know how to make smoke without fire."
 
 Eleftheria sat next to him and simply listened. She asked and she listened. Aris, the boy who spoke to no one, spoke for fifteen minutes without stopping.
 
@@ -244,21 +244,21 @@ Because that is how people open up. Not when you impress them. When you ask them
 
 In the team of five, whoever spoke got to finish their sentence without interruption. And before adding your own idea, you had to say what you liked about the other person's. Honestly — never falsely.
 
-“Maria thought of the staircase,” Alexandra told anyone who asked.
+"Maria thought of the staircase," Alexandra told anyone who asked.
 
-“Aris solved the smoke,” said Philippos. “Without him, we would have a mountain that just sits there.”
+"Aris solved the smoke," said Philippos. "Without him, we would have a mountain that just sits there."
 
 And Aris — the boy from the bench — stood at the front and explained to visitors how the machine worked. Every time he heard his name, his back straightened a little more.
 
 In the evening, WiseBot perched on the volcano's peak.
 
-“Did you see what happened? Nobody changed because of shouting and criticism. Everyone changed when they felt important. Remember this: the surest way to win a friend is to help them feel what they truly are — someone who matters.”
+"Did you see what happened? Nobody changed because of shouting and criticism. Everyone changed when they felt important. Remember this: the surest way to win a friend is to help them feel what they truly are — someone who matters."
 
 Alexandra looked at her team. Five kids. Five names that everyone now knew.
 
-“And the volcano?” asked Philippos.
+"And the volcano?" asked Philippos.
 
-WiseBot winked. “The volcano was just the excuse. You were the real construction.”`
+WiseBot winked. "The volcano was just the excuse. You were the real construction."`
         }
       }
     ]

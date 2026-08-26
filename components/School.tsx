@@ -396,7 +396,7 @@ export default function School({ lang }: SchoolProps) {
               )}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4">
                 <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${g.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                  <span className="text-2xl md:text-3xl font-[1000] text-white">{['Α','Β','Γ','Δ','Ε','ΣΤ'][g.grade - 1]}</span>
+                  <span className="text-2xl md:text-3xl font-[1000] text-white">{(lang === 'el' ? ['Α','Β','Γ','Δ','Ε','ΣΤ'] : ['1','2','3','4','5','6'])[g.grade - 1]}</span>
                 </div>
                 <h3 className="text-base md:text-xl font-[1000] text-white uppercase italic tracking-tighter text-center leading-none mt-1">
                   {g.name[lang]}

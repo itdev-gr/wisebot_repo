@@ -373,7 +373,9 @@ const PageLoader = () => (
            <Zap size={16} className="text-blue-400 animate-pulse" fill="currentColor" />
         </div>
      </div>
-     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">ΦΟΡΤΩΣΗ...</p>
+     <p className="text-white/30 font-black text-xs uppercase tracking-widest animate-pulse">
+        {(typeof localStorage !== 'undefined' && localStorage.getItem('wb_lang') === 'en') ? 'LOADING...' : 'ΦΟΡΤΩΣΗ...'}
+     </p>
   </div>
 );
 
@@ -478,7 +480,7 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* ═══ PUBLIC ROUTES ═══ */}
-            <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} /></AutoRedirectIfLoggedIn>} />
+            <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} setLang={setLang} /></AutoRedirectIfLoggedIn>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<><SEO lang={lang} page="login" /><AuthScreen lang={lang} /></>} />
             {/* Signup verification emails redirect here (api/auth/signup.ts redirectTo). */}
@@ -547,7 +549,22 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
 export default function App() {
   // Lives here, above EconomyProvider, so reward copy can be localized without the
   // provider reaching into the tree below it.
-  const [lang, setLang] = useState<'el' | 'en'>('el');
+  // Language was plain component state: every reload dropped an English-speaking
+  // family back to Greek, and there was no way to preselect English at all.
+  // Saved choice wins; a first visit follows the browser language.
+  const [lang, setLang] = useState<'el' | 'en'>(() => {
+    try {
+      const saved = localStorage.getItem('wb_lang');
+      if (saved === 'el' || saved === 'en') return saved;
+      return (navigator.language || 'el').toLowerCase().startsWith('el') ? 'el' : 'en';
+    } catch {
+      return 'el';
+    }
+  });
+  useEffect(() => {
+    try { localStorage.setItem('wb_lang', lang); } catch { /* private mode */ }
+    document.documentElement.lang = lang;
+  }, [lang]);
   return (
     <HelmetProvider>
       <EconomyProvider lang={lang}>
