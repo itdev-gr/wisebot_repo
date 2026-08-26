@@ -326,6 +326,47 @@ const GRADE_PAGES = [
   { slug: 'askiseis-e-dimotikou', name: "Ε' Δημοτικού", units: 43, subjects: 'Μαθηματικά, Γλώσσα, Φυσικά, Ιστορία, Γεωγραφία, Αγγλικά' },
   { slug: 'askiseis-st-dimotikou', name: "ΣΤ' Δημοτικού", units: 42, subjects: 'Μαθηματικά, Γλώσσα, Φυσικά, Ιστορία, Γεωγραφία, Αγγλικά' },
 ];
+// Per-subject School landing pages (/mathimatika-dimotikou …). Slugs are duplicated in
+// App.tsx routes, components/SubjectSEOPage.tsx and public/sitemap.xml — keep the four
+// in sync. Unit/question counts come from data/units/registry.ts (18 questions/unit).
+const SUBJECT_PAGES = [
+  { slug: 'mathimatika-dimotikou', gen: 'Μαθηματικών', units: 42, grades: "Α'–ΣΤ' Δημοτικού" },
+  { slug: 'glossa-dimotikou', gen: 'Γλώσσας', units: 41, grades: "Α'–ΣΤ' Δημοτικού" },
+  { slug: 'istoria-dimotikou', gen: 'Ιστορίας', units: 28, grades: "Γ'–ΣΤ' Δημοτικού" },
+  { slug: 'fysiki-dimotikou', gen: 'Φυσικής & Μελέτης', units: 42, grades: "Α'–ΣΤ' Δημοτικού" },
+  { slug: 'geografia-dimotikou', gen: 'Γεωγραφίας', units: 14, grades: "Ε'–ΣΤ' Δημοτικού" },
+  { slug: 'agglika-dimotikou', gen: 'Αγγλικών', units: 45, grades: "Α'–ΣΤ' Δημοτικού" },
+];
+for (const sp of SUBJECT_PAGES) {
+  const questions = sp.units * 18;
+  ROUTES.push({
+    path: `/${sp.slug}`,
+    title: `Ασκήσεις ${sp.gen} Δημοτικού Δωρεάν — ${sp.units} Αποστολές, ${sp.grades} | WiseBot`,
+    description: `Δωρεάν ασκήσεις ${sp.gen} για το Δημοτικό (${sp.grades}): ${questions} πρωτότυπες ερωτήσεις με εξήγηση σε ${sp.units} αποστολές, βασισμένες στα Προγράμματα Σπουδών. Με αστέρια ανά αποστολή και Master ανά τάξη.`,
+    ogTitle: `Ασκήσεις ${sp.gen} Δημοτικού — Δωρεάν, σε Αποστολές | WiseBot`,
+    noscript: `
+      <h1>Ασκήσεις ${sp.gen} Δημοτικού — Δωρεάν, σε Αποστολές</h1>
+      <p>Όλη η ύλη ${sp.gen} του Δημοτικού (${sp.grades}) έγινε διαδρομή ${sp.units} αποστολών με ${questions} πρωτότυπες ερωτήσεις και εξήγηση σε κάθε απάντηση, βασισμένη στα Προγράμματα Σπουδών. Κάθε αποστολή δίνει 0–3 αστέρια. Εντελώς δωρεάν, χωρίς εγγραφή για να δοκιμάσεις.</p>
+      <p><a href="${BASE_URL}/school">🎓 Όλο το Σχολείο</a> | <a href="${BASE_URL}/quiz">🧠 Quiz</a> | <a href="${BASE_URL}/ebooks">📚 Ebooks</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+    `,
+  });
+}
+
+// Entrepreneurship-for-kids landing (/epixeirimatikotita-gia-paidia) — same variant
+// family as /ai-paidia etc. (components/SEOLandingPage.tsx).
+ROUTES.push({
+  path: '/epixeirimatikotita-gia-paidia',
+  title: 'Επιχειρηματικότητα για Παιδιά — Business Lab | WiseBot Academy',
+  description: 'Επιχειρηματικότητα για παιδιά 6-12: το παιδί στήνει τη δική του εικονική επιχείρηση — όνομα, λογότυπο με AI, προϊόν, πελάτες. Μαθαίνει business σκέψη παίζοντας, με ασφάλεια και χωρίς πραγματικά χρήματα.',
+  ogTitle: 'Επιχειρηματικότητα για Παιδιά — Στήσε την Πρώτη σου Επιχείρηση | WiseBot',
+  noscript: `
+    <h1>Επιχειρηματικότητα για Παιδιά — Στήσε την Πρώτη σου Επιχείρηση</h1>
+    <p>Στο Business Lab του WiseBot κάθε παιδί 6-12 ετών στήνει τη δική του εικονική επιχείρηση: βρίσκει την ιδέα, φτιάχνει όνομα και λογότυπο με AI, σκέφτεται προϊόν, τιμή και πελάτες. Όλα εικονικά, χωρίς πραγματικά χρήματα και χωρίς chat με αγνώστους.</p>
+    <p>Στην Ακαδημία διαβάζει και τις ιστορίες ανθρώπων που ξεκίνησαν από το μηδέν — Disney, Jobs, Coco Chanel.</p>
+    <p><a href="${BASE_URL}/business">🏢 Business Lab</a> | <a href="${BASE_URL}/academy">🧠 Ακαδημία</a> | <a href="${BASE_URL}/">🏠 Αρχική</a></p>
+  `,
+});
+
 for (const g of GRADE_PAGES) {
   const questions = g.units * 18;
   ROUTES.push({

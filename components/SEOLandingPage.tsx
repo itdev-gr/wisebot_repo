@@ -11,7 +11,7 @@ import { ACADEMY_STORY_COUNT } from '../data/contentCounts';
 
 interface SEOLandingPageProps {
   lang: 'el' | 'en';
-  variant: 'ai-paidia' | 'paidika-paixnidia' | 'ekpaideutiko-ai' | 'ftiaxe-tragoudia-ai';
+  variant: 'ai-paidia' | 'paidika-paixnidia' | 'ekpaideutiko-ai' | 'ftiaxe-tragoudia-ai' | 'epixeirimatikotita-gia-paidia';
 }
 
 const CONTENT = {
@@ -131,6 +131,46 @@ const CONTENT = {
     faq: [
       { q: { el: 'Αντικαθιστά το σχολείο το WiseBot Academy;', en: 'Does WiseBot Academy replace school?' }, a: { el: 'Όχι — το συμπληρώνει! Ενισχύει ό,τι μαθαίνουν στο σχολείο με διασκεδαστικό τρόπο.', en: 'No — it complements it! Reinforces what they learn at school in a fun way.' } },
       { q: { el: 'Τι λένε οι εκπαιδευτικοί;', en: 'What do educators say?' }, a: { el: 'Το WiseBot Academy συνδυάζει αποδεδειγμένες παιδαγωγικές μεθόδους με τη δύναμη του AI. Παιδιά που το χρησιμοποιούν δείχνουν αυξημένη περιέργεια και κριτική σκέψη.', en: 'WiseBot Academy combines proven pedagogical methods with the power of AI. Kids who use it show increased curiosity and critical thinking.' } },
+    ],
+  },
+  'epixeirimatikotita-gia-paidia': {
+    title: {
+      el: 'Επιχειρηματικότητα για Παιδιά — Business Lab | WiseBot Academy',
+      en: 'Entrepreneurship for Kids — Business Lab | WiseBot Academy',
+    },
+    description: {
+      el: 'Επιχειρηματικότητα για παιδιά 6-12: το παιδί στήνει τη δική του εικονική επιχείρηση — όνομα, λογότυπο με AI, προϊόν, πελάτες. Μαθαίνει business σκέψη παίζοντας, με ασφάλεια και χωρίς πραγματικά χρήματα.',
+      en: 'Entrepreneurship for kids 6-12: your child builds their own virtual business — name, AI logo, product, customers. They learn business thinking by playing, safely and with no real money.',
+    },
+    path: '/epixeirimatikotita-gia-paidia',
+    h1: { el: 'Επιχειρηματικότητα για Παιδιά — Στήσε την Πρώτη σου Επιχείρηση!', en: 'Entrepreneurship for Kids — Build Your First Business!' },
+    intro: {
+      el: 'Γιατί να μάθει ένα παιδί επιχειρηματικότητα; Όχι για τα χρήματα — για τον τρόπο σκέψης: να βλέπει προβλήματα ως ευκαιρίες, να δοκιμάζει, να αποτυγχάνει και να ξαναπροσπαθεί. Στο Business Lab του WiseBot κάθε παιδί στήνει τη δική του εικονική επιχείρηση, με ασφάλεια και χωρίς πραγματικά χρήματα.',
+      en: 'Why should a child learn entrepreneurship? Not for the money — for the mindset: seeing problems as opportunities, trying, failing and trying again. In the WiseBot Business Lab every child builds their own virtual business, safely and with no real money.',
+    },
+    sections: [
+      {
+        h2: { el: 'Τι κάνει το παιδί στο Business Lab;', en: 'What does a child do in the Business Lab?' },
+        items: [
+          { icon: '💡', h3: { el: 'Βρίσκει την ιδέα του', en: 'Finds their idea' }, text: { el: 'Τι πρόβλημα λύνει; Σε ποιον; Το παιδί διαλέγει τι επιχείρηση θέλει να φτιάξει — από ζαχαροπλαστείο μέχρι διαστημική εταιρεία.', en: 'What problem does it solve? For whom? The child chooses what business to build — from a bakery to a space company.' }, link: '/business' },
+          { icon: '🎨', h3: { el: 'Φτιάχνει brand & λογότυπο με AI', en: 'Creates a brand & AI logo' }, text: { el: 'Όνομα, χρώματα, λογότυπο σχεδιασμένο με AI — το παιδί βλέπει την ιδέα του να γίνεται «αληθινή» εταιρεία.', en: 'Name, colors, an AI-designed logo — the child sees their idea become a “real” company.' }, link: '/business' },
+          { icon: '📊', h3: { el: 'Γίνεται CEO', en: 'Becomes the CEO' }, text: { el: 'Προϊόν, τιμή, πελάτες: αποφάσεις που δείχνουν στο παιδί πώς σκέφτεται μια πραγματική επιχείρηση.', en: 'Product, price, customers: decisions that show the child how a real business thinks.' }, link: '/business' },
+          { icon: '🧠', h3: { el: 'Μαθαίνει από τους σπουδαίους', en: 'Learns from the greats' }, text: { el: 'Στην Ακαδημία διαβάζει ιστορίες ανθρώπων που ξεκίνησαν από το μηδέν — Disney, Jobs, Coco Chanel — και βλέπει ότι όλοι ξεκίνησαν με μία ιδέα.', en: 'In the Academy they read stories of people who started from nothing — Disney, Jobs, Coco Chanel — and see that everyone started with one idea.' }, link: '/academy' },
+        ],
+      },
+      {
+        h2: { el: 'Γιατί είναι ασφαλές και εκπαιδευτικό;', en: 'Why is it safe and educational?' },
+        items: [
+          { icon: '🛡️', h3: { el: 'Χωρίς πραγματικά χρήματα', en: 'No real money' }, text: { el: 'Όλα είναι εικονικά. Δεν υπάρχουν συναλλαγές μεταξύ παιδιών, ούτε chat με αγνώστους.', en: 'Everything is virtual. There are no transactions between children, and no chat with strangers.' }, link: '/business' },
+          { icon: '🏆', h3: { el: 'Μάθηση με επιβράβευση', en: 'Learning with rewards' }, text: { el: 'Η δημιουργία επιχείρησης δίνει XP και μπαίνει στο Maker Passport του παιδιού — το χαρτοφυλάκιο των δημιουργιών του.', en: "Creating a business gives XP and goes into the child's Maker Passport — their portfolio of creations." }, link: '/passport' },
+          { icon: '👨‍👩‍👧', h3: { el: 'Ο γονιός έχει τον έλεγχο', en: 'The parent stays in control' }, text: { el: 'Τα credits για AI δημιουργίες τα βάζει μόνο επαληθευμένος γονέας. Ο γονεϊκός πίνακας δείχνει τι έφτιαξε το παιδί.', en: 'Credits for AI creations are added only by a verified parent. The parent dashboard shows what the child made.' }, link: '/parent' },
+        ],
+      },
+    ],
+    faq: [
+      { q: { el: 'Σε ποια ηλικία μπορεί ένα παιδί να ξεκινήσει;', en: 'At what age can a child start?' }, a: { el: 'Το Business Lab είναι σχεδιασμένο για παιδιά 6-12 ετών. Τα μικρότερα φτιάχνουν όνομα και λογότυπο, τα μεγαλύτερα σκέφτονται προϊόν, τιμή και πελάτες.', en: 'The Business Lab is designed for ages 6-12. Younger kids create the name and logo; older ones think about product, price and customers.' } },
+      { q: { el: 'Κοστίζει κάτι;', en: 'Does it cost anything?' }, a: { el: 'Η εξερεύνηση είναι δωρεάν. Η δημιουργία επιχείρησης με AI κοστίζει λίγα credits, που τα βάζει ο γονέας — ή κερδίζονται διαβάζοντας ολόκληρα βιβλία.', en: 'Browsing is free. Creating a business with AI costs a few credits, added by a parent — or earned by reading whole books.' } },
+      { q: { el: 'Χρησιμοποιούνται πραγματικά χρήματα;', en: 'Is real money involved?' }, a: { el: 'Όχι. Όλα στο Business Lab είναι εικονικά — δεν υπάρχει κανένα σύστημα πραγματικών συναλλαγών μεταξύ παιδιών.', en: 'No. Everything in the Business Lab is virtual — there is no real-money system between children of any kind.' } },
     ],
   },
   'ftiaxe-tragoudia-ai': {
