@@ -75,7 +75,7 @@ async function chatWithGemini(message: string, history: any[], systemPrompt: str
   const { GoogleGenAI } = await import('@google/genai');
   const ai = new GoogleGenAI({ apiKey });
   const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash',
+    model: GEMINI_TEXT_MODEL,
     contents: [...(history || []), { role: 'user', parts: [{ text: message }] }],
     config: { systemInstruction: systemPrompt, maxOutputTokens: 1024, safetySettings: SAFETY_SETTINGS },
   });
@@ -84,6 +84,7 @@ async function chatWithGemini(message: string, history: any[], systemPrompt: str
 
 
 import { isContentSafe } from '../_lib/safety.js';
+import { GEMINI_TEXT_MODEL } from '../_lib/aiModels.js';
 
 export default async function handler(req: any, res: any) {
   // CORS

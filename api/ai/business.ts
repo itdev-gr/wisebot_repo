@@ -13,6 +13,7 @@ const SAFETY_SETTINGS: any[] = [
 
 
 import { isContentSafe } from '../_lib/safety.js';
+import { GEMINI_TEXT_MODEL } from '../_lib/aiModels.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -77,7 +78,7 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
 {"slogan": "Fun for everyone!", "description": "An amazing company that makes the world better."}`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: GEMINI_TEXT_MODEL,
       contents: [{ role: 'user', parts: [{ text: structuredPrompt }] }],
       config: {
         maxOutputTokens: 1024,

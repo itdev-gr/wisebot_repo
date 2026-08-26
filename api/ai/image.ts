@@ -6,6 +6,7 @@
  */
 
 import { isContentSafe } from '../_lib/safety.js';
+import { GEMINI_IMAGE_MODEL } from '../_lib/aiModels.js';
 
 export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
@@ -128,7 +129,7 @@ export default async function handler(req: any, res: any) {
       const ai = new GeminiAI({ apiKey: geminiKey });
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
+        model: GEMINI_IMAGE_MODEL,
         contents: safePrompt,
         config: { responseModalities: ['IMAGE'] },
       });

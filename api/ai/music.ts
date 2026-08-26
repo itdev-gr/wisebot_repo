@@ -14,6 +14,7 @@ const SAFETY_SETTINGS: any[] = [
 
 
 import { isContentSafe } from '../_lib/safety.js';
+import { GEMINI_TEXT_MODEL } from '../_lib/aiModels.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -74,7 +75,7 @@ Return EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
 }`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: GEMINI_TEXT_MODEL,
       contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
       config: {
         maxOutputTokens: 2048,

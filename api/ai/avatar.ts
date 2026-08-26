@@ -106,10 +106,11 @@ export default async function handler(req: any, res: any) {
       console.log('[avatar] Trying gemini-2.5-flash-image (28 s guard)...');
       const { GoogleGenAI } = await import('@google/genai');
       const ai = new GoogleGenAI({ apiKey: geminiKey });
+      const { GEMINI_IMAGE_MODEL } = await import('../_lib/aiModels.js');
 
       const geminiPromise = ai.models.generateContent({
         // gemini-2.0-flash-exp image output was retired in 2025; this is the GA image model.
-        model: 'gemini-2.5-flash-image',
+        model: GEMINI_IMAGE_MODEL,
         contents: [
           {
             parts: [
