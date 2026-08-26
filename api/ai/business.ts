@@ -13,7 +13,6 @@ const SAFETY_SETTINGS: any[] = [
 
 
 import { isContentSafe } from '../_lib/safety.js';
-import { GEMINI_TEXT_MODEL } from '../_lib/aiModels.js';
 
 export default async function handler(req: any, res: any) {
   // CORS
@@ -61,13 +60,7 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return res.status(500).json({ error: 'AI not configured' });
-
-    const { GoogleGenAI } = await import('@google/genai');
-    const ai = new GoogleGenAI({ apiKey });
-
-    // Ask Gemini to return structured business data
+    // Ask the model for structured business data
     const structuredPrompt = `You are a fun business advisor for kids aged 6-13. Based on this business idea: "${finalPrompt}"
 
 Write in ${language}. Generate a JSON response with exactly these fields:
@@ -77,20 +70,14 @@ Write in ${language}. Generate a JSON response with exactly these fields:
 Reply ONLY with valid JSON, no markdown, no code blocks. Example:
 {"slogan": "Fun for everyone!", "description": "An amazing company that makes the world better."}`;
 
-    const response = await ai.models.generateContent({
-      model: GEMINI_TEXT_MODEL,
-      contents: [{ role: 'user', parts: [{ text: structuredPrompt }] }],
-      config: {
-        maxOutputTokens: 1024,
-        thinkingConfig: { thinkingBudget: 0 },
-        responseMimeType: 'application/json',
-        safetySettings: SAFETY_SETTINGS,
-      }
-    });
+    const { generateText } = await import('../_lib/textAI.js');
+    const rawText = (await generateText(structuredPrompt, {
+      json: true,
+      maxTokens: 1024,
+      safetySettings: SAFETY_SETTINGS,
+    })).trim();
 
-    const rawText = (response.text || '').trim();
-
-    // Parse the JSON response from Gemini
+    // Parse the JSON response
     let slogan = '';
     let description = '';
     try {

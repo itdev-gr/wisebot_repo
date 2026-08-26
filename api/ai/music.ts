@@ -24,7 +24,6 @@ const SAFETY_SETTINGS: any[] = [
 ];
 
 import { isContentSafe } from '../_lib/safety.js';
-import { GEMINI_TEXT_MODEL } from '../_lib/aiModels.js';
 
 /**
  * The songwriting brief. Everything the child answered in the wizard reaches the
@@ -72,42 +71,6 @@ Also choose the Suno style tags for this song: 3-6 comma-separated English tags 
 
 Return EXACTLY this JSON and nothing else (no markdown, no code fences):
 {"title": "...", "lyrics": "...", "style": "..."}`;
-}
-
-async function writeWithOpenAI(brief: string, apiKey: string): Promise<string> {
-  const response = await fetch('https://api.openai.com/v1/chat/completions', {
-    method: 'POST',
-    headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'gpt-4o',
-      messages: [{ role: 'user', content: brief }],
-      max_tokens: 2000,
-      temperature: 0.9, // lyrics should not read like the same song every time
-      response_format: { type: 'json_object' },
-    }),
-  });
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`OpenAI ${response.status}: ${detail.slice(0, 200)}`);
-  }
-  const data = await response.json();
-  return data.choices?.[0]?.message?.content || '';
-}
-
-async function writeWithGemini(brief: string, apiKey: string): Promise<string> {
-  const { GoogleGenAI } = await import('@google/genai');
-  const ai = new GoogleGenAI({ apiKey });
-  const response = await ai.models.generateContent({
-    model: GEMINI_TEXT_MODEL,
-    contents: [{ role: 'user', parts: [{ text: brief }] }],
-    config: {
-      maxOutputTokens: 2048,
-      thinkingConfig: { thinkingBudget: 0 },
-      responseMimeType: 'application/json',
-      safetySettings: SAFETY_SETTINGS,
-    },
-  });
-  return response.text || '';
 }
 
 export default async function handler(req: any, res: any) {
@@ -164,22 +127,16 @@ export default async function handler(req: any, res: any) {
       styleHint, genre, mood, freeform,
     });
 
-    const openaiKey = process.env.OPENAI_API_KEY;
-    const geminiKey = process.env.GEMINI_API_KEY;
-
     // OpenAI writes the lyrics; Gemini only stands in if OpenAI is down, so a
     // provider outage degrades the words instead of killing the whole feature.
-    let text = '';
-    if (openaiKey) {
-      try {
-        text = await writeWithOpenAI(brief, openaiKey);
-      } catch (e: any) {
-        console.warn('[music] OpenAI failed, falling back to Gemini:', e.message);
-      }
-    }
-    if (!text && geminiKey) {
-      text = await writeWithGemini(brief, geminiKey);
-    }
+    // Temperature is high on purpose — every song should not read like the last.
+    const { generateText } = await import('../_lib/textAI.js');
+    const text = await generateText(brief, {
+      json: true,
+      maxTokens: 2000,
+      temperature: 0.9,
+      safetySettings: SAFETY_SETTINGS,
+    });
     if (!text) return res.status(500).json({ error: 'AI not configured' });
 
     const fallbackTitle = lang === 'en' ? 'My Song' : 'Το Τραγούδι Μου';
