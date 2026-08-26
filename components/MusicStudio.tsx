@@ -194,6 +194,13 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
 
   // Guided wizard state
   const [wizardStep, setWizardStep] = useState(0);
+  // The guided wizard's answers, kept structured for the songwriting brief.
+  // They used to be flattened into one sentence, which lost the labels and gave
+  // the model no way to tell a name from a reason.
+  const [songBrief, setSongBrief] = useState<{
+    recipient?: string; recipientName?: string; uniqueThing?: string;
+    emotionalThing?: string; styleHint?: string;
+  } | null>(null);
   const [wizardData, setWizardData] = useState({
     recipient: '',
     recipientName: '',
@@ -439,7 +446,11 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       }
 
       const artPrompt = `A detailed album cover for a ${finalStyle} song, modern, artistic, vibrant`;
-      const lyricsData = await backendAI.music(lyricsPrompt, artPrompt, lang);
+      const lyricsData = await backendAI.music(lyricsPrompt, artPrompt, lang, songBrief || undefined);
+      // The lyricist also picks the Suno style tags (instrumentation, tempo,
+      // vocal type) — far better prompts than a single genre chip. The chip
+      // stays as the fallback.
+      const sunoStyle = lyricsData.style || finalStyle;
       const coverUrl = lyricsData.cover || '';
 
       setGenStep(2);
@@ -456,7 +467,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             lyrics: lyricsData.lyrics,
-            style: finalStyle,
+            style: sunoStyle,
             title: lyricsData.title,
             instrumental,
           }),
@@ -494,7 +505,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         title: lyricsData.title,
         lyrics: lyricsData.lyrics,
         cover: coverUrl,
-        style: finalStyle,
+        style: sunoStyle,
         instrumental,
         createdAt: Date.now(),
         sunoTaskId: sunoTaskId || undefined,
@@ -721,19 +732,19 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
           {/* Mode Toggle */}
           <div className="flex border-b border-white/[0.06]">
             <button
-              onClick={() => { setMode('guided'); setWizardStep(0); }}
+              onClick={() => { setMode('guided'); setWizardStep(0); setSongBrief(null); }}
               className={`flex-1 py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${mode === 'guided' ? 'text-white bg-white/[0.04] border-b-2 border-purple-500' : 'text-white/30 hover:text-white/50'}`}
             >
               <Mic size={13} /> {lang === 'el' ? 'Βοηθός' : 'Wizard'}
             </button>
             <button
-              onClick={() => setMode('simple')}
+              onClick={() => { setMode('simple'); setSongBrief(null); }}
               className={`flex-1 py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${mode === 'simple' ? 'text-white bg-white/[0.04] border-b-2 border-purple-500' : 'text-white/30 hover:text-white/50'}`}
             >
               <Sparkles size={13} /> {t.simpleMode}
             </button>
             <button
-              onClick={() => setMode('custom')}
+              onClick={() => { setMode('custom'); setSongBrief(null); }}
               className={`flex-1 py-3 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${mode === 'custom' ? 'text-white bg-white/[0.04] border-b-2 border-purple-500' : 'text-white/30 hover:text-white/50'}`}
             >
               <PenLine size={13} /> {t.customMode}
@@ -907,6 +918,13 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
                           const styleLabel = WIZARD_STYLES.find(s => s.id === wizardData.style);
                           const styleName = styleLabel ? (typeof styleLabel.label === 'object' ? styleLabel.label[lang] : styleLabel.label) : 'Pop';
 
+                          setSongBrief({
+                            recipient: recipientLabel,
+                            recipientName: wizardData.recipientName,
+                            uniqueThing: wizardData.uniqueThing,
+                            emotionalThing: wizardData.emotionalThing,
+                            styleHint: styleName,
+                          });
                           setDescription(wizardDescription);
                           setSelectedGenres([wizardData.style]);
                           setMode('simple');

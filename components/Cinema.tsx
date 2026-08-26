@@ -25,6 +25,7 @@ import { HEROES } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import ShareButton from './ShareButton';
 import { useAuth } from '../context/AuthContext';
+import { downloadFile } from '../utils/downloadFile';
 
 const motion = m as any;
 
@@ -434,6 +435,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
   const [quoteData, setQuoteData] = useState({ text: '', author: '' });
   const [generatedVideoUrl, setGeneratedVideoUrl] = useState<string | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<any | null>(null);
+  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
     if (location.state && location.state.animateHero) {
@@ -744,9 +746,33 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md relative z-20">
-                       <a href={generatedVideoUrl} download="WiseBot_Cinema.mp4" className="flex-1 py-4 bg-white text-black rounded-2xl font-[1000] uppercase tracking-widest hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-xl">
-                           <Download size={20} /> {lang === 'el' ? 'ΚΑΤΕΒΑΣΜΑ' : 'DOWNLOAD'}
-                       </a>
+                       {/* The video lives on Supabase Storage — a different origin, where the
+                           HTML `download` attribute is ignored and the browser just opens the
+                           file. downloadFile() fetches the bytes and saves them for real. */}
+                       <button
+                           onClick={async () => {
+                             if (!generatedVideoUrl || downloading) return;
+                             setDownloading(true);
+                             try {
+                               const result = await downloadFile(generatedVideoUrl, 'WiseBot_Cinema.mp4');
+                               if (result === 'opened-fallback') {
+                                 showNotification('🎬', lang === 'el'
+                                   ? 'Άνοιξε σε νέα καρτέλα — κράτα το πατημένο για αποθήκευση.'
+                                   : 'Opened in a new tab — long-press to save it.');
+                               }
+                             } catch {
+                               showNotification('❌', lang === 'el' ? 'Το κατέβασμα απέτυχε.' : 'Download failed.');
+                             } finally {
+                               setDownloading(false);
+                             }
+                           }}
+                           disabled={downloading}
+                           className="flex-1 py-4 bg-white text-black rounded-2xl font-[1000] uppercase tracking-widest hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-xl disabled:opacity-60 disabled:hover:scale-100"
+                       >
+                           <Download size={20} /> {downloading
+                             ? (lang === 'el' ? 'ΚΑΤΕΒΑΙΝΕΙ...' : 'DOWNLOADING...')
+                             : (lang === 'el' ? 'ΚΑΤΕΒΑΣΜΑ' : 'DOWNLOAD')}
+                       </button>
                        <button onClick={resetWizard} className="flex-1 py-4 bg-white/10 text-white border border-white/20 rounded-2xl font-[1000] uppercase tracking-widest hover:bg-white/20 transition-all flex items-center justify-center gap-2 backdrop-blur-md">
                            <RefreshCcw size={20} /> {lang === 'el' ? 'ΝΕΟ ΕΡΓΟ' : 'NEW PROJECT'}
                        </button>

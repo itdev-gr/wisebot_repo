@@ -86,10 +86,27 @@ export const backendAI = {
       body: JSON.stringify({ prompt }),
     }),
 
-  music: (lyricsPrompt: string, artPrompt?: string, lang: 'el' | 'en' = 'el') =>
-    apiFetch<{ title: string; lyrics: string; cover: string }>('/api/ai/music', {
+  /**
+   * Lyrics + Suno style tags. `brief` carries the wizard's structured answers
+   * (who it is for, their name, the detail, the reason) so the server can build
+   * a real songwriting brief instead of parsing one flattened sentence.
+   */
+  music: (
+    lyricsPrompt: string,
+    artPrompt?: string,
+    lang: 'el' | 'en' = 'el',
+    brief?: {
+      recipient?: string;
+      recipientName?: string;
+      uniqueThing?: string;
+      emotionalThing?: string;
+      occasion?: string;
+      styleHint?: string;
+    },
+  ) =>
+    apiFetch<{ title: string; lyrics: string; style?: string; cover: string }>('/api/ai/music', {
       method: 'POST',
-      body: JSON.stringify({ lyricsPrompt, artPrompt, lang }),
+      body: JSON.stringify({ lyricsPrompt, artPrompt, lang, ...(brief || {}) }),
     }),
 
   business: (textPrompt: string, logoPrompt?: string, lang: 'el' | 'en' = 'el') =>
