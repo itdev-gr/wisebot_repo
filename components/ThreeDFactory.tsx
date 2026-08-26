@@ -583,6 +583,18 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
                   <p className="text-[10px] text-emerald-300 font-black uppercase tracking-widest text-center">
                     {lang === 'el' ? '🎉 3D ΜΟΝΤΕΛΟ ΕΤΟΙΜΟ — ΚΑΤΕΒΑΣΕ' : '🎉 3D MODEL READY — DOWNLOAD'}
                   </p>
+
+                  {/* Meshy returns a render of the finished model and meshy-status
+                      already passes it through, but nothing ever displayed it — the
+                      child was told "ready!" next to an empty grey box. */}
+                  {meshyThumbnail && (
+                    <img
+                      src={meshyThumbnail}
+                      alt={lang === 'el' ? 'Το 3D μοντέλο σου' : 'Your 3D model'}
+                      loading="lazy"
+                      className="w-full max-w-[220px] mx-auto rounded-xl border border-emerald-500/20 bg-black/20"
+                    />
+                  )}
                   <div className="flex flex-wrap gap-1.5 justify-center">
                     {meshyModelUrls.glb && (
                       <button
