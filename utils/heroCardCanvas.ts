@@ -237,7 +237,9 @@ export const renderHeroCard = async (data: HeroCardData): Promise<string> => {
   ctx.font = '700 16px "Nunito", sans-serif';
   ctx.fillStyle = 'rgba(255,255,255,0.15)';
   ctx.textAlign = 'right';
-  ctx.fillText('wisebot.academy', W - 80, brandY + 20);
+  // The site is wisebot.gr — wisebot.academy does not resolve, so every shared
+  // hero card was advertising a dead address.
+  ctx.fillText('wisebot.gr', W - 80, brandY + 20);
   ctx.restore();
 
   // "Made with AI" tag
