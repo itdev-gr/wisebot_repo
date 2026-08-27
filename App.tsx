@@ -390,12 +390,34 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
     return saved ? parseInt(saved) : 1;
   });
   const { earnXp } = useEconomy();
+  const { user: authedUser } = useAuth();
 
   const [myHeroes, setMyHeroes] = useState<any[]>(() => {
     const saved = localStorage.getItem('wb_heroes');
     if (!saved) return [];
     try { return JSON.parse(saved); } catch { /* corrupted data, use default */ return []; }
   });
+
+  // Pull the child's saved heroes on sign-in so a new device, or a browser whose
+  // storage was cleared, still shows everything they have made. Merged rather
+  // than replaced: a hero created while logged out must not disappear.
+  useEffect(() => {
+    if (!authedUser) return;
+    let cancelled = false;
+    import('./services/backendApi')
+      .then(({ authFetch }) => authFetch('/api/heroes/list'))
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (cancelled || !data?.heroes?.length) return;
+        setMyHeroes(prev => {
+          const seen = new Set(prev.map((h: any) => String(h.id)));
+          const extra = data.heroes.filter((h: any) => !seen.has(String(h.id)));
+          return extra.length ? [...prev, ...extra] : prev;
+        });
+      })
+      .catch(err => console.warn('[heroes] cloud load failed:', err));
+    return () => { cancelled = true; };
+  }, [authedUser]);
   const [completedIds, setCompletedIds] = useState<string[]>(() => {
     const saved = localStorage.getItem('wb_completed_ids');
     if (!saved) return [];
@@ -466,6 +488,25 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
 
   const addHero = useCallback((hero: any) => {
     setMyHeroes(prev => [...prev, hero]);
+    // localStorage alone meant a cleared browser or a second device lost every
+    // hero a child had made — and public.heroes stayed empty, so the parent
+    // weekly report always reported zero creations. Fire-and-forget: the local
+    // copy is already saved, so a failed upload never costs the child the hero.
+    if (hero?.image && typeof hero.image === 'string' && hero.image.startsWith('data:image/')) {
+      import('./services/backendApi').then(({ authFetch }) =>
+        authFetch('/api/heroes/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: hero.name,
+            image: hero.image,
+            species: hero.species,
+            gear: hero.gear,
+            contribution: hero.contribution,
+          }),
+        })
+      ).catch(err => console.warn('[heroes] cloud save failed, kept locally:', err));
+    }
   }, []);
 
   const updateHero = useCallback((updatedHero: any) => {
