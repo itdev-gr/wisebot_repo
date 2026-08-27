@@ -51,12 +51,24 @@ if (!files.length) {
   process.exit(1);
 }
 
+// Exported filenames carry the whole hero name the child typed, e.g.
+// "WiseBot_Hero_Λούκι_η_Μικρή_Διασώστρια.png". That is the market title. The
+// file itself needs a Latin slug, so the Greek is transliterated for the URL.
+const GREEK_MAP = {
+  α:'a', ά:'a', β:'v', γ:'g', δ:'d', ε:'e', έ:'e', ζ:'z', η:'i', ή:'i', θ:'th',
+  ι:'i', ί:'i', ϊ:'i', ΐ:'i', κ:'k', λ:'l', μ:'m', ν:'n', ξ:'x', ο:'o', ό:'o',
+  π:'p', ρ:'r', σ:'s', ς:'s', τ:'t', υ:'y', ύ:'y', ϋ:'y', ΰ:'y', φ:'f', χ:'ch',
+  ψ:'ps', ω:'o', ώ:'o',
+};
+const slugify = name =>
+  name.toLowerCase().split('').map(c => GREEK_MAP[c] ?? c).join('')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'hero';
+
 const rows = [];
 for (const file of files) {
-  const slug = basename(file, extname(file))
-    .replace(/^WiseBot_Hero_/, '')
-    .replace(/[^a-zA-Z0-9Ͱ-Ͽ_-]/g, '')
-    .toLowerCase() || 'hero';
+  const rawName = basename(file, extname(file)).replace(/^WiseBot_Hero_/, '');
+  const title = rawName.replace(/_/g, ' ').replace(/\s*-\s*\d+$/, '').trim();
+  const slug = slugify(rawName);
 
   const meta = await sharp(join(srcDir, file)).metadata();
   if (meta.width !== CARD_W || meta.height !== CARD_H) {
@@ -71,7 +83,7 @@ for (const file of files) {
     .webp({ quality: 82 })
     .toFile(join(OUT_DIR, outName));
 
-  rows.push({ slug, url: `https://wisebot.gr/images/market/${outName}` });
+  rows.push({ slug, title, url: `https://wisebot.gr/images/market/${outName}` });
   console.log(`✓ ${file} → ${OUT_DIR}/${outName}`);
 }
 
@@ -81,7 +93,7 @@ insert into public.market_listings (seller_id, seller_name, type, title, image_u
 select p.id, v.seller_name, 'image', v.title, v.image_url, 3, 'approved', now()
 from public.profiles p
 cross join (values
-${rows.map(r => `  ('WiseBot Studio', '${r.slug.toUpperCase()}', '${r.url}')`).join(',\n')}
+${rows.map(r => `  ('WiseBot Studio', '${r.title.replace(/'/g, "''")}', '${r.url}')`).join(',\n')}
 ) as v(seller_name, title, image_url)
 where p.parent_email = 'vskevis@itdev.gr'
   and not exists (select 1 from public.market_listings ml where ml.image_url = v.image_url);
