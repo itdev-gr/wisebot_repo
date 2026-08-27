@@ -12,7 +12,7 @@
  * 24 Αυγούστου 2026 — see the economy-hardening PR for the whole story.
  */
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Store, Music, Image as ImageIcon, Box, ArrowRight, Play, Pause, Zap, Clock, CheckCircle2, XCircle, Plus, Loader2, Flag, X } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
@@ -46,7 +46,12 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
   const childName = useChildName(lang);
   const el = lang === 'el';
 
-  const [tab, setTab] = useState<'shop' | 'mine' | 'print'>('shop');
+  // ThreeDFactory links here as /market?tab=print the moment a model is ready —
+  // the print offer used to be reachable only by finding this tab by hand.
+  const [searchParams] = useSearchParams();
+  const [tab, setTab] = useState<'shop' | 'mine' | 'print'>(
+    searchParams.get('tab') === 'print' ? 'print' : 'shop'
+  );
   const [listings, setListings] = useState<Listing[]>([]);
   const [mine, setMine] = useState<Listing[]>([]);
   const [purchased, setPurchased] = useState<string[]>([]);

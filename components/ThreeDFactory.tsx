@@ -595,6 +595,18 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
                       className="w-full max-w-[220px] mx-auto rounded-xl border border-emerald-500/20 bg-black/20"
                     />
                   )}
+
+                  {/* The print-and-deliver offer lives in the Market's print tab,
+                      which a child had to find on their own. Offer it here, at the
+                      one moment they are looking at a finished model. */}
+                  <button
+                    onClick={() => navigate('/market?tab=print')}
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500/15 to-orange-500/15 border border-amber-500/30 text-amber-200 text-[10px] font-black uppercase tracking-widest hover:from-amber-500/25 hover:to-orange-500/25 transition-all flex items-center justify-center gap-1.5"
+                  >
+                    📦 {lang === 'el'
+                      ? 'ΘΕΣ ΤΟΝ ΑΛΗΘΙΝΟ; ΤΥΠΩΣΕ ΤΟΝ ΣΕ ΦΙΓΟΥΡΑ'
+                      : 'WANT IT FOR REAL? PRINT IT AS A FIGURE'}
+                  </button>
                   <div className="flex flex-wrap gap-1.5 justify-center">
                     {meshyModelUrls.glb && (
                       <button
