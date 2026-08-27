@@ -5,6 +5,46 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 27 Αυγούστου 2026 — τα τραγούδια ξαναδουλεύουν· Market γεμάτο
+
+**Γιατί δεν έβγαινε ΠΟΤΕ τραγούδι (PR #56, merged):** το Music Studio καλεί
+`/api/ai/music` (γράφει στίχους) και ΜΕΤΑ το Suno. Η Google κατάργησε το
+`gemini-2.5-flash` → πέθαινε το πρώτο βήμα και **το Suno δεν καλούνταν ποτέ**.
+Το Suno integration ήταν πάντα μια χαρά. Ίδια αιτία σκότωσε quiz + Business Lab·
+το chat επέζησε μόνο επειδή δοκιμάζει OpenAI πρώτα. Επαληθεύτηκε live πριν το fix.
+
+**Τι άλλαξε:** `api/_lib/textAI.ts` (OpenAI primary → Gemini fallback) το μοιράζονται
+music/quiz/business, ώστε μια κατάργηση μοντέλου να μη ξανασκοτώνει 3 features.
+`api/_lib/aiModels.ts` κρατά τα ονόματα μοντέλων σε ΕΝΑ σημείο (ήταν σε 7 αρχεία).
+`api/ai/generate.ts` δεν προωθεί πια το model name του client στην Google — pinned
+server-side. **Στίχοι πλέον από ChatGPT (gpt-4o)** με δομημένο brief από τον wizard
+(παραλήπτης/όνομα/χαρακτηριστικό/λόγος ως χωριστά πεδία, όχι μία ισοπεδωμένη πρόταση),
+και το μοντέλο επιστρέφει **και τα Suno style tags**.
+
+**Downloads:** το HTML `download` αγνοείται cross-origin — και ΟΛΑ τα δημιουργήματα
+ζουν αλλού (video→Supabase, 3D→Meshy CDN), οπότε απλά τα άνοιγε. `utils/downloadFile.ts`
+κατεβάζει blob. **3D:** το thumbnail υπήρχε στο state αλλά δεν renderαριζόταν ποτέ
+(το «γκρι κουτί»). Η εκτύπωση (500⚡, ήδη υπήρχε) εμφανίζεται τώρα μόλις τελειώσει
+το μοντέλο → `/market?tab=print`.
+
+**Hero Market (live, DB):** 20 ήρωες φτιαγμένοι από Φίλιππο/Αλεξάνδρα/Ελευθερία,
+από `public/images/WiseBot_Hero_*` — migration `20260827000000_seed_hero_market.sql`.
+Το listing «williams» → status `removed`. **ΕΚΚΡΕΜΕΙ:** (α) ο διαχωρισμός ονομάτων
+έγινε στην τύχη — ο ιδιοκτήτης να πει ποιος έφτιαξε τι· (β) 6 εικόνες εκτός:
+4 με όπλα (kefala/sniki/sniki-2/let_) + 2 ελαττωματικές (igu ψεύτικη εξίσωση,
+pirc σπασμένα φτερά).
+
+**Επίσης merged:** #54 subject SEO pages (6 μαθήματα + /epixeirimatikotita-gia-paidia),
+#55 English edition μέρος 1 (γλώσσα persists + 🌐 toggle στο landing, LegalHub 4
+ενότητες ήταν μόνο ελληνικά, JSON-LD δίγλωσσο).
+
+**English edition — ΔΕΝ έγινε ακόμα:** το μάθημα Αγγλικών είναι EFL-για-Έλληνες
+(45 units/810 ερωτήσεις· 29 με αγγλική ερώτηση και ΕΛΛΗΝΙΚΕΣ απαντήσεις) — άχρηστο
+για αγγλόφωνο παιδί· αφήγηση ebooks μόνο ελληνική & μόνο Βιβλίο 1· ~47% των
+generalQuizData αγγλικών είναι κομμένα («Τι είναι ο κομήτης;» → «Comet?»).
+
+---
+
 ## ⚡ STATUS 26 Αυγούστου 2026 — CRO audit ολοκληρώθηκε, και τα 7 PRs (#47–#53) merged
 
 Το season-opener CRO audit έγινε (live mobile walkthrough ως guest + πλήρες code
