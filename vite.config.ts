@@ -68,12 +68,28 @@ export default defineConfig(({ mode }) => {
                 },
               },
               {
-                // Audio: cache on first use
-                urlPattern: /\/audio\/.+\.mp3$/,
+                // Audio: cache on first use. .m4a matters as much as .mp3 — the
+                // ebook narration by the children is m4a, so with an mp3-only
+                // rule the most valuable audio in the product was the only audio
+                // never cached: ~850 KB re-fetched on every page turn, and no
+                // offline read-along in a PWA.
+                urlPattern: /\/audio\/.+\.(mp3|m4a)$/,
                 handler: 'CacheFirst',
                 options: {
                   cacheName: 'audio-cache',
                   expiration: { maxEntries: 100, maxAgeSeconds: 30 * 24 * 60 * 60 },
+                  cacheableResponse: { statuses: [0, 200] },
+                },
+              },
+              {
+                // Word timings sit next to the narration and are ~3 KB. Kept
+                // revalidating rather than CacheFirst so a re-aligned page is
+                // picked up without waiting out the audio cache's 30 days.
+                urlPattern: /\/audio\/ebooks\/.+\.json$/,
+                handler: 'StaleWhileRevalidate',
+                options: {
+                  cacheName: 'narration-timings',
+                  expiration: { maxEntries: 200, maxAgeSeconds: 30 * 24 * 60 * 60 },
                   cacheableResponse: { statuses: [0, 200] },
                 },
               },
