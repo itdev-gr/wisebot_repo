@@ -21,9 +21,22 @@ SRC_DIR="${SRC_DIR:-$HOME/Desktop/wisebot-voices-kids}"
 WORK="$(mktemp -d)"
 OUT="$ROOT/public/audio/ebooks"
 
-if [ -z "${OPENAI_API_KEY:-}" ]; then
-  echo "OPENAI_API_KEY is not set — whisper cannot run." >&2
-  echo "Set it for this command only:  OPENAI_API_KEY=sk-... $0 $BOOK" >&2
+# The key normally already lives in the gitignored .env.vercel that `vercel env
+# pull` writes. That file stores values quoted with a trailing literal \n, which
+# OpenAI rejects as part of the bearer token — strip it rather than making the
+# caller export anything.
+if [ -z "${OPENAI_API_KEY:-}" ] && [ -f "$ROOT/.env.vercel" ]; then
+  OPENAI_API_KEY=$(grep '^OPENAI_API_KEY=' "$ROOT/.env.vercel" | head -1 \
+    | sed 's/^OPENAI_API_KEY=//; s/^"//; s/"$//; s/\\n$//' | tr -d '\r\n ')
+  export OPENAI_API_KEY
+fi
+# Guard against the same trailing-newline problem when it comes from the shell.
+OPENAI_API_KEY=$(printf '%s' "${OPENAI_API_KEY:-}" | sed 's/\\n$//' | tr -d '\r\n ')
+export OPENAI_API_KEY
+
+if [ -z "$OPENAI_API_KEY" ]; then
+  echo "No OPENAI_API_KEY — not in the environment and not in .env.vercel." >&2
+  echo "Either run 'vercel env pull .env.vercel' or:  OPENAI_API_KEY=sk-... $0 $BOOK" >&2
   exit 1
 fi
 
@@ -84,7 +97,8 @@ for n in $(seq 1 "$PAGE_COUNT"); do
     -o "$WORK/page$n.json"
 
   if ! node -e "const d=require('$WORK/page$n.json'); if(!d.words?.length) process.exit(1)"; then
-    echo "  page $n: whisper returned no words — check the key and the audio" >&2
+    echo "  page $n: whisper returned no words. API said:" >&2
+    node -e "const d=require('$WORK/page$n.json'); console.error('   ', d.error?.message || JSON.stringify(d).slice(0,300))" >&2
     exit 1
   fi
   SOURCES="$SOURCES    $n: [(\"page$n\", 0)],
