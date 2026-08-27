@@ -10,7 +10,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { makerLevelForXp, makerLevelIndex, type MakerLevel } from '../data/makerLevels';
 
@@ -42,19 +42,25 @@ const MakerLevelUp: React.FC<{ lang: 'el' | 'en'; xp: number }> = ({ lang, xp })
     : { rankUp: 'NEW MAKER RANK', passport: 'See your Passport', keep: 'Keep going!' };
 
   return (
-    <AnimatePresence>
+    <>
       {celebrating && (
         <motion.div
+          // Deliberately NOT wrapped in AnimatePresence, and with no exit
+          // animation. This is a fixed inset-0 overlay: while it is in the DOM
+          // it swallows every click on the page. An exit animation makes its
+          // removal depend on rAF finishing, and rAF is suspended whenever the
+          // tab is backgrounded — a child switching apps or locking the phone
+          // mid-dismiss was left with an invisible full-screen click trap and
+          // no way out but a reload. Entry still animates; the close is
+          // immediate and cannot get stuck. DailyRewardPopup does the same.
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md p-6"
           onClick={() => setCelebrating(null)}
         >
           <motion.div
             initial={{ scale: 0.7, y: 40 }}
             animate={{ scale: 1, y: 0 }}
-            exit={{ scale: 0.8, y: 20 }}
             transition={{ type: 'spring', damping: 18 }}
             className="relative max-w-sm w-full text-center rounded-[2.5rem] border border-white/15 bg-gradient-to-b from-slate-900 to-black p-8 shadow-2xl overflow-hidden"
             onClick={e => e.stopPropagation()}
@@ -94,7 +100,7 @@ const MakerLevelUp: React.FC<{ lang: 'el' | 'en'; xp: number }> = ({ lang, xp })
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 
