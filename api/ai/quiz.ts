@@ -47,23 +47,16 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) return res.status(500).json({ error: 'AI not configured' });
+    const { generateText } = await import('../_lib/textAI.js');
+    const prompt = `Create a ${difficulty || 'medium'} quiz about "${topic}" for children ages 6-13 in ${lang || 'el'} language. The quiz must be educational and kid-friendly. No violence, scary themes, or adult topics. Return JSON with a "questions" array of objects containing: question, options (array of 4), correctIndex (0-3), explanation.`;
 
-    const { GoogleGenAI } = await import('@google/genai');
-    const ai = new GoogleGenAI({ apiKey });
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: [{ role: 'user', parts: [{ text: `Create a ${difficulty || 'medium'} quiz about "${topic}" for children ages 6-13 in ${lang || 'el'} language. The quiz must be educational and kid-friendly. No violence, scary themes, or adult topics. Return as JSON array with objects containing: question, options (array of 4), correctIndex (0-3), explanation.` }] }],
-      config: {
-        maxOutputTokens: 2048,
-        thinkingConfig: { thinkingBudget: 0 },
-        responseMimeType: 'application/json',
-        safetySettings: SAFETY_SETTINGS,
-      }
+    const text = await generateText(prompt, {
+      json: true,
+      maxTokens: 2048,
+      safetySettings: SAFETY_SETTINGS,
     });
 
-    res.status(200).json({ result: response.text || '' });
+    res.status(200).json({ result: text });
   } catch (err: any) {
     console.error('AI Quiz error:', err.message);
     res.status(500).json({ error: 'AI service error' });

@@ -8,6 +8,7 @@ import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { useAuth } from '../context/AuthContext';
 import { authFetch } from '../services/backendApi';
+import { downloadFile } from '../utils/downloadFile';
 
 const motion = m as any;
 
@@ -43,6 +44,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
   const [meshyStatus, setMeshyStatus] = useState<'idle' | 'processing' | 'complete' | 'error'>('idle');
   const [meshyProgress, setMeshyProgress] = useState(0);
   const [meshyModelUrls, setMeshyModelUrls] = useState<any>(null);
+  const [downloadingFormat, setDownloadingFormat] = useState<string | null>(null);
   const [meshyThumbnail, setMeshyThumbnail] = useState<string | null>(null);
   const meshyPollingRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -239,6 +241,25 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
       }
     }, 5000);
   }, [lang, showNotification, refundCredits, costs.threeD]);
+
+  // Meshy serves models from its own CDN, so <a download> was ignored and the
+  // browser opened the file instead of saving it. Fetch the bytes and save.
+  const handleModelDownload = async (url: string, format: string) => {
+    if (!url || downloadingFormat) return;
+    setDownloadingFormat(format);
+    try {
+      const result = await downloadFile(url, `WiseBot_3D.${format}`);
+      if (result === 'opened-fallback') {
+        showNotification('🧊', lang === 'el'
+          ? 'Άνοιξε σε νέα καρτέλα — αποθήκευσέ το από εκεί.'
+          : 'Opened in a new tab — save it from there.');
+      }
+    } catch {
+      showNotification('❌', lang === 'el' ? 'Το κατέβασμα απέτυχε.' : 'Download failed.');
+    } finally {
+      setDownloadingFormat(null);
+    }
+  };
 
   const generateReal3D = async () => {
     if (!image) return;
@@ -562,31 +583,75 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
                   <p className="text-[10px] text-emerald-300 font-black uppercase tracking-widest text-center">
                     {lang === 'el' ? '🎉 3D ΜΟΝΤΕΛΟ ΕΤΟΙΜΟ — ΚΑΤΕΒΑΣΕ' : '🎉 3D MODEL READY — DOWNLOAD'}
                   </p>
+
+                  {/* Meshy returns a render of the finished model and meshy-status
+                      already passes it through, but nothing ever displayed it — the
+                      child was told "ready!" next to an empty grey box. */}
+                  {meshyThumbnail && (
+                    <img
+                      src={meshyThumbnail}
+                      alt={lang === 'el' ? 'Το 3D μοντέλο σου' : 'Your 3D model'}
+                      loading="lazy"
+                      className="w-full max-w-[220px] mx-auto rounded-xl border border-emerald-500/20 bg-black/20"
+                    />
+                  )}
+
+                  {/* The print-and-deliver offer lives in the Market's print tab,
+                      which a child had to find on their own. Offer it here, at the
+                      one moment they are looking at a finished model. */}
+                  <button
+                    onClick={() => navigate('/market?tab=print')}
+                    className="w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500/15 to-orange-500/15 border border-amber-500/30 text-amber-200 text-[10px] font-black uppercase tracking-widest hover:from-amber-500/25 hover:to-orange-500/25 transition-all flex items-center justify-center gap-1.5"
+                  >
+                    📦 {lang === 'el'
+                      ? 'ΘΕΣ ΤΟΝ ΑΛΗΘΙΝΟ; ΤΥΠΩΣΕ ΤΟΝ ΣΕ ΦΙΓΟΥΡΑ'
+                      : 'WANT IT FOR REAL? PRINT IT AS A FIGURE'}
+                  </button>
                   <div className="flex flex-wrap gap-1.5 justify-center">
                     {meshyModelUrls.glb && (
-                      <a href={meshyModelUrls.glb} download className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1">
-                        <FileDown size={10} /> GLB
-                      </a>
+                      <button
+                        onClick={() => handleModelDownload(meshyModelUrls.glb, 'glb')}
+                        disabled={downloadingFormat === 'glb'}
+                        className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1 disabled:opacity-50"
+                      >
+                        <FileDown size={10} /> {downloadingFormat === 'glb' ? '...' : 'GLB'}
+                      </button>
                     )}
                     {meshyModelUrls.fbx && (
-                      <a href={meshyModelUrls.fbx} download className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1">
-                        <FileDown size={10} /> FBX
-                      </a>
+                      <button
+                        onClick={() => handleModelDownload(meshyModelUrls.fbx, 'fbx')}
+                        disabled={downloadingFormat === 'fbx'}
+                        className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1 disabled:opacity-50"
+                      >
+                        <FileDown size={10} /> {downloadingFormat === 'fbx' ? '...' : 'FBX'}
+                      </button>
                     )}
                     {meshyModelUrls.obj && (
-                      <a href={meshyModelUrls.obj} download className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1">
-                        <FileDown size={10} /> OBJ
-                      </a>
+                      <button
+                        onClick={() => handleModelDownload(meshyModelUrls.obj, 'obj')}
+                        disabled={downloadingFormat === 'obj'}
+                        className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1 disabled:opacity-50"
+                      >
+                        <FileDown size={10} /> {downloadingFormat === 'obj' ? '...' : 'OBJ'}
+                      </button>
                     )}
                     {meshyModelUrls.stl && (
-                      <a href={meshyModelUrls.stl} download className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1">
-                        <FileDown size={10} /> STL
-                      </a>
+                      <button
+                        onClick={() => handleModelDownload(meshyModelUrls.stl, 'stl')}
+                        disabled={downloadingFormat === 'stl'}
+                        className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1 disabled:opacity-50"
+                      >
+                        <FileDown size={10} /> {downloadingFormat === 'stl' ? '...' : 'STL'}
+                      </button>
                     )}
                     {meshyModelUrls.usdz && (
-                      <a href={meshyModelUrls.usdz} download className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1">
-                        <FileDown size={10} /> USDZ
-                      </a>
+                      <button
+                        onClick={() => handleModelDownload(meshyModelUrls.usdz, 'usdz')}
+                        disabled={downloadingFormat === 'usdz'}
+                        className="px-3 py-1.5 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-emerald-300 text-[10px] font-black uppercase tracking-wider hover:bg-emerald-600/30 transition-all flex items-center gap-1 disabled:opacity-50"
+                      >
+                        <FileDown size={10} /> {downloadingFormat === 'usdz' ? '...' : 'USDZ'}
+                      </button>
                     )}
                   </div>
                 </motion.div>

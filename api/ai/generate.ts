@@ -260,6 +260,10 @@ export default async function handler(req: any, res: any) {
     const geminiKey = process.env.GEMINI_API_KEY;
 
     const { GoogleGenAI } = await import('@google/genai');
+    // The request body's `model` only decides text-vs-image routing; the model we
+    // actually call is pinned here so a retired name in a shipped client bundle
+    // (or a crafted request) cannot reach Google.
+    const { GEMINI_TEXT_MODEL, GEMINI_IMAGE_MODEL } = await import('../_lib/aiModels.js');
 
     // ── GEMINI IMAGE MODEL → Use Gemini API natively ──
     // This handles both text-to-image AND photo-to-avatar (multimodal)
@@ -268,7 +272,7 @@ export default async function handler(req: any, res: any) {
       try {
         const ai = new GoogleGenAI({ apiKey: geminiKey });
         const response = await ai.models.generateContent({
-          model,
+          model: GEMINI_IMAGE_MODEL,
           contents,
           config: { ...(config || {}), safetySettings: IMAGE_SAFETY_SETTINGS },
         });
@@ -336,7 +340,7 @@ export default async function handler(req: any, res: any) {
         };
 
         const response = await ai.models.generateContent({
-          model,
+          model: GEMINI_TEXT_MODEL,
           contents,
           config: mergedConfig,
         });

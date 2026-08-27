@@ -316,7 +316,8 @@ Use to personalize. Only mention when the child asks.
       contents.push({ role: 'user', parts: [{ text: userMsg }] });
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        // Routing hint only — /api/ai/generate pins the real model server-side.
+        model: 'gemini-3.6-flash',
         contents,
         config: { systemInstruction },
       });

@@ -65,8 +65,9 @@ export default async function handler(req: any, res: any) {
     const genai = new GoogleGenAI({ apiKey: geminiKey });
     const voiceName = VOICE_MAP[voiceStyle] || VOICE_MAP.default;
 
+    const { GEMINI_TTS_MODEL } = await import('../_lib/aiModels.js');
     const response = await genai.models.generateContent({
-      model: 'gemini-2.5-flash-preview-tts',
+      model: GEMINI_TTS_MODEL,
       contents: inputText,
       config: {
         responseModalities: ['AUDIO'],
