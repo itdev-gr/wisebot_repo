@@ -2,35 +2,53 @@
 /**
  * Extract all Academy story texts (el + en) for TTS audio generation.
  *
- * Reads data/academyCourses.ts (single-line "..." storyContent strings)
- * and saves as JSON for generate-voices.mjs.
- *
  * Output: scripts/stories-for-tts.json  →  [{ id, el, en }]
+ *
+ * This used to scrape data/academyCourses.ts with a regex that assumed each
+ * storyContent was two single-line double-quoted strings in a fixed layout. Any
+ * story written differently was silently skipped, so the file held 98 of 113 —
+ * and the 15 it missed (91-100, 109-113) never got narration generated. Now it
+ * imports the module, which cannot drift from the source.
+ *
+ * Run through vite-node so the TypeScript module resolves:
+ *   npx vite-node scripts/extract-academy-texts.mjs
  */
-
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
-const SRC = path.join(PROJECT_ROOT, 'data', 'academyCourses.ts');
 const OUT = path.join(__dirname, 'stories-for-tts.json');
 
-const ts = fs.readFileSync(SRC, 'utf8');
+const { COURSES } = await import(path.join(PROJECT_ROOT, 'data', 'academyCourses.ts'));
 
 const stories = [];
-const entryRe = /id:\s*(\d+),[\s\S]{0,600}?storyContent:\s*\{\s*\n\s*el:\s*"([^\n]*)",\n\s*en:\s*"([^\n]*)"/g;
-let m;
-while ((m = entryRe.exec(ts)) !== null) {
-  stories.push({ id: Number(m[1]), el: m[2], en: m[3] });
+const seen = new Set();
+for (const course of COURSES) {
+  const { id, storyContent } = course || {};
+  if (typeof id !== 'number' || !storyContent) continue;
+  const el = (storyContent.el || '').trim();
+  const en = (storyContent.en || '').trim();
+  if (!el && !en) continue;
+  if (seen.has(id)) {
+    console.warn(`! duplicate story id ${id} — keeping the first`);
+    continue;
+  }
+  seen.add(id);
+  stories.push({ id, el, en });
 }
-
-if (stories.length === 0) {
-  console.error('No stories extracted — check the regex against academyCourses.ts');
-  process.exit(1);
-}
+stories.sort((a, b) => a.id - b.id);
 
 fs.writeFileSync(OUT, JSON.stringify(stories, null, 2));
-console.log(`Extracted ${stories.length} stories → ${OUT}`);
-console.log(`el lengths: ${Math.min(...stories.map(s => s.el.length))}-${Math.max(...stories.map(s => s.el.length))} chars`);
+
+const ids = stories.map(s => s.id);
+const gaps = [];
+for (let i = 1; i <= Math.max(...ids); i++) if (!seen.has(i)) gaps.push(i);
+const chars = stories.reduce((n, s) => n + s.el.length + s.en.length, 0);
+
+console.log(`${stories.length} stories → ${path.relative(PROJECT_ROOT, OUT)}`);
+console.log(`ids ${Math.min(...ids)}-${Math.max(...ids)}${gaps.length ? `, gaps: ${gaps.join(',')}` : ', no gaps'}`);
+console.log(`${chars.toLocaleString()} characters total`);
+const short = stories.filter(s => !s.el || !s.en);
+if (short.length) console.warn(`! ${short.length} story/ies missing one language: ${short.map(s => s.id).join(',')}`);
