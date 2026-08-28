@@ -5,6 +5,35 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 28 Αυγούστου 2026 (βράδυ) — «εξαφανίστηκε η αρχική»: ήταν το auto-redirect
+
+Ο ιδιοκτήτης ανέφερε από κινητό: «η αρχική δεν μπαίνει καν — με πάει στο Κέντρο
+Ελέγχου με τη μία». Αιτία ΔΕΝ ήταν σπασμένο render: το CRO P2-14 (PR #53) έκανε
+πραγματικό το `AutoRedirectIfLoggedIn`, οπότε κάθε συνδεδεμένος χρήστης στο «/»
+πετιόταν στο /dashboard — η αρχική έγινε άφταστη για όποιον έχει λογαριασμό, και
+το «Αρχική» του sidebar νεκρό κουμπί. Ο wrapper αφαιρέθηκε· η αρχική αποδίδεται
+σε όλους. Τίποτα δεν τον χρειαζόταν: το OAuth redirectTo πάει ήδη κατευθείαν στο
+/dashboard (AuthContext) και το /login κάνει δικό του redirect συνδεδεμένων
+(AuthScreen). Μαζί: fix στους heroes — ήρωας που σωζόταν cloud ξαναγύριζε ως
+ΔΙΠΛΟΣ στο επόμενο sign-in (τοπικό Date.now() id ≠ cloud uuid· τώρα το save
+κρατά `cloudId` και το merge αναγνωρίζει και τα δύο), και το merge effect
+κλειδώθηκε στο `user.id` αντί για το user object (ξανα-fetchάριζε σε κάθε auth
+event).
+
+Πλήρες verification sweep στο live (φρέσκος browser, guest): landing
+desktop+mobile ✓, portal ✓, dashboard ✓, Ebooks reader + Book 2 φωνές παιδιών +
+read-along highlight ✓ (m4a 206, timings 200, «Διαβάζουν παιδιά»), κλείσιμο
+modal χωρίς click-trap ✓, Market 23 listings χωρίς «Λούκι»/williams ✓, νέα
+academy mp3 200 ✓, quiz API 200 ✓, heroes/list 401 χωρίς auth ✓, μηδέν console
+errors. Τα 102 «rateLimit … supabaseUrl is required» στα Vercel logs ήταν ΜΟΝΟ
+στο preview deployment του PR #56 (τα env vars δεν περνούν στα previews) — η
+παραγωγή καθαρή. ΠΡΟΣΟΧΗ: με `registerType: 'prompt'` όποιος έχει ανοιχτό το
+παλιό bundle (με τα click-traps) μένει εκεί μέχρι να πατήσει «Ανανέωση» στο μπλε
+καρτάκι ή hard refresh — τα «κολλήματα» σε συσκευές του σπιτιού θέλουν ένα
+refresh, δεν είναι στο σημερινό build.
+
+---
+
 ## ⚡ STATUS 28 Αυγούστου 2026 — αφήγηση πλήρης· 5 modals κλείδωναν την εφαρμογή
 
 **Book 2 με τις φωνές των παιδιών (live).** Ίδια διαδικασία με το Book 1:
