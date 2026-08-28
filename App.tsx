@@ -335,16 +335,6 @@ const Portal: React.FC<PortalProps> = ({ lang }) => {
 };
 
 // --- PENDING VERIFICATION SCREEN ---
-// --- AUTO-REDIRECT: If logged in, go to dashboard (handles OAuth callback) ---
-// Was a no-op passthrough (CRO-AUDIT P2-14). Children render while auth resolves so
-// the static hero shell's instant first paint (PR #43) is not delayed; the redirect
-// kicks in the moment a session is known.
-const AutoRedirectIfLoggedIn: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading } = useAuth();
-  if (!loading && user) return <Navigate to="/dashboard" replace />;
-  return <>{children}</>;
-};
-
 // NOT a login gate on purpose: guest mode routes visitors through /dashboard,
 // /account and /parent render their own logged-out CTAs, and the server APIs
 // enforce auth. It only holds rendering until the session is known.
@@ -401,8 +391,11 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
   // Pull the child's saved heroes on sign-in so a new device, or a browser whose
   // storage was cleared, still shows everything they have made. Merged rather
   // than replaced: a hero created while logged out must not disappear.
+  // Keyed on the id, not the user object: Supabase hands out a fresh object on
+  // every auth event, and an object dep re-fires this on each one (audit shape CTX3/H1).
+  const authedUserId = authedUser?.id;
   useEffect(() => {
-    if (!authedUser) return;
+    if (!authedUserId) return;
     let cancelled = false;
     import('./services/backendApi')
       .then(({ authFetch }) => authFetch('/api/heroes/list'))
@@ -410,14 +403,20 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
       .then(data => {
         if (cancelled || !data?.heroes?.length) return;
         setMyHeroes(prev => {
-          const seen = new Set(prev.map((h: any) => String(h.id)));
+          // A hero saved from this device exists twice: locally under its
+          // Date.now() id and in the cloud under a uuid. addHero records the
+          // uuid as cloudId on success — treat both as "already here" or the
+          // same hero appears twice after every sign-in.
+          const seen = new Set(
+            prev.flatMap((h: any) => [String(h.id), h.cloudId != null ? String(h.cloudId) : null]).filter(Boolean)
+          );
           const extra = data.heroes.filter((h: any) => !seen.has(String(h.id)));
           return extra.length ? [...prev, ...extra] : prev;
         });
       })
       .catch(err => console.warn('[heroes] cloud load failed:', err));
     return () => { cancelled = true; };
-  }, [authedUser]);
+  }, [authedUserId]);
   const [completedIds, setCompletedIds] = useState<string[]>(() => {
     const saved = localStorage.getItem('wb_completed_ids');
     if (!saved) return [];
@@ -505,7 +504,15 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             contribution: hero.contribution,
           }),
         })
-      ).catch(err => console.warn('[heroes] cloud save failed, kept locally:', err));
+      ).then(async res => {
+        // Remember the cloud uuid on the local copy. Without it the list-merge
+        // on the next sign-in cannot tell this hero and its cloud row apart,
+        // and every saved hero shows up twice. The local id stays untouched —
+        // open views hold references to it.
+        if (!res?.ok) return;
+        const data = await res.json().catch(() => null);
+        if (data?.id) setMyHeroes(prev => prev.map(h => (h.id === hero.id ? { ...h, cloudId: data.id } : h)));
+      }).catch(err => console.warn('[heroes] cloud save failed, kept locally:', err));
     }
   }, []);
 
@@ -521,7 +528,12 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* ═══ PUBLIC ROUTES ═══ */}
-            <Route path="/" element={<AutoRedirectIfLoggedIn><SEO lang={lang} page="home" /><LandingPage lang={lang} setLang={setLang} /></AutoRedirectIfLoggedIn>} />
+            {/* The landing renders for everyone. It briefly auto-redirected signed-in
+                users to /dashboard (CRO P2-14) — which made the homepage unreachable
+                for them: typing wisebot.gr or tapping «Αρχική» in the sidebar bounced
+                straight to the dashboard. OAuth needs no redirect here either; its
+                redirectTo already lands on /dashboard (AuthContext). */}
+            <Route path="/" element={<><SEO lang={lang} page="home" /><LandingPage lang={lang} setLang={setLang} /></>} />
             <Route path="/portal" element={<Portal lang={lang} />} />
             <Route path="/login" element={<><SEO lang={lang} page="login" /><AuthScreen lang={lang} /></>} />
             {/* Signup verification emails redirect here (api/auth/signup.ts redirectTo). */}
