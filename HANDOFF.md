@@ -5,6 +5,42 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 29 Αυγούστου 2026 — Book 3 live· Android/TV audit: 17 fixes
+
+**Book 3 φωνές παιδιών (live).** Τα DJI ονόματα ήταν ΛΑΘΟΣ ως προς το περιεχόμενο
+(το «page 2» είχε την αρχή της σελίδας 1 κ.ο.κ.) — χαρτογραφήθηκαν με whisper ΠΡΙΝ
+το pipeline· τα δύο κομμάτια της σελίδας 1 ενώθηκαν σε WAV. 88-93% exact match,
+5/5 σελίδες aligned. Πάντα μεταγραφή-πρώτα σε νέο βιβλίο.
+
+**Android TV (αναφορά ιδιοκτήτη): αποσυγχρονισμός read-along + αόρατα κουμπιά.**
+Αιτίες: (α) audio-cache χωρίς RangeRequestsPlugin — cache hit απαντούσε Range
+request με πλήρες 200, τα TV/WebView media stacks χάνουν το playhead από τη
+ΔΕΥΤΕΡΗ ακρόαση (γι' αυτό «πότε δουλεύει πότε όχι»)· προστέθηκε rangeRequests.
+(β) TV overscan ~5%/άκρη έκοβε τη μπάρα ΑΚΟΥΣΕ/ΤΑΧΥΤΗΤΑ/ΣΥΝΕΧΟΜΕΝΗ στο 90vh —
+οι δύο readers (Ebooks+Academy) caps σε lg:86vh. Σε Android Chrome profile ο
+συγχρονισμός μετρήθηκε σωστός (bracket περιέχει currentTime).
+
+**Audit 6 λεντίλων με adversarial verify → 17 επιβεβαιωμένα, όλα διορθωμένα
+(commit dc7ca98):** speechSynthesis παντού μέσω safe accessor (το WebView του
+μελλοντικού store app ΔΕΝ το έχει καθόλου — crash σε page turn)· pause=cancel+
+re-speak (το Android system TTS δεν κάνει pause)· fatal TTS errors σταματούν με
+μήνυμα· 4 παιχνίδια dt-normalized (90/120Hz έτρεχαν 1.5-2x)· TowerDefense tap
+scaling· pull-to-refresh νεκρό (body overscroll + touch-none στον runner)· dvh
+στο shell/readers (Android URL bar)· interactive-widget=resizes-content
+(πληκτρολόγιο πάνω στο chat input)· mobile menu: το bg-[#0B0F1A]/98 ΔΕΝ παρήγαγε
+CSS (το /98 δεν υπάρχει στο Tailwind) → solid bg χωρίς animated blur· manifest
+id:'/'· UpdatePrompt update() σε visibilitychange· share fallback chain
+(utils/share.ts) με copied feedback· κάμερα χωρίς capture="user" (γκαλερί+κάμερα).
+
+**ΕΠΟΜΕΝΟ ΜΕΓΑΛΟ (εντολή ιδιοκτήτη): wrap σε application για Google Play + App
+Store.** Το speechSynthesis hardening + share fallback + download proxy θέμα
+(utils/downloadFile.ts — blob downloads νεκρά σε WebView, θέλει server proxy ή
+TWA) έγιναν/σημειώθηκαν ακριβώς γι' αυτό. Σκέψη: Android = TWA/Bubblewrap (το
+PWA ήδη πληροί τα κριτήρια — id, maskable icon, SW), iOS = Capacitor shell.
+Εκκρεμούν manifest screenshots.
+
+---
+
 ## ⚡ STATUS 28 Αυγούστου 2026 (βράδυ) — «εξαφανίστηκε η αρχική»: ήταν το auto-redirect
 
 Ο ιδιοκτήτης ανέφερε από κινητό: «η αρχική δεν μπαίνει καν — με πάει στο Κέντρο
