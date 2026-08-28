@@ -726,12 +726,19 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* STORYBOOK READER                                           */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <AnimatePresence>
+      {/* No AnimatePresence and no exit animations: this is a fixed inset-0
+          overlay, so while it is mounted it swallows every click on the page.
+          An exit animation makes its removal wait on requestAnimationFrame,
+          which the browser suspends whenever the tab is backgrounded — closing
+          the book and then switching apps could leave an invisible full-screen
+          reader over the whole site. Entry still animates; the close is a plain
+          unmount and cannot hang. Same reasoning as MakerLevelUp. */}
+      <>
         {selectedBookId && activeBook && (
           <div className="fixed inset-0 z-50">
             {/* Dark warm overlay */}
             <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               onClick={closeBook}
               className="absolute inset-0 bg-[#1a0f08]/95 backdrop-blur-sm cursor-pointer"
             />
@@ -740,7 +747,6 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
             <motion.div
               initial={{ scale: 0.92, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.92, opacity: 0, y: 30 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="relative z-10 flex items-center justify-center h-full p-3 md:p-6 pointer-events-none"
             >
@@ -1001,7 +1007,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
             </motion.div>
           </div>
         )}
-      </AnimatePresence>
+      </>
 
     </div>
   );

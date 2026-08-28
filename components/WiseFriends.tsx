@@ -383,12 +383,16 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
       </div>
 
       {/* --- DETAILED HERO MODAL (MOBILE-FIRST REDESIGN) --- */}
-      <AnimatePresence>
+      {/* No AnimatePresence / exit here: a fixed inset-0 z-[1000] overlay eats
+          every click while mounted, and an exit animation ties its removal to
+          requestAnimationFrame, which is suspended while the tab is in the
+          background. Closing then switching apps could strand an invisible
+          full-screen layer over the app. Same reasoning as MakerLevelUp. */}
+      <>
         {selectedHero && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             className="fixed inset-0 z-[1000] bg-black/95 backdrop-blur-xl overflow-y-auto"
             onClick={() => setSelectedHero(null)}
           >
@@ -397,7 +401,6 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
                <motion.div
                   initial={{ scale: 0.95, y: 30 }}
                   animate={{ scale: 1, y: 0 }}
-                  exit={{ scale: 0.95, y: 30 }}
                   onClick={(e) => e.stopPropagation()}
                   className="w-full max-w-5xl md:rounded-[3rem] overflow-hidden shadow-2xl relative flex flex-col md:flex-row bg-[#0f1014] md:border border-white/10"
                >
@@ -532,7 +535,7 @@ const WiseFriends: React.FC<WiseFriendsProps> = ({ lang, myHeroes, updateHero, c
              </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </>
 
       {/* Gift Modal */}
       <GiftModal

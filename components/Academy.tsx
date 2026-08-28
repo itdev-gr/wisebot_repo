@@ -760,19 +760,22 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
       </div>
 
       {/* READING MODAL */}
-      <AnimatePresence>
+      {/* No AnimatePresence / exit: a fixed inset-0 overlay blocks the whole
+          page while mounted, and an exit animation defers its removal to
+          requestAnimationFrame, which stops while the tab is backgrounded.
+          Closing a story then switching apps could leave an invisible layer
+          over everything. Same reasoning as MakerLevelUp. */}
+      <>
         {selectedCourse && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-3 md:p-6 xl:pl-80 bg-[#1a0f08]/95 backdrop-blur-sm"
             onClick={closeCourse}
           >
             <motion.div
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
               className="w-full max-w-3xl h-[94vh] md:h-[90vh] rounded-2xl md:rounded-3xl overflow-hidden flex flex-col relative"
               style={{
@@ -974,7 +977,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </>
     </div>
   );
 }

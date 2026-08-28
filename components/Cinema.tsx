@@ -1091,9 +1091,13 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
       )}
 
       {/* VIDEO PLAYER MODAL */}
-      <AnimatePresence>
+      {/* No AnimatePresence / exit: a fixed inset-0 z-[1000] overlay takes every
+          click while mounted, and an exit animation ties its removal to
+          requestAnimationFrame, which pauses while the tab is backgrounded.
+          Same reasoning as MakerLevelUp. */}
+      <>
         {selectedVideo && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[1000] bg-black/95 flex items-center justify-center p-4 xl:pl-80" onClick={() => setSelectedVideo(null)}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 z-[1000] bg-black/95 flex items-center justify-center p-4 xl:pl-80" onClick={() => setSelectedVideo(null)}>
              <div className="w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden relative border border-white/10 shadow-2xl flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
                 <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
                   <ShareButton
@@ -1128,7 +1132,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
              </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </>
 
     </div>
   );
