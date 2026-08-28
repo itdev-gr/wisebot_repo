@@ -1,0 +1,42 @@
+{
+  "packageId": "gr.wisebot.academy",
+  "host": "wisebot.gr",
+  "name": "WiseBot Academy",
+  "launcherName": "WiseBot",
+  "display": "standalone",
+  "themeColor": "#0B0F1A",
+  "themeColorDark": "#0B0F1A",
+  "navigationColor": "#0B0F1A",
+  "navigationColorDark": "#0B0F1A",
+  "navigationDividerColor": "#0B0F1A",
+  "navigationDividerColorDark": "#0B0F1A",
+  "backgroundColor": "#0B0F1A",
+  "enableNotifications": false,
+  "startUrl": "/",
+  "iconUrl": "https://wisebot.gr/pwa-512x512.png",
+  "maskableIconUrl": "https://wisebot.gr/maskable-icon-512x512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "wisebot"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://wisebot.gr/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://wisebot.gr/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": []
+}

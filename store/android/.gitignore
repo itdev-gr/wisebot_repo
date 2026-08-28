@@ -1,0 +1,20 @@
+# Signing key + credentials: NEVER in git. Backed up by the owner.
+android.keystore
+keystore-credentials.txt
+
+# Generated Android project + build outputs — bubblewrap regenerates from twa-manifest.json
+app/
+gradle/
+build/
+.gradle/
+*.apk
+*.aab
+*.idsig
+gradlew
+gradlew.bat
+build.gradle
+settings.gradle
+gradle.properties
+local.properties
+store_icon.png
+manifest-checksum.txt

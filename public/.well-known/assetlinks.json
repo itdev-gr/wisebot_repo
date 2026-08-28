@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "gr.wisebot.academy",
+      "sha256_cert_fingerprints": [
+        "67:81:DE:96:65:BF:0B:A3:25:52:AE:6B:2D:3F:24:75:BF:80:FC:AB:11:98:B3:2D:D3:53:86:BC:33:BD:D9:C8"
+      ]
+    }
+  }
+]
