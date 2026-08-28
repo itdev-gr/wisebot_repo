@@ -108,6 +108,8 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     waveActive: false,
     waveSpawnQueue: [] as { type: EnemyType; spawnAt: number }[],
     frameCount: 0,
+    frameAcc: 0,
+    lastTs: 0,
     towers: [] as Tower[],
     enemies: [] as Enemy[],
     bullets: [] as Bullet[],
@@ -180,7 +182,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
   }, []);
 
   // ─── GAME LOOP ─────────────────────────────────
-  const loop = useCallback(() => {
+  const loop = useCallback((ts: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -188,6 +190,10 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     const g = gs.current;
     const W = canvas.width;
     const H = canvas.height;
+
+    // Delta time normalised to 60fps (dt=1 at 60Hz); clamped so tab-switch gaps don't teleport physics
+    const dt = g.lastTs ? Math.min((ts - g.lastTs) / (1000 / 60), 2) : 1;
+    g.lastTs = ts;
 
     g.frameCount++;
 
@@ -201,31 +207,37 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
         return true;
       });
 
-      // Simple spawn check
-      const toSpawn = g.waveSpawnQueue.filter(s => s.spawnAt <= 0);
-      g.waveSpawnQueue = g.waveSpawnQueue.map(s => ({ ...s, spawnAt: s.spawnAt - 1 }));
-      g.waveSpawnQueue = g.waveSpawnQueue.filter(s => s.spawnAt > -1);
+      // spawnAt counts 60fps frames, so consume whole frames from a dt accumulator to keep wave pacing
+      g.frameAcc += dt;
+      while (g.frameAcc >= 1) {
+        g.frameAcc -= 1;
 
-      // Spawn from queue
-      const readyToSpawn = g.waveSpawnQueue.filter(s => s.spawnAt <= 0);
-      readyToSpawn.forEach(s => {
-        const eData = ENEMY_DATA[s.type];
-        const scaleFactor = 1 + g.wave * 0.15; // enemies get stronger each wave
-        g.enemies.push({
-          id: g.nextId++,
-          x: g.pathPixels[0].x,
-          y: g.pathPixels[0].y,
-          hp: Math.floor(eData.hp * scaleFactor),
-          maxHp: Math.floor(eData.hp * scaleFactor),
-          speed: eData.speed,
-          pathIndex: 0,
-          type: s.type,
-          reward: eData.reward,
-          slow: 0,
-          frozen: false,
+        // Simple spawn check
+        const toSpawn = g.waveSpawnQueue.filter(s => s.spawnAt <= 0);
+        g.waveSpawnQueue = g.waveSpawnQueue.map(s => ({ ...s, spawnAt: s.spawnAt - 1 }));
+        g.waveSpawnQueue = g.waveSpawnQueue.filter(s => s.spawnAt > -1);
+
+        // Spawn from queue
+        const readyToSpawn = g.waveSpawnQueue.filter(s => s.spawnAt <= 0);
+        readyToSpawn.forEach(s => {
+          const eData = ENEMY_DATA[s.type];
+          const scaleFactor = 1 + g.wave * 0.15; // enemies get stronger each wave
+          g.enemies.push({
+            id: g.nextId++,
+            x: g.pathPixels[0].x,
+            y: g.pathPixels[0].y,
+            hp: Math.floor(eData.hp * scaleFactor),
+            maxHp: Math.floor(eData.hp * scaleFactor),
+            speed: eData.speed,
+            pathIndex: 0,
+            type: s.type,
+            reward: eData.reward,
+            slow: 0,
+            frozen: false,
+          });
         });
-      });
-      g.waveSpawnQueue = g.waveSpawnQueue.filter(s => s.spawnAt > 0);
+        g.waveSpawnQueue = g.waveSpawnQueue.filter(s => s.spawnAt > 0);
+      }
 
       // ─── MOVE ENEMIES ─────
       g.enemies.forEach(enemy => {
@@ -254,11 +266,11 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
         if (d < speed * 2) {
           enemy.pathIndex++;
         } else {
-          enemy.x += (dx / d) * speed;
-          enemy.y += (dy / d) * speed;
+          enemy.x += (dx / d) * speed * dt;
+          enemy.y += (dy / d) * speed * dt;
         }
 
-        if (enemy.slow > 0) enemy.slow--;
+        if (enemy.slow > 0) enemy.slow -= dt;
       });
 
       // Remove dead enemies
@@ -266,7 +278,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
 
       // ─── TOWERS ATTACK ─────
       g.towers.forEach(tower => {
-        tower.cooldown = Math.max(0, tower.cooldown - 1);
+        tower.cooldown = Math.max(0, tower.cooldown - dt);
         if (tower.cooldown > 0) return;
 
         const tData = TOWER_DATA[tower.type];
@@ -338,14 +350,14 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
           }
           bullet.damage = 0; // mark for removal
         } else {
-          bullet.x += (dx / d) * bullet.speed;
-          bullet.y += (dy / d) * bullet.speed;
+          bullet.x += (dx / d) * bullet.speed * dt;
+          bullet.y += (dy / d) * bullet.speed * dt;
         }
       });
       g.bullets = g.bullets.filter(b => b.damage > 0);
 
       // ─── PARTICLES ─────
-      g.particles.forEach(p => { p.x += p.vx; p.y += p.vy; p.life -= 0.03; });
+      g.particles.forEach(p => { p.x += p.vx * dt; p.y += p.vy * dt; p.life -= 0.03 * dt; });
       g.particles = g.particles.filter(p => p.life > 0);
 
       // ─── WAVE COMPLETE CHECK ─────
@@ -558,8 +570,11 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
+    // Canvas is CSS-scaled (maxWidth 100%), so map client px back to canvas px
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.clientX - rect.left) * scaleX;
+    const my = (e.clientY - rect.top) * scaleY;
     const col = Math.floor(mx / CELL_SIZE);
     const row = Math.floor(my / CELL_SIZE);
 
@@ -589,8 +604,10 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const rect = canvas.getBoundingClientRect();
-    const col = Math.floor((e.clientX - rect.left) / CELL_SIZE);
-    const row = Math.floor((e.clientY - rect.top) / CELL_SIZE);
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const col = Math.floor(((e.clientX - rect.left) * scaleX) / CELL_SIZE);
+    const row = Math.floor(((e.clientY - rect.top) * scaleY) / CELL_SIZE);
     gs.current.hoveredCell = { row, col };
   }, []);
 
@@ -616,6 +633,7 @@ export default function TowerDefense({ lang, onBack }: TowerDefenseProps) {
     gs.current.particles = [];
     gs.current.totalKills = 0;
     gs.current.waveSpawnQueue = [];
+    gs.current.frameAcc = 0;
     gs.current.waveActive = false;
     gs.current.grid = Array(GRID_ROWS).fill(null).map(() => Array(GRID_COLS).fill(0));
     PATH.forEach(([col, row]) => {

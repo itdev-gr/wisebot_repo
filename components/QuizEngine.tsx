@@ -4,8 +4,9 @@ import { QuizQuestion } from '../types';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
 import {
   CheckCircle2, XCircle, ArrowRight, RefreshCcw, Brain, Trophy, Star,
-  AlertTriangle, Zap, Flame, Share2, Users, Clock
+  AlertTriangle, Zap, Flame, Share2, Users, Clock, Check
 } from 'lucide-react';
+import { shareContent } from '../utils/share';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { useEconomy } from '../context/EconomyContext';
 
@@ -242,6 +243,10 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
   const [hypeMessage, setHypeMessage] = useState<string | null>(null);
   const [showResumeNotice, setShowResumeNotice] = useState(!!savedProgress);
 
+  // Copied-to-clipboard feedback for the finish-screen share buttons
+  const [challengeCopied, setChallengeCopied] = useState(false);
+  const [scoreCopied, setScoreCopied] = useState(false);
+
   // Quiz Show enhancements (restored from saved progress if available)
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [totalPoints, setTotalPoints] = useState(savedProgress ? savedProgress.totalPoints : 0);
@@ -412,6 +417,8 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
   };
 
   // ─── CHALLENGE & SHARE ───
+  // shareContent runs the full share sheet → clipboard → execCommand chain (utils/share.ts);
+  // when it lands on the clipboard the button flips to "Copied!" for 2s, ShareButton-style.
   const handleChallenge = async () => {
     const name = localStorage.getItem('wb_user_name') || (lang === 'el' ? 'WiseKid' : 'WiseKid');
     const url = `${window.location.origin}/quiz?challenge=${categoryId || ''}&score=${totalScore}&total=${questions.length}&from=${encodeURIComponent(name)}`;
@@ -419,26 +426,23 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
       ? `Πήρα ${totalScore}/${questions.length} στο ${topic}! Μπορείς να με νικήσεις; 🧠`
       : `I scored ${totalScore}/${questions.length} on ${topic}! Can you beat me? 🧠`;
 
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: 'WiseBot Quiz Challenge', text, url });
-      } else {
-        await navigator.clipboard.writeText(url);
-      }
-    } catch (e) { /* cancelled */ }
+    const result = await shareContent({ title: 'WiseBot Quiz Challenge', text, url, clipboardText: url });
+    if (result === 'copied') {
+      setChallengeCopied(true);
+      setTimeout(() => setChallengeCopied(false), 2000);
+    }
   };
 
   const handleShareScore = async () => {
     const text = lang === 'el'
       ? `Πήρα ${totalScore}/${questions.length} στο Wise Quiz "${topic}"! 🏆 ${totalPoints} πόντοι!`
       : `I scored ${totalScore}/${questions.length} on Wise Quiz "${topic}"! 🏆 ${totalPoints} points!`;
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: 'WiseBot Wise Quiz', text, url: window.location.href });
-      } else {
-        await navigator.clipboard.writeText(text);
-      }
-    } catch (e) { /* cancelled */ }
+
+    const result = await shareContent({ title: 'WiseBot Wise Quiz', text, url: window.location.href, clipboardText: text });
+    if (result === 'copied') {
+      setScoreCopied(true);
+      setTimeout(() => setScoreCopied(false), 2000);
+    }
   };
 
   // Get streak label
@@ -547,13 +551,25 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
         <div className="space-y-3">
           {categoryId && (
             <button onClick={handleChallenge}
-              className="w-full py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white rounded-2xl font-[1000] text-base uppercase italic tracking-widest hover:scale-[1.02] transition-all shadow-xl flex items-center justify-center gap-3">
-              <Users size={20} /> {lang === 'el' ? 'ΠΡΟΚΑΛΕΣΕ ΦΙΛΟ!' : 'CHALLENGE A FRIEND!'}
+              className={`w-full py-4 text-white rounded-2xl font-[1000] text-base uppercase italic tracking-widest hover:scale-[1.02] transition-all shadow-xl flex items-center justify-center gap-3 ${
+                challengeCopied ? 'bg-emerald-600' : 'bg-gradient-to-r from-purple-600 to-fuchsia-600'
+              }`}>
+              {challengeCopied ? (
+                <><Check size={20} /> {lang === 'el' ? 'Ο ΣΥΝΔΕΣΜΟΣ ΑΝΤΙΓΡΑΦΗΚΕ!' : 'LINK COPIED!'}</>
+              ) : (
+                <><Users size={20} /> {lang === 'el' ? 'ΠΡΟΚΑΛΕΣΕ ΦΙΛΟ!' : 'CHALLENGE A FRIEND!'}</>
+              )}
             </button>
           )}
           <button onClick={handleShareScore}
-            className="w-full py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-2xl font-[1000] text-base uppercase italic tracking-widest hover:scale-[1.02] transition-all shadow-xl flex items-center justify-center gap-3">
-            <Share2 size={20} /> {lang === 'el' ? 'ΜΟΙΡΑΣΟΥ ΤΟ ΣΚΟΡ' : 'SHARE SCORE'}
+            className={`w-full py-4 text-white rounded-2xl font-[1000] text-base uppercase italic tracking-widest hover:scale-[1.02] transition-all shadow-xl flex items-center justify-center gap-3 ${
+              scoreCopied ? 'bg-emerald-600' : 'bg-gradient-to-r from-blue-600 to-cyan-600'
+            }`}>
+            {scoreCopied ? (
+              <><Check size={20} /> {lang === 'el' ? 'ΑΝΤΙΓΡΑΦΗΚΕ!' : 'COPIED!'}</>
+            ) : (
+              <><Share2 size={20} /> {lang === 'el' ? 'ΜΟΙΡΑΣΟΥ ΤΟ ΣΚΟΡ' : 'SHARE SCORE'}</>
+            )}
           </button>
           <button onClick={onRestart}
             className="w-full py-4 bg-white/10 text-white rounded-2xl font-[1000] text-base uppercase italic tracking-widest hover:bg-white/20 transition-all flex items-center justify-center gap-3 border border-white/10">

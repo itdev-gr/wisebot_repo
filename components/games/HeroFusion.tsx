@@ -74,6 +74,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     shakeY: 0,
     shakeIntensity: 0,
     frameCount: 0,
+    lastTs: 0,
     bgHue: 220,
   });
 
@@ -172,6 +173,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
       shakeY: 0,
       shakeIntensity: 0,
       frameCount: 0,
+      lastTs: 0,
       bgHue: 220,
     };
     particlesRef.current = [];
@@ -186,10 +188,15 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     loop();
   };
 
-  const loop = () => {
+  const loop = (ts = performance.now()) => { // default covers the direct loop() call in initGame
     if (!stateRef.current.running) return;
 
-    update();
+    // Delta time normalised to 60fps (dt=1 at 60Hz); clamped so tab-switch gaps don't teleport physics
+    const state = stateRef.current;
+    const dt = state.lastTs ? Math.min((ts - state.lastTs) / (1000 / 60), 2) : 1;
+    state.lastTs = ts;
+
+    update(dt);
     draw();
 
     if (stateRef.current.gameOver) {
@@ -213,7 +220,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
       earnXp, showNotification, lang);
   };
 
-  const update = () => {
+  const update = (dt: number) => {
     const state = stateRef.current;
     const balls = state.balls;
     state.frameCount++;
@@ -222,7 +229,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     if (state.shakeIntensity > 0) {
       state.shakeX = (Math.random() - 0.5) * state.shakeIntensity;
       state.shakeY = (Math.random() - 0.5) * state.shakeIntensity;
-      state.shakeIntensity *= 0.85;
+      state.shakeIntensity *= Math.pow(0.85, dt);
       if (state.shakeIntensity < 0.5) {
         state.shakeIntensity = 0;
         state.shakeX = 0;
@@ -232,7 +239,7 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
 
     // Combo timer
     if (state.comboTimer > 0) {
-      state.comboTimer--;
+      state.comboTimer -= dt;
       if (state.comboTimer <= 0) {
         state.combo = 0;
         setUiCombo(0);
@@ -243,19 +250,20 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     state.bgHue = 220 + (state.score / 50) * 10;
 
     // 1. Physics
+    const friction = Math.pow(FRICTION, dt); // = FRICTION/frame at 60fps
     for (let i = 0; i < balls.length; i++) {
       const b = balls[i];
-      b.vy += GRAVITY;
-      b.vx *= FRICTION;
-      b.vy *= FRICTION;
+      b.vy += GRAVITY * dt;
+      b.vx *= friction;
+      b.vy *= friction;
 
       // Max Speed Cap
       const maxSpd = 15;
       b.vx = Math.max(-maxSpd, Math.min(maxSpd, b.vx));
       b.vy = Math.max(-maxSpd, Math.min(maxSpd, b.vy));
 
-      b.x += b.vx;
-      b.y += b.vy;
+      b.x += b.vx * dt;
+      b.y += b.vy * dt;
 
       // Walls
       if (b.x - b.radius < 0) { b.x = b.radius; b.vx *= -0.5; }
@@ -373,19 +381,19 @@ export default function HeroFusion({ lang, onBack }: HeroFusionProps) {
     // 4. Update particles
     particlesRef.current = particlesRef.current.filter(p => {
       if (p.type === 'spark') {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.15;
-        p.life -= 0.025;
-        p.size *= 0.97;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.vy += 0.15 * dt;
+        p.life -= 0.025 * dt;
+        p.size *= Math.pow(0.97, dt);
       } else if (p.type === 'score') {
-        p.y += p.vy;
-        p.vy *= 0.95;
-        p.life -= 0.02;
-        if (p.scale && p.scale > 1) p.scale *= 0.95;
+        p.y += p.vy * dt;
+        p.vy *= Math.pow(0.95, dt);
+        p.life -= 0.02 * dt;
+        if (p.scale && p.scale > 1) p.scale *= Math.pow(0.95, dt);
       } else if (p.type === 'ring') {
-        p.life -= 0.04;
-        if (p.scale !== undefined) p.scale += 3;
+        p.life -= 0.04 * dt;
+        if (p.scale !== undefined) p.scale += 3 * dt;
       }
       return p.life > 0;
     });

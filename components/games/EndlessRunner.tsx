@@ -82,6 +82,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
     powerUps: [] as PowerUp[],
     nextObstacle: 50,
     frameCount: 0,
+    lastTs: 0,
     groundTiles: 0,
     invincible: 0,
     highScore: parseInt(localStorage.getItem('wb_runner_hi') || '0'),
@@ -218,7 +219,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
   };
 
   // ─── GAME LOOP ─────────────────────────────────
-  const loop = useCallback(() => {
+  const loop = useCallback((ts: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -230,6 +231,10 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
     const groundY = H * 0.78;
     const horizonY = H * 0.35;
 
+    // Delta time normalised to 60fps (dt=1 at 60Hz); clamped so tab-switch gaps don't teleport physics
+    const dt = g.lastTs ? Math.min((ts - g.lastTs) / (1000 / 60), 2) : 1;
+    g.lastTs = ts;
+
     // Init buildings & stars on first frame
     if (g.buildings.length === 0) generateBuildings(W, H);
     if (g.stars.length === 0) generateStars(W, H);
@@ -237,7 +242,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
     if (g.status === 'playing') {
       g.frameCount++;
       g.speed = GAME_SPEED_BASE + g.distance * SPEED_INC;
-      g.distance += g.speed * 0.15;
+      g.distance += g.speed * 0.15 * dt;
       g.score = Math.floor(g.distance);
 
       // Milestones
@@ -256,11 +261,11 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
           });
         }
       }
-      if (g.milestoneFlash > 0) g.milestoneFlash--;
+      if (g.milestoneFlash > 0) g.milestoneFlash -= dt;
 
       // Smooth lane movement
       const targetX = centerX + (g.targetLane - 1) * LANE_WIDTH;
-      g.laneX += (targetX - g.laneX) * 0.2;
+      g.laneX += (targetX - g.laneX) * (1 - Math.pow(0.8, dt)); // = 0.2/frame at 60fps
       g.lane = g.targetLane;
 
       // Trail
@@ -269,7 +274,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
         : groundY - PLAYER_SIZE;
       g.trail.push({ x: g.laneX, y: playerY + PLAYER_SIZE / 2, alpha: 0.6 });
       if (g.trail.length > 12) g.trail.shift();
-      g.trail.forEach(t => { t.alpha *= 0.88; });
+      g.trail.forEach(t => { t.alpha *= Math.pow(0.88, dt); });
 
       // Speed lines at high speed
       if (g.speed > 6 && g.frameCount % 2 === 0) {
@@ -281,24 +286,24 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
           alpha: 0.1 + Math.random() * 0.2,
         });
       }
-      g.speedLines.forEach(sl => { sl.y += sl.speed * 0.5; sl.alpha *= 0.95; });
+      g.speedLines.forEach(sl => { sl.y += sl.speed * 0.5 * dt; sl.alpha *= Math.pow(0.95, dt); });
       g.speedLines = g.speedLines.filter(sl => sl.alpha > 0.02 && sl.y < H);
 
       // Action & power-up timers
-      if (g.actionTimer > 0) { g.actionTimer--; if (g.actionTimer === 0) g.action = 'run'; }
-      if (g.magnetTimer > 0) g.magnetTimer--;
-      if (g.shieldTimer > 0) g.shieldTimer--;
-      if (g.x2Timer > 0) g.x2Timer--;
-      if (g.invincible > 0) g.invincible--;
-      if (g.comboTimer > 0) { g.comboTimer--; if (g.comboTimer === 0) g.comboCount = 0; }
-      if (g.flashTimer > 0) g.flashTimer--;
+      if (g.actionTimer > 0) { g.actionTimer -= dt; if (g.actionTimer <= 0) { g.actionTimer = 0; g.action = 'run'; } }
+      if (g.magnetTimer > 0) g.magnetTimer -= dt;
+      if (g.shieldTimer > 0) g.shieldTimer -= dt;
+      if (g.x2Timer > 0) g.x2Timer -= dt;
+      if (g.invincible > 0) g.invincible -= dt;
+      if (g.comboTimer > 0) { g.comboTimer -= dt; if (g.comboTimer <= 0) { g.comboTimer = 0; g.comboCount = 0; } }
+      if (g.flashTimer > 0) g.flashTimer -= dt;
 
       // Spawn obstacles
-      g.nextObstacle -= g.speed;
+      g.nextObstacle -= g.speed * dt;
       if (g.nextObstacle <= 0) spawnObstacle();
 
       // Move obstacles
-      g.obstacles.forEach(ob => { ob.z -= g.speed * 2; });
+      g.obstacles.forEach(ob => { ob.z -= g.speed * 2 * dt; });
 
       // Collision
       g.obstacles = g.obstacles.filter(ob => {
@@ -356,7 +361,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
 
       // Coins
       g.coinItems.forEach(coin => {
-        coin.z -= g.speed * 2;
+        coin.z -= g.speed * 2 * dt;
         if (!coin.collected && coin.z > 0 && coin.z < 60) {
           const coinScreenX = centerX + (coin.lane - 1) * LANE_WIDTH;
           const dist = Math.abs(coinScreenX - g.laneX);
@@ -387,7 +392,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
 
       // Power-ups
       g.powerUps.forEach(pu => {
-        pu.z -= g.speed * 2;
+        pu.z -= g.speed * 2 * dt;
         if (!pu.collected && pu.z > 0 && pu.z < 60 && pu.lane === g.lane) {
           pu.collected = true;
           if (pu.type === 'magnet') g.magnetTimer = 300;
@@ -409,10 +414,10 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
 
       // Particles
       g.particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.type !== 'text') p.vy += 0.12;
-        p.life -= 0.018;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        if (p.type !== 'text') p.vy += 0.12 * dt;
+        p.life -= 0.018 * dt;
       });
       g.particles = g.particles.filter(p => p.life > 0);
 
@@ -436,7 +441,7 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
     // ═══════════════════════════════════════════════
     let sx = 0, sy = 0;
     if (g.shakeTimer > 0) {
-      g.shakeTimer--;
+      g.shakeTimer = Math.max(0, g.shakeTimer - dt);
       const intensity = g.shakeTimer * 1.5;
       sx = (Math.random() - 0.5) * intensity;
       sy = (Math.random() - 0.5) * intensity;
@@ -1254,7 +1259,8 @@ export default function EndlessRunner({ lang, onBack }: EndlessRunnerProps) {
       </div>
 
       {/* CANVAS */}
-      <div className="flex-1 relative overflow-hidden">
+      {/* touch-none + overscroll-contain: swipe-down must not trigger Chrome-Android pull-to-refresh */}
+      <div className="flex-1 relative overflow-hidden touch-none overscroll-contain">
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
         {/* IDLE OVERLAY */}

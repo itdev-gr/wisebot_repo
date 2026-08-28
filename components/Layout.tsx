@@ -264,7 +264,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                   initial={{ opacity: 0 }} 
                   animate={{ opacity: 1 }} 
                   exit={{ opacity: 0 }}
-                  className="fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm"
+                  className="fixed inset-0 z-[9998] bg-black/60"
                   onClick={() => setShowRocketOptions(false)}
                 />
                 
@@ -315,14 +315,18 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
             </div>
           </motion.button>
 
-          {/* MOBILE MENU */}
+          {/* MOBILE MENU — solid bg, no backdrop blur: /98 is not a Tailwind
+              opacity step, so bg-[#0B0F1A]/98 generated NO css and the menu's
+              "background" was only the blur — a full-screen animated
+              backdrop-filter that janks low-end Android GPUs. Solid paint
+              costs nothing and looks the same. */}
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div 
                 initial={{ opacity: 0, y: "100%" }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: "100%" }}
-                className="fixed inset-0 z-[10000] bg-[#0B0F1A]/98 backdrop-blur-3xl flex flex-col"
+                className="fixed inset-0 z-[10000] bg-[#0B0F1A] flex flex-col"
               >
                  {/* ... Mobile Menu Content ... */}
                  <div className="flex items-center justify-between p-6 border-b border-white/10">
@@ -510,7 +514,10 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
       </div>
 
       {/* MAIN APP CONTAINER */}
-      <div className={`flex h-screen overflow-hidden ${isImmersive ? '' : 'app-bg flex-row'}`}>
+      {/* dvh where supported: Android Chrome's 100vh is the URL-bar-collapsed
+          height, so with vh alone the bottom ~56px of the shell renders behind
+          the URL bar until it collapses. vh stays as the fallback. */}
+      <div className={`flex h-screen supports-[height:100dvh]:h-dvh overflow-hidden ${isImmersive ? '' : 'app-bg flex-row'}`}>
 
         {/* PREMIUM BACKGROUND */}
         {!isImmersive && (

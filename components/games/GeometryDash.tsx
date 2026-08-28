@@ -81,6 +81,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
     jumpsLeft: 2, // double jump
     lastObstacleX: 0,
     frameCount: 0,
+    lastTs: 0,
     highScore: parseInt(localStorage.getItem('wb_geodash_hi') || '0'),
     heroImg: null as HTMLImageElement | null,
     shakeTimer: 0,
@@ -143,7 +144,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
   }, []);
 
   // ─── GAME LOOP ─────────────────────────────────
-  const gameLoop = useCallback(() => {
+  const gameLoop = useCallback((ts: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -154,6 +155,10 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
     const H = canvas.height;
     gs.groundY = H * GROUND_Y_RATIO;
 
+    // Delta time normalised to 60fps (dt=1 at 60Hz); clamped so tab-switch gaps don't teleport physics
+    const dt = gs.lastTs ? Math.min((ts - gs.lastTs) / (1000 / 60), 2) : 1;
+    gs.lastTs = ts;
+
     const world = WORLDS[gs.worldIndex % WORLDS.length];
 
     if (gs.status === 'playing') {
@@ -161,16 +166,16 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
 
       // ─── PHYSICS ─────────────
       gs.speed = GAME_SPEED_BASE + gs.distance * SPEED_INCREMENT;
-      gs.distance += gs.speed * 0.1;
-      gs.bgOffset = (gs.bgOffset + gs.speed * 0.3) % W;
-      gs.groundOffset = (gs.groundOffset + gs.speed) % 40;
+      gs.distance += gs.speed * 0.1 * dt;
+      gs.bgOffset = (gs.bgOffset + gs.speed * 0.3 * dt) % W;
+      gs.groundOffset = (gs.groundOffset + gs.speed * dt) % 40;
 
       // World changes every 300 distance
       gs.worldIndex = Math.floor(gs.distance / 300);
 
       // Player physics
-      gs.playerVY += GRAVITY;
-      gs.playerY += gs.playerVY;
+      gs.playerVY += GRAVITY * dt;
+      gs.playerY += gs.playerVY * dt;
 
       // Ground collision
       if (gs.playerY + PLAYER_SIZE >= gs.groundY) {
@@ -184,7 +189,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
 
       // Rotation (spin when in air)
       if (!gs.isOnGround) {
-        gs.playerRotation += 5;
+        gs.playerRotation += 5 * dt;
       } else {
         // Snap to nearest 90 degrees
         gs.playerRotation = Math.round(gs.playerRotation / 90) * 90;
@@ -213,9 +218,9 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
 
       // Move & check collision
       gs.obstacles.forEach(ob => {
-        ob.x -= gs.speed;
+        ob.x -= gs.speed * dt;
         if (ob.type === 'moving' && ob.gapY !== undefined) {
-          ob.gapY += (ob.dir || 1) * 1.5;
+          ob.gapY += (ob.dir || 1) * 1.5 * dt;
           if (ob.gapY < gs.groundY - 200) ob.dir = 1;
           if (ob.gapY > gs.groundY - 40) ob.dir = -1;
         }
@@ -276,7 +281,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
 
       // ─── STARS ─────────────
       gs.starItems.forEach(star => {
-        star.x -= gs.speed;
+        star.x -= gs.speed * dt;
         if (!star.collected) {
           const dx = (gs.playerX + PLAYER_SIZE / 2) - star.x;
           const dy = (gs.playerY + PLAYER_SIZE / 2) - star.y;
@@ -291,10 +296,10 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
 
       // ─── PARTICLES ─────────
       gs.particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.15;
-        p.life -= 0.025;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.vy += 0.15 * dt;
+        p.life -= 0.025 * dt;
       });
       gs.particles = gs.particles.filter(p => p.life > 0);
 
@@ -307,7 +312,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
     // Shake effect
     let shakeX = 0, shakeY = 0;
     if (gs.shakeTimer > 0) {
-      gs.shakeTimer--;
+      gs.shakeTimer = Math.max(0, gs.shakeTimer - dt);
       shakeX = (Math.random() - 0.5) * gs.shakeTimer * 1.5;
       shakeY = (Math.random() - 0.5) * gs.shakeTimer * 1.5;
     }
@@ -539,7 +544,7 @@ export default function GeometryDash({ lang, onBack }: GeometryDashProps) {
 
     // Flash on death
     if (gs.flashTimer > 0) {
-      gs.flashTimer--;
+      gs.flashTimer = Math.max(0, gs.flashTimer - dt);
       ctx.fillStyle = `rgba(255, 50, 50, ${gs.flashTimer / 10 * 0.3})`;
       ctx.fillRect(0, 0, W, H);
     }

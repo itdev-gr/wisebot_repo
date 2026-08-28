@@ -227,7 +227,8 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playProgress, setPlayProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const synthRef = useRef(window.speechSynthesis);
+  // undefined in Android WebView, which has no Web Speech — every use must ?.
+  const synthRef = useRef<SpeechSynthesis | undefined>(window.speechSynthesis);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const progressInterval = useRef<ReturnType<typeof setInterval> | null>(null);
   const barsRef = useRef<number[]>(Array(24).fill(0).map(() => Math.random()));
@@ -303,7 +304,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
     }
-    synthRef.current.cancel();
+    synthRef.current?.cancel();
     setIsPlaying(false);
     setPlayProgress(0);
   }, []);
@@ -650,7 +651,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
-      synthRef.current.cancel();
+      synthRef.current?.cancel();
       setCurrentSong(target);
 
       // Check if real audio is available
@@ -698,7 +699,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     // races against the ref being reassigned before unmount (the lint warning).
     const synth = synthRef.current;
     return () => {
-      synth.cancel();
+      synth?.cancel();
       if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
       if (featuredAudioRef.current) { featuredAudioRef.current.pause(); featuredAudioRef.current = null; }
       if (progressInterval.current) clearInterval(progressInterval.current);

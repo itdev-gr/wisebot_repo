@@ -8,6 +8,9 @@ body {
   overflow-x: hidden;
   margin: 0;
   color: white;
+  /* The app scrolls in an inner container; without this, Android Chrome's
+     pull-to-refresh grabs downward swipes at the top of games and readers. */
+  overscroll-behavior-y: none;
 }
 
 .app-bg {

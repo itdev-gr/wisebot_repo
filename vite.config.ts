@@ -32,6 +32,7 @@ export default defineConfig(({ mode }) => {
             background_color: '#0B0F1A',
             display: 'standalone',
             orientation: 'portrait',
+            id: '/',
             scope: '/',
             start_url: '/',
             categories: ['education', 'kids', 'games'],

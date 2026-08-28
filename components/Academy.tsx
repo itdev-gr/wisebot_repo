@@ -7,7 +7,7 @@ import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
 import { EbookQuiz } from './EbookQuiz';
-import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel } from '../utils/ttsVoice';
+import { synth, getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel } from '../utils/ttsVoice';
 import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticAudio } from '../services/cloudTTS';
 
 const motion = m as any;
@@ -169,7 +169,7 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
   useEffect(() => {
     return () => {
       if (audioRef.current) { audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null; }
-      window.speechSynthesis.cancel();
+      synth?.cancel();
       chromeFixCleanupRef.current?.();
       setIsPlaying(false);
       setIsPaused(false);
@@ -238,10 +238,12 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
       if (isPlayingRef.current) setTimeout(() => speakSentence(currentIdxRef.current + 1), 300);
     };
     utterance.onerror = (e) => {
-      if (e.error !== 'interrupted' && e.error !== 'canceled') console.warn('TTS error:', e.error);
+      // A deliberate cancel (pause, stop, replay) must never chain onwards.
+      if (e.error === 'interrupted' || e.error === 'canceled') return;
+      console.warn('TTS error:', e.error);
       if (isPlayingRef.current) setTimeout(() => speakSentence(currentIdxRef.current + 1), 150);
     };
-    window.speechSynthesis.speak(utterance);
+    synth?.speak(utterance);
   }, [sentences, lang, rate]);
 
   // ═══════════════════════════════════════════════════════════════
@@ -254,8 +256,11 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
       if (audioRef.current) {
         audioRef.current.play();
       } else {
-        window.speechSynthesis.resume();
+        // Browser-TTS pause is a cancel (see handlePause) — resume re-speaks
+        // the interrupted sentence. speechSynthesis.resume() is a no-op on
+        // Android, where the system TTS engine cannot pause mid-utterance.
         isPlayingRef.current = true;
+        setTimeout(() => speakSentence(Math.max(0, currentIdxRef.current)), 100);
       }
       setIsPaused(false);
       setIsPlaying(true);
@@ -294,7 +299,8 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
     }
 
     // ─── 3. Browser TTS fallback ────
-    window.speechSynthesis.cancel();
+    if (!synth) return; // WebView has no Web Speech; stories all have static audio anyway
+    synth.cancel();
     setIsPlaying(true);
     setIsPaused(false);
     isPlayingRef.current = true;
@@ -305,8 +311,12 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
     if (audioRef.current) {
       audioRef.current.pause();
     } else {
-      window.speechSynthesis.pause();
+      // speechSynthesis.pause() cannot be trusted on Android (the system TTS
+      // engine can't pause mid-utterance and resume() then does nothing), so
+      // pause is a cancel; currentIdxRef keeps the sentence for resume.
+      // isPlayingRef must drop first so the cancel's onerror doesn't chain.
       isPlayingRef.current = false;
+      synth?.cancel();
     }
     setIsPaused(true);
     setIsPlaying(false);
@@ -314,7 +324,7 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
 
   const handleStop = useCallback(() => {
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-    window.speechSynthesis.cancel();
+    synth?.cancel();
     chromeFixCleanupRef.current?.();
     setIsPlaying(false);
     setIsPaused(false);
@@ -329,8 +339,8 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
 
       if (audioRef.current) {
         audioRef.current.playbackRate = nextRate;
-      } else if (isPlayingRef.current || isPaused) {
-        window.speechSynthesis.cancel();
+      } else if ((isPlayingRef.current || isPaused) && synth) {
+        synth.cancel();
         setIsPaused(false);
         isPlayingRef.current = true;
         setIsPlaying(true);
@@ -344,8 +354,8 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
             chromeFixCleanupRef.current = startChromeFix();
           };
           utterance.onend = () => { if (isPlayingRef.current) setTimeout(() => speakSentence(currentIdxRef.current + 1), 300); };
-          utterance.onerror = () => { if (isPlayingRef.current) speakSentence(currentIdxRef.current + 1); };
-          window.speechSynthesis.speak(utterance);
+          utterance.onerror = (e) => { if (e.error !== 'interrupted' && e.error !== 'canceled' && isPlayingRef.current) speakSentence(currentIdxRef.current + 1); };
+          synth?.speak(utterance);
         }, 100);
       }
       return nextRate;
@@ -353,8 +363,8 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
   }, [sentences, lang, isPaused, speakSentence]);
 
   const handleSentenceClick = useCallback((idx: number) => {
-    if (ttsMode === 'cloud') return; // No sentence-level control in cloud mode
-    window.speechSynthesis.cancel();
+    if (ttsMode === 'cloud' || !synth) return; // No sentence-level control in cloud mode
+    synth.cancel();
     setIsPlaying(true);
     setIsPaused(false);
     isPlayingRef.current = true;
@@ -765,6 +775,9 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
           requestAnimationFrame, which stops while the tab is backgrounded.
           Closing a story then switching apps could leave an invisible layer
           over everything. Same reasoning as MakerLevelUp. */}
+      {/* Panel heights: dvh where supported (Android URL bar); lg caps at 86vh
+          because TVs overscan ~5% per edge and at 90vh the reader's bottom
+          controls sat exactly in the cut-off band. Same as the Ebooks reader. */}
       <>
         {selectedCourse && (
           <motion.div
@@ -777,7 +790,7 @@ export default function Academy({ lang, addXp, completedIds }: AcademyProps) {
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-3xl h-[94vh] md:h-[90vh] rounded-2xl md:rounded-3xl overflow-hidden flex flex-col relative"
+              className="w-full max-w-3xl h-[94vh] supports-[height:100dvh]:h-[94dvh] md:h-[90vh] md:supports-[height:100dvh]:h-[90dvh] lg:h-[86vh] lg:supports-[height:100dvh]:h-[86dvh] rounded-2xl md:rounded-3xl overflow-hidden flex flex-col relative"
               style={{
                 // Same paper as the ebook reader (components/Ebooks.tsx) — the two reading rooms share one surface.
                 background: 'linear-gradient(135deg, #faf5eb 0%, #f5ead6 50%, #f0e4cc 100%)',

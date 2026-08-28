@@ -85,13 +85,20 @@ export default function SpellListen({ lang, onBack }: SpellListenProps) {
 
   const current = runWords[wordIdx];
 
+  const utterRef = useRef<SpeechSynthesisUtterance | null>(null);
   const speak = useCallback((word: string) => {
     try {
       speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(word.toLowerCase());
       u.lang = lang === 'el' ? 'el-GR' : 'en-US';
       u.rate = 0.85;
-      speechSynthesis.speak(u);
+      // Android Chrome drops a speak() issued synchronously after cancel(),
+      // and an unreferenced utterance can be GC'd mid-speech — hold it and
+      // give the engine a beat. The ref check keeps rapid taps last-wins.
+      utterRef.current = u;
+      setTimeout(() => {
+        try { if (utterRef.current === u) speechSynthesis.speak(u); } catch { /* ignore */ }
+      }, 100);
     } catch { /* speech unavailable — kid can still use the hint */ }
   }, [lang]);
 

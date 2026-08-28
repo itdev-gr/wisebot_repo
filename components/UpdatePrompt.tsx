@@ -4,7 +4,8 @@
  * The PWA used `registerType: 'autoUpdate'`, which reloads the page on its own a few
  * seconds after a deploy is detected — in the middle of a book, a quiz, a hero being
  * generated. Now the new service worker waits, and this small card offers the reload.
- * Dismissing it is fine: the update applies on the next natural navigation.
+ * Dismissing it keeps the current version: a waiting service worker only activates via
+ * the update button, or after the browser fully restarts once every tab has closed.
  */
 import React from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
@@ -15,10 +16,17 @@ export default function UpdatePrompt({ lang }: { lang: 'el' | 'en' }) {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
-    // Check for a new version every 30 minutes while the app is open.
+    // Check for a new version every 30 minutes while the app is open, and whenever the
+    // app comes back into view — installed PWAs and Android TV stay alive for days, so
+    // the interval alone can leave them pinned to a stale build. onRegisteredSW fires
+    // once for the page's lifetime and offers no teardown hook, so (like the interval)
+    // the listener lives until the page is gone.
     onRegisteredSW(_url, registration) {
       if (!registration) return;
       setInterval(() => registration.update(), 30 * 60 * 1000);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') registration.update();
+      });
     },
   });
 

@@ -21,7 +21,7 @@ import {
   Repeat
 } from 'lucide-react';
 import DOMPurify from 'dompurify';
-import { getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel, htmlToParagraphs, htmlToPlainText } from '../utils/ttsVoice';
+import { synth, getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel, htmlToParagraphs, htmlToPlainText } from '../utils/ttsVoice';
 import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticEbookAudio } from '../services/cloudTTS';
 import { BookPage } from '../types';
 
@@ -117,6 +117,10 @@ interface BookTTSPlayerProps {
   narrationApiRef?: React.MutableRefObject<NarrationApi | null>;
 }
 
+// Utterance errors that mean "this device cannot speak this at all" — retrying
+// the next paragraph fails the same way, so the run stops and the bar says why.
+const FATAL_TTS_ERRORS = new Set(['language-unavailable', 'voice-unavailable', 'synthesis-unavailable', 'synthesis-failed', 'not-allowed']);
+
 function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum, autoPlay, continuous, onToggleContinuous, onPlaybackEnd, onActiveWord, narrationApiRef }: BookTTSPlayerProps) {
   const paragraphs = useMemo(() => {
     if (htmlContent) return htmlToParagraphs(htmlContent);
@@ -135,6 +139,9 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
   const [ttsMode, setTtsMode] = useState<'cloud' | 'browser'>(
     (bookId && pageNum) || isCloudTTSAvailable() ? 'cloud' : 'browser'
   );
+  // Browser TTS proved impossible on this device (no Web Speech in WebView,
+  // or no usable voice) — real narration and cloud TTS still work.
+  const [ttsUnavailable, setTtsUnavailable] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const chunkUrlsRef = useRef<string[]>([]);
@@ -236,7 +243,7 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
         audioRef.current.onplay = null;
         audioRef.current.pause(); audioRef.current.src = ''; audioRef.current = null;
       }
-      window.speechSynthesis.cancel();
+      synth?.cancel();
       chromeFixCleanupRef.current?.();
       isPlayingRef.current = false;
       stopFollowing();
@@ -283,16 +290,32 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
     utterance.onstart = () => { if (!playStartedAtRef.current) playStartedAtRef.current = Date.now(); chromeFixCleanupRef.current?.(); chromeFixCleanupRef.current = startChromeFix(); };
     utterance.onend = () => { if (isPlayingRef.current) setTimeout(() => speakParagraph(currentIdxRef.current + 1), 400); };
     utterance.onerror = (e: any) => {
-      if (e.error !== 'interrupted' && e.error !== 'canceled') console.warn('TTS error:', e.error);
+      // A deliberate cancel (pause, stop, replay) must never chain onwards.
+      if (e.error === 'interrupted' || e.error === 'canceled') return;
+      console.warn('TTS error:', e.error);
+      // A missing language or voice fails every paragraph identically —
+      // advancing would just walk the whole page in silence. Stop and say so.
+      if (FATAL_TTS_ERRORS.has(e.error)) {
+        isPlayingRef.current = false; currentIdxRef.current = -1;
+        setIsPlaying(false); setIsPaused(false); setCurrentIdx(-1);
+        setTtsUnavailable(true);
+        return;
+      }
       if (isPlayingRef.current) setTimeout(() => speakParagraph(currentIdxRef.current + 1), 200);
     };
-    window.speechSynthesis.speak(utterance);
+    synth?.speak(utterance);
   }, [paragraphs, lang, rate, firePlaybackEnd]);
 
   const handlePlay = useCallback(async () => {
     if (isPaused) {
       if (audioRef.current) { audioRef.current.play(); if (wordTimesRef.current) follow(); }
-      else { window.speechSynthesis.resume(); isPlayingRef.current = true; }
+      else {
+        // Browser-TTS pause is a cancel (see handlePause) — resume re-speaks
+        // the interrupted paragraph. speechSynthesis.resume() is a no-op on
+        // Android, where the system TTS engine cannot pause mid-utterance.
+        isPlayingRef.current = true;
+        setTimeout(() => speakParagraph(Math.max(0, currentIdxRef.current)), 100);
+      }
       setIsPaused(false); setIsPlaying(true); return;
     }
     // Fresh run — re-arm the end-of-playback guard for replays of this page
@@ -323,7 +346,8 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
         setTtsMode('browser'); setIsLoading(false);
       }
     }
-    window.speechSynthesis.cancel();
+    if (!synth) { setTtsUnavailable(true); return; } // WebView: no Web Speech at all
+    synth.cancel();
     setIsPlaying(true); setIsPaused(false); isPlayingRef.current = true;
     setTimeout(() => speakParagraph(0), 100);
   }, [isPaused, ttsMode, plainText, lang, bookId, pageNum, playCloudChunk, speakParagraph, follow]);
@@ -341,14 +365,22 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
 
   const handlePause = useCallback(() => {
     if (audioRef.current) audioRef.current.pause();
-    else { window.speechSynthesis.pause(); isPlayingRef.current = false; }
+    else {
+      // speechSynthesis.pause() cannot be trusted on Android: the system TTS
+      // engine can't pause mid-utterance, so depending on the engine it keeps
+      // talking or silently cancels — and resume() then does nothing. Pause is
+      // therefore a cancel; currentIdxRef keeps the paragraph for resume.
+      // isPlayingRef must drop first so the cancel's onerror doesn't chain.
+      isPlayingRef.current = false;
+      synth?.cancel();
+    }
     stopFollowing();
     setIsPaused(true); setIsPlaying(false);
   }, [stopFollowing]);
 
   const handleStop = useCallback(() => {
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
-    window.speechSynthesis.cancel(); chromeFixCleanupRef.current?.();
+    synth?.cancel(); chromeFixCleanupRef.current?.();
     stopFollowing(); setActiveWord(-1); setIsRealVoice(false);
     setIsPlaying(false); setIsPaused(false); setCurrentIdx(-1);
     isPlayingRef.current = false; currentIdxRef.current = -1;
@@ -419,9 +451,15 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
         </span>
       )}
       {!active && !isLoading && (
-        <span className="flex items-center gap-1 text-amber-800/25 text-[9px] font-bold uppercase tracking-widest ml-auto">
-          {isCloud ? <><Sparkles size={8} /> AI</> : voiceLabel || 'Device'}
-        </span>
+        ttsUnavailable ? (
+          <span className="flex items-center gap-1 text-red-900/50 text-[9px] font-bold uppercase tracking-widest ml-auto">
+            {lang === 'el' ? 'Δεν βρέθηκε φωνή ανάγνωσης στη συσκευή' : 'No reading voice on this device'}
+          </span>
+        ) : (
+          <span className="flex items-center gap-1 text-amber-800/25 text-[9px] font-bold uppercase tracking-widest ml-auto">
+            {isCloud ? <><Sparkles size={8} /> AI</> : voiceLabel || 'Device'}
+          </span>
+        )
       )}
     </div>
   );
@@ -582,7 +620,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
   const isBookLocked = () => false;
 
   const closeBookNow = () => {
-    window.speechSynthesis.cancel();
+    synth?.cancel();
     setSelectedBookId(null);
   };
   // Phone back gesture closes the book instead of leaving the library.
@@ -753,7 +791,7 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
               {/* lg caps at 86vh: TVs overscan ~5% per edge, and at 90vh the
                   controls bar sat exactly in the band the panel cuts off —
                   on Android TV the ΑΚΟΥΣΕ/ΣΥΝΕΧΟΜΕΝΗ/ΤΑΧΥΤΗΤΑ row was invisible. */}
-              <div className="pointer-events-auto w-full max-w-3xl h-[94vh] md:h-[90vh] lg:h-[86vh] flex flex-col rounded-2xl md:rounded-3xl overflow-hidden"
+              <div className="pointer-events-auto w-full max-w-3xl h-[94vh] supports-[height:100dvh]:h-[94dvh] md:h-[90vh] md:supports-[height:100dvh]:h-[90dvh] lg:h-[86vh] lg:supports-[height:100dvh]:h-[86dvh] flex flex-col rounded-2xl md:rounded-3xl overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, #faf5eb 0%, #f5ead6 50%, #f0e4cc 100%)',
                   boxShadow: '0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,90,43,0.15), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -2px 8px rgba(139,90,43,0.08)',

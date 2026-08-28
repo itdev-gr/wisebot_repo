@@ -5,6 +5,17 @@
  * Also handles Chrome's ~15-second silence bug for cloud voices.
  */
 
+/**
+ * window.speechSynthesis, or undefined where the Web Speech API does not exist.
+ * Android WebView — the engine of WebView-shell TV browsers and of a wrapped
+ * store app — ships no speechSynthesis at all, while every full browser has it.
+ * Every caller must go through this and tolerate undefined: a bare
+ * window.speechSynthesis.cancel() is a TypeError that takes the whole reader
+ * down there, even for books narrated by plain <audio>.
+ */
+export const synth: SpeechSynthesis | undefined =
+  typeof window !== 'undefined' ? window.speechSynthesis : undefined;
+
 // Novelty/low-quality voices to always skip (Apple ships these)
 const NOVELTY_VOICES = [
   'Bells', 'Cellos', 'Zarvox', 'Trinoids', 'Whisper',
@@ -56,7 +67,7 @@ function getVoiceQuality(voice: SpeechSynthesisVoice): number {
  * Call this after voices are loaded (use ensureVoicesLoaded first).
  */
 export function getBestVoice(lang: 'el' | 'en'): SpeechSynthesisVoice | null {
-  const voices = window.speechSynthesis.getVoices();
+  const voices = synth?.getVoices() ?? [];
   if (!voices.length) return null;
 
   const langPrefix = lang === 'el' ? 'el' : 'en';
@@ -83,21 +94,22 @@ export function isCloudVoice(voice: SpeechSynthesisVoice): boolean {
  */
 export function ensureVoicesLoaded(): Promise<SpeechSynthesisVoice[]> {
   return new Promise((resolve) => {
-    const voices = window.speechSynthesis.getVoices();
+    if (!synth) { resolve([]); return; }
+    const voices = synth.getVoices();
     if (voices.length > 0) {
       resolve(voices);
       return;
     }
     // Chrome loads voices async
     const handler = () => {
-      const v = window.speechSynthesis.getVoices();
+      const v = synth.getVoices();
       if (v.length > 0) {
         resolve(v);
       }
     };
-    window.speechSynthesis.onvoiceschanged = handler;
+    synth.onvoiceschanged = handler;
     // Fallback timeout
-    setTimeout(() => resolve(window.speechSynthesis.getVoices()), 2000);
+    setTimeout(() => resolve(synth.getVoices()), 2000);
   });
 }
 
@@ -143,13 +155,13 @@ export function createWarmUtterance(
     let intervalId: ReturnType<typeof setInterval> | null = null;
     const isAndroid = /Android/i.test(navigator.userAgent);
 
-    if (voice && isCloudVoice(voice) && !isAndroid) {
+    if (voice && isCloudVoice(voice) && !isAndroid && synth) {
       intervalId = setInterval(() => {
-        if (!window.speechSynthesis.speaking) {
+        if (!synth.speaking) {
           if (intervalId) clearInterval(intervalId);
         } else {
-          window.speechSynthesis.pause();
-          window.speechSynthesis.resume();
+          synth.pause();
+          synth.resume();
         }
       }, 13000);
     }

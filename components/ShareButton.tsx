@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Share2, Check } from 'lucide-react';
+import { shareContent } from '../utils/share';
 
 interface ShareButtonProps {
   title: string;
@@ -14,54 +15,9 @@ export default function ShareButton({ title, text, url, imageUrl, lang, classNam
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
-    const shareUrl = url || window.location.href;
-
-    // Try Web Share API first (mobile / supported browsers)
-    if (navigator.share) {
-      try {
-        const shareData: ShareData = {
-          title,
-          text,
-          url: shareUrl,
-        };
-
-        // If imageUrl is a data URL or blob, try to share as file
-        if (imageUrl && navigator.canShare) {
-          try {
-            const response = await fetch(imageUrl);
-            const blob = await response.blob();
-            const file = new File([blob], 'wisebot-creation.png', { type: blob.type });
-            const dataWithFile = { ...shareData, files: [file] };
-            if (navigator.canShare(dataWithFile)) {
-              await navigator.share(dataWithFile);
-              return;
-            }
-          } catch {
-            // Fall through to share without file
-          }
-        }
-
-        await navigator.share(shareData);
-        return;
-      } catch (err: any) {
-        // User cancelled or share failed — fall through to clipboard
-        if (err?.name === 'AbortError') return;
-      }
-    }
-
-    // Fallback: copy link to clipboard
-    try {
-      await navigator.clipboard.writeText(`${text}\n${shareUrl}`);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Last resort: use old execCommand
-      const textarea = document.createElement('textarea');
-      textarea.value = `${text}\n${shareUrl}`;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
+    // Full chain (share sheet → clipboard → execCommand) lives in utils/share.ts.
+    const result = await shareContent({ title, text, url, imageUrl });
+    if (result === 'copied') {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
