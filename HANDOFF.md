@@ -20,6 +20,18 @@ MacBook had no toolchain and no local project context.
 κλειδώθηκε στο `user.id` αντί για το user object (ξανα-fetchάριζε σε κάθε auth
 event).
 
+**Book 3 με τις φωνές των παιδιών (29/8, live).** ΠΡΟΣΟΧΗ σε μελλοντικά βιβλία:
+τα ονόματα των DJI αρχείων στο `~/Desktop/wisebot-voices-kids` ήταν ΛΑΘΟΣ ως προς
+το περιεχόμενο — το «page 2» είχε την αρχή της σελίδας 1, το «page 1» (23s) μόνο
+το τέλος της («Μέχρι που… ΚΡΑΚ»), τα «page 3/4» τις σελίδες 2/3, και το «book3
+page4» τη σελίδα 4. Χαρτογραφήθηκαν με whisper-μεταγραφή ΠΡΙΝ τρέξει το pipeline
+— τρέξιμο στα τυφλά θα αφηγούνταν λάθος σελίδες σε όλο το βιβλίο. Τα δύο κομμάτια
+της σελίδας 1 ενώθηκαν σε WAV (ραφή 79.4→80.3s, φυσική παύση) και το
+`build-book-narration.sh 3` έτρεξε με SRC_DIR σε staged φάκελο με σωστά ονόματα
+(τα πρωτότυπα του Desktop άθικτα). Exact match 88-93%/σελίδα, 5/5 σελίδες
+index-aligned & monotonic, badge «Διαβάζουν παιδιά» ✓ στον reader. Books 1-2
+αμετάβλητα.
+
 Πλήρες verification sweep στο live (φρέσκος browser, guest): landing
 desktop+mobile ✓, portal ✓, dashboard ✓, Ebooks reader + Book 2 φωνές παιδιών +
 read-along highlight ✓ (m4a 206, timings 200, «Διαβάζουν παιδιά»), κλείσιμο
