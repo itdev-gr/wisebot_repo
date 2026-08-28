@@ -750,7 +750,10 @@ export const Ebooks: React.FC<EbooksProps> = ({ lang, addXp, completedIds }) => 
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="relative z-10 flex items-center justify-center h-full p-3 md:p-6 pointer-events-none"
             >
-              <div className="pointer-events-auto w-full max-w-3xl h-[94vh] md:h-[90vh] flex flex-col rounded-2xl md:rounded-3xl overflow-hidden"
+              {/* lg caps at 86vh: TVs overscan ~5% per edge, and at 90vh the
+                  controls bar sat exactly in the band the panel cuts off —
+                  on Android TV the ΑΚΟΥΣΕ/ΣΥΝΕΧΟΜΕΝΗ/ΤΑΧΥΤΗΤΑ row was invisible. */}
+              <div className="pointer-events-auto w-full max-w-3xl h-[94vh] md:h-[90vh] lg:h-[86vh] flex flex-col rounded-2xl md:rounded-3xl overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, #faf5eb 0%, #f5ead6 50%, #f0e4cc 100%)',
                   boxShadow: '0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(139,90,43,0.15), inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -2px 8px rgba(139,90,43,0.08)',

@@ -79,6 +79,14 @@ export default defineConfig(({ mode }) => {
                   cacheName: 'audio-cache',
                   expiration: { maxEntries: 100, maxAgeSeconds: 30 * 24 * 60 * 60 },
                   cacheableResponse: { statuses: [0, 200] },
+                  // Media elements fetch audio with Range headers. Without this,
+                  // a cache hit answers `Range: bytes=X-` with the FULL body as
+                  // a 200 — Safari refuses to play that at all, and Android
+                  // TV/WebView media stacks misplace the playhead, so the
+                  // read-along highlight drifts away from the spoken word from
+                  // the second listen onwards (first listen streams from the
+                  // network and is fine, which made this look intermittent).
+                  rangeRequests: true,
                 },
               },
               {
