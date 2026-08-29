@@ -8,7 +8,7 @@ import { useEconomy } from '../context/EconomyContext'; // Hook
 import { SafeImage } from './SafeImage';
 import { EbookQuiz } from './EbookQuiz';
 import { synth, getBestVoice, ensureVoicesLoaded, createWarmUtterance, getVoiceLabel } from '../utils/ttsVoice';
-import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticAudio } from '../services/cloudTTS';
+import { generateSpeechChunked, clearTTSCache, isCloudTTSAvailable, loadStaticAudio, loadStaticAudioTimings } from '../services/cloudTTS';
 
 const motion = m as any;
 
@@ -130,6 +130,9 @@ interface StoryReaderProps {
 
 function StoryReader({ text, lang, storyId }: StoryReaderProps) {
   const sentences = useMemo(() => splitSentences(text), [text]);
+  // Read-along tokens: must split exactly like the timing files were aligned
+  // (text.split(/\s+/), empty tokens dropped) so index i here is word i there.
+  const words = useMemo(() => text.split(/\s+/).filter(Boolean), [text]);
 
   // ─── Shared state ────
   const [isPlaying, setIsPlaying] = useState(false);
@@ -144,6 +147,63 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const chunkUrlsRef = useRef<string[]>([]);
   const currentChunkRef = useRef(0);
+
+  // ─── Read-along (static narration with word timings) ────
+  // Same mechanics as the ebook reader: per-word [start,end] follows the audio
+  // clock on rAF, with timeupdate keeping it roughly in place in background tabs.
+  const wordTimesRef = useRef<number[][] | null>(null);
+  const [activeWord, setActiveWord] = useState(-1);
+  const [hasReadAlong, setHasReadAlong] = useState(false);
+  const activeWordRef = useRef(-1);
+  const wordRafRef = useRef(0);
+  const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  const stopFollowing = useCallback(() => {
+    if (wordRafRef.current) cancelAnimationFrame(wordRafRef.current);
+    wordRafRef.current = 0;
+  }, []);
+  const syncActiveWord = useCallback(() => {
+    const audio = audioRef.current;
+    const times = wordTimesRef.current;
+    if (!audio || !times) return false;
+    const t = audio.currentTime;
+    let lo = 0, hi = times.length - 1, idx = -1;
+    while (lo <= hi) {
+      const mid = (lo + hi) >> 1;
+      if (times[mid][0] <= t) { idx = mid; lo = mid + 1; } else hi = mid - 1;
+    }
+    if (activeWordRef.current !== idx) { activeWordRef.current = idx; setActiveWord(idx); }
+    return !audio.paused && !audio.ended;
+  }, []);
+  const follow = useCallback(() => {
+    stopFollowing();
+    const tick = () => { wordRafRef.current = syncActiveWord() ? requestAnimationFrame(tick) : 0; };
+    wordRafRef.current = requestAnimationFrame(tick);
+    if (audioRef.current) audioRef.current.ontimeupdate = () => { if (!wordRafRef.current) follow(); else syncActiveWord(); };
+  }, [syncActiveWord, stopFollowing]);
+
+  // Keep the spoken word in the reader's comfortable middle band — the story is
+  // one long text in a scrollable panel, so without this the highlight walks
+  // off-screen within a paragraph.
+  useEffect(() => {
+    if (activeWord < 0) return;
+    const el = wordRefs.current[activeWord];
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (r.top < vh * 0.25 || r.bottom > vh * 0.7) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [activeWord]);
+
+  const seekWord = useCallback((i: number) => {
+    const audio = audioRef.current;
+    const times = wordTimesRef.current;
+    if (!audio || !times || !times[i]) return;
+    audio.currentTime = Math.max(0, times[i][0] - 0.05);
+    if (audio.paused) { audio.play().catch(() => {}); setIsPaused(false); setIsPlaying(true); }
+    follow();
+  }, [follow]);
 
   // ─── Browser TTS refs (fallback) ────
   const [currentIdx, setCurrentIdx] = useState(-1);
@@ -175,6 +235,12 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
       setIsPaused(false);
       setCurrentIdx(-1);
       isPlayingRef.current = false;
+      if (wordRafRef.current) cancelAnimationFrame(wordRafRef.current);
+      wordRafRef.current = 0;
+      wordTimesRef.current = null;
+      activeWordRef.current = -1;
+      setActiveWord(-1);
+      setHasReadAlong(false);
     };
   }, [text]);
 
@@ -193,6 +259,9 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
     if (idx >= chunkUrlsRef.current.length) {
       setIsPlaying(false);
       setIsPaused(false);
+      stopFollowing();
+      activeWordRef.current = -1;
+      setActiveWord(-1);
       return;
     }
 
@@ -202,11 +271,11 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
     audioRef.current = audio;
     currentChunkRef.current = idx;
 
-    audio.onplay = () => setIsPlaying(true);
+    audio.onplay = () => { setIsPlaying(true); if (wordTimesRef.current) follow(); };
     audio.onended = () => playCloudChunk(idx + 1);
     audio.onerror = () => playCloudChunk(idx + 1);
     audio.play().catch(() => setIsPlaying(false));
-  }, [rate]);
+  }, [rate, follow, stopFollowing]);
 
   // ═══════════════════════════════════════════════════════════════
   // BROWSER TTS FUNCTIONS (FALLBACK)
@@ -255,6 +324,7 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
     if (isPaused) {
       if (audioRef.current) {
         audioRef.current.play();
+        if (wordTimesRef.current) follow();
       } else {
         // Browser-TTS pause is a cancel (see handlePause) — resume re-speaks
         // the interrupted sentence. speechSynthesis.resume() is a no-op on
@@ -274,6 +344,11 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
         const staticUrl = await loadStaticAudio(storyId, lang);
         if (staticUrl) {
           setTtsMode('cloud'); // Switch to audio-element mode for pause/resume
+          // Word timings ride alongside the narration when they exist; without
+          // them the story simply plays as before, no highlight.
+          const times = await loadStaticAudioTimings(storyId, lang).catch(() => null);
+          wordTimesRef.current = times;
+          setHasReadAlong(!!times);
           chunkUrlsRef.current = [staticUrl];
           playCloudChunk(0);
           return;
@@ -305,7 +380,7 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
     setIsPaused(false);
     isPlayingRef.current = true;
     setTimeout(() => speakSentence(0), 100);
-  }, [isPaused, ttsMode, text, lang, storyId, playCloudChunk, speakSentence]);
+  }, [isPaused, ttsMode, text, lang, storyId, playCloudChunk, speakSentence, follow]);
 
   const handlePause = useCallback(() => {
     if (audioRef.current) {
@@ -318,20 +393,24 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
       isPlayingRef.current = false;
       synth?.cancel();
     }
+    stopFollowing();
     setIsPaused(true);
     setIsPlaying(false);
-  }, []);
+  }, [stopFollowing]);
 
   const handleStop = useCallback(() => {
     if (audioRef.current) { audioRef.current.pause(); audioRef.current = null; }
     synth?.cancel();
     chromeFixCleanupRef.current?.();
+    stopFollowing();
+    activeWordRef.current = -1;
+    setActiveWord(-1);
     setIsPlaying(false);
     setIsPaused(false);
     setCurrentIdx(-1);
     isPlayingRef.current = false;
     currentIdxRef.current = -1;
-  }, []);
+  }, [stopFollowing]);
 
   const handleSpeedToggle = useCallback(() => {
     setRate(r => {
@@ -432,11 +511,30 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
         )}
       </div>
 
-      {/* Story text — sentence highlighting only in browser mode */}
+      {/* Story text — word read-along when the narration ships timings,
+          sentence highlighting in browser-TTS mode otherwise. */}
       {/* Same serif page as the ebook reader — dark ink on cream is the restful reading surface. */}
       <div className="max-w-none">
         <p className="text-lg md:text-xl text-amber-950/85 leading-relaxed first-letter:text-5xl first-letter:font-bold first-letter:text-amber-900 first-letter:mr-3 first-letter:float-left" style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}>
-          {sentences.map((sentence, i) => (
+          {hasReadAlong ? (
+            words.map((w, i) => (
+              <React.Fragment key={i}>
+                <span
+                  ref={(el) => { wordRefs.current[i] = el; }}
+                  onClick={() => seekWord(i)}
+                  className={`rounded-[3px] transition-colors duration-100 cursor-pointer ${
+                    i === activeWord
+                      ? 'bg-amber-400/60 text-amber-950 shadow-[0_0_0_2px_rgba(251,191,36,0.35)]'
+                      : activeWord >= 0 && i < activeWord ? 'text-amber-900/45' : ''
+                  }`}
+                >
+                  {w}
+                </span>
+                {' '}
+              </React.Fragment>
+            ))
+          ) : (
+          sentences.map((sentence, i) => (
             <span
               key={i}
               ref={(el) => { sentenceRefs.current[i] = el; }}
@@ -453,7 +551,8 @@ function StoryReader({ text, lang, storyId }: StoryReaderProps) {
             >
               {sentence}{' '}
             </span>
-          ))}
+          ))
+          )}
         </p>
       </div>
     </div>

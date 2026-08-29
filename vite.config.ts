@@ -94,7 +94,8 @@ export default defineConfig(({ mode }) => {
                 // Word timings sit next to the narration and are ~3 KB. Kept
                 // revalidating rather than CacheFirst so a re-aligned page is
                 // picked up without waiting out the audio cache's 30 days.
-                urlPattern: /\/audio\/ebooks\/.+\.json$/,
+                // Covers both readers: ebook pages and academy stories.
+                urlPattern: /\/audio\/(ebooks|academy)\/.+\.json$/,
                 handler: 'StaleWhileRevalidate',
                 options: {
                   cacheName: 'narration-timings',

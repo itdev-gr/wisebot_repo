@@ -298,6 +298,27 @@ export async function loadStaticAudio(
   return null;
 }
 
+/**
+ * Word timings for a story's static narration, or null when none exist.
+ * Same shape and convention as the ebook read-along: {v:1, words:[[start,end],...]},
+ * index-aligned to text.split(/\s+/) tokens of the story text.
+ * Files are at: /audio/academy/story-{id}-{lang}.json
+ */
+export async function loadStaticAudioTimings(
+  storyId: number,
+  lang: 'el' | 'en'
+): Promise<number[][] | null> {
+  try {
+    const res = await fetch(`/audio/academy/story-${storyId}-${lang}.json`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data?.v === 1 && Array.isArray(data.words) && data.words.length) return data.words;
+  } catch {
+    // No timings for this story — reader simply plays without the highlight
+  }
+  return null;
+}
+
 /** Per-word timings for a narrated page: `words[i] = [start, end]` in seconds, where
  *  `i` indexes `text.split(/\s+/).filter(Boolean)` of the page's text. */
 export interface StaticNarration {
