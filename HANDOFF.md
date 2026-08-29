@@ -32,12 +32,20 @@ CSS (το /98 δεν υπάρχει στο Tailwind) → solid bg χωρίς ani
 id:'/'· UpdatePrompt update() σε visibilitychange· share fallback chain
 (utils/share.ts) με copied feedback· κάμερα χωρίς capture="user" (γκαλερί+κάμερα).
 
-**ΕΠΟΜΕΝΟ ΜΕΓΑΛΟ (εντολή ιδιοκτήτη): wrap σε application για Google Play + App
-Store.** Το speechSynthesis hardening + share fallback + download proxy θέμα
-(utils/downloadFile.ts — blob downloads νεκρά σε WebView, θέλει server proxy ή
-TWA) έγιναν/σημειώθηκαν ακριβώς γι' αυτό. Σκέψη: Android = TWA/Bubblewrap (το
-PWA ήδη πληροί τα κριτήρια — id, maskable icon, SW), iOS = Capacitor shell.
-Εκκρεμούν manifest screenshots.
+**STORE PACKAGING (ξεκίνησε 29/8, βλ. store/README.md):** Android TWA
+gr.wisebot.academy ΧΤΙΣΤΗΚΕ και ΥΠΟΓΡΑΦΗΚΕ — `store/android/wisebot-1.0.0.aab`
+(για Play Console) + `.apk` (δόθηκε στον ιδιοκτήτη για sideload δοκιμή).
+assetlinks.json live στο wisebot.gr με το SHA256 του upload key· ΜΕΤΑ το πρώτο
+Play upload πρόσθεσε (append) και το fingerprint του Play App Signing. Κλειδί:
+store/android/android.keystore + keystore-credentials.txt (gitignored — να
+σωθεί σε password manager). Store assets έτοιμα (store/assets: 6 phone + tablet
++ feature graphic, μέσω puppeteer με pre-seeded cookie consent). iOS: Capacitor
+shell (SPM) στο store/ios — θέλει πλήρες Xcode + αποφάσεις: Apple 4.2 (thin
+wrapper risk) και 3.1.1 (τα credits μέσω Stripe ΔΕΝ επιτρέπονται in-app· IAP ή
+no-purchase). Kids/Families policies και στα δύο stores — δες README. Ο
+ιδιοκτήτης πληρώνει Play Console $25 + Apple Developer $99/έτος (άνοιξε ήδη το
+Play signup). Build στο μηχάνημα: gradle ΑΠΕΥΘΕΙΑΣ, όχι bubblewrap build (SDK
+layout bug — README «Build σημειώσεις»).
 
 ---
 
