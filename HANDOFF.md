@@ -32,6 +32,18 @@ CSS (το /98 δεν υπάρχει στο Tailwind) → solid bg χωρίς ani
 id:'/'· UpdatePrompt update() σε visibilitychange· share fallback chain
 (utils/share.ts) με copied feedback· κάμερα χωρίς capture="user" (γκαλερί+κάμερα).
 
+**Suno πιλότος Ακαδημίας (29/8, live):** Ιστορίες 102-103 με αφήγηση Suno
+(sunoapi.org V4_5, spoken-word style, το ακριβές storyContent ως script) +
+**word read-along στην Ακαδημία** — νέα σύμβαση `/audio/academy/story-{id}-{lang}.json`
+(ίδιο σχήμα με ebooks), ο StoryReader φωτίζει λέξη-λέξη με tap-to-seek. QA loop:
+Suno δίνει 2 λήψεις/task → whisper → difflib vs κείμενο → κρατήθηκαν 92%/94%.
+ΠΡΟΣΟΧΗ: το Suno βάζει ~13s μουσικό interlude σε κάποια takes (102 και στις
+δύο λήψεις, 103 καθαρό) — ο ιδιοκτήτης κρίνει με το αυτί. Εκκρεμεί: (α) ακρόαση
+102-103 από ιδιοκτήτη + απόφαση για συνέχεια σε όλες, (β) φωνή-συνέπεια μεταξύ
+ιστοριών — κρίνεται με το αυτί, (γ) ιστορία 101: το ηχητικό του ιδιοκτήτη λέει
+~2x πλουσιότερη εκδοχή από το κείμενο του app (1713 chars) — ή ενημερώνεται το
+storyContent στη full εκδοχή (και βγαίνουν timings) ή μένει χωρίς sync.
+
 **STORE PACKAGING (ξεκίνησε 29/8, βλ. store/README.md):** Android TWA
 gr.wisebot.academy ΧΤΙΣΤΗΚΕ και ΥΠΟΓΡΑΦΗΚΕ — `store/android/wisebot-1.0.0.aab`
 (για Play Console) + `.apk` (δόθηκε στον ιδιοκτήτη για sideload δοκιμή).
