@@ -48,6 +48,7 @@ import {
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { UI_TEXT } from '../constants'; 
 import OfflineBanner from './OfflineBanner';
+import { isIosApp } from '../utils/platform';
 import { USER_GROUP_PHOTO } from '../constants';
 import { useEconomy } from '../context/EconomyContext'; // Hook
 import { isUnlocked, unlockHint, UNLOCK_RULES, wasCelebrated, markCelebrated, type UnlockKey } from '../utils/unlocks';
@@ -226,8 +227,10 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
 
   // PINNED: always visible at top (Parent, Home, Dashboard)
   const pinnedItems = navItems.slice(0, 3);
-  // The rest: split into unlocked vs locked
-  const otherItems = navItems.slice(3);
+  // The rest: split into unlocked vs locked. Inside the iOS app the credit store
+  // is not for sale (Apple 3.1.1) — drop it from the menu; navItems stays intact
+  // for the header title lookup, since /store is still reachable via redirects.
+  const otherItems = navItems.slice(3).filter(i => !(isIosApp() && i.path === '/store'));
   const unlockedItems = otherItems.filter(i => !i.locked);
   const lockedItems = otherItems.filter(i => i.locked);
 

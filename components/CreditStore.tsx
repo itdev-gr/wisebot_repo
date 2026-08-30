@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { isBackendAvailable, backendStripe } from '../services/backendApi';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
+import { isIosApp } from '../utils/platform';
 
 const motion = m as any;
 const AnimatePresenceAny = AnimatePresence as any;
@@ -49,6 +50,10 @@ export default function CreditStore({ lang }: CreditStoreProps) {
   const [buyingPack, setBuyingPack] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const backendReady = isBackendAvailable();
+  // Apple 3.1.1: inside the iOS app credits are not for sale — no packs, no €
+  // prices, no pointer to the website. The page still shows the balance and the
+  // earn-by-reading path, which is what a child in the app can actually do.
+  const iosApp = isIosApp();
 
   // Parent verification gate modal
   const [showVerifyGate, setShowVerifyGate] = useState(false);
@@ -169,9 +174,13 @@ export default function CreditStore({ lang }: CreditStoreProps) {
 
   return (
     <div className="max-w-5xl mx-auto py-8 px-4 pb-32 min-h-screen space-y-10">
-      <FirstTimeTip id="store" lang={lang} text={lang === 'el'
-        ? <>🦉 Εδώ αγοράζει credits ο μπαμπάς ή η μαμά, {childName}. Εσύ κερδίζεις 1⚡ για κάθε ολόκληρο βιβλίο με quiz — τα υπόλοιπα δίνουν XP.</>
-        : <>🦉 This is where mum or dad buys credits, {childName}. You earn 1⚡ for every whole book with its quiz — everything else gives XP.</>} />
+      <FirstTimeTip id="store" lang={lang} text={iosApp
+        ? (lang === 'el'
+          ? <>🦉 Εδώ βλέπεις το πορτοφόλι σου, {childName}. Κερδίζεις 1⚡ για κάθε ολόκληρο βιβλίο με quiz — τα υπόλοιπα δίνουν XP.</>
+          : <>🦉 This is your wallet, {childName}. You earn 1⚡ for every whole book with its quiz — everything else gives XP.</>)
+        : (lang === 'el'
+          ? <>🦉 Εδώ αγοράζει credits ο μπαμπάς ή η μαμά, {childName}. Εσύ κερδίζεις 1⚡ για κάθε ολόκληρο βιβλίο με quiz — τα υπόλοιπα δίνουν XP.</>
+          : <>🦉 This is where mum or dad buys credits, {childName}. You earn 1⚡ for every whole book with its quiz — everything else gives XP.</>)} />
 
       {/* HEADER */}
       <motion.div
@@ -194,7 +203,29 @@ export default function CreditStore({ lang }: CreditStoreProps) {
         </div>
       </motion.div>
 
+      {/* iOS APP: credits are not sold in-app (Apple 3.1.1) — no packs, no prices */}
+      {iosApp && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-xl mx-auto text-center bg-white/5 border border-white/10 rounded-3xl px-8 py-8 space-y-3"
+        >
+          <span className="text-4xl block">📚</span>
+          <p className="text-white font-black text-lg">
+            {lang === 'el'
+              ? 'Η αγορά credits δεν είναι διαθέσιμη σε αυτή την εφαρμογή.'
+              : 'Buying credits is not available in this app.'}
+          </p>
+          <p className="text-white/50 font-bold text-sm">
+            {lang === 'el'
+              ? 'Κέρδισε 1 ⚡ διαβάζοντας ένα ολόκληρο βιβλίο και περνώντας το quiz του!'
+              : 'Earn 1 ⚡ by reading a whole book and passing its quiz!'}
+          </p>
+        </motion.div>
+      )}
+
       {/* CREDIT PACKS */}
+      {!iosApp && (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {CREDIT_PACKS.map((pack, i) => (
           <motion.div
@@ -261,8 +292,10 @@ export default function CreditStore({ lang }: CreditStoreProps) {
           </motion.div>
         ))}
       </div>
+      )}
 
       {/* PARENT NOTE */}
+      {!iosApp && (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -273,6 +306,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
           👨‍👩‍👧 {t.parentNote}
         </p>
       </motion.div>
+      )}
 
       {/* TWO COLUMNS: EARN & COSTS */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -299,7 +333,9 @@ export default function CreditStore({ lang }: CreditStoreProps) {
             ))}
           </div>
           <p className="text-white/20 text-xs font-bold text-center">
-            {lang === 'el' ? '34 βιβλία = 34 credits με δουλειά. Τα υπόλοιπα, από εδώ.' : '34 books = 34 credits through work. The rest, from here.'}
+            {iosApp
+              ? (lang === 'el' ? '34 βιβλία = 34 credits με δουλειά.' : '34 books = 34 credits through work.')
+              : (lang === 'el' ? '34 βιβλία = 34 credits με δουλειά. Τα υπόλοιπα, από εδώ.' : '34 books = 34 credits through work. The rest, from here.')}
           </p>
         </motion.div>
 
@@ -322,7 +358,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
                   <span className="text-amber-400 font-[1000] text-sm italic flex items-center gap-1">
                     <Zap size={12} fill="currentColor" /> -{item.cost}
                   </span>
-                  <span className="text-white/30 text-[9px] font-bold block">{(item as any).price}</span>
+                  {!iosApp && <span className="text-white/30 text-[9px] font-bold block">{(item as any).price}</span>}
                 </div>
               </div>
             ))}

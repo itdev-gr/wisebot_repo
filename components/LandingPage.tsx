@@ -27,6 +27,7 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 import GuestBanner from './GuestBanner';
 import { ACADEMY_STORY_COUNT, BOOK_COUNT } from '../data/contentCounts';
+import { isIosApp } from '../utils/platform';
 
 const motion = m as any;
 
@@ -429,7 +430,16 @@ const LandingPage: React.FC<{ lang: 'el' | 'en'; setLang?: (lang: 'el' | 'en') =
                   en: `Grade 1–6 curriculum (Language, Maths, History, English), ${BOOK_COUNT} narrated books to read on their own, and ${ACADEMY_STORY_COUNT} stories of people who started from nothing. In Greek and English.`,
                 },
               },
-              {
+              // Inside the iOS app credits are not for sale (Apple 3.1.1) — the card
+              // drops the price mention and the price-list link.
+              isIosApp() ? {
+                icon: <Zap size={22} className="text-emerald-400" />,
+                title: { el: 'Τι κοστίζει', en: 'What it costs' },
+                body: {
+                  el: 'Το διάβασμα, τα quiz και το σχολείο είναι δωρεάν, πάντα. Τα credits για AI δημιουργίες κερδίζονται διαβάζοντας ολόκληρα βιβλία με τα quiz τους.',
+                  en: 'Reading, quizzes and school are free, always. Credits for AI creations are earned by reading whole books with their quizzes.',
+                },
+              } : {
                 icon: <Zap size={22} className="text-emerald-400" />,
                 title: { el: 'Τι κοστίζει', en: 'What it costs' },
                 body: {
@@ -542,7 +552,7 @@ const LandingPage: React.FC<{ lang: 'el' | 'en'; setLang?: (lang: 'el' | 'en') =
             ))}
           </div>
           <div className="flex items-center gap-4 text-[9px] font-bold uppercase tracking-widest text-white/20">
-            <a href="/store" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Τιμές' : 'Pricing'}</a>
+            {!isIosApp() && <a href="/store" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Τιμές' : 'Pricing'}</a>}
             <span>·</span>
             <a href="/privacy" className="hover:text-white/60 transition-colors">{lang === 'el' ? 'Πολιτική Απορρήτου' : 'Privacy Policy'}</a>
             <span>·</span>
