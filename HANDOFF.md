@@ -32,6 +32,16 @@ CSS (το /98 δεν υπάρχει στο Tailwind) → solid bg χωρίς ani
 id:'/'· UpdatePrompt update() σε visibilitychange· share fallback chain
 (utils/share.ts) με copied feedback· κάμερα χωρίς capture="user" (γκαλερί+κάμερα).
 
+**ΤΕΛΙΚΗ ΑΠΟΦΑΣΗ ΦΩΝΩΝ ΑΚΑΔΗΜΙΑΣ (30/8):** Μετά από δοκιμές Suno (4 συνταγές,
+2 μοντέλα), Gemini multivoice, OpenAI styled και ElevenLabs (free tier — οι
+native ελληνικές φωνές θέλουν πληρωμένο πλάνο), ο ιδιοκτήτης άκουσε τις
+ΥΠΑΡΧΟΥΣΕΣ αφηγήσεις (Gemini Kore 07/2026 + 18× gpt-4o-mini-tts) και τις έκρινε
+top — αυτές μένουν. Οι 102-103 επέστρεψαν στις Kore εκδόσεις τους. **Και τα 225
+από 226 mp3 πήραν word read-along** (whisper+aligner, median 95% exact· commit
+23bd0eb). Μόνη εκκρεμότητα: 101-el (εκτεταμένος Αρκάντ ιδιοκτήτη, 56% match —
+χωρίς sync μέχρι να αποφασιστεί αν το κείμενο του app ενημερωθεί στην πλήρη
+εκδοχή). ElevenLabs API key υπάρχει (free tier) αν ξαναχρειαστεί.
+
 **Suno πιλότος Ακαδημίας (29/8, live):** Ιστορίες 102-103 με αφήγηση Suno
 (sunoapi.org V4_5, spoken-word style, το ακριβές storyContent ως script) +
 **word read-along στην Ακαδημία** — νέα σύμβαση `/audio/academy/story-{id}-{lang}.json`
