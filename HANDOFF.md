@@ -26,13 +26,28 @@ localhost — gating ΟΚ, web έκδοση ανέπαφη.
 σύγχρονο puppeteer (το repo έχει puppeteer 1.20 — ΑΧΡΗΣΤΟ για αυτό· στήθηκε
 fresh στο scratchpad με `npx puppeteer browsers install chrome`).
 
-**Εκκρεμεί για το upload:** (α) sign-in του ιδιοκτήτη στο Xcode → Settings →
-Accounts (χωρίς αυτό 0 signing identities — τσεκάρεται με
-`security find-identity -v -p codesigning`), (β) DEVELOPMENT_TEAM στο project
-μόλις υπάρξει team, (γ) App Store Connect: δημιουργία app record
-gr.wisebot.academy + Privacy Nutrition (δήλωση GA4!) — ΟΧΙ Kids Category για το
-v1, (δ) Archive → Upload, (ε) review notes για 4.2: να αναφερθούν native splash/
-status bar/read-along, με plan B το bundling του build τοπικά.
+**ΕΓΙΝΕ (βράδυ 30/8): BUILD 1.0(1) ΑΝΕΒΗΚΕ ΣΤΟ APP STORE CONNECT.** Team
+VILSON SKEVIS (Admin) — **Team ID SDY83BVUTT**. Certificates Development+
+Distribution φτιάχτηκαν από Xcode Settings. Ροή που δούλεψε ΧΩΡΙΣ συσκευή
+(το automatic signing στο archive θέλει dev profile → «no devices» error):
+archive με `CODE_SIGNING_ALLOWED=NO`, μετά `-exportArchive` με
+ExportOptions.plist (method app-store-connect, signingStyle automatic,
+destination upload) + `-allowProvisioningUpdates` — υπογράφει με Apple
+Distribution και ανεβάζει με τη session του Xcode. App record «WiseBot
+Academy» (Greek, SKU wisebot-academy-001) φτιάχτηκε στο ASC μέσω Safari
+(οδηγήθηκε με screencapture+CGEvent clicks — screen recording δόθηκε στο
+terminal). ITSAppUsesNonExemptEncryption=false μπήκε στο Info.plist ΜΕΤΑ το
+build 1 — το build 1 θα ρωτήσει compliance στο ASC (απάντηση: όχι non-exempt
+encryption, μόνο HTTPS).
+
+**Εκκρεμεί για submission (όλα στο ASC UI):** (α) EU **trader status** (DSA) —
+banner στο ASC, χωρίς αυτό δεν γίνεται submit νέου app στην ΕΕ· Business
+section, το κάνει ο ιδιοκτήτης, (β) listing: screenshots (έτοιμα στα
+store/assets/ios), περιγραφή el+en, keywords, support URL, privacy policy
+https://wisebot.gr/privacy, (γ) App Privacy / Privacy Nutrition (δήλωση GA4,
+email/auth data) — ΟΧΙ Kids Category για το v1, (δ) age rating questionnaire,
+(ε) pricing Free, (στ) attach build → Submit for Review με review notes για
+4.2 (native splash/status bar, read-along, plan B: τοπικό bundling).
 
 ---
 
