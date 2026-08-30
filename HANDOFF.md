@@ -50,7 +50,24 @@ slot), promotional/description/keywords στα ελληνικά (ΠΡΟΣΟΧΗ:
 LANG=en_US.UTF-8 αλλιώς mojibake), URLs wisebot.gr, copyright 2026 ΣΚΕΥΗ Β. ΚΑΙ
 ΣΙΑ Ε.Ε., build 1.0(1) attached, encryption compliance = None of the algorithms.
 
-**Εκκρεμεί για submission (όλα στο ASC UI):** (α) EU **trader status** (DSA) —
+**🚀 SUBMITTED FOR REVIEW (31/8, 1:11πμ): «1 Item Submitted» — iOS App 1.0 (build 1).**
+Ό,τι ακολουθεί ΕΓΙΝΕ μέσω Safari automation: subtitle «Σχολείο, βιβλία &
+δημιουργία», κατηγορία Education, Age Rating 9+ (Infrequent cartoon violence
+για το TowerDefense — όλα τα άλλα None/No, Parental Controls YES, ΟΧΙ Kids
+Category), Content Rights: no third-party, Pricing Free 175 χώρες, App Privacy
+published (Linked: Name/Email/Photos/UserID + App Functionality· Not linked:
+DeviceID/ProductInteraction(+Analytics)/CrashData· κανένα tracking), privacy
+policy https://wisebot.gr/privacy, Review notes (no-IAP, guest mode, native
+value), contact Vasilis Skevis +306975857647 info@wisebot.gr, sign-in required
+UNCHECKED (guest mode), build attached + saved. Απάντηση Apple σε ~24-48h με
+email. ΠΑΓΙΔΕΣ που φάγαμε: (α) navigation χωρίς Save πέταξε το attached build
+και το Content Rights — πάντα Save πριν αλλάξεις σελίδα, (β) το version page
+δείχνει slot 6.5" (1284×2778), όχι 6.9".
+
+**Εκκρεμή μετά το review:** trader status In Review (verification email στο
+info@wisebot.gr!), απόφαση για Android/Play upload (το .aab έτοιμο).
+
+**Αρχική λίστα (ξεπερασμένη, κρατιέται για ιστορικό):** (α) EU **trader status** (DSA) —
 banner στο ASC, χωρίς αυτό δεν γίνεται submit νέου app στην ΕΕ· Business
 section, το κάνει ο ιδιοκτήτης, (β) listing: screenshots (έτοιμα στα
 store/assets/ios), περιγραφή el+en, keywords, support URL, privacy policy
