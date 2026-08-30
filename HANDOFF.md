@@ -105,6 +105,18 @@ CSS (το /98 δεν υπάρχει στο Tailwind) → solid bg χωρίς ani
 id:'/'· UpdatePrompt update() σε visibilitychange· share fallback chain
 (utils/share.ts) με copied feedback· κάμερα χωρίς capture="user" (γκαλερί+κάμερα).
 
+**ΑΓΓΛΙΚΑ EBOOKS (30/8, σε εξέλιξη):** Books 1-10 EN live με Kore + read-along
+(56 σελίδες, 93-99% match· commit 7b03f1f). ΕΚΚΡΕΜΕΙ: 113 σελίδες (books 11-34)
+— το Gemini χτύπησε ημερήσιο quota στο 57/170. ΣΥΝΕΧΙΣΗ (όταν ανοίξει το όριο,
+~10:00 Αθήνας): (1) `GEMINI_API_KEY=... FFMPEG=$(node -e "console.log(require('ffmpeg-static'))")
+node <scratchpad>/ebooks-en/gen-en.mjs` — resumable, παραλείπει υπάρχοντα·
+ΠΡΟΣΟΧΗ: πριν το τρέξεις σβήσε τα 7 partial (books 11/13/14) ΜΟΝΟ αν θες
+καθαρό slate, αλλιώς απλά συνεχίζει. Και ξαναβγάλε το book-6-page-4-en
+(διαγράφηκε — το Gemini είχε διαβάσει λάθος περιεχόμενο, 25% match).
+(2) sync-en.sh (whisper) → align-en.py → commit ΟΛΟΚΛΗΡΑ βιβλία μόνο.
+Τα scripts στο scratchpad της συνεδρίας 30/8· αν χάθηκε, αναπαράγονται από
+αυτό το σχήμα σε 10'. Badge reader: EN λέει «Narrated» (όχι «Read by kids»).
+
 **ΤΕΛΙΚΗ ΑΠΟΦΑΣΗ ΦΩΝΩΝ ΑΚΑΔΗΜΙΑΣ (30/8):** Μετά από δοκιμές Suno (4 συνταγές,
 2 μοντέλα), Gemini multivoice, OpenAI styled και ElevenLabs (free tier — οι
 native ελληνικές φωνές θέλουν πληρωμένο πλάνο), ο ιδιοκτήτης άκουσε τις
