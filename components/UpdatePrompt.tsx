@@ -16,14 +16,15 @@ export default function UpdatePrompt({ lang }: { lang: 'el' | 'en' }) {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
-    // Check for a new version every 30 minutes while the app is open, and whenever the
-    // app comes back into view — installed PWAs and Android TV stay alive for days, so
-    // the interval alone can leave them pinned to a stale build. onRegisteredSW fires
-    // once for the page's lifetime and offers no teardown hook, so (like the interval)
-    // the listener lives until the page is gone.
+    // Check for a new version every minute while the app is open, and whenever the
+    // app comes back into view — installed PWAs and Android TV stay alive for days,
+    // and the owner wants the update card up within moments of every deploy. The
+    // check is a conditional fetch of a ~2 KB no-cache sw.js — costs nothing.
+    // onRegisteredSW fires once for the page's lifetime and offers no teardown
+    // hook, so (like the interval) the listener lives until the page is gone.
     onRegisteredSW(_url, registration) {
       if (!registration) return;
-      setInterval(() => registration.update(), 30 * 60 * 1000);
+      setInterval(() => registration.update(), 60 * 1000);
       document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') registration.update();
       });
