@@ -77,7 +77,10 @@ export default defineConfig(({ mode }) => {
                 urlPattern: /\/audio\/.+\.(mp3|m4a)$/,
                 handler: 'CacheFirst',
                 options: {
-                  cacheName: 'audio-cache',
+                  // v2: 30/8 — 38 academy narrations were re-voiced in place
+                  // (same URLs). CacheFirst would serve the old robotic audio
+                  // for up to 30 days; a fresh cache name re-fetches everything.
+                  cacheName: 'audio-cache-v2',
                   expiration: { maxEntries: 100, maxAgeSeconds: 30 * 24 * 60 * 60 },
                   cacheableResponse: { statuses: [0, 200] },
                   // Media elements fetch audio with Range headers. Without this,
