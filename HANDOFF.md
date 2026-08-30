@@ -5,6 +5,37 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 30 Αυγούστου 2026 — iOS: Xcode στημένο, app τρέχει σε simulator, 3.1.1 gating live
+
+**Apple Developer εγκρίθηκε (κατά τον ιδιοκτήτη)· Xcode 26.6 εγκαταστάθηκε** (πλήρες,
+με iOS 26.5 platform). Το Capacitor shell χτίζει και τρέχει στο iPhone 17 Pro
+simulator — φορτώνει το wisebot.gr χωρίς browser UI. Assets: WiseBot κουκουβάγια
+ως AppIcon 1024 (αντί για το default Capacitor Χ), splash σε #0B0F1A. Info.plist:
+προστέθηκαν NSCamera/NSPhotoLibraryUsageDescription (το photo upload θα κράσαρε).
+
+**Απόφαση 3.1.1 (ελήφθη: «no purchase» v1):** το iOS app ΔΕΝ πουλάει credits.
+Νέο `utils/platform.ts` → `isIosApp()` (ανιχνεύει το injected window.Capacitor).
+Μέσα στο iOS shell: /store χωρίς πακέτα/τιμές € (δείχνει earn-by-reading),
+κρυφό το store item στο nav (Layout), landing χωρίς αναφορά €4,99 και χωρίς
+links «Τιμές». Web/Android αμετάβλητα. Live στο wisebot.gr (πρέπει να είναι
+deployed πριν δει το app ο reviewer). Δοκιμάστηκε με stub του Capacitor σε
+localhost — gating ΟΚ, web έκδοση ανέπαφη.
+
+**App Store screenshots έτοιμα** στα ακριβή μεγέθη: `store/assets/ios/iphone-69`
+(1320×2868) + `ipad-13` (2064×2752), 6 σελίδες το καθένα, από live wisebot.gr με
+σύγχρονο puppeteer (το repo έχει puppeteer 1.20 — ΑΧΡΗΣΤΟ για αυτό· στήθηκε
+fresh στο scratchpad με `npx puppeteer browsers install chrome`).
+
+**Εκκρεμεί για το upload:** (α) sign-in του ιδιοκτήτη στο Xcode → Settings →
+Accounts (χωρίς αυτό 0 signing identities — τσεκάρεται με
+`security find-identity -v -p codesigning`), (β) DEVELOPMENT_TEAM στο project
+μόλις υπάρξει team, (γ) App Store Connect: δημιουργία app record
+gr.wisebot.academy + Privacy Nutrition (δήλωση GA4!) — ΟΧΙ Kids Category για το
+v1, (δ) Archive → Upload, (ε) review notes για 4.2: να αναφερθούν native splash/
+status bar/read-along, με plan B το bundling του build τοπικά.
+
+---
+
 ## ⚡ STATUS 29 Αυγούστου 2026 — Book 3 live· Android/TV audit: 17 fixes
 
 **Book 3 φωνές παιδιών (live).** Τα DJI ονόματα ήταν ΛΑΘΟΣ ως προς το περιεχόμενο
