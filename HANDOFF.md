@@ -40,6 +40,16 @@ terminal). ITSAppUsesNonExemptEncryption=false μπήκε στο Info.plist ΜΕ
 build 1 — το build 1 θα ρωτήσει compliance στο ASC (απάντηση: όχι non-exempt
 encryption, μόνο HTTPS).
 
+**ΕΓΙΝΑΝ ΚΑΙ ΑΥΤΑ (βράδυ 30/8, μέσω Safari-automation):** DSA trader status
+υποβλήθηκε (ΣΚΕΥΗ Β. ΚΑΙ ΣΙΑ Ε.Ε. / Harmony, Ρεθύμνης 35 Ίλιον, info@wisebot.gr,
+6975857647) — In Review· ο ιδιοκτήτης ανέβασε βεβαίωση ΓΕΜΗ για address proof
+(ΠΡΟΣΟΧΗ: αναμένεται verification email στο info@wisebot.gr). Στην έκδοση 1.0:
+screenshots iPhone 6.5" (1284×2778) + iPad 13" (2048×2732) ανέβηκαν (6+6,
+ξαναφτιάχτηκαν με fresh puppeteer στο scratchpad — τα 6.9" ΔΕΝ τα δεχόταν το
+slot), promotional/description/keywords στα ελληνικά (ΠΡΟΣΟΧΗ: pbcopy θέλει
+LANG=en_US.UTF-8 αλλιώς mojibake), URLs wisebot.gr, copyright 2026 ΣΚΕΥΗ Β. ΚΑΙ
+ΣΙΑ Ε.Ε., build 1.0(1) attached, encryption compliance = None of the algorithms.
+
 **Εκκρεμεί για submission (όλα στο ASC UI):** (α) EU **trader status** (DSA) —
 banner στο ASC, χωρίς αυτό δεν γίνεται submit νέου app στην ΕΕ· Business
 section, το κάνει ο ιδιοκτήτης, (β) listing: screenshots (έτοιμα στα
