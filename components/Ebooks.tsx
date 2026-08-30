@@ -447,7 +447,9 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
       )}
       {active && isRealVoice && (
         <span className="flex items-center gap-1 text-amber-900/60 text-[9px] font-bold uppercase tracking-widest ml-auto">
-          🎙️ {lang === 'el' ? 'Διαβάζουν παιδιά' : 'Read by kids'}
+          {/* EL narrations are the owner's children; EN are studio TTS — the
+              badge must not claim kids on the English side. */}
+          🎙️ {lang === 'el' ? 'Διαβάζουν παιδιά' : 'Narrated'}
         </span>
       )}
       {!active && !isLoading && (
