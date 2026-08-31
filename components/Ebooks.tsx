@@ -121,6 +121,11 @@ interface BookTTSPlayerProps {
 // the next paragraph fails the same way, so the run stops and the bar says why.
 const FATAL_TTS_ERRORS = new Set(['language-unavailable', 'voice-unavailable', 'synthesis-unavailable', 'synthesis-failed', 'not-allowed']);
 
+// Greek books actually narrated by the owner's children. Books 5-34 carry
+// studio TTS until the kids record them (their recording simply replaces the
+// files) — extend this set as each new book's recording lands.
+const KID_NARRATED_BOOKS = new Set([1, 2, 3, 4]);
+
 function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pageNum, autoPlay, continuous, onToggleContinuous, onPlaybackEnd, onActiveWord, narrationApiRef }: BookTTSPlayerProps) {
   const paragraphs = useMemo(() => {
     if (htmlContent) return htmlToParagraphs(htmlContent);
@@ -447,9 +452,9 @@ function BookTTSPlayer({ textContent, htmlContent, lang, contentRef, bookId, pag
       )}
       {active && isRealVoice && (
         <span className="flex items-center gap-1 text-amber-900/60 text-[9px] font-bold uppercase tracking-widest ml-auto">
-          {/* EL narrations are the owner's children; EN are studio TTS — the
-              badge must not claim kids on the English side. */}
-          🎙️ {lang === 'el' ? 'Διαβάζουν παιδιά' : 'Narrated'}
+          {/* «Διαβάζουν παιδιά» only where the children actually narrate;
+              everything else (EN, and Greek TTS books) says plain narration. */}
+          🎙️ {lang === 'el' && KID_NARRATED_BOOKS.has(Number(bookId)) ? 'Διαβάζουν παιδιά' : lang === 'el' ? 'Αφήγηση' : 'Narrated'}
         </span>
       )}
       {!active && !isLoading && (
