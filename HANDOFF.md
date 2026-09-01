@@ -5,6 +5,44 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 1 Σεπτεμβρίου 2026 — Book 4 πλήρες· ο αυτόματος αφηγητής δουλεύει μόνος
+
+**Book 4 ολοκληρώθηκε με τις φωνές των παιδιών** (ήρθαν part 6 σελ.1 + parts 1-2
+σελ.4· ένωση με μεταγραφή-πρώτα, 90%/93% match, live). Books 1-4 EL = 100% παιδιά.
+ΠΑΓΙΑ ΔΙΑΔΙΚΑΣΙΑ νέων ηχογραφήσεων: αρχεία στο `~/Desktop/wisebot-voices-kids`
+ως «Book N page M [part K]», πάντα μεταγραφή-πρώτα (ονόματα λένε ψέματα), ένωση
+via ffmpeg raw PCM (ΟΧΙ python wave — τα afconvert WAV βγαίνουν extensible),
+`SRC_DIR=<staging> ./scripts/narration/build-book-narration.sh N` με staging
+ΜΟΝΟ των νέων σελίδων. Μετά την προσθήκη βιβλίου: ενημέρωσε το
+`KID_NARRATED_BOOKS` set στο Ebooks.tsx.
+
+**Ο ΑΥΤΟΜΑΤΟΣ ΑΦΗΓΗΤΗΣ (launchd `gr.wisebot.ebooks-en`, καθημερινά
+10:10/12:10/16:10):** παράγει ό,τι λείπει με Gemini Kore (EN: όλα τα 34 books ·
+EL: books 5-34 ΜΟΝΟ — τα 1-4 περιφραγμένα), whisper→align (≥85% αλλιώς
+regen), ανεβάζει ΜΟΝΟ ολόκληρα βιβλία, push, και αυτοκαταργείται όταν μηδενίσει.
+Log: `scripts/ebooks-en-resume/auto-resume.log`. Την 31/8 βράδυ έμεναν 164
+σελίδες (150 EL + book-29-p2 + books 32-34 EN)· quota ~100/μέρα ⇒ ~2 μέρες.
+ΕΛΕΓΧΟΣ ΠΡΟΟΔΟΥ: tail στο log + `ls scripts/ebooks-en-resume/DONE` (υπάρχει=
+τελείωσε). Αν κολλήσει σε truncated σελίδα, ο guard την ξαναβάζει μόνος.
+EN live τώρα: books 1-28, 30, 31.
+
+**STORES — περιμένουν ΜΟΝΟ τον ιδιοκτήτη:** (1) Play Console: signup παρκαρισμένο
+στο D-U-N-S της ΣΚΕΥΗ Β. ΚΑΙ ΣΙΑ Ε.Ε. (ΑΦΜ 802198289, ΓΕΜΗ 171926703000 —
+δ.τ. HARMONY COMPANY)· αίτημα στην ICAP (customercare@icapcrif.com) εστάλη
+29/8 από vskevis@itdev.gr, ρώτα και λογιστή. Μετά: $25, upload του ΕΤΟΙΜΟΥ
+`store/android/wisebot-1.0.0.aab`, App-signing SHA256 → append στο assetlinks.
+(2) Apple: $99 πληρωμένα, «wise bot (Pending)» — τσέκαρε Welcome email.
+Το Xcode ΕΓΚΑΤΑΣΤΑΘΗΚΕ ⇒ μόλις ενεργοποιηθεί, iOS build από `store/ios`
+(Capacitor/SPM). Αποφάσεις iOS πριν το submission: Apple 3.1.1 (credits/IAP)
+και 4.2 — δες store/README.md.
+
+**Απόφαση φωνών (οριστική):** Παντού Gemini Kore (Ακαδημία 226/226 + ebooks
+TTS), παιδιά μόνο στα EL books που ηχογραφούν. ElevenLabs/Suno/OpenAI πειράματα
+απορρίφθηκαν από τον ιδιοκτήτη (τα δείγματα/συνταγές στο ιστορικό 29-30/8).
+Read-along: ΠΑΝΤΟΥ (Ακαδημία both langs, όλα τα narrated ebooks).
+
+---
+
 ## ⚡ STATUS 30 Αυγούστου 2026 — iOS: Xcode στημένο, app τρέχει σε simulator, 3.1.1 gating live
 
 **Apple Developer εγκρίθηκε (κατά τον ιδιοκτήτη)· Xcode 26.6 εγκαταστάθηκε** (πλήρες,
