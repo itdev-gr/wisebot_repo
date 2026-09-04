@@ -1,5 +1,5 @@
 /**
- * WiseBot School — the full unit skeleton, Α'–ΣΤ' Δημοτικού (254 units)
+ * WiseBot School — the full unit skeleton, Α'–ΣΤ' Δημοτικού (302 units)
  * =====================================================================
  * GENERATED from the curriculum research of 24 Αυγούστου 2026 (Προγράμματα Σπουδών ΙΕΠ +
  * the chapter titles of the official textbooks on ebooks.edu.gr). Unit names are
@@ -10,6 +10,8 @@
  * (both under subject id 'science'), Ιστορία from Γ', Γεωγραφία Ε'–ΣΤ', Αγγλικά everywhere.
  * The English edition swaps Αγγλικά (EFL) for `ela` — English Language Arts for a native
  * speaker, 7 units per grade following UK KS1–KS2 / US Common Core ELA (see SUBJECT_LOCALES).
+ * 4 Σεπτεμβρίου 2026: Μαθηματικά and Γλώσσα grew from 7 to 11 units per grade (the last four
+ * of each array) — chapters of the Πρόγραμμα Σπουδών the first skeleton had left out.
  *
  * Questions live one file per unit under data/units/grade<N>/<subject>-<unit>.ts, bundled
  * per grade in data/units/grade<N>/index.ts and loaded lazily via registry.ts. Here each

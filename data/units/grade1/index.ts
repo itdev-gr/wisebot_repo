@@ -14,19 +14,27 @@ import { GRADE1_ENGLISH_FOOD_I_LIKE } from './english-food-i-like';
 import { GRADE1_ENGLISH_HELLO_GOODBYE } from './english-hello-goodbye';
 import { GRADE1_ENGLISH_I_CAN } from './english-i-can';
 import { GRADE1_ENGLISH_NUMBERS_1_10 } from './english-numbers-1-10';
+import { GRADE1_GREEK_ACCENT_AND_QUESTION_MARK } from './greek-accent-and-question-mark';
 import { GRADE1_GREEK_ARTICLES_GENDER } from './greek-articles-gender';
+import { GRADE1_GREEK_DIGRAPHS } from './greek-digraphs';
 import { GRADE1_GREEK_FIRST_WORDS } from './greek-first-words';
 import { GRADE1_GREEK_LETTERS_SOUNDS } from './greek-letters-sounds';
+import { GRADE1_GREEK_OPPOSITES_AND_WORD_FAMILIES } from './greek-opposites-and-word-families';
 import { GRADE1_GREEK_READING_SIMPLE } from './greek-reading-simple';
 import { GRADE1_GREEK_SENTENCES } from './greek-sentences';
 import { GRADE1_GREEK_SYLLABLES } from './greek-syllables';
+import { GRADE1_GREEK_VERBS_DOING_WORDS } from './greek-verbs-doing-words';
 import { GRADE1_MATH_ADDITION_TO_10 } from './math-addition-to-10';
 import { GRADE1_MATH_COINS_AND_TIME } from './math-coins-and-time';
+import { GRADE1_MATH_COUNTING_PATTERNS } from './math-counting-patterns';
+import { GRADE1_MATH_DOUBLES_AND_HALVES } from './math-doubles-and-halves';
 import { GRADE1_MATH_MEASURING } from './math-measuring';
 import { GRADE1_MATH_NUMBERS_TO_20 } from './math-numbers-to-20';
+import { GRADE1_MATH_POSITION_AND_DIRECTION } from './math-position-and-direction';
 import { GRADE1_MATH_SHAPES_AND_PATTERNS } from './math-shapes-and-patterns';
 import { GRADE1_MATH_SUBTRACTION } from './math-subtraction';
 import { GRADE1_MATH_TENS_AND_ONES } from './math-tens-and-ones';
+import { GRADE1_MATH_WORD_PROBLEMS } from './math-word-problems';
 import { GRADE1_SCIENCE_BODY_NEEDS_JOBS } from './science-body-needs-jobs';
 import { GRADE1_SCIENCE_CLASS_SCHOOL_FAMILY } from './science-class-school-family';
 import { GRADE1_SCIENCE_COMMUNICATION_CULTURE } from './science-communication-culture';
@@ -50,19 +58,27 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '1/english/hello-goodbye': GRADE1_ENGLISH_HELLO_GOODBYE,
   '1/english/i-can': GRADE1_ENGLISH_I_CAN,
   '1/english/numbers-1-10': GRADE1_ENGLISH_NUMBERS_1_10,
+  '1/greek/accent-and-question-mark': GRADE1_GREEK_ACCENT_AND_QUESTION_MARK,
   '1/greek/articles-gender': GRADE1_GREEK_ARTICLES_GENDER,
+  '1/greek/digraphs': GRADE1_GREEK_DIGRAPHS,
   '1/greek/first-words': GRADE1_GREEK_FIRST_WORDS,
   '1/greek/letters-sounds': GRADE1_GREEK_LETTERS_SOUNDS,
+  '1/greek/opposites-and-word-families': GRADE1_GREEK_OPPOSITES_AND_WORD_FAMILIES,
   '1/greek/reading-simple': GRADE1_GREEK_READING_SIMPLE,
   '1/greek/sentences': GRADE1_GREEK_SENTENCES,
   '1/greek/syllables': GRADE1_GREEK_SYLLABLES,
+  '1/greek/verbs-doing-words': GRADE1_GREEK_VERBS_DOING_WORDS,
   '1/math/addition-to-10': GRADE1_MATH_ADDITION_TO_10,
   '1/math/coins-and-time': GRADE1_MATH_COINS_AND_TIME,
+  '1/math/counting-patterns': GRADE1_MATH_COUNTING_PATTERNS,
+  '1/math/doubles-and-halves': GRADE1_MATH_DOUBLES_AND_HALVES,
   '1/math/measuring': GRADE1_MATH_MEASURING,
   '1/math/numbers-to-20': GRADE1_MATH_NUMBERS_TO_20,
+  '1/math/position-and-direction': GRADE1_MATH_POSITION_AND_DIRECTION,
   '1/math/shapes-and-patterns': GRADE1_MATH_SHAPES_AND_PATTERNS,
   '1/math/subtraction': GRADE1_MATH_SUBTRACTION,
   '1/math/tens-and-ones': GRADE1_MATH_TENS_AND_ONES,
+  '1/math/word-problems': GRADE1_MATH_WORD_PROBLEMS,
   '1/science/body-needs-jobs': GRADE1_SCIENCE_BODY_NEEDS_JOBS,
   '1/science/class-school-family': GRADE1_SCIENCE_CLASS_SCHOOL_FAMILY,
   '1/science/communication-culture': GRADE1_SCIENCE_COMMUNICATION_CULTURE,

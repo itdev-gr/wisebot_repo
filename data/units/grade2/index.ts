@@ -16,18 +16,26 @@ import { GRADE2_ENGLISH_PETS_AND_MONSTERS } from './english-pets-and-monsters';
 import { GRADE2_ENGLISH_TOYS } from './english-toys';
 import { GRADE2_GREEK_ACCENTS } from './greek-accents';
 import { GRADE2_GREEK_ADJECTIVES } from './greek-adjectives';
+import { GRADE2_GREEK_ALPHABETICAL_ORDER_AND_CAPITALS } from './greek-alphabetical-order-and-capitals';
 import { GRADE2_GREEK_NOUNS_ARTICLES } from './greek-nouns-articles';
 import { GRADE2_GREEK_PUNCTUATION } from './greek-punctuation';
 import { GRADE2_GREEK_READING } from './greek-reading';
 import { GRADE2_GREEK_SPELLING_BASICS } from './greek-spelling-basics';
+import { GRADE2_GREEK_SYLLABLES_AND_HYPHENATION } from './greek-syllables-and-hyphenation';
+import { GRADE2_GREEK_SYNONYMS_ANTONYMS } from './greek-synonyms-antonyms';
 import { GRADE2_GREEK_VERBS_TIME } from './greek-verbs-time';
+import { GRADE2_GREEK_WORD_FAMILIES } from './greek-word-families';
 import { GRADE2_MATH_ADD_SUBTRACT_TO_100 } from './math-add-subtract-to-100';
 import { GRADE2_MATH_CLOCK_AND_TIME } from './math-clock-and-time';
 import { GRADE2_MATH_EURO_MONEY } from './math-euro-money';
+import { GRADE2_MATH_HALVES_AND_QUARTERS } from './math-halves-and-quarters';
 import { GRADE2_MATH_INTRO_TIMES_TABLES } from './math-intro-times-tables';
 import { GRADE2_MATH_MEASURE_LENGTH_WEIGHT } from './math-measure-length-weight';
 import { GRADE2_MATH_NUMBERS_TO_100 } from './math-numbers-to-100';
+import { GRADE2_MATH_NUMBERS_TO_1000 } from './math-numbers-to-1000';
 import { GRADE2_MATH_SHAPES_AND_SOLIDS } from './math-shapes-and-solids';
+import { GRADE2_MATH_SHARING_AND_DIVISION } from './math-sharing-and-division';
+import { GRADE2_MATH_WORD_PROBLEMS_TWO_STEPS } from './math-word-problems-two-steps';
 import { GRADE2_SCIENCE_ANIMALS } from './science-animals';
 import { GRADE2_SCIENCE_LIVING_NONLIVING_ENERGY_TRANSPORT } from './science-living-nonliving-energy-transport';
 import { GRADE2_SCIENCE_PLACES_OF_GREECE } from './science-places-of-greece';
@@ -53,18 +61,26 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '2/english/toys': GRADE2_ENGLISH_TOYS,
   '2/greek/accents': GRADE2_GREEK_ACCENTS,
   '2/greek/adjectives': GRADE2_GREEK_ADJECTIVES,
+  '2/greek/alphabetical-order-and-capitals': GRADE2_GREEK_ALPHABETICAL_ORDER_AND_CAPITALS,
   '2/greek/nouns-articles': GRADE2_GREEK_NOUNS_ARTICLES,
   '2/greek/punctuation': GRADE2_GREEK_PUNCTUATION,
   '2/greek/reading': GRADE2_GREEK_READING,
   '2/greek/spelling-basics': GRADE2_GREEK_SPELLING_BASICS,
+  '2/greek/syllables-and-hyphenation': GRADE2_GREEK_SYLLABLES_AND_HYPHENATION,
+  '2/greek/synonyms-antonyms': GRADE2_GREEK_SYNONYMS_ANTONYMS,
   '2/greek/verbs-time': GRADE2_GREEK_VERBS_TIME,
+  '2/greek/word-families': GRADE2_GREEK_WORD_FAMILIES,
   '2/math/add-subtract-to-100': GRADE2_MATH_ADD_SUBTRACT_TO_100,
   '2/math/clock-and-time': GRADE2_MATH_CLOCK_AND_TIME,
   '2/math/euro-money': GRADE2_MATH_EURO_MONEY,
+  '2/math/halves-and-quarters': GRADE2_MATH_HALVES_AND_QUARTERS,
   '2/math/intro-times-tables': GRADE2_MATH_INTRO_TIMES_TABLES,
   '2/math/measure-length-weight': GRADE2_MATH_MEASURE_LENGTH_WEIGHT,
   '2/math/numbers-to-100': GRADE2_MATH_NUMBERS_TO_100,
+  '2/math/numbers-to-1000': GRADE2_MATH_NUMBERS_TO_1000,
   '2/math/shapes-and-solids': GRADE2_MATH_SHAPES_AND_SOLIDS,
+  '2/math/sharing-and-division': GRADE2_MATH_SHARING_AND_DIVISION,
+  '2/math/word-problems-two-steps': GRADE2_MATH_WORD_PROBLEMS_TWO_STEPS,
   '2/science/animals': GRADE2_SCIENCE_ANIMALS,
   '2/science/living-nonliving-energy-transport': GRADE2_SCIENCE_LIVING_NONLIVING_ENERGY_TRANSPORT,
   '2/science/places-of-greece': GRADE2_SCIENCE_PLACES_OF_GREECE,

@@ -16,12 +16,16 @@ import { GRADE4_ENGLISH_IN_THE_CITY } from './english-in-the-city';
 import { GRADE4_ENGLISH_SCHOOL_AND_SUBJECTS } from './english-school-and-subjects';
 import { GRADE4_ENGLISH_TIME_AND_DATES } from './english-time-and-dates';
 import { GRADE4_ENGLISH_WHAT_ARE_YOU_DOING } from './english-what-are-you-doing';
+import { GRADE4_GREEK_ACTIVE_AND_PASSIVE_VOICE } from './greek-active-and-passive-voice';
 import { GRADE4_GREEK_ADJECTIVES_COMPARISON } from './greek-adjectives-comparison';
+import { GRADE4_GREEK_ADVERBS_PREPOSITIONS } from './greek-adverbs-prepositions';
+import { GRADE4_GREEK_COMPOUND_AND_DERIVED_WORDS } from './greek-compound-and-derived-words';
 import { GRADE4_GREEK_NOUNS_DECLENSION } from './greek-nouns-declension';
 import { GRADE4_GREEK_PRONOUNS } from './greek-pronouns';
 import { GRADE4_GREEK_PUNCTUATION_DIALOGUE } from './greek-punctuation-dialogue';
 import { GRADE4_GREEK_READING_TEXTS } from './greek-reading-texts';
 import { GRADE4_GREEK_SPELLING_ADVANCED } from './greek-spelling-advanced';
+import { GRADE4_GREEK_SUMMARY_AND_TEXT_STRUCTURE } from './greek-summary-and-text-structure';
 import { GRADE4_GREEK_VERBS_FULL } from './greek-verbs-full';
 import { GRADE4_HISTORY_ALEXANDER_THE_GREAT } from './history-alexander-the-great';
 import { GRADE4_HISTORY_ARCHAIC_SPARTA_ATHENS } from './history-archaic-sparta-athens';
@@ -31,12 +35,16 @@ import { GRADE4_HISTORY_HELLENISTIC_AND_ROME } from './history-hellenistic-and-r
 import { GRADE4_HISTORY_PELOPONNESIAN_WAR } from './history-peloponnesian-war';
 import { GRADE4_HISTORY_PERSIAN_WARS } from './history-persian-wars';
 import { GRADE4_MATH_DECIMALS } from './math-decimals';
+import { GRADE4_MATH_EQUATIONS_AND_PATTERNS } from './math-equations-and-patterns';
+import { GRADE4_MATH_FRACTIONS } from './math-fractions';
 import { GRADE4_MATH_LINES_AND_POLYGONS } from './math-lines-and-polygons';
 import { GRADE4_MATH_MEASURES_AND_DATA } from './math-measures-and-data';
 import { GRADE4_MATH_MULTIPLY_DIVIDE_BIG } from './math-multiply-divide-big';
 import { GRADE4_MATH_NUMBERS_TO_MILLION } from './math-numbers-to-million';
 import { GRADE4_MATH_PERIMETER_AREA } from './math-perimeter-area';
 import { GRADE4_MATH_PROBLEM_SOLVING } from './math-problem-solving';
+import { GRADE4_MATH_ROUNDING_AND_ESTIMATION } from './math-rounding-and-estimation';
+import { GRADE4_MATH_TIME_AND_DURATION } from './math-time-and-duration';
 import { GRADE4_SCIENCE_COMMUNICATION_MEDIA } from './science-communication-media';
 import { GRADE4_SCIENCE_CULTURE_OF_GREEKS } from './science-culture-of-greeks';
 import { GRADE4_SCIENCE_GREECE_OUR_COUNTRY } from './science-greece-our-country';
@@ -62,12 +70,16 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '4/english/school-and-subjects': GRADE4_ENGLISH_SCHOOL_AND_SUBJECTS,
   '4/english/time-and-dates': GRADE4_ENGLISH_TIME_AND_DATES,
   '4/english/what-are-you-doing': GRADE4_ENGLISH_WHAT_ARE_YOU_DOING,
+  '4/greek/active-and-passive-voice': GRADE4_GREEK_ACTIVE_AND_PASSIVE_VOICE,
   '4/greek/adjectives-comparison': GRADE4_GREEK_ADJECTIVES_COMPARISON,
+  '4/greek/adverbs-prepositions': GRADE4_GREEK_ADVERBS_PREPOSITIONS,
+  '4/greek/compound-and-derived-words': GRADE4_GREEK_COMPOUND_AND_DERIVED_WORDS,
   '4/greek/nouns-declension': GRADE4_GREEK_NOUNS_DECLENSION,
   '4/greek/pronouns': GRADE4_GREEK_PRONOUNS,
   '4/greek/punctuation-dialogue': GRADE4_GREEK_PUNCTUATION_DIALOGUE,
   '4/greek/reading-texts': GRADE4_GREEK_READING_TEXTS,
   '4/greek/spelling-advanced': GRADE4_GREEK_SPELLING_ADVANCED,
+  '4/greek/summary-and-text-structure': GRADE4_GREEK_SUMMARY_AND_TEXT_STRUCTURE,
   '4/greek/verbs-full': GRADE4_GREEK_VERBS_FULL,
   '4/history/alexander-the-great': GRADE4_HISTORY_ALEXANDER_THE_GREAT,
   '4/history/archaic-sparta-athens': GRADE4_HISTORY_ARCHAIC_SPARTA_ATHENS,
@@ -77,12 +89,16 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '4/history/peloponnesian-war': GRADE4_HISTORY_PELOPONNESIAN_WAR,
   '4/history/persian-wars': GRADE4_HISTORY_PERSIAN_WARS,
   '4/math/decimals': GRADE4_MATH_DECIMALS,
+  '4/math/equations-and-patterns': GRADE4_MATH_EQUATIONS_AND_PATTERNS,
+  '4/math/fractions': GRADE4_MATH_FRACTIONS,
   '4/math/lines-and-polygons': GRADE4_MATH_LINES_AND_POLYGONS,
   '4/math/measures-and-data': GRADE4_MATH_MEASURES_AND_DATA,
   '4/math/multiply-divide-big': GRADE4_MATH_MULTIPLY_DIVIDE_BIG,
   '4/math/numbers-to-million': GRADE4_MATH_NUMBERS_TO_MILLION,
   '4/math/perimeter-area': GRADE4_MATH_PERIMETER_AREA,
   '4/math/problem-solving': GRADE4_MATH_PROBLEM_SOLVING,
+  '4/math/rounding-and-estimation': GRADE4_MATH_ROUNDING_AND_ESTIMATION,
+  '4/math/time-and-duration': GRADE4_MATH_TIME_AND_DURATION,
   '4/science/communication-media': GRADE4_SCIENCE_COMMUNICATION_MEDIA,
   '4/science/culture-of-greeks': GRADE4_SCIENCE_CULTURE_OF_GREEKS,
   '4/science/greece-our-country': GRADE4_SCIENCE_GREECE_OUR_COUNTRY,

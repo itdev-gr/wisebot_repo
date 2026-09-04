@@ -53,7 +53,7 @@ export const GRADE6_GREEK_PASSIVE_SYNTAX: QuizQuestion[] = [
     },
   },
   {
-    q: { el: 'Όταν μετατρέπουμε μια ενεργητική πρόταση σε παθητική, το αντικείμενο της ενεργητικής γίνεται…', en: 'When we turn an active sentence into a passive one, the object of the active sentence becomes…' },
+    q: { el: 'Όταν μετατρέπουμε μια ενεργητική πρόταση σε παθητική, τι γίνεται το αντικείμενο της ενεργητικής;', en: 'When we turn an active sentence into a passive one, what does the object of the active sentence become?' },
     options: {
       el: ['ποιητικό αίτιο', 'ρήμα', 'επίθετο', 'υποκείμενο'],
       en: ['the agent (ποιητικό αίτιο)', 'the verb', 'an adjective', 'the subject'],

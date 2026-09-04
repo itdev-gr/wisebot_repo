@@ -23,8 +23,12 @@ import { GRADE5_GEOGRAPHY_NATURE_AND_DISASTERS } from './geography-nature-and-di
 import { GRADE5_GEOGRAPHY_PEOPLE_REGIONS_ECONOMY } from './geography-people-regions-economy';
 import { GRADE5_GEOGRAPHY_SHAPE_POSITION_SEAS } from './geography-shape-position-seas';
 import { GRADE5_GREEK_ADVERBS_PREPOSITIONS } from './greek-adverbs-prepositions';
+import { GRADE5_GREEK_CONJUNCTIONS_AND_CLAUSES } from './greek-conjunctions-and-clauses';
+import { GRADE5_GREEK_DIRECT_AND_INDIRECT_SPEECH } from './greek-direct-and-indirect-speech';
+import { GRADE5_GREEK_FIGURES_OF_SPEECH } from './greek-figures-of-speech';
 import { GRADE5_GREEK_NOUN_ADJECTIVE_REVIEW } from './greek-noun-adjective-review';
 import { GRADE5_GREEK_ORTHOGRAPHY_MORPHOLOGY } from './greek-orthography-morphology';
+import { GRADE5_GREEK_PARTICIPLES_AND_NUMERALS } from './greek-participles-and-numerals';
 import { GRADE5_GREEK_READING_GENRES } from './greek-reading-genres';
 import { GRADE5_GREEK_SYNTAX_BASICS } from './greek-syntax-basics';
 import { GRADE5_GREEK_VERBS_MOODS } from './greek-verbs-moods';
@@ -41,8 +45,12 @@ import { GRADE5_MATH_DATA_AND_PROBABILITY } from './math-data-and-probability';
 import { GRADE5_MATH_DECIMALS_AND_PERCENT } from './math-decimals-and-percent';
 import { GRADE5_MATH_FRACTIONS } from './math-fractions';
 import { GRADE5_MATH_MEASUREMENT_AREA_VOLUME } from './math-measurement-area-volume';
+import { GRADE5_MATH_MIXED_UNITS } from './math-mixed-units';
+import { GRADE5_MATH_MULTIPLES_AND_DIVISORS } from './math-multiples-and-divisors';
 import { GRADE5_MATH_NATURAL_NUMBERS } from './math-natural-numbers';
 import { GRADE5_MATH_PATTERNS_EQUATIONS } from './math-patterns-equations';
+import { GRADE5_MATH_PROBLEM_SOLVING_AND_AVERAGE } from './math-problem-solving-and-average';
+import { GRADE5_MATH_SYMMETRY_AND_SOLIDS } from './math-symmetry-and-solids';
 import { GRADE5_SCIENCE_DIGESTIVE_SYSTEM } from './science-digestive-system';
 import { GRADE5_SCIENCE_ELECTRICITY } from './science-electricity';
 import { GRADE5_SCIENCE_ENERGY } from './science-energy';
@@ -75,8 +83,12 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '5/geography/people-regions-economy': GRADE5_GEOGRAPHY_PEOPLE_REGIONS_ECONOMY,
   '5/geography/shape-position-seas': GRADE5_GEOGRAPHY_SHAPE_POSITION_SEAS,
   '5/greek/adverbs-prepositions': GRADE5_GREEK_ADVERBS_PREPOSITIONS,
+  '5/greek/conjunctions-and-clauses': GRADE5_GREEK_CONJUNCTIONS_AND_CLAUSES,
+  '5/greek/direct-and-indirect-speech': GRADE5_GREEK_DIRECT_AND_INDIRECT_SPEECH,
+  '5/greek/figures-of-speech': GRADE5_GREEK_FIGURES_OF_SPEECH,
   '5/greek/noun-adjective-review': GRADE5_GREEK_NOUN_ADJECTIVE_REVIEW,
   '5/greek/orthography-morphology': GRADE5_GREEK_ORTHOGRAPHY_MORPHOLOGY,
+  '5/greek/participles-and-numerals': GRADE5_GREEK_PARTICIPLES_AND_NUMERALS,
   '5/greek/reading-genres': GRADE5_GREEK_READING_GENRES,
   '5/greek/syntax-basics': GRADE5_GREEK_SYNTAX_BASICS,
   '5/greek/verbs-moods': GRADE5_GREEK_VERBS_MOODS,
@@ -93,8 +105,12 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '5/math/decimals-and-percent': GRADE5_MATH_DECIMALS_AND_PERCENT,
   '5/math/fractions': GRADE5_MATH_FRACTIONS,
   '5/math/measurement-area-volume': GRADE5_MATH_MEASUREMENT_AREA_VOLUME,
+  '5/math/mixed-units': GRADE5_MATH_MIXED_UNITS,
+  '5/math/multiples-and-divisors': GRADE5_MATH_MULTIPLES_AND_DIVISORS,
   '5/math/natural-numbers': GRADE5_MATH_NATURAL_NUMBERS,
   '5/math/patterns-equations': GRADE5_MATH_PATTERNS_EQUATIONS,
+  '5/math/problem-solving-and-average': GRADE5_MATH_PROBLEM_SOLVING_AND_AVERAGE,
+  '5/math/symmetry-and-solids': GRADE5_MATH_SYMMETRY_AND_SOLIDS,
   '5/science/digestive-system': GRADE5_SCIENCE_DIGESTIVE_SYSTEM,
   '5/science/electricity': GRADE5_SCIENCE_ELECTRICITY,
   '5/science/energy': GRADE5_SCIENCE_ENERGY,

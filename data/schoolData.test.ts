@@ -41,8 +41,8 @@ describe('school curriculum (flat pools)', () => {
 });
 
 describe('unit skeleton', () => {
-  it('has 254 units with unique keys (212 Greek-curriculum + 42 English Language Arts)', () => {
-    expect(ALL_UNIT_KEYS.length).toBe(254);
+  it('has 302 units with unique keys (212 original + 48 Μαθηματικά/Γλώσσα enrichment + 42 English Language Arts)', () => {
+    expect(ALL_UNIT_KEYS.length).toBe(302);
     expect(new Set(ALL_UNIT_KEYS).size).toBe(ALL_UNIT_KEYS.length);
   });
   // Loads all six grade bundles (~4,600 questions) — takes ~5s here and more on a CI runner,
