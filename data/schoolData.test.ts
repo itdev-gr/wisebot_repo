@@ -45,13 +45,15 @@ describe('unit skeleton', () => {
     expect(ALL_UNIT_KEYS.length).toBe(254);
     expect(new Set(ALL_UNIT_KEYS).size).toBe(ALL_UNIT_KEYS.length);
   });
+  // Loads all six grade bundles (~4,600 questions) — takes ~5s here and more on a CI runner,
+  // so it gets its own budget instead of vitest's 5s default.
   it('every registry entry points at a real unit and its count matches the file', async () => {
     for (const key of Object.keys(UNIT_COUNTS)) expect(ALL_UNIT_KEYS, key).toContain(key);
     for (const g of [1, 2, 3, 4, 5, 6]) {
       const loaded = await loadGradeQuestions(g);
       for (const [key, qs] of Object.entries(loaded)) expect(UNIT_COUNTS[key], key).toBe(qs.length);
     }
-  });
+  }, 30_000);
 });
 
 describe('curriculum units', () => {

@@ -54,8 +54,8 @@ export const GRADE5_ELA_GREEK_AND_LATIN_ROOTS: QuizQuestion[] = [
     options: { el: ['sound', 'far', 'write or draw', 'water'], en: ['sound', 'far', 'write or draw', 'water'] },
     correct: 2,
     explanation: {
-      el: 'Το -graph έρχεται από το ελληνικό «γράφω». Ο telegraph έγραφε μηνύματα από απόσταση, και ο γραφικός σου χαρακτήρας είναι η graphology σου!',
-      en: '-graph comes from the Greek γράφω (grapho), "to write". A telegraph wrote messages across a distance, and your handwriting is your graphology!',
+      el: 'Το -graph έρχεται από το ελληνικό «γράφω». Ο telegraph έγραφε μηνύματα από απόσταση, και η graphology είναι η μελέτη του γραφικού χαρακτήρα.',
+      en: '-graph comes from the Greek γράφω (grapho), "to write". A telegraph wrote messages across a distance, and graphology is the study of handwriting.',
     },
   },
   {

@@ -202,8 +202,8 @@ export const GRADE5_ELA_FACT_OPINION_AND_PERSUASION: QuizQuestion[] = [
       en: 'Read the poster. "SPLASH DAY at Riverside Pool! Saturday, 10 a.m. to 4 p.m. Giant inflatable slide, free ice pops, and a diving contest with prizes. Bring your friends, bring your family, bring your biggest smile! Kids under 12 swim for just two dollars. Don\'t miss the coolest day of the summer!" Which line from the poster is a fact?',
     },
     options: {
-      el: ['the coolest day of the summer', 'Kids under 12 swim for just two dollars.', 'bring your biggest smile', 'Don\'t miss it!'],
-      en: ['the coolest day of the summer', 'Kids under 12 swim for just two dollars.', 'bring your biggest smile', 'Don\'t miss it!'],
+      el: ['bring your family', 'Kids under 12 swim for just two dollars.', 'bring your biggest smile', 'Don\'t miss the coolest day of the summer!'],
+      en: ['bring your family', 'Kids under 12 swim for just two dollars.', 'bring your biggest smile', 'Don\'t miss the coolest day of the summer!'],
     },
     correct: 1,
     explanation: {
