@@ -4,12 +4,12 @@
  * Original questions for a native English-speaking child of 11–12 (curriculum topics only).
  * What the unit covers, in order:
  *   1–5   find the error in a sentence: spelling, subject–verb agreement, end punctuation, homophones
- *   6–8   which sentence is correct: I/me, doesn\'t, punctuating speech
+ *   6–8   which sentence is correct: I/me, doesn't, punctuating speech
  *   9–11  semicolon vs comma (the comma splice), the colon before a list
  *   12–14 parentheses and dashes for extra information
- *   15–18 apostrophes: its/it\'s, the 1990s, plurals without apostrophes, possession
+ *   15–18 apostrophes: its/it's, the 1990s, plurals without apostrophes, possession
  * Distractors are the real mistakes: the common misspellings, the comma splice,
- * the apostrophe stuck into a plural, "childrens\'".
+ * the apostrophe stuck into a plural, "childrens'".
  * el: the question is translated for a Greek-speaking parent; the options stay in English.
  */
 import type { QuizQuestion } from '../../../types';

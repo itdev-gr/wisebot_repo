@@ -8,7 +8,7 @@
  *   10–12 personification: spotting it, what is personified, defining it
  *   13–15 simile vs metaphor review
  *   16–18 simple irony: saying the opposite, an ironic situation, what is really meant
- * Distractors are the literal readings (actual cake, actual ice) and the neighbouring
+ * Distractors are the literal readings (actual cake, actual ice) and the neighboring
  * devices (a simile offered where a metaphor is asked for, personification for hyperbole).
  * el: the question is translated for a Greek-speaking parent; the options stay in English.
  */
