@@ -10,7 +10,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { GraduationCap, ArrowRight, Star } from 'lucide-react';
-import { CURRICULUM_UNITS, SUBJECT_META, type SubjectId } from '../data/units/curriculum';
+import { CURRICULUM_UNITS, SUBJECT_META, subjectVisible, type SubjectId } from '../data/units/curriculum';
 
 const BASE_URL = 'https://wisebot.gr';
 
@@ -23,13 +23,17 @@ export const GRADE_SEO_PAGES: Record<number, { slug: string; name: { el: string;
   6: { slug: 'askiseis-st-dimotikou', name: { el: "ΣΤ' Δημοτικού", en: 'Grade 6' } },
 };
 
-// Render subjects in the timetable's order rather than object-key order.
-const SUBJECT_ORDER: SubjectId[] = ['math', 'greek', 'science', 'history', 'geography', 'english'];
+// Render subjects in the timetable's order rather than object-key order. `ela` (native
+// English) sits where the English edition expects its language subject; each language
+// only lists its own subjects (SUBJECT_LOCALES), so the page never advertises EFL to an
+// English-speaking family or English Language Arts to a Greek one.
+const SUBJECT_ORDER: SubjectId[] = ['math', 'greek', 'ela', 'science', 'history', 'geography', 'english'];
 
 export default function SchoolGradeSEOPage({ lang, grade }: { lang: 'el' | 'en'; grade: number }) {
   const page = GRADE_SEO_PAGES[grade];
   const skeleton = CURRICULUM_UNITS[grade] || {};
   const subjects = SUBJECT_ORDER
+    .filter(id => subjectVisible(id, lang))
     .map(id => ({ id, units: (skeleton[id] || []).filter(u => (u.count ?? u.questions.length) > 0) }))
     .filter(s => s.units.length > 0);
   const unitTotal = subjects.reduce((n, s) => n + s.units.length, 0);

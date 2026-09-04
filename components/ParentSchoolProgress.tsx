@@ -12,7 +12,7 @@
  */
 import React, { useEffect, useState } from 'react';
 import { GraduationCap, Star, AlertTriangle, Award } from 'lucide-react';
-import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
+import { curriculumForLang, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
 import { getQuizStars, getQuizBest } from './QuizEngine';
 import { playableUnits, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
 import { useAuth } from '../context/AuthContext';
@@ -39,9 +39,9 @@ interface GradeReport {
   examStars: number;
 }
 
-/** Only grades the child has touched on this device; subjects with at least one mission. */
+/** Only grades the child has touched on this device; subjects with at least one mission (in this language). */
 export const buildSchoolReport = (lang: 'el' | 'en'): GradeReport[] =>
-  SCHOOL_CURRICULUM.map(grade => {
+  curriculumForLang(lang).map(grade => {
     const subjects: SubjectReport[] = grade.subjects
       .map(subject => {
         const units = playableUnits(subject);

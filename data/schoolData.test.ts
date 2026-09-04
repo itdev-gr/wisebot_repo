@@ -41,8 +41,8 @@ describe('school curriculum (flat pools)', () => {
 });
 
 describe('unit skeleton', () => {
-  it('has 212 units with unique keys', () => {
-    expect(ALL_UNIT_KEYS.length).toBe(212);
+  it('has 254 units with unique keys (212 Greek-curriculum + 42 English Language Arts)', () => {
+    expect(ALL_UNIT_KEYS.length).toBe(254);
     expect(new Set(ALL_UNIT_KEYS).size).toBe(ALL_UNIT_KEYS.length);
   });
   it('every registry entry points at a real unit and its count matches the file', async () => {

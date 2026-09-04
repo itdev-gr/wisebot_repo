@@ -5,6 +5,47 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 4 Σεπτεμβρίου 2026 — English edition μέρος 2: ELA μάθημα + πλήρη αγγλικά quiz
+
+Session από το cloud (Claude Code web), ο ιδιοκτήτης στην Πορτογαλία χωρίς Mac. Όλα
+μέσω GitHub PRs — ΠΡΩΤΗ ΚΙΝΗΣΗ στο Mac: `git pull` πριν πειράξεις οτιδήποτε.
+
+**PR #57 (`claude/general-quiz-english`) — γενικά quiz + CI fix.** Και οι 360 ερωτήσεις
+των 6 γενικών quiz (θάλασσα/παιδικά/διάστημα/σπορ/ζώα/μαθηματικά) έχουν πλέον
+πλήρη αγγλικά (ερώτηση, επιλογές, εξήγηση) για αγγλόφωνο παιδί — ήταν τηλεγραφήματα
+(«Baby fish name?», «Biggest ocean?»). Ελληνικά + answer keys byte-identical (script-
+verified). Δύο bugs βρέθηκαν: Shrek (kids #5) οι αγγλικές επιλογές ήταν σε άλλη σειρά
+από τις ελληνικές → μετρούσε σωστό τον «Dragon»· θαλάσσιος ελέφαντας/walrus (sea #27).
+**CI ήταν ΚΟΚΚΙΝΟ στο main από 29/8** (κανείς δεν το είδε, το Vercel deployάρει
+ανεξάρτητα): το `tsc` περπατούσε το `store/ios/capacitor.config.ts` που θέλει deps από
+το `store/ios/package.json`. `store` μπήκε στο `exclude` του tsconfig, όπως το `server`.
+
+**PR `claude/ela-english-edition` — νέο μάθημα `ela` (English Language Arts).** Το
+υπάρχον `english` είναι EFL-για-Έλληνες («Πώς λέμε τη γάτα στα αγγλικά;») — άχρηστο
+για native speaker. Λύση: **locale-gated μαθήματα** (`SUBJECT_LOCALES` στο
+`data/units/curriculum.ts`): `english` φαίνεται ΜΟΝΟ στα ελληνικά, `ela` ΜΟΝΟ στα
+αγγλικά, όλα τα άλλα και στις δύο. Το `ela` έχει 7 units × 6 τάξεις = 42 units / 756
+ερωτήσεις (phonics → grammar → reading → Greek & Latin roots → editing), κατά UK
+KS1–KS2 / US Common Core ELA, ΟΛΕΣ πρωτότυπες, με ελληνική μετάφραση ερώτησης &
+εξήγησης (οι επιλογές μένουν αγγλικές — αυτό εξετάζεται). Αρχεία
+`data/units/grade<N>/ela-*.ts`, registry ξαναγράφτηκε (`node scripts/school-units.mjs
+registry`). Ό,τι διαβάζει curriculum περνάει τώρα από `curriculumForLang(lang)`
+(`data/schoolQuizData.ts`): School picker/exam/progress, γονεϊκό report, SEO σελίδες
+τάξεων· τα counts είναι ανά γλώσσα (`schoolCounts(lang)` στο `contentCounts.ts`:
+EL 212/3816, EN 209/3762). Τα progress keys περιέχουν το subject id, άρα EFL↔ELA δεν
+μπερδεύονται ποτέ. Η SUBJECT_META.english.en έγινε «English (EFL)» για να ξεχωρίζει.
+
+**Απόφαση προϊόντος (να επιβεβαιώσει ο ιδιοκτήτης):** το `greek` (Γλώσσα) μένει ορατό
+και στα αγγλικά — για παιδιά της διασποράς είναι το πιο πολύτιμο μάθημα (ελληνικά
+ως heritage language), παρότι η ύλη είναι γραμμένη για ελληνόφωνο παιδί. Επόμενο βήμα
+αν το θέλουμε σωστά: «Greek for beginners» units για την αγγλική έκδοση.
+
+**Εκκρεμεί ακόμα από το English edition:** Ακαδημία/Βιβλιοθήκη αγγλικά είναι ήδη ΟΚ
+(αφήγηση EN και για τα 34 βιβλία από 3/9)· ~47% κομμένα αγγλικά αναφερόταν και στο
+`academyQuizData` — ΔΕΝ ελέγχθηκε σε αυτό το session (τα δείγματα φαίνονται πλήρη).
+
+---
+
 ## ⚡ STATUS 1 Σεπτεμβρίου 2026 — Book 4 πλήρες· ο αυτόματος αφηγητής δουλεύει μόνος
 
 **Book 4 ολοκληρώθηκε με τις φωνές των παιδιών** (ήρθαν part 6 σελ.1 + parts 1-2

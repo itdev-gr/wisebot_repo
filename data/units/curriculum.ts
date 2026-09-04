@@ -1,5 +1,5 @@
 /**
- * WiseBot School — the full unit skeleton, Α'–ΣΤ' Δημοτικού (212 units)
+ * WiseBot School — the full unit skeleton, Α'–ΣΤ' Δημοτικού (254 units)
  * =====================================================================
  * GENERATED from the curriculum research of 24 Αυγούστου 2026 (Προγράμματα Σπουδών ΙΕΠ +
  * the chapter titles of the official textbooks on ebooks.edu.gr). Unit names are
@@ -8,6 +8,8 @@
  *
  * Subject map follows the national timetable: Μελέτη Περιβάλλοντος Α'–Δ' → Φυσικά Ε'–ΣΤ'
  * (both under subject id 'science'), Ιστορία from Γ', Γεωγραφία Ε'–ΣΤ', Αγγλικά everywhere.
+ * The English edition swaps Αγγλικά (EFL) for `ela` — English Language Arts for a native
+ * speaker, 7 units per grade following UK KS1–KS2 / US Common Core ELA (see SUBJECT_LOCALES).
  *
  * Questions live one file per unit under data/units/grade<N>/<subject>-<unit>.ts, bundled
  * per grade in data/units/grade<N>/index.ts and loaded lazily via registry.ts. Here each
@@ -22,7 +24,8 @@ import { UNIT_COUNTS } from './registry';
 
 export interface UnitBrief extends SchoolUnit { topics: string }
 // `questions` stays empty in the skeleton; the real arrays load per grade (see registry.ts).
-export type SubjectId = 'math' | 'greek' | 'science' | 'history' | 'geography' | 'english';
+export type SubjectId = 'math' | 'greek' | 'science' | 'history' | 'geography' | 'english' | 'ela';
+export type SchoolLang = 'el' | 'en';
 
 const c = (key: string) => UNIT_COUNTS[key] ?? 0;
 
@@ -33,8 +36,32 @@ export const SUBJECT_META: Record<SubjectId, { name: { el: string; en: string };
   science: { name: { el: 'Μελέτη & Φυσικά', en: 'Science' }, emoji: '🔬' },
   history: { name: { el: 'Ιστορία', en: 'History' }, emoji: '🏛️' },
   geography: { name: { el: 'Γεωγραφία', en: 'Geography' }, emoji: '🗺️' },
-  english: { name: { el: 'Αγγλικά', en: 'English' }, emoji: '🇬🇧' },
+  english: { name: { el: 'Αγγλικά', en: 'English (EFL)' }, emoji: '🇬🇧' },
+  ela: { name: { el: 'Αγγλικά (μητρική)', en: 'English' }, emoji: '📚' },
 };
+
+/**
+ * Which app language shows which subject. Two subjects are language-specific:
+ * - `english` is English-as-a-foreign-language written for a Greek child ("How do we say
+ *   «γάτα» in English?") — meaningless to a native speaker, so it only shows in Greek;
+ * - `ela` is English Language Arts (phonics, grammar, reading) for a native English-speaking
+ *   child — the English edition's equivalent of Γλώσσα — and only shows in English.
+ * Everything else (Greek curriculum content, translated) shows in both.
+ * Progress keys include the subject id, so a child switching language never mixes the two.
+ */
+export const SUBJECT_LOCALES: Record<SubjectId, SchoolLang[]> = {
+  math: ['el', 'en'],
+  greek: ['el', 'en'],
+  science: ['el', 'en'],
+  history: ['el', 'en'],
+  geography: ['el', 'en'],
+  english: ['el'],
+  ela: ['en'],
+};
+
+/** True when a subject belongs in the given app language (unknown ids show everywhere). */
+export const subjectVisible = (subjectId: string, lang: SchoolLang): boolean =>
+  (SUBJECT_LOCALES[subjectId as SubjectId] ?? ['el', 'en']).includes(lang);
 
 export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrief[]>>> = {
   1: {
@@ -73,6 +100,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'food-i-like', emoji: '🍎', name: { el: 'I like! Φαγητά', en: 'Food I Like' }, topics: 'apple, banana, cake, pizza, ice cream, milk, \'I like / I don\'t like\'', questions: [], count: c('1/english/food-i-like') },
       { id: 'i-can', emoji: '🤸', name: { el: 'I can! Μπορώ!', en: 'I Can!' }, topics: 'action verbs (jump, run, fly, swim, dance), \'I can / I can\'t\', body moves', questions: [], count: c('1/english/i-can') },
     ],
+    ela: [
+      { id: 'phonics-short-vowels', emoji: '🔤', name: { el: 'Βραχέα φωνήεντα', en: 'Short Vowel Sounds' }, topics: 'a/e/i/o/u as in cat, pen, pig, dog, sun; which word has the /a/ sound; the missing vowel; odd one out by vowel sound', questions: [], count: c('1/ela/phonics-short-vowels') },
+      { id: 'blends-and-digraphs', emoji: '🔊', name: { el: 'Συμπλέγματα & δίψηφα', en: 'Blends & Digraphs' }, topics: 'sh, ch, th, ck and blends bl, st, tr, fl; first sound of ship/chip/thin; the missing digraph', questions: [], count: c('1/ela/blends-and-digraphs') },
+      { id: 'sight-words', emoji: '👀', name: { el: 'Λέξεις με μια ματιά', en: 'Sight Words' }, topics: 'the, and, said, was, you, they, here, come, little, my; fill the gap; which is spelled right', questions: [], count: c('1/ela/sight-words') },
+      { id: 'rhyming-words', emoji: '🎵', name: { el: 'Ομοιοκαταληξίες', en: 'Rhyming Words' }, topics: 'cat/hat/bat, which word rhymes, odd one out, word families -at/-og/-ip/-un', questions: [], count: c('1/ela/rhyming-words') },
+      { id: 'capitals-and-full-stops', emoji: '✏️', name: { el: 'Κεφαλαία & τελείες', en: 'Capitals & Full Stops' }, topics: 'capital at the start, names/I/days get capitals, full stop or question mark at the end, the correct sentence', questions: [], count: c('1/ela/capitals-and-full-stops') },
+      { id: 'one-and-many', emoji: '🐑', name: { el: 'Ένα & πολλά', en: 'One & Many (Plurals)' }, topics: 'add -s/-es (cats, boxes), a/an, this/these, foot–feet', questions: [], count: c('1/ela/one-and-many') },
+      { id: 'reading-little-stories', emoji: '📖', name: { el: 'Διαβάζω μικρές ιστορίες', en: 'Reading Little Stories' }, topics: '2–3 sentence stories: who/what/where, first/next, how the character feels, what happens next', questions: [], count: c('1/ela/reading-little-stories') },
+    ],
   },
   2: {
     math: [
@@ -110,6 +146,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'pets-and-monsters', emoji: '👾', name: { el: 'Κατοικίδια & Τέρατα', en: 'Pets & Monsters' }, topics: 'pets, \'Can a monkey fly?\', can/can\'t, \'It has got three eyes\', describing', questions: [], count: c('2/english/pets-and-monsters') },
       { id: 'healthy-food', emoji: '🥕', name: { el: 'Υγιεινό Φαγητό', en: 'Healthy Food' }, topics: 'fruit, vegetables, healthy/unhealthy, breakfast, \'I like / don\'t like\', \'Do you like…?\'', questions: [], count: c('2/english/healthy-food') },
       { id: 'clothes-and-weather', emoji: '🧥', name: { el: 'Ρούχα & Καιρός', en: 'Clothes & Weather' }, topics: 'coat, hat, boots, T-shirt, sunny, rainy, cold, hot, \'Put on your…\', seasons', questions: [], count: c('2/english/clothes-and-weather') },
+    ],
+    ela: [
+      { id: 'magic-e-long-vowels', emoji: '✨', name: { el: 'Μαγικό e & μακρά φωνήεντα', en: 'Magic e & Long Vowels' }, topics: 'cap→cape, kit→kite, hop→hope, tub→tube; which word has a long a; the silent e', questions: [], count: c('2/ela/magic-e-long-vowels') },
+      { id: 'vowel-teams', emoji: '🤝', name: { el: 'Ζευγάρια φωνηέντων', en: 'Vowel Teams' }, topics: 'ai/ay, ee/ea, oa/ow, igh, oo; spell the word; the missing team; same sound', questions: [], count: c('2/ela/vowel-teams') },
+      { id: 'nouns-and-verbs', emoji: '🏃', name: { el: 'Ουσιαστικά & ρήματα', en: 'Nouns & Verbs' }, topics: 'naming words vs doing words, find the noun/verb, proper nouns get capitals, person/place/thing', questions: [], count: c('2/ela/nouns-and-verbs') },
+      { id: 'adjectives-describing', emoji: '🎨', name: { el: 'Επίθετα', en: 'Adjectives' }, topics: 'describing words, which word describes the noun, opposites, best adjective, two adjectives with a comma', questions: [], count: c('2/ela/adjectives-describing') },
+      { id: 'question-and-exclamation', emoji: '❗', name: { el: 'Ερωτηματικό & θαυμαστικό', en: 'Question & Exclamation Marks' }, topics: 'full stop vs ? vs !, question words, which sentence needs a ?, first commas in a list', questions: [], count: c('2/ela/question-and-exclamation') },
+      { id: 'compound-and-contractions', emoji: '🧩', name: { el: 'Σύνθετες λέξεις & συντομεύσεις', en: 'Compound Words & Contractions' }, topics: 'sun+flower, foot+ball; don\'t/can\'t/it\'s/I\'m and what they stand for; where the apostrophe goes', questions: [], count: c('2/ela/compound-and-contractions') },
+      { id: 'reading-comprehension', emoji: '📚', name: { el: 'Κατανόηση κειμένου', en: 'Reading Comprehension' }, topics: '3–5 sentence passages: main idea, a detail, why, order of events, feelings, best title', questions: [], count: c('2/ela/reading-comprehension') },
     ],
   },
   3: {
@@ -157,6 +202,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'weather-and-clothes', emoji: '☀️', name: { el: 'Καιρός & Ρούχα', en: 'Weather & Clothes' }, topics: 'weather, seasons, clothes, \'It\'s sunny\', \'What\'s the weather like?\', \'Put on / take off\'', questions: [], count: c('3/english/weather-and-clothes') },
       { id: 'food-and-routine', emoji: '🪥', name: { el: 'Φαγητό & Καθημερινότητα', en: 'Food & My Day' }, topics: 'food, meals, healthy habits, daily routine verbs (get up, brush, eat), present simple I/you', questions: [], count: c('3/english/food-and-routine') },
       { id: 'my-home', emoji: '🏰', name: { el: 'Το Σπίτι μου', en: 'My Home' }, topics: 'rooms of the house, furniture, \'There is / there are\', \'Is there…?\', how many', questions: [], count: c('3/english/my-home') },
+    ],
+    ela: [
+      { id: 'spelling-patterns', emoji: '🔡', name: { el: 'Κανόνες ορθογραφίας', en: 'Spelling Patterns' }, topics: 'hop→hopping, make→making, baby→babies, -ed/-ing, which spelling is correct', questions: [], count: c('3/ela/spelling-patterns') },
+      { id: 'prefixes-and-suffixes', emoji: '🧱', name: { el: 'Προθέματα & επιθήματα', en: 'Prefixes & Suffixes' }, topics: 'un-, re-, dis-, pre-, -ful, -less, -ly, -er/-est; meaning of unhappy, careful, hopeless; build the word', questions: [], count: c('3/ela/prefixes-and-suffixes') },
+      { id: 'synonyms-and-antonyms', emoji: '🔁', name: { el: 'Συνώνυμα & αντώνυμα', en: 'Synonyms & Antonyms' }, topics: 'big/large/huge, happy/glad; pick the synonym/antonym; shades of meaning; the word that fits best', questions: [], count: c('3/ela/synonyms-and-antonyms') },
+      { id: 'pronouns', emoji: '👤', name: { el: 'Αντωνυμίες', en: 'Pronouns' }, topics: 'he/she/it/they/we, I vs me, his/her/their/our, replace the noun', questions: [], count: c('3/ela/pronouns') },
+      { id: 'past-and-present-tense', emoji: '⏰', name: { el: 'Παρελθόν & παρόν', en: 'Past & Present Tense' }, topics: 'walk/walked, go/went, eat/ate, see/saw, is/was, are/were, has/had; fix the verb', questions: [], count: c('3/ela/past-and-present-tense') },
+      { id: 'commas-and-apostrophes', emoji: '✒️', name: { el: 'Κόμματα & απόστροφοι', en: 'Commas & Apostrophes' }, topics: 'commas in a list, apostrophe for belonging (Sam\'s), contraction vs possession, its/it\'s, dogs vs dog\'s', questions: [], count: c('3/ela/commas-and-apostrophes') },
+      { id: 'reading-and-inference', emoji: '🔍', name: { el: 'Ανάγνωση & συμπεράσματα', en: 'Reading & Inference' }, topics: '4–6 sentence passages: what you can tell, why the character did that, a word from context, best title, what happens next', questions: [], count: c('3/ela/reading-and-inference') },
     ],
   },
   4: {
@@ -206,6 +260,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'what-are-you-doing', emoji: '🧹', name: { el: 'Τι κάνεις τώρα;', en: 'What Are You Doing?' }, topics: 'housework, jobs, \'What do you do?\', present continuous, present simple vs continuous', questions: [], count: c('4/english/what-are-you-doing') },
       { id: 'in-the-city', emoji: '🚦', name: { el: 'Στην Πόλη', en: 'In the City' }, topics: 'places in town, road safety, directions, prepositions of place, imperatives (stop, cross, turn)', questions: [], count: c('4/english/in-the-city') },
       { id: 'food-and-shopping', emoji: '🥪', name: { el: 'Φαγητό & Ψώνια', en: 'Food & Shopping' }, topics: 'supermarket food, recipes, some/any, countable/uncountable, \'How much / how many\'', questions: [], count: c('4/english/food-and-shopping') },
+    ],
+    ela: [
+      { id: 'homophones', emoji: '👂', name: { el: 'Ομόηχες λέξεις', en: 'Homophones' }, topics: 'there/their/they\'re, to/too/two, your/you\'re, here/hear, where/wear, right/write, know/no', questions: [], count: c('4/ela/homophones') },
+      { id: 'adverbs', emoji: '🏎️', name: { el: 'Επιρρήματα', en: 'Adverbs' }, topics: 'how/when/where words, -ly, adjective vs adverb (quick/quickly, good/well), find the adverb', questions: [], count: c('4/ela/adverbs') },
+      { id: 'sentence-types', emoji: '📝', name: { el: 'Είδη προτάσεων', en: 'Sentence Types' }, topics: 'statement, question, command, exclamation; subject and predicate; fragment vs sentence; run-ons; and/but/so', questions: [], count: c('4/ela/sentence-types') },
+      { id: 'paragraphs-and-main-idea', emoji: '📄', name: { el: 'Παράγραφοι & κεντρική ιδέα', en: 'Paragraphs & Main Idea' }, topics: 'topic sentence, supporting details, the sentence that does not belong, best title, one-sentence summary', questions: [], count: c('4/ela/paragraphs-and-main-idea') },
+      { id: 'dictionary-skills', emoji: '📖', name: { el: 'Χρήση λεξικού', en: 'Dictionary Skills' }, topics: 'alphabetical order to the 2nd/3rd letter, guide words, syllables, the right meaning, part-of-speech labels', questions: [], count: c('4/ela/dictionary-skills') },
+      { id: 'similes-and-metaphors', emoji: '🌈', name: { el: 'Παρομοιώσεις & μεταφορές', en: 'Similes & Metaphors' }, topics: 'as brave as a lion, the classroom was a zoo; simile or metaphor; what it means; alliteration; onomatopoeia', questions: [], count: c('4/ela/similes-and-metaphors') },
+      { id: 'reading-nonfiction', emoji: '🗞️', name: { el: 'Πληροφοριακά κείμενα', en: 'Reading Non-fiction' }, topics: 'short informational texts: mostly about, fact vs opinion, headings and captions, a detail, a word in context', questions: [], count: c('4/ela/reading-nonfiction') },
     ],
   },
   5: {
@@ -264,6 +327,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'the-past', emoji: '⏳', name: { el: 'Το Παρελθόν', en: 'The Past' }, topics: 'famous people of the past, past simple was/were, regular & irregular verbs, \'When did…?\'', questions: [], count: c('5/english/the-past') },
       { id: 'stories-and-holidays', emoji: '🏖️', name: { el: 'Ιστορίες & Διακοπές', en: 'Stories & Holidays' }, topics: 'fairy tales, myths, airport, holidays, past simple narratives, \'once upon a time\'', questions: [], count: c('5/english/stories-and-holidays') },
     ],
+    ela: [
+      { id: 'subject-verb-agreement', emoji: '⚖️', name: { el: 'Συμφωνία υποκειμένου–ρήματος', en: 'Subject–Verb Agreement' }, topics: 'he runs/they run, there is/are, collective nouns, everyone is, compound subjects, don\'t/doesn\'t', questions: [], count: c('5/ela/subject-verb-agreement') },
+      { id: 'verb-tenses', emoji: '⏳', name: { el: 'Χρόνοι ρημάτων', en: 'Verb Tenses' }, topics: 'present perfect, past progressive, will vs going to, irregular past participles, consistent tense', questions: [], count: c('5/ela/verb-tenses') },
+      { id: 'direct-speech', emoji: '💬', name: { el: 'Ευθύς λόγος', en: 'Direct Speech' }, topics: 'quotation marks, the comma before the quote, capital inside, reporting verbs, punctuation inside the quote, direct vs reported', questions: [], count: c('5/ela/direct-speech') },
+      { id: 'greek-and-latin-roots', emoji: '🏛️', name: { el: 'Ελληνικές & λατινικές ρίζες', en: 'Greek & Latin Roots' }, topics: 'tele-, -phone, -graph, bio-, geo-, aqua-, -ology, micro/macro, auto-, photo-; telescope, biology, autograph', questions: [], count: c('5/ela/greek-and-latin-roots') },
+      { id: 'inference-and-evidence', emoji: '🕵️', name: { el: 'Συμπεράσματα & αποδείξεις', en: 'Inference & Evidence' }, topics: '5–7 sentence passages: what the text suggests, which sentence is the evidence, motive, prediction, point of view', questions: [], count: c('5/ela/inference-and-evidence') },
+      { id: 'fact-opinion-and-persuasion', emoji: '🎯', name: { el: 'Γεγονός, γνώμη & πειθώ', en: 'Fact, Opinion & Persuasion' }, topics: 'fact vs opinion, signal words, rhetorical question, exaggeration, appeal to feelings, audience and purpose, bias', questions: [], count: c('5/ela/fact-opinion-and-persuasion') },
+      { id: 'tricky-spellings', emoji: '🧠', name: { el: 'Δύσκολες ορθογραφίες', en: 'Tricky Spellings' }, topics: 'i before e, silent letters (knight, island, Wednesday), -tion/-sion, separate, necessary, definitely, because, friend', questions: [], count: c('5/ela/tricky-spellings') },
+    ],
   },
   6: {
     math: [
@@ -319,6 +391,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'travel-and-transport', emoji: '🚂', name: { el: 'Ταξίδια & Μεταφορές', en: 'Travel & Transport' }, topics: 'means of transport, diaries, past simple vs present, used to, time expressions (ago, last)', questions: [], count: c('6/english/travel-and-transport') },
       { id: 'jobs-and-future', emoji: '👩‍🚀', name: { el: 'Επαγγέλματα & Μέλλον', en: 'Jobs & the Future' }, topics: 'jobs and careers, \'What do they do?\', will / going to for future, \'I want to be a…\'', questions: [], count: c('6/english/jobs-and-future') },
       { id: 'experiences', emoji: '🥇', name: { el: 'Εμπειρίες & Ρεκόρ', en: 'Experiences & Records' }, topics: 'record holders, sports, present perfect \'have you ever…?\', superlatives, achievements', questions: [], count: c('6/english/experiences') },
+    ],
+    ela: [
+      { id: 'clauses-and-conjunctions', emoji: '🔗', name: { el: 'Προτάσεις & σύνδεσμοι', en: 'Clauses & Conjunctions' }, topics: 'main vs subordinate clause, because/although/while/unless, FANBOYS, comma after a fronted clause, simple/compound/complex', questions: [], count: c('6/ela/clauses-and-conjunctions') },
+      { id: 'active-and-passive-voice', emoji: '🔄', name: { el: 'Ενεργητική & παθητική φωνή', en: 'Active & Passive Voice' }, topics: 'identify, rewrite, why writers use the passive, "by" phrases', questions: [], count: c('6/ela/active-and-passive-voice') },
+      { id: 'formal-and-informal', emoji: '🎩', name: { el: 'Επίσημος & ανεπίσημος λόγος', en: 'Formal & Informal Language' }, topics: 'register, contractions and slang vs standard English, letter to the head teacher vs text to a friend, audience', questions: [], count: c('6/ela/formal-and-informal') },
+      { id: 'idioms-and-figurative-language', emoji: '🎭', name: { el: 'Ιδιωματισμοί & μεταφορικός λόγος', en: 'Idioms & Figurative Language' }, topics: 'piece of cake, break the ice, under the weather; hyperbole; personification; simile vs metaphor; simple irony', questions: [], count: c('6/ela/idioms-and-figurative-language') },
+      { id: 'summarizing', emoji: '🧾', name: { el: 'Περίληψη', en: 'Summarizing' }, topics: '6–8 sentence passages: best summary, key points, what to leave out, paraphrase vs copy, main idea vs detail', questions: [], count: c('6/ela/summarizing') },
+      { id: 'editing-and-proofreading', emoji: '🛠️', name: { el: 'Διόρθωση κειμένου', en: 'Editing & Proofreading' }, topics: 'find the error, the correct sentence, semicolon vs comma, colon before a list, parentheses and dashes, its/it\'s', questions: [], count: c('6/ela/editing-and-proofreading') },
+      { id: 'vocabulary-in-context', emoji: '🧭', name: { el: 'Λεξιλόγιο από τα συμφραζόμενα', en: 'Vocabulary in Context' }, topics: 'meaning from context clues, connotation (thrifty vs stingy), precise vs vague words, analyze/evaluate/compare, multiple meanings', questions: [], count: c('6/ela/vocabulary-in-context') },
     ],
   },
 };

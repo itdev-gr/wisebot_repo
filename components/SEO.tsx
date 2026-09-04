@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { ACADEMY_STORY_COUNT, BOOK_COUNT, SCHOOL_MISSION_COUNT, SCHOOL_QUESTION_COUNT } from '../data/contentCounts';
+import { ACADEMY_STORY_COUNT, BOOK_COUNT, SCHOOL_MISSION_COUNT, SCHOOL_QUESTION_COUNT, SCHOOL_MISSION_COUNT_EN, SCHOOL_QUESTION_COUNT_EN } from '../data/contentCounts';
 
 interface SEOProps {
   lang: 'el' | 'en';
@@ -27,7 +27,7 @@ const PAGE_META: Record<string, PageMeta> = {
     },
     description: {
       el: `Η ψηφιακή ακαδημία δημιουργών για παιδιά 6–12: Σχολείο Α'–ΣΤ' σε ${SCHOOL_MISSION_COUNT} αποστολές, ${BOOK_COUNT} βιβλία με αφήγηση, ${ACADEMY_STORY_COUNT} ιστορίες σπουδαίων ανθρώπων — δωρεάν. Ό,τι μαθαίνει το παιδί γίνεται δικές του δημιουργίες: ήρωες, τραγούδια, βίντεο, 3D, επιχείρηση. Ασφαλές, χωρίς ελεύθερο chat.`,
-      en: `The digital maker academy for kids 6–12: a Grade 1–6 school track with ${SCHOOL_MISSION_COUNT} missions, ${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people — free. What a child learns becomes their own creations: heroes, songs, videos, 3D, a business. Safe, no open chat.`,
+      en: `The digital maker academy for kids 6–12: a Grade 1–6 school track with ${SCHOOL_MISSION_COUNT_EN} missions, ${BOOK_COUNT} narrated books, ${ACADEMY_STORY_COUNT} stories of great people — free. What a child learns becomes their own creations: heroes, songs, videos, 3D, a business. Safe, no open chat.`,
     },
     keywords: {
       el: 'παιδικά βιβλία με αφήγηση, σχολείο δημοτικού quiz, εκπαιδευτική εφαρμογή για παιδιά, ασφαλής εφαρμογή για παιδιά, μάθηση μέσα από παιχνίδι, WiseBot Academy, AI για παιδιά, wisebot',
@@ -69,11 +69,11 @@ const PAGE_META: Record<string, PageMeta> = {
   school: {
     title: {
       el: `Σχολείο Α'–ΣΤ' Δημοτικού — ${SCHOOL_MISSION_COUNT} Αποστολές & Quiz Δωρεάν | WiseBot Academy`,
-      en: `School Grades 1–6 — ${SCHOOL_MISSION_COUNT} Missions & Quizzes Free | WiseBot Academy`,
+      en: `School Grades 1–6 — ${SCHOOL_MISSION_COUNT_EN} Missions & Quizzes Free | WiseBot Academy`,
     },
     description: {
       el: `Όλο το Δημοτικό σε αποστολές: Μαθηματικά, Γλώσσα, Ιστορία, Μελέτη/Φυσικά, Γεωγραφία, Αγγλικά. ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις με εξηγήσεις, αστέρια, διαγώνισμα και απολυτήριο ανά τάξη — δωρεάν, βασισμένο στα Προγράμματα Σπουδών.`,
-      en: `All of primary school as missions: Math, Greek, History, Science, Geography, English. ${SCHOOL_QUESTION_COUNT} original questions with explanations, stars, a grade exam and a diploma per grade — free, aligned with the Greek national curriculum.`,
+      en: `All of primary school as missions: Math, Greek, History, Science, Geography, English. ${SCHOOL_QUESTION_COUNT_EN} original questions with explanations, stars, a grade exam and a diploma per grade — free, aligned with the Greek national curriculum.`,
     },
     keywords: {
       el: "ασκήσεις δημοτικού, quiz δημοτικού δωρεάν, μαθηματικά δημοτικού, γλώσσα δημοτικού, ιστορία δημοτικού, επανάληψη δημοτικού, εξάσκηση για παιδιά δημοτικού, WiseBot Σχολείο",
@@ -84,7 +84,7 @@ const PAGE_META: Record<string, PageMeta> = {
       '@context': 'https://schema.org',
       '@type': 'Course',
       name: { el: "WiseBot Σχολείο — Α'–ΣΤ' Δημοτικού", en: 'WiseBot School — Grades 1-6' },
-      description: { el: `${SCHOOL_MISSION_COUNT} αποστολές με ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις σε όλα τα μαθήματα του Δημοτικού, με αστέρια, διαγωνίσματα και απολυτήρια.`, en: `${SCHOOL_MISSION_COUNT} missions with ${SCHOOL_QUESTION_COUNT} original questions across all primary-school subjects, with stars, exams and diplomas.` },
+      description: { el: `${SCHOOL_MISSION_COUNT} αποστολές με ${SCHOOL_QUESTION_COUNT} πρωτότυπες ερωτήσεις σε όλα τα μαθήματα του Δημοτικού, με αστέρια, διαγωνίσματα και απολυτήρια.`, en: `${SCHOOL_MISSION_COUNT_EN} missions with ${SCHOOL_QUESTION_COUNT_EN} original questions across all primary-school subjects, with stars, exams and diplomas.` },
       provider: { '@type': 'Organization', name: 'WiseBot Academy', url: BASE_URL },
       audience: { '@type': 'EducationalAudience', educationalRole: 'student', suggestedMinAge: 6, suggestedMaxAge: 12 },
       educationalLevel: 'Primary School',
@@ -93,9 +93,9 @@ const PAGE_META: Record<string, PageMeta> = {
       hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online' },
     },
     faq: [
-      { q: { el: 'Ποιες τάξεις καλύπτει το Σχολείο;', en: 'Which grades does the School cover?' }, a: { el: `Όλες τις τάξεις του Δημοτικού, Α' έως ΣΤ', με ${SCHOOL_MISSION_COUNT} αποστολές οργανωμένες ανά μάθημα σύμφωνα με τα Προγράμματα Σπουδών.`, en: `All primary-school grades, 1 through 6, with ${SCHOOL_MISSION_COUNT} missions organized per subject following the Greek national curriculum.` } },
+      { q: { el: 'Ποιες τάξεις καλύπτει το Σχολείο;', en: 'Which grades does the School cover?' }, a: { el: `Όλες τις τάξεις του Δημοτικού, Α' έως ΣΤ', με ${SCHOOL_MISSION_COUNT} αποστολές οργανωμένες ανά μάθημα σύμφωνα με τα Προγράμματα Σπουδών.`, en: `All primary-school grades, 1 through 6, with ${SCHOOL_MISSION_COUNT_EN} missions organized per subject following the Greek national curriculum.` } },
       { q: { el: 'Είναι δωρεάν;', en: 'Is it free?' }, a: { el: 'Ναι, το Σχολείο είναι εντελώς δωρεάν. Κάθε αποστολή δίνει 0–3 αστέρια και XP· με Master σε όλα τα μαθήματα ξεκλειδώνει το διαγώνισμα της τάξης και το απολυτήριο.', en: 'Yes, the School is completely free. Every mission gives 0-3 stars and XP; Master in all subjects unlocks the grade exam and the diploma.' } },
-      { q: { el: 'Οι ερωτήσεις είναι από τα σχολικά βιβλία;', en: 'Are the questions taken from schoolbooks?' }, a: { el: `Όχι — και οι ${SCHOOL_QUESTION_COUNT} ερωτήσεις είναι πρωτότυπες, γραμμένες πάνω στη δομή της ύλης, με εξήγηση σε κάθε απάντηση, στα Ελληνικά και τα Αγγλικά.`, en: `No — all ${SCHOOL_QUESTION_COUNT} questions are original, written on the structure of the curriculum, with an explanation on every answer, in Greek and English.` } },
+      { q: { el: 'Οι ερωτήσεις είναι από τα σχολικά βιβλία;', en: 'Are the questions taken from schoolbooks?' }, a: { el: `Όχι — και οι ${SCHOOL_QUESTION_COUNT} ερωτήσεις είναι πρωτότυπες, γραμμένες πάνω στη δομή της ύλης, με εξήγηση σε κάθε απάντηση, στα Ελληνικά και τα Αγγλικά.`, en: `No — all ${SCHOOL_QUESTION_COUNT_EN} questions are original, written on the structure of the curriculum, with an explanation on every answer, in Greek and English.` } },
     ],
   },
   ebooks: {
