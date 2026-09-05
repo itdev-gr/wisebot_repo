@@ -16,7 +16,7 @@ export const CITY: ExploreCity = {
   center: { lat: 38.7100, lng: -9.1400 },
   zoom: 13,
   intro: {
-    el: 'Γεια σας, εξερευνητές! Είμαι ο WiseBot, η σοφή κουκουβάγια, και σας καλωσορίζω στη Λισαβόνα, την πόλη με τους επτά λόφους! Εδώ μικρά κίτρινα τραμ σκαρφαλώνουν στους στενούς δρόμους, και από αυτό το ποτάμι ξεκίνησαν πριν από περισσότερα από 500 χρόνια οι μεγάλοι θαλασσοπόροι για να γνωρίσουν τον κόσμο. Λύστε τους γρίφους μου, βρείτε τα δέκα μυστικά σημεία και γίνετε κι εσείς εξερευνητές της Λισαβόνας!',
+    el: 'Γεια σας, εξερευνητές! Είμαι η WiseBot, η σοφή κουκουβάγια, και σας καλωσορίζω στη Λισαβόνα, την πόλη με τους επτά λόφους! Εδώ μικρά κίτρινα τραμ σκαρφαλώνουν στους στενούς δρόμους, και από αυτό το ποτάμι ξεκίνησαν πριν από περισσότερα από 500 χρόνια οι μεγάλοι θαλασσοπόροι για να γνωρίσουν τον κόσμο. Λύστε τους γρίφους μου, βρείτε τα δέκα μυστικά σημεία και γίνετε κι εσείς εξερευνητές της Λισαβόνας!',
     en: 'Hello, explorers! I am WiseBot the wise owl, and I welcome you to Lisbon, the city of seven hills! Here little yellow trams climb the narrow streets, and from this river the great sailors set off more than 500 years ago to explore the world. Solve my riddles, find the ten secret spots and become Lisbon explorers yourselves!',
   },
   route: [
