@@ -15,11 +15,15 @@ import { GRADE3_ENGLISH_MY_HOME } from './english-my-home';
 import { GRADE3_ENGLISH_TOYS_AND_PLACES } from './english-toys-and-places';
 import { GRADE3_ENGLISH_WEATHER_AND_CLOTHES } from './english-weather-and-clothes';
 import { GRADE3_GREEK_ADJECTIVES } from './greek-adjectives';
+import { GRADE3_GREEK_ADVERBS } from './greek-adverbs';
 import { GRADE3_GREEK_NOUNS_ARTICLES } from './greek-nouns-articles';
+import { GRADE3_GREEK_PRONOUNS } from './greek-pronouns';
 import { GRADE3_GREEK_PUNCTUATION } from './greek-punctuation';
 import { GRADE3_GREEK_READING_WRITING } from './greek-reading-writing';
 import { GRADE3_GREEK_SPELLING_ACCENT } from './greek-spelling-accent';
+import { GRADE3_GREEK_SUBJECT_VERB_OBJECT } from './greek-subject-verb-object';
 import { GRADE3_GREEK_SYLLABIFICATION } from './greek-syllabification';
+import { GRADE3_GREEK_SYNONYMS_ANTONYMS_HOMONYMS } from './greek-synonyms-antonyms-homonyms';
 import { GRADE3_GREEK_VERBS_TENSES } from './greek-verbs-tenses';
 import { GRADE3_HISTORY_ARGONAUTS } from './history-argonauts';
 import { GRADE3_HISTORY_CREATION_OF_THE_WORLD } from './history-creation-of-the-world';
@@ -29,12 +33,16 @@ import { GRADE3_HISTORY_PREHISTORIC_CIVILIZATIONS } from './history-prehistoric-
 import { GRADE3_HISTORY_THESEUS } from './history-theseus';
 import { GRADE3_HISTORY_TROJAN_WAR } from './history-trojan-war';
 import { GRADE3_MATH_ADD_SUBTRACT } from './math-add-subtract';
+import { GRADE3_MATH_DATA_AND_BAR_CHARTS } from './math-data-and-bar-charts';
 import { GRADE3_MATH_DECIMALS } from './math-decimals';
 import { GRADE3_MATH_DIVISION } from './math-division';
 import { GRADE3_MATH_FRACTIONS } from './math-fractions';
 import { GRADE3_MATH_MEASURE_GEOMETRY } from './math-measure-geometry';
 import { GRADE3_MATH_MULTIPLICATION } from './math-multiplication';
 import { GRADE3_MATH_NUMBERS_1000 } from './math-numbers-1000';
+import { GRADE3_MATH_PATTERNS_AND_MISSING_NUMBERS } from './math-patterns-and-missing-numbers';
+import { GRADE3_MATH_TIME_AND_MONEY } from './math-time-and-money';
+import { GRADE3_MATH_WORD_PROBLEM_STRATEGIES } from './math-word-problem-strategies';
 import { GRADE3_SCIENCE_ANIMALS } from './science-animals';
 import { GRADE3_SCIENCE_CULTURE_COMMUNICATION } from './science-culture-communication';
 import { GRADE3_SCIENCE_FOOD_ENERGY_NEEDS } from './science-food-energy-needs';
@@ -59,11 +67,15 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '3/english/toys-and-places': GRADE3_ENGLISH_TOYS_AND_PLACES,
   '3/english/weather-and-clothes': GRADE3_ENGLISH_WEATHER_AND_CLOTHES,
   '3/greek/adjectives': GRADE3_GREEK_ADJECTIVES,
+  '3/greek/adverbs': GRADE3_GREEK_ADVERBS,
   '3/greek/nouns-articles': GRADE3_GREEK_NOUNS_ARTICLES,
+  '3/greek/pronouns': GRADE3_GREEK_PRONOUNS,
   '3/greek/punctuation': GRADE3_GREEK_PUNCTUATION,
   '3/greek/reading-writing': GRADE3_GREEK_READING_WRITING,
   '3/greek/spelling-accent': GRADE3_GREEK_SPELLING_ACCENT,
+  '3/greek/subject-verb-object': GRADE3_GREEK_SUBJECT_VERB_OBJECT,
   '3/greek/syllabification': GRADE3_GREEK_SYLLABIFICATION,
+  '3/greek/synonyms-antonyms-homonyms': GRADE3_GREEK_SYNONYMS_ANTONYMS_HOMONYMS,
   '3/greek/verbs-tenses': GRADE3_GREEK_VERBS_TENSES,
   '3/history/argonauts': GRADE3_HISTORY_ARGONAUTS,
   '3/history/creation-of-the-world': GRADE3_HISTORY_CREATION_OF_THE_WORLD,
@@ -73,12 +85,16 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '3/history/theseus': GRADE3_HISTORY_THESEUS,
   '3/history/trojan-war': GRADE3_HISTORY_TROJAN_WAR,
   '3/math/add-subtract': GRADE3_MATH_ADD_SUBTRACT,
+  '3/math/data-and-bar-charts': GRADE3_MATH_DATA_AND_BAR_CHARTS,
   '3/math/decimals': GRADE3_MATH_DECIMALS,
   '3/math/division': GRADE3_MATH_DIVISION,
   '3/math/fractions': GRADE3_MATH_FRACTIONS,
   '3/math/measure-geometry': GRADE3_MATH_MEASURE_GEOMETRY,
   '3/math/multiplication': GRADE3_MATH_MULTIPLICATION,
   '3/math/numbers-1000': GRADE3_MATH_NUMBERS_1000,
+  '3/math/patterns-and-missing-numbers': GRADE3_MATH_PATTERNS_AND_MISSING_NUMBERS,
+  '3/math/time-and-money': GRADE3_MATH_TIME_AND_MONEY,
+  '3/math/word-problem-strategies': GRADE3_MATH_WORD_PROBLEM_STRATEGIES,
   '3/science/animals': GRADE3_SCIENCE_ANIMALS,
   '3/science/culture-communication': GRADE3_SCIENCE_CULTURE_COMMUNICATION,
   '3/science/food-energy-needs': GRADE3_SCIENCE_FOOD_ENERGY_NEEDS,

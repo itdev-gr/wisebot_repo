@@ -90,6 +90,21 @@ it. This is both the safe path and the better product.
 
 Never paste textbook text into a data file "temporarily".
 
+## STATUS 4 Σεπτεμβρίου 2026 — 302 units, two languages
+
+- **All six grades complete** at 7 units per subject (212 units, 3,816 questions) since late
+  August; the flat pools are gone from the UI.
+- **Μαθηματικά and Γλώσσα enriched to 11 units per grade** (+48 units, +864 questions) —
+  chapters of the Πρόγραμμα Σπουδών the first skeleton had skipped. Ιστορία, Μελέτη/Φυσικά,
+  Γεωγραφία and Αγγλικά (EFL) are still at 7 per grade — same recipe applies.
+- **English edition**: a new `ela` subject (English Language Arts, 42 units, 756 questions)
+  replaces EFL Αγγλικά when the app language is English (`SUBJECT_LOCALES` in
+  `curriculum.ts`). Totals per edition: Greek 260 units / 4,680 questions; English 257 / 4,626.
+- **Batch recipe that worked** (3 sessions, ~1,600 questions): one agent per grade with the
+  unit list + `math-multiplication.ts` as the bar, `scratchpad/check-unit.mjs` for structure,
+  a separate arithmetic re-check script for maths, then `school-units.mjs registry` + `audit`
+  + `vitest`. Every maths answer key was recomputed independently before merge.
+
 ## STATUS 24 Αυγούστου 2026 — what exists now
 
 - **Unit skeleton for all six grades** in `data/units/curriculum.ts` (212 units) — from the

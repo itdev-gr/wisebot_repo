@@ -10,10 +10,10 @@
 // SUBJECT_LOCALES in data/units/curriculum.ts. Every other subject is in both.
 export const ACADEMY_STORY_COUNT = 113;
 export const BOOK_COUNT = 34;
-export const SCHOOL_MISSION_COUNT = 212;   // written units the Greek edition shows (registry UNIT_COUNTS minus `ela`)
-export const SCHOOL_QUESTION_COUNT = 3816; // sum of those units' questions
-export const SCHOOL_MISSION_COUNT_EN = 209;   // the English edition: minus EFL `english`, plus `ela`
-export const SCHOOL_QUESTION_COUNT_EN = 3762;
+export const SCHOOL_MISSION_COUNT = 260;   // written units the Greek edition shows (registry UNIT_COUNTS minus `ela`)
+export const SCHOOL_QUESTION_COUNT = 4680; // sum of those units' questions
+export const SCHOOL_MISSION_COUNT_EN = 257;   // the English edition: minus EFL `english`, plus `ela`
+export const SCHOOL_QUESTION_COUNT_EN = 4626;
 
 /** The pair the active language should quote. */
 export const schoolCounts = (lang: 'el' | 'en') =>

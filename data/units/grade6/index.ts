@@ -21,10 +21,14 @@ import { GRADE6_GEOGRAPHY_EARTH_IN_SPACE } from './geography-earth-in-space';
 import { GRADE6_GEOGRAPHY_EUROPE } from './geography-europe';
 import { GRADE6_GEOGRAPHY_PEOPLE_OF_THE_WORLD } from './geography-people-of-the-world';
 import { GRADE6_GEOGRAPHY_WORLD_MOUNTAINS_RIVERS } from './geography-world-mountains-rivers';
+import { GRADE6_GREEK_ARGUMENTATION } from './greek-argumentation';
+import { GRADE6_GREEK_ETYMOLOGY_AND_LEARNED_WORDS } from './greek-etymology-and-learned-words';
 import { GRADE6_GREEK_NOUN_PHRASE } from './greek-noun-phrase';
+import { GRADE6_GREEK_PASSIVE_SYNTAX } from './greek-passive-syntax';
 import { GRADE6_GREEK_READING_CRITICAL } from './greek-reading-critical';
 import { GRADE6_GREEK_SPEECH_AND_STYLE } from './greek-speech-and-style';
 import { GRADE6_GREEK_SPELLING_MASTERY } from './greek-spelling-mastery';
+import { GRADE6_GREEK_SUBORDINATE_CLAUSES } from './greek-subordinate-clauses';
 import { GRADE6_GREEK_SYNTAX_CLAUSES } from './greek-syntax-clauses';
 import { GRADE6_GREEK_VERB_SYSTEM } from './greek-verb-system';
 import { GRADE6_GREEK_WORD_FORMATION } from './greek-word-formation';
@@ -35,13 +39,17 @@ import { GRADE6_HISTORY_MISSOLONGHI_TO_INDEPENDENCE } from './history-missolongh
 import { GRADE6_HISTORY_OTTOMAN_RULE } from './history-ottoman-rule';
 import { GRADE6_HISTORY_REVOLUTION_1821 } from './history-revolution-1821';
 import { GRADE6_HISTORY_WWII_TO_EUROPE } from './history-wwii-to-europe';
+import { GRADE6_MATH_CIRCLE_LENGTH_AND_AREA } from './math-circle-length-and-area';
 import { GRADE6_MATH_DATA_AND_GRAPHS } from './math-data-and-graphs';
 import { GRADE6_MATH_EQUATIONS } from './math-equations';
 import { GRADE6_MATH_FRACTIONS_ADVANCED } from './math-fractions-advanced';
 import { GRADE6_MATH_GEOMETRY_AREA_VOLUME } from './math-geometry-area-volume';
 import { GRADE6_MATH_MEASUREMENT_PATTERNS } from './math-measurement-patterns';
 import { GRADE6_MATH_NUMBERS_AND_OPERATIONS } from './math-numbers-and-operations';
+import { GRADE6_MATH_POWERS_AND_ROOTS } from './math-powers-and-roots';
+import { GRADE6_MATH_PRIMES_GCD_LCM } from './math-primes-gcd-lcm';
 import { GRADE6_MATH_RATIO_PROPORTION_PERCENT } from './math-ratio-proportion-percent';
+import { GRADE6_MATH_SCALE_AND_MAPS } from './math-scale-and-maps';
 import { GRADE6_SCIENCE_ACIDS_BASES_MICROBES } from './science-acids-bases-microbes';
 import { GRADE6_SCIENCE_BODY_SYSTEMS } from './science-body-systems';
 import { GRADE6_SCIENCE_ECOSYSTEMS } from './science-ecosystems';
@@ -72,10 +80,14 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '6/geography/europe': GRADE6_GEOGRAPHY_EUROPE,
   '6/geography/people-of-the-world': GRADE6_GEOGRAPHY_PEOPLE_OF_THE_WORLD,
   '6/geography/world-mountains-rivers': GRADE6_GEOGRAPHY_WORLD_MOUNTAINS_RIVERS,
+  '6/greek/argumentation': GRADE6_GREEK_ARGUMENTATION,
+  '6/greek/etymology-and-learned-words': GRADE6_GREEK_ETYMOLOGY_AND_LEARNED_WORDS,
   '6/greek/noun-phrase': GRADE6_GREEK_NOUN_PHRASE,
+  '6/greek/passive-syntax': GRADE6_GREEK_PASSIVE_SYNTAX,
   '6/greek/reading-critical': GRADE6_GREEK_READING_CRITICAL,
   '6/greek/speech-and-style': GRADE6_GREEK_SPEECH_AND_STYLE,
   '6/greek/spelling-mastery': GRADE6_GREEK_SPELLING_MASTERY,
+  '6/greek/subordinate-clauses': GRADE6_GREEK_SUBORDINATE_CLAUSES,
   '6/greek/syntax-clauses': GRADE6_GREEK_SYNTAX_CLAUSES,
   '6/greek/verb-system': GRADE6_GREEK_VERB_SYSTEM,
   '6/greek/word-formation': GRADE6_GREEK_WORD_FORMATION,
@@ -86,13 +98,17 @@ export const QUESTIONS: Record<string, QuizQuestion[]> = {
   '6/history/ottoman-rule': GRADE6_HISTORY_OTTOMAN_RULE,
   '6/history/revolution-1821': GRADE6_HISTORY_REVOLUTION_1821,
   '6/history/wwii-to-europe': GRADE6_HISTORY_WWII_TO_EUROPE,
+  '6/math/circle-length-and-area': GRADE6_MATH_CIRCLE_LENGTH_AND_AREA,
   '6/math/data-and-graphs': GRADE6_MATH_DATA_AND_GRAPHS,
   '6/math/equations': GRADE6_MATH_EQUATIONS,
   '6/math/fractions-advanced': GRADE6_MATH_FRACTIONS_ADVANCED,
   '6/math/geometry-area-volume': GRADE6_MATH_GEOMETRY_AREA_VOLUME,
   '6/math/measurement-patterns': GRADE6_MATH_MEASUREMENT_PATTERNS,
   '6/math/numbers-and-operations': GRADE6_MATH_NUMBERS_AND_OPERATIONS,
+  '6/math/powers-and-roots': GRADE6_MATH_POWERS_AND_ROOTS,
+  '6/math/primes-gcd-lcm': GRADE6_MATH_PRIMES_GCD_LCM,
   '6/math/ratio-proportion-percent': GRADE6_MATH_RATIO_PROPORTION_PERCENT,
+  '6/math/scale-and-maps': GRADE6_MATH_SCALE_AND_MAPS,
   '6/science/acids-bases-microbes': GRADE6_SCIENCE_ACIDS_BASES_MICROBES,
   '6/science/body-systems': GRADE6_SCIENCE_BODY_SYSTEMS,
   '6/science/ecosystems': GRADE6_SCIENCE_ECOSYSTEMS,
