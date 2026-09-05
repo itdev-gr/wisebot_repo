@@ -5,6 +5,21 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 5 Σεπτεμβρίου 2026 (δ) — Διαβατήριο Εξερευνητή (`/explore/passport`)
+
+Ιδέα ιδιοκτήτη: «ηλεκτρονικό διαβατήριο σαν το αληθινό — πρώτη σελίδα η χώρα του
+παιδιού, μια σελίδα ανά χώρα, σφραγίδες». `components/TravelPassport.tsx` (βιβλιαράκι:
+εξώφυλλο → ταυτότητα → σελίδα ανά χώρα → ευρετήριο, flip με swipe/βελάκια/πληκτρολόγιο,
+λωρίδα σημαιών για άλμα) + `data/explore/passport.ts` (buildPassport, cityStamp,
+HOME_COUNTRIES, passportNumber/issuedAt) + `data/explore/passport.test.ts`.
+Η ημερομηνία κάθε σφραγίδας πόλης είναι πραγματική: το `at` του N-οστού φακέλου που
+μετράει (N = cityBadgeNeed) — δεν χρειάστηκε backfill. Η χώρα-σπίτι (`wb_home_country`)
+επιλέγεται μία φορά από HOME_COUNTRIES (κάθε χώρα Explorer + διασπορά/αγγλόφωνες)·
+χώρα-σπίτι χωρίς πόλεις παίρνει σελίδα «έρχεται σύντομα». Άδειες σφραγίδες → link
+`/explore?city=<id>` (ο Explorer διαβάζει πλέον `?city=`). Είσοδοι: κουμπί «Το
+Διαβατήριό μου» στον picker του Explorer, link στο Maker Passport. Το `/passport`
+παραμένει το Maker Passport (XP/portfolio) — άλλο πράγμα.
+
 ## ⚡ STATUS 5 Σεπτεμβρίου 2026 (γ) — Explorer: +5 χώρες, 18 πόλεις / 17 χώρες
 
 Λευκωσία (CY — για τα ελληνοκυπριόπουλα, η διχοτόμηση ήρεμα και ελπιδοφόρα), Ντουμπρόβνικ

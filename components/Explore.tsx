@@ -17,6 +17,7 @@
  * working on the street without data.
  */
 import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
 import { ArrowLeft, Compass, Lock, MapPin, Navigation, Star, Award, Eye, EyeOff, Check, HelpCircle, Sparkles } from 'lucide-react';
 import type * as Leaflet from 'leaflet';
@@ -48,7 +49,7 @@ const T = {
     quiz: 'Παίξε το quiz', quizAgain: 'Ξαναπαίξε το quiz', check: 'Έλεγχος', next: 'Συνέχεια', stamp: 'Σφραγίδα στο διαβατήριο!',
     badge: (city: string) => `Εξερευνητής ${city}!`, badgeHint: (n: number) => `Άνοιξε και παίξε ${n} σημεία για το σήμα της πόλης`,
     progress: (a: number, b: number) => `${a}/${b} φάκελοι ανοιχτοί`, loading: 'ΦΟΡΤΩΣΗ…', mapFallback: 'Ο χάρτης δεν φόρτωσε (χωρίς σύνδεση;). Η διαδρομή από κάτω δουλεύει κανονικά.',
-    stars: 'αστέρια', comingSoon: '18 πόλεις σε 17 χώρες — κι άλλες έρχονται.', attribution: 'Χάρτης: OpenStreetMap',
+    stars: 'αστέρια', comingSoon: '18 πόλεις σε 17 χώρες — κι άλλες έρχονται.', passport: 'Το Διαβατήριό μου', attribution: 'Χάρτης: OpenStreetMap',
   },
   en: {
     title: 'EXPLORER', subtitle: 'A TREASURE HUNT IN THE CITY', pick: 'Pick a city', spots: 'spots', back: 'BACK',
@@ -63,7 +64,7 @@ const T = {
     quiz: 'Play the quiz', quizAgain: 'Play the quiz again', check: 'Check', next: 'Continue', stamp: 'A stamp in your passport!',
     badge: (city: string) => `${city} Explorer!`, badgeHint: (n: number) => `Open and play ${n} spots for the city badge`,
     progress: (a: number, b: number) => `${a}/${b} envelopes open`, loading: 'LOADING…', mapFallback: 'The map did not load (offline?). The trail below works as usual.',
-    stars: 'stars', comingSoon: '18 cities in 17 countries — more on the way.', attribution: 'Map: OpenStreetMap',
+    stars: 'stars', comingSoon: '18 cities in 17 countries — more on the way.', passport: 'My Passport', attribution: 'Map: OpenStreetMap',
   },
 };
 
@@ -188,7 +189,9 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect }: {
 export default function Explore({ lang }: { lang: Lang }) {
   const t = T[lang];
   const childName = useChildName(lang);
-  const [cityId, setCityId] = useState<string | null>(null);
+  const [params] = useSearchParams();
+  // `/explore?city=<id>` — the Passport's empty stamps land straight on that city.
+  const [cityId, setCityId] = useState<string | null>(() => { const q = params.get('city'); return q && CITY_META.some(c => c.id === q) ? q : null; });
   const [city, setCity] = useState<ExploreCity | null>(null);
   const [progress, setProgress] = useState<CityProgress>({ opened: {}, onSite: {} });
   const [selected, setSelected] = useState<string | null>(null);
@@ -263,6 +266,9 @@ export default function Explore({ lang }: { lang: Lang }) {
             EXPL<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">ORER</span>
           </h1>
           <p className="mt-3 text-white/50 font-bold text-sm">{t.pick}</p>
+          <Link to="/explore/passport" className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-[#15254a] border border-[#d9b65c]/50 text-[#d9b65c] text-[11px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-transform shadow-lg">
+            <span role="img" aria-hidden>📘</span> {t.passport}
+          </Link>
         </div>
         {(() => {
           const countries = [...new Set(CITY_META.map(c => c.countryCode))].filter(countryBadgeEarned);

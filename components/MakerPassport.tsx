@@ -219,7 +219,12 @@ const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
       {/* ── EXPLORER STAMPS — one per city badge, one per country ── */}
       {explorer.spotsOpened > 0 && (
         <section className="mt-10">
-          <h2 className="text-sm font-black text-white/50 uppercase tracking-[0.25em] mb-4">{lang === 'el' ? 'Explorer — Σφραγίδες' : 'Explorer — Stamps'}</h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-black text-white/50 uppercase tracking-[0.25em]">{lang === 'el' ? 'Explorer — Σφραγίδες' : 'Explorer — Stamps'}</h2>
+            <Link to="/explore/passport" className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-amber-300 hover:text-amber-200">
+              <span role="img" aria-hidden>📘</span> {lang === 'el' ? 'Άνοιξε το Διαβατήριο' : 'Open the Passport'} <ChevronRight size={12} />
+            </Link>
+          </div>
           <div className="grid grid-cols-3 gap-3">
             <StatCard icon={<span className="text-2xl" role="img" aria-hidden>🗺️</span>} value={explorer.spotsOpened} label={lang === 'el' ? 'Φάκελοι' : 'Envelopes'} accent="bg-amber-500/15 border border-amber-500/20" />
             <StatCard icon={<Star size={22} className="text-yellow-300" />} value={explorer.stars} label={lang === 'el' ? 'Αστέρια' : 'Stars'} accent="bg-yellow-500/15 border border-yellow-500/20" />
