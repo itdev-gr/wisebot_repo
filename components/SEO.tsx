@@ -300,6 +300,21 @@ const PAGE_META: Record<string, PageMeta> = {
     },
     path: '/market',
   },
+  explorePassport: {
+    title: {
+      el: 'Διαβατήριο Εξερευνητή — Σφραγίδες από 18 Πόλεις της Ευρώπης | WiseBot Academy',
+      en: 'Explorer Passport — Stamps from 18 European Cities | WiseBot Academy',
+    },
+    description: {
+      el: 'Το ηλεκτρονικό διαβατήριο του παιδιού: η χώρα του στην πρώτη σελίδα, μια σελίδα για κάθε χώρα και μια σφραγίδα μελάνης για κάθε πόλη που εξερεύνησε με τον WiseBot Explorer.',
+      en: 'The child\'s own passport: their country on the first page, a page for every country and an ink stamp for every city explored with WiseBot Explorer.',
+    },
+    keywords: {
+      el: 'διαβατήριο παιδιού, σφραγίδες πόλεων, ταξίδι με παιδιά Ευρώπη, WiseBot Explorer διαβατήριο',
+      en: 'kids travel passport, city stamps, family travel Europe, WiseBot Explorer passport',
+    },
+    path: '/explore/passport',
+  },
   explore: {
     title: {
       el: 'WiseBot Explorer — Κυνήγι Θησαυρού σε 18 Πόλεις της Ευρώπης για Οικογένειες | WiseBot Academy',

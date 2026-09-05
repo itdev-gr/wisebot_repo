@@ -31,6 +31,7 @@ const Academy = React.lazy(() => import('./components/Academy'));
 const Ebooks = React.lazy(() => import('./components/Ebooks'));
 const School = React.lazy(() => import('./components/School'));
 const Explore = React.lazy(() => import('./components/Explore'));
+const TravelPassport = React.lazy(() => import('./components/TravelPassport'));
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
 const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
 const Account = React.lazy(() => import('./components/Account'));
@@ -553,6 +554,7 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /><InternalLinks lang={lang} currentPage="quiz" /></SemiPublicRoute>} />
             <Route path="/school" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="school" /><School lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="school" /></SemiPublicRoute>} />
             <Route path="/explore" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="explore" /><Explore lang={lang} /><InternalLinks lang={lang} currentPage="explore" /></SemiPublicRoute>} />
+            <Route path="/explore/passport" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="explorePassport" /><TravelPassport lang={lang} /></SemiPublicRoute>} />
             <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><UnlockGate feature="cinema" lang={lang}><Cinema lang={lang} myHeroes={myHeroes} /></UnlockGate><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
             <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><UnlockGate feature="factory" lang={lang}><HeroFactory lang={lang} addHero={addHero} /></UnlockGate><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
             <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><UnlockGate feature="3d" lang={lang}><ThreeDFactory lang={lang} /></UnlockGate><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />
