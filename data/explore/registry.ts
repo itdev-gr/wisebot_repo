@@ -10,11 +10,13 @@ import type { ExploreCity, ExploreCityMeta } from './types';
 export const CITY_META: ExploreCityMeta[] = [
   { id: 'athens', name: { el: 'Αθήνα', en: 'Athens' }, country: { el: 'Ελλάδα', en: 'Greece' }, countryCode: 'GR', emoji: '🏛️', spotCount: 10 },
   { id: 'lisbon', name: { el: 'Λισαβόνα', en: 'Lisbon' }, country: { el: 'Πορτογαλία', en: 'Portugal' }, countryCode: 'PT', emoji: '🚋', spotCount: 10 },
+  { id: 'porto', name: { el: 'Πόρτο', en: 'Porto' }, country: { el: 'Πορτογαλία', en: 'Portugal' }, countryCode: 'PT', emoji: '🌉', spotCount: 10 },
 ];
 
 const loaders: Record<string, () => Promise<{ CITY: ExploreCity }>> = {
   athens: () => import('./cities/athens'),
   lisbon: () => import('./cities/lisbon'),
+  porto: () => import('./cities/porto'),
 };
 
 const cache: Record<string, Promise<ExploreCity>> = {};

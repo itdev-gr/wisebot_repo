@@ -5,7 +5,11 @@ MacBook had no toolchain and no local project context.
 
 ---
 
-## ⚡ STATUS 5 Σεπτεμβρίου 2026 — WiseBot Explorer: κυνήγι θησαυρού στην πόλη (Αθήνα + Λισαβόνα)
+## ⚡ STATUS 5 Σεπτεμβρίου 2026 — WiseBot Explorer: κυνήγι θησαυρού στην πόλη (Αθήνα, Λισαβόνα, Πόρτο)
+
+Σφραγίδες: `data/explore/progress.ts` (readProgress, spotQuizId, cityBadgeEarned N−2,
+countryBadgeEarned = όλες οι πόλεις της χώρας, explorerSummary) → ενότητα «Explorer —
+Σφραγίδες» στο `/passport` (MakerPassport) + banner «ΝΕΟ» στο Dashboard + item στο μενού.
 
 **Ιδέα ιδιοκτήτη (5/9, από Πορτογαλία):** οικογενειακό challenge ανά ευρωπαϊκή πόλη —
 χάρτης, 8–10 σημεία, αινίγματα, ιστορία, quiz, «να ψάχνουν σαν θησαυρό, όχι να

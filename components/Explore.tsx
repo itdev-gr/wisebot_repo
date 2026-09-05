@@ -26,37 +26,13 @@ import FirstTimeTip, { useChildName } from './FirstTimeTip';
 import { useBackCloses } from '../utils/useBackCloses';
 import { CITY_META, loadCity, flagEmoji } from '../data/explore/registry';
 import type { ExploreCity, ExploreSpot, ObservationTask } from '../data/explore/types';
+import { readProgress, writeProgress, spotQuizId, cityBadgeEarned, cityBadgeNeed, countryBadgeEarned, type CityProgress, type Unlock } from '../data/explore/progress';
 import { distanceM, formatDistance, isWithin, locateOnce, watchPosition, type Fix, type GeoError } from '../utils/geo';
 import { shuffleQuestionOptions } from '../utils/shuffleOptions';
 
 const motion = m as any;
 
 type Lang = 'el' | 'en';
-type Unlock = 'gps' | 'riddle';
-
-/** localStorage: which envelopes of a city are open, and how. */
-interface CityProgress { opened: Record<string, { via: Unlock; at: number }>; onSite: Record<string, boolean> }
-const progressKey = (cityId: string) => `wb_explore_${cityId}`;
-const readProgress = (cityId: string): CityProgress => {
-  try {
-    const raw = localStorage.getItem(progressKey(cityId));
-    if (raw) { const p = JSON.parse(raw); return { opened: p.opened || {}, onSite: p.onSite || {} }; }
-  } catch { /* private mode */ }
-  return { opened: {}, onSite: {} };
-};
-const writeProgress = (cityId: string, p: CityProgress) => {
-  try { localStorage.setItem(progressKey(cityId), JSON.stringify(p)); } catch { /* storage full */ }
-};
-
-/** Quiz category id — the same key space as School, so stars/best runs persist and sync. */
-export const spotQuizId = (cityId: string, spotId: string) => `explore-${cityId}-${spotId}`;
-
-/** City badge: opened + quiz played on at least `badgeAt` spots (default all but two). */
-export const cityBadgeEarned = (city: ExploreCity, progress: CityProgress): boolean => {
-  const need = city.badgeAt ?? Math.max(1, city.spots.length - 2);
-  const done = city.spots.filter(s => progress.opened[s.id] && getQuizStars(spotQuizId(city.id, s.id)) >= 1).length;
-  return done >= need;
-};
 
 const T = {
   el: {
@@ -288,10 +264,22 @@ export default function Explore({ lang }: { lang: Lang }) {
           </h1>
           <p className="mt-3 text-white/50 font-bold text-sm">{t.pick}</p>
         </div>
+        {(() => {
+          const countries = [...new Set(CITY_META.map(c => c.countryCode))].filter(countryBadgeEarned);
+          return countries.length ? (
+            <div className="flex flex-wrap justify-center gap-2 mb-5">
+              {countries.map(cc => {
+                const name = CITY_META.find(c => c.countryCode === cc)!.country[lang];
+                return <span key={cc} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/15 border border-amber-500/30 rounded-full text-amber-300 text-[11px] font-black uppercase tracking-widest"><Award size={12} /> {t.badge(name)} {flagEmoji(cc)}</span>;
+              })}
+            </div>
+          ) : null;
+        })()}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {CITY_META.map((c, i) => {
             const p = readProgress(c.id);
             const openCount = Object.keys(p.opened).length;
+            const hasBadge = cityBadgeEarned(c);
             return (
               <motion.button key={c.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.06 }}
                 onClick={() => setCityId(c.id)}
@@ -304,6 +292,7 @@ export default function Explore({ lang }: { lang: Lang }) {
                   <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest mt-1">
                     {c.spotCount} {t.spots}{openCount > 0 && ` · ${t.progress(openCount, c.spotCount)}`}
                   </p>
+                  {hasBadge && <p className="mt-1 inline-flex items-center gap-1 text-amber-300 text-[10px] font-black uppercase tracking-widest"><Award size={11} /> {t.badge(c.name[lang])}</p>}
                 </div>
               </motion.button>
             );
@@ -329,8 +318,8 @@ export default function Explore({ lang }: { lang: Lang }) {
   const spot = spotOf(selected);
   const orderedSpots = city.route.map(id => spotOf(id)).filter((s): s is ExploreSpot => !!s);
   const openCount = orderedSpots.filter(s => progress.opened[s.id]).length;
-  const badge = cityBadgeEarned(city, progress);
-  const badgeNeed = city.badgeAt ?? Math.max(1, city.spots.length - 2);
+  const badge = cityBadgeEarned({ id: city.id, spotCount: city.spots.length }, city.badgeAt);
+  const badgeNeed = cityBadgeNeed(city.spots.length, city.badgeAt);
 
   // ─── SCREEN 4: QUIZ ────────────────────────────────────────────────────
   if (spot && phase === 'quiz') {
