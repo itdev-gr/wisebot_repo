@@ -302,8 +302,8 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   explore: {
     title: {
-      el: 'WiseBot Explorer — Κυνήγι Θησαυρού σε 13 Πόλεις της Ευρώπης για Οικογένειες | WiseBot Academy',
-      en: 'WiseBot Explorer — Family Treasure Hunt in 13 European Cities | WiseBot Academy',
+      el: 'WiseBot Explorer — Κυνήγι Θησαυρού σε 18 Πόλεις της Ευρώπης για Οικογένειες | WiseBot Academy',
+      en: 'WiseBot Explorer — Family Treasure Hunt in 18 European Cities | WiseBot Academy',
     },
     description: {
       el: 'Η πόλη γίνεται χάρτης θησαυρού: Αθήνα, Ρώμη, Παρίσι, Λονδίνο, Βαρκελώνη, Κωνσταντινούπολη και άλλες — 10 σημεία, αινίγματα, ιστορία σε γλώσσα παιδιού και quiz σε κάθε στάση. Επιτόπου με GPS ή από το σπίτι. Γονείς και παιδιά μαθαίνουν μαζί — δωρεάν.',

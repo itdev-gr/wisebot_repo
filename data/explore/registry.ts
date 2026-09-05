@@ -21,6 +21,11 @@ export const CITY_META: ExploreCityMeta[] = [
   { id: 'prague', name: { el: 'Πράγα', en: 'Prague' }, country: { el: 'Τσεχία', en: 'Czechia' }, countryCode: 'CZ', emoji: '🕰️', spotCount: 10 },
   { id: 'budapest', name: { el: 'Βουδαπέστη', en: 'Budapest' }, country: { el: 'Ουγγαρία', en: 'Hungary' }, countryCode: 'HU', emoji: '♨️', spotCount: 10 },
   { id: 'istanbul', name: { el: 'Κωνσταντινούπολη', en: 'Istanbul' }, country: { el: 'Τουρκία', en: 'Türkiye' }, countryCode: 'TR', emoji: '🕌', spotCount: 10 },
+  { id: 'nicosia', name: { el: 'Λευκωσία', en: 'Nicosia' }, country: { el: 'Κύπρος', en: 'Cyprus' }, countryCode: 'CY', emoji: '🌞', spotCount: 10 },
+  { id: 'dubrovnik', name: { el: 'Ντουμπρόβνικ', en: 'Dubrovnik' }, country: { el: 'Κροατία', en: 'Croatia' }, countryCode: 'HR', emoji: '🏰', spotCount: 10 },
+  { id: 'copenhagen', name: { el: 'Κοπεγχάγη', en: 'Copenhagen' }, country: { el: 'Δανία', en: 'Denmark' }, countryCode: 'DK', emoji: '🧜', spotCount: 10 },
+  { id: 'bruges', name: { el: 'Μπριζ', en: 'Bruges' }, country: { el: 'Βέλγιο', en: 'Belgium' }, countryCode: 'BE', emoji: '🦢', spotCount: 10 },
+  { id: 'krakow', name: { el: 'Κρακοβία', en: 'Kraków' }, country: { el: 'Πολωνία', en: 'Poland' }, countryCode: 'PL', emoji: '🐉', spotCount: 10 },
 ];
 
 const loaders: Record<string, () => Promise<{ CITY: ExploreCity }>> = {
@@ -37,6 +42,11 @@ const loaders: Record<string, () => Promise<{ CITY: ExploreCity }>> = {
   prague: () => import('./cities/prague'),
   budapest: () => import('./cities/budapest'),
   istanbul: () => import('./cities/istanbul'),
+  nicosia: () => import('./cities/nicosia'),
+  dubrovnik: () => import('./cities/dubrovnik'),
+  copenhagen: () => import('./cities/copenhagen'),
+  bruges: () => import('./cities/bruges'),
+  krakow: () => import('./cities/krakow'),
 };
 
 const cache: Record<string, Promise<ExploreCity>> = {};
