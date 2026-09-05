@@ -12,14 +12,15 @@
  *   (≥2 stars on every mission) in every subject of the grade
  * - Απολυτήριο (diploma 🎓) per grade for scoring ≥75% on the exam
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useBackCloses } from '../utils/useBackCloses';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { GraduationCap, ArrowLeft, Play, BookMarked, Star, Trophy, Lock } from 'lucide-react';
 import QuizEngine, { getQuizProgress, getQuizStars, getQuizBest } from './QuizEngine';
-import { SCHOOL_CURRICULUM, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
+import { curriculumForLang, type SchoolGrade, type SchoolSubject } from '../data/schoolQuizData';
 import { type SchoolUnit } from '../data/schoolTypes';
 import { loadGradeQuestions } from '../data/units/registry';
+import { subjectVisible } from '../data/units/curriculum';
 import type { QuizQuestion } from '../types';
 import SchoolUnitMap, { playableUnits, unitSize, unitCatId, subjectMastered, subjectStarTotal } from './SchoolUnitMap';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
@@ -112,6 +113,10 @@ const StarRow = ({ stars, size = 13 }: { stars: number; size?: number }) => (
 
 export default function School({ lang }: SchoolProps) {
   const childName = useChildName(lang);
+  // The Greek edition shows Αγγλικά (EFL); the English edition shows English Language Arts
+  // instead (data/units/curriculum.ts SUBJECT_LOCALES). Everything below — picker, exam
+  // unlock, exam pool, progress — works off this language's view of the curriculum.
+  const curriculum = curriculumForLang(lang);
   const [activeGrade, setActiveGrade] = useState<SchoolGrade | null>(null);
   const [activeSubject, setActiveSubject] = useState<SchoolSubject | null>(null);
   const [activeUnit, setActiveUnit] = useState<SchoolUnit | null>(null);
@@ -133,9 +138,9 @@ export default function School({ lang }: SchoolProps) {
   const backFromUnit = useBackCloses(activeUnit !== null, () => { setActiveUnit(null); refreshSaved(); });
 
   // Track which subject quizzes have saved (in-progress) state → "CONTINUE" badge
-  const refreshSaved = () => {
+  const refreshSaved = useCallback(() => {
     const map: Record<string, boolean> = {};
-    SCHOOL_CURRICULUM.forEach(g =>
+    curriculum.forEach(g =>
       g.subjects.forEach(s => {
         if (getQuizProgress(catId(g.grade, s.id))) map[catId(g.grade, s.id)] = true;
         playableUnits(s).forEach(u => {
@@ -146,8 +151,16 @@ export default function School({ lang }: SchoolProps) {
     );
     setSaved(map);
     setTick(t => t + 1);
-  };
-  useEffect(() => { refreshSaved(); }, []);
+  }, [curriculum]);
+  useEffect(() => { refreshSaved(); }, [refreshSaved]);
+  // Switching language mid-visit: keep the same grade, but through the new language's
+  // subject list; a subject that does not exist in that language (EFL ↔ ELA) closes.
+  useEffect(() => {
+    setActiveGrade(g => (g ? curriculum.find(x => x.grade === g.grade) ?? null : g));
+    setActiveSubject(s => (s && !subjectVisible(s.id, lang) ? null : s));
+    setActiveUnit(u => (u && activeSubject && !subjectVisible(activeSubject.id, lang) ? null : u));
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- runs on language change only
+  }, [lang, curriculum]);
 
   const t = {
     title: lang === 'el' ? 'ΣΧΟΛΕΙΟ' : 'SCHOOL',
@@ -373,7 +386,7 @@ export default function School({ lang }: SchoolProps) {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
-        {SCHOOL_CURRICULUM.map((g, i) => {
+        {curriculum.map((g, i) => {
           const missions = g.subjects.reduce((n, sub) => n + playableUnits(sub).length, 0);
           const totalQ = g.subjects.reduce((n, sub) => n + sub.questions.length + playableUnits(sub).reduce((a, u) => a + unitSize(u), 0), 0);
           const doneCount = g.subjects.filter(s => subjectDone(g, s)).length;
