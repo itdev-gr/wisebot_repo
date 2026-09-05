@@ -30,6 +30,8 @@
 	<string>Take a photo to use in your creations.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Choose a photo to use in your creations.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>WiseBot Explorer checks whether you are standing at a treasure-hunt spot. Your location stays on this device and is never stored or sent.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

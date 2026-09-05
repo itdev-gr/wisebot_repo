@@ -4,7 +4,7 @@ import { Character } from './types';
 // --- Translation Dictionary (Moved from App.tsx) ---
 export const UI_TEXT = {
   el: {
-    menu: { home: 'Αρχική', school: 'Σχολείο', dashboard: 'Κέντρο Ελέγχου', academy: 'Ακαδημία', factory: 'Εργαστήριο Ηρώων', factory3d: '3D Εργοστάσιο', market: 'Αγορά Ηρώων', music: 'Στούντιο Μουσικής', business: 'Η Εταιρεία Μου', wiseFriends: 'Wise & Φίλοι', quiz: 'Κουίζ & Δώρα', ebooks: 'Βιβλιοθήκη', game: 'Παιχνίδια', cinema: 'Κινηματογράφος', store: 'Credit Store', parent: 'Γονεϊκός Πίνακας', admin: 'Πίνακας Ελέγχου', account: 'Λογαριασμός', logout: 'Αποσύνδεση' },
+    menu: { home: 'Αρχική', school: 'Σχολείο', explore: 'Explorer', dashboard: 'Κέντρο Ελέγχου', academy: 'Ακαδημία', factory: 'Εργαστήριο Ηρώων', factory3d: '3D Εργοστάσιο', market: 'Αγορά Ηρώων', music: 'Στούντιο Μουσικής', business: 'Η Εταιρεία Μου', wiseFriends: 'Wise & Φίλοι', quiz: 'Κουίζ & Δώρα', ebooks: 'Βιβλιοθήκη', game: 'Παιχνίδια', cinema: 'Κινηματογράφος', store: 'Credit Store', parent: 'Γονεϊκός Πίνακας', admin: 'Πίνακας Ελέγχου', account: 'Λογαριασμός', logout: 'Αποσύνδεση' },
     offline: 'Δεν έχεις internet τώρα. Τα παιχνίδια παίζονται!',
     dashboard: {
       welcome: 'Στρατηγείο',
@@ -64,7 +64,7 @@ export const UI_TEXT = {
     quiz: { title: 'Ζώνη Κουίζ 🧠', subtitle: 'Προκάλεσε τον εαυτό σου και κέρδισε XP!', placeholder: 'π.χ. Διάστημα...', startBtn: 'ΞΕΚΙΝΑ ΤΩΡΑ!' }
   },
   en: {
-    menu: { home: 'Home', school: 'School', dashboard: 'Dashboard', academy: 'Academy', factory: 'Hero Factory', factory3d: '3D Factory', market: 'Hero Market', music: 'Music Studio', business: 'My Business', wiseFriends: 'Wise & Friends', quiz: 'Quiz Zone', ebooks: 'Ebooks', game: 'Wise Games', cinema: 'Cinema', store: 'Credit Store', parent: 'Parent Dashboard', admin: 'Admin Panel', account: 'Account', logout: 'Logout' },
+    menu: { home: 'Home', school: 'School', explore: 'Explorer', dashboard: 'Dashboard', academy: 'Academy', factory: 'Hero Factory', factory3d: '3D Factory', market: 'Hero Market', music: 'Music Studio', business: 'My Business', wiseFriends: 'Wise & Friends', quiz: 'Quiz Zone', ebooks: 'Ebooks', game: 'Wise Games', cinema: 'Cinema', store: 'Credit Store', parent: 'Parent Dashboard', admin: 'Admin Panel', account: 'Account', logout: 'Logout' },
     offline: 'No internet right now. Games still work!',
     dashboard: {
       welcome: 'Headquarters', 

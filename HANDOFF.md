@@ -5,6 +5,38 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 5 Σεπτεμβρίου 2026 — WiseBot Explorer: κυνήγι θησαυρού στην πόλη (Αθήνα + Λισαβόνα)
+
+**Ιδέα ιδιοκτήτη (5/9, από Πορτογαλία):** οικογενειακό challenge ανά ευρωπαϊκή πόλη —
+χάρτης, 8–10 σημεία, αινίγματα, ιστορία, quiz, «να ψάχνουν σαν θησαυρό, όχι να
+αποβλακώνονται». Υλοποίηση `/explore` (`components/Explore.tsx`):
+- **Δεδομένα** static στο repo όπως το Σχολείο: `data/explore/types.ts` (ExploreCity /
+  ExploreSpot), `data/explore/cities/<id>.ts` (lazy chunk ανά πόλη), `data/explore/registry.ts`
+  (CITY_META + loaders). Κάθε σημείο: συντεταγμένες + ακτίνα, αίνιγμα, parentHint,
+  unlockQuestion (λύνεται από το σπίτι), onSite (λύνεται μόνο επιτόπου), story, didYouKnow
+  (για γονείς), 3 quiz ερωτήσεις. Έλεγχος: `scratchpad/check-city.mjs` + `data/explore.test.ts`.
+- **Ροή:** πόλη → χάρτης (Leaflet + OSM tiles, emoji markers, «Πού είμαι;» = GPS watch) →
+  σημείο (κλειδωμένο: αίνιγμα + «Είμαι εδώ!» με GPS ή unlockQuestion· «Για γονείς» κρυφό
+  κουμπί με τη λύση) → ανοιχτός φάκελος (ιστορία, ήξερες ότι, αποστολή παρατήρησης, quiz
+  μέσω QuizEngine με categoryId `explore-<city>-<spot>` ⇒ αστέρια/XP/credits όπως Σχολείο) →
+  σήμα πόλης «Εξερευνητής Αθήνας» στα N−2 σημεία.
+- **GPS/ιδιωτικότητα:** `utils/geo.ts` (haversine, ανοχή ακρίβειας έως 40 μ.). Η θέση δεν
+  αποθηκεύεται/αποστέλλεται. Το `vercel.json` είχε `geolocation=()` (μπλόκαρε τα πάντα) →
+  `geolocation=(self)`. iOS: προστέθηκε `NSLocationWhenInUseUsageDescription` στο Info.plist —
+  **ΘΕΛΕΙ νέο iOS build** για να δουλέψει μέσα στο app (στο web δουλεύει αμέσως). Η App Privacy
+  δήλωση στο ASC πρέπει να προσθέσει Location (not linked, app functionality).
+- **Offline:** τα OSM tiles μπαίνουν σε runtime cache του SW (`map-tiles`, 600 entries, 60
+  μέρες) — άνοιξέ το στο WiFi του ξενοδοχείου, δουλεύει στον δρόμο. Χωρίς tiles ο χάρτης
+  δείχνει μήνυμα και η λίστα «διαδρομή» δουλεύει κανονικά.
+- **Πρόοδος:** localStorage `wb_explore_<city>` (opened/onSite) + τα quiz bests του
+  QuizEngine (συγχρονίζονται ήδη με Supabase όπως του Σχολείου).
+- **Επόμενα:** Πόρτο, Ρώμη, Παρίσι, Βαρκελώνη, Βιέννη, Πράγα, Άμστερνταμ, Λονδίνο, Βερολίνο
+  (ίδια συνταγή: agent ανά πόλη + check-city). Σφραγίδες Explorer στο /passport. OSM tile
+  policy: αν ανέβει η κίνηση, MapTiler key. Feedback από τα παιδιά του ιδιοκτήτη στη Λισαβόνα
+  πριν γράψουμε τις υπόλοιπες πόλεις.
+
+---
+
 ## ⚡ STATUS 4 Σεπτεμβρίου 2026 — English edition μέρος 2: ELA μάθημα + πλήρη αγγλικά quiz
 
 Session από το cloud (Claude Code web), ο ιδιοκτήτης στην Πορτογαλία χωρίς Mac. Όλα

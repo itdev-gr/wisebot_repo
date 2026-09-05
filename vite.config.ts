@@ -59,6 +59,19 @@ export default defineConfig(({ mode }) => {
             // Runtime caching — load on demand, cache after first use
             runtimeCaching: [
               {
+                // Explorer map tiles (OpenStreetMap). A family opens the city on hotel
+                // WiFi, then walks it without data: whatever tiles they looked at stay.
+                // Tiles almost never change, so CacheFirst; 600 entries ≈ two cities at
+                // three zoom levels.
+                urlPattern: /^https:\/\/tile\.openstreetmap\.org\/.*\.png$/,
+                handler: 'CacheFirst',
+                options: {
+                  cacheName: 'map-tiles',
+                  expiration: { maxEntries: 600, maxAgeSeconds: 60 * 24 * 60 * 60 },
+                  cacheableResponse: { statuses: [0, 200] },
+                },
+              },
+              {
                 // Images: load on demand, cache for 30 days
                 urlPattern: /\/images\/.+\.(jpg|webp|png)$/,
                 handler: 'StaleWhileRevalidate',
