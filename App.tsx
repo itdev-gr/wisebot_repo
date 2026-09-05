@@ -30,6 +30,7 @@ const HeroFactory = React.lazy(() => import('./components/HeroFactory'));
 const Academy = React.lazy(() => import('./components/Academy'));
 const Ebooks = React.lazy(() => import('./components/Ebooks'));
 const School = React.lazy(() => import('./components/School'));
+const Explore = React.lazy(() => import('./components/Explore'));
 const Dashboard = React.lazy(() => import('./components/Dashboard'));
 const AdminDashboard = React.lazy(() => import('./components/AdminDashboard'));
 const Account = React.lazy(() => import('./components/Account'));
@@ -66,6 +67,7 @@ const DISCOVER_FEATURES = {
     { to: '/cinema', emoji: '🧊', title: '3D & VIDEO', desc: 'Ζωντάνεψε τους ήρωές σου', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
     { to: '/game', emoji: '🧩', title: 'ΠΑΙΞΕ', desc: 'Quiz, παιχνίδια & προκλήσεις', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
     { to: '/wise-friends', emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
+    { to: '/explore', emoji: '🗺️', title: 'ΕΞΕΡΕΥΝΗΣΕ', desc: 'Κυνήγι θησαυρού στην πόλη', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
   ],
   en: [
     { to: '/academy', emoji: '🧠', title: 'LEARN', desc: `Stories of ${ACADEMY_STORY_COUNT} great people`, color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
@@ -76,6 +78,7 @@ const DISCOVER_FEATURES = {
     { to: '/cinema', emoji: '🧊', title: '3D & VIDEO', desc: 'Bring your heroes to life', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
     { to: '/game', emoji: '🧩', title: 'PLAY', desc: 'Quizzes, games & challenges', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
     { to: '/wise-friends', emoji: '👫', title: 'SHARE', desc: 'Challenge friends & compete', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
+    { to: '/explore', emoji: '🗺️', title: 'EXPLORE', desc: 'A treasure hunt in the city', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
   ],
 };
 
@@ -549,6 +552,7 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/game" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="game" /><GameCenter lang={lang} /><InternalLinks lang={lang} currentPage="game" /></SemiPublicRoute>} />
             <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /><InternalLinks lang={lang} currentPage="quiz" /></SemiPublicRoute>} />
             <Route path="/school" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="school" /><School lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="school" /></SemiPublicRoute>} />
+            <Route path="/explore" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="explore" /><Explore lang={lang} /><InternalLinks lang={lang} currentPage="explore" /></SemiPublicRoute>} />
             <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><UnlockGate feature="cinema" lang={lang}><Cinema lang={lang} myHeroes={myHeroes} /></UnlockGate><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
             <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><UnlockGate feature="factory" lang={lang}><HeroFactory lang={lang} addHero={addHero} /></UnlockGate><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
             <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><UnlockGate feature="3d" lang={lang}><ThreeDFactory lang={lang} /></UnlockGate><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />

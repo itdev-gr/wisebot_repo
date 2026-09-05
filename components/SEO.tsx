@@ -300,6 +300,35 @@ const PAGE_META: Record<string, PageMeta> = {
     },
     path: '/market',
   },
+  explore: {
+    title: {
+      el: 'WiseBot Explorer — Κυνήγι Θησαυρού στην Αθήνα & τη Λισαβόνα για Οικογένειες | WiseBot Academy',
+      en: 'WiseBot Explorer — Family Treasure Hunt in Athens & Lisbon | WiseBot Academy',
+    },
+    description: {
+      el: 'Η πόλη γίνεται χάρτης θησαυρού: 10 σημεία, αινίγματα, ιστορία σε γλώσσα παιδιού και quiz σε κάθε στάση. Παίζεται επιτόπου με GPS ή από το σπίτι. Γονείς και παιδιά μαθαίνουν μαζί — δωρεάν.',
+      en: 'The city becomes a treasure map: 10 spots, riddles, history in a child\'s words and a quiz at every stop. Play on site with GPS or from home. Parents and kids learn together — free.',
+    },
+    keywords: {
+      el: 'κυνήγι θησαυρού Αθήνα παιδιά, ξενάγηση για παιδιά, οικογενειακή βόλτα Αθήνα, Λισαβόνα με παιδιά, εκπαιδευτικό παιχνίδι πόλη, WiseBot Explorer',
+      en: 'treasure hunt Athens kids, Lisbon with kids, family city tour game, educational scavenger hunt, WiseBot Explorer',
+    },
+    path: '/explore',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'Game',
+      name: { el: 'WiseBot Explorer — Κυνήγι Θησαυρού', en: 'WiseBot Explorer — Treasure Hunt' },
+      description: { el: 'Οικογενειακό κυνήγι θησαυρού με αινίγματα, ιστορία και quiz στα μνημεία της πόλης.', en: 'A family treasure hunt with riddles, history and quizzes at the city\'s landmarks.' },
+      genre: 'Educational',
+      audience: { '@type': 'PeopleAudience', suggestedMinAge: 6, suggestedMaxAge: 12 },
+      isAccessibleForFree: true,
+      inLanguage: ['el', 'en'],
+    },
+    faq: [
+      { q: { el: 'Χρειάζεται να είμαστε στην πόλη;', en: 'Do we need to be in the city?' }, a: { el: 'Όχι. Κάθε σημείο ξεκλειδώνει είτε επιτόπου με GPS είτε απαντώντας στο αίνιγμα από το σπίτι — έτσι δουλεύει και ως προετοιμασία πριν το ταξίδι.', en: 'No. Every spot unlocks either on site with GPS or by solving the riddle from home — so it also works as preparation before the trip.' } },
+      { q: { el: 'Αποθηκεύετε τη θέση μας;', en: 'Do you store our location?' }, a: { el: 'Όχι. Η θέση συγκρίνεται με τα σημεία μόνο μέσα στη συσκευή και δεν αποστέλλεται πουθενά.', en: 'No. The position is compared with the spots only on the device and is never sent anywhere.' } },
+    ],
+  },
   legal: {
     title: {
       el: 'Νομικά — Όροι Χρήσης & Πολιτική Απορρήτου | WiseBot Academy',
