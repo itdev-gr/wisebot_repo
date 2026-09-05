@@ -302,16 +302,16 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   explore: {
     title: {
-      el: 'WiseBot Explorer — Κυνήγι Θησαυρού στην Αθήνα & τη Λισαβόνα για Οικογένειες | WiseBot Academy',
-      en: 'WiseBot Explorer — Family Treasure Hunt in Athens & Lisbon | WiseBot Academy',
+      el: 'WiseBot Explorer — Κυνήγι Θησαυρού σε 13 Πόλεις της Ευρώπης για Οικογένειες | WiseBot Academy',
+      en: 'WiseBot Explorer — Family Treasure Hunt in 13 European Cities | WiseBot Academy',
     },
     description: {
-      el: 'Η πόλη γίνεται χάρτης θησαυρού: 10 σημεία, αινίγματα, ιστορία σε γλώσσα παιδιού και quiz σε κάθε στάση. Παίζεται επιτόπου με GPS ή από το σπίτι. Γονείς και παιδιά μαθαίνουν μαζί — δωρεάν.',
-      en: 'The city becomes a treasure map: 10 spots, riddles, history in a child\'s words and a quiz at every stop. Play on site with GPS or from home. Parents and kids learn together — free.',
+      el: 'Η πόλη γίνεται χάρτης θησαυρού: Αθήνα, Ρώμη, Παρίσι, Λονδίνο, Βαρκελώνη, Κωνσταντινούπολη και άλλες — 10 σημεία, αινίγματα, ιστορία σε γλώσσα παιδιού και quiz σε κάθε στάση. Επιτόπου με GPS ή από το σπίτι. Γονείς και παιδιά μαθαίνουν μαζί — δωρεάν.',
+      en: 'The city becomes a treasure map: Athens, Rome, Paris, London, Barcelona, Istanbul and more — 10 spots, riddles, history in a child\'s words and a quiz at every stop. On site with GPS or from home. Parents and kids learn together — free.',
     },
     keywords: {
-      el: 'κυνήγι θησαυρού Αθήνα παιδιά, ξενάγηση για παιδιά, οικογενειακή βόλτα Αθήνα, Λισαβόνα με παιδιά, εκπαιδευτικό παιχνίδι πόλη, WiseBot Explorer',
-      en: 'treasure hunt Athens kids, Lisbon with kids, family city tour game, educational scavenger hunt, WiseBot Explorer',
+      el: 'κυνήγι θησαυρού Αθήνα παιδιά, ξενάγηση για παιδιά, Ρώμη με παιδιά, Παρίσι με παιδιά, Λονδίνο με παιδιά, Κωνσταντινούπολη με παιδιά, οικογενειακό ταξίδι Ευρώπη, εκπαιδευτικό παιχνίδι πόλη, WiseBot Explorer',
+      en: 'treasure hunt Athens kids, Rome with kids, Paris with kids, London with kids, family city tour game, educational scavenger hunt Europe, WiseBot Explorer',
     },
     path: '/explore',
     jsonLd: {

@@ -62,6 +62,18 @@ describe('explorer cities', () => {
         expect(s.riddle.en.toLowerCase(), `${w}: riddle gives the name away`).not.toContain(s.name.en.toLowerCase());
       }
     });
+
+    it(`${meta.id}: WiseBot is «η WiseBot», the wise owl — never masculine in Greek`, async () => {
+      const city = (await loadCity(meta.id)) as ExploreCity;
+      const texts: string[] = [city.intro.el];
+      for (const s of city.spots) {
+        texts.push(s.riddle.el, s.parentHint.el, s.story.el, s.didYouKnow.el,
+          s.unlockQuestion.question.el, s.unlockQuestion.explanation.el, s.onSite.question.el, s.onSite.explanation.el,
+          ...s.quiz.map(q => q.q.el + ' ' + (q.explanation?.el ?? '')));
+      }
+      const masculine = /(^|[^\p{L}])(ο|Ο|τον|Τον|του|Του|έναν|Έναν)\s+WiseBot\b/u;
+      for (const t of texts) expect(t, `${meta.id}: masculine WiseBot in «${t.slice(0, 60)}…»`).not.toMatch(masculine);
+    });
   }
 });
 

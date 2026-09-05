@@ -16,7 +16,7 @@ export const CITY: ExploreCity = {
   center: { lat: 37.975, lng: 23.73 },
   zoom: 14,
   intro: {
-    el: 'Γεια σου, εξερευνητή! Είμαι ο WiseBot και η Αθήνα είναι η πόλη μου: εδώ ζούσαν οι κουκουβάγιες της θεάς Αθηνάς. Έκρυψα δέκα φακέλους σε δέκα μέρη γεμάτα ιστορίες, από τους φρουρούς με τις φούντες στα παπούτσια μέχρι έναν ναό στην κορυφή ενός μεγάλου βράχου. Λύσε τους γρίφους, περπάτα με τους γονείς σου και άνοιξέ τους έναν έναν. Πάμε;',
+    el: 'Γεια σου, εξερευνητή! Είμαι η WiseBot και η Αθήνα είναι η πόλη μου: εδώ ζούσαν οι κουκουβάγιες της θεάς Αθηνάς. Έκρυψα δέκα φακέλους σε δέκα μέρη γεμάτα ιστορίες, από τους φρουρούς με τις φούντες στα παπούτσια μέχρι έναν ναό στην κορυφή ενός μεγάλου βράχου. Λύσε τους γρίφους, περπάτα με τους γονείς σου και άνοιξέ τους έναν έναν. Πάμε;',
     en: 'Hello, explorer! I am WiseBot, and Athens is my city: the owls of the goddess Athena lived right here. I have hidden ten envelopes in ten places full of stories, from the guards with pompoms on their shoes to a temple on top of a great rock. Solve the riddles, walk with your parents, and open them one by one. Ready?',
   },
   route: [
