@@ -73,10 +73,11 @@ describe('geo helpers', () => {
   });
   it('forgives up to 40 m of GPS accuracy on top of the spot radius', () => {
     const spot = { lat: 37.9755, lng: 23.7348 };
-    const here = { lat: 37.9760, lng: 23.7348 }; // ~56 m north
-    expect(isWithin(here, 5, spot, 40)).toBe(false);
-    expect(isWithin(here, 30, spot, 40)).toBe(true);
-    expect(isWithin(here, 500, spot, 40)).toBe(false); // accuracy forgiveness is capped
+    const near = { lat: 37.9760, lng: 23.7348 }; // ~56 m north
+    expect(isWithin(near, 5, spot, 40)).toBe(false);
+    expect(isWithin(near, 30, spot, 40)).toBe(true);
+    const far = { lat: 37.9765, lng: 23.7348 }; // ~111 m north
+    expect(isWithin(far, 500, spot, 40)).toBe(false); // forgiveness is capped at 40 m, so 111 − 40 > 40
   });
   it('formats distances the way a child reads them', () => {
     expect(formatDistance(120, 'el')).toBe('120 μ.');
