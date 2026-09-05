@@ -48,7 +48,7 @@ const T = {
     quiz: 'Παίξε το quiz', quizAgain: 'Ξαναπαίξε το quiz', check: 'Έλεγχος', next: 'Συνέχεια', stamp: 'Σφραγίδα στο διαβατήριο!',
     badge: (city: string) => `Εξερευνητής ${city}!`, badgeHint: (n: number) => `Άνοιξε και παίξε ${n} σημεία για το σήμα της πόλης`,
     progress: (a: number, b: number) => `${a}/${b} φάκελοι ανοιχτοί`, loading: 'ΦΟΡΤΩΣΗ…', mapFallback: 'Ο χάρτης δεν φόρτωσε (χωρίς σύνδεση;). Η διαδρομή από κάτω δουλεύει κανονικά.',
-    stars: 'αστέρια', comingSoon: '13 πόλεις σε 12 χώρες — κι άλλες έρχονται.', attribution: 'Χάρτης: OpenStreetMap',
+    stars: 'αστέρια', comingSoon: '18 πόλεις σε 17 χώρες — κι άλλες έρχονται.', attribution: 'Χάρτης: OpenStreetMap',
   },
   en: {
     title: 'EXPLORER', subtitle: 'A TREASURE HUNT IN THE CITY', pick: 'Pick a city', spots: 'spots', back: 'BACK',
@@ -63,7 +63,7 @@ const T = {
     quiz: 'Play the quiz', quizAgain: 'Play the quiz again', check: 'Check', next: 'Continue', stamp: 'A stamp in your passport!',
     badge: (city: string) => `${city} Explorer!`, badgeHint: (n: number) => `Open and play ${n} spots for the city badge`,
     progress: (a: number, b: number) => `${a}/${b} envelopes open`, loading: 'LOADING…', mapFallback: 'The map did not load (offline?). The trail below works as usual.',
-    stars: 'stars', comingSoon: '13 cities in 12 countries — more on the way.', attribution: 'Map: OpenStreetMap',
+    stars: 'stars', comingSoon: '18 cities in 17 countries — more on the way.', attribution: 'Map: OpenStreetMap',
   },
 };
 

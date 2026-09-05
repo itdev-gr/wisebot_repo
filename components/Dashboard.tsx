@@ -697,7 +697,7 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-black uppercase tracking-widest text-amber-300">{lang === 'el' ? 'ΝΕΟ · ΓΙΑ ΟΛΗ ΤΗΝ ΟΙΚΟΓΕΝΕΙΑ' : 'NEW · FOR THE WHOLE FAMILY'}</p>
           <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none mt-0.5">WiseBot Explorer</h3>
-          <p className="text-white/55 text-xs md:text-sm font-bold mt-1 truncate">{lang === 'el' ? 'Κυνήγι θησαυρού σε 13 πόλεις της Ευρώπης — αινίγματα, ιστορία, quiz.' : 'A treasure hunt in 13 European cities — riddles, history, quizzes.'}</p>
+          <p className="text-white/55 text-xs md:text-sm font-bold mt-1 truncate">{lang === 'el' ? 'Κυνήγι θησαυρού σε 18 πόλεις της Ευρώπης — αινίγματα, ιστορία, quiz.' : 'A treasure hunt in 18 European cities — riddles, history, quizzes.'}</p>
         </div>
         <span className="text-3xl shrink-0" role="img" aria-hidden>🗺️</span>
       </button>
