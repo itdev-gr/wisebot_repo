@@ -51,7 +51,23 @@ const loaders: Record<string, () => Promise<{ CITY: ExploreCity }>> = {
 
 /** "Savor the city" cards — one small file per city, loaded with the city. Cities without one get []. */
 const tasteLoaders: Record<string, () => Promise<{ TASTE: TasteItem[] }>> = {
+  athens: () => import('./taste/athens'),
+  lisbon: () => import('./taste/lisbon'),
   porto: () => import('./taste/porto'),
+  rome: () => import('./taste/rome'),
+  barcelona: () => import('./taste/barcelona'),
+  london: () => import('./taste/london'),
+  berlin: () => import('./taste/berlin'),
+  amsterdam: () => import('./taste/amsterdam'),
+  vienna: () => import('./taste/vienna'),
+  prague: () => import('./taste/prague'),
+  budapest: () => import('./taste/budapest'),
+  istanbul: () => import('./taste/istanbul'),
+  nicosia: () => import('./taste/nicosia'),
+  dubrovnik: () => import('./taste/dubrovnik'),
+  copenhagen: () => import('./taste/copenhagen'),
+  bruges: () => import('./taste/bruges'),
+  krakow: () => import('./taste/krakow'),
 };
 const tasteCache: Record<string, Promise<TasteItem[]>> = {};
 

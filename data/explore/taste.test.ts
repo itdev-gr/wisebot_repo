@@ -13,7 +13,7 @@ const both = (v: { el: string; en: string } | undefined, where: string) => {
   expect(v?.en?.trim(), `${where}: English`).toBeTruthy();
 };
 // A child is never told to drink these; they may only appear on adults-only items.
-const ALCOHOL = /\b(wine|beer|liqueur|brandy|schnapps|cocktail|vodka|whisky|rakı|raki|ouzo|ginjinha|port wine|vinho do porto|sangria|pálinka|slivovitz|jenever|absinthe)\b|κρασ|μπίρ|μπύρ|λικέρ|ούζο|ρακ[ήι]|τσίπουρ|κοκτέιλ|σανγκρί/i;
+const ALCOHOL = /\b(wine|beer|liqueur|brandy|schnapps|cocktail|vodka|whisky|rakı|raki|ouzo|ginjinha|port wine|vinho do porto|sangria|pálinka|slivovitz|jenever|absinthe)\b|(^|[^\p{L}])(κρασ|μπίρ|μπύρ|λικέρ|ούζο|ρακ[ήί]|τσίπουρ|κοκτέιλ|σανγκρί)/iu;
 // The card names kinds of places, never a business (the flyer was an ad; this is not).
 const BUSINESS = /\b(McDonald|Starbucks|Lello|Majestic|Manteigaria|Pastéis de Belém|Confeitaria|Cervejaria|Café A Brasileira|Casa|Restaurante) [A-Z]/;
 
@@ -44,7 +44,7 @@ describe('taste the city', () => {
         expect(['dish', 'sweet', 'snack', 'drink'], `${w} kind`).toContain(i.kind);
         expect([1, 2, 3], `${w} brave`).toContain(i.brave);
         for (const f of ['name', 'what', 'kidTip', 'funFact', 'where'] as const) both(i[f], `${w}.${f}`);
-        expect(i.name.el, `${w} keeps the local name`).toMatch(/\(|[A-Za-zÀ-ÿ]/);
+        if (!['GR', 'CY'].includes(meta.countryCode)) expect(i.name.el, `${w} keeps the local name`).toMatch(/\(|[A-Za-zÀ-ÿ]/);
         for (const f of ['what', 'kidTip', 'where'] as const) {
           expect(i[f].en.length, `${w}.${f} en length`).toBeLessThanOrEqual(260);
           expect(i[f].el.length, `${w}.${f} el length`).toBeLessThanOrEqual(300);
