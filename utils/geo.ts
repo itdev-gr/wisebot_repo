@@ -57,3 +57,34 @@ export function watchPosition(onFix: (f: Fix) => void, onError: (e: GeoError) =>
   );
   return () => navigator.geolocation.clearWatch(id);
 }
+
+/** Initial bearing from a to b, 0–360° clockwise from north. */
+export function bearingDeg(a: GeoPoint, b: GeoPoint): number {
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const φ1 = toRad(a.lat), φ2 = toRad(b.lat), Δλ = toRad(b.lng - a.lng);
+  const y = Math.sin(Δλ) * Math.cos(φ2);
+  const x = Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+  return ((Math.atan2(y, x) * 180) / Math.PI + 360) % 360;
+}
+
+const COMPASS = {
+  el: ['βόρεια', 'βορειοανατολικά', 'ανατολικά', 'νοτιοανατολικά', 'νότια', 'νοτιοδυτικά', 'δυτικά', 'βορειοδυτικά'],
+  en: ['north', 'north-east', 'east', 'south-east', 'south', 'south-west', 'west', 'north-west'],
+};
+const ARROWS = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖'];
+
+/** "↗ βορειοανατολικά" — eight sectors, what a child can act on. */
+export function compass(deg: number, lang: 'el' | 'en'): { arrow: string; label: string } {
+  const i = Math.round((((deg % 360) + 360) % 360) / 45) % 8;
+  return { arrow: ARROWS[i], label: COMPASS[lang][i] };
+}
+
+/** Walking directions in the maps app the phone already has. Apple Maps only makes sense on iOS. */
+export function mapsLinks(p: GeoPoint, label?: string): { google: string; apple: string | null } {
+  const dest = `${p.lat.toFixed(6)},${p.lng.toFixed(6)}`;
+  const isApple = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  return {
+    google: `https://www.google.com/maps/dir/?api=1&destination=${dest}&travelmode=walking`,
+    apple: isApple ? `https://maps.apple.com/?daddr=${dest}&dirflg=w${label ? `&q=${encodeURIComponent(label)}` : ''}` : null,
+  };
+}
