@@ -55,6 +55,7 @@ const tasteLoaders: Record<string, () => Promise<{ TASTE: TasteItem[] }>> = {
   lisbon: () => import('./taste/lisbon'),
   porto: () => import('./taste/porto'),
   rome: () => import('./taste/rome'),
+  paris: () => import('./taste/paris'),
   barcelona: () => import('./taste/barcelona'),
   london: () => import('./taste/london'),
   berlin: () => import('./taste/berlin'),
