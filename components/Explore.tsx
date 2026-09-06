@@ -45,7 +45,7 @@ const T = {
     tooFarMystery: (d: string, dir: string, arrow: string, min: number) => `Είσαι ${d} μακριά (τουλάχιστον ${min} ${min === 1 ? 'λεπτό' : 'λεπτά'} με τα πόδια). Πήγαινε ${dir} ${arrow} και ξαναπάτα «Είμαι εδώ!».`,
     where: 'Πού είναι;', directions: 'Οδηγίες', showOnMap: 'Δείξε στον χάρτη', solveHint: 'Δεν είσαι εκεί; Απάντησε σωστά και ο φάκελος ανοίγει από όπου κι αν είσαι.', whereHint: 'Τα κουμπιά ανοίγουν την εφαρμογή χαρτών του κινητού σου με οδηγίες για περπάτημα.',
     youAre: (d: string, dir: string, arrow: string, min: number) => `Είσαι ${d} μακριά (τουλάχιστον ${min} ${min === 1 ? 'λεπτό' : 'λεπτά'} με τα πόδια). Το σημείο είναι ${dir} από εσένα ${arrow} — η γραμμή δείχνει την κατεύθυνση.`,
-    walk: (min: number) => `${min}+ ${min === 1 ? 'λεπτό' : 'λεπτά'}`, staleFix: 'Η θέση σου είναι από πριν. Πάτα «Πού είμαι;» για να ανανεωθεί.', noFix: 'Πάτα «Πού είμαι;» για να δεις πού βρίσκεσαι σε σχέση με το σημείο.',
+    walk: (min: number) => `${min}+ ${min === 1 ? 'λεπτό' : 'λεπτά'}`, farFromCity: (d: string) => `Είσαι ${d} από την πόλη — παίζεις από το σπίτι! Λύσε το αίνιγμα για να ανοίξει ο φάκελος.`, farFromCityShort: (d: string) => `Είσαι ${d} από την πόλη — παίζεις από το σπίτι.`, staleFix: 'Η θέση σου είναι από πριν. Πάτα «Πού είμαι;» για να ανανεωθεί.', noFix: 'Πάτα «Πού είμαι;» για να δεις πού βρίσκεσαι σε σχέση με το σημείο.',
     spotN: (n: number) => `Σημείο ${n}`, nearestTag: 'Πιο κοντινό', nearestNamed: (name: string, d: string) => `Ο πιο κοντινός θησαυρός: ${name} · ${d}`,
     zoomHint: 'Αριθμοί = σειρά διαδρομής · zoom για ονόματα', zoomHintMystery: 'Αριθμοί = σειρά διαδρομής', mystery: 'Μυστήριο', hideNames: 'Κρύψε τα ονόματα', showNames: 'Δείξε τα ονόματα',
     mysteryHint: 'Μυστήριο: τα ονόματα και ο μικρός χάρτης κρύβονται — βρες τα μέρη με τα αινίγματα και τους αριθμούς στον χάρτη (για μεγαλύτερα παιδιά).',
@@ -68,7 +68,7 @@ const T = {
     tooFarMystery: (d: string, dir: string, arrow: string, min: number) => `You are ${d} away (at least ${min} min on foot). Head ${dir} ${arrow} and tap "I'm here!" again.`,
     where: 'Where is it?', directions: 'Directions', showOnMap: 'Show on the map', solveHint: 'Not there? Answer correctly and the envelope opens wherever you are.', whereHint: 'The buttons open your phone\'s maps app with walking directions.',
     youAre: (d: string, dir: string, arrow: string, min: number) => `You are ${d} away (at least ${min} min on foot). The spot is ${dir} of you ${arrow} — the line shows the way.`,
-    walk: (min: number) => `${min}+ min`, staleFix: 'Your position is from earlier. Tap "Where am I?" to refresh it.', noFix: 'Tap "Where am I?" to see where you are compared to the spot.',
+    walk: (min: number) => `${min}+ min`, farFromCity: (d: string) => `You are ${d} from the city — playing from home! Solve the riddle to open the envelope.`, farFromCityShort: (d: string) => `You are ${d} from the city — playing from home.`, staleFix: 'Your position is from earlier. Tap "Where am I?" to refresh it.', noFix: 'Tap "Where am I?" to see where you are compared to the spot.',
     spotN: (n: number) => `Spot ${n}`, nearestTag: 'Nearest', nearestNamed: (name: string, d: string) => `Nearest treasure: ${name} · ${d}`,
     zoomHint: 'Numbers = trail order · zoom in for names', zoomHintMystery: 'Numbers = trail order', mystery: 'Mystery', hideNames: 'Hide the names', showNames: 'Show the names',
     mysteryHint: 'Mystery: names and the little map are hidden — find the places with the riddles and the numbers on the map (for older kids).',
@@ -126,20 +126,26 @@ function TaskCard({ task, lang, onResult, cta }: { task: ObservationTask; lang: 
 }
 
 /** Marker labels: a dark pill under every marker, no Leaflet arrow. */
-const MAP_CSS = `.wb-route{animation:wb-dash 1.1s linear infinite}@keyframes wb-dash{to{stroke-dashoffset:-30}}.wb-route-label{background:#2563eb;color:#fff;border:2px solid #fff;border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap}.wb-route-label::before{display:none}.wb-spot-label{background:rgba(15,23,42,.92);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap;max-width:170px;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.wb-spot-label::before{display:none}`;
+const MAP_CSS = `.wb-route{animation:wb-dash 1.1s linear infinite}@keyframes wb-dash{to{stroke-dashoffset:-44}}.wb-route-label{background:#2563eb;color:#fff;border:2px solid #fff;border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap}.wb-route-label::before{display:none}.wb-spot-label{background:rgba(15,23,42,.92);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap;max-width:170px;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.wb-spot-label::before{display:none}`;
 
 const LABEL_ZOOM = 16;
 
 /** The dashed "you → there" line with the distance and walking time on it, like a navigation app. */
+/** Beyond this the family is not in the city (playing from home): no dot, no line, no walking minutes. */
+const IN_CITY_M = 5000;
+
 function drawRoute(L: typeof Leaflet, map: Leaflet.Map, ref: React.MutableRefObject<Leaflet.Polyline | null>, from: Fix | null, to: { lat: number; lng: number } | null, lang: Lang) {
-  if (!from || !to) { ref.current?.remove(); ref.current = null; return; }
+  if (!from || !to || distanceM(from, to) > IN_CITY_M) { ref.current?.remove(); ref.current = null; return; }
   const pts: [number, number][] = [[from.lat, from.lng], [to.lat, to.lng]];
   const m = distanceM(from, to);
   const label = `${formatDistance(m, lang)} · ${T[lang].walk(walkMinutes(m))}`;
   if (!ref.current) {
     ref.current = L.polyline(pts, { color: '#2563eb', weight: 5, opacity: 0.95, dashArray: '10 12', lineCap: 'round', className: 'wb-route' }).addTo(map);
     ref.current.bindTooltip(label, { permanent: true, direction: 'center', className: 'wb-route-label', interactive: false });
-  } else { ref.current.setLatLngs(pts); ref.current.setTooltipContent(label); }
+  } else {
+    ref.current.setLatLngs(pts); ref.current.setTooltipContent(label);
+    ref.current.getTooltip()?.setLatLng(ref.current.getCenter()); // a polyline never moves its tooltip by itself
+  }
 }
 const OSM_TILES = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const OSM_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap</a>';
@@ -175,7 +181,7 @@ function SpotMiniMap({ spot, fix, lang }: { spot: ExploreSpot; fix: Fix | null; 
 
   useEffect(() => {
     const L = LRef.current, map = mapRef.current; if (!ready || !L || !map) return;
-    if (!fix) { meRef.current?.remove(); meRef.current = null; drawRoute(L, map, routeRef, null, null, lang); return; }
+    if (!fix || distanceM(fix, spot) > IN_CITY_M) { meRef.current?.remove(); meRef.current = null; drawRoute(L, map, routeRef, null, null, lang); map.setView([spot.lat, spot.lng], 16); return; }
     if (!meRef.current) meRef.current = L.circleMarker([fix.lat, fix.lng], { radius: 8, color: '#fff', weight: 3, fillColor: '#3b82f6', fillOpacity: 1 }).addTo(map);
     else meRef.current.setLatLng([fix.lat, fix.lng]);
     drawRoute(L, map, routeRef, fix, spot, lang);
@@ -205,6 +211,7 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targe
   const routeRef = useRef<Leaflet.Polyline | null>(null);
   const [failed, setFailed] = useState(false);
   const [zoomedIn, setZoomedIn] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -215,13 +222,14 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targe
         LRef.current = L as typeof Leaflet;
         const map = L.map(el.current, { zoomControl: false, attributionControl: true }).setView([city.center.lat, city.center.lng], city.zoom);
         L.control.zoom({ position: 'bottomright' }).addTo(map);
+        map.createPane('wb-labels').style.zIndex = '590'; // name pills sit under the markers, so a marker is always tappable
         L.tileLayer(OSM_TILES, { maxZoom: 19, attribution: OSM_ATTR }).addTo(map);
         mapRef.current = map;
         for (const s of city.spots) {
           const mk = L.marker([s.lat, s.lng], { icon: L.divIcon({ className: '', html: '', iconSize: [40, 40], iconAnchor: [20, 20] }) })
             .addTo(map).on('click', () => onSelect(s.id));
           // The name under every marker — a family reads the map like a paper one.
-          mk.bindTooltip('', { permanent: true, direction: 'bottom', offset: [0, 18], className: 'wb-spot-label', interactive: true });
+          mk.bindTooltip('', { permanent: true, direction: 'bottom', offset: [0, 18], className: 'wb-spot-label', interactive: true, pane: 'wb-labels' });
           markers.current[s.id] = mk;
         }
         // Fit all spots on first paint, but never zoom out further than the city default.
@@ -232,10 +240,10 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targe
         const labels = () => { const on = map.getZoom() >= LABEL_ZOOM; for (const mk of Object.values(markers.current)) { if (on) mk.openTooltip(); else mk.closeTooltip(); } setZoomedIn(on); };
         map.on('zoomend', labels);
         labels();
-        styleMarkers();
+        setReady(true); // the effects below re-run with the current progress, fix and mode
       } catch { if (alive) setFailed(true); }
     })();
-    return () => { alive = false; mapRef.current?.remove(); mapRef.current = null; markers.current = {}; meRef.current = null; routeRef.current = null; };
+    return () => { alive = false; setReady(false); mapRef.current?.remove(); mapRef.current = null; markers.current = {}; meRef.current = null; routeRef.current = null; };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- one map per city
   }, [city.id]);
 
@@ -256,11 +264,12 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targe
       mk.setTooltipContent(showName ? s.name[lang] : T[lang].spotN(n));
     }
   }, [city, opened, selectedId, mystery, lang]);
-  useEffect(() => { styleMarkers(); }, [styleMarkers]);
+  useEffect(() => { if (ready) styleMarkers(); }, [styleMarkers, ready]);
 
   useEffect(() => {
-    const L = LRef.current, map = mapRef.current; if (!L || !map) return;
-    if (!fix) { meRef.current?.remove(); meRef.current = null; drawRoute(L, map, routeRef, null, null, lang); return; }
+    const L = LRef.current, map = mapRef.current; if (!ready || !L || !map) return;
+    // Playing from home: the fix is another country — keep the city in view, draw nothing.
+    if (!fix || distanceM(fix, city.center) > IN_CITY_M * 4) { meRef.current?.remove(); meRef.current = null; drawRoute(L, map, routeRef, null, null, lang); return; }
     if (!meRef.current) {
       meRef.current = L.circleMarker([fix.lat, fix.lng], { radius: 8, color: '#fff', weight: 3, fillColor: '#3b82f6', fillOpacity: 1 }).addTo(map);
       map.panTo([fix.lat, fix.lng]);
@@ -269,12 +278,12 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targe
     const target = targetId ? city.spots.find(s => s.id === targetId) ?? null : null;
     drawRoute(L, map, routeRef, fix, target, lang);
     meRef.current.bringToFront();
-  }, [fix, targetId, city, lang]);
+  }, [fix, targetId, city, lang, ready]);
 
   useEffect(() => {
-    const map = mapRef.current; if (!map || !selectedId) return;
+    const map = mapRef.current; if (!ready || !map || !selectedId) return;
     const s = city.spots.find(x => x.id === selectedId); if (s) map.panTo([s.lat, s.lng]);
-  }, [selectedId, city]);
+  }, [selectedId, city, ready]);
 
   const t = T[lang];
   return (
@@ -349,7 +358,12 @@ export default function Explore({ lang }: { lang: Lang }) {
     if (typeof r === 'string') { setGeoMsg(geoError(r)); return; }
     setFix(r);
     if (isWithin(r, r.accuracyM, spot, spot.radiusM)) openSpot(spot, 'gps');
-    else { const dir = compass(bearingDeg(r, spot), lang); const m = distanceM(r, spot); setGeoMsg((mystery ? t.tooFarMystery : t.tooFar)(formatDistance(m, lang), dir.label, dir.arrow, walkMinutes(m))); }
+    else {
+      const m = distanceM(r, spot);
+      if (m > IN_CITY_M) { setGeoMsg(t.farFromCity(formatDistance(m, lang))); setSolving(true); return; }
+      const dir = compass(bearingDeg(r, spot), lang);
+      setGeoMsg((mystery ? t.tooFarMystery : t.tooFar)(formatDistance(m, lang), dir.label, dir.arrow, walkMinutes(m)));
+    }
   };
 
   const markOnSite = (spot: ExploreSpot, ok: boolean) => {
@@ -582,12 +596,14 @@ export default function Explore({ lang }: { lang: Lang }) {
           const links = mapsLinks(spot);
           // A dot from ten minutes ago is worse than no dot: only a live watch or a fix under a minute old is drawn.
           const fresh = fix && (watching || Date.now() - fix.at < 60_000) ? fix : null;
-          const dir = fresh ? compass(bearingDeg(fresh, spot), lang) : null;
+          const inCity = fresh ? distanceM(fresh, spot) <= IN_CITY_M : true;
+          const dir = fresh && inCity ? compass(bearingDeg(fresh, spot), lang) : null;
           return (
           <div id="wb-where" className="mt-4 scroll-mt-24 rounded-[2rem] border border-cyan-500/20 bg-white/[0.03] p-5 space-y-3">
             <p className="text-[10px] font-black uppercase tracking-widest text-cyan-300 flex items-center gap-1.5"><MapPin size={12} /> {t.where} · {spot.emoji} {spot.name[lang]}</p>
             <SpotMiniMap spot={spot} fix={fresh} lang={lang} />
             {fresh && dir && !geoMsg && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fresh, spot), lang), dir.label, dir.arrow, walkMinutes(distanceM(fresh, spot)))}</p>}
+            {fresh && !inCity && <p className="text-white/60 text-sm font-bold">{t.farFromCityShort(formatDistance(distanceM(fresh, spot), lang))}</p>}
             {!fresh && <p className="text-white/45 text-xs font-bold">{fix ? t.staleFix : t.noFix}</p>}
             <div className="flex flex-wrap gap-2">
               <button onClick={toggleWatch} className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest ${watching ? 'bg-blue-500 text-white' : 'bg-white/[0.06] border border-white/10 text-white/80 hover:bg-white/10'}`}>
@@ -639,7 +655,8 @@ export default function Explore({ lang }: { lang: Lang }) {
           className={`px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 ${mystery ? 'bg-fuchsia-500/80 text-white' : 'bg-white/[0.06] text-white/60 border border-white/10'}`}>
           {mystery ? <Eye size={14} /> : <EyeOff size={14} />} {mystery ? t.showNames : t.hideNames}
         </button>
-        {fix && nearestSpot && <span className="text-white/60 text-xs font-bold">{t.nearestNamed(mystery ? t.spotN(orderedSpots.indexOf(nearestSpot) + 1) : `${orderedSpots.indexOf(nearestSpot) + 1}. ${nearestSpot.emoji} ${nearestSpot.name[lang]}`, formatDistance(distanceM(fix, nearestSpot), lang))}</span>}
+        {fix && distanceM(fix, city.center) > IN_CITY_M * 4 && <span className="text-white/60 text-xs font-bold">{t.farFromCityShort(formatDistance(distanceM(fix, city.center), lang))}</span>}
+        {fix && nearestSpot && distanceM(fix, city.center) <= IN_CITY_M * 4 && <span className="text-white/60 text-xs font-bold">{t.nearestNamed(mystery ? t.spotN(orderedSpots.indexOf(nearestSpot) + 1) : `${orderedSpots.indexOf(nearestSpot) + 1}. ${nearestSpot.emoji} ${nearestSpot.name[lang]}`, formatDistance(distanceM(fix, nearestSpot), lang))}</span>}
         {geoMsg && <span className="text-amber-200/90 text-xs font-bold">{geoMsg}</span>}
       </div>
       {mystery && <p className="text-fuchsia-200/70 text-[11px] font-bold mt-2">{t.mysteryHint}</p>}
