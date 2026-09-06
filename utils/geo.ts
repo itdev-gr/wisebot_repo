@@ -88,3 +88,8 @@ export function mapsLinks(p: GeoPoint, label?: string): { google: string; apple:
     apple: isApple ? `https://maps.apple.com/?daddr=${dest}&dirflg=w${label ? `&q=${encodeURIComponent(label)}` : ''}` : null,
   };
 }
+
+/** Minutes on foot with a child in tow (~4.5 km/h), never less than one. */
+export function walkMinutes(m: number): number {
+  return Math.max(1, Math.round(m / 75));
+}

@@ -27,3 +27,12 @@ describe('bearing and compass', () => {
     expect(google).toContain('travelmode=walking');
   });
 });
+
+describe('walking time', () => {
+  it('rounds to whole minutes at a child\'s pace and never says zero', async () => {
+    const { walkMinutes } = await import('./geo');
+    expect(walkMinutes(20)).toBe(1);
+    expect(walkMinutes(760)).toBe(10);
+    expect(walkMinutes(2250)).toBe(30);
+  });
+});

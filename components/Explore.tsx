@@ -28,7 +28,7 @@ import { useBackCloses } from '../utils/useBackCloses';
 import { CITY_META, loadCity, flagEmoji } from '../data/explore/registry';
 import type { ExploreCity, ExploreSpot, ObservationTask } from '../data/explore/types';
 import { readProgress, writeProgress, spotQuizId, cityBadgeEarned, cityBadgeNeed, countryBadgeEarned, type CityProgress, type Unlock } from '../data/explore/progress';
-import { distanceM, formatDistance, isWithin, locateOnce, watchPosition, bearingDeg, compass, mapsLinks, type Fix, type GeoError } from '../utils/geo';
+import { distanceM, formatDistance, isWithin, locateOnce, watchPosition, bearingDeg, compass, mapsLinks, walkMinutes, type Fix, type GeoError } from '../utils/geo';
 import { shuffleQuestionOptions } from '../utils/shuffleOptions';
 
 const motion = m as any;
@@ -40,8 +40,8 @@ const T = {
     title: 'EXPLORER', subtitle: 'ΚΥΝΗΓΙ ΘΗΣΑΥΡΟΥ ΣΤΗΝ ΠΟΛΗ', pick: 'Διάλεξε πόλη', spots: 'σημεία', back: 'ΠΙΣΩ',
     how: 'Πώς παίζεται', howText: 'Κάθε σημείο κρύβει έναν φάκελο. Διάβασε το αίνιγμα, βρες το μέρος και πάτα «Είμαι εδώ!». Δεν είσαι στην πόλη; Λύσε το αίνιγμα από το σπίτι. Μέσα σε κάθε φάκελο: μια ιστορία, μια αποστολή παρατήρησης και ένα quiz με αστέρια.',
     trail: 'Η διαδρομή', locked: 'Κλειδωμένο', open: 'Ανοιχτό', whereAmI: 'Πού είμαι;', stopGps: 'Κλείσε GPS',
-    imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα', tooFar: (d: string, dir: string) => `Είσαι ${d} μακριά, ${dir}. Πλησίασε κι άλλο ή πάτα «Οδηγίες».`,
-    where: 'Πού είναι;', directions: 'Οδηγίες', whereHint: 'Ο χάρτης του κινητού σου σε πάει ως εκεί με τα πόδια.', youAre: (d: string, dir: string) => `Είσαι ${d} μακριά, ${dir}.`,
+    imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα', tooFar: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Ακολούθησε τη γραμμή στον χάρτη ή πάτα «Οδηγίες».`,
+    where: 'Πού είναι;', directions: 'Οδηγίες', whereHint: 'Ο χάρτης του κινητού σου σε πάει ως εκεί με τα πόδια.', youAre: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Η γραμμή δείχνει προς τα πού.`, walk: (min: number) => `≈${min}′ με τα πόδια`,
     spotN: (n: number) => `Σημείο ${n}`, nearestTag: 'Πιο κοντά', nearestNamed: (name: string, d: string) => `Πιο κοντά σου: ${name} (${d})`,
     zoomHint: 'Αριθμοί = η διαδρομή · zoom για ονόματα', mystery: 'Μυστήριο', mysteryHint: 'Τα ονόματα κρύβονται — βρείτε τα μέρη μόνο από τα αινίγματα (για μεγαλύτερα παιδιά).', mysteryOff: 'Τα ονόματα φαίνονται. Άναψε το «Μυστήριο» για μεγαλύτερη πρόκληση.',
     nearest: (d: string) => `Ο πιο κοντινός θησαυρός είναι ${d} μακριά.`, gpsDenied: 'Δεν έχουμε άδεια για την τοποθεσία. Άνοιξέ τη στις ρυθμίσεις ή λύσε το αίνιγμα.',
@@ -58,8 +58,8 @@ const T = {
     title: 'EXPLORER', subtitle: 'A TREASURE HUNT IN THE CITY', pick: 'Pick a city', spots: 'spots', back: 'BACK',
     how: 'How to play', howText: 'Every spot hides an envelope. Read the riddle, find the place and tap "I\'m here!". Not in the city? Solve the riddle from home. Inside each envelope: a story, an observation mission and a quiz with stars.',
     trail: 'The trail', locked: 'Locked', open: 'Open', whereAmI: 'Where am I?', stopGps: 'Stop GPS',
-    imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle', tooFar: (d: string, dir: string) => `You are ${d} away, ${dir}. Get closer, or tap "Directions".`,
-    where: 'Where is it?', directions: 'Directions', whereHint: 'Your phone\'s maps app walks you there.', youAre: (d: string, dir: string) => `You are ${d} away, ${dir}.`,
+    imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle', tooFar: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. Follow the line on the map, or tap "Directions".`,
+    where: 'Where is it?', directions: 'Directions', whereHint: 'Your phone\'s maps app walks you there.', youAre: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. The line shows which way.`, walk: (min: number) => `≈${min} min on foot`,
     spotN: (n: number) => `Spot ${n}`, nearestTag: 'Nearest', nearestNamed: (name: string, d: string) => `Nearest to you: ${name} (${d})`,
     zoomHint: 'Numbers = the trail · zoom for names', mystery: 'Mystery', mysteryHint: 'Names are hidden — find the places from the riddles alone (for older kids).', mysteryOff: 'Names are shown. Turn on "Mystery" for a bigger challenge.',
     nearest: (d: string) => `The nearest treasure is ${d} away.`, gpsDenied: 'No permission for location. Enable it in settings, or solve the riddle.',
@@ -116,9 +116,21 @@ function TaskCard({ task, lang, onResult, cta }: { task: ObservationTask; lang: 
 }
 
 /** Marker labels: a dark pill under every marker, no Leaflet arrow. */
-const MAP_CSS = `.wb-spot-label{background:rgba(15,23,42,.92);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap;max-width:170px;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.wb-spot-label::before{display:none}`;
+const MAP_CSS = `.wb-route{animation:wb-dash 1.1s linear infinite}@keyframes wb-dash{to{stroke-dashoffset:-30}}.wb-route-label{background:#2563eb;color:#fff;border:2px solid #fff;border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap}.wb-route-label::before{display:none}.wb-spot-label{background:rgba(15,23,42,.92);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:9999px;padding:2px 9px;font:900 11px/1.3 system-ui,sans-serif;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.45);white-space:nowrap;max-width:170px;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.wb-spot-label::before{display:none}`;
 
 const LABEL_ZOOM = 16;
+
+/** The dashed "you → there" line with the distance and walking time on it, like a navigation app. */
+function drawRoute(L: typeof Leaflet, map: Leaflet.Map, ref: React.MutableRefObject<Leaflet.Polyline | null>, from: Fix | null, to: { lat: number; lng: number } | null, lang: Lang) {
+  if (!from || !to) { ref.current?.remove(); ref.current = null; return; }
+  const pts: [number, number][] = [[from.lat, from.lng], [to.lat, to.lng]];
+  const m = distanceM(from, to);
+  const label = `${formatDistance(m, lang)} · ${T[lang].walk(walkMinutes(m))}`;
+  if (!ref.current) {
+    ref.current = L.polyline(pts, { color: '#2563eb', weight: 5, opacity: 0.95, dashArray: '10 12', lineCap: 'round', className: 'wb-route' }).addTo(map);
+    ref.current.bindTooltip(label, { permanent: true, direction: 'center', className: 'wb-route-label', interactive: false });
+  } else { ref.current.setLatLngs(pts); ref.current.setTooltipContent(label); }
+}
 const OSM_TILES = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const OSM_ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener" target="_blank">OpenStreetMap</a>';
 
@@ -128,6 +140,7 @@ function SpotMiniMap({ spot, fix, lang }: { spot: ExploreSpot; fix: Fix | null; 
   const mapRef = useRef<Leaflet.Map | null>(null);
   const LRef = useRef<typeof Leaflet | null>(null);
   const meRef = useRef<Leaflet.CircleMarker | null>(null);
+  const routeRef = useRef<Leaflet.Polyline | null>(null);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -147,21 +160,24 @@ function SpotMiniMap({ spot, fix, lang }: { spot: ExploreSpot; fix: Fix | null; 
         setReady(true);
       } catch { if (alive) setFailed(true); }
     })();
-    return () => { alive = false; mapRef.current?.remove(); mapRef.current = null; meRef.current = null; };
+    return () => { alive = false; mapRef.current?.remove(); mapRef.current = null; meRef.current = null; routeRef.current = null; };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- one map per spot
   }, [spot.id]);
 
   useEffect(() => {
     const L = LRef.current, map = mapRef.current; if (!ready || !L || !map) return;
-    if (!fix) { meRef.current?.remove(); meRef.current = null; return; }
+    if (!fix) { meRef.current?.remove(); meRef.current = null; drawRoute(L, map, routeRef, null, null, lang); return; }
     if (!meRef.current) meRef.current = L.circleMarker([fix.lat, fix.lng], { radius: 8, color: '#fff', weight: 3, fillColor: '#3b82f6', fillOpacity: 1 }).addTo(map);
     else meRef.current.setLatLng([fix.lat, fix.lng]);
+    drawRoute(L, map, routeRef, fix, spot, lang);
+    meRef.current.bringToFront();
     map.fitBounds(L.latLngBounds([[fix.lat, fix.lng], [spot.lat, spot.lng]]).pad(0.35), { maxZoom: 17 });
-  }, [fix, spot, ready]);
+  }, [fix, spot, ready, lang]);
 
   const t = T[lang];
   return (
     <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0B0F1A]" style={{ height: 'min(34vh, 260px)' }}>
+      <style>{MAP_CSS}</style>
       <div ref={el} className="absolute inset-0" />
       {failed && <div className="absolute inset-0 flex items-center justify-center p-4 text-center text-white/60 text-xs font-bold">{t.mapFallback}</div>}
     </div>
@@ -169,14 +185,15 @@ function SpotMiniMap({ spot, fix, lang }: { spot: ExploreSpot; fix: Fix | null; 
 }
 
 /** Leaflet map with emoji markers. Mounted once per city; markers re-styled when progress changes. */
-function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery }: {
-  city: ExploreCity; lang: Lang; opened: Record<string, unknown>; fix: Fix | null; selectedId: string | null; onSelect: (id: string) => void; mystery: boolean;
+function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targetId }: {
+  city: ExploreCity; lang: Lang; opened: Record<string, unknown>; fix: Fix | null; selectedId: string | null; onSelect: (id: string) => void; mystery: boolean; targetId: string | null;
 }) {
   const el = useRef<HTMLDivElement>(null);
   const mapRef = useRef<Leaflet.Map | null>(null);
   const LRef = useRef<typeof Leaflet | null>(null);
   const markers = useRef<Record<string, Leaflet.Marker>>({});
   const meRef = useRef<Leaflet.CircleMarker | null>(null);
+  const routeRef = useRef<Leaflet.Polyline | null>(null);
   const [failed, setFailed] = useState(false);
   const [zoomedIn, setZoomedIn] = useState(false);
 
@@ -209,7 +226,7 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery }: {
         styleMarkers();
       } catch { if (alive) setFailed(true); }
     })();
-    return () => { alive = false; mapRef.current?.remove(); mapRef.current = null; markers.current = {}; };
+    return () => { alive = false; mapRef.current?.remove(); mapRef.current = null; markers.current = {}; meRef.current = null; routeRef.current = null; };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- one map per city
   }, [city.id]);
 
@@ -234,12 +251,16 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery }: {
 
   useEffect(() => {
     const L = LRef.current, map = mapRef.current; if (!L || !map) return;
-    if (!fix) { meRef.current?.remove(); meRef.current = null; return; }
+    if (!fix) { meRef.current?.remove(); meRef.current = null; drawRoute(L, map, routeRef, null, null, lang); return; }
     if (!meRef.current) {
       meRef.current = L.circleMarker([fix.lat, fix.lng], { radius: 8, color: '#fff', weight: 3, fillColor: '#3b82f6', fillOpacity: 1 }).addTo(map);
       map.panTo([fix.lat, fix.lng]);
     } else meRef.current.setLatLng([fix.lat, fix.lng]);
-  }, [fix]);
+    // A dashed line to the nearest sealed spot: the family sees at a glance where to walk next.
+    const target = targetId ? city.spots.find(s => s.id === targetId) ?? null : null;
+    drawRoute(L, map, routeRef, fix, target, lang);
+    meRef.current.bringToFront();
+  }, [fix, targetId, city, lang]);
 
   useEffect(() => {
     const map = mapRef.current; if (!map || !selectedId) return;
@@ -318,7 +339,7 @@ export default function Explore({ lang }: { lang: Lang }) {
     if (typeof r === 'string') { setGeoMsg(geoError(r)); return; }
     setFix(r);
     if (isWithin(r, r.accuracyM, spot, spot.radiusM)) openSpot(spot, 'gps');
-    else { const dir = compass(bearingDeg(r, spot), lang); setGeoMsg(t.tooFar(formatDistance(distanceM(r, spot), lang), `${dir.arrow} ${dir.label}`)); }
+    else { const dir = compass(bearingDeg(r, spot), lang); const m = distanceM(r, spot); setGeoMsg(t.tooFar(formatDistance(m, lang), `${dir.arrow} ${dir.label}`, walkMinutes(m))); }
   };
 
   const markOnSite = (spot: ExploreSpot, ok: boolean) => {
@@ -462,7 +483,7 @@ export default function Explore({ lang }: { lang: Lang }) {
                   <div className="space-y-2.5">
                     <p className="text-[10px] font-black uppercase tracking-widest text-cyan-300 flex items-center gap-1.5"><MapPin size={12} /> {t.where}</p>
                     <SpotMiniMap spot={spot} fix={fix} lang={lang} />
-                    {fix && dir && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fix, spot), lang), `${dir.arrow} ${dir.label}`)}</p>}
+                    {fix && dir && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fix, spot), lang), `${dir.arrow} ${dir.label}`, walkMinutes(distanceM(fix, spot)))}</p>}
                     <div className="flex flex-wrap gap-2">
                       <a href={links.google} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white/10">
                         <Footprints size={14} /> {t.directions} · Google Maps <ExternalLink size={11} className="text-white/40" />
@@ -578,7 +599,7 @@ export default function Explore({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      <CityMap city={city} lang={lang} opened={progress.opened} fix={fix} selectedId={selected} mystery={mystery} onSelect={id => { setSelected(id); setPhase('spot'); setParentShown(false); setParentAsk(false); setGeoMsg(null); }} />
+      <CityMap city={city} lang={lang} opened={progress.opened} fix={fix} selectedId={selected} mystery={mystery} targetId={nearestSpot?.id ?? null} onSelect={id => { setSelected(id); setPhase('spot'); setParentShown(false); setParentAsk(false); setGeoMsg(null); }} />
 
       <div className="flex flex-wrap items-center gap-2 mt-3">
         <button onClick={toggleWatch} className={`px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 ${watching ? 'bg-blue-500 text-white' : 'bg-white/[0.06] text-white/80 border border-white/10'}`}>
