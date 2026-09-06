@@ -40,7 +40,7 @@ const T = {
     title: 'EXPLORER', subtitle: 'ΚΥΝΗΓΙ ΘΗΣΑΥΡΟΥ ΣΤΗΝ ΠΟΛΗ', pick: 'Διάλεξε πόλη', spots: 'σημεία', back: 'ΠΙΣΩ',
     how: 'Πώς παίζεται', howText: 'Κάθε σημείο κρύβει έναν φάκελο. Διάβασε το αίνιγμα, βρες το μέρος και πάτα «Είμαι εδώ!». Δεν είσαι στην πόλη; Λύσε το αίνιγμα από το σπίτι. Μέσα σε κάθε φάκελο: μια ιστορία, μια αποστολή παρατήρησης και ένα quiz με αστέρια.',
     trail: 'Η διαδρομή', locked: 'Κλειδωμένο', open: 'Ανοιχτό', whereAmI: 'Πού είμαι;', stopGps: 'Κλείσε GPS',
-    imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα', tooFar: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Ακολούθησε τη γραμμή στον χάρτη ή πάτα «Οδηγίες».`,
+    imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα', tooFar: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Δες τη γραμμή στον χάρτη από κάτω ή πάτα «Οδηγίες».`,
     where: 'Πού είναι;', directions: 'Οδηγίες', whereHint: 'Ο χάρτης του κινητού σου σε πάει ως εκεί με τα πόδια.', youAre: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Η γραμμή δείχνει προς τα πού.`, walk: (min: number) => `≈${min}′ με τα πόδια`,
     spotN: (n: number) => `Σημείο ${n}`, nearestTag: 'Πιο κοντά', nearestNamed: (name: string, d: string) => `Πιο κοντά σου: ${name} (${d})`,
     zoomHint: 'Αριθμοί = η διαδρομή · zoom για ονόματα', mystery: 'Μυστήριο', mysteryHint: 'Τα ονόματα κρύβονται — βρείτε τα μέρη μόνο από τα αινίγματα (για μεγαλύτερα παιδιά).', mysteryOff: 'Τα ονόματα φαίνονται. Άναψε το «Μυστήριο» για μεγαλύτερη πρόκληση.',
@@ -58,7 +58,7 @@ const T = {
     title: 'EXPLORER', subtitle: 'A TREASURE HUNT IN THE CITY', pick: 'Pick a city', spots: 'spots', back: 'BACK',
     how: 'How to play', howText: 'Every spot hides an envelope. Read the riddle, find the place and tap "I\'m here!". Not in the city? Solve the riddle from home. Inside each envelope: a story, an observation mission and a quiz with stars.',
     trail: 'The trail', locked: 'Locked', open: 'Open', whereAmI: 'Where am I?', stopGps: 'Stop GPS',
-    imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle', tooFar: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. Follow the line on the map, or tap "Directions".`,
+    imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle', tooFar: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. See the line on the map below, or tap "Directions".`,
     where: 'Where is it?', directions: 'Directions', whereHint: 'Your phone\'s maps app walks you there.', youAre: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. The line shows which way.`, walk: (min: number) => `≈${min} min on foot`,
     spotN: (n: number) => `Spot ${n}`, nearestTag: 'Nearest', nearestNamed: (name: string, d: string) => `Nearest to you: ${name} (${d})`,
     zoomHint: 'Numbers = the trail · zoom for names', mystery: 'Mystery', mysteryHint: 'Names are hidden — find the places from the riddles alone (for older kids).', mysteryOff: 'Names are shown. Turn on "Mystery" for a bigger challenge.',
@@ -465,7 +465,7 @@ export default function Explore({ lang }: { lang: Lang }) {
 
         {!isOpen ? (
           <div className="rounded-[2rem] border border-white/[0.08] bg-white/[0.03] p-6 space-y-5">
-            {(() => { const n = orderedSpots.indexOf(spot) + 1; const links = mapsLinks(spot, spot.name[lang]); const dir = fix ? compass(bearingDeg(fix, spot), lang) : null; return (
+            {(() => { const n = orderedSpots.indexOf(spot) + 1; return (
               <>
                 <div className="flex items-center gap-3">
                   <div className="relative w-14 h-14 rounded-full bg-[#0B0F1A] border-2 border-white/20 flex items-center justify-center text-3xl shrink-0">
@@ -478,25 +478,6 @@ export default function Explore({ lang }: { lang: Lang }) {
                   </div>
                 </div>
                 <p className="text-white text-lg font-black leading-snug">{spot.riddle[lang]}</p>
-
-                {!mystery && (
-                  <div className="space-y-2.5">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-cyan-300 flex items-center gap-1.5"><MapPin size={12} /> {t.where}</p>
-                    <SpotMiniMap spot={spot} fix={fix} lang={lang} />
-                    {fix && dir && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fix, spot), lang), `${dir.arrow} ${dir.label}`, walkMinutes(distanceM(fix, spot)))}</p>}
-                    <div className="flex flex-wrap gap-2">
-                      <a href={links.google} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white/10">
-                        <Footprints size={14} /> {t.directions} · Google Maps <ExternalLink size={11} className="text-white/40" />
-                      </a>
-                      {links.apple && (
-                        <a href={links.apple} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white/10">
-                          <Footprints size={14} /> {t.directions} · Apple Maps <ExternalLink size={11} className="text-white/40" />
-                        </a>
-                      )}
-                    </div>
-                    <p className="text-white/35 text-[11px] font-bold">{t.whereHint}</p>
-                  </div>
-                )}
               </>
             ); })()}
 
@@ -575,6 +556,26 @@ export default function Explore({ lang }: { lang: Lang }) {
             </button>
           </div>
         )}
+
+        {/* ── WHERE IS IT — the map at the bottom of the spot page (the owner's ask from Porto) ── */}
+        {(isOpen || !mystery) && (() => { const links = mapsLinks(spot, spot.name[lang]); const dir = fix ? compass(bearingDeg(fix, spot), lang) : null; return (
+          <div className="mt-4 rounded-[2rem] border border-cyan-500/20 bg-white/[0.03] p-5 space-y-3">
+            <p className="text-[10px] font-black uppercase tracking-widest text-cyan-300 flex items-center gap-1.5"><MapPin size={12} /> {t.where} · {spot.emoji} {spot.name[lang]}</p>
+            <SpotMiniMap spot={spot} fix={fix} lang={lang} />
+            {fix && dir && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fix, spot), lang), `${dir.arrow} ${dir.label}`, walkMinutes(distanceM(fix, spot)))}</p>}
+            <div className="flex flex-wrap gap-2">
+              <a href={links.google} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white/10">
+                <Footprints size={14} /> {t.directions} · Google Maps <ExternalLink size={11} className="text-white/40" />
+              </a>
+              {links.apple && (
+                <a href={links.apple} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white/10">
+                  <Footprints size={14} /> {t.directions} · Apple Maps <ExternalLink size={11} className="text-white/40" />
+                </a>
+              )}
+            </div>
+            <p className="text-white/35 text-[11px] font-bold">{t.whereHint}</p>
+          </div>
+        ); })()}
       </div>
     );
   }
