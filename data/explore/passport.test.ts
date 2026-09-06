@@ -18,7 +18,7 @@ const play = (cityId: string, n: number, passQuiz = true) => {
     opened[`s${i}`] = { via: 'gps', at: i * 1000 };
     if (passQuiz) localStorage.setItem(`wb_quiz_best_explore-${cityId}-s${i}`, JSON.stringify({ score: 3, total: 3, timestamp: i * 1000 }));
   }
-  localStorage.setItem(`wb_explore_${cityId}`, JSON.stringify({ opened, onSite: {} }));
+  localStorage.setItem(`wb_explore_${cityId}`, JSON.stringify({ opened, onSite: {}, tasted: {} }));
 };
 
 beforeEach(() => localStorage.clear());

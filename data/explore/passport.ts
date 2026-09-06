@@ -12,7 +12,7 @@
 import { CITY_META } from './registry';
 import type { ExploreCityMeta } from './types';
 import type { LocalizedString } from '../../types';
-import { readProgress, spotQuizId, cityBadgeNeed } from './progress';
+import { readProgress, spotQuizId, cityBadgeNeed, tasteBadgeEarned } from './progress';
 import { getQuizStars } from '../../components/QuizEngine';
 
 export type Lang = 'el' | 'en';
@@ -109,6 +109,7 @@ export interface CityStamp {
   done: number;             // spots opened + quiz passed
   need: number;             // spots needed for the stamp
   earnedAt: number | null;  // when the N-th counting spot was opened
+  taste: boolean;           // the taste stamp ("Γευσιγνώστης"): three things tasted
 }
 
 export interface CountryPage {
@@ -125,6 +126,7 @@ export interface PassportBook {
   visited: number;          // countries with at least one city stamp
   cityStamps: number;
   countryStamps: number;
+  tasteStamps: number;
 }
 
 /** When the city stamp was earned — from the envelope timestamps Explorer already keeps. */
@@ -135,7 +137,7 @@ export const cityStamp = (meta: ExploreCityMeta): CityStamp => {
     .map(([, o]) => o.at)
     .sort((a, b) => a - b);
   const need = cityBadgeNeed(meta.spotCount);
-  return { meta, done: doneAt.length, need, earnedAt: doneAt.length >= need ? doneAt[need - 1] : null };
+  return { meta, done: doneAt.length, need, earnedAt: doneAt.length >= need ? doneAt[need - 1] : null, taste: tasteBadgeEarned(meta.id, p) };
 };
 
 /** The whole booklet, home country first, then the rest alphabetically in the child's language. */
@@ -163,6 +165,7 @@ export const buildPassport = (lang: Lang, home: string | null = readHomeCountry(
     visited: pages.filter(p => p.stamps.some(s => s.earnedAt !== null)).length,
     cityStamps,
     countryStamps: pages.filter(p => p.earnedAt !== null).length,
+    tasteStamps: pages.reduce((n, p) => n + p.stamps.filter(s => s.taste).length, 0),
   };
 };
 

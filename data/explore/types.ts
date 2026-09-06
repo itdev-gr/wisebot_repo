@@ -84,3 +84,29 @@ export interface ExploreCityMeta {
   emoji: string;
   spotCount: number;
 }
+
+/**
+ * One thing to eat or drink in the city — the "Savor the local cuisine" card, written for a
+ * family: what it is in a child's words, a practical tip for kids, one fact for the parents,
+ * and the KIND of place that serves it (never a business name).
+ */
+export interface TasteItem {
+  /** Stable id, ticks are stored against it: 'francesinha'. */
+  id: string;
+  emoji: string;
+  /** Local name kept, Greek transliteration first: «Φρανσεζίνια (Francesinha)». */
+  name: LocalizedString;
+  kind: 'dish' | 'sweet' | 'snack' | 'drink';
+  /** 1–2 sentences: what it is and how it tastes, for a 7–12 year old. */
+  what: LocalizedString;
+  /** Practical, kid-first: mild version, share it, watch the bones… */
+  kidTip: LocalizedString;
+  /** One true, surprising fact for the family (origin, name, a festival). */
+  funFact: LocalizedString;
+  /** Where families find it — a kind of place: «σε ζαχαροπλαστείο (pastelaria)». */
+  where: LocalizedString;
+  /** 1 = everyone loves it · 2 = a bit different · 3 = for brave tasters. */
+  brave: 1 | 2 | 3;
+  /** Wine, coffee… shown only as a note for the parents, never with a "tried it" button. */
+  adultsOnly?: boolean;
+}

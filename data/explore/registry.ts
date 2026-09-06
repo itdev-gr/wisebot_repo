@@ -5,7 +5,7 @@
  * Adding a city: write data/explore/cities/<id>.ts (export an ExploreCity), then add one
  * line to CITY_META and one loader below.
  */
-import type { ExploreCity, ExploreCityMeta } from './types';
+import type { ExploreCity, ExploreCityMeta, TasteItem } from './types';
 
 export const CITY_META: ExploreCityMeta[] = [
   { id: 'athens', name: { el: 'Αθήνα', en: 'Athens' }, country: { el: 'Ελλάδα', en: 'Greece' }, countryCode: 'GR', emoji: '🏛️', spotCount: 10 },
@@ -48,6 +48,20 @@ const loaders: Record<string, () => Promise<{ CITY: ExploreCity }>> = {
   bruges: () => import('./cities/bruges'),
   krakow: () => import('./cities/krakow'),
 };
+
+/** "Savor the city" cards — one small file per city, loaded with the city. Cities without one get []. */
+const tasteLoaders: Record<string, () => Promise<{ TASTE: TasteItem[] }>> = {
+  porto: () => import('./taste/porto'),
+};
+const tasteCache: Record<string, Promise<TasteItem[]>> = {};
+
+export const hasTaste = (id: string): boolean => id in tasteLoaders;
+
+export function loadTaste(id: string): Promise<TasteItem[]> {
+  const load = tasteLoaders[id];
+  if (!load) return Promise.resolve([]);
+  return (tasteCache[id] ??= load().then(m => m.TASTE));
+}
 
 const cache: Record<string, Promise<ExploreCity>> = {};
 

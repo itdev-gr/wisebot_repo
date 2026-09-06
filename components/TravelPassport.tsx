@@ -38,7 +38,7 @@ const T = {
     countryHintOne: 'Σφράγισε την πόλη για τη μεγάλη σφραγίδα της χώρας',
     soonTitle: 'Η χώρα σου έρχεται σύντομα!', soonText: 'Η WiseBot ετοιμάζει κυνήγι θησαυρού και για εδώ. Μέχρι τότε, γέμισε τις άλλες σελίδες!',
     soonCta: 'Δες τις πόλεις', indexTitle: 'ΕΥΡΕΤΗΡΙΟ', countries: 'Χώρες', cities: 'Πόλεις', bigStamps: 'Σφραγίδες χώρας',
-    page: (a: number, b: number) => `Σελίδα ${a} από ${b}`, prev: 'Προηγούμενη', next: 'Επόμενη',
+    page: (a: number, b: number) => `Σελίδα ${a} από ${b}`, prev: 'Προηγούμενη', next: 'Επόμενη', tasteStamp: 'Σφραγίδα γεύσης', tasteStamps: (n: number) => `🍴 Σφραγίδες γεύσης: ${n}`,
     guestTitle: 'Το Διαβατήριο ζει μόνο σε αυτή τη συσκευή', guestText: 'Φτιάξε δωρεάν λογαριασμό για να κρατήσεις τις σφραγίδες για πάντα.', guestCta: 'Κράτα το Διαβατήριό μου',
     kid: 'WiseKid',
   },
@@ -52,7 +52,7 @@ const T = {
     countryHintOne: 'Stamp the city to earn the big country stamp',
     soonTitle: 'Your country is coming soon!', soonText: 'WiseBot is preparing a treasure hunt here too. Until then, fill the other pages!',
     soonCta: 'See the cities', indexTitle: 'INDEX', countries: 'Countries', cities: 'Cities', bigStamps: 'Country stamps',
-    page: (a: number, b: number) => `Page ${a} of ${b}`, prev: 'Previous', next: 'Next',
+    page: (a: number, b: number) => `Page ${a} of ${b}`, prev: 'Previous', next: 'Next', tasteStamp: 'Taste stamp', tasteStamps: (n: number) => `🍴 Taste stamps: ${n}`,
     guestTitle: 'Your Passport lives only on this device', guestText: 'Create a free account to keep your stamps forever.', guestCta: 'Keep my Passport',
     kid: 'WiseKid',
   },
@@ -75,7 +75,7 @@ const CityInk: React.FC<{ s: CityStamp; i: number; lang: Lang }> = ({ s, i, lang
   const earned = s.earnedAt !== null;
   const body = (
     <div
-      className="w-[7.25rem] h-[7.25rem] rounded-full flex flex-col items-center justify-center text-center select-none"
+      className="relative w-[7.25rem] h-[7.25rem] rounded-full flex flex-col items-center justify-center text-center select-none"
       style={{
         transform: `rotate(${tilt}deg)`,
         color: ink,
@@ -89,6 +89,7 @@ const CityInk: React.FC<{ s: CityStamp; i: number; lang: Lang }> = ({ s, i, lang
       <span className="text-2xl leading-none my-1" role="img" aria-hidden>{earned ? s.meta.emoji : '?'}</span>
       <span className="text-[10px] font-[1000] uppercase tracking-wider leading-tight px-2 line-clamp-2">{s.meta.name[lang]}</span>
       <span className="text-[8px] font-bold tracking-widest mt-1 leading-none">{earned ? formatStampDate(s.earnedAt!, lang) : t.progress(s.done, s.need)}</span>
+      {s.taste && <span className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full flex items-center justify-center text-sm" style={{ background: '#f5efdc', border: `2px solid ${ink}` }} title={t.tasteStamp} aria-label={t.tasteStamp}>🍴</span>}
     </div>
   );
   if (earned) {
@@ -253,7 +254,7 @@ const Country: React.FC<{ page: CountryPage; lang: Lang }> = ({ page, lang }) =>
   );
 };
 
-const Index: React.FC<{ lang: Lang; countries: CountryPage[]; visited: number; cityStamps: number; countryStamps: number; onJump: (code: string) => void }> = ({ lang, countries, visited, cityStamps, countryStamps, onJump }) => {
+const Index: React.FC<{ lang: Lang; countries: CountryPage[]; visited: number; cityStamps: number; countryStamps: number; tasteStamps: number; onJump: (code: string) => void }> = ({ lang, countries, visited, cityStamps, countryStamps, tasteStamps, onJump }) => {
   const t = T[lang];
   const withCities = countries.filter(c => c.stamps.length > 0);
   return (
@@ -267,6 +268,7 @@ const Index: React.FC<{ lang: Lang; countries: CountryPage[]; visited: number; c
           </div>
         ))}
       </div>
+      {tasteStamps > 0 && <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-[#2b2a24]/60">{t.tasteStamps(tasteStamps)}</p>}
       <ul className="mt-3 flex-1 min-h-0 overflow-y-auto pr-1 divide-y divide-[#2b2a24]/10">
         {countries.map(c => {
           const stamped = c.stamps.filter(s => s.earnedAt !== null).length;
@@ -345,7 +347,7 @@ const TravelPassport: React.FC<{ lang: Lang }> = ({ lang }) => {
                   <div className="absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/10 to-transparent pointer-events-none" />
                   {current.kind === 'identity' && <Identity lang={lang} home={home} onPick={pick} />}
                   {current.kind === 'country' && <Country page={current.page} lang={lang} />}
-                  {current.kind === 'index' && <Index lang={lang} countries={book.countries} visited={book.visited} cityStamps={book.cityStamps} countryStamps={book.countryStamps} onJump={jump} />}
+                  {current.kind === 'index' && <Index lang={lang} countries={book.countries} visited={book.visited} cityStamps={book.cityStamps} countryStamps={book.countryStamps} tasteStamps={book.tasteStamps} onJump={jump} />}
                   <span className="absolute bottom-2 right-4 text-[8px] font-bold tracking-widest text-[#2b2a24]/35">{idx}</span>
                 </div>
               )}
