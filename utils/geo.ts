@@ -18,8 +18,10 @@ export function distanceM(a: GeoPoint, b: GeoPoint): number {
 
 /** "120 μ." / "1,3 χλμ." — what a child reads on the trail. */
 export function formatDistance(m: number, lang: 'el' | 'en'): string {
-  if (m < 1000) return lang === 'el' ? `${Math.round(m)} μ.` : `${Math.round(m)} m`;
-  const km = (m / 1000).toFixed(1).replace('.', lang === 'el' ? ',' : '.');
+  // Ten-metre steps under a kilometre: a phone's GPS is not more precise, and the number stops ticking while you stand still.
+  const r = m < 1000 ? Math.round(m / 10) * 10 : m;
+  if (r < 1000) return lang === 'el' ? `${r} μ.` : `${r} m`;
+  const km = (r / 1000).toFixed(1).replace('.', lang === 'el' ? ',' : '.');
   return lang === 'el' ? `${km} χλμ.` : `${km} km`;
 }
 
@@ -82,7 +84,9 @@ export function compass(deg: number, lang: 'el' | 'en'): { arrow: string; label:
 /** Walking directions in the maps app the phone already has. Apple Maps only makes sense on iOS. */
 export function mapsLinks(p: GeoPoint): { google: string; apple: string | null } {
   const dest = `${p.lat.toFixed(6)},${p.lng.toFixed(6)}`;
-  const isApple = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
+  // iPhone/iPod, iPad (which reports "Macintosh" with a touch screen) — not desktop Macs.
+  const isApple = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
   return {
     google: `https://www.google.com/maps/dir/?api=1&destination=${dest}&travelmode=walking`,
     // `q=` would be a search in Apple's URL scheme, so only the coordinates go in.

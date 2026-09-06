@@ -36,3 +36,13 @@ describe('walking time', () => {
     expect(walkMinutes(2250)).toBe(30);
   });
 });
+
+describe('distance words', () => {
+  it('rounds to ten metres and never prints "1000 m"', async () => {
+    const { formatDistance } = await import('./geo');
+    expect(formatDistance(763, 'el')).toBe('760 μ.');
+    expect(formatDistance(14, 'en')).toBe('10 m');
+    expect(formatDistance(999.6, 'el')).toBe('1,0 χλμ.');
+    expect(formatDistance(120, 'el')).toBe('120 μ.');
+  });
+});
