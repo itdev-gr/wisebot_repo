@@ -80,12 +80,13 @@ export function compass(deg: number, lang: 'el' | 'en'): { arrow: string; label:
 }
 
 /** Walking directions in the maps app the phone already has. Apple Maps only makes sense on iOS. */
-export function mapsLinks(p: GeoPoint, label?: string): { google: string; apple: string | null } {
+export function mapsLinks(p: GeoPoint): { google: string; apple: string | null } {
   const dest = `${p.lat.toFixed(6)},${p.lng.toFixed(6)}`;
   const isApple = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
   return {
     google: `https://www.google.com/maps/dir/?api=1&destination=${dest}&travelmode=walking`,
-    apple: isApple ? `https://maps.apple.com/?daddr=${dest}&dirflg=w${label ? `&q=${encodeURIComponent(label)}` : ''}` : null,
+    // `q=` would be a search in Apple's URL scheme, so only the coordinates go in.
+    apple: isApple ? `https://maps.apple.com/?daddr=${dest}&dirflg=w` : null,
   };
 }
 

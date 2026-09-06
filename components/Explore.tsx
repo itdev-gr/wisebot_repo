@@ -19,7 +19,7 @@
 import React, { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { ArrowLeft, Compass, Lock, MapPin, Navigation, Star, Award, Eye, EyeOff, Check, HelpCircle, Sparkles, Puzzle, Footprints, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Compass, Lock, MapPin, Navigation, Star, Award, Eye, EyeOff, Check, HelpCircle, Sparkles, Footprints, ExternalLink } from 'lucide-react';
 import type * as Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import QuizEngine, { getQuizStars } from './QuizEngine';
@@ -38,13 +38,18 @@ type Lang = 'el' | 'en';
 const T = {
   el: {
     title: 'EXPLORER', subtitle: 'ΚΥΝΗΓΙ ΘΗΣΑΥΡΟΥ ΣΤΗΝ ΠΟΛΗ', pick: 'Διάλεξε πόλη', spots: 'σημεία', back: 'ΠΙΣΩ',
-    how: 'Πώς παίζεται', howText: 'Κάθε σημείο κρύβει έναν φάκελο. Διάβασε το αίνιγμα, βρες το μέρος και πάτα «Είμαι εδώ!». Δεν είσαι στην πόλη; Λύσε το αίνιγμα από το σπίτι. Μέσα σε κάθε φάκελο: μια ιστορία, μια αποστολή παρατήρησης και ένα quiz με αστέρια.',
+    how: 'Πώς παίζεται', howText: 'Κάθε σημείο κρύβει έναν φάκελο. Διάβασε το αίνιγμα, βρες το μέρος και πάτα «Είμαι εδώ!». Δεν είσαι στην πόλη; Λύσε το αίνιγμα από το σπίτι. Μέσα σε κάθε φάκελο: μια ιστορία, μια αποστολή παρατήρησης και ένα quiz με αστέρια. Ο χάρτης και τα ονόματα σε πάνε ως εκεί· θες πρόκληση; Κρύψε τα ονόματα από το κουμπί «Μυστήριο».',
     trail: 'Η διαδρομή', locked: 'Κλειδωμένο', open: 'Ανοιχτό', whereAmI: 'Πού είμαι;', stopGps: 'Κλείσε GPS',
-    imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα', tooFar: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Δες τη γραμμή στον χάρτη από κάτω ή πάτα «Οδηγίες».`,
-    where: 'Πού είναι;', directions: 'Οδηγίες', showOnMap: 'Δείξε στον χάρτη', solveHint: 'Δεν είσαι εκεί; Απάντησε σωστά και ο φάκελος ανοίγει από όπου κι αν είσαι.', whereHint: 'Ο χάρτης του κινητού σου σε πάει ως εκεί με τα πόδια.', youAre: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Η γραμμή δείχνει προς τα πού.`, walk: (min: number) => `≈${min}′ με τα πόδια`,
-    spotN: (n: number) => `Σημείο ${n}`, nearestTag: 'Πιο κοντά', nearestNamed: (name: string, d: string) => `Πιο κοντά σου: ${name} (${d})`,
-    zoomHint: 'Αριθμοί = η διαδρομή · zoom για ονόματα', mystery: 'Μυστήριο', mysteryHint: 'Τα ονόματα κρύβονται — βρείτε τα μέρη μόνο από τα αινίγματα (για μεγαλύτερα παιδιά).', mysteryOff: 'Τα ονόματα φαίνονται. Άναψε το «Μυστήριο» για μεγαλύτερη πρόκληση.',
-    nearest: (d: string) => `Ο πιο κοντινός θησαυρός είναι ${d} μακριά.`, gpsDenied: 'Δεν έχουμε άδεια για την τοποθεσία. Άνοιξέ τη στις ρυθμίσεις ή λύσε το αίνιγμα.',
+    imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα',
+    tooFar: (d: string, dir: string, arrow: string, min: number) => `Είσαι ${d} μακριά (τουλάχιστον ${min} ${min === 1 ? 'λεπτό' : 'λεπτά'} με τα πόδια). Πήγαινε ${dir} ${arrow} — η γραμμή στον χάρτη από κάτω δείχνει την κατεύθυνση, ή πάτα «Οδηγίες».`,
+    tooFarMystery: (d: string, dir: string, arrow: string, min: number) => `Είσαι ${d} μακριά (τουλάχιστον ${min} ${min === 1 ? 'λεπτό' : 'λεπτά'} με τα πόδια). Πήγαινε ${dir} ${arrow} και ξαναπάτα «Είμαι εδώ!».`,
+    where: 'Πού είναι;', directions: 'Οδηγίες', showOnMap: 'Δείξε στον χάρτη', solveHint: 'Δεν είσαι εκεί; Απάντησε σωστά και ο φάκελος ανοίγει από όπου κι αν είσαι.', whereHint: 'Τα κουμπιά ανοίγουν την εφαρμογή χαρτών του κινητού σου με οδηγίες για περπάτημα.',
+    youAre: (d: string, dir: string, arrow: string, min: number) => `Είσαι ${d} μακριά (τουλάχιστον ${min} ${min === 1 ? 'λεπτό' : 'λεπτά'} με τα πόδια). Το σημείο είναι ${dir} από εσένα ${arrow} — η γραμμή δείχνει την κατεύθυνση.`,
+    walk: (min: number) => `${min}+ ${min === 1 ? 'λεπτό' : 'λεπτά'}`, staleFix: 'Η θέση σου είναι από πριν. Πάτα «Πού είμαι;» για να ανανεωθεί.', noFix: 'Πάτα «Πού είμαι;» για να δεις πού βρίσκεσαι σε σχέση με το σημείο.',
+    spotN: (n: number) => `Σημείο ${n}`, nearestTag: 'Πιο κοντινό', nearestNamed: (name: string, d: string) => `Ο πιο κοντινός θησαυρός: ${name} · ${d}`,
+    zoomHint: 'Αριθμοί = σειρά διαδρομής · zoom για ονόματα', zoomHintMystery: 'Αριθμοί = σειρά διαδρομής', mystery: 'Μυστήριο', hideNames: 'Κρύψε τα ονόματα', showNames: 'Δείξε τα ονόματα',
+    mysteryHint: 'Μυστήριο: τα ονόματα και ο μικρός χάρτης κρύβονται — βρες τα μέρη με τα αινίγματα και τους αριθμούς στον χάρτη (για μεγαλύτερα παιδιά).',
+    gpsDenied: 'Δεν έχουμε άδεια για την τοποθεσία. Άνοιξέ τη στις ρυθμίσεις ή λύσε το αίνιγμα.',
     gpsUnavailable: 'Δεν βρίσκω σήμα GPS εδώ. Δοκίμασε ξανά σε ανοιχτό χώρο ή λύσε το αίνιγμα.', gpsUnsupported: 'Η συσκευή δεν δίνει τοποθεσία. Λύσε το αίνιγμα για να ανοίξεις τον φάκελο.',
     locating: 'Ψάχνω πού είσαι…', parents: 'Για γονείς', parentsHide: 'Κρύψε', parentConfirm: 'Μόνο για τον γονιό: να δείξω τη λύση;', yes: 'Ναι, είμαι ο γονιός', no: 'Όχι',
     unlockedGps: 'Το βρήκες! Ο φάκελος άνοιξε.', unlockedRiddle: 'Σωστά! Ο φάκελος άνοιξε.', wrong: 'Όχι ακριβώς. Ξαναδιάβασε το αίνιγμα.',
@@ -56,13 +61,18 @@ const T = {
   },
   en: {
     title: 'EXPLORER', subtitle: 'A TREASURE HUNT IN THE CITY', pick: 'Pick a city', spots: 'spots', back: 'BACK',
-    how: 'How to play', howText: 'Every spot hides an envelope. Read the riddle, find the place and tap "I\'m here!". Not in the city? Solve the riddle from home. Inside each envelope: a story, an observation mission and a quiz with stars.',
+    how: 'How to play', howText: 'Every spot hides an envelope. Read the riddle, find the place and tap "I\'m here!". Not in the city? Solve the riddle from home. Inside each envelope: a story, an observation mission and a quiz with stars. The map and the names take you there; want a challenge? Hide the names with the "Mystery" button.',
     trail: 'The trail', locked: 'Locked', open: 'Open', whereAmI: 'Where am I?', stopGps: 'Stop GPS',
-    imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle', tooFar: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. See the line on the map below, or tap "Directions".`,
-    where: 'Where is it?', directions: 'Directions', showOnMap: 'Show on the map', solveHint: 'Not there? Answer correctly and the envelope opens wherever you are.', whereHint: 'Your phone\'s maps app walks you there.', youAre: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. The line shows which way.`, walk: (min: number) => `≈${min} min on foot`,
-    spotN: (n: number) => `Spot ${n}`, nearestTag: 'Nearest', nearestNamed: (name: string, d: string) => `Nearest to you: ${name} (${d})`,
-    zoomHint: 'Numbers = the trail · zoom for names', mystery: 'Mystery', mysteryHint: 'Names are hidden — find the places from the riddles alone (for older kids).', mysteryOff: 'Names are shown. Turn on "Mystery" for a bigger challenge.',
-    nearest: (d: string) => `The nearest treasure is ${d} away.`, gpsDenied: 'No permission for location. Enable it in settings, or solve the riddle.',
+    imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle',
+    tooFar: (d: string, dir: string, arrow: string, min: number) => `You are ${d} away (at least ${min} min on foot). Head ${dir} ${arrow} — the line on the map below shows the way, or tap "Directions".`,
+    tooFarMystery: (d: string, dir: string, arrow: string, min: number) => `You are ${d} away (at least ${min} min on foot). Head ${dir} ${arrow} and tap "I'm here!" again.`,
+    where: 'Where is it?', directions: 'Directions', showOnMap: 'Show on the map', solveHint: 'Not there? Answer correctly and the envelope opens wherever you are.', whereHint: 'The buttons open your phone\'s maps app with walking directions.',
+    youAre: (d: string, dir: string, arrow: string, min: number) => `You are ${d} away (at least ${min} min on foot). The spot is ${dir} of you ${arrow} — the line shows the way.`,
+    walk: (min: number) => `${min}+ min`, staleFix: 'Your position is from earlier. Tap "Where am I?" to refresh it.', noFix: 'Tap "Where am I?" to see where you are compared to the spot.',
+    spotN: (n: number) => `Spot ${n}`, nearestTag: 'Nearest', nearestNamed: (name: string, d: string) => `Nearest treasure: ${name} · ${d}`,
+    zoomHint: 'Numbers = trail order · zoom in for names', zoomHintMystery: 'Numbers = trail order', mystery: 'Mystery', hideNames: 'Hide the names', showNames: 'Show the names',
+    mysteryHint: 'Mystery: names and the little map are hidden — find the places with the riddles and the numbers on the map (for older kids).',
+    gpsDenied: 'No permission for location. Enable it in settings, or solve the riddle.',
     gpsUnavailable: 'No GPS signal here. Try again in the open, or solve the riddle.', gpsUnsupported: 'This device gives no location. Solve the riddle to open the envelope.',
     locating: 'Finding you…', parents: 'For parents', parentsHide: 'Hide', parentConfirm: 'Parents only: show the answer?', yes: 'Yes, I\'m the parent', no: 'No',
     unlockedGps: 'You found it! The envelope is open.', unlockedRiddle: 'Correct! The envelope is open.', wrong: 'Not quite. Read the riddle again.',
@@ -154,7 +164,6 @@ function SpotMiniMap({ spot, fix, lang }: { spot: ExploreSpot; fix: Fix | null; 
         LRef.current = L as typeof Leaflet;
         const map = L.map(el.current, { zoomControl: false, attributionControl: true, scrollWheelZoom: false }).setView([spot.lat, spot.lng], 16);
         L.tileLayer(OSM_TILES, { maxZoom: 19, attribution: OSM_ATTR }).addTo(map);
-        L.circle([spot.lat, spot.lng], { radius: spot.radiusM, color: '#f59e0b', weight: 1.5, fillColor: '#f59e0b', fillOpacity: 0.1 }).addTo(map);
         L.marker([spot.lat, spot.lng], { icon: L.divIcon({ className: '', html: `<div style="width:44px;height:44px;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:22px;background:#f59e0b;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,0.45)">${spot.emoji}</div>`, iconSize: [44, 44], iconAnchor: [22, 22] }) }).addTo(map);
         mapRef.current = map;
         setReady(true);
@@ -272,7 +281,7 @@ function CityMap({ city, lang, opened, fix, selectedId, onSelect, mystery, targe
     <div className="relative rounded-[1.75rem] overflow-hidden border border-white/10 bg-[#0B0F1A]" style={{ height: 'min(52vh, 460px)' }}>
       <style>{MAP_CSS}</style>
       <div ref={el} className="absolute inset-0" />
-      {!failed && !zoomedIn && <div className="absolute top-3 left-1/2 -translate-x-1/2 z-[500] max-w-[92%] px-3 py-1.5 rounded-full bg-[#0B0F1A]/90 border border-white/15 text-white/80 text-[10px] font-black uppercase tracking-wider text-center pointer-events-none">{t.zoomHint}</div>}
+      {!failed && !zoomedIn && <div className="absolute top-3 left-1/2 -translate-x-1/2 z-[500] max-w-[92%] px-3 py-1.5 rounded-full bg-[#0B0F1A]/90 border border-white/15 text-white/80 text-[10px] font-black uppercase tracking-wider text-center pointer-events-none">{mystery ? t.zoomHintMystery : t.zoomHint}</div>}
       {failed && <div className="absolute inset-0 flex items-center justify-center p-6 text-center text-white/60 text-sm font-bold">{t.mapFallback}</div>}
     </div>
   );
@@ -311,7 +320,7 @@ export default function Explore({ lang }: { lang: Lang }) {
 
   // Stop the GPS watch whenever the map screen goes away — never keep the sensor on in the background.
   useEffect(() => () => stopWatch.current(), []);
-  useEffect(() => { if (phase !== 'trail' || !cityId) { stopWatch.current(); setWatching(false); } }, [phase, cityId]);
+  useEffect(() => { if (phase === 'quiz' || !cityId) { stopWatch.current(); setWatching(false); } }, [phase, cityId]);
 
   const backToCities = useBackCloses(cityId !== null && phase === 'trail' && selected === null, () => { setCityId(null); setSelected(null); });
   const backToTrail = useBackCloses(selected !== null && phase !== 'quiz', () => { setSelected(null); setPhase('trail'); setParentShown(false); setParentAsk(false); setGeoMsg(null); setSolving(false); });
@@ -340,7 +349,7 @@ export default function Explore({ lang }: { lang: Lang }) {
     if (typeof r === 'string') { setGeoMsg(geoError(r)); return; }
     setFix(r);
     if (isWithin(r, r.accuracyM, spot, spot.radiusM)) openSpot(spot, 'gps');
-    else { const dir = compass(bearingDeg(r, spot), lang); const m = distanceM(r, spot); setGeoMsg(t.tooFar(formatDistance(m, lang), `${dir.arrow} ${dir.label}`, walkMinutes(m))); }
+    else { const dir = compass(bearingDeg(r, spot), lang); const m = distanceM(r, spot); setGeoMsg((mystery ? t.tooFarMystery : t.tooFar)(formatDistance(m, lang), dir.label, dir.arrow, walkMinutes(m))); }
   };
 
   const markOnSite = (spot: ExploreSpot, ok: boolean) => {
@@ -474,7 +483,7 @@ export default function Explore({ lang }: { lang: Lang }) {
                     {!mystery && <span className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#0B0F1A] border border-white/25 flex items-center justify-center text-xs">🔒</span>}
                   </div>
                   <div className="min-w-0">
-                    <h2 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none truncate">{mystery ? t.spotN(n) : spot.name[lang]}</h2>
+                    <h2 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-tight break-words">{mystery ? t.spotN(n) : spot.name[lang]}</h2>
                     <p className="text-white/40 text-xs font-bold mt-1">{city.name[lang]} · {n}/{orderedSpots.length} · <span className="text-amber-300 uppercase tracking-widest text-[10px] font-black">{t.riddle}</span></p>
                   </div>
                 </div>
@@ -536,7 +545,8 @@ export default function Explore({ lang }: { lang: Lang }) {
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-14 h-14 rounded-full bg-emerald-500/20 border-2 border-emerald-400/60 flex items-center justify-center text-3xl">{spot.emoji}</div>
                 <div className="flex-1">
-                  <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none">{spot.name[lang]}</h2>
+                  <h2 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-tight break-words">{spot.name[lang]}</h2>
+                  <p className="text-white/40 text-xs font-bold mt-1">{city.name[lang]} · {orderedSpots.indexOf(spot) + 1}/{orderedSpots.length}</p>
                   <div className="flex items-center gap-2 mt-1"><StarRow stars={stars} /><span className="text-white/40 text-[10px] font-black uppercase tracking-widest">{stars}/3 {t.stars}</span></div>
                 </div>
               </div>
@@ -568,12 +578,21 @@ export default function Explore({ lang }: { lang: Lang }) {
         )}
 
         {/* ── WHERE IS IT — the map at the bottom of the spot page (the owner's ask from Porto) ── */}
-        {(isOpen || !mystery) && (() => { const links = mapsLinks(spot, spot.name[lang]); const dir = fix ? compass(bearingDeg(fix, spot), lang) : null; return (
+        {(isOpen || !mystery) && (() => {
+          const links = mapsLinks(spot);
+          // A dot from ten minutes ago is worse than no dot: only a live watch or a fix under a minute old is drawn.
+          const fresh = fix && (watching || Date.now() - fix.at < 60_000) ? fix : null;
+          const dir = fresh ? compass(bearingDeg(fresh, spot), lang) : null;
+          return (
           <div id="wb-where" className="mt-4 scroll-mt-24 rounded-[2rem] border border-cyan-500/20 bg-white/[0.03] p-5 space-y-3">
             <p className="text-[10px] font-black uppercase tracking-widest text-cyan-300 flex items-center gap-1.5"><MapPin size={12} /> {t.where} · {spot.emoji} {spot.name[lang]}</p>
-            <SpotMiniMap spot={spot} fix={fix} lang={lang} />
-            {fix && dir && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fix, spot), lang), `${dir.arrow} ${dir.label}`, walkMinutes(distanceM(fix, spot)))}</p>}
+            <SpotMiniMap spot={spot} fix={fresh} lang={lang} />
+            {fresh && dir && !geoMsg && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fresh, spot), lang), dir.label, dir.arrow, walkMinutes(distanceM(fresh, spot)))}</p>}
+            {!fresh && <p className="text-white/45 text-xs font-bold">{fix ? t.staleFix : t.noFix}</p>}
             <div className="flex flex-wrap gap-2">
+              <button onClick={toggleWatch} className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest ${watching ? 'bg-blue-500 text-white' : 'bg-white/[0.06] border border-white/10 text-white/80 hover:bg-white/10'}`}>
+                <Navigation size={14} /> {watching ? t.stopGps : t.whereAmI}
+              </button>
               <a href={links.google} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/[0.06] border border-white/10 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white/10">
                 <Footprints size={14} /> {t.directions} · Google Maps <ExternalLink size={11} className="text-white/40" />
               </a>
@@ -616,11 +635,11 @@ export default function Explore({ lang }: { lang: Lang }) {
         <button onClick={toggleWatch} className={`px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 ${watching ? 'bg-blue-500 text-white' : 'bg-white/[0.06] text-white/80 border border-white/10'}`}>
           <Navigation size={14} /> {watching ? t.stopGps : t.whereAmI}
         </button>
-        <button onClick={toggleMystery} title={mystery ? t.mysteryHint : t.mysteryOff} aria-pressed={mystery}
+        <button onClick={toggleMystery} title={t.mysteryHint} aria-pressed={mystery}
           className={`px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 ${mystery ? 'bg-fuchsia-500/80 text-white' : 'bg-white/[0.06] text-white/60 border border-white/10'}`}>
-          <Puzzle size={14} /> {t.mystery}: {mystery ? 'ON' : 'OFF'}
+          {mystery ? <Eye size={14} /> : <EyeOff size={14} />} {mystery ? t.showNames : t.hideNames}
         </button>
-        {fix && nearestSpot && <span className="text-white/60 text-xs font-bold">{t.nearestNamed(mystery ? t.spotN(orderedSpots.indexOf(nearestSpot) + 1) : `${nearestSpot.emoji} ${nearestSpot.name[lang]}`, formatDistance(distanceM(fix, nearestSpot), lang))}</span>}
+        {fix && nearestSpot && <span className="text-white/60 text-xs font-bold">{t.nearestNamed(mystery ? t.spotN(orderedSpots.indexOf(nearestSpot) + 1) : `${orderedSpots.indexOf(nearestSpot) + 1}. ${nearestSpot.emoji} ${nearestSpot.name[lang]}`, formatDistance(distanceM(fix, nearestSpot), lang))}</span>}
         {geoMsg && <span className="text-amber-200/90 text-xs font-bold">{geoMsg}</span>}
       </div>
       {mystery && <p className="text-fuchsia-200/70 text-[11px] font-bold mt-2">{t.mysteryHint}</p>}
@@ -644,7 +663,7 @@ export default function Explore({ lang }: { lang: Lang }) {
                 {!isOpen && showName && <span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#0B0F1A] border border-white/25 flex items-center justify-center text-[10px]">🔒</span>}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-white font-black text-sm flex items-center gap-2 min-w-0"><span className="truncate">{showName ? s.name[lang] : t.spotN(i + 1)}</span>{isNearest && <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-blue-500/25 text-blue-200 text-[9px] font-black uppercase tracking-widest">{t.nearestTag}</span>}</p>
+                <p className="text-white font-black text-sm flex items-center gap-2 min-w-0"><span className="line-clamp-2 leading-snug">{showName ? s.name[lang] : t.spotN(i + 1)}</span>{isNearest && <span className="shrink-0 px-1.5 py-0.5 rounded-full bg-blue-500/25 text-blue-200 text-[9px] font-black uppercase tracking-widest">{t.nearestTag}</span>}</p>
                 <p className="text-white/45 text-xs font-semibold truncate">{isOpen ? (progress.onSite[s.id] ? t.onSiteDone : s.didYouKnow[lang].slice(0, 70) + '…') : s.riddle[lang]}</p>
               </div>
               <div className="text-right shrink-0">
