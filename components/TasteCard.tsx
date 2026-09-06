@@ -10,7 +10,7 @@
  */
 import React, { useState } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
-import { Check, ChevronDown, Utensils, Award } from 'lucide-react';
+import { Check, ChevronDown, Utensils, Award, Eye } from 'lucide-react';
 import type { TasteItem } from '../data/explore/types';
 import { TASTE_BADGE_AT } from '../data/explore/progress';
 
@@ -67,7 +67,7 @@ export default function TasteCard({ items, lang, cityName, tasted, onToggle }: {
         <div className="w-11 h-11 rounded-full bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-xl shrink-0"><Utensils size={18} className="text-orange-300" /></div>
         <div className="flex-1 min-w-0">
           <h3 className="text-white font-black uppercase tracking-widest text-xs">{t.title(cityName)}</h3>
-          <p className="text-white/45 text-xs font-semibold truncate">{t.subtitle}</p>
+          <p className="text-white/45 text-xs font-semibold leading-snug">{t.subtitle}</p>
           <p className={`text-[10px] font-black uppercase tracking-widest mt-1 ${earned ? 'text-amber-300' : 'text-white/35'}`}>
             {earned ? <span className="inline-flex items-center gap-1"><Award size={11} /> {t.badge(cityName)}</span> : t.progress(count, TASTE_BADGE_AT)}
           </p>
@@ -109,7 +109,7 @@ export default function TasteCard({ items, lang, cityName, tasted, onToggle }: {
                       <p className="text-white/75 text-sm font-semibold leading-relaxed">{item.kidTip[lang]}</p>
                     </div>
                     <details className="group">
-                      <summary className="cursor-pointer list-none text-[9px] font-black uppercase tracking-widest text-white/45 hover:text-white/80">{t.funFact}</summary>
+                      <summary className="cursor-pointer list-none text-[10px] font-black uppercase tracking-widest text-amber-300/80 hover:text-amber-200 inline-flex items-center gap-1.5"><Eye size={12} /> {t.funFact} <ChevronDown size={12} className="group-open:rotate-180 transition-transform" /></summary>
                       <p className="mt-1 text-white/70 text-sm font-semibold leading-relaxed">{item.funFact[lang]}</p>
                     </details>
                     <p className="text-white/45 text-xs font-semibold"><span className="font-black uppercase tracking-widest text-[9px] text-white/35">{t.where}:</span> {item.where[lang]}</p>
