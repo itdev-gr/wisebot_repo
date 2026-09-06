@@ -340,6 +340,15 @@ export default function Explore({ lang }: { lang: Lang }) {
   // Stop the GPS watch whenever the map screen goes away — never keep the sensor on in the background.
   useEffect(() => () => stopWatch.current(), []);
   useEffect(() => { if (phase === 'quiz' || !cityId) { stopWatch.current(); setWatching(false); } }, [phase, cityId]);
+  // A one-shot fix ("I'm here!" without the watch) goes stale after a minute; nothing else would re-render at that
+  // moment, so the dot, the row distances and the "position is from earlier" note would stay until the next tap.
+  useEffect(() => {
+    if (!fix || watching) return;
+    const left = 60_000 - (Date.now() - fix.at);
+    if (left <= 0) return;
+    const id = setTimeout(() => setTick(x => x + 1), left + 50);
+    return () => clearTimeout(id);
+  }, [fix, watching]);
 
   const backToCities = useBackCloses(cityId !== null && phase === 'trail' && selected === null, () => { setCityId(null); setSelected(null); });
   const backToTrail = useBackCloses(selected !== null && phase !== 'quiz', () => { setSelected(null); setPhase('trail'); setParentShown(false); setParentAsk(false); setGeoMsg(null); setSolving(false); });
