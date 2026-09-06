@@ -41,7 +41,7 @@ const T = {
     how: 'Πώς παίζεται', howText: 'Κάθε σημείο κρύβει έναν φάκελο. Διάβασε το αίνιγμα, βρες το μέρος και πάτα «Είμαι εδώ!». Δεν είσαι στην πόλη; Λύσε το αίνιγμα από το σπίτι. Μέσα σε κάθε φάκελο: μια ιστορία, μια αποστολή παρατήρησης και ένα quiz με αστέρια.',
     trail: 'Η διαδρομή', locked: 'Κλειδωμένο', open: 'Ανοιχτό', whereAmI: 'Πού είμαι;', stopGps: 'Κλείσε GPS',
     imHere: 'Είμαι εδώ!', solve: 'Λύσε το αίνιγμα', riddle: 'Το αίνιγμα', tooFar: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Δες τη γραμμή στον χάρτη από κάτω ή πάτα «Οδηγίες».`,
-    where: 'Πού είναι;', directions: 'Οδηγίες', whereHint: 'Ο χάρτης του κινητού σου σε πάει ως εκεί με τα πόδια.', youAre: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Η γραμμή δείχνει προς τα πού.`, walk: (min: number) => `≈${min}′ με τα πόδια`,
+    where: 'Πού είναι;', directions: 'Οδηγίες', showOnMap: 'Δείξε στον χάρτη', solveHint: 'Δεν είσαι εκεί; Απάντησε σωστά και ο φάκελος ανοίγει από όπου κι αν είσαι.', whereHint: 'Ο χάρτης του κινητού σου σε πάει ως εκεί με τα πόδια.', youAre: (d: string, dir: string, min: number) => `Είσαι ${d} μακριά (≈${min}′ με τα πόδια), ${dir}. Η γραμμή δείχνει προς τα πού.`, walk: (min: number) => `≈${min}′ με τα πόδια`,
     spotN: (n: number) => `Σημείο ${n}`, nearestTag: 'Πιο κοντά', nearestNamed: (name: string, d: string) => `Πιο κοντά σου: ${name} (${d})`,
     zoomHint: 'Αριθμοί = η διαδρομή · zoom για ονόματα', mystery: 'Μυστήριο', mysteryHint: 'Τα ονόματα κρύβονται — βρείτε τα μέρη μόνο από τα αινίγματα (για μεγαλύτερα παιδιά).', mysteryOff: 'Τα ονόματα φαίνονται. Άναψε το «Μυστήριο» για μεγαλύτερη πρόκληση.',
     nearest: (d: string) => `Ο πιο κοντινός θησαυρός είναι ${d} μακριά.`, gpsDenied: 'Δεν έχουμε άδεια για την τοποθεσία. Άνοιξέ τη στις ρυθμίσεις ή λύσε το αίνιγμα.',
@@ -59,7 +59,7 @@ const T = {
     how: 'How to play', howText: 'Every spot hides an envelope. Read the riddle, find the place and tap "I\'m here!". Not in the city? Solve the riddle from home. Inside each envelope: a story, an observation mission and a quiz with stars.',
     trail: 'The trail', locked: 'Locked', open: 'Open', whereAmI: 'Where am I?', stopGps: 'Stop GPS',
     imHere: 'I\'m here!', solve: 'Solve the riddle', riddle: 'The riddle', tooFar: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. See the line on the map below, or tap "Directions".`,
-    where: 'Where is it?', directions: 'Directions', whereHint: 'Your phone\'s maps app walks you there.', youAre: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. The line shows which way.`, walk: (min: number) => `≈${min} min on foot`,
+    where: 'Where is it?', directions: 'Directions', showOnMap: 'Show on the map', solveHint: 'Not there? Answer correctly and the envelope opens wherever you are.', whereHint: 'Your phone\'s maps app walks you there.', youAre: (d: string, dir: string, min: number) => `You are ${d} away (≈${min} min on foot), ${dir}. The line shows which way.`, walk: (min: number) => `≈${min} min on foot`,
     spotN: (n: number) => `Spot ${n}`, nearestTag: 'Nearest', nearestNamed: (name: string, d: string) => `Nearest to you: ${name} (${d})`,
     zoomHint: 'Numbers = the trail · zoom for names', mystery: 'Mystery', mysteryHint: 'Names are hidden — find the places from the riddles alone (for older kids).', mysteryOff: 'Names are shown. Turn on "Mystery" for a bigger challenge.',
     nearest: (d: string) => `The nearest treasure is ${d} away.`, gpsDenied: 'No permission for location. Enable it in settings, or solve the riddle.',
@@ -294,6 +294,7 @@ export default function Explore({ lang }: { lang: Lang }) {
   const [locating, setLocating] = useState(false);
   const [parentAsk, setParentAsk] = useState(false);
   const [parentShown, setParentShown] = useState(false);
+  const [solving, setSolving] = useState(false); // the riddle quiz is folded until the family asks for it
   const [flash, setFlash] = useState<string | null>(null);
   const [, setTick] = useState(0);
   // "Mystery" hides names and the little map: the riddle alone leads the way (older kids). Off by default.
@@ -313,7 +314,7 @@ export default function Explore({ lang }: { lang: Lang }) {
   useEffect(() => { if (phase !== 'trail' || !cityId) { stopWatch.current(); setWatching(false); } }, [phase, cityId]);
 
   const backToCities = useBackCloses(cityId !== null && phase === 'trail' && selected === null, () => { setCityId(null); setSelected(null); });
-  const backToTrail = useBackCloses(selected !== null && phase !== 'quiz', () => { setSelected(null); setPhase('trail'); setParentShown(false); setParentAsk(false); setGeoMsg(null); });
+  const backToTrail = useBackCloses(selected !== null && phase !== 'quiz', () => { setSelected(null); setPhase('trail'); setParentShown(false); setParentAsk(false); setGeoMsg(null); setSolving(false); });
   const backFromQuiz = useBackCloses(phase === 'quiz', () => { setPhase('spot'); setTick(x => x + 1); });
 
   const geoError = (e: GeoError) => e === 'denied' ? t.gpsDenied : e === 'unsupported' ? t.gpsUnsupported : t.gpsUnavailable;
@@ -486,16 +487,25 @@ export default function Explore({ lang }: { lang: Lang }) {
                 className="py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 disabled:opacity-60">
                 <MapPin size={16} /> {locating ? t.locating : t.imHere}
               </button>
-              <div className="py-4 rounded-2xl bg-white/[0.05] border border-white/10 text-white/70 font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2">
-                <Sparkles size={16} /> {t.solve} ↓
+              <button onClick={() => setSolving(v => !v)} aria-expanded={solving}
+                className={`py-4 rounded-2xl border font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-colors ${solving ? 'bg-amber-500/15 border-amber-400/40 text-amber-200' : 'bg-white/[0.05] border-white/10 text-white/70 hover:bg-white/10'}`}>
+                <Sparkles size={16} /> {t.solve} {solving ? '↑' : '↓'}
+              </button>
+            </div>
+            {geoMsg && (
+              <div className="text-amber-200/90 text-sm font-bold bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3 space-y-2">
+                <p>{geoMsg}</p>
+                {!mystery && <button onClick={() => document.getElementById('wb-where')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 text-black text-[10px] font-black uppercase tracking-widest"><MapPin size={12} /> {t.showOnMap}</button>}
               </div>
-            </div>
-            {geoMsg && <p className="text-amber-200/90 text-sm font-bold bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3">{geoMsg}</p>}
+            )}
 
-            <div className="pt-2 border-t border-white/10">
-              <TaskCard key={`unlock-${spot.id}`} task={spot.unlockQuestion} lang={lang} cta={t.check}
-                onResult={ok => { if (ok) openSpot(spot, 'riddle'); else { setFlash(t.wrong); setTimeout(() => setFlash(null), 2500); } }} />
-            </div>
+            {solving && (
+              <div className="pt-2 border-t border-white/10">
+                <p className="text-white/40 text-xs font-bold mb-3">{t.solveHint}</p>
+                <TaskCard key={`unlock-${spot.id}`} task={spot.unlockQuestion} lang={lang} cta={t.check}
+                  onResult={ok => { if (ok) openSpot(spot, 'riddle'); else { setFlash(t.wrong); setTimeout(() => setFlash(null), 2500); } }} />
+              </div>
+            )}
 
             <div className="pt-2 border-t border-white/10">
               {!parentShown ? (
@@ -559,7 +569,7 @@ export default function Explore({ lang }: { lang: Lang }) {
 
         {/* ── WHERE IS IT — the map at the bottom of the spot page (the owner's ask from Porto) ── */}
         {(isOpen || !mystery) && (() => { const links = mapsLinks(spot, spot.name[lang]); const dir = fix ? compass(bearingDeg(fix, spot), lang) : null; return (
-          <div className="mt-4 rounded-[2rem] border border-cyan-500/20 bg-white/[0.03] p-5 space-y-3">
+          <div id="wb-where" className="mt-4 scroll-mt-24 rounded-[2rem] border border-cyan-500/20 bg-white/[0.03] p-5 space-y-3">
             <p className="text-[10px] font-black uppercase tracking-widest text-cyan-300 flex items-center gap-1.5"><MapPin size={12} /> {t.where} · {spot.emoji} {spot.name[lang]}</p>
             <SpotMiniMap spot={spot} fix={fix} lang={lang} />
             {fix && dir && <p className="text-white/70 text-sm font-bold">{t.youAre(formatDistance(distanceM(fix, spot), lang), `${dir.arrow} ${dir.label}`, walkMinutes(distanceM(fix, spot)))}</p>}
@@ -600,7 +610,7 @@ export default function Explore({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      <CityMap city={city} lang={lang} opened={progress.opened} fix={fix} selectedId={selected} mystery={mystery} targetId={nearestSpot?.id ?? null} onSelect={id => { setSelected(id); setPhase('spot'); setParentShown(false); setParentAsk(false); setGeoMsg(null); }} />
+      <CityMap city={city} lang={lang} opened={progress.opened} fix={fix} selectedId={selected} mystery={mystery} targetId={nearestSpot?.id ?? null} onSelect={id => { setSelected(id); setPhase('spot'); setParentShown(false); setParentAsk(false); setGeoMsg(null); setSolving(false); }} />
 
       <div className="flex flex-wrap items-center gap-2 mt-3">
         <button onClick={toggleWatch} className={`px-4 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest flex items-center gap-2 ${watching ? 'bg-blue-500 text-white' : 'bg-white/[0.06] text-white/80 border border-white/10'}`}>
@@ -626,7 +636,7 @@ export default function Explore({ lang }: { lang: Lang }) {
           const showName = isOpen || !mystery;
           const isNearest = nearestSpot?.id === s.id;
           return (
-            <button key={s.id} onClick={() => { setSelected(s.id); setPhase('spot'); setParentShown(false); setParentAsk(false); setGeoMsg(null); }}
+            <button key={s.id} onClick={() => { setSelected(s.id); setPhase('spot'); setParentShown(false); setParentAsk(false); setGeoMsg(null); setSolving(false); }}
               className={`w-full text-left flex items-center gap-3 p-3.5 rounded-2xl border transition-all hover:-translate-y-0.5 ${isOpen ? 'border-emerald-500/25 bg-emerald-500/[0.06]' : 'border-white/[0.08] bg-white/[0.03]'}`}>
               <div className={`relative shrink-0 w-11 h-11 rounded-full flex items-center justify-center text-xl border-2 ${isOpen ? 'bg-emerald-500/20 border-emerald-400/60' : 'bg-[#0B0F1A] border-white/15'}`}>
                 {showName ? s.emoji : <Lock size={16} className="text-white/40" />}
