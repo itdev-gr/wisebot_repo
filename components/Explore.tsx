@@ -25,9 +25,10 @@ import 'leaflet/dist/leaflet.css';
 import QuizEngine, { getQuizStars } from './QuizEngine';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 import { useBackCloses } from '../utils/useBackCloses';
-import { CITY_META, loadCity, flagEmoji } from '../data/explore/registry';
-import type { ExploreCity, ExploreSpot, ObservationTask } from '../data/explore/types';
-import { readProgress, writeProgress, spotQuizId, cityBadgeEarned, cityBadgeNeed, countryBadgeEarned, type CityProgress, type Unlock } from '../data/explore/progress';
+import { CITY_META, loadCity, loadTaste, flagEmoji } from '../data/explore/registry';
+import TasteCard from './TasteCard';
+import type { ExploreCity, ExploreSpot, ObservationTask, TasteItem } from '../data/explore/types';
+import { readProgress, writeProgress, spotQuizId, cityBadgeEarned, cityBadgeNeed, countryBadgeEarned, tasteBadgeEarned, type CityProgress, type Unlock } from '../data/explore/progress';
 import { distanceM, formatDistance, isWithin, locateOnce, watchPosition, bearingDeg, compass, mapsLinks, walkMinutes, type Fix, type GeoError } from '../utils/geo';
 import { shuffleQuestionOptions } from '../utils/shuffleOptions';
 
@@ -309,7 +310,8 @@ export default function Explore({ lang }: { lang: Lang }) {
   // `/explore?city=<id>` — the Passport's empty stamps land straight on that city.
   const [cityId, setCityId] = useState<string | null>(() => { const q = params.get('city'); return q && CITY_META.some(c => c.id === q) ? q : null; });
   const [city, setCity] = useState<ExploreCity | null>(null);
-  const [progress, setProgress] = useState<CityProgress>({ opened: {}, onSite: {} });
+  const [taste, setTaste] = useState<TasteItem[]>([]);
+  const [progress, setProgress] = useState<CityProgress>({ opened: {}, onSite: {}, tasted: {} });
   const [selected, setSelected] = useState<string | null>(null);
   const [phase, setPhase] = useState<'trail' | 'spot' | 'quiz'>('trail');
   const [fix, setFix] = useState<Fix | null>(null);
@@ -330,6 +332,8 @@ export default function Explore({ lang }: { lang: Lang }) {
     if (!cityId) { setCity(null); return; }
     let alive = true;
     loadCity(cityId).then(c => { if (alive) { setCity(c); setProgress(readProgress(cityId)); } });
+    setTaste([]);
+    loadTaste(cityId).then(items => { if (alive) setTaste(items); });
     return () => { alive = false; };
   }, [cityId]);
 
@@ -656,6 +660,7 @@ export default function Explore({ lang }: { lang: Lang }) {
           {badge
             ? <p className="mt-1 inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/15 border border-amber-500/30 rounded-full text-amber-300 text-[11px] font-black uppercase tracking-widest"><Award size={12} /> {t.badge(city.name[lang])}</p>
             : <p className="text-white/30 text-[10px] font-bold mt-1">{t.badgeHint(badgeNeed)}</p>}
+          {tasteBadgeEarned(city.id, progress) && <p className="mt-1 inline-flex items-center gap-1.5 px-3 py-1 bg-orange-500/15 border border-orange-500/30 rounded-full text-orange-300 text-[11px] font-black uppercase tracking-widest">🍴 {lang === 'el' ? `Γευσιγνώστης ${city.name.el}` : `${city.name.en} Taster`}</p>}
         </div>
       </div>
 
@@ -677,6 +682,10 @@ export default function Explore({ lang }: { lang: Lang }) {
       {mystery && <p className="text-fuchsia-200/70 text-[11px] font-bold mt-2">{t.mysteryHint}</p>}
 
       <p className="text-white/70 text-sm font-semibold leading-relaxed mt-5 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex gap-3"><span className="text-2xl leading-none">🦉</span><span>{city.intro[lang]}</span></p>
+
+      {/* ── TASTE THE CITY — the food card, a second stamp for the passport ── */}
+      <TasteCard items={taste} lang={lang} cityName={city.name[lang]} tasted={progress.tasted}
+        onToggle={(id, on) => { const tasted = { ...progress.tasted }; if (on) tasted[id] = Date.now(); else delete tasted[id]; const next: CityProgress = { ...progress, tasted }; setProgress(next); writeProgress(city.id, next); }} />
 
       <h3 className="text-white font-black uppercase tracking-widest text-xs mt-6 mb-3">{t.trail}</h3>
       <div className="space-y-2">
