@@ -140,7 +140,8 @@
           "Il est bâti entièrement sous le niveau du sol"
         ],
         "explanation": "D’autres stades ont du marbre quelque part. Celui-ci est en marbre partout, de la première marche au dernier siège."
-      }
+      },
+      "findIt": "L’entrée se trouve avenue Vassileos Konstantinou, juste en face de la statue du lanceur de disque."
     },
     "athens-acropolis-museum": {
       "name": "Le musée de l’Acropole",
@@ -333,7 +334,8 @@
             "hint": "Je suis fait de plâtre, pas de marbre."
           }
         }
-      }
+      },
+      "findIt": "L’entrée se trouve rue Dionysiou Areopagitou, du côté qui regarde l’Acropole."
     },
     "athens-national-archaeological-museum": {
       "name": "Le Musée archéologique national",

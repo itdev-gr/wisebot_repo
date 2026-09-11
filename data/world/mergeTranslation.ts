@@ -109,6 +109,9 @@ function mergePlace(place: Place, lang: WorldLang, overlay: CityTranslation): Pl
     name: withLang(place.name, lang, t.name),
     tagline: withLang(place.tagline, lang, t.tagline),
     story: withLang(place.story, lang, t.story),
+    location: place.location.findIt
+      ? { ...place.location, findIt: withLang(place.location.findIt, lang, t.findIt) }
+      : place.location,
     facts: place.facts.map((fact, i) => withLang(fact, lang, t.facts?.[i])),
     question: mergeQuestion(place.question, lang, t.question),
     museum,

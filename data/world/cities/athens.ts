@@ -667,6 +667,13 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Panathenaic Stadium', deltaM: 0 },
       ],
       verifiedAt: '2026-09-10',
+      // The stadium's own site gives its address this way, and it is better than a
+      // coordinate: the stored point is the middle of the horseshoe, about 127 m from
+      // the gate, and a child who walks to it meets marble, not a door.
+      findIt: {
+        el: 'Η είσοδος είναι στη Λεωφόρο Βασιλέως Κωνσταντίνου, ακριβώς απέναντι από το άγαλμα του Δισκοβόλου.',
+        en: 'The way in is on Vasileos Konstantinou Avenue, right across from the statue of the discus thrower.',
+      },
     },
     question: {
       q: {
@@ -765,6 +772,12 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-10',
       note: 'Wikipedia’s point sits 78 m off, on the building rather than the entrance. The stored point is the entrance side.',
+      // The door is on Dionysiou Areopagitou, so a child arriving from Makrygianni
+      // walks the long way round and meets a wall.
+      findIt: {
+        el: 'Η είσοδος είναι στη Διονυσίου Αρεοπαγίτου, στην πλευρά που βλέπει την Ακρόπολη.',
+        en: 'The way in is on Dionysiou Areopagitou, on the side that faces the Acropolis.',
+      },
     },
     question: {
       q: {

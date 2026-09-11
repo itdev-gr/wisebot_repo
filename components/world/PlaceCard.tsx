@@ -30,7 +30,7 @@
 
 import React, { useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Check, X, Sparkles, DoorOpen, Stamp, Info } from 'lucide-react';
+import { ArrowLeft, Check, X, Sparkles, DoorOpen, MapPin, Stamp, Info } from 'lucide-react';
 import type { Place, PlaceId, WorldLang } from '../../data/world/types';
 import type { PlaceStamp } from './useWorldProgress';
 import StoryNarration from './StoryNarration';
@@ -465,6 +465,20 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
                 </span>
               ))}
             </div>
+          </section>
+        )}
+
+        {/* ── FINDING THE DOOR ──
+            A landmark, not a coordinate. The Panathenaic Stadium's own site gives its
+            address as "opposite the statue of the Discobolus", and that is the form a
+            child can actually use: they do not read latitude, they look around for a
+            man throwing a discus. Absent on most places, and silent when absent. */}
+        {place.location.findIt && (
+          <section className="mt-8">
+            <p className={`${WORLD_STYLE.chip} !rounded-2xl !py-2.5 items-start text-left`}>
+              <MapPin size={14} className="text-white/40 shrink-0 mt-0.5" aria-hidden="true" />
+              <span>{say(place.location.findIt, lang)}</span>
+            </p>
           </section>
         )}
 

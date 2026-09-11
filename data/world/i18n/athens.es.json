@@ -140,7 +140,8 @@
           "Está construido entero por debajo del nivel del suelo"
         ],
         "explanation": "Otros estadios tienen mármol en alguna parte. Este es mármol en todas partes, desde el primer escalón hasta el último asiento."
-      }
+      },
+      "findIt": "La entrada está en la avenida Vasileos Konstantinou, justo enfrente de la estatua del lanzador de disco."
     },
     "athens-acropolis-museum": {
       "name": "El Museo de la Acrópolis",
@@ -333,7 +334,8 @@
             "hint": "Estoy hecho de yeso, no de mármol."
           }
         }
-      }
+      },
+      "findIt": "La entrada está en la calle Dionisiou Areopayitou, en el lado que mira a la Acrópolis."
     },
     "athens-national-archaeological-museum": {
       "name": "El Museo Arqueológico Nacional",

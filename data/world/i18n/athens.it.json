@@ -140,7 +140,8 @@
           "È costruito tutto sotto il livello del terreno"
         ],
         "explanation": "Altri stadi hanno del marmo da qualche parte. Questo è marmo dappertutto, dal primo gradino all’ultimo sedile."
-      }
+      },
+      "findIt": "L’ingresso è sul viale Vasileos Konstantinou, proprio davanti alla statua del discobolo."
     },
     "athens-acropolis-museum": {
       "name": "Il Museo dell’Acropoli",
@@ -333,7 +334,8 @@
             "hint": "Sono fatto di gesso, non di marmo."
           }
         }
-      }
+      },
+      "findIt": "L’ingresso è in via Dionisiou Areopagitou, dal lato che guarda l’Acropoli."
     },
     "athens-national-archaeological-museum": {
       "name": "Il Museo Archeologico Nazionale",

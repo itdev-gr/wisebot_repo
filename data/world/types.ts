@@ -135,6 +135,26 @@ export interface PlaceLocation {
   /** For the next person: a moved entrance, a known ambiguity, a closure. */
   note?: string;
 
+  /**
+   * How to find the door, in words a child can use while standing there.
+   *
+   * «Η είσοδος είναι απέναντι από το άγαλμα του Δισκοβόλου.» That is how the
+   * Panathenaic Stadium's own site gives its address, and it is better than a
+   * coordinate rather than a substitute for one: an eight-year-old does not read
+   * latitude, they look around for a statue of a man throwing a discus.
+   *
+   * It sits beside the coordinate rather than inside `Museum` because it belongs to
+   * the location, not to the building's opening hours — `Museum.doorNote` is for what
+   * a visitor should know before going in, which is a different sentence. A hill or a
+   * park can have one of these; neither has a museum.
+   *
+   * It is also the one part of the entrance problem with no licence attached. A
+   * sentence in our own words, from the venue's own page, is not a coordinate, not a
+   * database and not anyone's imagery — so it can land today, while the coordinate
+   * waits for a source we are allowed to use.
+   */
+  findIt?: LocText;
+
   /** Position on the illustrated city map, 0–1 of the artwork's width and height. */
   map?: { x: number; y: number };
 }
@@ -396,6 +416,8 @@ export interface PlaceTranslation {
   name?: string;
   tagline?: string;
   story?: string;
+  /** `location.findIt` — how to find the door, in this language. */
+  findIt?: string;
   /** Same order and length as the place's own `facts`. */
   facts?: string[];
   question?: QuestionTranslation;

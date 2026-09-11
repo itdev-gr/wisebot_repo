@@ -140,7 +140,8 @@
           "Es ist vollständig unter der Erde gebaut"
         ],
         "explanation": "Andere Stadien haben irgendwo Marmor. Dieses ist überall Marmor, von der ersten Stufe bis zum letzten Sitz."
-      }
+      },
+      "findIt": "Der Eingang liegt an der Vasileos-Konstantinou-Allee, direkt gegenüber der Statue des Diskuswerfers."
     },
     "athens-acropolis-museum": {
       "name": "Das Akropolis-Museum",
@@ -333,7 +334,8 @@
             "hint": "Ich bin aus Gips gemacht, nicht aus Marmor."
           }
         }
-      }
+      },
+      "findIt": "Der Eingang liegt an der Dionysiou-Areopagitou-Straße, auf der Seite, die zur Akropolis schaut."
     },
     "athens-national-archaeological-museum": {
       "name": "Das Archäologische Nationalmuseum",
