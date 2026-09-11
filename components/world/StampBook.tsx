@@ -63,13 +63,15 @@ export interface StampBookProps {
 /** Short, already-uppercase captions. Safe to render through `WORLD_STYLE.label`. */
 const T = {
   back: { el: 'ΠΙΣΩ', en: 'BACK', de: 'ZURÜCK', fr: 'RETOUR', es: 'ATRÁS', it: 'INDIETRO' },
+  // The passport belongs to a named product, so it carries that name the way a real
+  // one carries the issuing country's.
   kicker: {
-    el: 'ΔΙΑΒΑΤΗΡΙΟ ΕΞΕΡΕΥΝΗΤΗ',
-    en: 'EXPLORER PASSPORT',
-    de: 'ENTDECKERPASS',
-    fr: 'PASSEPORT EXPLORATEUR',
-    es: 'PASAPORTE DE EXPLORADOR',
-    it: 'PASSAPORTO ESPLORATORE',
+    el: 'ΔΙΑΒΑΤΗΡΙΟ WISEBOT WORLD',
+    en: 'WISEBOT WORLD PASSPORT',
+    de: 'WISEBOT WORLD REISEPASS',
+    fr: 'PASSEPORT WISEBOT WORLD',
+    es: 'PASAPORTE WISEBOT WORLD',
+    it: 'PASSAPORTO WISEBOT WORLD',
   },
   // The three totals sit in a three-column grid and are truncated, so these stay short
   // enough to survive a 375px screen — a longer synonym would render as an ellipsis.

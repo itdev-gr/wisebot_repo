@@ -302,8 +302,8 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   world: {
     title: {
-      el: 'Ο Κόσμος — Ταξίδι σε Χώρες, Πόλεις & Μουσεία για Παιδιά | WiseBot Academy',
-      en: 'The World — Countries, Cities & Museums for Kids | WiseBot Academy',
+      el: 'WiseBot World — Ταξίδι σε Χώρες, Πόλεις & Μουσεία για Παιδιά | WiseBot Academy',
+      en: 'WiseBot World — Countries, Cities & Museums for Kids | WiseBot Academy',
     },
     description: {
       el: 'Ταξίδεψε σε αληθινές χώρες και πόλεις, μπες σε μουσεία, λύσε αινίγματα και γέμισε το διαβατήριό σου με σφραγίδες.',

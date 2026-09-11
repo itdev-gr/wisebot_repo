@@ -69,14 +69,27 @@ const PlaceCard = React.lazy(() => import('./PlaceCard'));
 const MuseumView = React.lazy(() => import('./MuseumView'));
 
 const T = {
-  // Written in capitals in every language: the heading has no `uppercase` class to do it.
+  /**
+   * The product's name, not a translation of it. «Ο Κόσμος» reads as a generic noun in
+   * a menu of generic nouns; "WiseBot World" is the thing a child asks for by name and
+   * a parent searches for. The localised phrase survives underneath as the subtitle,
+   * which is where a description belongs.
+   */
   title: {
-    el: 'Ο ΚΟΣΜΟΣ',
-    en: 'THE WORLD',
-    de: 'DIE WELT',
-    fr: 'LE MONDE',
-    es: 'EL MUNDO',
-    it: 'IL MONDO',
+    el: 'WISEBOT WORLD',
+    en: 'WISEBOT WORLD',
+    de: 'WISEBOT WORLD',
+    fr: 'WISEBOT WORLD',
+    es: 'WISEBOT WORLD',
+    it: 'WISEBOT WORLD',
+  },
+  subtitle: {
+    el: 'Ο Κόσμος',
+    en: 'The World',
+    de: 'Die Welt',
+    fr: 'Le Monde',
+    es: 'El Mundo',
+    it: 'Il Mondo',
   },
   loading: {
     el: 'Φορτώνει…',
@@ -618,7 +631,10 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
         <header className="flex items-center justify-between gap-4 flex-wrap py-6">
           <h1 className={`${WORLD_STYLE.display} text-3xl flex items-center gap-3`}>
             <Globe size={26} className="text-blue-400 not-italic" aria-hidden="true" />
-            {ui(T.title, lang)}
+            <span className="flex flex-col">
+              {ui(T.title, lang)}
+              <span className={`${WORLD_STYLE.label} not-italic mt-1`}>{ui(T.subtitle, lang)}</span>
+            </span>
           </h1>
           <LangSwitcher lang={lang} available={available} onChange={setLang} />
         </header>
