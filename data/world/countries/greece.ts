@@ -126,4 +126,51 @@ export const cities: City[] = [
       bounds: { north: 37.995, south: 37.925, east: 23.76, west: 23.68 },
     },
   },
+
+  {
+    id: 'thessaloniki',
+    countryId: 'greece',
+    order: 2,
+    emoji: '🌊',
+
+    name: {
+      el: 'Θεσσαλονίκη',
+      en: 'Thessaloniki',
+    },
+
+    intro: {
+      el:
+        'Η Θεσσαλονίκη είναι μια πόλη που δεν έκρυψε ποτέ τις εποχές της. Μια ρωμαϊκή ' +
+        'αψίδα στέκεται πάνω σε δρόμο με καφετέριες, ένας θόλος χίλιων εφτακοσίων ετών ' +
+        'χρησιμοποιείται για εκθέσεις, και η αγορά δουλεύει εκεί που δούλευε πάντα. Το ' +
+        '1917 μια φωτιά έκαψε το κέντρο της, κι έτσι η πόλη σχεδιάστηκε ξανά από την ' +
+        'αρχή: γι’ αυτό έχει και στενά σοκάκια στην Άνω Πόλη και μεγάλες πλατείες κάτω. ' +
+        'Και ό,τι κι αν κοιτάς, η θάλασσα είναι πάντα στο τέλος του δρόμου.',
+      en:
+        'Thessaloniki is a city that never hid its own centuries. A Roman arch stands over ' +
+        'a street full of cafés, a dome seventeen hundred years old is used for exhibitions, ' +
+        'and the market works where it has always worked. In 1917 a fire burned the centre ' +
+        'down, so the city was planned again from scratch, which is why it has narrow lanes ' +
+        'up in the Old Town and wide squares below them. And whatever you happen to be ' +
+        'looking at, the sea is always waiting at the end of the street.',
+    },
+
+    /** Copied from `scripts/world/seeds/thessaloniki.json`. */
+    centre: { lat: 40.64361, lng: 22.93028 },
+
+    map: {
+      src: '/images/world/maps/thessaloniki.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Θεσσαλονίκης με τον Θερμαϊκό και το τόξο των τειχών.',
+        en: 'A stylised map of Thessaloniki showing the gulf and the arc of the walls.',
+      },
+      width: 800,
+      height: 1054,
+      /**
+       * Wide enough to hold the science centre at Thermi, which is the furthest place
+       * in the city file and sits well outside the city itself.
+       */
+      bounds: { north: 40.665, south: 40.545, east: 23.02, west: 22.9 },
+    },
+  },
 ];
