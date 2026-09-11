@@ -1,0 +1,32 @@
+{
+  "lang": "es",
+  "countries": {
+    "greece": {
+      "name": "Grecia",
+      "intro": "Grecia es un país hecho de montañas y mar. Tiene unas seis mil islas e islotes rocosos, y la gente vive solo en unos doscientos. Aquí empezaron los Juegos Olímpicos, y el teatro, y la palabra «democracia». Caves donde caves, encuentras algo: por debajo de los pisos de Atenas pasan calles antiguas, y junto a un puerto que sigue funcionando hay un templo de dos mil quinientos años. Es un país que nunca tiró nada de su pasado.",
+      "facts": [
+        "Tiene la costa más larga del Mediterráneo, unos 13.600 kilómetros.",
+        "El Olimpo, su montaña más alta, llega a los 2.917 metros. En los mitos era la casa de los dioses.",
+        "El griego se escribe con el mismo alfabeto desde hace unos 2.800 años."
+      ],
+      "cities": {
+        "athens": {
+          "name": "Atenas",
+          "intro": "Atenas es una ciudad con una roca en medio. Encima de la roca hay un templo de dos mil quinientos años, y a su alrededor se extiende una ciudad moderna con metro, estadios y mercados de barrio. Las dos vidas no van por separado: las obras del metro se pararon para que excavaran los arqueólogos, y lo que encontraron se expone ahora dentro de las estaciones. Aquí se votaron las primeras leyes escritas por los ciudadanos, aquí se representó el primer teatro y aquí volvieron a empezar los Juegos Olímpicos, en 1896."
+        },
+        "thessaloniki": {
+          "name": "Tesalónica",
+          "intro": "Tesalónica es una ciudad que nunca escondió sus épocas. Un arco romano se levanta sobre una calle llena de cafeterías, una cúpula de mil setecientos años se usa para exposiciones, y el mercado trabaja donde trabajó siempre. En 1917 un incendio quemó el centro, y la ciudad se dibujó otra vez desde cero: por eso tiene callejuelas estrechas arriba, en la Ciudad Alta, y plazas grandes abajo. Y mires lo que mires, el mar siempre te espera al final de la calle."
+        },
+        "heraklion": {
+          "name": "Heraclión",
+          "intro": "Heraclión es la ciudad que guarda la Europa más antigua que hay. A cinco kilómetros está Cnosos, un palacio con tuberías y pozos de luz de cuatro mil años, y todo lo que salió de allí se guarda aquí, en la ciudad. En el puerto, una fortaleza veneciana se levanta dentro del agua, y en la plaza los leones de una fuente siguen echando agua que bajaba antes de una montaña a quince kilómetros. Alrededor de todo eso, una ciudad moderna que no se para nunca."
+        },
+        "rhodes": {
+          "name": "Rodas",
+          "intro": "Rodas es una isla que fue pasando de mano en mano: la tuvieron, uno detrás de otro, todos los que cruzaron el Mediterráneo, y cada uno dejó algo en pie. Los antiguos griegos trazaron una ciudad con regla, los Caballeros de San Juan levantaron castillos, un hospital y toda una ciudad medieval en la que la gente vive todavía, y los italianos, en el siglo XX, reconstruyeron lo que se había caído. Cincuenta kilómetros más al sur, una roca con un templo antiguo encima mira dos bahías. Y entre medias, playas donde el agua es de tres azules distintos."
+        }
+      }
+    }
+  }
+}

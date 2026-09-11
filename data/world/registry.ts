@@ -112,7 +112,10 @@ export async function loadCity(cityId: CityId, lang?: string): Promise<CityModul
 }
 
 const I18N_COUNTRIES: Record<string, () => Promise<{ default: unknown }>> = {
-  // no front-door translations yet
+  'de': () => import('./i18n/countries.de.json'),
+  'es': () => import('./i18n/countries.es.json'),
+  'fr': () => import('./i18n/countries.fr.json'),
+  'it': () => import('./i18n/countries.it.json'),
 };
 
 /**
