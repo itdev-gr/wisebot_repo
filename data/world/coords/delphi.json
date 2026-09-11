@@ -1,0 +1,405 @@
+{
+  "city": "delphi",
+  "resolvedAt": "2026-09-11T16:00:08.154Z",
+  "centre": {
+    "lat": 38.48333,
+    "lng": 22.5
+  },
+  "places": [
+    {
+      "id": "delphi-site",
+      "name": "Archaeological site of Delphi",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q17652439",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 38.48201,
+      "lng": 22.50022,
+      "labels": {
+        "it": "Sito archeologico di Delfi",
+        "el": "αρχαιολογικός χώρος Δελφών",
+        "fr": "site archéologique de Delphes",
+        "de": "Delphi",
+        "en": "archaeological Site of Delphi"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-museum",
+      "name": "Delphi Archaeological Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q636928",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/145690078",
+          "deltaM": 15
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Delphi Archaeological Museum",
+          "deltaM": 20
+        }
+      ],
+      "warnings": [],
+      "lat": 38.48029,
+      "lng": 22.49984,
+      "labels": {
+        "el": "Αρχαιολογικό Μουσείο Δελφών",
+        "fr": "musée archéologique de Delphes",
+        "en": "Delphi Archaeological Museum",
+        "de": "Archäologisches Museum Delphi",
+        "it": "Museo archeologico di Delfi",
+        "es": "Museo Arqueológico de Delfos"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-athenian-treasury",
+      "name": "Athenian Treasury",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q478011",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Athenian Treasury",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 38.48184,
+      "lng": 22.50143,
+      "labels": {
+        "de": "Schatzhaus der Athener",
+        "el": "Θησαυρός των Αθηναίων",
+        "it": "Tesoro degli Ateniesi",
+        "fr": "trésor des Athéniens à Delphes",
+        "en": "Athenian Treasury",
+        "es": "Tesoro de los atenienses"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-castalian-spring",
+      "name": "Castalian Spring",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q152348",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Castalian Spring",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 38.48306,
+      "lng": 22.50556,
+      "labels": {
+        "de": "Kastalische Quelle",
+        "fr": "Fontaine de Castalie",
+        "es": "Fuente de Castalia",
+        "en": "Castalian Spring",
+        "el": "Κασταλία πηγή",
+        "it": "Fonte Castalia"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-tholos",
+      "name": "Tholos of Delphi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q12013451",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/145690071",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Tholos of Delphi",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 38.48015,
+      "lng": 22.5079,
+      "labels": {
+        "el": "Θόλος των Δελφών",
+        "en": "Tholos of Delphi",
+        "it": "tholos di Delfi",
+        "es": "Tholos de Delfos",
+        "fr": "Tholos de Delphes"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-stadium",
+      "name": "Stadium of Delphi",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q21705214",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/145690087",
+          "deltaM": 69
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 38.48227,
+      "lng": 22.49721,
+      "labels": {
+        "it": "stadio di Delfi",
+        "el": "Στάδιο των Δελφών",
+        "en": "stadium of Delphi",
+        "es": "Estadio de Delfos",
+        "fr": "stade de Delphes",
+        "de": "Stadion von Delphi"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-theatre",
+      "name": "Ancient theatre of Delphi",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10378966",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/145690058",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 38.4825,
+      "lng": 22.50056,
+      "labels": {
+        "it": "teatro di Delfi",
+        "en": "Delphi Theater",
+        "el": "Αρχαίο θέατρο Δελφών",
+        "fr": "théâtre de Delphes",
+        "es": "Teatro de Delfos"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-festivals-museum",
+      "name": "Museum of the Delphic Festivals",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q59387697",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/9295914724",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 38.47908,
+      "lng": 22.49712,
+      "labels": {
+        "en": "Delphic festival museum",
+        "el": "Μουσείο Δελφικών Εορτών"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-parnassus",
+      "name": "Liakoura, the summit of Parnassus",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q25020974",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 38.5351,
+      "lng": 22.6224,
+      "labels": {
+        "el": "Λιάκουρα",
+        "en": "Liakoura"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-corycian-cave",
+      "name": "Corycian Cave",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2261709",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Corycian Cave",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 38.515,
+      "lng": 22.52056,
+      "labels": {
+        "fr": "antre corycien",
+        "es": "Coricio",
+        "en": "Corycian Cave",
+        "it": "Antro coricio",
+        "el": "Κωρύκειο άντρο"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-galaxidi",
+      "name": "Galaxidi",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q677906",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Galaxidi",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 38.37667,
+      "lng": 22.38361,
+      "labels": {
+        "de": "Galaxidi",
+        "el": "Γαλαξίδι Φωκίδας",
+        "en": "Galaxidi",
+        "fr": "Galaxídi",
+        "it": "Galaxidi",
+        "es": "Galaxidi"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-amfissa",
+      "name": "Ancient Amfissa",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q38281545",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 38.53116,
+      "lng": 22.3738,
+      "labels": {
+        "el": "Αρχαία Άμφισσα",
+        "en": "Amphissa"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "delphi-hosios-loukas",
+      "name": "Monastery of Hosios Loukas",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q844841",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hosios Loukas",
+          "deltaM": 51
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 38.39514,
+      "lng": 22.74632,
+      "labels": {
+        "fr": "monastère d'Osios Loukas",
+        "es": "Monasterio de Osios Loukás",
+        "it": "Monastero di Ossios Loukas",
+        "de": "Kloster Hosios Lukas",
+        "el": "Μονή Οσίου Λουκά Βοιωτίας",
+        "en": "Hosios Loukas"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    }
+  ],
+  "problems": []
+}

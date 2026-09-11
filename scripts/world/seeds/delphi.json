@@ -1,0 +1,30 @@
+{
+  "city": "delphi",
+  "country": "greece",
+  "centre": { "lat": 38.48333, "lng": 22.5 },
+  "note": "Wikidata q-ids only. Centre is Wikidata's point for ancient Delphi (Q75459), not the modern village (Q954068) and not the archaeological site item (Q17652439), which is a separate place in this seed. No entrance is claimed anywhere: no door here has been measured, so every point is a centroid or an area. Delphi is the smallest place in this module and the most spread out, because the sanctuary alone cannot fill a city: the bounds reach Parnassus, the Corycian Cave, Arachova, Galaxidi, Amfissa and the monastery of Hosios Loukas, which is how a family actually spends three days here. Arachova was dropped: as a settlement item it graded D, with Wikipedia 573 m from Wikidata, because a town's coordinate is an arbitrary point inside it rather than a place. That costs this city its only food entry, and no substitute in the area carries a q-id.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "delphi-site", "name": "Archaeological site of Delphi", "wikidata": "Q17652439", "anchor": "area" },
+    { "id": "delphi-museum", "name": "Delphi Archaeological Museum", "wikidata": "Q636928", "anchor": "centroid" },
+    { "id": "delphi-athenian-treasury", "name": "Athenian Treasury", "wikidata": "Q478011", "anchor": "centroid" },
+    { "id": "delphi-castalian-spring", "name": "Castalian Spring", "wikidata": "Q152348", "anchor": "centroid" },
+
+    { "id": "delphi-tholos", "name": "Tholos of Delphi", "wikidata": "Q12013451", "anchor": "centroid",
+      "note": "The round building itself. The sanctuary of Athena Pronaia that contains it (Q105394638) sits 17 m away, under the separation floor, so the two cannot both ship. The Tholos is the thing a child actually looks at." },
+
+    { "id": "delphi-stadium", "name": "Stadium of Delphi", "wikidata": "Q21705214", "anchor": "area" },
+    { "id": "delphi-theatre", "name": "Ancient theatre of Delphi", "wikidata": "Q10378966", "anchor": "area" },
+    { "id": "delphi-festivals-museum", "name": "Museum of the Delphic Festivals", "wikidata": "Q59387697", "anchor": "centroid" },
+    { "id": "delphi-parnassus", "name": "Liakoura, the summit of Parnassus", "wikidata": "Q25020974", "anchor": "viewpoint",
+      "note": "Replaces the mountain item (Q105261), which graded D: OpenStreetMap put it 525 m away and Wikipedia 722 m, because all three sources are describing a massif rather than a place. This is Liakoura, the highest peak, which is the point people climb to. Third time this failure has appeared in Greece, after Lycabettus and Juktas." },
+    { "id": "delphi-corycian-cave", "name": "Corycian Cave", "wikidata": "Q2261709", "anchor": "centroid" },
+    { "id": "delphi-galaxidi", "name": "Galaxidi", "wikidata": "Q677906", "anchor": "area" },
+
+    { "id": "delphi-amfissa", "name": "Ancient Amfissa", "wikidata": "Q38281545", "anchor": "area",
+      "note": "The archaeological site on the acropolis hill, where the castle stands, rather than the modern town (Q470481) 700 m downhill." },
+
+    { "id": "delphi-hosios-loukas", "name": "Monastery of Hosios Loukas", "wikidata": "Q844841", "anchor": "centroid",
+      "note": "The monastery (Q844841), not the settlement named after it (Q114490836) 60 m away." }
+  ]
+}
