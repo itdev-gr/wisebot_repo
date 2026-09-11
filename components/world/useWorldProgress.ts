@@ -104,7 +104,19 @@ const EMPTY: WorldProgress = {
   countriesDone: [],
 };
 
-const today = (): string => new Date().toISOString().slice(0, 10);
+/**
+ * Today where the child is, not today in UTC.
+ *
+ * `toISOString()` converts to UTC first, so a child in Athens who earns a stamp at half
+ * past midnight gets yesterday's date printed on it — the passport disagrees with the
+ * clock they are looking at. Every hour east of Greenwich has this, and the three hours
+ * of Greek summer time make it a nightly occurrence rather than an edge case.
+ */
+export const today = (): string => {
+  const d = new Date();
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
 
 function read(): WorldProgress {
   try {

@@ -45,6 +45,7 @@ import type {
   CityModule,
   Country,
   CountryId,
+  LocText,
   Place,
   PlaceId,
   WorldLang,
@@ -57,9 +58,10 @@ import {
   rememberWorldLang,
   ui,
 } from './worldUi';
-import { useWorldProgress } from './useWorldProgress';
+import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
+import SealCeremony from './SealCeremony';
 
 const StampBook = React.lazy(() => import('./StampBook'));
 const CityView = React.lazy(() => import('./CityView'));
@@ -402,7 +404,7 @@ const CountryEntry: React.FC<{
   return (
     <StampCeremony
       country={ceremony}
-      date={progress.progress.entries[ceremony.id] ?? new Date().toISOString().slice(0, 10)}
+      date={progress.progress.entries[ceremony.id] ?? today()}
       onDone={() => setCeremony(null)}
     />
   );
@@ -463,21 +465,50 @@ const PlacePage: React.FC<{
     [content, countryId],
   );
 
+  // The seal the last visit earned, held so the ceremony can show it. `visitPlace` has
+  // been returning `citySealed` and `countrySealed` since the first day and nothing
+  // read them: a child finished a city, was paid 50 XP, and saw nothing happen.
+  const [seal, setSeal] = useState<{
+    city: City;
+    country?: Country;
+    xp: number;
+    trailName?: LocText;
+  } | null>(null);
+
   const handleComplete = useCallback(
     (correct: boolean) => {
       if (!place || !city || !module) return;
-      visitPlace(
+      const award = visitPlace(
         place,
         correct,
         city,
         module.places.map((p) => p.id),
         countryCityIds,
       );
+
       // Trails are checked after the stamp lands: a trail can only finish on the visit
       // that completes it, and `completeTrail` refuses if any of its places is missing.
-      for (const trail of module.trails ?? []) completeTrail(trail);
+      let trailName: LocText | undefined;
+      let trailXp = 0;
+      for (const trail of module.trails ?? []) {
+        const done = completeTrail(trail);
+        if (done) {
+          trailName = trail.name;
+          trailXp += done.xp;
+        }
+      }
+
+      if (!award?.citySealed) return;
+      setSeal({
+        city,
+        country: award.countrySealed
+          ? content.countries.find((c) => c.id === award.countrySealed)
+          : undefined,
+        xp: award.xp + trailXp,
+        trailName,
+      });
     },
-    [place, city, module, countryCityIds, visitPlace, completeTrail],
+    [place, city, module, countryCityIds, content, visitPlace, completeTrail],
   );
 
   if (failed) return <NotFound lang={lang} onBack={() => navigate(cityUrl)} />;
@@ -500,14 +531,27 @@ const PlacePage: React.FC<{
   }
 
   return (
-    <PlaceCard
-      lang={lang}
-      place={place}
-      stamp={progress.progress.places[place.id]}
-      onComplete={handleComplete}
-      onEnterMuseum={place.museum ? () => navigate(`${cityUrl}/${place.id}/in`) : undefined}
-      onBack={() => navigate(cityUrl)}
-    />
+    <>
+      <PlaceCard
+        lang={lang}
+        place={place}
+        stamp={progress.progress.places[place.id]}
+        onComplete={handleComplete}
+        onEnterMuseum={place.museum ? () => navigate(`${cityUrl}/${place.id}/in`) : undefined}
+        onBack={() => navigate(cityUrl)}
+      />
+      {seal && (
+        <SealCeremony
+          lang={lang}
+          city={seal.city}
+          country={seal.country}
+          date={today()}
+          xp={seal.xp}
+          trailName={seal.trailName}
+          onDone={() => setSeal(null)}
+        />
+      )}
+    </>
   );
 };
 
