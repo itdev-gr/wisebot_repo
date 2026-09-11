@@ -378,6 +378,11 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Hagios Demetrios', deltaM: 10 },
       ],
       verifiedAt: '2026-09-11',
+      // The parish's own published address.
+      findIt: {
+        el: 'Η κύρια είσοδος είναι στην οδό Αγίου Δημητρίου, στο νούμερο 83.',
+        en: 'The main way in is on Agiou Dimitriou street, at number 83.',
+      },
     },
     question: {
       q: {
@@ -670,6 +675,11 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Archaeological Museum of Thessaloniki', deltaM: 0 },
       ],
       verifiedAt: '2026-09-11',
+      // The museum's own site gives this address; Wikidata carries none.
+      findIt: {
+        el: 'Η είσοδος είναι στην οδό Μανόλη Ανδρόνικου 6, δίπλα στον χώρο της Διεθνούς Έκθεσης.',
+        en: 'The way in is on Manoli Andronikou street at number 6, beside the trade fair grounds.',
+      },
     },
     question: {
       q: {
@@ -1080,6 +1090,11 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Museum of Byzantine Culture', deltaM: 0 },
       ],
       verifiedAt: '2026-09-11',
+      // The museum's own site gives the street number; Wikidata gives only the avenue.
+      findIt: {
+        el: 'Η είσοδος είναι στη Λεωφόρο Στρατού 2, λίγα λεπτά με τα πόδια από το Αρχαιολογικό Μουσείο.',
+        en: 'The way in is on Stratou Avenue at number 2, a few minutes on foot from the Archaeological Museum.',
+      },
     },
     question: {
       q: {
@@ -2045,6 +2060,11 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-11',
       note: 'The furthest place from the city centre in this city file, which is correct: the centre is out at Thermi, not in Thessaloniki itself.',
+      // The centre's own site gives its address as a kilometre marker, not a street.
+      findIt: {
+        el: 'Δεν είναι μέσα στην πόλη: βρίσκεται στο 6ο χιλιόμετρο του δρόμου Θεσσαλονίκης προς Θέρμη.',
+        en: 'It is not inside the city: it stands at the 6th kilometre of the Thessaloniki to Thermi road.',
+      },
     },
     question: {
       q: {

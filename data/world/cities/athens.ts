@@ -2954,6 +2954,12 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-10',
       note: 'The OSM outline covers the whole 21-hectare park, so its centre falls 186 m away, out in the grass. Wikidata and Wikipedia agree to 4 m on the building.',
+      // From the centre's own published address. The stored point is the building, and
+      // the park around it is large enough that a child can arrive at a hedge instead.
+      findIt: {
+        el: 'Η είσοδος είναι στη Λεωφόρο Ανδρέα Συγγρού 364, λίγο πριν ο δρόμος φτάσει στη θάλασσα.',
+        en: 'The way in is on Andrea Syngrou Avenue at number 364, just before the road reaches the sea.',
+      },
     },
     question: {
       q: {
@@ -3038,6 +3044,12 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-10',
       note: 'Grade C: only Wikidata carries a coordinate, and the OSM match is the foundation’s whole block, 31 m away. Wikipedia has no coordinate for this article.',
+      // The two published addresses put the planetarium and the cultural centre on
+      // opposite sides of the same avenue, which is the most useful thing to tell a child.
+      findIt: {
+        el: 'Η είσοδος είναι στη Λεωφόρο Ανδρέα Συγγρού 387, απέναντι από το Κέντρο Πολιτισμού.',
+        en: 'The way in is on Andrea Syngrou Avenue at number 387, across the road from the cultural centre.',
+      },
     },
     question: {
       q: {

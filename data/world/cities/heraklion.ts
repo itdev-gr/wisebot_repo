@@ -193,6 +193,11 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-11',
       note: 'OpenStreetMap was rate-limiting on this pass; Wikidata and Wikipedia agree to 4 m.',
+      // From the museum's published address.
+      findIt: {
+        el: 'Η είσοδος είναι στην οδό Ξανθουδίδου 2, δίπλα στην πλατεία Ελευθερίας.',
+        en: 'The way in is on Xanthoudidou street at number 2, beside Eleftherias Square.',
+      },
     },
     question: {
       q: {
@@ -940,6 +945,12 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-11',
       note: 'Wikidata and Wikipedia agree exactly. Overpass was rate-limiting on this pass.',
+      // The museum publishes two addresses, one on each street it stands between. The
+      // seafront one is the one a visitor arrives from.
+      findIt: {
+        el: 'Η είσοδος είναι στη Σοφοκλή Βενιζέλου 27, πάνω στον παραλιακό δρόμο.',
+        en: 'The way in is at Sofokli Venizelou 27, on the seafront road.',
+      },
     },
     question: {
       q: {
@@ -1344,6 +1355,11 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Natural History Museum of Crete', deltaM: 0 },
       ],
       verifiedAt: '2026-09-11',
+      // The museum's own site names the bay rather than a street number.
+      findIt: {
+        el: 'Η είσοδος είναι στη Λεωφόρο Σοφοκλή Βενιζέλου, στον κόλπο του Δερματά, μέσα στο παλιό εργοστάσιο ρεύματος.',
+        en: 'The way in is on Sofokli Venizelou Avenue at Dermata bay, inside the old power station.',
+      },
     },
     question: {
       q: {
@@ -1441,6 +1457,11 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-11',
       note: 'Wikidata and Wikipedia agree exactly. Overpass was rate-limiting on this pass.',
+      // The aquarium's own site gives the former base as its address, with no street.
+      findIt: {
+        el: 'Δεν είναι στην πόλη: βρίσκεται στις Γούρνες, μέσα στην παλιά αμερικανική βάση.',
+        en: 'It is not in the city: it stands at Gournes, inside the old American base.',
+      },
     },
     question: {
       q: {
@@ -1624,6 +1645,11 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Nikos Kazantzakis Museum', deltaM: 0 },
       ],
       verifiedAt: '2026-09-11',
+      // The museum's own site names only the village, which is the useful instruction.
+      findIt: {
+        el: 'Δεν είναι στο Ηράκλειο: βρίσκεται στο χωριό Μυρτιά, νότια της πόλης.',
+        en: 'It is not in Heraklion: it stands in the village of Myrtia, south of the city.',
+      },
     },
     question: {
       q: {
