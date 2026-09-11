@@ -79,7 +79,7 @@ interface WorldContent {
   countries: Country[];
   cities: City[];
   placeCounts: Record<CityId, number>;
-  load: (cityId: CityId) => Promise<CityModule>;
+  load: (cityId: CityId, lang?: WorldLang) => Promise<CityModule>;
 }
 
 const REGISTRY_CONTENT: WorldContent = {
@@ -123,24 +123,36 @@ function useWorldContent(): WorldContent {
   return content;
 }
 
-/** One city's places and trails, loaded on demand and kept for the visit. */
-function useCityContent(content: WorldContent, cityId?: CityId) {
-  const [state, setState] = useState<{ id?: CityId; module?: CityModule; failed?: boolean }>({});
+/**
+ * One city's places and trails, loaded on demand and kept for the visit.
+ *
+ * Keyed by language as well as by city: Greek and English come out of the city module,
+ * and every other language pulls its own overlay chunk on top. Switching language
+ * therefore reloads, which is the point — a German child should not be downloading the
+ * German text for cities they never open.
+ */
+function useCityContent(content: WorldContent, cityId?: CityId, lang?: WorldLang) {
+  const [state, setState] = useState<{
+    key?: string;
+    module?: CityModule;
+    failed?: boolean;
+  }>({});
+  const key = cityId ? `${cityId}.${lang}` : undefined;
 
   useEffect(() => {
-    if (!cityId) return;
+    if (!cityId || !key) return;
     let alive = true;
-    setState((prev) => (prev.id === cityId ? prev : {}));
+    setState((prev) => (prev.key === key ? prev : {}));
     content
-      .load(cityId)
-      .then((module) => alive && setState({ id: cityId, module }))
-      .catch(() => alive && setState({ id: cityId, failed: true }));
+      .load(cityId, lang)
+      .then((module) => alive && setState({ key, module }))
+      .catch(() => alive && setState({ key, failed: true }));
     return () => {
       alive = false;
     };
-  }, [content, cityId]);
+  }, [content, cityId, lang, key]);
 
-  return state.id === cityId ? state : {};
+  return state.key === key ? state : {};
 }
 
 // -------------------------------------------------------------------- chrome
@@ -323,7 +335,7 @@ const CityPage: React.FC<{
   const navigate = useNavigate();
   const city = content.cities.find((c) => c.id === cityId) ?? findCity(cityId ?? '');
   const country = content.countries.find((c) => c.id === countryId) ?? findCountry(countryId ?? '');
-  const { module, failed } = useCityContent(content, cityId);
+  const { module, failed } = useCityContent(content, cityId, lang);
   const { hasPlace } = progress;
 
   const isStamped = useCallback((id: PlaceId) => hasPlace(id), [hasPlace]);
@@ -358,7 +370,7 @@ const PlacePage: React.FC<{
   }>();
   const navigate = useNavigate();
   const city = content.cities.find((c) => c.id === cityId);
-  const { module, failed } = useCityContent(content, cityId);
+  const { module, failed } = useCityContent(content, cityId, lang);
   const place: Place | undefined = module?.places.find((p) => p.id === placeId);
 
   const cityUrl = `/world/${countryId}/${cityId}`;

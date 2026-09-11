@@ -10,7 +10,8 @@
  * exists.
  */
 
-import type { City, CityId, CityModule, Country, CountryModule } from './types';
+import type { City, CityId, CityModule, CityTranslation, Country, CountryModule } from './types';
+import { mergeCityTranslation } from './mergeTranslation';
 
 import { country as greece_country, cities as greece_cities } from './countries/greece';
 
@@ -32,11 +33,13 @@ export const CITIES: City[] = COUNTRY_MODULES.flatMap((m) => m.cities).sort(byOr
  */
 export const PLACE_COUNTS: Record<CityId, number> = {
   'athens': 18,
+  'heraklion': 12,
   'thessaloniki': 17,
 };
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
   'athens': () => import('./cities/athens'),
+  'heraklion': () => import('./cities/heraklion'),
   'thessaloniki': () => import('./cities/thessaloniki'),
 };
 
@@ -53,14 +56,45 @@ export function findCity(id: string): City | undefined {
   return CITIES.find((c) => c.id === id);
 }
 
+const I18N: Record<string, () => Promise<{ default: unknown }>> = {
+  // no translation overlays yet
+};
+
 /**
- * Load a city's places and trails. Rejects rather than resolving empty for an unknown
- * id: a typo in a route should surface, not render a city with nothing in it.
+ * Load a city's places and trails, in the language asked for.
+ *
+ * Greek and English come out of the city module itself. Any other language pulls a
+ * separate overlay chunk and folds it in, so a Greek child never downloads the German
+ * text and four translators can work on one city without opening the same file.
+ *
+ * A missing overlay is not an error. It means that language has not been translated
+ * yet, and the module falls back to English exactly as `pick()` does everywhere else.
+ *
+ * Rejects rather than resolving empty for an unknown city id: a typo in a route should
+ * surface, not render a city with nothing in it.
  */
-export function loadCity(cityId: CityId): Promise<CityModule> {
+export async function loadCity(cityId: CityId, lang?: string): Promise<CityModule> {
   const loader = LOADERS[cityId];
-  if (!loader) return Promise.reject(new Error(`unknown city: ${cityId}`));
-  return loader();
+  if (!loader) throw new Error(`unknown city: ${cityId}`);
+  const module = await loader();
+  if (!lang || lang === 'el' || lang === 'en') return module;
+
+  const overlayLoader = I18N[`${cityId}.${lang}`];
+  if (!overlayLoader) return module;
+  try {
+    const overlay = await overlayLoader();
+    return mergeCityTranslation(module, (overlay.default ?? overlay) as CityTranslation, cityId);
+  } catch {
+    // A broken or missing overlay must never take the city down with it.
+    return module;
+  }
+}
+
+/** Languages that have an overlay for this city, beyond the built-in Greek and English. */
+export function translationsFor(cityId: CityId): string[] {
+  return Object.keys(I18N)
+    .filter((key) => key.startsWith(`${cityId}.`))
+    .map((key) => key.slice(cityId.length + 1));
 }
 
 /** City ids that have a content module, whether or not they have been resolved. */

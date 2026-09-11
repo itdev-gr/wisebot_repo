@@ -368,6 +368,52 @@ export interface CityModule {
   trails?: Trail[];
 }
 
+/**
+ * One extra language for one city, as `data/world/i18n/<city>.<lang>.json`.
+ *
+ * A city module carries Greek and English. Every other language lives in its own file
+ * and is merged in at load time, for three reasons that all point the same way:
+ *
+ *  - **Weight.** A Greek child never downloads the German text. Six languages in one
+ *    module would multiply every city chunk by three.
+ *  - **Parallel work.** Four translators can work on one city at once without ever
+ *    opening the same file, and neither of them opens the file the author is writing.
+ *  - **Honesty.** A missing overlay is obviously missing. A half-filled `LocText`
+ *    buried in a thousand-line module is not.
+ *
+ * Keyed by id all the way down, never by array position, so inserting a place into a
+ * city cannot silently shift its translation onto its neighbour.
+ */
+export interface CityTranslation {
+  /** The language this file supplies. Must match the filename. */
+  lang: WorldLang;
+  cityId: CityId;
+  places: Record<PlaceId, PlaceTranslation>;
+  trails?: Record<TrailId, { name?: string; promise?: string }>;
+}
+
+export interface PlaceTranslation {
+  name?: string;
+  tagline?: string;
+  story?: string;
+  /** Same order and length as the place's own `facts`. */
+  facts?: string[];
+  question?: QuestionTranslation;
+  museum?: {
+    doorNote?: string;
+    rooms?: Record<RoomId, { name?: string; intro?: string }>;
+    exhibits?: Record<ExhibitId, { name?: string; blurb?: string; question?: QuestionTranslation }>;
+    riddles?: Record<RiddleId, { prompt?: string; hint?: string }>;
+  };
+}
+
+export interface QuestionTranslation {
+  q?: string;
+  /** Exactly four, in the same order as the source, so index 0 stays the correct one. */
+  answers?: [string, string, string, string];
+  explanation?: string;
+}
+
 export interface WorldRegistry {
   countries: Country[];
   cities: City[];

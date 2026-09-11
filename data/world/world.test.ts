@@ -20,6 +20,7 @@ import { describe, expect, it } from 'vitest';
 
 import { CITIES, CITY_IDS, COUNTRIES, PLACE_COUNTS, loadCity } from './registry';
 import type { City, CityModule, Country } from './types';
+import { WORLD_LANGS } from './types';
 import * as fixture from './__fixtures__/sample';
 
 const ROOT = resolve(__dirname, '../..');
@@ -178,6 +179,30 @@ describe('world content', async () => {
           }
           // The classic silent bug: Greek copied into the English slot.
           expect(node.en, `${path}.en is identical to .el`).not.toBe(node.el);
+        }
+      });
+
+      it('a language is either finished for a place or absent from it', () => {
+        // Half a translation is worse than none. A child who picks German and reads a
+        // German title over an English story, with a Greek fact underneath, is being
+        // shown a broken app rather than an untranslated one. So an extra language is
+        // all-or-nothing per place: the moment one string in a place carries `de`,
+        // every string in that place must.
+        const extra = WORLD_LANGS.filter((l) => l !== 'el' && l !== 'en');
+
+        for (const place of places) {
+          const found: Array<{ path: string; node: Record<string, unknown> }> = [];
+          walkLocTexts(place, place.id, found);
+
+          for (const lang of extra) {
+            const have = found.filter((f) => typeof f.node[lang] === 'string' && (f.node[lang] as string).trim());
+            if (have.length === 0) continue; // not translated at all: fine
+            const missing = found.filter((f) => !have.includes(f));
+            expect(
+              missing.map((m) => m.path),
+              `${place.id} is half-translated into ${lang}`,
+            ).toEqual([]);
+          }
         }
       });
 

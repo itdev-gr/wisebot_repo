@@ -63,9 +63,42 @@ async function placeCount(cityId) {
 /** `greece` → `greece_` prefixed local names, so two countries never collide. */
 const alias = (id) => id.replace(/-/g, '_');
 
+/**
+ * Translation overlays, as `<city>.<lang>.json`. Greek and English live in the city
+ * module itself and are never overlaid, so a file claiming either is a mistake worth
+ * refusing rather than silently loading.
+ */
+async function overlaysIn() {
+  let entries = [];
+  try {
+    entries = await readdir(resolve(ROOT, 'data/world/i18n'));
+  } catch {
+    return [];
+  }
+  return entries
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => {
+      const [city, lang] = f.slice(0, -5).split('.');
+      return { file: f, city, lang };
+    })
+    .filter((o) => {
+      if (!o.city || !o.lang || !ID.test(o.city)) {
+        console.error(`skipping data/world/i18n/${o.file}: expected <city>.<lang>.json`);
+        return false;
+      }
+      if (o.lang === 'el' || o.lang === 'en') {
+        console.error(`skipping data/world/i18n/${o.file}: el and en live in the city module`);
+        return false;
+      }
+      return true;
+    })
+    .sort((a, b) => a.file.localeCompare(b.file));
+}
+
 async function main() {
   const countries = await idsIn('data/world/countries', '.ts');
   const cities = await idsIn('data/world/cities', '.ts');
+  const overlays = await overlaysIn();
 
   const counts = {};
   const missing = [];
@@ -94,6 +127,10 @@ async function main() {
     .map((id) => `  '${id}': () => import('./cities/${id}'),`)
     .join('\n');
 
+  const overlayLoaders = overlays
+    .map((o) => `  '${o.city}.${o.lang}': () => import('./i18n/${o.file}'),`)
+    .join('\n');
+
   const body = `/**
  * GENERATED FILE — do not edit.
  *
@@ -106,7 +143,8 @@ async function main() {
  * exists.
  */
 
-import type { City, CityId, CityModule, Country, CountryModule } from './types';
+import type { City, CityId, CityModule, CityTranslation, Country, CountryModule } from './types';
+import { mergeCityTranslation } from './mergeTranslation';
 
 ${imports || '// no country modules yet'}
 
@@ -147,14 +185,45 @@ export function findCity(id: string): City | undefined {
   return CITIES.find((c) => c.id === id);
 }
 
+const I18N: Record<string, () => Promise<{ default: unknown }>> = {
+${overlayLoaders || '  // no translation overlays yet'}
+};
+
 /**
- * Load a city's places and trails. Rejects rather than resolving empty for an unknown
- * id: a typo in a route should surface, not render a city with nothing in it.
+ * Load a city's places and trails, in the language asked for.
+ *
+ * Greek and English come out of the city module itself. Any other language pulls a
+ * separate overlay chunk and folds it in, so a Greek child never downloads the German
+ * text and four translators can work on one city without opening the same file.
+ *
+ * A missing overlay is not an error. It means that language has not been translated
+ * yet, and the module falls back to English exactly as \`pick()\` does everywhere else.
+ *
+ * Rejects rather than resolving empty for an unknown city id: a typo in a route should
+ * surface, not render a city with nothing in it.
  */
-export function loadCity(cityId: CityId): Promise<CityModule> {
+export async function loadCity(cityId: CityId, lang?: string): Promise<CityModule> {
   const loader = LOADERS[cityId];
-  if (!loader) return Promise.reject(new Error(\`unknown city: \${cityId}\`));
-  return loader();
+  if (!loader) throw new Error(\`unknown city: \${cityId}\`);
+  const module = await loader();
+  if (!lang || lang === 'el' || lang === 'en') return module;
+
+  const overlayLoader = I18N[\`\${cityId}.\${lang}\`];
+  if (!overlayLoader) return module;
+  try {
+    const overlay = await overlayLoader();
+    return mergeCityTranslation(module, (overlay.default ?? overlay) as CityTranslation, cityId);
+  } catch {
+    // A broken or missing overlay must never take the city down with it.
+    return module;
+  }
+}
+
+/** Languages that have an overlay for this city, beyond the built-in Greek and English. */
+export function translationsFor(cityId: CityId): string[] {
+  return Object.keys(I18N)
+    .filter((key) => key.startsWith(\`\${cityId}.\`))
+    .map((key) => key.slice(cityId.length + 1));
 }
 
 /** City ids that have a content module, whether or not they have been resolved. */
@@ -164,7 +233,8 @@ export const CITY_IDS: CityId[] = Object.keys(LOADERS);
   await writeFile(OUT, body, 'utf8');
 
   console.error(
-    `wrote data/world/registry.ts — ${countries.length} countries, ${cities.length} cities`,
+    `wrote data/world/registry.ts — ${countries.length} countries, ${cities.length} cities, ` +
+      `${overlays.length} translation overlay(s)`,
   );
   if (missing.length) {
     console.error(
