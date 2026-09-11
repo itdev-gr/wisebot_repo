@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "buildCommand": "npx vite build && node scripts/generate-seo-pages.mjs",
+  "buildCommand": "npx vite build && node scripts/generate-seo-pages.mjs && node scripts/world/generate-world-seo.mjs",
   "outputDirectory": "dist",
   "functions": {
     "api/ai/image.ts": {
