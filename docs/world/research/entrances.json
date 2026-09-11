@@ -592,11 +592,7 @@
     22.95389
    ],
    "osm": "relation/13081351",
-   "doors": [
-    {
-     "error": "HTTP Error 429: Too Many Requests"
-    }
-   ]
+   "doors": []
   },
   {
    "id": "thessaloniki-byzantine-museum",
@@ -734,6 +730,162 @@
    "pin": [
     40.61384,
     22.97242
+   ],
+   "osm": null,
+   "doors": []
+  }
+ ],
+ "heraklion": [
+  {
+   "id": "heraklion-knossos",
+   "name": "Knossos",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    35.29796,
+    25.16316
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "heraklion-archaeological-museum",
+   "name": "Heraklion Archaeological Museum",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    35.33917,
+    25.1375
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "heraklion-koules",
+   "name": "Koules Fortress (Rocca a Mare)",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    35.34457,
+    25.13688
+   ],
+   "osm": "relation/5251038",
+   "doors": [
+    {
+     "id": 8281593701,
+     "lat": 35.3444129,
+     "lng": 25.1365241,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 37
+    }
+   ]
+  },
+  {
+   "id": "heraklion-morosini-fountain",
+   "name": "Morosini Fountain",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    35.33917,
+    25.13314
+   ],
+   "osm": "way/621718927",
+   "doors": []
+  },
+  {
+   "id": "heraklion-loggia",
+   "name": "Venetian Loggia",
+   "anchor": "centroid",
+   "confidence": "C",
+   "pin": [
+    35.33978,
+    25.13396
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "heraklion-historical-museum",
+   "name": "Historical Museum of Crete",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    35.34181,
+    25.13117
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "heraklion-natural-history-museum",
+   "name": "Natural History Museum of Crete",
+   "anchor": "centroid",
+   "confidence": "A",
+   "pin": [
+    35.3419,
+    25.1266
+   ],
+   "osm": "way/211917529",
+   "doors": []
+  },
+  {
+   "id": "heraklion-cretaquarium",
+   "name": "Cretaquarium",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    35.33269,
+    25.28247
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "heraklion-pankritio-stadium",
+   "name": "Pankritio Stadium",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    35.33667,
+    25.10611
+   ],
+   "osm": "relation/1626818",
+   "doors": []
+  },
+  {
+   "id": "heraklion-kazantzakis-museum",
+   "name": "Nikos Kazantzakis Museum",
+   "anchor": "centroid",
+   "confidence": "A",
+   "pin": [
+    35.23485,
+    25.20938
+   ],
+   "osm": "node/5169462643",
+   "doors": []
+  },
+  {
+   "id": "heraklion-juktas",
+   "name": "Mount Juktas summit",
+   "anchor": "viewpoint",
+   "confidence": "C",
+   "pin": [
+    35.24,
+    25.14442
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "heraklion-amnisos",
+   "name": "Amnisos",
+   "anchor": "area",
+   "confidence": "C",
+   "pin": [
+    35.33083,
+    25.20611
    ],
    "osm": null,
    "doors": []

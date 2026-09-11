@@ -46,7 +46,7 @@ def entrances_for(kind, oid):
 
 
 report = {}
-for city in ('athens', 'porto', 'thessaloniki'):
+for city in ('athens', 'porto', 'thessaloniki', 'heraklion'):
     path = f'{REPO}/data/world/coords/{city}.json'
     places = json.load(open(path))['places']
     rows = []
@@ -57,7 +57,7 @@ for city in ('athens', 'porto', 'thessaloniki'):
                'osm': osm['ref'] if osm else None, 'doors': []}
         if osm:
             kind, oid = osm['ref'].split('/')
-            time.sleep(1.5)
+            time.sleep(2.5)
             for d in entrances_for(kind, oid):
                 if 'error' in d:
                     row['doors'].append(d)
