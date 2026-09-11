@@ -64,6 +64,11 @@ const vite = await createServer({
 const { COUNTRIES, CITIES, PLACE_COUNTS, loadCity, citiesOf } = await vite.ssrLoadModule(
   '/data/world/registry.ts',
 );
+// The titles, descriptions and JSON-LD come from the same module the runtime <WorldSeo>
+// uses, so the static page and the hydrated page never disagree about a page's name.
+const { worldMeta, countryMeta, cityMeta, placeMeta, CATEGORY_LABEL } = await vite.ssrLoadModule(
+  '/data/world/seo.ts',
+);
 
 // ------------------------------------------------------------------- helpers
 
@@ -82,48 +87,11 @@ function clip(text, max = 155) {
   return `${cut.slice(0, Math.max(cut.lastIndexOf(' '), 60))}…`;
 }
 
-const words = (t) => String(t ?? '').trim().split(/\s+/).filter(Boolean).length;
-
 /** «Αθήνα (Athens)» when the two names differ, «Delphi» stays «Δελφοί (Delphi)». */
 const bi = (name) => (name.el === name.en ? name.el : `${name.el} (${name.en})`);
 
-const CATEGORY_EL = {
-  landmark: 'Αξιοθέατο',
-  museum: 'Μουσείο',
-  nature: 'Φύση',
-  science: 'Επιστήμη',
-  art: 'Τέχνη',
-  history: 'Ιστορία',
-  food: 'Γεύση',
-  sport: 'Αθλητισμός',
-};
-
-const SCHEMA_TYPE = {
-  museum: 'Museum',
-  nature: 'Park',
-  landmark: 'TouristAttraction',
-  science: 'TouristAttraction',
-  art: 'TouristAttraction',
-  history: 'LandmarksOrHistoricalBuildings',
-  food: 'TouristAttraction',
-  sport: 'StadiumOrArena',
-};
-
 function ld(obj) {
   return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
-}
-
-function breadcrumb(items) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      item: `${BASE_URL}${it.path}`,
-    })),
-  };
 }
 
 const footer = () =>
@@ -173,89 +141,54 @@ function render(baseHtml, page) {
 
 // --------------------------------------------------------------------- pages
 
+/**
+ * Each page is the shared meta (title, description, JSON-LD) plus a <noscript> body with
+ * the real text in Greek and English: intro, the list of places with links, the story,
+ * the facts. Headings are real h1/h2/h3 so a crawler that does not run JS still sees the
+ * page's structure.
+ */
 function worldPage(countries, cities) {
   const totalPlaces = Object.values(PLACE_COUNTS).reduce((a, b) => a + b, 0);
-  const museums = cities.length; // refined below when city modules are loaded
   const list = countries
     .map((c) => {
       const cs = citiesOf(c.id)
         .map((city) => `<a href="${BASE_URL}/world/${c.id}/${city.id}">${esc(city.name.el)}</a>`)
         .join(', ');
-      return `<li>${c.flag} <a href="${BASE_URL}/world/${c.id}"><strong>${esc(c.name.el)}</strong></a> — ${cs}</li>`;
+      return `<li>${c.flag} <a href="${BASE_URL}/world/${c.id}"><strong>${esc(c.name.el)}</strong></a>${cs ? ` — ${cs}` : ''}</li>`;
     })
     .join('\n');
   return {
-    path: '/world',
-    title: `${BRAND} — Ταξίδι σε χώρες, πόλεις και μουσεία για παιδιά | WiseBot Academy`,
-    ogTitle: `${BRAND} — Χώρες, πόλεις και μουσεία για παιδιά`,
-    description: clip(
-      `Ταξίδεψε σε αληθινές πόλεις, μπες σε μουσεία, λύσε αινίγματα και γέμισε το διαβατήριό σου με σφραγίδες. ${countries.length} ${countries.length === 1 ? 'χώρα' : 'χώρες'}, ${cities.length} πόλεις, ${totalPlaces} αξιοθέατα για παιδιά 6–12.`,
-    ),
+    ...worldMeta(countries, cities, PLACE_COUNTS, 'el'),
     noscript: `
       <h1>${BRAND} — Ταξίδι σε χώρες, πόλεις και μουσεία για παιδιά</h1>
       <p>Ταξίδεψε σε αληθινές χώρες και πόλεις, μπες σε μουσεία, λύσε αινίγματα και γέμισε το διαβατήριό σου με σφραγίδες. Κάθε μέρος έχει μια αληθινή ιστορία, μια ερώτηση και μια σφραγίδα. Για παιδιά 6–12 και τους γονείς τους.</p>
+      <h2>Χώρες</h2>
       <ul>${list}</ul>
       <h2>${BRAND} — countries, cities and museums for kids</h2>
       <p>Travel to real countries and cities, step inside museums, solve riddles and fill your passport with stamps. ${countries.length} ${countries.length === 1 ? 'country' : 'countries'}, ${cities.length} cities, ${totalPlaces} places for children aged 6–12 and their parents.</p>
     `,
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: BRAND,
-        url: `${BASE_URL}/world`,
-        inLanguage: ['el', 'en'],
-        isPartOf: { '@type': 'WebSite', name: 'WiseBot Academy', url: BASE_URL },
-        about: countries.map((c) => ({ '@type': 'Country', name: c.name.en })),
-      },
-      breadcrumb([
-        { name: 'WiseBot Academy', path: '/' },
-        { name: BRAND, path: '/world' },
-      ]),
-    ],
-    _museums: museums,
   };
 }
 
 function countryPage(country, cities) {
-  const places = cities.reduce((n, c) => n + (PLACE_COUNTS[c.id] ?? 0), 0);
   const list = cities
     .map(
       (c) =>
-        `<li>${c.emoji} <a href="${BASE_URL}/world/${country.id}/${c.id}"><strong>${esc(bi(c.name))}</strong></a> — ${PLACE_COUNTS[c.id] ?? 0} μέρη. ${esc(clip(c.intro.el, 160))}</li>`,
+        `<li><h3>${c.emoji} <a href="${BASE_URL}/world/${country.id}/${c.id}">${esc(bi(c.name))}</a></h3><p>${PLACE_COUNTS[c.id] ?? 0} μέρη. ${esc(clip(c.intro.el, 160))}</p></li>`,
     )
     .join('\n');
   return {
-    path: `/world/${country.id}`,
-    title: `${country.name.el} για παιδιά — ${cities.length} πόλεις, ${places} αξιοθέατα και μουσεία | ${BRAND}`,
-    ogTitle: `${country.flag} ${country.name.el} — ${BRAND}`,
-    description: clip(`${country.intro.el} ${cities.map((c) => c.name.el).join(', ')}.`),
+    ...countryMeta(country, cities, PLACE_COUNTS, 'el'),
     noscript: `
       <h1>${country.flag} ${esc(bi(country.name))} — ${BRAND}</h1>
       <p>${esc(country.intro.el)}</p>
       <ul>${country.facts.map((f) => `<li>${esc(f.el)}</li>`).join('')}</ul>
       <h2>Πόλεις</h2>
-      <ul>${list}</ul>
+      ${cities.length ? `<ul>${list}</ul>` : '<p>Οι πόλεις έρχονται. Η σφραγίδα εισόδου σε περιμένει ήδη στο διαβατήριο.</p>'}
       <h2>${esc(country.name.en)} for kids</h2>
       <p>${esc(country.intro.en)}</p>
       <ul>${country.facts.map((f) => `<li>${esc(f.en)}</li>`).join('')}</ul>
     `,
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Country',
-        name: country.name.en,
-        alternateName: country.name.el,
-        url: `${BASE_URL}/world/${country.id}`,
-        description: clip(country.intro.en, 300),
-        containsPlace: cities.map((c) => ({ '@type': 'City', name: c.name.en, url: `${BASE_URL}/world/${country.id}/${c.id}` })),
-      },
-      breadcrumb([
-        { name: 'WiseBot Academy', path: '/' },
-        { name: BRAND, path: '/world' },
-        { name: country.name.el, path: `/world/${country.id}` },
-      ]),
-    ],
   };
 }
 
@@ -266,17 +199,14 @@ function cityPage(country, city, module) {
   const list = places
     .map(
       (p) =>
-        `<li>${p.emoji} <a href="${BASE_URL}${base}/${p.id}"><strong>${esc(bi(p.name))}</strong></a> — ${esc(p.tagline.el)}</li>`,
+        `<li><h3>${p.emoji} <a href="${BASE_URL}${base}/${p.id}">${esc(bi(p.name))}</a></h3><p>${esc(p.tagline.el)}</p></li>`,
     )
     .join('\n');
   const trailList = trails
-    .map((t) => `<li>${t.emoji} <strong>${esc(t.name.el)}</strong> — ${esc(t.promise.el)} (${t.placeIds.length} στάσεις)</li>`)
+    .map((t) => `<li><h3>${t.emoji} ${esc(t.name.el)}</h3><p>${esc(t.promise.el)} (${t.placeIds.length} στάσεις)</p></li>`)
     .join('\n');
   return {
-    path: base,
-    title: `${city.name.el} με παιδιά — ${places.length} αξιοθέατα και ${museums.length} μουσεία, αποστολές και σφραγίδες | ${BRAND}`,
-    ogTitle: `${city.emoji} ${bi(city.name)} — ${BRAND}`,
-    description: clip(`${city.intro.el} ${places.length} μέρη, ${museums.length} μουσεία, ${trails.length} διαδρομές για οικογένειες.`),
+    ...cityMeta(country, city, module, 'el'),
     noscript: `
       <h1>${city.emoji} ${esc(bi(city.name))}, ${esc(country.name.el)} — τι να δείτε με παιδιά</h1>
       <p>${esc(city.intro.el)}</p>
@@ -288,66 +218,26 @@ function cityPage(country, city, module) {
       <ul>${places.map((p) => `<li><a href="${BASE_URL}${base}/${p.id}">${esc(p.name.en)}</a> — ${esc(p.tagline.en)}</li>`).join('')}</ul>
       <p><a href="${BASE_URL}/world/${country.id}">${country.flag} ${esc(country.name.el)}</a></p>
     `,
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'City',
-        name: city.name.en,
-        alternateName: city.name.el,
-        url: `${BASE_URL}${base}`,
-        description: clip(city.intro.en, 300),
-        geo: { '@type': 'GeoCoordinates', latitude: city.centre.lat, longitude: city.centre.lng },
-        containedInPlace: { '@type': 'Country', name: country.name.en },
-        containsPlace: places.map((p) => ({
-          '@type': SCHEMA_TYPE[p.category] ?? 'TouristAttraction',
-          name: p.name.en,
-          url: `${BASE_URL}${base}/${p.id}`,
-        })),
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: `${city.name.en} for kids — ${BRAND}`,
-        numberOfItems: places.length,
-        itemListElement: places.map((p, i) => ({
-          '@type': 'ListItem',
-          position: i + 1,
-          name: p.name.en,
-          url: `${BASE_URL}${base}/${p.id}`,
-        })),
-      },
-      breadcrumb([
-        { name: 'WiseBot Academy', path: '/' },
-        { name: BRAND, path: '/world' },
-        { name: country.name.el, path: `/world/${country.id}` },
-        { name: city.name.el, path: base },
-      ]),
-    ],
   };
 }
 
 function placePage(country, city, place) {
   const base = `/world/${country.id}/${city.id}`;
-  const url = `${base}/${place.id}`;
-  const kind = CATEGORY_EL[place.category] ?? 'Αξιοθέατο';
+  const kind = CATEGORY_LABEL[place.category]?.el ?? 'Αξιοθέατο';
   const museum = place.museum;
   const rooms = museum?.rooms ?? [];
   const exhibits = rooms.reduce((n, r) => n + r.exhibits.length, 0);
   const museumBlock = museum
     ? `
       <h2>Μέσα στο μουσείο: ${rooms.length} αίθουσες, ${exhibits} εκθέματα, ${museum.riddles.length} αινίγματα</h2>
-      <ul>${rooms.map((r) => `<li>${r.emoji} <strong>${esc(r.name.el)}</strong> — ${esc(clip(r.intro.el, 140))}<br>${r.exhibits.map((e) => esc(e.name.el)).join(' · ')}</li>`).join('')}</ul>`
+      <ul>${rooms.map((r) => `<li><h3>${r.emoji} ${esc(r.name.el)}</h3><p>${esc(clip(r.intro.el, 140))}</p><p>${r.exhibits.map((e) => esc(e.name.el)).join(' · ')}</p></li>`).join('')}</ul>`
     : '';
   const findIt = place.location.findIt
     ? `<p><strong>Πού είναι η είσοδος:</strong> ${esc(place.location.findIt.el)}</p>`
     : '';
-  const schemaType = SCHEMA_TYPE[place.category] ?? 'TouristAttraction';
 
   return {
-    path: url,
-    title: `${place.name.el} — ${place.tagline.el} | ${city.name.el} για παιδιά | ${BRAND}`,
-    ogTitle: `${place.emoji} ${bi(place.name)} — ${city.name.el} — ${BRAND}`,
-    description: clip(place.story.el),
+    ...placeMeta(country, city, place, 'el'),
     noscript: `
       <p><a href="${BASE_URL}/world">${BRAND}</a> › <a href="${BASE_URL}/world/${country.id}">${esc(country.name.el)}</a> › <a href="${BASE_URL}${base}">${esc(city.name.el)}</a></p>
       <h1>${place.emoji} ${esc(bi(place.name))} — ${esc(place.tagline.el)}</h1>
@@ -362,31 +252,6 @@ function placePage(country, city, place) {
       ${place.location.findIt ? `<p><strong>Finding the entrance:</strong> ${esc(place.location.findIt.en)}</p>` : ''}
       <p>Απάντησε στην ερώτηση και πάρε τη σφραγίδα σου στο ${BRAND}.</p>
     `,
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': schemaType,
-        name: place.name.en,
-        alternateName: place.name.el,
-        url: `${BASE_URL}${url}`,
-        description: clip(place.story.en, 300),
-        geo: { '@type': 'GeoCoordinates', latitude: place.location.lat, longitude: place.location.lng },
-        containedInPlace: { '@type': 'City', name: city.name.en, url: `${BASE_URL}${base}` },
-        address: { '@type': 'PostalAddress', addressLocality: city.name.en, addressCountry: country.code },
-        touristType: ['Families', 'Children'],
-        isAccessibleForFree: undefined,
-        ...(place.location.sources?.some((s) => s.kind === 'wikidata')
-          ? { sameAs: `https://www.wikidata.org/wiki/${place.location.sources.find((s) => s.kind === 'wikidata').ref}` }
-          : {}),
-      },
-      breadcrumb([
-        { name: 'WiseBot Academy', path: '/' },
-        { name: BRAND, path: '/world' },
-        { name: country.name.el, path: `/world/${country.id}` },
-        { name: city.name.el, path: base },
-        { name: place.name.el, path: url },
-      ]),
-    ],
   };
 }
 
@@ -420,9 +285,9 @@ const urls = [];
 let museumCount = 0;
 let placeCount = 0;
 
+// The passport is per child and robots.txt disallows it; it is not a page to index.
 pages.push(worldPage(COUNTRIES, CITIES));
 urls.push({ path: '/world', changefreq: 'weekly', priority: '0.9' });
-urls.push({ path: '/world/passport', changefreq: 'monthly', priority: '0.5' });
 
 for (const country of COUNTRIES) {
   const cities = citiesOf(country.id);

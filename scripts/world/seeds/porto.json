@@ -2,13 +2,24 @@
   "city": "porto",
   "country": "portugal",
   "centre": { "lat": 41.14961, "lng": -8.61099 },
-  "note": "The owner tested pins here by eye: the two Carmo churches came out on top of each other and the old market landed two streets off. Both are checked below. NOTE for whoever adds places: an English search on Wikidata returns nothing for 'Igreja do Carmo Porto' and a Portuguese one returns eight churches in eight towns. Always confirm the description says 'no Porto'.",
+  "note": "Wikidata q-ids only. The owner tested pins here by eye before any of this existed: the two Carmo churches came out on top of each other and the old market landed two streets off. Both are handled below. NOTE for whoever adds places: an English search on Wikidata returns nothing for 'Igreja do Carmo Porto' and a Portuguese one returns eight churches in eight towns. Always confirm the description says Porto. No entrance is claimed anywhere: no door here has been measured, so every point is the centroid or area it actually is. Ten of these thirteen places are carried over from the Explorer product on origin/main, whose text is the raw material for the city file; the three museums with interiors are new, because Explorer has no museum model.",
   "adjacentPairs": [["porto-igreja-do-carmo", "porto-igreja-dos-carmelitas"]],
   "places": [
-    { "id": "porto-igreja-do-carmo", "name": "Igreja do Carmo", "wikidata": "Q10300891", "anchor": "entrance" },
-    { "id": "porto-igreja-dos-carmelitas", "name": "Igreja dos Carmelitas", "wikidata": "Q10300948", "anchor": "entrance" },
-    { "id": "porto-mercado-do-bolhao", "name": "Bolhão Market", "wikidata": "Q10328805", "anchor": "entrance" },
-    { "id": "porto-clerigos", "name": "Clérigos Church and Tower", "wikidata": "Q18642", "anchor": "entrance" },
-    { "id": "porto-sao-bento", "name": "São Bento station", "wikidata": "Q579250", "anchor": "entrance" }
+    { "id": "porto-sao-bento", "name": "São Bento station", "wikidata": "Q579250", "anchor": "centroid" },
+
+    { "id": "porto-igreja-do-carmo", "name": "Igreja do Carmo", "wikidata": "Q10300891", "anchor": "centroid",
+      "note": "Shares a wall with Q10300948. Declared in adjacentPairs: this is the one genuine neighbour pair in the city, and the whole point of the pair is that they are two churches, not one." },
+
+    { "id": "porto-igreja-dos-carmelitas", "name": "Igreja dos Carmelitas", "wikidata": "Q10300948", "anchor": "centroid" },
+    { "id": "porto-clerigos", "name": "Clérigos Church and Tower", "wikidata": "Q18642", "anchor": "centroid" },
+    { "id": "porto-mercado-do-bolhao", "name": "Bolhão Market", "wikidata": "Q10328805", "anchor": "centroid" },
+    { "id": "porto-se-do-porto", "name": "Porto Cathedral", "wikidata": "Q1441255", "anchor": "centroid" },
+    { "id": "porto-palacio-da-bolsa", "name": "Palácio da Bolsa", "wikidata": "Q1371109", "anchor": "centroid" },
+    { "id": "porto-ponte-luis-i", "name": "Luís I Bridge", "wikidata": "Q1322447", "anchor": "centroid" },
+    { "id": "porto-serra-do-pilar", "name": "Monastery of Serra do Pilar", "wikidata": "Q10332614", "anchor": "centroid" },
+    { "id": "porto-palacio-de-cristal", "name": "Gardens of the Palácio de Cristal", "wikidata": "Q10306385", "anchor": "area" },
+    { "id": "porto-world-of-discoveries", "name": "World of Discoveries", "wikidata": "Q19708475", "anchor": "centroid" },
+    { "id": "porto-carro-electrico", "name": "Museu do Carro Eléctrico", "wikidata": "Q908989", "anchor": "centroid" },
+    { "id": "porto-casa-do-infante", "name": "Casa do Infante", "wikidata": "Q5047957", "anchor": "centroid" }
   ]
 }

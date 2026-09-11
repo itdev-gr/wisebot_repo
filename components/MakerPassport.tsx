@@ -22,6 +22,8 @@ import { useAuth } from '../context/AuthContext';
 import { MAKER_LEVELS, makerProgress } from '../data/makerLevels';
 import { readLocalQuizBests } from '../services/syncService';
 import { getQuizStars } from './QuizEngine';
+import { explorerSummary } from '../data/explore/progress';
+import { flagEmoji } from '../data/explore/registry';
 
 interface MakerPassportProps {
   lang: 'el' | 'en';
@@ -58,6 +60,7 @@ const StatCard = ({ icon, value, label, accent }: {
 const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
   const { stats } = useEconomy();
   const { isGuest } = useAuth();
+  const explorer = useMemo(() => explorerSummary(), []);
   const school = useSchoolSummary();
   const world = useMemo(() => readWorldSummary(), []);
   const progress = makerProgress(xp);
@@ -233,6 +236,37 @@ const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
               <StatCard icon={<Stamp size={22} className="text-emerald-300" />} value={world.seals} label={t.worldSeals} accent="bg-emerald-500/15 border border-emerald-500/20" />
             </div>
           </Link>
+        </section>
+      )}
+
+      {/* ── EXPLORER STAMPS — one per city badge, one per country ── */}
+      {explorer.spotsOpened > 0 && (
+        <section className="mt-10">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-black text-white/50 uppercase tracking-[0.25em]">{lang === 'el' ? 'Explorer — Σφραγίδες' : 'Explorer — Stamps'}</h2>
+            <Link to="/explore/passport" className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-amber-300 hover:text-amber-200">
+              <span role="img" aria-hidden>📘</span> {lang === 'el' ? 'Άνοιξε το Διαβατήριο' : 'Open the Passport'} <ChevronRight size={12} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            <StatCard icon={<span className="text-2xl" role="img" aria-hidden>🗺️</span>} value={explorer.spotsOpened} label={lang === 'el' ? 'Φάκελοι' : 'Envelopes'} accent="bg-amber-500/15 border border-amber-500/20" />
+            <StatCard icon={<Star size={22} className="text-yellow-300" />} value={explorer.stars} label={lang === 'el' ? 'Αστέρια' : 'Stars'} accent="bg-yellow-500/15 border border-yellow-500/20" />
+            <StatCard icon={<Award size={22} className="text-emerald-300" />} value={explorer.cityBadges.length + explorer.countryCodes.length} label={lang === 'el' ? 'Σφραγίδες' : 'Stamps'} accent="bg-emerald-500/15 border border-emerald-500/20" />
+          </div>
+          {(explorer.cityBadges.length > 0 || explorer.countryCodes.length > 0) && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {explorer.countryCodes.map(cc => (
+                <span key={cc} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-200 text-[11px] font-black uppercase tracking-widest">
+                  {flagEmoji(cc)} {lang === 'el' ? 'Εξερευνητής χώρας' : 'Country explorer'}
+                </span>
+              ))}
+              {explorer.cityBadges.map(c => (
+                <span key={c.id} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-white/80 text-[11px] font-black uppercase tracking-widest">
+                  {c.emoji} {lang === 'el' ? `Εξερευνητής ${c.name.el}` : `${c.name.en} Explorer`}
+                </span>
+              ))}
+            </div>
+          )}
         </section>
       )}
 

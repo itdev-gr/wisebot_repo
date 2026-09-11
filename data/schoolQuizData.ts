@@ -7,7 +7,7 @@ import { GRADE_5 } from './schoolGrade5';
 import { GRADE_6 } from './schoolGrade6';
 import { ENGLISH_BY_GRADE } from './schoolEnglish';
 
-import { CURRICULUM_UNITS, SUBJECT_META, type SubjectId } from './units/curriculum';
+import { CURRICULUM_UNITS, SUBJECT_META, subjectVisible, type SchoolLang, type SubjectId } from './units/curriculum';
 
 /**
  * Attach the unit skeleton (data/units/curriculum.ts) to each grade:
@@ -29,12 +29,26 @@ const withUnits = (g: SchoolGrade): SchoolGrade => {
   return { ...g, subjects };
 };
 
-/** Full Greek primary-school curriculum (Α'–ΣΤ' Δημοτικού), gamified as quizzes. */
+/**
+ * Full primary-school curriculum (Α'–ΣΤ' Δημοτικού), gamified as quizzes — every subject of
+ * every language. The app never renders this directly: use `curriculumForLang`, which drops
+ * the subjects that do not belong in the active language (EFL Αγγλικά in the English
+ * edition, native-English `ela` in the Greek one).
+ */
 export const SCHOOL_CURRICULUM: SchoolGrade[] = [
   GRADE_1, GRADE_2, GRADE_3, GRADE_4, GRADE_5, GRADE_6,
 ].map(g => withUnits({
   ...g,
   subjects: [...g.subjects, ENGLISH_BY_GRADE[g.grade]],
 }));
+
+const BY_LANG: Partial<Record<SchoolLang, SchoolGrade[]>> = {};
+
+/** The curriculum as one language sees it: the same grades, only that language's subjects. */
+export const curriculumForLang = (lang: SchoolLang): SchoolGrade[] =>
+  (BY_LANG[lang] ??= SCHOOL_CURRICULUM.map(g => ({
+    ...g,
+    subjects: g.subjects.filter(s => subjectVisible(s.id, lang)),
+  })));
 
 export type { SchoolGrade, SchoolSubject } from './schoolTypes';

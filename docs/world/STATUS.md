@@ -1,8 +1,21 @@
-# WiseBot — Πού βρισκόμαστε παντού (11 Σεπτεμβρίου 2026, βράδυ)
+# WiseBot — Πού βρισκόμαστε παντού (12 Σεπτεμβρίου 2026, 01:30)
 
 Γραμμένο από το session «WiseBot World roadmap» μετά από έλεγχο του repo, του origin/main,
 της Supabase, του Gmail και των transcripts των άλλων sessions. Ό,τι γράφεται εδώ
 μετρήθηκε· δεν είναι εκτίμηση. Το business plan είναι στο [BUSINESS-PLAN.md](BUSINESS-PLAN.md).
+
+## 0. Τι αποφασίστηκε και τι έγινε τη νύχτα 11→12/9
+
+- **Απόφαση ιδιοκτήτη:** ένα προϊόν, «WiseBot World», με κορμό το World· το Explorer
+  μεταφέρεται μέσα του (Option C τώρα, A μετά, πόλεις μία μία). Merge στο main μόλις είναι
+  πράσινο. Καταγράφεται στο BUSINESS-PLAN.md §2.
+- **Έγιναν:** τελετή seal πόλης και χώρας (5b9d1ee)· το προϊόν πήρε το όνομά του παντού
+  (f5dcf58)· 79 SEO σελίδες /world + sitemap στο build (4c50ca1)· Δελφοί σε de/fr/es/it
+  (b6c47c7)· έλεγχος και των 180 live pins του Explorer (2c65917)· 17 οδηγίες πόρτας με τις
+  μεταφράσεις τους (018a6a3, 1bdd815, 4d92727)· business plan (c71c516, 8594579)· 103/103
+  tests.
+- **Σε εξέλιξη:** engine session → push, merge origin/main, Option C· content session →
+  μετατροπή Λισαβόνας και Πόρτο από τα κείμενα του Explorer μέσα από τον αγωγό.
 
 ---
 
@@ -38,14 +51,15 @@
 | Session | Branch / commits | Τι παρέδωσε | Κατάσταση |
 | --- | --- | --- | --- |
 | **WiseBot World schema and docs** (10/9) | `feature/opus-prep`, 2 commits `docs(world)` | `CURRENT_STATE.md` (έρευνα codebase), `specs/01–03` (μοντέλο, rewards, module contract). Ακύρωσε το POI audit γιατί «το Explore δεν υπάρχει» (stale main) | Τελείωσε. Οι παραδοχές «φανταστικό ταξίδι, χωρίς GPS» έχουν ξεπεραστεί από το live προϊόν |
-| **Wisebot project features** = engine (11/9) | 12 `feat(world)` + 1 `fix(world)` + 1 `test(world)` | `types.ts`, resolver συντεταγμένων, registry generator, 10 οθόνες, passport με τελετή σφραγίδας, αφήγηση Kore + read-along (272 κλιπ), overlays 4 γλωσσών για 3 πόλεις + countries, `findIt` οδηγίες, test μήκους απάντησης (983298a) | Σταμάτησε μόλις είδε το Explorer. Πρότεινε «World ως στρώμα μέσα στο Explore». Μένουν: αφήγηση Ηρακλείου/Ρόδου/Δελφών (quota Gemini), overlays Ρόδου, τελετή seal πόλης/χώρας |
-| **WiseBot World content session** (11/9) | 8 `content(world)` | Αθήνα 45f8724, Θεσσαλονίκη 6c02b16, Ηράκλειο b73c3b5, Ρόδος c705c02, Δελφοί 8adbbbe (seeds, coords, πλήρη αρχεία, μουσεία, αινίγματα). Ξανάγραψε **112 από 148 ερωτήσεις** όπου η σωστή ήταν η μακρύτερη (ο λόγος πήγε στο `explanation`) | **Η Ελλάδα ολοκληρώθηκε και είναι committed.** Σταμάτησε πριν την Ιταλία, περιμένει την απόφαση συγχώνευσης |
-| **WiseBot World executive roadmap** = research (11/9) | 10 `docs(world)` | `ROADMAP.md`, `SESSION-SPLIT.md`, `COUNTRIES.md`, `research/01–09`: έλεγχος συντεταγμένων (27 «είσοδοι», 0 μετρημένες πόρτες), 35 πόρτες προς μέτρηση, μουσεία με Wikidata ids, γλώσσες, κόστος ανά πόλη, διαδρομές χωρίς hop-on hop-off, quest engine spec, οδηγίες πόρτας, έλεγχος ερωτήσεων (76% χωρίς γνώση) | Idle από 17:49. Περιμένει ΟΚ για merge |
+| **Wisebot project features** = engine (11–12/9) | 14 `feat(world)` + 2 `fix(world)` + 1 `test(world)` | `types.ts`, resolver συντεταγμένων, registry generator, 11 οθόνες, passport με τελετή σφραγίδας εισόδου **και seal πόλης/χώρας** (5b9d1ee), αφήγηση Kore + read-along (272 κλιπ), overlays 4 γλωσσών, `findIt` οδηγίες + μεταφράσεις τους, test μήκους απάντησης, το όνομα «WiseBot World» παντού (f5dcf58) | Εκτελεί Option C (push, merge origin/main, ένα μενού, κοινό passport). Μένουν: αφήγηση Ηρακλείου/Ρόδου/Δελφών (quota Gemini) |
+| **WiseBot World content session** (11–12/9) | 10 `content(world)` | Αθήνα 45f8724, Θεσσαλονίκη 6c02b16, Ηράκλειο b73c3b5, Ρόδος c705c02, Δελφοί 8adbbbe (seeds, coords, πλήρη αρχεία, μουσεία, αινίγματα). Ξανάγραψε **112 από 148 ερωτήσεις** όπου η σωστή ήταν η μακρύτερη. 12 οδηγίες πόρτας από επίσημες σελίδες (018a6a3, 4d92727): οι σελίδες δίνουν διευθύνσεις, όχι συντεταγμένες, και Ρόδος/Δελφοί σχεδόν δεν έχουν «πόρτες» | **Η Ελλάδα ολοκληρώθηκε και είναι committed.** Ξεκινά μετατροπή Λισαβόνας και Πόρτο από τα κείμενα του Explorer |
+| **WiseBot World executive roadmap** = research (11/9) | 10 `docs(world)` | `ROADMAP.md`, `SESSION-SPLIT.md`, `COUNTRIES.md`, `research/01–09`: έλεγχος συντεταγμένων (27 «είσοδοι», 0 μετρημένες πόρτες), 35 πόρτες προς μέτρηση, μουσεία με Wikidata ids, γλώσσες, κόστος ανά πόλη, διαδρομές χωρίς hop-on hop-off, quest engine spec, οδηγίες πόρτας, έλεγχος ερωτήσεων (76% χωρίς γνώση) | Idle από 17:49 |
+| **WiseBot World roadmap** = αυτό (11–12/9) | 7 commits | STATUS.md, BUSINESS-PLAN.md (+ σελίδα), `research/10` έλεγχος 180 pins, `scripts/world/audit-explorer-pins.mjs`, `scripts/world/generate-world-seo.mjs` (79 σελίδες, στο build), Δελφοί σε 4 γλώσσες, μεταφράσεις findIt Ρόδου, συντονισμός των sessions | Ανοίγει το PR προς main μόλις το engine πει «έτοιμο» |
 | **Cloud sessions** (5–6/9, δεν φαίνονται στο sidebar) | `claude/explorer-*` → **merged στο main** | Ολόκληρο το Explorer: 18 πόλεις, GPS, passport, taste | Live |
 
-**Push:** κανένα World branch δεν υπάρχει στο GitHub (`git ls-remote` → τίποτα). 32 commits +
-34 MB ήχου ζουν μόνο σε αυτόν τον δίσκο. Το push είναι ασφαλές (δεν βγάζει τίποτα live) και
-πρέπει να γίνει σήμερα, με το ΟΚ σου.
+**Push:** ο ιδιοκτήτης έδωσε ΟΚ για push και merge (12/9). Το engine session κάνει push
+του `content/world-cities` και merge του origin/main μέσα του (3 conflicts σε κοινά αρχεία),
+και το PR προς main ανοίγει μόλις το Option C είναι πράσινο.
 
 ---
 
@@ -71,7 +85,7 @@
 | 5 | Ποιες χώρες έχουν τουρισμό, πόσες γλώσσες | `COUNTRIES.md` (top-20 αφίξεων, Σ. Αραβία → Αίγυπτος), `research/03` (γλώσσες) |
 | 6 | Πόσες γλώσσες για κουμπιά | Κανόνας υλοποιημένος: κουμπί μόνο αν η πόλη είναι 100% στη γλώσσα· έως 6 ορατά (el, en, τοπική, +3) |
 | 7 | Έλεγχος pins (εκκλησίες, αγορά 2 στενά) | Επιβεβαιώθηκε και μετρήθηκε (Bolhão 56 m, Carmo ζευγάρι νόμιμο 16 m, Στάδιο 127 m). World: resolver + 35 πόρτες + 5 `findIt`. **Explorer live: και τα 180 pins ελέγχθηκαν με Wikidata** (`research/10`): 103 ok ≤60 m, 41 θέλουν μάτι (61–150 m), 12 λάθος >150 m, 24 χωρίς αντιστοιχία — η λίστα οδηγεί τη μετάπτωση πόλη-πόλη |
-| 8 | Σφραγίδα εισόδου χώρας + συγχαρητήρια στο τέλος | Είσοδος: **έγινε** (τελετή, 6 γλώσσες). Τέλος πόλης/χώρας: υπολογίζεται, **δεν εμφανίζεται** — ζητήθηκε από το engine session σήμερα |
+| 8 | Σφραγίδα εισόδου χώρας + συγχαρητήρια στο τέλος | **Έγινε και τα δύο**: τελετή εισόδου χώρας και τελετή seal πόλης και χώρας (`SealCeremony.tsx`, 5b9d1ee), σε 6 γλώσσες |
 
 ---
 
@@ -92,8 +106,13 @@
 
 ## 6. Τι χρειάζεται ΑΠΟ ΕΣΕΝΑ (κανείς άλλος δεν μπορεί)
 
-1. **Απόφαση συγχώνευσης Explorer ↔ World** (δες BUSINESS-PLAN.md §2). Μέχρι τότε κανένα merge.
-2. **ΟΚ για push** του `content/world-cities` (backup, όχι live).
-3. **Email ICAP**: διάλεξε δωρεάν (20 εργάσιμες) ή γρήγορο (επί πληρωμή), στείλε τη φόρμα.
-4. **Έλεγξε το info@wisebot.gr** για Apple App Review και DSA verification.
-5. **Ενεργοποίησε Vercel Web Analytics** (ένα κουμπί στο dashboard) — χωρίς μετρήσεις δεν υπάρχει business plan που να ελέγχεται.
+1. **Email ICAP** (αδιάβαστο από 31/8): δωρεάν οδός D-U-N-S, μία φόρμα, σήμερα.
+2. **info@wisebot.gr**: απάντηση Apple για το build 1.0(1) και DSA verification. Προώθηση στο
+   inbox που διαβάζεις.
+3. **Vercel Web Analytics ON** και ΟΚ για το PR με το `@vercel/analytics` (το κουμπί μόνο του
+   δεν μετρά SPA). Επιβεβαίωση ότι Vercel και Supabase είναι σε Pro.
+4. **App Privacy label**: «Precise Location (not linked)» στο App Store Connect (το Explorer
+   με GPS βγήκε live μετά την υποβολή της 31/8).
+5. **Λογιστής**: ΚΑΔ λογισμικού, ΦΠΑ, OSS, Stripe στο όνομα της εταιρείας, DPA σχολείων.
+6. **Field test #0** το Σάββατο: εσύ και ένα παιδί, διαδρομή 1 Αθήνας.
+Η πλήρης λίστα: BUSINESS-PLAN.md §11.

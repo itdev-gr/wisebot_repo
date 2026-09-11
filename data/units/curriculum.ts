@@ -1,5 +1,5 @@
 /**
- * WiseBot School — the full unit skeleton, Α'–ΣΤ' Δημοτικού (212 units)
+ * WiseBot School — the full unit skeleton, Α'–ΣΤ' Δημοτικού (302 units)
  * =====================================================================
  * GENERATED from the curriculum research of 24 Αυγούστου 2026 (Προγράμματα Σπουδών ΙΕΠ +
  * the chapter titles of the official textbooks on ebooks.edu.gr). Unit names are
@@ -8,6 +8,10 @@
  *
  * Subject map follows the national timetable: Μελέτη Περιβάλλοντος Α'–Δ' → Φυσικά Ε'–ΣΤ'
  * (both under subject id 'science'), Ιστορία from Γ', Γεωγραφία Ε'–ΣΤ', Αγγλικά everywhere.
+ * The English edition swaps Αγγλικά (EFL) for `ela` — English Language Arts for a native
+ * speaker, 7 units per grade following UK KS1–KS2 / US Common Core ELA (see SUBJECT_LOCALES).
+ * 4 Σεπτεμβρίου 2026: Μαθηματικά and Γλώσσα grew from 7 to 11 units per grade (the last four
+ * of each array) — chapters of the Πρόγραμμα Σπουδών the first skeleton had left out.
  *
  * Questions live one file per unit under data/units/grade<N>/<subject>-<unit>.ts, bundled
  * per grade in data/units/grade<N>/index.ts and loaded lazily via registry.ts. Here each
@@ -22,7 +26,8 @@ import { UNIT_COUNTS } from './registry';
 
 export interface UnitBrief extends SchoolUnit { topics: string }
 // `questions` stays empty in the skeleton; the real arrays load per grade (see registry.ts).
-export type SubjectId = 'math' | 'greek' | 'science' | 'history' | 'geography' | 'english';
+export type SubjectId = 'math' | 'greek' | 'science' | 'history' | 'geography' | 'english' | 'ela';
+export type SchoolLang = 'el' | 'en';
 
 const c = (key: string) => UNIT_COUNTS[key] ?? 0;
 
@@ -33,8 +38,32 @@ export const SUBJECT_META: Record<SubjectId, { name: { el: string; en: string };
   science: { name: { el: 'Μελέτη & Φυσικά', en: 'Science' }, emoji: '🔬' },
   history: { name: { el: 'Ιστορία', en: 'History' }, emoji: '🏛️' },
   geography: { name: { el: 'Γεωγραφία', en: 'Geography' }, emoji: '🗺️' },
-  english: { name: { el: 'Αγγλικά', en: 'English' }, emoji: '🇬🇧' },
+  english: { name: { el: 'Αγγλικά', en: 'English (EFL)' }, emoji: '🇬🇧' },
+  ela: { name: { el: 'Αγγλικά (μητρική)', en: 'English' }, emoji: '📚' },
 };
+
+/**
+ * Which app language shows which subject. Two subjects are language-specific:
+ * - `english` is English-as-a-foreign-language written for a Greek child ("How do we say
+ *   «γάτα» in English?") — meaningless to a native speaker, so it only shows in Greek;
+ * - `ela` is English Language Arts (phonics, grammar, reading) for a native English-speaking
+ *   child — the English edition's equivalent of Γλώσσα — and only shows in English.
+ * Everything else (Greek curriculum content, translated) shows in both.
+ * Progress keys include the subject id, so a child switching language never mixes the two.
+ */
+export const SUBJECT_LOCALES: Record<SubjectId, SchoolLang[]> = {
+  math: ['el', 'en'],
+  greek: ['el', 'en'],
+  science: ['el', 'en'],
+  history: ['el', 'en'],
+  geography: ['el', 'en'],
+  english: ['el'],
+  ela: ['en'],
+};
+
+/** True when a subject belongs in the given app language (unknown ids show everywhere). */
+export const subjectVisible = (subjectId: string, lang: SchoolLang): boolean =>
+  (SUBJECT_LOCALES[subjectId as SubjectId] ?? ['el', 'en']).includes(lang);
 
 export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrief[]>>> = {
   1: {
@@ -46,6 +75,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'shapes-and-patterns', emoji: '🔷', name: { el: 'Σχήματα και μοτίβα', en: 'Shapes and patterns' }, topics: 'circle, square, triangle, rectangle, straight/curved lines, continuing repeating patterns, symmetry, left/right', questions: [], count: c('1/math/shapes-and-patterns') },
       { id: 'coins-and-time', emoji: '🪙', name: { el: 'Κέρματα και ώρα', en: 'Coins and time' }, topics: 'euro coins 1-2-5-10-20-50 cents, paying small amounts, days of week, o\'clock on the clock', questions: [], count: c('1/math/coins-and-time') },
       { id: 'measuring', emoji: '📏', name: { el: 'Μετρώ', en: 'Measuring' }, topics: 'longer/shorter, heavier/lighter, measuring with non-standard units, comparing lengths and weights', questions: [], count: c('1/math/measuring') },
+      { id: 'word-problems', emoji: '🧩', name: { el: 'Προβλήματα', en: 'Word Problems' }, topics: 'one-step addition and subtraction stories within 20: how many altogether, how many are left, how many more; choose the operation; the number sentence that matches the story', questions: [], count: c('1/math/word-problems') },
+      { id: 'doubles-and-halves', emoji: '👯', name: { el: 'Διπλάσια & μισά', en: 'Doubles & Halves' }, topics: 'double of 1–10, half of even numbers to 20, near doubles (6+7 = 6+6+1), sharing between two', questions: [], count: c('1/math/doubles-and-halves') },
+      { id: 'counting-patterns', emoji: '🔢', name: { el: 'Μετρώ ανά 2, 5 και 10', en: 'Counting in 2s, 5s and 10s' }, topics: 'skip counting forwards and backwards, the missing number in a pattern, odd and even (μονοί–ζυγοί) numbers to 20', questions: [], count: c('1/math/counting-patterns') },
+      { id: 'position-and-direction', emoji: '🧭', name: { el: 'Θέσεις στον χώρο', en: 'Position & Direction' }, topics: 'above/below, in front/behind, left/right, between, first/last in a row, simple routes on a grid (two steps up, one step right)', questions: [], count: c('1/math/position-and-direction') },
     ],
     greek: [
       { id: 'letters-sounds', emoji: '🔤', name: { el: 'Γράμματα & Ήχοι', en: 'Letters & Sounds' }, topics: 'recognise upper/lower-case letters, vowels vs consonants, letter–sound matching, alphabet order', questions: [], count: c('1/greek/letters-sounds') },
@@ -54,6 +87,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'articles-gender', emoji: '👧', name: { el: 'Ο, Η, Το', en: 'The Little Words o/i/to' }, topics: 'choose correct article ο/η/το, ένας/μία/ένα, one vs many (singular/plural)', questions: [], count: c('1/greek/articles-gender') },
       { id: 'sentences', emoji: '✏️', name: { el: 'Φτιάχνω Προτάσεις', en: 'Making Sentences' }, topics: 'capital letter at start, full stop and question mark, put words in order', questions: [], count: c('1/greek/sentences') },
       { id: 'reading-simple', emoji: '🐢', name: { el: 'Διαβάζω Ιστορίες', en: 'Reading Stories' }, topics: 'understand 2–3 sentence texts, who/what/where questions, sequence of events', questions: [], count: c('1/greek/reading-simple') },
+      { id: 'digraphs', emoji: '👥', name: { el: 'Δίψηφα: ου, αι, ει, οι, μπ, ντ, γκ', en: 'Two-letter Sounds' }, topics: 'the vowel digraphs ου/αι/ει/οι and consonant pairs μπ/ντ/γκ/τσ/τζ: which word has «ου», the missing digraph, how to spell λουλούδι/παιδί/είναι/μπάλα', questions: [], count: c('1/greek/digraphs') },
+      { id: 'opposites-and-word-families', emoji: '↔️', name: { el: 'Αντίθετα & οικογένειες λέξεων', en: 'Opposites & Word Families' }, topics: 'μεγάλος–μικρός, ψηλός–κοντός, ανοίγω–κλείνω; words from the same root (παιχνίδι, παίζω, παιχνιδιάρης); the word that does not belong to the family', questions: [], count: c('1/greek/opposites-and-word-families') },
+      { id: 'verbs-doing-words', emoji: '🏃', name: { el: 'Ρήματα: τι κάνω;', en: 'Verbs: What Am I Doing?' }, topics: 'find the doing word in a sentence, εγώ/εσύ/αυτός endings -ω/-εις/-ει, the verb that fits the sentence, now vs before (very simple)', questions: [], count: c('1/greek/verbs-doing-words') },
+      { id: 'accent-and-question-mark', emoji: '🎯', name: { el: 'Τόνος & ερωτηματικό', en: 'The Accent & the Question Mark' }, topics: 'the accent sits on a vowel, one accent per word, monosyllables have none, the Greek question mark (;) ends a question, capital letter after a full stop', questions: [], count: c('1/greek/accent-and-question-mark') },
     ],
     science: [
       { id: 'class-school-family', emoji: '🏫', name: { el: 'Η Τάξη, το Σχολείο & η Οικογένειά μου', en: 'My Class, School & Family' }, topics: 'classroom objects, class rules, school people, family members and roles, school trips and celebrations', questions: [], count: c('1/science/class-school-family') },
@@ -73,6 +110,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'food-i-like', emoji: '🍎', name: { el: 'I like! Φαγητά', en: 'Food I Like' }, topics: 'apple, banana, cake, pizza, ice cream, milk, \'I like / I don\'t like\'', questions: [], count: c('1/english/food-i-like') },
       { id: 'i-can', emoji: '🤸', name: { el: 'I can! Μπορώ!', en: 'I Can!' }, topics: 'action verbs (jump, run, fly, swim, dance), \'I can / I can\'t\', body moves', questions: [], count: c('1/english/i-can') },
     ],
+    ela: [
+      { id: 'phonics-short-vowels', emoji: '🔤', name: { el: 'Βραχέα φωνήεντα', en: 'Short Vowel Sounds' }, topics: 'a/e/i/o/u as in cat, pen, pig, dog, sun; which word has the /a/ sound; the missing vowel; odd one out by vowel sound', questions: [], count: c('1/ela/phonics-short-vowels') },
+      { id: 'blends-and-digraphs', emoji: '🔊', name: { el: 'Συμπλέγματα & δίψηφα', en: 'Blends & Digraphs' }, topics: 'sh, ch, th, ck and blends bl, st, tr, fl; first sound of ship/chip/thin; the missing digraph', questions: [], count: c('1/ela/blends-and-digraphs') },
+      { id: 'sight-words', emoji: '👀', name: { el: 'Λέξεις με μια ματιά', en: 'Sight Words' }, topics: 'the, and, said, was, you, they, here, come, little, my; fill the gap; which is spelled right', questions: [], count: c('1/ela/sight-words') },
+      { id: 'rhyming-words', emoji: '🎵', name: { el: 'Ομοιοκαταληξίες', en: 'Rhyming Words' }, topics: 'cat/hat/bat, which word rhymes, odd one out, word families -at/-og/-ip/-un', questions: [], count: c('1/ela/rhyming-words') },
+      { id: 'capitals-and-full-stops', emoji: '✏️', name: { el: 'Κεφαλαία & τελείες', en: 'Capitals & Full Stops' }, topics: 'capital at the start, names/I/days get capitals, full stop or question mark at the end, the correct sentence', questions: [], count: c('1/ela/capitals-and-full-stops') },
+      { id: 'one-and-many', emoji: '🐑', name: { el: 'Ένα & πολλά', en: 'One & Many (Plurals)' }, topics: 'add -s/-es (cats, boxes), a/an, this/these, foot–feet', questions: [], count: c('1/ela/one-and-many') },
+      { id: 'reading-little-stories', emoji: '📖', name: { el: 'Διαβάζω μικρές ιστορίες', en: 'Reading Little Stories' }, topics: '2–3 sentence stories: who/what/where, first/next, how the character feels, what happens next', questions: [], count: c('1/ela/reading-little-stories') },
+    ],
   },
   2: {
     math: [
@@ -83,6 +129,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'shapes-and-solids', emoji: '🧊', name: { el: 'Σχήματα και στερεά', en: 'Shapes and solids' }, topics: 'cube, sphere, cylinder, cone, pyramid, perpendicular and parallel lines, symmetry, geometric patterns', questions: [], count: c('2/math/shapes-and-solids') },
       { id: 'measure-length-weight', emoji: '⚖️', name: { el: 'Μήκος και βάρος', en: 'Length and weight' }, topics: 'centimetre and metre, measuring line segments, kilogram and gram, comparing weights', questions: [], count: c('2/math/measure-length-weight') },
       { id: 'clock-and-time', emoji: '🕒', name: { el: 'Ρολόι και χρόνος', en: 'Clock and time' }, topics: 'o\'clock and half past, hours/minutes, days, months, elapsed time, numbers up to 1000', questions: [], count: c('2/math/clock-and-time') },
+      { id: 'numbers-to-1000', emoji: '🔟', name: { el: 'Αριθμοί ως το 1000', en: 'Numbers up to 1,000' }, topics: 'hundreds/tens/ones, reading and writing three-digit numbers, comparing and ordering, counting in 100s and 10s, the number before/after, 1000 as ten hundreds', questions: [], count: c('2/math/numbers-to-1000') },
+      { id: 'sharing-and-division', emoji: '🍕', name: { el: 'Μοιράζω δίκαια: διαίρεση', en: 'Fair Sharing: Division' }, topics: 'share 12 between 3, grouping in 2s/5s/10s, division as the opposite of multiplication, the ÷ sign, simple remainders (7 sweets, 2 children)', questions: [], count: c('2/math/sharing-and-division') },
+      { id: 'halves-and-quarters', emoji: '🍰', name: { el: 'Μισό & τέταρτο', en: 'Halves & Quarters' }, topics: 'half and quarter of a shape and of a set, the symbols ½ and ¼, two halves make a whole, half of 10 and 14, quarter of 8 and 12', questions: [], count: c('2/math/halves-and-quarters') },
+      { id: 'word-problems-two-steps', emoji: '🧩', name: { el: 'Προβλήματα με δύο βήματα', en: 'Two-step Word Problems' }, topics: 'add then subtract, multiply then add (3 packs of 5 plus 2), euro problems with change, choose the operations, check the answer', questions: [], count: c('2/math/word-problems-two-steps') },
     ],
     greek: [
       { id: 'spelling-basics', emoji: '✍️', name: { el: 'Ορθογραφία', en: 'Spelling Basics' }, topics: 'vowel digraphs αι/ει/οι/ου, double consonants, common word endings -ος/-η/-ι, capital letters', questions: [], count: c('2/greek/spelling-basics') },
@@ -92,6 +142,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'verbs-time', emoji: '⏰', name: { el: 'Ρήματα: Τώρα, Πριν, Μετά', en: 'Verbs: Now, Before, After' }, topics: 'present vs past vs future, verb endings -ω/-εις/-ει, person and number, εγώ/εσύ/αυτός', questions: [], count: c('2/greek/verbs-time') },
       { id: 'punctuation', emoji: '❓', name: { el: 'Σημεία Στίξης', en: 'Punctuation' }, topics: 'full stop, question mark, exclamation mark, comma in lists, quotation dash in dialogue', questions: [], count: c('2/greek/punctuation') },
       { id: 'reading', emoji: '📚', name: { el: 'Κατανόηση Κειμένου', en: 'Reading Comprehension' }, topics: 'short stories, letters, recipes, invitations; main idea, characters, sequence, simple inference', questions: [], count: c('2/greek/reading') },
+      { id: 'syllables-and-hyphenation', emoji: '✂️', name: { el: 'Συλλαβισμός', en: 'Syllabification' }, topics: 'count syllables, split a word at the end of a line, a single consonant goes with the next vowel, two consonants that can start a Greek word stay together (στ, τρ, πλ), digraphs (ου, αι, μπ) never split', questions: [], count: c('2/greek/syllables-and-hyphenation') },
+      { id: 'word-families', emoji: '🌳', name: { el: 'Οικογένειες λέξεων', en: 'Word Families' }, topics: 'root, derived and compound words (θάλασσα → θαλασσινός, θαλασσόνερο), which word belongs to the family, make a new word with -άκι/-ίτσα/ξανα-/-ιστής', questions: [], count: c('2/greek/word-families') },
+      { id: 'synonyms-antonyms', emoji: '🔁', name: { el: 'Συνώνυμα & αντίθετα', en: 'Synonyms & Antonyms' }, topics: 'όμορφος–ωραίος, γρήγορος–αργός, χαρούμενος–λυπημένος; pick the synonym, pick the antonym, replace the repeated word in a sentence', questions: [], count: c('2/greek/synonyms-antonyms') },
+      { id: 'alphabetical-order-and-capitals', emoji: '🔤', name: { el: 'Αλφαβητική σειρά & κεφαλαία', en: 'Alphabetical Order & Capitals' }, topics: 'order words by first and then second letter, find a word in a dictionary, capitals for names, places, days and months, after a full stop, in titles', questions: [], count: c('2/greek/alphabetical-order-and-capitals') },
     ],
     science: [
       { id: 'school-neighbourhood-orientation', emoji: '🧭', name: { el: 'Σχολείο, Γειτονιά & Προσανατολισμός', en: 'School, Neighbourhood & Orientation' }, topics: 'school spaces and people, my neighbourhood, left/right, the four directions, the sun and compass, simple maps', questions: [], count: c('2/science/school-neighbourhood-orientation') },
@@ -111,6 +165,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'healthy-food', emoji: '🥕', name: { el: 'Υγιεινό Φαγητό', en: 'Healthy Food' }, topics: 'fruit, vegetables, healthy/unhealthy, breakfast, \'I like / don\'t like\', \'Do you like…?\'', questions: [], count: c('2/english/healthy-food') },
       { id: 'clothes-and-weather', emoji: '🧥', name: { el: 'Ρούχα & Καιρός', en: 'Clothes & Weather' }, topics: 'coat, hat, boots, T-shirt, sunny, rainy, cold, hot, \'Put on your…\', seasons', questions: [], count: c('2/english/clothes-and-weather') },
     ],
+    ela: [
+      { id: 'magic-e-long-vowels', emoji: '✨', name: { el: 'Μαγικό e & μακρά φωνήεντα', en: 'Magic e & Long Vowels' }, topics: 'cap→cape, kit→kite, hop→hope, tub→tube; which word has a long a; the silent e', questions: [], count: c('2/ela/magic-e-long-vowels') },
+      { id: 'vowel-teams', emoji: '🤝', name: { el: 'Ζευγάρια φωνηέντων', en: 'Vowel Teams' }, topics: 'ai/ay, ee/ea, oa/ow, igh, oo; spell the word; the missing team; same sound', questions: [], count: c('2/ela/vowel-teams') },
+      { id: 'nouns-and-verbs', emoji: '🏃', name: { el: 'Ουσιαστικά & ρήματα', en: 'Nouns & Verbs' }, topics: 'naming words vs doing words, find the noun/verb, proper nouns get capitals, person/place/thing', questions: [], count: c('2/ela/nouns-and-verbs') },
+      { id: 'adjectives-describing', emoji: '🎨', name: { el: 'Επίθετα', en: 'Adjectives' }, topics: 'describing words, which word describes the noun, opposites, best adjective, two adjectives with a comma', questions: [], count: c('2/ela/adjectives-describing') },
+      { id: 'question-and-exclamation', emoji: '❗', name: { el: 'Ερωτηματικό & θαυμαστικό', en: 'Question & Exclamation Marks' }, topics: 'full stop vs ? vs !, question words, which sentence needs a ?, first commas in a list', questions: [], count: c('2/ela/question-and-exclamation') },
+      { id: 'compound-and-contractions', emoji: '🧩', name: { el: 'Σύνθετες λέξεις & συντομεύσεις', en: 'Compound Words & Contractions' }, topics: 'sun+flower, foot+ball; don\'t/can\'t/it\'s/I\'m and what they stand for; where the apostrophe goes', questions: [], count: c('2/ela/compound-and-contractions') },
+      { id: 'reading-comprehension', emoji: '📚', name: { el: 'Κατανόηση κειμένου', en: 'Reading Comprehension' }, topics: '3–5 sentence passages: main idea, a detail, why, order of events, feelings, best title', questions: [], count: c('2/ela/reading-comprehension') },
+    ],
   },
   3: {
     math: [
@@ -121,6 +184,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'fractions', emoji: '🍕', name: { el: 'Πρώτα κλάσματα', en: 'First fractions' }, topics: 'halves, thirds, quarters, unit fractions, fraction of a shape, equivalent fractions like 1/2 = 2/4', questions: [], count: c('3/math/fractions') },
       { id: 'decimals', emoji: '🔟', name: { el: 'Πρώτοι δεκαδικοί', en: 'First decimals' }, topics: 'tenths and hundredths, decimal point, money as decimals, simple decimal addition/subtraction', questions: [], count: c('3/math/decimals') },
       { id: 'measure-geometry', emoji: '📐', name: { el: 'Γεωμετρία & Μετρήσεις', en: 'Geometry & Measurement' }, topics: 'right angles, ruler and compass, symmetry, tilings, cm/mm/m, grams/kilos, area by counting squares, clock to the minute', questions: [], count: c('3/math/measure-geometry') },
+      { id: 'time-and-money', emoji: '🕰️', name: { el: 'Ώρα & χρήμα', en: 'Time & Money' }, topics: 'reading the clock to 5 minutes, quarter past/to, elapsed time within the hour, euro and cents written with a comma (1,50 €), giving change, simple shopping problems', questions: [], count: c('3/math/time-and-money') },
+      { id: 'word-problem-strategies', emoji: '🧠', name: { el: 'Στρατηγικές προβλημάτων', en: 'Problem-solving Strategies' }, topics: 'what is asked, what is known, draw it, choose the operation(s), two-step problems mixing × with + or −, check with the inverse operation', questions: [], count: c('3/math/word-problem-strategies') },
+      { id: 'patterns-and-missing-numbers', emoji: '🔗', name: { el: 'Μοτίβα & ισότητες', en: 'Patterns & Missing Numbers' }, topics: 'number patterns (+3, ×2, −5), the rule of a pattern, the missing number in 7 × □ = 42 or □ − 18 = 25, both sides of = are equal, function machines', questions: [], count: c('3/math/patterns-and-missing-numbers') },
+      { id: 'data-and-bar-charts', emoji: '📊', name: { el: 'Δεδομένα & ραβδογράμματα', en: 'Data & Bar Charts' }, topics: 'tally marks, frequency tables, reading a bar chart and a pictogram with a key (one picture = 2), most/least, difference between two bars, a conclusion from the data', questions: [], count: c('3/math/data-and-bar-charts') },
     ],
     greek: [
       { id: 'spelling-accent', emoji: '✍️', name: { el: 'Ορθογραφία & Τονισμός', en: 'Spelling & Accents' }, topics: 'verb endings -ω/-εις/-ει/-ουμε, noun endings -ος/-ης/-ας/-η/-α/-ο/-ι, accent rules (λήγουσα, παραλήγουσα, προπαραλήγουσα)', questions: [], count: c('3/greek/spelling-accent') },
@@ -130,6 +197,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'verbs-tenses', emoji: '🏃', name: { el: 'Ρήματα & Χρόνοι', en: 'Verbs & Tenses' }, topics: 'present, past continuous, simple past, simple future; -ω and -ώ verbs; augment ε-', questions: [], count: c('3/greek/verbs-tenses') },
       { id: 'punctuation', emoji: '❓', name: { el: 'Σημεία Στίξης & Είδη Προτάσεων', en: 'Punctuation & Sentence Types' }, topics: 'statement/question/exclamation/command, subject and verb, punctuation, paragraph basics', questions: [], count: c('3/greek/punctuation') },
       { id: 'reading-writing', emoji: '📖', name: { el: 'Κατανόηση Κειμένου', en: 'Reading Comprehension' }, topics: 'narratives, descriptions, instructions; main idea, details, order, why-questions, vocabulary in context', questions: [], count: c('3/greek/reading-writing') },
+      { id: 'pronouns', emoji: '👤', name: { el: 'Αντωνυμίες', en: 'Pronouns' }, topics: 'personal (εγώ, εσύ, αυτός/αυτή/αυτό, εμείς, εσείς, αυτοί), possessive (μου, σου, του, της, μας), demonstrative (αυτός, εκείνος); replace the noun; agreement in gender and number', questions: [], count: c('3/greek/pronouns') },
+      { id: 'adverbs', emoji: '🏃', name: { el: 'Επιρρήματα', en: 'Adverbs' }, topics: 'adverbs of place (εδώ, πάνω, μακριά), time (χθες, πάντα, τώρα), manner (γρήγορα, καλά, προσεκτικά), quantity (πολύ, λίγο); find the adverb; -ως vs -α endings; adjective or adverb (καλός/καλά)', questions: [], count: c('3/greek/adverbs') },
+      { id: 'subject-verb-object', emoji: '🧱', name: { el: 'Υποκείμενο, ρήμα, αντικείμενο', en: 'Subject, Verb, Object' }, topics: 'who does the action (ποιος;), what the action is, what receives it (τι;); find the subject or the object; word order; the verb agrees with the subject', questions: [], count: c('3/greek/subject-verb-object') },
+      { id: 'synonyms-antonyms-homonyms', emoji: '🔁', name: { el: 'Συνώνυμα, αντίθετα, ομώνυμα', en: 'Synonyms, Antonyms, Homonyms' }, topics: 'synonym and antonym pairs; homonyms that sound the same but are spelled differently (ψηλός/ψιλός, κλείνω/κλίνω, φύλλο/φίλο, λύπη/λείπει); the right word for the sentence', questions: [], count: c('3/greek/synonyms-antonyms-homonyms') },
     ],
     science: [
       { id: 'living-together', emoji: '🤝', name: { el: 'Ζούμε Μαζί', en: 'Living Together' }, topics: 'cooperation, community rules, who decides in the municipality, local elections, mayor', questions: [], count: c('3/science/living-together') },
@@ -158,6 +229,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'food-and-routine', emoji: '🪥', name: { el: 'Φαγητό & Καθημερινότητα', en: 'Food & My Day' }, topics: 'food, meals, healthy habits, daily routine verbs (get up, brush, eat), present simple I/you', questions: [], count: c('3/english/food-and-routine') },
       { id: 'my-home', emoji: '🏰', name: { el: 'Το Σπίτι μου', en: 'My Home' }, topics: 'rooms of the house, furniture, \'There is / there are\', \'Is there…?\', how many', questions: [], count: c('3/english/my-home') },
     ],
+    ela: [
+      { id: 'spelling-patterns', emoji: '🔡', name: { el: 'Κανόνες ορθογραφίας', en: 'Spelling Patterns' }, topics: 'hop→hopping, make→making, baby→babies, -ed/-ing, which spelling is correct', questions: [], count: c('3/ela/spelling-patterns') },
+      { id: 'prefixes-and-suffixes', emoji: '🧱', name: { el: 'Προθέματα & επιθήματα', en: 'Prefixes & Suffixes' }, topics: 'un-, re-, dis-, pre-, -ful, -less, -ly, -er/-est; meaning of unhappy, careful, hopeless; build the word', questions: [], count: c('3/ela/prefixes-and-suffixes') },
+      { id: 'synonyms-and-antonyms', emoji: '🔁', name: { el: 'Συνώνυμα & αντώνυμα', en: 'Synonyms & Antonyms' }, topics: 'big/large/huge, happy/glad; pick the synonym/antonym; shades of meaning; the word that fits best', questions: [], count: c('3/ela/synonyms-and-antonyms') },
+      { id: 'pronouns', emoji: '👤', name: { el: 'Αντωνυμίες', en: 'Pronouns' }, topics: 'he/she/it/they/we, I vs me, his/her/their/our, replace the noun', questions: [], count: c('3/ela/pronouns') },
+      { id: 'past-and-present-tense', emoji: '⏰', name: { el: 'Παρελθόν & παρόν', en: 'Past & Present Tense' }, topics: 'walk/walked, go/went, eat/ate, see/saw, is/was, are/were, has/had; fix the verb', questions: [], count: c('3/ela/past-and-present-tense') },
+      { id: 'commas-and-apostrophes', emoji: '✒️', name: { el: 'Κόμματα & απόστροφοι', en: 'Commas & Apostrophes' }, topics: 'commas in a list, apostrophe for belonging (Sam\'s), contraction vs possession, its/it\'s, dogs vs dog\'s', questions: [], count: c('3/ela/commas-and-apostrophes') },
+      { id: 'reading-and-inference', emoji: '🔍', name: { el: 'Ανάγνωση & συμπεράσματα', en: 'Reading & Inference' }, topics: '4–6 sentence passages: what you can tell, why the character did that, a word from context, best title, what happens next', questions: [], count: c('3/ela/reading-and-inference') },
+    ],
   },
   4: {
     math: [
@@ -168,6 +248,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'lines-and-polygons', emoji: '📐', name: { el: 'Γραμμές και πολύγωνα', en: 'Lines and polygons' }, topics: 'parallel, perpendicular and intersecting lines, polygons, parallelograms, symmetric shapes', questions: [], count: c('4/math/lines-and-polygons') },
       { id: 'perimeter-area', emoji: '⬛', name: { el: 'Περίμετρος και εμβαδόν', en: 'Perimeter and area' }, topics: 'perimeter of polygons, area of squares/rectangles in square units, outline vs surface', questions: [], count: c('4/math/perimeter-area') },
       { id: 'measures-and-data', emoji: '📊', name: { el: 'Μετρήσεις και δεδομένα', en: 'Measures and data' }, topics: 'length, weight, capacity (litre), time (hours/minutes/seconds), solids, reading tables and bar charts, patterns', questions: [], count: c('4/math/measures-and-data') },
+      { id: 'fractions', emoji: '🍕', name: { el: 'Κλάσματα', en: 'Fractions' }, topics: 'numerator and denominator, fractions of shapes and of sets, equivalent fractions (1/2 = 2/4 = 3/6), comparing fractions with the same denominator, adding and subtracting like fractions, a fraction of a number (3/4 of 20)', questions: [], count: c('4/math/fractions') },
+      { id: 'time-and-duration', emoji: '⏱️', name: { el: 'Χρόνος & διάρκεια', en: 'Time & Duration' }, topics: 'hours-minutes-seconds, the 24-hour clock, elapsed time across the hour, reading a timetable, converting 90 min = 1 h 30 min, days/weeks/months/years', questions: [], count: c('4/math/time-and-duration') },
+      { id: 'rounding-and-estimation', emoji: '🎯', name: { el: 'Στρογγυλοποίηση & εκτίμηση', en: 'Rounding & Estimation' }, topics: 'round to the nearest 10/100/1000, estimate a sum or a product before computing, is the answer reasonable, compensation (99 + 47 = 100 + 46)', questions: [], count: c('4/math/rounding-and-estimation') },
+      { id: 'equations-and-patterns', emoji: '⚖️', name: { el: 'Ισότητες & μοτίβα', en: 'Equations & Patterns' }, topics: 'find the unknown in □ + 27 = 63 and 8 × □ = 96, the rule of a sequence (+7, ×3), both sides of the equals sign, simple inequalities with < and >', questions: [], count: c('4/math/equations-and-patterns') },
     ],
     greek: [
       { id: 'spelling-advanced', emoji: '🔎', name: { el: 'Ορθογραφία', en: 'Spelling' }, topics: 'word families and roots, -ία/-εία nouns, -εύω/-ευση, adverbs -ως/-α, tricky homophones', questions: [], count: c('4/greek/spelling-advanced') },
@@ -177,6 +261,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'pronouns', emoji: '👉', name: { el: 'Αντωνυμίες', en: 'Pronouns' }, topics: 'personal, possessive, demonstrative, interrogative pronouns; weak forms μου/σου/του; accent on μου vs μού', questions: [], count: c('4/greek/pronouns') },
       { id: 'punctuation-dialogue', emoji: '🗨️', name: { el: 'Στίξη & Διάλογος', en: 'Punctuation & Dialogue' }, topics: 'comma rules, colon, quotation marks, dash in dialogue, direct vs reported speech', questions: [], count: c('4/greek/punctuation-dialogue') },
       { id: 'reading-texts', emoji: '🧠', name: { el: 'Κατανόηση Κειμένων', en: 'Text Comprehension' }, topics: 'narrative/descriptive/informational texts, inference, main idea vs detail, text-type identification, title choice', questions: [], count: c('4/greek/reading-texts') },
+      { id: 'adverbs-prepositions', emoji: '📍', name: { el: 'Επιρρήματα & προθέσεις', en: 'Adverbs & Prepositions' }, topics: 'adverbs of place/time/manner/quantity, prepositions (σε, από, με, για, προς, χωρίς, μετά, πριν), σε + article contractions (στο, στη, στον), which preposition fits', questions: [], count: c('4/greek/adverbs-prepositions') },
+      { id: 'active-and-passive-voice', emoji: '🔄', name: { el: 'Ενεργητική & παθητική φωνή', en: 'Active & Passive Voice' }, topics: 'πλένω/πλένομαι, -ω vs -ομαι/-μαι endings, who does and who receives the action, deponent verbs (έρχομαι, κοιμάμαι, σκέφτομαι), turn an active sentence into passive', questions: [], count: c('4/greek/active-and-passive-voice') },
+      { id: 'compound-and-derived-words', emoji: '🧩', name: { el: 'Σύνθετες & παράγωγες λέξεις', en: 'Compound & Derived Words' }, topics: 'first and second part of a compound (ηλιοβασίλεμα, χαρτοπετσέτα), the joining vowel -ο-, derived words with prefixes and suffixes (ξανα-, -άδικο, -τής, -ιά), meaning from the parts', questions: [], count: c('4/greek/compound-and-derived-words') },
+      { id: 'summary-and-text-structure', emoji: '📄', name: { el: 'Περίληψη & δομή κειμένου', en: 'Summary & Text Structure' }, topics: 'paragraph and main idea, the title that fits, order of paragraphs (beginning-middle-end), what to leave out of a summary, connecting words (πρώτα, έπειτα, τέλος, όμως)', questions: [], count: c('4/greek/summary-and-text-structure') },
     ],
     science: [
       { id: 'greece-our-country', emoji: '🇬🇷', name: { el: 'Ελλάδα, η Χώρα μας', en: 'Greece, Our Country' }, topics: 'geographic regions of Greece, political map, prefectures, natural features of my region, life then and now, big public works', questions: [], count: c('4/science/greece-our-country') },
@@ -207,6 +295,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'in-the-city', emoji: '🚦', name: { el: 'Στην Πόλη', en: 'In the City' }, topics: 'places in town, road safety, directions, prepositions of place, imperatives (stop, cross, turn)', questions: [], count: c('4/english/in-the-city') },
       { id: 'food-and-shopping', emoji: '🥪', name: { el: 'Φαγητό & Ψώνια', en: 'Food & Shopping' }, topics: 'supermarket food, recipes, some/any, countable/uncountable, \'How much / how many\'', questions: [], count: c('4/english/food-and-shopping') },
     ],
+    ela: [
+      { id: 'homophones', emoji: '👂', name: { el: 'Ομόηχες λέξεις', en: 'Homophones' }, topics: 'there/their/they\'re, to/too/two, your/you\'re, here/hear, where/wear, right/write, know/no', questions: [], count: c('4/ela/homophones') },
+      { id: 'adverbs', emoji: '🏎️', name: { el: 'Επιρρήματα', en: 'Adverbs' }, topics: 'how/when/where words, -ly, adjective vs adverb (quick/quickly, good/well), find the adverb', questions: [], count: c('4/ela/adverbs') },
+      { id: 'sentence-types', emoji: '📝', name: { el: 'Είδη προτάσεων', en: 'Sentence Types' }, topics: 'statement, question, command, exclamation; subject and predicate; fragment vs sentence; run-ons; and/but/so', questions: [], count: c('4/ela/sentence-types') },
+      { id: 'paragraphs-and-main-idea', emoji: '📄', name: { el: 'Παράγραφοι & κεντρική ιδέα', en: 'Paragraphs & Main Idea' }, topics: 'topic sentence, supporting details, the sentence that does not belong, best title, one-sentence summary', questions: [], count: c('4/ela/paragraphs-and-main-idea') },
+      { id: 'dictionary-skills', emoji: '📖', name: { el: 'Χρήση λεξικού', en: 'Dictionary Skills' }, topics: 'alphabetical order to the 2nd/3rd letter, guide words, syllables, the right meaning, part-of-speech labels', questions: [], count: c('4/ela/dictionary-skills') },
+      { id: 'similes-and-metaphors', emoji: '🌈', name: { el: 'Παρομοιώσεις & μεταφορές', en: 'Similes & Metaphors' }, topics: 'as brave as a lion, the classroom was a zoo; simile or metaphor; what it means; alliteration; onomatopoeia', questions: [], count: c('4/ela/similes-and-metaphors') },
+      { id: 'reading-nonfiction', emoji: '🗞️', name: { el: 'Πληροφοριακά κείμενα', en: 'Reading Non-fiction' }, topics: 'short informational texts: mostly about, fact vs opinion, headings and captions, a detail, a word in context', questions: [], count: c('4/ela/reading-nonfiction') },
+    ],
   },
   5: {
     math: [
@@ -217,6 +314,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'patterns-equations', emoji: '🧩', name: { el: 'Μοτίβα και εξισώσεις', en: 'Patterns and equations' }, topics: 'numeric and geometric patterns, negative numbers on a thermometer, simple equations with a missing number, inequalities', questions: [], count: c('5/math/patterns-equations') },
       { id: 'angles-triangles-circle', emoji: '📐', name: { el: 'Γωνίες, τρίγωνα, κύκλος', en: 'Angles, triangles, circle' }, topics: 'acute/right/obtuse angles, measuring with protractor, triangle types by sides/angles, heights, symmetry, circle circumference, scale', questions: [], count: c('5/math/angles-triangles-circle') },
       { id: 'measurement-area-volume', emoji: '📏', name: { el: 'Μετρήσεις, εμβαδόν, όγκος', en: 'Measurement, area, volume' }, topics: 'unit conversions (km/m/cm, kg/g, l/ml), perimeter, area of rectangle and right triangle, volume of cube, time units', questions: [], count: c('5/math/measurement-area-volume') },
+      { id: 'multiples-and-divisors', emoji: '🔢', name: { el: 'Πολλαπλάσια & διαιρέτες', en: 'Multiples & Divisors' }, topics: 'multiples of a number, divisibility rules for 2/3/5/9/10, divisors of a number, prime numbers to 50, ΕΚΠ (LCM) and ΜΚΔ (GCD) of small numbers', questions: [], count: c('5/math/multiples-and-divisors') },
+      { id: 'mixed-units', emoji: '⚖️', name: { el: 'Συμμιγείς αριθμοί', en: 'Mixed Units' }, topics: 'hours-minutes, kilograms-grams, metres-centimetres, euros-cents: converting, adding and subtracting with carrying (2 h 45 min + 1 h 30 min = 4 h 15 min)', questions: [], count: c('5/math/mixed-units') },
+      { id: 'problem-solving-and-average', emoji: '🧠', name: { el: 'Προβλήματα & μέσος όρος', en: 'Problem Solving & Averages' }, topics: 'multi-step problems, the mean of a small set of numbers, unit price and total cost, working backwards, choosing the reasonable answer', questions: [], count: c('5/math/problem-solving-and-average') },
+      { id: 'symmetry-and-solids', emoji: '🧊', name: { el: 'Συμμετρία & στερεά', en: 'Symmetry & Solids' }, topics: 'axis of symmetry, symmetric shapes and letters, cube/cuboid/pyramid/cylinder/cone/sphere: faces, edges, vertices, the net of a cube', questions: [], count: c('5/math/symmetry-and-solids') },
     ],
     greek: [
       { id: 'orthography-morphology', emoji: '🧬', name: { el: 'Ορθογραφία & Παραγωγή Λέξεων', en: 'Spelling & Word Formation' }, topics: 'prefixes/suffixes, compound words, derived words, παράγωγα-σύνθετα, spelling by etymology', questions: [], count: c('5/greek/orthography-morphology') },
@@ -226,6 +327,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'syntax-basics', emoji: '🔗', name: { el: 'Υποκείμενο, Ρήμα, Αντικείμενο', en: 'Subject, Verb, Object' }, topics: 'subject, verb, object, predicate (κατηγορούμενο), linking verbs, simple vs compound sentence', questions: [], count: c('5/greek/syntax-basics') },
       { id: 'vocabulary-meaning', emoji: '💡', name: { el: 'Συνώνυμα, Αντίθετα, Πολυσημία', en: 'Synonyms, Antonyms, Meaning' }, topics: 'synonyms, antonyms, homonyms, literal vs figurative meaning, idioms and proverbs', questions: [], count: c('5/greek/vocabulary-meaning') },
       { id: 'reading-genres', emoji: '📰', name: { el: 'Κειμενικά Είδη', en: 'Text Genres' }, topics: 'news article, letter, advertisement, argument, science-fiction story; purpose, audience, structure, inference', questions: [], count: c('5/greek/reading-genres') },
+      { id: 'conjunctions-and-clauses', emoji: '🔗', name: { el: 'Σύνδεσμοι & προτάσεις', en: 'Conjunctions & Clauses' }, topics: 'και, αλλά, ή, γιατί/επειδή, όταν, αν, για να; main and dependent clause (introduction), which conjunction fits, the comma before αλλά', questions: [], count: c('5/greek/conjunctions-and-clauses') },
+      { id: 'direct-and-indirect-speech', emoji: '💬', name: { el: 'Ευθύς & πλάγιος λόγος', en: 'Direct & Indirect Speech' }, topics: 'quotation marks («») and the dash in dialogue, ότι/να/αν when reporting, changing person and tense, «Θα έρθω», είπε → Είπε ότι θα έρθει', questions: [], count: c('5/greek/direct-and-indirect-speech') },
+      { id: 'participles-and-numerals', emoji: '🔣', name: { el: 'Μετοχές & αριθμητικά', en: 'Participles & Numerals' }, topics: 'active participle in -οντας/-ώντας, passive participle in -μένος/-μένη/-μένο, cardinal and ordinal numerals (τρεις/τρία, τρίτος), spelling of numerals (εννιά/εννέα, δεκαοχτώ), agreement', questions: [], count: c('5/greek/participles-and-numerals') },
+      { id: 'figures-of-speech', emoji: '🎭', name: { el: 'Σχήματα λόγου', en: 'Figures of Speech' }, topics: 'simile with σαν, metaphor, personification, hyperbole, literal vs figurative meaning, what the expression means (έχει χρυσά χέρια, πετάει από τη χαρά του)', questions: [], count: c('5/greek/figures-of-speech') },
     ],
     science: [
       { id: 'materials-mixtures', emoji: '🧪', name: { el: 'Υλικά Σώματα & Μίγματα', en: 'Materials & Mixtures' }, topics: 'atoms and molecules, mass, volume, density, properties of materials, mixtures, solutions, dissolving, filtering', questions: [], count: c('5/science/materials-mixtures') },
@@ -264,6 +369,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'the-past', emoji: '⏳', name: { el: 'Το Παρελθόν', en: 'The Past' }, topics: 'famous people of the past, past simple was/were, regular & irregular verbs, \'When did…?\'', questions: [], count: c('5/english/the-past') },
       { id: 'stories-and-holidays', emoji: '🏖️', name: { el: 'Ιστορίες & Διακοπές', en: 'Stories & Holidays' }, topics: 'fairy tales, myths, airport, holidays, past simple narratives, \'once upon a time\'', questions: [], count: c('5/english/stories-and-holidays') },
     ],
+    ela: [
+      { id: 'subject-verb-agreement', emoji: '⚖️', name: { el: 'Συμφωνία υποκειμένου–ρήματος', en: 'Subject–Verb Agreement' }, topics: 'he runs/they run, there is/are, collective nouns, everyone is, compound subjects, don\'t/doesn\'t', questions: [], count: c('5/ela/subject-verb-agreement') },
+      { id: 'verb-tenses', emoji: '⏳', name: { el: 'Χρόνοι ρημάτων', en: 'Verb Tenses' }, topics: 'present perfect, past progressive, will vs going to, irregular past participles, consistent tense', questions: [], count: c('5/ela/verb-tenses') },
+      { id: 'direct-speech', emoji: '💬', name: { el: 'Ευθύς λόγος', en: 'Direct Speech' }, topics: 'quotation marks, the comma before the quote, capital inside, reporting verbs, punctuation inside the quote, direct vs reported', questions: [], count: c('5/ela/direct-speech') },
+      { id: 'greek-and-latin-roots', emoji: '🏛️', name: { el: 'Ελληνικές & λατινικές ρίζες', en: 'Greek & Latin Roots' }, topics: 'tele-, -phone, -graph, bio-, geo-, aqua-, -ology, micro/macro, auto-, photo-; telescope, biology, autograph', questions: [], count: c('5/ela/greek-and-latin-roots') },
+      { id: 'inference-and-evidence', emoji: '🕵️', name: { el: 'Συμπεράσματα & αποδείξεις', en: 'Inference & Evidence' }, topics: '5–7 sentence passages: what the text suggests, which sentence is the evidence, motive, prediction, point of view', questions: [], count: c('5/ela/inference-and-evidence') },
+      { id: 'fact-opinion-and-persuasion', emoji: '🎯', name: { el: 'Γεγονός, γνώμη & πειθώ', en: 'Fact, Opinion & Persuasion' }, topics: 'fact vs opinion, signal words, rhetorical question, exaggeration, appeal to feelings, audience and purpose, bias', questions: [], count: c('5/ela/fact-opinion-and-persuasion') },
+      { id: 'tricky-spellings', emoji: '🧠', name: { el: 'Δύσκολες ορθογραφίες', en: 'Tricky Spellings' }, topics: 'i before e, silent letters (knight, island, Wednesday), -tion/-sion, separate, necessary, definitely, because, friend', questions: [], count: c('5/ela/tricky-spellings') },
+    ],
   },
   6: {
     math: [
@@ -274,6 +388,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'data-and-graphs', emoji: '📊', name: { el: 'Δεδομένα και γραφήματα', en: 'Data and graphs' }, topics: 'bar charts, pictograms, line and pie charts, reading tables, drawing conclusions, average', questions: [], count: c('6/math/data-and-graphs') },
       { id: 'measurement-patterns', emoji: '📏', name: { el: 'Μετρήσεις και μοτίβα', en: 'Measurement and patterns' }, topics: 'length, weight, time, money conversions, geometric and numeric patterns, finding the rule', questions: [], count: c('6/math/measurement-patterns') },
       { id: 'geometry-area-volume', emoji: '📐', name: { el: 'Γεωμετρία, εμβαδά, όγκοι', en: 'Geometry, area and volume' }, topics: 'polygons, angles, scale, symmetry, area of parallelogram/triangle/trapezoid/circle, cube and prism nets, volume of prisms and cylinders', questions: [], count: c('6/math/geometry-area-volume') },
+      { id: 'powers-and-roots', emoji: '🔺', name: { el: 'Δυνάμεις & τετραγωνική ρίζα', en: 'Powers & Square Roots' }, topics: 'base and exponent, squares up to 12², cubes, powers of 10, the square root of perfect squares, order of operations with powers', questions: [], count: c('6/math/powers-and-roots') },
+      { id: 'primes-gcd-lcm', emoji: '🧮', name: { el: 'Πρώτοι αριθμοί, ΜΚΔ & ΕΚΠ', en: 'Primes, GCD & LCM' }, topics: 'prime and composite numbers, factor trees, prime factorization, ΜΚΔ (GCD) and ΕΚΠ (LCM) by factorization, applications (tiles, two buses meeting again)', questions: [], count: c('6/math/primes-gcd-lcm') },
+      { id: 'circle-length-and-area', emoji: '⭕', name: { el: 'Κύκλος: μήκος & εμβαδόν', en: 'The Circle: Circumference & Area' }, topics: 'radius and diameter, π ≈ 3,14, circumference = 2 × π × r, area = π × r², half circle, real problems (a wheel, a round table)', questions: [], count: c('6/math/circle-length-and-area') },
+      { id: 'scale-and-maps', emoji: '🗺️', name: { el: 'Κλίμακα & χάρτες', en: 'Scale & Maps' }, topics: 'scale 1:100 and 1:1000, drawing to scale, real distance from a map distance, enlarging and reducing shapes, ratio of lengths', questions: [], count: c('6/math/scale-and-maps') },
     ],
     greek: [
       { id: 'spelling-mastery', emoji: '🏆', name: { el: 'Ορθογραφία για Προχωρημένους', en: 'Spelling Mastery' }, topics: 'ancient-rooted spellings, -ει/-η/-ι endings by part of speech, participle endings -μένος, accent in enclitic groups', questions: [], count: c('6/greek/spelling-mastery') },
@@ -283,6 +401,10 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'syntax-clauses', emoji: '🔗', name: { el: 'Συντακτικό & Προτάσεις', en: 'Syntax & Clauses' }, topics: 'main vs subordinate clauses, conjunctions (ότι, επειδή, αν, όταν), relative clauses που/ο οποίος, coordination vs subordination', questions: [], count: c('6/greek/syntax-clauses') },
       { id: 'speech-and-style', emoji: '🗣️', name: { el: 'Ευθύς–Πλάγιος Λόγος & Ύφος', en: 'Direct/Reported Speech & Style' }, topics: 'convert direct to reported speech, punctuation, register (formal/informal), figurative language, metaphor/simile', questions: [], count: c('6/greek/speech-and-style') },
       { id: 'reading-critical', emoji: '🔬', name: { el: 'Κριτική Ανάγνωση', en: 'Critical Reading' }, topics: 'argumentative and informational texts, author purpose, fact vs opinion, summary, text cohesion words', questions: [], count: c('6/greek/reading-critical') },
+      { id: 'subordinate-clauses', emoji: '🧩', name: { el: 'Δευτερεύουσες προτάσεις', en: 'Subordinate Clauses' }, topics: 'causal (επειδή, γιατί), purpose (για να), temporal (όταν, μόλις, πριν), conditional (αν), relative (που, ο οποίος), result (ώστε); which kind is it; the conjunction that fits', questions: [], count: c('6/greek/subordinate-clauses') },
+      { id: 'passive-syntax', emoji: '🔄', name: { el: 'Παθητική σύνταξη & ποιητικό αίτιο', en: 'Passive Syntax & the Agent' }, topics: 'active → passive, the agent with από, when the passive is preferred, subject of the passive sentence, deponent verbs, keep the tense', questions: [], count: c('6/greek/passive-syntax') },
+      { id: 'etymology-and-learned-words', emoji: '🏛️', name: { el: 'Ετυμολογία & λόγιες λέξεις', en: 'Etymology & Learned Words' }, topics: 'ancient roots in today\'s words (τηλε-, -γραφω, ύδωρ, -λογία), learned vs everyday words (ύδωρ/νερό, οφθαλμός/μάτι, άρτος/ψωμί), Greek words in other languages, meaning from the root', questions: [], count: c('6/greek/etymology-and-learned-words') },
+      { id: 'argumentation', emoji: '🎯', name: { el: 'Επιχειρηματολογία', en: 'Argumentation' }, topics: 'claim, argument, evidence, counter-argument, fact vs opinion, connecting words (πρώτον, επιπλέον, συνεπώς, αντίθετα), the strongest argument, persuasive vs informative text', questions: [], count: c('6/greek/argumentation') },
     ],
     science: [
       { id: 'energy-sources', emoji: '☀️', name: { el: 'Πηγές Ενέργειας', en: 'Energy Sources' }, topics: 'sun as main source, oil, coal, natural gas, renewable vs non-renewable, wind and solar, saving energy', questions: [], count: c('6/science/energy-sources') },
@@ -319,6 +441,15 @@ export const CURRICULUM_UNITS: Record<number, Partial<Record<SubjectId, UnitBrie
       { id: 'travel-and-transport', emoji: '🚂', name: { el: 'Ταξίδια & Μεταφορές', en: 'Travel & Transport' }, topics: 'means of transport, diaries, past simple vs present, used to, time expressions (ago, last)', questions: [], count: c('6/english/travel-and-transport') },
       { id: 'jobs-and-future', emoji: '👩‍🚀', name: { el: 'Επαγγέλματα & Μέλλον', en: 'Jobs & the Future' }, topics: 'jobs and careers, \'What do they do?\', will / going to for future, \'I want to be a…\'', questions: [], count: c('6/english/jobs-and-future') },
       { id: 'experiences', emoji: '🥇', name: { el: 'Εμπειρίες & Ρεκόρ', en: 'Experiences & Records' }, topics: 'record holders, sports, present perfect \'have you ever…?\', superlatives, achievements', questions: [], count: c('6/english/experiences') },
+    ],
+    ela: [
+      { id: 'clauses-and-conjunctions', emoji: '🔗', name: { el: 'Προτάσεις & σύνδεσμοι', en: 'Clauses & Conjunctions' }, topics: 'main vs subordinate clause, because/although/while/unless, FANBOYS, comma after a fronted clause, simple/compound/complex', questions: [], count: c('6/ela/clauses-and-conjunctions') },
+      { id: 'active-and-passive-voice', emoji: '🔄', name: { el: 'Ενεργητική & παθητική φωνή', en: 'Active & Passive Voice' }, topics: 'identify, rewrite, why writers use the passive, "by" phrases', questions: [], count: c('6/ela/active-and-passive-voice') },
+      { id: 'formal-and-informal', emoji: '🎩', name: { el: 'Επίσημος & ανεπίσημος λόγος', en: 'Formal & Informal Language' }, topics: 'register, contractions and slang vs standard English, letter to the head teacher vs text to a friend, audience', questions: [], count: c('6/ela/formal-and-informal') },
+      { id: 'idioms-and-figurative-language', emoji: '🎭', name: { el: 'Ιδιωματισμοί & μεταφορικός λόγος', en: 'Idioms & Figurative Language' }, topics: 'piece of cake, break the ice, under the weather; hyperbole; personification; simile vs metaphor; simple irony', questions: [], count: c('6/ela/idioms-and-figurative-language') },
+      { id: 'summarizing', emoji: '🧾', name: { el: 'Περίληψη', en: 'Summarizing' }, topics: '6–8 sentence passages: best summary, key points, what to leave out, paraphrase vs copy, main idea vs detail', questions: [], count: c('6/ela/summarizing') },
+      { id: 'editing-and-proofreading', emoji: '🛠️', name: { el: 'Διόρθωση κειμένου', en: 'Editing & Proofreading' }, topics: 'find the error, the correct sentence, semicolon vs comma, colon before a list, parentheses and dashes, its/it\'s', questions: [], count: c('6/ela/editing-and-proofreading') },
+      { id: 'vocabulary-in-context', emoji: '🧭', name: { el: 'Λεξιλόγιο από τα συμφραζόμενα', en: 'Vocabulary in Context' }, topics: 'meaning from context clues, connotation (thrifty vs stingy), precise vs vague words, analyze/evaluate/compare, multiple meanings', questions: [], count: c('6/ela/vocabulary-in-context') },
     ],
   },
 };

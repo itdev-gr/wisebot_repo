@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap, Heart } from 'lucide-react';
+import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap, Heart, Compass } from 'lucide-react';
 import { ACADEMY_STORY_COUNT } from '../data/contentCounts';
 
 interface InternalLinksProps {
@@ -14,6 +14,14 @@ interface InternalLinksProps {
 }
 
 const PAGES = [
+  {
+    id: 'explore',
+    path: '/explore',
+    icon: Compass,
+    color: 'from-amber-500 to-orange-600',
+    label: { el: 'Explorer', en: 'Explorer' },
+    desc: { el: 'Κυνήγι θησαυρού στην πόλη', en: 'City treasure hunt' },
+  },
   {
     id: 'school',
     path: '/school',
