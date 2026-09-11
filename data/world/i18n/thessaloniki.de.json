@@ -1,0 +1,582 @@
+{
+  "lang": "de",
+  "cityId": "thessaloniki",
+  "places": {
+    "thessaloniki-white-tower": {
+      "name": "Der Weiße Turm",
+      "tagline": "Das Wahrzeichen der Stadt, das früher gar nicht weiß war",
+      "story": "Der Weiße Turm steht am Ende der Uferpromenade, rund und dick, 34 Meter hoch. Gebaut wurde er um das 15. Jahrhundert, an der Ecke, wo die Stadtmauer das Meer erreichte, und er gehörte zur Verteidigung. Später wurde er ein Gefängnis, und in jenen Jahren gab man ihm andere Namen, viel dunklere. Die Leute in Thessaloniki erzählen, dass Ende des 19. Jahrhunderts ein Gefangener anbot, den ganzen Turm weiß zu kalken, im Tausch gegen seine Freiheit. Ob es so war oder nicht: Der Turm wurde gekalkt, der Name wechselte, und weiß blieb er auch dann noch, als der Kalk längst abgeblättert war. Heute hält er niemanden mehr fest. Innen steigst du über eine gewundene Rampe durch sechs Stockwerke, rundherum das Museum der Stadt, und ganz oben kommst du heraus und siehst den Thermaischen Golf und, an klaren Tagen, den Olymp auf der anderen Seite.",
+      "facts": [
+        "Er ist etwa 34 Meter hoch und hat sechs Stockwerke, die du über eine Rampe hinaufgehst.",
+        "Er stand an der Ecke, wo die Stadtmauer das Meer erreichte.",
+        "Der Name „Weiß“ kam von einem Anstrich im 19. Jahrhundert und blieb hängen."
+      ],
+      "question": {
+        "q": "Wie kam der Weiße Turm zu seinem Namen?",
+        "answers": [
+          "Man kalkte ihn im 19. Jahrhundert weiß, und der Name blieb",
+          "Er ist aus weißem Marmor vom Berg Penteli gebaut",
+          "Jeden Winter deckt ihn der Schnee zu",
+          "Ein Baumeister namens Lefkos hat ihn gebaut"
+        ],
+        "explanation": "Der Kalk verschwand mit den Jahren, der Name nicht. So entstehen die meisten Namen von Gebäuden und Städten."
+      }
+    },
+    "thessaloniki-rotunda": {
+      "name": "Die Rotonda",
+      "tagline": "Ein rundes Gebäude, das dreimal die Religion wechselte",
+      "story": "Die Rotonda ist ein riesiger Zylinder aus Ziegeln, gebaut um 306 n. Chr. für Kaiser Galerius. Niemand weiß sicher, was sie am Anfang werden sollte: ein Tempel oder sein eigenes Grab. Ihre Mauern sind über sechs Meter dick, und ihre Kuppel misst etwa 24,5 Meter im Durchmesser. Diese Dicke ist der Grund, warum sie nach siebzehnhundert Jahren immer noch steht, nach Erdbeben, die fast alles ringsum einstürzen ließen. Sie wurde eine christliche Kirche und füllte sich mit Mosaiken auf goldenem Grund. Im Osmanischen Reich wurde sie eine Moschee, und daneben baute man ein Minarett, das immer noch dort steht, das einzige in ganz Thessaloniki. Heute ist sie ein Denkmal und ein Ausstellungsraum, und du gehst in einen Raum hinein, der keiner einzelnen Zeit mehr gehört.",
+      "facts": [
+        "Ihre Mauern sind über 6 Meter dick.",
+        "Ihre Kuppel hat einen Durchmesser von etwa 24,5 Metern.",
+        "Das Minarett daneben ist das einzige, das in Thessaloniki stehen geblieben ist."
+      ],
+      "question": {
+        "q": "Warum hat die Rotonda Erdbeben überstanden, die die Häuser ringsum einstürzen ließen?",
+        "answers": [
+          "Weil ihre Mauern über sechs Meter dick sind",
+          "Weil sie auf Gummi gebaut ist",
+          "Weil sie aus Holz ist, und Holz biegt sich",
+          "Weil sie alle hundert Jahre neu gebaut wird"
+        ],
+        "explanation": "Eine dicke runde Mauer verteilt die Kräfte rundherum. Es gibt keine Ecke, an der sie reißen kann."
+      }
+    },
+    "thessaloniki-arch-of-galerius": {
+      "name": "Der Galeriusbogen",
+      "tagline": "Die Kamara: ein Tor über der Straße, die zwei Meere verband",
+      "story": "Die Leute in Thessaloniki sagen einfach Kamara, und hier verabredet sich die ganze Stadt: „An der Kamara, um sechs.“ Gebaut wurde der Bogen um 299 n. Chr., für einen Sieg von Kaiser Galerius. Am Anfang war er kein einzelner Bogen, sondern ein großes Bauwerk mit acht Pfeilern und vier Durchgängen; heute ist nur ein Teil davon übrig. Auf den Pfeilern sitzen Marmorplatten, in Streifen gemeißelt wie ein Comic, den man von unten nach oben liest: Soldaten, Pferde, Elefanten, Gesandte. Am wichtigsten ist, wo er stand. Unter ihm lief die Via Egnatia, die römische Straße, die an der Adria begann und bis nach Byzanz führte. Wer von Rom nach Osten reiste, kam hier durch. Die Strecke gibt es immer noch: Die Egnatia-Straße läuft direkt daran vorbei.",
+      "facts": [
+        "Er wurde um 299 n. Chr. gebaut, und nur ein Teil davon ist übrig.",
+        "Unter ihm lief die Via Egnatia, von der Adria bis nach Byzanz.",
+        "Seine Reliefs liest man in Streifen, von unten nach oben."
+      ],
+      "question": {
+        "q": "Was lief unter ihm hindurch, als er gebaut wurde?",
+        "answers": [
+          "Die Via Egnatia, die römische Straße nach Osten",
+          "Ein Fluss mit einer Brücke aus Holz",
+          "Eine Wasserleitung, die Wasser in die Stadt brachte",
+          "Nur der Weg zum Hafen"
+        ],
+        "explanation": "Die Römer bauten Bögen über Straßen, damit jeder, der vorbeikam, sie sehen musste. Das war Werbung, in Marmor gehauen."
+      }
+    },
+    "thessaloniki-agios-dimitrios": {
+      "name": "Die Kirche Hagios Demetrios",
+      "tagline": "Die größte Kirche des Landes, nach einem Feuer wieder aufgebaut",
+      "story": "Hagios Demetrios gilt als die größte Kirche Griechenlands, und sie gehört dem Schutzheiligen der Stadt. Demetrios war um 300 n. Chr. Offizier im römischen Heer. Er weigerte sich, seinen Glauben zu wechseln, und wurde dafür getötet. Die Kirche wurde über einem römischen Bad gebaut, und unter ihrem Fußboden liegt immer noch die Krypta, ein unterirdischer Raum mit Säulen, in dem Wasser von oben tropft. Im August 1917 verbrannte ein riesiges Feuer die halbe Innenstadt von Thessaloniki und die Kirche dazu. Man baute sie in über zwanzig Jahren wieder auf und behielt jedes Mosaik, das überlebt hatte. Manche davon sind vierzehnhundert Jahre alt und zeigen Menschen aus der Stadt, Kinder darunter, und nicht nur Heilige. Sie gehören zu den ganz wenigen Mosaiken ihrer Zeit, die irgendwo erhalten geblieben sind. Darum kommen Forscherinnen und Forscher aus der ganzen Welt, um sie zu untersuchen.",
+      "facts": [
+        "Sie gilt als die größte Kirche Griechenlands.",
+        "Sie brannte beim großen Feuer von 1917 und wurde wieder aufgebaut.",
+        "Unter ihrem Fußboden liegt eine Krypta, gebaut über einem römischen Bad."
+      ],
+      "question": {
+        "q": "Was geschah mit der Kirche im August 1917?",
+        "answers": [
+          "Sie brannte bei einem großen Feuer und wurde wieder aufgebaut",
+          "Sie wurde überschwemmt und aufgegeben",
+          "Sie wurde Stein für Stein an eine andere Stelle gebracht",
+          "Sie wurde ein Museum und für Gottesdienste geschlossen"
+        ],
+        "explanation": "Das Feuer von 1917 verbrannte die halbe Innenstadt. Die Kirche wurde aus den Teilen wieder aufgebaut, die übrig geblieben waren."
+      }
+    },
+    "thessaloniki-hagia-sophia": {
+      "name": "Die Hagia Sophia",
+      "tagline": "Eine Kuppel mit zwei Mosaiken, eines unter dem anderen",
+      "story": "Die Hagia Sophia in Thessaloniki ist etwa 1.200 Jahre alt, und in ihrer Kuppel steckt ein Geheimnis. Oben siehst du heute ein Mosaik mit Christus, Engeln und Aposteln auf goldenem Grund. Darunter aber, an Stellen, die noch sichtbar sind, liegt ein älteres Mosaik: ein schlichtes Kreuz, ganz ohne Gesicht. Der Grund dafür ist ein echter Streit, der über hundert Jahre dauerte. Eine Zeit lang verbot das Reich Bilder von Menschen in Kirchen. Wer ein Gesicht malte, brachte sich in Gefahr, und sehr viele Arbeiten wurden zerstört. Als das Verbot zu Ende war, deckten die Handwerker das Kreuz mit einem neuen Mosaik zu, kratzten es aber nicht weg. So hält die Kuppel beide Entscheidungen fest, eine über der anderen, wie eine Seite, die neu geschrieben wurde, ohne dass man das Alte ausradiert hat. Nur wenige Gebäude auf der Welt zeigen einen ganzen Streit an ihrer eigenen Decke.",
+      "facts": [
+        "Sie ist etwa 1.200 Jahre alt und gehört zu den UNESCO-Denkmälern der Stadt.",
+        "In der Kuppel sind zwei Mosaike erhalten, eines unter dem anderen.",
+        "Das ältere zeigt nur ein Kreuz, aus der Zeit, als Bilder verboten waren."
+      ],
+      "question": {
+        "q": "Warum liegt unter dem Mosaik der Kuppel ein schlichtes Kreuz?",
+        "answers": [
+          "Weil Bilder von Menschen einige Jahre lang verboten waren",
+          "Weil der Handwerker die Arbeit nicht rechtzeitig fertig bekam",
+          "Weil das Kreuz die Hilfslinie für den Rest des Mosaiks war",
+          "Weil die Kuppel zweimal gebaut wurde, von zwei Gruppen"
+        ],
+        "explanation": "Man nennt das den Bilderstreit. Als er zu Ende war, löschte man das Alte nicht: Das Neue kam obendrauf, und beides ist erhalten geblieben."
+      }
+    },
+    "thessaloniki-roman-agora": {
+      "name": "Die Römische Agora",
+      "tagline": "Ein Platz auf zwei Ebenen, den man aus Versehen fand",
+      "story": "Mitten in der heutigen Stadt liegt ein großes Rechteck, tiefer als die Straße. Das ist die römische Agora, der Hauptplatz von Thessaloniki im 2. Jahrhundert n. Chr. Niemand hat danach gesucht: Sie kam 1966 zum Vorschein, als Arbeiter die Fundamente für ein Gerichtsgebäude aushoben. Die Baustelle wurde gestoppt, und das Gericht entstand woanders. Die Agora hatte zwei Ebenen. Oben lag der gepflasterte Platz mit Säulenhallen ringsherum, unten ein Kryptoportikus, also ein überdachter Gang mit Gewölben, in dem Lager und Läden untergebracht waren. An einem Ende ist ein kleines Theater erhalten, das Odeon, mit Platz für etwa 400 Menschen. Dort gab es Anhörungen, Musik und Redewettbewerbe, und im Sommer finden dort wieder Aufführungen statt. Du sitzt also auf Stufen aus Marmor, die seit achtzehn Jahrhunderten dieselbe Arbeit machen.",
+      "facts": [
+        "Sie wurde 1966 gefunden, beim Ausheben der Fundamente für ein Gerichtsgebäude.",
+        "Ihr kleines Theater, das Odeon, fasste etwa 400 Menschen.",
+        "Unter dem Platz läuft ein überdachter Gang mit Gewölben."
+      ],
+      "question": {
+        "q": "Wie wurde die römische Agora gefunden?",
+        "answers": [
+          "Aus Versehen, beim Graben für ein neues Gebäude",
+          "Durch eine Karte, die in einem Kloster auftauchte",
+          "Nach einem Erdbeben, das den Boden aufriss",
+          "Auf Fotos, die aus einem Flugzeug gemacht wurden"
+        ],
+        "explanation": "In Thessaloniki ist, wie in Athen, jede tiefe Grabung auch ein möglicher Fund."
+      }
+    },
+    "thessaloniki-archaeological-museum": {
+      "name": "Das Archäologische Museum Thessaloniki",
+      "tagline": "Ein Krater aus Bronze und das älteste Buch Europas",
+      "story": "Das Museum öffnete 1962 und sammelt Funde aus ganz Makedonien. Im selben Jahr geschah etwas, das später seine wichtigsten Vitrinen füllen sollte. Ein paar Kilometer nördlich, bei Derveni, stieß ein Straßenbautrupp auf Gräber aus dem 4. Jahrhundert v. Chr. Darin lagen goldene Kränze, silberne Gefäße, ein Krater aus Bronze wie kein zweiter und etwas, womit niemand gerechnet hatte: eine halb verbrannte Papyrusrolle. Sie war auf die Reste eines Scheiterhaufens geworfen worden, und das Feuer hat sie nicht zerstört, sondern verkohlt und damit festgehalten. Das Museum hat noch eine zweite Geschichte zu erzählen, eine nähere: die Mosaike, Marmorstücke und Gläser, die unter den Häusern des heutigen Thessaloniki hervorkamen, aus der römischen Stadt, die genau darunter liegt.",
+      "facts": [
+        "Es öffnete 1962, im selben Jahr, in dem die Gräber von Derveni gefunden wurden.",
+        "Es bewahrt den Papyrus von Derveni, das älteste erhaltene Buch Europas.",
+        "Es sammelt Funde aus ganz Makedonien, nicht nur aus der Stadt."
+      ],
+      "question": {
+        "q": "Wie hat der Papyrus von Derveni überlebt?",
+        "answers": [
+          "Das Feuer verkohlte ihn, statt ihn ganz zu verbrennen",
+          "Er war in einem Glasgefäß voll Öl eingeschlossen",
+          "Mönche schrieben ihn alle hundert Jahre ab",
+          "Er war auf Metall geschrieben und nicht auf Papyrus"
+        ],
+        "explanation": "Verkohlter Papyrus wird fast wie Kohle: zerbrechlich, aber er kann nicht mehr verfaulen. Darum ist er bis zu uns gekommen."
+      },
+      "museum": {
+        "doorNote": "Fang bei Derveni an. Drei Dinge dort erklären alles Übrige.",
+        "rooms": {
+          "thessaloniki-archaeological-museum-derveni": {
+            "name": "Die Funde von Derveni",
+            "intro": "Alles, was du hier siehst, kam aus ein paar Gräbern, an einer Stelle, an der niemand gesucht hat, an einem Tag im Jahr 1962. Es gehörte reichen Makedoniern aus dem 4. Jahrhundert v. Chr. und verbrannte mit ihnen auf dem Scheiterhaufen. Das Feuer hat vieles zerstört. Eine Sache hat es gerettet."
+          },
+          "thessaloniki-archaeological-museum-roman-city": {
+            "name": "Die Stadt unter der Stadt",
+            "intro": "Dieser Saal erzählt nicht von fernen Königreichen, sondern vom Boden unter deinen Füßen. Jedes Mal, wenn Thessaloniki für eine Garage, eine U-Bahn-Linie oder ein Fundament gräbt, kommt die römische Stadt herauf. Die Sachen hier waren ganz gewöhnlich: Fußböden von Häusern, Gesichter von Nachbarn, Trinkgläser."
+          }
+        },
+        "exhibits": {
+          "thessaloniki-archaeological-museum-derveni-krater": {
+            "name": "Der Krater von Derveni",
+            "blurb": "Ein riesiges Gefäß, fast neunzig Zentimeter hoch, aus einer Kupferlegierung mit viel Zinn darin. Das Zinn gibt ihm eine goldene Farbe, obwohl überhaupt kein Gold darin steckt. Die ganze Oberfläche ist mit tanzenden Figuren gearbeitet, so hoch herausgetrieben, dass manche sich vom Körper des Gefäßes lösen. Ein Krater wurde sonst gemacht, um bei einem Fest Wein mit Wasser zu mischen. Dieser hier endete als Behälter für Asche, und man fand verbrannte Knochen darin.",
+            "question": {
+              "q": "Warum sieht der Krater golden aus, obwohl kein Gold darin ist?",
+              "answers": [
+                "Weil seine Legierung viel Zinn enthält, und das ändert die Farbe",
+                "Weil er mit goldener Farbe angemalt ist",
+                "Weil man ihn mit Öl und Wachs poliert hat",
+                "Weil das Feuer ihn mit Asche überzogen hat"
+              ],
+              "explanation": "Ändert man das Verhältnis der Metalle, ändert sich die Farbe. Das war die Entscheidung des Handwerkers, kein Zufall."
+            }
+          },
+          "thessaloniki-archaeological-museum-derveni-papyrus": {
+            "name": "Der Papyrus von Derveni",
+            "blurb": "Er sieht aus wie Fetzen von verbranntem Papier, und er ist das älteste erhaltene Buch Europas. Geschrieben wurde er im 4. Jahrhundert v. Chr., und er erklärt ein älteres Gedicht: Er ist also ein Buch über ein anderes Buch. Gefunden wurde er auf den Resten eines Scheiterhaufens. Weil seine Ränder verbrannten, das Innere aber nur verkohlte, blieb der Text lesbar. Seit 2015 steht er im Weltdokumentenerbe der UNESCO.",
+            "question": {
+              "q": "Was für ein Text ist der Papyrus von Derveni?",
+              "answers": [
+                "Die Erklärung eines älteren Gedichts",
+                "Eine Liste von Steuern und Schulden",
+                "Ein Brief eines Soldaten an seine Mutter",
+                "Eine Karte von Makedonien"
+              ],
+              "explanation": "Jemand hat vor 2.400 Jahren Anmerkungen zu einem Text geschrieben. Genau so, wie man es heute macht."
+            }
+          },
+          "thessaloniki-archaeological-museum-gold-wreath": {
+            "name": "Der goldene Kranz",
+            "blurb": "Ein Kranz aus dünnem Gold, mit kleinen Blättern und Blüten, gemacht wie ein Zweig, den man gerade abgeschnitten hat. Die Blätter sind so fein, dass sie bei der kleinsten Bewegung zittern. Solche Kränze trug man bei Festen, und sie gingen mit den Toten ins Grab, als Zeichen der Ehre. Gold rostet nie. Was also jemand im Jahr 330 v. Chr. gesehen hat, ist genau das, was du siehst, ohne den kleinsten Unterschied.",
+            "question": {
+              "q": "Warum sieht ein 2.300 Jahre altes Stück aus Gold wie neu aus?",
+              "answers": [
+                "Weil Gold nicht rostet",
+                "Weil es jede Woche poliert wird",
+                "Weil es eine Kopie des Originals ist",
+                "Weil es in Öl aufbewahrt wird"
+              ],
+              "explanation": "Darum war Gold immer kostbar: Es verändert sich nicht, was die Zeit auch mit ihm anstellt."
+            }
+          },
+          "thessaloniki-archaeological-museum-mosaic-floor": {
+            "name": "Der Mosaikfußboden",
+            "blurb": "Ein Fußboden aus Tausenden kleiner Steine, in Würfel geschnitten und einer nach dem anderen gesetzt. Er lag in einem römischen Haus in Thessaloniki und wurde im Ganzen herausgehoben, um ins Museum zu kommen. Geh nah heran, dann siehst du: Die Steine sind nicht alle gleich groß. Wo es genau werden musste, bei einem Auge oder einem Finger, nahm der Handwerker viel kleinere Stücke. Das ist dieselbe Idee wie die Pixel auf einem Bildschirm, zweieinhalbtausend Jahre früher.",
+            "question": {
+              "q": "Wo benutzte der Handwerker die kleinsten Steinchen?",
+              "answers": [
+                "Dort, wo es genau werden musste, zum Beispiel bei den Augen",
+                "An den Rändern des Bodens, damit sie nicht brechen",
+                "In der Mitte, weil die Leute dort liefen",
+                "Nirgends: Sie waren alle genau gleich"
+              ],
+              "explanation": "Je kleiner das Stück, desto schärfer das Bild. Genau wie auf einem Bildschirm."
+            }
+          },
+          "thessaloniki-archaeological-museum-portraits": {
+            "name": "Die Gesichter aus Marmor",
+            "blurb": "Reihen von Köpfen aus Marmor, gehauen vor etwa zweitausend Jahren. Das sind keine Götter. Das sind Leute, die in Thessaloniki gelebt haben, und man sieht es ihnen an: Einer hat eine schiefe Nase, einer ein Doppelkinn, eine andere einen schmalen, festen Mund. Die Römer wollten ihre Porträts nicht schöner haben; sie wollten sie wiedererkennen. In manche Köpfe sind Pupillen gemeißelt, was ältere Bildhauer nicht gemacht haben. Darum wirkt es, als würde ihr Blick dir folgen.",
+            "question": {
+              "q": "Was wollten die Römer von einem Porträt?",
+              "answers": [
+                "Dass man den Menschen wiedererkennt, mit seinen Fehlern",
+                "Dass alle jung und schön aussehen",
+                "Dass es aussieht wie ein Gott vom Olymp",
+                "Dass es genauso aussieht wie alle anderen"
+              ],
+              "explanation": "Ein Porträt war ein Ausweis. Wenn es dir nicht ähnlich sah, machte es seine Arbeit nicht."
+            }
+          },
+          "thessaloniki-archaeological-museum-glass": {
+            "name": "Die Gefäße aus Glas",
+            "blurb": "Kleine Fläschchen und Becher aus Glas, dünn wie eine Eierschale, die mit der Zeit schillernde Farben bekommen haben, wie eine Seifenblase. Diese Farbe war früher nicht da: Die Erde hat sie gemacht. Sie hat die Oberfläche in sehr dünne Schichten zerlegt, und die brechen das Licht. Die Römer lernten, Glas zu blasen, und machten es billig. Innerhalb weniger Generationen war Glas kein Luxus mehr, sondern der ganz normale Becher im Haus.",
+            "question": {
+              "q": "Woher kommen die Regenbogenfarben auf altem Glas?",
+              "answers": [
+                "Von der Oberfläche, die im Boden verwittert ist",
+                "Von Farbstoffen, die man ins flüssige Glas gab",
+                "Vom Wein, der darin zurückgeblieben ist",
+                "Vom Feuer des Scheiterhaufens"
+              ],
+              "explanation": "Das ist ein Schaden und keine Verzierung. Aus der Werkstatt kam das Glas durchsichtig."
+            }
+          }
+        },
+        "riddles": {
+          "thessaloniki-archaeological-museum-riddle-1": {
+            "prompt": "Ich sehe golden aus und bin es nicht. Man hat mich gemacht, damit bei Festen Wein in mir gemischt wird, doch am Ende hielt ich Asche. Auf mir tanzen Figuren, und manche lösen sich von meinem Körper.",
+            "hint": "Ich bin fast einen Meter hoch, und ich bin aus Metall."
+          },
+          "thessaloniki-archaeological-museum-riddle-2": {
+            "prompt": "Man hat mich ins Feuer geworfen, und das Feuer hat mich gerettet. Ich bin schwarz, zerknittert und immer noch lesbar. Kein anderes Buch in Europa ist älter als ich.",
+            "hint": "Ich bin weder aus Papier noch aus Leder."
+          }
+        }
+      }
+    },
+    "thessaloniki-byzantine-museum": {
+      "name": "Das Museum für Byzantinische Kultur",
+      "tagline": "Tausend Jahre Alltag, nicht nur Kaiser",
+      "story": "Byzanz klingt weit weg, und dieses Museum macht genau das Gegenteil: Es zeigt, wie die Menschen gelebt haben. Es öffnete 1994, in einem Gebäude, das Kyriakos Krokos entworfen hat, und 2005 bekam es den Museumspreis des Europarats. Seine Säle sind nicht nach Material geordnet, sondern nach Thema: wie man seine Toten begrub, wie man baute, wie man aß, wie man einkaufte. Am eindrucksvollsten sind die frühchristlichen Gräber. Sie wurden im Ganzen ins Museum gebracht, mit ihren Wandmalereien, und so gehst du in ein Grab hinein und stehst darin, mit den Farben um dich herum. Es gibt auch Münzen, Schmuck, Teller mit eingeritzten Mustern und Ikonen. Das Museum macht etwas klar, das leicht vergessen wird: Thessaloniki war über tausend Jahre lang die zweite Stadt dieses Reiches.",
+      "facts": [
+        "Es öffnete 1994 und bekam 2005 den Museumspreis des Europarats.",
+        "Es zeigt ganze frühchristliche Gräber, mit ihren Wandmalereien hierhergebracht.",
+        "Seine Säle sind nach Thema geordnet und nicht nach Material."
+      ],
+      "question": {
+        "q": "Wie sind die Säle dieses Museums geordnet?",
+        "answers": [
+          "Nach Thema: wie man begrub, wie man baute, wie man einkaufte",
+          "Nach Material: Marmor, Metall, Stoffe",
+          "Nach Größe, vom Kleinsten zum Größten",
+          "Nach dem Alphabet, mit dem Namen jedes Objekts"
+        ],
+        "explanation": "So können eine Münze, ein Teller und eine Wand zusammen stehen, weil sie von derselben Sache erzählen."
+      },
+      "museum": {
+        "doorNote": "Geh in die Gräber hinein. Das ist erlaubt, und nur so kannst du sie sehen.",
+        "rooms": {
+          "thessaloniki-byzantine-museum-tombs": {
+            "name": "Die bemalten Gräber",
+            "intro": "Dieser Saal ist mit Absicht dunkel, und er ist nicht unheimlich. Die Gräber, die du siehst, lagen einmal unter der Erde, außerhalb der Stadtmauer. Sie wurden im Ganzen hierhergebracht, mit ihren Wänden und ihren Farben, damit du sehen kannst, was die Menschen hinterlassen wollten."
+          },
+          "thessaloniki-byzantine-museum-daily-life": {
+            "name": "Das Leben einer großen Stadt",
+            "intro": "Thessaloniki war die zweite Stadt des Reiches, mit Hafen, Märkten und Menschen von überall. Dieser Saal zeigt die Dinge, die jeden Tag von Hand zu Hand gingen: Teller, Schmuck, Münzen. Sie sind die bescheidensten Dinge im ganzen Museum und die gesprächigsten."
+          }
+        },
+        "exhibits": {
+          "thessaloniki-byzantine-museum-painted-tomb": {
+            "name": "Das Grab mit dem Garten",
+            "blurb": "Ein kleines Grab mit einem Gewölbe, innen bemalt wie ein Garten: Zweige, Vögel, Blumen, Licht. Die ersten Christen von Thessaloniki malten nicht den Tod; sie malten einen Ort, an dem der Mensch sein sollte, den sie liebten. Die Wände wurden als Fresko gemacht, die Farbe kam also auf den frischen, noch feuchten Putz, und darum hat sie gehalten. Das Grab wurde im Ganzen aus der Erde gehoben und in einem Stück ins Museum gebracht.",
+            "question": {
+              "q": "Was malten sie in diese Gräber hinein?",
+              "answers": [
+                "Gärten mit Vögeln, Blumen und Licht",
+                "Schlachten mit Soldaten und Pferden",
+                "Karten der Stadt und ihrer Mauern",
+                "Nichts: Die Wände blieben weiß"
+              ],
+              "explanation": "Das ist ein Bild der Hoffnung und nicht der Angst. Darum ist der Saal nicht unheimlich."
+            }
+          },
+          "thessaloniki-byzantine-museum-grave-goods": {
+            "name": "Die Grabbeigaben",
+            "blurb": "Kleine Dinge kamen mit den Toten ins Grab: ein Ring, ein Kamm, ein Fläschchen aus Glas mit Duft, eine Münze. Für Archäologinnen und Archäologen sind sie nützlicher als reiche Funde, denn ein Kamm erzählt, wie jemand gelebt hat, während eine Krone nur erzählt, was jemand besaß. Viele davon sind vom Gebrauch abgenutzt, und das heißt: Sie wurden nicht für die Beerdigung gekauft. Es waren die eigenen Sachen dieses Menschen.",
+            "question": {
+              "q": "Was sagt es uns, dass viele Grabbeigaben abgenutzt sind?",
+              "answers": [
+                "Dass es die eigenen Sachen der toten Person waren",
+                "Dass es billige Kopien waren",
+                "Dass sie gestohlen und zurückgebracht wurden",
+                "Dass sie in Eile für die Beerdigung gemacht wurden"
+              ],
+              "explanation": "Abnutzung ist der Beweis für Gebrauch. Jemand hatte diese Sachen jeden Tag in der Hand."
+            }
+          },
+          "thessaloniki-byzantine-museum-lamps": {
+            "name": "Die Öllampen",
+            "blurb": "Kleine Lampen aus Ton, in die etwas Öl und ein Docht passten. Sie gaben ungefähr so viel Licht wie eine Kerze, und sie waren das einzige Licht, das ein Haus nach Sonnenuntergang hatte. Viele tragen Muster: Kreuze, Fische, Blätter, manchmal auch den Namen der Werkstatt, die sie gemacht hat, wie ein Markenzeichen. Sie waren billig, gingen leicht kaputt und wurden weggeworfen. Darum findet man sie heute überall, und darum helfen sie, die Schichten im Boden zu datieren.",
+            "question": {
+              "q": "Warum sind zerbrochene Öllampen für Archäologinnen und Archäologen nützlich?",
+              "answers": [
+                "Weil sie überall liegen und helfen, den Boden zu datieren",
+                "Weil in ihnen Münzen versteckt waren",
+                "Weil sie sehr teure Gegenstände waren",
+                "Weil sie noch brennen, wenn man Öl hineingibt"
+              ],
+              "explanation": "Was billig ist und oft kaputtgeht, ändert auch oft seine Form. Dieser Wechsel der Form wird zur Uhr."
+            }
+          },
+          "thessaloniki-byzantine-museum-sgraffito": {
+            "name": "Die geritzten Teller",
+            "blurb": "Teller, die mit weißem Ton überzogen und dann mit einer Nadel geritzt wurden, damit die dunklere Farbe darunter durchkommt. Die Technik heißt Sgraffito, und das Bild entsteht, indem man Material wegnimmt, statt welches hinzuzufügen. Du findest darauf Fische, Vögel, Krieger, Tänzer, manchmal auch eine Figur, die zu scherzen scheint. Das waren Teller für jeden Tag und keine heiligen, und sie wurden zu Tausenden in den Werkstätten der Stadt gemacht, um mit Schiffen wegzufahren.",
+            "question": {
+              "q": "Wie kommt das Muster auf einen geritzten Teller?",
+              "answers": [
+                "Man ritzt die weiße Schicht auf, damit das Dunkle darunter durchkommt",
+                "Man malt es mit einem Pinsel und mit Gold",
+                "Man klebt kleine Stücke aus Glas auf",
+                "Man druckt es mit einem Stempel aus Holz"
+              ],
+              "explanation": "Das ist Zeichnen durch Wegnehmen. Alles, was dunkel ist, ist dort, wo der Handwerker gekratzt hat."
+            }
+          },
+          "thessaloniki-byzantine-museum-coins": {
+            "name": "Die Münzen",
+            "blurb": "Kleine Scheiben aus Gold, Silber oder Kupfer, auf der einen Seite das Gesicht des Kaisers. Für die meisten Menschen im Reich war das das einzige Bild ihres Herrschers, das sie je zu sehen bekamen: Eine Münze war Geld und Nachricht zugleich. Wechselte der Kaiser, wechselte das Gesicht, und die Neuigkeit reiste mit dem Handel weiter. Archäologinnen und Archäologen lieben sie, weil man sie genau datieren kann: Jedes Gesicht gehört zu ganz bestimmten Jahren.",
+            "question": {
+              "q": "Warum war eine Münze auch eine Nachricht?",
+              "answers": [
+                "Weil sie das Gesicht des Kaisers zu Menschen brachte, die ihn nie sahen",
+                "Weil die Ereignisse des Jahres darauf geschrieben wurden",
+                "Weil man sie gratis an die Bürger verteilte",
+                "Weil man sie auf dem Markt laut vorlas"
+              ],
+              "explanation": "Ohne Zeitungen und ohne Fotos war die Münze das schnellste Mittel, das es gab."
+            }
+          },
+          "thessaloniki-byzantine-museum-jewellery": {
+            "name": "Der Schmuck",
+            "blurb": "Ohrringe aus feinem gedrehtem Draht, Ringe mit eingeschnittenen Namen, Armreifen aus Kupfer für alle, die kein Gold hatten. Einer der häufigsten Funde ist der Siegelring: Ein Monogramm wurde seitenverkehrt hineingeschnitten, und wenn man ihn in Wachs oder Ton drückte, kam es richtig herum heraus. Das war die Unterschrift eines Menschen in einer Zeit, in der die meisten ihren eigenen Namen nicht schreiben konnten.",
+            "question": {
+              "q": "Warum wurde das Monogramm auf einem Siegelring seitenverkehrt eingeschnitten?",
+              "answers": [
+                "Damit es richtig herum herauskam, wenn man es in Wachs oder Ton drückte",
+                "Damit Diebe es nicht lesen konnten",
+                "Weil man die Sprache damals so geschrieben hat",
+                "Damit mehr Text daraufpasste"
+              ],
+              "explanation": "Jeder Stempel funktioniert so, bis heute. Im Abdruck kippt das Bild um."
+            }
+          }
+        },
+        "riddles": {
+          "thessaloniki-byzantine-museum-riddle-1": {
+            "prompt": "Ich lag unter der Erde, außerhalb der Stadtmauer. In mich hinein malten sie Vögel und Zweige, damit ich nicht wie Dunkelheit aussehe. Sie haben mich im Ganzen herausgehoben, und jetzt stehe ich in einem Saal.",
+            "hint": "Du kannst in mich hineingehen, und du darfst es auch."
+          },
+          "thessaloniki-byzantine-museum-riddle-2": {
+            "prompt": "Ich bin klein und rund, und früher gab man mich für Brot her. Ich trug ein Gesicht, das nur wenige aus der Nähe gesehen hatten, und als dieses Gesicht wechselte, wechselte ich mit.",
+            "hint": "Ich kann aus Gold, aus Silber oder aus Kupfer sein."
+          }
+        }
+      }
+    },
+    "thessaloniki-cinema-museum": {
+      "name": "Das Filmmuseum",
+      "tagline": "Projektoren und Plakate in einer Lagerhalle am Hafen",
+      "story": "Das Museum liegt im Hafen, in einer alten Lagerhalle für Waren, aus der ein Ort für Kultur geworden ist. Es öffnete 1997, in dem Jahr, in dem Thessaloniki Kulturhauptstadt Europas war. Drinnen stehen Projektoren voller Zahnräder und Filmrollen aus Metall, alte Kameras, Kostüme, handgeschriebene Drehbücher und Hunderte von Plakaten, gemalt, als es noch keine Computer gab. Am meisten Spaß machen die Maschinen aus der Zeit vor dem Kino: Scheiben, die sich drehen, kleine Bücher, die man schnell durchblättert, Kästen mit Schlitzen. Sie alle machen denselben Trick, und das ist der Trick hinter jedem Film: Sie zeigen viele unbewegte Bilder so schnell hintereinander, dass das Auge glaubt, es sehe eine Bewegung. Die Stadt hat auch ihr eigenes Filmfestival. Es findet seit 1960 jedes Jahr statt und füllt jeden November zehn Tage lang die Kinos der Stadt.",
+      "facts": [
+        "Es ist in einer alten Lagerhalle am Hafen untergebracht und öffnete 1997.",
+        "Es bewahrt Maschinen, die Bewegung zeigten, bevor es das Kino überhaupt gab.",
+        "Das Filmfestival der Stadt findet seit 1960 jedes Jahr statt."
+      ],
+      "question": {
+        "q": "Was ist der Trick hinter jedem Film?",
+        "answers": [
+          "Viele unbewegte Bilder, so schnell gezeigt, dass sie wie Bewegung aussehen",
+          "Ein Bild, das sich dehnt und größer wird",
+          "Spiegel, die echte Schauspieler zurückwerfen",
+          "Gemälde, die trocknen und dabei die Form ändern"
+        ],
+        "explanation": "Ein Film bewegt sich nie. Die Bewegung zwischen den Bildern ergänzen wir selbst."
+      }
+    },
+    "thessaloniki-walls": {
+      "name": "Die byzantinischen Stadtmauern",
+      "tagline": "Stein, Ziegel, Stein, Ziegel: seit sechzehnhundert Jahren aufrecht",
+      "story": "Die Mauern von Thessaloniki umschließen die alte Stadt seit dem Ende des 4. Jahrhunderts n. Chr. Am Anfang waren sie etwa acht Kilometer lang und liefen bis hinunter ans Meer; heute ist noch ungefähr die Hälfte übrig, vor allem im oberen Teil der Stadt. Schau genau hin, dann siehst du etwas, das sich wiederholt: ein paar Lagen Stein, dann ein Band aus Ziegeln, dann wieder Stein. Das ist kein Schmuck. Die Ziegel sind alle gleich dick. Sie richten die Lagen wieder gerade, damit die Mauer beim Hochwachsen nicht schief wird, und sie machen die Mauer ein wenig nachgiebig, wenn der Boden wackelt. Innerhalb dieser Mauern liegt die Oberstadt, auf Griechisch Ano Poli. Sie ist das einzige Viertel, das dem großen Feuer von 1917 entkommen ist, weil es höher lag als das Feuer. Darum ist es auch das einzige mit engen Gassen und alten Häusern, deren obere Stockwerke über die Straße vorspringen.",
+      "facts": [
+        "Am Anfang waren sie etwa 8 Kilometer lang. Ungefähr die Hälfte ist erhalten.",
+        "Die Bänder aus Ziegeln richten die Lagen gerade und helfen bei Erdbeben.",
+        "Die Oberstadt innerhalb der Mauern ist dem Feuer von 1917 entkommen."
+      ],
+      "question": {
+        "q": "Warum haben die Mauern Bänder aus Ziegeln zwischen den Steinen?",
+        "answers": [
+          "Damit die Lagen gerade werden und die Mauer Erdbeben übersteht",
+          "Damit die Wachen erkennen konnten, wie hoch oben sie waren",
+          "Damit man sieht, wie viele Jahre der Bau gedauert hat",
+          "Damit die Mauer im Winter warm bleibt"
+        ],
+        "explanation": "Steine haben ungleiche Formen, und eine Lage wird schief. Ziegel, die alle gleich sind, machen sie wieder gerade."
+      }
+    },
+    "thessaloniki-heptapyrgion": {
+      "name": "Das Heptapyrgion",
+      "tagline": "Die Festung an der höchsten Ecke der Stadtmauer",
+      "story": "An der höchsten Ecke der Mauern steht eine Festung in der Festung. Ihr Name bedeutet „sieben Türme“, obwohl sie in Wirklichkeit zehn Türme hat: Der Name kam von einer anderen Festung herüber und blieb hängen. Gebaut wurde sie Stück für Stück, byzantinische und osmanische Teile übereinander, und wer sie hielt, beherrschte von oben die ganze Stadt. Sie hat aber noch eine zweite Geschichte, eine neuere und eine schwerere: Von 1890 bis 1989 war sie ein Gefängnis. Hundert Jahre lang wurde ein Gebäude, das Feinde draußen halten sollte, dazu benutzt, Menschen drinnen zu halten. 1989 schloss das Gefängnis, und seitdem wird die Festung langsam als Denkmal wiederhergestellt. Von ihrem Hof aus siehst du ganz Thessaloniki, bis hinaus zum Golf, und du verstehst sofort, warum alle sie so unbedingt haben wollten.",
+      "facts": [
+        "Sein Name bedeutet „sieben Türme“, aber es hat zehn.",
+        "Es liegt an der höchsten Ecke der Stadtmauern.",
+        "Von 1890 bis 1989 war es ein Gefängnis."
+      ],
+      "question": {
+        "q": "Was bedeutet der Name „Heptapyrgion“?",
+        "answers": [
+          "Sieben Türme",
+          "Sieben Tore",
+          "Sieben Hügel",
+          "Sieben Brüder"
+        ],
+        "explanation": "Die Sieben im Namen zählt nicht die Türme: Es hat zehn. Der Name kam von woanders her und ist geblieben."
+      }
+    },
+    "thessaloniki-vlatades": {
+      "name": "Das Kloster Vlatadon",
+      "tagline": "Das einzige byzantinische Kloster der Stadt, das noch lebt",
+      "story": "Hoch oben in der Oberstadt, kurz unterhalb der Mauern, liegt ein Kloster aus dem 14. Jahrhundert, das nie geschlossen hat. Thessaloniki hatte viele byzantinische Klöster; dieses ist das einzige, das bis heute lebendig geblieben ist. In seinem Hof, unter den Bäumen, laufen Pfauen frei herum und schlagen ihr Rad, ohne auf irgendjemanden zu achten. Deshalb kennen die Kinder der Stadt dieses Kloster, lange bevor sie irgendetwas über Byzanz lernen. Das Katholikon, also die Hauptkirche, bewahrt Wandmalereien aus dem 14. Jahrhundert. Und weil das Kloster auf dem höchsten Punkt der alten Stadt steht, breitet sich von seinem Hof aus ganz Thessaloniki vor dir aus: die Ziegeldächer, der Hafen, der Thermaische Golf und, an klaren Tagen, der Olymp in der Ferne. Das ist der schönste Ausblick der Stadt, und er kostet nichts.",
+      "facts": [
+        "Es wurde im 14. Jahrhundert gegründet und hat seitdem nie geschlossen.",
+        "Es ist das einzige byzantinische Kloster der Stadt, das lebendig geblieben ist.",
+        "In seinem Hof leben Pfauen, die frei herumlaufen."
+      ],
+      "question": {
+        "q": "Welches Tier triffst du im Hof des Klosters?",
+        "answers": [
+          "Pfauen",
+          "Hirsche",
+          "Störche",
+          "Schildkröten"
+        ],
+        "explanation": "Pfauen waren seit Langem ein Zeichen auf byzantinischen Bildern, und hier gibt es auch echte."
+      }
+    },
+    "thessaloniki-aristotelous": {
+      "name": "Der Aristotelous-Platz",
+      "tagline": "Ein Platz, entworfen auf einer verbrannten Stadt",
+      "story": "Im August 1917 verbrannte ein Feuer den größten Teil der Innenstadt von Thessaloniki. Tausende Menschen verloren ihr Zuhause. Statt dieselben engen Gassen wieder aufzubauen, beschloss man etwas Ungewöhnliches: Die Stadt sollte noch einmal von vorn entworfen werden. Der französische Architekt Ernest Hébrard leitete die Arbeit, und sein Plan hatte in der Mitte eine große Achse, die am Meer beginnt und zur Oberstadt hinaufsteigt. Der Aristotelous-Platz ist diese Achse. Der Plan brauchte Jahrzehnte, bis er fertig war, und die meisten Gebäude rund um den Platz wurden erst in den 1950er-Jahren fertig. Sein bester Trick ist ganz einfach: Stell dich an das obere Ende und schau geradeaus aufs Meer hinaus. An klaren Tagen taucht am Ende der Achse der Olymp auf, der Berg der Götter, siebzig Kilometer weit weg auf der anderen Seite des Wassers.",
+      "facts": [
+        "Er wurde nach dem großen Feuer von 1917 entworfen, von Ernest Hébrard.",
+        "Seine Achse beginnt am Meer und steigt zur Oberstadt hinauf.",
+        "Die meisten seiner Gebäude wurden in den 1950er-Jahren fertig."
+      ],
+      "question": {
+        "q": "Warum wurde dieser Platz entworfen?",
+        "answers": [
+          "Weil das Feuer von 1917 das Zentrum verbrannte und die Stadt neu geplant wurde",
+          "Weil man Platz für die Autos brauchte",
+          "Weil dort antike Reste gefunden wurden und niemand bauen konnte",
+          "Weil dort früher ein Hafen war, den man zugeschüttet hat"
+        ],
+        "explanation": "Es kommt selten vor, dass eine große Stadt noch einmal ganz neu geplant wird. Dafür hat es eine Katastrophe gebraucht."
+      }
+    },
+    "thessaloniki-modiano": {
+      "name": "Der Modiano-Markt",
+      "tagline": "Eine Markthalle aus Eisen und Glas, wieder geöffnet",
+      "story": "Der Modiano-Markt wurde 1922 gebaut, ein paar Jahre nach dem großen Feuer, genau an der Stelle, an der eine Schule abgebrannt war. Entworfen hat ihn Eli Modiano, ein Architekt aus der jüdischen Gemeinde von Thessaloniki, die seit Jahrhunderten in der Stadt lebte. Er ist ein überdachter Markt: ein Gerüst aus Eisen, ein Dach aus Glas, und darunter Reihen von Ständen mit Fisch, Käse, Oliven, Gewürzen und kleinen Tavernen. Das Licht kommt von oben herein und fällt in die Gänge, deshalb braucht es drinnen selbst im Winter nur wenige Lampen. Viele Jahre lang war der Markt fast leer und stand kurz davor, für immer zu schließen. Er wurde hergerichtet und 2022 wieder geöffnet, mit seiner alten Hülle an Ort und Stelle. Daneben liegt der Kapani, ein noch älterer Markt, ganz ohne Dach, wo die Stände mitten in den Gassen stehen.",
+      "facts": [
+        "Er wurde 1922 gebaut, entworfen vom Architekten Eli Modiano.",
+        "Sein Dach ist aus Glas, damit er von oben Licht bekommt.",
+        "Er war jahrelang geschlossen und öffnete 2022 wieder, frisch hergerichtet."
+      ],
+      "question": {
+        "q": "Warum braucht der Markt selbst im Winter nur wenige Lampen?",
+        "answers": [
+          "Weil sein Dach aus Glas ist und das Licht von oben hereinkommt",
+          "Weil die Stände weiß gestrichen sind",
+          "Weil er schließt, bevor es dunkel wird",
+          "Weil er Spiegel an den Wänden hat"
+        ],
+        "explanation": "Die Markthallen des 19. und 20. Jahrhunderts haben es so gelöst: Eisen für das Gerüst, Glas für das Licht."
+      }
+    },
+    "thessaloniki-noesis": {
+      "name": "Das Wissenschaftszentrum Noesis",
+      "tagline": "Das Museum, dessen Objekte angefasst werden wollen",
+      "story": "Ein paar Kilometer außerhalb der Stadt, Richtung Thermi, liegt ein Museum, das genau andersherum funktioniert als alle anderen: Hier sagt niemand „nicht anfassen“. Die Objekte sind Maschinen und Versuche, die du drehen, schieben oder betreten musst, um zu verstehen, was sie tun. Es gibt ein Planetarium mit einer Kuppel, in dem du dich auf den Rücken legst und den Himmel siehst, und einen Saal mit einer riesigen Leinwand für Filme im Großformat. Es gibt auch einen Simulator, der sich mit dem Bild mitbewegt. Das Technikmuseum zeigt Maschinen, die vor achtzig Jahren in griechischen Fabriken und auf griechischen Feldern gearbeitet haben, und daneben stehen Roboter. Dahinter steckt eine einzige Idee: Einen Versuch lernst du nicht, indem du ihn liest. Du lernst ihn, indem du ihn selbst machst, mit deinen Händen und mit deinen Fehlern.",
+      "facts": [
+        "Es liegt außerhalb der Stadt, Richtung Thermi.",
+        "Es hat ein Planetarium mit Kuppel und einen Saal mit einer riesigen Leinwand.",
+        "Seine Objekte sind zum Anfassen gemacht, nicht zum Anschauen."
+      ],
+      "question": {
+        "q": "Warum darfst du in diesem Museum die Objekte anfassen?",
+        "answers": [
+          "Weil man einen Versuch versteht, indem man ihn macht",
+          "Weil alle Objekte wertlose Kopien sind",
+          "Weil es nicht genug Aufsicht gibt",
+          "Weil die Objekte jeden Abend geputzt werden"
+        ],
+        "explanation": "In einem archäologischen Museum ist das Objekt einmalig. Hier ist das Objekt ein Werkzeug, und Werkzeuge brauchen Hände."
+      }
+    },
+    "thessaloniki-ote-tower": {
+      "name": "Der OTE-Turm",
+      "tagline": "Der Turm mit dem Stockwerk, das sich dreht",
+      "story": "Auf dem Gelände der Internationalen Messe steht ein schmaler Turm aus Beton, sechsundsiebzig Meter hoch, gebaut im Jahr 1966. Damals sah er aus wie etwas aus der Zukunft, und jahrzehntelang war er das höchste Gebäude der Stadt. Ganz oben gibt es einen runden Raum mit Glas ringsherum, und dieser Raum dreht sich: Er macht in etwa einer Stunde eine volle Umdrehung. Die Bewegung ist so langsam, dass du sie überhaupt nicht spürst. Du merkst nur: Du sitzt ganz still, und trotzdem hast du am Anfang das Meer gesehen und siehst jetzt die Berge. Das ist eine kleine Lektion über Geschwindigkeit: Etwas, das sich sehr langsam bewegt, sieht unbewegt aus, genau wie die Sonne am Himmel oder der Minutenzeiger einer Uhr, den du nie beim Weitergehen erwischst.",
+      "facts": [
+        "Er ist 76 Meter hoch und wurde 1966 gebaut.",
+        "Sein oberstes Stockwerk macht in etwa einer Stunde eine volle Umdrehung.",
+        "Er steht auf dem Gelände der Internationalen Messe Thessaloniki."
+      ],
+      "question": {
+        "q": "Warum merkst du nicht, dass sich das oberste Stockwerk dreht?",
+        "answers": [
+          "Weil es sich sehr langsam bewegt, eine Umdrehung in der Stunde",
+          "Weil es sich nur dreht, wenn die Besucher schlafen",
+          "Weil sich die Scheiben drehen und nicht der Boden",
+          "Weil der Boden mit einem Teppich ausgelegt ist"
+        ],
+        "explanation": "Unsere Augen bekommen sehr langsame Bewegungen nicht mit. Erst wenn wir vorher und nachher vergleichen, merken wir, dass sich etwas bewegt hat."
+      }
+    },
+    "thessaloniki-toumba-stadium": {
+      "name": "Das Toumba-Stadion",
+      "tagline": "Das Stadion, in dem die Ränge fast das Spielfeld berühren",
+      "story": "Das Toumba-Stadion wurde 1959 eröffnet, mitten in einem Viertel, das Flüchtlinge aufgebaut hatten, und es ist die Heimat von PAOK. Es fasst etwa achtundzwanzigtausend Menschen. Das ist kein Rekord, und trotzdem gilt es als eines der lautesten Stadien Europas. Der Grund sind nicht nur die Fans: Es ist die Form. Die Ränge stehen fast direkt am Spielfeld, ohne Laufbahn dazwischen, und sie steigen steil nach oben. So läuft der Schall nicht nach außen weg; er trifft auf den Beton und kommt in die Mitte zurück. Das ist genau dasselbe Prinzip wie bei einem antiken Theater, nur ging es dort darum, den Schauspieler zu hören, und hier geht es darum, die Menge zu hören. Das Stadion ist in einen Hang gebaut, deshalb gehst du von oben hinein.",
+      "facts": [
+        "Es wurde 1959 eröffnet und fasst etwa 28.000 Zuschauer.",
+        "Es hat keine Laufbahn, deshalb stehen die Ränge fast auf dem Spielfeld.",
+        "Die steilen Ränge schicken den Schall in die Mitte des Stadions zurück."
+      ],
+      "question": {
+        "q": "Warum ist dieses Stadion so laut?",
+        "answers": [
+          "Weil die steilen Ränge den Schall in die Mitte zurückwerfen",
+          "Weil es das größte Stadion Griechenlands ist",
+          "Weil es Lautsprecher unter den Sitzen hat",
+          "Weil es komplett überdacht ist"
+        ],
+        "explanation": "Das ist die Akustik und nicht die Größe. Dieselbe Menge würde in einem offenen, weiten Stadion viel leiser klingen."
+      }
+    }
+  },
+  "trails": {
+    "thessaloniki-roman-day": {
+      "name": "Die Stadt der Römer",
+      "promise": "Ein Bogen, eine riesige Kuppel, ein Platz auf zwei Ebenen und alles, was darunter hervorgeholt wurde."
+    },
+    "thessaloniki-upper-town": {
+      "name": "Bergauf in die Oberstadt",
+      "promise": "Das einzige Viertel, das dem Feuer entkommen ist, mit seinen Mauern und seinen Pfauen."
+    },
+    "thessaloniki-after-the-fire": {
+      "name": "Nach dem Feuer",
+      "promise": "Drei Orte, die es gibt, weil die Stadt 1917 noch einmal ganz von vorn geplant wurde."
+    },
+    "thessaloniki-outside-the-walls": {
+      "name": "Außerhalb der Mauern",
+      "promise": "Von der Ecke, an der die Mauern endeten, hinaus zu einem Stadion und zu einem künstlichen Himmel."
+    }
+  }
+}

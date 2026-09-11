@@ -1,0 +1,496 @@
+{
+  "lang": "fr",
+  "cityId": "heraklion",
+  "places": {
+    "heraklion-knossos": {
+      "name": "Cnossos",
+      "tagline": "Le palais aux mille pièces, avec ses propres tuyaux",
+      "story": "Il y a environ quatre mille ans, sur la colline de Cnossos, se dressait un bâtiment de plus de mille pièces, reliées par des couloirs et des escaliers sur quatre niveaux. Ce n’était pas seulement la maison d’un roi : c’était à la fois un entrepôt, un atelier, un bureau et un sanctuaire. Le plus impressionnant, ce ne sont pas les couleurs, ce sont les tuyaux. Les Minoens avaient des conduites en argile qui amenaient l’eau propre, et d’autres qui emportaient l’eau sale, à une époque où la plupart des peuples portaient l’eau dans des cruches. Ils avaient aussi des puits de lumière, des ouvertures dans le toit qui font descendre le jour et l’air jusqu’aux pièces du milieu. Une légende raconte qu’un labyrinthe avec un monstre dedans, le Minotaure, se trouvait sous le palais. Les archéologues n’ont trouvé aucun labyrinthe, mais ils ont trouvé un bâtiment si embrouillé qu’on comprend tout de suite d’où vient l’histoire.",
+      "facts": [
+        "Il avait plus de mille pièces, sur quatre niveaux.",
+        "Il avait des tuyaux en argile pour l’eau propre et d’autres pour l’eau sale.",
+        "Les parties rouges que tu vois sont des restaurations du 20e siècle : elles ne sont pas minoennes."
+      ],
+      "question": {
+        "q": "Que sont les parties rouges aux bords bien droits que tu vois aujourd’hui à Cnossos ?",
+        "answers": [
+          "Des restaurations en béton, faites au 20e siècle",
+          "Des murs minoens qui ont survécu entiers",
+          "Des ajouts romains construits sur le palais",
+          "Des morceaux d’un autre palais, apportés ici"
+        ],
+        "explanation": "L’archéologue qui a fouillé Cnossos a reconstruit des parties du palais pour que les visiteurs en comprennent la forme. C’est utile, et on en discute encore."
+      }
+    },
+    "heraklion-archaeological-museum": {
+      "name": "Le musée archéologique d’Héraklion",
+      "tagline": "Tout ce qui est sorti des palais minoens, dans un seul bâtiment",
+      "story": "Si Cnossos est le bâtiment vide, ce musée en est le contenu. Presque tout ce qui est important et qui est sorti des palais minoens de Crète se trouve ici, et c’est la plus grande collection minoenne du monde. Les fresques de Cnossos sont ici, et pas à Cnossos : là-haut, tu vois des copies, pour que les originaux ne pâlissent pas au soleil. Le musée montre une chose qui surprend : les Minoens ne peignaient presque jamais la guerre. Ils peignaient des dauphins, des lys, des singes, des gens qui sautent par-dessus des taureaux, des femmes en robes compliquées. Ils peignaient la vie, pas les victoires. Et il y a ici un objet que personne n’a réussi à lire, alors que des spécialistes le regardent depuis plus de cent ans. Si tu n’as le temps que pour un seul musée dans toute l’île, les archéologues te diront de choisir celui-là, puis de monter à Cnossos pour voir où tout cela se tenait autrefois.",
+      "facts": [
+        "Il garde la plus grande collection d’objets minoens au monde.",
+        "Les fresques originales de Cnossos sont gardées ici, et pas sur le site.",
+        "Le disque de Phaistos n’a toujours pas été déchiffré."
+      ],
+      "question": {
+        "q": "Pourquoi vois-tu des copies des fresques à Cnossos, et pas les originaux ?",
+        "answers": [
+          "Pour que le soleil et le temps ne détruisent pas les originaux",
+          "Parce que les originaux ont été perdus dans un tremblement de terre",
+          "Parce que les originaux appartiennent à un particulier",
+          "Parce que les originaux sont trop petits pour qu’on les voie"
+        ],
+        "explanation": "La couleur pâlit à la lumière et l’humidité ronge le plâtre. On garde exprès un musée sombre et à température stable."
+      },
+      "museum": {
+        "doorNote": "Les Minoens ne peignaient pas la guerre. Regarde ce qu’ils peignaient à la place.",
+        "rooms": {
+          "heraklion-archaeological-museum-frescoes": {
+            "name": "Les fresques",
+            "intro": "Ces images étaient autrefois des murs, à Cnossos. Elles ont survécu en morceaux, parfois en très peu de morceaux, et on a rempli autour avec une peinture plus pâle pour que tu voies ce qui est ancien et ce qui est une supposition. Regarde d’abord où la couleur forte s’arrête, puis regarde ce que les Minoens ont peint."
+          },
+          "heraklion-archaeological-museum-small-wonders": {
+            "name": "Les petites merveilles",
+            "intro": "Les objets les plus étonnants de ce musée tiennent dans ta main. Ce sont des sceaux, des bijoux, des vases, et un disque que personne ne sait lire. Approche-toi des vitrines : presque tout ici a été fabriqué avec des outils et sans loupe, parce que la loupe n’était pas encore inventée."
+          }
+        },
+        "exhibits": {
+          "heraklion-archaeological-museum-bull-leaping": {
+            "name": "La fresque du saut du taureau",
+            "blurb": "Un taureau court, et trois personnes font quelque chose d’incroyable autour de lui : la première tient les cornes, la deuxième est en l’air au-dessus de son dos, la troisième attend les bras ouverts pour la rattraper. Les spécialistes ne sont pas d’accord : est-ce que cela se passait vraiment, ou est-ce l’image d’une cérémonie ? Regarde la couleur des corps : dans la peinture minoenne, les hommes sont en général montrés la peau foncée, et les femmes la peau claire.",
+            "question": {
+              "q": "Combien de personnes participent à la scène du taureau ?",
+              "answers": [
+                "Trois, à trois moments différents du saut",
+                "Une seule, en l’air",
+                "Cinq, en cercle autour de lui",
+                "Aucune : le taureau est seul"
+              ],
+              "explanation": "Elle montre peut-être trois personnes, ou la même personne trois fois, comme les images d’un film."
+            }
+          },
+          "heraklion-archaeological-museum-prince-lilies": {
+            "name": "Le « Prince aux lys »",
+            "blurb": "Un personnage qui marche, avec une couronne de lys et des plumes de paon. C’est une des images les plus connues de Crète, et aussi une des plus discutées : les morceaux d’origine sont peu nombreux, et le reste a été complété au début du 20e siècle. Certains chercheurs pensent que ces fragments appartiennent peut-être à plus d’un personnage. Dans ce cas, le « prince » n’a jamais existé sous cette forme.",
+            "question": {
+              "q": "Pourquoi cette fresque est-elle discutée ?",
+              "answers": [
+                "Parce que les morceaux d’origine sont peu nombreux et que le reste a été complété",
+                "Parce qu’elle a été peinte récemment par un faussaire",
+                "Parce qu’elle a été trouvée hors de Crète",
+                "Parce qu’il n’y reste plus aucune couleur"
+              ],
+              "explanation": "Compléter, c’est deviner. Quand les morceaux sont peu nombreux, on devine beaucoup."
+            }
+          },
+          "heraklion-archaeological-museum-saffron-gatherer": {
+            "name": "Le « cueilleur de safran »",
+            "blurb": "Quand on a trouvé cette fresque, on l’a restaurée comme un garçon qui cueille des fleurs de safran dans un pré. Des années plus tard, d’autres morceaux sont apparus et ont montré autre chose : la créature n’avait pas des mains d’homme mais des pattes, et elle était bleue. C’est un singe. Cette histoire est le meilleur exemple de la façon dont marche l’archéologie : une explication tient jusqu’à ce que de nouvelles preuves arrivent.",
+            "question": {
+              "q": "Qu’était en réalité le personnage qui cueille le safran ?",
+              "answers": [
+                "Un singe bleu",
+                "Un garçon en vêtements bleus",
+                "Une prêtresse",
+                "Un taureau"
+              ],
+              "explanation": "Les nouveaux morceaux ont montré des pattes à la place des mains. La science a changé d’avis, et c’est exactement ce qu’elle doit faire."
+            }
+          },
+          "heraklion-archaeological-museum-phaistos-disc": {
+            "name": "Le disque de Phaistos",
+            "blurb": "Un disque en argile de la taille d’une petite pizza, avec des signes imprimés en spirale sur ses deux faces. Les signes ne sont pas gravés : ils sont tamponnés, chacun avec son propre poinçon. Cela veut dire que quelqu’un avait fabriqué un jeu de tampons, une sorte d’imprimerie, trois mille cinq cents ans avant l’imprimerie. Personne ne sait ce qu’il raconte. On n’a jamais trouvé un deuxième texte dans la même écriture pour le comparer.",
+            "question": {
+              "q": "Pourquoi le disque de Phaistos n’a-t-il pas été lu ?",
+              "answers": [
+                "Parce qu’on n’a trouvé aucun autre texte dans la même écriture",
+                "Parce que les signes se sont effacés",
+                "Parce qu’il est cassé en deux",
+                "Parce que personne n’a essayé"
+              ],
+              "explanation": "Pour percer une écriture, il faut beaucoup d’exemples. Avec un seul objet, chaque solution n’est qu’une supposition."
+            }
+          },
+          "heraklion-archaeological-museum-snake-goddess": {
+            "name": "La déesse aux serpents",
+            "blurb": "Une petite figurine en faïence, haute de quelques centimètres, qui tient un serpent dans chaque main et porte une longue robe à volants. On l’a trouvée dans une fosse fermée de Cnossos, avec d’autres objets sacrés. Personne ne sait si c’est une déesse, une prêtresse ou autre chose ; ce sont les archéologues qui lui ont donné ce nom. Les serpents ne sont pas une menace : dans beaucoup de cultures anciennes, ils représentent la maison, la terre et le renouveau, parce qu’ils changent de peau.",
+            "question": {
+              "q": "Qui lui a donné le nom de « déesse aux serpents » ?",
+              "answers": [
+                "Les archéologues qui l’ont trouvée",
+                "Les Minoens, sur une inscription posée à côté d’elle",
+                "Homère, dans un poème",
+                "Le musée, par un vote des visiteurs"
+              ],
+              "explanation": "Beaucoup de noms, dans les musées, sont modernes. Ils sont utiles, mais ce ne sont pas des preuves."
+            }
+          },
+          "heraklion-archaeological-museum-bee-pendant": {
+            "name": "Les abeilles d’or",
+            "blurb": "Un bijou venu de Malia, de quelques centimètres seulement : deux abeilles qui tiennent ensemble une goutte de miel. De minuscules boules d’or y sont fixées une par une, avec une technique qui s’appelle la granulation, et des fils très fins forment les ailes. Aujourd’hui, il te faut une loupe pour voir le travail. L’artisan qui l’a fait n’avait pas de loupe : il avait des yeux jeunes et beaucoup de patience.",
+            "question": {
+              "q": "Comment les minuscules boules d’or ont-elles été posées sur le bijou ?",
+              "answers": [
+                "Fixées une par une, avec une technique appelée granulation",
+                "Coulées avec le reste de l’or dans un moule",
+                "Peintes avec de la peinture dorée",
+                "Martelées par-derrière"
+              ],
+              "explanation": "Chaque boule est un morceau d’or à part. Compte-les, si tu as la patience."
+            }
+          },
+          "heraklion-archaeological-museum-harvester-vase": {
+            "name": "Le vase des Moissonneurs",
+            "blurb": "Un petit vase noir avec une procession sculptée tout autour : des hommes qui rentrent du travail, leurs outils sur l’épaule, et devant eux quelques-uns qui chantent. L’un a la bouche grande ouverte et la poitrine gonflée, et on voit bien qu’il crie les paroles. C’est rare, dans l’art ancien, de pouvoir voir le son. Les visages ne sont pas tous pareils non plus : l’un rit, un autre en a assez.",
+            "question": {
+              "q": "Qu’est-ce qui rend le vase des Moissonneurs si particulier ?",
+              "answers": [
+                "On voit que les personnages chantent, donc on voit le son",
+                "Il est fait d’or massif",
+                "Un poème est écrit dessus",
+                "C’est le plus grand vase du musée"
+              ],
+              "explanation": "Bouche ouverte, poitrine en avant, corps en rythme. Le sculpteur a dessiné du bruit."
+            }
+          }
+        },
+        "riddles": {
+          "heraklion-archaeological-museum-riddle-1": {
+            "prompt": "Je suis rond et fait d’argile, et je porte des signes en spirale sur mes deux faces. On me regarde depuis plus de cent ans et personne ne sait encore ce que je dis.",
+            "hint": "Mes signes n’ont pas été gravés. Ils ont été tamponnés."
+          },
+          "heraklion-archaeological-museum-riddle-2": {
+            "prompt": "On m’a pris pour un garçon dans un pré plein de fleurs. Ensuite, on a trouvé d’autres morceaux de moi, et on a vu que je n’ai pas des mains mais des pattes, et que je suis bleu.",
+            "hint": "Je ne suis pas une personne, mais j’ai cinq doigts."
+          },
+          "heraklion-archaeological-museum-riddle-3": {
+            "prompt": "Je tiens dans ta main et nous sommes deux, pas un. Ensemble, nous tenons quelque chose de sucré, et des centaines de boules d’or sont fixées sur nous une par une.",
+            "hint": "Mes ailes sont faites d’un fil très fin."
+          }
+        }
+      }
+    },
+    "heraklion-koules": {
+      "name": "La forteresse de Koulès",
+      "tagline": "Une forteresse debout dans la mer, avec des murs de neuf mètres d’épaisseur",
+      "story": "À l’entrée du vieux port se dresse une forteresse carrée bâtie dans l’eau. Les Vénitiens l’ont élevée entre 1523 et 1540 et l’ont appelée Rocca a Mare, « le rocher dans la mer ». Les Turcs l’ont plus tard appelée Koulès, ce qui veut dire tour, et c’est ce nom qui est resté. Regarde l’épaisseur de ses murs : du côté de la mer, ils atteignent presque neuf mètres, alors que du côté de la terre ils sont bien plus minces. La raison est simple et maligne : les boulets de canon venaient des bateaux, pas de la ville. Au rez-de-chaussée, il y a vingt-six salles voûtées où l’on gardait la poudre, la nourriture et l’eau. Sur les murs extérieurs, le lion ailé de Venise est sculpté trois fois : c’est le signe de la ville qui l’a construite.",
+      "facts": [
+        "Elle a été construite par les Vénitiens entre 1523 et 1540.",
+        "Les murs qui font face à la mer ont presque 9 mètres d’épaisseur.",
+        "Son rez-de-chaussée compte 26 salles voûtées."
+      ],
+      "question": {
+        "q": "Pourquoi les murs qui font face à la mer sont-ils bien plus épais ?",
+        "answers": [
+          "Parce que c’est de là que venaient les boulets de canon",
+          "Parce que le sel ronge la pierre plus vite",
+          "Parce que les prisons étaient de ce côté",
+          "Parce que c’est ce qui la tient debout dans l’eau"
+        ],
+        "explanation": "La forteresse a été bâtie contre un danger précis. On épaissit le mur là où on attend le coup."
+      }
+    },
+    "heraklion-morosini-fountain": {
+      "name": "La fontaine Morosini",
+      "tagline": "Les Lions, plus vieux que la fontaine elle-même",
+      "story": "Au cœur de la ville, à l’endroit où les gens d’Héraklion se donnent rendez-vous « aux Lions », il y a une fontaine terminée en 1628. La ville la doit à Francesco Morosini, qui a résolu un problème vieux de dizaines d’années : Héraklion n’avait pas assez d’eau à boire. Il a construit un aqueduc qui faisait descendre l’eau du mont Juktas, à quinze kilomètres environ, rien qu’avec la pente du terrain et sans aucune pompe. La vasque a huit lobes sculptés de créatures marines, de dauphins et de nymphes. Et les quatre lions qui la portent ont près de trois cents ans de plus que la fontaine : ils n’ont pas été faits pour elle, on les a apportés d’ailleurs et réutilisés. Aujourd’hui encore, l’eau sort de leur bouche. Assieds-toi en face et écoute : l’eau s’entend plus fort que la ville.",
+      "facts": [
+        "Elle a été terminée en 1628 et a résolu le problème de l’eau potable de la ville.",
+        "L’eau venait du mont Juktas, à 15 kilomètres environ, sans aucune pompe.",
+        "Les quatre lions sont bien plus vieux que la fontaine et ont été réutilisés."
+      ],
+      "question": {
+        "q": "Comment l’eau arrivait-elle à la fontaine depuis quinze kilomètres ?",
+        "answers": [
+          "Par un aqueduc qui descendait tout doucement, rien qu’avec la pente du terrain",
+          "Par des pompes actionnées par des chevaux",
+          "Par des tonneaux amenés en charrette chaque matin",
+          "Par un puits creusé juste en dessous d’elle"
+        ],
+        "explanation": "Un aqueduc n’a pas besoin d’énergie, seulement de précision : la pente doit être faible et régulière sur tout le trajet."
+      }
+    },
+    "heraklion-loggia": {
+      "name": "La loggia vénitienne",
+      "tagline": "Le club des nobles vénitiens, aujourd’hui la mairie",
+      "story": "La loggia a été construite dans les années 1620, et ce n’était ni une église, ni un palais, ni une forteresse. C’était un club. Les nobles vénitiens d’Héraklion s’y retrouvaient pour discuter, conclure des affaires et prendre les décisions de la ville. Elle a deux étages d’arcades, des rangées d’arches posées sur des colonnes, et elle est faite pour montrer la richesse sans crier. Avec le temps, elle est tombée presque entièrement en ruine. On l’a rebâtie morceau par morceau, avec toutes les pierres d’origine qu’on a pu retrouver, et ce travail a été désigné la meilleure restauration de monument en Europe en 1987. Aujourd’hui, le bâtiment n’est pas un musée : c’est la mairie d’Héraklion, et des gens y travaillent tous les jours. Un bâtiment de quatre cents ans qui fait encore à peu près son travail d’origine est plus rare qu’une ruine.",
+      "facts": [
+        "Elle a été construite dans les années 1620 comme club des nobles vénitiens.",
+        "Sa restauration a été désignée la meilleure d’Europe en 1987.",
+        "Elle abrite aujourd’hui la mairie d’Héraklion."
+      ],
+      "question": {
+        "q": "Qu’était ce bâtiment au départ ?",
+        "answers": [
+          "Un club où se retrouvaient les nobles vénitiens",
+          "Une église à deux clochers",
+          "Un entrepôt du port",
+          "Une école pour les enfants de la ville"
+        ],
+        "explanation": "Les décisions d’une ville n’étaient pas toujours prises dans des bâtiments officiels. Ici, elles se prenaient dans un club, et le bâtiment est finalement devenu la mairie."
+      }
+    },
+    "heraklion-historical-museum": {
+      "name": "Le musée historique de Crète",
+      "tagline": "Des premiers chrétiens à Kazantzakis, et deux tableaux du Greco",
+      "story": "Le musée archéologique s’arrête à peu près là où celui-ci commence. Le musée historique de Crète couvre les mille six cents ans qui suivent les Minoens : le paléochrétien, le byzantin, le vénitien, l’ottoman, et le vingtième siècle. Il a été fondé en 1953 dans une grande maison au bord de la mer. Ses pièces les plus connues sont deux tableaux d’un peintre né en Crète vers 1541 et appelé Domenikos Theotokopoulos. Il a appris à peindre des icônes, il est parti pour Venise et il a fini en Espagne, où les gens l’appelaient tout simplement « le Grec » : El Greco. En français, on dit « le Greco ». Ces deux tableaux sont ses seules œuvres qui se trouvent en Crète. Le musée garde aussi une énorme maquette d’Héraklion telle qu’elle était au 17e siècle, et le bureau de Nikos Kazantzakis, déménagé exactement tel qu’il était.",
+      "facts": [
+        "Il a été fondé en 1953 et couvre la Crète après les Minoens.",
+        "Il garde les deux seuls tableaux du Greco qui se trouvent en Crète.",
+        "Il possède une maquette d’Héraklion telle qu’elle était au 17e siècle."
+      ],
+      "question": {
+        "q": "Pourquoi Domenikos Theotokopoulos a-t-il été appelé « El Greco » ?",
+        "answers": [
+          "Parce qu’en Espagne on l’appelait tout simplement « le Grec »",
+          "Parce qu’il signait ainsi ses œuvres depuis l’enfance",
+          "Parce que c’était le nom de son maître",
+          "Parce qu’il est né dans un village qui portait ce nom"
+        ],
+        "explanation": "Son nom était difficile à dire pour les Espagnols. Le surnom a pris le dessus et il est resté pour toujours."
+      },
+      "museum": {
+        "doorNote": "Commence par la maquette. Tu y trouveras l’endroit exact où tu es en ce moment.",
+        "rooms": {
+          "heraklion-historical-museum-el-greco": {
+            "name": "Deux tableaux rentrés à la maison",
+            "intro": "Le peintre a quitté la Crète jeune et n’est jamais revenu. Ses œuvres sont accrochées dans les grands musées d’Europe et d’Amérique, et sur l’île qui l’a vu naître il n’y en a que deux. Elles sont petites, et elles demandent du temps : regarde d’abord la lumière, ensuite les visages."
+          },
+          "heraklion-historical-museum-city-and-people": {
+            "name": "La ville et ses habitants",
+            "intro": "La deuxième salle descend des peintres vers les habitants. Il y a ici une ville entière en miniature, le bureau d’un écrivain exactement comme il l’a laissé, et des tissages faits par des femmes dans les villages, avec des motifs passés de mère en fille et jamais écrits nulle part."
+          }
+        },
+        "exhibits": {
+          "heraklion-historical-museum-sinai": {
+            "name": "Le mont Sinaï",
+            "blurb": "Une masse de rocher qui monte, avec un petit monastère à son pied et des gens plus petits encore sur les chemins. C’est un paysage, ce qui était inhabituel pour l’époque : la peinture voulait alors surtout des visages et des histoires. Le jeune Theotokopoulos l’a fait en Crète, ou peu après son départ, quand il travaillait encore dans une technique proche des icônes byzantines, avec de l’or et des traits fins.",
+            "question": {
+              "q": "Qu’est-ce qui est inhabituel dans ce tableau pour son époque ?",
+              "answers": [
+                "C’est un paysage, avec des gens minuscules",
+                "Il est peint sur du verre",
+                "Il n’a aucune couleur",
+                "Il est plus grand qu’un mur"
+              ],
+              "explanation": "Le paysage est devenu un sujet à part entière bien plus tard. Ici, la montagne est l’héroïne."
+            }
+          },
+          "heraklion-historical-museum-baptism": {
+            "name": "Le Baptême du Christ",
+            "blurb": "Un petit tableau à la lumière intense, presque électrique, où les corps sont étirés en hauteur et où les couleurs ne sont pas naturelles. C’est la signature du Greco, et la raison pour laquelle tu le reconnais tout de suite. Il n’essayait pas de peindre ce que l’œil voit ; il peignait ce qu’il voulait te faire sentir. Trois cents ans plus tard, des peintres du 20e siècle l’ont redécouvert et l’ont pris pour un des leurs.",
+            "question": {
+              "q": "Comment reconnais-tu un tableau du Greco ?",
+              "answers": [
+                "Aux corps étirés et à la lumière qui n’est pas naturelle",
+                "Au fait qu’il est toujours immense",
+                "Au fait qu’il n’y a personne dessus",
+                "À la signature en espagnol"
+              ],
+              "explanation": "Il a signé en grec jusqu’à la fin. Mais son style n’a pas besoin de signature."
+            }
+          },
+          "heraklion-historical-museum-byzantine-frescoes": {
+            "name": "Les fresques venues des petites églises",
+            "blurb": "La Crète compte des centaines de petites églises byzantines dans les villages et dans les montagnes, et beaucoup ont les murs peints. Quand l’une d’elles risque de s’écrouler, on détache les peintures et on les sauve. Au musée, tu vois de tels morceaux, avec des saints, des anges et des scènes de la vie de tous les jours sur les bords. Regarde les mains et les yeux : ils sont grands et forts exprès, parce que le peintre savait qu’on les regarderait de loin et avec très peu de lumière.",
+            "question": {
+              "q": "Pourquoi les yeux et les mains sont-ils si grands sur ces fresques ?",
+              "answers": [
+                "Pour qu’on les lise de loin et avec très peu de lumière",
+                "Parce que le peintre ne connaissait pas les proportions",
+                "Parce que les gens ressemblaient à cela à l’époque",
+                "Pour qu’il faille moins de peinture"
+              ],
+              "explanation": "C’est un choix voulu. La petite église est sombre et le mur est loin."
+            }
+          },
+          "heraklion-historical-museum-city-model": {
+            "name": "La maquette de la ville fortifiée",
+            "blurb": "Une énorme maquette montre Héraklion telle qu’elle était au 17e siècle, quand on l’appelait Candie : un rempart à bastions qui entoure toute la ville, le port avec ses hangars à bateaux, des églises, des ruelles. Trouve d’abord la forteresse dans la mer, ensuite la fontaine aux lions, et d’un coup toute la ville d’aujourd’hui se met en place. Les maquettes sont l’outil le plus sous-estimé d’un musée : elles montrent des relations, pas des objets.",
+            "question": {
+              "q": "Comment appelait-on Héraklion au 17e siècle ?",
+              "answers": [
+                "Candie",
+                "Cnossos",
+                "Amnisos",
+                "Gortyne"
+              ],
+              "explanation": "Le nom grec de la ville, Chandax, a donné l’italien Candia et le français Candie, qui ont désigné pendant des siècles toute la Crète."
+            }
+          },
+          "heraklion-historical-museum-kazantzakis-study": {
+            "name": "Le bureau de l’écrivain",
+            "blurb": "Une pièce déménagée en entier : le bureau de Nikos Kazantzakis, avec sa table, ses livres, ses lunettes et ses manuscrits. C’est un objet d’exposition étrange, parce qu’il n’est ni rare ni précieux ; il est simplement vrai. Il montre que les livres n’apparaissent pas de nulle part : quelqu’un s’est assis sur une chaise, jour après jour, et a écrit à la main les pages qu’on a lues plus tard dans des dizaines de langues.",
+            "question": {
+              "q": "Pourquoi une simple table de travail mérite-t-elle d’être exposée ?",
+              "answers": [
+                "Parce qu’elle montre comment un livre se fabrique vraiment",
+                "Parce qu’elle est faite d’un bois rare",
+                "Parce qu’elle a appartenu à un roi",
+                "Parce qu’elle cache un tiroir secret"
+              ],
+              "explanation": "Le travail d’un écrivain est invisible. Une table couverte de papiers le rend visible."
+            }
+          },
+          "heraklion-historical-museum-weaving": {
+            "name": "Les tissages",
+            "blurb": "Des tissus faits au métier à tisser, avec des motifs qui se répètent dans un ordre strict : losanges, arbres, oiseaux, zigzags. Chaque région de Crète avait ses propres motifs, et un spécialiste peut regarder une pièce et dire de quel village elle vient, comme tu reconnaîtrais un accent. Les motifs n’étaient écrits nulle part. Ils vivaient dans la mémoire et dans les mains, et passaient d’une génération à l’autre en travaillant à côté de quelqu’un.",
+            "question": {
+              "q": "Comment les motifs des tissages passaient-ils d’une génération à l’autre ?",
+              "answers": [
+                "En travaillant à côté de quelqu’un qui les connaissait",
+                "Grâce à des livres de motifs imprimés",
+                "Grâce à des inspecteurs qui les enseignaient",
+                "Ils ne passaient pas : chaque génération en inventait de nouveaux"
+              ],
+              "explanation": "C’est un savoir sans mode d’emploi. C’est pour cela que, dès qu’on arrête de le transmettre, il disparaît en une seule génération."
+            }
+          }
+        },
+        "riddles": {
+          "heraklion-historical-museum-riddle-1": {
+            "prompt": "Je suis une ville entière, et je tiens dans une seule pièce. J’ai des remparts, un port et des ruelles, et si tu me regardes assez longtemps, tu trouveras sur moi la rue que tu as prise aujourd’hui.",
+            "hint": "Je ne suis pas une carte. J’ai de la hauteur."
+          },
+          "heraklion-historical-museum-riddle-2": {
+            "prompt": "Je suis une montagne peinte, et les gens sur moi sont gros comme un grain. Un jeune homme de cette île m’a faite, avant de partir et de devenir célèbre sous un autre nom.",
+            "hint": "À mon pied, il y a un monastère."
+          }
+        }
+      }
+    },
+    "heraklion-natural-history-museum": {
+      "name": "Le musée d’histoire naturelle de Crète",
+      "tagline": "Une salle qui te secoue, et un géant qui a vraiment vécu ici",
+      "story": "Le musée est installé dans une ancienne usine d’électricité au bord de la mer, et il appartient à l’université de Crète. Il montre la nature de la Méditerranée en grandes scènes : montagnes, gorges, déserts, côtes, avec leurs animaux à leur place. Il garde aussi des animaux vivants, surtout des reptiles et des insectes. Deux choses ne s’oublient pas. La première, c’est le simulateur de tremblement de terre : tu entres dans une salle et le sol rejoue de vrais séismes enregistrés, pour que tu comprennes ce que fait vraiment le sol quand il bouge. La seconde, c’est un animal en taille réelle : le Deinotherium, un cousin des éléphants, qui vivait en Crète il y a des millions d’années et qui était plus haut qu’un autobus. Devant lui, tu comprends que la Crète n’a pas toujours été des chèvres et des oliviers : il y a eu ici des bêtes énormes, bien avant nous.",
+      "facts": [
+        "Il est installé dans une ancienne centrale électrique et appartient à l’université de Crète.",
+        "Son simulateur rejoue de vrais tremblements de terre enregistrés.",
+        "Il expose en taille réelle le Deinotherium, un cousin des éléphants qui a vécu en Crète."
+      ],
+      "question": {
+        "q": "Que fait le simulateur de tremblement de terre du musée ?",
+        "answers": [
+          "Il rejoue de vrais tremblements de terre qui ont été enregistrés",
+          "Il prédit quand aura lieu le prochain tremblement de terre",
+          "Il passe un film en trois dimensions sur les tremblements de terre",
+          "Il mesure la force avec laquelle tu peux taper du pied sur le sol"
+        ],
+        "explanation": "Personne ne prédit les tremblements de terre. Mais savoir l’effet que ça fait aide à savoir quoi faire."
+      }
+    },
+    "heraklion-cretaquarium": {
+      "name": "Le Cretaquarium",
+      "tagline": "Deux mille mètres cubes d’eau de mer, tous méditerranéens",
+      "story": "À Gournes, à quinze kilomètres à l’est d’Héraklion, il y a un aquarium construit là où se trouvait autrefois une base aérienne américaine. Il a ouvert en 2005 et appartient au Centre hellénique de recherche marine : c’est donc à la fois un lieu à visiter et un centre de recherche. Il a des dizaines de bassins qui contiennent en tout environ deux mille mètres cubes d’eau de mer. Sa décision la plus importante, c’est ce qu’il n’a pas : pas de poissons tropicaux, rien qui vienne d’autres océans. Tout ce que tu vois vit en Méditerranée, c’est-à-dire dans la mer qui est juste dehors. Le requin derrière la vitre n’est donc pas exotique : il nage dans la même eau que toi, et tu n’as pas de raison d’en avoir plus peur qu’il ne faut. Cet aquarium ne te montre pas un monde lointain. Il te montre ce qu’il y a sous la surface, à la plage où tu es allé hier.",
+      "facts": [
+        "Il a ouvert en 2005, sur le terrain d’une ancienne base aérienne.",
+        "Ses bassins contiennent environ 2 000 mètres cubes d’eau de mer.",
+        "Il montre seulement des espèces qui vivent en Méditerranée."
+      ],
+      "question": {
+        "q": "Qu’est-ce que tu ne verras pas dans cet aquarium ?",
+        "answers": [
+          "Des poissons tropicaux venus d’autres océans",
+          "Des requins",
+          "Des poulpes",
+          "Des tortues"
+        ],
+        "explanation": "Le choix est voulu : l’aquarium montre la mer qui est devant la porte, pas une mer que tu ne verras jamais."
+      }
+    },
+    "heraklion-pankritio-stadium": {
+      "name": "Le stade pancrétois",
+      "tagline": "Construit pour les Jeux olympiques de 2004, sur une île",
+      "story": "Quand Athènes a pris en charge les Jeux olympiques de 2004, le football ne tenait pas dans une seule ville. Les matchs ont été répartis entre cinq stades du pays, et l’un d’eux était ici. Le stade pancrétois a été construit exactement pour cela et peut accueillir environ vingt-six mille personnes. Il a une piste d’athlétisme autour du terrain, donc les tribunes sont plus loin que dans un stade réservé au football, et il sert aussi pour l’athlétisme et pour des concerts. La question intéressante, pour un bâtiment pareil, n’est pas comment il a été construit mais ce qui s’est passé après : beaucoup de stades olympiques, partout dans le monde, se sont vidés une fois les Jeux finis. Celui-là ne s’est pas vidé. Des clubs crétois y jouent, et il se remplit régulièrement. Un stade ne reste vivant que si quelqu’un en a besoin le lundi qui suit la fête.",
+      "facts": [
+        "Il a été construit pour les Jeux olympiques de 2004 et peut accueillir environ 26 000 personnes.",
+        "Le football olympique a été réparti entre cinq stades de Grèce.",
+        "Il a une piste d’athlétisme autour du terrain, donc il sert aussi pour l’athlétisme."
+      ],
+      "question": {
+        "q": "Pourquoi ce stade a-t-il été construit en Crète ?",
+        "answers": [
+          "Parce que le football olympique de 2004 a été réparti entre cinq villes",
+          "Parce que la Crète voulait ses propres Jeux olympiques",
+          "Parce que l’ancien stade a été détruit par un tremblement de terre",
+          "Parce qu’il fallait de la place pour des concerts"
+        ],
+        "explanation": "Un tournoi de football a besoin de plusieurs terrains en même temps. C’est pour cela que des Jeux olympiques s’étalent sur tout un pays."
+      }
+    },
+    "heraklion-kazantzakis-museum": {
+      "name": "Le musée Nikos Kazantzakis",
+      "tagline": "Dans un village, les papiers d’un homme lu partout",
+      "story": "À Myrtia, un village au sud d’Héraklion, se trouve la maison de la famille du père de Nikos Kazantzakis, et à l’intérieur un musée qui lui est consacré. Il a ouvert en 1983. Tu y verras des manuscrits pleins de ratures, des lettres, des photos, des objets qu’il emportait en voyage, des décors de ses pièces de théâtre et, le plus frappant pour des enfants, ses livres traduits en des dizaines de langues, alignés sur une même étagère. Kazantzakis a écrit Zorba le Grec et beaucoup d’autres livres, il a voyagé dans le monde entier et il revenait sans cesse en Crète par l’écriture. Il est mort en 1957 et il a été enterré à Héraklion, en haut des remparts. Sur la pierre de sa tombe, il y a trois phrases qu’il a choisies lui-même : « Je n’espère rien. Je ne crains rien. Je suis libre. » C’est une des rares tombes au monde dont des gens qui n’y sont jamais allés connaissent les mots par cœur.",
+      "facts": [
+        "Il se trouve à Myrtia, le village de la famille de son père, et il a ouvert en 1983.",
+        "Ses livres ont été traduits en des dizaines de langues.",
+        "Sa tombe à Héraklion porte ces mots : « Je n’espère rien. Je ne crains rien. Je suis libre. »"
+      ],
+      "question": {
+        "q": "Qu’est-ce qui est écrit sur la tombe de Kazantzakis à Héraklion ?",
+        "answers": [
+          "« Je n’espère rien. Je ne crains rien. Je suis libre. »",
+          "« Ici repose un voyageur de Crète. »",
+          "« Écris ce que tu vois, puis va-t’en. »",
+          "« La mer ne finit jamais. »"
+        ],
+        "explanation": "Il les a choisies lui-même avant de mourir. C’est une des rares épitaphes que des gens du monde entier savent citer."
+      }
+    },
+    "heraklion-juktas": {
+      "name": "Le mont Juktas",
+      "tagline": "La montagne qui ressemble à un visage couché sur le dos",
+      "story": "Regarde le Juktas depuis Héraklion, quand le soleil est bas. La ligne de la crête dessine un front, un nez, une bouche et une barbe : un visage énorme couché sur le dos. Les anciens Crétois disaient que c’était Zeus, et que Zeus était enterré là. Cela agaçait les autres Grecs, parce que pour eux Zeus ne mourait jamais, et ils disaient donc que les Crétois étaient des menteurs. Toute une dispute entre une île et un continent, à cause d’une montagne qui ressemble à un visage. À son sommet, à 811 mètres, il y avait un sanctuaire minoen : un de ces lieux sacrés qu’on ne bâtissait pas dans les villes mais tout en haut, en plein air. Aujourd’hui, le Juktas est une zone protégée, et des vautours planent au-dessus de ses pentes, portés par l’air qui monte.",
+      "facts": [
+        "Il atteint 811 mètres et se voit de tout Héraklion.",
+        "Un sanctuaire minoen de sommet se dressait tout en haut.",
+        "C’est de lui que descendait l’eau de la fontaine Morosini, à Héraklion."
+      ],
+      "question": {
+        "q": "Que disaient les anciens Crétois à propos de cette montagne ?",
+        "answers": [
+          "Que c’est Zeus couché là, enterré dedans",
+          "Que le Minotaure vit en dessous",
+          "Que des gens l’ont bâtie avec de la terre",
+          "Qu’elle grandit d’un mètre par siècle"
+        ],
+        "explanation": "Les autres Grecs n’étaient pas d’accord, parce que pour eux Zeus ne mourait jamais. La dispute a duré des siècles."
+      }
+    },
+    "heraklion-amnisos": {
+      "name": "Amnisos",
+      "tagline": "Le port de Cnossos, celui qu’Homère nomme",
+      "story": "Un palais sans port, ça ne s’explique pas. Cnossos est à cinq kilomètres de la mer, et son port était ici, à Amnisos. Aujourd’hui, tu vois des ruines basses au bord du rivage, et parmi elles un bâtiment qu’on appelle la Maison des Lys, parce que des lys dans des pots étaient peints sur ses murs. Homère cite Amnisos dans l’Odyssée, quand Ulysse raconte un mensonge et prétend y avoir accosté. C’est une des rares fois où un poème et une fouille désignent le même endroit. Mais la trouvaille la plus sérieuse, c’est la pierre ponce : on a trouvé dans les ruines de la pierre ponce venue de l’éruption du volcan de Théra, portée jusqu’ici par la mer. Une pierre qui flotte a apporté la nouvelle d’une catastrophe à cent kilomètres de là, et elle l’a laissée ici pour que nous la lisions.",
+      "facts": [
+        "C’était le port qui servait Cnossos.",
+        "Homère cite Amnisos dans l’Odyssée.",
+        "On a trouvé dans ses ruines de la pierre ponce venue de l’éruption de Théra."
+      ],
+      "question": {
+        "q": "Qu’est-ce que cela veut dire, qu’on ait trouvé ici de la pierre ponce de Théra ?",
+        "answers": [
+          "Que l’éruption du volcan est arrivée jusqu’à cette côte",
+          "Que les habitants faisaient le commerce des pierres",
+          "Qu’il y avait aussi un volcan en Crète",
+          "Que le port a été bâti sur de la lave"
+        ],
+        "explanation": "La pierre ponce flotte. Elle voyage avec l’eau, et partout où elle arrive elle laisse une date."
+      }
+    }
+  },
+  "trails": {
+    "heraklion-minoan-day": {
+      "name": "Une journée minoenne",
+      "promise": "Le palais, ses affaires, son port et la montagne qui le regardait."
+    },
+    "heraklion-after-the-minoans": {
+      "name": "Après les Minoens",
+      "promise": "Des Vénitiens, de l’eau venue de loin, deux tableaux d’un Crétois et les papiers d’un écrivain."
+    },
+    "heraklion-living-crete": {
+      "name": "La Crète qui vit aujourd’hui",
+      "promise": "Une salle qui tremble, deux mille mètres cubes de mer et un stade plein."
+    }
+  }
+}

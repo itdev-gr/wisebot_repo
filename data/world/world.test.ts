@@ -18,7 +18,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-import { CITIES, CITY_IDS, COUNTRIES, PLACE_COUNTS, loadCity } from './registry';
+import { CITIES, CITY_IDS, COUNTRIES, PLACE_COUNTS, loadCity, translationsFor } from './registry';
 import type { City, CityModule, Country } from './types';
 import { WORLD_LANGS } from './types';
 import * as fixture from './__fixtures__/sample';
@@ -360,6 +360,51 @@ describe('world content', async () => {
       });
     });
   }
+
+  /**
+   * The overlays, checked through the loader that actually serves them.
+   *
+   * The per-place completeness rule above runs over the city module, which carries only
+   * Greek and English — so it can never see a translation overlay and passed happily
+   * while `athens.fr` held eight places out of eighteen. A rule that cannot observe the
+   * thing it governs is decoration. This loads each city in each language that has an
+   * overlay, exactly as the app does, and applies the rule to what comes out.
+   */
+  describe('translation overlays', async () => {
+    const pairs = CITY_IDS.flatMap((cityId) =>
+      translationsFor(cityId).map((lang) => ({ cityId, lang })),
+    );
+
+    if (pairs.length === 0) {
+      it('none yet', () => expect(pairs).toEqual([]));
+    }
+
+    for (const { cityId, lang } of pairs) {
+      it(`${cityId} is completely translated into ${lang}`, async () => {
+        const base = await loadCity(cityId);
+        const translated = await loadCity(cityId, lang);
+
+        expect(translated.places.length, `${cityId}.${lang} lost or gained places`).toBe(
+          base.places.length,
+        );
+
+        const untranslated: string[] = [];
+        for (const place of translated.places) {
+          const found: Array<{ path: string; node: Record<string, unknown> }> = [];
+          walkLocTexts(place, place.id, found);
+          for (const entry of found) {
+            const value = entry.node[lang];
+            if (typeof value !== 'string' || !value.trim()) untranslated.push(entry.path);
+          }
+        }
+
+        expect(
+          untranslated.slice(0, 12),
+          `${cityId}.${lang}: ${untranslated.length} string(s) still untranslated`,
+        ).toEqual([]);
+      });
+    }
+  });
 
   it('the registry place counts match the real arrays', async () => {
     for (const bundle of all) {
