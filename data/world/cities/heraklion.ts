@@ -656,6 +656,12 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-11',
       note: 'Filed on Wikidata under its Venetian name, Rocca a Mare; a Greek search for Κούλες returns nothing relevant. No English Wikipedia coordinate.',
+      // The stored point is out at sea, because the centre of a sea fortress is water.
+      // No coordinate fixes that; the instruction does.
+      findIt: {
+        el: 'Περπάτα ως το τέλος του μόλου, στην είσοδο του ενετικού λιμανιού. Το φρούριο είναι εκεί, μέσα στο νερό.',
+        en: 'Walk to the end of the pier, at the mouth of the Venetian harbour. The fortress stands out there, in the water.',
+      },
     },
     question: {
       q: {

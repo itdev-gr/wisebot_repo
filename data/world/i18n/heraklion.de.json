@@ -22,7 +22,6 @@
         "explanation": "Der Archäologe, der Knossos ausgrub, baute Teile wieder auf, damit Besucher ihre Form verstehen konnten. Das ist nützlich, und es wird bis heute darüber gestritten."
       }
     },
-
     "heraklion-archaeological-museum": {
       "name": "Das Archäologische Museum Heraklion",
       "tagline": "Alles, was die minoischen Paläste hergaben, in einem Gebäude",
@@ -170,7 +169,6 @@
         }
       }
     },
-
     "heraklion-koules": {
       "name": "Die Festung Koules",
       "tagline": "Eine Festung mitten im Meer, mit neun Meter dicken Mauern",
@@ -189,9 +187,9 @@
           "Weil sie dadurch im Wasser aufrecht steht"
         ],
         "explanation": "Die Festung wurde gegen eine ganz bestimmte Gefahr gebaut. Man macht die Mauer dort dick, wo man den Schlag erwartet."
-      }
+      },
+      "findIt": "Geh bis ans Ende der Mole, an der Einfahrt zum venezianischen Hafen. Die Festung steht dort draußen, im Wasser."
     },
-
     "heraklion-morosini-fountain": {
       "name": "Der Morosini-Brunnen",
       "tagline": "Die Löwen, die älter sind als der Brunnen selbst",
@@ -212,7 +210,6 @@
         "explanation": "Eine Wasserleitung braucht keine Energie, sondern Genauigkeit: Das Gefälle muss auf der ganzen Strecke gering und gleichmäßig sein."
       }
     },
-
     "heraklion-loggia": {
       "name": "Die venezianische Loggia",
       "tagline": "Der Klub der venezianischen Adligen, heute das Rathaus",
@@ -233,7 +230,6 @@
         "explanation": "Entscheidungen über eine Stadt fielen nicht immer in Amtsgebäuden. Hier fielen sie in einem Klub, und am Ende wurde das Gebäude das Rathaus."
       }
     },
-
     "heraklion-historical-museum": {
       "name": "Das Historische Museum von Kreta",
       "tagline": "Von den ersten Christen bis zu Kazantzakis, und zwei El Grecos",
@@ -363,7 +359,6 @@
         }
       }
     },
-
     "heraklion-natural-history-museum": {
       "name": "Das Naturhistorische Museum von Kreta",
       "tagline": "Ein Raum, der dich durchschüttelt, und ein Riese, der hier gelebt hat",
@@ -384,7 +379,6 @@
         "explanation": "Niemand sagt Erdbeben voraus. Aber zu wissen, wie sich eines anfühlt, hilft dir zu wissen, was zu tun ist."
       }
     },
-
     "heraklion-cretaquarium": {
       "name": "Das Cretaquarium",
       "tagline": "Zweitausend Kubikmeter Meerwasser, alles aus dem Mittelmeer",
@@ -405,7 +399,6 @@
         "explanation": "Die Auswahl ist Absicht: Das Aquarium zeigt das Meer vor der Tür, nicht ein Meer, das du nie sehen wirst."
       }
     },
-
     "heraklion-pankritio-stadium": {
       "name": "Das Pankritio-Stadion",
       "tagline": "Für die Olympischen Spiele 2004 gebaut, auf einer Insel",
@@ -426,7 +419,6 @@
         "explanation": "Ein Fußballturnier braucht viele Plätze gleichzeitig. Deshalb verteilen sich Olympische Spiele über ein ganzes Land."
       }
     },
-
     "heraklion-kazantzakis-museum": {
       "name": "Das Nikos-Kazantzakis-Museum",
       "tagline": "In einem Dorf die Papiere eines Mannes, den man überall gelesen hat",
@@ -447,7 +439,6 @@
         "explanation": "Er hat die Sätze selbst ausgesucht, bevor er starb. Es ist eine der wenigen Grabinschriften, die Menschen auf der ganzen Welt zitieren können."
       }
     },
-
     "heraklion-juktas": {
       "name": "Der Jouchtas",
       "tagline": "Der Berg, der aussieht wie ein Gesicht, das auf dem Rücken liegt",
@@ -468,7 +459,6 @@
         "explanation": "Die übrigen Griechen widersprachen, denn für sie starb Zeus nie. Der Streit hielt Jahrhunderte an."
       }
     },
-
     "heraklion-amnisos": {
       "name": "Amnisos",
       "tagline": "Der Hafen von Knossos, den Homer beim Namen nennt",

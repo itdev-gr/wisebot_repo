@@ -22,7 +22,6 @@
         "explanation": "L’archeologo che scavò Cnosso ricostruì alcune parti perché i visitatori capissero la forma. È utile, e se ne discute ancora."
       }
     },
-
     "heraklion-archaeological-museum": {
       "name": "Il Museo archeologico di Heraklion",
       "tagline": "Tutto quello che i palazzi minoici hanno restituito, in un solo edificio",
@@ -170,7 +169,6 @@
         }
       }
     },
-
     "heraklion-koules": {
       "name": "La fortezza di Koules",
       "tagline": "Una fortezza in mezzo al mare, con muri spessi nove metri",
@@ -189,9 +187,9 @@
           "Perché è così che sta in piedi dentro l’acqua"
         ],
         "explanation": "La fortezza fu costruita contro un pericolo preciso. Il muro lo fai spesso dove aspetti il colpo."
-      }
+      },
+      "findIt": "Cammina fino in fondo al molo, all’imboccatura del porto veneziano. La fortezza è là, dentro l’acqua."
     },
-
     "heraklion-morosini-fountain": {
       "name": "La fontana Morosini",
       "tagline": "I Leoni, che sono più vecchi della fontana stessa",
@@ -212,7 +210,6 @@
         "explanation": "Un acquedotto non ha bisogno di energia, ma di precisione: la pendenza deve restare piccola e costante per tutto il percorso."
       }
     },
-
     "heraklion-loggia": {
       "name": "La loggia veneziana",
       "tagline": "Il circolo dei nobili veneziani, oggi il municipio",
@@ -233,7 +230,6 @@
         "explanation": "Le decisioni su una città non si prendevano sempre in edifici ufficiali. Qui si prendevano in un circolo, e alla fine l’edificio è diventato il municipio."
       }
     },
-
     "heraklion-historical-museum": {
       "name": "Il Museo storico di Creta",
       "tagline": "Dai primi cristiani a Kazantzakis, e due El Greco",
@@ -363,7 +359,6 @@
         }
       }
     },
-
     "heraklion-natural-history-museum": {
       "name": "Il Museo di storia naturale di Creta",
       "tagline": "Una stanza che ti scuote, e un gigante che è vissuto davvero qui",
@@ -384,7 +379,6 @@
         "explanation": "Nessuno prevede i terremoti. Sapere però come sono aiuta a sapere che cosa fare."
       }
     },
-
     "heraklion-cretaquarium": {
       "name": "Il Cretaquarium",
       "tagline": "Duemila metri cubi di acqua di mare, tutta mediterranea",
@@ -405,7 +399,6 @@
         "explanation": "La scelta è voluta: l’acquario mostra il mare che hai fuori dalla porta, non un mare che non vedrai mai."
       }
     },
-
     "heraklion-pankritio-stadium": {
       "name": "Lo stadio Pankritio",
       "tagline": "Costruito per le Olimpiadi del 2004, su un’isola",
@@ -426,7 +419,6 @@
         "explanation": "Un torneo di calcio ha bisogno di tanti campi nello stesso momento. Per questo le Olimpiadi si allargano su tutto un paese."
       }
     },
-
     "heraklion-kazantzakis-museum": {
       "name": "Il Museo di Nikos Kazantzakis",
       "tagline": "In un paesino, le carte di un uomo letto in tutto il mondo",
@@ -447,7 +439,6 @@
         "explanation": "Le scelse lui prima di morire. È uno dei pochissimi epitaffi che persone di tutto il mondo sanno ripetere."
       }
     },
-
     "heraklion-juktas": {
       "name": "Il monte Juktas",
       "tagline": "La montagna che sembra un viso disteso all’insù",
@@ -468,7 +459,6 @@
         "explanation": "Gli altri greci non erano d’accordo, perché per loro Zeus non moriva. La lite andò avanti per secoli."
       }
     },
-
     "heraklion-amnisos": {
       "name": "Amnisos",
       "tagline": "Il porto di Cnosso, quello che nomina Omero",

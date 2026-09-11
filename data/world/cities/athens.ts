@@ -1376,6 +1376,11 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-10',
       note: 'The OSM outline centre is 42 m inside the building; the stored point is the Patission Street entrance.',
+      // Verified against the museum’s own published address.
+      findIt: {
+        el: 'Η είσοδος είναι στην 28ης Οκτωβρίου, που οι Αθηναίοι τη λένε Πατησίων, στο νούμερο 44.',
+        en: 'The way in is on 28is Oktovriou, which Athenians call Patission, at number 44.',
+      },
     },
     question: {
       q: {

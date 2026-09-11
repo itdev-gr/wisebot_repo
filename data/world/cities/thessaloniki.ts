@@ -81,6 +81,11 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'White Tower of Thessaloniki', deltaM: 3 },
       ],
       verifiedAt: '2026-09-11',
+      // Not measured against the stored point; the tower is unmistakable from the front.
+      findIt: {
+        el: 'Ο πύργος είναι πάνω στην παραλία, στη Λεωφόρο Νίκης. Δεν γίνεται να τον προσπεράσεις.',
+        en: 'The tower stands right on the seafront, on Nikis Avenue. You cannot walk past it by accident.',
+      },
     },
     question: {
       q: {
