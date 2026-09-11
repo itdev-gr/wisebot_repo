@@ -125,7 +125,7 @@
     "athens-panathenaic-stadium": {
       "name": "Le stade panathénaïque",
       "tagline": "Le seul stade au monde entièrement fait de marbre",
-      "story": "Les Athéniens l’appellent Kallimarmaro, ce qui veut dire « beau marbre », et le nom n’est pas exagéré : les gradins, les allées, les escaliers, tout est en marbre. C’est le seul stade au monde bâti entièrement avec cette pierre. Un stade se dressait déjà à cet endroit dès 330 av. J.-C. pour les jeux des Panathénées, et vers 144 apr. J.-C. Hérode Atticus l’a rebâti en marbre. Puis il s’est vidé, s’est rempli de terre et on l’a oublié. On l’a dégagé au XIXe siècle et rebâti pour les premiers Jeux olympiques modernes, en 1896. Il tient environ cinquante mille spectateurs. Il a la forme d’un fer à cheval, et ses virages sont si serrés que les coureurs de 1896 se plaignaient de perdre de la vitesse à chaque tour. C’est ici que Spyridon Louis a fini premier du premier marathon moderne, devant un stade qui hurlait.",
+      "story": "Les Athéniens l’appellent Kallimarmaro, ce qui veut dire « beau marbre », et le nom n’est pas exagéré : les gradins, les allées, les escaliers, tout est en marbre. C’est le seul stade au monde bâti entièrement avec cette pierre. Un stade se dressait déjà à cet endroit dès 330 av. J.-C. pour les jeux des Panathénées, et vers 144 apr. J.-C. Hérode Atticus l’a rebâti en marbre. Puis il s’est vidé, s’est rempli de terre et on l’a oublié. On l’a dégagé au XIXe siècle et rebâti pour les premiers Jeux olympiques modernes, en 1896. Il tient environ cinquante mille spectateurs. Il a la forme d’un fer à cheval, et ses virages sont si serrés que les coureurs de 1896 se plaignaient de perdre de la vitesse à chaque tour. C’est ici que Spyridon Louis a franchi la ligne le premier, vainqueur du premier marathon moderne, devant un stade qui hurlait.",
       "facts": [
         "C’est le seul stade au monde bâti entièrement en marbre.",
         "Il a accueilli les premiers Jeux olympiques modernes, en 1896.",
@@ -434,9 +434,9 @@
               "q": "Qu’est-ce que le petit cavalier n’a pas ?",
               "answers": [
                 "Ni selle ni étriers",
-                "De chaussures aux pieds",
-                "De bride sur le cheval",
-                "De cheveux sur la tête"
+                "Des chaussures aux pieds",
+                "Une bride sur le cheval",
+                "Des cheveux sur la tête"
               ],
               "explanation": "Les étriers ne sont arrivés en Europe que des siècles plus tard. À l’époque, on se tenait avec les jambes."
             }

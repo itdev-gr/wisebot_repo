@@ -226,6 +226,26 @@ export function translationsFor(cityId: CityId): string[] {
     .map((key) => key.slice(cityId.length + 1));
 }
 
+/**
+ * Every language World can actually be read in: Greek and English, which every city
+ * carries, plus any language that has at least one overlay.
+ *
+ * This is what the language switcher offers, and it is deliberately derived rather
+ * than declared. A button for a language with nothing behind it sends a child to a
+ * page that is entirely in English with a German flag lit up, which reads as broken
+ * rather than as unfinished.
+ *
+ * It can be trusted as a completeness signal because an overlay that is missing even
+ * one string fails \`data/world/world.test.ts\`. A language present here is finished for
+ * the cities it covers; a city it does not cover falls back to English, which is a
+ * different and honest state.
+ */
+export const AVAILABLE_LANGS: string[] = [
+  'el',
+  'en',
+  ...[...new Set(Object.keys(I18N).map((key) => key.slice(key.lastIndexOf('.') + 1)))].sort(),
+];
+
 /** City ids that have a content module, whether or not they have been resolved. */
 export const CITY_IDS: CityId[] = Object.keys(LOADERS);
 `;

@@ -27,13 +27,16 @@ import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from 're
 import { Globe, Loader2 } from 'lucide-react';
 
 import {
+  AVAILABLE_LANGS,
   CITIES,
+  CITY_IDS,
   COUNTRIES,
   citiesOf,
   findCity,
   findCountry,
   loadCity,
   PLACE_COUNTS,
+  translationsFor,
 } from '../../data/world/registry';
 import type {
   City,
@@ -71,6 +74,14 @@ const T = {
   },
   back: { el: 'Πίσω', en: 'Back' },
   langLabel: { el: 'Γλώσσα', en: 'Language' },
+  notTranslated: {
+    el: 'Αυτή η πόλη δεν έχει μεταφραστεί ακόμα. Τη διαβάζεις στα αγγλικά.',
+    en: 'This city has not been translated yet. You are reading it in English.',
+    de: 'Diese Stadt ist noch nicht übersetzt. Du liest sie auf Englisch.',
+    fr: "Cette ville n'est pas encore traduite. Tu la lis en anglais.",
+    es: 'Esta ciudad aún no está traducida. La estás leyendo en inglés.',
+    it: 'Questa città non è ancora tradotta. La stai leggendo in inglese.',
+  },
 };
 
 // ------------------------------------------------------------------ content
@@ -176,16 +187,26 @@ const NotFound: React.FC<{ lang: WorldLang; onBack: () => void }> = ({ lang, onB
   </div>
 );
 
-const LangSwitcher: React.FC<{ lang: WorldLang; onChange: (lang: WorldLang) => void }> = ({
-  lang,
-  onChange,
-}) => (
+/**
+ * Only languages that have something behind them.
+ *
+ * Greek and English are in every city module. The other four appear once at least one
+ * overlay exists, and an overlay that is missing a single string fails the test suite,
+ * so a language offered here is finished for the cities it covers. A city it does not
+ * cover falls back to English, which is honest; a lit-up German flag over a page that
+ * is entirely in English is not — it reads as broken rather than as unfinished.
+ */
+const LangSwitcher: React.FC<{
+  lang: WorldLang;
+  available: WorldLang[];
+  onChange: (lang: WorldLang) => void;
+}> = ({ lang, available, onChange }) => (
   <div
     className="flex items-center gap-1 flex-wrap"
     role="group"
     aria-label={ui(T.langLabel, lang)}
   >
-    {(Object.keys(LANG_LABELS) as WorldLang[]).map((code) => {
+    {available.map((code) => {
       const meta = LANG_LABELS[code];
       const active = code === lang;
       return (
@@ -295,6 +316,28 @@ const CountryPage: React.FC<{
  * decides from a ref it has already written: StrictMode's second invocation returns
  * null and pays nothing.
  */
+/**
+ * Says so when the city on screen has not been translated into the language the child
+ * picked.
+ *
+ * The switcher only offers languages that exist somewhere, and the build refuses a
+ * half-translated city, so the one remaining honest gap is a city with no overlay at
+ * all. That falls back to English, which is the right behaviour and the wrong silence:
+ * a French child looking at an English page needs to be told it is not broken.
+ */
+const TranslationNote: React.FC<{ lang: WorldLang }> = ({ lang }) => {
+  const { pathname } = useLocation();
+  const cityId = pathname.split('/')[3];
+
+  if (!cityId || lang === 'el' || lang === 'en') return null;
+  if (!CITY_IDS.includes(cityId)) return null;
+  if (translationsFor(cityId).includes(lang)) return null;
+
+  return (
+    <p className={`${WORLD_STYLE.label} mt-8 text-center`}>{ui(T.notTranslated, lang)}</p>
+  );
+};
+
 const CountryEntry: React.FC<{
   content: WorldContent;
   progress: ReturnType<typeof useWorldProgress>;
@@ -471,6 +514,14 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
 
   const langValue = useMemo(() => ({ lang, setLang }), [lang, setLang]);
 
+  // Offered languages come from what is translated, not from the six the module could
+  // one day hold. Filtered through LANG_LABELS so an overlay in a language World does
+  // not know about cannot put an unlabelled button on the screen.
+  const available = useMemo(
+    () => AVAILABLE_LANGS.filter((code): code is WorldLang => code in LANG_LABELS),
+    [],
+  );
+
   return (
     <WorldLangContext.Provider value={langValue}>
       {/* `lang` on the module root, not merely on <html>.
@@ -486,7 +537,7 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
             <Globe size={26} className="text-blue-400 not-italic" aria-hidden="true" />
             {ui(T.title, lang)}
           </h1>
-          <LangSwitcher lang={lang} onChange={setLang} />
+          <LangSwitcher lang={lang} available={available} onChange={setLang} />
         </header>
 
         <Suspense fallback={<Loading lang={lang} />}>
@@ -508,6 +559,7 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
         </Suspense>
 
         <CountryEntry content={content} progress={progress} />
+        <TranslationNote lang={lang} />
       </div>
     </WorldLangContext.Provider>
   );
