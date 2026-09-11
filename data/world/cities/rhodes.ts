@@ -632,6 +632,12 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Aquarium of Rhodes', deltaM: 0 },
       ],
       verifiedAt: '2026-09-11',
+      // The station's own site gives its address as a square named after the building,
+      // which is unusual and happens to be the most useful instruction possible.
+      findIt: {
+        el: 'Η είσοδος είναι στην Πλατεία Ενυδρείου, στη βόρεια μύτη του νησιού.',
+        en: 'The way in is on Aquarium Square, at the northern tip of the island.',
+      },
     },
     question: {
       q: {
@@ -1027,7 +1033,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q66058061', deltaM: 0 }],
       verifiedAt: '2026-09-11',
-      note: 'Grade C: Overpass returned a server error on this pass and there is no Wikipedia coordinate. Only Wikidata carries a point.',
+      note: 'Grade C: Overpass returned a server error on this pass and there is no Wikipedia coordinate. Only Wikidata carries a point. No findIt: the gallery runs two venues, and its published address, Gavriil Charitou Square, belongs to the Nestorideio mansion, while this pin sits inside the medieval town. Until it is clear which building the coordinate is, a door sentence would send a child to the wrong one.',
     },
     question: {
       q: {
