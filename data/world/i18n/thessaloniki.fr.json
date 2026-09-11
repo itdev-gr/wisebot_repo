@@ -81,7 +81,8 @@
           "Elle est devenue un musée et a fermé au culte"
         ],
         "explanation": "L’incendie de 1917 a brûlé la moitié du centre-ville. L’église a été rebâtie avec les morceaux qui avaient été sauvés."
-      }
+      },
+      "findIt": "L’entrée principale se trouve rue Agiou Dimitriou, au numéro 83."
     },
     "thessaloniki-hagia-sophia": {
       "name": "Sainte-Sophie",
@@ -250,7 +251,8 @@
             "hint": "Je ne suis ni en papier ni en cuir."
           }
         }
-      }
+      },
+      "findIt": "L’entrée se trouve rue Manoli Andronikou, au numéro 6, à côté du parc des expositions."
     },
     "thessaloniki-byzantine-museum": {
       "name": "Le Musée de la Culture byzantine",
@@ -379,7 +381,8 @@
             "hint": "Je peux être en or, en argent ou en cuivre."
           }
         }
-      }
+      },
+      "findIt": "L’entrée se trouve avenue Stratou, au numéro 2, à quelques minutes à pied du Musée archéologique."
     },
     "thessaloniki-cinema-museum": {
       "name": "Le Musée du Cinéma",
@@ -519,7 +522,8 @@
           "Parce que les objets sont nettoyés tous les soirs"
         ],
         "explanation": "Dans un musée archéologique, l’objet est unique. Ici l’objet est un outil, et les outils ont besoin de mains."
-      }
+      },
+      "findIt": "Il n’est pas dans la ville : il se trouve au 6e kilomètre de la route de Thermi."
     },
     "thessaloniki-ote-tower": {
       "name": "La tour OTE",

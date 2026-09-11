@@ -167,7 +167,8 @@
             "hint": "Mes ailes sont faites d’un fil très fin."
           }
         }
-      }
+      },
+      "findIt": "L’entrée se trouve rue Xanthoudidou, au numéro 2, à côté de la place Eleftherias."
     },
     "heraklion-koules": {
       "name": "La forteresse de Koulès",
@@ -357,7 +358,8 @@
             "hint": "À mon pied, il y a un monastère."
           }
         }
-      }
+      },
+      "findIt": "L’entrée se trouve au 27 rue Sofokli Venizelou, sur la route du bord de mer."
     },
     "heraklion-natural-history-museum": {
       "name": "Le musée d’histoire naturelle de Crète",
@@ -377,7 +379,8 @@
           "Il mesure la force avec laquelle tu peux taper du pied sur le sol"
         ],
         "explanation": "Personne ne prédit les tremblements de terre. Mais savoir l’effet que ça fait aide à savoir quoi faire."
-      }
+      },
+      "findIt": "L’entrée se trouve avenue Sofokli Venizelou, dans la baie de Dermata, à l’intérieur de l’ancienne centrale électrique."
     },
     "heraklion-cretaquarium": {
       "name": "Le Cretaquarium",
@@ -397,7 +400,8 @@
           "Des tortues"
         ],
         "explanation": "Le choix est voulu : l’aquarium montre la mer qui est devant la porte, pas une mer que tu ne verras jamais."
-      }
+      },
+      "findIt": "Il n’est pas dans la ville : il se trouve à Gournes, dans l’ancienne base américaine."
     },
     "heraklion-pankritio-stadium": {
       "name": "Le stade pancrétois",
@@ -437,7 +441,8 @@
           "« La mer ne finit jamais. »"
         ],
         "explanation": "Il les a choisies lui-même avant de mourir. C’est une des rares épitaphes que des gens du monde entier savent citer."
-      }
+      },
+      "findIt": "Il n’est pas dans la ville : il se trouve dans le village de Myrtia, au sud."
     },
     "heraklion-juktas": {
       "name": "Le mont Juktas",

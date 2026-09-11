@@ -798,7 +798,8 @@
           "Elle est faite de marbre du mont Pentélique"
         ],
         "explanation": "La colline a été montée par-dessus les bâtiments, pour que le parc continue au-dessus d’eux au lieu de s’arrêter."
-      }
+      },
+      "findIt": "L’entrée se trouve avenue Andrea Syngrou, au numéro 364, juste avant que la route n’atteigne la mer."
     },
     "athens-planetarium": {
       "name": "Le Planétarium Eugenides",
@@ -818,7 +819,8 @@
           "Il ne montre que des documentaires sur les animaux"
         ],
         "explanation": "Derrière l’image, il y a des calculs. C’est pour cela qu’il peut te montrer le ciel de 1821, ou celui de l’an 3000."
-      }
+      },
+      "findIt": "L’entrée se trouve avenue Andrea Syngrou, au numéro 387, en face du centre culturel."
     }
   },
   "trails": {

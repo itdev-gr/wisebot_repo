@@ -798,7 +798,8 @@
           "È fatta di marmo del Pentelico"
         ],
         "explanation": "La collina è stata sollevata sopra gli edifici, così il parco può proseguire sopra di loro invece di fermarsi."
-      }
+      },
+      "findIt": "L’ingresso è sul viale Andrea Syngrou al numero 364, poco prima che la strada arrivi al mare."
     },
     "athens-planetarium": {
       "name": "Il Planetario Eugenides",
@@ -818,7 +819,8 @@
           "Proietta solo documentari sugli animali"
         ],
         "explanation": "Dietro l’immagine ci sono dei calcoli. È per questo che può mostrarti anche il cielo del 1821, o quello dell’anno 3000."
-      }
+      },
+      "findIt": "L’ingresso è sul viale Andrea Syngrou al numero 387, di fronte al centro culturale."
     }
   },
   "trails": {

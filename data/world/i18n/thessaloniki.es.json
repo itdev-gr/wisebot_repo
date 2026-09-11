@@ -81,7 +81,8 @@
           "Se convirtió en museo y cerró al culto"
         ],
         "explanation": "El incendio de 1917 quemó medio centro de la ciudad. La iglesia se reconstruyó con los trozos que se salvaron."
-      }
+      },
+      "findIt": "La entrada principal está en la calle Agiou Dimitriou, en el número 83."
     },
     "thessaloniki-hagia-sophia": {
       "name": "Santa Sofía",
@@ -250,7 +251,8 @@
             "hint": "No soy de papel ni de cuero."
           }
         }
-      }
+      },
+      "findIt": "La entrada está en la calle Manoli Andronikou, en el número 6, junto al recinto ferial."
     },
     "thessaloniki-byzantine-museum": {
       "name": "El Museo de Cultura Bizantina",
@@ -379,7 +381,8 @@
             "hint": "Puedo ser de oro, de plata o de cobre."
           }
         }
-      }
+      },
+      "findIt": "La entrada está en la avenida Stratou, en el número 2, a pocos minutos a pie del Museo Arqueológico."
     },
     "thessaloniki-cinema-museum": {
       "name": "El Museo del Cine",
@@ -519,7 +522,8 @@
           "Porque las piezas se limpian todas las noches"
         ],
         "explanation": "En un museo arqueológico el objeto es único. Aquí el objeto es una herramienta, y las herramientas necesitan manos."
-      }
+      },
+      "findIt": "No está dentro de la ciudad: se encuentra en el kilómetro 6 de la carretera de Thermi."
     },
     "thessaloniki-ote-tower": {
       "name": "La Torre OTE",

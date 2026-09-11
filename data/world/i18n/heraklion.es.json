@@ -167,7 +167,8 @@
             "hint": "Mis alas son de alambre fino."
           }
         }
-      }
+      },
+      "findIt": "La entrada está en la calle Xanthoudidou, en el número 2, junto a la plaza Eleftherias."
     },
     "heraklion-koules": {
       "name": "La fortaleza de Koules",
@@ -357,7 +358,8 @@
             "hint": "A mis pies hay un monasterio."
           }
         }
-      }
+      },
+      "findIt": "La entrada está en Sofokli Venizelou 27, en la carretera del paseo marítimo."
     },
     "heraklion-natural-history-museum": {
       "name": "El Museo de Historia Natural de Creta",
@@ -377,7 +379,8 @@
           "Mide con cuánta fuerza puedes pisar el suelo"
         ],
         "explanation": "Nadie predice los terremotos. Pero saber cómo son ayuda a saber qué hacer."
-      }
+      },
+      "findIt": "La entrada está en la avenida Sofokli Venizelou, en la bahía de Dermata, dentro de la antigua central eléctrica."
     },
     "heraklion-cretaquarium": {
       "name": "El Cretaquarium",
@@ -397,7 +400,8 @@
           "Tortugas"
         ],
         "explanation": "La elección es a propósito: el acuario enseña el mar que tienes a la puerta, no un mar que no vas a ver nunca."
-      }
+      },
+      "findIt": "No está en la ciudad: se encuentra en Gournes, dentro de la antigua base americana."
     },
     "heraklion-pankritio-stadium": {
       "name": "El Estadio Pankritio",
@@ -437,7 +441,8 @@
           "«El mar no se acaba nunca.»"
         ],
         "explanation": "Las eligió él mismo antes de morir. Es uno de los poquísimos epitafios que puede repetir gente de todo el mundo."
-      }
+      },
+      "findIt": "No está en la ciudad: se encuentra en el pueblo de Myrtia, al sur."
     },
     "heraklion-juktas": {
       "name": "El monte Juktas",

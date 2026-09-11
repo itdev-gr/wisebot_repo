@@ -167,7 +167,8 @@
             "hint": "Meine Flügel sind aus feinem Draht."
           }
         }
-      }
+      },
+      "findIt": "Der Eingang liegt in der Xanthoudidou-Straße 2, neben dem Eleftherias-Platz."
     },
     "heraklion-koules": {
       "name": "Die Festung Koules",
@@ -357,7 +358,8 @@
             "hint": "An meinem Fuß steht ein Kloster."
           }
         }
-      }
+      },
+      "findIt": "Der Eingang liegt in der Sofokli-Venizelou-Straße 27, an der Uferstraße."
     },
     "heraklion-natural-history-museum": {
       "name": "Das Naturhistorische Museum von Kreta",
@@ -377,7 +379,8 @@
           "Er misst, wie fest du auf den Boden stampfen kannst"
         ],
         "explanation": "Niemand sagt Erdbeben voraus. Aber zu wissen, wie sich eines anfühlt, hilft dir zu wissen, was zu tun ist."
-      }
+      },
+      "findIt": "Der Eingang liegt an der Sofokli-Venizelou-Allee an der Bucht von Dermata, im alten Kraftwerk."
     },
     "heraklion-cretaquarium": {
       "name": "Das Cretaquarium",
@@ -397,7 +400,8 @@
           "Schildkröten"
         ],
         "explanation": "Die Auswahl ist Absicht: Das Aquarium zeigt das Meer vor der Tür, nicht ein Meer, das du nie sehen wirst."
-      }
+      },
+      "findIt": "Es liegt nicht in der Stadt: Es steht in Gournes, auf dem Gelände der alten amerikanischen Basis."
     },
     "heraklion-pankritio-stadium": {
       "name": "Das Pankritio-Stadion",
@@ -437,7 +441,8 @@
           "„Das Meer hört nie auf.“"
         ],
         "explanation": "Er hat die Sätze selbst ausgesucht, bevor er starb. Es ist eine der wenigen Grabinschriften, die Menschen auf der ganzen Welt zitieren können."
-      }
+      },
+      "findIt": "Es liegt nicht in der Stadt: Es steht im Dorf Myrtia, südlich davon."
     },
     "heraklion-juktas": {
       "name": "Der Jouchtas",

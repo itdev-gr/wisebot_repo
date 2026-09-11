@@ -81,7 +81,8 @@
           "Sie wurde ein Museum und für Gottesdienste geschlossen"
         ],
         "explanation": "Das Feuer von 1917 verbrannte die halbe Innenstadt. Die Kirche wurde aus den Teilen wieder aufgebaut, die übrig geblieben waren."
-      }
+      },
+      "findIt": "Der Haupteingang liegt in der Agiou-Dimitriou-Straße 83."
     },
     "thessaloniki-hagia-sophia": {
       "name": "Die Hagia Sophia",
@@ -250,7 +251,8 @@
             "hint": "Ich bin weder aus Papier noch aus Leder."
           }
         }
-      }
+      },
+      "findIt": "Der Eingang liegt in der Manoli-Andronikou-Straße 6, neben dem Messegelände."
     },
     "thessaloniki-byzantine-museum": {
       "name": "Das Museum für Byzantinische Kultur",
@@ -379,7 +381,8 @@
             "hint": "Ich kann aus Gold, aus Silber oder aus Kupfer sein."
           }
         }
-      }
+      },
+      "findIt": "Der Eingang liegt an der Stratou-Allee 2, ein paar Minuten zu Fuß vom Archäologischen Museum."
     },
     "thessaloniki-cinema-museum": {
       "name": "Das Filmmuseum",
@@ -519,7 +522,8 @@
           "Weil die Objekte jeden Abend geputzt werden"
         ],
         "explanation": "In einem archäologischen Museum ist das Objekt einmalig. Hier ist das Objekt ein Werkzeug, und Werkzeuge brauchen Hände."
-      }
+      },
+      "findIt": "Es liegt nicht in der Stadt: Es steht am 6. Kilometer der Straße nach Thermi."
     },
     "thessaloniki-ote-tower": {
       "name": "Der OTE-Turm",

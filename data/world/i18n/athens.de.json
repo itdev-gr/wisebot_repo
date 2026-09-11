@@ -798,7 +798,8 @@
           "Er besteht aus Marmor vom Berg Pentelikon"
         ],
         "explanation": "Der Hügel wurde über die Gebäude gehoben, damit der Park über sie hinweg weitergeht, statt aufzuhören."
-      }
+      },
+      "findIt": "Der Eingang liegt an der Andrea-Syngrou-Allee 364, kurz bevor die Straße das Meer erreicht."
     },
     "athens-planetarium": {
       "name": "Das Eugenides-Planetarium",
@@ -818,7 +819,8 @@
           "Es zeigt nur Dokumentarfilme über Tiere"
         ],
         "explanation": "Hinter dem Bild stehen Berechnungen. Deshalb kann es dir auch den Himmel von 1821 oder den von 3000 zeigen."
-      }
+      },
+      "findIt": "Der Eingang liegt an der Andrea-Syngrou-Allee 387, gegenüber dem Kulturzentrum."
     }
   },
   "trails": {
