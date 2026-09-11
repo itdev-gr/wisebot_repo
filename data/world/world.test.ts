@@ -214,6 +214,18 @@ describe('world content', async () => {
             `${place.id}: the stored point must come from Wikidata, which is CC0`,
           ).toBe(true);
           expect(loc.verifiedAt, place.id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+
+          // An entrance has to have been measured, not wished for. Wikidata's P625 is
+          // the centre of a building or a plot: the Panathenaic Stadium's centre sits
+          // 127 m from its gate, and three sources agreeing on that centre graded it A
+          // while sending a visitor to the wrong side of the fence. So 'entrance' is
+          // only honest when a person looked the door up and recorded where from.
+          if (loc.anchor === 'entrance') {
+            expect(
+              loc.sources.some((s) => s.kind === 'official' || s.kind === 'manual'),
+              `${place.id} claims an entrance with no door measured — it is a centroid`,
+            ).toBe(true);
+          }
           if (loc.map) {
             expect(loc.map.x, place.id).toBeGreaterThanOrEqual(0);
             expect(loc.map.x, place.id).toBeLessThanOrEqual(1);

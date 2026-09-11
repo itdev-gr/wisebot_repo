@@ -167,21 +167,69 @@ function grade(checks, anchor) {
 // ------------------------------------------------------------------ resolving
 
 async function resolvePlace(seed) {
+  /**
+   * `anchor` describes what the stored point IS, and until now it described what the
+   * seed hoped it was. Twenty-seven of the first forty places declared `'entrance'`
+   * while carrying a Wikidata P625, which is the centre of a building or a plot: the
+   * Panathenaic Stadium's pin sits 127 m from its gate. Three sources agreed perfectly
+   * and graded it A, because all three were describing the same wrong thing.
+   *
+   * So an entrance now has to be measured. A seed claims one only by carrying a
+   * `door` of its own — a coordinate a person looked up from the venue's official
+   * page or read off a map and wrote down, with a `source` naming where it came from.
+   * Anything else is a centroid and is labelled a centroid, whatever the seed wished.
+   *
+   * The door deliberately cannot come from OpenStreetMap. OSM is ODbL: using its
+   * entrance nodes to detect the problem is fine, and that is exactly what
+   * docs/world/research/entrances.json does, but writing its coordinates into our own
+   * files would make our database a derivative one and pull share-alike along with it.
+   */
+  const door = seed.door && Number.isFinite(seed.door.lat) && Number.isFinite(seed.door.lng)
+    ? seed.door
+    : null;
+
+  const claimed = seed.anchor ?? 'centroid';
+  const anchor = claimed === 'entrance' && !door ? 'centroid' : claimed;
+
   const out = {
     id: seed.id,
     name: seed.name,
-    anchor: seed.anchor ?? 'entrance',
+    anchor,
     sources: [],
     warnings: [],
   };
 
-  const wd = await fromWikidata(seed.wikidata);
-  out.lat = round5(wd.lat);
-  out.lng = round5(wd.lng);
-  out.labels = wd.labels;
-  out.sources.push({ kind: 'wikidata', ref: seed.wikidata, deltaM: 0 });
+  if (claimed === 'entrance' && !door) {
+    out.warnings.push(
+      'seed claims an entrance but carries no measured door — stored as a centroid',
+    );
+  }
 
-  const point = { lat: wd.lat, lng: wd.lng };
+  const wd = await fromWikidata(seed.wikidata);
+
+  if (door) {
+    // The door is the point a visitor walks to, so it is the point we store. The
+    // Wikidata centre stays in the sources as the thing it was checked against.
+    out.lat = round5(door.lat);
+    out.lng = round5(door.lng);
+    out.sources.push({
+      kind: door.source?.startsWith('http') ? 'official' : 'manual',
+      ref: door.source ?? 'hand-placed door',
+      deltaM: 0,
+    });
+    out.sources.push({
+      kind: 'wikidata',
+      ref: seed.wikidata,
+      deltaM: Math.round(distanceM(door, { lat: wd.lat, lng: wd.lng })),
+    });
+  } else {
+    out.lat = round5(wd.lat);
+    out.lng = round5(wd.lng);
+    out.sources.push({ kind: 'wikidata', ref: seed.wikidata, deltaM: 0 });
+  }
+  out.labels = wd.labels;
+
+  const point = { lat: out.lat, lng: out.lng };
   const checks = [];
 
   for (const [kind, fn] of [['osm', fromOsm], ['wikipedia', fromWikipedia]]) {
@@ -205,11 +253,6 @@ async function resolvePlace(seed) {
   out.confidence = grade(checks, out.anchor);
   out.verifiedAt = new Date().toISOString().slice(0, 10);
 
-  // The failure the owner actually reported: a landmark pinned at the centre of the
-  // thing that contains it. Wikidata does this for markets and for church complexes.
-  if (seed.expectAnchor === 'entrance' && out.anchor !== 'entrance') {
-    out.warnings.push('anchor is not the entrance — check the door, not the building');
-  }
   return out;
 }
 

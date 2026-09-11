@@ -41,7 +41,7 @@
     {
       "id": "heraklion-archaeological-museum",
       "name": "Heraklion Archaeological Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -55,7 +55,8 @@
         }
       ],
       "warnings": [
-        "osm: overpass 504"
+        "osm: overpass 504",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 35.33917,
       "lng": 25.1375,
@@ -73,7 +74,7 @@
     {
       "id": "heraklion-koules",
       "name": "Koules Fortress (Rocca a Mare)",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -87,7 +88,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 35.34457,
       "lng": 25.13688,
@@ -134,7 +136,7 @@
     {
       "id": "heraklion-loggia",
       "name": "Venetian Loggia",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -144,7 +146,8 @@
       ],
       "warnings": [
         "osm: overpass 429",
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 35.33978,
       "lng": 25.13396,
@@ -159,7 +162,7 @@
     {
       "id": "heraklion-historical-museum",
       "name": "Historical Museum of Crete",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -173,7 +176,8 @@
         }
       ],
       "warnings": [
-        "osm: overpass 429"
+        "osm: overpass 429",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 35.34181,
       "lng": 25.13117,
@@ -191,7 +195,7 @@
     {
       "id": "heraklion-natural-history-museum",
       "name": "Natural History Museum of Crete",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -209,7 +213,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 35.3419,
       "lng": 25.1266,
       "labels": {
@@ -224,7 +230,7 @@
     {
       "id": "heraklion-cretaquarium",
       "name": "Cretaquarium",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -238,7 +244,8 @@
         }
       ],
       "warnings": [
-        "osm: overpass 504"
+        "osm: overpass 504",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 35.33269,
       "lng": 25.28247,
@@ -256,7 +263,7 @@
     {
       "id": "heraklion-pankritio-stadium",
       "name": "Pankritio Stadium",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -275,7 +282,8 @@
         }
       ],
       "warnings": [
-        "osm is 179 m away — outlier, check by eye"
+        "osm is 179 m away — outlier, check by eye",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 35.33667,
       "lng": 25.10611,
@@ -293,7 +301,7 @@
     {
       "id": "heraklion-kazantzakis-museum",
       "name": "Nikos Kazantzakis Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -311,7 +319,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 35.23485,
       "lng": 25.20938,
       "labels": {

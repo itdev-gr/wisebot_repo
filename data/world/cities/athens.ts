@@ -659,7 +659,7 @@ export const places: Place[] = [
     location: {
       lat: 37.96833,
       lng: 23.74111,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q208811', deltaM: 0 },
@@ -756,7 +756,7 @@ export const places: Place[] = [
     location: {
       lat: 37.96842,
       lng: 23.72847,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q421084', deltaM: 0 },
@@ -1354,7 +1354,7 @@ export const places: Place[] = [
     location: {
       lat: 37.98917,
       lng: 23.73222,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q637187', deltaM: 0 },
@@ -1959,7 +1959,7 @@ export const places: Place[] = [
     location: {
       lat: 37.93025,
       lng: 23.687,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q108608183', deltaM: 0 }],
       verifiedAt: '2026-09-10',
@@ -2545,7 +2545,7 @@ export const places: Place[] = [
     location: {
       lat: 37.97528,
       lng: 23.73694,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q7084890', deltaM: 0 },
@@ -2643,7 +2643,7 @@ export const places: Place[] = [
     location: {
       lat: 37.97506,
       lng: 23.72999,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q2790568', deltaM: 0 },
@@ -2825,7 +2825,7 @@ export const places: Place[] = [
     location: {
       lat: 37.98041,
       lng: 23.7276,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q755345', deltaM: 0 },
@@ -2923,7 +2923,7 @@ export const places: Place[] = [
     location: {
       lat: 37.9397,
       lng: 23.6917,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q17511186', deltaM: 0 },
@@ -3008,7 +3008,7 @@ export const places: Place[] = [
     location: {
       lat: 37.93983,
       lng: 23.69635,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'C',
       sources: [
         { kind: 'wikidata', ref: 'Q12877355', deltaM: 0 },

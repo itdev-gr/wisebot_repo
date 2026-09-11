@@ -9,7 +9,7 @@
     {
       "id": "thessaloniki-white-tower",
       "name": "White Tower",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -27,7 +27,9 @@
           "deltaM": 3
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.62639,
       "lng": 22.94833,
       "labels": {
@@ -44,7 +46,7 @@
     {
       "id": "thessaloniki-rotunda",
       "name": "Rotunda",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -58,7 +60,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 40.6333,
       "lng": 22.95285,
@@ -108,7 +111,7 @@
     {
       "id": "thessaloniki-agios-dimitrios",
       "name": "Church of Agios Dimitrios",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -126,7 +129,9 @@
           "deltaM": 10
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.63882,
       "lng": 22.94786,
       "labels": {
@@ -143,7 +148,7 @@
     {
       "id": "thessaloniki-hagia-sophia",
       "name": "Hagia Sophia",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -161,7 +166,9 @@
           "deltaM": 15
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.63284,
       "lng": 22.94709,
       "labels": {
@@ -212,7 +219,7 @@
     {
       "id": "thessaloniki-archaeological-museum",
       "name": "Archaeological Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -230,7 +237,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.625,
       "lng": 22.95389,
       "labels": {
@@ -247,7 +256,7 @@
     {
       "id": "thessaloniki-byzantine-museum",
       "name": "Museum of Byzantine Culture",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -265,7 +274,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.6239,
       "lng": 22.955,
       "labels": {
@@ -282,7 +293,7 @@
     {
       "id": "thessaloniki-cinema-museum",
       "name": "Cinema Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -300,7 +311,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.6329,
       "lng": 22.9355,
       "labels": {
@@ -351,7 +364,7 @@
     {
       "id": "thessaloniki-heptapyrgion",
       "name": "Heptapyrgion",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -369,7 +382,9 @@
           "deltaM": 19
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.64417,
       "lng": 22.96194,
       "labels": {
@@ -385,7 +400,7 @@
     {
       "id": "thessaloniki-vlatades",
       "name": "Vlatades Monastery",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -403,7 +418,9 @@
           "deltaM": 4
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.64183,
       "lng": 22.95447,
       "labels": {
@@ -452,7 +469,7 @@
     {
       "id": "thessaloniki-modiano",
       "name": "Modiano Market",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -470,7 +487,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.6349,
       "lng": 22.9418,
       "labels": {
@@ -485,7 +504,7 @@
     {
       "id": "thessaloniki-noesis",
       "name": "Science Center and Technology Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -503,7 +522,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.5625,
       "lng": 22.99528,
       "labels": {
@@ -520,7 +541,7 @@
     {
       "id": "thessaloniki-ote-tower",
       "name": "OTE Tower",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -538,7 +559,9 @@
           "deltaM": 12
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 40.62621,
       "lng": 22.95449,
       "labels": {
@@ -554,7 +577,7 @@
     {
       "id": "thessaloniki-toumba-stadium",
       "name": "Toumba Stadium",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -568,7 +591,8 @@
         }
       ],
       "warnings": [
-        "osm: overpass 429"
+        "osm: overpass 429",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 40.61384,
       "lng": 22.97242,

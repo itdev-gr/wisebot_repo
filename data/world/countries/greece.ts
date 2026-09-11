@@ -173,4 +173,53 @@ export const cities: City[] = [
       bounds: { north: 40.665, south: 40.545, east: 23.02, west: 22.9 },
     },
   },
+
+  {
+    id: 'heraklion',
+    countryId: 'greece',
+    order: 3,
+    emoji: '🐂',
+
+    name: {
+      el: 'Ηράκλειο',
+      en: 'Heraklion',
+    },
+
+    intro: {
+      el:
+        'Το Ηράκλειο είναι η πόλη που φυλάει την αρχαιότερη Ευρώπη. Πέντε χιλιόμετρα ' +
+        'έξω από αυτό στέκεται η Κνωσός, ένα ανάκτορο με σωληνώσεις και φωταγωγούς ' +
+        'τεσσάρων χιλιάδων ετών, και μέσα στην πόλη φυλάγεται ό,τι βγήκε από εκεί. Στο ' +
+        'λιμάνι ένα βενετσιάνικο φρούριο στέκεται μέσα στο νερό, και στην πλατεία τα ' +
+        'λιοντάρια μιας βρύσης βγάζουν ακόμα νερό που κατέβαινε κάποτε από ένα βουνό ' +
+        'δεκαπέντε χιλιόμετρα μακριά. Γύρω από όλα αυτά, μια σύγχρονη πόλη που δεν ' +
+        'σταματά.',
+      en:
+        'Heraklion is the city that looks after the oldest Europe there is. Five ' +
+        'kilometres outside it stands Knossos, a palace with plumbing and light wells four ' +
+        'thousand years old, and inside the city everything that came out of it is kept. At ' +
+        'the harbour a Venetian fortress stands in the water, and in the square the lions ' +
+        'of a fountain still pour water that once came down from a mountain fifteen ' +
+        'kilometres away. Around all of it, a modern city that does not slow down.',
+    },
+
+    /** Copied from `scripts/world/seeds/heraklion.json`. */
+    centre: { lat: 35.34028, lng: 25.13444 },
+
+    map: {
+      src: '/images/world/maps/heraklion.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του Ηρακλείου και της γύρω περιοχής, με τη βόρεια ακτή και τον Γιούχτα.',
+        en: 'A stylised map of Heraklion and its surroundings, with the north coast and Mount Juktas.',
+      },
+      width: 1000,
+      height: 817,
+      /**
+       * Deliberately regional rather than urban. Knossos, Amnisos, Juktas, the aquarium
+       * at Gournes and the Kazantzakis house at Myrtia all sit outside the town, which
+       * is how a family actually spends a week here.
+       */
+      bounds: { north: 35.36, south: 35.22, east: 25.3, west: 25.09 },
+    },
+  },
 ];

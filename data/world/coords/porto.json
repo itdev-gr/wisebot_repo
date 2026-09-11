@@ -9,7 +9,7 @@
     {
       "id": "porto-igreja-do-carmo",
       "name": "Igreja do Carmo",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -23,7 +23,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 41.14749,
       "lng": -8.61627,
@@ -38,7 +39,7 @@
     {
       "id": "porto-igreja-dos-carmelitas",
       "name": "Igreja dos Carmelitas",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -52,7 +53,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 41.14747,
       "lng": -8.61645,
@@ -67,7 +69,7 @@
     {
       "id": "porto-mercado-do-bolhao",
       "name": "Bolhão Market",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -81,7 +83,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 41.14917,
       "lng": -8.60694,
@@ -97,7 +100,7 @@
     {
       "id": "porto-clerigos",
       "name": "Clérigos Church and Tower",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -115,7 +118,9 @@
           "deltaM": 53
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 41.14587,
       "lng": -8.61401,
       "labels": {
@@ -131,7 +136,7 @@
     {
       "id": "porto-sao-bento",
       "name": "São Bento station",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -149,7 +154,9 @@
           "deltaM": 17
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 41.14542,
       "lng": -8.6104,
       "labels": {

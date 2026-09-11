@@ -46,6 +46,40 @@ const NARRATED = new Set<string>([
   'athens-tower-of-the-winds-en',
   'athens-varvakios-el',
   'athens-varvakios-en',
+  'thessaloniki-agios-dimitrios-el',
+  'thessaloniki-agios-dimitrios-en',
+  'thessaloniki-arch-of-galerius-el',
+  'thessaloniki-arch-of-galerius-en',
+  'thessaloniki-archaeological-museum-el',
+  'thessaloniki-archaeological-museum-en',
+  'thessaloniki-aristotelous-el',
+  'thessaloniki-aristotelous-en',
+  'thessaloniki-byzantine-museum-el',
+  'thessaloniki-byzantine-museum-en',
+  'thessaloniki-cinema-museum-el',
+  'thessaloniki-cinema-museum-en',
+  'thessaloniki-hagia-sophia-el',
+  'thessaloniki-hagia-sophia-en',
+  'thessaloniki-heptapyrgion-el',
+  'thessaloniki-heptapyrgion-en',
+  'thessaloniki-modiano-el',
+  'thessaloniki-modiano-en',
+  'thessaloniki-noesis-el',
+  'thessaloniki-noesis-en',
+  'thessaloniki-ote-tower-el',
+  'thessaloniki-ote-tower-en',
+  'thessaloniki-roman-agora-el',
+  'thessaloniki-roman-agora-en',
+  'thessaloniki-rotunda-el',
+  'thessaloniki-rotunda-en',
+  'thessaloniki-toumba-stadium-el',
+  'thessaloniki-toumba-stadium-en',
+  'thessaloniki-vlatades-el',
+  'thessaloniki-vlatades-en',
+  'thessaloniki-walls-el',
+  'thessaloniki-walls-en',
+  'thessaloniki-white-tower-el',
+  'thessaloniki-white-tower-en',
 ]);
 
 /** Is there narration for this place or exhibit in this language? */
@@ -63,4 +97,4 @@ export function narrationTimings(id: string, lang: string): string {
   return `/audio/world/${id}-${lang}.json`;
 }
 
-export const NARRATION_COUNT = 36;
+export const NARRATION_COUNT = 70;

@@ -195,7 +195,7 @@ export const places: Place[] = [
     location: {
       lat: 37.9004,
       lng: 23.7008,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'A',
       sources: [{ kind: 'wikidata', ref: 'Q0', deltaM: 0 }],
       verifiedAt: '2026-09-11',

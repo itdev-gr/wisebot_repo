@@ -45,6 +45,7 @@ import type {
 import type { UiText } from './worldUi';
 import { WORLD_STYLE, say, shuffleAnswers, ui } from './worldUi';
 import RiddleGame from './RiddleGame';
+import StoryNarration from './StoryNarration';
 
 // ------------------------------------------------------------------- chrome
 // Buttons, headings and empty states. Whole sentences, written twice: Greek and
@@ -202,7 +203,16 @@ const ExhibitCard: React.FC<ExhibitCardProps> = ({ lang, exhibit, collected, pic
       <ExhibitImage lang={lang} exhibit={exhibit} creditLabel={ui(T.credit, lang)} />
 
       {exhibit.blurb && (
-        <p className={`${WORLD_STYLE.body} text-sm mt-3`}>{say(exhibit.blurb, lang)}</p>
+        // Read aloud in the app's one voice where narration exists for this exhibit,
+        // plain text where it does not. An exhibit is often the first thing a child
+        // meets that is written above their reading age, so the voice matters more
+        // here than on the place card.
+        <StoryNarration
+          id={exhibit.id}
+          lang={lang}
+          text={say(exhibit.blurb, lang)}
+          className="text-sm mt-3"
+        />
       )}
 
       {question && options.length > 0 && (

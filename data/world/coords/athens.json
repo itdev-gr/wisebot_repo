@@ -216,7 +216,7 @@
     {
       "id": "athens-panathenaic-stadium",
       "name": "Panathenaic Stadium",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -234,7 +234,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 37.96833,
       "lng": 23.74111,
       "labels": {
@@ -251,7 +253,7 @@
     {
       "id": "athens-acropolis-museum",
       "name": "Acropolis Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -269,7 +271,9 @@
           "deltaM": 78
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 37.96842,
       "lng": 23.72847,
       "labels": {
@@ -286,7 +290,7 @@
     {
       "id": "athens-national-archaeological-museum",
       "name": "National Archaeological Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -304,7 +308,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 37.98917,
       "lng": 23.73222,
       "labels": {
@@ -321,7 +327,7 @@
     {
       "id": "athens-benaki-toy-museum",
       "name": "Benaki Toy Museum",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -331,7 +337,8 @@
       ],
       "warnings": [
         "osm: no match",
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 37.93025,
       "lng": 23.687,
@@ -408,7 +415,7 @@
     {
       "id": "athens-old-royal-palace",
       "name": "Old Royal Palace (Parliament)",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -426,7 +433,9 @@
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 37.97528,
       "lng": 23.73694,
       "labels": {
@@ -443,7 +452,7 @@
     {
       "id": "athens-agios-eleftherios",
       "name": "Agios Eleftherios (Little Metropolis)",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -461,7 +470,9 @@
           "deltaM": 6
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
       "lat": 37.97506,
       "lng": 23.72999,
       "labels": {
@@ -513,7 +524,7 @@
     {
       "id": "athens-varvakios",
       "name": "Varvakeios Market",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -527,7 +538,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 37.98041,
       "lng": 23.7276,
@@ -543,7 +555,7 @@
     {
       "id": "athens-snfcc",
       "name": "Stavros Niarchos Foundation Cultural Center",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -562,7 +574,8 @@
         }
       ],
       "warnings": [
-        "osm is 186 m away — outlier, check by eye"
+        "osm is 186 m away — outlier, check by eye",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 37.9397,
       "lng": 23.6917,
@@ -580,7 +593,7 @@
     {
       "id": "athens-planetarium",
       "name": "Eugenides Planetarium",
-      "anchor": "entrance",
+      "anchor": "centroid",
       "sources": [
         {
           "kind": "wikidata",
@@ -594,7 +607,8 @@
         }
       ],
       "warnings": [
-        "wikipedia: no match"
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
       ],
       "lat": 37.93983,
       "lng": 23.69635,

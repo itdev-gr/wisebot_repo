@@ -103,9 +103,19 @@ export interface PlaceLocation {
   lng: number;
 
   /**
-   * What the point represents, and how far the cross-checks are allowed to sit from
-   * it. `entrance` is preferred for anything a person walks into: a building's centre
-   * can be a hundred metres from its door, inside a wall.
+   * What the point actually IS — not what we wish it were, and not what the seed hoped.
+   *
+   * `entrance` may only be claimed when somebody measured the door and recorded where
+   * they got it from, which means a `source` of kind `'official'` or `'manual'`. The
+   * test file enforces that, because the first forty places in this module declared
+   * twenty-seven entrances and had measured exactly zero doors: every one of them was
+   * a Wikidata P625, the centre of a building or a plot. The Panathenaic Stadium's
+   * centre is 127 m from its gate, and three sources agreed on it perfectly, so it
+   * graded A while sending a visitor to the wrong side of the fence.
+   *
+   * A door cannot be taken from OpenStreetMap. OSM is ODbL, and copying its entrance
+   * nodes into these files would make this a derivative database and pull share-alike
+   * along with it. OSM is how we DETECT a wrong pin; it is not how we fix one.
    */
   anchor: 'entrance' | 'centroid' | 'viewpoint' | 'area';
 
@@ -130,7 +140,12 @@ export interface PlaceLocation {
 }
 
 export interface LocationSource {
-  kind: 'wikidata' | 'osm' | 'wikipedia' | 'official';
+  /**
+   * `official` is the venue's own page; `manual` is a person who looked and wrote it
+   * down. Those two are the only kinds that can justify an `entrance` anchor, because
+   * they are the only two that describe a door rather than a building.
+   */
+  kind: 'wikidata' | 'osm' | 'wikipedia' | 'official' | 'manual';
   /** Q-number, OSM type/id, article title, or a URL. */
   ref: string;
   /** Metres from the stored point. Zero for the source the point came from. */
