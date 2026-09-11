@@ -34,60 +34,185 @@ import { PassportStamp } from './PassportStamp';
 
 // --------------------------------------------------------------------- chrome
 //
-// Whole sentences, written twice. Greek and English disagree about word order, so
+// Whole sentences, written once per language. The six disagree about word order, so
 // nothing here is assembled from fragments at render time — where a number belongs
-// inside a phrase, the phrase is a function and both languages spell it out in full,
-// singular included.
+// inside a phrase, the phrase is a function and every language spells it out in full,
+// singular included. Which word the count inflects differs too: English and Greek
+// inflect `cityProgress` on the total, French on how many are already done.
+//
+// Capitalisation follows the existing el/en of each entry. Most of these render under
+// a CSS `uppercase`, so the ones written in sentence case stay in sentence case and
+// let the style do the shouting; the ones already written in capitals are matched.
 
 const T = {
+  // A proper name, not a string to translate: Greek does not render it 'WISEBOT ΚΟΣΜΟΣ'
+  // and none of the other four should either. `ui()` falls back to `en` for all of them.
   brand: { el: 'WISEBOT WORLD', en: 'WISEBOT WORLD' },
 
-  passportTitle: { el: 'ΤΟ ΔΙΑΒΑΤΗΡΙΟ ΣΟΥ', en: 'YOUR PASSPORT' },
+  passportTitle: {
+    el: 'ΤΟ ΔΙΑΒΑΤΗΡΙΟ ΣΟΥ',
+    en: 'YOUR PASSPORT',
+    de: 'DEIN REISEPASS',
+    fr: 'TON PASSEPORT',
+    es: 'TU PASAPORTE',
+    it: 'IL TUO PASSAPORTO',
+  },
   passportPromise: {
     el: 'Κάθε μέρος που επισκέπτεσαι αφήνει μια σφραγίδα εδώ μέσα. Διάλεξε χώρα και ξεκίνα το ταξίδι.',
     en: 'Every place you visit leaves a stamp inside it. Pick a country and start travelling.',
+    de: 'Jeder Ort, den du besuchst, hinterlässt hier einen Stempel. Wähle ein Land und los geht die Reise.',
+    fr: 'Chaque endroit que tu visites laisse un tampon à l’intérieur. Choisis un pays et pars en voyage.',
+    es: 'Cada lugar que visitas deja un sello dentro. Elige un país y empieza el viaje.',
+    it: 'Ogni posto che visiti lascia un timbro qui dentro. Scegli un Paese e parti per il viaggio.',
   },
   stampWord: {
     el: (n: number): string => (n === 1 ? 'ΣΦΡΑΓΙΔΑ' : 'ΣΦΡΑΓΙΔΕΣ'),
     en: (n: number): string => (n === 1 ? 'STAMP' : 'STAMPS'),
+    /** Stempel is its own plural, so the count never changes the word. */
+    de: (): string => 'STEMPEL',
+    fr: (n: number): string => (n === 1 ? 'TAMPON' : 'TAMPONS'),
+    es: (n: number): string => (n === 1 ? 'SELLO' : 'SELLOS'),
+    it: (n: number): string => (n === 1 ? 'TIMBRO' : 'TIMBRI'),
   },
-  openPassport: { el: 'ΑΝΟΙΞΕ ΤΟ ΔΙΑΒΑΤΗΡΙΟ', en: 'OPEN THE PASSPORT' },
+  openPassport: {
+    el: 'ΑΝΟΙΞΕ ΤΟ ΔΙΑΒΑΤΗΡΙΟ',
+    en: 'OPEN THE PASSPORT',
+    de: 'ÖFFNE DEN REISEPASS',
+    fr: 'OUVRE LE PASSEPORT',
+    es: 'ABRE EL PASAPORTE',
+    it: 'APRI IL PASSAPORTO',
+  },
 
-  countriesHeading: { el: 'ΟΙ ΧΩΡΕΣ', en: 'THE COUNTRIES' },
-  citiesHeading: { el: 'ΟΙ ΠΟΛΕΙΣ', en: 'THE CITIES' },
-  factsHeading: { el: 'ΚΑΛΟ ΝΑ ΞΕΡΕΙΣ', en: 'GOOD TO KNOW' },
+  countriesHeading: {
+    el: 'ΟΙ ΧΩΡΕΣ',
+    en: 'THE COUNTRIES',
+    de: 'DIE LÄNDER',
+    fr: 'LES PAYS',
+    es: 'LOS PAÍSES',
+    it: 'I PAESI',
+  },
+  citiesHeading: {
+    el: 'ΟΙ ΠΟΛΕΙΣ',
+    en: 'THE CITIES',
+    de: 'DIE STÄDTE',
+    fr: 'LES VILLES',
+    es: 'LAS CIUDADES',
+    it: 'LE CITTÀ',
+  },
+  factsHeading: {
+    el: 'ΚΑΛΟ ΝΑ ΞΕΡΕΙΣ',
+    en: 'GOOD TO KNOW',
+    de: 'GUT ZU WISSEN',
+    fr: 'BON À SAVOIR',
+    es: 'BUENO SABERLO',
+    it: 'BUONO A SAPERSI',
+  },
 
   cityCount: {
     el: (n: number): string => (n === 1 ? '1 ΠΟΛΗ' : `${n} ΠΟΛΕΙΣ`),
     en: (n: number): string => (n === 1 ? '1 CITY' : `${n} CITIES`),
+    de: (n: number): string => (n === 1 ? '1 STADT' : `${n} STÄDTE`),
+    /** French keeps the noun singular after zero as well as after one: « 0 ville ». */
+    fr: (n: number): string => (n <= 1 ? `${n} VILLE` : `${n} VILLES`),
+    es: (n: number): string => (n === 1 ? '1 CIUDAD' : `${n} CIUDADES`),
+    /** città is invariable. */
+    it: (n: number): string => `${n} CITTÀ`,
   },
   placeCount: {
     el: (n: number): string => (n === 1 ? '1 ΜΕΡΟΣ' : `${n} ΜΕΡΗ`),
     en: (n: number): string => (n === 1 ? '1 PLACE' : `${n} PLACES`),
+    de: (n: number): string => (n === 1 ? '1 ORT' : `${n} ORTE`),
+    fr: (n: number): string => (n <= 1 ? `${n} ENDROIT` : `${n} ENDROITS`),
+    es: (n: number): string => (n === 1 ? '1 LUGAR' : `${n} LUGARES`),
+    it: (n: number): string => (n === 1 ? '1 POSTO' : `${n} POSTI`),
   },
 
-  visited: { el: 'ΗΣΟΥΝ ΕΔΩ', en: 'BEEN HERE' },
-  completed: { el: 'ΟΛΟΚΛΗΡΩΘΗΚΕ', en: 'ALL DONE' },
-  soon: { el: 'ΕΡΧΕΤΑΙ ΣΥΝΤΟΜΑ', en: 'COMING SOON' },
+  // Only ever drawn on a country card, so the French and Italian participles may agree
+  // with « pays » / «Paese» and stay masculine.
+  visited: {
+    el: 'ΗΣΟΥΝ ΕΔΩ',
+    en: 'BEEN HERE',
+    de: 'DU WARST HIER',
+    fr: 'DÉJÀ VISITÉ',
+    es: 'ESTUVISTE AQUÍ',
+    it: 'GIÀ VISITATO',
+  },
+  // This one is drawn on both a country card and a city card, so nothing here may carry
+  // gender: a participle agreeing with « pays » would be wrong on « ville ».
+  completed: {
+    el: 'ΟΛΟΚΛΗΡΩΘΗΚΕ',
+    en: 'ALL DONE',
+    de: 'GESCHAFFT',
+    fr: 'TOUT FINI',
+    es: 'TODO HECHO',
+    it: 'TUTTO FATTO',
+  },
+  soon: {
+    el: 'ΕΡΧΕΤΑΙ ΣΥΝΤΟΜΑ',
+    en: 'COMING SOON',
+    de: 'KOMMT BALD',
+    fr: 'ARRIVE BIENTÔT',
+    es: 'MUY PRONTO',
+    it: 'ARRIVA PRESTO',
+  },
 
   cityProgress: {
     el: (done: number, total: number): string =>
       total === 1 ? `${done} από 1 σφραγίδα` : `${done} από ${total} σφραγίδες`,
     en: (done: number, total: number): string =>
       total === 1 ? `${done} of 1 stamp` : `${done} of ${total} stamps`,
+    /** German counts in the dative: von 1 Stempel, von 5 Stempeln. */
+    de: (done: number, total: number): string =>
+      total === 1 ? `${done} von 1 Stempel` : `${done} von ${total} Stempeln`,
+    /** French puts the noun beside `done`, not `total`: 1 tampon sur 5, 3 tampons sur 5. */
+    fr: (done: number, total: number): string =>
+      done <= 1 ? `${done} tampon sur ${total}` : `${done} tampons sur ${total}`,
+    es: (done: number, total: number): string =>
+      total === 1 ? `${done} de 1 sello` : `${done} de ${total} sellos`,
+    it: (done: number, total: number): string =>
+      total === 1 ? `${done} di 1 timbro` : `${done} di ${total} timbri`,
   },
 
-  back: { el: 'ΠΙΣΩ ΣΤΙΣ ΧΩΡΕΣ', en: 'BACK TO COUNTRIES' },
+  back: {
+    el: 'ΠΙΣΩ ΣΤΙΣ ΧΩΡΕΣ',
+    en: 'BACK TO COUNTRIES',
+    de: 'ZURÜCK ZU DEN LÄNDERN',
+    fr: 'RETOUR AUX PAYS',
+    es: 'VOLVER A LOS PAÍSES',
+    it: 'TORNA AI PAESI',
+  },
 
-  emptyCountriesTitle: { el: 'Ο κόσμος ετοιμάζεται', en: 'The world is being made' },
+  emptyCountriesTitle: {
+    el: 'Ο κόσμος ετοιμάζεται',
+    en: 'The world is being made',
+    de: 'Die Welt entsteht gerade',
+    fr: 'Le monde se construit',
+    es: 'El mundo se está creando',
+    it: 'Il mondo si sta creando',
+  },
   emptyCountriesText: {
     el: 'Οι πρώτες χώρες γράφονται αυτή τη στιγμή, μία πόλη τη φορά. Πέρνα ξανά σε λίγες μέρες και θα σε περιμένει η πρώτη σου σφραγίδα.',
     en: 'The first countries are being written right now, one city at a time. Come back in a few days and your first stamp will be waiting for you.',
+    de: 'Die ersten Länder werden gerade geschrieben, eine Stadt nach der anderen. Komm in ein paar Tagen wieder, dann wartet hier dein erster Stempel auf dich.',
+    fr: 'Les premiers pays s’écrivent en ce moment, une ville après l’autre. Reviens dans quelques jours et ton premier tampon t’attendra.',
+    es: 'Los primeros países se están escribiendo ahora mismo, una ciudad cada vez. Vuelve dentro de unos días y tu primer sello te estará esperando.',
+    it: 'I primi Paesi si stanno scrivendo proprio ora, una città alla volta. Torna tra qualche giorno e il tuo primo timbro ti starà aspettando.',
   },
-  emptyCitiesTitle: { el: 'Καμία πόλη ακόμα', en: 'No cities yet' },
+  emptyCitiesTitle: {
+    el: 'Καμία πόλη ακόμα',
+    en: 'No cities yet',
+    de: 'Noch keine Städte',
+    fr: 'Pas encore de villes',
+    es: 'Todavía no hay ciudades',
+    it: 'Ancora nessuna città',
+  },
   emptyCitiesText: {
     el: 'Αυτή η χώρα δεν έχει ανοίξει ακόμα τις πόλεις της. Η σφραγίδα της εισόδου είναι ήδη δική σου — γύρνα πίσω και διάλεξε αλλού για σήμερα.',
     en: 'This country has not opened its cities yet. The entry stamp is already yours — go back and pick somewhere else for today.',
+    de: 'Dieses Land hat seine Städte noch nicht geöffnet. Der Stempel für die Einreise gehört dir schon — geh zurück und such dir für heute ein anderes Land aus.',
+    fr: 'Ce pays n’a pas encore ouvert ses villes. Le tampon d’entrée est déjà à toi — reviens en arrière et choisis un autre endroit pour aujourd’hui.',
+    es: 'Este país aún no ha abierto sus ciudades. El sello de entrada ya es tuyo — vuelve atrás y elige otro sitio por hoy.',
+    it: 'Questo Paese non ha ancora aperto le sue città. Il timbro d’ingresso è già tuo — torna indietro e scegli un altro posto per oggi.',
   },
 } satisfies Record<string, UiText<string> | UiText<(...args: never[]) => string>>;
 

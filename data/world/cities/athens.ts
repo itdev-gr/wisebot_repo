@@ -1621,7 +1621,11 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Ούτε σέλα ούτε αναβολείς', en: 'Neither saddle nor stirrups' },
-                  { el: 'Παπούτσια στα πόδια του', en: 'Shoes on his feet' },
+                  // Was 'Shoes on his feet', which made this a two-answer question: the
+                  // jockey is barefoot, so that was also a correct reply to "what does
+                  // he NOT have". His raised right hand held a whip, so a whip is
+                  // something he HAS and is therefore a working distractor.
+                  { el: 'Μαστίγιο στο χέρι του', en: 'A whip in his hand' },
                   { el: 'Χαλινάρι στο άλογο', en: 'A bridle on the horse' },
                   { el: 'Μαλλιά στο κεφάλι του', en: 'Hair on his head' },
                 ],

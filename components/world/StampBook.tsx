@@ -23,8 +23,9 @@
  *
  * Content strings come from the data through `say()`. Chrome strings are the local `T`
  * and `S` dictionaries below, read with `ui()`; every sentence is written out whole in
- * both languages rather than assembled from fragments, because Greek and English do not
- * agree on word order.
+ * each of the six languages rather than assembled from fragments, because the six do not
+ * agree on word order — French and Italian count "3 villes tamponnées sur 5", with the
+ * noun before the number and the participle inflected after it.
  *
  * The root carries `lang={lang}` and it is load-bearing, not decoration. World picks its
  * own language out of six and remembers it under `wb_world_lang`, while `App.tsx` sets
@@ -61,50 +62,126 @@ export interface StampBookProps {
 
 /** Short, already-uppercase captions. Safe to render through `WORLD_STYLE.label`. */
 const T = {
-  back: { el: 'ΠΙΣΩ', en: 'BACK' },
-  kicker: { el: 'ΔΙΑΒΑΤΗΡΙΟ ΕΞΕΡΕΥΝΗΤΗ', en: 'EXPLORER PASSPORT' },
-  countries: { el: 'ΧΩΡΕΣ', en: 'COUNTRIES' },
-  cities: { el: 'ΠΟΛΕΙΣ', en: 'CITIES' },
-  places: { el: 'ΜΕΡΗ', en: 'PLACES' },
-  pages: { el: 'ΟΙ ΣΕΛΙΔΕΣ ΣΟΥ', en: 'YOUR PAGES' },
-  blank: { el: 'ΛΕΥΚΕΣ ΣΕΛΙΔΕΣ', en: 'BLANK PAGES' },
-  sealed: { el: 'ΣΦΡΑΓΙΣΜΕΝΗ', en: 'SEALED' },
+  back: { el: 'ΠΙΣΩ', en: 'BACK', de: 'ZURÜCK', fr: 'RETOUR', es: 'ATRÁS', it: 'INDIETRO' },
+  kicker: {
+    el: 'ΔΙΑΒΑΤΗΡΙΟ ΕΞΕΡΕΥΝΗΤΗ',
+    en: 'EXPLORER PASSPORT',
+    de: 'ENTDECKERPASS',
+    fr: 'PASSEPORT EXPLORATEUR',
+    es: 'PASAPORTE DE EXPLORADOR',
+    it: 'PASSAPORTO ESPLORATORE',
+  },
+  // The three totals sit in a three-column grid and are truncated, so these stay short
+  // enough to survive a 375px screen — a longer synonym would render as an ellipsis.
+  countries: { el: 'ΧΩΡΕΣ', en: 'COUNTRIES', de: 'LÄNDER', fr: 'PAYS', es: 'PAÍSES', it: 'PAESI' },
+  cities: { el: 'ΠΟΛΕΙΣ', en: 'CITIES', de: 'STÄDTE', fr: 'VILLES', es: 'CIUDADES', it: 'CITTÀ' },
+  places: { el: 'ΜΕΡΗ', en: 'PLACES', de: 'ORTE', fr: 'LIEUX', es: 'LUGARES', it: 'LUOGHI' },
+  pages: {
+    el: 'ΟΙ ΣΕΛΙΔΕΣ ΣΟΥ',
+    en: 'YOUR PAGES',
+    de: 'DEINE SEITEN',
+    fr: 'TES PAGES',
+    es: 'TUS PÁGINAS',
+    it: 'LE TUE PAGINE',
+  },
+  blank: {
+    el: 'ΛΕΥΚΕΣ ΣΕΛΙΔΕΣ',
+    en: 'BLANK PAGES',
+    de: 'LEERE SEITEN',
+    fr: 'PAGES BLANCHES',
+    es: 'PÁGINAS EN BLANCO',
+    it: 'PAGINE BIANCHE',
+  },
+  // The badge on a country finished end to end. Each language keeps its own ink word —
+  // Stempel, tampon, sello, timbro — so the badge and the ceremony say the same thing.
+  sealed: {
+    el: 'ΣΦΡΑΓΙΣΜΕΝΗ',
+    en: 'SEALED',
+    de: 'GESTEMPELT',
+    fr: 'TAMPONNÉ',
+    es: 'SELLADO',
+    it: 'TIMBRATO',
+  },
 };
 
 /** Whole sentences and titles. Written twice, never concatenated from pieces. */
 const S = {
-  title: { el: 'Το βιβλίο των σφραγίδων', en: 'The stamp book' },
+  title: {
+    el: 'Το βιβλίο των σφραγίδων',
+    en: 'The stamp book',
+    de: 'Das Stempelbuch',
+    fr: 'Le livre des tampons',
+    es: 'El libro de los sellos',
+    it: 'Il libro dei timbri',
+  },
   subtitle: {
     el: 'Κάθε χώρα που πάτησες άφησε το μελάνι της εδώ.',
     en: 'Every country you set foot in left its ink here.',
+    de: 'Jedes Land, in dem du warst, hat hier seine Tinte gelassen.',
+    fr: 'Chaque pays où tu as posé le pied a laissé son encre ici.',
+    es: 'Cada país que pisaste dejó aquí su tinta.',
+    it: 'Ogni Paese in cui hai messo piede ha lasciato qui il suo inchiostro.',
   },
   totals: {
     el: 'Χώρες που μπήκες, πόλεις που σφράγισες, μέρη που είδες.',
     en: 'Countries you entered, cities you sealed, places you visited.',
+    de: 'Länder, in denen du warst, Städte mit Stempel, Orte, die du gesehen hast.',
+    fr: 'Les pays où tu es entré, les villes que tu as tamponnées, les lieux que tu as vus.',
+    es: 'Los países en los que entraste, las ciudades que sellaste, los lugares que viste.',
+    it: 'I Paesi in cui sei entrato, le città che hai timbrato, i luoghi che hai visto.',
   },
   empty: {
     el: 'Το διαβατήριό σου είναι ακόμα λευκό. Άνοιξε την πρώτη σου χώρα και πάρε την πρώτη σφραγίδα.',
     en: 'Your passport is still blank. Open your first country and take your first stamp.',
+    de: 'Dein Reisepass ist noch leer. Öffne dein erstes Land und hol dir deinen ersten Stempel.',
+    fr: 'Ton passeport est encore vide. Ouvre ton premier pays et prends ton premier tampon.',
+    es: 'Tu pasaporte todavía está en blanco. Abre tu primer país y consigue tu primer sello.',
+    it: 'Il tuo passaporto è ancora vuoto. Apri il tuo primo Paese e prendi il tuo primo timbro.',
   },
   blankNote: {
     el: 'Αυτές οι σελίδες περιμένουν ακόμα τη σφραγίδα τους.',
     en: 'These pages are still waiting for their stamp.',
+    de: 'Diese Seiten warten noch auf ihren Stempel.',
+    fr: 'Ces pages attendent encore leur tampon.',
+    es: 'Estas páginas todavía esperan su sello.',
+    it: 'Queste pagine aspettano ancora il loro timbro.',
   },
   noCityYet: {
     el: 'Καμία πόλη σφραγισμένη ακόμα.',
     en: 'No city sealed yet.',
+    de: 'Noch keine Stadt gestempelt.',
+    fr: 'Pas encore de ville tamponnée.',
+    es: 'Todavía ninguna ciudad sellada.',
+    it: 'Ancora nessuna città timbrata.',
   },
   wholeCountry: {
     el: 'Ολοκλήρωσες ολόκληρη τη χώρα.',
     en: 'You completed this whole country.',
+    de: 'Du hast dieses ganze Land geschafft.',
+    fr: 'Tu as fini ce pays en entier.',
+    es: 'Has completado todo este país.',
+    it: 'Hai completato tutto questo Paese.',
   },
   page: {
     el: (n: number) => `ΣΕΛΙΔΑ ${n}`,
     en: (n: number) => `PAGE ${n}`,
+    de: (n: number) => `SEITE ${n}`,
+    fr: (n: number) => `PAGE ${n}`,
+    es: (n: number) => `PÁGINA ${n}`,
+    it: (n: number) => `PAGINA ${n}`,
   },
+  // Word order is not the English one: French and Italian put the noun before the count
+  // and then inflect the participle after it, so each language is written out whole
+  // rather than assembled — and each branch is a finished sentence, not a fragment.
   sealedCities: {
     el: (n: number, total: number) => `${n} από ${total} πόλεις σφραγισμένες`,
     en: (n: number, total: number) => `${n} of ${total} cities sealed`,
+    de: (n: number, total: number) => `${n} von ${total} Städten gestempelt`,
+    fr: (n: number, total: number) =>
+      n === 1 ? `1 ville tamponnée sur ${total}` : `${n} villes tamponnées sur ${total}`,
+    es: (n: number, total: number) => `${n} de ${total} ciudades selladas`,
+    it: (n: number, total: number) =>
+      n === 1 ? `1 città timbrata su ${total}` : `${n} città timbrate su ${total}`,
   },
   countriesSealed: {
     el: (n: number) =>
@@ -115,6 +192,20 @@ const S = {
       n === 1
         ? 'One country completed from start to finish.'
         : `${n} countries completed from start to finish.`,
+    de: (n: number) =>
+      n === 1
+        ? 'Ein Land von Anfang bis Ende geschafft.'
+        : `${n} Länder von Anfang bis Ende geschafft.`,
+    fr: (n: number) =>
+      n === 1 ? 'Un pays fini du début à la fin.' : `${n} pays finis du début à la fin.`,
+    es: (n: number) =>
+      n === 1
+        ? 'Un país completado de principio a fin.'
+        : `${n} países completados de principio a fin.`,
+    it: (n: number) =>
+      n === 1
+        ? 'Un Paese completato dall’inizio alla fine.'
+        : `${n} Paesi completati dall’inizio alla fine.`,
   },
 };
 

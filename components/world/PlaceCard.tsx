@@ -24,9 +24,8 @@
  *     bug.
  *
  * Content strings are read with `say()`. Chrome strings live in the local `T` below and
- * are read with `ui()`; each sentence is written whole in both languages, because Greek
- * and English disagree about word order and a concatenated sentence is wrong in one of
- * them.
+ * are read with `ui()`; each sentence is written whole in every language, because the
+ * six disagree about word order and a concatenated sentence is wrong in most of them.
  */
 
 import React, { useMemo, useRef, useState } from 'react';
@@ -58,55 +57,187 @@ export interface PlaceCardProps {
 // ------------------------------------------------------------------- chrome
 
 /**
- * Every dictionary carries `el` and `en`; the other four World languages fall back to
- * English, which is the right answer for a button and the wrong answer for a story.
+ * All six World languages, because this screen is the one the child reads: a German
+ * story under an English heading, with an English button under it, reads as broken
+ * rather than as unfinished.
+ *
+ * Two things to keep when editing. The uppercase headings are styled `uppercase` by
+ * `WORLD_STYLE.label`, so the capitals here are only there to match the Greek and the
+ * English that were written that way. And a sentence taking an argument is written
+ * whole, once per language — `collectedOn` puts the date in a different place, and
+ * behind a different preposition, in every one of the six.
  */
 const T = {
-  back: { el: 'Πίσω στην πόλη', en: 'Back to the city' },
-  story: { el: 'Η ΙΣΤΟΡΙΑ', en: 'THE STORY' },
-  facts: { el: 'ΚΑΛΟ ΝΑ ΞΕΡΕΙΣ', en: 'GOOD TO KNOW' },
-  photo: { el: 'ΦΩΤΟΓΡΑΦΙΑ', en: 'PHOTO' },
-  question: { el: 'Η ΕΡΩΤΗΣΗ ΤΗΣ ΣΦΡΑΓΙΔΑΣ', en: 'THE STAMP QUESTION' },
+  back: {
+    el: 'Πίσω στην πόλη',
+    en: 'Back to the city',
+    de: 'Zurück zur Stadt',
+    fr: 'Retour à la ville',
+    es: 'Volver a la ciudad',
+    it: 'Torna alla città',
+  },
+  story: {
+    el: 'Η ΙΣΤΟΡΙΑ',
+    en: 'THE STORY',
+    de: 'DIE GESCHICHTE',
+    fr: 'L’HISTOIRE',
+    es: 'LA HISTORIA',
+    it: 'LA STORIA',
+  },
+  facts: {
+    el: 'ΚΑΛΟ ΝΑ ΞΕΡΕΙΣ',
+    en: 'GOOD TO KNOW',
+    de: 'GUT ZU WISSEN',
+    fr: 'BON À SAVOIR',
+    es: 'BUENO SABERLO',
+    it: 'BUONO A SAPERSI',
+  },
+  photo: {
+    el: 'ΦΩΤΟΓΡΑΦΙΑ',
+    en: 'PHOTO',
+    de: 'FOTO',
+    fr: 'PHOTO',
+    es: 'FOTO',
+    it: 'FOTO',
+  },
+  question: {
+    el: 'Η ΕΡΩΤΗΣΗ ΤΗΣ ΣΦΡΑΓΙΔΑΣ',
+    en: 'THE STAMP QUESTION',
+    de: 'DIE STEMPELFRAGE',
+    fr: 'LA QUESTION DU TAMPON',
+    es: 'LA PREGUNTA DEL SELLO',
+    it: 'LA DOMANDA DEL TIMBRO',
+  },
   questionHint: {
     el: 'Διάλεξε μία απάντηση. Έχεις μία ευκαιρία, οπότε σκέψου το λίγο.',
     en: 'Pick one answer. You get one go, so give it a thought.',
+    de: 'Wähl eine Antwort. Du hast nur einen Versuch, also denk kurz nach.',
+    fr: 'Choisis une réponse. Tu n’as qu’un seul essai, alors réfléchis bien.',
+    es: 'Elige una respuesta. Solo tienes un intento, así que piénsalo bien.',
+    it: 'Scegli una risposta. Hai un solo tentativo, quindi pensaci bene.',
   },
-  correctTitle: { el: 'ΣΩΣΤΑ!', en: 'CORRECT!' },
+  correctTitle: {
+    el: 'ΣΩΣΤΑ!',
+    en: 'CORRECT!',
+    de: 'RICHTIG!',
+    fr: 'BRAVO !',
+    es: '¡CORRECTO!',
+    it: 'GIUSTO!',
+  },
   correctBody: {
     el: 'Το βρήκες. Η σφραγίδα αυτού του μέρους είναι δική σου.',
     en: 'You got it. The stamp for this place is yours.',
+    de: 'Du hast es gewusst. Der Stempel für diesen Ort gehört dir.',
+    fr: 'Tu as trouvé. Le tampon de ce lieu est à toi.',
+    es: 'Lo has acertado. El sello de este lugar es tuyo.',
+    it: 'L’hai indovinata. Il timbro di questo posto è tuo.',
   },
-  wrongTitle: { el: 'ΔΕΝ ΠΕΙΡΑΖΕΙ', en: 'NOT QUITE' },
+  wrongTitle: {
+    el: 'ΔΕΝ ΠΕΙΡΑΖΕΙ',
+    en: 'NOT QUITE',
+    de: 'NICHT GANZ',
+    fr: 'PRESQUE',
+    es: 'CASI',
+    it: 'QUASI',
+  },
   wrongBody: {
     el: 'Η σωστή απάντηση είναι σημειωμένη με πράσινο. Τη σφραγίδα την πήρες κι έτσι, γιατί διάβασες την ιστορία μέχρι το τέλος.',
     en: 'The right answer is marked in green. You got the stamp anyway, because you read the story to the end.',
+    de: 'Die richtige Antwort ist grün markiert. Den Stempel bekommst du trotzdem, weil du die Geschichte bis zum Ende gelesen hast.',
+    fr: 'La bonne réponse est en vert. Tu gagnes le tampon quand même, parce que tu as lu l’histoire jusqu’au bout.',
+    es: 'La respuesta correcta está marcada en verde. El sello es tuyo igualmente, porque has leído la historia hasta el final.',
+    it: 'La risposta giusta è segnata in verde. Il timbro è tuo lo stesso, perché hai letto la storia fino alla fine.',
   },
-  why: { el: 'ΓΙΑΤΙ', en: 'WHY' },
-  collected: { el: 'ΣΦΡΑΓΙΣΜΕΝΟ', en: 'COLLECTED' },
+  why: {
+    el: 'ΓΙΑΤΙ',
+    en: 'WHY',
+    de: 'WARUM',
+    fr: 'POURQUOI',
+    es: 'POR QUÉ',
+    it: 'PERCHÉ',
+  },
+  collected: {
+    el: 'ΣΦΡΑΓΙΣΜΕΝΟ',
+    en: 'COLLECTED',
+    de: 'GESTEMPELT',
+    fr: 'TAMPONNÉ',
+    es: 'SELLADO',
+    it: 'TIMBRATO',
+  },
   collectedOn: {
     el: (date: string) => `Σφράγισες αυτό το μέρος στις ${date}.`,
     en: (date: string) => `You stamped this place on ${date}.`,
+    de: (date: string) => `Du hast diesen Ort am ${date} gestempelt.`,
+    fr: (date: string) => `Tu as tamponné ce lieu le ${date}.`,
+    es: (date: string) => `Sellaste este lugar el ${date}.`,
+    /* `il giorno`, not a bare `il`: the date arrives already formatted, and every
+       Italian day that starts with 1 or 8 would want `l'` instead. */
+    it: (date: string) => `Hai timbrato questo posto il giorno ${date}.`,
   },
   collectedNoDate: {
     el: 'Έχεις ήδη σφραγίσει αυτό το μέρος.',
     en: 'You have already stamped this place.',
+    de: 'Du hast diesen Ort schon gestempelt.',
+    fr: 'Tu as déjà tamponné ce lieu.',
+    es: 'Ya has sellado este lugar.',
+    it: 'Hai già timbrato questo posto.',
   },
   paysNothingAgain: {
     el: 'Δεν δίνει ξανά πόντους, αλλά η ιστορία σε περιμένει όποτε θες να την ξαναδιαβάσεις.',
     en: 'It does not pay again, but the story is here whenever you want to read it once more.',
+    de: 'Punkte gibt es kein zweites Mal, aber die Geschichte bleibt hier, wann immer du sie noch einmal lesen willst.',
+    fr: 'Il ne rapporte plus de points, mais l’histoire reste là dès que tu veux la relire.',
+    es: 'Ya no da puntos, pero la historia sigue aquí siempre que quieras volver a leerla.',
+    it: 'Non dà più punti, ma la storia resta qui ogni volta che vuoi rileggerla.',
   },
-  answeredRight: { el: 'Την είχες βρει σωστά.', en: 'You answered it correctly.' },
+  answeredRight: {
+    el: 'Την είχες βρει σωστά.',
+    en: 'You answered it correctly.',
+    de: 'Du hattest richtig geantwortet.',
+    fr: 'Tu avais trouvé la bonne réponse.',
+    es: 'Acertaste la respuesta.',
+    it: 'Avevi risposto giusto.',
+  },
   answeredWrong: {
     el: 'Τότε δεν την είχες βρει. Τώρα την ξέρεις.',
     en: 'You did not get it that time. Now you know it.',
+    de: 'Damals hast du sie nicht gewusst. Jetzt weißt du sie.',
+    fr: 'Ce jour-là, tu n’avais pas trouvé. Maintenant tu sais.',
+    es: 'Aquella vez no acertaste. Ahora ya lo sabes.',
+    it: 'Quella volta non l’avevi indovinata. Ora la sai.',
   },
-  rightAnswer: { el: 'ΜΕ ΠΡΑΣΙΝΟ Η ΣΩΣΤΗ ΑΠΑΝΤΗΣΗ', en: 'GREEN MARKS THE RIGHT ANSWER' },
-  museumTitle: { el: 'Η πόρτα είναι ανοιχτή', en: 'The door is open' },
+  rightAnswer: {
+    el: 'ΜΕ ΠΡΑΣΙΝΟ Η ΣΩΣΤΗ ΑΠΑΝΤΗΣΗ',
+    en: 'GREEN MARKS THE RIGHT ANSWER',
+    de: 'GRÜN IST DIE RICHTIGE ANTWORT',
+    fr: 'EN VERT, LA BONNE RÉPONSE',
+    es: 'EN VERDE, LA RESPUESTA CORRECTA',
+    it: 'IN VERDE LA RISPOSTA GIUSTA',
+  },
+  museumTitle: {
+    el: 'Η πόρτα είναι ανοιχτή',
+    en: 'The door is open',
+    de: 'Die Tür ist offen',
+    fr: 'La porte est ouverte',
+    es: 'La puerta está abierta',
+    it: 'La porta è aperta',
+  },
   museumBody: {
     el: 'Μέσα σε περιμένουν αίθουσες, εκθέματα και γρίφοι.',
     en: 'Rooms, exhibits and riddles are waiting inside.',
+    de: 'Drinnen warten Säle, Ausstellungsstücke und Rätsel auf dich.',
+    fr: 'Des salles, des objets et des énigmes t’attendent à l’intérieur.',
+    es: 'Dentro te esperan salas, objetos y enigmas.',
+    it: 'Dentro ti aspettano sale, oggetti e indovinelli.',
   },
-  museumCta: { el: 'ΜΠΕΣ ΜΕΣΑ', en: 'GO INSIDE' },
+  museumCta: {
+    el: 'ΜΠΕΣ ΜΕΣΑ',
+    en: 'GO INSIDE',
+    de: 'GEH HINEIN',
+    fr: 'ENTRE',
+    es: 'ENTRA',
+    it: 'ENTRA',
+  },
 };
 
 // -------------------------------------------------------------------- helpers

@@ -40,8 +40,8 @@ export interface CityViewProps {
 
 /**
  * Buttons, headings and empty states. Content is read with `say()`; this is the other
- * half — written out as whole sentences twice, never assembled from fragments, because
- * Greek and English disagree about where the pieces go.
+ * half — written out as whole sentences once per language, never assembled from
+ * fragments, because the six languages disagree about where the pieces go.
  */
 interface Chrome {
   back: string;
@@ -113,6 +113,104 @@ const T: UiText<Chrome> = {
     goTo: (name) => `Go to: ${name}`,
     goToDone: (name) => `Go to: ${name}. You already have the stamp.`,
     empty: 'This city is still being written. Come back in a few days and it will be waiting!',
+  },
+  de: {
+    back: 'ZURÜCK ZUM LAND',
+    stamps: 'STEMPEL',
+    /* "von 1 Stempeln" would be wrong, and a city may ship a single place. */
+    progress: (done, total) =>
+      `Du hast ${done} von ${total} ${total === 1 ? 'Stempel' : 'Stempeln'} in dieser Stadt gesammelt.`,
+    allDone: 'Du hast alle! Diese Stadt gehört dir.',
+    mapTitle: 'DIE KARTE',
+    mapHint: 'Tippe auf eine Markierung, um dorthin zu gehen.',
+    mapPending: 'Die gemalte Karte ist noch nicht fertig, aber die Markierungen funktionieren schon.',
+    mapAlt: 'Eine gemalte Karte der Stadt.',
+    offMap: 'Manche Orte sind noch nicht auf der Karte. In der Liste unten findest du alle.',
+    trailsTitle: 'ROUTEN',
+    trailsNote: 'Routen sind Ideen, keine Regeln. Geh, wohin du willst.',
+    ratio: (done, total) => `${done} von ${total}`,
+    trailStart: 'STARTE DIE ROUTE',
+    trailContinue: 'MACH WEITER',
+    trailDone: 'ALLES GESCHAFFT',
+    placesTitle: 'DIE ORTE',
+    stamped: 'GESTEMPELT',
+    inside: 'GEH HINEIN',
+    goTo: (name) => `Geh zu: ${name}`,
+    goToDone: (name) => `Geh zu: ${name}. Den Stempel hast du schon.`,
+    empty: 'Diese Stadt wird noch geschrieben. Komm in ein paar Tagen wieder, dann wartet sie auf dich!',
+  },
+  fr: {
+    back: 'RETOUR AU PAYS',
+    stamps: 'TAMPONS',
+    /* Zéro prend le singulier en français : "0 tampon", "1 tampon", "2 tampons". */
+    progress: (done, total) =>
+      `Tu as ${done} ${done > 1 ? 'tampons' : 'tampon'} sur ${total} dans cette ville.`,
+    allDone: 'Tu les as tous ! Cette ville est à toi.',
+    mapTitle: 'LA CARTE',
+    mapHint: 'Touche un point pour aller à cet endroit.',
+    mapPending: 'La carte dessinée n’est pas encore prête, mais les points marchent déjà.',
+    mapAlt: 'Une carte dessinée de la ville.',
+    offMap: 'Certains endroits ne sont pas encore sur la carte. Tu les trouves tous dans la liste en bas.',
+    trailsTitle: 'PARCOURS',
+    trailsNote: 'Les parcours sont des idées, pas des règles. Va où tu veux.',
+    ratio: (done, total) => `${done} sur ${total}`,
+    trailStart: 'COMMENCE LE PARCOURS',
+    trailContinue: 'CONTINUE LE PARCOURS',
+    trailDone: 'TU L’AS FINI',
+    placesTitle: 'LES ENDROITS',
+    stamped: 'TAMPONNÉ',
+    inside: 'ENTRE',
+    goTo: (name) => `Va à : ${name}`,
+    goToDone: (name) => `Va à : ${name}. Tu as déjà le tampon.`,
+    empty: 'Cette ville est encore en train de s’écrire. Reviens dans quelques jours, elle t’attendra !',
+  },
+  es: {
+    back: 'VOLVER AL PAÍS',
+    stamps: 'SELLOS',
+    progress: (done, total) =>
+      `Has conseguido ${done} de ${total} ${total === 1 ? 'sello' : 'sellos'} en esta ciudad.`,
+    allDone: '¡Los has conseguido todos! Esta ciudad es tuya.',
+    mapTitle: 'EL MAPA',
+    mapHint: 'Toca una marca para ir a ese lugar.',
+    mapPending: 'El mapa dibujado aún no está listo, pero las marcas ya funcionan.',
+    mapAlt: 'Un mapa dibujado de la ciudad.',
+    offMap: 'Algunos lugares aún no están en el mapa. Los encuentras todos en la lista de abajo.',
+    trailsTitle: 'RUTAS',
+    trailsNote: 'Las rutas son ideas, no reglas. Ve a donde quieras.',
+    ratio: (done, total) => `${done} de ${total}`,
+    trailStart: 'EMPIEZA LA RUTA',
+    trailContinue: 'SIGUE LA RUTA',
+    trailDone: 'LA HAS TERMINADO',
+    placesTitle: 'LOS LUGARES',
+    stamped: 'SELLADO',
+    inside: 'ENTRA',
+    goTo: (name) => `Ve a: ${name}`,
+    goToDone: (name) => `Ve a: ${name}. Ya tienes el sello.`,
+    empty: 'Esta ciudad todavía se está escribiendo. ¡Vuelve en unos días y te estará esperando!',
+  },
+  it: {
+    back: 'TORNA AL PAESE',
+    stamps: 'TIMBRI',
+    progress: (done, total) =>
+      `Hai preso ${done} ${done === 1 ? 'timbro' : 'timbri'} su ${total} in questa città.`,
+    allDone: 'Li hai presi tutti! Questa città è tua.',
+    mapTitle: 'LA MAPPA',
+    mapHint: 'Tocca una puntina per andare in quel posto.',
+    mapPending: 'La mappa disegnata non è ancora pronta, ma le puntine funzionano già.',
+    mapAlt: 'Una mappa disegnata della città.',
+    offMap: 'Alcuni posti non sono ancora sulla mappa. Li trovi tutti nella lista qui sotto.',
+    trailsTitle: 'PERCORSI',
+    trailsNote: 'I percorsi sono idee, non regole. Vai dove vuoi.',
+    ratio: (done, total) => `${done} su ${total}`,
+    trailStart: 'INIZIA IL PERCORSO',
+    trailContinue: 'CONTINUA IL PERCORSO',
+    trailDone: 'L’HAI FINITO',
+    placesTitle: 'I POSTI',
+    stamped: 'TIMBRATO',
+    inside: 'ENTRA',
+    goTo: (name) => `Vai a: ${name}`,
+    goToDone: (name) => `Vai a: ${name}. Hai già il timbro.`,
+    empty: 'Questa città la stiamo ancora scrivendo. Torna tra qualche giorno e ti aspetterà!',
   },
 };
 

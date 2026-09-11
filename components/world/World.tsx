@@ -66,14 +66,33 @@ const PlaceCard = React.lazy(() => import('./PlaceCard'));
 const MuseumView = React.lazy(() => import('./MuseumView'));
 
 const T = {
-  title: { el: 'Ο ΚΟΣΜΟΣ', en: 'THE WORLD' },
-  loading: { el: 'Φορτώνει…', en: 'Loading…' },
+  // Written in capitals in every language: the heading has no `uppercase` class to do it.
+  title: {
+    el: 'Ο ΚΟΣΜΟΣ',
+    en: 'THE WORLD',
+    de: 'DIE WELT',
+    fr: 'LE MONDE',
+    es: 'EL MUNDO',
+    it: 'IL MONDO',
+  },
+  loading: {
+    el: 'Φορτώνει…',
+    en: 'Loading…',
+    de: 'Lädt…',
+    fr: 'Chargement…',
+    es: 'Cargando…',
+    it: 'Caricamento…',
+  },
   notFound: {
     el: 'Δεν βρήκαμε αυτό το μέρος. Γύρνα πίσω στον χάρτη.',
     en: 'We could not find that place. Go back to the map.',
+    de: 'Wir haben diesen Ort nicht gefunden. Geh zurück zur Karte.',
+    fr: "On n'a pas trouvé cet endroit. Retourne à la carte.",
+    es: 'No encontramos ese lugar. Vuelve al mapa.',
+    it: 'Non abbiamo trovato questo posto. Torna alla mappa.',
   },
-  back: { el: 'Πίσω', en: 'Back' },
-  langLabel: { el: 'Γλώσσα', en: 'Language' },
+  back: { el: 'Πίσω', en: 'Back', de: 'Zurück', fr: 'Retour', es: 'Volver', it: 'Indietro' },
+  langLabel: { el: 'Γλώσσα', en: 'Language', de: 'Sprache', fr: 'Langue', es: 'Idioma', it: 'Lingua' },
   notTranslated: {
     el: 'Αυτή η πόλη δεν έχει μεταφραστεί ακόμα. Τη διαβάζεις στα αγγλικά.',
     en: 'This city has not been translated yet. You are reading it in English.',

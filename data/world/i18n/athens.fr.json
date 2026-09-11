@@ -375,7 +375,7 @@
             "name": "Le masque d’Agamemnon",
             "blurb": "Une mince feuille d’or, martelée jusqu’à prendre la forme d’un visage, posée sur un roi mort à Mycènes. Heinrich Schliemann l’a trouvée en 1876 et a cru tenir le visage d’Agamemnon, le roi de l’Iliade. Il se trompait, et l’erreur est utile : ce visage est à peu près trois cents ans plus ancien que l’époque où l’on place la guerre de Troie. Le nom lui est resté quand même.",
             "question": {
-              "q": "Pourquoi ce visage d’or ne peut-il pas être celui d’Agamemnon ?",
+              "q": "Pourquoi ce masque ne peut-il pas être celui d’Agamemnon ?",
               "answers": [
                 "Parce qu’il est environ 300 ans plus ancien que son époque",
                 "Parce qu’Agamemnon n’était pas roi",
@@ -434,7 +434,7 @@
               "q": "Qu’est-ce que le petit cavalier n’a pas ?",
               "answers": [
                 "Ni selle ni étriers",
-                "Des chaussures aux pieds",
+                "Un fouet dans la main",
                 "Une bride sur le cheval",
                 "Des cheveux sur la tête"
               ],
@@ -608,7 +608,7 @@
             "question": {
               "q": "D’où un jouet à remontoir tire-t-il son énergie ?",
               "answers": [
-                "De ta main, rangée dans un ressort",
+                "De ta main, qui remonte un ressort",
                 "D’une petite pile dans le socle",
                 "Du soleil, à travers la peinture",
                 "D’aimants dans les roues"

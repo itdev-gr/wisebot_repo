@@ -27,12 +27,30 @@ import { hasNarration, narrationAudio, narrationTimings } from '../../data/world
 import { WORLD_STYLE, ui } from './worldUi';
 
 const T = {
-  listen: { el: 'Άκου την ιστορία', en: 'Listen to the story' },
-  pause: { el: 'Παύση', en: 'Pause' },
-  restart: { el: 'Από την αρχή', en: 'Start again' },
+  listen: {
+    el: 'Άκου την ιστορία',
+    en: 'Listen to the story',
+    de: 'Hör die Geschichte an',
+    fr: 'Écoute l’histoire',
+    es: 'Escucha la historia',
+    it: 'Ascolta la storia',
+  },
+  pause: { el: 'Παύση', en: 'Pause', de: 'Pause', fr: 'Pause', es: 'Pausa', it: 'Pausa' },
+  restart: {
+    el: 'Από την αρχή',
+    en: 'Start again',
+    de: 'Von vorn',
+    fr: 'Recommencer',
+    es: 'Empezar de nuevo',
+    it: 'Ricomincia',
+  },
   hint: {
     el: 'Πάτα μια λέξη για να την ακούσεις ξανά.',
     en: 'Tap a word to hear it again.',
+    de: 'Tippe ein Wort an, um es noch mal zu hören.',
+    fr: 'Touche un mot pour l’entendre encore.',
+    es: 'Toca una palabra para oírla otra vez.',
+    it: 'Tocca una parola per riascoltarla.',
   },
 };
 

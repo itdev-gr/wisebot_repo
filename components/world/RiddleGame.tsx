@@ -46,40 +46,137 @@ import { WORLD_STYLE, say, shuffleAnswers, ui } from './worldUi';
  * so a sentence built from fragments is right in one language and wrong in the other.
  */
 const T = {
-  eyebrow: { el: 'ΓΡΙΦΟΣ', en: 'RIDDLE' },
-  speaks: { el: 'ΚΑΤΙ ΕΔΩ ΜΕΣΑ ΣΟΥ ΜΙΛΑΕΙ', en: 'SOMETHING IN HERE IS TALKING TO YOU' },
-  close: { el: 'Κλείσε τον γρίφο', en: 'Close the riddle' },
+  eyebrow: {
+    el: 'ΓΡΙΦΟΣ',
+    en: 'RIDDLE',
+    de: 'RÄTSEL',
+    fr: 'ÉNIGME',
+    es: 'ADIVINANZA',
+    it: 'INDOVINELLO',
+  },
+  speaks: {
+    el: 'ΚΑΤΙ ΕΔΩ ΜΕΣΑ ΣΟΥ ΜΙΛΑΕΙ',
+    en: 'SOMETHING IN HERE IS TALKING TO YOU',
+    de: 'HIER DRIN SPRICHT ETWAS MIT DIR',
+    fr: 'QUELQUE CHOSE ICI TE PARLE',
+    es: 'AQUÍ DENTRO ALGO TE HABLA',
+    it: 'QUI DENTRO QUALCOSA TI PARLA',
+  },
+  close: {
+    el: 'Κλείσε τον γρίφο',
+    en: 'Close the riddle',
+    de: 'Schließ das Rätsel',
+    fr: 'Ferme l’énigme',
+    es: 'Cierra la adivinanza',
+    it: 'Chiudi l’indovinello',
+  },
   find: {
     el: 'Βρες ποιο έκθεμα μιλάει και πάτησέ το.',
     en: 'Work out which exhibit is talking, and tap it.',
+    de: 'Finde heraus, welches Objekt spricht, und tippe es an.',
+    fr: 'Devine quel objet parle, puis touche-le.',
+    es: 'Averigua qué objeto habla y tócalo.',
+    it: 'Scopri quale oggetto parla e toccalo.',
   },
-  hintAsk: { el: 'Δώσε μου μια βοήθεια', en: 'Give me a hint' },
+  hintAsk: {
+    el: 'Δώσε μου μια βοήθεια',
+    en: 'Give me a hint',
+    de: 'Gib mir einen Tipp',
+    fr: 'Donne-moi un indice',
+    es: 'Dame una pista',
+    it: 'Dammi un indizio',
+  },
   hintFree: {
     el: 'Η βοήθεια είναι δωρεάν και δεν χάνεις τίποτα αν την πάρεις.',
     en: 'The hint is free, and you lose nothing by taking it.',
+    de: 'Der Tipp ist gratis, und du verlierst nichts, wenn du ihn nimmst.',
+    fr: 'L’indice est gratuit, et tu ne perds rien à le prendre.',
+    es: 'La pista es gratis y no pierdes nada por usarla.',
+    it: 'L’indizio è gratis e non perdi niente se lo prendi.',
   },
-  hintTitle: { el: 'Η ΒΟΗΘΕΙΑ', en: 'THE HINT' },
+  hintTitle: {
+    el: 'Η ΒΟΗΘΕΙΑ',
+    en: 'THE HINT',
+    de: 'DER TIPP',
+    fr: 'L’INDICE',
+    es: 'LA PISTA',
+    it: 'L’INDIZIO',
+  },
   wrong: {
     el: 'Όχι αυτό. Δοκίμασε ξανά — δεν χάνεις τίποτα.',
     en: 'Not that one. Try again — you lose nothing.',
+    de: 'Das ist es nicht. Versuch es nochmal — du verlierst nichts.',
+    fr: 'Ce n’est pas celui-là. Réessaie — tu ne perds rien.',
+    es: 'Ese no es. Prueba otra vez — no pierdes nada.',
+    it: 'Non è questo. Riprova — non perdi niente.',
   },
-  solvedNow: { el: 'Το βρήκες!', en: 'You found it!' },
-  solvedBefore: { el: 'Αυτόν τον γρίφο τον είχες λύσει.', en: 'You had already solved this riddle.' },
-  solvedBadge: { el: 'ΛΥΜΕΝΟΣ', en: 'SOLVED' },
-  answerTitle: { el: 'Η ΑΠΑΝΤΗΣΗ', en: 'THE ANSWER' },
-  whyTitle: { el: 'ΓΙΑΤΙ ΕΙΝΑΙ ΑΥΤΟ', en: 'WHY IT IS THIS ONE' },
-  back: { el: 'Πίσω στο μουσείο', en: 'Back to the museum' },
+  solvedNow: {
+    el: 'Το βρήκες!',
+    en: 'You found it!',
+    de: 'Du hast es gefunden!',
+    fr: 'Tu l’as trouvé !',
+    es: '¡Lo encontraste!',
+    it: 'L’hai trovato!',
+  },
+  solvedBefore: {
+    el: 'Αυτόν τον γρίφο τον είχες λύσει.',
+    en: 'You had already solved this riddle.',
+    de: 'Dieses Rätsel hattest du schon gelöst.',
+    fr: 'Tu avais déjà résolu cette énigme.',
+    es: 'Esta adivinanza ya la habías resuelto.',
+    it: 'Questo indovinello lo avevi già risolto.',
+  },
+  solvedBadge: {
+    el: 'ΛΥΜΕΝΟΣ',
+    en: 'SOLVED',
+    de: 'GELÖST',
+    fr: 'RÉSOLUE',
+    es: 'RESUELTA',
+    it: 'RISOLTO',
+  },
+  answerTitle: {
+    el: 'Η ΑΠΑΝΤΗΣΗ',
+    en: 'THE ANSWER',
+    de: 'DIE ANTWORT',
+    fr: 'LA RÉPONSE',
+    es: 'LA RESPUESTA',
+    it: 'LA RISPOSTA',
+  },
+  whyTitle: {
+    el: 'ΓΙΑΤΙ ΕΙΝΑΙ ΑΥΤΟ',
+    en: 'WHY IT IS THIS ONE',
+    de: 'WARUM ES DIESES IST',
+    fr: 'POURQUOI C’EST LUI',
+    es: 'POR QUÉ ES ESTE',
+    it: 'PERCHÉ È QUESTO',
+  },
+  back: {
+    el: 'Πίσω στο μουσείο',
+    en: 'Back to the museum',
+    de: 'Zurück ins Museum',
+    fr: 'Retour au musée',
+    es: 'Volver al museo',
+    it: 'Torna al museo',
+  },
   broken: {
     el: 'Αυτός ο γρίφος δεν έχει ακόμα εκθέματα για να διαλέξεις. Δοκίμασε έναν άλλον.',
     en: 'This riddle has no exhibits to choose from yet. Try another one.',
+    de: 'Dieses Rätsel hat noch keine Objekte zum Auswählen. Probier ein anderes.',
+    fr: 'Cette énigme n’a pas encore d’objets à choisir. Essaie-en une autre.',
+    es: 'Esta adivinanza todavía no tiene objetos para elegir. Prueba con otra.',
+    it: 'Questo indovinello non ha ancora oggetti da scegliere. Provane un altro.',
   },
 } satisfies Record<string, UiText<string>>;
 
-/** How hard the riddle is. Shown as a word, never as a number a child has to decode. */
+/**
+ * How hard the riddle is. Shown as a word, never as a number a child has to decode.
+ * The word agrees with the noun the language uses for a riddle — masculine in Greek
+ * (`γρίφος`), so the Greek endings stay masculine.
+ */
 const DIFFICULTY: Record<number, UiText<string>> = {
-  1: { el: 'ΕΥΚΟΛΟΣ', en: 'EASY' },
-  2: { el: 'ΜΕΤΡΙΟΣ', en: 'MEDIUM' },
-  3: { el: 'ΔΥΣΚΟΛΟΣ', en: 'HARD' },
+  1: { el: 'ΕΥΚΟΛΟΣ', en: 'EASY', de: 'LEICHT', fr: 'FACILE', es: 'FÁCIL', it: 'FACILE' },
+  2: { el: 'ΜΕΤΡΙΟΣ', en: 'MEDIUM', de: 'MITTEL', fr: 'MOYEN', es: 'MEDIO', it: 'MEDIO' },
+  3: { el: 'ΔΥΣΚΟΛΟΣ', en: 'HARD', de: 'SCHWER', fr: 'DIFFICILE', es: 'DIFÍCIL', it: 'DIFFICILE' },
 };
 
 /**

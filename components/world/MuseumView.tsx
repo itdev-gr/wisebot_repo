@@ -48,38 +48,139 @@ import RiddleGame from './RiddleGame';
 import StoryNarration from './StoryNarration';
 
 // ------------------------------------------------------------------- chrome
-// Buttons, headings and empty states. Whole sentences, written twice: Greek and
-// English disagree on word order, so a sentence is never built from fragments.
+// Buttons, headings and empty states, written out whole once per language: the six
+// languages disagree on word order, so a sentence is never built from fragments.
+// Words the child meets over and over stay the same word everywhere on this screen —
+// an exhibit is an `objet`/`objeto`/`oggetto`/`Objekt` in the heading, in the badge and
+// in the sentence that says how many are left, never three different nouns.
+// Counting sentences inflect their own noun: `1 objet` / `3 objets`, `1 Rätsel` /
+// `12 Rätseln` — a number glued to a fixed plural is exactly what reads as machine text.
 
 const T = {
-  museum: { el: 'ΜΟΥΣΕΙΟ', en: 'MUSEUM' },
-  back: { el: 'Πίσω', en: 'Back' },
-  rooms: { el: 'ΑΙΘΟΥΣΕΣ', en: 'ROOMS' },
-  exhibits: { el: 'ΕΚΘΕΜΑΤΑ', en: 'EXHIBITS' },
-  riddles: { el: 'ΓΡΙΦΟΙ', en: 'RIDDLES' },
-  riddle: { el: 'ΓΡΙΦΟΣ', en: 'RIDDLE' },
-  collected: { el: 'ΤΟ ΒΡΗΚΕΣ', en: 'COLLECTED' },
-  solved: { el: 'ΛΥΘΗΚΕ', en: 'SOLVED' },
-  credit: { el: 'ΠΗΓΗ', en: 'CREDIT' },
-  why: { el: 'ΓΙΑΤΙ', en: 'WHY' },
-  right: { el: 'Σωστά! Το είδες καλά.', en: 'Correct! You looked carefully.' },
-  wrong: { el: 'Όχι αυτό. Δες παρακάτω γιατί.', en: 'Not that one. Here is why.' },
-  alreadyRight: { el: 'Αυτό το έκθεμα το έχεις ήδη μαζέψει.', en: 'You have already collected this exhibit.' },
-  openRiddle: { el: 'Λύσε τον γρίφο', en: 'Solve the riddle' },
-  openRiddleAgain: { el: 'Διάβασέ τον ξανά', en: 'Read it again' },
-  roomDone: { el: 'Τέλεια! Είδες όλη την αίθουσα.', en: 'Well done! You have seen the whole room.' },
-  museumDone: { el: 'Είδες κάθε έκθεμα και έλυσες κάθε γρίφο.', en: 'You have seen every exhibit and solved every riddle.' },
-  noMuseum: { el: 'Αυτό το μέρος δεν έχει αίθουσες για να μπεις.', en: 'This place has no rooms to walk into.' },
-  noRooms: { el: 'Το μουσείο ετοιμάζει ακόμα τις αίθουσές του.', en: 'This museum is still getting its rooms ready.' },
-  noExhibits: { el: 'Αυτή η αίθουσα είναι ακόμα άδεια.', en: 'This room is still empty.' },
-  noRiddles: { el: 'Δεν υπάρχουν γρίφοι σε αυτό το μουσείο.', en: 'There are no riddles in this museum.' },
+  museum: { el: 'ΜΟΥΣΕΙΟ', en: 'MUSEUM', de: 'MUSEUM', fr: 'MUSÉE', es: 'MUSEO', it: 'MUSEO' },
+  back: { el: 'Πίσω', en: 'Back', de: 'Zurück', fr: 'Retour', es: 'Volver', it: 'Indietro' },
+  rooms: { el: 'ΑΙΘΟΥΣΕΣ', en: 'ROOMS', de: 'RÄUME', fr: 'SALLES', es: 'SALAS', it: 'SALE' },
+  exhibits: { el: 'ΕΚΘΕΜΑΤΑ', en: 'EXHIBITS', de: 'OBJEKTE', fr: 'OBJETS', es: 'OBJETOS', it: 'OGGETTI' },
+  riddles: { el: 'ΓΡΙΦΟΙ', en: 'RIDDLES', de: 'RÄTSEL', fr: 'ÉNIGMES', es: 'ACERTIJOS', it: 'INDOVINELLI' },
+  riddle: { el: 'ΓΡΙΦΟΣ', en: 'RIDDLE', de: 'RÄTSEL', fr: 'ÉNIGME', es: 'ACERTIJO', it: 'INDOVINELLO' },
+  collected: { el: 'ΤΟ ΒΡΗΚΕΣ', en: 'COLLECTED', de: 'GEFUNDEN', fr: 'TROUVÉ', es: 'ENCONTRADO', it: 'TROVATO' },
+  // Agrees with the noun it sits next to: an énigme is feminine, an acertijo and an
+  // indovinello are masculine.
+  solved: { el: 'ΛΥΘΗΚΕ', en: 'SOLVED', de: 'GELÖST', fr: 'RÉSOLUE', es: 'RESUELTO', it: 'RISOLTO' },
+  // The attribution line under a photo, not anything to do with the credits children spend.
+  credit: { el: 'ΠΗΓΗ', en: 'CREDIT', de: 'QUELLE', fr: 'SOURCE', es: 'FUENTE', it: 'FONTE' },
+  why: { el: 'ΓΙΑΤΙ', en: 'WHY', de: 'WARUM', fr: 'POURQUOI', es: 'POR QUÉ', it: 'PERCHÉ' },
+  right: {
+    el: 'Σωστά! Το είδες καλά.',
+    en: 'Correct! You looked carefully.',
+    de: 'Richtig! Du hast gut hingeschaut.',
+    fr: 'Bravo ! Tu as bien regardé.',
+    es: '¡Correcto! Lo has mirado bien.',
+    it: 'Giusto! Hai guardato bene.',
+  },
+  wrong: {
+    el: 'Όχι αυτό. Δες παρακάτω γιατί.',
+    en: 'Not that one. Here is why.',
+    de: 'Leider nicht. Hier steht, warum.',
+    fr: 'Pas celle-là. Voici pourquoi.',
+    es: 'Esa no. Mira por qué.',
+    it: 'Non è quella. Ecco perché.',
+  },
+  alreadyRight: {
+    el: 'Αυτό το έκθεμα το έχεις ήδη μαζέψει.',
+    en: 'You have already collected this exhibit.',
+    de: 'Dieses Objekt hast du schon gefunden.',
+    fr: 'Tu as déjà trouvé cet objet.',
+    es: 'Ya has encontrado este objeto.',
+    it: 'Hai già trovato questo oggetto.',
+  },
+  openRiddle: {
+    el: 'Λύσε τον γρίφο',
+    en: 'Solve the riddle',
+    de: 'Löse das Rätsel',
+    fr: 'Résous l’énigme',
+    es: 'Resuelve el acertijo',
+    it: 'Risolvi l’indovinello',
+  },
+  openRiddleAgain: {
+    el: 'Διάβασέ τον ξανά',
+    en: 'Read it again',
+    de: 'Lies es nochmal',
+    fr: 'Relis l’énigme',
+    es: 'Léelo otra vez',
+    it: 'Rileggilo',
+  },
+  roomDone: {
+    el: 'Τέλεια! Είδες όλη την αίθουσα.',
+    en: 'Well done! You have seen the whole room.',
+    de: 'Super! Du hast den ganzen Raum gesehen.',
+    fr: 'Bravo ! Tu as vu toute la salle.',
+    es: '¡Muy bien! Has visto toda la sala.',
+    it: 'Bravo! Hai visto tutta la sala.',
+  },
+  museumDone: {
+    el: 'Είδες κάθε έκθεμα και έλυσες κάθε γρίφο.',
+    en: 'You have seen every exhibit and solved every riddle.',
+    de: 'Du hast jedes Objekt gesehen und jedes Rätsel gelöst.',
+    fr: 'Tu as vu tous les objets et résolu toutes les énigmes.',
+    es: 'Has visto todos los objetos y resuelto todos los acertijos.',
+    it: 'Hai visto tutti gli oggetti e risolto tutti gli indovinelli.',
+  },
+  noMuseum: {
+    el: 'Αυτό το μέρος δεν έχει αίθουσες για να μπεις.',
+    en: 'This place has no rooms to walk into.',
+    de: 'Dieser Ort hat keine Räume zum Hineingehen.',
+    fr: 'Cet endroit n’a pas de salles où entrer.',
+    es: 'Este lugar no tiene salas para entrar.',
+    it: 'Questo posto non ha sale in cui entrare.',
+  },
+  noRooms: {
+    el: 'Το μουσείο ετοιμάζει ακόμα τις αίθουσές του.',
+    en: 'This museum is still getting its rooms ready.',
+    de: 'Dieses Museum macht seine Räume noch fertig.',
+    fr: 'Ce musée prépare encore ses salles.',
+    es: 'Este museo aún está preparando sus salas.',
+    it: 'Questo museo sta ancora preparando le sue sale.',
+  },
+  noExhibits: {
+    el: 'Αυτή η αίθουσα είναι ακόμα άδεια.',
+    en: 'This room is still empty.',
+    de: 'Dieser Raum ist noch leer.',
+    fr: 'Cette salle est encore vide.',
+    es: 'Esta sala todavía está vacía.',
+    it: 'Questa sala è ancora vuota.',
+  },
+  noRiddles: {
+    el: 'Δεν υπάρχουν γρίφοι σε αυτό το μουσείο.',
+    en: 'There are no riddles in this museum.',
+    de: 'In diesem Museum gibt es keine Rätsel.',
+    fr: 'Il n’y a pas d’énigmes dans ce musée.',
+    es: 'En este museo no hay acertijos.',
+    it: 'In questo museo non ci sono indovinelli.',
+  },
   exhibitsProgress: {
     el: (done: number, total: number) => `Έχεις δει ${done} από ${total} εκθέματα.`,
     en: (done: number, total: number) => `You have seen ${done} of ${total} exhibits.`,
+    de: (done: number, total: number) =>
+      `Du hast ${done} von ${total} ${total === 1 ? 'Objekt' : 'Objekten'} gesehen.`,
+    fr: (done: number, total: number) =>
+      `Tu as vu ${done} ${done > 1 ? 'objets' : 'objet'} sur ${total}.`,
+    es: (done: number, total: number) =>
+      `Has visto ${done} ${done === 1 ? 'objeto' : 'objetos'} de ${total}.`,
+    it: (done: number, total: number) =>
+      `Hai visto ${done} ${done === 1 ? 'oggetto' : 'oggetti'} su ${total}.`,
   },
   riddlesProgress: {
     el: (done: number, total: number) => `Έχεις λύσει ${done} από ${total} γρίφους.`,
     en: (done: number, total: number) => `You have solved ${done} of ${total} riddles.`,
+    de: (done: number, total: number) =>
+      `Du hast ${done} von ${total} ${total === 1 ? 'Rätsel' : 'Rätseln'} gelöst.`,
+    fr: (done: number, total: number) =>
+      `Tu as résolu ${done} ${done > 1 ? 'énigmes' : 'énigme'} sur ${total}.`,
+    es: (done: number, total: number) =>
+      `Has resuelto ${done} ${done === 1 ? 'acertijo' : 'acertijos'} de ${total}.`,
+    it: (done: number, total: number) =>
+      `Hai risolto ${done} ${done === 1 ? 'indovinello' : 'indovinelli'} su ${total}.`,
   },
   roomAria: {
     // The visible chip carries `done/total`; an aria-label REPLACES the button's text,
@@ -88,14 +189,30 @@ const T = {
       `Αίθουσα: ${name}. Έχεις δει ${done} από ${total} εκθέματα.`,
     en: (name: string, done: number, total: number) =>
       `Room: ${name}. You have seen ${done} of ${total} exhibits.`,
+    de: (name: string, done: number, total: number) =>
+      `Raum: ${name}. Du hast ${done} von ${total} ${total === 1 ? 'Objekt' : 'Objekten'} gesehen.`,
+    fr: (name: string, done: number, total: number) =>
+      `Salle : ${name}. Tu as vu ${done} ${done > 1 ? 'objets' : 'objet'} sur ${total}.`,
+    es: (name: string, done: number, total: number) =>
+      `Sala: ${name}. Has visto ${done} ${done === 1 ? 'objeto' : 'objetos'} de ${total}.`,
+    it: (name: string, done: number, total: number) =>
+      `Sala: ${name}. Hai visto ${done} ${done === 1 ? 'oggetto' : 'oggetti'} su ${total}.`,
   },
   difficultyAria: {
     el: (n: number) => `Δυσκολία ${n} στα 3`,
     en: (n: number) => `Difficulty ${n} out of 3`,
+    de: (n: number) => `Schwierigkeit ${n} von 3`,
+    fr: (n: number) => `Difficulté ${n} sur 3`,
+    es: (n: number) => `Dificultad ${n} de 3`,
+    it: (n: number) => `Difficoltà ${n} su 3`,
   },
   riddleAnswerWas: {
     el: (name: string) => `Η απάντηση ήταν το έκθεμα «${name}».`,
     en: (name: string) => `The answer was the exhibit “${name}”.`,
+    de: (name: string) => `Die Antwort war das Objekt „${name}“.`,
+    fr: (name: string) => `La réponse était l’objet « ${name} ».`,
+    es: (name: string) => `La respuesta era el objeto «${name}».`,
+    it: (name: string) => `La risposta era l’oggetto «${name}».`,
   },
 } satisfies Record<string, UiText<string> | UiText<(...args: never[]) => string>>;
 
