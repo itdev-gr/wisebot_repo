@@ -222,4 +222,53 @@ export const cities: City[] = [
       bounds: { north: 35.36, south: 35.22, east: 25.3, west: 25.09 },
     },
   },
+
+  {
+    id: 'rhodes',
+    countryId: 'greece',
+    order: 4,
+    emoji: '🛡️',
+
+    name: {
+      el: 'Ρόδος',
+      en: 'Rhodes',
+    },
+
+    intro: {
+      el:
+        'Η Ρόδος είναι ένα νησί που το κράτησαν διαδοχικά όλοι όσοι πέρασαν από τη ' +
+        'Μεσόγειο, και ο καθένας άφησε κάτι όρθιο. Οι αρχαίοι έφτιαξαν πόλη σχεδιασμένη ' +
+        'με χάρακα, οι Ιππότες του Αγίου Ιωάννη έχτισαν κάστρα, νοσοκομείο και μια ' +
+        'ολόκληρη μεσαιωνική πόλη που κατοικείται ακόμα, και οι Ιταλοί τον 20ό αιώνα ' +
+        'ξαναέχτισαν ό,τι είχε πέσει. Πενήντα χιλιόμετρα νοτιότερα, ένας βράχος με ' +
+        'αρχαίο ναό κοιτάζει δύο κόλπους. Και ανάμεσα σε όλα, παραλίες όπου το νερό ' +
+        'αλλάζει τρία γαλάζια.',
+      en:
+        'Rhodes is an island held in turn by everyone who crossed the Mediterranean, and ' +
+        'each of them left something standing. The ancient Greeks laid out a city with a ' +
+        'ruler, the Knights of Saint John built castles, a hospital and a whole medieval ' +
+        'town that people still live in, and the Italians in the 20th century rebuilt what ' +
+        'had fallen down. Fifty kilometres further south, a rock with an ancient temple on ' +
+        'it looks out over two bays. And in between all of it, beaches where the water ' +
+        'turns three different blues.',
+    },
+
+    /** Copied from `scripts/world/seeds/rhodes.json`. */
+    centre: { lat: 36.43333, lng: 28.21667 },
+
+    map: {
+      src: '/images/world/maps/rhodes.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του νησιού της Ρόδου, με την πόλη στη βόρεια μύτη και τη Λίνδο στα ανατολικά.',
+        en: 'A stylised map of the island of Rhodes, with the town at the northern tip and Lindos on the east coast.',
+      },
+      width: 1000,
+      height: 889,
+      /**
+       * The island, not the town. Lindos is fifty kilometres from the centre and
+       * Monolithos seventy, so an urban frame would push half the places off the edge.
+       */
+      bounds: { north: 36.48, south: 36.05, east: 28.3, west: 27.7 },
+    },
+  },
 ];

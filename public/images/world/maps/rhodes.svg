@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 889" width="1000" height="889" role="img" aria-label="Stylised map of the island of Rhodes">
+  <title>Rhodes — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/greece.ts
+    (north 36.48, south 36.05, east 28.30, west 27.70) so that place pins can be
+    projected onto it rather than positioned by hand. An island rather than a town: the
+    coastline is schematic, the town sits at the northern tip and Lindos two thirds of
+    the way down the eastern side. Traced from nothing.
+  </desc>
+
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9ccfde" />
+      <stop offset="1" stop-color="#6aabc4" />
+    </linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2ead9" />
+      <stop offset="1" stop-color="#e4d6ba" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#8fc0d1" stroke-width="1" opacity="0.5" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="889" fill="url(#sea)" />
+  <rect width="1000" height="889" fill="url(#grid)" />
+
+  <!-- The island, running north-east to south-west. Schematic. -->
+  <path
+    d="M867 37 L917 161 L867 368 L783 517 L660 780 L417 889 L133 889 L120 700 L200 520 L333 310 L667 124 Z"
+    fill="url(#land)"
+    stroke="#b79a6c"
+    stroke-width="3"
+  />
+
+  <!-- The spine of hills down the middle of the island. -->
+  <path
+    d="M700 200 C 600 320, 480 430, 400 560 C 340 660, 300 760, 280 860"
+    fill="none"
+    stroke="#c9d5ab"
+    stroke-width="46"
+    stroke-linecap="round"
+    opacity="0.75"
+  />
+
+  <g fill="#7d6b4d" font-family="Georgia, 'Times New Roman', serif">
+    <text x="806" y="86" font-size="22" text-anchor="end" letter-spacing="2">ΡΟΔΟΣ</text>
+    <text x="806" y="110" font-size="15" text-anchor="end" letter-spacing="2">RHODES</text>
+    <text x="612" y="800" font-size="20" text-anchor="end" letter-spacing="2">ΛΙΝΔΟΣ</text>
+    <text x="150" y="760" font-size="18" letter-spacing="2">ΜΟΝΟΛΙΘΟΣ</text>
+  </g>
+
+  <g fill="#2f6f89" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="80" font-size="34" letter-spacing="5">ΡΟΔΟΣ</text>
+    <text x="40" y="112" font-size="18" letter-spacing="4">RHODES</text>
+    <text x="120" y="300" font-size="16" letter-spacing="3">ΑΙΓΑΙΟ</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 800)" stroke="#2f6f89" fill="#2f6f89">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
