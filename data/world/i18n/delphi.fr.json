@@ -1,0 +1,502 @@
+{
+  "lang": "fr",
+  "cityId": "delphi",
+  "places": {
+    "delphi-site": {
+      "name": "Le sanctuaire de Delphes",
+      "tagline": "L’endroit que les Anciens considéraient comme le centre du monde",
+      "story": "Le mythe raconte que Zeus a lâché deux aigles depuis les deux bouts de la terre et qu’ils se sont rencontrés exactement ici. C’est pour cela qu’on a appelé Delphes l’omphalos, c’est-à-dire le nombril, le centre du monde. C’est ici que se trouvait l’oracle le plus célèbre de l’Antiquité. Des cités entières envoyaient des représentants pour demander s’il fallait faire la guerre, fonder une colonie ou changer les lois, et elles attendaient leur tour dans la file. La Pythie s’asseyait sur un trépied à l’intérieur du temple et parlait, et les prêtres notaient ses paroles. Les réponses étaient souvent ambiguës, c’est-à-dire qu’on pouvait les lire de deux façons, et cela arrangeait tout le monde. Sur le mur du temple étaient gravées deux phrases restées célèbres pour toujours : « Connais-toi toi-même » et « Rien de trop ».",
+      "facts": [
+        "Les Anciens le considéraient comme l’omphalos, c’est-à-dire le centre du monde.",
+        "Sur le temple étaient gravés « Connais-toi toi-même » et « Rien de trop ».",
+        "Deux failles passent sous le temple, et des géologues y ont trouvé des traces de gaz."
+      ],
+      "question": {
+        "q": "Pourquoi a-t-on appelé Delphes le nombril de la terre ?",
+        "answers": [
+          "Parce que deux aigles de Zeus s’y sont rencontrés",
+          "Parce que c’est exactement le centre géographique de la Grèce",
+          "Parce que le sol y a la forme d’un cercle parfait",
+          "Parce que les empereurs romains en ont décidé ainsi"
+        ],
+        "explanation": "Zeus les a lâchés depuis les deux bouts du monde. Là où ils se sont rencontrés, c’était le milieu."
+      }
+    },
+    "delphi-museum": {
+      "name": "Le Musée archéologique de Delphes",
+      "tagline": "Tout ce qui se dressait autrefois le long de la Voie sacrée",
+      "story": "Chaque cité qui interrogeait l’oracle et obtenait ce qu’elle voulait envoyait un cadeau. Et comme les cadeaux étaient une compétition, chacun essayait d’être plus cher, plus grand ou plus malin que le précédent. Ainsi la Voie sacrée, la route qui monte vers le temple, s’est remplie de statues et de petits bâtiments de marbre pleins de trésors. Ce qui a survécu se trouve aujourd’hui dans ce musée, quelques mètres plus bas. Il n’est pas grand, et c’est un avantage : tu peux le voir en entier et te souvenir de ce que tu as vu. Il y a un jeune homme de bronze qui tient encore ses rênes, deux frères de marbre, un sphinx qui était assis sur une colonne de dix mètres, et une pierre qu’on appelait le centre du monde. La règle ici est simple : tout ce que tu vois a été un jour le cadeau de quelqu’un qui voulait très fort quelque chose.",
+      "facts": [
+        "Ses pièces étaient des cadeaux envoyés à l’oracle par des cités.",
+        "L’Aurige est l’une des très rares statues de bronze arrivées entières jusqu’à nous.",
+        "Il se trouve quelques mètres en dessous du site archéologique."
+      ],
+      "question": {
+        "q": "Pourquoi la Voie sacrée s’est-elle remplie de statues et de trésors ?",
+        "answers": [
+          "Parce que chaque cité envoyait un cadeau",
+          "Parce qu’on y gardait le butin des guerres",
+          "Parce que les prêtres les fabriquaient eux-mêmes",
+          "Parce que c’étaient des ateliers de sculpteurs"
+        ],
+        "explanation": "Un cadeau fait à l’oracle, toute la Grèce le voyait. C’était le meilleur moyen pour une cité de montrer sa puissance."
+      },
+      "museum": {
+        "doorNote": "Garde l’Aurige pour la fin. Il gagne plus facilement quand tu as vu ce qu’il y avait avant lui.",
+        "rooms": {
+          "delphi-museum-before-bronze": {
+            "name": "Avant le bronze",
+            "intro": "Les cadeaux les plus anciens sont en marbre et se tiennent immobiles, les deux pieds bien droits et un petit sourire. Ils ne sont pas maladroits : c’est ainsi qu’on voulait qu’ils soient. À l’époque, une statue ne devait pas avoir l’air de bouger, elle devait avoir l’air de rester là pour toujours."
+          },
+          "delphi-museum-charioteer-room": {
+            "name": "L’Aurige et l’omphalos",
+            "intro": "Cette salle a trois objets qui ne se ressemblent pas du tout et qui vont parfaitement ensemble : un vainqueur, un animal de sacrifice en argent, et une pierre qui indiquait où se trouve le centre du monde. Tous les trois sont des cadeaux, et tous les trois ont été enterrés ou cachés, et c’est pour cela qu’ils ont survécu."
+          }
+        },
+        "exhibits": {
+          "delphi-museum-kleobis-biton": {
+            "name": "Cléobis et Biton",
+            "blurb": "Deux énormes jeunes hommes de marbre, presque identiques, sculptés vers 580 av. J.-C. L’histoire qui accompagne leurs noms parle de deux frères qui ont tiré eux-mêmes le char de leur mère sur une longue route en montée, parce que les bœufs n’étaient pas arrivés à temps. Les habitants de leur cité les ont honorés en envoyant les statues à Delphes, pour que toute la Grèce les voie. Regarde leurs pieds : ils posent tous les deux entièrement, avec le même poids, comme toutes les statues de cette époque.",
+            "question": {
+              "q": "Pourquoi leur cité a-t-elle envoyé ces statues à Delphes ?",
+              "answers": [
+                "Pour que toute la Grèce les voie",
+                "Pour les vendre aux prêtres",
+                "Parce qu’elles ne tenaient pas dans leur cité",
+                "Parce que la Pythie les avait demandées"
+              ],
+              "explanation": "Delphes était l’endroit où tout le monde grec se retrouvait. C’était le grand écran de l’époque."
+            }
+          },
+          "delphi-museum-naxian-sphinx": {
+            "name": "Le Sphinx des Naxiens",
+            "blurb": "Une créature à tête de femme, corps de lion et ailes d’aigle, haute de plus de deux mètres. Elle ne se tenait pas sur le sol : on l’avait hissée sur une colonne de dix mètres, pour qu’on la voie de loin et qu’elle regarde d’en haut tous ceux qui montaient la Voie sacrée. L’île de Naxos l’a envoyée vers 560 av. J.-C., quand elle était riche grâce à son marbre. Sa pose est calme et son regard va droit devant, et c’est exactement cela qui la rend inquiétante.",
+            "question": {
+              "q": "Où se trouvait le Sphinx à l’origine ?",
+              "answers": [
+                "Sur une colonne d’environ dix mètres",
+                "À l’intérieur du temple, juste à côté de la Pythie",
+                "À l’entrée du stade",
+                "Sous la terre, cachée dans une crypte secrète"
+              ],
+              "explanation": "C’est pour cela qu’elle est soigneusement travaillée aussi par en dessous : les gens ne la voyaient que de là."
+            }
+          },
+          "delphi-museum-siphnian-frieze": {
+            "name": "La frise des Siphniens",
+            "blurb": "Les gens de Siphnos avaient des mines d’or et ont bâti à Delphes un trésor petit mais hors de prix, vers 525 av. J.-C. Sa frise de marbre montre un combat entre les dieux et les géants, avec des corps en relief si haut qu’ils se détachent du fond. Debout à côté, tu es à portée de souffle de lions qui mordent, de boucliers qui s’entrechoquent et de dieux qui poussent. L’île a perdu plus tard ses mines, quand la mer a inondé les galeries, et elle n’a plus jamais rien bâti de pareil.",
+            "question": {
+              "q": "D’où venait l’argent des Siphniens pour ce bâtiment ?",
+              "answers": [
+                "De mines d’or sur leur île",
+                "Du commerce du vin",
+                "D’impôts qu’ils prélevaient sur d’autres îles",
+                "D’un don du roi de Perse"
+              ],
+              "explanation": "Les mines ont ensuite été inondées par la mer, et la richesse a fini avec elles."
+            }
+          },
+          "delphi-museum-charioteer": {
+            "name": "L’Aurige",
+            "blurb": "Un jeune homme de bronze, haut d’environ 1,80 m, debout et calme, les rênes encore dans les mains. Il vient de gagner une course de chars, et il ne fait pas du tout la fête. Il a été fabriqué vers 470 av. J.-C. Ses yeux ne sont pas en métal : ils sont incrustés, en pierre et en verre, et c’est pour cela qu’ils te regardent. Ses lèvres et ses cils sont faits d’un autre alliage, plus rouge. Il a survécu parce qu’un glissement de terrain l’a enterré : tout le bronze resté à la surface a été fondu des siècles plus tard pour redevenir des outils.",
+            "question": {
+              "q": "Pourquoi l’Aurige a-t-il survécu alors que presque toutes les statues de bronze ont disparu ?",
+              "answers": [
+                "Parce qu’un glissement de terrain l’a enterré",
+                "Parce qu’il était resté caché à l’intérieur du temple",
+                "Parce qu’il était bien trop lourd pour être déplacé",
+                "Parce qu’une loi spéciale le protégeait"
+              ],
+              "explanation": "Le bronze était une matière précieuse. Une statue valait plus fondue que debout, et c’est ainsi que presque toutes ont disparu."
+            }
+          },
+          "delphi-museum-omphalos": {
+            "name": "L’omphalos",
+            "blurb": "Une pierre en forme de demi-œuf, couverte d’un filet de bandelettes de laine sculpté en relief. Elle indiquait l’endroit qu’on considérait comme le centre du monde. Ce n’est pas un rocher naturel : c’est un objet sculpté, fait pour être montré du doigt. Ce que tu vois au musée est une copie romaine d’un original plus ancien. L’idée que chaque peuple a un endroit qu’il considère comme le centre de la terre revient dans beaucoup de civilisations, et presque toujours, cet endroit se trouve à l’intérieur de ses propres frontières.",
+            "question": {
+              "q": "Qu’indiquait cette pierre ?",
+              "answers": [
+                "Le centre du monde",
+                "La tombe de la première Pythie",
+                "La hauteur du niveau de la mer",
+                "La frontière entre deux cités"
+              ],
+              "explanation": "Presque chaque civilisation a son propre centre du monde, et c’est toujours chez elle."
+            }
+          },
+          "delphi-museum-silver-bull": {
+            "name": "Le taureau d’argent",
+            "blurb": "Un taureau presque grandeur nature, fait de feuilles d’argent clouées sur une armature de bois, avec des détails en or sur les cornes et les sabots. On l’a trouvé en morceaux dans une fosse, avec d’autres objets précieux : on les avait enterrés avec soin, sans doute après un incendie, parce que ce qui avait été donné au dieu n’avait pas le droit d’être jeté. Il a fallu des années de travail patient pour le remonter à partir de centaines de fragments écrasés.",
+            "question": {
+              "q": "Pourquoi les objets précieux brûlés ont-ils été enterrés avec soin ?",
+              "answers": [
+                "Parce qu’un don au dieu ne se jetait pas",
+                "Pour les mettre à l’abri des voleurs et des pilleurs",
+                "Pour les faire fondre plus tard",
+                "Parce que la Pythie l’avait ordonné elle-même"
+              ],
+              "explanation": "Cette règle est la raison pour laquelle les archéologues trouvent des fosses pleines de trésors."
+            }
+          }
+        },
+        "riddles": {
+          "delphi-museum-riddle-1": {
+            "prompt": "Je viens de gagner la course et je ne souris pas du tout. Je tiens encore mes rênes, mes chevaux ont disparu, et mes yeux ne sont pas en métal.",
+            "hint": "Un glissement de terrain m’a sauvé."
+          },
+          "delphi-museum-riddle-2": {
+            "prompt": "Je suis un animal et je n’ai jamais vécu. Ma peau est de l’argent cloué sur du bois, et on m’a trouvé en mille morceaux au fond d’une fosse.",
+            "hint": "J’ai des cornes, et elles sont en or."
+          },
+          "delphi-museum-riddle-3": {
+            "prompt": "Je suis une pierre en forme de demi-œuf et un filet tressé me recouvre. Pendant des siècles, j’ai montré où était le milieu du monde, et le milieu était toujours ici.",
+            "hint": "Mon nom veut dire nombril."
+          }
+        }
+      }
+    },
+    "delphi-athenian-treasury": {
+      "name": "Le Trésor des Athéniens",
+      "tagline": "La plus vieille musique du monde est gravée sur ses murs",
+      "story": "C’est un petit bâtiment de marbre sur la montée vers le temple, construit vers 490 av. J.-C. pour garder les cadeaux qu’envoyaient les Athéniens. S’il est debout en entier aujourd’hui, c’est parce que des archéologues français l’ont remonté au début du XXe siècle, pierre par pierre, avec ses propres pierres. Mais le plus étonnant ne se voit pas de loin. Sur ses murs extérieurs sont gravés deux hymnes à Apollon, et au-dessus des lettres des mots, il y a d’autres lettres, plus petites. Celles du dessus ne se lisent pas : elles s’écoutent. Ce sont des notes. C’est le plus ancien morceau de musique du monde qui nous soit parvenu avec ses paroles, et on l’a rejoué sur des instruments d’aujourd’hui. Autrement dit, tu peux entendre, assez précisément, ce qu’on entendait ici il y a deux mille ans, et cela n’existe presque nulle part ailleurs dans le monde.",
+      "facts": [
+        "Il a été construit vers 490 av. J.-C. pour garder les cadeaux des Athéniens.",
+        "Sur ses murs sont gravés deux hymnes avec leurs notes de musique.",
+        "Il a été remonté au début du XXe siècle avec ses propres pierres."
+      ],
+      "question": {
+        "q": "Que sont les petites lettres au-dessus des mots, sur les murs ?",
+        "answers": [
+          "Des notes de musique",
+          "Les noms des gens qui l’ont écrit",
+          "Des consignes pour les maçons",
+          "Des chiffres qui comptent les pierres"
+        ],
+        "explanation": "Sans ces lettres, nous n’aurions que les paroles. Avec elles, nous avons aussi la mélodie."
+      }
+    },
+    "delphi-castalian-spring": {
+      "name": "La source Castalie",
+      "tagline": "Personne n’entrait dans le sanctuaire sans s’être lavé ici",
+      "story": "Entre deux rochers à pic, de l’eau sort du Parnasse, et c’est là que tout le monde s’arrêtait avant de monter au sanctuaire. La règle était simple : on ne s’approche pas du dieu quand on est sale. Les pèlerins se lavaient les mains et les cheveux, les prêtres se lavaient en entier, et la Pythie buvait de cette eau avant de s’asseoir sur le trépied. Deux fontaines ont survécu, une fontaine archaïque avec un bassin de marbre et une fontaine romaine taillée directement dans le rocher, avec des niches où les visiteurs laissaient de petits cadeaux. L’eau coule encore et elle est glacée, même au mois d’août. Cela peut sembler purement cérémoniel, mais c’était aussi pratique : un endroit qui accueillait des milliers de personnes avait besoin d’un endroit où ces personnes puissent se laver. Et à une époque sans médicaments, se laver était l’une des rares choses qui gardaient vraiment les gens en bonne santé.",
+      "facts": [
+        "Tout le monde se lavait ici avant d’entrer dans le sanctuaire.",
+        "Deux fontaines ont survécu, une archaïque et une taillée dans le rocher.",
+        "L’eau descend du Parnasse et coule encore."
+      ],
+      "question": {
+        "q": "Pourquoi tout le monde s’arrêtait-il à Castalie avant de monter ?",
+        "answers": [
+          "Parce qu’il fallait se laver d’abord",
+          "Parce que c’est là qu’on payait l’entrée",
+          "Parce que c’est là qu’on laissait ses animaux",
+          "Parce que c’était le seul coin d’ombre"
+        ],
+        "explanation": "La règle était religieuse et pratique en même temps, comme cela arrive souvent."
+      }
+    },
+    "delphi-tholos": {
+      "name": "La Tholos de Delphes",
+      "tagline": "Le plus beau bâtiment de Delphes, et personne ne sait ce que c’était",
+      "story": "Un peu plus bas que le sanctuaire principal, sur une pente plantée d’oliviers, trois colonnes se dressent et soutiennent un morceau de toit en arc de cercle. Elles appartiennent à un bâtiment rond du IVe siècle av. J.-C. qui avait vingt colonnes tout autour. C’est l’image la plus photographiée de Delphes et le plus grand point d’interrogation du site : personne ne sait à quoi il servait. Ce n’était pas un temple au sens habituel, ce n’était pas un trésor, et on n’a trouvé aucune statue à l’intérieur. L’architecte qui l’a dessiné a écrit un livre entier à son sujet, et le livre a été perdu. Les trois colonnes que tu vois ont été redressées en 1938. Les autres sont couchées tout autour, en cercle, et tu peux marcher entre elles. À Delphes, presque tout s’explique, parce que quelqu’un l’a noté. Pas ceci, et c’est le plus beau de tous.",
+      "facts": [
+        "Elle avait vingt colonnes tout autour. Aujourd’hui, il en reste trois debout.",
+        "Personne ne sait à quoi elle servait.",
+        "Les trois colonnes ont été redressées en 1938."
+      ],
+      "question": {
+        "q": "Que sait-on avec certitude sur l’usage de ce bâtiment ?",
+        "answers": [
+          "Rien : personne ne le sait",
+          "Que c’était le trésor d’une cité riche",
+          "Que la Pythie s’asseyait là",
+          "Que c’était la tombe de son architecte"
+        ],
+        "explanation": "C’est l’un des rares grands bâtiments antiques pour lesquels nous n’avons pas une seule réponse sûre. Le livre qui l’expliquait a été perdu."
+      }
+    },
+    "delphi-stadium": {
+      "name": "Le stade de Delphes",
+      "tagline": "Le stade antique le mieux conservé, au point le plus haut",
+      "story": "Au-dessus de tout le reste, au point le plus haut du site, il y a une bande de terre plate de cent soixante-dix-sept mètres, avec des gradins de pierre autour. C’est le stade antique le mieux conservé de Grèce, et il pouvait accueillir environ six mille cinq cents spectateurs. C’est ici qu’avaient lieu les Jeux pythiques, des jeux organisés tous les quatre ans, les plus importants après les Jeux olympiques. Mais ils avaient quelque chose qu’Olympie n’avait pas : des concours de musique. La première épreuve des Jeux pythiques n’était pas une course, mais un chant accompagné à la cithare. Sur la ligne de départ, on voit encore les dalles de pierre avec les rainures où les coureurs calaient leurs orteils, pour que tout le monde parte de la même ligne. Tu peux y poser tes pieds et comprendre quelque chose qui ne se dit pas avec des mots : la hauteur, l’air et le silence sont exactement les mêmes qu’à l’époque.",
+      "facts": [
+        "Il mesure 177 mètres de long et pouvait accueillir environ 6 500 spectateurs.",
+        "Aux Jeux pythiques, il y avait aussi des concours de musique, pas seulement du sport.",
+        "Sur la ligne de départ, on voit encore les rainures pour les orteils des coureurs."
+      ],
+      "question": {
+        "q": "Qu’avaient les Jeux pythiques que les Jeux olympiques n’avaient pas ?",
+        "answers": [
+          "Des concours de musique",
+          "Des courses de chars à quatre chevaux",
+          "Des femmes parmi les athlètes",
+          "Des sports d’hiver sur la neige"
+        ],
+        "explanation": "L’endroit appartenait à Apollon, dieu de la musique. Il était naturel que la première épreuve soit un chant."
+      }
+    },
+    "delphi-theatre": {
+      "name": "Le théâtre antique de Delphes",
+      "tagline": "Cinq mille places, et la plus belle vue tout au fond",
+      "story": "Le théâtre est taillé dans la pente juste au-dessus du temple, avec trente-cinq rangées de gradins de pierre et de la place pour environ cinq mille personnes. Il a été construit au IVe siècle av. J.-C. et accueillait les concours de musique et de théâtre des Jeux pythiques. Il a quelque chose que presque aucun autre théâtre n’a : tout le monde veut les plus mauvaises places. Assis sur la dernière rangée, derrière tous les autres, tu vois par-dessus la tête des acteurs le sanctuaire tout entier, la vallée avec ses oliveraies et, au fond, la mer. Les Anciens le savaient et l’ont dessiné ainsi exprès. La scène n’a jamais été la seule chose que le public regardait. Réfléchis-y un instant : dans un théâtre d’aujourd’hui, on éteint les lumières pour que tu ne voies rien d’autre que les acteurs. Ici, on faisait exactement le contraire, et on le faisait exprès.",
+      "facts": [
+        "Il a 35 rangées de gradins et pouvait accueillir environ 5 000 spectateurs.",
+        "De la dernière rangée, tu vois le sanctuaire, la vallée et la mer.",
+        "Il accueillait les concours de musique et de théâtre des Jeux pythiques."
+      ],
+      "question": {
+        "q": "Pourquoi la dernière rangée est-elle si recherchée dans ce théâtre ?",
+        "answers": [
+          "Parce que tu vois par-dessus la scène",
+          "Parce qu’on y entend mieux",
+          "Parce qu’elle est à l’ombre toute la journée",
+          "Parce que les sièges y sont plus larges"
+        ],
+        "explanation": "Le paysage faisait partie du spectacle. Les Anciens choisissaient des pentes avec vue, pas simplement des pentes."
+      }
+    },
+    "delphi-festivals-museum": {
+      "name": "Le musée des Fêtes delphiques",
+      "tagline": "La maison de deux personnes qui ont essayé de réveiller Delphes",
+      "story": "En 1927, un poète, Angelos Sikelianos, et sa femme, Eva Palmer, ont fait quelque chose que tout le monde a trouvé fou : ils ont monté une tragédie antique dans le théâtre antique de Delphes, après deux mille cinq cents ans de silence. Ils n’avaient pas de mécènes. Eva a vendu ses biens pour payer les frais. Elle n’a pas acheté de costumes : elle a étudié les figures peintes sur les vases antiques, fabriqué des métiers à tisser, teint les fils avec des plantes et tissé elle-même les vêtements, un par un. Avec le spectacle, ils ont organisé des épreuves sportives, une exposition d’art populaire et un marché. Ils l’ont fait deux fois, en 1927 et en 1930, puis l’argent s’est épuisé. Leur maison est aujourd’hui un musée et garde tout ce qu’ils ont fabriqué de leurs mains. Leur idée n’a pas réussi financièrement, mais depuis, le théâtre antique n’est plus jamais resté silencieux très longtemps.",
+      "facts": [
+        "Les Fêtes delphiques ont eu lieu deux fois, en 1927 et en 1930.",
+        "Eva Palmer a tissé elle-même les costumes, en copiant des figures de vases antiques.",
+        "Le musée est installé dans la maison où le couple a vécu."
+      ],
+      "question": {
+        "q": "Où Eva Palmer a-t-elle copié les modèles des costumes ?",
+        "answers": [
+          "Sur des vases antiques",
+          "Dans des livres de mode de Paris",
+          "Sur des vêtements trouvés dans des tombes",
+          "Dans des descriptions des poèmes de son mari"
+        ],
+        "explanation": "Le tissu ne se conserve presque jamais. La peinture sur l’argile, si, et c’est grâce à elle que nous savons comment tombaient les vêtements."
+      },
+      "museum": {
+        "doorNote": "Un petit musée. Regarde les détails : tout ici a été fait à la main par deux personnes.",
+        "rooms": {
+          "delphi-festivals-museum-loom": {
+            "name": "Le métier à tisser",
+            "intro": "La première salle n’a pas d’art, elle a des outils et des matières. C’est la partie la plus utile du musée, parce qu’elle montre le travail avant le résultat. Chaque tissu que tu verras ensuite a commencé ici, à partir de fil, de plantes et d’énormément d’heures de travail qui ne se voient nulle part dans le résultat final."
+          },
+          "delphi-festivals-museum-two-festivals": {
+            "name": "Deux fêtes",
+            "intro": "La deuxième salle montre ce qui s’est vraiment passé ces deux années-là. Des photographies, des programmes, des affiches et des notes. Les visages sur les photographies sont ceux de villageois de la région, pas d’acteurs professionnels, et cela faisait partie de l’idée : la fête devait appartenir à l’endroit, et non venir de l’extérieur pour un seul soir."
+          }
+        },
+        "exhibits": {
+          "delphi-festivals-museum-costume": {
+            "name": "Un costume tissé",
+            "blurb": "Un long vêtement de laine, tissé d’une seule pièce, sans coutures sur les côtés. C’est ainsi qu’étaient faits les vêtements antiques : on ne découpait pas le tissu en formes, on le tissait à sa taille finale et on l’enroulait autour du corps avec des épingles et une ceinture. Approche-toi et regarde le tissage sur le bord : on voit les endroits où la tisseuse a changé de couleur, et on voit qu’elle l’a fait à la main, parce que les lignes ne sont pas parfaitement droites.",
+            "question": {
+              "q": "Comment fabriquait-on un vêtement antique ?",
+              "answers": [
+                "On le tissait d’une seule pièce",
+                "On le découpait en formes et on le cousait",
+                "On le tricotait avec des aiguilles",
+                "On le collait avec de la résine"
+              ],
+              "explanation": "C’est pour cela qu’il n’y avait pas de « tailles » dans l’Antiquité : le même tissu s’enroulait différemment."
+            }
+          },
+          "delphi-festivals-museum-the-loom": {
+            "name": "Le métier à tisser d’Eva",
+            "blurb": "Un métier à tisser en bois, grand comme une porte. Eva Palmer n’a pas trouvé tout prêt ce qu’elle voulait, alors elle a installé des métiers et a appris à tisser auprès de femmes des villages. Le travail est lent d’une façon qu’on imagine difficilement : un vêtement demande des semaines. Pour deux spectacles, il a fallu des dizaines de costumes, et tous sont passés par ce bois. Quand tu regardes un métier à tisser, tu regardes du temps. Et le temps était la seule chose qu’ils avaient en abondance, parce que de l’argent, ils n’en avaient presque pas.",
+            "question": {
+              "q": "Combien de temps faut-il, à peu près, pour tisser un vêtement sur un métier ?",
+              "answers": [
+                "Des semaines",
+                "Quelques minutes seulement",
+                "Une heure environ",
+                "Des années entières"
+              ],
+              "explanation": "C’est pour cela que les vêtements coûtaient cher et passaient de génération en génération."
+            }
+          },
+          "delphi-festivals-museum-dyes": {
+            "name": "Les teintures végétales",
+            "blurb": "De petits pots avec des racines, des écorces, des feuilles et des fleurs séchées. Avant les couleurs chimiques, chaque teinture venait d’une plante : le jaune du safran ou de l’oignon, le rouge de la racine de garance, le bleu de l’indigo, le brun du brou de noix. La couleur ne tient pas toute seule, il lui faut aussi une matière qui la fixe à la laine. C’est pour cela que la teinture était un métier et non une astuce : si tu te trompes, la couleur part au premier lavage.",
+            "question": {
+              "q": "De quoi une couleur a-t-elle besoin pour rester sur la laine ?",
+              "answers": [
+                "D’une matière qui la fixe à la fibre",
+                "D’eau très chaude, et de rien d’autre du tout",
+                "De trois jours de plein soleil",
+                "De sel de mer, et c’est tout"
+              ],
+              "explanation": "Sans cela, la plante colore l’eau, mais pas le tissu."
+            }
+          },
+          "delphi-festivals-museum-photographs": {
+            "name": "Les photographies de 1927",
+            "blurb": "Des photographies en noir et blanc du spectacle dans le théâtre antique : des dizaines de figures en longs vêtements tissés, alignées en rangées dans l’orchestra, la partie ronde en bas du théâtre, avec la montagne derrière. Il n’y avait ni lumières ni micros. Le spectacle avait lieu à la lumière du jour, et les voix portaient comme elles portaient deux mille cinq cents ans plus tôt, grâce à la forme du théâtre. Sur les photographies, on voit aussi des spectateurs assis sur les gradins de pierre, beaucoup dans leurs vêtements de travail.",
+            "question": {
+              "q": "Comment entendait-on les acteurs sans micros ?",
+              "answers": [
+                "Grâce à la forme du théâtre antique",
+                "Parce que le public était très peu nombreux",
+                "Parce qu’ils criaient aussi fort qu’ils pouvaient",
+                "Parce que des haut-parleurs étaient cachés"
+              ],
+              "explanation": "La courbe des gradins rassemble le son et l’envoie vers le haut. C’est du dessin, pas de la chance."
+            }
+          },
+          "delphi-festivals-museum-programmes": {
+            "name": "Les programmes",
+            "blurb": "Des brochures imprimées et des affiches en grec, en français et en anglais. Elles montrent quelque chose que les photographies ne montrent pas : les Fêtes delphiques n’étaient pas seulement du théâtre. Il y avait des épreuves dans le stade antique, une exposition de tissages et de poteries venus des villages de la région, et un marché où les artisans vendaient eux-mêmes leur travail. L’idée, c’était qu’un endroit ne revit pas avec un seul spectacle, mais quand tous ceux qui y vivent travaillent ensemble.",
+            "question": {
+              "q": "Que comprenaient encore les Fêtes delphiques, en plus du théâtre ?",
+              "answers": [
+                "Des jeux, une exposition et un marché",
+                "Seulement des concerts de musique classique",
+                "Des cours de grec ancien",
+                "Rien d’autre"
+              ],
+              "explanation": "Ils voulaient que toute la région se mette au travail, pas qu’une troupe arrive et reparte."
+            }
+          },
+          "delphi-festivals-museum-notes": {
+            "name": "Les manuscrits",
+            "blurb": "Des pages de notes, de comptes et de lettres. Elles montrent le côté le moins romantique : combien a coûté la laine, qui n’a pas payé, ce qui n’est pas arrivé à temps. Eva a vendu ses biens pour que les deux fêtes aient lieu, et ensuite il n’y avait plus d’argent. C’est une pièce utile pour un enfant : chaque belle chose qui a été faite l’a été parce que quelqu’un s’est assis et a fait les comptes.",
+            "question": {
+              "q": "Pourquoi les Fêtes delphiques se sont-elles arrêtées après la deuxième fois ?",
+              "answers": [
+                "Parce que l’argent s’est épuisé",
+                "Parce que l’État les a interdites par une loi",
+                "Parce que personne n’est venu les voir",
+                "Parce que le théâtre a brûlé"
+              ],
+              "explanation": "Le couple a presque tout payé lui-même, et une fortune ne dure pas éternellement."
+            }
+          }
+        },
+        "riddles": {
+          "delphi-festivals-museum-riddle-1": {
+            "prompt": "Je suis en bois et je suis grand comme une porte. Je ne fais rien tout seul, mais sans moi, aucun des vêtements de ce musée n’existerait.",
+            "hint": "Je travaille avec du fil, et très lentement."
+          },
+          "delphi-festivals-museum-riddle-2": {
+            "prompt": "Je suis en noir et blanc et j’ai arrêté le temps un jour de 1927. En moi, des dizaines de personnes se tiennent dans un théâtre antique, sans lumières et sans micros.",
+            "hint": "Personne ne m’a peint. On m’a pris avec un appareil."
+          }
+        }
+      }
+    },
+    "delphi-parnassus": {
+      "name": "Liakoura, le sommet du Parnasse",
+      "tagline": "Deux mille quatre cent cinquante-sept mètres au-dessus de l’oracle",
+      "story": "Le Parnasse n’est pas un seul pic pointu mais tout un massif, et son point le plus haut s’appelle Liakoura, à 2 457 mètres. Dans les mythes, c’était la montagne des Muses et d’Apollon, et quand le grand déluge a recouvert le monde, l’arche de Deucalion s’est arrêtée ici. En réalité, c’est une montagne de calcaire, pleine de grottes et de gouffres, et l’eau de pluie ne coule pas à sa surface : elle entre à l’intérieur, voyage dans le noir et ressort plus bas, dans des sources. Castalie est l’une d’elles. Autrement dit, l’eau que buvait la Pythie avant de parler avait d’abord traversé toute la montagne. En hiver, le sommet se couvre d’une neige qui tient jusqu’au printemps, et d’en haut, tu vois en même temps le golfe de Corinthe au sud et la Grèce centrale qui s’étend vers le nord.",
+      "facts": [
+        "Le sommet Liakoura atteint 2 457 mètres.",
+        "C’est une montagne de calcaire : l’eau entre dedans au lieu de couler dessus.",
+        "Dans les mythes, c’était la montagne des Muses, et c’est là que s’est arrêtée l’arche de Deucalion."
+      ],
+      "question": {
+        "q": "Que fait l’eau de pluie quand elle tombe sur une montagne de calcaire ?",
+        "answers": [
+          "Elle entre dans la montagne",
+          "Elle coule à la surface et forme des rivières",
+          "Elle gèle aussitôt et reste là",
+          "Elle s’évapore avant d’atteindre le sol"
+        ],
+        "explanation": "Le calcaire se dissout lentement dans l’eau et se remplit de trous. C’est ainsi que se forment les grottes, et ainsi que naissent les sources."
+      }
+    },
+    "delphi-corycian-cave": {
+      "name": "L’antre corycien",
+      "tagline": "Une grotte haut dans la montagne, pleine de cadeaux vieux de milliers d’années",
+      "story": "À mille trois cent soixante mètres d’altitude, dans le Parnasse, s’ouvre une grande grotte avec des stalactites et des stalagmites. Elle était consacrée à Pan et aux Nymphes, et contrairement à l’oracle en bas, ici il n’y avait ni prêtres, ni file d’attente, ni paiement. Venait qui voulait, et on laissait un petit cadeau. Les archéologues ont trouvé des milliers de ces cadeaux dans la terre : des figurines d’argile, des lampes, des bagues et énormément d’osselets, les petits os avec lesquels jouaient les enfants. Une fois par an, des femmes de la région montaient ici et dansaient toute la nuit avec des torches. C’est le contraire de Delphes : l’oracle était officiel et cher, la grotte était populaire et gratuite. Pour y arriver, il faut plusieurs heures de montée depuis Delphes, et cela n’a pas changé du tout : le chemin est le même, et le noir à l’intérieur aussi.",
+      "facts": [
+        "Elle se trouve à 1 360 mètres d’altitude, dans le Parnasse.",
+        "Elle était consacrée à Pan et aux Nymphes, sans prêtres et sans paiement.",
+        "Dans sa terre, on a trouvé des milliers de petits cadeaux, dont beaucoup d’osselets."
+      ],
+      "question": {
+        "q": "En quoi la grotte était-elle différente de l’oracle de Delphes ?",
+        "answers": [
+          "Elle n’avait ni prêtres ni paiement",
+          "Elle n’était ouverte qu’aux rois",
+          "Elle ne fonctionnait qu’en hiver",
+          "On n’avait pas le droit d’y laisser quoi que ce soit"
+        ],
+        "explanation": "C’est pour cela que ses trouvailles sont petites et modestes : elles ont été laissées par des gens qui n’avaient pas de statue à offrir."
+      }
+    },
+    "delphi-galaxidi": {
+      "name": "Galaxidi",
+      "tagline": "Un petit port qui a eu l’une des plus grandes flottes de Grèce",
+      "story": "En regardant Galaxidi aujourd’hui, un petit port tranquille avec des maisons de pierre, on a du mal à croire qu’au XIXe siècle, c’était l’un des plus grands centres maritimes du pays. Il avait des centaines de voiliers et ses propres chantiers navals, c’est-à-dire des endroits où l’on construisait des bateaux à la main, en bois. Les grandes maisons que tu vois dans les ruelles sont des maisons de capitaines, bâties avec les bénéfices des voyages. Et puis tout s’est terminé très vite : les bateaux à vapeur sont arrivés, le bois et la voile ne pouvaient pas rivaliser avec la vapeur, et la flotte s’est éteinte en une génération. Le musée maritime de la ville garde des maquettes de bateaux, des instruments de navigation et des journaux de bord manuscrits. C’est une leçon sur la façon dont une technologie peut éteindre tout un endroit en quelques années, sans guerre et sans catastrophe.",
+      "facts": [
+        "Au XIXe siècle, il avait des centaines de voiliers et ses propres chantiers navals.",
+        "Ses grandes maisons ont été bâties par des capitaines avec les bénéfices de leurs voyages.",
+        "La flotte s’est éteinte en une génération, quand les bateaux à vapeur sont arrivés."
+      ],
+      "question": {
+        "q": "Pourquoi la flotte de Galaxidi s’est-elle éteinte ?",
+        "answers": [
+          "Parce que les bateaux à vapeur sont arrivés",
+          "Parce qu’une tempête a coulé tous les bateaux",
+          "Parce qu’il n’y avait plus du tout de bois dans la région",
+          "Parce que le port s’est rempli de sable"
+        ],
+        "explanation": "La même chose est arrivée à des dizaines de villes maritimes. Un changement de technologie ne demande pas qui est bon dans son travail."
+      }
+    },
+    "delphi-amfissa": {
+      "name": "Le château d’Amphissa",
+      "tagline": "Des tours médiévales sur des murs antiques, dans un seul bâtiment",
+      "story": "Au-dessus d’Amphissa, sur la colline de l’acropole antique, se dresse un château qui se lit comme un livre si tu le regardes de bas en haut. À sa base, il y a d’énormes blocs antiques, taillés pour s’emboîter les uns dans les autres sans mortier, comme un puzzle. Par-dessus reposent des murs médiévaux faits de pierres plus petites et de chaux, et plus haut encore, des tours que des seigneurs francs ont bâties au XIIIe siècle. Personne n’a démoli ce qui était là avant pour construire le sien : chacun s’est appuyé sur ce qu’il a trouvé. En bas s’étend la vallée avec ses oliviers, l’une des plus grandes oliveraies de Grèce, avec des arbres qui ont eux aussi des centaines d’années. Les pierres antiques de la base sont si bien taillées que tu ne peux même pas glisser une feuille de papier entre elles, et elles tiennent encore sans rien pour les coller.",
+      "facts": [
+        "À sa base, il y a des blocs antiques posés sans mortier.",
+        "Ses tours ont été bâties par des Francs au XIIIe siècle.",
+        "En bas s’étend l’une des plus grandes oliveraies de Grèce."
+      ],
+      "question": {
+        "q": "Qu’apprends-tu en regardant le château de bas en haut ?",
+        "answers": [
+          "Que chaque époque a bâti sur la précédente",
+          "Qu’il a été bâti d’un seul coup, en une seule année",
+          "Qu’on l’a construit de haut en bas",
+          "Qu’il est fait uniquement de marbre"
+        ],
+        "explanation": "Construire à partir de zéro coûte cher. S’appuyer sur un mur antique solide est moins cher et plus sûr."
+      }
+    },
+    "delphi-hosios-loukas": {
+      "name": "Le monastère d’Osios Loukas",
+      "tagline": "Des mosaïques d’or dans une coupole, depuis mille ans",
+      "story": "À une demi-heure à l’est de Delphes, sur une pente plantée d’amandiers, se dresse un monastère des Xe et XIe siècles, considéré comme l’un des plus importants bâtiments byzantins du monde. Il a été fondé par un ermite, Luc, qui y a vécu seul et est devenu célèbre dans la région. Tu entres, et la première chose qui se produit, c’est la lumière : les coupoles sont couvertes de mosaïques sur fond d’or, et l’or n’est pas plat. Chaque petit morceau a été posé avec une inclinaison légèrement différente, pour attraper la lumière sous un autre angle. Résultat : le mur semble scintiller quand tu marches, comme s’il respirait. C’est une astuce vieille de mille ans qui fonctionne encore, et elle n’a besoin ni d’électricité ni d’entretien : il lui faut seulement une fenêtre et quelqu’un qui marche.",
+      "facts": [
+        "Il a été bâti aux Xe et XIe siècles et fondé par un ermite.",
+        "Ses mosaïques d’or sont posées avec des inclinaisons différentes, pour jouer avec la lumière.",
+        "Il est inscrit au patrimoine mondial de l’UNESCO."
+      ],
+      "question": {
+        "q": "Pourquoi l’or des coupoles semble-t-il scintiller ?",
+        "answers": [
+          "Parce que chaque petit morceau penche autrement",
+          "Parce qu’il y a des bougies cachées derrière le mur",
+          "Parce que l’or est peint avec de l’huile",
+          "Parce que la coupole tourne sur elle-même très lentement"
+        ],
+        "explanation": "Des milliers de petits miroirs à des angles légèrement différents. Le mur change parce que c’est toi qui bouges."
+      }
+    }
+  },
+  "trails": {
+    "delphi-sacred-way": {
+      "name": "La Voie sacrée",
+      "promise": "La montée de tous ceux qui avaient une question à poser, et tout ce qu’ils ont laissé derrière eux."
+    },
+    "delphi-the-mountain": {
+      "name": "La montagne au-dessus",
+      "promise": "D’où vient l’eau, où elle finissait, et une grotte qui ne demandait rien."
+    },
+    "delphi-after-the-oracle": {
+      "name": "Après l’oracle",
+      "promise": "Mille ans plus tard : des mosaïques d’or, un château en couches, un port et deux fêtes tissées."
+    }
+  }
+}

@@ -1,0 +1,502 @@
+{
+  "lang": "de",
+  "cityId": "delphi",
+  "places": {
+    "delphi-site": {
+      "name": "Das Heiligtum von Delphi",
+      "tagline": "Der Ort, den die Alten für den Mittelpunkt der Welt hielten",
+      "story": "Der Mythos erzählt, dass Zeus zwei Adler von den beiden Enden der Erde losfliegen ließ und dass sie sich genau hier trafen. Deshalb nannte man Delphi den Omphalos, das heißt den Nabel, die Mitte der Welt. Hier lag das berühmteste Orakel des Altertums. Ganze Städte schickten Abgesandte, um zu fragen, ob sie Krieg führen, eine Kolonie gründen oder ihre Gesetze ändern sollten, und sie warteten in einer Schlange. Die Pythia saß auf einem Dreifuß im Inneren des Tempels und sprach, und die Priester schrieben ihre Worte auf. Die Antworten waren oft zweideutig, das heißt, man konnte sie auf zwei Arten lesen, und das war für alle nützlich. An der Wand des Tempels standen zwei Sätze, die für immer geblieben sind: „Erkenne dich selbst“ und „Nichts im Übermaß“.",
+      "facts": [
+        "Die Alten hielten es für den Omphalos, das heißt den Nabel der Welt.",
+        "Am Tempel standen „Erkenne dich selbst“ und „Nichts im Übermaß“.",
+        "Unter dem Tempel verlaufen zwei Erdspalten, und Geologen haben Spuren von Gasen gefunden."
+      ],
+      "question": {
+        "q": "Warum nannte man Delphi den Nabel der Erde?",
+        "answers": [
+          "Weil sich dort zwei Adler des Zeus trafen",
+          "Weil es der geografische Mittelpunkt Griechenlands ist",
+          "Weil der Boden dort die Form eines Kreises hat",
+          "Weil die römischen Kaiser es so beschlossen"
+        ],
+        "explanation": "Zeus ließ sie von den beiden Enden der Welt losfliegen. Wo sie sich trafen, war die Mitte."
+      }
+    },
+    "delphi-museum": {
+      "name": "Das Archäologische Museum von Delphi",
+      "tagline": "Alles, was einmal an der Heiligen Straße stand",
+      "story": "Jede Stadt, die das Orakel befragte und die Antwort bekam, die sie wollte, schickte ein Geschenk. Und weil die Geschenke miteinander wetteiferten, versuchte jedes, teurer, größer oder klüger zu sein als das vorige. So füllte sich die Heilige Straße, der Weg, der zum Tempel hinaufführt, mit Statuen und kleinen Marmorgebäuden voller Schätze. Was davon erhalten blieb, steht heute in diesem Museum, ein paar Meter weiter unten. Es ist nicht groß, und das ist ein Vorteil: Du kannst es ganz ansehen und dir merken, was du gesehen hast. Es gibt einen jungen Mann aus Bronze, der noch immer seine Zügel hält, zwei Brüder aus Marmor, eine Sphinx, die auf einer zehn Meter hohen Säule saß, und einen Stein, den man die Mitte der Welt nannte. Die Regel hier ist einfach: Alles, was du siehst, war einmal das Geschenk von jemandem, der sich etwas ganz besonders wünschte.",
+      "facts": [
+        "Seine Ausstellungsstücke waren Geschenke von Städten an das Orakel.",
+        "Der Wagenlenker ist eine der ganz wenigen Bronzestatuen, die vollständig erhalten blieben.",
+        "Es liegt ein paar Meter unterhalb der Ausgrabungsstätte."
+      ],
+      "question": {
+        "q": "Warum füllte sich die Heilige Straße mit Statuen und Schätzen?",
+        "answers": [
+          "Weil jede Stadt ein Geschenk schickte",
+          "Weil man dort die Beute aus den Kriegen aufbewahrte",
+          "Weil die Priester sie selbst anfertigten",
+          "Weil dort die Werkstätten der Bildhauer waren"
+        ],
+        "explanation": "Ein Geschenk an das Orakel sah ganz Griechenland. Es war der beste Weg für eine Stadt, zu zeigen, wie stark sie ist."
+      },
+      "museum": {
+        "doorNote": "Lass den Wagenlenker für den Schluss. Er gewinnt leichter, wenn du gesehen hast, was es vor ihm gab.",
+        "rooms": {
+          "delphi-museum-before-bronze": {
+            "name": "Vor der Bronze",
+            "intro": "Die ältesten Geschenke sind aus Marmor und stehen reglos da, mit beiden Füßen gerade und einem kleinen Lächeln. Sie sind nicht ungeschickt: So wollten sie aussehen. Eine Statue sollte damals nicht so wirken, als bewege sie sich. Sie sollte so wirken, als würde sie für immer dort bleiben."
+          },
+          "delphi-museum-charioteer-room": {
+            "name": "Der Wagenlenker und der Omphalos",
+            "intro": "Dieser Saal hat drei Gegenstände, die einander überhaupt nicht ähneln und vollkommen zusammengehören: ein Sieger, ein Opfertier aus Silber und ein Stein, der anzeigte, wo die Mitte der Welt liegt. Alle drei sind Geschenke, und alle drei wurden vergraben oder versteckt, und genau deshalb blieben sie erhalten."
+          }
+        },
+        "exhibits": {
+          "delphi-museum-kleobis-biton": {
+            "name": "Kleobis und Biton",
+            "blurb": "Zwei riesige junge Männer aus Marmor, fast gleich, gemeißelt um 580 v. Chr. Die Geschichte, die zu ihren Namen gehört, erzählt von zwei Brüdern, die den Wagen ihrer Mutter selbst einen langen Weg bergauf zogen, als die Ochsen nicht rechtzeitig kamen. Die Bewohner ihrer Stadt ehrten sie, indem sie die Statuen nach Delphi schickten, damit ganz Griechenland sie sehen konnte. Achte auf ihre Füße: Beide stehen ganz auf dem Boden, gleich belastet, wie bei allen Statuen jener Zeit.",
+            "question": {
+              "q": "Warum schickte ihre Stadt diese Statuen nach Delphi?",
+              "answers": [
+                "Damit ganz Griechenland sie sieht",
+                "Um sie an die Priester zu verkaufen",
+                "Weil sie in ihrer Stadt keinen Platz hatten",
+                "Weil die Pythia darum gebeten hatte"
+              ],
+              "explanation": "Delphi war der Ort, an dem sich die ganze griechische Welt traf. Es war die große Leinwand seiner Zeit."
+            }
+          },
+          "delphi-museum-naxian-sphinx": {
+            "name": "Die Sphinx der Naxier",
+            "blurb": "Ein Wesen mit dem Kopf einer Frau, dem Körper eines Löwen und den Flügeln eines Adlers, über zwei Meter hoch. Sie stand nicht auf dem Boden: Man hatte sie auf eine zehn Meter hohe Säule gehoben, damit sie von weitem zu sehen war und von oben auf jeden herabblickte, der die Heilige Straße hinaufstieg. Die Insel Naxos schickte sie um 560 v. Chr., als sie durch ihren Marmor reich war. Ihre Haltung ist ruhig und ihr Blick geht geradeaus, und genau das macht sie unheimlich.",
+            "question": {
+              "q": "Wo stand die Sphinx ursprünglich?",
+              "answers": [
+                "Auf einer rund zehn Meter hohen Säule",
+                "Im Tempel, direkt neben der Pythia",
+                "Am Eingang des Stadions",
+                "Unter der Erde, in einer versteckten Gruft"
+              ],
+              "explanation": "Deshalb ist sie auch von unten sorgfältig ausgearbeitet: Die Menschen sahen sie nur von dort."
+            }
+          },
+          "delphi-museum-siphnian-frieze": {
+            "name": "Der Fries der Siphnier",
+            "blurb": "Die Siphnier, die Bewohner der Insel Sifnos, hatten Goldbergwerke und bauten in Delphi um 525 v. Chr. ein kleines, aber unglaublich teures Schatzhaus. Sein Marmorfries zeigt den Kampf der Götter gegen die Giganten, die Körper in so hohem Relief, dass sie sich vom Hintergrund lösen. Daneben stehst du nur einen Atemzug entfernt von Löwen, die beißen, Schilden, die aufeinanderprallen, und Göttern, die schieben. Die Insel verlor später ihre Bergwerke, als das Meer die Stollen überflutete, und baute nie wieder etwas Vergleichbares.",
+            "question": {
+              "q": "Woher hatten die Siphnier das Geld für dieses Gebäude?",
+              "answers": [
+                "Aus Goldbergwerken auf ihrer Insel",
+                "Aus dem Handel mit Wein",
+                "Aus Steuern, die sie von anderen Inseln einzogen",
+                "Aus einem Geschenk des Königs von Persien"
+              ],
+              "explanation": "Die Bergwerke wurden später vom Meer überflutet, und der Reichtum endete mit ihnen."
+            }
+          },
+          "delphi-museum-charioteer": {
+            "name": "Der Wagenlenker",
+            "blurb": "Ein junger Mann aus Bronze, etwa 1,80 Meter groß, aufrecht und ruhig, die Zügel noch in den Händen. Er hat gerade ein Wagenrennen gewonnen, und er jubelt überhaupt nicht. Er entstand um 470 v. Chr. Seine Augen sind nicht aus Metall: Sie sind eingelegt, aus Stein und Glas, und deshalb sehen sie dich an. Seine Lippen und Wimpern sind aus einer anderen, rötlicheren Legierung. Er blieb erhalten, weil ein Erdrutsch ihn begrub: Alles aus Bronze, das an der Oberfläche blieb, wurde Jahrhunderte später eingeschmolzen, um wieder zu Werkzeug zu werden.",
+            "question": {
+              "q": "Warum blieb der Wagenlenker erhalten, während fast alle Bronzestatuen verloren gingen?",
+              "answers": [
+                "Weil ein Erdrutsch ihn begrub",
+                "Weil er im Tempel versteckt war",
+                "Weil er zu schwer war, um ihn wegzutragen",
+                "Weil ein Gesetz ihn schützte"
+              ],
+              "explanation": "Bronze war ein wertvolles Material. Eine Statue war eingeschmolzen mehr wert als aufrecht, und so gingen fast alle verloren."
+            }
+          },
+          "delphi-museum-omphalos": {
+            "name": "Der Omphalos",
+            "blurb": "Ein Stein in der Form eines halben Eis, bedeckt mit einem reliefartigen Netz aus Wollbändern. Er markierte die Stelle, die als Mitte der Welt galt. Er ist kein natürlicher Felsen: Er ist ein gemeißelter Gegenstand, gemacht, um darauf zu zeigen. Was du im Museum siehst, ist eine römische Kopie eines älteren Steins. Die Vorstellung, dass jedes Volk einen Punkt hat, den es für die Mitte der Erde hält, taucht in vielen Kulturen auf, und fast immer liegt dieser Punkt innerhalb der eigenen Grenzen.",
+            "question": {
+              "q": "Was markierte dieser Stein?",
+              "answers": [
+                "Die Mitte der Welt",
+                "Das Grab der ersten Pythia",
+                "Die Höhe des Meeresspiegels",
+                "Die Grenze zwischen zwei Städten"
+              ],
+              "explanation": "Fast jede Kultur hat ihre eigene Mitte der Welt, und sie liegt immer zu Hause."
+            }
+          },
+          "delphi-museum-silver-bull": {
+            "name": "Der silberne Stier",
+            "blurb": "Ein Stier fast in Lebensgröße, gemacht aus Silberblechen, die auf ein Holzgerüst genagelt sind, mit goldenen Einzelheiten an Hörnern und Hufen. Man fand ihn in Stücken in einer Grube, zusammen mit anderen kostbaren Gegenständen: Sie waren sorgfältig vergraben worden, wahrscheinlich nach einem Feuer, denn was dem Gott gegeben worden war, durfte nicht weggeworfen werden. Es brauchte Jahre geduldiger Arbeit, um ihn aus Hunderten zerknautschter Stücke wieder zusammenzusetzen.",
+            "question": {
+              "q": "Warum wurden die verbrannten kostbaren Gegenstände sorgfältig vergraben?",
+              "answers": [
+                "Weil man Gaben an den Gott nie wegwarf",
+                "Um sie vor Dieben zu verstecken",
+                "Um sie später einzuschmelzen",
+                "Weil die Pythia es ausdrücklich so befohlen hatte"
+              ],
+              "explanation": "Diese Regel ist der Grund, warum Archäologen volle Gruben finden."
+            }
+          }
+        },
+        "riddles": {
+          "delphi-museum-riddle-1": {
+            "prompt": "Ich habe gerade das Rennen gewonnen und lächle überhaupt nicht. Ich halte noch meine Zügel, meine Pferde sind verschwunden, und meine Augen sind nicht aus Metall.",
+            "hint": "Ein Erdrutsch hat mich gerettet."
+          },
+          "delphi-museum-riddle-2": {
+            "prompt": "Ich bin ein Tier und habe nie gelebt. Meine Haut ist Silber, auf Holz genagelt, und man fand mich in tausend Stücken in einer Grube.",
+            "hint": "Ich habe Hörner, und sie sind aus Gold."
+          },
+          "delphi-museum-riddle-3": {
+            "prompt": "Ich bin ein Stein in der Form eines halben Eis, und ein geflochtenes Netz bedeckt mich. Jahrhundertelang zeigte ich, wo die Mitte der Welt ist, und die Mitte war immer hier.",
+            "hint": "Mein Name bedeutet Nabel."
+          }
+        }
+      }
+    },
+    "delphi-athenian-treasury": {
+      "name": "Das Schatzhaus der Athener",
+      "tagline": "In seine Wände ist die älteste erhaltene Musik eingemeißelt",
+      "story": "Es ist ein kleines Marmorgebäude am Aufstieg zum Tempel, errichtet um 490 v. Chr., um die Geschenke aufzubewahren, die die Athener schickten. Dass es heute vollständig dasteht, liegt daran, dass französische Archäologen es Anfang des 20. Jahrhunderts wieder zusammensetzten, Stück für Stück, aus seinen eigenen Steinen. Das Erstaunliche aber sieht man nicht von weitem. In seine Außenwände sind zwei Hymnen an Apollon eingemeißelt, und über den Buchstaben der Wörter stehen noch andere Buchstaben, kleinere. Diese oberen Buchstaben liest man nicht: Man hört sie. Es sind Noten. Es ist das älteste Musikstück, das irgendwo auf der Welt zusammen mit seinem Text erhalten ist, und es wurde auf heutigen Instrumenten wieder gespielt. Das heißt, du kannst ziemlich genau hören, was hier vor zweitausend Jahren zu hören war, und das gilt fast nirgendwo sonst auf der Welt.",
+      "facts": [
+        "Es wurde um 490 v. Chr. gebaut, um die Geschenke der Athener aufzubewahren.",
+        "In seine Wände sind zwei Hymnen mit ihren Noten eingemeißelt.",
+        "Es wurde Anfang des 20. Jahrhunderts aus seinen eigenen Steinen wieder aufgebaut."
+      ],
+      "question": {
+        "q": "Was sind die kleinen Buchstaben über den Wörtern an den Wänden?",
+        "answers": [
+          "Noten: Sie zeigen, wie die Hymne gesungen wurde",
+          "Die Namen der Menschen, die den Text geschrieben haben",
+          "Anweisungen für die Bauleute",
+          "Zahlen, die die Steine zählen"
+        ],
+        "explanation": "Ohne diese Buchstaben wüssten wir nur die Worte. Mit ihnen kennen wir auch die Melodie."
+      }
+    },
+    "delphi-castalian-spring": {
+      "name": "Die Kastalische Quelle",
+      "tagline": "Niemand betrat das Heiligtum, ohne sich hier zu waschen",
+      "story": "Zwischen zwei steilen Felsen tritt Wasser aus dem Parnass hervor, und dort hielten alle an, bevor sie zum Heiligtum hinaufstiegen. Die Regel war einfach: Du näherst dich dem Gott nicht schmutzig. Die Pilger wuschen sich Hände und Haare, die Priester wuschen sich ganz, und die Pythia trank von diesem Wasser, bevor sie sich auf den Dreifuß setzte. Zwei Brunnenhäuser sind erhalten, ein archaisches mit einem Marmorbecken und ein römisches, direkt in den Felsen gehauen, mit Nischen, in denen die Besucher kleine Geschenke zurückließen. Das Wasser fließt noch immer und ist selbst im August eiskalt. Es mag nach Zeremonie klingen, aber es war auch praktisch: Ein Ort, der Tausende Menschen empfing, brauchte eine Stelle, an der sich diese Menschen waschen konnten. Und in einer Zeit ohne Medikamente war das Waschen eines der wenigen Dinge, die die Menschen wirklich gesund hielten.",
+      "facts": [
+        "Alle wuschen sich hier, bevor sie das Heiligtum betraten.",
+        "Zwei Brunnenhäuser sind erhalten, ein archaisches und eines, das in den Felsen gehauen ist.",
+        "Das Wasser kommt vom Parnass herab und fließt noch immer."
+      ],
+      "question": {
+        "q": "Warum hielten alle an der Kastalischen Quelle an, bevor sie hinaufstiegen?",
+        "answers": [
+          "Weil sie sich zuerst waschen mussten",
+          "Weil sie dort den Eintritt bezahlten",
+          "Weil sie dort ihre Tiere zurückließen",
+          "Weil es die einzige Stelle mit Schatten war"
+        ],
+        "explanation": "Die Regel war religiös und zugleich praktisch, wie es oft der Fall ist."
+      }
+    },
+    "delphi-tholos": {
+      "name": "Die Tholos von Delphi",
+      "tagline": "Das schönste Gebäude von Delphi, und niemand weiß, was es war",
+      "story": "Ein Stück unterhalb des Hauptheiligtums, an einem Hang voller Olivenbäume, stehen drei Säulen, die ein rundes Stück Dach tragen. Sie gehören zu einem runden Gebäude aus dem 4. Jahrhundert v. Chr., das ringsum zwanzig Säulen hatte. Es ist das meistfotografierte Bild von Delphi und das größte Fragezeichen der ganzen Anlage: Niemand weiß, wozu es diente. Es war kein Tempel im üblichen Sinn, es war kein Schatzhaus, und man fand keine Statue darin. Der Architekt, der es entwarf, schrieb ein ganzes Buch darüber, und das Buch ging verloren. Die drei Säulen, die du siehst, wurden 1938 wieder aufgerichtet. Die übrigen liegen ringsum, im Kreis, und du kannst zwischen ihnen hindurchgehen. In Delphi lässt sich fast alles erklären, weil jemand es aufgeschrieben hat. Dieses hier nicht, und es ist das schönste von allen.",
+      "facts": [
+        "Sie hatte ringsum zwanzig Säulen. Heute stehen drei.",
+        "Niemand weiß, wozu sie diente.",
+        "Die drei Säulen wurden 1938 wieder aufgerichtet."
+      ],
+      "question": {
+        "q": "Was wissen wir sicher über den Zweck dieses Gebäudes?",
+        "answers": [
+          "Nichts: Niemand weiß, wozu es diente",
+          "Dass es das Schatzhaus einer reichen Stadt war",
+          "Dass dort die Pythia saß",
+          "Dass es das Grab seines Architekten war"
+        ],
+        "explanation": "Es ist eines der wenigen großen antiken Gebäude, für die wir nicht eine einzige sichere Antwort haben. Das Buch, das es erklärte, ging verloren."
+      }
+    },
+    "delphi-stadium": {
+      "name": "Das Stadion von Delphi",
+      "tagline": "Das am besten erhaltene antike Stadion, am höchsten Punkt",
+      "story": "Über allem anderen, am höchsten Punkt der Anlage, liegt ein flacher Streifen Land von hundertsiebenundsiebzig Metern, mit steinernen Sitzen ringsum. Es ist das am besten erhaltene antike Stadion Griechenlands und fasste etwa sechstausendfünfhundert Zuschauer. Hier fanden die Pythischen Spiele statt, Wettkämpfe alle vier Jahre, an Bedeutung gleich nach den Olympischen. Sie hatten aber etwas, das Olympia nicht hatte: Musikwettbewerbe. Der erste Wettbewerb der Pythischen Spiele war kein Wettlauf, sondern Gesang zur Kithara, einer Art Leier. An der Startlinie sind noch die Steinplatten mit den Rillen erhalten, in die die Läufer ihre Zehen setzten, damit alle von derselben Linie starteten. Du kannst deine Füße dort hineinstellen und etwas begreifen, das sich nicht in Worte fassen lässt: Die Höhe, die Luft und die Stille sind genau dieselben wie damals.",
+      "facts": [
+        "Es ist 177 Meter lang und fasste etwa 6.500 Zuschauer.",
+        "Bei den Pythischen Spielen gab es auch Musikwettbewerbe, nicht nur Sport.",
+        "An der Startlinie sind die Rillen für die Zehen der Läufer erhalten."
+      ],
+      "question": {
+        "q": "Was hatten die Pythischen Spiele, was die Olympischen Spiele nicht hatten?",
+        "answers": [
+          "Musikwettbewerbe",
+          "Wettkämpfe mit Wagen",
+          "Frauen als Athletinnen",
+          "Wintersportarten"
+        ],
+        "explanation": "Der Ort gehörte Apollon, dem Gott der Musik. Es war nur natürlich, dass der erste Wettbewerb ein Lied war."
+      }
+    },
+    "delphi-theatre": {
+      "name": "Das antike Theater von Delphi",
+      "tagline": "Fünftausend Plätze, und die beste Aussicht ganz hinten",
+      "story": "Das Theater ist in den Hang direkt oberhalb des Tempels gehauen, mit fünfunddreißig Reihen steinerner Sitze und Platz für etwa fünftausend Menschen. Es wurde im 4. Jahrhundert v. Chr. gebaut und beherbergte die Musik- und Theaterwettbewerbe der Pythischen Spiele. Es hat etwas, das fast kein anderes Theater hat: Die schlechtesten Plätze wollen alle. Wenn du in der letzten Reihe sitzt, hinter allen anderen, siehst du über die Köpfe der Schauspieler hinweg das ganze Heiligtum, das Tal mit den Olivenhainen und, ganz hinten, das Meer. Die Alten wussten das und haben es mit Absicht so gebaut. Die Bühne war nie das Einzige, was das Publikum sah. Denk einmal kurz darüber nach: In einem heutigen Theater gehen die Lichter aus, damit du nichts anderes siehst als die Schauspieler. Hier machte man genau das Gegenteil, und man machte es mit Absicht.",
+      "facts": [
+        "Es hat 35 Sitzreihen und fasste etwa 5.000 Zuschauer.",
+        "Von der letzten Reihe siehst du das Heiligtum, das Tal und das Meer.",
+        "Es beherbergte die Musik- und Theaterwettbewerbe der Pythischen Spiele."
+      ],
+      "question": {
+        "q": "Warum ist die letzte Reihe in diesem Theater so begehrt?",
+        "answers": [
+          "Weil du über die Bühne hinwegsiehst",
+          "Weil man dort besser hört",
+          "Weil sie den ganzen Tag im Schatten liegt",
+          "Weil die Sitze dort breiter sind"
+        ],
+        "explanation": "Die Landschaft war Teil der Aufführung. Die Alten wählten Hänge mit Aussicht, nicht einfach Hänge."
+      }
+    },
+    "delphi-festivals-museum": {
+      "name": "Das Museum der Delphischen Festspiele",
+      "tagline": "Das Haus zweier Menschen, die versuchten, Delphi aufzuwecken",
+      "story": "1927 taten ein Dichter, Angelos Sikelianos, und seine Frau, Eva Palmer, etwas, das alle für verrückt hielten: Sie brachten eine antike Tragödie im antiken Theater von Delphi auf die Bühne, nach zweieinhalbtausend Jahren Stille. Sie hatten keine Geldgeber. Eva verkaufte ihr Vermögen, um die Kosten zu bezahlen. Sie kaufte keine Kostüme: Sie studierte die Figuren auf antiken Vasen, baute Webstühle, färbte das Garn mit Pflanzen und webte die Kleider selbst, eines nach dem anderen. Zusammen mit der Aufführung organisierten sie sportliche Wettkämpfe, eine Ausstellung von Volkskunst und einen Markt. Sie machten es zweimal, 1927 und 1930, und dann war das Geld zu Ende. Ihr Haus ist heute ein Museum und bewahrt auf, was sie mit ihren Händen gemacht haben. Ihre Idee ging finanziell nicht auf, aber seitdem ist das antike Theater nie wieder für lange verstummt.",
+      "facts": [
+        "Die Delphischen Festspiele fanden zweimal statt, 1927 und 1930.",
+        "Eva Palmer webte die Kostüme selbst und kopierte dafür Figuren von antiken Vasen.",
+        "Das Museum ist in dem Haus untergebracht, in dem das Paar lebte."
+      ],
+      "question": {
+        "q": "Woher kopierte Eva Palmer die Entwürfe für die Kostüme?",
+        "answers": [
+          "Von Figuren auf antiken Vasen",
+          "Aus Modebüchern aus Paris",
+          "Von Kleidern, die in Gräbern gefunden wurden",
+          "Aus Beschreibungen in den Gedichten ihres Mannes"
+        ],
+        "explanation": "Stoff bleibt fast nie erhalten. Malerei auf Ton schon, und deshalb wissen wir, wie die Kleider fielen."
+      },
+      "museum": {
+        "doorNote": "Ein kleines Museum. Achte auf die Einzelheiten: Alles hier haben zwei Menschen mit ihren Händen gemacht.",
+        "rooms": {
+          "delphi-festivals-museum-loom": {
+            "name": "Der Webstuhl",
+            "intro": "Der erste Raum hat keine Kunst, er hat Werkzeuge und Materialien. Es ist der nützlichste Teil des Museums, weil er die Arbeit vor dem Ergebnis zeigt. Jeder Stoff, den du danach siehst, begann hier, mit Garn, Pflanzen und sehr, sehr vielen Arbeitsstunden, die man dem fertigen Stück nirgends ansieht."
+          },
+          "delphi-festivals-museum-two-festivals": {
+            "name": "Zwei Festspiele",
+            "intro": "Der zweite Raum zeigt, was in diesen beiden Jahren wirklich geschah. Fotografien, Programme, Plakate und Notizen. Die Gesichter auf den Fotografien gehören Dorfbewohnern aus der Gegend, nicht Berufsschauspielern, und das war Teil der Idee: Das Fest sollte dem Ort gehören und nicht für einen Abend von außen kommen."
+          }
+        },
+        "exhibits": {
+          "delphi-festivals-museum-costume": {
+            "name": "Ein gewebtes Kostüm",
+            "blurb": "Ein langes Gewand aus Wolle, in einem Stück gewebt, ohne Nähte an den Seiten. So waren auch die antiken Kleider gemacht: Man schnitt den Stoff nicht in Formen, man webte ihn in seiner endgültigen Größe und wickelte ihn mit Spangen und einem Gürtel um den Körper. Geh nah heran und schau dir das Gewebe am Rand an: Man sieht die Stellen, an denen die Weberin die Farbe wechselte, und man sieht, dass sie es von Hand tat, denn die Linien sind nicht ganz gerade.",
+            "question": {
+              "q": "Wie wurde ein antikes Gewand gemacht?",
+              "answers": [
+                "Es wurde in einem Stück gewebt",
+                "Es wurde in Formen geschnitten und genäht",
+                "Es wurde mit Nadeln gestrickt",
+                "Es wurde mit Harz zusammengeklebt"
+              ],
+              "explanation": "Deshalb gab es in der Antike keine „Größen“: Derselbe Stoff wurde einfach anders gewickelt."
+            }
+          },
+          "delphi-festivals-museum-the-loom": {
+            "name": "Evas Webstuhl",
+            "blurb": "Ein hölzerner Webstuhl, groß wie eine Tür. Eva Palmer fand nicht fertig, was sie wollte, also stellte sie Webstühle auf und lernte das Weben von Frauen in den Dörfern. Die Arbeit ist langsam, auf eine Weise, die man sich kaum vorstellen kann: Ein Gewand braucht Wochen. Für zwei Aufführungen brauchte es Dutzende Kostüme, und alle gingen durch dieses Holz. Wenn du einen Webstuhl siehst, siehst du Zeit. Und Zeit war das Einzige, wovon sie reichlich hatten, denn Geld hatten sie fast gar keines.",
+            "question": {
+              "q": "Wie lange dauert es ungefähr, ein Gewand auf dem Webstuhl zu weben?",
+              "answers": [
+                "Wochen",
+                "Ein paar Minuten",
+                "Eine Stunde",
+                "Jahre"
+              ],
+              "explanation": "Deshalb waren Kleider teuer und wurden von Generation zu Generation weitergegeben."
+            }
+          },
+          "delphi-festivals-museum-dyes": {
+            "name": "Die Pflanzenfarben",
+            "blurb": "Kleine Gefäße mit Wurzeln, Rinden, Blättern und getrockneten Blüten. Vor den chemischen Farben kam jede Farbe aus einer Pflanze: Gelb aus Safran oder Zwiebelschalen, Rot aus der Krappwurzel, Blau aus Indigo, Braun aus Walnussschalen. Die Farbe hält nicht von allein, sie braucht noch ein Mittel, das sie an der Wolle festhält. Deshalb war das Färben ein Beruf und kein Trick: Machst du einen Fehler, geht die Farbe beim ersten Waschen heraus.",
+            "question": {
+              "q": "Was braucht eine Farbe, um auf der Wolle zu bleiben?",
+              "answers": [
+                "Etwas, das sie an der Faser festhält",
+                "Sehr heißes Wasser und überhaupt nichts anderes",
+                "Drei Tage lang Sonne",
+                "Nur Salz aus dem Meer"
+              ],
+              "explanation": "Ohne dieses Mittel färbt die Pflanze das Wasser, aber nicht den Stoff."
+            }
+          },
+          "delphi-festivals-museum-photographs": {
+            "name": "Die Fotografien von 1927",
+            "blurb": "Schwarz-weiße Fotografien von der Aufführung im antiken Theater: Dutzende Gestalten in langen gewebten Gewändern, in Reihen in der Orchestra, der runden Spielfläche, aufgestellt, mit dem Berg im Hintergrund. Es gab keine Scheinwerfer und keine Mikrofone. Die Aufführung fand bei Tageslicht statt, und die Stimmen trugen so weit wie zweieinhalbtausend Jahre zuvor, dank der Form des Theaters. Auf den Fotografien sieht man auch Zuschauer auf den Steinstufen, viele in ihrer Arbeitskleidung.",
+            "question": {
+              "q": "Wie konnte man die Schauspieler ohne Mikrofone hören?",
+              "answers": [
+                "Dank der Form des antiken Theaters",
+                "Weil das Publikum sehr klein war",
+                "Weil sie schrien, so laut sie konnten",
+                "Weil irgendwo Lautsprecher versteckt waren"
+              ],
+              "explanation": "Die Kurve der Sitzreihen sammelt den Klang und schickt ihn nach oben. Das ist Planung, nicht Zufall."
+            }
+          },
+          "delphi-festivals-museum-programmes": {
+            "name": "Die Programme",
+            "blurb": "Gedruckte Hefte und Plakate auf Griechisch, Französisch und Englisch. Sie zeigen etwas, das man auf den Fotografien nicht sieht: Die Delphischen Festspiele waren nicht nur Theater. Es gab Wettkämpfe im antiken Stadion, eine Ausstellung mit Webarbeiten und Keramik aus den Dörfern der Gegend und einen Markt, auf dem die Handwerker selbst verkauften. Die Idee war, dass ein Ort nicht durch eine einzige Aufführung lebendig wird, sondern dann, wenn alle, die dort leben, zusammenarbeiten.",
+            "question": {
+              "q": "Was gehörte außer Theater noch zu den Delphischen Festspielen?",
+              "answers": [
+                "Wettkämpfe, Ausstellung und Markt",
+                "Ausschließlich Konzerte mit klassischer Musik",
+                "Unterricht in Altgriechisch",
+                "Nichts anderes"
+              ],
+              "explanation": "Sie wollten, dass die ganze Gegend mitarbeitet, nicht dass eine Truppe kommt und wieder geht."
+            }
+          },
+          "delphi-festivals-museum-notes": {
+            "name": "Die handschriftlichen Notizen",
+            "blurb": "Seiten mit Notizen, Rechnungen und Briefen. Sie zeigen die weniger romantische Seite: was die Wolle kostete, wer nicht bezahlte, was nicht rechtzeitig ankam. Eva verkaufte ihr Vermögen, damit die beiden Festspiele stattfinden konnten, und danach gab es kein Geld mehr. Es ist ein nützliches Ausstellungsstück für ein Kind: Jede schöne Sache, die entstanden ist, entstand, weil sich jemand hingesetzt und gerechnet hat.",
+            "question": {
+              "q": "Warum hörten die Delphischen Festspiele nach dem zweiten Mal auf?",
+              "answers": [
+                "Weil das Geld zu Ende war",
+                "Weil der Staat sie verbot",
+                "Weil niemand kam",
+                "Weil das Theater abbrannte"
+              ],
+              "explanation": "Das Paar bezahlte fast alles allein, und ein Vermögen reicht nicht ewig."
+            }
+          }
+        },
+        "riddles": {
+          "delphi-festivals-museum-riddle-1": {
+            "prompt": "Ich bin aus Holz und so groß wie eine Tür. Allein tue ich gar nichts, aber ohne mich gäbe es kein einziges der Kleider in diesem Museum.",
+            "hint": "Ich arbeite mit Garn, und sehr langsam."
+          },
+          "delphi-festivals-museum-riddle-2": {
+            "prompt": "Ich bin schwarz-weiß und habe die Zeit an einem Tag im Jahr 1927 angehalten. In mir stehen Dutzende Menschen in einem antiken Theater, ohne Scheinwerfer und ohne Mikrofone.",
+            "hint": "Niemand hat mich gemalt. Ich wurde aufgenommen."
+          }
+        }
+      }
+    },
+    "delphi-parnassus": {
+      "name": "Liakoura, der Gipfel des Parnass",
+      "tagline": "Zweitausendvierhundertsiebenundfünfzig Meter über dem Orakel",
+      "story": "Der Parnass ist nicht ein einzelner spitzer Gipfel, sondern ein ganzes Gebirgsmassiv, und sein höchster Punkt heißt Liakoura, auf 2.457 Metern. In den Mythen war er der Berg der Musen und des Apollon, und als die große Flut die Welt bedeckte, blieb die Arche des Deukalion hier stehen. In Wirklichkeit ist er ein Kalksteinberg voller Höhlen und Schlucklöcher, und das Regenwasser fließt nicht über seine Oberfläche ab: Es dringt in ihn hinein, reist im Dunkeln und kommt weiter unten als Quelle wieder heraus. Die Kastalische Quelle ist eine davon. Das heißt, das Wasser, das die Pythia trank, bevor sie sprach, war zuerst durch den ganzen Berg gewandert. Im Winter bedeckt Schnee den Gipfel und bleibt bis in den Frühling liegen, und von oben siehst du gleichzeitig den Golf von Korinth im Süden und Mittelgriechenland, das sich nach Norden ausbreitet.",
+      "facts": [
+        "Der Gipfel Liakoura erreicht 2.457 Meter.",
+        "Er ist ein Kalksteinberg: Das Wasser dringt in ihn hinein, statt über ihn hinwegzufließen.",
+        "In den Mythen war er der Berg der Musen, und hier blieb die Arche des Deukalion stehen."
+      ],
+      "question": {
+        "q": "Was macht das Regenwasser, wenn es auf einen Kalksteinberg fällt?",
+        "answers": [
+          "Es dringt in den Berg hinein",
+          "Es fließt über die Oberfläche und bildet Flüsse",
+          "Es gefriert sofort und bleibt dort",
+          "Es verdunstet, bevor es den Boden erreicht"
+        ],
+        "explanation": "Kalkstein wird vom Wasser langsam aufgelöst und füllt sich mit Löchern. So entstehen Höhlen, und so werden Quellen geboren."
+      }
+    },
+    "delphi-corycian-cave": {
+      "name": "Die Korykische Grotte",
+      "tagline": "Eine Höhle hoch oben im Berg, voller uralter Geschenke",
+      "story": "Eintausenddreihundertsechzig Meter hoch, mitten im Parnass, öffnet sich eine große Höhle mit Stalaktiten und Stalagmiten. Sie war dem Pan und den Nymphen heilig, und anders als beim Orakel unten gab es hier keine Priester, keine Warteschlange und keine Bezahlung. Es kam, wer wollte, und ließ ein kleines Geschenk zurück. Archäologen fanden Tausende solcher Geschenke im Boden: Tonfiguren, Öllampen, Ringe und sehr viele Astragale, Spielknöchel aus Knochen, mit denen die Kinder spielten. Einmal im Jahr stiegen Frauen aus der Gegend hierher hinauf und tanzten die ganze Nacht mit Fackeln. Es ist das Gegenteil von Delphi: Das Orakel war offiziell und teuer, die Höhle war volkstümlich und kostenlos. Um hierher zu kommen, braucht es mehrere Stunden Aufstieg von Delphi aus, und daran hat sich nichts geändert: Der Weg ist derselbe, und die Dunkelheit im Inneren auch.",
+      "facts": [
+        "Sie liegt auf 1.360 Metern, mitten im Parnass.",
+        "Sie war dem Pan und den Nymphen heilig, ohne Priester und ohne Bezahlung.",
+        "In ihrem Boden fand man Tausende kleine Geschenke, darunter viele Spielknöchel."
+      ],
+      "question": {
+        "q": "Worin unterschied sich die Höhle vom Orakel in Delphi?",
+        "answers": [
+          "Keine Priester und keine Bezahlung",
+          "Sie war nur für Könige geöffnet",
+          "Sie war nur im Winter in Betrieb",
+          "Man durfte dort überhaupt nichts zurücklassen"
+        ],
+        "explanation": "Deshalb sind ihre Funde klein und bescheiden: Sie stammen von Menschen, die keine Statue zu geben hatten."
+      }
+    },
+    "delphi-galaxidi": {
+      "name": "Galaxidi",
+      "tagline": "Ein kleiner Hafen, der eine der größten Flotten Griechenlands hatte",
+      "story": "Wenn du Galaxidi heute anschaust, einen stillen kleinen Hafen mit Steinhäusern, kannst du kaum glauben, dass es im 19. Jahrhundert eines der größten Seefahrtszentren des Landes war. Es hatte Hunderte Segelschiffe und eigene Werften, also Plätze, an denen Schiffe von Hand gebaut wurden, aus Holz. Die großen Häuser, die du in den Gassen siehst, sind Kapitänshäuser, gebaut mit den Gewinnen aus den Reisen. Und dann war alles schnell vorbei: Die Dampfschiffe kamen, Holz und Segel konnten mit dem Dampf nicht mithalten, und die Flotte erlosch innerhalb einer Generation. Das Schifffahrtsmuseum der Stadt bewahrt Schiffsmodelle, nautische Instrumente und handgeschriebene Logbücher auf. Es ist eine Lektion darüber, wie eine Technik einen ganzen Ort in wenigen Jahren auslöschen kann, ohne Krieg und ohne Katastrophe.",
+      "facts": [
+        "Im 19. Jahrhundert hatte es Hunderte Segelschiffe und eigene Werften.",
+        "Seine großen Häuser bauten Kapitäne mit den Gewinnen aus ihren Reisen.",
+        "Die Flotte erlosch innerhalb einer Generation, als die Dampfschiffe kamen."
+      ],
+      "question": {
+        "q": "Warum erlosch die Flotte von Galaxidi?",
+        "answers": [
+          "Weil die Dampfschiffe kamen",
+          "Weil ein Sturm alle Schiffe versenkte",
+          "Weil das Holz in der Gegend ausging",
+          "Weil der Hafen mit Sand vollief"
+        ],
+        "explanation": "Dasselbe geschah mit Dutzenden Seefahrerstädten. Ein Wechsel der Technik fragt nicht, wer gut in seiner Arbeit ist."
+      }
+    },
+    "delphi-amfissa": {
+      "name": "Die Burg von Amfissa",
+      "tagline": "Mittelalterliche Türme auf antiken Mauern, in einem einzigen Bauwerk",
+      "story": "Über Amfissa, auf dem Hügel der antiken Akropolis, steht eine Burg, die sich wie ein Buch lesen lässt, wenn du sie von unten nach oben anschaust. An ihrer Basis liegen riesige antike Steinblöcke, so bearbeitet, dass sie ohne Mörtel ineinandergreifen, wie ein Puzzle. Auf ihnen sitzen mittelalterliche Mauern aus kleineren Steinen und Kalk, und noch weiter oben Türme, die fränkische Herren im 13. Jahrhundert bauten. Niemand riss das Vorherige ab, um sein Eigenes zu bauen: Jeder setzte auf das, was er vorfand. Unten breitet sich das Tal mit den Olivenhainen aus, einer der größten Griechenlands, mit Bäumen, die selbst Hunderte Jahre alt sind. Die antiken Steine an der Basis sind so gut bearbeitet, dass du nicht einmal ein Blatt Papier dazwischenschieben kannst, und sie stehen noch immer, ohne dass irgendetwas sie zusammenhält.",
+      "facts": [
+        "An ihrer Basis liegen antike Steinblöcke, die ohne Mörtel gebaut wurden.",
+        "Ihre Türme wurden im 13. Jahrhundert von Franken gebaut.",
+        "Unterhalb breitet sich einer der größten Olivenhaine Griechenlands aus."
+      ],
+      "question": {
+        "q": "Was lernst du, wenn du die Burg von unten nach oben anschaust?",
+        "answers": [
+          "Dass jede Zeit auf der vorigen baute",
+          "Dass sie ganz in einem Jahr gebaut wurde",
+          "Dass sie von oben nach unten gebaut wurde",
+          "Dass sie nur aus Marmor besteht"
+        ],
+        "explanation": "Von vorn anzufangen kostet. Auf eine feste antike Mauer zu setzen, ist billiger und sicherer."
+      }
+    },
+    "delphi-hosios-loukas": {
+      "name": "Das Kloster Hosios Lukas",
+      "tagline": "Goldene Mosaiken in einer Kuppel, seit tausend Jahren",
+      "story": "Eine halbe Stunde östlich von Delphi, an einem Hang voller Mandelbäume, steht ein Kloster aus dem 10. und 11. Jahrhundert, das zu den wichtigsten byzantinischen Bauwerken der Welt zählt. Gegründet hat es ein Einsiedler, Lukas, der dort allein lebte und in der ganzen Gegend bekannt wurde. Du gehst hinein, und das Erste, was geschieht, ist das Licht: Die Kuppeln sind mit Mosaiken auf goldenem Grund bedeckt, und das Gold ist nicht flach. Jedes kleine Steinchen wurde in einer leicht anderen Neigung gesetzt, damit es das Licht in einem anderen Winkel einfängt. Das Ergebnis ist, dass die Wand zu flimmern scheint, während du gehst, als würde sie atmen. Es ist ein tausend Jahre alter Trick, der immer noch funktioniert, und er braucht weder Strom noch Wartung: Er braucht nur ein Fenster und jemanden, der geht.",
+      "facts": [
+        "Es wurde im 10. und 11. Jahrhundert gebaut und von einem Einsiedler gegründet.",
+        "Seine goldenen Mosaiksteinchen sind in verschiedenen Neigungen gesetzt, damit sie mit dem Licht spielen.",
+        "Es gehört zum UNESCO-Welterbe."
+      ],
+      "question": {
+        "q": "Warum scheint das Gold in den Kuppeln zu flimmern?",
+        "answers": [
+          "Weil jedes Steinchen anders geneigt ist",
+          "Weil hinter der Wand Kerzen stehen",
+          "Weil das Gold mit Öl bemalt ist",
+          "Weil sich die ganze Kuppel sehr langsam dreht"
+        ],
+        "explanation": "Tausende winzige Spiegel in leicht verschiedenen Winkeln. Die Wand verändert sich, weil du dich bewegst."
+      }
+    }
+  },
+  "trails": {
+    "delphi-sacred-way": {
+      "name": "Die Heilige Straße",
+      "promise": "Der Aufstieg, den jeder machte, der etwas zu fragen hatte, und alles, was er zurückließ."
+    },
+    "delphi-the-mountain": {
+      "name": "Der Berg darüber",
+      "promise": "Woher das Wasser kommt, wo es ankam, und eine Höhle, die nichts verlangte."
+    },
+    "delphi-after-the-oracle": {
+      "name": "Nach dem Orakel",
+      "promise": "Tausend Jahre später: goldene Mosaiken, eine Burg in Schichten, ein Hafen und zwei gewebte Festspiele."
+    }
+  }
+}

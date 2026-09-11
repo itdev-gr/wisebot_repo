@@ -25,6 +25,10 @@
         "rhodes": {
           "name": "Rodas",
           "intro": "Rodas es una isla que fue pasando de mano en mano: la tuvieron, uno detrás de otro, todos los que cruzaron el Mediterráneo, y cada uno dejó algo en pie. Los antiguos griegos trazaron una ciudad con regla, los Caballeros de San Juan levantaron castillos, un hospital y toda una ciudad medieval en la que la gente vive todavía, y los italianos, en el siglo XX, reconstruyeron lo que se había caído. Cincuenta kilómetros más al sur, una roca con un templo antiguo encima mira dos bahías. Y entre medias, playas donde el agua es de tres azules distintos."
+        },
+        "delphi": {
+          "name": "Delfos",
+          "intro": "Delfos nunca fue una ciudad grande. Era el sitio adonde iba todo el mundo griego a preguntar algo. Encaramado en una ladera empinada del Parnaso, con el mar asomando al fondo, tenía el oráculo más famoso de la antigüedad y se consideraba el centro de la tierra. Cada ciudad que recibía la respuesta que quería mandaba un regalo, y los regalos llenaron de estatuas el camino hacia el templo. Hoy el camino está vacío y los regalos están en el museo, unos metros más abajo."
         }
       }
     }

@@ -25,6 +25,10 @@
         "rhodes": {
           "name": "Rhodes",
           "intro": "Rhodes est une île que tous ceux qui ont traversé la Méditerranée ont tenue à leur tour, et chacun y a laissé quelque chose debout. Les Grecs anciens y ont tracé une ville à la règle, les chevaliers de Saint-Jean y ont bâti des châteaux, un hôpital et toute une ville médiévale encore habitée aujourd’hui, et les Italiens, au XXe siècle, ont relevé ce qui était tombé. Cinquante kilomètres plus au sud, un rocher avec un temple antique regarde deux baies. Et entre tout cela, des plages où l’eau prend trois bleus différents."
+        },
+        "delphi": {
+          "name": "Delphes",
+          "intro": "Delphes n’a jamais été une grande ville. C’était l’endroit où tout le monde grec allait pour poser une question. Accrochée à une pente raide du Parnasse, avec la mer qui se devine au loin, elle abritait l’oracle le plus célèbre de l’Antiquité et passait pour le centre de la terre. Chaque cité qui obtenait la réponse qu’elle voulait envoyait un cadeau, et les cadeaux ont rempli de statues la route qui monte vers le temple. Aujourd’hui, la route est vide et les cadeaux sont au musée, quelques mètres plus bas."
         }
       }
     }

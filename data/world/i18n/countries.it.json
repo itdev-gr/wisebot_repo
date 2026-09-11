@@ -25,6 +25,10 @@
         "rhodes": {
           "name": "Rodi",
           "intro": "Rodi è un’isola che tutti quelli che passavano dal Mediterraneo hanno voluto tenere, uno dopo l’altro, e ognuno ha lasciato in piedi qualcosa. Gli antichi greci disegnarono una città col righello, i Cavalieri di San Giovanni costruirono castelli, un ospedale e un’intera città medievale dove la gente abita ancora, e nel Novecento gli italiani rimisero in piedi quello che era caduto. Cinquanta chilometri più a sud, una roccia con sopra un tempio antico guarda due baie. E in mezzo a tutto questo, spiagge dove l’acqua cambia tre azzurri diversi."
+        },
+        "delphi": {
+          "name": "Delfi",
+          "intro": "Delfi non è mai stata una grande città. Era il posto dove tutto il mondo greco andava per chiedere qualcosa. Arrampicata su un ripido pendio del Parnaso, con il mare che si vede in fondo, custodiva l’oracolo più famoso dell’antichità ed era considerata il centro della terra. Ogni città che riceveva la risposta che voleva mandava un dono, e i doni riempirono di statue la strada verso il tempio. Oggi la strada è vuota e i doni sono al museo, pochi metri più in basso."
         }
       }
     }

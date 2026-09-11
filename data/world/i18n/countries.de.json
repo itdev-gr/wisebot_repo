@@ -25,6 +25,10 @@
         "rhodes": {
           "name": "Rhodos",
           "intro": "Rhodos ist eine Insel, die nacheinander allen gehörte, die durchs Mittelmeer kamen, und jeder ließ etwas stehen. Die alten Griechen bauten eine Stadt nach Lineal, die Johanniterritter errichteten Burgen, ein Krankenhaus und eine ganze mittelalterliche Stadt, in der bis heute Menschen wohnen, und die Italiener setzten im 20. Jahrhundert wieder zusammen, was eingestürzt war. Fünfzig Kilometer weiter südlich schaut ein Felsen mit einem antiken Tempel auf zwei Buchten hinunter. Und dazwischen liegen Strände, an denen das Wasser in drei verschiedenen Blautönen leuchtet."
+        },
+        "delphi": {
+          "name": "Delphi",
+          "intro": "Delphi war nie eine große Stadt. Es war der Ort, an den die ganze griechische Welt kam, um etwas zu fragen. Hoch an einem steilen Hang des Parnass, mit dem Meer in der Ferne, hütete es das berühmteste Orakel des Altertums und galt als Mittelpunkt der Erde. Jede Stadt, die die Antwort bekam, die sie wollte, schickte ein Geschenk, und die Geschenke füllten den Weg zum Tempel mit Statuen. Heute ist der Weg leer, und die Geschenke stehen im Museum, ein paar Meter weiter unten."
         }
       }
     }
