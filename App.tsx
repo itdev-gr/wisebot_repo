@@ -12,6 +12,7 @@ const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 const SchoolGradeSEOPage = React.lazy(() => import('./components/SchoolGradeSEOPage'));
 const SubjectSEOPage = React.lazy(() => import('./components/SubjectSEOPage'));
 const MakerPassport = React.lazy(() => import('./components/MakerPassport'));
+const World = React.lazy(() => import('./components/world/World'));
 const OurStoryPage = React.lazy(() => import('./components/OurStoryPage'));
 const MakerLevelUp = React.lazy(() => import('./components/MakerLevelUp'));
 import { motion as m, AnimatePresence } from 'framer-motion';
@@ -556,6 +557,9 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="market" /></SemiPublicRoute>} />
             <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="wise-friends" /></SemiPublicRoute>} />
             <Route path="/passport" element={<SemiPublicRoute lang={lang}><MakerPassport lang={lang} xp={xp} level={level} /></SemiPublicRoute>} />
+            {/* World routes nest inside the module: /world/:country/:city/:place. One
+                entry here, the rest handled by components/world/World.tsx. */}
+            <Route path="/world/*" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="world" /><World lang={lang} /></SemiPublicRoute>} />
 
             {/* ═══ SEO LANDING PAGES — content-rich pages targeting search queries ═══ */}
             {/* Slugs are duplicated in scripts/generate-seo-pages.mjs and public/sitemap.xml — keep in sync. */}

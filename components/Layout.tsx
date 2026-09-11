@@ -215,6 +215,7 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
     { icon: <Trophy size={24} />, label: t.menu.quiz, path: "/quiz", locked: !isQuizUnlocked, unlockHint: lang === 'el' ? '2 ιστορίες ή 1 βιβλίο' : '2 stories or 1 book' },
     { icon: <Wand2 size={24} />, label: t.menu.factory, path: "/factory", locked: !isFactoryUnlocked, unlockHint: unlockHint('factory', stats, lang) },
     { icon: <Gamepad2 size={24} />, label: t.menu.game, path: "/game", locked: !isGamesUnlocked, unlockHint: lang === 'el' ? '1 βιβλίο ή 1 quiz' : '1 book or 1 quiz' },
+    { icon: <Globe size={24} />, label: t.menu.world, path: "/world", locked: false, unlockHint: '' },
     { icon: <Music size={24} />, label: t.menu.music, path: "/music", locked: !isMusicUnlocked, unlockHint: lang === 'el' ? '1 ιστορία' : '1 story' },
     { icon: <Clapperboard size={24} />, label: t.menu.cinema, path: "/cinema", locked: !isCinemaUnlocked, unlockHint: unlockHint('cinema', stats, lang) },
     { icon: <Box size={24} />, label: t.menu.factory3d, path: "/3d-factory", locked: !is3DUnlocked, unlockHint: unlockHint('3d', stats, lang) },

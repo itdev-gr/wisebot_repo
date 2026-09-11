@@ -300,6 +300,21 @@ const PAGE_META: Record<string, PageMeta> = {
     },
     path: '/market',
   },
+  world: {
+    title: {
+      el: 'Ο Κόσμος — Ταξίδι σε Χώρες, Πόλεις & Μουσεία για Παιδιά | WiseBot Academy',
+      en: 'The World — Countries, Cities & Museums for Kids | WiseBot Academy',
+    },
+    description: {
+      el: 'Ταξίδεψε σε αληθινές χώρες και πόλεις, μπες σε μουσεία, λύσε αινίγματα και γέμισε το διαβατήριό σου με σφραγίδες.',
+      en: 'Travel to real countries and cities, step inside museums, solve riddles and fill your passport with stamps.',
+    },
+    keywords: {
+      el: 'γεωγραφία για παιδιά, ταξίδι στον κόσμο, μουσεία για παιδιά, αξιοθέατα, διαβατήριο σφραγίδες',
+      en: 'geography for kids, world travel for children, museums for kids, landmarks, passport stamps',
+    },
+    path: '/world',
+  },
   legal: {
     title: {
       el: 'Νομικά — Όροι Χρήσης & Πολιτική Απορρήτου | WiseBot Academy',
