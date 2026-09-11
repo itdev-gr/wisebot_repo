@@ -13,6 +13,12 @@
  * Venetian walls were dropped outright because no source could confirm them and no
  * separate item exists for the Martinengo bastion.
  *
+ * No place in this city carries an `entrance` anchor, and that is deliberate rather
+ * than an oversight. The resolver now grants `'entrance'` only to a seed that supplies
+ * a measured door with a source, because a Wikidata P625 is the centre of a building
+ * and a centre is not a door. None of these twelve has had its door looked up yet, so
+ * every point here is labelled a centroid, which is what it honestly is.
+ *
  * One caveat on the confidence letters in this file. OpenStreetMap's Overpass API was
  * rate-limiting throughout the resolver pass, and four consecutive runs produced
  * identical coordinates but different letters, purely on whether it answered. The
@@ -146,7 +152,9 @@ export const places: Place[] = [
         'ζωγράφιζαν σχεδόν καθόλου πολέμους. Ζωγράφιζαν δελφίνια, κρίνα, μαϊμούδες, ' +
         'ανθρώπους που πηδάνε πάνω από ταύρους, γυναίκες με περίτεχνα φορέματα. Ζωγράφιζαν ' +
         'δηλαδή ζωή, όχι νίκες. Και υπάρχει ένα αντικείμενο που κανείς δεν έχει διαβάσει ' +
-        'ακόμα, παρότι το κοιτάζουν ειδικοί πάνω από εκατό χρόνια.',
+        'ακόμα, παρότι το κοιτάζουν ειδικοί πάνω από εκατό χρόνια. Αν έχεις χρόνο μόνο ' +
+        'για ένα μουσείο σε όλη την Κρήτη, οι αρχαιολόγοι θα σου πουν να διαλέξεις αυτό, ' +
+        'και μετά να ανέβεις στην Κνωσό για να δεις πού στέκονταν όλα.',
       en:
         'If Knossos is the empty building, this museum is what was inside it. Almost ' +
         'everything important that came out of the Minoan palaces of Crete is here, and it ' +
@@ -156,7 +164,9 @@ export const places: Place[] = [
         'wars. They painted dolphins, lilies, monkeys, people vaulting over bulls, women in ' +
         'elaborate dresses. They painted life rather than victories. And there is one object ' +
         'here that nobody has managed to read, although specialists have been staring at it ' +
-        'for more than a hundred years.',
+        'for more than a hundred years. If you only have time for one museum on the whole ' +
+        'island, archaeologists will tell you to pick this one, and then go up to Knossos ' +
+        'to see where all of it once stood.',
     },
     facts: [
       {
@@ -175,7 +185,7 @@ export const places: Place[] = [
     location: {
       lat: 35.33917,
       lng: 25.1375,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q636972', deltaM: 0 },
@@ -232,7 +242,7 @@ export const places: Place[] = [
               'Αυτές οι εικόνες ήταν κάποτε τοίχοι στην Κνωσό. Σώθηκαν σε κομμάτια, ' +
               'μερικές φορές σε ελάχιστα, και γύρω τους έχει συμπληρωθεί χρώμα πιο αχνό ' +
               'ώστε να ξεχωρίζεις τι είναι αρχαίο και τι μαντεψιά. Κοίτα πρώτα πού ' +
-              'τελειώνει το δυνατό χρώμα.',
+              'τελειώνει το δυνατό χρώμα, και μετά κοίτα τι ζωγράφισαν οι Μινωίτες.',
             en:
               'These pictures were once walls at Knossos. They survived in fragments, ' +
               'sometimes in very few, and paler paint has been filled in around them so you ' +
@@ -638,7 +648,7 @@ export const places: Place[] = [
     location: {
       lat: 35.34457,
       lng: 25.13688,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q603920', deltaM: 0 },
@@ -704,7 +714,9 @@ export const places: Place[] = [
         'λεκάνη έχει οκτώ λοβούς με ανάγλυφα από θαλάσσια πλάσματα, δελφίνια και νύμφες. ' +
         'Και τα τέσσερα λιοντάρια που την κρατούν είναι κατά τριακόσια χρόνια παλιότερα ' +
         'από αυτήν: δεν φτιάχτηκαν για τη βρύση, μεταφέρθηκαν από αλλού και ' +
-        'ξαναχρησιμοποιήθηκαν. Ακόμα και σήμερα, το νερό βγαίνει από τα στόματά τους.',
+        'ξαναχρησιμοποιήθηκαν. Ακόμα και σήμερα, το νερό βγαίνει από τα στόματά τους. Αν ' +
+        'καθίσεις απέναντι και ακούσεις, θα καταλάβεις γιατί εδώ κλείνουν ραντεβού όλοι: ' +
+        'το νερό ακούγεται πιο δυνατά από την πόλη.',
       en:
         'In the heart of the city, at the spot where people in Heraklion say "meet me at ' +
         'the Lions", there is a fountain finished in 1628. The city owes it to Francesco ' +
@@ -798,7 +810,9 @@ export const places: Place[] = [
         'ερειπώθηκε σχεδόν εντελώς. Την ξαναέχτισαν κομμάτι κομμάτι, χρησιμοποιώντας ' +
         'όσες αυθεντικές πέτρες βρέθηκαν, και η δουλειά αυτή βραβεύτηκε το 1987 ως η ' +
         'καλύτερη αναστήλωση μνημείου στην Ευρώπη. Σήμερα το κτίριο δεν είναι μουσείο: ' +
-        'είναι το δημαρχείο του Ηρακλείου, και μέσα δουλεύουν άνθρωποι κάθε μέρα.',
+        'είναι το δημαρχείο του Ηρακλείου, και μέσα δουλεύουν άνθρωποι κάθε μέρα. Ένα ' +
+        'κτίριο τετρακοσίων ετών που εξακολουθεί να κάνει σχεδόν την ίδια δουλειά είναι ' +
+        'σπανιότερο από ένα ερείπιο.',
       en:
         'The Loggia was built in the 1620s and it was not a church, a palace or a fortress. ' +
         'It was a club. The Venetian nobles of Heraklion gathered here to talk, to strike ' +
@@ -807,7 +821,8 @@ export const places: Place[] = [
         'it. Over time it fell almost completely into ruin. It was rebuilt piece by piece ' +
         'using whatever original stones could be found, and that work was named the best ' +
         'restored monument in Europe in 1987. Today the building is not a museum: it is ' +
-        'Heraklion’s city hall, and people work inside it every day.',
+        'Heraklion’s city hall, and people work inside it every day. A four-hundred-year-old ' +
+        'building still doing more or less its original job is rarer than a ruin.',
     },
     facts: [
       {
@@ -826,7 +841,7 @@ export const places: Place[] = [
     location: {
       lat: 35.33978,
       lng: 25.13396,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q14175781', deltaM: 0 }],
       verifiedAt: '2026-09-11',
@@ -881,7 +896,8 @@ export const places: Place[] = [
         'κατέληξε στην Ισπανία, όπου τον φώναζαν απλώς «ο Έλληνας»: Ελ Γκρέκο. Οι δύο ' +
         'πίνακες είναι τα μοναδικά έργα του που βρίσκονται στην Κρήτη. Μέσα στο μουσείο ' +
         'υπάρχει επίσης μια τεράστια μακέτα του Ηρακλείου όπως ήταν τον 17ο αιώνα, και το ' +
-        'γραφείο του Νίκου Καζαντζάκη, μεταφερμένο όπως ήταν.',
+        'γραφείο του Νίκου Καζαντζάκη, μεταφερμένο όπως ήταν, με τα βιβλία και τα ' +
+        'χειρόγραφά του στη θέση που τα άφησε.',
       en:
         'The Archaeological Museum stops roughly where this one begins. The Historical ' +
         'Museum of Crete covers the sixteen hundred years after the Minoans: early ' +
@@ -910,7 +926,7 @@ export const places: Place[] = [
     location: {
       lat: 35.34181,
       lng: 25.13117,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q4204518', deltaM: 0 },
@@ -1283,7 +1299,8 @@ export const places: Place[] = [
         'πραγματικούς σεισμούς που έχουν καταγραφεί, ώστε να καταλάβεις τι κάνει η γη ' +
         'όταν κινείται. Το δεύτερο είναι ένα ζώο σε φυσικό μέγεθος: το Δεινοθήριο, ' +
         'συγγενής των ελεφάντων, που ζούσε στην Κρήτη πριν από εκατομμύρια χρόνια και ' +
-        'ήταν ψηλότερο από ένα λεωφορείο.',
+        'ήταν ψηλότερο από ένα λεωφορείο. Στέκεσαι μπροστά του και καταλαβαίνεις ότι η ' +
+        'Κρήτη δεν είχε πάντα κατσίκες και ελιές: είχε και θηρία, πολύ πριν από εμάς.',
       en:
         'The museum is housed in an old electricity works on the seafront and belongs to ' +
         'the University of Crete. It shows the nature of the Mediterranean in big scenes: ' +
@@ -1292,7 +1309,9 @@ export const places: Place[] = [
         'is the earthquake simulator: you step into a room and the floor replays real ' +
         'recorded earthquakes, so you understand what the ground actually does when it ' +
         'moves. The second is an animal at full size: Deinotherium, a relative of the ' +
-        'elephants, which lived on Crete millions of years ago and stood taller than a bus.',
+        'elephants, which lived on Crete millions of years ago and stood taller than a bus. ' +
+        'Standing in front of it you realise Crete was not always goats and olive trees: ' +
+        'there were monsters here, long before us.',
     },
     facts: [
       {
@@ -1311,7 +1330,7 @@ export const places: Place[] = [
     location: {
       lat: 35.3419,
       lng: 25.1266,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q6980521', deltaM: 0 },
@@ -1377,7 +1396,9 @@ export const places: Place[] = [
         'δεν έχει: δεν υπάρχουν τροπικά ψάρια, ούτε πλάσματα από άλλους ωκεανούς. Όλα όσα ' +
         'βλέπεις ζουν στη Μεσόγειο, δηλαδή στη θάλασσα που έχεις ακριβώς απέξω. Έτσι ο ' +
         'καρχαρίας πίσω από το τζάμι δεν είναι εξωτικός: κολυμπάει στα ίδια νερά με σένα, ' +
-        'και δεν έχεις λόγο να τον φοβάσαι περισσότερο απ’ όσο πρέπει.',
+        'και δεν έχεις λόγο να τον φοβάσαι περισσότερο απ’ όσο πρέπει. Το ενυδρείο δεν ' +
+        'σου δείχνει έναν μακρινό κόσμο. Σου δείχνει τι υπάρχει κάτω από την επιφάνεια ' +
+        'στην παραλία που πήγες χθες.',
       en:
         'At Gournes, fifteen kilometres east of Heraklion, there is an aquarium built where ' +
         'an American air base used to be. It opened in 2005 and belongs to the Hellenic ' +
@@ -1406,7 +1427,7 @@ export const places: Place[] = [
     location: {
       lat: 35.33269,
       lng: 25.28247,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q31529', deltaM: 0 },
@@ -1460,7 +1481,8 @@ export const places: Place[] = [
         'χρησιμοποιείται και για στίβο και για συναυλίες. Το ενδιαφέρον ερώτημα για ένα ' +
         'τέτοιο κτίριο δεν είναι πώς χτίστηκε αλλά τι έγινε μετά: πολλά ολυμπιακά στάδια ' +
         'σε όλο τον κόσμο ερήμωσαν όταν τελείωσαν οι αγώνες. Αυτό δεν ερήμωσε. Παίζουν ' +
-        'εκεί κρητικές ομάδες, και γεμίζει τακτικά.',
+        'εκεί κρητικές ομάδες, και γεμίζει τακτικά. Ένα στάδιο ζει μόνο αν κάποιος το ' +
+        'χρειάζεται τη Δευτέρα μετά τη γιορτή.',
       en:
         'When Athens took on the Olympic Games of 2004, the football would not fit into one ' +
         'city. The matches were spread across five stadiums around the country, and one of ' +
@@ -1470,7 +1492,8 @@ export const places: Place[] = [
         'concerts too. The interesting question about a building like this is not how it ' +
         'was built but what happened next: many Olympic stadiums around the world emptied ' +
         'out once the games ended. This one did not. Cretan clubs play here, and it fills ' +
-        'up regularly.',
+        'up regularly. A stadium only stays alive if somebody needs it on the Monday after ' +
+        'the party.',
     },
     facts: [
       {
@@ -1489,7 +1512,7 @@ export const places: Place[] = [
     location: {
       lat: 35.33667,
       lng: 25.10611,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q1928668', deltaM: 0 },
@@ -1556,7 +1579,9 @@ export const places: Place[] = [
         'ράφι. Ο Καζαντζάκης έγραψε τον «Ζορμπά» και πολλά ακόμα, ταξίδεψε σε όλο τον ' +
         'κόσμο και επέστρεφε συνέχεια στην Κρήτη με το γράψιμο. Πέθανε το 1957 και θάφτηκε ' +
         'στο Ηράκλειο, πάνω στα τείχη. Στην πέτρα του τάφου του υπάρχουν τρεις φράσεις που ' +
-        'τις διάλεξε ο ίδιος: «Δεν ελπίζω τίποτα. Δε φοβούμαι τίποτα. Είμαι λέφτερος.»',
+        'τις διάλεξε ο ίδιος: «Δεν ελπίζω τίποτα. Δε φοβούμαι τίποτα. Είμαι λέφτερος.» ' +
+        'Είναι από τα λίγα επιτύμβια στον κόσμο που τα ξέρουν απέξω άνθρωποι που δεν ' +
+        'έχουν πάει ποτέ στον τάφο.',
       en:
         'In Myrtia, a village south of Heraklion, stands the family house of Nikos ' +
         'Kazantzakis’s father, and inside it a museum devoted to him. It opened in 1983. ' +
@@ -1585,7 +1610,7 @@ export const places: Place[] = [
     location: {
       lat: 35.23485,
       lng: 25.20938,
-      anchor: 'entrance',
+      anchor: 'centroid',
       confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q4306167', deltaM: 0 },
@@ -1651,7 +1676,8 @@ export const places: Place[] = [
         'ανάμεσα σε νησί και ηπειρωτική χώρα, για ένα βουνό που μοιάζει με πρόσωπο. Στην ' +
         'κορυφή του, στα 811 μέτρα, υπήρχε μινωικό ιερό: ένα από εκείνα τα ιερά που δεν ' +
         'χτίζονταν σε πόλεις αλλά ψηλά, στον αέρα. Σήμερα ο Γιούχτας είναι προστατευόμενη ' +
-        'περιοχή, και πάνω από τις πλαγιές του πετάνε γύπες.',
+        'περιοχή, και πάνω από τις πλαγιές του πετάνε γύπες που εκμεταλλεύονται τα ' +
+        'ανοδικά ρεύματα και μένουν στον αέρα χωρίς να κουνήσουν φτερό.',
       en:
         'Look at Juktas from Heraklion with the sun low. The line of the ridge makes a ' +
         'forehead, a nose, a mouth and a beard: an enormous face lying on its back. The ' +
@@ -1742,7 +1768,8 @@ export const places: Place[] = [
         'εκεί λιμάνι. Είναι από τις λίγες φορές που ένα ποίημα και ένα σκάμμα δείχνουν το ' +
         'ίδιο σημείο. Το πιο σοβαρό εύρημα όμως είναι η ελαφρόπετρα: στα ερείπια βρέθηκε ' +
         'ελαφρόπετρα από την έκρηξη του ηφαιστείου της Θήρας, που έφτασε ως εδώ πάνω από ' +
-        'τη θάλασσα.',
+        'τη θάλασσα. Μια πέτρα που επιπλέει έφερε την είδηση μιας καταστροφής εκατό ' +
+        'χιλιόμετρα μακριά, και την άφησε εδώ για να τη διαβάσουμε.',
       en:
         'A palace with no harbour makes no sense. Knossos is five kilometres from the sea, ' +
         'and its harbour was here, at Amnisos. Today you see low ruins beside the shore, ' +
@@ -1751,7 +1778,8 @@ export const places: Place[] = [
         'and claims he put in there. It is one of the rare times a poem and an excavation ' +
         'point at the same spot. The most serious find, though, is the pumice: pumice from ' +
         'the eruption of the Thera volcano was found in the ruins, carried this far across ' +
-        'the sea.',
+        'the sea. A stone that floats brought news of a disaster a hundred kilometres away ' +
+        'and left it here for us to read.',
     },
     facts: [
       {

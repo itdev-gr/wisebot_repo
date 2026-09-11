@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 817" width="1000" height="817" role="img" aria-label="Stylised map of Heraklion and its surroundings">
+  <title>Heraklion — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/greece.ts
+    (north 35.36, south 35.22, east 25.30, west 25.09) so that place pins can be
+    projected onto it rather than positioned by hand. Wider than a city map on purpose:
+    the palace, the harbour site, the mountain and the aquarium all lie outside the town.
+    Schematic, and traced from nothing.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5eee0" />
+      <stop offset="1" stop-color="#e8dbc4" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#a6d2de" />
+      <stop offset="1" stop-color="#75b5cb" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccdaf" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="817" fill="url(#ground)" />
+  <rect width="1000" height="817" fill="url(#grid)" opacity="0.5" />
+
+  <!-- The Cretan Sea, along the north coast. The shore falls away eastwards. -->
+  <path d="M0 60 C 150 80, 300 100, 500 120 C 700 140, 850 155, 1000 175 L1000 0 L0 0 Z" fill="url(#water)" />
+  <path d="M0 60 C 150 80, 300 100, 500 120 C 700 140, 850 155, 1000 175" fill="none" stroke="#4f9ab3" stroke-width="3" />
+
+  <!-- The hills inland, and the ridge of Juktas rising in the south. -->
+  <ellipse cx="360" cy="380" rx="180" ry="70" fill="#d3dfb8" stroke="#adbd8d" stroke-width="2" />
+  <path
+    d="M120 720 C 190 640, 260 620, 330 660 C 400 700, 470 700, 540 740 L540 817 L120 817 Z"
+    fill="#c3d3a4"
+    stroke="#a2b583"
+    stroke-width="2"
+  />
+
+  <g fill="#8a7a5c" font-family="Georgia, 'Times New Roman', serif">
+    <text x="330" y="690" font-size="22" text-anchor="middle" letter-spacing="2">ΓΙΟΥΧΤΑΣ</text>
+    <text x="500" y="60" font-size="18" text-anchor="middle" letter-spacing="3">ΚΡΗΤΙΚΟ ΠΕΛΑΓΟΣ</text>
+    <text x="40" y="250" font-size="38" letter-spacing="4">ΗΡΑΚΛΕΙΟ</text>
+    <text x="40" y="282" font-size="20" letter-spacing="4">HERAKLION</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 300)" stroke="#8a7a5c" fill="#8a7a5c">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
