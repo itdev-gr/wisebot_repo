@@ -34,6 +34,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Check, X, Sparkles, DoorOpen, Stamp, Info } from 'lucide-react';
 import type { Place, PlaceId, WorldLang } from '../../data/world/types';
 import type { PlaceStamp } from './useWorldProgress';
+import StoryNarration from './StoryNarration';
 import {
   CATEGORY_LABEL,
   CATEGORY_STYLE,
@@ -307,12 +308,18 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
           </p>
         )}
 
-        {/* ── STORY ── */}
+        {/* ── STORY ──
+            Read aloud in the app's one voice when narration exists for this place and
+            language, with the words following the voice; plain text when it does not.
+            StoryNarration decides which, so this screen never has to know. */}
         <section className="mt-8">
           <h2 className={`${WORLD_STYLE.label} mb-3`}>{ui(T.story, lang)}</h2>
-          <p className={`${WORLD_STYLE.body} text-[17px] md:text-lg whitespace-pre-line`}>
-            {say(place.story, lang)}
-          </p>
+          <StoryNarration
+            id={place.id}
+            lang={lang}
+            text={say(place.story, lang)}
+            className="text-[17px] md:text-lg"
+          />
         </section>
 
         {/* ── FACTS ── */}
