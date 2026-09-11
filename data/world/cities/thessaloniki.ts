@@ -94,8 +94,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Τον ασβέστωσαν τον 19ο αιώνα και το όνομα έμεινε',
-          en: 'It was whitewashed in the 19th century and the name stuck',
+          el: 'Τον ασβέστωσαν και έμεινε το όνομα',
+          en: 'It was whitewashed and the name stuck',
         },
         {
           el: 'Είναι χτισμένος από λευκό μάρμαρο Πεντέλης',
@@ -678,8 +678,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Η φωτιά τον απανθράκωσε αντί να τον κάψει εντελώς',
-          en: 'Fire charred it instead of burning it away completely',
+          el: 'Η φωτιά τον απανθράκωσε',
+          en: 'Fire charred it rather than burning it',
         },
         {
           el: 'Ήταν κλεισμένος σε γυάλινο δοχείο με λάδι',
@@ -754,8 +754,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί το κράμα του έχει πολύ κασσίτερο, που αλλάζει το χρώμα',
-                    en: 'Because its alloy has a lot of tin in it, which changes the colour',
+                    el: 'Γιατί το κράμα του έχει πολύ κασσίτερο',
+                    en: 'Because its alloy holds a lot of tin',
                   },
                   { el: 'Γιατί είναι βαμμένος με χρυσή μπογιά', en: 'Because it is painted with gold paint' },
                   { el: 'Γιατί τον γυάλισαν με λάδι και κερί', en: 'Because it was polished with oil and wax' },
@@ -961,7 +961,7 @@ export const places: Place[] = [
                   en: 'Where did the rainbow colours on ancient glass come from?',
                 },
                 answers: [
-                  { el: 'Από τη φθορά της επιφάνειας μέσα στο χώμα', en: 'From the surface weathering while it lay in the soil' },
+                  { el: 'Από τη φθορά μέσα στο χώμα', en: 'From weathering in the soil' },
                   { el: 'Από χρωστικές που έριχναν στο λιωμένο γυαλί', en: 'From dyes added to the molten glass' },
                   { el: 'Από το κρασί που έμεινε μέσα τους', en: 'From wine left inside them' },
                   { el: 'Από τη φωτιά της νεκρικής πυράς', en: 'From the fire of the funeral pyre' },
@@ -1233,7 +1233,7 @@ export const places: Place[] = [
                   en: 'Why are broken lamps useful to archaeologists?',
                 },
                 answers: [
-                  { el: 'Γιατί βρίσκονται παντού και βοηθούν να χρονολογηθεί το χώμα', en: 'Because they are everywhere and help date the soil' },
+                  { el: 'Γιατί χρονολογούν το χώμα', en: 'Because they date the soil' },
                   { el: 'Γιατί μέσα τους κρύβονταν νομίσματα', en: 'Because coins were hidden inside them' },
                   { el: 'Γιατί ήταν πολύ ακριβά αντικείμενα', en: 'Because they were very expensive objects' },
                   { el: 'Γιατί καίνε ακόμα αν βάλεις λάδι', en: 'Because they still burn if you add oil' },
@@ -1293,7 +1293,7 @@ export const places: Place[] = [
                   en: 'How is the pattern put onto a sgraffito plate?',
                 },
                 answers: [
-                  { el: 'Χαράζοντας το λευκό στρώμα, για να φανεί το σκούρο από κάτω', en: 'By scratching the white layer so the dark shows through' },
+                  { el: 'Χαράζοντας το λευκό στρώμα', en: 'By scratching the white layer' },
                   { el: 'Ζωγραφίζοντας με πινέλο και χρυσό', en: 'By painting with a brush and gold' },
                   { el: 'Κολλώντας μικρά κομμάτια γυαλιού', en: 'By sticking on small pieces of glass' },
                   { el: 'Τυπώνοντας με ξύλινη σφραγίδα', en: 'By stamping with a wooden block' },
@@ -1331,8 +1331,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί έδειχνε ποιος είναι ο αυτοκράτορας σε ανθρώπους που δεν τον έβλεπαν ποτέ',
-                    en: 'Because it showed who the emperor was to people who never saw him',
+                    el: 'Γιατί έδειχνε το πρόσωπο του αυτοκράτορα',
+                    en: 'Because it showed the emperor’s face',
                   },
                   { el: 'Γιατί πάνω του γράφονταν τα γεγονότα της χρονιάς', en: 'Because the year’s events were written on it' },
                   { el: 'Γιατί το μοίραζαν δωρεάν στους πολίτες', en: 'Because it was handed out free to citizens' },
@@ -1369,7 +1369,7 @@ export const places: Place[] = [
                   en: 'Why was the monogram on a signet ring cut back to front?',
                 },
                 answers: [
-                  { el: 'Για να βγαίνει σωστά όταν πιεζόταν σε κερί ή πηλό', en: 'So it came out the right way round when pressed into wax or clay' },
+                  { el: 'Για να βγαίνει σωστά στο κερί', en: 'So it came out right in the wax' },
                   { el: 'Για να μην το διαβάζουν οι κλέφτες', en: 'So thieves could not read it' },
                   { el: 'Γιατί έτσι γραφόταν τότε η γλώσσα', en: 'Because the language was written that way then' },
                   { el: 'Για να χωράει περισσότερο κείμενο', en: 'So more text would fit' },
@@ -1496,8 +1496,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Πολλές ακίνητες εικόνες, τόσο γρήγορα που μοιάζουν με κίνηση',
-          en: 'Many still pictures, shown so fast that they look like movement',
+          el: 'Ακίνητες εικόνες, πολύ γρήγορα',
+          en: 'Still pictures, shown very fast',
         },
         {
           el: 'Μία εικόνα που τεντώνεται και μεγαλώνει',
@@ -1594,8 +1594,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Για να ισιώνουν τις σειρές και να αντέχει ο τοίχος στους σεισμούς',
-          en: 'To level the courses and help the wall survive earthquakes',
+          el: 'Για να ισιώνουν τις σειρές',
+          en: 'To level the courses',
         },
         {
           el: 'Για να ξεχωρίζουν οι φρουροί πόσο ψηλά βρίσκονται',
@@ -1956,8 +1956,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί η οροφή της είναι από γυαλί και μπαίνει φως από πάνω',
-          en: 'Because its roof is glass and light comes in from above',
+          el: 'Γιατί η οροφή της είναι γυαλί',
+          en: 'Because its roof is made of glass',
         },
         {
           el: 'Γιατί οι πάγκοι είναι βαμμένοι άσπροι',
@@ -2244,8 +2244,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί οι απότομες εξέδρες γυρίζουν τον ήχο πίσω στο κέντρο',
-          en: 'Because the steep stands send the sound back to the middle',
+          el: 'Γιατί οι εξέδρες γυρίζουν τον ήχο πίσω',
+          en: 'Because the stands send the sound back',
         },
         {
           el: 'Γιατί είναι το μεγαλύτερο γήπεδο της Ελλάδας',

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 575" width="1000" height="575" role="img" aria-label="Stylised map of Delphi and Parnassus">
+  <title>Delphi — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/greece.ts
+    (north 38.545, south 38.365, east 22.76, west 22.36) so that place pins can be
+    projected onto it rather than positioned by hand. The sanctuary sits on the southern
+    slope of Parnassus with the Gulf of Corinth below it; the mountain, the coast and the
+    olive valley are placed from those bounds and traced from nothing.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efe6d3" />
+      <stop offset="1" stop-color="#e3d5b8" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fcddc" />
+      <stop offset="1" stop-color="#6aa9c2" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#d8c9ab" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="575" fill="url(#ground)" />
+  <rect width="1000" height="575" fill="url(#grid)" opacity="0.5" />
+
+  <!-- The massif of Parnassus, filling the north of the frame. -->
+  <path
+    d="M120 130 C 240 40, 420 10, 560 30 C 700 50, 820 110, 900 170 C 800 150, 640 140, 500 160 C 360 180, 220 170, 120 130 Z"
+    fill="#cfd9b6"
+    stroke="#a9b88b"
+    stroke-width="2"
+  />
+  <path
+    d="M300 150 C 420 90, 560 80, 680 120"
+    fill="none"
+    stroke="#b9c79a"
+    stroke-width="26"
+    stroke-linecap="round"
+    opacity="0.8"
+  />
+
+  <!-- The olive valley running down to the gulf. -->
+  <ellipse cx="180" cy="330" rx="150" ry="70" fill="#dfe4c2" stroke="#c1c99f" stroke-width="2" />
+
+  <!-- The Gulf of Corinth, with the bay of Itea pushing north. -->
+  <path
+    d="M0 560 C 120 520, 250 395, 350 370 C 470 400, 620 490, 780 545 L1000 560 L1000 575 L0 575 Z"
+    fill="url(#water)"
+  />
+  <path
+    d="M0 560 C 120 520, 250 395, 350 370 C 470 400, 620 490, 780 545 L1000 560"
+    fill="none"
+    stroke="#4d95ad"
+    stroke-width="3"
+  />
+
+  <g fill="#7f6f50" font-family="Georgia, 'Times New Roman', serif">
+    <text x="500" y="120" font-size="24" text-anchor="middle" letter-spacing="4">ΠΑΡΝΑΣΣΟΣ</text>
+    <text x="180" y="336" font-size="16" text-anchor="middle" letter-spacing="2">ΕΛΑΙΩΝΑΣ</text>
+    <text x="40" y="60" font-size="34" letter-spacing="5">ΔΕΛΦΟΙ</text>
+    <text x="40" y="88" font-size="17" letter-spacing="4">DELPHI</text>
+  </g>
+
+  <text
+    x="560"
+    y="545"
+    font-size="16"
+    fill="#2c6c85"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="3"
+  >ΚΟΡΙΝΘΙΑΚΟΣ ΚΟΛΠΟΣ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(940 420)" stroke="#7f6f50" fill="#7f6f50">
+    <circle r="24" fill="none" stroke-width="2" />
+    <path d="M0 -20 L6 4 L0 -2 L-6 4 Z" />
+    <text y="-28" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

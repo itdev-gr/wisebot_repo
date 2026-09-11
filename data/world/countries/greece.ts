@@ -271,4 +271,53 @@ export const cities: City[] = [
       bounds: { north: 36.48, south: 36.05, east: 28.3, west: 27.7 },
     },
   },
+
+  {
+    id: 'delphi',
+    countryId: 'greece',
+    order: 5,
+    emoji: '🔮',
+
+    name: {
+      el: 'Δελφοί',
+      en: 'Delphi',
+    },
+
+    intro: {
+      el:
+        'Οι Δελφοί δεν ήταν ποτέ μεγάλη πόλη. Ήταν το μέρος όπου πήγαινε όλος ο ελληνικός ' +
+        'κόσμος για να ρωτήσει κάτι. Σκαρφαλωμένοι σε μια απότομη πλαγιά του Παρνασσού, ' +
+        'με τη θάλασσα να φαίνεται στο βάθος, κρατούσαν το πιο ξακουστό μαντείο της ' +
+        'αρχαιότητας και θεωρούνταν το κέντρο της γης. Κάθε πόλη που έπαιρνε την απάντηση ' +
+        'που ήθελε έστελνε δώρο, και τα δώρα γέμισαν τον δρόμο προς τον ναό με αγάλματα. ' +
+        'Σήμερα ο δρόμος είναι άδειος και τα δώρα βρίσκονται στο μουσείο, λίγα μέτρα πιο ' +
+        'κάτω.',
+      en:
+        'Delphi was never a big city. It was the place the whole Greek world came to in ' +
+        'order to ask a question. Perched on a steep slope of Parnassus with the sea ' +
+        'visible in the distance, it held the most famous oracle of the ancient world and ' +
+        'was considered the centre of the earth. Every city that got the answer it wanted ' +
+        'sent a gift, and the gifts filled the road up to the temple with statues. Today ' +
+        'the road is empty and the gifts are in the museum, a few metres below it.',
+    },
+
+    /** Copied from `scripts/world/seeds/delphi.json`. */
+    centre: { lat: 38.48333, lng: 22.5 },
+
+    map: {
+      src: '/images/world/maps/delphi.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης των Δελφών, με τον Παρνασσό από πάνω και τον Κορινθιακό κόλπο από κάτω.',
+        en: 'A stylised map of Delphi, with Parnassus above it and the Gulf of Corinth below.',
+      },
+      width: 1000,
+      height: 575,
+      /**
+       * A sanctuary cannot fill a city, so the frame takes in the mountain above it, the
+       * cave on its flank, the olive valley, the castle hill of Amfissa, the harbour at
+       * Galaxidi and the monastery of Hosios Loukas to the east.
+       */
+      bounds: { north: 38.545, south: 38.365, east: 22.76, west: 22.36 },
+    },
+  },
 ];

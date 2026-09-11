@@ -102,8 +102,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Αναστηλώσεις από τσιμέντο, φτιαγμένες τον 20ό αιώνα',
-          en: 'Concrete restorations, built in the 20th century',
+          el: 'Αναστηλώσεις από τσιμέντο',
+          en: 'Restorations in concrete',
         },
         {
           el: 'Μινωικοί τοίχοι που σώθηκαν ολόκληροι',
@@ -201,8 +201,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Για να μην καταστραφούν τα πρωτότυπα από τον ήλιο και τον καιρό',
-          en: 'So the originals are not destroyed by sun and weather',
+          el: 'Για να μην τα φάει ο ήλιος',
+          en: 'So the sun does not destroy them',
         },
         {
           el: 'Γιατί τα πρωτότυπα χάθηκαν σε σεισμό',
@@ -275,7 +275,7 @@ export const places: Place[] = [
                   en: 'How many people are taking part in the bull scene?',
                 },
                 answers: [
-                  { el: 'Τρεις, σε τρεις διαφορετικές στιγμές του άλματος', en: 'Three, at three different moments of the leap' },
+                  { el: 'Τρεις', en: 'Three' },
                   { el: 'Ένας μόνο, στον αέρα', en: 'Only one, in mid-air' },
                   { el: 'Πέντε, σε κύκλο γύρω του', en: 'Five, in a circle around it' },
                   { el: 'Κανένας: ο ταύρος είναι μόνος', en: 'None: the bull is alone' },
@@ -312,8 +312,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί τα αυθεντικά κομμάτια είναι λίγα και τα υπόλοιπα συμπληρώθηκαν',
-                    en: 'Because the genuine fragments are few and the rest was filled in',
+                    el: 'Γιατί τα αυθεντικά κομμάτια είναι λίγα',
+                    en: 'Because the genuine fragments are few',
                   },
                   { el: 'Γιατί ζωγραφίστηκε πρόσφατα από πλαστογράφο', en: 'Because it was painted recently by a forger' },
                   { el: 'Γιατί βρέθηκε έξω από την Κρήτη', en: 'Because it was found outside Crete' },
@@ -410,8 +410,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί δεν έχει βρεθεί άλλο κείμενο στην ίδια γραφή',
-                    en: 'Because no other text in the same script has been found',
+                    el: 'Γιατί δεν υπάρχει δεύτερο κείμενο',
+                    en: 'Because there is no second text',
                   },
                   { el: 'Γιατί τα σύμβολα έχουν σβηστεί', en: 'Because the symbols have worn away' },
                   { el: 'Γιατί είναι σπασμένος στη μέση', en: 'Because it is broken in half' },
@@ -523,7 +523,7 @@ export const places: Place[] = [
                   en: 'What makes the Harvester Vase unusual?',
                 },
                 answers: [
-                  { el: 'Φαίνεται ότι οι μορφές τραγουδούν, δηλαδή βλέπεις τον ήχο', en: 'You can see that the figures are singing, so you see sound' },
+                  { el: 'Βλέπεις τον ήχο: τραγουδούν', en: 'You can see sound: they are singing' },
                   { el: 'Είναι φτιαγμένο από καθαρό χρυσό', en: 'It is made of solid gold' },
                   { el: 'Έχει πάνω του γραμμένο ένα ποίημα', en: 'A poem is written on it' },
                   { el: 'Είναι το μεγαλύτερο αγγείο του μουσείου', en: 'It is the largest vessel in the museum' },
@@ -766,8 +766,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Με υδραγωγείο που κατέβαινε σιγά σιγά, μόνο με την κλίση του εδάφους',
-          en: 'By an aqueduct running gently downhill, on the slope of the ground alone',
+          el: 'Με υδραγωγείο, μόνο με την κλίση',
+          en: 'By an aqueduct, on the slope alone',
         },
         {
           el: 'Με αντλίες που δούλευαν με άλογα',
@@ -860,8 +860,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Λέσχη όπου μαζεύονταν οι Βενετοί ευγενείς',
-          en: 'A club where the Venetian nobles gathered',
+          el: 'Λέσχη Βενετών ευγενών',
+          en: 'A club for Venetian nobles',
         },
         { el: 'Εκκλησία με δύο καμπαναριά', en: 'A church with two bell towers' },
         { el: 'Αποθήκη του λιμανιού', en: 'A harbour warehouse' },
@@ -1022,7 +1022,7 @@ export const places: Place[] = [
                   en: 'What is unusual about this painting for its time?',
                 },
                 answers: [
-                  { el: 'Είναι τοπίο, με τους ανθρώπους μικροσκοπικούς', en: 'It is a landscape, with the people tiny' },
+                  { el: 'Είναι σκέτο τοπίο', en: 'It is pure landscape' },
                   { el: 'Είναι ζωγραφισμένος σε γυαλί', en: 'It is painted on glass' },
                   { el: 'Δεν έχει καθόλου χρώμα', en: 'It has no colour at all' },
                   { el: 'Είναι μεγαλύτερος από τοίχο', en: 'It is bigger than a wall' },
@@ -1058,7 +1058,7 @@ export const places: Place[] = [
                   en: 'How do you recognise an El Greco painting?',
                 },
                 answers: [
-                  { el: 'Από τα τραβηγμένα σώματα και το αφύσικο φως', en: 'By the stretched bodies and the unnatural light' },
+                  { el: 'Από τα τραβηγμένα σώματα', en: 'By the stretched bodies' },
                   { el: 'Από το ότι είναι πάντα τεράστιος', en: 'By its always being enormous' },
                   { el: 'Από το ότι δεν έχει ανθρώπους', en: 'By its having no people in it' },
                   { el: 'Από την υπογραφή στα ισπανικά', en: 'By the signature in Spanish' },
@@ -1185,7 +1185,7 @@ export const places: Place[] = [
                   en: 'Why is an ordinary desk worth exhibiting?',
                 },
                 answers: [
-                  { el: 'Γιατί δείχνει πώς φτιάχνεται στην πραγματικότητα ένα βιβλίο', en: 'Because it shows how a book actually gets made' },
+                  { el: 'Γιατί δείχνει πώς φτιάχνεται ένα βιβλίο', en: 'Because it shows how a book is made' },
                   { el: 'Γιατί είναι φτιαγμένο από σπάνιο ξύλο', en: 'Because it is made of rare wood' },
                   { el: 'Γιατί ανήκε σε βασιλιά', en: 'Because it belonged to a king' },
                   { el: 'Γιατί κρύβει μυστική θυρίδα', en: 'Because it hides a secret drawer' },
@@ -1352,8 +1352,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Αναπαράγει πραγματικούς σεισμούς που έχουν καταγραφεί',
-          en: 'It replays real earthquakes that were actually recorded',
+          el: 'Παίζει αληθινούς σεισμούς',
+          en: 'It replays real earthquakes',
         },
         {
           el: 'Προβλέπει πότε θα γίνει ο επόμενος σεισμός',
@@ -1448,7 +1448,7 @@ export const places: Place[] = [
         en: 'What will you not see in this aquarium?',
       },
       answers: [
-        { el: 'Τροπικά ψάρια από άλλους ωκεανούς', en: 'Tropical fish from other oceans' },
+        { el: 'Τροπικά ψάρια', en: 'Tropical fish' },
         { el: 'Καρχαρίες', en: 'Sharks' },
         { el: 'Χταπόδια', en: 'Octopuses' },
         { el: 'Χελώνες', en: 'Turtles' },
@@ -1535,8 +1535,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί το ολυμπιακό ποδόσφαιρο του 2004 μοιράστηκε σε πέντε πόλεις',
-          en: 'Because the 2004 Olympic football was shared across five cities',
+          el: 'Γιατί το ολυμπιακό ποδόσφαιρο μοιράστηκε',
+          en: 'Because the Olympic football was shared out',
         },
         {
           el: 'Γιατί η Κρήτη διεκδίκησε δικούς της Ολυμπιακούς',
@@ -1636,8 +1636,8 @@ export const places: Place[] = [
           en: '"I hope for nothing. I fear nothing. I am free."',
         },
         {
-          el: '«Εδώ αναπαύεται ένας ταξιδιώτης της Κρήτης.»',
-          en: '"Here rests a traveller of Crete."',
+          el: '«Εδώ αναπαύεται ένας ταξιδιώτης που γύρισε επιτέλους στην Κρήτη του.»',
+          en: '"Here rests a traveller who came home to his Crete at last."',
         },
         {
           el: '«Γράψε ό,τι βλέπεις, και μετά φύγε.»',

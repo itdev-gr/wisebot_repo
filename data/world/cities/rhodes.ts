@@ -94,8 +94,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Μπαρούτι που είχε ξεχαστεί σε υπόγειο από την εποχή των Ιπποτών',
-          en: 'Gunpowder forgotten in a cellar since the time of the Knights',
+          el: 'Ξεχασμένο μπαρούτι σε υπόγειο',
+          en: 'Forgotten gunpowder in a cellar',
         },
         { el: 'Μια πολιορκία που κράτησε μήνες', en: 'A siege that lasted for months' },
         { el: 'Ένας σεισμός που άνοιξε το έδαφος', en: 'An earthquake that split the ground' },
@@ -182,8 +182,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Νοσοκόμοι που φρόντιζαν προσκυνητές',
-          en: 'Nurses who looked after pilgrims',
+          el: 'Νοσοκόμοι προσκυνητών',
+          en: 'Nurses for pilgrims',
         },
         { el: 'Έμποροι που ταξίδευαν με καράβια', en: 'Merchants who travelled by ship' },
         { el: 'Χτίστες που έφτιαχναν κάστρα επί πληρωμή', en: 'Builders who raised castles for hire' },
@@ -247,7 +247,7 @@ export const places: Place[] = [
                   en: 'Why are the ward’s windows small and set high up?',
                 },
                 answers: [
-                  { el: 'Για να βγαίνει ο ζεστός αέρας και να ανανεώνεται', en: 'So the warm air escapes and the air keeps moving' },
+                  { el: 'Για να φεύγει ο ζεστός αέρας', en: 'So the warm air escapes' },
                   { el: 'Για να μη βλέπουν έξω οι άρρωστοι', en: 'So the sick could not see out' },
                   { el: 'Για να μπαίνει λιγότερη σκόνη', en: 'To let in less dust' },
                   { el: 'Γιατί το γυαλί ήταν πολύ ακριβό', en: 'Because glass was very expensive' },
@@ -283,7 +283,7 @@ export const places: Place[] = [
                   en: 'How was the order of Knights divided?',
                 },
                 answers: [
-                  { el: 'Σε ομάδες ανάλογα με τη γλώσσα που μιλούσαν', en: 'Into groups according to the language they spoke' },
+                  { el: 'Σε ομάδες κατά γλώσσα', en: 'Into groups by language' },
                   { el: 'Σε ομάδες ανάλογα με το ύψος τους', en: 'Into groups according to their height' },
                   { el: 'Σε ομάδες ανάλογα με την ηλικία τους', en: 'Into groups according to their age' },
                   { el: 'Δεν χωριζόταν καθόλου', en: 'It was not divided at all' },
@@ -378,7 +378,7 @@ export const places: Place[] = [
                   en: 'What is this figure doing?',
                 },
                 answers: [
-                  { el: 'Στύβει τα μαλλιά της βγαίνοντας από τη θάλασσα', en: 'Wringing out her hair as she comes out of the sea' },
+                  { el: 'Στύβει τα μαλλιά της', en: 'Wringing out her hair' },
                   { el: 'Κρατάει ένα παιδί στην αγκαλιά της', en: 'Holding a child in her arms' },
                   { el: 'Τρέχει κρατώντας δάδα', en: 'Running with a torch' },
                   { el: 'Παίζει ένα μουσικό όργανο', en: 'Playing a musical instrument' },
@@ -492,8 +492,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί οι ζωγράφοι αντέγραφαν εικόνες που έφταναν με τα καράβια',
-                    en: 'Because the painters copied images that arrived on ships',
+                    el: 'Γιατί οι ζωγράφοι αντέγραφαν εικόνες',
+                    en: 'Because the painters copied pictures',
                   },
                   { el: 'Γιατί τα ζώα είχαν εξαφανιστεί πρόσφατα', en: 'Because those animals had recently died out' },
                   { el: 'Γιατί τα αγγεία φτιάχτηκαν αλλού', en: 'Because the vases were made somewhere else' },
@@ -741,7 +741,7 @@ export const places: Place[] = [
                   en: 'Why is an octopus’s blood blue?',
                 },
                 answers: [
-                  { el: 'Γιατί μεταφέρει οξυγόνο με χαλκό αντί για σίδερο', en: 'Because it carries oxygen using copper instead of iron' },
+                  { el: 'Γιατί κουβαλάει οξυγόνο με χαλκό', en: 'Because it carries oxygen with copper' },
                   { el: 'Γιατί ζει σε βαθιά γαλάζια νερά', en: 'Because it lives in deep blue water' },
                   { el: 'Γιατί τρώει γαλάζια φύκια', en: 'Because it eats blue seaweed' },
                   { el: 'Γιατί αντανακλά το χρώμα του δέρματός του', en: 'Because it reflects the colour of its skin' },
@@ -782,7 +782,7 @@ export const places: Place[] = [
                   en: 'How does the scorpionfish hunt?',
                 },
                 answers: [
-                  { el: 'Κάθεται ακίνητος, μοιάζει με πέτρα και περιμένει', en: 'It sits still, looks like a stone, and waits' },
+                  { el: 'Κάθεται ακίνητος και περιμένει', en: 'It sits still and waits' },
                   { el: 'Κυνηγάει σε κοπάδια', en: 'It hunts in shoals' },
                   { el: 'Κολυμπάει πολύ γρήγορα σε ευθεία', en: 'It swims very fast in a straight line' },
                   { el: 'Σκάβει τον βυθό με την ουρά του', en: 'It digs the sea floor with its tail' },
@@ -837,7 +837,7 @@ export const places: Place[] = [
                   en: 'What do the small bones near a whale’s tail tell us?',
                 },
                 answers: [
-                  { el: 'Ότι οι πρόγονοί της περπατούσαν στη στεριά', en: 'That its ancestors walked on land' },
+                  { el: 'Ότι οι πρόγονοί της περπατούσαν', en: 'That its ancestors walked' },
                   { el: 'Ότι κάποτε είχε δεύτερη ουρά', en: 'That it once had a second tail' },
                   { el: 'Ότι ήταν τραυματισμένη', en: 'That it had been injured' },
                   { el: 'Ότι ήταν πολύ νεαρή', en: 'That it was very young' },
@@ -874,7 +874,7 @@ export const places: Place[] = [
                   en: 'Why do turtles get confused by plastic bags?',
                 },
                 answers: [
-                  { el: 'Γιατί μοιάζουν με μέδουσες, που είναι τροφή τους', en: 'Because they look like jellyfish, which they eat' },
+                  { el: 'Γιατί μοιάζουν με μέδουσες', en: 'Because they look like jellyfish' },
                   { el: 'Γιατί τις θεωρούν καταφύγιο', en: 'Because they think they are shelter' },
                   { el: 'Γιατί μυρίζουν σαν φύκια', en: 'Because they smell like seaweed' },
                   { el: 'Γιατί κάνουν θόρυβο στο νερό', en: 'Because they make a noise in the water' },
@@ -911,7 +911,7 @@ export const places: Place[] = [
                   en: 'Where does the Mediterranean monk seal have its pups?',
                 },
                 answers: [
-                  { el: 'Σε θαλασσινές σπηλιές με είσοδο κάτω από το νερό', en: 'In sea caves with entrances below the waterline' },
+                  { el: 'Σε θαλασσινές σπηλιές', en: 'In sea caves' },
                   { el: 'Σε ανοιχτές αμμουδιές με κόσμο', en: 'On open sandy beaches with people about' },
                   { el: 'Πάνω σε βράχια στη μέση του πελάγους', en: 'On rocks in the middle of the open sea' },
                   { el: 'Σε ποτάμια κοντά στις εκβολές', en: 'In rivers near their mouths' },
@@ -1036,8 +1036,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Ο τρόπος που ζωγραφίζουν οι άνθρωποι, μέσα σε έναν αιώνα',
-          en: 'The way people paint, across one century',
+          el: 'Ο τρόπος που ζωγραφίζουν',
+          en: 'The way people paint',
         },
         { el: 'Το μέγεθος των πινάκων, από μικρό σε μεγάλο', en: 'The size of the paintings, from small to large' },
         { el: 'Η χώρα από την οποία προέρχονται τα έργα', en: 'The country the works come from' },
@@ -1124,8 +1124,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Σχέδιο με ίσιους δρόμους, φτιαγμένο πριν από το χτίσιμο',
-          en: 'A plan of straight streets, drawn before any building started',
+          el: 'Σχέδιο φτιαγμένο πριν το χτίσιμο',
+          en: 'A plan drawn before any building',
         },
         { el: 'Τείχη από καθαρό μάρμαρο', en: 'Walls of solid marble' },
         { el: 'Δρόμους μόνο για πεζούς', en: 'Streets for pedestrians only' },
@@ -1210,8 +1210,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί νίκησαν και τα παιδιά του, και τον σήκωσαν στα χέρια',
-          en: 'Because his children won too, and carried him on their shoulders',
+          el: 'Γιατί νίκησαν και τα παιδιά του',
+          en: 'Because his children won too',
         },
         {
           el: 'Γιατί νίκησε σε τέσσερα διαφορετικά αθλήματα',
@@ -1303,8 +1303,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί εκεί βγαίνει πηγή που τη θεωρούσαν θεραπευτική',
-          en: 'Because a spring rises there that people thought healing',
+          el: 'Γιατί εκεί βγαίνει πηγή',
+          en: 'Because a spring rises there',
         },
         { el: 'Γιατί ήταν το μόνο μέρος με άμμο', en: 'Because it was the only place with sand' },
         { el: 'Γιατί ήταν κοντά στο λιμάνι', en: 'Because it was close to the harbour' },
@@ -1469,7 +1469,7 @@ export const places: Place[] = [
         en: 'What is carved into the rock at the foot of the stairs?',
       },
       answers: [
-        { el: 'Ένα πολεμικό πλοίο, σε φυσικό μέγεθος πλώρης', en: 'A warship, its bow at life size' },
+        { el: 'Ένα πολεμικό πλοίο', en: 'A warship' },
         { el: 'Ένα άλογο με αναβάτη', en: 'A horse with a rider' },
         { el: 'Ο χάρτης του νησιού', en: 'A map of the island' },
         { el: 'Τα ονόματα των ιερέων', en: 'The names of the priests' },
@@ -1636,8 +1636,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί ο βράχος είναι ήδη κάθετος από παντού',
-          en: 'Because the rock is already vertical on every side',
+          el: 'Γιατί ο βράχος είναι ήδη κάθετος',
+          en: 'Because the rock is already vertical',
         },
         { el: 'Γιατί το έχτισαν βιαστικά', en: 'Because it was built in a hurry' },
         { el: 'Γιατί δεν υπήρχε πέτρα στην περιοχή', en: 'Because there was no stone in the area' },
@@ -1718,7 +1718,7 @@ export const places: Place[] = [
         en: 'What does the colour of the water tell you when you look from above?',
       },
       answers: [
-        { el: 'Πόσο βαθιά είναι η θάλασσα σε κάθε σημείο', en: 'How deep the sea is at each point' },
+        { el: 'Πόσο βαθιά είναι η θάλασσα', en: 'How deep the sea is' },
         { el: 'Πόσο κρύο είναι το νερό', en: 'How cold the water is' },
         { el: 'Πού υπάρχουν ψάρια', en: 'Where the fish are' },
         { el: 'Πόσο αλμυρό είναι το νερό', en: 'How salty the water is' },

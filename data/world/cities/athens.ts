@@ -578,8 +578,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Ότι κάθε κολόνα ήταν χτισμένη από πολλά κομμάτια, το ένα πάνω στο άλλο',
-          en: 'That each column was built from many pieces stacked on top of each other',
+          el: 'Ότι κάθε κολόνα ήταν πολλά κομμάτια',
+          en: 'That each column was many pieces',
         },
         {
           el: 'Ότι οι κολόνες ήταν κούφιες και μέσα κρύβονταν σκάλες',
@@ -994,7 +994,7 @@ export const places: Place[] = [
                   en: 'What is missing from the Calf-Bearer today?',
                 },
                 answers: [
-                  { el: 'Τα μάτια του, που ήταν από άλλο χρωματιστό υλικό', en: 'His eyes, which were made of a different coloured material' },
+                  { el: 'Τα μάτια του', en: 'His eyes' },
                   { el: 'Το μοσχάρι, που βρέθηκε χωριστά', en: 'The calf, which was found separately' },
                   { el: 'Το κεφάλι του, που δεν βρέθηκε ποτέ', en: 'His head, which was never found' },
                   { el: 'Η βάση του, που έμεινε στον βράχο', en: 'His base, which stayed up on the rock' },
@@ -1389,8 +1389,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Γιατί στον βυθό δεν τα έφτανε κανείς για να τα λιώσει',
-          en: 'Because on the sea floor nobody could reach them to melt them down',
+          el: 'Γιατί στον βυθό δεν τα έλιωσε κανείς',
+          en: 'Because nobody melted them down at sea',
         },
         {
           el: 'Γιατί ο χαλκός δεν χαλάει ποτέ, πουθενά',
@@ -1463,8 +1463,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί είναι περίπου 300 χρόνια παλαιότερη από την εποχή του',
-                    en: 'Because it is about 300 years older than his time',
+                    el: 'Γιατί είναι 300 χρόνια παλαιότερη',
+                    en: 'Because it is 300 years older',
                   },
                   { el: 'Γιατί ο Αγαμέμνονας δεν ήταν βασιλιάς', en: 'Because Agamemnon was not a king' },
                   { el: 'Γιατί βρέθηκε στην Κρήτη και όχι στις Μυκήνες', en: 'Because it was found in Crete, not at Mycenae' },
@@ -1505,8 +1505,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Δύο διαφορετικούς τρόπους να πιάσεις έναν ταύρο',
-                    en: 'Two different ways of catching a bull',
+                    el: 'Δύο τρόπους να πιάσεις ταύρο',
+                    en: 'Two ways to catch a bull',
                   },
                   { el: 'Δύο μάχες ανάμεσα σε πόλεις', en: 'Two battles between cities' },
                   { el: 'Την ίδια σκηνή, από δύο πλευρές', en: 'The same scene, from two sides' },
@@ -1543,8 +1543,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Με μικρά κομμάτια χρυσού και ασημιού καρφωμένα στον χαλκό',
-                    en: 'With tiny pieces of gold and silver inlaid into the bronze',
+                    el: 'Με κομμάτια χρυσού καρφωμένα στον χαλκό',
+                    en: 'With pieces of gold set into the bronze',
                   },
                   { el: 'Ζωγραφισμένες με πινέλο και βερνίκι', en: 'Painted on with a brush and varnish' },
                   { el: 'Τυπωμένες με μια σφραγίδα', en: 'Stamped on with a seal' },
@@ -1714,8 +1714,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Έδειχνε τις θέσεις του ήλιου και της σελήνης και προέβλεπε εκλείψεις',
-                    en: 'It showed the positions of the sun and moon and predicted eclipses',
+                    el: 'Προέβλεπε τον ήλιο και τη σελήνη',
+                    en: 'It predicted the sun and the moon',
                   },
                   { el: 'Άντλησε νερό από τον βυθό ενός πηγαδιού', en: 'It pumped water up from the bottom of a well' },
                   { el: 'Ζύγιζε το χρυσάφι με ακρίβεια', en: 'It weighed gold precisely' },
@@ -2067,7 +2067,7 @@ export const places: Place[] = [
                   en: 'How many different sides does a knucklebone have?',
                 },
                 answers: [
-                  { el: 'Τέσσερις, καθεμιά με άλλη βαθμολογία', en: 'Four, each with a different score' },
+                  { el: 'Τέσσερις', en: 'Four' },
                   { el: 'Έξι, όπως το ζάρι', en: 'Six, like a dice' },
                   { el: 'Δύο, όπως το νόμισμα', en: 'Two, like a coin' },
                   { el: 'Οκτώ, όπως η σβούρα', en: 'Eight, like a spinning top' },
@@ -2230,8 +2230,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Γιατί δείχνουν πώς ήταν στ’ αλήθεια τα σπίτια της εποχής',
-                    en: 'Because they show what houses of the time were really like',
+                    el: 'Γιατί δείχνουν αληθινά σπίτια',
+                    en: 'Because they show real houses',
                   },
                   { el: 'Γιατί μέσα τους κρύβονταν γράμματα', en: 'Because letters were hidden inside them' },
                   { el: 'Γιατί ήταν πάντα αντίγραφα παλατιών', en: 'Because they were always copies of palaces' },
@@ -2584,8 +2584,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Όλους τους στρατιώτες που χάθηκαν και δεν αναγνωρίστηκαν ποτέ',
-          en: 'Every soldier who was lost and never identified',
+          el: 'Όσους χάθηκαν χωρίς όνομα',
+          en: 'Everyone lost without a name',
         },
         {
           el: 'Τον πρώτο βασιλιά της Ελλάδας',
@@ -2863,8 +2863,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Για να φτάσουν τα ψάρια και τα κρέατα φρέσκα στους πάγκους',
-          en: 'So the fish and meat reach the counters fresh',
+          el: 'Για να φτάσουν τα ψάρια φρέσκα',
+          en: 'So the fish arrive fresh',
         },
         {
           el: 'Γιατί το φως της ημέρας χαλάει τα μάρμαρα',
@@ -3046,8 +3046,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Δείχνει πού θα βρίσκονται πραγματικά τα άστρα σε μια συγκεκριμένη στιγμή',
-          en: 'It shows where the stars really will be at a given moment',
+          el: 'Δείχνει πού θα είναι αληθινά τα άστρα',
+          en: 'It shows where the stars will really be',
         },
         {
           el: 'Προβάλλει ταινίες σε μεγαλύτερη οθόνη',

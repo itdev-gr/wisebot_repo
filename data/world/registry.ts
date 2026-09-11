@@ -41,6 +41,7 @@ export const CITIES: City[] = COUNTRY_MODULES.flatMap((m) => m.cities).sort(byOr
  */
 export const PLACE_COUNTS: Record<CityId, number> = {
   'athens': 18,
+  'delphi': 13,
   'heraklion': 12,
   'rhodes': 12,
   'thessaloniki': 17,
@@ -48,6 +49,7 @@ export const PLACE_COUNTS: Record<CityId, number> = {
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
   'athens': () => import('./cities/athens'),
+  'delphi': () => import('./cities/delphi'),
   'heraklion': () => import('./cities/heraklion'),
   'rhodes': () => import('./cities/rhodes'),
   'thessaloniki': () => import('./cities/thessaloniki'),
@@ -75,6 +77,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'heraklion.es': () => import('./i18n/heraklion.es.json'),
   'heraklion.fr': () => import('./i18n/heraklion.fr.json'),
   'heraklion.it': () => import('./i18n/heraklion.it.json'),
+  'rhodes.de': () => import('./i18n/rhodes.de.json'),
+  'rhodes.es': () => import('./i18n/rhodes.es.json'),
+  'rhodes.fr': () => import('./i18n/rhodes.fr.json'),
+  'rhodes.it': () => import('./i18n/rhodes.it.json'),
   'thessaloniki.de': () => import('./i18n/thessaloniki.de.json'),
   'thessaloniki.es': () => import('./i18n/thessaloniki.es.json'),
   'thessaloniki.fr': () => import('./i18n/thessaloniki.fr.json'),
