@@ -34,6 +34,7 @@ import {
   citiesOf,
   findCity,
   findCountry,
+  loadCountries,
   loadCity,
   PLACE_COUNTS,
   translationsFor,
@@ -126,8 +127,27 @@ const REGISTRY_CONTENT: WorldContent = {
  * by `false` in a production build, so the branch and its dynamic import are dropped
  * from the bundle entirely.
  */
-function useWorldContent(): WorldContent {
+function useWorldContent(lang: WorldLang): WorldContent {
   const [content, setContent] = useState<WorldContent>(REGISTRY_CONTENT);
+
+  // The front door in the child's language: country names, country intros and the name
+  // and intro of every city card. One small file per language, because this screen
+  // draws every country and every city at once — twenty separate requests to render
+  // one list would be a visible stagger. Falls back to what the modules carry.
+  useEffect(() => {
+    if (COUNTRIES.length === 0) return undefined;
+    let alive = true;
+    loadCountries(lang)
+      .then(({ countries, cities }) => {
+        if (alive) setContent((prev) => ({ ...prev, countries, cities }));
+      })
+      .catch(() => {
+        /* no front door in this language yet — English is the honest fallback */
+      });
+    return () => {
+      alive = false;
+    };
+  }, [lang]);
 
   useEffect(() => {
     if (!import.meta.env.DEV || COUNTRIES.length > 0) return;
@@ -524,7 +544,7 @@ const PassportPage: React.FC<{
 const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
   const [lang, setLangState] = useState<WorldLang>(() => initialWorldLang(appLang));
   const progress = useWorldProgress();
-  const content = useWorldContent();
+  const content = useWorldContent(lang);
 
   const setLang = useCallback((next: WorldLang) => {
     setLangState(next);

@@ -21,8 +21,11 @@
  */
 
 import type {
+  City,
   CityModule,
   CityTranslation,
+  CountriesTranslation,
+  Country,
   Exhibit,
   LocText,
   Place,
@@ -142,5 +145,49 @@ export function mergeCityTranslation(
   return {
     places: module.places.map((place) => mergePlace(place, lang, overlay)),
     trails: module.trails?.map((trail) => mergeTrail(trail, lang, overlay)),
+  };
+}
+
+/**
+ * The front door in one more language: country names, country intros, and the name and
+ * intro of every city on a country's page.
+ *
+ * This is the text a child reads before they have chosen anything, so it is the text
+ * that decides whether the app looks translated at all. A German child who lands on a
+ * list headed DIE WELT and reads GREECE underneath has been told, in the first second,
+ * that the German is skin deep.
+ *
+ * Same two rules as the city merge: `el` and `en` are never overwritten, and anything
+ * the overlay does not mention is left exactly as it was.
+ */
+export function mergeCountriesTranslation(
+  countries: Country[],
+  cities: City[],
+  overlay: CountriesTranslation | null | undefined,
+): { countries: Country[]; cities: City[] } {
+  if (!overlay) return { countries, cities };
+  const lang = overlay.lang;
+  if (lang === 'el' || lang === 'en') return { countries, cities };
+
+  return {
+    countries: countries.map((country) => {
+      const t = overlay.countries[country.id];
+      if (!t) return country;
+      return {
+        ...country,
+        name: withLang(country.name, lang, t.name),
+        intro: withLang(country.intro, lang, t.intro),
+        facts: country.facts.map((fact, i) => withLang(fact, lang, t.facts?.[i])),
+      };
+    }),
+    cities: cities.map((city) => {
+      const t = overlay.countries[city.countryId]?.cities?.[city.id];
+      if (!t) return city;
+      return {
+        ...city,
+        name: withLang(city.name, lang, t.name),
+        intro: withLang(city.intro, lang, t.intro),
+      };
+    }),
   };
 }

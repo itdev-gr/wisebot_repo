@@ -81,6 +81,8 @@ async function overlaysIn() {
       const [city, lang] = f.slice(0, -5).split('.');
       return { file: f, city, lang };
     })
+    // `countries.<lang>.json` is the front-door overlay, handled separately below.
+    .filter((o) => o.city !== 'countries')
     .filter((o) => {
       if (!o.city || !o.lang || !ID.test(o.city)) {
         console.error(`skipping data/world/i18n/${o.file}: expected <city>.<lang>.json`);
@@ -95,10 +97,26 @@ async function overlaysIn() {
     .sort((a, b) => a.file.localeCompare(b.file));
 }
 
+/** `countries.<lang>.json` — one file per language for the whole front door. */
+async function countryOverlaysIn() {
+  let entries = [];
+  try {
+    entries = await readdir(resolve(ROOT, 'data/world/i18n'));
+  } catch {
+    return [];
+  }
+  return entries
+    .filter((f) => /^countries\.[a-z]{2}\.json$/.test(f))
+    .map((f) => ({ file: f, lang: f.slice('countries.'.length, -5) }))
+    .filter((o) => o.lang !== 'el' && o.lang !== 'en')
+    .sort((a, b) => a.lang.localeCompare(b.lang));
+}
+
 async function main() {
   const countries = await idsIn('data/world/countries', '.ts');
   const cities = await idsIn('data/world/cities', '.ts');
   const overlays = await overlaysIn();
+  const countryOverlays = await countryOverlaysIn();
 
   const counts = {};
   const missing = [];
@@ -131,6 +149,10 @@ async function main() {
     .map((o) => `  '${o.city}.${o.lang}': () => import('./i18n/${o.file}'),`)
     .join('\n');
 
+  const countryOverlayLoaders = countryOverlays
+    .map((o) => `  '${o.lang}': () => import('./i18n/${o.file}'),`)
+    .join('\n');
+
   const body = `/**
  * GENERATED FILE — do not edit.
  *
@@ -143,8 +165,16 @@ async function main() {
  * exists.
  */
 
-import type { City, CityId, CityModule, CityTranslation, Country, CountryModule } from './types';
-import { mergeCityTranslation } from './mergeTranslation';
+import type {
+  City,
+  CityId,
+  CityModule,
+  CityTranslation,
+  CountriesTranslation,
+  Country,
+  CountryModule,
+} from './types';
+import { mergeCityTranslation, mergeCountriesTranslation } from './mergeTranslation';
 
 ${imports || '// no country modules yet'}
 
@@ -219,6 +249,39 @@ export async function loadCity(cityId: CityId, lang?: string): Promise<CityModul
   }
 }
 
+const I18N_COUNTRIES: Record<string, () => Promise<{ default: unknown }>> = {
+${countryOverlayLoaders || '  // no front-door translations yet'}
+};
+
+/**
+ * Countries and city cards in the language asked for.
+ *
+ * One small file covers the whole front door, because that screen draws every flag and
+ * every city card at once: twenty separate requests to render one list would be a
+ * visible stagger. City places stay lazy and per-city, which is the opposite trade and
+ * the right one for them.
+ *
+ * A missing file means that language has no front door yet and the list falls back to
+ * English, which \`pick()\` already does everywhere else.
+ */
+export async function loadCountries(
+  lang?: string,
+): Promise<{ countries: Country[]; cities: City[] }> {
+  if (!lang || lang === 'el' || lang === 'en') return { countries: COUNTRIES, cities: CITIES };
+  const loader = I18N_COUNTRIES[lang];
+  if (!loader) return { countries: COUNTRIES, cities: CITIES };
+  try {
+    const overlay = await loader();
+    return mergeCountriesTranslation(
+      COUNTRIES,
+      CITIES,
+      (overlay.default ?? overlay) as CountriesTranslation,
+    );
+  } catch {
+    return { countries: COUNTRIES, cities: CITIES };
+  }
+}
+
 /** Languages that have an overlay for this city, beyond the built-in Greek and English. */
 export function translationsFor(cityId: CityId): string[] {
   return Object.keys(I18N)
@@ -243,7 +306,12 @@ export function translationsFor(cityId: CityId): string[] {
 export const AVAILABLE_LANGS: string[] = [
   'el',
   'en',
-  ...[...new Set(Object.keys(I18N).map((key) => key.slice(key.lastIndexOf('.') + 1)))].sort(),
+  ...[
+    ...new Set([
+      ...Object.keys(I18N).map((key) => key.slice(key.lastIndexOf('.') + 1)),
+      ...Object.keys(I18N_COUNTRIES),
+    ]),
+  ].sort(),
 ];
 
 /** City ids that have a content module, whether or not they have been resolved. */

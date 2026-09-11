@@ -10,8 +10,16 @@
  * exists.
  */
 
-import type { City, CityId, CityModule, CityTranslation, Country, CountryModule } from './types';
-import { mergeCityTranslation } from './mergeTranslation';
+import type {
+  City,
+  CityId,
+  CityModule,
+  CityTranslation,
+  CountriesTranslation,
+  Country,
+  CountryModule,
+} from './types';
+import { mergeCityTranslation, mergeCountriesTranslation } from './mergeTranslation';
 
 import { country as greece_country, cities as greece_cities } from './countries/greece';
 
@@ -103,6 +111,39 @@ export async function loadCity(cityId: CityId, lang?: string): Promise<CityModul
   }
 }
 
+const I18N_COUNTRIES: Record<string, () => Promise<{ default: unknown }>> = {
+  // no front-door translations yet
+};
+
+/**
+ * Countries and city cards in the language asked for.
+ *
+ * One small file covers the whole front door, because that screen draws every flag and
+ * every city card at once: twenty separate requests to render one list would be a
+ * visible stagger. City places stay lazy and per-city, which is the opposite trade and
+ * the right one for them.
+ *
+ * A missing file means that language has no front door yet and the list falls back to
+ * English, which `pick()` already does everywhere else.
+ */
+export async function loadCountries(
+  lang?: string,
+): Promise<{ countries: Country[]; cities: City[] }> {
+  if (!lang || lang === 'el' || lang === 'en') return { countries: COUNTRIES, cities: CITIES };
+  const loader = I18N_COUNTRIES[lang];
+  if (!loader) return { countries: COUNTRIES, cities: CITIES };
+  try {
+    const overlay = await loader();
+    return mergeCountriesTranslation(
+      COUNTRIES,
+      CITIES,
+      (overlay.default ?? overlay) as CountriesTranslation,
+    );
+  } catch {
+    return { countries: COUNTRIES, cities: CITIES };
+  }
+}
+
 /** Languages that have an overlay for this city, beyond the built-in Greek and English. */
 export function translationsFor(cityId: CityId): string[] {
   return Object.keys(I18N)
@@ -127,7 +168,12 @@ export function translationsFor(cityId: CityId): string[] {
 export const AVAILABLE_LANGS: string[] = [
   'el',
   'en',
-  ...[...new Set(Object.keys(I18N).map((key) => key.slice(key.lastIndexOf('.') + 1)))].sort(),
+  ...[
+    ...new Set([
+      ...Object.keys(I18N).map((key) => key.slice(key.lastIndexOf('.') + 1)),
+      ...Object.keys(I18N_COUNTRIES),
+    ]),
+  ].sort(),
 ];
 
 /** City ids that have a content module, whether or not they have been resolved. */

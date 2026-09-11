@@ -756,6 +756,858 @@
     "text": "The planetarium opened in 1966 and has done the same thing ever since with steadily better machines: turn out the lights and put the sky inside a building. Its dome is twenty-five metres across, and the surface the images are projected onto is over nine hundred square metres. The seats tilt back, because you are not looking ahead of you; you are looking up. The first few seconds feel strange, like falling upwards. A planetarium is not a cinema with stars in it: it is a machine that shows exactly where the stars will be tonight, or where they were a thousand years ago, or how they would look from Mars. It is the closest thing to time travel you can do without leaving Faliro."
   },
   {
+    "tag": "heraklion-knossos-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-knossos",
+    "lang": "el",
+    "kind": "story",
+    "text": "Πριν από περίπου τέσσερις χιλιάδες χρόνια, στον λόφο της Κνωσού υπήρχε ένα κτίριο με πάνω από χίλιους χώρους, ενωμένους με διαδρόμους και σκάλες που πηγαίνουν σε τέσσερα επίπεδα. Δεν ήταν μόνο σπίτι ενός βασιλιά: ήταν αποθήκη, εργαστήριο, γραφείο και ιερό μαζί. Το πιο εντυπωσιακό δεν είναι τα χρώματα αλλά οι σωλήνες. Οι Μινωίτες είχαν πήλινες σωληνώσεις που έφερναν καθαρό νερό και άλλες που έβγαζαν τα βρόμικα, σε μια εποχή που οι περισσότεροι λαοί κουβαλούσαν νερό με στάμνες. Είχαν επίσης «φωταγωγούς», ανοίγματα στην οροφή που φέρνουν φως και αέρα στα μεσαία δωμάτια. Ένας μύθος λέει ότι κάτω από το ανάκτορο υπήρχε λαβύρινθος με ένα τέρας, τον Μινώταυρο. Οι αρχαιολόγοι δεν βρήκαν λαβύρινθο, βρήκαν όμως ένα κτίριο τόσο μπερδεμένο που καταλαβαίνεις αμέσως από πού ξεκίνησε η ιστορία."
+  },
+  {
+    "tag": "heraklion-knossos-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-knossos",
+    "lang": "en",
+    "kind": "story",
+    "text": "About four thousand years ago, on the hill at Knossos, there was a building with over a thousand rooms, joined by corridors and staircases running through four levels. It was not only a king’s house: it was a warehouse, a workshop, an office and a shrine at once. The most impressive thing about it is not the colours but the pipes. The Minoans had clay plumbing that brought clean water in and other pipes that carried dirty water out, at a time when most peoples were carrying water in jars. They also had light wells, openings in the roof that bring daylight and air down into the middle rooms. A myth says a labyrinth with a monster in it, the Minotaur, lay under the palace. Archaeologists found no labyrinth, but they found a building so confusing that you see at once where the story started."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "lang": "el",
+    "kind": "story",
+    "text": "Αν η Κνωσός είναι το άδειο κτίριο, αυτό το μουσείο είναι τα περιεχόμενά του. Εδώ βρίσκεται σχεδόν ό,τι σημαντικό βγήκε από τα μινωικά ανάκτορα της Κρήτης, και είναι η μεγαλύτερη συλλογή μινωικών ευρημάτων στον κόσμο. Οι τοιχογραφίες της Κνωσού είναι εδώ, όχι στην Κνωσό: εκεί βλέπεις αντίγραφα, ώστε τα πρωτότυπα να μη λιώνουν στον ήλιο. Το μουσείο δείχνει κάτι που ξαφνιάζει: οι Μινωίτες δεν ζωγράφιζαν σχεδόν καθόλου πολέμους. Ζωγράφιζαν δελφίνια, κρίνα, μαϊμούδες, ανθρώπους που πηδάνε πάνω από ταύρους, γυναίκες με περίτεχνα φορέματα. Ζωγράφιζαν δηλαδή ζωή, όχι νίκες. Και υπάρχει ένα αντικείμενο που κανείς δεν έχει διαβάσει ακόμα, παρότι το κοιτάζουν ειδικοί πάνω από εκατό χρόνια. Αν έχεις χρόνο μόνο για ένα μουσείο σε όλη την Κρήτη, οι αρχαιολόγοι θα σου πουν να διαλέξεις αυτό, και μετά να ανέβεις στην Κνωσό για να δεις πού στέκονταν όλα."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "lang": "en",
+    "kind": "story",
+    "text": "If Knossos is the empty building, this museum is what was inside it. Almost everything important that came out of the Minoan palaces of Crete is here, and it is the largest collection of Minoan finds anywhere. The frescoes of Knossos are here, not at Knossos: up there you see copies, so the originals do not bleach in the sun. The museum shows something surprising: the Minoans painted almost no wars. They painted dolphins, lilies, monkeys, people vaulting over bulls, women in elaborate dresses. They painted life rather than victories. And there is one object here that nobody has managed to read, although specialists have been staring at it for more than a hundred years. If you only have time for one museum on the whole island, archaeologists will tell you to pick this one, and then go up to Knossos to see where all of it once stood."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-bull-leaping-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-bull-leaping",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένας ταύρος τρέχει, και τρεις άνθρωποι κάνουν κάτι απίστευτο γύρω του: ο ένας πιάνει τα κέρατα, ο δεύτερος είναι στον αέρα πάνω από τη ράχη του, ο τρίτος περιμένει με ανοιχτά χέρια να τον πιάσει. Οι ειδικοί διαφωνούν αν αυτό γινόταν πραγματικά ή αν είναι εικόνα τελετής. Πρόσεξε τα χρώματα των σωμάτων: στη μινωική ζωγραφική οι άντρες αποδίδονται συνήθως σκουρόχρωμοι και οι γυναίκες ανοιχτόχρωμες."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-bull-leaping-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-bull-leaping",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A bull is running, and three people are doing something extraordinary around it: one grips the horns, the second is in mid-air above its back, the third waits with open arms to catch them. Specialists disagree about whether this really happened or whether it is a picture of a ceremony. Notice the colours of the bodies: in Minoan painting men are usually shown dark-skinned and women pale."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-prince-lilies-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-prince-lilies",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια μορφή που περπατάει, με στέμμα από κρίνα και φτερά παγονιού. Είναι από τις πιο γνωστές εικόνες της Κρήτης και ταυτόχρονα από τις πιο αμφισβητούμενες: τα αυθεντικά κομμάτια είναι λίγα, και το υπόλοιπο συμπληρώθηκε στις αρχές του 20ού αιώνα. Κάποιοι ερευνητές θεωρούν ότι τα θραύσματα ίσως ανήκουν σε περισσότερες από μία μορφές, οπότε ο «πρίγκιπας» μπορεί να μην υπήρξε ποτέ έτσι."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-prince-lilies-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-prince-lilies",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A figure walking, wearing a crown of lilies and peacock feathers. It is one of the best known images from Crete and also one of the most disputed: the genuine fragments are few, and the rest was filled in during the early 20th century. Some researchers think the pieces may belong to more than one figure, in which case the \"prince\" may never have existed in this form at all."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-saffron-gatherer-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-saffron-gatherer",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Όταν βρέθηκε αυτή η τοιχογραφία, την αποκατέστησαν ως ένα αγόρι που μαζεύει λουλούδια κρόκου σε ένα λιβάδι. Χρόνια αργότερα βρέθηκαν κι άλλα θραύσματα, και έδειξαν κάτι διαφορετικό: το πλάσμα δεν είχε ανθρώπινα χέρια αλλά πατούσες, και ήταν μπλε. Είναι μαϊμού. Η ιστορία αυτή είναι το καλύτερο παράδειγμα του πώς δουλεύει η αρχαιολογία: μια εξήγηση κρατάει μέχρι να έρθουν νέα στοιχεία."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-saffron-gatherer-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-saffron-gatherer",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "When this fresco was found it was restored as a boy picking saffron flowers in a meadow. Years later more fragments turned up and showed something else: the creature did not have human hands but paws, and it was blue. It is a monkey. That story is the best example of how archaeology works: an explanation stands until new evidence arrives."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-phaistos-disc-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-phaistos-disc",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένας πήλινος δίσκος στο μέγεθος μιας μικρής πίτσας, με σύμβολα τυπωμένα σε σπείρα και στις δύο πλευρές του. Τα σύμβολα δεν είναι χαραγμένα: είναι σφραγισμένα, το καθένα με δικό του καλούπι. Αυτό σημαίνει ότι κάποιος είχε φτιάξει ένα σετ από σφραγίδες, δηλαδή κάτι σαν τυπογραφία, τρεισήμισι χιλιάδες χρόνια πριν από την τυπογραφία. Κανείς δεν ξέρει τι γράφει. Δεν έχει βρεθεί δεύτερο κείμενο στην ίδια γραφή για να το συγκρίνουμε."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-phaistos-disc-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-phaistos-disc",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A clay disc the size of a small pizza, with symbols printed in a spiral on both sides. The symbols are not scratched on: they are stamped, each one with its own punch. That means somebody had made a set of stamps, a kind of printing, three and a half thousand years before printing. Nobody knows what it says. No second text in the same script has ever been found to compare it with."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-snake-goddess-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-snake-goddess",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια μικρή φιγούρα από φαγεντιανή, ύψους λίγων εκατοστών, που κρατάει από ένα φίδι σε κάθε χέρι και φοράει μακρύ φόρεμα με βολάν. Βρέθηκε σε κρύπτη της Κνωσού μαζί με άλλα ιερά αντικείμενα. Κανείς δεν ξέρει αν είναι θεά, ιέρεια ή κάτι άλλο· το όνομα το έδωσαν οι αρχαιολόγοι. Τα φίδια δεν είναι απειλή: σε πολλούς αρχαίους πολιτισμούς συμβολίζουν το σπίτι, τη γη και την ανανέωση, επειδή αλλάζουν δέρμα."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-snake-goddess-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-snake-goddess",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A small faience figure a few centimetres tall, holding a snake in each hand and wearing a long flounced dress. It was found in a sealed pit at Knossos with other sacred objects. Nobody knows whether she is a goddess, a priestess or something else; archaeologists gave her the name. The snakes are not a threat: in many ancient cultures they stand for the home, the earth and renewal, because they shed their skin."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-bee-pendant-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-bee-pendant",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένα κόσμημα από τα Μάλια, λίγα εκατοστά μόνο: δύο μέλισσες που κρατούν μαζί μια σταγόνα μελιού. Πάνω τους υπάρχουν μικροσκοπικές χρυσές μπαλίτσες κολλημένες μία μία, με τεχνική που λέγεται κοκκίδωση, και λεπτά σύρματα που σχηματίζουν τα φτερά. Για να δεις τη δουλειά χρειάζεσαι σήμερα φακό. Ο τεχνίτης που το έφτιαξε δεν είχε φακό, είχε μόνο νεανικά μάτια και πολλή υπομονή."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-bee-pendant-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-bee-pendant",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A piece of jewellery from Malia, only a few centimetres across: two bees holding a drop of honey between them. Tiny gold balls are fixed to them one by one, in a technique called granulation, and fine wires form the wings. To see the work today you need a magnifier. The craftsman who made it had no magnifier, only young eyes and a great deal of patience."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-harvester-vase-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-harvester-vase",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένα μικρό μαύρο αγγείο με ανάγλυφη πομπή γύρω γύρω: άντρες που επιστρέφουν από τη δουλειά κρατώντας εργαλεία στον ώμο, και μπροστά τους κάποιοι που τραγουδούν. Ένας από αυτούς έχει το στόμα ορθάνοιχτο και το στήθος φουσκωμένο, και φαίνεται καθαρά ότι φωνάζει δυνατά. Είναι σπάνιο σε αρχαία τέχνη να βλέπεις ήχο. Τα πρόσωπα δεν είναι ίδια μεταξύ τους: άλλος γελάει, άλλος έχει κουραστεί."
+  },
+  {
+    "tag": "heraklion-archaeological-museum-harvester-vase-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-archaeological-museum",
+    "exhibitId": "heraklion-archaeological-museum-harvester-vase",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A small black vessel with a procession carved right around it: men coming back from work with tools over their shoulders, and in front of them some who are singing. One has his mouth wide open and his chest pushed out, and you can see plainly that he is shouting the words. It is rare in ancient art to be able to see sound. The faces are not identical either: one is laughing, another has had enough."
+  },
+  {
+    "tag": "heraklion-koules-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-koules",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στην είσοδο του παλιού λιμανιού στέκεται ένα τετράγωνο φρούριο χτισμένο μέσα στο νερό. Οι Βενετοί το έχτισαν ανάμεσα στο 1523 και το 1540 και το ονόμασαν Ρόκα α Μάρε, «ο βράχος στη θάλασσα». Οι Τούρκοι αργότερα το είπαν Κούλες, που θα πει πύργος, και αυτό το όνομα έμεινε. Κοίτα το πάχος των τοίχων του: προς τη μεριά της θάλασσας φτάνουν σχεδόν τα εννιά μέτρα, ενώ προς τη στεριά είναι πολύ λεπτότεροι. Ο λόγος είναι απλός και έξυπνος: οι μπάλες των κανονιών έρχονταν από τα καράβια, όχι από την πόλη. Στο ισόγειο υπάρχουν είκοσι έξι θολωτοί χώροι, όπου φυλάγονταν μπαρούτι, τρόφιμα και νερό. Στους εξωτερικούς τοίχους είναι σκαλισμένο τρεις φορές το φτερωτό λιοντάρι της Βενετίας, το σήμα της πόλης που το έχτισε."
+  },
+  {
+    "tag": "heraklion-koules-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-koules",
+    "lang": "en",
+    "kind": "story",
+    "text": "At the mouth of the old harbour stands a square fortress built out in the water. The Venetians raised it between 1523 and 1540 and called it Rocca a Mare, \"the rock in the sea\". The Turks later called it Koules, meaning tower, and that is the name that stuck. Look at the thickness of its walls: on the sea side they reach almost nine metres, while on the landward side they are much thinner. The reason is simple and clever: cannonballs came from ships, not from the town. On the ground floor there are twenty-six vaulted rooms where gunpowder, food and water were kept. Carved three times on the outside walls is the winged lion of Venice, the badge of the city that built it."
+  },
+  {
+    "tag": "heraklion-morosini-fountain-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-morosini-fountain",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στην καρδιά της πόλης, εκεί που οι Ηρακλειώτες λένε ραντεβού «στα Λιοντάρια», υπάρχει μια βρύση που τελείωσε το 1628. Τη χρωστάει η πόλη στον Φραντσέσκο Μοροζίνι, που έλυσε ένα πρόβλημα δεκαετιών: το Ηράκλειο δεν είχε αρκετό πόσιμο νερό. Έφτιαξε υδραγωγείο που κατέβαζε νερό από τον Γιούχτα, περίπου δεκαπέντε χιλιόμετρα μακριά, με την κλίση του εδάφους και μόνο, χωρίς καμία αντλία. Η λεκάνη έχει οκτώ λοβούς με ανάγλυφα από θαλάσσια πλάσματα, δελφίνια και νύμφες. Και τα τέσσερα λιοντάρια που την κρατούν είναι κατά τριακόσια χρόνια παλιότερα από αυτήν: δεν φτιάχτηκαν για τη βρύση, μεταφέρθηκαν από αλλού και ξαναχρησιμοποιήθηκαν. Ακόμα και σήμερα, το νερό βγαίνει από τα στόματά τους. Αν καθίσεις απέναντι και ακούσεις, θα καταλάβεις γιατί εδώ κλείνουν ραντεβού όλοι: το νερό ακούγεται πιο δυνατά από την πόλη."
+  },
+  {
+    "tag": "heraklion-morosini-fountain-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-morosini-fountain",
+    "lang": "en",
+    "kind": "story",
+    "text": "In the heart of the city, at the spot where people in Heraklion say \"meet me at the Lions\", there is a fountain finished in 1628. The city owes it to Francesco Morosini, who solved a problem decades old: Heraklion did not have enough drinking water. He built an aqueduct that brought water down from Mount Juktas, about fifteen kilometres away, using the slope of the ground alone and no pump at all. The basin has eight lobes carved with sea creatures, dolphins and nymphs. And the four lions holding it up are some three hundred years older than the fountain: they were not made for it, they were brought from somewhere else and reused. Water still comes out of their mouths today."
+  },
+  {
+    "tag": "heraklion-loggia-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-loggia",
+    "lang": "el",
+    "kind": "story",
+    "text": "Η Λότζια χτίστηκε τη δεκαετία του 1620 και δεν ήταν εκκλησία, ούτε παλάτι, ούτε φρούριο. Ήταν λέσχη. Εδώ μαζεύονταν οι Βενετοί ευγενείς του Ηρακλείου για να συζητήσουν, να κλείσουν συμφωνίες και να πάρουν αποφάσεις για την πόλη. Έχει δύο ορόφους με τοξοστοιχίες, δηλαδή σειρές από καμάρες που στηρίζονται σε κολόνες, και είναι φτιαγμένη ώστε να δείχνει πλούτο χωρίς να φωνάζει. Με τον καιρό ερειπώθηκε σχεδόν εντελώς. Την ξαναέχτισαν κομμάτι κομμάτι, χρησιμοποιώντας όσες αυθεντικές πέτρες βρέθηκαν, και η δουλειά αυτή βραβεύτηκε το 1987 ως η καλύτερη αναστήλωση μνημείου στην Ευρώπη. Σήμερα το κτίριο δεν είναι μουσείο: είναι το δημαρχείο του Ηρακλείου, και μέσα δουλεύουν άνθρωποι κάθε μέρα. Ένα κτίριο τετρακοσίων ετών που εξακολουθεί να κάνει σχεδόν την ίδια δουλειά είναι σπανιότερο από ένα ερείπιο."
+  },
+  {
+    "tag": "heraklion-loggia-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-loggia",
+    "lang": "en",
+    "kind": "story",
+    "text": "The Loggia was built in the 1620s and it was not a church, a palace or a fortress. It was a club. The Venetian nobles of Heraklion gathered here to talk, to strike deals and to take decisions about the city. It has two storeys of arcades, rows of arches resting on columns, and it is built to show wealth without shouting about it. Over time it fell almost completely into ruin. It was rebuilt piece by piece using whatever original stones could be found, and that work was named the best restored monument in Europe in 1987. Today the building is not a museum: it is Heraklion’s city hall, and people work inside it every day. A four-hundred-year-old building still doing more or less its original job is rarer than a ruin."
+  },
+  {
+    "tag": "heraklion-historical-museum-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "lang": "el",
+    "kind": "story",
+    "text": "Το Αρχαιολογικό Μουσείο σταματάει περίπου εκεί που αρχίζει αυτό. Το Ιστορικό Μουσείο Κρήτης καλύπτει τα χίλια εξακόσια χρόνια μετά τους Μινωίτες: παλαιοχριστιανικά, βυζαντινά, βενετσιάνικα, οθωμανικά, και τον εικοστό αιώνα. Ιδρύθηκε το 1953 σε ένα αρχοντικό δίπλα στη θάλασσα. Το πιο γνωστό του απόκτημα είναι δύο πίνακες ενός ζωγράφου που γεννήθηκε στην Κρήτη γύρω στο 1541 και λεγόταν Δομήνικος Θεοτοκόπουλος. Έμαθε να ζωγραφίζει εικόνες, έφυγε για τη Βενετία και κατέληξε στην Ισπανία, όπου τον φώναζαν απλώς «ο Έλληνας»: Ελ Γκρέκο. Οι δύο πίνακες είναι τα μοναδικά έργα του που βρίσκονται στην Κρήτη. Μέσα στο μουσείο υπάρχει επίσης μια τεράστια μακέτα του Ηρακλείου όπως ήταν τον 17ο αιώνα, και το γραφείο του Νίκου Καζαντζάκη, μεταφερμένο όπως ήταν, με τα βιβλία και τα χειρόγραφά του στη θέση που τα άφησε."
+  },
+  {
+    "tag": "heraklion-historical-museum-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "lang": "en",
+    "kind": "story",
+    "text": "The Archaeological Museum stops roughly where this one begins. The Historical Museum of Crete covers the sixteen hundred years after the Minoans: early Christian, Byzantine, Venetian, Ottoman, and the twentieth century. It was founded in 1953 in a mansion beside the sea. Its best known holding is two paintings by an artist born in Crete around 1541 and named Domenikos Theotokopoulos. He learned to paint icons, left for Venice and ended up in Spain, where people simply called him \"the Greek\": El Greco. These two are the only works of his anywhere in Crete. The museum also holds an enormous model of Heraklion as it was in the 17th century, and the study of Nikos Kazantzakis, moved in exactly as it was."
+  },
+  {
+    "tag": "heraklion-historical-museum-sinai-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-sinai",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένας βραχώδης όγκος που ανεβαίνει, με ένα μοναστήρι μικρό στη ρίζα του και ανθρώπους ακόμα μικρότερους στα μονοπάτια. Είναι τοπίο, κάτι ασυνήθιστο για την εποχή του: η ζωγραφική τότε ήθελε κυρίως πρόσωπα και ιστορίες. Ο νεαρός Θεοτοκόπουλος το έφτιαξε στην Κρήτη ή λίγο μετά την αναχώρησή του, όταν ζωγράφιζε ακόμα με τεχνική κοντά στις βυζαντινές εικόνες, με χρυσό και λεπτές γραμμές."
+  },
+  {
+    "tag": "heraklion-historical-museum-sinai-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-sinai",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A mass of rock rising up, with a small monastery at its foot and people smaller still on the paths. It is a landscape, which was unusual for its time: painting then mostly wanted faces and stories. The young Theotokopoulos made it in Crete or shortly after leaving, while he was still working in a technique close to Byzantine icons, with gold and fine lines."
+  },
+  {
+    "tag": "heraklion-historical-museum-baptism-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-baptism",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένας μικρός πίνακας με έντονο, σχεδόν ηλεκτρικό φως, όπου τα σώματα είναι τραβηγμένα σε ύψος και τα χρώματα δεν είναι φυσικά. Αυτό είναι το σήμα κατατεθέν του Ελ Γκρέκο και ο λόγος που τον αναγνωρίζεις αμέσως. Δεν προσπαθούσε να ζωγραφίσει αυτό που βλέπει το μάτι· ζωγράφιζε αυτό που θέλει να νιώσεις. Τρακόσια χρόνια αργότερα, ζωγράφοι του 20ού αιώνα τον ανακάλυψαν ξανά και τον θεώρησαν δικό τους."
+  },
+  {
+    "tag": "heraklion-historical-museum-baptism-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-baptism",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A small painting with intense, almost electric light, where the bodies are stretched tall and the colours are not natural. This is El Greco’s signature and the reason you can recognise him instantly. He was not trying to paint what the eye sees; he painted what he wanted you to feel. Three hundred years later, painters of the 20th century rediscovered him and claimed him as one of their own."
+  },
+  {
+    "tag": "heraklion-historical-museum-byzantine-frescoes-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-byzantine-frescoes",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Η Κρήτη έχει εκατοντάδες μικρά βυζαντινά εκκλησάκια σε χωριά και βουνά, πολλά με ζωγραφισμένους τοίχους. Όταν ένα από αυτά κινδυνεύει να καταρρεύσει, οι τοιχογραφίες αποσπώνται και σώζονται. Στο μουσείο βλέπεις τέτοια κομμάτια, με άγιους, αγγέλους και σκηνές της καθημερινής ζωής στο περιθώριο. Κοίτα τα χέρια και τα μάτια: είναι μεγάλα και έντονα επίτηδες, γιατί ο ζωγράφος ήξερε ότι ο κόσμος θα τα κοιτάζει από μακριά και με λίγο φως."
+  },
+  {
+    "tag": "heraklion-historical-museum-byzantine-frescoes-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-byzantine-frescoes",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "Crete has hundreds of small Byzantine chapels in villages and mountains, many with painted walls. When one of them is in danger of collapse, the paintings are detached and saved. In the museum you see such pieces, with saints, angels and scenes of daily life around the edges. Look at the hands and the eyes: they are large and strong on purpose, because the painter knew people would be looking from a distance in very little light."
+  },
+  {
+    "tag": "heraklion-historical-museum-city-model-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-city-model",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια τεράστια μακέτα δείχνει το Ηράκλειο όπως ήταν τον 17ο αιώνα, όταν λεγόταν Χάνδακας: ένα τείχος με προμαχώνες που ζώνει ολόκληρη την πόλη, το λιμάνι με τα νεώρια, εκκλησίες, στενά. Βρες πρώτα το φρούριο στη θάλασσα και ύστερα τη βρύση με τα λιοντάρια, και ξαφνικά ολόκληρη η σημερινή πόλη μπαίνει στη θέση της. Οι μακέτες είναι το πιο υποτιμημένο εργαλείο ενός μουσείου: δείχνουν σχέσεις, όχι αντικείμενα."
+  },
+  {
+    "tag": "heraklion-historical-museum-city-model-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-city-model",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A huge model shows Heraklion as it was in the 17th century, when it was called Candia: a wall with bastions wrapped around the whole town, the harbour with its boat sheds, churches, alleys. Find the sea fortress first, then the fountain with the lions, and suddenly the whole modern city drops into place. Models are the most underrated tool in a museum: they show relationships rather than objects."
+  },
+  {
+    "tag": "heraklion-historical-museum-kazantzakis-study-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-kazantzakis-study",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ένα δωμάτιο μεταφερμένο ολόκληρο: το γραφείο του Νίκου Καζαντζάκη, με το τραπέζι του, τα βιβλία του, τα γυαλιά του και τα χειρόγραφά του. Είναι παράξενο έκθεμα, γιατί δεν είναι σπάνιο ούτε πολύτιμο· είναι απλώς αληθινό. Δείχνει ότι τα βιβλία δεν εμφανίζονται από το πουθενά: κάποιος κάθισε σε μια καρέκλα, μέρα με τη μέρα, και έγραψε με το χέρι σελίδες που διαβάστηκαν αργότερα σε δεκάδες γλώσσες."
+  },
+  {
+    "tag": "heraklion-historical-museum-kazantzakis-study-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-kazantzakis-study",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A room moved in whole: the study of Nikos Kazantzakis, with his table, his books, his glasses and his manuscripts. It is a strange exhibit, because it is neither rare nor valuable; it is simply real. It shows that books do not appear from nowhere: somebody sat in a chair, day after day, and wrote by hand the pages that were later read in dozens of languages."
+  },
+  {
+    "tag": "heraklion-historical-museum-weaving-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-weaving",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Υφάσματα φτιαγμένα σε αργαλειό, με σχέδια που επαναλαμβάνονται σε αυστηρή σειρά: ρόμβοι, δέντρα, πουλιά, ζιγκ ζαγκ. Κάθε περιοχή της Κρήτης είχε δικά της μοτίβα, και ένας ειδικός μπορεί να δει ένα ύφασμα και να πει από ποιο χωριό είναι, όπως θα αναγνώριζε μια διάλεκτο. Τα σχέδια δεν υπήρχαν γραμμένα πουθενά. Ζούσαν στη μνήμη και στα χέρια, και περνούσαν από γενιά σε γενιά με το να τα δουλεύεις δίπλα σε κάποιον."
+  },
+  {
+    "tag": "heraklion-historical-museum-weaving-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-historical-museum",
+    "exhibitId": "heraklion-historical-museum-weaving",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "Cloth made on a loom, with patterns repeating in a strict order: diamonds, trees, birds, zigzags. Every region of Crete had its own motifs, and a specialist can look at a piece and say which village it comes from, the way you would recognise a dialect. The patterns were not written down anywhere. They lived in memory and in hands, and passed from one generation to the next by working beside somebody."
+  },
+  {
+    "tag": "heraklion-natural-history-museum-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-natural-history-museum",
+    "lang": "el",
+    "kind": "story",
+    "text": "Το μουσείο στεγάζεται σε ένα παλιό εργοστάσιο ηλεκτρικού ρεύματος στην παραλία, και ανήκει στο Πανεπιστήμιο Κρήτης. Δείχνει τη φύση της Μεσογείου σε μεγάλες σκηνές: βουνά, φαράγγια, έρημοι, ακτές, με τα ζώα τους στη θέση τους. Έχει και ζωντανά ζώα, κυρίως ερπετά και έντομα. Δύο πράγματα δεν τα ξεχνάς. Το πρώτο είναι ο προσομοιωτής σεισμού: μπαίνεις σε ένα δωμάτιο και το πάτωμα αναπαράγει πραγματικούς σεισμούς που έχουν καταγραφεί, ώστε να καταλάβεις τι κάνει η γη όταν κινείται. Το δεύτερο είναι ένα ζώο σε φυσικό μέγεθος: το Δεινοθήριο, συγγενής των ελεφάντων, που ζούσε στην Κρήτη πριν από εκατομμύρια χρόνια και ήταν ψηλότερο από ένα λεωφορείο. Στέκεσαι μπροστά του και καταλαβαίνεις ότι η Κρήτη δεν είχε πάντα κατσίκες και ελιές: είχε και θηρία, πολύ πριν από εμάς."
+  },
+  {
+    "tag": "heraklion-natural-history-museum-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-natural-history-museum",
+    "lang": "en",
+    "kind": "story",
+    "text": "The museum is housed in an old electricity works on the seafront and belongs to the University of Crete. It shows the nature of the Mediterranean in big scenes: mountains, gorges, deserts, coasts, with their animals in place. It also keeps live animals, mostly reptiles and insects. Two things you do not forget. The first is the earthquake simulator: you step into a room and the floor replays real recorded earthquakes, so you understand what the ground actually does when it moves. The second is an animal at full size: Deinotherium, a relative of the elephants, which lived on Crete millions of years ago and stood taller than a bus. Standing in front of it you realise Crete was not always goats and olive trees: there were monsters here, long before us."
+  },
+  {
+    "tag": "heraklion-cretaquarium-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-cretaquarium",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στις Γούρνες, δεκαπέντε χιλιόμετρα ανατολικά του Ηρακλείου, υπάρχει ένα ενυδρείο χτισμένο εκεί όπου παλιά ήταν αμερικανική αεροπορική βάση. Άνοιξε το 2005 και ανήκει στο Ελληνικό Κέντρο Θαλάσσιων Ερευνών, δηλαδή είναι ταυτόχρονα επισκέψιμος χώρος και ερευνητικό κέντρο. Έχει δεκάδες δεξαμενές με συνολικά περίπου δύο χιλιάδες κυβικά μέτρα θαλασσινό νερό. Η σημαντικότερη απόφασή του είναι αυτό που δεν έχει: δεν υπάρχουν τροπικά ψάρια, ούτε πλάσματα από άλλους ωκεανούς. Όλα όσα βλέπεις ζουν στη Μεσόγειο, δηλαδή στη θάλασσα που έχεις ακριβώς απέξω. Έτσι ο καρχαρίας πίσω από το τζάμι δεν είναι εξωτικός: κολυμπάει στα ίδια νερά με σένα, και δεν έχεις λόγο να τον φοβάσαι περισσότερο απ’ όσο πρέπει. Το ενυδρείο δεν σου δείχνει έναν μακρινό κόσμο. Σου δείχνει τι υπάρχει κάτω από την επιφάνεια στην παραλία που πήγες χθες."
+  },
+  {
+    "tag": "heraklion-cretaquarium-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-cretaquarium",
+    "lang": "en",
+    "kind": "story",
+    "text": "At Gournes, fifteen kilometres east of Heraklion, there is an aquarium built where an American air base used to be. It opened in 2005 and belongs to the Hellenic Centre for Marine Research, so it is a place to visit and a research centre at the same time. It has dozens of tanks holding around two thousand cubic metres of seawater between them. Its most important decision is what it does not have: no tropical fish, nothing from other oceans. Everything you see lives in the Mediterranean, which is the sea directly outside. So the shark behind the glass is not exotic: it swims in the same water you do, and there is no reason to fear it more than you should."
+  },
+  {
+    "tag": "heraklion-pankritio-stadium-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-pankritio-stadium",
+    "lang": "el",
+    "kind": "story",
+    "text": "Όταν η Αθήνα ανέλαβε τους Ολυμπιακούς Αγώνες του 2004, το ποδόσφαιρο δεν χώραγε σε μία πόλη. Οι αγώνες μοιράστηκαν σε πέντε στάδια της χώρας, και ένα από αυτά ήταν εδώ. Το Παγκρήτιο χτίστηκε γι’ αυτόν ακριβώς τον σκοπό και χωράει περίπου είκοσι έξι χιλιάδες θεατές. Έχει στίβο γύρω από τον αγωνιστικό χώρο, άρα οι εξέδρες είναι πιο μακριά από ό,τι σε ένα καθαρά ποδοσφαιρικό γήπεδο, και χρησιμοποιείται και για στίβο και για συναυλίες. Το ενδιαφέρον ερώτημα για ένα τέτοιο κτίριο δεν είναι πώς χτίστηκε αλλά τι έγινε μετά: πολλά ολυμπιακά στάδια σε όλο τον κόσμο ερήμωσαν όταν τελείωσαν οι αγώνες. Αυτό δεν ερήμωσε. Παίζουν εκεί κρητικές ομάδες, και γεμίζει τακτικά. Ένα στάδιο ζει μόνο αν κάποιος το χρειάζεται τη Δευτέρα μετά τη γιορτή."
+  },
+  {
+    "tag": "heraklion-pankritio-stadium-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-pankritio-stadium",
+    "lang": "en",
+    "kind": "story",
+    "text": "When Athens took on the Olympic Games of 2004, the football would not fit into one city. The matches were spread across five stadiums around the country, and one of them was here. The Pankritio was built for exactly that and holds about twenty-six thousand people. It has a running track around the pitch, so the stands sit further back than in a football-only ground, and it is used for athletics and concerts too. The interesting question about a building like this is not how it was built but what happened next: many Olympic stadiums around the world emptied out once the games ended. This one did not. Cretan clubs play here, and it fills up regularly. A stadium only stays alive if somebody needs it on the Monday after the party."
+  },
+  {
+    "tag": "heraklion-kazantzakis-museum-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-kazantzakis-museum",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στη Μυρτιά, ένα χωριό νότια του Ηρακλείου, βρίσκεται το σπίτι της οικογένειας του πατέρα του Νίκου Καζαντζάκη, και μέσα του ένα μουσείο αφιερωμένο σε αυτόν. Άνοιξε το 1983. Θα δεις χειρόγραφα με σβησίματα, γράμματα, φωτογραφίες, ταξιδιωτικά αντικείμενα, σκηνικά από θεατρικά του και, το πιο εντυπωσιακό για παιδιά, τα βιβλία του μεταφρασμένα σε δεκάδες γλώσσες, στοιχισμένα στο ίδιο ράφι. Ο Καζαντζάκης έγραψε τον «Ζορμπά» και πολλά ακόμα, ταξίδεψε σε όλο τον κόσμο και επέστρεφε συνέχεια στην Κρήτη με το γράψιμο. Πέθανε το 1957 και θάφτηκε στο Ηράκλειο, πάνω στα τείχη. Στην πέτρα του τάφου του υπάρχουν τρεις φράσεις που τις διάλεξε ο ίδιος: «Δεν ελπίζω τίποτα. Δε φοβούμαι τίποτα. Είμαι λέφτερος.» Είναι από τα λίγα επιτύμβια στον κόσμο που τα ξέρουν απέξω άνθρωποι που δεν έχουν πάει ποτέ στον τάφο."
+  },
+  {
+    "tag": "heraklion-kazantzakis-museum-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-kazantzakis-museum",
+    "lang": "en",
+    "kind": "story",
+    "text": "In Myrtia, a village south of Heraklion, stands the family house of Nikos Kazantzakis’s father, and inside it a museum devoted to him. It opened in 1983. You will find manuscripts full of crossings-out, letters, photographs, things he travelled with, sets from his plays and, most striking of all for children, his books translated into dozens of languages, lined up on one shelf. Kazantzakis wrote Zorba the Greek and a great deal more, travelled all over the world and kept coming back to Crete in his writing. He died in 1957 and was buried in Heraklion, up on the walls. On the stone over his grave are three sentences he chose himself: \"I hope for nothing. I fear nothing. I am free.\""
+  },
+  {
+    "tag": "heraklion-juktas-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-juktas",
+    "lang": "el",
+    "kind": "story",
+    "text": "Κοίτα τον Γιούχτα από το Ηράκλειο, με τον ήλιο χαμηλά. Η γραμμή της κορυφογραμμής σχηματίζει μέτωπο, μύτη, στόμα και γενειάδα: ένα τεράστιο πρόσωπο ξαπλωμένο ανάσκελα. Οι αρχαίοι Κρητικοί έλεγαν ότι είναι ο Δίας, και ότι ο Δίας είναι θαμμένος εκεί. Αυτό ενοχλούσε τους υπόλοιπους Έλληνες, γιατί για εκείνους ο Δίας δεν πέθαινε ποτέ, και έτσι έλεγαν ότι οι Κρητικοί λένε ψέματα. Ολόκληρη διαφωνία ανάμεσα σε νησί και ηπειρωτική χώρα, για ένα βουνό που μοιάζει με πρόσωπο. Στην κορυφή του, στα 811 μέτρα, υπήρχε μινωικό ιερό: ένα από εκείνα τα ιερά που δεν χτίζονταν σε πόλεις αλλά ψηλά, στον αέρα. Σήμερα ο Γιούχτας είναι προστατευόμενη περιοχή, και πάνω από τις πλαγιές του πετάνε γύπες που εκμεταλλεύονται τα ανοδικά ρεύματα και μένουν στον αέρα χωρίς να κουνήσουν φτερό."
+  },
+  {
+    "tag": "heraklion-juktas-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-juktas",
+    "lang": "en",
+    "kind": "story",
+    "text": "Look at Juktas from Heraklion with the sun low. The line of the ridge makes a forehead, a nose, a mouth and a beard: an enormous face lying on its back. The ancient Cretans said it was Zeus, and that Zeus was buried there. This annoyed the rest of the Greeks, because for them Zeus never died, so they said the Cretans were liars. An entire argument between an island and a mainland, over a mountain that looks like a face. On its summit, at 811 metres, there was a Minoan sanctuary: one of those shrines that were not built in towns but high up, in the open air. Today Juktas is a protected area, and vultures ride the air above its slopes."
+  },
+  {
+    "tag": "heraklion-amnisos-el",
+    "cityId": "heraklion",
+    "placeId": "heraklion-amnisos",
+    "lang": "el",
+    "kind": "story",
+    "text": "Ένα ανάκτορο χωρίς λιμάνι δεν εξηγείται. Η Κνωσός είναι πέντε χιλιόμετρα από τη θάλασσα, και το λιμάνι της ήταν εδώ, στην Αμνισό. Σήμερα βλέπεις χαμηλά ερείπια δίπλα στην ακτή, ανάμεσά τους ένα κτίριο που λέγεται «Έπαυλη των Κρίνων», επειδή στους τοίχους του υπήρχαν ζωγραφισμένα κρίνα σε γλάστρες. Ο Όμηρος αναφέρει την Αμνισό στην Οδύσσεια, όταν ο Οδυσσέας λέει ένα ψέμα και ισχυρίζεται πως έπιασε εκεί λιμάνι. Είναι από τις λίγες φορές που ένα ποίημα και ένα σκάμμα δείχνουν το ίδιο σημείο. Το πιο σοβαρό εύρημα όμως είναι η ελαφρόπετρα: στα ερείπια βρέθηκε ελαφρόπετρα από την έκρηξη του ηφαιστείου της Θήρας, που έφτασε ως εδώ πάνω από τη θάλασσα. Μια πέτρα που επιπλέει έφερε την είδηση μιας καταστροφής εκατό χιλιόμετρα μακριά, και την άφησε εδώ για να τη διαβάσουμε."
+  },
+  {
+    "tag": "heraklion-amnisos-en",
+    "cityId": "heraklion",
+    "placeId": "heraklion-amnisos",
+    "lang": "en",
+    "kind": "story",
+    "text": "A palace with no harbour makes no sense. Knossos is five kilometres from the sea, and its harbour was here, at Amnisos. Today you see low ruins beside the shore, among them a building called the House of the Lilies, because lilies in pots were painted on its walls. Homer names Amnisos in the Odyssey, when Odysseus tells a lie and claims he put in there. It is one of the rare times a poem and an excavation point at the same spot. The most serious find, though, is the pumice: pumice from the eruption of the Thera volcano was found in the ruins, carried this far across the sea. A stone that floats brought news of a disaster a hundred kilometres away and left it here for us to read."
+  },
+  {
+    "tag": "rhodes-palace-grand-master-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-palace-grand-master",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στην κορυφή της μεσαιωνικής πόλης στέκεται ένα κάστρο με δύο στρογγυλούς πύργους στην είσοδο. Το έχτισαν τον 14ο αιώνα οι Ιππότες του Αγίου Ιωάννη, πάνω σε παλαιότερο βυζαντινό οχυρό, και ήταν το κέντρο της εξουσίας τους. Άντεξε πολιορκίες. Δεν άντεξε όμως κάτι πολύ πιο ανόητο: το 1856, μπαρούτι που είχε μείνει ξεχασμένο σε ένα υπόγειο από την εποχή των Ιπποτών εξερράγη, και το παλάτι έγινε ερείπιο σχεδόν σε μια στιγμή. Έμεινε έτσι ογδόντα χρόνια. Στα τέλη της δεκαετίας του 1930, όταν τα Δωδεκάνησα ήταν υπό ιταλική διοίκηση, το ξαναέχτισαν από την αρχή. Για να στρώσουν τα δάπεδα, έφεραν με καράβια αρχαία ψηφιδωτά από την Κω. Έτσι σήμερα περπατάς σε ένα μεσαιωνικό κάστρο πατώντας πάνω σε ρωμαϊκά πατώματα από άλλο νησί."
+  },
+  {
+    "tag": "rhodes-palace-grand-master-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-palace-grand-master",
+    "lang": "en",
+    "kind": "story",
+    "text": "At the top of the medieval town stands a castle with two round towers at its gate. The Knights of Saint John built it in the 14th century on top of an older Byzantine fort, and it was the centre of their power. It survived sieges. What it did not survive was something far more foolish: in 1856 gunpowder left forgotten in a cellar since the time of the Knights exploded, and the palace was a ruin in almost a moment. It stayed that way for eighty years. In the late 1930s, when the Dodecanese were under Italian administration, it was rebuilt from the ground up. To lay the floors, ancient mosaics were shipped in from the island of Kos. So today you walk through a medieval castle across Roman floors from somewhere else."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "lang": "el",
+    "kind": "story",
+    "text": "Το κτίριο ήταν νοσοκομείο πριν γίνει μουσείο, και αυτό δεν είναι λεπτομέρεια: οι Ιππότες του Αγίου Ιωάννη ήταν πρώτα νοσοκόμοι και μετά πολεμιστές. Το τάγμα τους ξεκίνησε για να περιθάλπει προσκυνητές, και σε κάθε τόπο όπου πήγαιναν έχτιζαν νοσοκομείο. Αυτό εδώ χτίστηκε τον 15ο αιώνα και έχει στον επάνω όροφο έναν τεράστιο θάλαμο με ψηλή ξύλινη στέγη, όπου έμεναν οι άρρωστοι σε σειρές από κρεβάτια, με μικρά παράθυρα ψηλά για αέρα. Είναι από τα λίγα μεσαιωνικά νοσοκομεία που σώζονται στην Ευρώπη. Από το 1916 στεγάζει το μουσείο του νησιού, με μάρμαρα, αγγεία και επιτύμβια από τις τρεις αρχαίες πόλεις της Ρόδου. Το κτίριο και το περιεχόμενο μιλούν για δύο διαφορετικούς κόσμους, χωρισμένους χίλια πεντακόσια χρόνια. Λίγα μουσεία στον κόσμο έχουν κτίριο που αξίζει όσο η συλλογή του, και εδώ δεν είναι καθόλου βέβαιο ποιο από τα δύο κερδίζει."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "lang": "en",
+    "kind": "story",
+    "text": "The building was a hospital before it was a museum, and that is not a detail: the Knights of Saint John were nurses first and fighters second. Their order began in order to care for pilgrims, and everywhere they went they built a hospital. This one went up in the 15th century, and on its upper floor is an enormous ward with a high wooden roof, where the sick lay in rows of beds with small windows set high up for air. It is one of very few medieval hospitals still standing in Europe. Since 1916 it has housed the island’s museum, with marbles, pottery and grave stones from the three ancient cities of Rhodes. The building and its contents speak for two different worlds, fifteen hundred years apart."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-great-ward-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-great-ward",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια αίθουσα μήκους σχεδόν πενήντα μέτρων, με ψηλή ξύλινη στέγη και μια σειρά από καμάρες στη μέση. Εδώ έμεναν οι άρρωστοι, ο καθένας σε δικό του χώρο με κουρτίνα. Τα παράθυρα είναι μικρά και ψηλά επίτηδες: τραβούν τον ζεστό αέρα προς τα πάνω και τον βγάζουν έξω, ώστε να μη λιμνάζει. Στο βάθος υπάρχει παρεκκλήσι, γιατί για τους Ιππότες η φροντίδα του σώματος και της ψυχής ήταν μία δουλειά."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-great-ward-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-great-ward",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A hall almost fifty metres long, with a high wooden roof and a line of arches down the middle. The sick stayed here, each in a space of his own behind a curtain. The windows are small and set high on purpose: they pull warm air upwards and out, so it does not sit still. At the far end there is a chapel, because for the Knights caring for the body and the soul was one job."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-knight-slabs-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-knight-slabs",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μαρμάρινες πλάκες με σκαλισμένα οικόσημα: λιοντάρια, σταυροί, πουλιά, ρίγες. Κάθε οικόσημο είναι σαν σήμα οικογένειας, και επειδή οι Ιππότες έρχονταν από όλη την Ευρώπη, οι πλάκες διαβάζονται σαν χάρτης: γαλλικά ονόματα, ισπανικά, ιταλικά, αγγλικά. Το τάγμα χωριζόταν σε ομάδες ανάλογα με τη γλώσσα που μιλούσε ο καθένας, και κάθε ομάδα είχε δικό της σπίτι στην Οδό Ιπποτών, λίγα μέτρα πιο πάνω."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-knight-slabs-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-knight-slabs",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "Marble slabs carved with coats of arms: lions, crosses, birds, stripes. Every coat of arms works like a family badge, and because the Knights came from all over Europe, the slabs read like a map: French names, Spanish, Italian, English. The order was divided into groups according to the language each man spoke, and every group had a house of its own on the Street of the Knights, a few metres up the hill."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-courtyard-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-courtyard",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια τετράγωνη αυλή με στοές σε δύο επίπεδα, ανοιχτή στον ουρανό. Δεν είναι διακόσμηση: σε ένα κτίριο χωρίς ηλεκτρικό, η αυλή είναι η λάμπα και ο εξαεριστήρας του. Φέρνει φως στα δωμάτια που δεν βλέπουν στον δρόμο και τραβάει ρεύμα αέρα μέσα από όλο το κτίριο. Το ίδιο σχέδιο θα το βρεις σε σπίτια, μοναστήρια και σχολεία σε ολόκληρη τη Μεσόγειο, χιλιάδες χρόνια πριν και μετά από αυτό."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-courtyard-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-courtyard",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A square courtyard with arcades on two levels, open to the sky. It is not decoration: in a building with no electricity, the courtyard is its lamp and its extractor fan. It brings light to the rooms with no street frontage and pulls a current of air through the whole building. You will find the same plan in houses, monasteries and schools all round the Mediterranean, for thousands of years before this and after it."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-aphrodite-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-aphrodite",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια μικρή μαρμάρινη μορφή γονατισμένη, που στύβει τα μαλλιά της αφού βγήκε από τη θάλασσα. Είναι μια από τις πιο ήρεμες αρχαίες μορφές που υπάρχουν: δεν ποζάρει, δεν κοιτάζει κανέναν, κάνει απλώς κάτι καθημερινό. Φτιάχτηκε γύρω στον 1ο αιώνα π.Χ. Το μάρμαρο είναι λεπτό δουλεμένο στα μαλλιά, όπου φαίνονται οι τούφες βαριές από το νερό, κάτι πολύ δύσκολο να σκαλιστεί σε πέτρα."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-aphrodite-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-aphrodite",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A small marble figure kneeling, wringing out her hair after coming out of the sea. She is one of the calmest ancient figures anywhere: she is not posing, not looking at anybody, just doing something ordinary. She was carved around the 1st century BC. The marble is worked finely in the hair, where you can see the locks hanging heavy with water, which is extremely hard to carve in stone."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-marine-venus-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-marine-venus",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Η δεύτερη Αφροδίτη του μουσείου βρέθηκε στον βυθό, και φαίνεται. Το πρόσωπό της είναι φαγωμένο, οι λεπτομέρειες έχουν λειάνει, και το μάρμαρο μοιάζει να έχει λιώσει λίγο. Αυτό το έκανε η θάλασσα σε αιώνες: το αλάτι, η άμμος και μικροί οργανισμοί που τρώνε την επιφάνεια. Πολλοί τη βρίσκουν πιο συγκινητική έτσι απ’ ό,τι αν ήταν ολόκληρη. Ένας συγγραφέας που έζησε στη Ρόδο έγραψε ένα βιβλίο με το όνομά της."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-marine-venus-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-marine-venus",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "The museum’s second Aphrodite was found on the sea floor, and it shows. Her face is eaten away, the detail has gone smooth, and the marble looks as though it has melted slightly. The sea did that over centuries: salt, sand and small organisms that feed on the surface. Many people find her more moving like this than she would be intact. A writer who lived on Rhodes named a book after her."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-krito-timarista-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-krito-timarista",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Μια επιτύμβια πλάκα του 5ου αιώνα π.Χ. με δύο γυναίκες: μια κόρη που αγκαλιάζει τη μητέρα της. Τα ονόματά τους είναι χαραγμένα από πάνω. Το εκπληκτικό είναι πόσο απλά λέγεται ο αποχαιρετισμός: δεν υπάρχουν θεοί, ούτε σύμβολα, ούτε λόγια. Μόνο δύο σώματα που ακουμπούν. Τα αρχαία επιτύμβια της Ρόδου είναι γεμάτα τέτοιες σκηνές, και μας έχουν αφήσει εκατοντάδες ονόματα ανθρώπων που αλλιώς δεν θα ξέραμε ότι υπήρξαν."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-krito-timarista-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-krito-timarista",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "A grave relief from the 5th century BC showing two women: a daughter embracing her mother. Their names are cut above them. What is remarkable is how plainly the goodbye is said: no gods, no symbols, no words. Only two bodies touching. The ancient grave stones of Rhodes are full of scenes like this, and they have left us hundreds of names of people we would otherwise never know had existed."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-vases-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-vases",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Πήλινα αγγεία με ζώα σε σειρές: αίγαγροι, λιοντάρια, πουλιά, ελάφια, το ένα πίσω από το άλλο σαν πομπή. Είναι ροδιακά και φτιάχτηκαν τον 7ο και 6ο αιώνα π.Χ., όταν το νησί εμπορευόταν με την Αίγυπτο και την Ανατολή. Αυτό φαίνεται στα σχέδια: κάποια ζώα πάνω τους δεν ζούσαν ποτέ στη Ρόδο, και κάποια δεν ζούσαν πουθενά. Οι ζωγράφοι αντέγραφαν εικόνες που έρχονταν με τα καράβια, και τις ανακάτευαν με τη φαντασία τους."
+  },
+  {
+    "tag": "rhodes-archaeological-museum-vases-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-archaeological-museum",
+    "exhibitId": "rhodes-archaeological-museum-vases",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "Clay vases with animals in bands: wild goats, lions, birds, deer, one behind another like a procession. They are Rhodian, made in the 7th and 6th centuries BC, when the island traded with Egypt and the East. You can see it in the designs: some of the animals on them never lived on Rhodes, and some never lived anywhere. The painters copied images that arrived on ships and mixed them with their own imagination."
+  },
+  {
+    "tag": "rhodes-aquarium-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στη βορινή μύτη της Ρόδου, εκεί που το νησί τελειώνει και οι θάλασσες γύρω του συναντιούνται, στέκεται ένα λευκό κτίριο με αυστηρές γραμμές, χτισμένο στη δεκαετία του 1930. Δεν φτιάχτηκε για τουρίστες: ήταν ερευνητικό ινστιτούτο για τη μελέτη της θάλασσας, και ερευνητικός σταθμός παραμένει ως σήμερα. Στο υπόγειο όμως έκαναν κάτι πιο έξυπνο από απλές βιτρίνες. Έσκαψαν έναν διάδρομο και τον διαμόρφωσαν ώστε να μοιάζει με θαλάσσια σπηλιά, με βράχια, χαμηλή οροφή και δεξαμενές ανοιγμένες μέσα στους τοίχους. Περπατάς δηλαδή σαν να είσαι κάτω από το νερό, με τα ψάρια δεξιά κι αριστερά σου. Στον επάνω όροφο υπάρχει το μουσείο, με διατηρημένα ζώα της Μεσογείου που κανείς δεν θα συναντούσε ζωντανά. Είναι κτίριο που κάνει δύο δουλειές ταυτόχρονα, και καμία από τις δύο δεν είναι διακοσμητική."
+  },
+  {
+    "tag": "rhodes-aquarium-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "lang": "en",
+    "kind": "story",
+    "text": "At the northern tip of Rhodes, where the island runs out and the seas around it meet, stands a white building with severe straight lines, put up in the 1930s. It was not built for tourists: it was a research institute for the study of the sea, and it remains a research station today. In the basement, though, they did something cleverer than plain display cases. They cut a corridor and shaped it to look like a sea cave, with rock, a low ceiling and tanks opened into the walls. So you walk as though you were under the water, with fish to the left and right of you. Upstairs is the museum, with preserved Mediterranean animals nobody would ever meet alive."
+  },
+  {
+    "tag": "rhodes-aquarium-tunnel-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-tunnel",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ο διάδρομος σκάφτηκε στον βράχο κάτω από το κτίριο τη δεκαετία του 1930 και διαμορφώθηκε ώστε να μοιάζει με σπηλιά. Οι δεξαμενές δεν στέκονται πάνω σε τραπέζια: είναι ανοιγμένες μέσα στους τοίχους, σαν παράθυρα. Το θαλασσινό νερό δεν είναι φτιαγμένο στο εργαστήριο, αντλείται από τη θάλασσα δίπλα και επιστρέφει σε αυτήν. Είναι ένα κτίριο που ζει με τον ίδιο ρυθμό με το νερό γύρω του."
+  },
+  {
+    "tag": "rhodes-aquarium-tunnel-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-tunnel",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "The corridor was cut into the rock under the building in the 1930s and shaped to look like a cave. The tanks do not stand on tables: they are opened into the walls, like windows. The seawater is not mixed in a laboratory, it is pumped in from the sea next door and returns to it. It is a building living at the same rhythm as the water around it."
+  },
+  {
+    "tag": "rhodes-aquarium-octopus-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-octopus",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Κοίτα προσεκτικά τον βράχο στη δεξαμενή του: πολύ συχνά δεν θα δεις τίποτα, γιατί το χταπόδι αλλάζει χρώμα και υφή δέρματος σε λιγότερο από δευτερόλεπτο και γίνεται πέτρα. Έχει εννιά εγκεφάλους, έναν κεντρικό και έναν σε κάθε πλοκάμι, οπότε τα πλοκάμια του λύνουν προβλήματα σχεδόν μόνα τους. Το αίμα του είναι γαλάζιο, επειδή μεταφέρει οξυγόνο με χαλκό αντί για σίδερο. Είναι το πιο εξωγήινο πλάσμα που μπορείς να συναντήσεις χωρίς να φύγεις από τη Μεσόγειο."
+  },
+  {
+    "tag": "rhodes-aquarium-octopus-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-octopus",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "Look carefully at the rock in its tank: very often you will see nothing at all, because an octopus can change the colour and the texture of its skin in under a second and become stone. It has nine brains, one central and one in each arm, so its arms solve problems almost by themselves. Its blood is blue, because it carries oxygen using copper instead of iron. It is the most alien creature you can meet without leaving the Mediterranean."
+  },
+  {
+    "tag": "rhodes-aquarium-mediterranean-fish-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-mediterranean-fish",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Ροφοί, σαργοί, σκορπιοί, μουρούνες, σφυρίδες: ψάρια που κολυμπούν ακριβώς έξω από το κτίριο. Πολλά από αυτά τα έχεις δει σε πιάτο και ποτέ ζωντανά, και είναι εντελώς διαφορετικό πράγμα. Ο σκορπιός, για παράδειγμα, δεν κολυμπάει σχεδόν καθόλου: κάθεται ακίνητος στον πάτο, μοιάζει με πέτρα σκεπασμένη με φύκια και περιμένει. Οι δεξαμενές δείχνουν και κάτι που δεν φαίνεται αλλού: σε ποιο βάθος και σε ποιο είδος βυθού ζει το καθένα."
+  },
+  {
+    "tag": "rhodes-aquarium-mediterranean-fish-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-mediterranean-fish",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "Groupers, sea bream, scorpionfish, moray eels, dusky perch: fish that swim right outside the building. You have seen many of them on a plate and never alive, and it is a completely different thing. The scorpionfish, for instance, hardly swims at all: it sits still on the bottom looking like a stone covered in weed, and waits. The tanks also show something you cannot see anywhere else: what depth and what kind of sea floor each one lives on."
+  },
+  {
+    "tag": "rhodes-aquarium-whale-bones-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-whale-bones",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Στη Μεσόγειο ζουν φάλαινες, κάτι που ξαφνιάζει σχεδόν όλους. Όταν μία ξεβραστεί σε ακτή, οι επιστήμονες προσπαθούν να μάθουν γιατί πέθανε, και μετά ο σκελετός καθαρίζεται και φυλάσσεται. Στέκεσαι δίπλα του και καταλαβαίνεις το μέγεθος με τρόπο που δεν σου δίνει καμία φωτογραφία. Πρόσεξε τα οστά κοντά στην ουρά, εκεί όπου το ζώο είχε κάποτε πόδια: οι φάλαινες κατάγονται από ζώα που περπατούσαν στη στεριά."
+  },
+  {
+    "tag": "rhodes-aquarium-whale-bones-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-whale-bones",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "There are whales in the Mediterranean, which surprises almost everybody. When one washes ashore, scientists try to learn why it died, and then the skeleton is cleaned and kept. Standing next to it you understand the size in a way no photograph gives you. Look at the bones near the tail, where the animal once had legs: whales are descended from animals that walked on land."
+  },
+  {
+    "tag": "rhodes-aquarium-turtles-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-turtles",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Η καρέτα καρέτα γεννάει στις ελληνικές παραλίες και ζει δεκαετίες. Οι χελώνες που φυλάσσονται εδώ βρέθηκαν νεκρές, και οι περισσότερες για λόγους που φτιάξαμε εμείς: πλαστικές σακούλες που τις μπέρδεψαν με μέδουσες, αγκίστρια, δίχτυα, προπέλες. Είναι δύσκολο έκθεμα και γι’ αυτό χρήσιμο. Μια χελώνα χρειάζεται περίπου είκοσι πέντε χρόνια για να μεγαλώσει αρκετά ώστε να κάνει αυγά, οπότε κάθε μία που χάνεται νωρίς κοστίζει στον πληθυσμό πολύ περισσότερο από μία ζωή."
+  },
+  {
+    "tag": "rhodes-aquarium-turtles-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-turtles",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "The loggerhead turtle nests on Greek beaches and lives for decades. The turtles kept here were found dead, and most of them for reasons we made: plastic bags they mistook for jellyfish, hooks, nets, propellers. It is a hard exhibit and that is what makes it useful. A turtle needs about twenty-five years to grow old enough to lay eggs, so every one lost early costs the population far more than a single life."
+  },
+  {
+    "tag": "rhodes-aquarium-monk-seal-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-monk-seal",
+    "lang": "el",
+    "kind": "exhibit",
+    "text": "Η μεσογειακή φώκια μονάχους είναι από τα σπανιότερα θαλάσσια θηλαστικά στον κόσμο, και η Ελλάδα φιλοξενεί το μεγαλύτερο κομμάτι του πληθυσμού της. Ζει σε θαλασσινές σπηλιές με κρυφή είσοδο κάτω από το νερό, όπου γεννάει τα μωρά της, και γι’ αυτό σχεδόν κανείς δεν τη βλέπει. Το έκθεμα υπάρχει επειδή κάποιο ζώο βρέθηκε νεκρό, όχι επειδή πιάστηκε. Αν κάποτε δεις μία στη θάλασσα, το σωστό είναι να μείνεις μακριά και να μην την ακολουθήσεις στη σπηλιά της."
+  },
+  {
+    "tag": "rhodes-aquarium-monk-seal-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-aquarium",
+    "exhibitId": "rhodes-aquarium-monk-seal",
+    "lang": "en",
+    "kind": "exhibit",
+    "text": "The Mediterranean monk seal is one of the rarest sea mammals in the world, and Greece holds the largest part of what is left of it. It lives in sea caves with hidden entrances below the waterline, where it has its pups, which is why almost nobody sees one. The exhibit exists because an animal was found dead, not because one was caught. If you ever do see one at sea, the right thing is to stay away and not follow it into its cave."
+  },
+  {
+    "tag": "rhodes-art-gallery-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-art-gallery",
+    "lang": "el",
+    "kind": "story",
+    "text": "Οι μεγάλες συλλογές τέχνης μαζεύονται συνήθως σε πρωτεύουσες. Η Ρόδος έκανε κάτι ασυνήθιστο: από τη δεκαετία του 1960 άρχισε να αγοράζει έργα Ελλήνων ζωγράφων της εποχής της, συστηματικά, χρόνο με τον χρόνο. Το αποτέλεσμα είναι μία από τις σημαντικότερες συλλογές ελληνικής ζωγραφικής του 20ού αιώνα έξω από την Αθήνα, στεγασμένη σε κτίρια της παλιάς πόλης. Θα δεις τοπία, πορτρέτα, θάλασσες, αφηρημένα έργα, χαρακτικά. Το ενδιαφέρον για ένα παιδί δεν είναι τα ονόματα αλλά η σειρά: περπατάς μέσα σε έναν αιώνα και βλέπεις τη ζωγραφική να αλλάζει, από εικόνες που προσπαθούν να μοιάζουν με φωτογραφία σε εικόνες που δεν θέλουν να μοιάζουν με τίποτα. Καμία από τις δύο δεν είναι πιο σωστή από την άλλη, και κανένας ζωγράφος δεν ξύπνησε ένα πρωί και αποφάσισε να αλλάξει αιώνα."
+  },
+  {
+    "tag": "rhodes-art-gallery-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-art-gallery",
+    "lang": "en",
+    "kind": "story",
+    "text": "Great art collections usually gather in capital cities. Rhodes did something unusual: from the 1960s onwards it began buying work by Greek painters of its own day, steadily, year after year. The result is one of the most important collections of 20th-century Greek painting outside Athens, housed in buildings in the old town. You will find landscapes, portraits, seas, abstract work, prints. For a child the interesting part is not the names but the order: you walk through a century and watch painting change, from pictures trying to look like photographs to pictures that do not want to look like anything at all. Neither kind is more correct than the other, and no painter woke up one morning and decided to change century."
+  },
+  {
+    "tag": "rhodes-acropolis-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-acropolis",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στον λόφο πάνω από τη σύγχρονη πόλη σώζονται ο ναός του Απόλλωνα, ένα μικρό μαρμάρινο ωδείο και ένα στάδιο περίπου διακοσίων μέτρων. Αλλά το σημαντικότερο εδώ δεν είναι κτίριο: είναι το σχέδιο. Η αρχαία Ρόδος ιδρύθηκε το 408 π.Χ. από την ένωση τριών παλαιότερων πόλεων, και δεν μεγάλωσε τυχαία όπως οι περισσότερες πόλεις. Σχεδιάστηκε πρώτα, με δρόμους που τέμνονται σε ορθές γωνίες, όπως δίδασκε ο Ιππόδαμος ο Μιλήσιος. Οι αρχαίοι συγγραφείς την περιέγραφαν ως την πιο όμορφη πόλη που είχαν δει, και το εντυπωσιακό είναι ότι το σχέδιο εκείνο υπάρχει ακόμα: αρκετοί δρόμοι της σημερινής Ρόδου ακολουθούν τις ίδιες γραμμές, δυόμισι χιλιάδες χρόνια μετά. Ο λόφος λέγεται σήμερα Μόντε Σμιθ, από έναν Άγγλο ναύαρχο που παρακολουθούσε από εκεί τη θάλασσα τον 19ο αιώνα."
+  },
+  {
+    "tag": "rhodes-acropolis-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-acropolis",
+    "lang": "en",
+    "kind": "story",
+    "text": "On the hill above the modern town stand the temple of Apollo, a small marble odeon and a stadium of about two hundred metres. But the most important thing here is not a building: it is the plan. Ancient Rhodes was founded in 408 BC by the union of three older cities, and it did not sprawl the way most cities do. It was designed first, with streets crossing at right angles, in the way taught by Hippodamus of Miletus. Ancient writers described it as the most beautiful city they had seen, and the striking part is that the plan is still there: a good many streets in modern Rhodes follow the same lines, two and a half thousand years later."
+  },
+  {
+    "tag": "rhodes-diagoras-stadium-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-diagoras-stadium",
+    "lang": "el",
+    "kind": "story",
+    "text": "Το γήπεδο της πόλης έχει το όνομα ενός αληθινού ανθρώπου. Ο Διαγόρας ο Ρόδιος ήταν πυγμάχος και νίκησε στην Ολυμπία το 464 π.Χ. Δεν έμεινε όμως γνωστός για τη δική του νίκη. Έμεινε γιατί νίκησαν και τα παιδιά του. Σε μία γιορτή στην Ολυμπία, δύο γιοι του στεφανώθηκαν την ίδια μέρα, και μόλις τελείωσαν τους αγώνες τους τον σήκωσαν στους ώμους τους και τον περιέφεραν μέσα στο στάδιο, ενώ ο κόσμος έριχνε λουλούδια. Κάποιος από τις κερκίδες φώναξε ότι τώρα δεν του μένει τίποτα άλλο να ευχηθεί. Ο Διαγόρας πέθανε εκείνη την ίδια μέρα, εκεί, στα χέρια των γιων του, και η ιστορία ταξίδεψε για αιώνες ως παράδειγμα της ευτυχέστερης δυνατής στιγμής. Το γήπεδο της Ρόδου κρατάει αυτό το όνομα, και η ομάδα της πόλης παίζει εκεί κάθε Κυριακή."
+  },
+  {
+    "tag": "rhodes-diagoras-stadium-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-diagoras-stadium",
+    "lang": "en",
+    "kind": "story",
+    "text": "The town’s football ground is named after a real person. Diagoras of Rhodes was a boxer and won at Olympia in 464 BC. He is not remembered for his own victory, though. He is remembered because his children won too. At one festival at Olympia two of his sons were crowned on the same day, and the moment their contests ended they lifted him onto their shoulders and carried him around the stadium while the crowd threw flowers. Somebody in the stands shouted that there was nothing left for him to wish for. Diagoras died that same day, there, in his sons’ arms, and the story travelled for centuries as an example of the happiest moment a person can have."
+  },
+  {
+    "tag": "rhodes-kallithea-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-kallithea",
+    "lang": "el",
+    "kind": "story",
+    "text": "Σε ένα μικρό κόλπο νότια της πόλης υπάρχει μια πηγή που ήταν γνωστή από την αρχαιότητα, γιατί οι άνθρωποι πίστευαν ότι το νερό της βοηθούσε το στομάχι. Το 1929, όταν τα Δωδεκάνησα ήταν υπό ιταλική διοίκηση, ένας νέος αρχιτέκτονας σχεδίασε γύρω από την πηγή ένα ολόκληρο συγκρότημα λουτρών: τρούλους, ημικυκλικές στοές, σκάλες που κατεβαίνουν στη θάλασσα. Τα δάπεδα είναι στρωμένα με βότσαλα άσπρα και μαύρα, μαζεμένα από τις παραλίες και βαλμένα ένα ένα σε σχέδια. Τα λουτρά έκλεισαν τη δεκαετία του 1960 και εγκαταλείφθηκαν για πάνω από σαράντα χρόνια, με τα κτίρια να γεμίζουν χόρτα. Αποκαταστάθηκαν και άνοιξαν ξανά το 2007. Σήμερα κανείς δεν πίνει το νερό, αλλά όλοι κολυμπούν στον κόλπο, και τα βότσαλα στο δάπεδο πατιούνται ξανά κάθε καλοκαίρι."
+  },
+  {
+    "tag": "rhodes-kallithea-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-kallithea",
+    "lang": "en",
+    "kind": "story",
+    "text": "In a small bay south of the town there is a spring that was known in antiquity, because people believed its water helped the stomach. In 1929, when the Dodecanese were under Italian administration, a young architect designed a whole complex of baths around it: domes, semicircular colonnades, staircases going down to the sea. The floors are laid with black and white pebbles, gathered from the beaches and set one at a time into patterns. The baths closed in the 1960s and were abandoned for more than forty years, with weeds coming up through the buildings. They were restored and reopened in 2007. Today nobody drinks the water, but everybody swims in the bay, and the pebble floors are walked on again every summer."
+  },
+  {
+    "tag": "rhodes-filerimos-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-filerimos",
+    "lang": "el",
+    "kind": "story",
+    "text": "Ο Φιλέρημος είναι λόφος περίπου διακοσίων εβδομήντα μέτρων, με θέα σε όλη τη βορειοδυτική ακτή. Πάνω του βρισκόταν η Ιαλυσός, μία από τις τρεις αρχαίες πόλεις του νησιού που ενώθηκαν για να φτιάξουν τη Ρόδο. Σώζονται τα θεμέλια ναού της Αθηνάς και μια δωρική κρήνη λαξευμένη στον βράχο. Δίπλα τους στέκεται μοναστήρι που έχτισαν οι Ιππότες και ξαναέχτισαν οι Ιταλοί, και από εκεί ξεκινάει ένα μονοπάτι με κυπαρίσσια που καταλήγει σε έναν τεράστιο σταυρό. Ο σταυρός δεν είναι μόνο για να τον κοιτάς: έχει σκάλα μέσα του και ανεβαίνεις ως τα οριζόντια μπράτσα του. Και παντού στον λόφο κυκλοφορούν παγόνια που δεν σε φοβούνται καθόλου και ανοίγουν την ουρά τους όποτε τους κάνει κέφι. Λίγα μέρη μαζεύουν σε τόσο μικρή απόσταση αρχαία ερείπια, μεσαιωνικό μοναστήρι και μια παρέλαση πουλιών."
+  },
+  {
+    "tag": "rhodes-filerimos-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-filerimos",
+    "lang": "en",
+    "kind": "story",
+    "text": "Filerimos is a hill of about two hundred and seventy metres with a view over the whole north-west coast. Ialysos stood on top of it, one of the three ancient cities of the island that joined together to make Rhodes. The foundations of a temple of Athena survive, and a Doric fountain house cut into the rock. Beside them stands a monastery built by the Knights and rebuilt by the Italians, and from there a path lined with cypress trees leads to an enormous cross. The cross is not only there to be looked at: it has a staircase inside and you climb up into its horizontal arms. And all over the hill peacocks wander about, entirely unafraid of you, opening their tails whenever they feel like it."
+  },
+  {
+    "tag": "rhodes-lindos-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-lindos",
+    "lang": "el",
+    "kind": "story",
+    "text": "Πενήντα χιλιόμετρα νότια της πόλης, ένας βράχος εκατόν δεκαέξι μέτρων υψώνεται πάνω από άσπρα σπίτια και δύο κόλπους. Στην κορυφή του στεκόταν ο ναός της Αθηνάς Λινδίας, και γύρω του μια στοά με σαράντα δύο κολόνες, χτισμένη ώστε να φαίνεται από τη θάλασσα. Οι Ιππότες αργότερα έζωσαν ολόκληρο τον βράχο με κάστρο, οπότε ανεβαίνεις μέσα από μεσαιωνικά τείχη για να φτάσεις σε αρχαίο ναό. Στους πρόποδες της μεγάλης σκάλας υπάρχει το καλύτερο κομμάτι: μια τριήρης σκαλισμένη κατευθείαν στον βράχο, σε φυσικό μέγεθος πλώρης, με τα ίδια τα σκαλοπάτια να ακουμπούν πάνω της. Πάνω της στεκόταν κάποτε άγαλμα. Είναι διαφήμιση δύο χιλιάδων ετών: η Λίνδος ζούσε από τα καράβια και το έλεγε στην πέτρα, στο πρώτο πράγμα που έβλεπε όποιος ανέβαινε."
+  },
+  {
+    "tag": "rhodes-lindos-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-lindos",
+    "lang": "en",
+    "kind": "story",
+    "text": "Fifty kilometres south of the town, a rock a hundred and sixteen metres high rises above white houses and two bays. On its summit stood the temple of Athena Lindia, and around it a colonnade of forty-two columns, built so that it could be seen from the sea. The Knights later wrapped the whole rock in a castle, so you climb up through medieval walls to reach an ancient temple. At the foot of the great staircase is the best piece of all: a warship carved directly into the rock, the bow at life size, with the steps themselves running up against it. A statue once stood on it. It is two-thousand-year-old advertising: Lindos lived by ships, and it said so in stone."
+  },
+  {
+    "tag": "rhodes-kameiros-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-kameiros",
+    "lang": "el",
+    "kind": "story",
+    "text": "Η Κάμειρος ήταν η τρίτη από τις αρχαίες πόλεις της Ρόδου, μαζί με τη Λίνδο και την Ιαλυσό. Σκάφτηκε τον 19ο αιώνα και βγήκε σχεδόν ολόκληρη, απλωμένη σε τρία επίπεδα στην πλαγιά: πάνω τα ιερά, στη μέση οι δρόμοι με τα σπίτια, κάτω η αγορά. Περπατάς σε κανονικούς δρόμους και βλέπεις κατώφλια, αυλές, αποχετεύσεις. Το πιο εντυπωσιακό βρίσκεται στο ψηλότερο σημείο: μια τεράστια δεξαμενή λαξευμένη στον βράχο, που αποθήκευε νερό αρκετό για εκατοντάδες οικογένειες και το μοίραζε με πήλινους σωλήνες σε όλη την πόλη. Και υπάρχει κάτι που λείπει: τείχη. Η Κάμειρος δεν είχε. Ήταν πόλη γεωργών, μακριά από το λιμάνι, και προφανώς κανείς δεν θεώρησε ότι κινδύνευε αρκετά για να ξοδέψει πέτρα σε τείχος. Αυτή η απουσία λέει για την εποχή της περισσότερα από όσα θα έλεγε ένα τείχος."
+  },
+  {
+    "tag": "rhodes-kameiros-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-kameiros",
+    "lang": "en",
+    "kind": "story",
+    "text": "Kameiros was the third of the ancient cities of Rhodes, together with Lindos and Ialysos. It was excavated in the 19th century and came out almost whole, spread over three levels on a hillside: sanctuaries at the top, streets of houses in the middle, the market square at the bottom. You walk along proper streets and see doorsteps, courtyards, drains. The most impressive thing is at the highest point: an enormous reservoir cut into the rock, holding enough water for hundreds of families and distributing it through clay pipes across the whole town. And there is something missing: walls. Kameiros had none. It was a town of farmers, away from the harbour, and evidently nobody thought it was in enough danger to spend stone on a wall."
+  },
+  {
+    "tag": "rhodes-monolithos-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-monolithos",
+    "lang": "el",
+    "kind": "story",
+    "text": "Στη νοτιοδυτική άκρη του νησιού, ένας βράχος υψώνεται απότομα διακόσια τριάντα έξι μέτρα πάνω από τη θάλασσα, και δεν έχει τίποτα γύρω του. Το όνομα του χωριού από κάτω το λέει ακριβώς: Μονόλιθος, μία πέτρα. Τον 15ο αιώνα οι Ιππότες έχτισαν κάστρο στην κορυφή, και το σχέδιό τους ήταν σχεδόν τεμπέλικο, με την καλή έννοια: δεν χρειάστηκε να χτίσουν σχεδόν καθόλου τείχος, γιατί ο βράχος είναι ήδη κάθετος από παντού. Υπάρχει ένα μονοπάτι που ανεβαίνει, και μόνο ένα. Μέσα στο κάστρο σήμερα δεν σώζονται στρατώνες ούτε αίθουσες, μόνο ένα μικρό άσπρο εκκλησάκι. Η θέα από πάνω φτάνει ως το επόμενο ακρωτήρι, και καταλαβαίνεις αμέσως τι έβλεπαν οι φρουροί και γιατί διάλεξαν αυτή τη μοναχική πέτρα. Ένα κάστρο εδώ δεν χρειαζόταν στρατό. Χρειαζόταν δύο ανθρώπους με καλά μάτια."
+  },
+  {
+    "tag": "rhodes-monolithos-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-monolithos",
+    "lang": "en",
+    "kind": "story",
+    "text": "At the south-western edge of the island a rock rises sharply two hundred and thirty-six metres above the sea with nothing at all around it. The name of the village below says it exactly: Monolithos, one stone. In the 15th century the Knights built a castle on the summit, and their design was almost lazy, in the good sense: they hardly had to build any wall at all, because the rock is already vertical on every side. There is one path up, and only one. Inside the castle today there are no barracks and no halls, only a small whitewashed chapel. The view from the top reaches the next headland, and you understand at once what the guards could see and why they chose this lonely stone."
+  },
+  {
+    "tag": "rhodes-tsambika-el",
+    "cityId": "rhodes",
+    "placeId": "rhodes-tsambika",
+    "lang": "el",
+    "kind": "story",
+    "text": "Ανάμεσα στην πόλη και τη Λίνδο, ένας βράχος πετάγεται πάνω από την ανατολική ακτή. Στην κορυφή του στέκεται ένα μικρό εκκλησάκι, και για να φτάσεις εκεί ανεβαίνεις γύρω στα τριακόσια σκαλιά, χωρίς σκιά και χωρίς συντομότερο δρόμο. Είναι η πιο απλή άσκηση του νησιού και η πιο δίκαιη: ο βράχος δεν ξεχωρίζει ποιος ανεβαίνει. Το μοναστήρι είναι τόπος προσκυνήματος εδώ και αιώνες, και κάθε Σεπτέμβρη ανεβαίνει πλήθος κόσμου. Οι περισσότεροι όμως ανεβαίνουν για τον ίδιο λόγο με σένα: από πάνω βλέπεις ολόκληρο τον κόλπο της Τσαμπίκας, με την αμμουδιά να κάνει τέλειο μισοφέγγαρο και το νερό να αλλάζει τρία διαφορετικά γαλάζια ανάλογα με το βάθος. Είναι από τα λίγα μέρη όπου καταλαβαίνεις με τα μάτια πόσο βαθιά είναι η θάλασσα."
+  },
+  {
+    "tag": "rhodes-tsambika-en",
+    "cityId": "rhodes",
+    "placeId": "rhodes-tsambika",
+    "lang": "en",
+    "kind": "story",
+    "text": "Between the town and Lindos a rock juts out above the eastern coast. On its summit stands a tiny church, and to reach it you climb around three hundred steps, with no shade and no shorter way. It is the island’s simplest exercise and its fairest: the rock does not care who is climbing. The monastery has been a place of pilgrimage for centuries, and every September a crowd goes up. Most people, though, climb for the same reason you will: from the top you see the whole bay of Tsambika, the sand making a perfect crescent and the water turning three different blues according to the depth. It is one of the few places where your eyes can actually read how deep the sea is."
+  },
+  {
     "tag": "thessaloniki-white-tower-el",
     "cityId": "thessaloniki",
     "placeId": "thessaloniki-white-tower",

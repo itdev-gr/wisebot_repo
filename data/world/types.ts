@@ -407,6 +407,32 @@ export interface PlaceTranslation {
   };
 }
 
+/**
+ * Every country's own words in one language, as `data/world/i18n/countries.<lang>.json`.
+ *
+ * Separate from the city overlays, and shaped differently on purpose. A city overlay is
+ * heavy and is fetched only when that city is opened; this is the front door — twenty
+ * flags, twenty intros and forty-five city cards, all on screen before the child has
+ * chosen anything. Splitting it per country would mean twenty requests to draw one
+ * list, so it is one small file per language instead.
+ *
+ * City NAMES and INTROS live here rather than in the city overlay for the same reason:
+ * the country page lists its cities and must be able to say «Αθήνα» in the child's
+ * language without downloading Athens.
+ */
+export interface CountriesTranslation {
+  lang: WorldLang;
+  countries: Record<CountryId, CountryTranslation>;
+}
+
+export interface CountryTranslation {
+  name?: string;
+  intro?: string;
+  /** Same order and length as the country's own `facts`. */
+  facts?: string[];
+  cities?: Record<CityId, { name?: string; intro?: string }>;
+}
+
 export interface QuestionTranslation {
   q?: string;
   /** Exactly four, in the same order as the source, so index 0 stays the correct one. */
