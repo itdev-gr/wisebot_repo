@@ -1,0 +1,3850 @@
+{
+  "ref": "origin/main",
+  "startedAt": "2026-09-11T21:24:12.511Z",
+  "thresholds": {
+    "OK_M": 60,
+    "CHECK_M": 150
+  },
+  "results": [
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "central-station",
+      "name": {
+        "el": "Amsterdam Centraal",
+        "en": "Amsterdam Centraal"
+      },
+      "pin": {
+        "lat": 52.3786,
+        "lng": 4.9002,
+        "radiusM": 60
+      },
+      "fromCentreM": 814,
+      "wikidata": {
+        "q": "Q50719",
+        "label": "Amsterdam Central station",
+        "description": "central railway station of Amsterdam",
+        "deltaM": 39
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "dam-square",
+      "name": {
+        "el": "Πλατεία Dam",
+        "en": "Dam Square"
+      },
+      "pin": {
+        "lat": 52.373,
+        "lng": 4.893,
+        "radiusM": 40
+      },
+      "fromCentreM": 175,
+      "wikidata": {
+        "q": "Q839050",
+        "label": "Dam Square",
+        "description": "central square in Amsterdam, Netherlands",
+        "deltaM": 16
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "westerkerk-and-canals",
+      "name": {
+        "el": "Westerkerk και Prinsengracht",
+        "en": "Westerkerk and Prinsengracht"
+      },
+      "pin": {
+        "lat": 52.3744,
+        "lng": 4.8838,
+        "radiusM": 60
+      },
+      "fromCentreM": 806,
+      "wikidata": {
+        "q": "Q1130722",
+        "label": "Westerkerk",
+        "description": "church in Amsterdam",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "anne-frank-house",
+      "name": {
+        "el": "Το Σπίτι της Anne Frank",
+        "en": "Anne Frank House"
+      },
+      "pin": {
+        "lat": 52.3752,
+        "lng": 4.884,
+        "radiusM": 60
+      },
+      "fromCentreM": 827,
+      "wikidata": {
+        "q": "Q165366",
+        "label": "Anne Frank House",
+        "description": "museum in Amsterdam, Netherlands, dedicated to Jewish wartime diarist Anne Frank",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "bloemenmarkt",
+      "name": {
+        "el": "Bloemenmarkt",
+        "en": "Bloemenmarkt"
+      },
+      "pin": {
+        "lat": 52.3668,
+        "lng": 4.891,
+        "radiusM": 60
+      },
+      "fromCentreM": 639,
+      "wikidata": {
+        "q": "Q643079",
+        "label": "Bloemenmarkt",
+        "description": "market in Amsterdam, Netherlands",
+        "deltaM": 24
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "magere-brug",
+      "name": {
+        "el": "Magere Brug",
+        "en": "Magere Brug"
+      },
+      "pin": {
+        "lat": 52.3636,
+        "lng": 4.9017,
+        "radiusM": 60
+      },
+      "fromCentreM": 1039,
+      "wikidata": {
+        "q": "Q1344400",
+        "label": "Magere Brug",
+        "description": "bridge in Amsterdam, Netherlands",
+        "deltaM": 45
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "rijksmuseum-museumplein",
+      "name": {
+        "el": "Rijksmuseum και Museumplein",
+        "en": "Rijksmuseum and Museumplein"
+      },
+      "pin": {
+        "lat": 52.3598,
+        "lng": 4.8853,
+        "radiusM": 60
+      },
+      "fromCentreM": 1508,
+      "wikidata": {
+        "q": "Q190804",
+        "label": "Rijksmuseum",
+        "description": "museum in Amsterdam, Netherlands",
+        "deltaM": 22
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "vondelpark",
+      "name": {
+        "el": "Vondelpark",
+        "en": "Vondelpark"
+      },
+      "pin": {
+        "lat": 52.3616,
+        "lng": 4.8814,
+        "radiusM": 80
+      },
+      "fromCentreM": 1480,
+      "wikidata": {
+        "q": "Q1419691",
+        "label": "Vondelpark",
+        "description": "park in Amsterdam, Netherlands",
+        "deltaM": 1143
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "nemo-science-museum",
+      "name": {
+        "el": "NEMO",
+        "en": "NEMO Science Museum"
+      },
+      "pin": {
+        "lat": 52.3741,
+        "lng": 4.9123,
+        "radiusM": 60
+      },
+      "fromCentreM": 1197,
+      "wikidata": {
+        "q": "Q1422000",
+        "label": "NEMO Science Center",
+        "description": "museum and science center in Amsterdam, Netherlands",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "amsterdam",
+      "countryCode": "NL",
+      "id": "de-waag",
+      "name": {
+        "el": "De Waag",
+        "en": "De Waag"
+      },
+      "pin": {
+        "lat": 52.3726,
+        "lng": 4.9002,
+        "radiusM": 40
+      },
+      "fromCentreM": 359,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "syntagma",
+      "name": {
+        "el": "Πλατεία Συντάγματος",
+        "en": "Syntagma Square"
+      },
+      "pin": {
+        "lat": 37.9754,
+        "lng": 23.7357,
+        "radiusM": 40
+      },
+      "fromCentreM": 502,
+      "wikidata": {
+        "q": "Q110807145",
+        "label": "Πλατεία Συντάγματος (ανασκαφή)",
+        "description": "ανασκαφική θέση στην Αθήνα, 1992-2002",
+        "deltaM": 36
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "zappeion",
+      "name": {
+        "el": "Ζάππειο & Εθνικός Κήπος",
+        "en": "Zappeion & National Garden"
+      },
+      "pin": {
+        "lat": 37.9714,
+        "lng": 23.7366,
+        "radiusM": 50
+      },
+      "fromCentreM": 704,
+      "wikidata": {
+        "q": "Q147478",
+        "label": "Zappeion",
+        "description": "building in Athens, Greece",
+        "deltaM": 19
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "hadrians-arch",
+      "name": {
+        "el": "Πύλη του Αδριανού",
+        "en": "Hadrian's Arch"
+      },
+      "pin": {
+        "lat": 37.9704,
+        "lng": 23.7321,
+        "radiusM": 40
+      },
+      "fromCentreM": 544,
+      "wikidata": {
+        "q": "Q1567576",
+        "label": "Πύλη του Αδριανού",
+        "description": "ρωμαϊκή πύλη στην Αθήνα",
+        "deltaM": 27
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "panathenaic-stadium",
+      "name": {
+        "el": "Παναθηναϊκό Στάδιο",
+        "en": "Panathenaic Stadium"
+      },
+      "pin": {
+        "lat": 37.9689,
+        "lng": 23.7407,
+        "radiusM": 50
+      },
+      "fromCentreM": 1157,
+      "wikidata": {
+        "q": "Q208811",
+        "label": "Panathenaic Stadium",
+        "description": "stadium in Athens, Greece",
+        "deltaM": 73
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "plaka-anafiotika",
+      "name": {
+        "el": "Πλάκα & Αναφιώτικα",
+        "en": "Plaka & Anafiotika"
+      },
+      "pin": {
+        "lat": 37.9721,
+        "lng": 23.7285,
+        "radiusM": 80
+      },
+      "fromCentreM": 348,
+      "wikidata": {
+        "q": "Q1231816",
+        "label": "Plaka",
+        "description": "neighborhood of Athens, Greece",
+        "deltaM": 181
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "acropolis",
+      "name": {
+        "el": "Ακρόπολη & Παρθενώνας",
+        "en": "Acropolis & Parthenon"
+      },
+      "pin": {
+        "lat": 37.9714,
+        "lng": 23.7246,
+        "radiusM": 70
+      },
+      "fromCentreM": 620,
+      "wikidata": {
+        "q": "Q131013",
+        "label": "Acropolis of Athens",
+        "description": "ancient citadel above the city of Athens",
+        "deltaM": 136
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "areopagus",
+      "name": {
+        "el": "Άρειος Πάγος",
+        "en": "Areopagus Rock"
+      },
+      "pin": {
+        "lat": 37.9723,
+        "lng": 23.7238,
+        "radiusM": 60
+      },
+      "fromCentreM": 621,
+      "wikidata": {
+        "q": "Q202487",
+        "label": "Άρειος Πάγος",
+        "description": "βραχώδης λόφος κοντά στην Ακρόπολη της Αθήνας",
+        "deltaM": 19
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "ancient-agora",
+      "name": {
+        "el": "Αρχαία Αγορά & Ναός Ηφαίστου",
+        "en": "Ancient Agora & Temple of Hephaestus"
+      },
+      "pin": {
+        "lat": 37.9756,
+        "lng": 23.7212,
+        "radiusM": 80
+      },
+      "fromCentreM": 774,
+      "wikidata": {
+        "q": "Q395367",
+        "label": "Ancient Agora of Athens",
+        "description": "major archaeological site of Athens",
+        "deltaM": 132
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "tower-of-the-winds",
+      "name": {
+        "el": "Αέρηδες",
+        "en": "Tower of the Winds"
+      },
+      "pin": {
+        "lat": 37.9741,
+        "lng": 23.7268,
+        "radiusM": 60
+      },
+      "fromCentreM": 298,
+      "wikidata": {
+        "q": "Q372717",
+        "label": "Tower of the Winds",
+        "description": "a Roman tower in Athens that once housed an early weather vane, large clepsydra, and multiple sundials to function as an early clocktower",
+        "deltaM": 20
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "athens",
+      "countryCode": "GR",
+      "id": "monastiraki",
+      "name": {
+        "el": "Πλατεία Μοναστηρακίου",
+        "en": "Monastiraki Square"
+      },
+      "pin": {
+        "lat": 37.9761,
+        "lng": 23.7256,
+        "radiusM": 40
+      },
+      "fromCentreM": 405,
+      "wikidata": {
+        "q": "Q112968748",
+        "label": "Monastiraki Square",
+        "description": "",
+        "deltaM": 44
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "sagrada-familia",
+      "name": {
+        "el": "Sagrada Família",
+        "en": "Sagrada Família"
+      },
+      "pin": {
+        "lat": 41.4042,
+        "lng": 2.1755,
+        "radiusM": 60
+      },
+      "fromCentreM": 1606,
+      "wikidata": {
+        "q": "Q2548808",
+        "label": "Sagrada Família",
+        "description": "Barcelona Metro station",
+        "deltaM": 92
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "casa-batllo",
+      "name": {
+        "el": "Casa Batlló",
+        "en": "Casa Batlló"
+      },
+      "pin": {
+        "lat": 41.3916,
+        "lng": 2.1649,
+        "radiusM": 60
+      },
+      "fromCentreM": 618,
+      "wikidata": {
+        "q": "Q461371",
+        "label": "Casa Batlló",
+        "description": "modernist building in Barcelona",
+        "deltaM": 3
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "casa-mila",
+      "name": {
+        "el": "Casa Milà (La Pedrera)",
+        "en": "Casa Milà (La Pedrera)"
+      },
+      "pin": {
+        "lat": 41.3952,
+        "lng": 2.1618,
+        "radiusM": 60
+      },
+      "fromCentreM": 1029,
+      "wikidata": {
+        "q": "Q207870",
+        "label": "Casa Milà",
+        "description": "apartment building in Barcelona, designed by Antoni Gaudí",
+        "deltaM": 14
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "la-rambla",
+      "name": {
+        "el": "La Rambla",
+        "en": "La Rambla"
+      },
+      "pin": {
+        "lat": 41.3861,
+        "lng": 2.1701,
+        "radiusM": 60
+      },
+      "fromCentreM": 462,
+      "wikidata": {
+        "q": "Q850593",
+        "label": "La Rambla",
+        "description": "thoroughfare in Barcelona, Spain",
+        "deltaM": 579
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "boqueria-market",
+      "name": {
+        "el": "Mercat de la Boqueria",
+        "en": "Mercat de la Boqueria"
+      },
+      "pin": {
+        "lat": 41.3818,
+        "lng": 2.1718,
+        "radiusM": 60
+      },
+      "fromCentreM": 912,
+      "wikidata": {
+        "q": "Q1334899",
+        "label": "La Boqueria",
+        "description": "Public market in Barcelona, Spain",
+        "deltaM": 21
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "barcelona-cathedral",
+      "name": {
+        "el": "Catedral de Barcelona",
+        "en": "Catedral de Barcelona"
+      },
+      "pin": {
+        "lat": 41.3839,
+        "lng": 2.176,
+        "radiusM": 70
+      },
+      "fromCentreM": 756,
+      "wikidata": {
+        "q": "Q17155",
+        "label": "Cathedral of the Holy Cross and Saint Eulalia",
+        "description": "Gothic cathedral and seat of the Archbishop of Barcelona, Spain",
+        "deltaM": 32
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "placa-reial",
+      "name": {
+        "el": "Plaça Reial",
+        "en": "Plaça Reial"
+      },
+      "pin": {
+        "lat": 41.38,
+        "lng": 2.175,
+        "radiusM": 50
+      },
+      "fromCentreM": 1140,
+      "wikidata": {
+        "q": "Q1519964",
+        "label": "Royal Square",
+        "description": "square in Barcelona, Spain",
+        "deltaM": 0
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "columbus-monument",
+      "name": {
+        "el": "Monument a Colom",
+        "en": "Monument a Colom"
+      },
+      "pin": {
+        "lat": 41.3758,
+        "lng": 2.1776,
+        "radiusM": 60
+      },
+      "fromCentreM": 1647,
+      "wikidata": {
+        "q": "Q2288815",
+        "label": "Columbus Monument",
+        "description": "monument in Barcelona",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "arc-de-triomf",
+      "name": {
+        "el": "Arc de Triomf",
+        "en": "Arc de Triomf"
+      },
+      "pin": {
+        "lat": 41.391,
+        "lng": 2.1805,
+        "radiusM": 40
+      },
+      "fromCentreM": 718,
+      "wikidata": {
+        "q": "Q631075",
+        "label": "Arc de Triomf",
+        "description": "triumphal arch",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "barcelona",
+      "countryCode": "ES",
+      "id": "park-guell",
+      "name": {
+        "el": "Park Güell",
+        "en": "Park Güell"
+      },
+      "pin": {
+        "lat": 41.413,
+        "lng": 2.1527,
+        "radiusM": 80
+      },
+      "fromCentreM": 3022,
+      "wikidata": {
+        "q": "Q212867",
+        "label": "Park Güell",
+        "description": "public park system in Barcelona, Spain",
+        "deltaM": 68
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "brandenburg-gate",
+      "name": {
+        "el": "Brandenburger Tor",
+        "en": "Brandenburger Tor"
+      },
+      "pin": {
+        "lat": 52.5162,
+        "lng": 13.3782,
+        "radiusM": 40
+      },
+      "fromCentreM": 799,
+      "wikidata": {
+        "q": "Q82425",
+        "label": "Brandenburg Gate",
+        "description": "triumphal arch in Berlin, Germany",
+        "deltaM": 33
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "reichstag",
+      "name": {
+        "el": "Reichstag",
+        "en": "Reichstag"
+      },
+      "pin": {
+        "lat": 52.5185,
+        "lng": 13.3748,
+        "radiusM": 40
+      },
+      "fromCentreM": 1065,
+      "wikidata": {
+        "q": "Q151897",
+        "label": "Reichstag",
+        "description": "seat of the German Bundestag and, before 1945, the eponymous parliament of the Weimar Republic",
+        "deltaM": 90
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "victory-column",
+      "name": {
+        "el": "Siegessäule",
+        "en": "Siegessäule"
+      },
+      "pin": {
+        "lat": 52.5145,
+        "lng": 13.3501,
+        "radiusM": 60
+      },
+      "fromCentreM": 2705,
+      "wikidata": {
+        "q": "Q154987",
+        "label": "Siegessäule",
+        "description": "classical triumphal column in Berlin, Germany",
+        "deltaM": 1
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "potsdamer-platz",
+      "name": {
+        "el": "Potsdamer Platz",
+        "en": "Potsdamer Platz"
+      },
+      "pin": {
+        "lat": 52.5095,
+        "lng": 13.3765,
+        "radiusM": 40
+      },
+      "fromCentreM": 1165,
+      "wikidata": {
+        "q": "Q106086519",
+        "label": "Potsdamer Platz S-Bahn station",
+        "description": "S-Bahn station in Berlin, Germany",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "checkpoint-charlie",
+      "name": {
+        "el": "Checkpoint Charlie",
+        "en": "Checkpoint Charlie"
+      },
+      "pin": {
+        "lat": 52.5075,
+        "lng": 13.3903,
+        "radiusM": 60
+      },
+      "fromCentreM": 945,
+      "wikidata": {
+        "q": "Q68689",
+        "label": "Checkpoint Charlie",
+        "description": "border checkpoint between East Berlin and West Berlin",
+        "deltaM": 2
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "gendarmenmarkt",
+      "name": {
+        "el": "Gendarmenmarkt",
+        "en": "Gendarmenmarkt"
+      },
+      "pin": {
+        "lat": 52.5137,
+        "lng": 13.3927,
+        "radiusM": 40
+      },
+      "fromCentreM": 314,
+      "wikidata": {
+        "q": "Q170103",
+        "label": "Gendarmenmarkt",
+        "description": "square in Berlin, Germany",
+        "deltaM": 11
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "berliner-dom",
+      "name": {
+        "el": "Berliner Dom",
+        "en": "Berliner Dom"
+      },
+      "pin": {
+        "lat": 52.5187,
+        "lng": 13.3995,
+        "radiusM": 40
+      },
+      "fromCentreM": 709,
+      "wikidata": {
+        "q": "Q19950914",
+        "label": "Schlosskirche or Domkirche",
+        "description": "second Berliner Dom (1747–1894)",
+        "deltaM": 116
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "tv-tower",
+      "name": {
+        "el": "Fernsehturm",
+        "en": "Fernsehturm"
+      },
+      "pin": {
+        "lat": 52.5207,
+        "lng": 13.4095,
+        "radiusM": 60
+      },
+      "fromCentreM": 1419,
+      "wikidata": {
+        "q": "Q151356",
+        "label": "Fernsehturm Berlin",
+        "description": "television tower in Berlin",
+        "deltaM": 15
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "nikolaiviertel",
+      "name": {
+        "el": "Nikolaiviertel",
+        "en": "Nikolaiviertel"
+      },
+      "pin": {
+        "lat": 52.5167,
+        "lng": 13.4073,
+        "radiusM": 70
+      },
+      "fromCentreM": 1173,
+      "wikidata": {
+        "q": "Q703927",
+        "label": "Nikolaiviertel",
+        "description": "old quarter of the German capital of Berlin",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "berlin",
+      "countryCode": "DE",
+      "id": "east-side-gallery",
+      "name": {
+        "el": "East Side Gallery",
+        "en": "East Side Gallery"
+      },
+      "pin": {
+        "lat": 52.5053,
+        "lng": 13.4382,
+        "radiusM": 120
+      },
+      "fromCentreM": 3472,
+      "wikidata": {
+        "q": "Q313746",
+        "label": "East Side Gallery",
+        "description": "art museum",
+        "deltaM": 507
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "markt",
+      "name": {
+        "el": "Markt",
+        "en": "Markt"
+      },
+      "pin": {
+        "lat": 51.2088,
+        "lng": 3.2246,
+        "radiusM": 40
+      },
+      "fromCentreM": 132,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "burg",
+      "name": {
+        "el": "Burg",
+        "en": "Burg"
+      },
+      "pin": {
+        "lat": 51.2085,
+        "lng": 3.2268,
+        "radiusM": 40
+      },
+      "fromCentreM": 79,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "rozenhoedkaai",
+      "name": {
+        "el": "Rozenhoedkaai",
+        "en": "Rozenhoedkaai"
+      },
+      "pin": {
+        "lat": 51.2072,
+        "lng": 3.2271,
+        "radiusM": 60
+      },
+      "fromCentreM": 117,
+      "wikidata": {
+        "q": "Q2670532",
+        "label": "Rozenhoedkaai",
+        "description": "street in Bruges, Belgium",
+        "deltaM": 32
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "vismarkt",
+      "name": {
+        "el": "Vismarkt",
+        "en": "Vismarkt"
+      },
+      "pin": {
+        "lat": 51.2078,
+        "lng": 3.2278,
+        "radiusM": 40
+      },
+      "fromCentreM": 127,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "bonifacius-bridge",
+      "name": {
+        "el": "Bonifaciusbrug",
+        "en": "Bonifaciusbrug"
+      },
+      "pin": {
+        "lat": 51.2048,
+        "lng": 3.2256,
+        "radiusM": 60
+      },
+      "fromCentreM": 357,
+      "wikidata": {
+        "q": "Q116243339",
+        "label": "Bonifatiusbrug",
+        "description": "",
+        "deltaM": 20
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "church-of-our-lady",
+      "name": {
+        "el": "Onze-Lieve-Vrouwekerk",
+        "en": "Onze-Lieve-Vrouwekerk"
+      },
+      "pin": {
+        "lat": 51.2046,
+        "lng": 3.2245,
+        "radiusM": 60
+      },
+      "fromCentreM": 392,
+      "wikidata": {
+        "q": "Q917183",
+        "label": "Church of Our Lady",
+        "description": "church in Bruges, Belgium",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "begijnhof",
+      "name": {
+        "el": "Begijnhof",
+        "en": "Begijnhof"
+      },
+      "pin": {
+        "lat": 51.202,
+        "lng": 3.2226,
+        "radiusM": 60
+      },
+      "fromCentreM": 708,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "minnewater",
+      "name": {
+        "el": "Minnewater",
+        "en": "Minnewater"
+      },
+      "pin": {
+        "lat": 51.2007,
+        "lng": 3.2241,
+        "radiusM": 60
+      },
+      "fromCentreM": 822,
+      "wikidata": {
+        "q": "Q2134080",
+        "label": "Minnewater",
+        "description": "street in Bruges, Belgium",
+        "deltaM": 59
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "jan-van-eyck-square",
+      "name": {
+        "el": "Jan van Eyckplein",
+        "en": "Jan van Eyckplein"
+      },
+      "pin": {
+        "lat": 51.2112,
+        "lng": 3.227,
+        "radiusM": 40
+      },
+      "fromCentreM": 363,
+      "wikidata": {
+        "q": "Q2519486",
+        "label": "Jan van Eyckplein",
+        "description": "square in Bruges, Belgium",
+        "deltaM": 87
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "bruges",
+      "countryCode": "BE",
+      "id": "windmills",
+      "name": {
+        "el": "Sint-Janshuismolen",
+        "en": "Sint-Janshuismolen"
+      },
+      "pin": {
+        "lat": 51.215,
+        "lng": 3.2367,
+        "radiusM": 80
+      },
+      "fromCentreM": 1078,
+      "wikidata": {
+        "q": "Q2789120",
+        "label": "Sint-Janshuismolen",
+        "description": "windmill in Bruges, Belgium",
+        "deltaM": 107
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "parliament",
+      "name": {
+        "el": "Κοινοβούλιο (Országház)",
+        "en": "Parliament (Országház)"
+      },
+      "pin": {
+        "lat": 47.5068,
+        "lng": 19.047,
+        "radiusM": 40
+      },
+      "fromCentreM": 1004,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "st-stephens-basilica",
+      "name": {
+        "el": "Βασιλική Szent István",
+        "en": "Szent István Basilica"
+      },
+      "pin": {
+        "lat": 47.5007,
+        "lng": 19.0533,
+        "radiusM": 40
+      },
+      "fromCentreM": 389,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "chain-bridge",
+      "name": {
+        "el": "Γέφυρα των Αλυσίδων (Lánchíd)",
+        "en": "Chain Bridge (Lánchíd)"
+      },
+      "pin": {
+        "lat": 47.499,
+        "lng": 19.0455,
+        "radiusM": 60
+      },
+      "fromCentreM": 356,
+      "wikidata": {
+        "q": "Q465534",
+        "label": "Γέφυρα των Αλυσίδων",
+        "description": "γέφυρα στη Βουδαπέστη",
+        "deltaM": 142
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "buda-castle",
+      "name": {
+        "el": "Κάστρο της Buda (Budai Vár)",
+        "en": "Buda Castle (Budai Vár)"
+      },
+      "pin": {
+        "lat": 47.4967,
+        "lng": 19.0384,
+        "radiusM": 60
+      },
+      "fromCentreM": 883,
+      "wikidata": {
+        "q": "Q850862",
+        "label": "Buda Castle Tunnel",
+        "description": "",
+        "deltaM": 112
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "matthias-church",
+      "name": {
+        "el": "Ναός Mátyás",
+        "en": "Mátyás Church"
+      },
+      "pin": {
+        "lat": 47.5015,
+        "lng": 19.0338,
+        "radiusM": 60
+      },
+      "fromCentreM": 1278,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "fishermans-bastion",
+      "name": {
+        "el": "Προμαχώνας των Ψαράδων (Halászbástya)",
+        "en": "Fisherman's Bastion (Halászbástya)"
+      },
+      "pin": {
+        "lat": 47.5025,
+        "lng": 19.035,
+        "radiusM": 60
+      },
+      "fromCentreM": 1233,
+      "wikidata": {
+        "q": "Q493117",
+        "label": "Fisherman's Bastion",
+        "description": "building in Budapest, Hungary",
+        "deltaM": 38
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "gellert-hill",
+      "name": {
+        "el": "Λόφος Gellért",
+        "en": "Gellért Hill"
+      },
+      "pin": {
+        "lat": 47.4868,
+        "lng": 19.047,
+        "radiusM": 80
+      },
+      "fromCentreM": 1266,
+      "wikidata": {
+        "q": "Q577122",
+        "label": "Gellért Hill",
+        "description": "hill in Budapest, Hungary",
+        "deltaM": 99
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "heroes-square",
+      "name": {
+        "el": "Πλατεία Ηρώων (Hősök tere)",
+        "en": "Heroes' Square (Hősök tere)"
+      },
+      "pin": {
+        "lat": 47.5149,
+        "lng": 19.0778,
+        "radiusM": 40
+      },
+      "fromCentreM": 2809,
+      "wikidata": {
+        "q": "Q299973",
+        "label": "Heroes' Square",
+        "description": "major square in district 14 of Budapest, Hungary",
+        "deltaM": 47
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "vajdahunyad-castle",
+      "name": {
+        "el": "Κάστρο Vajdahunyad",
+        "en": "Vajdahunyad Castle"
+      },
+      "pin": {
+        "lat": 47.5148,
+        "lng": 19.0821,
+        "radiusM": 60
+      },
+      "fromCentreM": 3050,
+      "wikidata": {
+        "q": "Q1092030",
+        "label": "Vajdahunyad Castle",
+        "description": "castle",
+        "deltaM": 54
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "budapest",
+      "countryCode": "HU",
+      "id": "great-market-hall",
+      "name": {
+        "el": "Μεγάλη Αγορά (Nagyvásárcsarnok)",
+        "en": "Great Market Hall (Nagyvásárcsarnok)"
+      },
+      "pin": {
+        "lat": 47.4873,
+        "lng": 19.0586,
+        "radiusM": 40
+      },
+      "fromCentreM": 1354,
+      "wikidata": {
+        "q": "Q195344",
+        "label": "Great Market Hall",
+        "description": "market hall in Budapest, Hungary",
+        "deltaM": 69
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "city-hall-square",
+      "name": {
+        "el": "Rådhuspladsen",
+        "en": "Rådhuspladsen"
+      },
+      "pin": {
+        "lat": 55.6759,
+        "lng": 12.5697,
+        "radiusM": 40
+      },
+      "fromCentreM": 1008,
+      "wikidata": {
+        "q": "Q2178686",
+        "label": "City Hall Square",
+        "description": "central square in Copenhagen",
+        "deltaM": 58
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "tivoli-gate",
+      "name": {
+        "el": "Tivoli",
+        "en": "Tivoli Gardens"
+      },
+      "pin": {
+        "lat": 55.6739,
+        "lng": 12.568,
+        "radiusM": 40
+      },
+      "fromCentreM": 1228,
+      "wikidata": {
+        "q": "Q110289",
+        "label": "Tivoli Gardens",
+        "description": "amusement park in Copenhagen, Denmark",
+        "deltaM": 38
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "stroget-storks",
+      "name": {
+        "el": "Strøget",
+        "en": "Strøget"
+      },
+      "pin": {
+        "lat": 55.6786,
+        "lng": 12.5787,
+        "radiusM": 60
+      },
+      "fromCentreM": 379,
+      "wikidata": {
+        "q": "Q1347634",
+        "label": "Strøget",
+        "description": "pedestrian zone",
+        "deltaM": 41
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "round-tower",
+      "name": {
+        "el": "Rundetaarn",
+        "en": "Rundetaarn"
+      },
+      "pin": {
+        "lat": 55.6813,
+        "lng": 12.5758,
+        "radiusM": 60
+      },
+      "fromCentreM": 453,
+      "wikidata": {
+        "q": "Q1140534",
+        "label": "Rundetaarn",
+        "description": "17th-century tower located in central Copenhagen, Denmark",
+        "deltaM": 8
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "kongens-nytorv",
+      "name": {
+        "el": "Kongens Nytorv",
+        "en": "Kongens Nytorv"
+      },
+      "pin": {
+        "lat": 55.6805,
+        "lng": 12.5855,
+        "radiusM": 60
+      },
+      "fromCentreM": 166,
+      "wikidata": {
+        "q": "Q1589941",
+        "label": "Kongens Nytorv",
+        "description": "public square in Copenhagen, Denmark",
+        "deltaM": 32
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "nyhavn",
+      "name": {
+        "el": "Nyhavn",
+        "en": "Nyhavn"
+      },
+      "pin": {
+        "lat": 55.6798,
+        "lng": 12.5908,
+        "radiusM": 60
+      },
+      "fromCentreM": 507,
+      "wikidata": {
+        "q": "Q943946",
+        "label": "Nyhavn",
+        "description": "street, canal and district in Copenhagen",
+        "deltaM": 26
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "amalienborg",
+      "name": {
+        "el": "Amalienborg",
+        "en": "Amalienborg"
+      },
+      "pin": {
+        "lat": 55.684,
+        "lng": 12.5929,
+        "radiusM": 40
+      },
+      "fromCentreM": 705,
+      "wikidata": {
+        "q": "Q211053",
+        "label": "Amalienborg",
+        "description": "Palace and home of the Danish royal family in Copenhagen",
+        "deltaM": 27
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "kastellet",
+      "name": {
+        "el": "Kastellet",
+        "en": "Kastellet"
+      },
+      "pin": {
+        "lat": 55.6908,
+        "lng": 12.5928,
+        "radiusM": 80
+      },
+      "fromCentreM": 1251,
+      "wikidata": {
+        "q": "Q221812",
+        "label": "Kastellet",
+        "description": "star fort in Copenhagen",
+        "deltaM": 102
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "little-mermaid",
+      "name": {
+        "el": "Η Μικρή Γοργόνα",
+        "en": "The Little Mermaid"
+      },
+      "pin": {
+        "lat": 55.6928,
+        "lng": 12.5991,
+        "radiusM": 80
+      },
+      "fromCentreM": 1655,
+      "wikidata": {
+        "q": "Q214619",
+        "label": "Η Μικρή Γοργόνα",
+        "description": "γλυπτό του Έντβαρντ Έρικσεν",
+        "deltaM": 12
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "copenhagen",
+      "countryCode": "DK",
+      "id": "our-saviour-spire",
+      "name": {
+        "el": "Vor Frelsers Kirke",
+        "en": "Church of Our Saviour"
+      },
+      "pin": {
+        "lat": 55.6729,
+        "lng": 12.5938,
+        "radiusM": 60
+      },
+      "fromCentreM": 1127,
+      "wikidata": {
+        "q": "Q29157",
+        "label": "Church of Our Saviour",
+        "description": "church in Copenhagen",
+        "deltaM": 15
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "pile-gate",
+      "name": {
+        "el": "Πύλη Pile",
+        "en": "Pile Gate"
+      },
+      "pin": {
+        "lat": 42.6414,
+        "lng": 18.1064,
+        "radiusM": 60
+      },
+      "fromCentreM": 177,
+      "wikidata": {
+        "q": "Q3509061",
+        "label": "Pile Gate, Dubrovnik",
+        "description": "",
+        "deltaM": 53
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "onofrio-fountain",
+      "name": {
+        "el": "Μεγάλη Κρήνη του Onofrio",
+        "en": "Big Onofrio's Fountain"
+      },
+      "pin": {
+        "lat": 42.6413,
+        "lng": 18.1074,
+        "radiusM": 40
+      },
+      "fromCentreM": 96,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "franciscan-pharmacy",
+      "name": {
+        "el": "Φραγκισκανικό Μοναστήρι και Φαρμακείο",
+        "en": "Franciscan Monastery & Pharmacy"
+      },
+      "pin": {
+        "lat": 42.6415,
+        "lng": 18.1078,
+        "radiusM": 60
+      },
+      "fromCentreM": 80,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "stradun",
+      "name": {
+        "el": "Stradun",
+        "en": "Stradun"
+      },
+      "pin": {
+        "lat": 42.641,
+        "lng": 18.1088,
+        "radiusM": 60
+      },
+      "fromCentreM": 25,
+      "wikidata": {
+        "q": "Q1818100",
+        "label": "Stradun",
+        "description": "main street in Dubrovnik, Croatia",
+        "deltaM": 73
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "orlando-column",
+      "name": {
+        "el": "Στήλη του Orlando",
+        "en": "Orlando's Column"
+      },
+      "pin": {
+        "lat": 42.6408,
+        "lng": 18.1103,
+        "radiusM": 40
+      },
+      "fromCentreM": 149,
+      "wikidata": {
+        "q": "Q3442751",
+        "label": "Orlando's Column",
+        "description": "",
+        "deltaM": 22
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "sponza-palace",
+      "name": {
+        "el": "Παλάτι Sponza και Πύργος του Ρολογιού",
+        "en": "Sponza Palace & Clock Tower"
+      },
+      "pin": {
+        "lat": 42.641,
+        "lng": 18.1105,
+        "radiusM": 40
+      },
+      "fromCentreM": 164,
+      "wikidata": {
+        "q": "Q2986276",
+        "label": "Sponza Palace",
+        "description": "palace in Dubrovnik, Croatia",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "st-blaise-church",
+      "name": {
+        "el": "Εκκλησία του Αγίου Βλασίου",
+        "en": "Church of St Blaise"
+      },
+      "pin": {
+        "lat": 42.6407,
+        "lng": 18.1099,
+        "radiusM": 40
+      },
+      "fromCentreM": 119,
+      "wikidata": {
+        "q": "Q2986286",
+        "label": "St Blaise's Church",
+        "description": "Croatian church",
+        "deltaM": 35
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "rectors-palace",
+      "name": {
+        "el": "Παλάτι του Ρέκτορα",
+        "en": "Rector's Palace"
+      },
+      "pin": {
+        "lat": 42.6404,
+        "lng": 18.1104,
+        "radiusM": 60
+      },
+      "fromCentreM": 169,
+      "wikidata": {
+        "q": "Q2497590",
+        "label": "Rector's Palace, Dubrovnik",
+        "description": "building in Croatia",
+        "deltaM": 38
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "old-port",
+      "name": {
+        "el": "Παλιό Λιμάνι",
+        "en": "Old Port"
+      },
+      "pin": {
+        "lat": 42.6405,
+        "lng": 18.1118,
+        "radiusM": 80
+      },
+      "fromCentreM": 276,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "dubrovnik",
+      "countryCode": "HR",
+      "id": "fort-lovrijenac",
+      "name": {
+        "el": "Φρούριο Lovrijenac",
+        "en": "Fort Lovrijenac"
+      },
+      "pin": {
+        "lat": 42.6409,
+        "lng": 18.1052,
+        "radiusM": 80
+      },
+      "fromCentreM": 270,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "hippodrome",
+      "name": {
+        "el": "Ιππόδρομος (Sultanahmet Meydanı)",
+        "en": "Hippodrome (Sultanahmet Meydanı)"
+      },
+      "pin": {
+        "lat": 41.0058,
+        "lng": 28.9755,
+        "radiusM": 40
+      },
+      "fromCentreM": 1064,
+      "wikidata": {
+        "q": "Q387548",
+        "label": "Ιππόδρομος της Κωνσταντινούπολης",
+        "description": "historic square in Istanbul",
+        "deltaM": 66
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "hagia-sophia",
+      "name": {
+        "el": "Αγία Σοφία (Ayasofya)",
+        "en": "Hagia Sophia (Ayasofya)"
+      },
+      "pin": {
+        "lat": 41.0083,
+        "lng": 28.979,
+        "radiusM": 60
+      },
+      "fromCentreM": 949,
+      "wikidata": {
+        "q": "Q12506",
+        "label": "Hagia Sophia",
+        "description": "mosque, museum, and former church in Istanbul, Turkey",
+        "deltaM": 84
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "blue-mosque",
+      "name": {
+        "el": "Γαλάζιο Τζαμί (Sultanahmet Camii)",
+        "en": "Blue Mosque (Sultanahmet Camii)"
+      },
+      "pin": {
+        "lat": 41.0057,
+        "lng": 28.9764,
+        "radiusM": 60
+      },
+      "fromCentreM": 1098,
+      "wikidata": {
+        "q": "Q80541",
+        "label": "Sultan Ahmed Mosque",
+        "description": "historic mosque located in Istanbul, Turkey, also known as Blue Mosque",
+        "deltaM": 50
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "gulhane-park",
+      "name": {
+        "el": "Πάρκο Gülhane",
+        "en": "Gülhane Park"
+      },
+      "pin": {
+        "lat": 41.0129,
+        "lng": 28.9803,
+        "radiusM": 80
+      },
+      "fromCentreM": 734,
+      "wikidata": {
+        "q": "Q1560106",
+        "label": "Gülhane Park",
+        "description": "city park in İstanbul, Turkey",
+        "deltaM": 79
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "grand-bazaar",
+      "name": {
+        "el": "Μεγάλο Παζάρι (Kapalıçarşı)",
+        "en": "Grand Bazaar (Kapalıçarşı)"
+      },
+      "pin": {
+        "lat": 41.0105,
+        "lng": 28.9702,
+        "radiusM": 60
+      },
+      "fromCentreM": 523,
+      "wikidata": {
+        "q": "Q505954",
+        "label": "Grand Bazaar",
+        "description": "bazaar in Istanbul, Turkey",
+        "deltaM": 190
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "spice-bazaar",
+      "name": {
+        "el": "Αιγυπτιακή Αγορά (Mısır Çarşısı)",
+        "en": "Spice Bazaar (Mısır Çarşısı)"
+      },
+      "pin": {
+        "lat": 41.0165,
+        "lng": 28.9705,
+        "radiusM": 40
+      },
+      "fromCentreM": 209,
+      "wikidata": {
+        "q": "Q668641",
+        "label": "Spice Bazaar",
+        "description": "food market in Istanbul, Turkey",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "galata-bridge",
+      "name": {
+        "el": "Γέφυρα του Γαλατά (Galata Köprüsü)",
+        "en": "Galata Bridge (Galata Köprüsü)"
+      },
+      "pin": {
+        "lat": 41.0201,
+        "lng": 28.9733,
+        "radiusM": 80
+      },
+      "fromCentreM": 577,
+      "wikidata": {
+        "q": "Q81523",
+        "label": "Galata Bridge",
+        "description": "bridge that spans the Golden Horn in Istanbul, Turkey",
+        "deltaM": 23
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "galata-tower",
+      "name": {
+        "el": "Πύργος του Γαλατά (Galata Kulesi)",
+        "en": "Galata Tower (Galata Kulesi)"
+      },
+      "pin": {
+        "lat": 41.0256,
+        "lng": 28.9741,
+        "radiusM": 60
+      },
+      "fromCentreM": 1192,
+      "wikidata": {
+        "q": "Q91274",
+        "label": "Galata Tower",
+        "description": "historical tower in İstanbul",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "istiklal-street",
+      "name": {
+        "el": "Οδός İstiklal (Galatasaray Meydanı)",
+        "en": "İstiklal Street (Galatasaray Meydanı)"
+      },
+      "pin": {
+        "lat": 41.033,
+        "lng": 28.977,
+        "radiusM": 60
+      },
+      "fromCentreM": 2045,
+      "wikidata": {
+        "q": "Q344348",
+        "label": "İstiklal Avenue",
+        "description": "avenue in Beyoğlu, Istanbul",
+        "deltaM": 205
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "istanbul",
+      "countryCode": "TR",
+      "id": "fener-patriarchate",
+      "name": {
+        "el": "Φανάρι, Οικουμενικό Πατριαρχείο",
+        "en": "Fener, the Ecumenical Patriarchate"
+      },
+      "pin": {
+        "lat": 41.0292,
+        "lng": 28.9518,
+        "radiusM": 60
+      },
+      "fromCentreM": 2316,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "florian-gate-barbican",
+      "name": {
+        "el": "Brama Floriańska και Barbakan",
+        "en": "St Florian's Gate and the Barbican"
+      },
+      "pin": {
+        "lat": 50.0652,
+        "lng": 19.9414,
+        "radiusM": 60
+      },
+      "fromCentreM": 731,
+      "wikidata": {
+        "q": "Q1363724",
+        "label": "St. Florian's Gate",
+        "description": "gothic tower in Kraków, Poland",
+        "deltaM": 53
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "main-square",
+      "name": {
+        "el": "Rynek Główny και Sukiennice",
+        "en": "Main Market Square and the Cloth Hall"
+      },
+      "pin": {
+        "lat": 50.0617,
+        "lng": 19.9378,
+        "radiusM": 40
+      },
+      "fromCentreM": 301,
+      "wikidata": {
+        "q": "Q770631",
+        "label": "Old town Market Square in Krakow",
+        "description": "market square of the Old Town in Kraków, Poland",
+        "deltaM": 42
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "st-marys-basilica",
+      "name": {
+        "el": "Kościół Mariacki",
+        "en": "St Mary's Basilica"
+      },
+      "pin": {
+        "lat": 50.0616,
+        "lng": 19.9389,
+        "radiusM": 40
+      },
+      "fromCentreM": 296,
+      "wikidata": {
+        "q": "Q1143171",
+        "label": "St. Mary's Basilica in Kraków",
+        "description": "church (Kraków, Poland)",
+        "deltaM": 20
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "town-hall-tower",
+      "name": {
+        "el": "Wieża Ratuszowa",
+        "en": "Town Hall Tower"
+      },
+      "pin": {
+        "lat": 50.0615,
+        "lng": 19.9364,
+        "radiusM": 40
+      },
+      "fromCentreM": 301,
+      "wikidata": {
+        "q": "Q1786361",
+        "label": "Town Hall Tower",
+        "description": "tower in Kraków, Poland",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "collegium-maius",
+      "name": {
+        "el": "Collegium Maius",
+        "en": "Collegium Maius"
+      },
+      "pin": {
+        "lat": 50.0616,
+        "lng": 19.9334,
+        "radiusM": 60
+      },
+      "fromCentreM": 438,
+      "wikidata": {
+        "q": "Q919596",
+        "label": "Collegium Maius",
+        "description": "university building (UJ)",
+        "deltaM": 30
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "st-peter-and-paul",
+      "name": {
+        "el": "Kościół św. Piotra i Pawła",
+        "en": "Church of Saints Peter and Paul"
+      },
+      "pin": {
+        "lat": 50.0575,
+        "lng": 19.9388,
+        "radiusM": 60
+      },
+      "fromCentreM": 176,
+      "wikidata": {
+        "q": "Q338657",
+        "label": "Saints Peter and Paul Church",
+        "description": "church building in Kraków, Poland",
+        "deltaM": 62
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "wawel-courtyard",
+      "name": {
+        "el": "Wawel",
+        "en": "Wawel Castle Hill"
+      },
+      "pin": {
+        "lat": 50.0544,
+        "lng": 19.9354,
+        "radiusM": 80
+      },
+      "fromCentreM": 544,
+      "wikidata": {
+        "q": "Q743704",
+        "label": "Wawel",
+        "description": "hill in Kraków, Poland",
+        "deltaM": 27
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "wawel-dragon",
+      "name": {
+        "el": "Smok Wawelski",
+        "en": "The Wawel Dragon"
+      },
+      "pin": {
+        "lat": 50.053,
+        "lng": 19.933,
+        "radiusM": 80
+      },
+      "fromCentreM": 757,
+      "wikidata": {
+        "q": "Q9338697",
+        "label": "Wawel Dragon (statue)",
+        "description": "Statue in Kraków, Poland",
+        "deltaM": 42
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "bernatek-footbridge",
+      "name": {
+        "el": "Kładka Bernatka",
+        "en": "Father Bernatek Footbridge"
+      },
+      "pin": {
+        "lat": 50.0478,
+        "lng": 19.9477,
+        "radiusM": 80
+      },
+      "fromCentreM": 1425,
+      "wikidata": {
+        "q": "Q11752074",
+        "label": "Father Bernatek bridge",
+        "description": "footbridge in Kraków, Poland",
+        "deltaM": 145
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "krakow",
+      "countryCode": "PL",
+      "id": "kazimierz-szeroka",
+      "name": {
+        "el": "Kazimierz, οδός Szeroka",
+        "en": "Kazimierz, Szeroka Street"
+      },
+      "pin": {
+        "lat": 50.0517,
+        "lng": 19.9478,
+        "radiusM": 60
+      },
+      "fromCentreM": 1072,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "praca-do-comercio",
+      "name": {
+        "el": "Praça do Comércio",
+        "en": "Praça do Comércio"
+      },
+      "pin": {
+        "lat": 38.7075,
+        "lng": -9.1364,
+        "radiusM": 40
+      },
+      "fromCentreM": 418,
+      "wikidata": {
+        "q": "Q999002",
+        "label": "Praça do Comércio",
+        "description": "square in Lisbon, Portugal",
+        "deltaM": 1
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "arco-da-rua-augusta",
+      "name": {
+        "el": "Arco da Rua Augusta",
+        "en": "Arco da Rua Augusta"
+      },
+      "pin": {
+        "lat": 38.7084,
+        "lng": -9.1366,
+        "radiusM": 40
+      },
+      "fromCentreM": 345,
+      "wikidata": {
+        "q": "Q637590",
+        "label": "Rua Augusta Arch",
+        "description": "triumphal arch",
+        "deltaM": 17
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "elevador-de-santa-justa",
+      "name": {
+        "el": "Elevador de Santa Justa",
+        "en": "Elevador de Santa Justa"
+      },
+      "pin": {
+        "lat": 38.7123,
+        "lng": -9.1394,
+        "radiusM": 60
+      },
+      "fromCentreM": 261,
+      "wikidata": {
+        "q": "Q168001",
+        "label": "Santa Justa Lift",
+        "description": "cultural heritage monument in Lisboa, Portugal",
+        "deltaM": 45
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "rossio",
+      "name": {
+        "el": "Rossio",
+        "en": "Rossio"
+      },
+      "pin": {
+        "lat": 38.7139,
+        "lng": -9.1394,
+        "radiusM": 40
+      },
+      "fromCentreM": 437,
+      "wikidata": {
+        "q": "Q1549270",
+        "label": "Rossio Square",
+        "description": "square in Lisbon, Portugal",
+        "deltaM": 4
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "se-cathedral",
+      "name": {
+        "el": "Sé de Lisboa",
+        "en": "Sé de Lisboa"
+      },
+      "pin": {
+        "lat": 38.7098,
+        "lng": -9.1327,
+        "radiusM": 60
+      },
+      "fromCentreM": 634,
+      "wikidata": {
+        "q": "Q432290",
+        "label": "Lisbon Cathedral",
+        "description": "Roman Catholic Cathedral located in Lisbon, Portugal",
+        "deltaM": 25
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "castelo-de-sao-jorge",
+      "name": {
+        "el": "Castelo de São Jorge",
+        "en": "Castelo de São Jorge"
+      },
+      "pin": {
+        "lat": 38.7139,
+        "lng": -9.1335,
+        "radiusM": 80
+      },
+      "fromCentreM": 711,
+      "wikidata": {
+        "q": "Q636780",
+        "label": "Castle of Saint George",
+        "description": "Moorish castle in Lisbon, Portugal",
+        "deltaM": 15
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "miradouro-de-santa-luzia",
+      "name": {
+        "el": "Miradouro de Santa Luzia",
+        "en": "Miradouro de Santa Luzia"
+      },
+      "pin": {
+        "lat": 38.7118,
+        "lng": -9.1303,
+        "radiusM": 60
+      },
+      "fromCentreM": 865,
+      "wikidata": {
+        "q": "Q6837314",
+        "label": "Miradouro de Santa Luzia",
+        "description": "viewpoint in Alfama, Lisbon, Portugal",
+        "deltaM": 15
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "torre-de-belem",
+      "name": {
+        "el": "Torre de Belém",
+        "en": "Torre de Belém"
+      },
+      "pin": {
+        "lat": 38.6916,
+        "lng": -9.216,
+        "radiusM": 60
+      },
+      "fromCentreM": 6905,
+      "wikidata": {
+        "q": "Q8960918",
+        "label": "Torre de Belém Lighthouse",
+        "description": "lighthouse in Portugal",
+        "deltaM": 16
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "padrao-dos-descobrimentos",
+      "name": {
+        "el": "Padrão dos Descobrimentos",
+        "en": "Padrão dos Descobrimentos"
+      },
+      "pin": {
+        "lat": 38.6936,
+        "lng": -9.2057,
+        "radiusM": 40
+      },
+      "fromCentreM": 5986,
+      "wikidata": {
+        "q": "Q1133712",
+        "label": "Padrão dos Descobrimentos",
+        "description": "memorial in Lisbon, Portugal",
+        "deltaM": 8
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "lisbon",
+      "countryCode": "PT",
+      "id": "mosteiro-dos-jeronimos",
+      "name": {
+        "el": "Mosteiro dos Jerónimos",
+        "en": "Mosteiro dos Jerónimos"
+      },
+      "pin": {
+        "lat": 38.6979,
+        "lng": -9.2064,
+        "radiusM": 40
+      },
+      "fromCentreM": 5917,
+      "wikidata": {
+        "q": "Q272781",
+        "label": "Jerónimos Monastery",
+        "description": "building in Santa Maria de Belém, Lisbon District, Portugal",
+        "deltaM": 70
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "buckingham-palace",
+      "name": {
+        "el": "Buckingham Palace",
+        "en": "Buckingham Palace"
+      },
+      "pin": {
+        "lat": 51.5017,
+        "lng": -0.1412,
+        "radiusM": 60
+      },
+      "fromCentreM": 1921,
+      "wikidata": {
+        "q": "Q42182",
+        "label": "Buckingham Palace",
+        "description": "official London residence and principal workplace of the British monarch",
+        "deltaM": 96
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "westminster-abbey",
+      "name": {
+        "el": "Westminster Abbey",
+        "en": "Westminster Abbey"
+      },
+      "pin": {
+        "lat": 51.4995,
+        "lng": -0.1286,
+        "radiusM": 50
+      },
+      "fromCentreM": 1288,
+      "wikidata": {
+        "q": "Q5933",
+        "label": "Westminster Abbey",
+        "description": "Gothic abbey church in London, England, UK",
+        "deltaM": 86
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "big-ben",
+      "name": {
+        "el": "Big Ben",
+        "en": "Big Ben"
+      },
+      "pin": {
+        "lat": 51.5009,
+        "lng": -0.1243,
+        "radiusM": 70
+      },
+      "fromCentreM": 968,
+      "wikidata": {
+        "q": "Q41225",
+        "label": "Big Ben",
+        "description": "tower of the Palace of Westminster, London containing the bell Big Ben",
+        "deltaM": 32
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "london-eye",
+      "name": {
+        "el": "London Eye",
+        "en": "London Eye"
+      },
+      "pin": {
+        "lat": 51.5032,
+        "lng": -0.1198,
+        "radiusM": 50
+      },
+      "fromCentreM": 573,
+      "wikidata": {
+        "q": "Q160659",
+        "label": "London Eye",
+        "description": "observation wheel in London, England",
+        "deltaM": 16
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "trafalgar-square",
+      "name": {
+        "el": "Trafalgar Square",
+        "en": "Trafalgar Square"
+      },
+      "pin": {
+        "lat": 51.508,
+        "lng": -0.1281,
+        "radiusM": 40
+      },
+      "fromCentreM": 909,
+      "wikidata": {
+        "q": "Q129143",
+        "label": "Trafalgar Square",
+        "description": "public space and tourist attraction in central London",
+        "deltaM": 7
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "covent-garden",
+      "name": {
+        "el": "Covent Garden",
+        "en": "Covent Garden"
+      },
+      "pin": {
+        "lat": 51.5118,
+        "lng": -0.1233,
+        "radiusM": 50
+      },
+      "fromCentreM": 755,
+      "wikidata": {
+        "q": "Q55019",
+        "label": "Covent Garden",
+        "description": "district in London, England",
+        "deltaM": 96
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "british-museum",
+      "name": {
+        "el": "British Museum",
+        "en": "British Museum"
+      },
+      "pin": {
+        "lat": 51.5189,
+        "lng": -0.1269,
+        "radiusM": 50
+      },
+      "fromCentreM": 1521,
+      "wikidata": {
+        "q": "Q6373",
+        "label": "British Museum",
+        "description": "national museum in London, United Kingdom",
+        "deltaM": 61
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "st-pauls-cathedral",
+      "name": {
+        "el": "St Paul's Cathedral",
+        "en": "St Paul's Cathedral"
+      },
+      "pin": {
+        "lat": 51.5138,
+        "lng": -0.0999,
+        "radiusM": 50
+      },
+      "fromCentreM": 1264,
+      "wikidata": {
+        "q": "Q173882",
+        "label": "St Paul's Cathedral",
+        "description": "cathedral in the City of London, England, UK",
+        "deltaM": 110
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "tower-of-london",
+      "name": {
+        "el": "Tower of London",
+        "en": "Tower of London"
+      },
+      "pin": {
+        "lat": 51.5081,
+        "lng": -0.078,
+        "radiusM": 80
+      },
+      "fromCentreM": 2562,
+      "wikidata": {
+        "q": "Q62378",
+        "label": "Tower of London",
+        "description": "castle in central London, United Kingdom",
+        "deltaM": 125
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "london",
+      "countryCode": "GB",
+      "id": "tower-bridge",
+      "name": {
+        "el": "Tower Bridge",
+        "en": "Tower Bridge"
+      },
+      "pin": {
+        "lat": 51.5055,
+        "lng": -0.0754,
+        "radiusM": 80
+      },
+      "fromCentreM": 2749,
+      "wikidata": {
+        "q": "Q83125",
+        "label": "Tower Bridge",
+        "description": "bascule and suspension bridge in London",
+        "deltaM": 10
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "eleftheria-square",
+      "name": {
+        "el": "Πλατεία Ελευθερίας",
+        "en": "Eleftheria Square"
+      },
+      "pin": {
+        "lat": 35.1698,
+        "lng": 33.361,
+        "radiusM": 40
+      },
+      "fromCentreM": 406,
+      "wikidata": {
+        "q": "Q5358622",
+        "label": "Eleftheria square",
+        "description": "main square in central Nicosia, Cyprus",
+        "deltaM": 148
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "venetian-walls-podocataro",
+      "name": {
+        "el": "Ενετικά Τείχη & Μνημείο Ελευθερίας",
+        "en": "Venetian Walls & Liberty Monument"
+      },
+      "pin": {
+        "lat": 35.173,
+        "lng": 33.3697,
+        "radiusM": 80
+      },
+      "fromCentreM": 521,
+      "wikidata": {
+        "q": "Q7919752",
+        "label": "Venetian walls of Nicosia",
+        "description": "series of walls surrounding the old city of Nicosia, Cyprus",
+        "deltaM": 219
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "famagusta-gate",
+      "name": {
+        "el": "Πύλη Αμμοχώστου",
+        "en": "Famagusta Gate"
+      },
+      "pin": {
+        "lat": 35.1731,
+        "lng": 33.3706,
+        "radiusM": 80
+      },
+      "fromCentreM": 604,
+      "wikidata": {
+        "q": "Q6046232",
+        "label": "Famagusta Gate",
+        "description": "gate in the Nicosia walls, Cyprus",
+        "deltaM": 144
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "archbishops-palace",
+      "name": {
+        "el": "Αρχιεπισκοπή & Άγιος Ιωάννης",
+        "en": "Archbishop's Palace & St John's"
+      },
+      "pin": {
+        "lat": 35.1746,
+        "lng": 33.3672,
+        "radiusM": 40
+      },
+      "fromCentreM": 373,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "pancyprian-gymnasium",
+      "name": {
+        "el": "Παγκύπριο Γυμνάσιο",
+        "en": "Pancyprian Gymnasium"
+      },
+      "pin": {
+        "lat": 35.175,
+        "lng": 33.368,
+        "radiusM": 60
+      },
+      "fromCentreM": 458,
+      "wikidata": {
+        "q": "Q3563324",
+        "label": "Pancyprian Gymnasium",
+        "description": "public high-school",
+        "deltaM": 218
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "laiki-geitonia",
+      "name": {
+        "el": "Λαϊκή Γειτονιά",
+        "en": "Laiki Geitonia"
+      },
+      "pin": {
+        "lat": 35.172,
+        "lng": 33.3625,
+        "radiusM": 60
+      },
+      "fromCentreM": 147,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "ledra-street",
+      "name": {
+        "el": "Οδός Λήδρας",
+        "en": "Ledra Street"
+      },
+      "pin": {
+        "lat": 35.1733,
+        "lng": 33.3613,
+        "radiusM": 60
+      },
+      "fromCentreM": 261,
+      "wikidata": {
+        "q": "Q257937",
+        "label": "Ledra Street",
+        "description": "shopping thoroughfare in Nicosia, Cyprus",
+        "deltaM": 128
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "faneromeni",
+      "name": {
+        "el": "Πλατεία Φανερωμένης",
+        "en": "Faneromeni Square"
+      },
+      "pin": {
+        "lat": 35.1748,
+        "lng": 33.3597,
+        "radiusM": 40
+      },
+      "fromCentreM": 467,
+      "wikidata": {
+        "q": "Q5433745",
+        "label": "Faneromeni Square",
+        "description": "public, historical school",
+        "deltaM": 317
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "omeriye",
+      "name": {
+        "el": "Τζαμί & Χαμάμ Ομεριέ",
+        "en": "Omeriye Mosque & Hammam"
+      },
+      "pin": {
+        "lat": 35.1712,
+        "lng": 33.3661,
+        "radiusM": 60
+      },
+      "fromCentreM": 239,
+      "wikidata": {
+        "q": "Q20896012",
+        "label": "Omeriye Mosque",
+        "description": "mosque in Cyprus, former church of Augustinian Monastery",
+        "deltaM": 93
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "nicosia",
+      "countryCode": "CY",
+      "id": "municipal-gardens",
+      "name": {
+        "el": "Δημοτικός Κήπος & Κυπριακό Μουσείο",
+        "en": "Municipal Gardens & Cyprus Museum"
+      },
+      "pin": {
+        "lat": 35.1712,
+        "lng": 33.3563,
+        "radiusM": 60
+      },
+      "fromCentreM": 715,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "eiffel-tower",
+      "name": {
+        "el": "Tour Eiffel",
+        "en": "Tour Eiffel"
+      },
+      "pin": {
+        "lat": 48.8578,
+        "lng": 2.2955,
+        "radiusM": 80
+      },
+      "fromCentreM": 2536,
+      "wikidata": {
+        "q": "Q243",
+        "label": "Eiffel Tower",
+        "description": "tower located on the Champ de Mars in Paris, France",
+        "deltaM": 93
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "arc-de-triomphe",
+      "name": {
+        "el": "Arc de Triomphe",
+        "en": "Arc de Triomphe"
+      },
+      "pin": {
+        "lat": 48.8738,
+        "lng": 2.295,
+        "radiusM": 80
+      },
+      "fromCentreM": 2985,
+      "wikidata": {
+        "q": "Q64436",
+        "label": "Arc de Triomphe",
+        "description": "triumphal arch in Paris",
+        "deltaM": 4
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "place-de-la-concorde",
+      "name": {
+        "el": "Place de la Concorde",
+        "en": "Place de la Concorde"
+      },
+      "pin": {
+        "lat": 48.8656,
+        "lng": 2.3212,
+        "radiusM": 60
+      },
+      "fromCentreM": 896,
+      "wikidata": {
+        "q": "Q189503",
+        "label": "place de la Concorde",
+        "description": "square in the 8th arrondissement of Paris, France",
+        "deltaM": 5
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "louvre-pyramid",
+      "name": {
+        "el": "Pyramide du Louvre",
+        "en": "Pyramide du Louvre"
+      },
+      "pin": {
+        "lat": 48.8611,
+        "lng": 2.3358,
+        "radiusM": 60
+      },
+      "fromCentreM": 442,
+      "wikidata": {
+        "q": "Q13397",
+        "label": "Louvre Pyramid",
+        "description": "glass and metal pyramid in the main courtyard of the Louvre Palace",
+        "deltaM": 12
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "pont-neuf",
+      "name": {
+        "el": "Pont Neuf",
+        "en": "Pont Neuf"
+      },
+      "pin": {
+        "lat": 48.8575,
+        "lng": 2.3412,
+        "radiusM": 80
+      },
+      "fromCentreM": 865,
+      "wikidata": {
+        "q": "Q335277",
+        "label": "Pont Neuf",
+        "description": "bridge across the Seine in Paris",
+        "deltaM": 34
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "notre-dame",
+      "name": {
+        "el": "Notre-Dame de Paris",
+        "en": "Notre-Dame de Paris"
+      },
+      "pin": {
+        "lat": 48.8534,
+        "lng": 2.3483,
+        "radiusM": 60
+      },
+      "fromCentreM": 1527,
+      "wikidata": {
+        "q": "Q2981",
+        "label": "Notre-Dame de Paris",
+        "description": "cathedral in Paris",
+        "deltaM": 118
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "pantheon-paris",
+      "name": {
+        "el": "Panthéon",
+        "en": "Panthéon"
+      },
+      "pin": {
+        "lat": 48.8462,
+        "lng": 2.3452,
+        "radiusM": 60
+      },
+      "fromCentreM": 1895,
+      "wikidata": {
+        "q": "Q188856",
+        "label": "Panthéon",
+        "description": "mausoleum in Paris for the most distinguished French people",
+        "deltaM": 66
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "luxembourg-gardens",
+      "name": {
+        "el": "Jardin du Luxembourg",
+        "en": "Jardin du Luxembourg"
+      },
+      "pin": {
+        "lat": 48.8474,
+        "lng": 2.3372,
+        "radiusM": 80
+      },
+      "fromCentreM": 1497,
+      "wikidata": {
+        "q": "Q309458",
+        "label": "Jardin du Luxembourg",
+        "description": "urban park in Paris, France",
+        "deltaM": 51
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "palais-garnier",
+      "name": {
+        "el": "Palais Garnier",
+        "en": "Palais Garnier"
+      },
+      "pin": {
+        "lat": 48.8713,
+        "lng": 2.3318,
+        "radiusM": 60
+      },
+      "fromCentreM": 1263,
+      "wikidata": {
+        "q": "Q187840",
+        "label": "Palais Garnier",
+        "description": "opera house in Paris, France",
+        "deltaM": 72
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "paris",
+      "countryCode": "FR",
+      "id": "sacre-coeur",
+      "name": {
+        "el": "Sacré-Cœur",
+        "en": "Sacré-Cœur"
+      },
+      "pin": {
+        "lat": 48.8862,
+        "lng": 2.3431,
+        "radiusM": 80
+      },
+      "fromCentreM": 3067,
+      "wikidata": {
+        "q": "Q28785",
+        "label": "Sacré-Cœur",
+        "description": "Roman Catholic church in Paris, France",
+        "deltaM": 51
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "sao-bento-station",
+      "name": {
+        "el": "Σταθμός São Bento",
+        "en": "São Bento Station"
+      },
+      "pin": {
+        "lat": 41.1456,
+        "lng": -8.6106,
+        "radiusM": 40
+      },
+      "fromCentreM": 212,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "igreja-do-carmo",
+      "name": {
+        "el": "Εκκλησίες Carmo και Carmelitas",
+        "en": "Carmo and Carmelitas Churches"
+      },
+      "pin": {
+        "lat": 41.1471,
+        "lng": -8.616,
+        "radiusM": 50
+      },
+      "fromCentreM": 343,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "torre-dos-clerigos",
+      "name": {
+        "el": "Πύργος Clérigos",
+        "en": "Clérigos Tower"
+      },
+      "pin": {
+        "lat": 41.1457,
+        "lng": -8.6146,
+        "radiusM": 60
+      },
+      "fromCentreM": 155,
+      "wikidata": {
+        "q": "Q20986654",
+        "label": "Clerigos tower",
+        "description": "Baroque tower in Portugal",
+        "deltaM": 1
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "mercado-do-bolhao",
+      "name": {
+        "el": "Αγορά Bolhão",
+        "en": "Bolhão Market"
+      },
+      "pin": {
+        "lat": 41.1493,
+        "lng": -8.6063,
+        "radiusM": 50
+      },
+      "fromCentreM": 737,
+      "wikidata": {
+        "q": "Q10328805",
+        "label": "Bolhão Market",
+        "description": "cultural heritage monument in Porto, Portugal",
+        "deltaM": 56
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "se-do-porto",
+      "name": {
+        "el": "Καθεδρικός Sé do Porto",
+        "en": "Porto Cathedral"
+      },
+      "pin": {
+        "lat": 41.1428,
+        "lng": -8.6112,
+        "radiusM": 40
+      },
+      "fromCentreM": 287,
+      "wikidata": {
+        "q": "Q1441255",
+        "label": "Porto Cathedral",
+        "description": "cathedral",
+        "deltaM": 2
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "palacio-da-bolsa",
+      "name": {
+        "el": "Palácio da Bolsa",
+        "en": "Palácio da Bolsa"
+      },
+      "pin": {
+        "lat": 41.1414,
+        "lng": -8.6156,
+        "radiusM": 40
+      },
+      "fromCentreM": 456,
+      "wikidata": {
+        "q": "Q1371109",
+        "label": "Palácio da Bolsa",
+        "description": "building in Porto, Porto District, Portugal",
+        "deltaM": 8
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "ribeira",
+      "name": {
+        "el": "Πλατεία Ribeira",
+        "en": "Ribeira Square"
+      },
+      "pin": {
+        "lat": 41.1405,
+        "lng": -8.6131,
+        "radiusM": 40
+      },
+      "fromCentreM": 500,
+      "wikidata": {
+        "q": "Q7322292",
+        "label": "Ribeira Square",
+        "description": "historical square in Porto, Portugal",
+        "deltaM": 24
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "ponte-luis-i",
+      "name": {
+        "el": "Γέφυρα Luís I",
+        "en": "Luís I Bridge"
+      },
+      "pin": {
+        "lat": 41.14,
+        "lng": -8.6095,
+        "radiusM": 80
+      },
+      "fromCentreM": 628,
+      "wikidata": {
+        "q": "Q1322447",
+        "label": "Luiz I Bridge",
+        "description": "bridge in Porto, Portugal",
+        "deltaM": 31
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "mosteiro-serra-do-pilar",
+      "name": {
+        "el": "Μοναστήρι Serra do Pilar",
+        "en": "Serra do Pilar Monastery"
+      },
+      "pin": {
+        "lat": 41.137,
+        "lng": -8.6083,
+        "radiusM": 70
+      },
+      "fromCentreM": 973,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "porto",
+      "countryCode": "PT",
+      "id": "jardins-palacio-de-cristal",
+      "name": {
+        "el": "Κήποι Palácio de Cristal",
+        "en": "Palácio de Cristal Gardens"
+      },
+      "pin": {
+        "lat": 41.1481,
+        "lng": -8.6262,
+        "radiusM": 60
+      },
+      "fromCentreM": 1158,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "powder-tower",
+      "name": {
+        "el": "Prašná brána",
+        "en": "Powder Tower"
+      },
+      "pin": {
+        "lat": 50.0873,
+        "lng": 14.4277,
+        "radiusM": 60
+      },
+      "fromCentreM": 942,
+      "wikidata": {
+        "q": "Q1488700",
+        "label": "Powder Tower",
+        "description": "tower in Prague, Czech Republic",
+        "deltaM": 10
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "old-town-square",
+      "name": {
+        "el": "Staroměstské náměstí",
+        "en": "Old Town Square"
+      },
+      "pin": {
+        "lat": 50.0876,
+        "lng": 14.4212,
+        "radiusM": 40
+      },
+      "fromCentreM": 528,
+      "wikidata": {
+        "q": "Q421678",
+        "label": "Old Town Square",
+        "description": "square in the Old Town quarter of Prague",
+        "deltaM": 17
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "astronomical-clock",
+      "name": {
+        "el": "Orloj",
+        "en": "Astronomical Clock (Orloj)"
+      },
+      "pin": {
+        "lat": 50.0869,
+        "lng": 14.421,
+        "radiusM": 40
+      },
+      "fromCentreM": 477,
+      "wikidata": {
+        "q": "Q729370",
+        "label": "Prague Astronomical Clock",
+        "description": "Astronomical Clock in Prague, Czech Republic",
+        "deltaM": 24
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "charles-bridge",
+      "name": {
+        "el": "Karlův most",
+        "en": "Charles Bridge"
+      },
+      "pin": {
+        "lat": 50.0864,
+        "lng": 14.4138,
+        "radiusM": 80
+      },
+      "fromCentreM": 178,
+      "wikidata": {
+        "q": "Q204871",
+        "label": "Charles Bridge",
+        "description": "bridge in Prague, Czech Republic",
+        "deltaM": 132
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "kampa-island",
+      "name": {
+        "el": "Kampa",
+        "en": "Kampa Island"
+      },
+      "pin": {
+        "lat": 50.084,
+        "lng": 14.4084,
+        "radiusM": 80
+      },
+      "fromCentreM": 484,
+      "wikidata": {
+        "q": "Q3501077",
+        "label": "Kampa Island",
+        "description": "island on Vltava river, Prague, Czech Republic",
+        "deltaM": 359
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "lennon-wall",
+      "name": {
+        "el": "Lennonova zeď",
+        "en": "Lennon Wall"
+      },
+      "pin": {
+        "lat": 50.0862,
+        "lng": 14.4067,
+        "radiusM": 60
+      },
+      "fromCentreM": 607,
+      "wikidata": {
+        "q": "Q107161512",
+        "label": "Lennonova zeď v Praze",
+        "description": "",
+        "deltaM": 7
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "prague-castle",
+      "name": {
+        "el": "Pražský hrad",
+        "en": "Prague Castle"
+      },
+      "pin": {
+        "lat": 50.0905,
+        "lng": 14.4002,
+        "radiusM": 80
+      },
+      "fromCentreM": 1220,
+      "wikidata": {
+        "q": "Q193369",
+        "label": "Prague Castle",
+        "description": "castle complex in Prague, Czech Republic, dating from the 9th century",
+        "deltaM": 57
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "petrin-tower",
+      "name": {
+        "el": "Petřínská rozhledna",
+        "en": "Petřín Tower"
+      },
+      "pin": {
+        "lat": 50.0835,
+        "lng": 14.3951,
+        "radiusM": 80
+      },
+      "fromCentreM": 1430,
+      "wikidata": {
+        "q": "Q12256",
+        "label": "Petřín Lookout Tower",
+        "description": "tower in Prague",
+        "deltaM": 6
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "wenceslas-square",
+      "name": {
+        "el": "Václavské náměstí",
+        "en": "Wenceslas Square"
+      },
+      "pin": {
+        "lat": 50.08,
+        "lng": 14.4289,
+        "radiusM": 40
+      },
+      "fromCentreM": 1137,
+      "wikidata": {
+        "q": "Q65720222",
+        "label": "Wenceslas Square Hotel",
+        "description": "hotel in Prague",
+        "deltaM": 177
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "prague",
+      "countryCode": "CZ",
+      "id": "dancing-house",
+      "name": {
+        "el": "Tančící dům",
+        "en": "Dancing House"
+      },
+      "pin": {
+        "lat": 50.0756,
+        "lng": 14.414,
+        "radiusM": 60
+      },
+      "fromCentreM": 1048,
+      "wikidata": {
+        "q": "Q244816",
+        "label": "Dancing House",
+        "description": "building in Prague, Czech Republic",
+        "deltaM": 13
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "colosseum",
+      "name": {
+        "el": "Colosseo",
+        "en": "Colosseum"
+      },
+      "pin": {
+        "lat": 41.8901,
+        "lng": 12.4908,
+        "radiusM": 80
+      },
+      "fromCentreM": 925,
+      "wikidata": {
+        "q": "Q10285",
+        "label": "Colosseum",
+        "description": "ancient Roman amphitheatre, a landmark of Rome, Italy",
+        "deltaM": 119
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "roman-forum",
+      "name": {
+        "el": "Foro Romano",
+        "en": "Roman Forum"
+      },
+      "pin": {
+        "lat": 41.8932,
+        "lng": 12.4868,
+        "radiusM": 60
+      },
+      "fromCentreM": 452,
+      "wikidata": {
+        "q": "Q180212",
+        "label": "Roman Forum",
+        "description": "Ancient Roman center of the city, a landmark of Rome, Italy",
+        "deltaM": 173
+      },
+      "verdict": "wrong"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "capitoline-hill",
+      "name": {
+        "el": "Piazza del Campidoglio",
+        "en": "Piazza del Campidoglio"
+      },
+      "pin": {
+        "lat": 41.8934,
+        "lng": 12.4829,
+        "radiusM": 40
+      },
+      "fromCentreM": 239,
+      "wikidata": {
+        "q": "Q34921",
+        "label": "Piazza del Campidoglio",
+        "description": "Monumental square at the top of the Capitoline Hill in Rome",
+        "deltaM": 7
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "bocca-della-verita",
+      "name": {
+        "el": "Bocca della Verità",
+        "en": "Bocca della Verità"
+      },
+      "pin": {
+        "lat": 41.8882,
+        "lng": 12.4818,
+        "radiusM": 40
+      },
+      "fromCentreM": 813,
+      "wikidata": {
+        "q": "Q729490",
+        "label": "Bocca della Verità",
+        "description": "ancient mascaron from a basilica in Rome",
+        "deltaM": 19
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "pantheon",
+      "name": {
+        "el": "Pantheon",
+        "en": "Pantheon"
+      },
+      "pin": {
+        "lat": 41.899,
+        "lng": 12.4768,
+        "radiusM": 40
+      },
+      "fromCentreM": 599,
+      "wikidata": {
+        "q": "Q99309",
+        "label": "Pantheon",
+        "description": "ancient Roman temple in Rome, Italy",
+        "deltaM": 45
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "trevi-fountain",
+      "name": {
+        "el": "Fontana di Trevi",
+        "en": "Trevi Fountain"
+      },
+      "pin": {
+        "lat": 41.9008,
+        "lng": 12.4834,
+        "radiusM": 60
+      },
+      "fromCentreM": 596,
+      "wikidata": {
+        "q": "Q185382",
+        "label": "Trevi Fountain",
+        "description": "Baroque fountain in Rome, Italy",
+        "deltaM": 29
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "spanish-steps",
+      "name": {
+        "el": "Piazza di Spagna",
+        "en": "Spanish Steps"
+      },
+      "pin": {
+        "lat": 41.9057,
+        "lng": 12.4822,
+        "radiusM": 60
+      },
+      "fromCentreM": 1134,
+      "wikidata": {
+        "q": "Q15124814",
+        "label": "Piazza di Spagna",
+        "description": "square in Rome, Italy",
+        "deltaM": 30
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "piazza-navona",
+      "name": {
+        "el": "Piazza Navona",
+        "en": "Piazza Navona"
+      },
+      "pin": {
+        "lat": 41.8992,
+        "lng": 12.4731,
+        "radiusM": 40
+      },
+      "fromCentreM": 865,
+      "wikidata": {
+        "q": "Q463400",
+        "label": "Piazza Navona",
+        "description": "public square in Rome, Italy",
+        "deltaM": 55
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "castel-sant-angelo",
+      "name": {
+        "el": "Castel Sant'Angelo",
+        "en": "Castel Sant'Angelo"
+      },
+      "pin": {
+        "lat": 41.9022,
+        "lng": 12.4665,
+        "radiusM": 80
+      },
+      "fromCentreM": 1505,
+      "wikidata": {
+        "q": "Q486382",
+        "label": "Castel Sant'Angelo",
+        "description": "castle and museum in Rome, formerly the imperial mausoleum of the emperor Hadrian and subsequent Roman emperors",
+        "deltaM": 95
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "rome",
+      "countryCode": "IT",
+      "id": "st-peters-square",
+      "name": {
+        "el": "Piazza San Pietro",
+        "en": "St Peter's Square"
+      },
+      "pin": {
+        "lat": 41.9022,
+        "lng": 12.4573,
+        "radiusM": 60
+      },
+      "fromCentreM": 2199,
+      "wikidata": {
+        "q": "Q83425",
+        "label": "Saint Peter's Square",
+        "description": "piazza in Vatican City",
+        "deltaM": 5
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "stephansdom",
+      "name": {
+        "el": "Stephansdom",
+        "en": "Stephansdom"
+      },
+      "pin": {
+        "lat": 48.2083,
+        "lng": 16.3725,
+        "radiusM": 60
+      },
+      "fromCentreM": 188,
+      "wikidata": {
+        "q": "Q5943",
+        "label": "St. Stephen's Cathedral",
+        "description": "church in Vienna, Austria",
+        "deltaM": 58
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "anker-clock",
+      "name": {
+        "el": "Ankeruhr",
+        "en": "Ankeruhr"
+      },
+      "pin": {
+        "lat": 48.2114,
+        "lng": 16.3734,
+        "radiusM": 60
+      },
+      "fromCentreM": 454,
+      "wikidata": {
+        "q": "Q557226",
+        "label": "Ankeruhr",
+        "description": "architectural structure",
+        "deltaM": 70
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "hofburg-michaelerplatz",
+      "name": {
+        "el": "Hofburg",
+        "en": "Hofburg"
+      },
+      "pin": {
+        "lat": 48.2079,
+        "lng": 16.367,
+        "radiusM": 60
+      },
+      "fromCentreM": 223,
+      "wikidata": {
+        "q": "Q45350189",
+        "label": "Old Burgtheater",
+        "description": "former theatre (-1888) in Vienna, Austria, next to the Hofburg castle",
+        "deltaM": 43
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "mozart-statue-burggarten",
+      "name": {
+        "el": "Άγαλμα του Mozart",
+        "en": "Mozart Statue"
+      },
+      "pin": {
+        "lat": 48.2046,
+        "lng": 16.3662,
+        "radiusM": 40
+      },
+      "fromCentreM": 471,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "staatsoper",
+      "name": {
+        "el": "Staatsoper",
+        "en": "Staatsoper"
+      },
+      "pin": {
+        "lat": 48.2033,
+        "lng": 16.3686,
+        "radiusM": 40
+      },
+      "fromCentreM": 533,
+      "wikidata": {
+        "q": "Q209937",
+        "label": "Vienna State Opera house",
+        "description": "opera house in Vienna, Austria",
+        "deltaM": 42
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "karlskirche",
+      "name": {
+        "el": "Karlskirche",
+        "en": "Karlskirche"
+      },
+      "pin": {
+        "lat": 48.1988,
+        "lng": 16.3716,
+        "radiusM": 40
+      },
+      "fromCentreM": 1030,
+      "wikidata": {
+        "q": "Q408847",
+        "label": "Karlskirche",
+        "description": "Baroque church in Vienna, Austria",
+        "deltaM": 61
+      },
+      "verdict": "check"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "rathaus",
+      "name": {
+        "el": "Rathaus",
+        "en": "Rathaus"
+      },
+      "pin": {
+        "lat": 48.2106,
+        "lng": 16.3588,
+        "radiusM": 40
+      },
+      "fromCentreM": 879,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "parliament",
+      "name": {
+        "el": "Parlament",
+        "en": "Parlament"
+      },
+      "pin": {
+        "lat": 48.2082,
+        "lng": 16.36,
+        "radiusM": 40
+      },
+      "fromCentreM": 741,
+      "wikidata": null,
+      "verdict": "unmatched"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "prater-riesenrad",
+      "name": {
+        "el": "Riesenrad",
+        "en": "Riesenrad"
+      },
+      "pin": {
+        "lat": 48.2164,
+        "lng": 16.3956,
+        "radiusM": 60
+      },
+      "fromCentreM": 2114,
+      "wikidata": {
+        "q": "Q697578",
+        "label": "Wiener Riesenrad",
+        "description": "Ferris wheel in Vienna",
+        "deltaM": 53
+      },
+      "verdict": "ok"
+    },
+    {
+      "city": "vienna",
+      "countryCode": "AT",
+      "id": "schonbrunn-gardens",
+      "name": {
+        "el": "Schönbrunn",
+        "en": "Schönbrunn"
+      },
+      "pin": {
+        "lat": 48.1842,
+        "lng": 16.3122,
+        "radiusM": 80
+      },
+      "fromCentreM": 5036,
+      "wikidata": {
+        "q": "Q131330",
+        "label": "Schönbrunn Palace",
+        "description": "palace in Vienna, Austria",
+        "deltaM": 66
+      },
+      "verdict": "check"
+    }
+  ]
+}
