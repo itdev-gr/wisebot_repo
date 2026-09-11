@@ -17,6 +17,7 @@
 | [05-routes.md](05-routes.md) | Διαδρομές δικές μας, αντί για αντιγραφή από τα τουριστικά λεωφορεία |
 | [06-doors-worklist.md](06-doors-worklist.md) | Οι 35 πόρτες που λείπουν, με σειρά προτεραιότητας και επιτρεπόμενες πηγές |
 | [07-quest-engine.md](07-quest-engine.md) | Δέκα είδη αποστολών, έξι renderers, και τι σημαίνει «Mastered» |
+| [08-door-notes.md](08-door-notes.md) | Γιατί μια πρόταση βρίσκει την πόρτα καλύτερα από μια συντεταγμένη |
 
 Δεδομένα: [entrances.json](entrances.json) οι μετρημένες πόρτες,
 [museums.json](museums.json) και [greek-museums.json](greek-museums.json) τα μουσεία,
