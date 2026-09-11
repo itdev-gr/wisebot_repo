@@ -498,5 +498,245 @@
    "osm": "node/5391639447",
    "doors": []
   }
+ ],
+ "thessaloniki": [
+  {
+   "id": "thessaloniki-white-tower",
+   "name": "White Tower",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.62639,
+    22.94833
+   ],
+   "osm": "way/730026417",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-rotunda",
+   "name": "Rotunda",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    40.6333,
+    22.95285
+   ],
+   "osm": "way/14788383",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-arch-of-galerius",
+   "name": "Arch of Galerius",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    40.63224,
+    22.95174
+   ],
+   "osm": "way/135678907",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-agios-dimitrios",
+   "name": "Church of Agios Dimitrios",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.63882,
+    22.94786
+   ],
+   "osm": "way/27406327",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-hagia-sophia",
+   "name": "Hagia Sophia",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.63284,
+    22.94709
+   ],
+   "osm": "way/27715355",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-roman-agora",
+   "name": "Roman Agora",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    40.63777,
+    22.94577
+   ],
+   "osm": "way/14788669",
+   "doors": [
+    {
+     "id": 5455203487,
+     "lat": 40.6369676,
+     "lng": 22.9462382,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 98
+    }
+   ]
+  },
+  {
+   "id": "thessaloniki-archaeological-museum",
+   "name": "Archaeological Museum",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.625,
+    22.95389
+   ],
+   "osm": "relation/13081351",
+   "doors": [
+    {
+     "error": "HTTP Error 429: Too Many Requests"
+    }
+   ]
+  },
+  {
+   "id": "thessaloniki-byzantine-museum",
+   "name": "Museum of Byzantine Culture",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.6239,
+    22.955
+   ],
+   "osm": "relation/13080751",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-cinema-museum",
+   "name": "Cinema Museum",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.6329,
+    22.9355
+   ],
+   "osm": "way/28464187",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-walls",
+   "name": "Byzantine walls",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    40.6425,
+    22.95444
+   ],
+   "osm": "relation/2903111",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-heptapyrgion",
+   "name": "Heptapyrgion",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.64417,
+    22.96194
+   ],
+   "osm": "way/978511541",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-vlatades",
+   "name": "Vlatades Monastery",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.64183,
+    22.95447
+   ],
+   "osm": "way/161675415",
+   "doors": [
+    {
+     "id": 1736406332,
+     "lat": 40.6421349,
+     "lng": 22.9550236,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 58
+    }
+   ]
+  },
+  {
+   "id": "thessaloniki-aristotelous",
+   "name": "Aristotelous Square",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    40.63246,
+    22.94119
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-modiano",
+   "name": "Modiano Market",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.6349,
+    22.9418
+   ],
+   "osm": "relation/17416084",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-noesis",
+   "name": "Science Center and Technology Museum",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    40.5625,
+    22.99528
+   ],
+   "osm": "way/40635488",
+   "doors": [
+    {
+     "id": 4315505475,
+     "lat": 40.5620589,
+     "lng": 22.99515,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 50
+    }
+   ]
+  },
+  {
+   "id": "thessaloniki-ote-tower",
+   "name": "OTE Tower",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    40.62621,
+    22.95449
+   ],
+   "osm": "way/59717047",
+   "doors": []
+  },
+  {
+   "id": "thessaloniki-toumba-stadium",
+   "name": "Toumba Stadium",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    40.61384,
+    22.97242
+   ],
+   "osm": null,
+   "doors": []
+  }
  ]
 }

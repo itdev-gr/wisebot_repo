@@ -46,7 +46,7 @@ def entrances_for(kind, oid):
 
 
 report = {}
-for city in ('athens', 'porto'):
+for city in ('athens', 'porto', 'thessaloniki'):
     path = f'{REPO}/data/world/coords/{city}.json'
     places = json.load(open(path))['places']
     rows = []
