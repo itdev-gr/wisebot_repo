@@ -87,7 +87,7 @@ export const places: Place[] = [
     question: {
       q: { el: 'Γιατί ανεβαίνει κανείς στον λόφο;', en: 'Why would you climb the hill?' },
       answers: [
-        { el: 'Για να δει πώς είναι φτιαγμένη η πόλη', en: 'To see how the town is put together' },
+        { el: 'Για να δει όλη την πόλη', en: 'To see the whole town' },
         { el: 'Για να αγοράσει εισιτήριο', en: 'To buy a ticket' },
         { el: 'Για να περάσει το ποτάμι', en: 'To cross the river' },
         { el: 'Για να δει τα εκθέματα', en: 'To see the exhibits' },
@@ -260,7 +260,7 @@ export const places: Place[] = [
               question: {
                 q: { el: 'Γιατί χρειάζεται δύο ανθρώπους;', en: 'Why does it need two people?' },
                 answers: [
-                  { el: 'Γιατί λυγίζει όταν το σπρώχνεις', en: 'Because it buckles when pushed' },
+                  { el: 'Γιατί λυγίζει', en: 'Because it bends' },
                   { el: 'Γιατί είναι πολύ βαρύ', en: 'Because it is too heavy' },
                   { el: 'Γιατί έχει δύο λεπίδες', en: 'Because it has two blades' },
                   { el: 'Γιατί έτσι ήταν ο νόμος', en: 'Because the law said so' },
@@ -281,7 +281,7 @@ export const places: Place[] = [
               question: {
                 q: { el: 'Γιατί δουλεύει το αλφάδι με νερό;', en: 'Why does a water level work?' },
                 answers: [
-                  { el: 'Το νερό στέκεται στο ίδιο ύψος και στα δύο άκρα', en: 'Water settles at the same height at both ends' },
+                  { el: 'Το νερό ισοσταθμίζεται', en: 'Water levels itself' },
                   { el: 'Το νερό είναι βαρύ', en: 'Water is heavy' },
                   { el: 'Ο σωλήνας είναι ίσιος', en: 'The tube is straight' },
                   { el: 'Το νερό παγώνει ίσια', en: 'Water freezes flat' },
@@ -313,7 +313,7 @@ export const places: Place[] = [
               question: {
                 q: { el: 'Γιατί δεν κούρδισαν ξανά το ρολόι;', en: 'Why was the clock never wound again?' },
                 answers: [
-                  { el: 'Για να θυμίζει τη μέρα που έκλεισε το σχολείο', en: 'To mark the day the school closed' },
+                  { el: 'Για να θυμίζει εκείνη τη μέρα', en: 'To remember that day' },
                   { el: 'Γιατί χάλασε ο μηχανισμός', en: 'Because the mechanism broke' },
                   { el: 'Γιατί χάθηκε το κλειδί', en: 'Because the key was lost' },
                   { el: 'Γιατί κανείς δεν ήξερε πώς', en: 'Because nobody knew how' },
@@ -334,7 +334,7 @@ export const places: Place[] = [
               question: {
                 q: { el: 'Γιατί η γέφυρα είναι με διακεκομμένη γραμμή;', en: 'Why is the bridge drawn with a dotted line?' },
                 answers: [
-                  { el: 'Δεν είχε χτιστεί ακόμα', en: 'It had not been built yet' },
+                  { el: 'Δεν υπήρχε ακόμα', en: 'It was not built yet' },
                   { el: 'Ήταν ξύλινη', en: 'It was wooden' },
                   { el: 'Είχε γκρεμιστεί', en: 'It had collapsed' },
                   { el: 'Ήταν μυστική', en: 'It was a secret' },
@@ -355,7 +355,7 @@ export const places: Place[] = [
               question: {
                 q: { el: 'Ποια είναι η δασκάλα της φωτογραφίας;', en: 'Who is the teacher in the photograph?' },
                 answers: [
-                  { el: 'Αυτή που έσωσε τον κήπο', en: 'The one who saved the garden' },
+                  { el: 'Αυτή που έσωσε τον κήπο', en: 'She saved the garden' },
                   { el: 'Η κόρη του μάστορα', en: 'The mason’s daughter' },
                   { el: 'Η χαρτογράφος του 1890', en: 'The mapmaker of 1890' },
                   { el: 'Δεν αναφέρεται πουθενά', en: 'Nobody knows' },

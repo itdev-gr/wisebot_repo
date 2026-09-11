@@ -1,0 +1,500 @@
+{
+  "lang": "de",
+  "cityId": "rhodes",
+  "places": {
+    "rhodes-palace-grand-master": {
+      "name": "Der Großmeisterpalast",
+      "tagline": "Burg, Gefängnis, Ruine und wieder Palast, in sechs Jahrhunderten",
+      "story": "Ganz oben in der mittelalterlichen Stadt steht eine Burg mit zwei runden Türmen am Tor. Die Johanniterritter bauten sie im 14. Jahrhundert auf eine ältere byzantinische Festung, und sie war der Sitz ihrer Macht. Belagerungen hielt sie aus. Was sie nicht aushielt, war etwas viel Dümmeres: 1856 explodierte Schießpulver, das seit der Zeit der Ritter vergessen in einem Keller lag, und der Palast war fast in einem Augenblick eine Ruine. So blieb er achtzig Jahre lang. Ende der 1930er-Jahre, als der Dodekanes unter italienischer Verwaltung stand, wurde er von Grund auf neu aufgebaut. Für die Fußböden brachte man antike Mosaiken mit Schiffen von der Insel Kos herüber. Deshalb läufst du heute durch eine mittelalterliche Burg und trittst dabei auf römische Fußböden von einer anderen Insel.",
+      "facts": [
+        "Die Johanniterritter bauten ihn im 14. Jahrhundert.",
+        "1856 zerstörte ihn eine Explosion von vergessenem Schießpulver.",
+        "Seine Mosaikböden kamen in den 1930er-Jahren von der Insel Kos."
+      ],
+      "question": {
+        "q": "Was zerstörte den Palast im Jahr 1856?",
+        "answers": [
+          "Schießpulver, das seit der Zeit der Ritter in einem Keller vergessen war",
+          "Eine Belagerung, die Monate dauerte",
+          "Ein Erdbeben, das den Boden aufriss",
+          "Eine Flut, die vom Meer hereinkam"
+        ],
+        "explanation": "Das Schießpulver hatte über dreihundert Jahre dort gelegen. Niemand wusste mehr, dass es überhaupt da war."
+      }
+    },
+    "rhodes-archaeological-museum": {
+      "name": "Das Archäologische Museum von Rhodos",
+      "tagline": "Ein Museum im Krankenhaus der Ritter",
+      "story": "Das Gebäude war ein Krankenhaus, bevor es ein Museum wurde, und das ist keine Kleinigkeit: Die Johanniterritter waren zuerst Krankenpfleger und erst danach Kämpfer. Ihr Orden begann, um Pilger zu pflegen, und überall, wohin sie kamen, bauten sie ein Krankenhaus. Dieses hier entstand im 15. Jahrhundert, und in seinem Obergeschoss liegt ein riesiger Saal mit hohem Holzdach, in dem die Kranken in Reihen von Betten lagen, mit kleinen Fenstern weit oben für die Luft. Es ist eines der ganz wenigen mittelalterlichen Krankenhäuser, die in Europa noch stehen. Seit 1916 beherbergt es das Museum der Insel, mit Marmor, Tongefäßen und Grabsteinen aus den drei antiken Städten von Rhodos. Das Gebäude und sein Inhalt sprechen von zwei verschiedenen Welten, fünfzehnhundert Jahre auseinander.",
+      "facts": [
+        "Das Gebäude entstand im 15. Jahrhundert als Krankenhaus der Ritter.",
+        "Der große Krankensaal ist im Obergeschoss vollständig erhalten.",
+        "Seit 1916 ist es ein Museum."
+      ],
+      "question": {
+        "q": "Was war der Orden der Johanniterritter ursprünglich?",
+        "answers": [
+          "Krankenpfleger, die sich um Pilger kümmerten",
+          "Kaufleute, die mit Schiffen reisten",
+          "Baumeister, die gegen Bezahlung Burgen errichteten",
+          "Kartenzeichner des Mittelmeers"
+        ],
+        "explanation": "Deshalb war das erste große Gebäude, das sie auf Rhodos errichteten, ein Krankenhaus und keine Kaserne."
+      },
+      "museum": {
+        "doorNote": "Geh zuerst hinauf in den großen Saal. Das wichtigste Ausstellungsstück hier ist das Gebäude selbst.",
+        "rooms": {
+          "rhodes-archaeological-museum-hospital": {
+            "name": "Das Krankenhaus",
+            "intro": "Bevor du dir irgendetwas Antikes ansiehst, schau dir die Mauern an. Sie sind fünfhundert Jahre alt und wurden für eine einzige Aufgabe gebaut: Kranke aufzunehmen, die Luft in Bewegung zu halten und niemals einzustürzen. Die Ritter verstanden viel mehr von Medizin, als du denkst, und das Gebäude beweist es."
+          },
+          "rhodes-archaeological-museum-marbles": {
+            "name": "Der Marmorsaal",
+            "intro": "Das antike Rhodos wurde durch den Handel reich und hatte eine eigene Bildhauerschule, die im ganzen Mittelmeer berühmt war. Was du hier siehst, kam aus dem Boden der Insel und aus dem Meer ringsum. Zwei dieser Stücke sind dieselbe Göttin, in zwei völlig verschiedenen Zuständen."
+          }
+        },
+        "exhibits": {
+          "rhodes-archaeological-museum-great-ward": {
+            "name": "Der große Krankensaal",
+            "blurb": "Ein Saal von fast fünfzig Metern Länge, mit hohem Holzdach und einer Reihe von Bögen in der Mitte. Hier lagen die Kranken, jeder in einem eigenen Platz hinter einem Vorhang. Die Fenster sind mit Absicht klein und weit oben: Sie ziehen die warme Luft nach oben und hinaus, damit sie nicht stehen bleibt. Am hinteren Ende steht eine Kapelle, denn für die Ritter waren die Pflege des Körpers und die der Seele eine einzige Arbeit.",
+            "question": {
+              "q": "Warum sind die Fenster des Saals klein und weit oben?",
+              "answers": [
+                "Damit die warme Luft entweicht und die Luft in Bewegung bleibt",
+                "Damit die Kranken nicht hinaussehen konnten",
+                "Damit weniger Staub hereinkommt",
+                "Weil Glas sehr teuer war"
+              ],
+              "explanation": "Warme Luft steigt auf. Ein Fenster weit oben ist ein Schornstein für Luft."
+            }
+          },
+          "rhodes-archaeological-museum-knight-slabs": {
+            "name": "Die Grabplatten der Ritter",
+            "blurb": "Marmorplatten mit eingemeißelten Wappen: Löwen, Kreuze, Vögel, Streifen. Jedes Wappen wirkt wie das Abzeichen einer Familie, und weil die Ritter aus ganz Europa kamen, lesen sich die Platten wie eine Landkarte: französische Namen, spanische, italienische, englische. Der Orden war in Gruppen eingeteilt, je nach der Sprache, die der Einzelne sprach, und jede Gruppe hatte ihr eigenes Haus in der Ritterstraße, ein paar Meter den Hügel hinauf.",
+            "question": {
+              "q": "Wie war der Orden der Ritter eingeteilt?",
+              "answers": [
+                "In Gruppen nach der Sprache, die sie sprachen",
+                "In Gruppen nach ihrer Körpergröße",
+                "In Gruppen nach ihrem Alter",
+                "Er war überhaupt nicht eingeteilt"
+              ],
+              "explanation": "Man nannte sie „Zungen“. Deshalb hat in der Ritterstraße jedes Haus andere Wappen über der Tür."
+            }
+          },
+          "rhodes-archaeological-museum-courtyard": {
+            "name": "Der Innenhof",
+            "blurb": "Ein quadratischer Hof mit Arkaden auf zwei Ebenen, offen zum Himmel. Das ist keine Verzierung: In einem Gebäude ohne Strom ist der Hof seine Lampe und sein Ventilator. Er bringt Licht in die Räume, die nicht zur Straße liegen, und zieht einen Luftstrom durch das ganze Haus. Denselben Grundriss findest du in Häusern, Klöstern und Schulen rund ums Mittelmeer, tausende Jahre davor und danach.",
+            "question": {
+              "q": "Welche Arbeit macht ein Innenhof in einem alten Gebäude?",
+              "answers": [
+                "Er gibt den inneren Räumen Licht und Luft",
+                "Er sammelt Wasser zum Waschen",
+                "Er hält das Gebäude bei Erdbeben aufrecht",
+                "Er dient nur für Umzüge"
+              ],
+              "explanation": "Vor dem Strom war die Form eines Gebäudes seine Technik."
+            }
+          },
+          "rhodes-archaeological-museum-aphrodite": {
+            "name": "Die Aphrodite von Rhodos",
+            "blurb": "Eine kleine Marmorfigur, kniend, die ihr Haar auswringt, nachdem sie aus dem Meer gekommen ist. Sie ist eine der ruhigsten antiken Figuren überhaupt: Sie posiert nicht, sie sieht niemanden an, sie tut einfach etwas ganz Gewöhnliches. Sie wurde um das 1. Jahrhundert v. Chr. gemeißelt. Der Marmor ist im Haar besonders fein gearbeitet, dort, wo man die Strähnen schwer vom Wasser hängen sieht, und das ist in Stein außerordentlich schwer zu schneiden.",
+            "question": {
+              "q": "Was tut diese Figur?",
+              "answers": [
+                "Sie wringt ihr Haar aus, als sie aus dem Meer kommt",
+                "Sie hält ein Kind in den Armen",
+                "Sie läuft mit einer Fackel",
+                "Sie spielt ein Musikinstrument"
+              ],
+              "explanation": "Es ist ein Augenblick ohne jede Bedeutung, und genau deshalb hält er dich immer noch fest."
+            }
+          },
+          "rhodes-archaeological-museum-marine-venus": {
+            "name": "Die Meeres-Aphrodite",
+            "blurb": "Die zweite Aphrodite des Museums wurde auf dem Meeresgrund gefunden, und man sieht es. Ihr Gesicht ist zerfressen, die Einzelheiten sind glatt geworden, und der Marmor sieht aus, als wäre er ein wenig geschmolzen. Das hat das Meer über Jahrhunderte getan: Salz, Sand und kleine Lebewesen, die sich von der Oberfläche ernähren. Viele Menschen finden sie so bewegender, als sie unversehrt wäre. Ein Schriftsteller, der auf Rhodos lebte, benannte ein Buch nach ihr.",
+            "question": {
+              "q": "Warum ist ihr Gesicht abgetragen?",
+              "answers": [
+                "Weil sie Jahrhunderte lang im Meer lag",
+                "Weil sie mit Absicht beschädigt wurde",
+                "Weil der Bildhauer sie nie fertig gemacht hat",
+                "Weil ein Feuer sie verbrannt hat"
+              ],
+              "explanation": "Das Meer schützt Bronze und frisst Marmor. Dasselbe Wasser, zwei völlig gegensätzliche Ergebnisse."
+            }
+          },
+          "rhodes-archaeological-museum-krito-timarista": {
+            "name": "Krito und Timarista",
+            "blurb": "Ein Grabrelief aus dem 5. Jahrhundert v. Chr. mit zwei Frauen: eine Tochter, die ihre Mutter umarmt. Ihre Namen sind darüber eingeritzt. Erstaunlich ist, wie schlicht der Abschied gesagt wird: keine Götter, keine Zeichen, keine Worte. Nur zwei Körper, die sich berühren. Die antiken Grabsteine von Rhodos sind voll von solchen Szenen, und sie haben uns Hunderte Namen von Menschen hinterlassen, von denen wir sonst nie wüssten, dass es sie gab.",
+            "question": {
+              "q": "Was zeigt dieses Grabrelief?",
+              "answers": [
+                "Eine Tochter, die ihre Mutter umarmt",
+                "Zwei Soldaten, die salutieren",
+                "Einen Gott, der eine Seele mitnimmt",
+                "Zwei Kaufleute, die einen Handel abschließen"
+              ],
+              "explanation": "Keine Götter und keine Zeichen. Deshalb versteht man es sofort, zweieinhalbtausend Jahre später."
+            }
+          },
+          "rhodes-archaeological-museum-vases": {
+            "name": "Die Gefäße aus Kamiros",
+            "blurb": "Tongefäße mit Tieren in Bändern: Wildziegen, Löwen, Vögel, Hirsche, eines hinter dem anderen wie ein Festzug. Sie sind rhodisch und wurden im 7. und 6. Jahrhundert v. Chr. gemacht, als die Insel mit Ägypten und dem Osten Handel trieb. Das sieht man an den Bildern: Manche Tiere darauf haben nie auf Rhodos gelebt, und manche haben nirgends gelebt. Die Maler kopierten Bilder, die mit den Schiffen ankamen, und mischten sie mit ihrer eigenen Fantasie.",
+            "question": {
+              "q": "Warum sind darauf Tiere zu sehen, die nie auf Rhodos gelebt haben?",
+              "answers": [
+                "Weil die Maler Bilder kopierten, die mit den Schiffen ankamen",
+                "Weil diese Tiere kurz zuvor ausgestorben waren",
+                "Weil die Gefäße woanders gemacht wurden",
+                "Weil die Form fehlerhaft war"
+              ],
+              "explanation": "Der Handel trug nicht nur Waren. Er trug auch Bilder, und Bilder reisen weiter als Tiere."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-archaeological-museum-riddle-1": {
+            "prompt": "Ich knie und wringe mein Haar aus. Ich bin gerade aus dem Meer gekommen und sehe niemanden an. Ich tue etwas, das du nach dem Baden auch tust.",
+            "hint": "Ich bin klein, und mein Marmor ist unversehrt."
+          },
+          "rhodes-archaeological-museum-riddle-2": {
+            "prompt": "Auch ich kam aus dem Meer, aber es hat mich Jahrhunderte lang behalten. Mein Gesicht ist glatt geworden, und ich sehe aus, als wäre ich geschmolzen. Viele finden mich so schöner.",
+            "hint": "Ich knie nicht."
+          },
+          "rhodes-archaeological-museum-riddle-3": {
+            "prompt": "Ich bin eine Mauer und kein Gegenstand, und ich bin fast fünfzig Meter lang. Vor fünfhundert Jahren lagen hier Menschen, die gepflegt wurden, jeder hinter einem eigenen Vorhang.",
+            "hint": "Meine Fenster sind klein und sehr weit oben."
+          }
+        }
+      }
+    },
+    "rhodes-aquarium": {
+      "name": "Das Aquarium von Rhodos",
+      "tagline": "Eine erfundene Meereshöhle an der Nordspitze der Insel",
+      "story": "An der Nordspitze von Rhodos, dort wo die Insel aufhört und die Meere ringsum sich treffen, steht ein weißes Gebäude mit strengen geraden Linien, errichtet in den 1930er-Jahren. Es wurde nicht für Urlauber gebaut: Es war ein Forschungsinstitut für die Erforschung des Meeres, und eine Forschungsstation ist es bis heute. Im Keller aber machten sie etwas Klügeres als schlichte Schaukästen. Sie schlugen einen Gang in den Fels und formten ihn so, dass er wie eine Meereshöhle aussieht, mit Felsen, niedriger Decke und Becken, die in die Wände hinein geöffnet sind. Du läufst also, als wärst du unter Wasser, mit Fischen links und rechts von dir. Oben liegt das Museum, mit haltbar gemachten Tieren des Mittelmeers, denen niemand jemals lebend begegnen würde.",
+      "facts": [
+        "Es wurde in den 1930er-Jahren als Forschungsinstitut gebaut, nicht als Sehenswürdigkeit.",
+        "Sein Keller ist wie eine Meereshöhle geformt.",
+        "Es arbeitet bis heute als Forschungsstation für Meeresbiologie."
+      ],
+      "question": {
+        "q": "Wofür wurde dieses Gebäude ursprünglich gebaut?",
+        "answers": [
+          "Für die wissenschaftliche Erforschung des Meeres",
+          "Um Besucher zu empfangen, die mit Schiffen ankommen",
+          "Als Leuchtturm für die Schifffahrt",
+          "Als Wohnhaus des Gouverneurs"
+        ],
+        "explanation": "Das Aquarium kam danach, als Weg für die Forschung, zu zeigen, was sie untersucht. Die Station arbeitet immer noch."
+      },
+      "museum": {
+        "doorNote": "Geh zuerst nach unten. Die Höhle liegt unten, und dort sind die lebenden Tiere.",
+        "rooms": {
+          "rhodes-aquarium-cave": {
+            "name": "Die Höhle",
+            "intro": "Der Gang unter dem Gebäude ist keine echte Höhle, aber er ist gebaut, um dich zu überzeugen. Die Wände sind rau, die Decke niedrig, das Licht schwach und blau. Der Entwurf hat einen Zweck: Du sollst nicht das Gefühl haben, in einen Kasten voll Wasser zu schauen, sondern selbst der Besucher in ihrem Raum zu sein."
+          },
+          "rhodes-aquarium-museum-floor": {
+            "name": "Das Stockwerk darüber",
+            "intro": "Hier ist nichts lebendig, und genau darum geht es. Das Museum bewahrt Tiere auf, die angespült oder aus Versehen in Netzen gefangen wurden, damit Forscher, und du, Lebewesen aus der Nähe ansehen können, denen sonst niemand jemals lebend begegnet. Jedes einzelne ist hier, weil draußen auf dem Meer etwas schiefgegangen ist."
+          }
+        },
+        "exhibits": {
+          "rhodes-aquarium-tunnel": {
+            "name": "Der ausgehauene Gang",
+            "blurb": "Der Gang wurde in den 1930er-Jahren in den Fels unter dem Gebäude geschlagen und so geformt, dass er wie eine Höhle aussieht. Die Becken stehen nicht auf Tischen: Sie sind in die Wände hinein geöffnet, wie Fenster. Das Salzwasser wird nicht im Labor angerührt, es wird aus dem Meer nebenan hereingepumpt und fließt dorthin zurück. Es ist ein Gebäude, das im selben Takt lebt wie das Wasser um es herum.",
+            "question": {
+              "q": "Woher kommt das Wasser in den Becken?",
+              "answers": [
+                "Es wird aus dem Meer nebenan gepumpt und fließt dorthin zurück",
+                "Es wird im Labor aus Salz und Leitungswasser angerührt",
+                "Es wird mit Tankwagen von einer anderen Insel gebracht",
+                "Es wird aus Regen gesammelt"
+              ],
+              "explanation": "Genau deshalb wurde es an der Spitze der Insel gebaut und nicht mitten in der Stadt."
+            }
+          },
+          "rhodes-aquarium-octopus": {
+            "name": "Der Krake",
+            "blurb": "Schau dir den Felsen in seinem Becken genau an: Sehr oft wirst du gar nichts sehen, denn ein Krake kann die Farbe und die Beschaffenheit seiner Haut in weniger als einer Sekunde ändern und zu Stein werden. Er hat neun Gehirne, eines in der Mitte und eines in jedem Arm, deshalb lösen seine Arme Aufgaben fast von allein. Sein Blut ist blau, weil es den Sauerstoff mit Kupfer statt mit Eisen trägt. Er ist das außerirdischste Lebewesen, dem du begegnen kannst, ohne das Mittelmeer zu verlassen.",
+            "question": {
+              "q": "Warum ist das Blut eines Kraken blau?",
+              "answers": [
+                "Weil es den Sauerstoff mit Kupfer statt mit Eisen trägt",
+                "Weil er in tiefem blauem Wasser lebt",
+                "Weil er blaue Algen frisst",
+                "Weil es die Farbe seiner Haut spiegelt"
+              ],
+              "explanation": "Unser Blut ist aus demselben Grund rot, nur umgekehrt: Es trägt den Sauerstoff mit Eisen."
+            }
+          },
+          "rhodes-aquarium-mediterranean-fish": {
+            "name": "Die Fische aus dem Meer nebenan",
+            "blurb": "Braune Zackenbarsche, Geißbrassen, Skorpionfische, Muränen, Weiße Zackenbarsche: Fische, die direkt vor dem Gebäude schwimmen. Viele von ihnen hast du auf einem Teller gesehen und nie lebendig, und das ist etwas völlig anderes. Der Skorpionfisch zum Beispiel schwimmt fast gar nicht: Er sitzt reglos auf dem Grund, sieht aus wie ein Stein voller Algen, und wartet. Die Becken zeigen außerdem etwas, das man sonst nirgends sieht: in welcher Tiefe und auf welchem Meeresboden jeder Einzelne lebt.",
+            "question": {
+              "q": "Wie jagt der Skorpionfisch?",
+              "answers": [
+                "Er sitzt reglos da, sieht aus wie ein Stein und wartet",
+                "Er jagt in Schwärmen",
+                "Er schwimmt sehr schnell geradeaus",
+                "Er gräbt mit seinem Schwanz im Meeresboden"
+              ],
+              "explanation": "Tarnung ist billiger als Geschwindigkeit. Sie kostet nur Geduld."
+            }
+          },
+          "rhodes-aquarium-whale-bones": {
+            "name": "Die Walknochen",
+            "blurb": "Im Mittelmeer leben Wale, was fast alle überrascht. Wenn einer an einen Strand gespült wird, versuchen Forscher herauszufinden, warum er gestorben ist, und danach wird das Skelett gesäubert und aufbewahrt. Wenn du daneben stehst, begreifst du die Größe auf eine Weise, die dir kein Foto gibt. Schau auf die Knochen nahe am Schwanz, dort wo das Tier einmal Beine hatte: Wale stammen von Tieren ab, die an Land gelaufen sind.",
+            "question": {
+              "q": "Was sagen uns die kleinen Knochen nahe am Schwanz eines Wals?",
+              "answers": [
+                "Dass seine Vorfahren an Land gelaufen sind",
+                "Dass er einmal einen zweiten Schwanz hatte",
+                "Dass er verletzt war",
+                "Dass er sehr jung war"
+              ],
+              "explanation": "Es sind die Reste von Beinen. Die Evolution löscht nichts; sie hört nur auf zu benutzen."
+            }
+          },
+          "rhodes-aquarium-turtles": {
+            "name": "Die Meeresschildkröten",
+            "blurb": "Die Unechte Karettschildkröte legt ihre Eier an griechischen Stränden und lebt jahrzehntelang. Die Schildkröten, die hier aufbewahrt werden, wurden tot gefunden, und die meisten aus Gründen, die wir gemacht haben: Plastiktüten, die sie für Quallen hielten, Angelhaken, Netze, Schiffsschrauben. Es ist ein schweres Ausstellungsstück, und genau das macht es nützlich. Eine Schildkröte braucht etwa fünfundzwanzig Jahre, bis sie alt genug ist, um Eier zu legen, deshalb kostet jede, die früh verloren geht, die ganze Gruppe viel mehr als ein einziges Leben.",
+            "question": {
+              "q": "Warum verwechseln Schildkröten Plastiktüten?",
+              "answers": [
+                "Weil sie wie Quallen aussehen, die sie fressen",
+                "Weil sie sie für einen Unterschlupf halten",
+                "Weil sie nach Algen riechen",
+                "Weil sie im Wasser Lärm machen"
+              ],
+              "explanation": "Eine Tüte im Wasser bewegt sich wie eine Qualle. Die Schildkröte macht keinen Fehler; wir haben ihn gemacht."
+            }
+          },
+          "rhodes-aquarium-monk-seal": {
+            "name": "Die Mittelmeer-Mönchsrobbe",
+            "blurb": "Die Mittelmeer-Mönchsrobbe ist eines der seltensten Meeressäugetiere der Welt, und Griechenland beherbergt den größten Teil dessen, was von ihr übrig ist. Sie lebt in Meereshöhlen mit versteckten Eingängen unter der Wasseroberfläche, dort bekommt sie ihre Jungen, und deshalb sieht sie fast niemand. Das Ausstellungsstück gibt es, weil ein Tier tot gefunden wurde, nicht weil eines gefangen wurde. Wenn du einmal eine im Meer siehst, ist es richtig, Abstand zu halten und ihr nicht in ihre Höhle zu folgen.",
+            "question": {
+              "q": "Wo bekommt die Mittelmeer-Mönchsrobbe ihre Jungen?",
+              "answers": [
+                "In Meereshöhlen mit Eingängen unter der Wasseroberfläche",
+                "An offenen Sandstränden, an denen Menschen sind",
+                "Auf Felsen mitten im offenen Meer",
+                "In Flüssen in der Nähe ihrer Mündung"
+              ],
+              "explanation": "Sie versteckt sich, weil sie jahrhundertelang gejagt wurde. Ihr Versteck ist der Grund, warum es sie noch gibt."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-aquarium-riddle-1": {
+            "prompt": "Ich habe acht Arme und neun Gehirne, und mein Blut ist nicht rot. Wenn du mich nicht findest, schau noch einmal auf den Felsen: Gut möglich, dass der Felsen ich bin.",
+            "hint": "Ich wechsle meine Farbe in weniger als einer Sekunde."
+          },
+          "rhodes-aquarium-riddle-2": {
+            "prompt": "Ich bin Knochen und sonst nichts, und ich bin riesig. Nahe an meinem Schwanz stecken kleine Knochen, die ich nicht mehr brauche: Sie gehörten zu den Beinen meiner Vorfahren.",
+            "hint": "Ich lebte im Mittelmeer, auch wenn es fast niemand glaubt."
+          }
+        }
+      }
+    },
+    "rhodes-art-gallery": {
+      "name": "Die Städtische Kunstgalerie von Rhodos",
+      "tagline": "Griechische Malerei des 20. Jahrhunderts, auf einer Insel",
+      "story": "Große Kunstsammlungen entstehen meistens in Hauptstädten. Rhodos machte etwas Ungewöhnliches: Ab den 1960er-Jahren begann die Stadt, Werke griechischer Maler ihrer eigenen Zeit zu kaufen, stetig, Jahr für Jahr. Herausgekommen ist eine der wichtigsten Sammlungen griechischer Malerei des 20. Jahrhunderts außerhalb Athens, untergebracht in Gebäuden der Altstadt. Du findest Landschaften, Porträts, Meere, abstrakte Werke, Druckgrafik. Für ein Kind sind nicht die Namen das Spannende, sondern die Reihenfolge: Du läufst durch ein Jahrhundert und siehst die Malerei sich verändern, von Bildern, die aussehen wollen wie eine Fotografie, zu Bildern, die wie gar nichts aussehen wollen. Keine der beiden Arten ist richtiger als die andere, und kein Maler wachte eines Morgens auf und beschloss, das Jahrhundert zu wechseln.",
+      "facts": [
+        "Die Sammlung wuchs ab den 1960er-Jahren nach und nach.",
+        "Sie ist eine der wichtigsten Sammlungen griechischer Malerei außerhalb Athens.",
+        "Sie ist in Gebäuden mitten in der mittelalterlichen Stadt untergebracht."
+      ],
+      "question": {
+        "q": "Was verändert sich, wenn du hier von Saal zu Saal gehst?",
+        "answers": [
+          "Die Art, wie Menschen malen, im Lauf eines Jahrhunderts",
+          "Die Größe der Bilder, von klein zu groß",
+          "Das Land, aus dem die Werke kommen",
+          "Das Material, von Ölfarbe zu Marmor"
+        ],
+        "explanation": "Eine Sammlung, die jedes Jahr etwas kauft, zeichnet die Zeit auf, ohne es zu versuchen."
+      }
+    },
+    "rhodes-acropolis": {
+      "name": "Die Akropolis von Rhodos",
+      "tagline": "Die antike Stadt, die entworfen wurde, bevor sie gebaut wurde",
+      "story": "Auf dem Hügel über der heutigen Stadt stehen der Tempel des Apollon, ein kleines Odeon aus Marmor und ein Stadion von etwa zweihundert Metern. Das Wichtigste hier ist aber kein Gebäude: Es ist der Plan. Das antike Rhodos wurde 408 v. Chr. gegründet, durch den Zusammenschluss von drei älteren Städten, und es wuchs nicht zufällig, wie die meisten Städte wachsen. Es wurde zuerst entworfen, mit Straßen, die sich im rechten Winkel kreuzen, so wie es Hippodamos von Milet lehrte. Antike Schriftsteller beschrieben es als die schönste Stadt, die sie je gesehen hatten, und das Erstaunliche ist: Dieser Plan ist immer noch da. Etliche Straßen im heutigen Rhodos folgen denselben Linien, zweieinhalbtausend Jahre später. Der Hügel heißt heute Monte Smith, nach einem englischen Admiral, der von dort im 19. Jahrhundert das Meer beobachtete.",
+      "facts": [
+        "Die antike Stadt wurde 408 v. Chr. durch den Zusammenschluss von drei Städten gegründet.",
+        "Sie wurde mit Straßen im rechten Winkel geplant, bevor sie gebaut wurde.",
+        "Ihr Stadion ist etwa 200 Meter lang."
+      ],
+      "question": {
+        "q": "Was hatte das antike Rhodos, was die meisten Städte nicht hatten?",
+        "answers": [
+          "Einen Plan mit geraden Straßen, gezeichnet, bevor gebaut wurde",
+          "Mauern aus massivem Marmor",
+          "Straßen nur für Fußgänger",
+          "Überhaupt keinen Hafen"
+        ],
+        "explanation": "Die meisten antiken Städte wuchsen um Fußwege herum. Diese hier begann auf dem Papier."
+      }
+    },
+    "rhodes-diagoras-stadium": {
+      "name": "Das Diagoras-Stadion",
+      "tagline": "Benannt nach einem Faustkämpfer, den seine Söhne auf den Schultern trugen",
+      "story": "Der Fußballplatz der Stadt ist nach einem wirklichen Menschen benannt. Diagoras von Rhodos war Faustkämpfer und siegte 464 v. Chr. in Olympia. In Erinnerung geblieben ist er aber nicht wegen seines eigenen Sieges. Er ist geblieben, weil auch seine Kinder siegten. Bei einem Fest in Olympia wurden zwei seiner Söhne am selben Tag bekränzt, und sobald ihre Wettkämpfe vorbei waren, hoben sie ihn auf ihre Schultern und trugen ihn durch das Stadion, während die Menge Blumen warf. Jemand auf den Rängen rief, dass ihm jetzt nichts mehr zu wünschen übrig bleibe. Diagoras starb noch am selben Tag, dort, in den Armen seiner Söhne, und die Geschichte reiste jahrhundertelang weiter als Beispiel für den glücklichsten Augenblick, den ein Mensch haben kann.",
+      "facts": [
+        "Diagoras von Rhodos gewann 464 v. Chr. in Olympia den Faustkampf.",
+        "Zwei seiner Söhne wurden am selben Tag in Olympia bekränzt.",
+        "Das Stadion der Stadt trägt bis heute seinen Namen."
+      ],
+      "question": {
+        "q": "Warum ist Diagoras in Erinnerung geblieben?",
+        "answers": [
+          "Weil auch seine Kinder siegten und ihn auf den Schultern trugen",
+          "Weil er in vier verschiedenen Sportarten siegte",
+          "Weil er das Stadion von Olympia selbst gebaut hat",
+          "Weil er der allererste Olympiasieger war"
+        ],
+        "explanation": "Sein eigener Sieg wurde vergessen. Das Bild eines Vaters auf den Schultern seiner Söhne nie."
+      }
+    },
+    "rhodes-kallithea": {
+      "name": "Die Thermen von Kallithea",
+      "tagline": "Bäder mit Kuppeln und Kieseln, gebaut für ein einziges Wasser",
+      "story": "In einer kleinen Bucht südlich der Stadt gibt es eine Quelle, die schon in der Antike bekannt war, weil die Menschen glaubten, ihr Wasser helfe dem Magen. 1929, als der Dodekanes unter italienischer Verwaltung stand, entwarf ein junger Architekt rings um die Quelle eine ganze Badeanlage: Kuppeln, halbrunde Säulengänge, Treppen, die zum Meer hinunterführen. Die Böden sind mit schwarzen und weißen Kieseln ausgelegt, an den Stränden zusammengesucht und einer nach dem anderen zu Mustern gesetzt. Die Bäder schlossen in den 1960er-Jahren und standen über vierzig Jahre leer, mit Unkraut, das durch die Gebäude wuchs. Sie wurden wiederhergestellt und 2007 neu eröffnet. Heute trinkt niemand mehr das Wasser, aber alle schwimmen in der Bucht, und die Kieselböden werden jeden Sommer wieder betreten.",
+      "facts": [
+        "Die Anlage entstand um 1929, rund um eine schon in der Antike bekannte Quelle.",
+        "Ihre Böden sind mit Strandkieseln ausgelegt, einer nach dem anderen, zu Mustern.",
+        "Sie stand über vierzig Jahre leer und wurde 2007 wieder eröffnet."
+      ],
+      "question": {
+        "q": "Warum wurden genau an dieser Stelle Bäder gebaut?",
+        "answers": [
+          "Weil dort eine Quelle entspringt, die man für heilsam hielt",
+          "Weil es die einzige Stelle mit Sand war",
+          "Weil sie nah am Hafen lag",
+          "Weil dort schon ein antiker Tempel stand"
+        ],
+        "explanation": "Ein ganzes Gebäude wurde um ein einziges Wasser herum errichtet. Als die Menschen aufhörten, es zu trinken, blieb das Gebäude ohne Aufgabe zurück."
+      }
+    },
+    "rhodes-filerimos": {
+      "name": "Filerimos",
+      "tagline": "Ein Hügel mit einer antiken Stadt, einem Kloster und Pfauen",
+      "story": "Filerimos ist ein Hügel von etwa zweihundertsiebzig Metern mit Blick über die ganze Nordwestküste. Oben lag Ialysos, eine der drei antiken Städte der Insel, die sich zusammenschlossen, um Rhodos zu gründen. Erhalten sind die Fundamente eines Tempels der Athene und ein dorisches Brunnenhaus, in den Fels gehauen. Daneben steht ein Kloster, von den Rittern gebaut und von den Italienern neu aufgebaut, und von dort führt ein Weg zwischen Zypressen zu einem riesigen Kreuz. Das Kreuz ist nicht nur zum Anschauen da: Es hat innen eine Treppe, und du steigst bis in seine waagerechten Arme hinauf. Und überall auf dem Hügel laufen Pfauen herum, die überhaupt keine Angst vor dir haben und ihre Schwänze aufschlagen, wann immer ihnen danach ist. Wenige Orte versammeln auf so kleinem Raum antike Ruinen, ein mittelalterliches Kloster und eine Parade von Vögeln.",
+      "facts": [
+        "Auf diesem Hügel lag Ialysos, eine der drei antiken Städte von Rhodos.",
+        "Das Kreuz auf der Kuppe hat innen eine Treppe, und du kannst in seine Arme steigen.",
+        "Auf dem Hügel leben Pfauen, die frei herumlaufen."
+      ],
+      "question": {
+        "q": "Was ist im Inneren des Kreuzes auf der Hügelkuppe?",
+        "answers": [
+          "Eine Treppe, die dich in seine Arme hinaufbringt",
+          "Eine kleine Kirche voller Ikonen",
+          "Eine Glocke, die jeden Mittag läutet",
+          "Ein Wassertank für das Kloster"
+        ],
+        "explanation": "Von seinen Armen aus siehst du gleichzeitig das Meer und die Fundamente der antiken Stadt."
+      }
+    },
+    "rhodes-lindos": {
+      "name": "Die Akropolis von Lindos",
+      "tagline": "Ein Tempel auf einem Felsen und ein Kriegsschiff in der Treppe",
+      "story": "Fünfzig Kilometer südlich der Stadt erhebt sich ein Felsen von hundertsechzehn Metern über weiße Häuser und zwei Buchten. Auf seiner Kuppe stand der Tempel der Athena Lindia und ringsum eine Halle mit zweiundvierzig Säulen, so gebaut, dass man sie vom Meer aus sehen konnte. Die Ritter legten später eine Burg um den ganzen Felsen, du steigst also durch mittelalterliche Mauern hinauf, um zu einem antiken Tempel zu kommen. Am Fuß der großen Treppe liegt das schönste Stück: ein Kriegsschiff, direkt in den Felsen gehauen, der Bug in Lebensgröße, und die Stufen selbst laufen daran entlang. Darauf stand einmal eine Statue. Es ist zweitausend Jahre alte Werbung: Lindos lebte von Schiffen und sagte das im Stein, im ersten Ding, das jeder sah, der hinaufstieg.",
+      "facts": [
+        "Der Felsen ragt 116 Meter über das Meer.",
+        "Am Fuß der Treppe ist ein Kriegsschiff in den Felsen gehauen.",
+        "Über dem antiken Tempel bauten die Ritter später eine Burg."
+      ],
+      "question": {
+        "q": "Was ist am Fuß der Treppe in den Felsen gehauen?",
+        "answers": [
+          "Ein Kriegsschiff, sein Bug in Lebensgröße",
+          "Ein Pferd mit einem Reiter",
+          "Die Karte der Insel",
+          "Die Namen der Priester"
+        ],
+        "explanation": "Es war ein Sockel für eine Statue und zugleich eine Ansage: Diese Stadt lebte vom Meer."
+      }
+    },
+    "rhodes-kameiros": {
+      "name": "Das antike Kamiros",
+      "tagline": "Eine ganze antike Stadt ganz ohne Mauern",
+      "story": "Kamiros war die dritte der antiken Städte von Rhodos, zusammen mit Lindos und Ialysos. Sie wurde im 19. Jahrhundert ausgegraben und kam fast vollständig heraus, ausgebreitet auf drei Ebenen am Hang: oben die Heiligtümer, in der Mitte die Straßen mit den Häusern, unten der Marktplatz. Du gehst über richtige Straßen und siehst Türschwellen, Höfe, Abflüsse. Das Beeindruckendste liegt am höchsten Punkt: ein riesiges, in den Fels gehauenes Wasserbecken, das Wasser für Hunderte Familien fasste und es über Tonrohre in die ganze Stadt verteilte. Und etwas fehlt: Mauern. Kamiros hatte keine. Es war eine Stadt von Bauern, weit weg vom Hafen, und offenbar hielt niemand die Gefahr für groß genug, um Stein für eine Mauer auszugeben.",
+      "facts": [
+        "Sie ist auf drei Ebenen ausgebreitet: Heiligtümer, Häuser, Marktplatz.",
+        "Ein in den Fels gehauenes Wasserbecken oben versorgte die ganze Stadt.",
+        "Sie hatte überhaupt keine Mauern."
+      ],
+      "question": {
+        "q": "Was hatte Kamiros nicht, anders als fast jede antike Stadt?",
+        "answers": [
+          "Mauern",
+          "Wasser",
+          "Einen Marktplatz",
+          "Straßen"
+        ],
+        "explanation": "Eine Mauer ist unglaublich teuer. Eine Stadt baut sie nur, wenn sie Angst hat, und Kamiros hatte offenbar keine."
+      }
+    },
+    "rhodes-monolithos": {
+      "name": "Die Burg Monolithos",
+      "tagline": "Eine Burg auf einem einzigen Felsen, mit einem einzigen Weg",
+      "story": "Am Südwestrand der Insel steigt ein Felsen steil zweihundertsechsunddreißig Meter über das Meer auf, und ringsum ist nichts. Der Name des Dorfes darunter sagt es genau: Monolithos, ein Stein. Im 15. Jahrhundert bauten die Ritter oben eine Burg, und ihr Entwurf war fast faul, im guten Sinn: Sie mussten kaum eine Mauer bauen, denn der Felsen ist von allen Seiten schon senkrecht. Es gibt einen Weg hinauf, und nur einen. In der Burg sind heute keine Kasernen und keine Säle erhalten, nur eine kleine weiß gekalkte Kapelle. Der Blick von oben reicht bis zur nächsten Landzunge, und du verstehst sofort, was die Wachen sehen konnten und warum sie diesen einsamen Stein gewählt haben. Eine Burg hier brauchte kein Heer. Sie brauchte zwei Menschen mit guten Augen.",
+      "facts": [
+        "Der Felsen ragt 236 Meter über das Meer.",
+        "Die Ritter bauten die Burg im 15. Jahrhundert.",
+        "Es gibt nur einen einzigen Weg hinauf zur Kuppe."
+      ],
+      "question": {
+        "q": "Warum brauchte diese Burg so wenig Mauer?",
+        "answers": [
+          "Weil der Felsen von allen Seiten schon senkrecht ist",
+          "Weil sie in großer Eile gebaut wurde",
+          "Weil es in der Gegend keinen Stein gab",
+          "Weil ein Wald sie schützte"
+        ],
+        "explanation": "Der beste Baumeister einer Burg ist der Boden. Die Ritter haben ihn einfach richtig ausgewählt."
+      }
+    },
+    "rhodes-tsambika": {
+      "name": "Das Kloster Tsambika",
+      "tagline": "Dreihundert Stufen für eine winzige Kirche und eine Aussicht",
+      "story": "Zwischen der Stadt und Lindos springt ein Felsen über die Ostküste hinaus. Auf seiner Kuppe steht eine winzige Kirche, und um dorthin zu kommen, steigst du etwa dreihundert Stufen hinauf, ohne Schatten und ohne kürzeren Weg. Es ist die einfachste Übung der Insel und die gerechteste: Dem Felsen ist es egal, wer hinaufsteigt. Das Kloster ist seit Jahrhunderten ein Wallfahrtsort, und jeden September steigt eine Menschenmenge hinauf. Die meisten aber steigen aus demselben Grund hinauf wie du: Von oben siehst du die ganze Bucht von Tsambika, mit dem Sand als vollkommenem Halbmond und dem Wasser, das je nach Tiefe drei verschiedene Blautöne annimmt. Es ist einer der wenigen Orte, an denen deine Augen wirklich lesen können, wie tief das Meer ist.",
+      "facts": [
+        "Du steigst etwa 300 Stufen hinauf, um die Kuppe zu erreichen.",
+        "Die kleine Kirche oben ist seit Jahrhunderten ein Wallfahrtsort.",
+        "Von oben zeigt die Farbe des Wassers, wie tief das Meer ist."
+      ],
+      "question": {
+        "q": "Was sagt dir die Farbe des Wassers, wenn du von oben schaust?",
+        "answers": [
+          "Wie tief das Meer an jeder Stelle ist",
+          "Wie kalt das Wasser ist",
+          "Wo die Fische sind",
+          "Wie salzig das Wasser ist"
+        ],
+        "explanation": "Im Flachen erreicht das Licht den Grund und kommt hell zurück. Im Tiefen geht es verloren, und das Blau wird dunkel."
+      }
+    }
+  },
+  "trails": {
+    "rhodes-knights-day": {
+      "name": "Der Tag der Ritter",
+      "promise": "Ein Palast, ein Krankenhaus und zwei Burgen, alle von denselben Menschen."
+    },
+    "rhodes-three-ancient-cities": {
+      "name": "Die drei antiken Städte",
+      "promise": "Lindos, Kamiros, Ialysos und die Stadt, die sie schufen, indem sie ihre Kräfte vereinten."
+    },
+    "rhodes-sea-and-steps": {
+      "name": "Meer und Stufen",
+      "promise": "Eine erfundene Höhle mit lebenden Fischen, eine Quelle mit Kuppeln und dreihundert Stufen."
+    },
+    "rhodes-town-today": {
+      "name": "Die Stadt heute",
+      "promise": "Ein Jahrhundert griechischer Malerei und ein Fußballplatz mit einem antiken Namen."
+    }
+  }
+}

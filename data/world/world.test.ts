@@ -225,6 +225,73 @@ describe('world content', async () => {
         }
       });
 
+      it('the longest answer is not the right answer', () => {
+        /**
+         * A child who always taps the longest option, without reading the question,
+         * should do no better than a child who guesses. Measured across the first four
+         * cities, they scored 75% against a 25% chance baseline — and it was getting
+         * worse, not better: 65% in Athens, the first city written, and 90% in Rhodes,
+         * the fourth.
+         *
+         * The cause is structural rather than careless. A correct answer has to be both
+         * true and understandable, so it carries its own reason: "Because it was easy to
+         * defend and had a spring of its own." The three wrong ones have nothing to
+         * explain and stay short. The right answer is visible before it is read.
+         *
+         * The fix is already in the schema. `explanation` shows after answering, and the
+         * reason belongs there — shorten the answer, keep the knowledge. Nothing is lost
+         * except the giveaway.
+         *
+         * Forty per cent leaves room for the questions where the true answer is honestly
+         * the longest; it does not leave room for a habit.
+         */
+        const LIMIT = 0.4;
+        /**
+         * Answers within this many characters of the longest count as the same length.
+         * The strategy being measured is a child's eye, not a ruler: nobody scanning
+         * four options sees that one is three characters longer than another. Counting
+         * a one-character lead as exploitable would demand answers of near-identical
+         * width, which is a different and much sillier rule than the one we want.
+         */
+        const SAME = 4;
+
+        const questions = [
+          ...places.map((p) => ({ id: p.id, q: p.question })),
+          ...places.flatMap((p) =>
+            (p.museum?.rooms ?? []).flatMap((room) =>
+              room.exhibits.map((e) => ({ id: e.id, q: e.question })),
+            ),
+          ),
+        ];
+        if (!questions.length) return;
+
+        for (const lang of ['el', 'en'] as const) {
+          let score = 0;
+          const worst: string[] = [];
+
+          for (const { id, q } of questions) {
+            const lengths = q.answers.map((a) => (a[lang] ?? '').length);
+            const longest = Math.max(...lengths);
+            // A tie is a guess among the tied options, which is the honest way to score
+            // the strategy rather than counting a four-way tie as a win.
+            const tied = lengths.filter((l) => l >= longest - SAME).length;
+            if (lengths[0] >= longest - SAME) {
+              score += 1 / tied;
+              const lead = longest - Math.max(...lengths.slice(1));
+              if (tied === 1) worst.push(`${id} (+${lead})`);
+            }
+          }
+
+          const rate = score / questions.length;
+          expect(
+            Math.round(rate * 100),
+            `${label}/${lang}: tapping the longest answer scores ${Math.round(rate * 100)}% ` +
+              `of ${questions.length} questions. Shorten the right answer and move its ` +
+              `reason into the explanation. Worst: ${worst.slice(0, 6).join(', ')}`,
+          ).toBeLessThanOrEqual(LIMIT * 100);
+        }
+      });
+
       it('every coordinate is real, sourced and inside the world', () => {
         for (const place of places) {
           const loc = place.location;

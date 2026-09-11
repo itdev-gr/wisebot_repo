@@ -1,0 +1,500 @@
+{
+  "lang": "fr",
+  "cityId": "rhodes",
+  "places": {
+    "rhodes-palace-grand-master": {
+      "name": "Le palais des Grands Maîtres",
+      "tagline": "Château, prison, ruine, puis palais à nouveau, en six siècles",
+      "story": "Tout en haut de la ville médiévale se dresse un château avec deux tours rondes à son entrée. Les chevaliers de Saint-Jean l’ont bâti au XIVe siècle, par-dessus une forteresse byzantine plus ancienne, et c’était le centre de leur pouvoir. Il a résisté à des sièges. Ce à quoi il n’a pas résisté est bien plus bête : en 1856, de la poudre à canon oubliée dans une cave depuis l’époque des chevaliers a explosé, et le palais est devenu une ruine en un instant, ou presque. Il est resté ainsi pendant quatre-vingts ans. À la fin des années 1930, quand le Dodécanèse était sous administration italienne, on l’a rebâti depuis le sol. Pour poser les planchers, on a fait venir par bateau des mosaïques antiques de l’île de Kos. Alors aujourd’hui, tu traverses un château médiéval en marchant sur des sols romains venus d’ailleurs.",
+      "facts": [
+        "Il a été bâti au XIVe siècle par les chevaliers de Saint-Jean.",
+        "Il a été détruit en 1856 par l’explosion d’une poudre oubliée.",
+        "Ses sols de mosaïque ont été apportés de l’île de Kos dans les années 1930."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui a détruit le palais en 1856 ?",
+        "answers": [
+          "De la poudre à canon oubliée dans une cave depuis l’époque des chevaliers",
+          "Un siège qui a duré des mois",
+          "Un tremblement de terre qui a ouvert le sol",
+          "Une inondation venue de la mer"
+        ],
+        "explanation": "La poudre était restée là plus de trois cents ans. Plus personne ne se souvenait qu’elle existait."
+      }
+    },
+    "rhodes-archaeological-museum": {
+      "name": "Le Musée archéologique de Rhodes",
+      "tagline": "Un musée installé dans l’hôpital des chevaliers",
+      "story": "Le bâtiment était un hôpital avant d’être un musée, et ce n’est pas un détail : les chevaliers de Saint-Jean étaient infirmiers d’abord et combattants ensuite. Leur ordre est né pour soigner les pèlerins, et partout où ils allaient, ils bâtissaient un hôpital. Celui-ci s’est élevé au XVe siècle, et à l’étage se trouve une salle énorme sous un haut toit de bois, où les malades étaient couchés en rangées de lits, avec de petites fenêtres placées très haut pour l’air. C’est l’un des rares hôpitaux médiévaux encore debout en Europe. Depuis 1916, il abrite le musée de l’île, avec des marbres, des poteries et des pierres de tombes venues des trois cités antiques de Rhodes. Le bâtiment et ce qu’il contient parlent de deux mondes différents, séparés par mille cinq cents ans. Peu de musées au monde ont un bâtiment qui vaut autant que leur collection, et ici on ne sait vraiment pas lequel des deux gagne.",
+      "facts": [
+        "Le bâtiment s’est élevé au XVe siècle comme hôpital des chevaliers.",
+        "La grande salle des malades est conservée entière à l’étage.",
+        "Il sert de musée depuis 1916."
+      ],
+      "question": {
+        "q": "Qu’était à l’origine l’ordre des chevaliers de Saint-Jean ?",
+        "answers": [
+          "Des infirmiers qui s’occupaient des pèlerins",
+          "Des marchands qui voyageaient en bateau",
+          "Des bâtisseurs qui élevaient des châteaux contre paiement",
+          "Des cartographes de la Méditerranée"
+        ],
+        "explanation": "C’est pour cela que le premier grand bâtiment qu’ils ont élevé à Rhodes était un hôpital et non une caserne."
+      },
+      "museum": {
+        "doorNote": "Monte d’abord dans la grande salle. Ici, la pièce la plus importante, c’est le bâtiment lui-même.",
+        "rooms": {
+          "rhodes-archaeological-museum-hospital": {
+            "name": "L’hôpital",
+            "intro": "Avant de regarder quoi que ce soit d’antique, regarde les murs. Ils ont cinq cents ans et ils ont été bâtis pour un seul travail : contenir les malades, garder l’air en mouvement et ne jamais tomber. Les chevaliers connaissaient la médecine bien mieux que tu ne l’imagines, et le bâtiment le prouve."
+          },
+          "rhodes-archaeological-museum-marbles": {
+            "name": "Les marbres",
+            "intro": "La Rhodes antique s’est enrichie grâce au commerce et avait sa propre école de sculpture, célèbre dans toute la Méditerranée. Ce que tu vois ici est sorti de la terre de l’île et de la mer qui l’entoure. Deux de ces pièces sont la même déesse, dans deux états complètement différents."
+          }
+        },
+        "exhibits": {
+          "rhodes-archaeological-museum-great-ward": {
+            "name": "La grande salle des malades",
+            "blurb": "Une salle de presque cinquante mètres de long, avec un haut toit de bois et une file d’arches au milieu. Les malades restaient ici, chacun dans un espace à lui, derrière un rideau. Les fenêtres sont petites et placées haut exprès : elles tirent l’air chaud vers le haut et le font sortir, pour qu’il ne stagne pas. Tout au fond, il y a une chapelle, parce que pour les chevaliers, soigner le corps et soigner l’âme étaient un seul travail.",
+            "question": {
+              "q": "Pourquoi les fenêtres de la salle sont-elles petites et placées très haut ?",
+              "answers": [
+                "Pour que l’air chaud sorte et que l’air se renouvelle",
+                "Pour que les malades ne voient pas dehors",
+                "Pour laisser entrer moins de poussière",
+                "Parce que le verre coûtait très cher"
+              ],
+              "explanation": "L’air chaud monte. Une fenêtre placée haut est une cheminée à air."
+            }
+          },
+          "rhodes-archaeological-museum-knight-slabs": {
+            "name": "Les dalles funéraires des chevaliers",
+            "blurb": "Des dalles de marbre gravées de blasons : des lions, des croix, des oiseaux, des rayures. Chaque blason fonctionne comme l’insigne d’une famille et, comme les chevaliers venaient de toute l’Europe, les dalles se lisent comme une carte : des noms français, espagnols, italiens, anglais. L’ordre était divisé en groupes selon la langue que chacun parlait, et chaque groupe avait sa propre maison dans la rue des Chevaliers, quelques mètres plus haut.",
+            "question": {
+              "q": "Comment l’ordre des chevaliers était-il divisé ?",
+              "answers": [
+                "En groupes, selon la langue qu’ils parlaient",
+                "En groupes, selon leur taille",
+                "En groupes, selon leur âge",
+                "Il n’était pas divisé du tout"
+              ],
+              "explanation": "On les appelait des « langues ». C’est pour cela que dans la rue des Chevaliers, chaque maison porte d’autres armoiries au-dessus de sa porte."
+            }
+          },
+          "rhodes-archaeological-museum-courtyard": {
+            "name": "La cour",
+            "blurb": "Une cour carrée entourée de galeries sur deux niveaux, ouverte sur le ciel. Ce n’est pas de la décoration : dans un bâtiment sans électricité, la cour est sa lampe et son ventilateur. Elle apporte la lumière aux pièces qui ne donnent pas sur la rue et tire un courant d’air à travers tout le bâtiment. Tu retrouveras le même plan dans des maisons, des monastères et des écoles partout autour de la Méditerranée, pendant des milliers d’années avant celui-ci et après lui.",
+            "question": {
+              "q": "À quoi sert une cour intérieure dans un vieux bâtiment ?",
+              "answers": [
+                "Elle donne de la lumière et de l’air aux pièces du dedans",
+                "Elle recueille l’eau pour la lessive",
+                "Elle tient le bâtiment debout pendant les tremblements de terre",
+                "Elle ne sert qu’aux défilés"
+              ],
+              "explanation": "Avant l’électricité, la forme d’un bâtiment était sa technologie."
+            }
+          },
+          "rhodes-archaeological-museum-aphrodite": {
+            "name": "L’Aphrodite de Rhodes",
+            "blurb": "Une petite figure de marbre agenouillée, qui tord ses cheveux pour les essorer en sortant de la mer. C’est l’une des figures antiques les plus calmes qui existent : elle ne pose pas, elle ne regarde personne, elle fait simplement quelque chose d’ordinaire. Elle a été sculptée vers le Ier siècle av. J.-C. Le marbre est travaillé très finement dans les cheveux, où l’on voit les mèches lourdes d’eau, ce qui est extrêmement difficile à tailler dans la pierre.",
+            "question": {
+              "q": "Que fait cette figure ?",
+              "answers": [
+                "Elle tord ses cheveux en sortant de la mer",
+                "Elle tient un enfant dans ses bras",
+                "Elle court en portant une torche",
+                "Elle joue d’un instrument de musique"
+              ],
+              "explanation": "C’est un moment sans aucune importance, et c’est exactement pour cela qu’il te retient encore."
+            }
+          },
+          "rhodes-archaeological-museum-marine-venus": {
+            "name": "La Vénus marine",
+            "blurb": "La deuxième Aphrodite du musée a été trouvée au fond de la mer, et cela se voit. Son visage est rongé, les détails sont devenus lisses, et le marbre a l’air d’avoir un peu fondu. C’est la mer qui a fait cela pendant des siècles : le sel, le sable et de petits organismes qui mangent la surface. Beaucoup de gens la trouvent plus émouvante ainsi qu’elle ne le serait intacte. Un écrivain qui a vécu à Rhodes a donné son nom à un livre.",
+            "question": {
+              "q": "Pourquoi son visage est-il rongé ?",
+              "answers": [
+                "Parce qu’elle a passé des siècles dans la mer",
+                "Parce qu’on l’a abîmée exprès",
+                "Parce que le sculpteur ne l’a jamais terminée",
+                "Parce qu’un incendie l’a brûlée"
+              ],
+              "explanation": "La mer protège le bronze et mange le marbre. La même eau, deux résultats exactement contraires."
+            }
+          },
+          "rhodes-archaeological-museum-krito-timarista": {
+            "name": "Crito et Timarista",
+            "blurb": "Une stèle funéraire du Ve siècle av. J.-C. avec deux femmes : une fille qui embrasse sa mère. Leurs noms sont gravés au-dessus d’elles. Ce qui est remarquable, c’est la simplicité avec laquelle l’adieu est dit : pas de dieux, pas de symboles, pas de mots. Seulement deux corps qui se touchent. Les pierres de tombes antiques de Rhodes sont pleines de scènes comme celle-ci, et elles nous ont laissé des centaines de noms de gens dont nous ne saurions jamais, autrement, qu’ils ont existé.",
+            "question": {
+              "q": "Que montre cette stèle funéraire ?",
+              "answers": [
+                "Une fille qui embrasse sa mère",
+                "Deux soldats qui font le salut",
+                "Un dieu qui emporte une âme",
+                "Deux marchands qui concluent un marché"
+              ],
+              "explanation": "Pas de dieux, pas de symboles. C’est pour cela qu’elle se lit tout de suite, deux mille cinq cents ans plus tard."
+            }
+          },
+          "rhodes-archaeological-museum-vases": {
+            "name": "Les vases de Camiros",
+            "blurb": "Des vases d’argile avec des animaux en bandes : des chèvres sauvages, des lions, des oiseaux, des cerfs, l’un derrière l’autre comme un cortège. Ils sont rhodiens, faits aux VIIe et VIe siècles av. J.-C., quand l’île commerçait avec l’Égypte et l’Orient. Cela se voit dans les dessins : certains des animaux qui s’y trouvent n’ont jamais vécu à Rhodes, et certains n’ont jamais vécu nulle part. Les peintres copiaient des images qui arrivaient par bateau et les mélangeaient à leur propre imagination.",
+            "question": {
+              "q": "Pourquoi y a-t-il dessus des animaux qui n’ont jamais vécu à Rhodes ?",
+              "answers": [
+                "Parce que les peintres copiaient des images qui arrivaient par bateau",
+                "Parce que ces animaux avaient disparu peu de temps avant",
+                "Parce que les vases ont été faits ailleurs",
+                "Parce que le moule était défectueux"
+              ],
+              "explanation": "Le commerce ne transportait pas que des marchandises. Il transportait aussi des images, et les images voyagent plus loin que les animaux."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-archaeological-museum-riddle-1": {
+            "prompt": "Je suis agenouillée et je tords mes cheveux. Je viens de sortir de la mer et je ne regarde personne. Je fais quelque chose que tu fais toi aussi après le bain.",
+            "hint": "Je suis petite, et mon marbre est intact."
+          },
+          "rhodes-archaeological-museum-riddle-2": {
+            "prompt": "Moi aussi je suis sortie de l’eau salée, mais elle m’a gardée pendant des siècles. Mon visage est devenu lisse et j’ai l’air d’avoir fondu. Beaucoup de gens me trouvent plus belle ainsi.",
+            "hint": "Je ne suis pas agenouillée."
+          },
+          "rhodes-archaeological-museum-riddle-3": {
+            "prompt": "Je suis un mur, pas un objet, et je fais presque cinquante mètres de long. Il y a cinq cents ans, on dormait ici quand on était trop faible pour se lever, chacun derrière un rideau.",
+            "hint": "Mes fenêtres sont petites et très haut placées."
+          }
+        }
+      }
+    },
+    "rhodes-aquarium": {
+      "name": "L’Aquarium de Rhodes",
+      "tagline": "Une fausse grotte marine à la pointe nord de l’île",
+      "story": "À la pointe nord de Rhodes, là où l’île s’arrête et où les mers qui l’entourent se rejoignent, se dresse un bâtiment blanc aux lignes sévères, élevé dans les années 1930. Il n’a pas été bâti pour les touristes : c’était un institut de recherche pour l’étude de la mer, et c’est encore une station de recherche aujourd’hui. Au sous-sol, pourtant, on a fait plus malin que de simples vitrines. On a creusé un couloir et on lui a donné la forme d’une grotte marine, avec de la roche, un plafond bas et des bassins ouverts dans les murs. Tu marches donc comme si tu étais sous l’eau, avec des poissons à ta gauche et à ta droite. À l’étage se trouve le musée, avec des animaux de Méditerranée conservés que personne ne rencontrerait jamais vivants. C’est un bâtiment qui fait deux métiers en même temps, et aucun des deux n’est décoratif.",
+      "facts": [
+        "Il a été bâti dans les années 1930 comme institut de recherche, pas comme attraction.",
+        "Son sous-sol a la forme d’une grotte marine.",
+        "Il fonctionne toujours comme station de recherche en biologie marine."
+      ],
+      "question": {
+        "q": "Pour quoi ce bâtiment a-t-il été construit au départ ?",
+        "answers": [
+          "Pour l’étude scientifique de la mer",
+          "Pour accueillir les visiteurs qui arrivaient en bateau",
+          "Comme phare pour les navires",
+          "Comme résidence du gouverneur"
+        ],
+        "explanation": "L’aquarium est venu après, pour que la recherche puisse montrer ce qu’elle étudie. La station travaille encore."
+      },
+      "museum": {
+        "doorNote": "Descends d’abord. La grotte est en bas, et c’est là que sont les vivants.",
+        "rooms": {
+          "rhodes-aquarium-cave": {
+            "name": "La grotte",
+            "intro": "Le couloir sous le bâtiment n’est pas une grotte naturelle, mais il est fait pour te convaincre. Les murs sont rugueux, le plafond bas, la lumière faible et bleue. Ce dessin a un but : ne pas te donner l’impression de regarder dans une boîte pleine d’eau, mais celle d’être toi le visiteur chez quelqu’un d’autre."
+          },
+          "rhodes-aquarium-museum-floor": {
+            "name": "L’étage au-dessus",
+            "intro": "Ici, rien n’est vivant, et c’est tout l’intérêt. Le musée garde des animaux échoués sur le rivage ou pris par accident dans des filets, pour que les scientifiques, et toi, puissent regarder de près des créatures que personne ne rencontre jamais vivantes. Chacune est ici parce que quelque chose a mal tourné en mer."
+          }
+        },
+        "exhibits": {
+          "rhodes-aquarium-tunnel": {
+            "name": "Le couloir creusé",
+            "blurb": "Le couloir a été creusé dans la roche sous le bâtiment dans les années 1930 et façonné pour ressembler à une grotte. Les bassins ne sont pas posés sur des tables : ils sont ouverts dans les murs, comme des fenêtres. L’eau de mer n’est pas fabriquée dans un laboratoire, elle est pompée dans la mer d’à côté et y retourne. C’est un bâtiment qui vit au même rythme que l’eau autour de lui.",
+            "question": {
+              "q": "D’où vient l’eau des bassins ?",
+              "answers": [
+                "Elle est pompée dans la mer d’à côté et y retourne",
+                "Elle est fabriquée au laboratoire avec du sel et de l’eau du robinet",
+                "Elle est apportée par camion-citerne depuis une autre île",
+                "Elle est recueillie de la pluie"
+              ],
+              "explanation": "C’est exactement pour cela qu’il a été bâti à la pointe de l’île et non au milieu de la ville."
+            }
+          },
+          "rhodes-aquarium-octopus": {
+            "name": "La pieuvre",
+            "blurb": "Regarde bien le rocher dans son bassin : très souvent, tu ne verras rien du tout, parce qu’une pieuvre peut changer la couleur et la texture de sa peau en moins d’une seconde et devenir pierre. Elle a neuf cerveaux, un central et un dans chaque bras, alors ses bras résolvent des problèmes presque tout seuls. Son sang est bleu, parce qu’il transporte l’oxygène avec du cuivre au lieu du fer. C’est la créature la plus extraterrestre que tu puisses rencontrer sans quitter la Méditerranée.",
+            "question": {
+              "q": "Pourquoi le sang de la pieuvre est-il bleu ?",
+              "answers": [
+                "Parce qu’il transporte l’oxygène avec du cuivre au lieu du fer",
+                "Parce qu’elle vit dans des eaux bleues et profondes",
+                "Parce qu’elle mange des algues bleues",
+                "Parce qu’il reflète la couleur de sa peau"
+              ],
+              "explanation": "Notre sang à nous est rouge pour la même raison, à l’envers : il transporte l’oxygène avec du fer."
+            }
+          },
+          "rhodes-aquarium-mediterranean-fish": {
+            "name": "Les poissons de la mer d’à côté",
+            "blurb": "Des mérous, des sars, des rascasses, des murènes, des mérous blancs : des poissons qui nagent juste dehors, contre le bâtiment. Tu en as vu beaucoup dans une assiette et jamais vivants, et c’est une chose complètement différente. La rascasse, par exemple, ne nage presque pas : elle reste immobile sur le fond, on dirait une pierre couverte d’algues, et elle attend. Les bassins montrent aussi quelque chose qu’on ne voit nulle part ailleurs : à quelle profondeur et sur quel genre de fond vit chacun d’eux.",
+            "question": {
+              "q": "Comment la rascasse chasse-t-elle ?",
+              "answers": [
+                "Elle reste immobile, on dirait une pierre, et elle attend",
+                "Elle chasse en banc",
+                "Elle nage très vite en ligne droite",
+                "Elle creuse le fond avec sa queue"
+              ],
+              "explanation": "Le camouflage coûte moins cher que la vitesse. Il ne coûte que de la patience."
+            }
+          },
+          "rhodes-aquarium-whale-bones": {
+            "name": "Les os de la baleine",
+            "blurb": "Il y a des baleines en Méditerranée, ce qui étonne presque tout le monde. Quand l’une d’elles s’échoue, les scientifiques cherchent à savoir pourquoi elle est morte, puis le squelette est nettoyé et conservé. Debout à côté de lui, tu comprends sa taille d’une façon qu’aucune photographie ne te donne. Regarde les os près de la queue, là où l’animal avait autrefois des pattes : les baleines descendent d’animaux qui marchaient sur la terre.",
+            "question": {
+              "q": "Que nous disent les petits os près de la queue d’une baleine ?",
+              "answers": [
+                "Que ses ancêtres marchaient sur la terre",
+                "Qu’elle a eu autrefois une deuxième queue",
+                "Qu’elle avait été blessée",
+                "Qu’elle était très jeune"
+              ],
+              "explanation": "Ce sont des restes de pattes. L’évolution n’efface pas ; elle arrête simplement de se servir."
+            }
+          },
+          "rhodes-aquarium-turtles": {
+            "name": "Les tortues de mer",
+            "blurb": "La tortue caouanne pond sur les plages grecques et vit des dizaines d’années. Les tortues conservées ici ont été trouvées mortes, et la plupart pour des raisons que nous avons fabriquées : des sacs plastique qu’elles ont pris pour des méduses, des hameçons, des filets, des hélices. C’est une vitrine difficile à regarder, et c’est ce qui la rend utile. Une tortue a besoin d’environ vingt-cinq ans pour devenir assez grande pour pondre, alors chacune perdue tôt coûte à la population bien plus qu’une seule vie.",
+            "question": {
+              "q": "Pourquoi les tortues se trompent-elles avec les sacs plastique ?",
+              "answers": [
+                "Parce qu’ils ressemblent aux méduses, dont elles se nourrissent",
+                "Parce qu’elles les prennent pour un abri",
+                "Parce qu’ils sentent l’algue",
+                "Parce qu’ils font du bruit dans l’eau"
+              ],
+              "explanation": "Un sac dans l’eau bouge comme une méduse. La tortue ne fait pas d’erreur ; c’est nous qui l’avons faite."
+            }
+          },
+          "rhodes-aquarium-monk-seal": {
+            "name": "Le phoque moine de Méditerranée",
+            "blurb": "Le phoque moine de Méditerranée est l’un des mammifères marins les plus rares du monde, et la Grèce abrite la plus grande part de ce qu’il en reste. Il vit dans des grottes marines dont l’entrée est cachée sous la surface, et c’est là qu’il met ses petits au monde ; c’est pour cela que presque personne n’en voit. Cette pièce existe parce qu’un animal a été trouvé mort, pas parce qu’on en a capturé un. Si tu en vois un un jour en mer, ce qu’il faut faire est de rester loin et de ne pas le suivre dans sa grotte.",
+            "question": {
+              "q": "Où le phoque moine de Méditerranée met-il ses petits au monde ?",
+              "answers": [
+                "Dans des grottes marines dont l’entrée est sous la surface",
+                "Sur des plages de sable ouvertes, avec du monde autour",
+                "Sur des rochers au milieu du large",
+                "Dans les rivières, près de leur embouchure"
+              ],
+              "explanation": "Il se cache parce qu’il a été chassé pendant des siècles. Sa cachette est la raison pour laquelle il existe encore."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-aquarium-riddle-1": {
+            "prompt": "J’ai huit bras et neuf cerveaux, et mon sang n’est pas rouge. Si tu ne me trouves pas, regarde encore le rocher : il y a de bonnes chances que le rocher, ce soit moi.",
+            "hint": "Je change de couleur en moins d’une seconde."
+          },
+          "rhodes-aquarium-riddle-2": {
+            "prompt": "Je suis des os et rien d’autre, et je suis énorme. Près de ma queue se cachent de petits os dont je n’ai plus besoin : ils appartenaient aux pattes de mes ancêtres.",
+            "hint": "Je vivais en Méditerranée, même si presque personne ne le croit."
+          }
+        }
+      }
+    },
+    "rhodes-art-gallery": {
+      "name": "La Pinacothèque municipale de Rhodes",
+      "tagline": "La peinture grecque du XXe siècle, sur une île",
+      "story": "Les grandes collections d’art se rassemblent d’habitude dans les capitales. Rhodes a fait quelque chose d’inhabituel : à partir des années 1960, elle s’est mise à acheter des œuvres de peintres grecs de son temps, régulièrement, année après année. Le résultat est l’une des plus importantes collections de peinture grecque du XXe siècle en dehors d’Athènes, installée dans des bâtiments de la vieille ville. Tu y trouveras des paysages, des portraits, des mers, des œuvres abstraites, des gravures. Pour un enfant, ce qui est intéressant n’est pas les noms mais l’ordre : tu traverses un siècle et tu regardes la peinture changer, d’images qui essaient de ressembler à des photographies à des images qui ne veulent ressembler à rien du tout. Aucune des deux sortes n’est plus juste que l’autre, et aucun peintre ne s’est réveillé un matin en décidant de changer de siècle.",
+      "facts": [
+        "La collection s’est constituée peu à peu à partir des années 1960.",
+        "C’est l’une des plus importantes collections de peinture grecque en dehors d’Athènes.",
+        "Elle est installée dans des bâtiments situés dans la ville médiévale."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui change quand tu passes d’une salle à l’autre ici ?",
+        "answers": [
+          "La façon dont les gens peignent, au fil d’un siècle",
+          "La taille des tableaux, du plus petit au plus grand",
+          "Le pays d’où viennent les œuvres",
+          "La matière, de la peinture à l’huile au marbre"
+        ],
+        "explanation": "Une collection qui achète chaque année finit par enregistrer le temps sans même essayer."
+      }
+    },
+    "rhodes-acropolis": {
+      "name": "L’acropole de Rhodes",
+      "tagline": "La cité antique qui a été dessinée avant d’être bâtie",
+      "story": "Sur la colline au-dessus de la ville moderne se dressent le temple d’Apollon, un petit odéon de marbre et un stade d’environ deux cents mètres. Mais le plus important ici n’est pas un bâtiment : c’est le plan. La Rhodes antique a été fondée en 408 av. J.-C. par l’union de trois cités plus anciennes, et elle ne s’est pas étalée au hasard comme la plupart des villes. Elle a été dessinée d’abord, avec des rues qui se croisent à angle droit, comme l’enseignait Hippodamos de Milet. Les auteurs anciens la décrivaient comme la plus belle ville qu’ils aient vue, et ce qui frappe, c’est que ce plan existe toujours : beaucoup de rues de la Rhodes d’aujourd’hui suivent les mêmes lignes, deux mille cinq cents ans plus tard. La colline s’appelle aujourd’hui Monte Smith, du nom d’un amiral anglais qui surveillait la mer depuis là-haut au XIXe siècle.",
+      "facts": [
+        "La cité antique a été fondée en 408 av. J.-C. par l’union de trois cités.",
+        "Elle a été dessinée avec des rues à angle droit, avant d’être bâtie.",
+        "Son stade fait environ 200 mètres de long."
+      ],
+      "question": {
+        "q": "Qu’avait la Rhodes antique que la plupart des villes n’avaient pas ?",
+        "answers": [
+          "Un plan de rues droites, dessiné avant qu’on bâtisse quoi que ce soit",
+          "Des murailles en marbre massif",
+          "Des rues réservées aux piétons",
+          "Aucun port"
+        ],
+        "explanation": "La plupart des villes antiques ont grandi autour de sentiers. Celle-ci a commencé sur du papier."
+      }
+    },
+    "rhodes-diagoras-stadium": {
+      "name": "Le stade Diagoras",
+      "tagline": "Le nom d’un boxeur que ses fils ont porté sur leurs épaules",
+      "story": "Le stade de football de la ville porte le nom d’une personne qui a vraiment existé. Diagoras de Rhodes était boxeur et il a gagné à Olympie en 464 av. J.-C. Ce n’est pourtant pas pour sa propre victoire qu’on se souvient de lui. On se souvient de lui parce que ses enfants ont gagné aussi. Lors d’une fête à Olympie, deux de ses fils ont été couronnés le même jour et, dès la fin de leurs épreuves, ils l’ont hissé sur leurs épaules et l’ont porté autour du stade pendant que la foule lançait des fleurs. Quelqu’un dans les gradins a crié qu’il ne lui restait plus rien à souhaiter. Diagoras est mort ce jour-là, à cet endroit, dans les bras de ses fils, et l’histoire a voyagé pendant des siècles comme l’exemple du moment le plus heureux qu’une personne puisse connaître. Le stade de Rhodes garde ce nom, et l’équipe de la ville y joue tous les dimanches.",
+      "facts": [
+        "Diagoras de Rhodes a gagné la boxe à Olympie en 464 av. J.-C.",
+        "Deux de ses fils ont été couronnés à Olympie le même jour.",
+        "Le stade de la ville porte encore son nom aujourd’hui."
+      ],
+      "question": {
+        "q": "Pourquoi se souvient-on de Diagoras ?",
+        "answers": [
+          "Parce que ses enfants ont gagné aussi, et l’ont porté sur leurs épaules",
+          "Parce qu’il a gagné dans quatre sports différents",
+          "Parce qu’il a bâti lui-même le stade d’Olympie",
+          "Parce qu’il a été le tout premier champion olympique"
+        ],
+        "explanation": "Sa propre victoire a été oubliée. L’image d’un père sur les épaules de ses fils ne l’a jamais été."
+      }
+    },
+    "rhodes-kallithea": {
+      "name": "Les thermes de Kallithea",
+      "tagline": "Des bains à coupoles et à galets, bâtis pour une source",
+      "story": "Dans une petite baie au sud de la ville, il y a une source qu’on connaissait déjà dans l’Antiquité, parce que les gens croyaient que son eau soignait l’estomac. En 1929, quand le Dodécanèse était sous administration italienne, un jeune architecte a dessiné tout un ensemble de bains autour d’elle : des coupoles, des galeries en demi-cercle, des escaliers qui descendent jusqu’à la mer. Les sols sont faits de galets noirs et blancs, ramassés sur les plages et posés un par un pour former des motifs. Les bains ont fermé dans les années 1960 et sont restés abandonnés plus de quarante ans, avec des herbes qui poussaient à travers les bâtiments. Ils ont été restaurés et rouverts en 2007. Aujourd’hui, plus personne ne boit l’eau, mais tout le monde se baigne dans la baie, et on remarche sur les sols de galets chaque été.",
+      "facts": [
+        "L’ensemble a été bâti vers 1929, autour d’une source connue depuis l’Antiquité.",
+        "Ses sols sont faits de galets de plage, posés un par un, en motifs.",
+        "Il a été abandonné plus de quarante ans et a rouvert en 2007."
+      ],
+      "question": {
+        "q": "Pourquoi a-t-on bâti des bains exactement à cet endroit ?",
+        "answers": [
+          "Parce qu’une source y sort de terre et qu’on la croyait guérisseuse",
+          "Parce que c’était le seul endroit avec du sable",
+          "Parce que c’était près du port",
+          "Parce qu’un temple antique s’y dressait déjà"
+        ],
+        "explanation": "Tout un bâtiment a été élevé autour d’une seule eau. Quand les gens ont cessé de la boire, le bâtiment s’est retrouvé sans travail."
+      }
+    },
+    "rhodes-filerimos": {
+      "name": "Filerimos",
+      "tagline": "Une colline avec une cité antique, un monastère et des paons",
+      "story": "Filerimos est une colline d’environ deux cent soixante-dix mètres, avec vue sur toute la côte nord-ouest. Ialysos se tenait à son sommet, l’une des trois cités antiques de l’île qui se sont réunies pour faire Rhodes. Les fondations d’un temple d’Athéna ont survécu, ainsi qu’une fontaine dorique taillée dans la roche. À côté se dresse un monastère bâti par les chevaliers et rebâti par les Italiens, et de là un chemin bordé de cyprès mène à une croix énorme. La croix n’est pas seulement là pour être regardée : elle a un escalier à l’intérieur et tu montes jusque dans ses bras horizontaux. Et partout sur la colline, des paons se promènent, sans aucune peur de toi, ouvrant leur queue quand cela leur chante. Peu d’endroits rassemblent en si peu de distance des ruines antiques, un monastère médiéval et un défilé d’oiseaux.",
+      "facts": [
+        "Ialysos se tenait sur cette colline, l’une des trois cités antiques de Rhodes.",
+        "La croix du sommet a un escalier à l’intérieur et tu peux monter dans ses bras.",
+        "Des paons vivent en liberté partout sur la colline."
+      ],
+      "question": {
+        "q": "Qu’y a-t-il à l’intérieur de la croix au sommet de la colline ?",
+        "answers": [
+          "Un escalier, qui te fait monter jusque dans ses bras",
+          "Une petite église pleine d’icônes",
+          "Une cloche qui sonne chaque midi",
+          "Un réservoir d’eau pour le monastère"
+        ],
+        "explanation": "Depuis ses bras, tu vois en même temps la mer et les fondations de la cité antique."
+      }
+    },
+    "rhodes-lindos": {
+      "name": "L’acropole de Lindos",
+      "tagline": "Un temple sur un rocher, et un navire de guerre taillé dans l’escalier",
+      "story": "À cinquante kilomètres au sud de la ville, un rocher de cent seize mètres de haut s’élève au-dessus de maisons blanches et de deux baies. À son sommet se dressait le temple d’Athéna Lindia, et autour de lui une colonnade de quarante-deux colonnes, bâtie pour être vue depuis la mer. Les chevaliers ont plus tard enveloppé tout le rocher dans un château, si bien que tu montes à travers des murailles médiévales pour atteindre un temple antique. Au pied du grand escalier se trouve la plus belle pièce de toutes : un navire de guerre taillé directement dans la roche, sa proue grandeur nature, avec les marches elles-mêmes qui viennent buter contre lui. Une statue s’y dressait autrefois. C’est de la publicité vieille de deux mille ans : Lindos vivait des bateaux, et elle le disait dans la pierre, sur la première chose que voyait celui qui montait.",
+      "facts": [
+        "Le rocher s’élève à 116 mètres au-dessus de la mer.",
+        "Un navire de guerre est taillé dans la roche au pied de l’escalier.",
+        "Les chevaliers ont plus tard bâti un château par-dessus le temple antique."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui est taillé dans la roche au pied de l’escalier ?",
+        "answers": [
+          "Un navire de guerre, sa proue grandeur nature",
+          "Un cheval avec un cavalier",
+          "La carte de l’île",
+          "Les noms des prêtres"
+        ],
+        "explanation": "C’était à la fois le socle d’une statue et une déclaration : cette cité vivait de la mer."
+      }
+    },
+    "rhodes-kameiros": {
+      "name": "L’antique Camiros",
+      "tagline": "Une cité antique entière, sans la moindre muraille",
+      "story": "Camiros était la troisième des cités antiques de Rhodes, avec Lindos et Ialysos. Elle a été fouillée au XIXe siècle et elle est ressortie presque entière, étalée sur trois niveaux à flanc de colline : les sanctuaires en haut, les rues de maisons au milieu, la place du marché en bas. Tu marches dans de vraies rues et tu vois des seuils, des cours, des canalisations. Le plus impressionnant se trouve au point le plus haut : un réservoir énorme taillé dans la roche, qui contenait assez d’eau pour des centaines de familles et la distribuait dans toute la ville par des tuyaux d’argile. Et il manque quelque chose : des murailles. Camiros n’en avait pas. C’était une ville de paysans, loin du port, et visiblement personne n’a pensé qu’elle était assez en danger pour dépenser de la pierre dans un rempart. Cette absence en dit plus sur son époque qu’un rempart n’en dirait.",
+      "facts": [
+        "Elle est étalée sur trois niveaux : les sanctuaires, les maisons, le marché.",
+        "Un réservoir taillé dans la roche, tout en haut, alimentait toute la ville.",
+        "Elle n’avait aucune muraille."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui manquait à Camiros, contrairement à presque toutes les cités antiques ?",
+        "answers": [
+          "Des murailles",
+          "De l’eau",
+          "Une place de marché",
+          "Des rues"
+        ],
+        "explanation": "Un rempart coûte énormément cher. Une ville n’en bâtit un que lorsqu’elle a peur, et Camiros n’avait visiblement pas peur."
+      }
+    },
+    "rhodes-monolithos": {
+      "name": "Le château de Monolithos",
+      "tagline": "Un château sur un seul rocher, avec un seul chemin",
+      "story": "À l’extrémité sud-ouest de l’île, un rocher s’élève d’un coup à deux cent trente-six mètres au-dessus de la mer, sans rien du tout autour de lui. Le nom du village en dessous le dit exactement : Monolithos, une seule pierre. Au XVe siècle, les chevaliers ont bâti un château au sommet, et leur plan était presque paresseux, au bon sens du mot : ils n’ont eu presque aucun mur à construire, parce que le rocher est déjà vertical de tous les côtés. Il y a un chemin qui monte, et un seul. À l’intérieur du château, il ne reste aujourd’hui ni casernes ni salles, seulement une petite chapelle blanchie à la chaux. La vue d’en haut va jusqu’au cap suivant, et tu comprends tout de suite ce que les gardes pouvaient voir et pourquoi ils ont choisi cette pierre solitaire. Un château ici n’avait pas besoin d’une armée. Il avait besoin de deux personnes avec de bons yeux.",
+      "facts": [
+        "Le rocher s’élève à 236 mètres au-dessus de la mer.",
+        "Les chevaliers ont bâti le château au XVe siècle.",
+        "Il n’y a qu’un seul chemin qui monte au sommet."
+      ],
+      "question": {
+        "q": "Pourquoi ce château a-t-il eu besoin de si peu de murailles ?",
+        "answers": [
+          "Parce que le rocher est déjà vertical de tous les côtés",
+          "Parce qu’il a été bâti à la hâte",
+          "Parce qu’il n’y avait pas de pierre dans la région",
+          "Parce qu’une forêt le protégeait"
+        ],
+        "explanation": "Le meilleur ingénieur d’un château, c’est le terrain. Les chevaliers l’ont simplement bien choisi."
+      }
+    },
+    "rhodes-tsambika": {
+      "name": "Le monastère de Tsambika",
+      "tagline": "Trois cents marches pour une toute petite église et une vue",
+      "story": "Entre la ville et Lindos, un rocher s’avance au-dessus de la côte est. À son sommet se tient une toute petite église, et pour y arriver tu montes environ trois cents marches, sans ombre et sans chemin plus court. C’est l’exercice le plus simple de l’île et le plus juste : le rocher ne fait pas de différence entre ceux qui montent. Le monastère est un lieu de pèlerinage depuis des siècles, et chaque mois de septembre une foule y monte. La plupart des gens, pourtant, montent pour la même raison que toi : d’en haut, tu vois toute la baie de Tsambika, le sable qui dessine un croissant parfait et l’eau qui prend trois bleus différents selon la profondeur. C’est l’un des rares endroits où tes yeux arrivent vraiment à lire la profondeur de la mer.",
+      "facts": [
+        "Tu montes environ 300 marches pour arriver au sommet.",
+        "La petite église du sommet est un lieu de pèlerinage depuis des siècles.",
+        "D’en haut, la couleur de l’eau montre la profondeur de la mer."
+      ],
+      "question": {
+        "q": "Que t’apprend la couleur de l’eau quand tu la regardes d’en haut ?",
+        "answers": [
+          "La profondeur de la mer à chaque endroit",
+          "La température de l’eau",
+          "L’endroit où sont les poissons",
+          "La quantité de sel dans l’eau"
+        ],
+        "explanation": "Dans le peu profond, la lumière atteint le fond et revient pâle. Dans le profond, elle se perd, et le bleu devient sombre."
+      }
+    }
+  },
+  "trails": {
+    "rhodes-knights-day": {
+      "name": "La journée des chevaliers",
+      "promise": "Un palais, un hôpital et deux châteaux, tous faits par les mêmes gens."
+    },
+    "rhodes-three-ancient-cities": {
+      "name": "Les trois cités antiques",
+      "promise": "Lindos, Camiros, Ialysos, et la ville qu’elles ont faite en unissant leurs forces."
+    },
+    "rhodes-sea-and-steps": {
+      "name": "La mer et les marches",
+      "promise": "Une fausse grotte avec des poissons vivants, une source à coupoles et trois cents marches."
+    },
+    "rhodes-town-today": {
+      "name": "La ville aujourd’hui",
+      "promise": "Un siècle de peinture grecque et un stade de football au nom antique."
+    }
+  }
+}
