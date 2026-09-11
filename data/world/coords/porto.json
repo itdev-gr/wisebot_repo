@@ -1,0 +1,167 @@
+{
+  "city": "porto",
+  "resolvedAt": "2026-09-10T23:19:44.108Z",
+  "centre": {
+    "lat": 41.14961,
+    "lng": -8.61099
+  },
+  "places": [
+    {
+      "id": "porto-igreja-do-carmo",
+      "name": "Igreja do Carmo",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10300891",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/229772731",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14749,
+      "lng": -8.61627,
+      "labels": {
+        "en": "Igreja do Carmo",
+        "fr": "église des Carmes",
+        "es": "Iglesia del Carmen (Oporto)"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "porto-igreja-dos-carmelitas",
+      "name": "Igreja dos Carmelitas",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10300948",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/229772732",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14747,
+      "lng": -8.61645,
+      "labels": {
+        "en": "Igreja dos Carmelitas Descalços",
+        "fr": "église des Carmélites",
+        "de": "Igreja dos Carmelitas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "porto-mercado-do-bolhao",
+      "name": "Bolhão Market",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10328805",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/3046626",
+          "deltaM": 24
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14917,
+      "lng": -8.60694,
+      "labels": {
+        "es": "Mercado de Bolhão",
+        "fr": "Mercado do Bolhão",
+        "en": "Bolhão Market",
+        "de": "Markthalle Bolhão"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "porto-clerigos",
+      "name": "Clérigos Church and Tower",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q18642",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/223780953",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Clérigos Church",
+          "deltaM": 53
+        }
+      ],
+      "warnings": [],
+      "lat": 41.14587,
+      "lng": -8.61401,
+      "labels": {
+        "es": "iglesia de los Clérigos",
+        "en": "Clérigos Church",
+        "it": "Torre dei Chierici",
+        "de": "Igreja dos Clérigos",
+        "fr": "église des Clercs"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "porto-sao-bento",
+      "name": "São Bento station",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q579250",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/5391639447",
+          "deltaM": 54
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "São Bento railway station",
+          "deltaM": 17
+        }
+      ],
+      "warnings": [],
+      "lat": 41.14542,
+      "lng": -8.6104,
+      "labels": {
+        "de": "Bahnhof Porto São Bento",
+        "fr": "Porto-São Bento",
+        "en": "São Bento railway station",
+        "es": "Estación de Porto-São Bento",
+        "it": "stazione di Porto São Bento"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    }
+  ],
+  "problems": []
+}

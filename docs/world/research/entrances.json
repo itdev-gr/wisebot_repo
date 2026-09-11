@@ -1,0 +1,502 @@
+{
+ "athens": [
+  {
+   "id": "athens-acropolis",
+   "name": "Acropolis",
+   "anchor": "area",
+   "confidence": "A",
+   "pin": [
+    37.97167,
+    23.72611
+   ],
+   "osm": "relation/4423249",
+   "doors": []
+  },
+  {
+   "id": "athens-parthenon",
+   "name": "Parthenon",
+   "anchor": "centroid",
+   "confidence": "A",
+   "pin": [
+    37.97153,
+    23.7266
+   ],
+   "osm": "way/910010406",
+   "doors": []
+  },
+  {
+   "id": "athens-temple-hephaestus",
+   "name": "Temple of Hephaestus",
+   "anchor": "centroid",
+   "confidence": "B",
+   "pin": [
+    37.97562,
+    23.72139
+   ],
+   "osm": "way/27917370",
+   "doors": []
+  },
+  {
+   "id": "athens-ancient-agora",
+   "name": "Ancient Agora",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    37.975,
+    23.7225
+   ],
+   "osm": "relation/13139942",
+   "doors": []
+  },
+  {
+   "id": "athens-tower-of-the-winds",
+   "name": "Tower of the Winds",
+   "anchor": "centroid",
+   "confidence": "A",
+   "pin": [
+    37.97418,
+    23.727
+   ],
+   "osm": "relation/11199493",
+   "doors": []
+  },
+  {
+   "id": "athens-olympieion",
+   "name": "Temple of Olympian Zeus",
+   "anchor": "area",
+   "confidence": "A",
+   "pin": [
+    37.96937,
+    23.73308
+   ],
+   "osm": "way/63765671",
+   "doors": []
+  },
+  {
+   "id": "athens-panathenaic-stadium",
+   "name": "Panathenaic Stadium",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    37.96833,
+    23.74111
+   ],
+   "osm": "relation/19023844",
+   "doors": [
+    {
+     "id": 13712537791,
+     "lat": 37.969109,
+     "lng": 23.7400564,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 127
+    }
+   ]
+  },
+  {
+   "id": "athens-acropolis-museum",
+   "name": "Acropolis Museum",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    37.96842,
+    23.72847
+   ],
+   "osm": "way/983921252",
+   "doors": [
+    {
+     "id": 13563727605,
+     "lat": 37.9688444,
+     "lng": 23.7280795,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 58
+    },
+    {
+     "id": 13563706446,
+     "lat": 37.9688609,
+     "lng": 23.7280849,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 60
+    }
+   ]
+  },
+  {
+   "id": "athens-national-archaeological-museum",
+   "name": "National Archaeological Museum",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    37.98917,
+    23.73222
+   ],
+   "osm": "relation/2828",
+   "doors": [
+    {
+     "id": 3229545643,
+     "lat": 37.9891509,
+     "lng": 23.7319436,
+     "tags": {
+      "addr:city": "Αθήνα",
+      "addr:country": "GR",
+      "addr:housenumber": "44",
+      "addr:postcode": "10682",
+      "addr:street": "Πατησίων",
+      "entrance": "main"
+     },
+     "deltaM": 24
+    },
+    {
+     "id": 3005463591,
+     "lat": 37.9886441,
+     "lng": 23.7323198,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 59
+    }
+   ]
+  },
+  {
+   "id": "athens-benaki-toy-museum",
+   "name": "Benaki Toy Museum",
+   "anchor": "entrance",
+   "confidence": "C",
+   "pin": [
+    37.93025,
+    23.687
+   ],
+   "osm": null,
+   "doors": []
+  },
+  {
+   "id": "athens-lycabettus",
+   "name": "Lycabettus summit, Agios Georgios",
+   "anchor": "viewpoint",
+   "confidence": "B",
+   "pin": [
+    37.98194,
+    23.74333
+   ],
+   "osm": "node/778661727",
+   "doors": []
+  },
+  {
+   "id": "athens-national-garden",
+   "name": "National Garden",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    37.97417,
+    23.73833
+   ],
+   "osm": "relation/11505137",
+   "doors": []
+  },
+  {
+   "id": "athens-old-royal-palace",
+   "name": "Old Royal Palace (Parliament)",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    37.97528,
+    23.73694
+   ],
+   "osm": "relation/2150086",
+   "doors": []
+  },
+  {
+   "id": "athens-agios-eleftherios",
+   "name": "Agios Eleftherios (Little Metropolis)",
+   "anchor": "entrance",
+   "confidence": "A",
+   "pin": [
+    37.97506,
+    23.72999
+   ],
+   "osm": "way/713424516",
+   "doors": [
+    {
+     "id": 6707855103,
+     "lat": 37.975028,
+     "lng": 23.7300214,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 4
+    },
+    {
+     "id": 6707855105,
+     "lat": 37.9750624,
+     "lng": 23.7299439,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 4
+    },
+    {
+     "id": 6707855104,
+     "lat": 37.9750944,
+     "lng": 23.7300231,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 5
+    }
+   ]
+  },
+  {
+   "id": "athens-kerameikos",
+   "name": "Kerameikos",
+   "anchor": "area",
+   "confidence": "B",
+   "pin": [
+    37.97833,
+    23.71861
+   ],
+   "osm": "node/2096172464",
+   "doors": []
+  },
+  {
+   "id": "athens-varvakios",
+   "name": "Varvakeios Market",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    37.98041,
+    23.7276
+   ],
+   "osm": "way/152257802",
+   "doors": []
+  },
+  {
+   "id": "athens-snfcc",
+   "name": "Stavros Niarchos Foundation Cultural Center",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    37.9397,
+    23.6917
+   ],
+   "osm": "way/265733746",
+   "doors": []
+  },
+  {
+   "id": "athens-planetarium",
+   "name": "Eugenides Planetarium",
+   "anchor": "entrance",
+   "confidence": "C",
+   "pin": [
+    37.93983,
+    23.69635
+   ],
+   "osm": "relation/6693233",
+   "doors": [
+    {
+     "id": 3736375187,
+     "lat": 37.9399297,
+     "lng": 23.6966638,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 30
+    },
+    {
+     "id": 3736375188,
+     "lat": 37.9403055,
+     "lng": 23.6961701,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 55
+    }
+   ]
+  }
+ ],
+ "porto": [
+  {
+   "id": "porto-igreja-do-carmo",
+   "name": "Igreja do Carmo",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    41.14749,
+    -8.61627
+   ],
+   "osm": "way/229772731",
+   "doors": [
+    {
+     "id": 6541146290,
+     "lat": 41.1473251,
+     "lng": -8.6162557,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 18
+    }
+   ]
+  },
+  {
+   "id": "porto-igreja-dos-carmelitas",
+   "name": "Igreja dos Carmelitas",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    41.14747,
+    -8.61645
+   ],
+   "osm": "way/229772732",
+   "doors": [
+    {
+     "id": 6541146287,
+     "lat": 41.1473193,
+     "lng": -8.6163602,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 18
+    },
+    {
+     "id": 6541146289,
+     "lat": 41.1473128,
+     "lng": -8.6164321,
+     "tags": {
+      "entrance": "main"
+     },
+     "deltaM": 18
+    }
+   ]
+  },
+  {
+   "id": "porto-mercado-do-bolhao",
+   "name": "Bolhão Market",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    41.14917,
+    -8.60694
+   ],
+   "osm": "relation/3046626",
+   "doors": [
+    {
+     "id": 3696227103,
+     "lat": 41.149275,
+     "lng": -8.6068303,
+     "tags": {
+      "access": "yes",
+      "addr:housenumber": "81",
+      "addr:street": "Rua de Alexandre Braga",
+      "entrance": "staircase",
+      "level": "0"
+     },
+     "deltaM": 15
+    },
+    {
+     "id": 3696227100,
+     "lat": 41.1494523,
+     "lng": -8.6074282,
+     "tags": {
+      "access": "yes",
+      "addr:housenumber": "376",
+      "addr:street": "Rua Sá da Bandeira",
+      "entrance": "staircase",
+      "level": "0"
+     },
+     "deltaM": 52
+    },
+    {
+     "id": 3696227102,
+     "lat": 41.1487529,
+     "lng": -8.6074354,
+     "tags": {
+      "access": "yes",
+      "entrance": "main",
+      "level": "0"
+     },
+     "deltaM": 62
+    },
+    {
+     "id": 2367125584,
+     "lat": 41.1488401,
+     "lng": -8.607714,
+     "tags": {
+      "entrance": "yes"
+     },
+     "deltaM": 74
+    },
+    {
+     "id": 3696227101,
+     "lat": 41.1499273,
+     "lng": -8.6068151,
+     "tags": {
+      "access": "yes",
+      "entrance": "entrance",
+      "level": "1"
+     },
+     "deltaM": 85
+    }
+   ]
+  },
+  {
+   "id": "porto-clerigos",
+   "name": "Clérigos Church and Tower",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    41.14587,
+    -8.61401
+   ],
+   "osm": "way/223780953",
+   "doors": [
+    {
+     "id": 12898540711,
+     "lat": 41.1459171,
+     "lng": -8.6139202,
+     "tags": {
+      "door:material": "wood",
+      "entrance": "main",
+      "wikimedia_commons": "File:Exterior view of Igreja dos Clérigos 06.jpg"
+     },
+     "deltaM": 9
+    },
+    {
+     "id": 12840590623,
+     "lat": 41.1458674,
+     "lng": -8.6138488,
+     "tags": {
+      "door": "hinged",
+      "door:material": "glass",
+      "entrance": "service"
+     },
+     "deltaM": 14
+    },
+    {
+     "id": 12898517392,
+     "lat": 41.1457969,
+     "lng": -8.6138605,
+     "tags": {
+      "door:material": "wood",
+      "entrance": "secondary"
+     },
+     "deltaM": 15
+    }
+   ]
+  },
+  {
+   "id": "porto-sao-bento",
+   "name": "São Bento station",
+   "anchor": "entrance",
+   "confidence": "B",
+   "pin": [
+    41.14542,
+    -8.6104
+   ],
+   "osm": "node/5391639447",
+   "doors": []
+  }
+ ]
+}

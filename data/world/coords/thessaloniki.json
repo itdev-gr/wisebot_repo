@@ -1,0 +1,588 @@
+{
+  "city": "thessaloniki",
+  "resolvedAt": "2026-09-11T00:13:40.856Z",
+  "centre": {
+    "lat": 40.64361,
+    "lng": 22.93028
+  },
+  "places": [
+    {
+      "id": "thessaloniki-white-tower",
+      "name": "White Tower",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q550576",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/730026417",
+          "deltaM": 8
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "White Tower of Thessaloniki",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 40.62639,
+      "lng": 22.94833,
+      "labels": {
+        "it": "Torre Bianca di Salonicco",
+        "de": "Weißer Turm",
+        "el": "Λευκός Πύργος",
+        "en": "White Tower of Thessaloniki",
+        "es": "Torre Blanca de Tesalónica",
+        "fr": "tour blanche"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-rotunda",
+      "name": "Rotunda",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1584841",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/14788383",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 40.6333,
+      "lng": 22.95285,
+      "labels": {
+        "de": "Rotunda",
+        "el": "Ροτόντα",
+        "es": "Rotonda de Galerio",
+        "it": "Tomba di Galerio",
+        "en": "Rotunda",
+        "fr": "Rotonde"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-arch-of-galerius",
+      "name": "Arch of Galerius",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1258082",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/135678907",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 40.63224,
+      "lng": 22.95174,
+      "labels": {
+        "fr": "arc de Galère",
+        "es": "Arco de Galerio",
+        "en": "Arch of Galerius and Rotunda",
+        "it": "Arco di Galerio",
+        "de": "Galeriusbogen",
+        "el": "Αψίδα Γαλερίου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-agios-dimitrios",
+      "name": "Church of Agios Dimitrios",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q730019",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/27406327",
+          "deltaM": 6
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hagios Demetrios",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [],
+      "lat": 40.63882,
+      "lng": 22.94786,
+      "labels": {
+        "fr": "basilique Saint-Dimitri de Thessalonique",
+        "de": "Hagios Demetrios",
+        "el": "Ιερός Ναός Αγίου Δημητρίου Θεσσαλονίκης",
+        "en": "Church of Agios Dimitrios, Thessaloniki",
+        "es": "basílica de San Demetrio",
+        "it": "chiesa di san Demetrio"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-hagia-sophia",
+      "name": "Hagia Sophia",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1568660",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/27715355",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hagia Sophia, Thessaloniki",
+          "deltaM": 15
+        }
+      ],
+      "warnings": [],
+      "lat": 40.63284,
+      "lng": 22.94709,
+      "labels": {
+        "el": "Αγία Σοφία",
+        "en": "Hagia Sophia",
+        "de": "Hagia Sophia",
+        "it": "basilica di Santa Sofia",
+        "es": "Santa Sofía",
+        "fr": "église Sainte-Sophie de Thessalonique"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-roman-agora",
+      "name": "Roman Agora",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q16932289",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/14788669",
+          "deltaM": 12
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Roman Forum (Thessaloniki)",
+          "deltaM": 32
+        }
+      ],
+      "warnings": [],
+      "lat": 40.63777,
+      "lng": 22.94577,
+      "labels": {
+        "en": "Roman Agora of Thessaloniki",
+        "it": "foro romano",
+        "el": "Ρωμαϊκή Αγορά της Θεσσαλονίκης",
+        "de": "Römisches Forum Thessaloniki",
+        "es": "foro romano"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-archaeological-museum",
+      "name": "Archaeological Museum",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2658285",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/13081351",
+          "deltaM": 9
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Archaeological Museum of Thessaloniki",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 40.625,
+      "lng": 22.95389,
+      "labels": {
+        "el": "Αρχαιολογικό Μουσείο Θεσσαλονίκης",
+        "fr": "musée archéologique de Thessalonique",
+        "en": "Archaeological Museum of Thessaloniki",
+        "de": "Archäologisches Museum Thessaloniki",
+        "es": "Museo Arqueológico de Tesalónica",
+        "it": "Museo archeologico di Salonicco"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-byzantine-museum",
+      "name": "Museum of Byzantine Culture",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3563158",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/13080751",
+          "deltaM": 21
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museum of Byzantine Culture",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 40.6239,
+      "lng": 22.955,
+      "labels": {
+        "el": "Μουσείο Βυζαντινού Πολιτισμού Θεσσαλονίκης",
+        "en": "Museum of Byzantine Culture",
+        "fr": "musée de la culture byzantine",
+        "de": "Museum für byzantinische Kultur Thessaloniki",
+        "es": "Museo de la Cultura Bizantina",
+        "it": "Museo di civiltà bizantina"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-cinema-museum",
+      "name": "Cinema Museum",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2613530",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/28464187",
+          "deltaM": 8
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Cinema Museum of Thessaloniki",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 40.6329,
+      "lng": 22.9355,
+      "labels": {
+        "el": "Μουσείο Κινηματογράφου Θεσσαλονίκης",
+        "en": "Cinema Museum of Thessaloniki",
+        "it": "Museo del cinema di Salonicco"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-walls",
+      "name": "Byzantine walls",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7963249",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2903111",
+          "deltaM": 951
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Walls of Thessaloniki",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm is 951 m away — outlier, check by eye"
+      ],
+      "lat": 40.6425,
+      "lng": 22.95444,
+      "labels": {
+        "el": "Βυζαντινά τείχη της Θεσσαλονίκης",
+        "en": "Walls of Thessaloniki",
+        "fr": "murs d'enceinte de Salonique",
+        "es": "murallas de Tesalónica",
+        "de": "Stadtmauern von Thessaloniki",
+        "it": "Mura di Salonicco"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-heptapyrgion",
+      "name": "Heptapyrgion",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1572213",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/978511541",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Heptapyrgion (Thessaloniki)",
+          "deltaM": 19
+        }
+      ],
+      "warnings": [],
+      "lat": 40.64417,
+      "lng": 22.96194,
+      "labels": {
+        "de": "Heptapyrgion",
+        "el": "Επταπύργιο",
+        "fr": "Heptapyrgion",
+        "es": "Heptapirgión",
+        "en": "Heptapyrgion"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-vlatades",
+      "name": "Vlatades Monastery",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q962846",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/161675415",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Vlatades Monastery",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 40.64183,
+      "lng": 22.95447,
+      "labels": {
+        "fr": "monastère des Vlatades",
+        "es": "Monasterio de Vlatadon",
+        "el": "Μονή Βλατάδων",
+        "en": "Vlatadon Monastery",
+        "de": "Vlatades-Kloster",
+        "it": "Monastero di Vlatadon"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-aristotelous",
+      "name": "Aristotelous Square",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q667472",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Aristotelous Square",
+          "deltaM": 23
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 40.63246,
+      "lng": 22.94119,
+      "labels": {
+        "en": "Aristotelous Square",
+        "el": "Πλατεία Αριστοτέλους",
+        "de": "Platia Aristotelous",
+        "es": "Plaza de Aristóteles",
+        "it": "piazza Aristotele",
+        "fr": "place Aristote"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-modiano",
+      "name": "Modiano Market",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q15711710",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/17416084",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Modiano Market",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 40.6349,
+      "lng": 22.9418,
+      "labels": {
+        "el": "Αγορά Μοδιάνο",
+        "en": "Modiano Market",
+        "fr": "marché Modiano",
+        "de": "Agora Modiano"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-noesis",
+      "name": "Science Center and Technology Museum",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1271635",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/40635488",
+          "deltaM": 36
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Thessaloniki Science Center and Technology Museum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 40.5625,
+      "lng": 22.99528,
+      "labels": {
+        "de": "Noesis",
+        "el": "Κέντρο Διάδοσης Επιστημών & Μουσείο Τεχνολογίας",
+        "en": "Thessaloniki Science Center and Technology Museum",
+        "fr": "Centre de diffusion des sciences et musée de la technologie - NOÏSIS",
+        "es": "Centro de Divulgación Científica y Museo de la Tecnología NOESIS",
+        "it": "Centro per la Diffusione delle Scienze e Museo della Tecnologia"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-ote-tower",
+      "name": "OTE Tower",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q383061",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/59717047",
+          "deltaM": 6
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "OTE Tower",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [],
+      "lat": 40.62621,
+      "lng": 22.95449,
+      "labels": {
+        "de": "OTE-Fernsehturm",
+        "el": "Πύργος του ΟΤΕ",
+        "en": "OTE Tower",
+        "it": "Torre OTE",
+        "es": "Torre OTE"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "thessaloniki-toumba-stadium",
+      "name": "Toumba Stadium",
+      "anchor": "entrance",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1141292",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Toumba Stadium",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 40.61384,
+      "lng": 22.97242,
+      "labels": {
+        "fr": "stade de Toúmba",
+        "en": "Toumba Stadium",
+        "es": "Estadio Tumba",
+        "it": "stadio Toumba",
+        "de": "Toumba Stadion",
+        "el": "Γήπεδο Τούμπας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    }
+  ],
+  "problems": []
+}
