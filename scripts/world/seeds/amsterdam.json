@@ -1,0 +1,31 @@
+{
+  "city": "amsterdam",
+  "country": "netherlands",
+  "centre": { "lat": 52.372, "lng": 4.895 },
+  "note": "Wikidata q-ids only, searched in Dutch and confirmed by description. Centre is the Explorer product's centre for Amsterdam on origin/main, not Wikidata's point for the city (Q727 sits on Dam Square itself, which would flag the Dam as a centroid mistake). Ten of these sixteen places are carried over from the Explorer product; docs/world/research/explorer-pins.json already audited their q-ids and every one graded ok except Vondelpark (the Explorer pin stood at the east gate, 1143 m from the park's own centroid — the item is right, the anchor is 'area') and De Waag (unmatched there; Q2466999 is the weigh house building). Three q-ids suggested for the museums in the brief were wrong items and were not used: Q1969011 is a Polish gmina, Q1200631 a grammatical mood and Q17431 an airport on Réunion; the museums are Q1422000 (NEMO), Q1616123 (Het Scheepvaartmuseum) and Q165366 (Anne Frank House). No entrance is claimed anywhere: no door here has been measured, so every point is the centroid or area it actually is, and where a venue's own page names its door the city file carries a findIt sentence instead.",
+  "adjacentPairs": [
+    ["amsterdam-westerkerk", "amsterdam-anne-frank-house"]
+  ],
+  "places": [
+    { "id": "amsterdam-centraal", "name": "Amsterdam Centraal", "wikidata": "Q50719", "anchor": "centroid" },
+    { "id": "amsterdam-dam", "name": "Dam Square", "wikidata": "Q839050", "anchor": "area" },
+    { "id": "amsterdam-westerkerk", "name": "Westerkerk", "wikidata": "Q1130722", "anchor": "centroid" },
+    { "id": "amsterdam-anne-frank-house", "name": "Anne Frank House", "wikidata": "Q165366", "anchor": "centroid",
+      "note": "The museum item, which is also the house at Prinsengracht 263; the separate building item Q64265287 carries no coordinate. Declared adjacent to the Westerkerk, which stands beside it — they are about 80 m apart, above the floor, but they are real neighbours and the pair is on record." },
+    { "id": "amsterdam-bloemenmarkt", "name": "Bloemenmarkt", "wikidata": "Q643079", "anchor": "area" },
+    { "id": "amsterdam-magere-brug", "name": "Magere Brug", "wikidata": "Q1344400", "anchor": "centroid" },
+    { "id": "amsterdam-rijksmuseum", "name": "Rijksmuseum", "wikidata": "Q190804", "anchor": "centroid" },
+    { "id": "amsterdam-vondelpark", "name": "Vondelpark", "wikidata": "Q1419691", "anchor": "area",
+      "note": "The pin audit marked the Explorer pin 'wrong' because it stood at the Stadhouderskade gate, 1143 m from the park's centroid. The item is the park; the honest anchor for a 47-hectare park is 'area', and the gate is given in words in the city file's findIt." },
+    { "id": "amsterdam-nemo", "name": "NEMO Science Museum", "wikidata": "Q1422000", "anchor": "centroid" },
+    { "id": "amsterdam-waag", "name": "De Waag", "wikidata": "Q2466999", "anchor": "centroid",
+      "note": "Unmatched in the pin audit. Q2466999 is the 15th-century weigh house building on the Nieuwmarkt, not the Waag Society that occupies its upper floors." },
+    { "id": "amsterdam-scheepvaartmuseum", "name": "Het Scheepvaartmuseum", "wikidata": "Q1616123", "anchor": "centroid",
+      "note": "The museum item carries the coordinate; the building item 's Lands Zeemagazijn (Q33085) is the same arsenal of 1656 and describes the same footprint." },
+    { "id": "amsterdam-artis", "name": "Artis", "wikidata": "Q713124", "anchor": "area" },
+    { "id": "amsterdam-albert-cuyp-market", "name": "Albert Cuyp Market", "wikidata": "Q2342892", "anchor": "area" },
+    { "id": "amsterdam-olympic-stadium", "name": "Olympic Stadium", "wikidata": "Q503319", "anchor": "centroid" },
+    { "id": "amsterdam-de-gooyer", "name": "De Gooyer windmill", "wikidata": "Q2756543", "anchor": "centroid" },
+    { "id": "amsterdam-hortus", "name": "Hortus Botanicus", "wikidata": "Q1576733", "anchor": "area" }
+  ]
+}

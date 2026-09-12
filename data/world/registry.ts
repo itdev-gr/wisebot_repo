@@ -88,6 +88,7 @@ export const CITIES: City[] = COUNTRY_MODULES.flatMap((m) => m.cities).sort(byOr
  * without loading that city's content. Asserted against the real arrays in the tests.
  */
 export const PLACE_COUNTS: Record<CityId, number> = {
+  'amsterdam': 16,
   'athens': 18,
   'delphi': 13,
   'heraklion': 12,
@@ -99,6 +100,7 @@ export const PLACE_COUNTS: Record<CityId, number> = {
 };
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
+  'amsterdam': () => import('./cities/amsterdam'),
   'athens': () => import('./cities/athens'),
   'delphi': () => import('./cities/delphi'),
   'heraklion': () => import('./cities/heraklion'),
