@@ -1,6 +1,6 @@
 {
   "city": "vienna",
-  "resolvedAt": "2026-09-12T17:22:18.274Z",
+  "resolvedAt": "2026-09-12T18:29:28.795Z",
   "centre": {
     "lat": 48.20972,
     "lng": 16.37
@@ -17,14 +17,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/212496461",
+          "deltaM": 10
+        },
+        {
           "kind": "wikipedia",
           "ref": "St. Stephen's Cathedral, Vienna",
           "deltaM": 21
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.20843,
       "lng": 16.37326,
       "labels": {
@@ -35,7 +38,7 @@
         "fr": "cathédrale Saint-Étienne de Vienne",
         "it": "cattedrale metropolitana di Santo Stefano"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -80,17 +83,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/37675404",
-          "deltaM": 71
-        },
-        {
           "kind": "wikipedia",
           "ref": "Hofburg",
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 48.20639,
       "lng": 16.36528,
       "labels": {
@@ -113,14 +113,10 @@
           "kind": "wikidata",
           "ref": "Q209937",
           "deltaM": 0
-        },
-        {
-          "kind": "osm",
-          "ref": "way/8097595",
-          "deltaM": 7
         }
       ],
       "warnings": [
+        "osm: overpass 504",
         "wikipedia: no match"
       ],
       "lat": 48.20333,
@@ -133,7 +129,7 @@
         "el": "Κρατική Όπερα της Βιέννης",
         "en": "Vienna State Opera house"
       },
-      "confidence": "B",
+      "confidence": "C",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -153,7 +149,7 @@
         }
       ],
       "warnings": [
-        "osm: overpass 429"
+        "osm: overpass 504"
       ],
       "lat": 48.19828,
       "lng": 16.37188,
@@ -179,14 +175,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/11101",
+          "deltaM": 8
+        },
+        {
           "kind": "wikipedia",
           "ref": "Vienna City Hall",
           "deltaM": 14
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.2108,
       "lng": 16.3574,
       "labels": {
@@ -197,7 +196,7 @@
         "de": "Wiener Rathaus",
         "el": "Δημαρχείο της Βιέννης"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -245,17 +244,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/97979331",
-          "deltaM": 20
-        },
-        {
           "kind": "wikipedia",
           "ref": "Wiener Riesenrad",
           "deltaM": 20
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 48.21683,
       "lng": 16.39592,
       "labels": {
@@ -265,7 +261,7 @@
         "de": "Wiener Riesenrad",
         "fr": "Grande Roue de Vienne"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -279,14 +275,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/8756754",
+          "deltaM": 23
+        },
+        {
           "kind": "wikipedia",
           "ref": "Schönbrunn Palace",
           "deltaM": 43
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.18479,
       "lng": 16.31227,
       "labels": {
@@ -297,7 +296,7 @@
         "de": "Schloss Schönbrunn",
         "en": "Schönbrunn Palace"
       },
-      "confidence": "C",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -345,7 +344,7 @@
         }
       ],
       "warnings": [
-        "osm: overpass 429"
+        "osm: overpass 504"
       ],
       "lat": 48.20513,
       "lng": 16.35993,
@@ -377,7 +376,7 @@
         }
       ],
       "warnings": [
-        "osm: overpass 504"
+        "osm: overpass 429"
       ],
       "lat": 48.20388,
       "lng": 16.3616,
@@ -403,14 +402,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/29320733",
+          "deltaM": 98
+        },
+        {
           "kind": "wikipedia",
           "ref": "Naschmarkt",
           "deltaM": 1
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.1989,
       "lng": 16.3636,
       "labels": {
