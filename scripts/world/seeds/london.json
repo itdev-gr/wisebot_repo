@@ -1,0 +1,31 @@
+{
+  "city": "london",
+  "country": "united-kingdom",
+  "centre": { "lat": 51.50722, "lng": -0.1275 },
+  "note": "Wikidata q-ids only. Converted from the ten Explorer spots in data/explore/cities/london.ts through docs/world/research/explorer-pins.json, then extended with three museums and five more places. The centre is Wikidata's own point for London (Q84), which is Charing Cross, the spot distances to London are traditionally measured from. Local language is English, so English searches were the local-language searches. Two Explorer q-ids were replaced: Covent Garden (Q55019) is the district, a kilometre-wide polygon, so the pin is the market building instead; the first search hit for the market (Q10460918) is the shopping-centre item and carries no coordinate at all. No entrance is claimed anywhere: nobody has measured a door, so every anchor is a centroid or an area, and the way in is described in words in each place's findIt.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "london-buckingham-palace", "name": "Buckingham Palace", "wikidata": "Q42182", "anchor": "centroid" },
+    { "id": "london-westminster-abbey", "name": "Westminster Abbey", "wikidata": "Q5933", "anchor": "centroid" },
+    { "id": "london-big-ben", "name": "Big Ben (Elizabeth Tower)", "wikidata": "Q41225", "anchor": "centroid" },
+    { "id": "london-london-eye", "name": "London Eye", "wikidata": "Q160659", "anchor": "centroid" },
+    { "id": "london-trafalgar-square", "name": "Trafalgar Square", "wikidata": "Q129143", "anchor": "area" },
+
+    { "id": "london-covent-garden", "name": "Covent Garden Market Building", "wikidata": "Q17549514", "anchor": "centroid",
+      "note": "Replaces the district item Q55019 from the Explorer audit (verdict: check). Q17549514 is the 1830 market building in the middle of the piazza, which is where the child actually stands." },
+
+    { "id": "london-british-museum", "name": "British Museum", "wikidata": "Q6373", "anchor": "centroid" },
+    { "id": "london-st-pauls-cathedral", "name": "St Paul's Cathedral", "wikidata": "Q173882", "anchor": "centroid" },
+    { "id": "london-tower-of-london", "name": "Tower of London", "wikidata": "Q62378", "anchor": "area" },
+    { "id": "london-tower-bridge", "name": "Tower Bridge", "wikidata": "Q83125", "anchor": "centroid" },
+
+    { "id": "london-natural-history-museum", "name": "Natural History Museum", "wikidata": "Q309388", "anchor": "centroid" },
+    { "id": "london-science-museum", "name": "Science Museum", "wikidata": "Q674773", "anchor": "centroid" },
+    { "id": "london-monument", "name": "Monument to the Great Fire of London", "wikidata": "Q607700", "anchor": "centroid" },
+    { "id": "london-borough-market", "name": "Borough Market", "wikidata": "Q894072", "anchor": "area" },
+    { "id": "london-london-zoo", "name": "London Zoo", "wikidata": "Q270263", "anchor": "area" },
+    { "id": "london-cutty-sark", "name": "Cutty Sark", "wikidata": "Q171255", "anchor": "centroid" },
+    { "id": "london-royal-observatory", "name": "Royal Observatory, Greenwich — the meridian line", "wikidata": "Q131108", "anchor": "viewpoint",
+      "note": "Replaces the observatory item (Q192988), which graded D: its Wikipedia article carries a mistyped coordinate (-0.0147 instead of -0.00147) that lands 926 m west in Greenwich Park. Q131108 is the Greenwich meridian itself, whose point is the brass line in the observatory courtyard — the exact spot a child stands on with a foot in each hemisphere, so it is the chosen viewpoint rather than a building centre. Wikidata and Wikipedia agree on it to the metre." }
+  ]
+}

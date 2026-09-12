@@ -1,0 +1,589 @@
+{
+  "city": "london",
+  "resolvedAt": "2026-09-12T10:52:56.590Z",
+  "centre": {
+    "lat": 51.50722,
+    "lng": -0.1275
+  },
+  "places": [
+    {
+      "id": "london-buckingham-palace",
+      "name": "Buckingham Palace",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q42182",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/5208404",
+          "deltaM": 49
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Buckingham Palace",
+          "deltaM": 19
+        }
+      ],
+      "warnings": [],
+      "lat": 51.501,
+      "lng": -0.142,
+      "labels": {
+        "es": "Palacio de Buckingham",
+        "el": "Ανάκτορα του Μπάκιγχαμ",
+        "fr": "palais de Buckingham",
+        "it": "Palazzo di Buckingham",
+        "de": "Buckingham Palace",
+        "en": "Buckingham Palace"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-westminster-abbey",
+      "name": "Westminster Abbey",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5933",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/364313092",
+          "deltaM": 1
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Westminster Abbey",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [],
+      "lat": 51.4994,
+      "lng": -0.12737,
+      "labels": {
+        "en": "Westminster Abbey",
+        "de": "Westminsterabtei",
+        "fr": "abbaye de Westminster",
+        "el": "Αββαείο του Ουέστμινστερ",
+        "es": "Abadía de Westminster",
+        "it": "abbazia di Westminster"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-big-ben",
+      "name": "Big Ben (Elizabeth Tower)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q41225",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Big Ben",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 51.50067,
+      "lng": -0.12457,
+      "labels": {
+        "es": "Big Ben",
+        "el": "Μπιγκ Μπεν",
+        "fr": "Big Ben",
+        "it": "Big Ben",
+        "de": "Big Ben",
+        "en": "Big Ben"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-london-eye",
+      "name": "London Eye",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q160659",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/204068874",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "London Eye",
+          "deltaM": 22
+        }
+      ],
+      "warnings": [],
+      "lat": 51.50333,
+      "lng": -0.11972,
+      "labels": {
+        "es": "London Eye",
+        "fr": "London Eye",
+        "it": "London Eye",
+        "de": "London Eye",
+        "en": "London Eye",
+        "el": "Μάτι του Λονδίνου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-trafalgar-square",
+      "name": "Trafalgar Square",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q129143",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4369049",
+          "deltaM": 79
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Trafalgar Square",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 51.50806,
+      "lng": -0.12806,
+      "labels": {
+        "es": "Trafalgar Square",
+        "el": "Πλατεία Τραφάλγκαρ",
+        "fr": "Trafalgar Square",
+        "it": "Trafalgar Square",
+        "de": "Trafalgar Square",
+        "en": "Trafalgar Square"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-covent-garden",
+      "name": "Covent Garden Market Building",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q17549514",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 51.5119,
+      "lng": -0.12284,
+      "labels": {
+        "en": "Covent Garden Market Building"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-british-museum",
+      "name": "British Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6373",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "British Museum",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 51.51944,
+      "lng": -0.12694,
+      "labels": {
+        "en": "British Museum",
+        "fr": "British Museum",
+        "de": "British Museum",
+        "el": "Βρετανικό Μουσείο",
+        "es": "Museo Británico",
+        "it": "British Museum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-st-pauls-cathedral",
+      "name": "St Paul's Cathedral",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q173882",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/369161987",
+          "deltaM": 9
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St Paul's Cathedral",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [],
+      "lat": 51.51378,
+      "lng": -0.09831,
+      "labels": {
+        "fr": "cathédrale Saint-Paul de Londres",
+        "es": "Catedral de San Pablo de Londres",
+        "it": "cattedrale di San Paolo",
+        "de": "St Paul’s Cathedral",
+        "el": "Καθεδρικός ναός Αγίου Παύλου",
+        "en": "St Paul's Cathedral"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-tower-of-london",
+      "name": "Tower of London",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q62378",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/370870741",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Tower of London",
+          "deltaM": 17
+        }
+      ],
+      "warnings": [],
+      "lat": 51.5082,
+      "lng": -0.0762,
+      "labels": {
+        "es": "Torre de Londres",
+        "el": "Πύργος του Λονδίνου",
+        "fr": "tour de Londres",
+        "it": "Torre di Londra",
+        "de": "Tower of London",
+        "en": "Tower of London"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-tower-bridge",
+      "name": "Tower Bridge",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q83125",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2079674503",
+          "deltaM": 8
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Tower Bridge",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [],
+      "lat": 51.50556,
+      "lng": -0.07528,
+      "labels": {
+        "es": "puente de la Torre",
+        "fr": "Tower Bridge",
+        "it": "Tower Bridge",
+        "de": "Tower Bridge",
+        "en": "Tower Bridge",
+        "el": "Γέφυρα του Πύργου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-natural-history-museum",
+      "name": "Natural History Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q309388",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/24436446",
+          "deltaM": 39
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Natural History Museum, London",
+          "deltaM": 19
+        }
+      ],
+      "warnings": [],
+      "lat": 51.49611,
+      "lng": -0.17611,
+      "labels": {
+        "fr": "musée d'histoire naturelle de Londres",
+        "es": "Museo de Historia Natural de Londres",
+        "it": "Museo di storia naturale di Londra",
+        "de": "Natural History Museum",
+        "en": "Natural History Museum",
+        "el": "Μουσείο Φυσικής Ιστορίας Λονδίνου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-science-museum",
+      "name": "Science Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q674773",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/27765411",
+          "deltaM": 105
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Science Museum, London",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm is 105 m away — outlier, check by eye"
+      ],
+      "lat": 51.4975,
+      "lng": -0.17472,
+      "labels": {
+        "de": "Science Museum",
+        "en": "Science Museum",
+        "es": "Museo de Ciencias de Londres",
+        "fr": "Science Museum de Londres",
+        "it": "Museo della scienza",
+        "el": "Μουσείο Επιστήμης του Λονδίνου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-monument",
+      "name": "Monument to the Great Fire of London",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q607700",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/3374550",
+          "deltaM": 1
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Monument to the Great Fire of London",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 51.51014,
+      "lng": -0.08594,
+      "labels": {
+        "it": "Monumento al grande incendio di Londra",
+        "de": "Monument",
+        "en": "Monument to the Great Fire of London",
+        "es": "Monumento al Gran Incendio de Londres",
+        "fr": "monument au Grand incendie de Londres"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-borough-market",
+      "name": "Borough Market",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q894072",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/24282400",
+          "deltaM": 36
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Borough Market",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 51.50556,
+      "lng": -0.09083,
+      "labels": {
+        "fr": "Borough Market",
+        "en": "Borough Market",
+        "de": "Borough Market",
+        "it": "Borough Market",
+        "es": "Borough Market"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-london-zoo",
+      "name": "London Zoo",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q270263",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/231792",
+          "deltaM": 50
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "London Zoo",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 51.53556,
+      "lng": -0.15583,
+      "labels": {
+        "fr": "zoo de Londres",
+        "es": "Zoológico de Londres",
+        "it": "zoo di Londra",
+        "de": "London Zoo",
+        "en": "London Zoo",
+        "el": "Ζωολογικός κήπος Λονδίνου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-cutty-sark",
+      "name": "Cutty Sark",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q171255",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/25608663",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Cutty Sark",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 51.48278,
+      "lng": -0.00972,
+      "labels": {
+        "fr": "Cutty Sark",
+        "es": "Cutty Sark",
+        "it": "Cutty Sark",
+        "de": "Cutty Sark",
+        "en": "Cutty Sark",
+        "el": "Κάτυ Σαρκ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "london-royal-observatory",
+      "name": "Royal Observatory, Greenwich — the meridian line",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q131108",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/1901784364",
+          "deltaM": 239310
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Prime meridian (Greenwich)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm is 239310 m away — outlier, check by eye"
+      ],
+      "lat": 51.47781,
+      "lng": -0.00147,
+      "labels": {
+        "es": "meridiano de Greenwich",
+        "fr": "méridien de Greenwich",
+        "it": "meridiano di Greenwich",
+        "de": "Greenwich-Nullmeridian",
+        "en": "Greenwich meridian"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}

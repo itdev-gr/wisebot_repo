@@ -1,0 +1,616 @@
+{
+  "city": "london",
+  "note": "Explorer texts carried over from data/explore/cities/london.ts (origin/main) so they survive the conversion. Keyed by the World place id. They will become fields on the place when the engine grows a riddle/find-it mission; until then nothing reads this file. The Explorer pin coordinates are deliberately NOT copied: World coordinates come from the resolver only.",
+  "spots": {
+    "london-buckingham-palace": {
+      "explorerId": "buckingham-palace",
+      "riddle": {
+        "el": "Σε ένα σπίτι με εκατοντάδες δωμάτια μένει ένας βασιλιάς, και μια σημαία στη στέγη μαρτυράει αν είναι μέσα. Μπροστά του, μια χρυσή φιγούρα λάμπει στην κορυφή ενός λευκού μνημείου, ενώ στρατιώτες με ψηλά γούνινα καπέλα στέκονται ακίνητοι σαν αγάλματα.",
+        "en": "A king lives in a house with hundreds of rooms, and a flag on the roof tells you whether he is at home. Out front, a golden figure shines on top of a white monument, while soldiers in tall furry hats stand as still as statues."
+      },
+      "parentHint": {
+        "el": "Είναι το Buckingham Palace (τα Ανάκτορα του Μπάκιγχαμ) με το Victoria Memorial μπροστά του. Ξεκινήστε από εδώ: από τον σταθμό του μετρό Green Park περπατήστε 8 λεπτά μέσα από το πάρκο, ή 10 λεπτά από τον σταθμό Victoria. Η αλλαγή της φρουράς γίνεται στις 11 το πρωί, αλλά όχι κάθε μέρα, γι' αυτό ελέγξτε το πρόγραμμα.",
+        "en": "It is Buckingham Palace, with the Victoria Memorial in front of it. Start here: from Green Park tube station walk 8 minutes through the park, or 10 minutes from Victoria station. The Changing of the Guard is at 11 in the morning but not every day, so check the schedule first."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι μια σημαία δείχνει αν ο βασιλιάς είναι σπίτι. Όταν ο βασιλιάς λείπει, ποια σημαία κυματίζει στη θέση της δικής του;",
+          "en": "The riddle says a flag shows whether the king is at home. When the King is away, which flag flies instead of his own?"
+        },
+        "options": {
+          "el": [
+            "Καμία σημαία",
+            "Η σημαία του Λονδίνου",
+            "Η Union Jack, η σημαία του Ηνωμένου Βασιλείου",
+            "Μια σημαία με μια κουκουβάγια"
+          ],
+          "en": [
+            "No flag at all",
+            "The flag of London",
+            "The Union Jack, the flag of the United Kingdom",
+            "A flag with an owl on it"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Όταν ο βασιλιάς είναι σπίτι, στον ιστό κυματίζει το Royal Standard (το βασιλικό λάβαρο), μια σημαία χωρισμένη στα τέσσερα, με χρυσά λιοντάρια και μια άρπα. Όταν λείπει, τη θέση της παίρνει η Union Jack. Κοίτα λοιπόν ψηλά στη στέγη: η σημαία σού λέει ποιος είναι μέσα!",
+          "en": "When the King is at home, the Royal Standard flies from the roof: a flag divided into four, with golden lions and a harp. When he is away, the Union Jack takes its place. So look up at the roof: the flag tells you who is in!"
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε το λευκό μνημείο μπροστά στο παλάτι. Τι έχει η χρυσή φιγούρα στην κορυφή του;",
+          "en": "Look at the white monument in front of the palace. What does the golden figure on the very top have?"
+        },
+        "options": {
+          "el": [
+            "Μεγάλα χρυσά φτερά",
+            "Ένα στέμμα και ένα σπαθί",
+            "Ένα άλογο",
+            "Μια ομπρέλα"
+          ],
+          "en": [
+            "Big golden wings",
+            "A crown and a sword",
+            "A horse",
+            "An umbrella"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Είναι η φτερωτή Νίκη, που στέκεται πάνω σε μια χρυσή σφαίρα. Από κάτω, στραμμένη προς τον μεγάλο δρόμο The Mall, κάθεται η βασίλισσα Βικτωρία σκαλισμένη σε άσπρο μάρμαρο: η πρώτη που έκανε αυτό το παλάτι σπίτι της. Το μνημείο εγκαινιάστηκε το 1911.",
+          "en": "She is winged Victory, standing on a golden ball. Below her, facing the long avenue called The Mall, sits Queen Victoria carved in white marble, the first monarch to make this palace her home. The memorial was unveiled in 1911."
+        }
+      }
+    },
+    "london-westminster-abbey": {
+      "explorerId": "westminster-abbey",
+      "riddle": {
+        "el": "Σε αυτή την εκκλησία με τους δύο ψηλούς πύργους στέφθηκαν σχεδόν όλοι οι βασιλιάδες και οι βασίλισσες της χώρας εδώ και σχεδόν χίλια χρόνια. Μέσα της, σε μια γωνιά, αναπαύονται ποιητές, και κοντά τους ένας άνθρωπος που είδε ένα μήλο να πέφτει.",
+        "en": "In this church with two tall towers, almost every king and queen of the land has been crowned for nearly a thousand years. Inside, poets rest in one corner, and near them lies a man who watched an apple fall."
+      },
+      "parentHint": {
+        "el": "Είναι το Westminster Abbey (το Αβαείο του Γουέστμινστερ). Από το παλάτι περπατήστε 12 λεπτά ανατολικά μέσα από το St James's Park ή κατά μήκος της Birdcage Walk· η δυτική πρόσοψη με τους δύο πύργους βλέπει στην πλατεία Broad Sanctuary.",
+        "en": "It is Westminster Abbey. From the palace walk 12 minutes east through St James's Park or along Birdcage Walk; the west front with the two towers faces Broad Sanctuary."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για έναν άνθρωπο που είδε ένα μήλο να πέφτει. Ποιος είναι;",
+          "en": "The riddle mentions a man who watched an apple fall. Who is he?"
+        },
+        "options": {
+          "el": [
+            "Ο Ισαάκ Νεύτων, που εξήγησε τη βαρύτητα",
+            "Ο Κάρολος Δαρβίνος",
+            "Ο Ουίλιαμ Σαίξπηρ",
+            "Ο Ρομπέν των Δασών"
+          ],
+          "en": [
+            "Isaac Newton, who explained gravity",
+            "Charles Darwin",
+            "William Shakespeare",
+            "Robin Hood"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Ο Ισαάκ Νεύτων, ο επιστήμονας που εξήγησε γιατί τα πράγματα πέφτουν προς τα κάτω, είναι θαμμένος εδώ. Το ίδιο και ο Κάρολος Δαρβίνος, που μελέτησε πώς αλλάζουν τα ζώα με τον καιρό, και ο Στίβεν Χόκινγκ, που μελέτησε τα άστρα: μια ολόκληρη γωνιά με μεγάλους στοχαστές!",
+          "en": "Isaac Newton, the scientist who explained why things fall down, is buried here. So is Charles Darwin, who studied how animals change over time, and Stephen Hawking, who studied the stars: a whole corner of great thinkers!"
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου μπροστά στη μεγάλη δυτική πόρτα, ανάμεσα στους δύο πύργους. Ακριβώς πάνω από την καμάρα υπάρχει μια μακριά σειρά από σύγχρονα αγάλματα σε μικρές κόγχες (μη μετρήσεις τις τέσσερις μικρότερες φιγούρες πιο χαμηλά, δίπλα στην πόρτα). Μέτρησε τα αγάλματα αυτής της πάνω σειράς.",
+          "en": "Stand in front of the big west door, between the two towers. Directly above the arch there is one long row of modern statues in little niches (ignore the four smaller figures lower down, beside the door). Count the statues in that top row."
+        },
+        "options": {
+          "el": [
+            "Οκτώ",
+            "Έξι",
+            "Δέκα",
+            "Δώδεκα"
+          ],
+          "en": [
+            "Eight",
+            "Six",
+            "Ten",
+            "Twelve"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Δέκα αγάλματα, και δεν είναι βασιλιάδες: είναι γενναίοι άνθρωποι του 20ού αιώνα που έχασαν τη ζωή τους για αυτά που πίστευαν, όπως ο Μάρτιν Λούθερ Κινγκ. Τοποθετήθηκαν εκεί το 1998, σε κόγχες που είχαν μείνει άδειες για εκατοντάδες χρόνια. Πιο χαμηλά υπάρχουν άλλες τέσσερις φιγούρες: η Ευσπλαχνία, η Αλήθεια, η Δικαιοσύνη και η Ειρήνη. Αν κάνεις τον γύρο ως την πλευρά της μεγάλης πλατείας, θα δεις και ένα τεράστιο στρογγυλό παράθυρο σαν λουλούδι.",
+          "en": "Ten statues, and they are not kings: they are brave people of the 20th century who lost their lives for what they believed in, like Martin Luther King Jr. They were placed there in 1998, in niches that had stood empty for hundreds of years. Lower down are four more figures: Mercy, Truth, Justice and Peace. Walk round to the side facing the big square and you will also find a huge round window like a flower."
+        }
+      }
+    },
+    "london-big-ben": {
+      "explorerId": "big-ben",
+      "riddle": {
+        "el": "Ένας ψηλός πύργος με τέσσερα πρόσωπα κοιτάζει προς κάθε κατεύθυνση και λέει σε όλη την πόλη τι ώρα είναι. Όλοι τον φωνάζουν με το όνομα της καμπάνας που κρύβει μέσα του, κι ας μην είναι δικό του.",
+        "en": "A tall tower with four faces looks in every direction and tells the whole city the time. Everyone calls it by the name of the bell hidden inside it, even though that name is not really its own."
+      },
+      "parentHint": {
+        "el": "Είναι το Big Ben, δηλαδή ο Elizabeth Tower (ο Πύργος της Ελισάβετ) του Κοινοβουλίου. Από το αβαείο περπατήστε 4 λεπτά μέσα από την Parliament Square· η καλύτερη θέα είναι από τη γωνία της Bridge Street ή από τη Westminster Bridge.",
+        "en": "It is Big Ben, or rather the Elizabeth Tower of the Houses of Parliament. From the abbey walk 4 minutes across Parliament Square; the best view is from the corner of Bridge Street or from Westminster Bridge."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι το παρατσούκλι του πύργου ανήκει σε κάτι που βρίσκεται μέσα του. Τι είναι στην πραγματικότητα το Big Ben;",
+          "en": "The riddle says the tower's nickname really belongs to something inside it. What is Big Ben, actually?"
+        },
+        "options": {
+          "el": [
+            "Το ρολόι",
+            "Η μεγάλη καμπάνα",
+            "Ο πύργος",
+            "Ο άνθρωπος που τον έχτισε"
+          ],
+          "en": [
+            "The clock",
+            "The great bell",
+            "The tower",
+            "The man who built it"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Big Ben (Μπιγκ Μπεν) είναι η γιγάντια καμπάνα που χτυπάει τις ώρες· ζυγίζει περίπου 13,7 τόνους, όσο δύο μεγάλοι ελέφαντες. Ο ίδιος ο πύργος λέγεται Elizabeth Tower, προς τιμήν της βασίλισσας Ελισάβετ Β΄, από το 2012.",
+          "en": "Big Ben is the giant bell that strikes the hours; it weighs about 13.7 tonnes, as much as two big elephants. The tower itself is called the Elizabeth Tower, named after Queen Elizabeth II in 2012."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε προσεκτικά ένα από τα πρόσωπα του ρολογιού. Τι χρώμα έχουν οι δείκτες και οι αριθμοί;",
+          "en": "Look closely at one of the clock faces. What colour are the hands and the numbers?"
+        },
+        "options": {
+          "el": [
+            "Μαύρο",
+            "Κόκκινο",
+            "Πράσινο",
+            "Μπλε"
+          ],
+          "en": [
+            "Black",
+            "Red",
+            "Green",
+            "Blue"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Μπλε, με χρυσάφι ολόγυρα! Για πολλά χρόνια ήταν βαμμένα μαύρα, αλλά όταν ο πύργος καθαρίστηκε και επισκευάστηκε από το 2017 ως το 2022, οι τεχνίτες ανακάλυψαν ότι το αρχικό χρώμα ήταν μπλε και τα ξανάβαψαν έτσι. Κάθε πρόσωπο του ρολογιού έχει πλάτος 7 μέτρα, και είναι τέσσερα.",
+          "en": "Blue, with gold all around! For many years they were painted black, but when the tower was cleaned and repaired between 2017 and 2022, the workers discovered the original colour was blue and painted them blue again. Each clock face is 7 metres wide, and there are four of them."
+        }
+      }
+    },
+    "london-london-eye": {
+      "explorerId": "london-eye",
+      "riddle": {
+        "el": "Μια γιγάντια ρόδα στέκεται στην όχθη του ποταμιού, αλλά δεν ανήκει σε κανένα αυτοκίνητο. Γυρίζει τόσο αργά που μοιάζει ακίνητη, και τα γυάλινα αυγά της σηκώνουν τους ανθρώπους πιο ψηλά κι από τα καμπαναριά.",
+        "en": "A giant wheel stands on the riverbank, but it belongs to no car. It turns so slowly it seems to stand still, and its glass eggs carry people higher than the church towers."
+      },
+      "parentHint": {
+        "el": "Είναι το London Eye (το Μάτι του Λονδίνου), η μεγάλη ρόδα. Από το Big Ben περάστε τη Westminster Bridge και στρίψτε αριστερά στην όχθη, 8 λεπτά περπάτημα. Για βόλτα με τη ρόδα, κλείστε εισιτήρια από πριν.",
+        "en": "It is the London Eye, the big wheel. From Big Ben cross Westminster Bridge and turn left along the riverbank, an 8-minute walk. If you want to ride, book tickets ahead."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι η ρόδα σηκώνει τους ανθρώπους ψηλά. Ποια χρονιά χτίστηκε για να γιορτάσει;",
+          "en": "The riddle says the wheel lifts people high. Which year was it built to celebrate?"
+        },
+        "options": {
+          "el": [
+            "Το 1900",
+            "Το 1666",
+            "Το 1500",
+            "Το 2000"
+          ],
+          "en": [
+            "1900",
+            "1666",
+            "1500",
+            "2000"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Χτίστηκε για το έτος 2000, την αρχή μιας νέας χιλιετίας, γι' αυτό στην αρχή τη λέγανε Millennium Wheel, «Ρόδα της Χιλιετίας». Θα έμενε μόνο πέντε χρόνια, αλλά οι Λονδρέζοι την αγάπησαν τόσο που έμεινε για πάντα.",
+          "en": "It was built for the year 2000, the start of a new millennium, which is why it was first called the Millennium Wheel. It was only meant to stay for five years, but Londoners loved it so much that it stayed for good."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου κοντά στη βάση της ρόδας και παρακολούθησε τους ανθρώπους που μπαίνουν σε μια καμπίνα. Σταματάει η ρόδα για να μπουν;",
+          "en": "Stand near the bottom of the wheel and watch people getting into a capsule. Does the wheel stop for them?"
+        },
+        "options": {
+          "el": [
+            "Ναι, σταματάει για κάθε καμπίνα",
+            "Όχι, γυρίζει τόσο αργά που οι άνθρωποι μπαίνουν όσο κινείται",
+            "Σταματάει μόνο για τα παιδιά",
+            "Γυρίζει ανάποδα για να μπουν"
+          ],
+          "en": [
+            "Yes, it stops for every capsule",
+            "No, it turns so slowly that people step in while it moves",
+            "It stops only for children",
+            "It turns backwards to let them in"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Συνεχίζει να γυρίζει με περίπου 26 εκατοστά το δευτερόλεπτο, πιο αργά από έναν άνθρωπο που περπατάει, κι έτσι οι επιβάτες απλώς μπαίνουν μέσα. Σταματάει μόνο για όποιον χρειάζεται λίγο παραπάνω χρόνο, για παράδειγμα με αναπηρικό αμαξίδιο. Μέτρησε και τις καμπίνες: είναι 32, και καθεμία χωράει ως 25 άτομα.",
+          "en": "It keeps turning at about 26 centimetres per second, slower than a person walking, so passengers simply step in. It only stops for someone who needs a little extra time, for example with a wheelchair. Count the capsules too: there are 32, and each one carries up to 25 people."
+        }
+      }
+    },
+    "london-trafalgar-square": {
+      "explorerId": "trafalgar-square",
+      "riddle": {
+        "el": "Ένας ναύαρχος με ένα μόνο χέρι στέκεται στην κορυφή μιας πανύψηλης κολόνας, και τέσσερα τεράστια λιοντάρια από μπρούντζο φυλάνε τα πόδια της. Γύρω τους σιντριβάνια πιτσιλάνε νερό, και σε μια γωνιά ένα βάθρο αλλάζει άγαλμα κάθε λίγο.",
+        "en": "An admiral with only one arm stands on top of a sky-high column, and four huge bronze lions guard its feet. Around them fountains splash, and in one corner a pedestal keeps changing its statue."
+      },
+      "parentHint": {
+        "el": "Είναι η Trafalgar Square (η Πλατεία Τραφάλγκαρ) με τη Στήλη του Νέλσονα. Από το London Eye περάστε ξανά το ποτάμι από την πεζογέφυρα Golden Jubilee και ανεβείτε από το Charing Cross, περίπου 15 λεπτά, ή πάρτε την Bakerloo line από το Waterloo ως το Charing Cross.",
+        "en": "It is Trafalgar Square, with Nelson's Column. From the London Eye cross back over the river on the Golden Jubilee footbridge and walk up past Charing Cross, about 15 minutes, or take the Bakerloo line from Waterloo to Charing Cross."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για έναν ναύαρχο. Τι διοικεί ένας ναύαρχος;",
+          "en": "The riddle mentions an admiral. What does an admiral command?"
+        },
+        "options": {
+          "el": [
+            "Τα πλοία ενός στόλου",
+            "Έναν στρατό με άλογα",
+            "Μια χορωδία",
+            "Μια ομάδα μαγείρων"
+          ],
+          "en": [
+            "A fleet of ships",
+            "An army of horses",
+            "A choir",
+            "A team of cooks"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Ο ναύαρχος διοικεί έναν στόλο από πολεμικά πλοία. Ο Horatio Nelson (Οράτιος Νέλσον) οδήγησε τον βρετανικό στόλο σε μια μεγάλη νίκη στη θάλασσα, κοντά στο ακρωτήριο Trafalgar της Ισπανίας, το 1805, και η πλατεία πήρε το όνομά της από εκείνη τη ναυμαχία.",
+          "en": "An admiral commands a fleet of warships. Horatio Nelson led the British fleet to a great victory at sea near Cape Trafalgar in Spain in 1805, and the square was named after that battle."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Μέτρησε τα μεγάλα σιντριβάνια της πλατείας. Πόσα είναι;",
+          "en": "Count the big fountains in the square. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Ένα",
+            "Τρία",
+            "Δύο",
+            "Τέσσερα"
+          ],
+          "en": [
+            "One",
+            "Three",
+            "Two",
+            "Four"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Δύο μεγάλα σιντριβάνια, ένα σε κάθε πλευρά της κολόνας. Τα σημερινά φτιάχτηκαν τη δεκαετία του 1930· τα παλιά, από το 1845, ταξίδεψαν ως τον Καναδά, όπου παίζουν ακόμη με το νερό. Στη νοτιοανατολική γωνιά ψάξε και το μικροσκοπικό αστυνομικό φυλάκιο, με χώρο για έναν μόνο αστυνομικό!",
+          "en": "Two big fountains, one on each side of the column. The ones you see were made in the 1930s; the old ones, from 1845, travelled all the way to Canada, where they still splash today. In the south-east corner, look for the tiny police post too, with room for just one officer!"
+        }
+      }
+    },
+    "london-covent-garden": {
+      "explorerId": "covent-garden",
+      "riddle": {
+        "el": "Ένας κήπος χωρίς καθόλου γρασίδι, όπου παλιά οι αγρότες πουλούσαν μήλα και λάχανα, και σήμερα ζογκλέρ και μουσικοί κάνουν τον κόσμο να χειροκροτεί. Μια εκκλησία με μεγάλες κολόνες παρακολουθεί την παράσταση από την άκρη της πλατείας.",
+        "en": "A garden with no grass at all, where farmers once sold apples and cabbages, and today jugglers and musicians make the crowd clap. A church with big columns watches the show from the edge of the square."
+      },
+      "parentHint": {
+        "el": "Είναι η πλατεία του Covent Garden (Κόβεντ Γκάρντεν). Από την Trafalgar Square περπατήστε 8 λεπτά βορειοανατολικά από τη St Martin's Lane και την Garrick Street· οι καλλιτέχνες του δρόμου παίζουν συνήθως μπροστά στην εκκλησία St Paul, στη δυτική πλευρά της πλατείας.",
+        "en": "It is the Covent Garden piazza. From Trafalgar Square walk 8 minutes north-east up St Martin's Lane and along Garrick Street; the street performers usually play in front of St Paul's church, on the west side of the square."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει αυτό το μέρος «κήπο». Τίνος κήπος ήταν, πολύ παλιά, πριν από την αγορά;",
+          "en": "The riddle calls this place a garden. Whose garden was it, long ago, before the market?"
+        },
+        "options": {
+          "el": [
+            "Ο λαχανόκηπος του βασιλιά",
+            "Ο κήπος ενός αβαείου, ο «convent garden» των μοναχών",
+            "Ο κήπος ενός δράκου",
+            "Ένα γήπεδο ποδοσφαίρου"
+          ],
+          "en": [
+            "The King's vegetable garden",
+            "The garden of an abbey, the monks' \"convent garden\"",
+            "A dragon's garden",
+            "A football pitch"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Πριν από περισσότερα από 500 χρόνια αυτός ήταν ο «convent garden», ο κήπος του μοναστηριού του Westminster Abbey, όπου οι μοναχοί καλλιεργούσαν λαχανικά. Πες «convent garden» γρήγορα και θα ακούσεις «Covent Garden»!",
+          "en": "More than 500 years ago this was the \"convent garden\" of Westminster Abbey, where the monks grew vegetables. Say \"convent garden\" quickly and you get \"Covent Garden\"!"
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε τις μακριές στοές της αγοράς στη μέση της πλατείας. Από τι είναι φτιαγμένη η στέγη τους;",
+          "en": "Look at the long market halls in the middle of the square. What is their roof made of?"
+        },
+        "options": {
+          "el": [
+            "Από άχυρο",
+            "Από ξύλινες σανίδες",
+            "Από κόκκινα κεραμίδια",
+            "Από σίδερο και γυαλί"
+          ],
+          "en": [
+            "Straw",
+            "Wooden planks",
+            "Red tiles",
+            "Iron and glass"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Από σίδερο και γυαλί, σαν γιγάντιο θερμοκήπιο, για να πέφτει το φως του ήλιου στους πάγκους. Οι πέτρινες στοές χτίστηκαν το 1830 και οι γυάλινες στέγες προστέθηκαν περίπου 40 χρόνια αργότερα. Μέσα, η Apple Market (η Αγορά των Μήλων) πουλάει σήμερα χειροτεχνήματα, όχι μήλα.",
+          "en": "Iron and glass, like a giant greenhouse, so that sunlight falls on the stalls. The stone halls were built in 1830 and the glass roofs were added about 40 years later. Inside, the Apple Market sells crafts today, not apples."
+        }
+      }
+    },
+    "london-british-museum": {
+      "explorerId": "british-museum",
+      "riddle": {
+        "el": "Πίσω από μια πρόσοψη που μοιάζει με αρχαίο ελληνικό ναό κρύβονται μούμιες, μια μαύρη πέτρα που έμαθε στον κόσμο να διαβάζει τα αιγυπτιακά, και μια αυλή με γυάλινη στέγη σαν κύμα. Και η είσοδος δεν κοστίζει τίποτα.",
+        "en": "Behind a front that looks like an ancient Greek temple hide mummies, a black stone that taught the world to read Egyptian, and a courtyard with a glass roof like a wave. And getting in costs nothing at all."
+      },
+      "parentHint": {
+        "el": "Είναι το British Museum (το Βρετανικό Μουσείο). Από το Covent Garden περπατήστε 10 λεπτά βόρεια από τη Neal Street και τη Museum Street ως την πύλη στην Great Russell Street. Η είσοδος είναι δωρεάν· τα Σαββατοκύριακα βοηθάει να κλείσετε δωρεάν εισιτήριο με ώρα από πριν.",
+        "en": "It is the British Museum. From Covent Garden walk 10 minutes north along Neal Street and Museum Street to the gates on Great Russell Street. Entry is free; at weekends it helps to book a free timed ticket in advance."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για μια μαύρη πέτρα που έμαθε στον κόσμο να διαβάζει τα αιγυπτιακά. Πώς λέγεται αυτή η αρχαία γραφή;",
+          "en": "The riddle mentions a black stone that taught the world to read Egyptian. What is that ancient writing called?"
+        },
+        "options": {
+          "el": [
+            "Αλφαβητόσουπα",
+            "Ρούνοι",
+            "Ιερογλυφικά",
+            "Κώδικας Μορς"
+          ],
+          "en": [
+            "Alphabet soup",
+            "Runes",
+            "Hieroglyphs",
+            "Morse code"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Τα ιερογλυφικά είναι η γραφή με εικόνες της αρχαίας Αιγύπτου. Κανείς δεν μπορούσε να τα διαβάσει για περισσότερα από χίλια χρόνια, μέχρι που το 1799 βρέθηκε η Στήλη της Ροζέτας, με το ίδιο μήνυμα σε τρεις γραφές, η μία στα αρχαία ελληνικά. Οι μελετητές χρησιμοποίησαν τα ελληνικά για να σπάσουν τον κώδικα.",
+          "en": "Hieroglyphs are the picture-writing of ancient Egypt. Nobody could read them for more than a thousand years, until the Rosetta Stone was found in 1799 with the same message in three scripts, one of them ancient Greek. Scholars used the Greek to crack the code."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου στην αυλή και κοίταξε τη μεγάλη είσοδο με την τριγωνική στέγη. Πόσες κολόνες την κρατούν στη σειρά, μπροστά μπροστά;",
+          "en": "Stand in the forecourt and look at the big entrance porch with the triangle on top. How many columns hold it up in the front row?"
+        },
+        "options": {
+          "el": [
+            "Έξι",
+            "Οκτώ",
+            "Δέκα",
+            "Δώδεκα"
+          ],
+          "en": [
+            "Six",
+            "Eight",
+            "Ten",
+            "Twelve"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Οκτώ κολόνες στέκονται στη σειρά κάτω από το τρίγωνο, σε ιωνικό ρυθμό όπως στην αρχαία Ελλάδα, με σπείρες στην κορυφή σαν τυλιγμένους παπύρους. Ολόκληρη η πρόσοψη έχει 44 κολόνες. Τα γλυπτά μέσα στο τρίγωνο δείχνουν τους ανθρώπους να ανεβαίνουν από την άγνοια στη γνώση.",
+          "en": "Eight columns stand in a row under the triangle, in the Ionic style of ancient Greece, with curls at the top like rolled-up scrolls. The whole front has 44 columns. The sculptures inside the triangle show people rising from ignorance to knowledge."
+        }
+      }
+    },
+    "london-st-pauls-cathedral": {
+      "explorerId": "st-pauls-cathedral",
+      "riddle": {
+        "el": "Μετά τη μεγάλη φωτιά, ένας αρχιτέκτονας έχτισε μια εκκλησία με έναν θόλο τόσο τεράστιο που φαίνεται από όλη την πόλη. Ψηλά μέσα στον θόλο, αν ψιθυρίσεις στον τοίχο, κάποιος στην απέναντι πλευρά σε ακούει.",
+        "en": "After the great fire, an architect built a church with a dome so enormous you can see it from all over the city. High inside that dome, if you whisper to the wall, someone on the far side can hear you."
+      },
+      "parentHint": {
+        "el": "Είναι ο St Paul's Cathedral (ο Καθεδρικός του Αγίου Παύλου). Από το British Museum πάρτε την Central line από το Holborn ως τον σταθμό St Paul's, 2 στάσεις, ή περπατήστε 25 λεπτά ανατολικά· η δυτική πρόσοψη με το άγαλμα της βασίλισσας Anne είναι μπροστά σας μόλις φτάσετε.",
+        "en": "It is St Paul's Cathedral. From the British Museum take the Central line from Holborn to St Paul's station, 2 stops, or walk 25 minutes east; the west front with the statue of Queen Anne faces you as you arrive."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για μια μεγάλη φωτιά. Ποια χρονιά έγινε η Μεγάλη Πυρκαγιά του Λονδίνου;",
+          "en": "The riddle mentions a great fire. In which year did the Great Fire of London happen?"
+        },
+        "options": {
+          "el": [
+            "Το 1066",
+            "Το 1966",
+            "Το 2000",
+            "Το 1666"
+          ],
+          "en": [
+            "1066",
+            "1966",
+            "2000",
+            "1666"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Η Μεγάλη Πυρκαγιά του Λονδίνου ξεκίνησε από έναν φούρνο τον Σεπτέμβριο του 1666 και έκαιγε τέσσερις μέρες. Κατέστρεψε τον παλιό καθεδρικό και το μεγαλύτερο μέρος της παλιάς πόλης, αλλά, παραδόξως, ελάχιστοι άνθρωποι καταγράφηκαν ως θύματα, και το Λονδίνο ξαναχτίστηκε πιο γερό, με τούβλα και πέτρα αντί για ξύλο.",
+          "en": "The Great Fire of London started in a bakery in September 1666 and burned for four days. It destroyed the old cathedral and most of the old city, but amazingly very few people were recorded hurt, and London was rebuilt stronger, with brick and stone instead of wood."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου μπροστά στον καθεδρικό, δίπλα στο άγαλμα. Μέτρησε τους πύργους δεξιά και αριστερά της πρόσοψης.",
+          "en": "Stand in front of the cathedral, by the statue. Count the towers on either side of the front."
+        },
+        "options": {
+          "el": [
+            "Δύο",
+            "Τέσσερις",
+            "Έναν",
+            "Τρεις"
+          ],
+          "en": [
+            "Two",
+            "Four",
+            "One",
+            "Three"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Δύο πύργοι, ένας σε κάθε πλευρά, και ανάμεσά τους μια είσοδος με ζευγάρια από κολόνες. Πίσω τους υψώνεται ο τεράστιος θόλος. Το άγαλμα μπροστά είναι η βασίλισσα Anne (Άννα), που βασίλευε όταν τελείωσε ο καθεδρικός το 1710· αυτό που βλέπεις είναι αντίγραφο του 1886, γιατί το αρχικό είχε φθαρεί.",
+          "en": "Two towers, one on each side, and between them a porch with pairs of columns. The huge dome rises behind them. The statue in front is Queen Anne, who was queen when the cathedral was finished in 1710; the one you see is a copy made in 1886, because the original wore away."
+        }
+      }
+    },
+    "london-tower-of-london": {
+      "explorerId": "tower-of-london",
+      "riddle": {
+        "el": "Ένα κάστρο σχεδόν χιλίων χρόνων φυλάει τα στέμματα του βασιλείου, και μαύρα πουλιά περπατούν καμαρωτά στο γρασίδι του σαν να είναι οι φύλακές του. Οι αληθινοί φύλακες φορούν κόκκινες και μπλε στολές και έχουν ένα παράξενο παρατσούκλι που θυμίζει φαγητό.",
+        "en": "A castle almost a thousand years old guards the crowns of the kingdom, and black birds strut across its lawns as if they were its keepers. The real keepers wear red and blue uniforms and have a strange nickname that sounds like food."
+      },
+      "parentHint": {
+        "el": "Είναι ο Tower of London (ο Πύργος του Λονδίνου). Από τον St Paul's πάρτε το μετρό ως το Tower Hill (Central line ως το Bank και μετά District ή Circle line), ή περπατήστε 25 λεπτά ανατολικά· η είσοδος και τα εκδοτήρια είναι στη δυτική πλευρά, δίπλα στο ποτάμι. Κλείστε εισιτήρια από πριν.",
+        "en": "It is the Tower of London. From St Paul's take the tube to Tower Hill (Central line to Bank, then the District or Circle line), or walk 25 minutes east; the entrance and ticket office are on the west side, by the river. Book tickets ahead."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για μαύρα πουλιά που μοιάζουν να φυλάνε το κάστρο. Ποια πουλιά είναι;",
+          "en": "The riddle mentions black birds that seem to guard the castle. Which birds are they?"
+        },
+        "options": {
+          "el": [
+            "Κοράκια",
+            "Πιγκουίνοι",
+            "Μαύροι κύκνοι",
+            "Κουκουβάγιες"
+          ],
+          "en": [
+            "Ravens",
+            "Penguins",
+            "Black swans",
+            "Owls"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Τουλάχιστον έξι κοράκια ζουν πάντα στον Πύργο, και τα φροντίζει ένας φύλακας που λέγεται Ravenmaster. Ένας παλιός θρύλος λέει ότι αν τα κοράκια φύγουν ποτέ, το βασίλειο θα πέσει, γι' αυτό κανείς δεν το ρισκάρει!",
+          "en": "At least six ravens always live at the Tower, cared for by a keeper called the Ravenmaster. An old legend says that if the ravens ever leave, the kingdom will fall, so nobody takes any chances!"
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε το βαθύ, φαρδύ χαντάκι που τρέχει γύρω γύρω από τα εξωτερικά τείχη. Τι υπάρχει στον πάτο του σήμερα;",
+          "en": "Look at the deep, wide ditch that runs all around the outer walls. What is at the bottom of it today?"
+        },
+        "options": {
+          "el": [
+            "Βαθύ νερό με βάρκες",
+            "Άμμος, σαν παραλία",
+            "Γρασίδι και φυτά, χωρίς νερό",
+            "Ένα πάρκινγκ"
+          ],
+          "en": [
+            "Deep water with boats",
+            "Sand, like a beach",
+            "Grass and plants, no water",
+            "A car park"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Είναι μια τάφρος, που σκάφτηκε τον 13ο αιώνα και γέμιζε με νερό από το ποτάμι για να κρατάει μακριά τους εχθρούς. Ως τον 19ο αιώνα το νερό είχε γίνει βρόμικο και ανθυγιεινό, κι έτσι το 1843 η τάφρος αδειάστηκε και έγινε γρασίδι. Κάποια καλοκαίρια γεμίζει αγριολούλουδα.",
+          "en": "It is a moat, dug in the 1200s and filled with river water to keep enemies away. By the 1800s the water had become dirty and unhealthy, so in 1843 the moat was drained and turned into a lawn. Some summers it fills with wild flowers."
+        }
+      }
+    },
+    "london-tower-bridge": {
+      "explorerId": "tower-bridge",
+      "riddle": {
+        "el": "Δύο πέτρινοι πύργοι στέκονται μέσα στο ποτάμι, ενωμένοι ψηλά με διαδρόμους για πεζούς, ενώ ο δρόμος ανάμεσά τους ανοίγει στα δύο σαν ανοιχτό βιβλίο, για να περάσουν τα ψηλά καράβια.",
+        "en": "Two stone towers stand in the river, joined high up by walkways, while the road between them splits open like a book, so that tall ships can sail through."
+      },
+      "parentHint": {
+        "el": "Είναι η Tower Bridge (η Γέφυρα του Πύργου), όχι η London Bridge! Από τον Πύργο του Λονδίνου περπατήστε 5 λεπτά ανατολικά κατά μήκος του ποταμιού και ανεβείτε στη γέφυρα· οι ώρες που ανοίγει ανακοινώνονται από πριν, ρωτήστε στην έκθεση της γέφυρας (Tower Bridge Exhibition).",
+        "en": "It is Tower Bridge, not London Bridge! From the Tower of London walk 5 minutes east along the river and up onto the bridge; lift times are announced in advance, ask at the Tower Bridge Exhibition."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι ο δρόμος ανοίγει στη μέση. Γιατί ανοίγει η γέφυρα;",
+          "en": "The riddle says the road opens in the middle. Why does the bridge open?"
+        },
+        "options": {
+          "el": [
+            "Για να φεύγει η βροχή",
+            "Για να περνούν τα ψηλά καράβια στο ποτάμι",
+            "Για να προσγειώνονται αεροπλάνα",
+            "Για να ξυπνούν τα ψάρια"
+          ],
+          "en": [
+            "To let the rain drain away",
+            "To let tall ships pass along the river",
+            "To let planes land on it",
+            "To wake up the fish"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Τα δύο μισά του δρόμου, που λέγονται bascules, σηκώνονται για να περάσουν τα ψηλά καράβια. Αυτό γίνεται περίπου 800 φορές τον χρόνο· τα πλοία απλώς πρέπει να το ζητήσουν μία μέρα πριν, και η γέφυρα ανοίγει δωρεάν, ακόμη και για ένα μικρό ιστιοφόρο με ψηλό κατάρτι.",
+          "en": "The two halves of the road, called bascules, tilt up so that tall ships can pass. It happens about 800 times a year; ships just have to ask a day in advance, and the bridge lifts for free, even for a small sailing boat with a tall mast."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε τα μεταλλικά μέρη της γέφυρας. Με ποια χρώματα είναι βαμμένα;",
+          "en": "Look at the metal parts of the bridge. What colours are they painted?"
+        },
+        "options": {
+          "el": [
+            "Κόκκινο και χρυσό",
+            "Πράσινο και μαύρο",
+            "Μόνο γκρι",
+            "Μπλε και άσπρο"
+          ],
+          "en": [
+            "Red and gold",
+            "Green and black",
+            "Grey only",
+            "Blue and white"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Μπλε και άσπρο σήμερα, με λίγο κόκκινο. Όταν άνοιξε, το 1894, η γέφυρα ήταν βαμμένη καφέ σαν σοκολάτα! Το 1977 βάφτηκε κόκκινη, άσπρη και μπλε για τα 25 χρόνια της βασίλισσας Ελισάβετ στον θρόνο, και αργότερα το μπλε και το άσπρο έγιναν τα χρώματά της. Μέτρησε και τους πύργους: είναι δύο, ενωμένοι με τους ψηλούς διαδρόμους.",
+          "en": "Blue and white today, with a little red. When it opened in 1894 the bridge was painted chocolate brown! In 1977 it was painted red, white and blue for Queen Elizabeth's 25 years on the throne, and later blue and white became its colours. Count the towers too: there are two, joined by the high walkways."
+        }
+      }
+    }
+  }
+}
