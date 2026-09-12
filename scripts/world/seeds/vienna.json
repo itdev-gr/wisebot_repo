@@ -1,0 +1,30 @@
+{
+  "city": "vienna",
+  "country": "austria",
+  "centre": { "lat": 48.20972, "lng": 16.37 },
+  "note": "Wikidata q-ids only. Seven of the ten Explorer spots for this city had usable q-ids in docs/world/research/explorer-pins.json; three did not, and one of the seven was matched to the wrong building. All four are handled below. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. CENTRE: this is Wikidata's point for the Innere Stadt, Vienna's first district (Q267329), and not Wikidata's point for the city itself (Q1741). The city's own coordinate sits 19 m from the cathedral, because whoever set it chose Stephansplatz, so using it made the audit report the cathedral as a centroid mistake. That was a false positive: the cathedral has its own distinct coordinate and is exactly where it should be. The fix belongs on the reference point, not on the place.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "vienna-stephansdom", "name": "Stephansdom", "wikidata": "Q5943", "anchor": "centroid" },
+    { "id": "vienna-anker-clock", "name": "Ankeruhr", "wikidata": "Q557226", "anchor": "centroid" },
+
+    { "id": "vienna-hofburg", "name": "Hofburg", "wikidata": "Q46242", "anchor": "centroid",
+      "note": "Re-picked. The research file matched Explorer's Michaelerplatz pin to Q45350189, the Old Burgtheater, which was demolished in 1888 and is not the building anyone stands in front of. Q46242 is the Hofburg itself." },
+
+    { "id": "vienna-staatsoper", "name": "Wiener Staatsoper", "wikidata": "Q209937", "anchor": "centroid" },
+    { "id": "vienna-karlskirche", "name": "Karlskirche", "wikidata": "Q408847", "anchor": "centroid" },
+
+    { "id": "vienna-rathaus", "name": "Wiener Rathaus", "wikidata": "Q686468", "anchor": "centroid",
+      "note": "Unmatched in the research file; found by searching in German." },
+
+    { "id": "vienna-parliament", "name": "Parlamentsgebäude", "wikidata": "Q702121", "anchor": "centroid",
+      "note": "Unmatched in the research file; found by searching in English, because the German search returns nothing." },
+
+    { "id": "vienna-riesenrad", "name": "Wiener Riesenrad", "wikidata": "Q697578", "anchor": "centroid" },
+    { "id": "vienna-schonbrunn", "name": "Schloss Schönbrunn", "wikidata": "Q131330", "anchor": "area" },
+    { "id": "vienna-schonbrunn-zoo", "name": "Tiergarten Schönbrunn", "wikidata": "Q752283", "anchor": "area" },
+    { "id": "vienna-naturhistorisches", "name": "Naturhistorisches Museum", "wikidata": "Q688704", "anchor": "centroid" },
+    { "id": "vienna-kunsthistorisches", "name": "Kunsthistorisches Museum", "wikidata": "Q95569", "anchor": "centroid" },
+    { "id": "vienna-naschmarkt", "name": "Naschmarkt", "wikidata": "Q417645", "anchor": "area" }
+  ]
+}
