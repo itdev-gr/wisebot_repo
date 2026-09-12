@@ -62,6 +62,7 @@ import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
 import SealCeremony from './SealCeremony';
+import { AnotherOne, saidEnoughToday } from './AnotherOne';
 // Per-page title, description, canonical and JSON-LD, from the same functions the
 // build-time prerender uses — so what Googlebot renders matches what it fetched.
 import { WorldSeo } from './WorldSeo';
@@ -526,6 +527,10 @@ const PlacePage: React.FC<{
     trailName?: LocText;
   } | null>(null);
 
+  // «Άλλη μία;» — asked after a place is finished, never before. It cannot change what
+  // was paid: by the time it is set, `visitPlace` has already returned and committed.
+  const [askAnother, setAskAnother] = useState<number | null>(null);
+
   const handleComplete = useCallback(
     (correct: boolean) => {
       if (!place || !city || !module) return;
@@ -549,6 +554,14 @@ const PlacePage: React.FC<{
         }
       }
 
+      // Revisiting pays nothing and asks nothing: `visitPlace` returns null when the
+      // stamp was already there, and a child rereading a story is not finishing a
+      // mission. A child who already said «αρκετά για σήμερα» is not asked again either.
+      if (award && !saidEnoughToday()) {
+        const stamped = progress.progress.places;
+        setAskAnother(module.places.filter((p) => !stamped[p.id]).length);
+      }
+
       if (!award?.citySealed) return;
       setSeal({
         city,
@@ -559,8 +572,15 @@ const PlacePage: React.FC<{
         trailName,
       });
     },
-    [place, city, module, countryCityIds, content, visitPlace, completeTrail],
+    [place, city, module, countryCityIds, content, visitPlace, completeTrail, progress],
   );
+
+  /** The next place in this city the child has not stamped yet. */
+  const nextUnstamped = useCallback(() => {
+    if (!module) return undefined;
+    const stamped = progress.progress.places;
+    return module.places.find((p) => p.id !== placeId && !stamped[p.id]);
+  }, [module, progress, placeId]);
 
   if (failed) return <NotFound lang={lang} onBack={() => navigate(cityUrl)} />;
   if (!module) return <Loading lang={lang} />;
@@ -607,6 +627,23 @@ const PlacePage: React.FC<{
           xp={seal.xp}
           trailName={seal.trailName}
           onDone={() => setSeal(null)}
+        />
+      )}
+      {/* After the ceremony, never on top of it: finishing a city is the bigger moment
+          and a question over it would step on the rosette. */}
+      {askAnother !== null && !seal && (
+        <AnotherOne
+          lang={lang}
+          remaining={askAnother}
+          onYes={() => {
+            const next = nextUnstamped();
+            setAskAnother(null);
+            navigate(next ? `${cityUrl}/${next.id}` : cityUrl);
+          }}
+          onEnough={() => {
+            setAskAnother(null);
+            navigate(cityUrl);
+          }}
         />
       )}
     </>
