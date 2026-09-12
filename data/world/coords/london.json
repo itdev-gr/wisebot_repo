@@ -1,6 +1,6 @@
 {
   "city": "london",
-  "resolvedAt": "2026-09-12T10:52:56.590Z",
+  "resolvedAt": "2026-09-12T17:17:21.851Z",
   "centre": {
     "lat": 51.50722,
     "lng": -0.1275
@@ -52,17 +52,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/364313092",
-          "deltaM": 1
-        },
-        {
           "kind": "wikipedia",
           "ref": "Westminster Abbey",
           "deltaM": 10
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 51.4994,
       "lng": -0.12737,
       "labels": {
@@ -73,7 +70,7 @@
         "es": "Abadía de Westminster",
         "it": "abbazia di Westminster"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -190,7 +187,7 @@
         }
       ],
       "warnings": [
-        "osm: no match",
+        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 51.5119,
@@ -244,17 +241,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/369161987",
-          "deltaM": 9
-        },
-        {
           "kind": "wikipedia",
           "ref": "St Paul's Cathedral",
           "deltaM": 2
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 429"
+      ],
       "lat": 51.51378,
       "lng": -0.09831,
       "labels": {
@@ -265,7 +259,7 @@
         "el": "Καθεδρικός ναός Αγίου Παύλου",
         "en": "St Paul's Cathedral"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -279,17 +273,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/370870741",
-          "deltaM": 10
-        },
-        {
           "kind": "wikipedia",
           "ref": "Tower of London",
           "deltaM": 17
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 51.5082,
       "lng": -0.0762,
       "labels": {
@@ -300,7 +291,7 @@
         "de": "Tower of London",
         "en": "Tower of London"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -314,17 +305,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "node/2079674503",
-          "deltaM": 8
-        },
-        {
           "kind": "wikipedia",
           "ref": "Tower Bridge",
           "deltaM": 5
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 51.50556,
       "lng": -0.07528,
       "labels": {
@@ -335,7 +323,7 @@
         "en": "Tower Bridge",
         "el": "Γέφυρα του Πύργου"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -384,18 +372,13 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/27765411",
-          "deltaM": 105
-        },
-        {
           "kind": "wikipedia",
           "ref": "Science Museum, London",
           "deltaM": 0
         }
       ],
       "warnings": [
-        "osm is 105 m away — outlier, check by eye"
+        "osm: overpass 504"
       ],
       "lat": 51.4975,
       "lng": -0.17472,
@@ -421,17 +404,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "relation/3374550",
-          "deltaM": 1
-        },
-        {
           "kind": "wikipedia",
           "ref": "Monument to the Great Fire of London",
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 51.51014,
       "lng": -0.08594,
       "labels": {
@@ -441,7 +421,7 @@
         "es": "Monumento al Gran Incendio de Londres",
         "fr": "monument au Grand incendie de Londres"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -455,17 +435,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/24282400",
-          "deltaM": 36
-        },
-        {
           "kind": "wikipedia",
           "ref": "Borough Market",
           "deltaM": 1
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 51.50556,
       "lng": -0.09083,
       "labels": {
@@ -524,17 +501,14 @@
           "deltaM": 0
         },
         {
-          "kind": "osm",
-          "ref": "way/25608663",
-          "deltaM": 14
-        },
-        {
           "kind": "wikipedia",
           "ref": "Cutty Sark",
           "deltaM": 0
         }
       ],
-      "warnings": [],
+      "warnings": [
+        "osm: overpass 504"
+      ],
       "lat": 51.48278,
       "lng": -0.00972,
       "labels": {
@@ -545,7 +519,7 @@
         "en": "Cutty Sark",
         "el": "Κάτυ Σαρκ"
       },
-      "confidence": "A",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
