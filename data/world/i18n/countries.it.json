@@ -31,6 +31,22 @@
           "intro": "Delfi non è mai stata una grande città. Era il posto dove tutto il mondo greco andava per chiedere qualcosa. Arrampicata su un ripido pendio del Parnaso, con il mare che si vede in fondo, custodiva l’oracolo più famoso dell’antichità ed era considerata il centro della terra. Ogni città che riceveva la risposta che voleva mandava un dono, e i doni riempirono di statue la strada verso il tempio. Oggi la strada è vuota e i doni sono al museo, pochi metri più in basso."
         }
       }
+    },
+    "france": {
+      "name": "Francia",
+      "intro": "La Francia è un paese che cambia forma ogni poche ore di strada. Al nord, un’abbazia sta su una roccia che diventa un’isola quando sale la marea. Al centro, castelli con torri da fiaba guardano un fiume tranquillo. Al sud, campi di lavanda, e più in là le Alpi, con la neve sulle cime tutto l’anno. Nel profondo delle sue grotte ci sono pitture fatte quando i mammut camminavano ancora qui. E quasi in ogni strada, un forno che sforna pane caldo ogni mattina.",
+      "facts": [
+        "Il Monte Bianco, la montagna più alta delle Alpi, arriva a 4.807 metri.",
+        "La Torre Eiffel è alta 330 metri. Per 41 anni è stata la costruzione più alta del mondo.",
+        "Nel 2007 un treno francese TGV ha corso a 574,8 chilometri all’ora, record mondiale per un treno su rotaie.",
+        "Il Louvre espone circa 35.000 opere d’arte. Per vederle tutte ci vorrebbero giorni."
+      ],
+      "cities": {
+        "paris": {
+          "name": "Parigi",
+          "intro": "Parigi è una città che litiga con i suoi edifici e poi se ne innamora. La Torre Eiffel la volevano demolire, la piramide di vetro del Louvre la chiamavano un insulto, e oggi sono tutte e due il suo simbolo. In mezzo scorre la Senna, e in mezzo al fiume c’è una piccola isola: da lì è cominciata tutta la città. Ha un museo così grande che non si finisce mai, e un pendolo che ha dimostrato che la Terra gira."
+        }
+      }
     }
   }
 }

@@ -31,6 +31,14 @@
           "intro": "Delfos nunca fue una ciudad grande. Era el sitio adonde iba todo el mundo griego a preguntar algo. Encaramado en una ladera empinada del Parnaso, con el mar asomando al fondo, tenía el oráculo más famoso de la antigüedad y se consideraba el centro de la tierra. Cada ciudad que recibía la respuesta que quería mandaba un regalo, y los regalos llenaron de estatuas el camino hacia el templo. Hoy el camino está vacío y los regalos están en el museo, unos metros más abajo."
         }
       }
+    },
+    "france": {
+      "cities": {
+        "paris": {
+          "name": "París",
+          "intro": "París es una ciudad que se pelea con sus edificios y después los quiere. La Torre Eiffel querían derribarla, a la pirámide de cristal del Louvre la llamaban un insulto, y hoy las dos son su emblema. Por el medio corre el Sena, y en medio del río hay una isla pequeña: de allí salió la ciudad entera. Tiene un museo tan grande que no se acaba nunca, y un péndulo que demostró que la Tierra gira."
+        }
+      }
     }
   }
 }

@@ -2,7 +2,7 @@
  * WiseBot World — Italy.
  *
  * Same shape as `greece.ts`: the country itself plus the metadata for each of its cities.
- * `cities` is empty for now; the city entries arrive through the seed pipeline.
+ * Rome is the first city; the rest arrive through the seed pipeline.
  *
  * Facts checked on 12 September 2026 against the English Wikipedia API extracts for
  * "Mont Blanc", "Vatican City", "Regions of Italy" and "Italy", and the page
@@ -71,4 +71,58 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'rome',
+    countryId: 'italy',
+    order: 1,
+    emoji: '🏛️',
+
+    name: {
+      el: 'Ρώμη',
+      en: 'Rome',
+    },
+
+    intro: {
+      el:
+        'Η Ρώμη είναι μια πόλη που χτίστηκε πάνω στον εαυτό της, στρώμα πάνω σε στρώμα. ' +
+        'Κάτω από μια πλατεία με σιντριβάνια κρύβεται ένα στάδιο, μέσα σε ένα λουτρό ' +
+        'χωράει μια εκκλησία, και ένας τάφος αυτοκράτορα έγινε κάστρο με άγγελο στην ' +
+        'κορυφή. Το νερό των σιντριβανιών έρχεται από υδραγωγεία δύο χιλιάδων ετών, και ' +
+        'στη μέση της πόλης υπάρχει μια ολόκληρη άλλη χώρα, η μικρότερη του κόσμου. Όπου ' +
+        'κι αν σκάψεις, βρίσκεις κάτι· όπου κι αν σταθείς, κάποιος έχει σταθεί πριν από ' +
+        'δύο χιλιάδες χρόνια.',
+      en:
+        'Rome is a city built on top of itself, layer upon layer. Under a square full of ' +
+        'fountains hides a stadium, inside a bath house sits a church, and an emperor’s ' +
+        'tomb became a castle with an angel on top. The water in the fountains arrives ' +
+        'through aqueducts two thousand years old, and in the middle of the city there is ' +
+        'a whole other country, the smallest in the world. Dig anywhere and you find ' +
+        'something; stand anywhere and somebody stood there two thousand years ago.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/rome.json`: Piazza Venezia, the same point the
+     * resolver audits every place against. Not the Wikidata point for Rome, which sits on
+     * Piazza del Campidoglio and would flag that square as a centroid mistake.
+     */
+    centre: { lat: 41.8955, lng: 12.4823 },
+
+    map: {
+      src: '/images/world/maps/rome.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Ρώμης με τον Τίβερη, τους λόφους και το Βατικανό.',
+        en: 'A stylised map of Rome showing the Tiber, the hills and the Vatican.',
+      },
+      width: 1000,
+      height: 1018,
+      /**
+       * The artwork is drawn to these bounds and every `location.map` in `cities/rome.ts`
+       * is projected into them by `scripts/world`'s fill step, never placed by hand. The
+       * Bioparco sits on the north edge, the Orange Garden on the south, the Vatican
+       * Museums on the west and Palazzo Massimo on the east.
+       */
+      bounds: { north: 41.925, south: 41.878, east: 12.508, west: 12.446 },
+    },
+  },
+];

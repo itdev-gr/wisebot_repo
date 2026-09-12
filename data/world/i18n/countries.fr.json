@@ -31,6 +31,14 @@
           "intro": "Delphes n’a jamais été une grande ville. C’était l’endroit où tout le monde grec allait pour poser une question. Accrochée à une pente raide du Parnasse, avec la mer qui se devine au loin, elle abritait l’oracle le plus célèbre de l’Antiquité et passait pour le centre de la terre. Chaque cité qui obtenait la réponse qu’elle voulait envoyait un cadeau, et les cadeaux ont rempli de statues la route qui monte vers le temple. Aujourd’hui, la route est vide et les cadeaux sont au musée, quelques mètres plus bas."
         }
       }
+    },
+    "france": {
+      "cities": {
+        "paris": {
+          "name": "Paris",
+          "intro": "Paris est une ville qui se dispute avec ses bâtiments, puis qui les aime. On voulait démolir la tour Eiffel, on disait que la pyramide de verre du Louvre était une insulte, et aujourd’hui les deux sont son emblème. Au milieu coule la Seine, et au milieu du fleuve il y a une petite île : c’est de là qu’est partie toute la ville. Elle a un musée si grand qu’on n’en voit jamais la fin, et un pendule qui a prouvé que la Terre tourne."
+        }
+      }
     }
   }
 }

@@ -70,4 +70,51 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'paris',
+    countryId: 'france',
+    order: 1,
+    emoji: '🗼',
+
+    name: {
+      el: 'Παρίσι',
+      en: 'Paris',
+    },
+
+    intro: {
+      el:
+        'Το Παρίσι είναι μια πόλη που μαλώνει με τα κτίριά της και μετά τα αγαπάει. Τον ' +
+        'πύργο του Άιφελ τον ήθελαν να γκρεμιστεί, τη γυάλινη πυραμίδα του Λούβρου την ' +
+        'έλεγαν προσβολή, και σήμερα και τα δύο είναι το σήμα της. Στη μέση κυλάει ο ' +
+        'Σηκουάνας και στη μέση του ποταμού υπάρχει ένα μικρό νησί: από εκεί ξεκίνησε ' +
+        'ολόκληρη η πόλη. Έχει ένα μουσείο τόσο μεγάλο που δεν το τελειώνεις, και ένα ' +
+        'εκκρεμές που απέδειξε ότι η Γη γυρίζει.',
+      en:
+        'Paris is a city that argues with its own buildings and then falls in love with ' +
+        'them. People wanted the Eiffel Tower pulled down and called the Louvre’s glass ' +
+        'pyramid an insult, and today both are its emblem. The Seine runs through the ' +
+        'middle, and in the middle of the river there is a small island: the whole city ' +
+        'started there. It has a museum too big to finish, and a pendulum that proved the ' +
+        'Earth turns.',
+    },
+
+    /** Copied from `scripts/world/seeds/paris.json`. */
+    centre: { lat: 48.8567, lng: 2.3508 },
+
+    map: {
+      src: '/images/world/maps/paris.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του κέντρου του Παρισιού, με τον Σηκουάνα, το νησί του και τους δύο λόφους του.',
+        en: 'A stylised map of central Paris, with the Seine, its island and its two hills.',
+      },
+      width: 1000,
+      height: 760,
+      /**
+       * Wide enough to hold the Cité des Sciences in the north-east corner, which is the
+       * furthest place in the city file, without pushing the centre off the artwork.
+       */
+      bounds: { north: 48.9, south: 48.838, east: 2.395, west: 2.285 },
+    },
+  },
+];

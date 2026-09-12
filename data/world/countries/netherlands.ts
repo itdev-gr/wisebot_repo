@@ -70,4 +70,57 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'amsterdam',
+    countryId: 'netherlands',
+    order: 1,
+    emoji: '🚲',
+
+    name: {
+      el: 'Άμστερνταμ',
+      en: 'Amsterdam',
+    },
+
+    intro: {
+      el:
+        'Το Άμστερνταμ είναι μια πόλη χτισμένη πάνω στο νερό, και το ξέρει. Κάθε βαρύ κτίριό ' +
+        'της πατάει σε χιλιάδες ξύλινους πασσάλους μπηγμένους στη λάσπη, τρία κανάλια το ' +
+        'αγκαλιάζουν σαν μισοφέγγαρο, και οι γέφυρες ανοίγουν για να περάσουν οι βάρκες. Τα ' +
+        'ποδήλατα είναι περισσότερα από τους ανθρώπους και έχουν δικό τους γκαράζ κάτω από τη ' +
+        'θάλασσα. Εδώ ζωγράφισε ο Rembrandt, εδώ έγραψε το ημερολόγιό της η Anne Frank, και ' +
+        'εδώ ένα πράσινο μουσείο σε σχήμα καραβιού σε αφήνει να ανέβεις στη στέγη του χωρίς ' +
+        'εισιτήριο.',
+      en:
+        'Amsterdam is a city built on water, and it knows it. Every heavy building stands on ' +
+        'thousands of wooden piles driven into the mud, three canals wrap around the old town ' +
+        'like a half-moon, and the bridges open to let the boats through. Bicycles outnumber ' +
+        'people and have a garage of their own under the sea. Rembrandt painted here, Anne ' +
+        'Frank wrote her diary here, and a green museum shaped like a ship lets you climb ' +
+        'onto its roof without a ticket.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/amsterdam.json`. The resolver audits every place
+     * against this exact point, so the two must not drift.
+     */
+    centre: { lat: 52.372, lng: 4.895 },
+
+    map: {
+      src: '/images/world/maps/amsterdam.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του Άμστερνταμ με το IJ, τον Άμστελ και το μισοφέγγαρο των καναλιών.',
+        en: 'A stylised map of Amsterdam showing the IJ, the Amstel and the half-moon of canals.',
+      },
+      width: 1000,
+      height: 900,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the sixteen places in `cities/amsterdam.ts` falls
+       * inside them, with the Olympic Stadium in the south-west corner, the De Gooyer
+       * windmill on the east edge and Centraal on the IJ at the top.
+       */
+      bounds: { north: 52.39, south: 52.335, east: 4.94, west: 4.84 },
+    },
+  },
+];

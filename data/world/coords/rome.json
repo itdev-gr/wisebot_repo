@@ -1,0 +1,625 @@
+{
+  "city": "rome",
+  "resolvedAt": "2026-09-12T10:48:46.407Z",
+  "centre": {
+    "lat": 41.8955,
+    "lng": 12.4823
+  },
+  "places": [
+    {
+      "id": "rome-colosseum",
+      "name": "Colosseum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10285",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/1834818",
+          "deltaM": 13
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Colosseum",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 41.89028,
+      "lng": 12.49222,
+      "labels": {
+        "en": "Colosseum",
+        "fr": "Colisée",
+        "it": "Colosseo",
+        "de": "Kolosseum",
+        "es": "Coliseo",
+        "el": "Κολοσσαίο"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-roman-forum",
+      "name": "Roman Forum",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q180212",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/1841080",
+          "deltaM": 166
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Roman Forum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.8922,
+      "lng": 12.4852,
+      "labels": {
+        "fr": "Forum Romain",
+        "es": "Foro Romano",
+        "it": "Foro Romano",
+        "de": "Forum Romanum",
+        "en": "Roman Forum",
+        "el": "Ρωμαϊκό Φόρουμ"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-campidoglio",
+      "name": "Piazza del Campidoglio",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q34921",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/23055100",
+          "deltaM": 13
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Piazza del Campidoglio",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [],
+      "lat": 41.89334,
+      "lng": 12.48292,
+      "labels": {
+        "de": "Kapitolsplatz",
+        "fr": "Place du Capitole",
+        "es": "Plaza del Campidoglio",
+        "it": "Piazza del Campidoglio",
+        "en": "Piazza del Campidoglio"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-capitoline-museums",
+      "name": "Capitoline Museums (Palazzo dei Conservatori)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q64103",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/123817455",
+          "deltaM": 14
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.893,
+      "lng": 12.48281,
+      "labels": {
+        "de": "Konservatorenpalast",
+        "fr": "palais des Conservateurs",
+        "es": "Palacio de los Conservadores",
+        "it": "Palazzo dei Conservatori",
+        "en": "Palazzo dei Conservatori",
+        "el": "Παλάτσο ντέι Κονσερβατόρι"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-bocca-della-verita",
+      "name": "Bocca della Verità",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q729490",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/497186177",
+          "deltaM": 24
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Bocca della Verità",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 41.88806,
+      "lng": 12.48167,
+      "labels": {
+        "fr": "Bocca della Verità",
+        "en": "Bocca della Verità",
+        "es": "Bocca della Verità",
+        "it": "Bocca della Verità",
+        "de": "Bocca della Verità"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-circus-maximus",
+      "name": "Circus Maximus",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q207808",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/11384819",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Circus Maximus",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.8859,
+      "lng": 12.4857,
+      "labels": {
+        "fr": "Circus Maximus",
+        "es": "Circo Máximo",
+        "it": "Circo Massimo",
+        "de": "Circus Maximus",
+        "en": "Circus Maximus",
+        "el": "Μέγας Ιππόδρομος"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-orange-garden",
+      "name": "Giardino degli Aranci",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3763895",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/8437974",
+          "deltaM": 12
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Orange Garden, Rome",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.8851,
+      "lng": 12.4804,
+      "labels": {
+        "it": "giardino degli Aranci",
+        "en": "Orange Garden",
+        "fr": "Jardin des Orangers"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-pantheon",
+      "name": "Pantheon",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q99309",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/3374342",
+          "deltaM": 9
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Pantheon, Rome",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [],
+      "lat": 41.89861,
+      "lng": 12.47694,
+      "labels": {
+        "fr": "Panthéon",
+        "de": "Pantheon",
+        "en": "Pantheon",
+        "es": "Panteón de Agripa",
+        "it": "Pantheon",
+        "el": "Πάνθεον"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-trevi-fountain",
+      "name": "Trevi Fountain",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q185382",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/13448560",
+          "deltaM": 24
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Trevi Fountain",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 41.90083,
+      "lng": 12.48306,
+      "labels": {
+        "fr": "fontaine de Trevi",
+        "es": "Fontana di Trevi",
+        "it": "Fontana di Trevi",
+        "de": "Trevi-Brunnen",
+        "el": "Φοντάνα ντι Τρέβι",
+        "en": "Trevi Fountain"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-spanish-steps",
+      "name": "Spanish Steps",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q848072",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Spanish Steps",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 41.90611,
+      "lng": 12.48278,
+      "labels": {
+        "en": "Spanish Steps",
+        "it": "Scalinata di Trinità dei Monti",
+        "el": "Σκαλινάτα",
+        "de": "Spanische Treppe",
+        "fr": "escalier de la Trinité-des-Monts",
+        "es": "Escalinata de la plaza de España"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-piazza-navona",
+      "name": "Piazza Navona",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q463400",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4247138",
+          "deltaM": 24
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Piazza Navona",
+          "deltaM": 33
+        }
+      ],
+      "warnings": [],
+      "lat": 41.89871,
+      "lng": 12.47316,
+      "labels": {
+        "fr": "piazza Navona",
+        "es": "Plaza Navona",
+        "it": "Piazza Navona",
+        "de": "Piazza Navona",
+        "en": "Piazza Navona",
+        "el": "Πιάτσα Ναβόνα"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-campo-de-fiori",
+      "name": "Campo de' Fiori",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q28303",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4949430",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Campo de' Fiori",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [],
+      "lat": 41.89566,
+      "lng": 12.47205,
+      "labels": {
+        "fr": "Campo de' Fiori",
+        "es": "Campo de' Fiori",
+        "en": "Campo de' Fiori",
+        "it": "Campo de' Fiori",
+        "de": "Campo de’ Fiori",
+        "el": "Κάμπο ντε Φιόρι"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-palazzo-massimo",
+      "name": "Palazzo Massimo alle Terme",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3890451",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2705998",
+          "deltaM": 35
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.90154,
+      "lng": 12.49806,
+      "labels": {
+        "it": "Palazzo Massimo alle Terme",
+        "en": "Palazzo Massimo alle Terme",
+        "fr": "palais Massimo des Thermes",
+        "es": "Palazzo Massimo alle Terme",
+        "de": "Palazzo Massimo alle Terme"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-santa-maria-degli-angeli",
+      "name": "Santa Maria degli Angeli e dei Martiri",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q569253",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/201482365",
+          "deltaM": 54
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Santa Maria degli Angeli e dei Martiri",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 41.90306,
+      "lng": 12.49694,
+      "labels": {
+        "de": "Santa Maria degli Angeli e dei Martiri",
+        "en": "Santa Maria degli Angeli e dei Martiri",
+        "es": "basílica de Santa María de los Ángeles y los Mártires",
+        "fr": "basilique Santa Maria degli Angeli e dei Martiri",
+        "it": "basilica di Santa Maria degli Angeli e dei Martiri",
+        "el": "Σάντα Μαρία ντέλι Άντζελι ε ντεϊ Μάρτιρι"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-castel-sant-angelo",
+      "name": "Castel Sant'Angelo",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q486382",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/8035487",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Castel Sant'Angelo",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [],
+      "lat": 41.90304,
+      "lng": 12.46631,
+      "labels": {
+        "fr": "château Saint-Ange",
+        "es": "Castillo Sant'Angelo",
+        "it": "Castel Sant'Angelo",
+        "de": "Engelsburg",
+        "en": "Castel Sant'Angelo",
+        "el": "Κάστρο Σαν Άντζελο"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-st-peters-square",
+      "name": "St Peter's Square",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q83425",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/135747106",
+          "deltaM": 125
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St. Peter's Square",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 41.90218,
+      "lng": 12.45724,
+      "labels": {
+        "fr": "place Saint-Pierre",
+        "es": "Plaza de San Pedro",
+        "it": "piazza San Pietro",
+        "de": "Petersplatz",
+        "en": "Saint Peter's Square",
+        "el": "Πλατεία του Αγίου Πέτρου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-vatican-museums",
+      "name": "Vatican Museums",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q182955",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/112137587",
+          "deltaM": 141
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Vatican Museums",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 41.90639,
+      "lng": 12.45444,
+      "labels": {
+        "fr": "musées du Vatican",
+        "es": "Museos Vaticanos",
+        "it": "Musei Vaticani",
+        "de": "Vatikanische Museen",
+        "el": "Μουσεία Βατικανού",
+        "en": "Vatican Museums"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "rome-bioparco",
+      "name": "Bioparco di Roma",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q864639",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/5657594",
+          "deltaM": 176
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Bioparco di Roma",
+          "deltaM": 8
+        }
+      ],
+      "warnings": [],
+      "lat": 41.91747,
+      "lng": 12.48519,
+      "labels": {
+        "fr": "bioparco",
+        "en": "bioparco",
+        "de": "Bioparco di Roma",
+        "it": "bioparco di Roma",
+        "es": "bioparco"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}

@@ -1,0 +1,506 @@
+{
+  "lang": "fr",
+  "cityId": "paris",
+  "places": {
+    "paris-eiffel-tower": {
+      "name": "La tour Eiffel",
+      "tagline": "Construite pour être démontée au bout de vingt ans",
+      "story": "En 1889, Paris préparait une fête immense, l’Exposition universelle, et l’ingénieur Gustave Eiffel lui a promis pour porte d’entrée la tour la plus haute du monde. Son équipe a assemblé environ dix-huit mille pièces de fer avec deux millions et demi de rivets, et en un peu plus de deux ans la tour a atteint trois cents mètres. Beaucoup de Parisiens la trouvaient affreuse et demandaient qu’on la démolisse. Ce n’était pas absurde : le permis disait qu’elle resterait debout vingt ans seulement, et qu’ensuite elle finirait à la ferraille. Ce qui l’a sauvée, personne ne l’avait imaginé pendant qu’on la dessinait. C’était la chose la plus haute de la ville, donc l’endroit parfait pour des antennes, et quand la radio est devenue importante, la tour est devenue utile. Elle n’a pas été sauvée parce que les Parisiens l’ont aimée. Elle a été sauvée parce qu’elle s’est révélée utile.",
+      "facts": [
+        "Elle a été montée en un peu plus de deux ans, avec environ 18 000 pièces de fer.",
+        "Pendant une canicule, elle grandit d’environ quinze centimètres, parce que le fer se dilate.",
+        "Eiffel avait son propre petit appartement, tout près du sommet."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui a sauvé la tour de la démolition ?",
+        "answers": [
+          "Les antennes",
+          "Une pétition d’artistes célèbres qui l’ont défendue en public",
+          "La décision d’Eiffel de l’acheter tout entière avec son propre argent",
+          "Une loi qui a interdit de démolir les grands bâtiments dans Paris"
+        ],
+        "explanation": "C’était le point le plus haut de la ville, donc l’endroit parfait pour des antennes. Quand la radio est devenue importante, la tour est devenue utile, et personne ne l’a démontée."
+      }
+    },
+    "paris-arc-de-triomphe": {
+      "name": "L’Arc de Triomphe",
+      "tagline": "L’homme qui l’a commandé ne l’a jamais vu terminé",
+      "story": "En 1806, Napoléon venait de gagner une grande bataille et il a commandé un arc immense, pour que ses soldats passent dessous en rentrant chez eux. La construction a duré trente ans, bien plus longtemps que son propre règne, et Napoléon ne l’a jamais vu terminé. L’arc mesure cinquante mètres de haut, autant qu’un immeuble de seize étages, et des centaines de noms de batailles et de généraux sont gravés sur ses murs. Il se dresse au centre d’une place d’où partent douze avenues comme des rayons, et c’est pour cela que, vu d’en haut, il ressemble à une étoile. Sous l’arc se trouve la tombe d’un soldat qu’on n’a jamais identifié, et à côté d’elle une flamme qu’on rallume chaque soir depuis 1923 et qui ne s’est jamais éteinte depuis.",
+      "facts": [
+        "Il mesure cinquante mètres de haut et sa construction a duré trente ans.",
+        "Douze avenues partent de sa place, comme les rayons d’une étoile.",
+        "En 1919, un pilote est passé avec son avion à travers l’arc."
+      ],
+      "question": {
+        "q": "Pourquoi la place autour de l’arc ressemble-t-elle à une étoile ?",
+        "answers": [
+          "Douze avenues en partent",
+          "Parce que ses lampadaires sont disposés en forme d’étoile sur la chaussée",
+          "Parce que le dessin copie le drapeau de la France vu d’en haut",
+          "Parce que les trottoirs sont pavés de pierres taillées en forme d’étoile"
+        ],
+        "explanation": "Les douze rues s’en vont dans toutes les directions, comme des rayons. C’est pour cela que, vue d’en haut, la place a été appelée place de l’Étoile."
+      }
+    },
+    "paris-place-de-la-concorde": {
+      "name": "La place de la Concorde",
+      "tagline": "La plus grande place de la ville, avec un visiteur égyptien",
+      "story": "C’est la plus grande place de Paris, si large qu’elle ressemble à une prairie de pierre. Elle a été construite pour un roi, et pendant la Révolution française, des choses très dures s’y sont passées. Quand le calme est revenu, la ville lui a donné un nouveau nom : Concorde, ce qui veut dire vivre ensemble en paix. Ce nom était une décision, une façon pour la ville de dire ce qu’elle voulait retenir et ce qu’elle ne voulait pas. En 1836, un visiteur très inhabituel est arrivé ici : un obélisque de plus de trois mille ans, cadeau de l’Égypte, qui a voyagé sur un bateau construit exprès pour lui. Il pèse environ deux cents tonnes. Sur son socle sont gravés des dessins qui montrent, étape par étape, les machines qui l’ont descendu à Louxor et qui l’ont relevé ici, au milieu de Paris.",
+      "facts": [
+        "Son obélisque a plus de 3 000 ans et pèse environ 200 tonnes.",
+        "Il a voyagé depuis l’Égypte sur un bateau construit exprès pour le transporter.",
+        "Son jumeau se dresse encore à Louxor : la France l’a officiellement rendu en 1981."
+      ],
+      "question": {
+        "q": "Que veut dire le nom « Concorde » donné à la place ?",
+        "answers": [
+          "Vivre ensemble en paix",
+          "La grande victoire que l’armée de France a fêtée à cet endroit",
+          "Le nom du roi pour qui la place avait d’abord été construite",
+          "L’accord avec l’Égypte qui a fait venir ici le grand obélisque"
+        ],
+        "explanation": "Le nom a été choisi exprès, après des années très difficiles. C’était la façon pour la ville de dire ce qu’elle voulait retenir à partir de là."
+      }
+    },
+    "paris-louvre": {
+      "name": "Le Louvre",
+      "tagline": "Une forteresse, puis un palais, puis un musée pour tous",
+      "story": "Il y a plus de huit cents ans, un roi a construit ici une forteresse pour garder Paris, avec des murs épais et un haut donjon rond. Les rois suivants en ont fait un palais aux salles pleines d’or, jusqu’à ce que l’un d’eux déménage à Versailles et le laisse à moitié vide. Pendant la Révolution française, on a pris une décision qui a changé les musées partout : le peuple a dit que les trésors des rois appartenaient à tout le monde, et en 1793 le palais a ouvert comme musée. Ce n’était pas un cadeau ; c’était une revendication. Aujourd’hui, c’est le plus grand musée d’art du monde, si grand que si tu restais trente secondes devant chaque œuvre, il te faudrait des mois. Tu entres par une pyramide de verre qu’on détestait quand elle a été faite, exactement comme on détestait la tour Eiffel.",
+      "facts": [
+        "Il a ouvert comme musée en 1793, après la Révolution française.",
+        "C’est le plus grand musée d’art du monde.",
+        "La rumeur selon laquelle la pyramide a 666 vitres est un mythe : elle en a davantage."
+      ],
+      "question": {
+        "q": "Comment le palais est-il devenu un musée ?",
+        "answers": [
+          "Le peuple l’a décidé pendant la Révolution",
+          "Un roi l’a offert à la ville par testament, avant de mourir",
+          "Un riche collectionneur l’a acheté et l’a ouvert au public",
+          "Il a été construit dès le départ comme musée et n’a jamais été une maison"
+        ],
+        "explanation": "On a jugé que les trésors des rois appartenaient à tout le monde. C’est de cette décision qu’est née l’idée du musée public dans toute l’Europe."
+      },
+      "museum": {
+        "doorNote": "N’essaie pas de tout voir. Choisis une salle et regarde-la pour de vrai.",
+        "rooms": {
+          "paris-louvre-medieval": {
+            "name": "La forteresse en dessous",
+            "intro": "Avant de monter voir les tableaux, descends. Sous le musée, les fondations du château médiéval sont conservées, et tu marches dans son fossé sur un sol sec. C’est l’endroit où tu comprends que le bâtiment lui-même est bien plus vieux que presque tout ce qu’il contient."
+          },
+          "paris-louvre-famous": {
+            "name": "Les très célèbres",
+            "intro": "Trois œuvres d’ici, presque toute la planète les connaît, et le plus intéressant, c’est qu’aucune n’est devenue célèbre pour la raison que tu crois. L’une a été volée, l’autre a été trouvée cassée dans un champ, et à la troisième il manque la tête et les bras."
+          }
+        },
+        "exhibits": {
+          "paris-louvre-moat": {
+            "name": "Le fossé asséché",
+            "blurb": "Un couloir de pierre qui était autrefois plein d’eau et qui faisait tout le tour de la forteresse. Aujourd’hui, tu marches sur son fond, entre des murs de dix mètres de haut qui n’ont pas vu la lumière pendant des siècles. Regarde les pierres de près : beaucoup portent des signes gravés, les marques des tailleurs de pierre qui les ont taillées, parce qu’ils étaient payés à la pierre et qu’il fallait pouvoir prouver qui exactement avait fait quoi.",
+            "question": {
+              "q": "Pourquoi y a-t-il des signes gravés sur les pierres ?",
+              "answers": [
+                "Pour payer le bon tailleur de pierre",
+                "Pour montrer l’ordre dans lequel il fallait les poser",
+                "Pour éloigner la malchance du bâtiment tout neuf",
+                "Pour distinguer les pierres venues d’une autre carrière"
+              ],
+              "explanation": "Ils étaient payés à la pièce. La marque était le reçu, à une époque sans paperasse."
+            }
+          },
+          "paris-louvre-keep": {
+            "name": "La base du donjon",
+            "blurb": "Au centre du sous-sol se dresse un énorme mur circulaire : c’est ce qui reste du donjon de la forteresse, qui en était aussi l’endroit le plus sûr. C’est là qu’on gardait le trésor et les archives. Le donjon a été démoli quand la forteresse est devenue un palais, parce qu’un roi qui veut de la lumière et de grandes fenêtres ne veut pas d’une tour de pierre aveugle au milieu de sa cour.",
+            "question": {
+              "q": "Pourquoi le donjon a-t-il été démoli ?",
+              "answers": [
+                "La forteresse est devenue un palais",
+                "Il s’est effondré tout seul lors d’un tremblement de terre à Paris",
+                "Il a brûlé dans un grand incendie et ne valait pas la peine d’être rebâti",
+                "On avait besoin de ses pierres pour construire le rempart de la ville"
+              ],
+              "explanation": "Un bâtiment change quand son métier change. La forteresse voulait un donjon, le palais voulait de la lumière."
+            }
+          },
+          "paris-louvre-pyramid": {
+            "name": "La pyramide de verre",
+            "blurb": "La pyramide n’est pas une décoration : c’est la solution à un problème. Le musée avait plusieurs entrées éparpillées autour du palais, et les gens se perdaient avant même d’être entrés. La pyramide a rassemblé tout le monde en un seul point et fait descendre la lumière dans un hall d’accueil souterrain. Quand on l’a présentée, on la trouvait insultante pour un bâtiment historique. Aujourd’hui, c’est la partie la plus photographiée de tout le musée.",
+            "question": {
+              "q": "Quel problème la pyramide a-t-elle résolu ?",
+              "answers": [
+                "Les visiteurs se perdaient entre trop d’entrées",
+                "Les œuvres étaient menacées par l’humidité qui montait du sol",
+                "Le palais n’avait pas assez de place pour exposer tous les tableaux",
+                "Les vieux escaliers étaient dangereux pour les visiteurs âgés"
+              ],
+              "explanation": "Une seule entrée pour tout le monde, et de la lumière qui descend d’en haut dans un hall souterrain."
+            }
+          },
+          "paris-louvre-mona-lisa": {
+            "name": "La Joconde",
+            "blurb": "Un petit portrait, plus petit que ce que les gens attendent, peint par Léonard de Vinci sur du bois et non sur une toile. La Joconde était connue, mais pas célèbre, jusqu’en 1911, quand un ancien ouvrier du musée l’a volée en la sortant sous son manteau. Pendant deux ans, les journaux du monde entier ont parlé du mur vide. Quand on l’a retrouvée, elle était devenue l’œuvre la plus connue de la planète. C’est le vol qui l’a rendue célèbre, pas la peinture.",
+            "question": {
+              "q": "Qu’est-ce qui a rendu la Joconde célèbre dans le monde entier ?",
+              "answers": [
+                "Son vol en 1911",
+                "La décision de Napoléon de l’accrocher dans sa chambre à coucher",
+                "Le fait que c’est le plus grand tableau de tout le musée",
+                "Une lettre de Léonard qui décrit qui était vraiment cette femme"
+              ],
+              "explanation": "Deux ans de mur vide et des unes de journaux partout. Quand elle est revenue, le monde entier la connaissait."
+            }
+          },
+          "paris-louvre-venus": {
+            "name": "La Vénus de Milo",
+            "blurb": "Une statue de marbre d’environ deux mètres, faite vers le IIe siècle av. J.-C., trouvée en 1820 par un paysan sur l’île grecque de Milos. Il lui manque les deux bras et personne ne sait ce qu’ils tenaient. Des dizaines de solutions ont été proposées : une pomme, un miroir, un bouclier, un tissu. Le mystère fait partie de son charme, parce que chaque visiteur complète les bras avec son imagination et que personne ne peut être contredit.",
+            "question": {
+              "q": "Que ne sait-on pas sur la Vénus de Milo ?",
+              "answers": [
+                "Ce que tenaient ses bras",
+                "En quelle matière exactement toute la statue a été taillée",
+                "Sur quelle île de Grèce le paysan l’a trouvée en 1820",
+                "Sa taille, parce qu’on ne l’a jamais mesurée avec précision"
+              ],
+              "explanation": "Les bras n’ont jamais été retrouvés. Chaque réponse est une supposition, et il y en a des dizaines."
+            }
+          },
+          "paris-louvre-victory": {
+            "name": "La Victoire de Samothrace",
+            "blurb": "Une figure ailée dressée en haut d’un grand escalier, comme si elle venait de se poser sur la proue d’un navire. Il lui manque la tête et il lui manque les bras, et pourtant c’est l’une des sculptures les plus vivantes jamais faites : le tissu colle au corps comme si le vent et la mer le frappaient. Le marbre est sculpté pour paraître mouillé. Elle a été trouvée en morceaux sur l’île grecque de Samothrace, en 1863.",
+            "question": {
+              "q": "Comment le marbre de cette statue est-il sculpté ?",
+              "answers": [
+                "Pour que le tissu paraisse mouillé",
+                "Pour qu’il change de couleur selon la lumière du jour",
+                "Pour qu’il soit creux à l’intérieur et très léger pour sa taille",
+                "Pour qu’il ait exactement la couleur de la proue du navire"
+              ],
+              "explanation": "Le tissu mouillé colle et montre le corps en dessous. C’est la chose la plus difficile à faire dans la pierre."
+            }
+          }
+        },
+        "riddles": {
+          "paris-louvre-riddle-1": {
+            "prompt": "Je suis plus petite que tu ne le crois et je suis peinte sur du bois. Je suis devenue célèbre parce que quelqu’un m’a emportée d’ici sous son manteau, et j’ai manqué pendant deux ans.",
+            "hint": "On m’a retrouvée à Florence."
+          },
+          "paris-louvre-riddle-2": {
+            "prompt": "J’ai des ailes et il me manque la tête, et pourtant j’ai l’air de bouger. Je me tiens en haut d’un escalier, et mon marbre est sculpté pour paraître mouillé.",
+            "hint": "Je suis posée sur la proue d’un navire."
+          },
+          "paris-louvre-riddle-3": {
+            "prompt": "J’étais plein d’eau et je faisais tout le tour du château. Maintenant tu marches sur mon fond sans te mouiller les pieds, entre des murs qui n’ont pas vu le soleil pendant des siècles.",
+            "hint": "Je suis sous le musée, pas dedans."
+          }
+        }
+      }
+    },
+    "paris-pont-neuf": {
+      "name": "Le Pont-Neuf",
+      "tagline": "Il s’appelle Pont-Neuf et c’est le plus vieux de Paris",
+      "story": "La première pierre a été posée en 1578 et le pont a été terminé en 1607, il a donc fallu presque trente ans. À l’époque, c’était le pont le plus récent de la ville, alors les gens l’ont simplement appelé le Pont-Neuf. Le nom est resté, et aujourd’hui c’est le plus vieux pont de Paris encore debout. Mais il était quelque chose de plus important que vieux ou neuf : il était différent. Tous les autres ponts de cette époque étaient couverts de maisons et de boutiques, c’est-à-dire que tu traversais une rue sans voir l’eau du tout. Celui-ci est resté ouvert et a reçu des trottoirs, les premiers de la ville. Tout à coup, les Parisiens pouvaient s’arrêter au-dessus du fleuve et regarder l’eau. Il est aussitôt devenu un endroit où se rassemblaient musiciens, marchands ambulants, jongleurs et curieux, et le pont est devenu une place.",
+      "facts": [
+        "Il a été commencé en 1578 et terminé en 1607.",
+        "C’était le premier pont de la ville sans maisons dessus.",
+        "En 1985, deux artistes l’ont emballé tout entier dans du tissu."
+      ],
+      "question": {
+        "q": "Qu’avait ce pont que les autres ponts de son époque n’avaient pas ?",
+        "answers": [
+          "Une vue sur le fleuve",
+          "Deux rangées de boutiques et de maisons sur toute sa longueur",
+          "Une partie mobile au milieu, qui se levait pour laisser passer les bateaux",
+          "Un toit de bois qui protégeait les passants de la pluie"
+        ],
+        "explanation": "Les autres ponts étaient couverts de maisons. Ici, pour la première fois, tu pouvais t’arrêter au-dessus de l’eau et la voir."
+      }
+    },
+    "paris-notre-dame": {
+      "name": "Notre-Dame de Paris",
+      "tagline": "Deux siècles de construction, et des monstres de pierre sur le toit",
+      "story": "La construction a commencé en 1163 et a duré presque deux cents ans, c’est-à-dire qu’aucun de ceux qui ont posé les premières pierres n’a vécu assez pour la voir terminée. Ses deux tours mesurent soixante-neuf mètres de haut, et ses trois fenêtres rondes, les rosaces, brillent comme d’immenses fleurs de verre coloré. Autour du toit sont accroupies les gargouilles, des monstres de pierre à la gueule ouverte. Ce ne sont ni des décorations ni des épouvantails : ce sont des gouttières. L’eau de pluie passe à travers elles et est projetée loin des murs, parce que l’eau qui coule sur la pierre est le pire ennemi d’un vieux bâtiment. En avril 2019, un incendie a détruit le toit et la flèche. Elle n’est pas tombée. On l’a rebâtie, et elle a rouvert à la fin de 2024.",
+      "facts": [
+        "La construction a commencé en 1163 et a duré presque deux cents ans.",
+        "Les gargouilles sont des gouttières, pas des ornements.",
+        "Après l’incendie de 2019, elle a été rebâtie et a rouvert à la fin de 2024."
+      ],
+      "question": {
+        "q": "À quoi servent les gargouilles ?",
+        "answers": [
+          "Elles rejettent la pluie au loin",
+          "Elles montrent aux fidèles où se trouve l’entrée de l’église",
+          "Elles portent le poids du toit sur les murs extérieurs",
+          "Elles donnent l’heure avec leur ombre, comme un cadran solaire"
+        ],
+        "explanation": "L’eau passe à travers leur corps et est projetée loin du mur. Sans elles, la pluie rongerait la pierre."
+      }
+    },
+    "paris-pantheon": {
+      "name": "Le Panthéon",
+      "tagline": "Ici, un pendule a prouvé que la Terre tourne",
+      "story": "Un roi est tombé gravement malade et a promis que, s’il guérissait, il ferait bâtir une église splendide. Il a guéri, et l’architecte a dessiné un bâtiment avec un dôme qu’on voit de très loin. Mais à peine terminé, la Révolution française a éclaté, et le peuple a décidé de s’en servir autrement : comme lieu de repos pour les personnes que le pays voulait honorer. Des écrivains, des scientifiques et des penseurs y reposent. Le plus passionnant, pourtant, est suspendu au dôme. En 1851, Léon Foucault y a accroché une boule de vingt-huit kilos à un fil de soixante-sept mètres et l’a laissée se balancer. Au fil de la journée, le plan de son mouvement tournait lentement. Ce n’était pas le pendule qui tournait. C’était le bâtiment, et avec lui la Terre entière sous les pieds de ceux qui regardaient.",
+      "facts": [
+        "Il a été dessiné comme église et est devenu le lieu de repos de ceux que le pays a honorés.",
+        "Le pendule de Foucault est une boule de 28 kilos au bout d’un fil de 67 mètres.",
+        "Marie Curie repose ici, la première femme qu’on y a transférée pour ses propres travaux."
+      ],
+      "question": {
+        "q": "Qu’a prouvé le pendule de Foucault ?",
+        "answers": [
+          "Que la Terre tourne",
+          "Que le dôme du bâtiment bouge légèrement quand le vent est fort",
+          "Que le poids d’un corps change selon la hauteur du sol",
+          "Que le temps passe différemment selon les endroits de la planète"
+        ],
+        "explanation": "Un pendule se balance toujours dans le même plan. Si celui-ci semble tourner, alors c’est ce qui est en dessous qui tourne."
+      }
+    },
+    "paris-luxembourg-gardens": {
+      "name": "Le jardin du Luxembourg",
+      "tagline": "Des enfants poussent des bateaux de bois avec un bâton",
+      "story": "En 1612, une reine qui avait grandi à Florence a acheté ici un grand domaine et a demandé un palais et un jardin comme ceux de son pays. Elle n’est restée que quelques années, mais le jardin est resté et a grandi. Aujourd’hui, le palais est la maison du Sénat français, où l’on discute les lois, et le jardin appartient à tout le monde. Au milieu, il y a un bassin rond, et depuis une centaine d’années les enfants y louent de petits voiliers de bois qu’ils poussent avec un long bâton. Ils n’ont ni moteur ni télécommande : c’est le vent qui les fait avancer, et ton travail est de bien les pousser, puis de courir tout autour pour les rattraper de l’autre côté. Le jardin a aussi des ruches et une école d’apiculture depuis 1856.",
+      "facts": [
+        "Le jardin a été créé en 1612 pour une reine qui avait grandi à Florence.",
+        "Les bateaux de bois du bassin n’avancent qu’avec le vent.",
+        "Il a des ruches et une école d’apiculture depuis 1856."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui fait avancer les petits bateaux sur le bassin ?",
+        "answers": [
+          "Le vent",
+          "Un petit moteur à pile caché à l’intérieur de leur coque",
+          "Un courant d’eau créé par une pompe au fond du bassin",
+          "Des ficelles que les enfants tirent depuis les deux bords du bassin"
+        ],
+        "explanation": "Ce sont de vrais voiliers en miniature. Le bâton t’aide seulement à les lancer du bon côté."
+      }
+    },
+    "paris-palais-garnier": {
+      "name": "L’Opéra Garnier",
+      "tagline": "Il a un vrai lac sous son plancher",
+      "story": "En 1861, un architecte jeune et inconnu a gagné le concours pour le théâtre d’opéra le plus somptueux du monde. La construction a duré quatorze ans, et la raison, c’était l’eau : le sous-sol se remplissait sans arrêt, même en pompant tant qu’on pouvait. À la fin, les ingénieurs ont arrêté de se battre et ont fait quelque chose de plus malin. Ils ont construit une énorme cuve étanche et ont laissé l’eau s’y rassembler, pour que la pression sous les fondations reste stable. La cuve existe toujours, et les pompiers de Paris s’en servent pour des exercices de plongée. De là, et d’un accident avec le lustre de sept tonnes en 1896, est née l’histoire du Fantôme de l’Opéra, devenue un livre, puis un film et un spectacle dans le monde entier. Le lac souterrain est réel et tu peux le voir en photo. Le fantôme, non.",
+      "facts": [
+        "La construction a duré quatorze ans, surtout à cause de l’eau.",
+        "La cuve souterraine existe toujours et sert aux exercices de plongée.",
+        "Le lustre de la salle pèse environ sept tonnes."
+      ],
+      "question": {
+        "q": "Pourquoi a-t-on construit une cuve sous l’opéra ?",
+        "answers": [
+          "Le sous-sol était sans arrêt inondé",
+          "Pour avoir de l’eau en réserve en cas de grand incendie",
+          "Pour rafraîchir la salle l’été, avant la climatisation",
+          "Pour servir dans des spectacles avec des décors dans l’eau"
+        ],
+        "explanation": "Ils ont arrêté de se battre contre l’eau et l’ont enfermée dans une cuve. Ainsi, la pression sous les fondations est restée stable."
+      }
+    },
+    "paris-sacre-coeur": {
+      "name": "Le Sacré-Cœur",
+      "tagline": "Sa pierre blanchit toute seule chaque fois qu’il pleut",
+      "story": "Montmartre est la colline la plus haute de Paris, cent trente mètres, et pendant longtemps c’était un village avec des moulins à vent et des vignes. Après des années difficiles pour la ville, dans les années 1870, les habitants ont promis d’y bâtir une église, et ils l’ont payée avec d’innombrables petits dons. La construction a duré presque quarante ans. L’église est d’un blanc étonnant, et personne ne la peint. Sa pierre vient d’une carrière bien précise et a une propriété inhabituelle : quand elle est mouillée, elle libère une substance qui agit comme de la chaux et rince la saleté. Autrement dit, la pluie, qui noircit tous les autres bâtiments de Paris, nettoie celui-ci. La colline en dessous est pleine d’anciennes carrières de gypse, c’est pourquoi il a fallu quatre-vingt-trois puits profonds remplis de béton avant de poser la première pierre.",
+      "facts": [
+        "Montmartre est la colline la plus haute de Paris, 130 mètres.",
+        "Sa pierre blanchit toute seule quand il pleut, et on ne la peint jamais.",
+        "Il a fallu 83 puits remplis de béton pour que la colline tienne en dessous."
+      ],
+      "question": {
+        "q": "Pourquoi l’église reste-t-elle blanche sans qu’on la peigne ?",
+        "answers": [
+          "La pluie la nettoie",
+          "Des ouvriers la lavent chaque année avec des échelles et des éponges spéciales",
+          "Elle est faite d’un marbre blanc qui ne se salit jamais",
+          "L’air sur la colline est si pur qu’il ne laisse aucune suie"
+        ],
+        "explanation": "Sa pierre, quand elle est mouillée, libère une substance qui agit comme de la chaux. La pluie noircit les autres bâtiments et blanchit celui-ci."
+      }
+    },
+    "paris-sainte-chapelle": {
+      "name": "La Sainte-Chapelle",
+      "tagline": "Des murs de verre coloré à la place de la pierre",
+      "story": "Tu entres par un rez-de-chaussée bas et sombre et tu montes un escalier étroit. Et puis tu t’arrêtes. La chapelle haute n’a pas l’air d’avoir de murs : quinze immenses fenêtres de verre coloré montent presque jusqu’au plafond, et entre elles il n’y a que de fines colonnes de pierre. C’est le tour le plus audacieux de l’architecture gothique : le poids du toit n’est pas porté par les murs mais par un squelette de pierre, alors le mur peut disparaître et devenir du verre. Elle a été bâtie au XIIIe siècle en moins de dix ans, très vite pour l’époque. Les fenêtres racontent des histoires en environ mille scènes, et elles se lisent d’en bas à gauche vers le haut, comme une bande dessinée de mille cases que tu ne vois que lorsque le soleil est derrière elle et l’éclaire.",
+      "facts": [
+        "Elle a quinze immenses fenêtres et très peu de mur entre elles.",
+        "Ses vitraux racontent des histoires en environ mille scènes.",
+        "Elle a été bâtie au XIIIe siècle en moins de dix ans."
+      ],
+      "question": {
+        "q": "Comment le toit tient-il si le mur est presque entièrement en verre ?",
+        "answers": [
+          "Un squelette de pierre le porte",
+          "Le verre lui-même est très épais et supporte le poids du toit",
+          "Le toit est en bois, si léger qu’il n’a besoin d’aucun soutien",
+          "Des câbles de métal le tiennent suspendu au grand bâtiment voisin"
+        ],
+        "explanation": "C’est toute l’idée du gothique : le poids va dans des colonnes et des nervures, pas dans un mur plein. Le mur est donc libéré."
+      }
+    },
+    "paris-cite-des-sciences": {
+      "name": "La Cité des sciences",
+      "tagline": "L’abattoir jamais terminé qui est devenu un musée",
+      "story": "Au nord de Paris, dans les années 1960, on a commencé à construire un abattoir gigantesque, le plus grand d’Europe. Il a coûté des sommes énormes et n’a jamais fonctionné : le temps de le terminer, la façon de transporter la viande avait changé et le bâtiment était déjà inutile. Il est resté pendant des années un squelette de béton vide, la honte de la ville. Au lieu de le démolir, on a décidé de le remplir avec quelque chose de complètement différent, et en 1986 le plus grand musée des sciences d’Europe y a ouvert. La règle à l’intérieur est l’inverse des autres musées : ici, tu touches, tu appuies, tu tires et tu casses. Il y a toute une partie réservée aux enfants, séparée par âges, pour qu’un enfant de trois ans et un enfant de dix ans ne partagent pas la même expérience. Et dehors, dans le parc, se tiennent un vrai sous-marin et une sphère argentée qui brille.",
+      "facts": [
+        "C’est le plus grand musée des sciences d’Europe et il a ouvert en 1986.",
+        "Le bâtiment a commencé comme un abattoir qui n’a jamais fonctionné.",
+        "Dans le parc, dehors, il y a un vrai sous-marin que tu peux parcourir."
+      ],
+      "question": {
+        "q": "Qu’est-ce que ce bâtiment devait être au départ ?",
+        "answers": [
+          "Un abattoir jamais ouvert",
+          "Une usine de voitures qui a fermé après quelques années seulement",
+          "Une gare remplacée par une plus grande ailleurs",
+          "Une caserne abandonnée quand l’armée a quitté la ville"
+        ],
+        "explanation": "Le temps de le terminer, la façon de transporter la viande avait changé. Le bâtiment était inutile avant même d’avoir servi."
+      },
+      "museum": {
+        "doorNote": "Ici, tu as le droit de toucher. Si quelque chose ne bouge pas, c’est sans doute que tu n’as pas assez cherché.",
+        "rooms": {
+          "paris-cite-enfants": {
+            "name": "La Cité des enfants",
+            "intro": "Toute une partie du musée est réservée aux enfants, et elle est séparée par âges, pour qu’un enfant de trois ans et un enfant de dix ans n’aient pas à partager la même expérience. Ici, rien n’est expliqué d’abord et essayé ensuite. C’est exactement l’inverse qui se passe, et ça marche mieux."
+          },
+          "paris-cite-outside": {
+            "name": "Les grands objets",
+            "intro": "Deux des pièces les plus impressionnantes ne tenaient pas à l’intérieur, alors elles se tiennent dans le parc : un vrai sous-marin et une sphère argentée qui reflète le ciel tout entier. Tu t’approches des deux à pied, et les deux sont bien plus grands que ce que tu t’attends à voir."
+          }
+        },
+        "exhibits": {
+          "paris-cite-water": {
+            "name": "La table à eau",
+            "blurb": "Une longue table pleine d’eau qui coule, avec des barrages, des roues, des tuyaux et des bateaux que tu peux déplacer. Tu mets un tablier imperméable et tu te mouilles quand même. Ce que tu apprends ne se dit pas avec des mots : que l’eau va toujours vers le bas, que si tu la resserres elle coule plus vite, et qu’un barrage n’arrête pas l’eau mais change son chemin. Tu le comprends avec les mains, pas avec la tête.",
+            "question": {
+              "q": "Que fait vraiment un barrage ?",
+              "answers": [
+                "Il change le chemin de l’eau",
+                "Il arrête complètement l’eau, pour que pas une goutte ne passe",
+                "Il rend l’eau plus propre quand elle passe à travers ses murs",
+                "Il baisse la température de l’eau qui descend de la montagne"
+              ],
+              "explanation": "L’eau trouve toujours un chemin. Le barrage choisit lequel."
+            }
+          },
+          "paris-cite-building-site": {
+            "name": "Le chantier",
+            "blurb": "Des casques, des poulies, des cordes et des briques légères en mousse. Tu soulèves des charges avec une petite grue et tu comprends quelque chose qui ressemble à de la magie : avec une poulie, un poids que tu ne bouges pas avec tes mains monte facilement. Il n’est pas devenu plus léger. Tu tires simplement plus de corde pour le même travail, et l’effort s’étale. C’est le même tour qui a soulevé les pierres de toutes les cathédrales que tu verras dans la ville.",
+            "question": {
+              "q": "Que fait la poulie au poids que tu soulèves ?",
+              "answers": [
+                "Elle étale l’effort",
+                "Elle réduit vraiment de moitié le poids de la charge",
+                "Elle rend la corde plus solide pour que la charge ne la casse pas",
+                "Elle garde la charge immobile en l’air sans qu’il faille de force"
+              ],
+              "explanation": "Le poids reste le même. Tu tires plus de corde avec moins de force, et c’est pour cela qu’il paraît plus léger."
+            }
+          },
+          "paris-cite-studio": {
+            "name": "Le studio de télévision",
+            "blurb": "Un petit studio avec une caméra, des lumières et une toile verte très éclairée. Tu te tiens devant, et sur l’écran d’à côté tu apparais en train de voler au-dessus de Paris ou debout sur la Lune. Le truc est simple et tu le comprends tout de suite en le faisant : l’ordinateur efface une couleur précise et met une image à sa place. C’est pour cela qu’il ne faut rien porter de vert, sinon tu deviens transparent toi aussi.",
+            "question": {
+              "q": "Pourquoi ne faut-il pas porter de vert dans le studio ?",
+              "answers": [
+                "Tu deviens transparent",
+                "Parce que le vert reflète les lumières et abîme la qualité de l’image",
+                "Parce que la caméra a du mal à faire le point sur les objets verts",
+                "Parce que le vert se confond avec la couleur de la peau à l’écran"
+              ],
+              "explanation": "L’ordinateur efface tout ce qui a cette couleur. Si tu portes du vert, il t’efface aussi."
+            }
+          },
+          "paris-cite-argonaute": {
+            "name": "Le sous-marin Argonaute",
+            "blurb": "Un vrai sous-marin français, long de plus de cinquante mètres, qui a servi pendant des dizaines d’années et qui repose maintenant sur du béton dans le parc. Tu entres, et la première chose que tu comprends, c’est à quel point il est étroit : les couloirs ne laissent pas passer deux personnes côte à côte, et les lits sont empilés entre les tuyaux. Cinquante personnes vivaient là-dedans pendant des semaines, sans voir la lumière du jour, en respirant de l’air fabriqué par des machines.",
+            "question": {
+              "q": "Qu’est-ce qui te frappe le plus à l’intérieur du sous-marin ?",
+              "answers": [
+                "Comme il est étroit",
+                "Comme les fenêtres qui donnent sur la mer sont grandes et lumineuses",
+                "Comme les chambres étaient confortables pour les marins qui y vivaient",
+                "Comme ses moteurs étaient silencieux quand ils marchaient normalement"
+              ],
+              "explanation": "Il n’a aucune fenêtre. Cinquante personnes, des semaines entières, sans voir la lumière."
+            }
+          },
+          "paris-cite-geode": {
+            "name": "La sphère argentée",
+            "blurb": "Une sphère parfaite de trente-six mètres de diamètre, couverte de milliers de petits miroirs d’acier triangulaires. Dehors, elle reflète les nuages et les gens qui passent, alors elle n’a jamais la même allure deux fois. Dedans, c’est un cinéma avec un écran en forme de sphère qui t’entoure en haut, en bas et sur les côtés, et les sièges se penchent en arrière. La même forme, vue de dehors et de dedans, fait deux métiers complètement différents.",
+            "question": {
+              "q": "Pourquoi la sphère n’a-t-elle jamais la même allure ?",
+              "answers": [
+                "Elle reflète ce qui l’entoure",
+                "Elle tourne très lentement sur elle-même pendant la journée",
+                "Elle change de couleur grâce à des lumières spéciales cachées à sa base",
+                "Ses petits miroirs sont sans cesse remplacés par des équipes d’ouvriers"
+              ],
+              "explanation": "Elle n’a pas de couleur à elle. Elle montre ce qu’il y a autour d’elle, donc elle change avec le temps qu’il fait et avec l’heure."
+            }
+          },
+          "paris-cite-planetarium": {
+            "name": "Le dôme du planétarium",
+            "blurb": "À l’intérieur du bâtiment, il y a un dôme sur lequel on projette le ciel. La différence avec un écran, c’est qu’ici il n’y a pas de bord : où que tu regardes, tu vois l’image, alors ton cerveau arrête de discuter et te convainc que tu bouges. Les séances montrent le ciel de ce soir, mais aussi comment il était à d’autres époques, ou comment il se verrait depuis une autre planète. C’est ce qui ressemble le plus à un voyage sans bouger de ta chaise.",
+            "question": {
+              "q": "Pourquoi le dôme te convainc-t-il que tu bouges ?",
+              "answers": [
+                "Tu ne vois de bord nulle part",
+                "Les sièges bougent légèrement en même temps que l’image projetée",
+                "De l’air souffle sur toi par-devant pendant que la séance tourne",
+                "Le son vient de nombreux haut-parleurs et donne une sensation de vitesse"
+              ],
+              "explanation": "L’œil comprend qu’une image est une image parce qu’il en voit le cadre. Enlève le cadre et le tour fonctionne."
+            }
+          }
+        },
+        "riddles": {
+          "paris-cite-riddle-1": {
+            "prompt": "Je suis en acier, long de plus de cinquante mètres, et je n’ai pas une seule fenêtre. Autrefois je me cachais sous la mer, et maintenant je reste immobile au milieu d’un parc.",
+            "hint": "À l’intérieur de moi, deux personnes ne tiennent pas côte à côte."
+          },
+          "paris-cite-riddle-2": {
+            "prompt": "Je suis ronde et je n’ai pas de couleur à moi. Je montre toujours ce qu’il y a autour de moi, alors tantôt je suis bleue et tantôt je suis grise, sans rien faire.",
+            "hint": "À l’intérieur, je suis un cinéma."
+          }
+        }
+      }
+    },
+    "paris-grande-galerie": {
+      "name": "La Grande Galerie de l’Évolution",
+      "tagline": "Un cortège d’animaux qui traverse la salle",
+      "story": "La plupart des musées d’histoire naturelle mettent les animaux en rangs dans des vitrines, avec des étiquettes. Ici, on a fait autre chose. Au milieu d’une immense salle au toit de verre, des dizaines d’animaux de la savane africaine ont été installés en un cortège qui avance : éléphants, girafes, rhinocéros, antilopes, l’un derrière l’autre, comme s’ils se dirigeaient quelque part ensemble. Il n’y a pas de vitres entre eux et toi. Tu te tiens à côté d’un éléphant et tu vois comme tu es petit. La lumière change au cours de la journée, de l’aube à l’orage puis à la nuit, comme si une journée entière passait dans la savane. Il y a aussi une deuxième salle, plus sombre, avec des animaux qui n’existent plus, des animaux qui ont disparu et que personne ne reverra jamais. Là-dedans, aucun enfant ne fait de bruit, et personne n’a besoin de le lui demander.",
+      "facts": [
+        "Les animaux sont installés en un cortège qui avance, sans vitres entre eux.",
+        "La lumière de la salle change au cours de la journée, de l’aube à l’orage.",
+        "Il y a une salle à part pour les animaux qui ont disparu."
+      ],
+      "question": {
+        "q": "Qu’est-ce que cette salle fait différemment des autres musées ?",
+        "answers": [
+          "Les animaux marchent en cortège",
+          "Tous les animaux sont en plastique, à leur taille réelle",
+          "Les visiteurs peuvent toucher et caresser toutes les pièces exposées",
+          "Chaque animal est accompagné d’un enregistrement de sa voix dans la nature"
+        ],
+        "explanation": "Il n’y a ni vitres ni rangées. Tu te tiens à côté des animaux, et c’est pour cela que tu comprends leur taille."
+      }
+    }
+  },
+  "trails": {
+    "paris-the-river": {
+      "name": "Le long du fleuve",
+      "promise": "L’île au milieu de la Seine, ses deux églises et le pont qui a changé les habitudes d’une ville."
+    },
+    "paris-the-grand-axis": {
+      "name": "Le grand axe",
+      "promise": "Trois choses immenses sur une même ligne droite, et l’une d’elles devait être démolie."
+    },
+    "paris-how-things-work": {
+      "name": "Comment marchent les choses",
+      "promise": "Un pendule qui fait tourner la Terre, un sous-marin dans un parc, et des éléphants sans vitre."
+    },
+    "paris-up-the-hill": {
+      "name": "Les deux collines",
+      "promise": "L’église blanche que la pluie nettoie, un dôme avec un pendule, et un bassin avec des bateaux de bois."
+    }
+  }
+}

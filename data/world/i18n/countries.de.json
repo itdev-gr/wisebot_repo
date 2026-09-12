@@ -31,6 +31,14 @@
           "intro": "Delphi war nie eine große Stadt. Es war der Ort, an den die ganze griechische Welt kam, um etwas zu fragen. Hoch an einem steilen Hang des Parnass, mit dem Meer in der Ferne, hütete es das berühmteste Orakel des Altertums und galt als Mittelpunkt der Erde. Jede Stadt, die die Antwort bekam, die sie wollte, schickte ein Geschenk, und die Geschenke füllten den Weg zum Tempel mit Statuen. Heute ist der Weg leer, und die Geschenke stehen im Museum, ein paar Meter weiter unten."
         }
       }
+    },
+    "france": {
+      "cities": {
+        "paris": {
+          "name": "Paris",
+          "intro": "Paris ist eine Stadt, die sich mit ihren Gebäuden streitet und sie dann liebt. Den Eiffelturm wollte man abreißen, die Glaspyramide des Louvre nannte man eine Beleidigung, und heute sind beide ihr Wahrzeichen. In der Mitte fließt die Seine, und mitten im Fluss liegt eine kleine Insel: Von dort aus begann die ganze Stadt. Sie hat ein Museum, das so groß ist, dass du nie damit fertig wirst, und ein Pendel, das bewiesen hat, dass die Erde sich dreht."
+        }
+      }
     }
   }
 }

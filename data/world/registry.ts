@@ -88,18 +88,26 @@ export const CITIES: City[] = COUNTRY_MODULES.flatMap((m) => m.cities).sort(byOr
  * without loading that city's content. Asserted against the real arrays in the tests.
  */
 export const PLACE_COUNTS: Record<CityId, number> = {
+  'amsterdam': 16,
   'athens': 18,
   'delphi': 13,
   'heraklion': 12,
+  'london': 17,
+  'paris': 13,
   'rhodes': 12,
+  'rome': 18,
   'thessaloniki': 17,
 };
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
+  'amsterdam': () => import('./cities/amsterdam'),
   'athens': () => import('./cities/athens'),
   'delphi': () => import('./cities/delphi'),
   'heraklion': () => import('./cities/heraklion'),
+  'london': () => import('./cities/london'),
+  'paris': () => import('./cities/paris'),
   'rhodes': () => import('./cities/rhodes'),
+  'rome': () => import('./cities/rome'),
   'thessaloniki': () => import('./cities/thessaloniki'),
 };
 
@@ -129,6 +137,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'heraklion.es': () => import('./i18n/heraklion.es.json'),
   'heraklion.fr': () => import('./i18n/heraklion.fr.json'),
   'heraklion.it': () => import('./i18n/heraklion.it.json'),
+  'paris.de': () => import('./i18n/paris.de.json'),
+  'paris.es': () => import('./i18n/paris.es.json'),
+  'paris.fr': () => import('./i18n/paris.fr.json'),
+  'paris.it': () => import('./i18n/paris.it.json'),
   'rhodes.de': () => import('./i18n/rhodes.de.json'),
   'rhodes.es': () => import('./i18n/rhodes.es.json'),
   'rhodes.fr': () => import('./i18n/rhodes.fr.json'),
