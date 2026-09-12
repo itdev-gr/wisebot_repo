@@ -1,0 +1,451 @@
+{
+  "city": "paris",
+  "resolvedAt": "2026-09-12T10:42:34.046Z",
+  "centre": {
+    "lat": 48.8567,
+    "lng": 2.3508
+  },
+  "places": [
+    {
+      "id": "paris-eiffel-tower",
+      "name": "Tour Eiffel",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q243",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/5013364",
+          "deltaM": 5
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Eiffel Tower",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [],
+      "lat": 48.8583,
+      "lng": 2.29448,
+      "labels": {
+        "it": "torre Eiffel",
+        "el": "Πύργος του Άιφελ",
+        "fr": "tour Eiffel",
+        "es": "torre Eiffel",
+        "de": "Eiffelturm",
+        "en": "Eiffel Tower"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-arc-de-triomphe",
+      "name": "Arc de Triomphe",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q64436",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/226413508",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Arc de Triomphe",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 48.87378,
+      "lng": 2.29504,
+      "labels": {
+        "es": "Arco de Triunfo de París",
+        "el": "Αψίδα του Θριάμβου",
+        "fr": "arc de triomphe de l'Étoile",
+        "it": "Arco di Trionfo",
+        "de": "Triumphbogen",
+        "en": "Arc de Triomphe"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-place-de-la-concorde",
+      "name": "Place de la Concorde",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q189503",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/432819047",
+          "deltaM": 16
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Place de la Concorde",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 48.86563,
+      "lng": 2.32124,
+      "labels": {
+        "fr": "place de la Concorde",
+        "es": "Plaza de la Concordia",
+        "it": "place de la Concorde",
+        "de": "Place de la Concorde",
+        "en": "place de la Concorde",
+        "el": "Πλατεία Κονκόρντ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-louvre",
+      "name": "Musée du Louvre",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q19675",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Louvre",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 48.86111,
+      "lng": 2.33583,
+      "labels": {
+        "es": "Museo del Louvre",
+        "it": "Museo del Louvre",
+        "el": "Μουσείο του Λούβρου",
+        "fr": "Musée du Louvre",
+        "de": "Louvre",
+        "en": "Louvre Museum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-pont-neuf",
+      "name": "Pont Neuf",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q335277",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/53574149",
+          "deltaM": 125
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Pont Neuf",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm is 125 m away — outlier, check by eye"
+      ],
+      "lat": 48.8575,
+      "lng": 2.34167,
+      "labels": {
+        "fr": "pont Neuf",
+        "es": "puente Nuevo",
+        "it": "Pont Neuf",
+        "de": "Pont Neuf",
+        "en": "Pont Neuf",
+        "el": "Πον Νεφ"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-notre-dame",
+      "name": "Notre-Dame de Paris",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2981",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Notre-Dame de Paris",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 48.853,
+      "lng": 2.3498,
+      "labels": {
+        "fr": "cathédrale Notre-Dame de Paris",
+        "en": "Notre-Dame de Paris",
+        "de": "Notre-Dame de Paris",
+        "el": "Καθεδρικός Ναός της Παναγίας των Παρισίων",
+        "es": "Catedral de Notre-Dame de París",
+        "it": "Notre-Dame di Parigi"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-pantheon",
+      "name": "Panthéon",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q188856",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/16407465",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Panthéon",
+          "deltaM": 23
+        }
+      ],
+      "warnings": [],
+      "lat": 48.8462,
+      "lng": 2.34611,
+      "labels": {
+        "fr": "Panthéon",
+        "es": "Panteón de París",
+        "it": "Pantheon",
+        "de": "Panthéon",
+        "en": "Panthéon",
+        "el": "Πάνθεον"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-luxembourg-gardens",
+      "name": "Jardin du Luxembourg",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q309458",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/128206209",
+          "deltaM": 67
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Jardin du Luxembourg",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 48.84694,
+      "lng": 2.33722,
+      "labels": {
+        "fr": "jardin du Luxembourg",
+        "es": "Jardín del Luxemburgo",
+        "it": "Giardini del Lussemburgo",
+        "de": "Jardin du Luxembourg",
+        "en": "Jardin du Luxembourg",
+        "el": "Κήπος του Λουξεμβούργου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-palais-garnier",
+      "name": "Palais Garnier",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q187840",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/54667456",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Palais Garnier",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 48.87194,
+      "lng": 2.33167,
+      "labels": {
+        "fr": "palais Garnier",
+        "es": "Ópera Garnier",
+        "it": "Opéra Garnier",
+        "de": "Opéra Garnier",
+        "en": "Palais Garnier",
+        "el": "Όπερα Γκαρνιέ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-sacre-coeur",
+      "name": "Sacré-Cœur",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q28785",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/23762981",
+          "deltaM": 17
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 48.88665,
+      "lng": 2.34295,
+      "labels": {
+        "fr": "basilique du Sacré-Cœur de Montmartre",
+        "es": "basílica del Sacré Cœur de Montmartre",
+        "it": "basilica del Sacro Cuore",
+        "de": "Sacré-Cœur de Montmartre",
+        "en": "Sacré-Cœur",
+        "el": "Βασιλική της Σακρέ-Κερ της Μονμάρτρης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-sainte-chapelle",
+      "name": "Sainte-Chapelle",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q193193",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/3344870",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Sainte-Chapelle",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [],
+      "lat": 48.85537,
+      "lng": 2.34503,
+      "labels": {
+        "fr": "Sainte-Chapelle",
+        "es": "Sainte Chapelle",
+        "it": "Sainte-Chapelle",
+        "de": "Sainte-Chapelle",
+        "en": "Sainte Chapelle",
+        "el": "Σαιντ-Σαπέλ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-cite-des-sciences",
+      "name": "Cité des Sciences et de l'Industrie",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1094338",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Cité des Sciences et de l'Industrie",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 48.89556,
+      "lng": 2.38806,
+      "labels": {
+        "fr": "Cité des sciences et de l'industrie",
+        "de": "Cité des sciences et de l’industrie",
+        "it": "Cité des sciences et de l'industrie",
+        "es": "Cité des sciences et de l'industrie",
+        "el": "Πόλη των Επιστημών και της Βιομηχανίας",
+        "en": "Cité des Sciences et de l'Industrie"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "paris-grande-galerie",
+      "name": "Grande Galerie de l'Évolution",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2372049",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/83913793",
+          "deltaM": 14
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 48.8422,
+      "lng": 2.35639,
+      "labels": {
+        "fr": "Grande galerie de l'Évolution",
+        "it": "Grande Galerie de l'Évolution du Muséum national d'Histoire naturelle",
+        "en": "Grand Gallery of Evolution",
+        "de": "Grande Galerie de l'Évolution"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}

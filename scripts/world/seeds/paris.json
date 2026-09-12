@@ -1,0 +1,25 @@
+{
+  "city": "paris",
+  "country": "france",
+  "centre": { "lat": 48.8567, "lng": 2.3508 },
+  "note": "Wikidata q-ids only. Ten of these thirteen places are carried over from the Explorer product on origin/main, whose text is the raw material for the city file; their q-ids were already matched in docs/world/research/explorer-pins.json and every one of them checked out. The three additions are the two museums with an interior, which Explorer has no model for, and the Sainte-Chapelle. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "paris-eiffel-tower", "name": "Tour Eiffel", "wikidata": "Q243", "anchor": "centroid" },
+    { "id": "paris-arc-de-triomphe", "name": "Arc de Triomphe", "wikidata": "Q64436", "anchor": "centroid" },
+    { "id": "paris-place-de-la-concorde", "name": "Place de la Concorde", "wikidata": "Q189503", "anchor": "area" },
+
+    { "id": "paris-louvre", "name": "Musée du Louvre", "wikidata": "Q19675", "anchor": "centroid",
+      "note": "The museum, not the pyramid. Explorer pins the Pyramide du Louvre (Q13397), which sits 12 m from the museum's own point and would fail the separation audit as an undeclared neighbour. The pyramid is the door a visitor walks through, so it belongs inside the museum's story rather than as a pin of its own." },
+
+    { "id": "paris-pont-neuf", "name": "Pont Neuf", "wikidata": "Q335277", "anchor": "centroid" },
+    { "id": "paris-notre-dame", "name": "Notre-Dame de Paris", "wikidata": "Q2981", "anchor": "centroid" },
+    { "id": "paris-pantheon", "name": "Panthéon", "wikidata": "Q188856", "anchor": "centroid" },
+    { "id": "paris-luxembourg-gardens", "name": "Jardin du Luxembourg", "wikidata": "Q309458", "anchor": "area" },
+    { "id": "paris-palais-garnier", "name": "Palais Garnier", "wikidata": "Q187840", "anchor": "centroid" },
+    { "id": "paris-sacre-coeur", "name": "Sacré-Cœur", "wikidata": "Q28785", "anchor": "centroid" },
+    { "id": "paris-sainte-chapelle", "name": "Sainte-Chapelle", "wikidata": "Q193193", "anchor": "centroid" },
+    { "id": "paris-cite-des-sciences", "name": "Cité des Sciences et de l'Industrie", "wikidata": "Q1094338", "anchor": "centroid" },
+    { "id": "paris-grande-galerie", "name": "Grande Galerie de l'Évolution", "wikidata": "Q2372049", "anchor": "centroid" }
+  ]
+}
