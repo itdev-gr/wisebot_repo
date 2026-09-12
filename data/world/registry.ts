@@ -125,6 +125,10 @@ export function findCity(id: string): City | undefined {
 }
 
 const I18N: Record<string, () => Promise<{ default: unknown }>> = {
+  'amsterdam.de': () => import('./i18n/amsterdam.de.json'),
+  'amsterdam.es': () => import('./i18n/amsterdam.es.json'),
+  'amsterdam.fr': () => import('./i18n/amsterdam.fr.json'),
+  'amsterdam.it': () => import('./i18n/amsterdam.it.json'),
   'athens.de': () => import('./i18n/athens.de.json'),
   'athens.es': () => import('./i18n/athens.es.json'),
   'athens.fr': () => import('./i18n/athens.fr.json'),

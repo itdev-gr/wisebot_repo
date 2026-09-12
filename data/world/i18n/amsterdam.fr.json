@@ -1,0 +1,762 @@
+{
+  "lang": "fr",
+  "cityId": "amsterdam",
+  "places": {
+    "amsterdam-westerkerk": {
+      "name": "La Westerkerk",
+      "tagline": "Le plus haut clocher de la ville porte la couronne d’un empereur",
+      "story": "Il y a quatre cents ans, Amsterdam débordait de monde et ne tenait plus dans ses murs. Alors, à partir de 1613, la ville a creusé trois grands canaux en demi-lune autour de la vieille ville : le Herengracht, le Keizersgracht et le Prinsengracht. Sur la rive du Prinsengracht, la Westerkerk s’est élevée entre 1620 et 1631, sur les plans de Hendrick de Keyser, et son clocher est encore le plus haut d’Amsterdam, environ 87 mètres. Tout en haut est posée une couronne, bleue et or. C’est la couronne de l’empereur Maximilien, qui en 1489 a permis à la ville de la mettre sur son blason, et Amsterdam la porte fièrement depuis. Dans l’église repose Rembrandt, le peintre le plus célèbre des Pays-Bas. Il est mort pauvre en 1669 et a été enterré dans une tombe louée, et personne ne sait exactement où. Les cloches du clocher ont été fondues par François Hemony en 1658, et elles jouent encore des airs au-dessus de l’eau tous les quarts d’heure. Anne Frank, cachée dans le bâtiment d’à côté, a écrit que leur son la consolait.",
+      "facts": [
+        "Le clocher monte à environ 87 mètres : c’est le plus haut de la ville.",
+        "Elle a été construite de 1620 à 1631 et inaugurée le 8 juin 1631.",
+        "Rembrandt a été enterré ici le 8 octobre 1669 ; le numéro de sa tombe a été perdu.",
+        "La ceinture de canaux est inscrite au patrimoine mondial de l’UNESCO depuis 2010."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui est posé tout en haut du clocher ?",
+        "answers": [
+          "Une couronne",
+          "Une girouette en or",
+          "Un voilier",
+          "Un lion de bronze"
+        ],
+        "explanation": "En 1489, l’empereur Maximilien a laissé Amsterdam mettre sa couronne sur son blason. La ville l’a posée aussi tout en haut du clocher."
+      }
+    },
+    "amsterdam-rijksmuseum": {
+      "name": "Le Rijksmuseum",
+      "tagline": "Le grand musée avec une route à vélos en plein milieu",
+      "story": "Pierre Cuypers, l’architecte de la gare, a d’abord dessiné ce bâtiment-ci : il a ouvert en 1885 comme une porte au bord de la ville, avec une route qui passait juste à travers. Cette route est toujours là. Les cyclistes roulent sous le musée depuis le jour de son ouverture, et quand le bâtiment a été rénové, ils ont refusé de perdre leur passage, et ils ont gagné. La rénovation a duré dix ans, de 2003 à 2013, et a coûté 375 millions d’euros. À l’intérieur sont gardés les trésors des Pays-Bas : environ 8 000 objets exposés, sur un million que compte la collection. Le plus célèbre est la Ronde de nuit de Rembrandt, de 1642, un tableau plus haut qu’un adulte et long comme une voiture, qui montre les gardes de la ville en train de partir. Il y a aussi la Laitière de Vermeer, une maison de poupée qui a coûté autant qu’une vraie demeure au bord d’un canal, une maquette de navire de guerre de quatre mètres et un avion de chasse de 1918. Derrière le musée, sur la pelouse du Museumplein, les familles pique-niquent, et l’hiver on installe une patinoire avec les deux tours en décor. Le jardin autour du bâtiment est gratuit.",
+      "facts": [
+        "Il a ouvert en 1885, sur les plans de Pierre Cuypers, quatre ans avant la gare.",
+        "La rénovation a duré de 2003 à 2013 et a coûté 375 millions d’euros.",
+        "Il expose environ 8 000 objets, sur une collection d’un million.",
+        "En 2014, il a reçu 2 474 352 visiteurs, plus que tout autre musée des Pays-Bas."
+      ],
+      "question": {
+        "q": "Qui passe chaque jour par le passage sous le musée ?",
+        "answers": [
+          "Les cyclistes",
+          "Les tramways",
+          "Les cars de touristes",
+          "Les charrettes à cheval"
+        ],
+        "explanation": "Le passage a été construit en 1885 pour les calèches. Aujourd’hui il appartient aux vélos, parce que quand le musée a voulu le fermer, les cyclistes de la ville n’ont pas accepté."
+      },
+      "findIt": "Les deux entrées sont dans le passage qui court sous le bâtiment. Si tu arrives du côté du Museumplein, elles sont sur ta gauche.",
+      "museum": {
+        "doorNote": "Lève les yeux dans le passage avant d’entrer : les vélos passent au milieu, toi tu entres par le côté.",
+        "rooms": {
+          "amsterdam-rijksmuseum-gallery-of-honour": {
+            "name": "La Galerie d’honneur",
+            "intro": "Une seule longue salle, avec la Ronde de nuit tout au fond. Ici sont accrochés les peintres du Siècle d’or hollandais, et la plupart ont peint des choses ordinaires : une femme qui verse du lait, un cygne qui garde son nid, une compagnie de gardes qui se prépare. Regarde de près les petits tableaux aussi, pas seulement le géant ; les petits cachent souvent davantage."
+          },
+          "amsterdam-rijksmuseum-things-that-were-built": {
+            "name": "Les choses construites",
+            "intro": "Tout ici n’a pas été peint. Certains trésors du musée ont été construits à la main, morceau par morceau : une maison de poupée avec de la vraie porcelaine dedans, un navire de guerre en miniature avec chaque cordage à sa place, et un avion à carcasse de bois. Chacun te dit ce que les gens savaient fabriquer, et ce qui leur tenait assez à cœur pour le fabriquer."
+          },
+          "amsterdam-rijksmuseum-the-building": {
+            "name": "Le bâtiment lui-même",
+            "intro": "Cuypers a bâti le musée comme un palais pour l’art, et quelques-unes des plus belles choses qu’il contient ne sont pas dans des vitrines. Une bibliothèque qui semble sortie d’un livre de contes, une route à vélos en plein milieu, et dehors un jardin qui ne coûte rien. Donne-leur la même attention qu’aux tableaux."
+          }
+        },
+        "exhibits": {
+          "amsterdam-rijksmuseum-night-watch": {
+            "name": "La Ronde de nuit",
+            "blurb": "Rembrandt l’a peinte en 1642 pour une compagnie de la milice d’Amsterdam, les habitants qui gardaient la ville. Elle mesure 363 sur 437 centimètres, pèse 337 kilos et montre 34 personnes. Ce n’est pas du tout une scène de nuit : des couches de vernis foncé l’ont fait paraître sombre, et le nom est resté. En 1715, on l’a coupée des quatre côtés pour qu’elle tienne sur un mur de l’hôtel de ville, et deux personnages à gauche ont disparu. En 2021, le musée a refait les bandes manquantes avec un ordinateur et une vieille copie.",
+            "question": {
+              "q": "Pourquoi le tableau s’appelle-t-il la Ronde de nuit ?",
+              "answers": [
+                "Un vieux vernis",
+                "Il montre minuit",
+                "Les gardes travaillaient la nuit",
+                "Rembrandt l’a nommé ainsi"
+              ],
+              "explanation": "Le vernis a foncé avec les années et une scène de jour a eu l’air d’une scène de nuit. Le vernis a été enlevé dans les années 1940, mais le nom est resté."
+            }
+          },
+          "amsterdam-rijksmuseum-milkmaid": {
+            "name": "La Laitière",
+            "blurb": "Johannes Vermeer a peint ce petit tableau vers 1657, et il ne fait que 45 sur 41 centimètres. Une servante verse du lait d’un pichet, lentement, comme si elle ne voulait pas en perdre une goutte. Sur la table il y a du pain, par terre une chaufferette pour les pieds, au mur des carreaux de Delft et un clou auquel rien n’est accroché. Vermeer a fait le bleu de son tablier avec du lapis-lazuli broyé, une pierre plus chère que l’or, à une époque où les autres peintres employaient des bleus moins coûteux. Le musée a acheté le tableau en 1908, avec de l’argent de l’État et de gens ordinaires.",
+            "question": {
+              "q": "Avec quoi le bleu de son tablier a-t-il été fait ?",
+              "answers": [
+                "Du lapis-lazuli",
+                "Du jus de myrtille",
+                "Du verre bleu moulu",
+                "De l’indigo venu d’Inde"
+              ],
+              "explanation": "Le lapis-lazuli venait de l’actuel Afghanistan et coûtait plus cher que l’or. Vermeer s’en servait même pour le tablier d’une servante."
+            }
+          },
+          "amsterdam-rijksmuseum-threatened-swan": {
+            "name": "Le Cygne menacé",
+            "blurb": "Jan Asselijn a peint ce cygne grandeur nature vers 1650. Un chien s’est approché du nid, et le cygne se dresse, les ailes ouvertes, en soufflant, prêt à se battre pour son œuf. Plus tard, quelqu’un a écrit des mots sur le tableau pour en faire de la politique : « l’ennemi de l’État » au-dessus du chien, « Holland » sur l’œuf, et le titre d’un dirigeant néerlandais entre les pattes du cygne. En 1800, quand les Pays-Bas ont ouvert leur première galerie nationale, c’est le tout premier tableau qu’elle a acheté, pour 100 florins. Il est accroché au Rijksmuseum depuis l’ouverture du bâtiment, en 1885.",
+            "question": {
+              "q": "Que protège le cygne ?",
+              "answers": [
+                "Son œuf",
+                "Sa nourriture",
+                "Un pont",
+                "Une barque"
+              ],
+              "explanation": "L’œuf est dans le nid, à droite, et quelqu’un a écrit plus tard « Holland » dessus : le cygne est devenu le pays qui garde son avenir."
+            }
+          },
+          "amsterdam-rijksmuseum-dolls-house": {
+            "name": "La maison de poupée de Petronella Oortman",
+            "blurb": "Petronella Oortman était une riche dame d’Amsterdam qui a passé de 1686 à 1710 à remplir ce cabinet. Cela n’a jamais été un jouet. Des artisans ont fabriqué chaque objet à l’échelle : de la porcelaine minuscule de Chine et du Japon, des assiettes en argent, du verre, du linge pour les lits. Il y a une dizaine de pièces, de la cuisine à la bibliothèque. Cela lui a coûté une fortune, autant qu’une vraie demeure au bord d’un canal, et vers 1710 elle a demandé à un peintre, Jacob Appel, d’en faire le portrait, avec les poupées à leur place. Les poupées ont disparu, mais la maison est au Rijksmuseum depuis 1887.",
+            "question": {
+              "q": "Pour qui la maison de poupée a-t-elle été faite ?",
+              "answers": [
+                "Une femme adulte",
+                "Une petite fille",
+                "Le fils d’un prince",
+                "Un magasin de poupées"
+              ],
+              "explanation": "Les dames riches d’Amsterdam collectionnaient ces maisons comme d’autres collectionnaient des tableaux. C’était pour montrer, pas pour jouer."
+            }
+          },
+          "amsterdam-rijksmuseum-william-rex": {
+            "name": "La maquette du William Rex",
+            "blurb": "Ce navire de guerre fait quatre mètres de long, porte 74 canons et n’a jamais pris la mer. Il a été construit en 1698 au chantier naval de Vlissingen, là où l’on construisait les vrais navires de guerre, par Adriaen de Vriend et Cornelis Moesman, et gréé avec chaque voile, chaque ancre et chaque poulie qu’aurait un vrai navire. Un vrai aurait été plus de douze fois plus grand. Il a été fait pour être montré, pour l’Amirauté de Zélande, et il se dressait dans sa salle à Middelburg. Personne ne sait quel navire il représente, alors depuis le XIXe siècle on l’appelle d’après le monogramme de sa poupe : William Rex, le roi Guillaume.",
+            "question": {
+              "q": "Combien de canons porte la maquette ?",
+              "answers": [
+                "Soixante-quatorze",
+                "Douze",
+                "Cent cinquante-deux",
+                "Huit"
+              ],
+              "explanation": "Soixante-quatorze, sur trois rangées. Un vrai navire avec autant de canons demandait des centaines de marins pour les servir."
+            }
+          },
+          "amsterdam-rijksmuseum-bantam": {
+            "name": "L’avion FK 23 Bantam",
+            "blurb": "Ce petit avion de chasse a été dessiné en 1918 par un Néerlandais, Frits Koolhoven, qui était chef dessinateur dans une usine d’avions en Angleterre pendant la Première Guerre mondiale. Il devait être la réponse britannique aux chasseurs allemands, mais la guerre s’est terminée avant qu’il puisse se battre. Son moteur pouvait le pousser à 220 kilomètres à l’heure, et il a porté autrefois deux mitrailleuses dans le nez. C’est le plus vieil avion des Pays-Bas conservé presque entièrement d’origine. Le Rijksmuseum l’a acheté en 2011 et l’a exposé dans les salles du XXe siècle en 2013.",
+            "question": {
+              "q": "Pour quel travail le Bantam a-t-il été construit ?",
+              "answers": [
+                "Combattre dans le ciel",
+                "Transporter le courrier",
+                "Transporter des passagers",
+                "Gagner des courses aériennes"
+              ],
+              "explanation": "Il a été dessiné en 1918 pour se battre dans le ciel, avec deux mitrailleuses dans le nez. La guerre s’est terminée avant qu’il vole au combat."
+            }
+          },
+          "amsterdam-rijksmuseum-cuypers-library": {
+            "name": "La bibliothèque Cuypers",
+            "blurb": "Cuypers a dessiné une bibliothèque à l’intérieur de son musée, et elle a ouvert avec lui en 1885. C’est la plus grande et la plus ancienne bibliothèque d’histoire de l’art des Pays-Bas, avec environ 450 000 livres sur des balcons de fer empilés sur quatre étages, sous une voûte de verre, et un escalier en colimaçon pour les atteindre. Pendant plus d’un siècle, seuls les chercheurs la voyaient. Après les dix ans de rénovation, elle a été remise comme Cuypers l’avait dessinée, et on a ouvert un balcon d’où les visiteurs regardent la salle de lecture en dessous, sans faire de bruit. Cherche-la au deuxième étage.",
+            "question": {
+              "q": "De quoi cette salle est-elle pleine ?",
+              "answers": [
+                "De livres",
+                "De tableaux",
+                "De cartes",
+                "De pièces de monnaie"
+              ],
+              "explanation": "Environ 450 000 livres sur l’art, sur quatre étages de balcons. Tu peux les regarder d’en haut, mais pas les toucher."
+            }
+          },
+          "amsterdam-rijksmuseum-passage": {
+            "name": "Le passage des vélos",
+            "blurb": "Une route publique passe sous le musée, du Museumplein vers la ville, et c’est ainsi depuis 1885, quand elle a été construite pour les calèches. Aujourd’hui elle appartient aux cyclistes et aux piétons : les vélos roulent au milieu et les gens marchent sur les côtés, sous une voûte peinte. Pendant la rénovation du musée, le plan était de fermer le passage et d’en faire l’entrée. Les cyclistes d’Amsterdam ont protesté pendant des années, et ils ont gagné : le passage est resté ouvert et les deux entrées du musée ont été mises dans ses murs latéraux. Reste dedans une minute et compte les vélos.",
+            "question": {
+              "q": "Pour qui le passage a-t-il d’abord été construit, en 1885 ?",
+              "answers": [
+                "Pour les calèches",
+                "Pour les trains",
+                "Pour les bateaux",
+                "Pour les lignes de tramway"
+              ],
+              "explanation": "En 1885, il n’y avait pas encore un vélo à chaque coin de rue : le passage était pour les voitures à chevaux. Les vélos en ont hérité."
+            }
+          },
+          "amsterdam-rijksmuseum-gardens": {
+            "name": "Les jardins",
+            "blurb": "Autour du bâtiment, il y a un jardin que tu visites gratuitement, sans billet. Cuypers le voulait comme un musée en plein air : des morceaux de vieux bâtiments néerlandais qu’on démolissait, des portails, des colonnes et des ornements de pierre, ont été apportés ici et dressés entre les haies, si bien que tu passes devant une porte d’un siècle et une fontaine d’un autre. Chaque été, le jardin accueille de grandes sculptures d’artistes d’aujourd’hui, et il y a aussi une aire de jeux. C’est le bon endroit pour courir après le calme de l’intérieur, et les tours du musée sont plus belles vues d’ici.",
+            "question": {
+              "q": "Combien coûte une promenade dans le jardin ?",
+              "answers": [
+                "Rien",
+                "Un euro",
+                "Un billet de musée",
+                "Cinq euros"
+              ],
+              "explanation": "Le jardin est public et gratuit. Cuypers voulait que tout le monde voie ses vieux bâtiments, pas seulement ceux qui payaient."
+            }
+          }
+        },
+        "riddles": {
+          "amsterdam-rijksmuseum-riddle-1": {
+            "prompt": "Je suis plus grand qu’une porte et je montre une compagnie qui se met en route. On dit que je montre l’obscurité, mais je n’ai jamais été sombre avant que mon vernis vieillisse. En 1715, on m’a coupé les bords pour me faire tenir sur un mur.",
+            "hint": "Cherche le plus grand tableau de la salle, tout au fond."
+          },
+          "amsterdam-rijksmuseum-riddle-2": {
+            "prompt": "J’ai dix pièces, des assiettes en argent et de la porcelaine de Chine, et personne n’a jamais dormi dans mes lits. Une dame riche a passé vingt-quatre ans à me remplir, et j’ai coûté autant qu’une vraie demeure au bord d’un canal.",
+            "hint": "Ce n’est pas un jouet, même si cela y ressemble."
+          },
+          "amsterdam-rijksmuseum-riddle-3": {
+            "prompt": "On m’a fabriqué en 1918 pour me battre au-dessus des nuages, et la guerre s’est terminée avant que j’en aie besoin. Un Néerlandais m’a dessiné pour une usine anglaise. Je suis le plus vieux de mon espèce dans ce pays.",
+            "hint": "Il a des ailes, mais ce n’est pas un oiseau. Cherche dans les salles du XXe siècle."
+          }
+        }
+      }
+    },
+    "amsterdam-waag": {
+      "name": "De Waag",
+      "tagline": "Une porte de la ville devenue la balance de la ville",
+      "story": "En 1488, quand Amsterdam était encore une petite ville entourée de murs, il y avait ici une porte : la Sint Antoniespoort, la porte Saint-Antoine. Les paysans la traversaient avec des charrettes de fromages et de légumes, et des gardes surveillaient la route du haut de ses tours. En cent ans, la ville s’était étendue bien au-delà de ses murs, les murs sont tombés, et la porte s’est retrouvée debout au milieu d’une place. Les Néerlandais ne jettent pas un bon bâtiment. En 1617, elle est devenue la Waag, la balance publique, où les marchandises étaient pesées sur la balance de la ville, pour que l’acheteur et le vendeur sachent tous les deux que le poids était honnête. Les étages du dessus ont été donnés à quatre corporations : les forgerons, les peintres, les maçons et les chirurgiens, chacune avec sa propre porte. Les chirurgiens faisaient ici leurs leçons d’anatomie, et en 1632 ils ont demandé à un peintre de 26 ans d’en peindre une. Il s’appelait Rembrandt, et le tableau l’a rendu célèbre. C’est le plus vieux bâtiment d’Amsterdam qui ne soit pas une église. Chaque samedi, un marché de producteurs remplit la place autour, comme il y en a un ici depuis cinq cents ans.",
+      "facts": [
+        "Elle a été construite en 1488 comme porte de la ville et est devenue la balance publique en 1617.",
+        "C’est le plus vieux bâtiment non religieux d’Amsterdam.",
+        "La « Leçon d’anatomie du docteur Tulp » de Rembrandt (1632) a été peinte ici pour la corporation des chirurgiens ; elle est aujourd’hui à La Haye."
+      ],
+      "question": {
+        "q": "Que devient le bâtiment en 1617 ?",
+        "answers": [
+          "La balance",
+          "La prison de la ville",
+          "La caserne des pompiers",
+          "Une fromagerie"
+        ],
+        "explanation": "Waag veut dire balance. L’ancienne balance de la place du Dam n’y suffisait plus, et la porte qui avait perdu ses murs a pris le travail."
+      }
+    },
+    "amsterdam-hortus": {
+      "name": "L’Hortus Botanicus",
+      "tagline": "Le jardin qui a donné son café au monde",
+      "story": "En 1638, la ville d’Amsterdam a planté un jardin de plantes médicinales, pour que les médecins et les apothicaires aient les plantes dont ils avaient besoin pour leurs remèdes. C’est l’un des plus vieux jardins botaniques du monde. En 1682, il a déménagé ici, dans la Plantage, et comme les navires néerlandais revenaient de tous les coins de la terre, le jardin s’est rempli de plantes que personne en Europe n’avait vues. L’une d’elles a changé le monde. En 1706, un plant de café est arrivé de Java, et de ses pousses sont sortis les caféiers envoyés en Amérique du Sud et en Amérique centrale, là où se trouvent aujourd’hui les plus grandes plantations de café du monde. Deux petits palmiers à huile de l’île Maurice ont fait la même chose pour l’Asie. Aujourd’hui, plus de 4 000 espèces poussent ici, parmi elles un cycas d’Afrique du Sud qu’on croit âgé d’environ 300 ans et qui est peut-être la plus vieille plante en pot du monde. Il y a une serre à palmiers de 1912, une serre à trois climats, du désert à la forêt tropicale, et une serre à papillons où les papillons se posent sur toi, si tu restes immobile.",
+      "facts": [
+        "Il a été fondé en 1638 comme jardin de plantes médicinales et a déménagé ici en 1682.",
+        "Un plant de café arrivé ici en 1706 est devenu l’ancêtre des plantations de café d’Amérique latine.",
+        "Plus de 4 000 espèces de plantes poussent ici.",
+        "La serre à palmiers date de 1912 et la serre à trois climats de 1993."
+      ],
+      "question": {
+        "q": "Quelle plante est partie de ce jardin et a changé ce que le monde boit ?",
+        "answers": [
+          "Le café",
+          "Le thé",
+          "Les fèves de cacao",
+          "La menthe"
+        ],
+        "explanation": "Un plant de café est venu de Java en 1706. Ses enfants et ses petits-enfants ont voyagé jusqu’en Amérique, où les plus grandes plantations de café du monde ont poussé à partir d’eux."
+      },
+      "findIt": "L’entrée est Plantage Middenlaan 2A, à quelques pas du zoo Artis."
+    },
+    "amsterdam-dam": {
+      "name": "La place du Dam",
+      "tagline": "Un barrage sur une rivière a donné son nom à toute une ville",
+      "story": "Vers 1270, des gens ont construit ici un barrage sur la rivière Amstel, pour tenir l’eau loin de leurs maisons. Le village d’à côté s’appelait Amstelredamme, et voilà tout le nom : Amstel plus dam, le barrage. Quatre cents ans plus tard, le petit village de pêcheurs était devenu l’une des villes les plus riches du monde, et il s’est bâti un hôtel de ville si somptueux qu’on l’appelait la huitième merveille du monde. Il tient sur 13 659 pieux de bois, comptés un par un. En 1808, Louis Bonaparte, le frère de Napoléon, qu’on avait fait roi de Hollande, a transformé l’hôtel de ville en palais, et palais il est resté : le roi des Pays-Bas s’en sert encore pour ses réceptions. À l’arrière du bâtiment, un Atlas de six mètres porte le monde sur ses épaules. De l’autre côté de la place, la colonne blanche est le Monument national, inauguré en 1956 pour les gens que les Pays-Bas ont perdus pendant la Seconde Guerre mondiale ; chaque année, le 4 mai, à huit heures du soir, le pays tout entier se tait ici pendant deux minutes. Et dans la Nieuwe Kerk, à côté du palais, les rois et les reines des Pays-Bas prêtent serment.",
+      "facts": [
+        "Le palais a été construit comme hôtel de ville (1648–1665) sur 13 659 pieux de bois.",
+        "Il est devenu palais en 1808, quand Louis Bonaparte était roi de Hollande.",
+        "Le Monument national mesure 22 mètres de haut et a été inauguré le 4 mai 1956.",
+        "Le roi Willem-Alexander a prêté serment à la Nieuwe Kerk en 2013."
+      ],
+      "question": {
+        "q": "Qu’était le Palais royal quand il a été construit ?",
+        "answers": [
+          "L’hôtel de ville",
+          "Le château d’un duc",
+          "Une église pour les marins",
+          "Un marché aux fromages"
+        ],
+        "explanation": "La ville n’avait pas de roi à l’époque ; elle avait des marchands, et les marchands se sont bâti le plus somptueux hôtel de ville d’Europe. Il est devenu palais en 1808."
+      }
+    },
+    "amsterdam-magere-brug": {
+      "name": "Le Magere Brug",
+      "tagline": "Un pont blanc qui s’ouvre comme une balançoire à bascule",
+      "story": "Le premier pont ici a été construit en 1691, et il était si étroit que deux personnes s’y croisaient à peine ; on l’a donc appelé Magere Brug, le Pont maigre. Une légende raconte qu’il a été payé par deux sœurs nommées Mager, qui habitaient chacune sur une rive de l’Amstel et voulaient se rendre visite. Le pont que tu vois date de 1934, dessiné par Piet Kramer, à l’ancienne, en bois peint en blanc. C’est un pont basculant : quand un bateau haut arrive, ses deux moitiés se relèvent comme les deux bouts d’une balançoire à bascule. Regarde au-dessus de l’ouverture et tu verras les cadres de bois qui font le levage ; ils portent de lourds contrepoids à l’arrière, et c’est pour cela qu’une petite poussée déplace un grand tablier. Jusqu’en 1994, le gardien du pont l’ouvrait à la main. Aujourd’hui, c’est un moteur qui le fait, mais les contrepoids font encore le plus gros du travail. Depuis 2003, seuls les piétons et les vélos ont le droit de passer. Le soir, environ 1 200 petites lampes s’allument, et le pont devient la chose la plus photographiée du fleuve.",
+      "facts": [
+        "Le premier pont ici date de 1691 ; celui d’aujourd’hui date de 1934.",
+        "Jusqu’en 1994, on l’ouvrait à la main.",
+        "Depuis 2003, seuls les piétons et les vélos y passent, et 1 200 lampes s’allument la nuit."
+      ],
+      "question": {
+        "q": "Pourquoi le pont soulève-t-il si facilement ses deux moitiés ?",
+        "answers": [
+          "De lourds contrepoids",
+          "Des planches très fines",
+          "De l’air dans le tablier",
+          "Des chevaux qui tirent des cordes"
+        ],
+        "explanation": "Comme sur une balançoire à bascule : un poids d’un côté soulève un poids de l’autre. Les contrepoids rendent le tablier presque sans poids, et un moteur, ou autrefois une main, fait le reste."
+      }
+    },
+    "amsterdam-vondelpark": {
+      "name": "Le Vondelpark",
+      "tagline": "Le salon vert de la ville, avec des perroquets dans les arbres",
+      "story": "En 1865, un groupe de riches citoyens a décidé qu’Amsterdam avait besoin d’un endroit pour se promener et monter à cheval. Ils ont acheté des prairies humides juste en dehors de la ville et ont demandé au paysagiste Jan David Zocher un parc à l’anglaise, avec des étangs sinueux, de larges pelouses et des allées qui changent sans arrêt de direction, pour qu’on ne voie jamais tout le parc d’un seul coup d’œil. En 1867, une statue de Joost van den Vondel, le plus grand poète des Pays-Bas, y a été installée, et en 1880 le parc a officiellement pris son nom. Il couvre 47 hectares, environ 65 terrains de football, et il reçoit à peu près dix millions de visites par an. Il se trouve sous le niveau de la mer, sur un sol mou et tourbeux, et il s’enfonce un peu chaque année ; c’est pour cela qu’on l’a creusé et rénové entre 1999 et 2010. Écoute quand tu marches sous les arbres : les cris perçants viennent de perruches vertes au bec rouge. Ce sont les descendantes d’oiseaux de cage qui se sont échappés ou qu’on a relâchés dans les années 1970, et elles sont aujourd’hui environ 20 000 dans les grandes villes des Pays-Bas.",
+      "facts": [
+        "Il a ouvert en 1865, dessiné par Jan David Zocher, et couvre 47 hectares.",
+        "La statue du poète Vondel a été installée en 1867 ; le parc a pris son nom en 1880.",
+        "C’est un monument national depuis 1996.",
+        "En 2021, environ 20 000 perruches vertes vivaient dans les quatre plus grandes villes des Pays-Bas."
+      ],
+      "question": {
+        "q": "D’où viennent les perroquets verts du parc ?",
+        "answers": [
+          "D’oiseaux échappés",
+          "D’un bateau venu d’Afrique",
+          "De la volière du zoo",
+          "Du jardin du poète"
+        ],
+        "explanation": "Quelques oiseaux de cage se sont échappés ou ont été relâchés dans les années 1970. Ils supportent le froid tant qu’ils trouvent à manger, et leurs petits-enfants se comptent aujourd’hui par milliers."
+      },
+      "findIt": "L’entrée principale est sur la Stadhouderskade, à une minute à pied de Leidseplein ; le nom du parc est écrit au-dessus de la grille."
+    },
+    "amsterdam-nemo": {
+      "name": "NEMO Science Museum",
+      "tagline": "Un navire vert qui ne prend jamais la mer, plein d’expériences",
+      "story": "Le musée a commencé en 1923 comme musée du Travail, et il s’est installé dans ce bâtiment en 1997. L’architecte italien Renzo Piano l’a construit au-dessus de la bouche du tunnel de l’IJ, qui passe sous le port jusqu’à Amsterdam-Noord depuis 1968 : là où le tunnel plonge dans l’eau, le bâtiment sort de l’eau, comme la proue d’un navire. Il l’a habillé de cuivre, brun doré quand il était neuf, devenu vert avec la pluie, comme les vieux toits et la statue de la Liberté. À l’intérieur, il y a cinq étages de choses que tu es censé toucher. Chaque jour, on lance une réaction en chaîne, avec des dominos géants, une cloche et une voiture qui vole ; il y a une usine qui trie des balles, un laboratoire où tu mets une blouse blanche, et un étage sur ton propre corps et ton cerveau. Le toit en pente est une place publique : il est gratuit, ouvert à tous même sans billet, et d’en haut tu vois la gare, les bateaux et les toits de la ville. Là-haut, des machines marchent au vent, à l’eau et au soleil, et c’est toi qui les fais tourner.",
+      "facts": [
+        "Le bâtiment de Renzo Piano a ouvert en 1997, au-dessus du tunnel de l’IJ.",
+        "Le musée a ses racines en 1923, quand le musée du Travail a ouvert.",
+        "En 2023, il a reçu 727 737 visiteurs, le septième musée le plus visité des Pays-Bas.",
+        "La terrasse du toit est ouverte et gratuite, même sans billet pour le musée."
+      ],
+      "question": {
+        "q": "Pourquoi le bâtiment est-il vert ?",
+        "answers": [
+          "Son cuivre a verdi",
+          "On l’a peint exprès",
+          "De la mousse pousse dessus",
+          "Il est en verre"
+        ],
+        "explanation": "Le cuivre est brun doré quand il est neuf. L’air et la pluie font pousser dessus une fine couche verte, qui le protège ensuite. Personne ne l’a peint."
+      },
+      "findIt": "Oosterdok 2 : depuis la gare, marche vers l’est le long de l’eau, passe la grande bibliothèque publique, et l’entrée est au pied du bâtiment vert.",
+      "museum": {
+        "doorNote": "Ici, tout est fait pour être touché. Le toit est gratuit ; l’intérieur demande un billet.",
+        "rooms": {
+          "amsterdam-nemo-inside": {
+            "name": "À l’intérieur, cinq étages",
+            "intro": "Rien ici n’est derrière une vitre. Tu pousses, tu tires, tu tries, tu testes et tu mélanges, et le musée est content quand quelque chose rate, parce que c’est là que tu comprends pourquoi. Commence en bas, avec le plus grand fracas de la journée, et monte étage par étage jusqu’à celui qui parle de la machine la plus étrange de toutes : toi."
+          },
+          "amsterdam-nemo-roof": {
+            "name": "Le toit",
+            "intro": "Le sommet du navire est une place dans le ciel. Il penche comme le tunnel en dessous, mais vers le haut, et il appartient à toute la ville : qui veut monte, avec ou sans billet. Ici, le travail est fait par le vent, l’eau et le soleil, et la vue fait le reste."
+          }
+        },
+        "exhibits": {
+          "amsterdam-nemo-chain-reaction": {
+            "name": "La réaction en chaîne",
+            "blurb": "Une fois par jour, au premier étage, un présentateur met en marche une machine qui remplit toute une salle. Une poussée la démarre : des dominos géants tombent, une balle roule, un levier bascule, une cloche sonne, et une voiture vole dans les airs sur un câble, chaque pièce réveillant la suivante, jusqu’à ce que la dernière tombe. C’est une réaction en chaîne, la même idée qui fait tomber une rangée de dominos ou qui transforme une étincelle en incendie. Personne n’y touche après la première poussée. Si une pièce est un peu de travers, tout le spectacle s’arrête, et c’est pour cela qu’on l’installe avec tant de soin.",
+            "question": {
+              "q": "Combien de poussées faut-il à toute la machine ?",
+              "answers": [
+                "Une",
+                "Dix",
+                "Cent",
+                "Une par pièce"
+              ],
+              "explanation": "Une seule. Ensuite, chaque pièce passe son énergie à la suivante. C’est ce que veut dire « chaîne » : le maillon tire le maillon."
+            }
+          },
+          "amsterdam-nemo-ball-factory": {
+            "name": "L’usine à balles",
+            "blurb": "Au deuxième étage, une usine ne fait rien d’autre que déplacer des balles. Tu les charges, tu les montes, tu les envoies sur des rails et tu les tries à la bonne place, en faisant marcher les machines de tes propres mains et, si vous êtes assez nombreux, en travaillant en équipe. C’est une vraie chaîne de production en miniature, et elle montre ce que toute usine doit apprendre : la chaîne n’avance qu’à la vitesse de son ouvrier le plus lent. Regarde ce qui se passe quand un poste prend du retard, et où les balles s’entassent.",
+            "question": {
+              "q": "Que fabrique et déplace cette usine ?",
+              "answers": [
+                "Des balles",
+                "Des pièces de monnaie",
+                "Des briques",
+                "Des petites voitures"
+              ],
+              "explanation": "Des balles, parce qu’elles roulent facilement et ne se cassent pas. Ce que tu apprends en les déplaçant vaut pour toutes les usines du monde."
+            }
+          },
+          "amsterdam-nemo-laboratory": {
+            "name": "Le laboratoire",
+            "blurb": "Au troisième étage, tu mets une blouse blanche et des lunettes de protection, et tu deviens scientifique pour une demi-heure. Les expériences sont vraies, avec du vrai matériel : tu peux vérifier quelles boissons contiennent le plus de vitamine C, ou sortir l’ADN de cellules vivantes pour le voir pour de bon, comme un fil blanc dans un tube. Un scientifique n’est pas quelqu’un qui connaît les réponses ; c’est quelqu’un qui sait comment vérifier. Ici, tu suis les étapes, tu notes ce qui s’est passé et tu le compares avec ce que tu attendais.",
+            "question": {
+              "q": "Que peux-tu sortir d’une cellule au laboratoire ?",
+              "answers": [
+                "Son ADN",
+                "Son eau",
+                "Son sucre",
+                "Sa couleur"
+              ],
+              "explanation": "L’ADN est le mode d’emploi de tout ce qui est vivant. Avec du savon, du sel et de l’alcool, il sort de la cellule et se voit à l’œil nu."
+            }
+          },
+          "amsterdam-nemo-humania": {
+            "name": "Humania",
+            "blurb": "Le quatrième étage parle d’un seul animal : toi. L’exposition s’appelle Humania, et ses jeux et ses tests font de toi l’expérience. Ta mémoire est-elle vraiment si bonne ? Une image peut-elle tromper tes yeux ? Tes oreilles savent-elles d’où vient un son ? Tu compares tes résultats avec ceux des gens autour de toi et tu découvres qu’il n’y a pas deux cerveaux qui reçoivent le monde exactement de la même façon. C’est l’étage où les familles se disputent le plus, parce que chacun est sûr que ses propres sens ont raison.",
+            "question": {
+              "q": "De quoi parle Humania ?",
+              "answers": [
+                "Des gens",
+                "Des planètes",
+                "Des insectes",
+                "Des robots"
+              ],
+              "explanation": "Le nom le dit : humanus veut dire « humain » en latin. L’exposition, c’est toi, avec ta mémoire, tes yeux et tes oreilles."
+            }
+          },
+          "amsterdam-nemo-energetica": {
+            "name": "Energetica",
+            "blurb": "L’exposition en plein air sur le toit s’appelle Energetica, et elle marche avec le temps qu’il fait. Ses machines sont mues par le vent, par l’eau et par la lumière du soleil, et c’est toi qui les fais tourner : tourne une roue, change le chemin d’un ruisseau, incline un panneau vers le soleil et regarde ce qui se passe. Les Pays-Bas ont toujours tiré leur énergie du vent, d’abord avec des moulins qui pompaient l’eau hors des terres, aujourd’hui avec des éoliennes plantées dans la mer. Là-haut, tu découvres tout seul pourquoi les ailes d’un moulin sont posées de travers, et ce qu’un barrage fait à l’eau quand tu le fermes.",
+            "question": {
+              "q": "Qu’est-ce qui fait marcher les machines du toit ?",
+              "answers": [
+                "Le vent, l’eau et le soleil",
+                "Des piles dans une boîte",
+                "Un câble venu d’en bas",
+                "Des enfants qui tournent des manivelles"
+              ],
+              "explanation": "Le temps qu’il fait. C’est pour cela que l’exposition est dehors : à l’intérieur, il n’y a ni vent, ni pluie, ni soleil vers lequel incliner quoi que ce soit."
+            }
+          },
+          "amsterdam-nemo-copper-skin": {
+            "name": "La peau de cuivre",
+            "blurb": "Le bâtiment est enveloppé de feuilles de cuivre. Quand Renzo Piano l’a terminé en 1997, elles étaient brun doré, comme une pièce neuve. L’air et la pluie les ont changées peu à peu : le cuivre réagit avec l’oxygène et l’humidité, et une fine couche verte pousse dessus, qu’on appelle la patine et qui protège ensuite le métal en dessous. C’est pour la même raison que les vieux toits d’église et la statue de la Liberté sont verts. Personne n’a peint ce bâtiment. C’est le temps qu’il fait qui l’a peint, au fil des années, et il le peint encore. Touche le mur en montant et regarde la couleur de près, puis de loin.",
+            "question": {
+              "q": "Qui a rendu le bâtiment vert ?",
+              "answers": [
+                "Le temps",
+                "Un peintre",
+                "Renzo Piano",
+                "Le conseil municipal"
+              ],
+              "explanation": "Le cuivre réagit avec l’air et l’humidité et fabrique la patine. L’architecte le savait et l’attendait."
+            }
+          },
+          "amsterdam-nemo-view": {
+            "name": "La vue depuis le pont du navire",
+            "blurb": "Depuis la marche la plus haute, tu vois comment Amsterdam est fait. À l’ouest, la gare sur ses îles, avec les ferries qui passent derrière elle. En dessous de toi, l’Oosterdok, et à côté l’ancien arsenal de la flotte, devenu le musée maritime, avec un grand voilier amarré devant. Droit sous tes pieds, des voitures entrent dans le tunnel qui passe sous le port jusqu’à la rive nord. Retourne-toi, et les toits et les tours de la vieille ville s’étendent au loin. C’est la plus belle vue gratuite de la ville.",
+            "question": {
+              "q": "Qu’est-ce qui passe sous le bâtiment ?",
+              "answers": [
+                "Un tunnel",
+                "Une ligne de métro",
+                "Un canal",
+                "Une voie ferrée"
+              ],
+              "explanation": "Le tunnel de l’IJ, ouvert en 1968, où passent les voitures. Le bâtiment a été dessiné comme son miroir : le tunnel descend, le bâtiment monte, avec la même pente."
+            }
+          }
+        },
+        "riddles": {
+          "amsterdam-nemo-riddle-1": {
+            "prompt": "Il me faut exactement une poussée par jour. Après ça, personne ne me touche : je tombe, je roule, je sonne et je vole, une pièce réveillant la suivante, jusqu’à ce que la dernière tombe.",
+            "hint": "Demande à quelle heure commence le spectacle au premier étage."
+          },
+          "amsterdam-nemo-riddle-2": {
+            "prompt": "J’avais la couleur d’une pièce neuve en 1997. Depuis, la pluie et l’air me peignent, et je change encore. Touche-moi en montant vers le sommet.",
+            "hint": "Ce n’est pas à l’intérieur du musée. C’est le musée."
+          },
+          "amsterdam-nemo-riddle-3": {
+            "prompt": "Je vis dehors, plus haut que les bateaux. Je n’ai pas de prise. Le vent, l’eau et la lumière du soleil me font bouger, et c’est toi qui décides lequel des trois travaille le plus fort.",
+            "hint": "Monte les marches jusqu’en haut et cherche des machines qui ne sont branchées nulle part."
+          }
+        }
+      }
+    },
+    "amsterdam-olympic-stadium": {
+      "name": "Le Stade olympique",
+      "tagline": "Ici, la flamme olympique a été allumée pour la première fois",
+      "story": "Les Jeux olympiques sont venus à Amsterdam en 1928, et la ville a construit ce stade pour eux, dessiné par Jan Wils en brique, avec 31 600 places. À côté se dresse une haute tour, la tour du Marathon, et à son sommet on a allumé un feu pour toute la durée des Jeux, pour qu’on voie de loin où se passaient les Jeux olympiques. Personne ne l’avait fait avant. Chaque édition depuis a eu sa flamme, et aujourd’hui elle est allumée à Olympie, en Grèce, puis portée jusqu’à la ville hôte ; l’idée a commencé ici. Ces Jeux ont eu d’autres premières fois : les femmes ont couru et sauté en athlétisme pour la première fois, la piste mesurait 400 mètres, ce qui est devenu la règle, et la Grèce a défilé en tête à la cérémonie d’ouverture, avec le pays organisateur en dernier, comme cela se fait encore. Des athlètes sont venus de 46 pays. Dans les années 1990, le stade a failli être démoli ; au lieu de cela, il est devenu monument national, l’anneau de gradins ajouté en 1937 a été enlevé, et il a rouvert en 2000 comme il était en 1928. On y organise encore des compétitions d’athlétisme.",
+      "facts": [
+        "Il a ouvert le 17 mai 1928, dessiné par Jan Wils, avec 31 600 places.",
+        "La première flamme olympique a brûlé dans la tour du Marathon, à côté du stade.",
+        "Les Jeux de 1928 ont réuni 2 883 athlètes de 46 pays, dont 277 femmes.",
+        "Il est devenu monument national en 1987 et a rouvert le 13 mai 2000, comme il était en 1928."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui s’est passé pour la première fois à ces Jeux, en 1928 ?",
+        "answers": [
+          "On a allumé une flamme",
+          "On a donné des médailles",
+          "Des femmes ont nagé",
+          "On a porté une torche"
+        ],
+        "explanation": "Les médailles existaient depuis 1896 et les femmes nageaient depuis 1912. La flamme, elle, était nouvelle en 1928 ; le relais de la torche depuis Olympie est venu plus tard, en 1936."
+      },
+      "findIt": "L’adresse est Olympisch Stadion 2. Cherche d’abord la haute tour en brique ; le stade est juste à côté."
+    },
+    "amsterdam-de-gooyer": {
+      "name": "Le moulin De Gooyer",
+      "tagline": "Le plus haut moulin à vent en bois des Pays-Bas, en pleine ville",
+      "story": "Un moulin à vent au milieu d’une ville est un drôle de spectacle, mais celui-ci était là le premier. Le De Gooyer est un moulin à blé, construit pour moudre les grains en farine, et son nom remonte à 1609 environ, quand il appartenait à deux frères de la région du Gooi. Les moulins doivent attraper le vent, alors quand des maisons poussaient autour d’eux, on les déplaçait, et celui-ci a été déplacé plus d’une fois ; en 1814, il a été rebâti sur la base en pierre d’un moulin à eau qu’on venait de démolir, et il est resté là depuis. Il mesure 26,6 mètres, le plus haut moulin en bois des Pays-Bas, un corps de bois à huit côtés sur un pied de brique. Dans les années 1920, il tombait en morceaux ; la ville l’a acheté en 1928 pour 3 200 florins et l’a restauré, et en 1976 il a retrouvé ses vieilles ailes hollandaises. Il ne moud plus, et tu ne peux pas entrer, mais mets-toi dessous et regarde : un jour de vent, les ailes tournent encore. À côté, dans ce qui était autrefois un bain public de 1911, une brasserie s’est installée.",
+      "facts": [
+        "Il mesure 26,6 mètres et c’est le plus haut moulin à vent en bois des Pays-Bas.",
+        "Il a été rebâti à cet endroit en 1814, sur la base d’un moulin à eau démoli.",
+        "La ville l’a acheté en 1928 pour 3 200 florins ; c’est un monument national depuis 1970."
+      ],
+      "question": {
+        "q": "Pour quel travail ce moulin a-t-il été construit ?",
+        "answers": [
+          "Moudre du blé",
+          "Pomper l’eau",
+          "Scier du bois",
+          "Fabriquer du papier"
+        ],
+        "explanation": "La plupart des moulins néerlandais pompaient l’eau hors des terres. Celui-ci était un moulin à blé : le vent faisait tourner deux lourdes pierres qui écrasaient les grains en farine."
+      }
+    },
+    "amsterdam-centraal": {
+      "name": "La gare Amsterdam Centraal",
+      "tagline": "Un palais de brique rouge posé sur l’eau",
+      "story": "Avant 1889, il n’y avait ici que de l’eau : l’IJ, le port de la ville. Pour construire une gare, les ingénieurs ont d’abord dû construire le sol. Ils ont fait trois îles artificielles et enfoncé 8 687 pieux de bois dans la vase, jusqu’au sable dur du dessous, parce qu’à Amsterdam tout ce qui est lourd s’enfonce s’il ne repose pas sur des pieux. Ensuite, Pierre Cuypers, l’architecte du Rijksmuseum, a dessiné une gare qui ressemble à un palais de brique rouge, avec des sculptures, des images colorées et deux tours. La tour de l’est a une horloge. Celle de l’ouest a un cadran qui ne donne pas du tout l’heure : une girouette sur le toit tourne avec le vent et fait bouger l’aiguille, pour que les marins, et tout le monde avec eux, puissent lire d’où souffle le vent. Beaucoup d’habitants ont râlé, parce que le bâtiment leur cachait la vue sur les bateaux. Aujourd’hui, presque 200 000 voyageurs passent ici chaque jour, des ferries gratuits partent de derrière la gare vers la rive nord, et en 2023 un garage pour presque 7 000 vélos a ouvert devant elle, construit sous l’eau.",
+      "facts": [
+        "Elle repose sur trois îles artificielles, sur 8 687 pieux de bois.",
+        "Elle a ouvert le 15 octobre 1889, sur des plans de Pierre Cuypers.",
+        "Le garage à vélos devant elle, sous l’eau, a ouvert en janvier 2023 avec de la place pour presque 7 000 vélos.",
+        "Les ferries derrière la gare vers Amsterdam-Noord sont gratuits."
+      ],
+      "question": {
+        "q": "Que montre le cadran de la tour ouest de la gare ?",
+        "answers": [
+          "La direction du vent",
+          "L’heure à Londres",
+          "Le jour de la semaine",
+          "Le quai du prochain train"
+        ],
+        "explanation": "Une girouette sur le toit tourne avec le vent et fait bouger l’aiguille. Dans une ville de voiliers, le vent comptait autant que l’heure."
+      }
+    },
+    "amsterdam-anne-frank-house": {
+      "name": "La Maison d’Anne Frank",
+      "tagline": "La maison où une fille a écrit le journal que le monde entier a lu",
+      "story": "Anne Frank est née à Francfort en 1929 et elle est arrivée à Amsterdam à quatre ans, parce que l’Allemagne était devenue dangereuse pour les familles juives. Pour ses treize ans, le 12 juin 1942, on lui a offert un journal à couverture à carreaux rouges et blancs. Trois semaines plus tard, sa famille s’est cachée dans les pièces du fond de ce bâtiment, là où son père Otto avait son bureau. Une bibliothèque cachait la porte. Huit personnes ont vécu derrière elle pendant deux ans et un mois, sans jamais sortir, et Anne écrivait presque tous les jours : les disputes, les cloches de la Westerkerk, son rêve de devenir écrivaine. Le 4 août 1944, ils ont été découverts et arrêtés. Anne et sa sœur Margot sont mortes au camp de Bergen-Belsen au début de 1945. Seul Otto est revenu. Des amis avaient sauvé le journal, et il l’a publié en 1947, parce qu’Anne voulait que ses mots soient lus. Ils l’ont été, dans plus de soixante-dix langues. Les pièces sont encore vides, comme Otto l’avait demandé, et les traits de crayon sur le mur, là où on mesurait la taille des filles, sont toujours là. Le musée accueille les enfants à partir de dix ans.",
+      "facts": [
+        "Anne a reçu le journal le 12 juin 1942, pour ses treize ans.",
+        "La famille s’est cachée du 6 juillet 1942 au 4 août 1944.",
+        "Le journal a été publié en 1947 et traduit dans plus de 70 langues.",
+        "Le musée a ouvert le 3 mai 1960 et accueille les enfants à partir de 10 ans."
+      ],
+      "question": {
+        "q": "Qu’est-ce qui cachait la porte des pièces secrètes ?",
+        "answers": [
+          "Une bibliothèque",
+          "Une armoire",
+          "Un grand miroir",
+          "Un rideau"
+        ],
+        "explanation": "Une bibliothèque qui s’ouvrait comme une porte, fabriquée en 1942 par le père d’une des femmes qui les aidaient. Celui qui entrait dans le bureau ne voyait que des livres."
+      },
+      "findIt": "L’entrée du musée est au coin de la rue, au Westermarkt 20, à côté de l’église, et non par l’ancienne porte sur le canal."
+    },
+    "amsterdam-bloemenmarkt": {
+      "name": "Le Bloemenmarkt",
+      "tagline": "Un marché aux fleurs qui flotte",
+      "story": "Depuis 1862, on vend ici des fleurs sur le canal Singel. Les cultivateurs les apportaient en bateau depuis les champs à l’extérieur de la ville et les vendaient directement du pont, et le marché n’a jamais quitté l’eau : ses quinze boutiques tiennent encore sur des péniches amarrées à la rive, ce qui en fait le seul marché aux fleurs flottant du monde. La fleur qui règne ici, c’est la tulipe. Elle est arrivée aux Pays-Bas il y a plus de quatre cents ans, depuis les terres de la Turquie d’aujourd’hui, et les Néerlandais en sont tombés si amoureux qu’à l’hiver 1637 un seul bulbe rare pouvait se vendre plus de dix fois ce qu’un bon artisan gagnait en un an. Puis les prix se sont effondrés. Aujourd’hui, la plupart des étals vendent des bulbes, des tulipes en bois et des souvenirs plutôt que des fleurs coupées. Au bout du marché se dresse la Munttoren, la tour de la Monnaie, autrefois un morceau d’une porte médiévale de la ville. En 1672, une année de guerre, il n’était pas sûr de transporter l’argent jusqu’aux villes où l’on frappait normalement les pièces, alors pendant deux ans on les a frappées ici, et le nom est resté. Ses cloches, fabriquées par Pieter Hemony en 1668, sonnent encore.",
+      "facts": [
+        "Le marché est là depuis 1862 et ses quinze boutiques tiennent sur des péniches.",
+        "En février 1637, certains bulbes de tulipe se sont vendus plus de dix fois le salaire d’une année d’artisan.",
+        "On n’a frappé des pièces dans la Munttoren qu’en 1672–1673, pendant une année de guerre."
+      ],
+      "question": {
+        "q": "Sur quoi tiennent les boutiques du marché ?",
+        "answers": [
+          "Sur des péniches",
+          "Sur des pilotis dans l’eau",
+          "Sur un pont de bois",
+          "Sur le vieux mur de la ville"
+        ],
+        "explanation": "Les cultivateurs apportaient les fleurs en bateau et vendaient du pont. Le marché est resté là où il est né : sur l’eau."
+      }
+    },
+    "amsterdam-scheepvaartmuseum": {
+      "name": "Le Musée maritime (Het Scheepvaartmuseum)",
+      "tagline": "L’ancien entrepôt de la marine, avec un grand voilier amarré devant",
+      "story": "Ce bâtiment carré posé sur l’eau a été construit en 1656 comme ’s Lands Zeemagazijn, l’entrepôt de l’Amirauté d’Amsterdam. Les Néerlandais venaient de perdre une guerre sur mer contre l’Angleterre et il leur fallait vite une vraie marine, alors Daniël Stalpaert a dessiné un magasin pour tout ce dont une flotte de guerre a besoin : des voiles, des cordages, des drapeaux, des canons et des clous, sur 2 300 pieux de bois venus de Norvège, avec l’eau de pluie recueillie sous la cour pour remplir les tonneaux des navires. Depuis 1973, c’est le musée maritime national. Pendant une rénovation, en 2007–2011, la cour ouverte a été couverte d’un toit de 1 200 morceaux de verre, disposés comme les lignes d’une vieille carte marine. Dehors, une copie grandeur nature du navire Amsterdam est amarrée au quai. Le vrai Amsterdam a coulé près de Hastings en 1749, lors de son tout premier voyage, avec 27 caisses de pièces d’argent à bord ; la copie a été construite entre 1985 et 1990, et tu peux monter à bord, t’allonger dans un hamac et tenir la barre. À côté, dans un hangar rien que pour elle, flotte la Chaloupe royale dorée, ramée par vingt hommes et utilisée pour la dernière fois en 1962.",
+      "facts": [
+        "Le bâtiment a été élevé en 1656 sur des plans de Daniël Stalpaert, sur 2 300 pieux venus d’Oslo.",
+        "Le musée est ici depuis 1973 et a rouvert après rénovation le 2 octobre 2011.",
+        "Le toit de verre de Laurent Ney compte 1 200 morceaux de verre dans un carré de 34 mètres sur 34.",
+        "Le vrai Amsterdam s’est échoué le 26 janvier 1749 ; la réplique a été construite en 1985–1990."
+      ],
+      "question": {
+        "q": "Qu’était le bâtiment quand il a été construit en 1656 ?",
+        "answers": [
+          "Un entrepôt",
+          "Le palais de l’amiral",
+          "Une école de marins",
+          "Une prison pour pirates"
+        ],
+        "explanation": "Une flotte a besoin de voiles, de cordages, de canons et de clous, tout au même endroit et près de l’eau. C’est pour cela que le bâtiment est un carré avec une cour au milieu : un entrepôt de la marine."
+      },
+      "findIt": "Kattenburgerplein 1 : le grand bâtiment carré sur l’eau, à l’est du NEMO. Le navire est amarré au quai juste à côté.",
+      "museum": {
+        "doorNote": "Le navire dehors fait partie du billet. Monte à bord ; c’est la plus belle salle du musée.",
+        "rooms": {
+          "amsterdam-scheepvaartmuseum-on-the-water": {
+            "name": "Sur l’eau",
+            "intro": "Les deux plus belles choses de ce musée flottent. L’une est la copie d’un navire qui a coulé lors de son premier voyage, construite planche par planche comme l’original ; l’autre est un bateau doré dans lequel des rameurs promenaient des rois et des reines. Tu montes à bord des deux. Attention à ta tête sous le pont : les marins étaient plus petits à l’époque."
+          },
+          "amsterdam-scheepvaartmuseum-maps-and-monsters": {
+            "name": "Cartes, monstres et un ciel de verre",
+            "intro": "Les marins avaient besoin de cartes, et pendant un temps Amsterdam a fait les meilleures du monde. Cette salle raconte comment les gens dessinaient la mer avant de l’avoir vue en entier, ce qu’ils croyaient qui vivait dedans, et comment le musée a transformé une vieille cour en une carte sous laquelle tu peux te tenir."
+          }
+        },
+        "exhibits": {
+          "amsterdam-scheepvaartmuseum-ship-amsterdam": {
+            "name": "Le navire Amsterdam",
+            "blurb": "Le vrai Amsterdam était un vaisseau des Indes : un navire marchand de la Compagnie néerlandaise des Indes orientales, long de 48 mètres, construit en chêne en 1748 pour aller en Asie et revenir. Il portait 203 hommes d’équipage, 127 soldats et 5 passagers, avec du vin, du tissu, des canons et 27 caisses de pièces d’argent. Des tempêtes l’ont repoussé deux fois avant qu’il ne sorte de la Manche. Une maladie s’est déclarée à bord, le gouvernail s’est cassé, et le 26 janvier 1749 il s’est échoué dans une baie près de Hastings, en Angleterre. Son épave est encore là, dans le sable. Cette copie a été construite entre 1985 et 1990 en bois d’iroko.",
+            "question": {
+              "q": "Qu’est-il arrivé au vrai Amsterdam lors de son premier voyage ?",
+              "answers": [
+                "Il s’est échoué",
+                "Il est arrivé en Asie",
+                "Des pirates l’ont pris",
+                "Il a pris feu"
+              ],
+              "explanation": "Sans gouvernail, dans une tempête, avec la moitié de l’équipage malade, le capitaine l’a jeté sur le sable pour sauver les gens. Il n’en est jamais reparti."
+            }
+          },
+          "amsterdam-scheepvaartmuseum-on-board": {
+            "name": "Sous le pont",
+            "blurb": "Monte à bord et le navire devient une maison. Les marins dormaient dans des hamacs accrochés côte à côte, si serrés qu’ils se balançaient tous ensemble quand le navire roulait, et tu peux grimper dans l’un d’eux. Le capitaine avait une cabine à l’arrière, avec des fenêtres et un vrai lit. Entre les ponts, les plafonds sont bas, parce que la place était pour la cargaison, pas pour se tenir debout. Tu peux tenir la barre, hisser une charge avec les palans et regarder dans la bouche d’un canon. Il y a deux cents ans, un enfant de ton âge était peut-être ici comme mousse, à faire les courses du cuisinier.",
+            "question": {
+              "q": "Où dormaient les simples marins ?",
+              "answers": [
+                "En hamac",
+                "Dans des couchettes en bois",
+                "Sur le pont",
+                "Dans la cale"
+              ],
+              "explanation": "Un hamac est suspendu, donc quand le navire penche, le marin reste droit. Et le matin, tu le roules et la place est libre."
+            }
+          },
+          "amsterdam-scheepvaartmuseum-royal-barge": {
+            "name": "La Chaloupe royale",
+            "blurb": "Ce bateau doré a été construit pour le roi Willem I entre 1816 et 1818 au chantier naval de Rotterdam. Il n’a ni moteur ni voile : vingt rameurs, choisis dans la marine et entraînés à ramer en mesure parfaite, le faisaient avancer sur l’eau aussi lentement et aussi majestueusement que possible. À la proue est assis un Neptune doré, le dieu de la mer, dans un coquillage tiré par trois chevaux marins. Il a servi aux mariages et aux visites de la famille royale pendant un siècle et demi, et pour la dernière fois en 1962, quand la reine Juliana et le prince Bernhard ont fêté leurs vingt-cinq ans de mariage. Depuis 2015, il flotte dans un hangar construit rien que pour lui.",
+            "question": {
+              "q": "Comment la Chaloupe royale avançait-elle ?",
+              "answers": [
+                "Par vingt rameurs",
+                "Par une machine à vapeur",
+                "Par une grande voile",
+                "Par des chevaux sur la berge"
+              ],
+              "explanation": "Vingt rames, toutes ensemble, en mesure. Un bateau royal n’est pas pressé : le but était que tout le monde le regarde longtemps."
+            }
+          },
+          "amsterdam-scheepvaartmuseum-glass-roof": {
+            "name": "Le toit de verre",
+            "blurb": "Pendant trois cents ans, la cour au milieu de l’arsenal est restée ouverte à la pluie. En 2011, elle a été couverte d’un toit dessiné par l’ingénieur Laurent Ney : 1 200 morceaux de verre dans une structure d’acier, 34 mètres sur 34, avec 160 tonnes d’acier et 40 tonnes de verre, qui tient tout seul, sans aucune colonne en dessous. Le dessin de l’acier est copié sur de vieilles cartes marines, où des lignes partent en éventail d’une rose des vents pour qu’un navigateur puisse tracer à la règle sa route d’un port à un autre. Allonge-toi par terre et regarde en l’air : tu es à l’intérieur d’une carte.",
+            "question": {
+              "q": "Sur quoi le dessin du toit est-il copié ?",
+              "answers": [
+                "Sur des cartes marines",
+                "Sur une toile d’araignée",
+                "Sur les voiles d’un navire",
+                "Sur un filet de pêche"
+              ],
+              "explanation": "Sur les vieilles cartes, des lignes partent des roses des vents dans toutes les directions. L’ingénieur les a faites en acier et a mis du verre entre elles."
+            }
+          },
+          "amsterdam-scheepvaartmuseum-blaeu-atlas": {
+            "name": "L’Atlas Maior de Blaeu",
+            "blurb": "Dans les années 1660, le cartographe d’Amsterdam Joan Blaeu a publié l’Atlas Maior, le Grand Atlas : 594 cartes et environ 3 000 pages, en neuf à douze volumes selon la langue. C’était le livre le plus grand et le plus cher qu’on pouvait acheter au XVIIe siècle, et les riches marchands l’offraient aux rois. Le père de Joan, Willem, avait été le cartographe officiel de la Compagnie des Indes orientales, et la famille voyait donc les cartes les plus récentes avant tout le monde. Le musée conserve leurs cartes ; cherche les côtes qui s’arrêtent au milieu, là où aucun navire n’était encore allé.",
+            "question": {
+              "q": "Qu’est-ce que l’Atlas Maior avait de spécial ?",
+              "answers": [
+                "Le livre le plus cher",
+                "Le premier livre imprimé en néerlandais",
+                "Le plus petit atlas jamais fait",
+                "Le seul livre sans aucune image"
+              ],
+              "explanation": "Près de 600 cartes, gravées sur cuivre et coloriées à la main, en douze volumes au plus. Aucun livre du XVIIe siècle ne coûtait davantage."
+            }
+          },
+          "amsterdam-scheepvaartmuseum-whale": {
+            "name": "L’histoire de la baleine",
+            "blurb": "Cette exposition est faite pour les enfants à partir de six ans. Elle commence par une baleine boréale qui ouvre son énorme bouche devant toi, et se termine par sa queue qui plonge dans l’eau. Entre les deux, tu apprends quelles baleines existent, où elles vivent et comment les gens les ont traitées. Au XVIe siècle, les marins avaient rarement vu une baleine de près ; ils les dessinaient sur leurs cartes comme des monstres marins avec des dents et des jets d’eau, et les cartes de ce musée en sont pleines. Plus tard, les Néerlandais ont chassé la baleine dans l’Arctique pour son huile. Aujourd’hui, on navigue sur la même mer pour les regarder.",
+            "question": {
+              "q": "Comment les marins dessinaient-ils les baleines sur les vieilles cartes ?",
+              "answers": [
+                "Comme des monstres",
+                "Comme de petits poissons",
+                "Comme des îles flottantes",
+                "Comme des sirènes"
+              ],
+              "explanation": "Celui qui voyait un dos sortir de l’eau et un jet, puis le perdait de vue, remplissait les trous avec son imagination."
+            }
+          }
+        },
+        "riddles": {
+          "amsterdam-scheepvaartmuseum-riddle-1": {
+            "prompt": "Vingt hommes me faisaient avancer à la rame, en mesure parfaite, et un dieu de la mer tout doré est assis sur mon nez. J’ai transporté des reines et des rois, mais la dernière fois que j’ai navigué, c’était en 1962.",
+            "hint": "Cherche le plus petit des deux bateaux, dans un hangar rien que pour lui."
+          },
+          "amsterdam-scheepvaartmuseum-riddle-2": {
+            "prompt": "Ma grande sœur est partie pour l’Asie et n’a jamais dépassé l’Angleterre. On m’a construit à sa forme, planche par planche, et je suis amarré à ce quai depuis 1990.",
+            "hint": "C’est la plus grande chose du musée, et elle n’est pas à l’intérieur du musée."
+          },
+          "amsterdam-scheepvaartmuseum-riddle-3": {
+            "prompt": "Je suis douze cents morceaux que rien ne soutient, et mes lignes, je les ai volées à la carte d’un marin. Allonge-toi et regarde en l’air : tu es à l’intérieur d’une carte.",
+            "hint": "Ce n’est dans aucune salle. C’est au-dessus de la cour."
+          }
+        }
+      }
+    },
+    "amsterdam-artis": {
+      "name": "Artis",
+      "tagline": "Le plus vieux zoo des Pays-Bas, en plein milieu de la ville",
+      "story": "En 1838, trois amis qui aimaient les animaux, Gerard Westerman, J.W.H. Werlemann et J.J. Wijsmuller, ont fondé une société appelée Natura Artis Magistra, du latin pour « La nature est la maîtresse de l’art ». Tout le monde a raccourci le nom en Artis. C’est le plus vieux zoo des Pays-Bas et le cinquième plus vieux du monde encore ouvert, et il n’a jamais déménagé : la ville a grandi autour de lui, et aujourd’hui des lions, des girafes et des éléphants vivent à quelques pas des canaux. Environ 900 espèces vivent ici. Beaucoup de bâtiments sont plus vieux que tes arrière-arrière-grands-parents : l’aquarium a ouvert en 1882, et 27 vieux bâtiments, ponts et bassins du parc sont des monuments protégés, la plupart aujourd’hui des maisons pour les animaux. Il y a un planétarium près de l’entrée, et depuis 2014 un musée qui s’appelle Micropia, le premier au monde consacré aux créatures trop petites pour qu’on les voie : les bactéries, les moisissures et les microbes qui vivent sur ta propre peau. Environ 1,3 million de personnes viennent chaque année. Donne du temps à l’aquarium ; c’est la plus vieille salle du zoo.",
+      "facts": [
+        "Il a été fondé en 1838 et c’est le plus vieux zoo des Pays-Bas.",
+        "Environ 900 espèces d’animaux vivent ici.",
+        "L’aquarium a ouvert en 1882 ; Micropia, le premier musée des microbes au monde, en 2014.",
+        "En 2024, il a reçu 1 269 538 visiteurs."
+      ],
+      "question": {
+        "q": "Que veut dire le nom latin du zoo ?",
+        "answers": [
+          "La nature enseigne l’art",
+          "Les animaux du monde entier",
+          "Le jardin des grands rois",
+          "L’art pour tous"
+        ],
+        "explanation": "Natura Artis Magistra : la nature est la maîtresse de l’art. Les fondateurs pensaient que celui qui veut faire quelque chose de beau doit d’abord regarder les animaux."
+      },
+      "findIt": "L’entrée est au Plantage Kerklaan 38–40, dans le quartier Plantage ; le planétarium est juste à côté."
+    },
+    "amsterdam-albert-cuyp-market": {
+      "name": "Le marché Albert Cuyp",
+      "tagline": "Le marché le plus animé du pays, avec des gaufres chaudes au sirop",
+      "story": "Le marché Albert Cuyp a commencé vers 1905, quand les marchands qui poussaient leurs charrettes dans le quartier De Pijp ont reçu l’ordre de s’aligner dans une seule rue, le samedi soir. En 1912, il est devenu un marché de jour six jours par semaine, et il ouvre du lundi au samedi depuis. Environ 260 étals s’étirent le long de l’Albert Cuypstraat, qui porte le nom d’un peintre du XVIIe siècle, et c’est le marché le plus animé des Pays-Bas. Tu peux y acheter des fruits, du poisson, du fromage, des sonnettes de vélo et des chaussettes, et entendre une douzaine de langues, parce que ce quartier est la maison de familles venues du Suriname, de Turquie, du Maroc et de partout ailleurs. Pour un enfant, le marché tient en une seule chose : la stroopwafel, deux gaufres fines pressées autour de sirop de caramel chaud, cuites devant toi et mangées tant qu’elle plie encore. L’astuce, c’est de la poser sur une tasse de chocolat chaud pour que la vapeur ramollisse le sirop. Cherche aussi les étals de hareng, où les courageux mangent le hareng légèrement salé en le tenant par la queue, et les poêles à poffertjes, pleines de petits creux avec une minuscule crêpe qui gonfle dans chacun.",
+      "facts": [
+        "Il a commencé en 1905 le samedi soir et fonctionne six jours par semaine depuis 1912.",
+        "Il compte environ 260 étals et c’est le marché le plus animé des Pays-Bas.",
+        "Il porte le nom d’Albert Cuyp, un peintre du XVIIe siècle."
+      ],
+      "question": {
+        "q": "Avec quoi est fourrée une stroopwafel ?",
+        "answers": [
+          "Du sirop de caramel",
+          "Du fromage fondu",
+          "De la confiture de pomme",
+          "De la crème au chocolat"
+        ],
+        "explanation": "Stroop veut dire sirop. Les deux gaufres sont collées avec du caramel chaud, et tant qu’il est tiède, elle plie ; une fois froide, elle devient croquante."
+      }
+    }
+  },
+  "trails": {
+    "amsterdam-first-time": {
+      "name": "Première fois à Amsterdam",
+      "promise": "Tu auras vu la gare-palais, le barrage qui a donné son nom à la ville, la couronne sur le clocher, un marché qui flotte, un pont qui s’ouvre et le tableau le plus célèbre du pays."
+    },
+    "amsterdam-two-hours": {
+      "name": "Deux heures près du port",
+      "promise": "Quatre lieux à distance de marche de la gare : une porte devenue balance, un navire vert avec un toit gratuit et un vrai bateau sur lequel tu montes."
+    },
+    "amsterdam-rainy-day": {
+      "name": "Jour de pluie, à l’intérieur",
+      "promise": "Quatre toits pour un jour mouillé : des tableaux, des expériences, un bateau avec des hamacs, et une maison tranquille pour ceux qui ont plus de dix ans."
+    },
+    "amsterdam-out-of-doors": {
+      "name": "Dehors, à pied ou à vélo",
+      "promise": "Des perruches dans un parc, la première flamme olympique, des gaufres chaudes, la plante qui est devenue le café, des lions au bord des canaux et un moulin qui tourne encore."
+    }
+  }
+}
