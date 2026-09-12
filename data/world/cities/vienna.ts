@@ -7,7 +7,8 @@
  * Every coordinate in this file is copied from `data/world/coords/vienna.json`, which
  * `scripts/world/resolve-coords.mjs` produced from Wikidata and cross-checked against
  * OpenStreetMap and Wikipedia. Nothing here was typed by hand. No place graded `D`;
- * two graded A, nine B, two C. No entrance is claimed anywhere, because no door in
+ * six graded A, six B, one C, from the pass of 12 September 2026 in which Overpass
+ * answered for all thirteen. No entrance is claimed anywhere, because no door in
  * this city has been measured: every anchor is the centroid or area it really is.
  *
  * The museum interiors name objects that are genuinely on display. Checked on
@@ -17,6 +18,26 @@
  * against the Kunsthistorisches Museum's own pages and the English Wikipedia articles
  * "Kunsthistorisches Museum", "Cellini Salt Cellar" and "Paintings in the staircase of
  * the Kunsthistorisches Museum".
+ *
+ * Corrected on 13 September 2026, after review:
+ *  - The Florentine Diamond is NOT lost. It left Vienna with the imperial family in 1918
+ *    and sat in a bank vault in Canada until the family opened the box in 2025. Only the
+ *    1865 glass copy and its 126 facets were right in the first draft.
+ *  - Karlskirche's two columns are over 33 m, not 40 (Wien Geschichte Wiki); the ~70 m
+ *    dome figure stands.
+ *  - The Riesenrad has 120 cable spokes, not 15 — 15 is the cabin count, which the same
+ *    paragraph already gave. It went up in 1897 for a jubilee that fell in 1898, because
+ *    Franz Joseph acceded on 2 December 1848.
+ *  - The 13th-century Hofburg castle predates the Habsburgs; Rudolf I took Vienna in 1276
+ *    and moved into a fortress that was already standing.
+ *  - The Naschmarkt's 1780 ancestor stood on what is now Karlsplatz. The market moved onto
+ *    the vaulted Wien from 1902, which is why the buried river is the reason it is here.
+ *  - The Allosaurus beside the animatronic is a skeleton CAST from Utah, like Dippy.
+ *  - The Anker Clock's twelve are people out of Vienna's history, not people who lived in
+ *    Vienna: Charlemagne is one of them and never did.
+ *  - The coordinates were re-resolved after an Overpass outage had cost several places
+ *    their OpenStreetMap cross-check. Every location block below is copied from the pass
+ *    in which all thirteen came back with one, so six places gained a grade.
  *
  * `el` and `en` are complete. `de`, `fr`, `es` and `it` land in the second pass.
  */
@@ -100,18 +121,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Δεν τον τελείωσαν ποτέ', en: 'It was never finished' },
-        {
-          el: 'Τον κόντυναν για να μη ρίχνει σκιά στην πλατεία',
-          en: 'It was shortened so it would not shade the square',
-        },
-        {
-          el: 'Έπεσε σε σεισμό και τον ξανάχτισαν χαμηλότερο',
-          en: 'An earthquake felled it and it was rebuilt lower',
-        },
-        {
-          el: 'Χτίστηκε κοντός επίτηδες, για να κρεμάσουν εκεί την καμπάνα',
-          en: 'It was built short on purpose, to hang the bell in',
-        },
+        { el: 'Τον κόντυναν για τη σκιά', en: 'It was shortened for shade' },
+        { el: 'Τον έριξε ένας σεισμός', en: 'An earthquake felled it' },
+        { el: 'Χτίστηκε κοντός επίτηδες', en: 'It was built short on purpose' },
       ],
       explanation: {
         el:
@@ -145,8 +157,8 @@ export const places: Place[] = [
         'δείκτες έχει δώδεκα χάλκινες μορφές, ύψους σχεδόν τριών μέτρων, που περνούν αργά ' +
         'από τη μία άκρη στην άλλη. Κάθε μορφή κάνει μία ολόκληρη ώρα για να διασχίσει τη ' +
         'γέφυρα, και για να δεις τι ώρα είναι κοιτάς πού έχει φτάσει. Οι μορφές δεν είναι ' +
-        'φανταστικές. Είναι άνθρωποι που έζησαν αληθινά στη Βιέννη, ο ένας μετά τον άλλο ' +
-        'μέσα σε δεκαοκτώ αιώνες: ένας Ρωμαίος αυτοκράτορας, ένας ποιητής, μια αυτοκράτειρα, ' +
+        'φανταστικές. Είναι αληθινοί άνθρωποι από την ιστορία της Βιέννης, ο ένας μετά τον ' +
+        'άλλο μέσα σε δεκαοκτώ αιώνες: ένας Ρωμαίος αυτοκράτορας, ένας ποιητής, μια αυτοκράτειρα, ' +
         'ένας συνθέτης. Στις δώδεκα το μεσημέρι το ρολόι κάνει το κόλπο του: βγαίνουν και οι ' +
         'δώδεκα, η μία πίσω από την άλλη, με μουσική. Κάτω από την πλατεία σώζονται ακόμα ' +
         'ερείπια του ρωμαϊκού οικισμού Βίντομπονα.',
@@ -156,8 +168,8 @@ export const places: Place[] = [
         'it was built between 1911 and 1914. It has no hands. Instead it has twelve copper ' +
         'figures, nearly three metres tall, that move slowly from one side to the other. Each ' +
         'figure takes a whole hour to cross the bridge, and to tell the time you look at how ' +
-        'far it has got. The figures are not made up. They are people who really lived in ' +
-        'Vienna, one after another across eighteen centuries: a Roman emperor, a poet, an ' +
+        'far it has got. The figures are not made up. They are real people out of Vienna’s ' +
+        'history, one after another across eighteen centuries: a Roman emperor, a poet, an ' +
         'empress, a composer. At twelve noon the clock does its trick: all twelve come out, ' +
         'one behind the other, with music playing. Underneath the square, ruins of the Roman ' +
         'settlement of Vindobona are still there.',
@@ -198,18 +210,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Μια μορφή περνάει τη γέφυρα σε μία ώρα', en: 'A figure crosses the bridge in one hour' },
-        {
-          el: 'Χτυπάει μια καμπάνα τόσες φορές όσες και η ώρα',
-          en: 'A bell rings as many times as the hour',
-        },
-        {
-          el: 'Αλλάζει χρώμα κάθε εξήντα λεπτά, από γαλάζιο σε χρυσό',
-          en: 'It changes colour every sixty minutes, from blue to gold',
-        },
-        {
-          el: 'Ανοίγει ένα παραθυράκι με νούμερα, όπως τα ψηφιακά ρολόγια',
-          en: 'A little window opens with numbers in it, like a digital clock',
-        },
+        { el: 'Χτυπάει μια καμπάνα τόσες φορές όσες η ώρα', en: 'A bell rings as many times as the hour' },
+        { el: 'Αλλάζει χρώμα κάθε εξήντα λεπτά', en: 'It changes colour every sixty minutes' },
+        { el: 'Ανοίγει ένα παραθυράκι με νούμερα', en: 'A little window opens with numbers' },
       ],
       explanation: {
         el: 'Η μορφή είναι ο δείκτης. Όταν φτάσει στο σημάδι, η ώρα άλλαξε.',
@@ -234,9 +237,10 @@ export const places: Place[] = [
     story: {
       el:
         'Το Χόφμπουργκ δεν είναι ένα κτίριο. Είναι πολλά κτίρια που μεγάλωσαν το ένα πάνω ' +
-        'στο άλλο για εξακόσια χρόνια. Ξεκίνησε τον 13ο αιώνα σαν κάστρο του Ροδόλφου Α΄ ' +
-        'των Αψβούργων, και το παλιότερο κομμάτι που σώζεται, η πτέρυγα των Ελβετών, είναι ' +
-        'ακόμα εκεί. Μετά, κάθε ηγεμόνας που ερχόταν δεν γκρέμιζε: πρόσθετε. Μια πτέρυγα ' +
+        'στο άλλο για εξακόσια χρόνια. Το κάστρο στεκόταν ήδη εδώ τον 13ο αιώνα, χτισμένο ' +
+        'πριν έρθουν οι Αψβούργοι: ο Ροδόλφος Α΄ απλώς μετακόμισε στο φρούριο κάποιου άλλου. ' +
+        'Το παλιότερο κομμάτι που σώζεται, η πτέρυγα των Ελβετών, είναι ακόμα εκεί. Από τότε ' +
+        'κάθε ηγεμόνας που ερχόταν δεν γκρέμιζε: πρόσθετε. Μια πτέρυγα ' +
         'εδώ, μια αυλή εκεί, ένας θόλος παραπέρα. Γι’ αυτό, αν το γυρίσεις όλο, νομίζεις ότι ' +
         'αλλάζεις πόλη τέσσερις φορές. Οι Αψβούργοι έφυγαν το 1918, αλλά το παλάτι δεν ' +
         'άδειασε. Σήμερα εκεί δουλεύει ο Πρόεδρος της Αυστρίας. Μέσα του βρίσκεται επίσης η ' +
@@ -246,9 +250,10 @@ export const places: Place[] = [
         'πίστευαν ότι ανήκε σε μονόκερο. Είναι δόντι νάρβαλου, μιας φάλαινας του Βορρά.',
       en:
         'The Hofburg is not one building. It is many buildings that grew into each other over ' +
-        'six hundred years. It began in the 13th century as a castle for Rudolf I of ' +
-        'Habsburg, and the oldest surviving piece, the Swiss Wing, is still there. After ' +
-        'that, each ruler who arrived knocked nothing down: they added. A wing here, a ' +
+        'six hundred years. The castle was already standing here in the 13th century, built ' +
+        'before the Habsburgs arrived: Rudolf I simply moved into somebody else’s fortress. ' +
+        'The oldest surviving piece, the Swiss Wing, is still there. From then on, each ' +
+        'ruler who arrived knocked nothing down: they added. A wing here, a ' +
         'courtyard there, a dome further along. That is why walking round the whole thing ' +
         'feels like changing city four times. The Habsburgs left in 1918, but the palace did ' +
         'not empty. The President of Austria works here now. Inside it there is also the ' +
@@ -278,10 +283,11 @@ export const places: Place[] = [
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q46242', deltaM: 0 },
+        { kind: 'osm', ref: 'way/37675404', deltaM: 71 },
         { kind: 'wikipedia', ref: 'Hofburg', deltaM: 0 },
       ],
       verifiedAt: '2026-09-12',
-      note: 'The stored point is the centre of the whole complex, which is nineteen courtyards wide; no single door is claimed.',
+      note: 'The stored point is the centre of the whole complex, which is nineteen courtyards wide; no single door is claimed. OpenStreetMap picks a different courtyard 71 m off, which is expected at this size.',
       findIt: {
         el: 'Ο πιο εύκολος δρόμος μέσα είναι από τον θολωτό τρούλο στην πλατεία Μιχαέλερπλατς.',
         en: 'The easiest way in is under the domed gate on Michaelerplatz.',
@@ -294,18 +300,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Κάθε ηγεμόνας πρόσθετε μια νέα πτέρυγα', en: 'Each ruler added a new wing' },
-        {
-          el: 'Το αγόρασαν κομμάτι κομμάτι από δώδεκα διαφορετικές οικογένειες',
-          en: 'It was bought piece by piece from twelve different families',
-        },
-        {
-          el: 'Το μετέφεραν πέτρα πέτρα από τρεις άλλες πόλεις',
-          en: 'It was moved here stone by stone from three other cities',
-        },
-        {
-          el: 'Χτίστηκε όλο μαζί, αλλά κάθε συνεργείο δούλευε αλλιώς',
-          en: 'It all went up at once, but each crew worked differently',
-        },
+        { el: 'Το αγόρασαν κομμάτι κομμάτι από άλλους', en: 'It was bought piece by piece' },
+        { el: 'Το μετέφεραν πέτρα πέτρα από τη Ρώμη', en: 'It was moved here stone by stone' },
+        { el: 'Χτίστηκε όλο μαζί από πολλά συνεργεία', en: 'It went up at once, by many crews' },
       ],
       explanation: {
         el:
@@ -376,10 +373,13 @@ export const places: Place[] = [
       lat: 48.20333,
       lng: 16.36917,
       anchor: 'centroid',
-      confidence: 'C',
-      sources: [{ kind: 'wikidata', ref: 'Q209937', deltaM: 0 }],
+      confidence: 'B',
+      sources: [
+        { kind: 'wikidata', ref: 'Q209937', deltaM: 0 },
+        { kind: 'osm', ref: 'way/8097595', deltaM: 7 },
+      ],
       verifiedAt: '2026-09-12',
-      note: 'Only one source answered on this pass; OpenStreetMap and Wikipedia both failed, so the grade is C rather than a disagreement.',
+      note: 'Wikipedia carries no coordinate for this article, so the grade is B on two sources rather than a disagreement.',
     },
     question: {
       q: {
@@ -392,14 +392,8 @@ export const places: Place[] = [
           el: 'Γιατί οι τραγουδιστές προτιμούν να προβάρουν στο σκοτάδι',
           en: 'Because the singers prefer to rehearse in the dark',
         },
-        {
-          el: 'Γιατί τα φώτα της σκηνής ανάβουν μόνο μετά τα μεσάνυχτα',
-          en: 'Because the stage lights only come on after midnight',
-        },
-        {
-          el: 'Γιατί καθαρίζουν ένα ένα με το χέρι όλα τα καθίσματα',
-          en: 'Because every single seat is cleaned by hand',
-        },
+        { el: 'Γιατί τα φώτα ανάβουν μετά τα μεσάνυχτα', en: 'Because the lights come on after midnight' },
+        { el: 'Γιατί καθαρίζουν τα καθίσματα με το χέρι', en: 'Because the seats are cleaned by hand' },
       ],
       explanation: {
         el:
@@ -432,7 +426,8 @@ export const places: Place[] = [
         'πέθανε πριν τελειώσει το έργο· το ολοκλήρωσε ο γιος του το 1737. Η πρόσοψη είναι το ' +
         'πιο περίεργο κομμάτι. Στη μέση υπάρχει ένα ελληνικό πρόπυλο με κολόνες και αέτωμα. ' +
         'Από πίσω σηκώνεται ένας τεράστιος τρούλος, περίπου εβδομήντα μέτρα ψηλός, ρωμαϊκής ' +
-        'ιδέας. Και δεξιά κι αριστερά στέκονται δύο πελώριες κολόνες, σαράντα μέτρων, ' +
+        'ιδέας. Και δεξιά κι αριστερά στέκονται δύο πελώριες κολόνες, πάνω από τριάντα τρία ' +
+        'μέτρα η καθεμία, ' +
         'τυλιγμένες σε μια λωρίδα από σκαλισμένες εικόνες που ανεβαίνει σπειροειδώς. Αυτές ' +
         'οι δύο αντιγράφουν μια ιδέα από τη Ρώμη, τη στήλη του Τραϊανού. Ο αρχιτέκτονας ' +
         'πήρε τρία διαφορετικά κτίρια από τρεις εποχές και τα ένωσε σε ένα. Μπροστά της ' +
@@ -444,7 +439,7 @@ export const places: Place[] = [
         'before the work was done; his son finished it in 1737. The front is the strangest ' +
         'part. In the middle there is a Greek porch with columns and a triangle above them. ' +
         'Behind it rises an enormous dome about seventy metres high, a Roman idea. And to the ' +
-        'left and right stand two huge columns, forty metres tall, wrapped in a strip of ' +
+        'left and right stand two huge columns, over thirty-three metres tall, wrapped in a strip of ' +
         'carved pictures that climbs round them in a spiral. Those two copy an idea from ' +
         'Rome, Trajan’s Column. The architect took three different buildings from three ' +
         'different ages and joined them into one. In front there is a shallow pool, and in it ' +
@@ -468,9 +463,10 @@ export const places: Place[] = [
       lat: 48.19828,
       lng: 16.37188,
       anchor: 'centroid',
-      confidence: 'B',
+      confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q408847', deltaM: 0 },
+        { kind: 'osm', ref: 'way/8097149', deltaM: 6 },
         { kind: 'wikipedia', ref: 'Karlskirche', deltaM: 1 },
       ],
       verifiedAt: '2026-09-12',
@@ -486,18 +482,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Από τη στήλη του Τραϊανού στη Ρώμη', en: 'From Trajan’s Column in Rome' },
-        {
-          el: 'Από τους μιναρέδες που είχε δει σε ταξίδι στην Ανατολή',
-          en: 'From minarets he had seen on a journey east',
-        },
-        {
-          el: 'Από τα κατάρτια των πλοίων στο λιμάνι της Βενετίας',
-          en: 'From the masts of the ships in the harbour of Venice',
-        },
-        {
-          el: 'Από τα δέντρα του αυτοκρατορικού κήπου, που ήταν στριφτά',
-          en: 'From the trees in the imperial garden, which grew twisted',
-        },
+        { el: 'Από τους μιναρέδες της Ανατολής', en: 'From minarets he saw in the east' },
+        { el: 'Από τα κατάρτια στη Βενετία', en: 'From the ships’ masts in Venice' },
+        { el: 'Από τα στριφτά δέντρα του κήπου', en: 'From the twisted trees in the garden' },
       ],
       explanation: {
         el:
@@ -581,18 +568,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Έβαλε έναν σιδερένιο ιππότη πάνω από τον πύργο', en: 'He put an iron knight above the tower' },
-        {
-          el: 'Έσκαψε τη βάση του κτιρίου δύο μέτρα πιο βαθιά',
-          en: 'He dug the base of the building two metres deeper',
-        },
-        {
-          el: 'Έχτισε τον πύργο σε λόφο λίγο ψηλότερο από την πλατεία',
-          en: 'He built the tower on a mound higher than the square',
-        },
-        {
-          el: 'Ζήτησε γραπτή άδεια από τον αυτοκράτορα και την πήρε',
-          en: 'He asked the emperor for written permission and got it',
-        },
+        { el: 'Έσκαψε τη βάση δύο μέτρα πιο βαθιά', en: 'He dug the base two metres deeper' },
+        { el: 'Έχτισε τον πύργο πάνω σε έναν λόφο', en: 'He built the tower on a mound' },
+        { el: 'Ζήτησε και πήρε γραπτή άδεια από τον αυτοκράτορα', en: 'He asked the emperor and got written leave' },
       ],
       explanation: {
         el:
@@ -680,18 +658,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Γιατί η δημοκρατία ξεκίνησε στην Ελλάδα', en: 'Because democracy began in Greece' },
-        {
-          el: 'Γιατί το μάρμαρο ήρθε με πλοίο από ελληνικό λατομείο',
-          en: 'Because the marble came by ship from a Greek quarry',
-        },
-        {
-          el: 'Γιατί ο αυτοκράτορας ήθελε να ταιριάζει με το παλάτι του',
-          en: 'Because the emperor wanted it to match his own palace',
-        },
-        {
-          el: 'Γιατί ήταν το φθηνότερο σχέδιο από όσα κατατέθηκαν τότε',
-          en: 'Because it was the cheapest design of all those submitted',
-        },
+        { el: 'Γιατί το μάρμαρό του ήρθε από την Ελλάδα', en: 'Because its marble came from Greece' },
+        { el: 'Γιατί ταιριάζει με το παλάτι του αυτοκράτορα', en: 'Because it matches the emperor’s palace' },
+        { el: 'Γιατί ήταν το φθηνότερο σχέδιο', en: 'Because it was the cheapest design' },
       ],
       explanation: {
         el:
@@ -719,11 +688,12 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Η μεγάλη ρόδα του Πράτερ στήθηκε το 1897, τη χρονιά που ο αυτοκράτορας έκλεινε ' +
-        'πενήντα χρόνια στον θρόνο. Την έφτιαξε ένας Άγγλος μηχανικός, ο Βάλτερ Μπάσετ, και ' +
+        'Η μεγάλη ρόδα του Πράτερ στήθηκε το 1897, έναν χρόνο πριν ο αυτοκράτορας κλείσει ' +
+        'πενήντα χρόνια στον θρόνο, και χτίστηκε ακριβώς γι’ αυτή τη γιορτή. Την έφτιαξε ' +
+        'ένας Άγγλος μηχανικός, ο Βάλτερ Μπάσετ, και ' +
         'έχει ύψος 64,75 μέτρα. Από μακριά μοιάζει με ρόδα ποδηλάτου, και αυτό δεν είναι ' +
-        'σύμπτωση: οι δεκαπέντε ακτίνες της δεν σπρώχνουν, τραβούν. Είναι ατσάλινες ράβδοι ' +
-        'που κρατούν τεντωμένο τον κύκλο, όπως ακριβώς οι λεπτές ακτίνες σε ένα ποδήλατο. Τα ' +
+        'σύμπτωση: οι εκατόν είκοσι ακτίνες της δεν σπρώχνουν, τραβούν. Είναι ατσάλινα ' +
+        'συρματόσχοινα που κρατούν τεντωμένο τον κύκλο, όπως ακριβώς οι λεπτές ακτίνες σε ένα ποδήλατο. Τα ' +
         'βαγόνια δεν είναι βιδωμένα πάνω στη ρόδα. Κρέμονται από έναν πείρο και γυρίζουν ' +
         'ελεύθερα, έτσι το πάτωμά τους μένει πάντα οριζόντιο όσο κι αν ανεβαίνει ο κύκλος. ' +
         'Δεν το κάνει κάποιο μοτέρ· το κάνει η βαρύτητα. Η ρόδα γυρίζει με εβδομήντα πέντε ' +
@@ -731,10 +701,12 @@ export const places: Place[] = [
         'την επισκεύασαν έβαλαν δεκαπέντε βαγόνια αντί για τριάντα. Γι’ αυτό σήμερα τα κενά ' +
         'ανάμεσά τους είναι τόσο μεγάλα.',
       en:
-        'The great wheel in the Prater went up in 1897, the year the emperor completed fifty ' +
-        'years on the throne. An English engineer, Walter Bassett, built it, and it stands ' +
+        'The great wheel in the Prater went up in 1897, the year before the emperor completed ' +
+        'fifty years on the throne, and it was built for exactly that party. An English ' +
+        'engineer, Walter Bassett, built it, and it stands ' +
         '64.75 metres high. From far off it looks like a bicycle wheel, and that is no ' +
-        'coincidence: its fifteen spokes do not push, they pull. They are steel rods holding ' +
+        'coincidence: its hundred and twenty spokes do not push, they pull. They are steel ' +
+        'cables holding ' +
         'the rim tight, exactly the way the thin spokes on a bicycle do. The cabins are not ' +
         'bolted to the wheel. They hang from a pin and swing freely, so their floors stay flat ' +
         'however far the rim turns. No motor does that; gravity does. The wheel moves at ' +
@@ -760,9 +732,10 @@ export const places: Place[] = [
       lat: 48.21683,
       lng: 16.39592,
       anchor: 'centroid',
-      confidence: 'B',
+      confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q697578', deltaM: 0 },
+        { kind: 'osm', ref: 'way/97979331', deltaM: 20 },
         { kind: 'wikipedia', ref: 'Wiener Riesenrad', deltaM: 20 },
       ],
       verifiedAt: '2026-09-12',
@@ -774,18 +747,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Κρέμεται ελεύθερα από έναν πείρο', en: 'It hangs freely from a pin' },
-        {
-          el: 'Ένας μικρός κινητήρας το ισιώνει συνέχεια',
-          en: 'A small motor keeps straightening it out',
-        },
-        {
-          el: 'Είναι γεμάτο νερό, που βρίσκει μόνο του το επίπεδο',
-          en: 'It is full of water, which finds its own level',
-        },
-        {
-          el: 'Οι επιβάτες μετακινούνται μέσα του για να το ισορροπήσουν',
-          en: 'The passengers move about inside to balance it',
-        },
+        { el: 'Ένας μικρός κινητήρας το ισιώνει', en: 'A small motor keeps it level' },
+        { el: 'Είναι γεμάτο νερό που βρίσκει επίπεδο', en: 'It is full of water finding its level' },
+        { el: 'Οι επιβάτες το ισορροπούν μόνοι τους', en: 'The passengers balance it themselves' },
       ],
       explanation: {
         el:
@@ -869,9 +833,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ο Μότσαρτ', en: 'Mozart' },
-        { el: 'Ο Λούντβιχ βαν Μπετόβεν', en: 'Ludwig van Beethoven' },
-        { el: 'Ο Γιόχαν Στράους ο νεότερος', en: 'Johann Strauss the younger' },
-        { el: 'Ο Γιόζεφ Χάιντν', en: 'Joseph Haydn' },
+        { el: 'Ο Μπετόβεν', en: 'Beethoven' },
+        { el: 'Ο Στράους', en: 'Strauss' },
+        { el: 'Ο Χάιντν', en: 'Haydn' },
       ],
       explanation: {
         el: 'Ήταν 13 Οκτωβρίου 1762, στην Αίθουσα των Καθρεφτών, μαζί με την αδελφή του τη Νάνερλ.',
@@ -936,9 +900,12 @@ export const places: Place[] = [
       lng: 16.3025,
       anchor: 'area',
       confidence: 'C',
-      sources: [{ kind: 'wikidata', ref: 'Q752283', deltaM: 0 }],
+      sources: [
+        { kind: 'wikidata', ref: 'Q752283', deltaM: 0 },
+        { kind: 'osm', ref: 'way/8079437', deltaM: 150 },
+      ],
       verifiedAt: '2026-09-12',
-      note: 'Only Wikidata answered for this one, so the grade is C. The point is the area of the zoo inside the Schönbrunn grounds.',
+      note: 'The point is the area of the zoo inside the Schönbrunn grounds. OpenStreetMap puts the centre of that area 150 m away and Wikipedia carries no coordinate, so only one source agrees within 30 m and the grade stays C.',
     },
     question: {
       q: {
@@ -947,18 +914,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ένα οκτάγωνο περίπτερο του αυτοκράτορα', en: 'An eight-sided pavilion of the emperor' },
-        {
-          el: 'Μια μεγάλη λίμνη με πελεκάνους και φλαμίνγκο',
-          en: 'A big lake with pelicans and flamingos',
-        },
-        {
-          el: 'Το σπίτι των ελεφάντων, το μεγαλύτερο κτίριο του κήπου',
-          en: 'The elephant house, the largest building in the zoo',
-        },
-        {
-          el: 'Ένας πύργος από όπου βλέπεις όλες τις μάντρες μαζί',
-          en: 'A tower from which you can see every enclosure at once',
-        },
+        { el: 'Μια μεγάλη λίμνη με φλαμίνγκο', en: 'A big lake with flamingos on it' },
+        { el: 'Το σπίτι των ελεφάντων', en: 'The elephant house' },
+        { el: 'Ένας ψηλός πύργος με θέα σε όλες τις μάντρες', en: 'A tall tower with a view of every pen' },
       ],
       explanation: {
         el:
@@ -986,25 +944,29 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Στη Βιέννη υπάρχει αγορά σε αυτό το σημείο από το 1780 περίπου. Σήμερα ο Νάσμαρκτ ' +
+        'Η Βιέννη έχει αυτή την αγορά εδώ και διακόσια πενήντα χρόνια περίπου, αλλά όχι ' +
+        'πάντα σε αυτό το σημείο. Σήμερα ο Νάσμαρκτ ' +
         'απλώνεται σε ενάμισι χιλιόμετρο, με πάνω από εκατόν είκοσι πάγκους: μπαχαρικά σε ' +
         'βουναλάκια, ελιές, τυριά, ψάρια, φρούτα που δεν έχεις ξαναδεί. Το πιο περίεργο όμως ' +
         'δεν φαίνεται. Κάτω από τα πόδια σου τρέχει ένα ποτάμι. Είναι ο Βιν, το ποτάμι που ' +
         'έδωσε στην πόλη το όνομά της και που κάθε λίγα χρόνια ξεχείλιζε και έπνιγε τις ' +
         'γειτονιές. Γύρω στο 1900 οι μηχανικοί το σκέπασαν με θόλο, και πάνω στο καπάκι ' +
-        'στρώθηκε η αγορά. Κάθε Σάββατο στην άκρη του Νάσμαρκτ ανοίγει ένα τεράστιο παζάρι με ' +
+        'μετακόμισε η αγορά, λίγα στενά μακριά από εκεί που στεκόταν πριν. Κάθε Σάββατο στην ' +
+        'άκρη του Νάσμαρκτ ανοίγει ένα τεράστιο παζάρι με ' +
         'παλιά πράγματα: δίσκους, βιβλία, κλειδιά, καπέλα. Και ακριβώς απέναντι στέκεται ένα ' +
         'σπίτι με ολόκληρη την πρόσοψη σκεπασμένη με ζωγραφισμένα πλακάκια γεμάτα ' +
         'τριαντάφυλλα. Το σχεδίασε ο Ότο Βάγκνερ το 1898, και το πλύσιμό του γίνεται με ' +
         'λάστιχο.',
       en:
-        'There has been a market on this spot in Vienna since about 1780. Today the Naschmarkt ' +
+        'Vienna has had this market for about two hundred and fifty years, but not always on ' +
+        'this spot. Today the Naschmarkt ' +
         'stretches for a kilometre and a half, with more than a hundred and twenty stalls: ' +
         'little mountains of spices, olives, cheeses, fish, fruit you have never seen before. ' +
         'The strangest thing about it, though, is out of sight. A river runs under your feet. ' +
         'It is the Wien, the river that gave the city its name and that used to burst its ' +
         'banks every few years and drown the neighbourhoods. Around 1900 engineers roofed it ' +
-        'over, and the market was laid out on the lid. Every Saturday a huge flea market opens ' +
+        'over, and the market moved onto the lid, a few streets from where it used to stand. ' +
+        'Every Saturday a huge flea market opens ' +
         'at one end of the Naschmarkt: records, books, keys, hats. And directly opposite ' +
         'stands a house whose entire front is covered in painted tiles full of roses. Otto ' +
         'Wagner designed it in 1898, and it is cleaned with a hose.',
@@ -1043,18 +1005,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ένα σκεπασμένο ποτάμι, ο Βιν', en: 'A covered river, the Wien' },
-        {
-          el: 'Οι παλιές αποθήκες κρασιού των αυτοκρατόρων',
-          en: 'The old wine cellars of the emperors',
-        },
-        {
-          el: 'Ένα ρωμαϊκό θέατρο που δεν έχει σκαφτεί ακόμα',
-          en: 'A Roman theatre that has not been dug up yet',
-        },
-        {
-          el: 'Το μεγαλύτερο υπόγειο πάρκινγκ ολόκληρης της Βιέννης',
-          en: 'The largest underground car park in all of Vienna',
-        },
+        { el: 'Οι παλιές αυτοκρατορικές αποθήκες', en: 'The old imperial wine cellars' },
+        { el: 'Ένα ρωμαϊκό θέατρο, ακόμα άσκαφτο', en: 'A Roman theatre, not yet dug up' },
+        { el: 'Το μεγαλύτερο πάρκινγκ της πόλης', en: 'The city’s biggest car park' },
       ],
       explanation: {
         el:
@@ -1122,9 +1075,10 @@ export const places: Place[] = [
       lat: 48.20513,
       lng: 16.35993,
       anchor: 'centroid',
-      confidence: 'B',
+      confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q688704', deltaM: 0 },
+        { kind: 'osm', ref: 'relation/11187', deltaM: 20 },
         { kind: 'wikipedia', ref: 'Natural History Museum, Vienna', deltaM: 8 },
       ],
       verifiedAt: '2026-09-12',
@@ -1184,13 +1138,13 @@ export const places: Place[] = [
               'Οι πρώτες αίθουσες του μουσείου είναι γεμάτες πέτρες, και αυτό ακούγεται ' +
               'βαρετό μέχρι να μπεις μέσα. Άλλες μεγάλωσαν αργά μέσα σε βράχους για ' +
               'εκατομμύρια χρόνια. Άλλες ταξίδεψαν στο διάστημα και έπεσαν καίγοντας μέσα ' +
-              'στον αέρα. Και ανάμεσά τους υπάρχει μία που δεν την έφτιαξε η φύση: την ' +
-              'έφτιαξε ένας χρυσοχόος, για μια αυτοκράτειρα.',
+              'στον αέρα. Και ανάμεσά τους κρύβεται ένα μπουκέτο που δεν το έφτιαξε η φύση: ' +
+              'το έφτιαξε ένας χρυσοχόος, για μια αυτοκράτειρα.',
             en:
               'The museum’s first halls are full of stones, which sounds dull until you walk ' +
               'in. Some of them grew slowly inside rocks for millions of years. Others ' +
               'travelled through space and came down burning through the air. And among them ' +
-              'there is one that nature did not make at all: a goldsmith made it, for an ' +
+              'hides a bouquet that nature did not make at all: a goldsmith made it, for an ' +
               'empress.',
           },
           exhibits: [
@@ -1219,18 +1173,9 @@ export const places: Place[] = [
                 q: { el: 'Τι είναι ένας μετεωρίτης;', en: 'What is a meteorite?' },
                 answers: [
                   { el: 'Πέτρα από το διάστημα που έπεσε στη Γη', en: 'A rock from space that landed on Earth' },
-                  {
-                    el: 'Πέτρα που πετάχτηκε από το στόμιο ενός ηφαιστείου',
-                    en: 'A rock thrown out of the mouth of a volcano',
-                  },
-                  {
-                    el: 'Κομμάτι πάγου που έλιωσε και άφησε πίσω του μέταλλο',
-                    en: 'A lump of ice that melted and left metal behind',
-                  },
-                  {
-                    el: 'Βράχος που έγινε γυαλί από τον κεραυνό',
-                    en: 'A rock turned into glass by a lightning strike',
-                  },
+                  { el: 'Πέτρα που πέταξε ένα ηφαίστειο', en: 'A rock thrown out by a volcano' },
+                  { el: 'Πάγος που έλιωσε κι άφησε μέταλλο', en: 'Ice that melted and left metal' },
+                  { el: 'Βράχος που έγινε γυαλί από κεραυνό', en: 'A rock turned to glass by lightning' },
                 ],
                 explanation: {
                   el: 'Όσο πετάει, το λέμε μετέωρο. Μόλις ακουμπήσει το χώμα, γίνεται μετεωρίτης.',
@@ -1262,9 +1207,9 @@ export const places: Place[] = [
                 q: { el: 'Πόσα διαμάντια έχει το μπουκέτο;', en: 'How many diamonds are in the bouquet?' },
                 answers: [
                   { el: '2.102 διαμάντια', en: '2,102 diamonds' },
-                  { el: 'Δώδεκα διαμάντια, ένα σε κάθε έντομο', en: 'Twelve diamonds, one on each insect' },
-                  { el: 'Εξήντα ένα διαμάντια, ένα σε κάθε λουλούδι', en: 'Sixty-one diamonds, one in each flower' },
-                  { el: 'Κανένα· όλες οι πέτρες του είναι χρωματιστές', en: 'None at all; every stone in it is coloured' },
+                  { el: 'Δώδεκα διαμάντια', en: 'Twelve diamonds' },
+                  { el: 'Εξήντα ένα διαμάντια', en: 'Sixty-one diamonds' },
+                  { el: 'Κανένα διαμάντι', en: 'No diamonds at all' },
                 ],
                 explanation: {
                   el: 'Μαζί τους υπάρχουν και 761 χρωματιστές πέτρες, από σμαράγδι ως οπάλι.',
@@ -1298,9 +1243,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Κανείς· μεγάλωσε έτσι μόνος του', en: 'Nobody; it grew that way on its own' },
-                  { el: 'Ένας κόφτης διαμαντιών στη Βιέννη, το 1978', en: 'A diamond cutter in Vienna, in 1978' },
-                  { el: 'Το νερό ενός ποταμού, που τον έτριβε για αιώνες', en: 'A river, which rubbed at it for centuries' },
-                  { el: 'Οι εργάτες του ορυχείου, με σφυρί και σκαρπέλο', en: 'The miners, with a hammer and a chisel' },
+                  { el: 'Ένας κόφτης διαμαντιών στη Βιέννη', en: 'A diamond cutter, back in 1978' },
+                  { el: 'Το νερό ενός ποταμού, με τα χρόνια', en: 'A river, rubbing at it for centuries' },
+                  { el: 'Οι εργάτες, με σφυρί και σκαρπέλο', en: 'Miners, with a hammer and chisel' },
                 ],
                 explanation: {
                   el: 'Οι κρύσταλλοι μεγαλώνουν βάζοντας τα άτομά τους σε τάξη. Οι επίπεδες πλευρές είναι αυτή η τάξη, ιδωμένη απέξω.',
@@ -1319,18 +1264,19 @@ export const places: Place[] = [
                   'Σε μια βιτρίνα λάμπει ένα κίτρινο διαμάντι με εκατόν είκοσι έξι έδρες. Δεν ' +
                   'είναι διαμάντι. Είναι ένα αντίγραφο από γυαλί, φτιαγμένο το 1865, γιατί το ' +
                   'αληθινό δεν βρίσκεται πια εδώ. Το Φλωρεντινό ήταν μία από τις πιο διάσημες ' +
-                  'πέτρες της Ευρώπης και ανήκε στους Αψβούργους. Μετά το 1918, όταν τελείωσε ' +
-                  'η αυτοκρατορία, χάθηκε. Κανείς δεν ξέρει αν κόπηκε σε μικρότερα κομμάτια, ' +
-                  'αν πουλήθηκε κρυφά ή αν κάθεται κάπου σε ένα συρτάρι. Το μουσείο δείχνει το ' +
-                  'γυαλί και λέει την αλήθεια στην ταμπέλα.',
+                  'πέτρες της Ευρώπης και ανήκε στους Αψβούργους. Το 1918, όταν τελείωσε η ' +
+                  'αυτοκρατορία, έφυγε από τη Βιέννη μαζί με την αυτοκρατορική οικογένεια, ' +
+                  'και για έναν αιώνα κανείς δεν ήξερε πού βρισκόταν. Το 2025 οι απόγονοί ' +
+                  'τους το έβγαλαν από μια θυρίδα τράπεζας στον Καναδά, όπου καθόταν όλα ' +
+                  'αυτά τα χρόνια.',
                 en:
                   'In one case a yellow diamond glitters, cut with a hundred and twenty-six ' +
                   'facets. It is not a diamond. It is a copy in glass, made in 1865, because ' +
                   'the real one is no longer here. The Florentine was one of the most famous ' +
-                  'stones in Europe and belonged to the Habsburgs. After 1918, when the empire ' +
-                  'ended, it disappeared. Nobody knows whether it was cut into smaller stones, ' +
-                  'sold in secret, or is sitting in a drawer somewhere. The museum shows the ' +
-                  'glass and tells the truth on the label.',
+                  'stones in Europe and belonged to the Habsburgs. In 1918, when the empire ' +
+                  'ended, it left Vienna with the imperial family, and for a hundred years ' +
+                  'nobody knew where it was. In 2025 their descendants took it out of a bank ' +
+                  'vault in Canada, where it had been sitting the whole time.',
               },
               question: {
                 q: {
@@ -1338,23 +1284,14 @@ export const places: Place[] = [
                   en: 'Why does the museum display a glass copy instead of the real diamond?',
                 },
                 answers: [
-                  { el: 'Το αληθινό χάθηκε και δεν βρέθηκε ποτέ', en: 'The real one vanished and was never found' },
-                  {
-                    el: 'Το αληθινό είναι πολύ βαρύ για τη βιτρίνα του μουσείου',
-                    en: 'The real one is too heavy for the museum’s display case',
-                  },
-                  {
-                    el: 'Το αληθινό ταξιδεύει συνέχεια σε εκθέσεις άλλων χωρών',
-                    en: 'The real one is always travelling to shows in other countries',
-                  },
-                  {
-                    el: 'Το αληθινό ραγίζει στο φως και φυλάγεται στο σκοτάδι',
-                    en: 'The real one cracks in light and is kept in the dark',
-                  },
+                  { el: 'Το αληθινό έφυγε από τη Βιέννη το 1918', en: 'The real one left Vienna in 1918' },
+                  { el: 'Το αληθινό είναι πολύ βαρύ', en: 'The real one is too heavy' },
+                  { el: 'Το αληθινό ταξιδεύει συνέχεια σε εκθέσεις', en: 'The real one is always away at other shows' },
+                  { el: 'Το αληθινό ραγίζει στο φως και μένει κρυφό', en: 'The real one cracks in light and stays hidden' },
                 ],
                 explanation: {
-                  el: 'Το Φλωρεντινό εξαφανίστηκε μετά το 1918. Το αντίγραφο του 1865 είναι ό,τι έμεινε για να το δούμε.',
-                  en: 'The Florentine vanished after 1918. The copy from 1865 is all that is left to look at.',
+                  el: 'Το γυαλί του 1865 έμεινε στη Βιέννη. Η αληθινή πέτρα ταξίδεψε με την οικογένεια και κρύφτηκε σε θυρίδα τράπεζας για έναν αιώνα, ώσπου βγήκε ξανά στο φως το 2025.',
+                  en: 'The 1865 glass stayed in Vienna. The real stone travelled with the family and hid in a bank vault for a century, until it came back into the light in 2025.',
                 },
               },
             },
@@ -1403,18 +1340,9 @@ export const places: Place[] = [
                 q: { el: 'Τι ακριβώς είναι ο σκελετός του Ντίπι;', en: 'What exactly is Dippy’s skeleton?' },
                 answers: [
                   { el: 'Ένα αντίγραφο από εκμαγείο', en: 'A copy made from a cast' },
-                  {
-                    el: 'Τα αληθινά κόκαλα ενός ζώου που βρέθηκε στην Αυστρία',
-                    en: 'The real bones of an animal found in Austria',
-                  },
-                  {
-                    el: 'Ένα γλυπτό από πέτρα, σκαλισμένο από έναν καλλιτέχνη',
-                    en: 'A sculpture in stone, carved by an artist',
-                  },
-                  {
-                    el: 'Κόκαλα από πολλά διαφορετικά ζώα, ενωμένα μεταξύ τους',
-                    en: 'Bones from many different animals, joined together',
-                  },
+                  { el: 'Τα αληθινά κόκαλα ενός ζώου', en: 'The real bones of an animal' },
+                  { el: 'Ένα γλυπτό σκαλισμένο σε πέτρα', en: 'A sculpture carved in stone' },
+                  { el: 'Κόκαλα από πολλά διαφορετικά ζώα', en: 'Bones from many animals at once' },
                 ],
                 explanation: {
                   el: 'Τα εκμαγεία επιτρέπουν σε δέκα μουσεία να δείξουν τον ίδιο δεινόσαυρο. Τα αληθινά κόκαλα μπορούν να είναι μόνο σε ένα μέρος.',
@@ -1432,16 +1360,17 @@ export const places: Place[] = [
                   'και αναπνοή. Κουνάει την ουρά του, γέρνει το κεφάλι και κοιτάζει. Το ' +
                   'μέγεθός του αντιστοιχεί σε νεαρό ζώο, όχι σε ενήλικο: ο αλλόσαυρος ήταν το ' +
                   'πιο επικίνδυνο αρπακτικό στο τέλος της Ιουρασικής περιόδου. Δίπλα του, στην ' +
-                  'ίδια πλατφόρμα, ο σκελετός ενός αληθινού αλλόσαυρου σου δείχνει τι υπάρχει ' +
-                  'κάτω από όλο αυτό το δέρμα.',
+                  'ίδια πλατφόρμα, στέκεται το εκμαγείο ενός αληθινού σκελετού αλλόσαυρου, ' +
+                  'από τη Γιούτα, όπως ακριβώς και ο Ντίπι: σου δείχνει τι υπάρχει κάτω από ' +
+                  'όλο αυτό το δέρμα.',
                 en:
                   'On the same platform stands something that is not a skeleton at all. It is ' +
                   'a robotic model of an Allosaurus, more than six metres long, with skin, ' +
                   'eyes and breath. It swings its tail, tilts its head and looks at you. Its ' +
                   'size matches a young animal rather than a full-grown one: Allosaurus was ' +
                   'the most dangerous hunter of the late Jurassic. Beside it, on the same ' +
-                  'platform, the skeleton of a real Allosaurus shows you what is underneath ' +
-                  'all that skin.',
+                  'platform, stands the cast of a real Allosaurus skeleton, from Utah, made ' +
+                  'the same way Dippy was: it shows you what is underneath all that skin.',
               },
               question: {
                 q: {
@@ -1449,19 +1378,10 @@ export const places: Place[] = [
                   en: 'Why does the moving model stand beside an Allosaurus skeleton?',
                 },
                 answers: [
-                  { el: 'Για να δεις το ίδιο ζώο μέσα και έξω', en: 'So you can see the same animal inside and out' },
-                  {
-                    el: 'Για να καταλάβεις πόσο μεγαλύτερος ήταν ο σκελετός',
-                    en: 'So you understand how much bigger the skeleton was',
-                  },
-                  {
-                    el: 'Γιατί το μοντέλο στηρίζεται πάνω στον ίδιο τον σκελετό',
-                    en: 'Because the model is held up by the skeleton itself',
-                  },
-                  {
-                    el: 'Γιατί τα δύο βρέθηκαν μαζί στο ίδιο λατομείο',
-                    en: 'Because the two were found together in one quarry',
-                  },
+                  { el: 'Για να δεις κόκαλα και δέρμα δίπλα δίπλα', en: 'So bones and skin stand side by side' },
+                  { el: 'Για να δεις πόσο μεγαλύτερος ήταν', en: 'So you see how much bigger it was' },
+                  { el: 'Γιατί ο σκελετός στηρίζει το μοντέλο', en: 'Because the skeleton holds up the model' },
+                  { el: 'Γιατί βρέθηκαν μαζί στο ίδιο λατομείο', en: 'Because both came from one quarry' },
                 ],
                 explanation: {
                   el: 'Τα κόκαλα δείχνουν τη μηχανή. Το μοντέλο δείχνει το ζώο που την κουβαλούσε.',
@@ -1498,9 +1418,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Στον αντίχειρά του', en: 'On its thumb' },
-                  { el: 'Στην άκρη της ουράς του, σαν όπλο', en: 'At the tip of its tail, as a weapon' },
-                  { el: 'Πάνω στη μύτη του, όπως στον ρινόκερο', en: 'On its nose, like a rhinoceros' },
-                  { el: 'Στη ράχη του, σε μια σειρά από αγκάθια', en: 'Along its back, in a row of spines' },
+                  { el: 'Στην άκρη της ουράς', en: 'On its tail tip' },
+                  { el: 'Πάνω στη μύτη του, σαν κέρατο', en: 'On its nose, like a horn' },
+                  { el: 'Στη ράχη του, σε μια σειρά αγκάθια', en: 'Along its back, in a row of spines' },
                 ],
                 explanation: {
                   el: 'Το λάθος κράτησε δεκαετίες. Το διόρθωσαν οι σκελετοί που βρέθηκαν ολόκληροι σε βελγικό ορυχείο.',
@@ -1553,9 +1473,9 @@ export const places: Place[] = [
                 q: { el: 'Πόσο μεγάλη είναι η Αφροδίτη του Βίλεντορφ;', en: 'How big is the Venus of Willendorf?' },
                 answers: [
                   { el: 'Έντεκα εκατοστά', en: 'Eleven centimetres' },
-                  { el: 'Περίπου ένα μέτρο, όσο ένα μικρό παιδί', en: 'About a metre, the height of a small child' },
-                  { el: 'Τρία μέτρα, όσο δύο άνθρωποι ο ένας πάνω στον άλλο', en: 'Three metres, two people standing on each other' },
-                  { el: 'Μισό μέτρο, όσο ένας μεγάλος σκύλος', en: 'Half a metre, the size of a big dog' },
+                  { el: 'Περίπου ένα μέτρο', en: 'About one metre' },
+                  { el: 'Τρία μέτρα', en: 'Three metres' },
+                  { el: 'Μισό μέτρο', en: 'Half a metre' },
                 ],
                 explanation: {
                   el: 'Χωράει σε μια παλάμη. Γι’ αυτό μπορούσε να ταξιδεύει μαζί με τους ανθρώπους που την έφτιαξαν.',
@@ -1588,9 +1508,9 @@ export const places: Place[] = [
                 q: { el: 'Ποια από τις δύο μορφές είναι η παλαιότερη;', en: 'Which of the two figures is the older one?' },
                 answers: [
                   { el: 'Η Φάνι, με περίπου 36.000 χρόνια', en: 'Fanny, at about 36,000 years' },
-                  { el: 'Η Αφροδίτη του Βίλεντορφ, με περίπου 29.500 χρόνια', en: 'The Venus of Willendorf, at about 29,500 years' },
-                  { el: 'Είναι ακριβώς της ίδιας ηλικίας, από το ίδιο χέρι', en: 'They are exactly the same age, from the same hand' },
-                  { el: 'Δεν μπορεί να μετρηθεί η ηλικία τους με κανέναν τρόπο', en: 'There is no way at all to measure their age' },
+                  { el: 'Η Αφροδίτη, με περίπου 29.500 χρόνια', en: 'The Venus, at about 29,500 years' },
+                  { el: 'Είναι ακριβώς της ίδιας ηλικίας', en: 'They are exactly the same age' },
+                  { el: 'Η ηλικία τους δεν μετριέται', en: 'Their age cannot be measured' },
                 ],
                 explanation: {
                   el: 'Η μικρότερη σε μέγεθος είναι η μεγαλύτερη σε ηλικία, κατά έξι χιλιάδες χρόνια περίπου.',
@@ -1628,9 +1548,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Το αλάτι δεν τα άφησε να σαπίσουν', en: 'Salt did not let them rot' },
-                  { el: 'Τα τύλιξαν σε πηλό οι ίδιοι οι μεταλλωρύχοι', en: 'The miners themselves wrapped them in clay' },
-                  { el: 'Ο πάγος του βουνού τα κράτησε παγωμένα από τότε', en: 'The mountain’s ice kept them frozen ever since' },
-                  { el: 'Τα έφτιαξαν από υλικά που δεν καταστρέφονται ποτέ', en: 'They were made of materials that never break down' },
+                  { el: 'Τα τύλιξαν σε πηλό οι μεταλλωρύχοι', en: 'The miners wrapped them in clay' },
+                  { el: 'Ο πάγος του βουνού τα κράτησε', en: 'The mountain’s ice held them' },
+                  { el: 'Ήταν από υλικά που δεν χαλάνε', en: 'They were made of lasting stuff' },
                 ],
                 explanation: {
                   el: 'Το αλάτι τραβάει την υγρασία. Χωρίς νερό, τα μικρόβια που σαπίζουν τα πράγματα δεν μπορούν να ζήσουν.',
@@ -1675,8 +1595,8 @@ export const places: Place[] = [
               'you.',
           },
           hint: {
-            el: 'Τον αληθινό μου σκελετό μπορείς να τον δεις ακριβώς δίπλα μου.',
-            en: 'You can see my real skeleton standing right next to me.',
+            el: 'Δίπλα μου στέκεται ο σκελετός ενός συγγενή μου.',
+            en: 'The skeleton of one of my own kind is standing right next to me.',
           },
           answerExhibitId: 'vienna-naturhistorisches-allosaurus',
         },
@@ -1776,9 +1696,10 @@ export const places: Place[] = [
       lat: 48.20388,
       lng: 16.3616,
       anchor: 'centroid',
-      confidence: 'B',
+      confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q95569', deltaM: 0 },
+        { kind: 'osm', ref: 'relation/20165', deltaM: 21 },
         { kind: 'wikipedia', ref: 'Kunsthistorisches Museum', deltaM: 0 },
       ],
       verifiedAt: '2026-09-12',
@@ -1797,18 +1718,9 @@ export const places: Place[] = [
           el: 'Οι Αψβούργοι μάζευαν έργα από όλη την Ευρώπη',
           en: 'The Habsburgs collected from all over Europe',
         },
-        {
-          el: 'Τα αυστριακά έργα στάλθηκαν σε άλλα μουσεία της χώρας',
-          en: 'The Austrian works were sent to other museums in the country',
-        },
-        {
-          el: 'Στην Αυστρία δεν υπήρχαν ζωγράφοι εκείνη την εποχή',
-          en: 'There were no painters in Austria at that time',
-        },
-        {
-          el: 'Τα αυστριακά έργα καταστράφηκαν σε πυρκαγιά του 1891',
-          en: 'The Austrian works were destroyed in a fire in 1891',
-        },
+        { el: 'Τα αυστριακά έργα πήγαν σε άλλα μουσεία', en: 'The Austrian works went to other museums' },
+        { el: 'Δεν υπήρχαν τότε ζωγράφοι στην Αυστρία', en: 'There were no painters in Austria then' },
+        { el: 'Τα αυστριακά έργα κάηκαν το 1891', en: 'The Austrian works burned in 1891' },
       ],
       explanation: {
         el:
@@ -1872,18 +1784,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Ότι το κυνήγι πήγε άσχημα', en: 'That the hunt went badly' },
-                  {
-                    el: 'Ότι γύριζαν από γιορτή στο διπλανό χωριό',
-                    en: 'That they were coming back from a feast in the next village',
-                  },
-                  {
-                    el: 'Ότι το χιόνι είχε μόλις αρχίσει να λιώνει',
-                    en: 'That the snow had only just begun to melt',
-                  },
-                  {
-                    el: 'Ότι τα σκυλιά τους ήταν τα καλύτερα της περιοχής',
-                    en: 'That their dogs were the best in the whole area',
-                  },
+                  { el: 'Ότι γύριζαν από μια γιορτή', en: 'That they came from a feast' },
+                  { el: 'Ότι το χιόνι άρχισε να λιώνει', en: 'That the snow was starting to melt' },
+                  { el: 'Ότι τα σκυλιά τους ήταν τα καλύτερα', en: 'That their dogs were the best' },
                 ],
                 explanation: {
                   el: 'Μία αλεπού για τρεις κυνηγούς και μια αγέλη σκυλιά είναι πολύ λίγο φαγητό για έναν χειμώνα.',
@@ -1919,18 +1822,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Πάνω από ογδόντα', en: 'More than eighty' },
-                  {
-                    el: 'Ακριβώς δώδεκα, ένα για κάθε μήνα του χρόνου',
-                    en: 'Exactly twelve, one for each month of the year',
-                  },
-                  {
-                    el: 'Τρία, που επαναλαμβάνονται ξανά και ξανά παντού',
-                    en: 'Three, repeated over and over again everywhere',
-                  },
-                  {
-                    el: 'Κανένα· τα παιδιά απλώς στέκονται και κοιτάζουν',
-                    en: 'None; the children are only standing and looking',
-                  },
+                  { el: 'Ακριβώς δώδεκα', en: 'Exactly twelve' },
+                  { el: 'Μόνο τρία', en: 'Only three' },
+                  { el: 'Κανένα', en: 'None at all' },
                 ],
                 explanation: {
                   el: 'Ο πίνακας λειτουργεί σχεδόν σαν κατάλογος. Πολλά από αυτά τα παιχνίδια παίζονται ακόμα στις αυλές.',
@@ -1962,8 +1856,8 @@ export const places: Place[] = [
                 answers: [
                   { el: 'Γέρνει και οι αψίδες του δεν είναι ίσιες', en: 'It leans, and its arches are not level' },
                   { el: 'Του λείπει εντελώς η πόρτα της εισόδου', en: 'It has no front door at all' },
-                  { el: 'Είναι ζωγραφισμένος με λάθος χρώμα πέτρας', en: 'It is painted in the wrong colour of stone' },
-                  { el: 'Δεν χωράει ολόκληρος μέσα στο κάδρο του πίνακα', en: 'It does not fit inside the frame of the picture' },
+                  { el: 'Είναι ζωγραφισμένος σε λάθος χρώμα', en: 'It is painted the wrong colour' },
+                  { el: 'Δεν χωράει ολόκληρος στο κάδρο', en: 'It does not fit inside the frame' },
                 ],
                 explanation: {
                   el: 'Ο Μπρέγκελ έβαλε το λάθος στα θεμέλια, όχι στη γλώσσα. Ο πύργος θα έπεφτε έτσι κι αλλιώς.',
@@ -1995,9 +1889,9 @@ export const places: Place[] = [
                 q: { el: 'Πάνω σε τι σερβίρουν το φαγητό στον γάμο;', en: 'What are the plates of food being carried on?' },
                 answers: [
                   { el: 'Πάνω σε μια πόρτα', en: 'On a door' },
-                  { el: 'Πάνω σε ένα ξύλινο κάρο με τέσσερις ρόδες', en: 'On a wooden cart with four wheels' },
-                  { el: 'Πάνω σε ένα σεντόνι που κρατούν τέσσερις άνθρωποι', en: 'On a sheet held up by four people' },
-                  { el: 'Πάνω σε μια σκάλα ξαπλωμένη στο πλάι', en: 'On a ladder laid on its side' },
+                  { el: 'Πάνω σε ένα ξύλινο κάρο', en: 'On a wooden cart' },
+                  { el: 'Πάνω σε ένα σεντόνι', en: 'On a sheet' },
+                  { el: 'Πάνω σε μια μεγάλη σκάλα', en: 'On a long ladder' },
                 ],
                 explanation: {
                   el: 'Ξεκρέμασαν μια πόρτα και την έκαναν δίσκο. Σε ένα χωριό, ό,τι υπάρχει γίνεται ό,τι χρειάζεται.',
@@ -2048,9 +1942,9 @@ export const places: Place[] = [
                 q: { el: 'Πού έκρυψε ο ζωγράφος το όνομά του;', en: 'Where did the painter hide his own name?' },
                 answers: [
                   { el: 'Στον πλεγμένο γιακά από στάχυα', en: 'In the collar woven out of straw' },
-                  { el: 'Μέσα στο κουκούτσι του ροδάκινου στο μάγουλο', en: 'Inside the stone of the peach on the cheek' },
-                  { el: 'Στην πίσω πλευρά του ξύλινου πίνακα, με μελάνι', en: 'On the back of the wooden panel, in ink' },
-                  { el: 'Πουθενά· ο πίνακας έμεινε ανυπόγραφος για αιώνες', en: 'Nowhere; the painting stayed unsigned for centuries' },
+                  { el: 'Μέσα στο κουκούτσι του ροδάκινου', en: 'Inside the stone of the peach' },
+                  { el: 'Στην πίσω πλευρά του πίνακα', en: 'On the back of the panel' },
+                  { el: 'Πουθενά· ο πίνακας είναι ανυπόγραφος', en: 'Nowhere; the painting is unsigned' },
                 ],
                 explanation: {
                   el: 'Ο Αρτσιμπόλντο έγραψε το όνομά του μέσα στο πλέξιμο, όπου το βλέπεις μόνο αν πλησιάσεις πολύ.',
@@ -2082,9 +1976,9 @@ export const places: Place[] = [
                 q: { el: 'Τι κρατάει το κορίτσι που ποζάρει;', en: 'What is the girl who is posing holding?' },
                 answers: [
                   { el: 'Βιβλίο και σάλπιγγα', en: 'A book and a trumpet' },
-                  { el: 'Έναν καθρέφτη και ένα αναμμένο κερί', en: 'A mirror and a lighted candle' },
-                  { el: 'Ένα πινέλο και μια παλέτα με χρώματα', en: 'A brush and a palette of colours' },
-                  { el: 'Ένα καλάθι με φρούτα από τον κήπο', en: 'A basket of fruit from the garden' },
+                  { el: 'Καθρέφτη και κερί', en: 'A mirror and a candle' },
+                  { el: 'Πινέλο και παλέτα', en: 'A brush and a palette' },
+                  { el: 'Καλάθι με φρούτα', en: 'A basket of fruit' },
                 ],
                 explanation: {
                   el: 'Είναι τα σύμβολα της Ιστορίας: το βιβλίο για όσα γράφτηκαν, η σάλπιγγα για τη φήμη.',
@@ -2123,18 +2017,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Για να τη βλέπει η οικογένειά της να μεγαλώνει', en: 'So her family could watch her growing up' },
-                  {
-                    el: 'Για να μάθουν οι ζωγράφοι της Βιέννης να ζωγραφίζουν παιδιά',
-                    en: 'So Vienna’s painters could learn to paint children',
-                  },
-                  {
-                    el: 'Για να αποδεικνύεται κάθε φορά ότι το κορίτσι ήταν καλά',
-                    en: 'To prove each time that the girl was in good health',
-                  },
-                  {
-                    el: 'Για να διαλέγει η ίδια ποιο φόρεμα της πήγαινε καλύτερα',
-                    en: 'So she could choose which dress suited her best',
-                  },
+                  { el: 'Για να μάθουν οι ζωγράφοι της Βιέννης από αυτούς', en: 'So Vienna’s painters could learn from it' },
+                  { el: 'Για να αποδεικνύεται ότι ήταν καλά', en: 'To prove each time that she was well' },
+                  { el: 'Για να διαλέγει η ίδια τα φορέματά της', en: 'So she could choose her own dresses' },
                 ],
                 explanation: {
                   el: 'Δεν υπήρχε φωτογραφία τον 17ο αιώνα. Ένας πίνακας ήταν ο μόνος τρόπος να δεις κάποιον που ζούσε μακριά.',
@@ -2165,9 +2050,9 @@ export const places: Place[] = [
                 q: { el: 'Τι σχήμα σχηματίζουν οι τρεις μορφές του πίνακα;', en: 'What shape do the three figures in the painting make?' },
                 answers: [
                   { el: 'Ένα τρίγωνο', en: 'A triangle' },
-                  { el: 'Έναν κύκλο γύρω από το κεντρικό παιδί', en: 'A circle around the child in the middle' },
-                  { el: 'Μια ίσια οριζόντια γραμμή στη μέση του κάδρου', en: 'A straight flat line across the middle of the frame' },
-                  { el: 'Ένα τετράγωνο, με μια μορφή σε κάθε γωνία', en: 'A square, with a figure at each corner' },
+                  { el: 'Έναν μεγάλο κύκλο', en: 'A circle' },
+                  { el: 'Μια ίσια γραμμή', en: 'A straight line' },
+                  { el: 'Ένα τετράγωνο', en: 'A square' },
                 ],
                 explanation: {
                   el: 'Το τρίγωνο έχει πλατιά βάση και ήσυχη κορυφή. Οι ζωγράφοι το χρησιμοποιούν για να ηρεμεί το μάτι.',
@@ -2224,9 +2109,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Το αλάτι', en: 'The salt' },
-                  { el: 'Το πιπέρι, σε μια μικρή κρυφή θήκη', en: 'The pepper, in a small hidden compartment' },
-                  { el: 'Λάδι για τη σαλάτα του βασιλιά', en: 'Oil for the king’s salad' },
-                  { el: 'Νερό, για να ξεπλένει ο βασιλιάς τα δάχτυλά του', en: 'Water, so the king could rinse his fingers' },
+                  { el: 'Το πιπέρι', en: 'The pepper' },
+                  { el: 'Το λάδι', en: 'The oil' },
+                  { el: 'Το νερό', en: 'The water' },
                 ],
                 explanation: {
                   el: 'Το αλάτι έρχεται από τη θάλασσα και το πιπέρι από φυτά της γης. Γι’ αυτό κάθεται το καθένα δίπλα στη δική του μορφή.',
@@ -2257,10 +2142,10 @@ export const places: Place[] = [
               question: {
                 q: { el: 'Ποιος είχε παραγγείλει αρχικά αυτό το γλυπτό;', en: 'Who originally ordered this sculpture?' },
                 answers: [
-                  { el: 'Ο Ναπολέων', en: 'Napoleon' },
-                  { el: 'Ο αυτοκράτορας Φραγκίσκος Ιωσήφ της Αυστρίας', en: 'Emperor Franz Joseph of Austria' },
-                  { el: 'Ο δήμος της Βιέννης, για την κεντρική του πλατεία', en: 'The city of Vienna, for its main square' },
-                  { el: 'Το ίδιο το μουσείο, πριν καν χτιστεί', en: 'The museum itself, before it was even built' },
+                  { el: 'Ο Ναπολέων Βοναπάρτης', en: 'Napoleon Bonaparte' },
+                  { el: 'Ο Φραγκίσκος Ιωσήφ', en: 'Franz Joseph' },
+                  { el: 'Ο δήμος της Βιέννης', en: 'The city of Vienna' },
+                  { el: 'Το ίδιο το μουσείο', en: 'The museum itself' },
                 ],
                 explanation: {
                   el: 'Ο Κανόβα το ξεκίνησε για τον Ναπολέοντα. Το αγόρασε αργότερα η Αυστρία, το 1822.',
@@ -2296,9 +2181,9 @@ export const places: Place[] = [
                 q: { el: 'Γιατί λίγοι επισκέπτες προσέχουν αυτές τις ζωγραφιές;', en: 'Why do few visitors notice these paintings?' },
                 answers: [
                   { el: 'Είναι δώδεκα μέτρα πάνω από τα κεφάλια τους', en: 'They are twelve metres above their heads' },
-                  { el: 'Είναι σκεπασμένες με ένα προστατευτικό γκρίζο ύφασμα', en: 'They are covered with a protective grey cloth' },
-                  { el: 'Βρίσκονται σε αίθουσα που ανοίγει μία φορά τον χρόνο', en: 'They are in a room that opens once a year' },
-                  { el: 'Είναι πολύ μικρές, μόλις λίγα εκατοστά η καθεμία', en: 'They are tiny, only a few centimetres each' },
+                  { el: 'Είναι σκεπασμένες με ένα προστατευτικό ύφασμα', en: 'They are covered with a protective cloth' },
+                  { el: 'Η αίθουσα ανοίγει μία φορά τον χρόνο', en: 'Their room opens once a year' },
+                  { el: 'Είναι μόλις λίγα εκατοστά η καθεμία', en: 'They are only a few centimetres each' },
                 ],
                 explanation: {
                   el: 'Ο Κλιμτ τις ζωγράφισε για τη σκάλα, όχι για τον τοίχο μπροστά σου. Θέλουν σήκωμα κεφαλιού.',
@@ -2407,8 +2292,8 @@ export const trails: Trail[] = [
     emoji: '⭕',
     name: { el: 'Ο μεγάλος κύκλος της Βιέννης', en: 'Vienna’s great circle' },
     promise: {
-      el: 'Έξι κτίρια σε έναν κύκλο γύρω από την παλιά πόλη, το καθένα σε άλλο στιλ.',
-      en: 'Six buildings in a circle around the old town, each one in a different style.',
+      el: 'Έξι κτίρια σε έναν κύκλο γύρω από την παλιά πόλη, από γοτθικά ως μπαρόκ — και δύο ολόιδια.',
+      en: 'Six buildings in a circle around the old town, from Gothic to Baroque — and two of them identical.',
     },
     placeIds: [
       'vienna-rathaus',

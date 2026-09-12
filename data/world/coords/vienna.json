@@ -1,6 +1,6 @@
 {
   "city": "vienna",
-  "resolvedAt": "2026-09-12T18:29:28.795Z",
+  "resolvedAt": "2026-09-12T23:38:49.985Z",
   "centre": {
     "lat": 48.20972,
     "lng": 16.37
@@ -83,14 +83,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/37675404",
+          "deltaM": 71
+        },
+        {
           "kind": "wikipedia",
           "ref": "Hofburg",
           "deltaM": 0
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.20639,
       "lng": 16.36528,
       "labels": {
@@ -113,10 +116,14 @@
           "kind": "wikidata",
           "ref": "Q209937",
           "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/8097595",
+          "deltaM": 7
         }
       ],
       "warnings": [
-        "osm: overpass 504",
         "wikipedia: no match"
       ],
       "lat": 48.20333,
@@ -129,7 +136,7 @@
         "el": "Κρατική Όπερα της Βιέννης",
         "en": "Vienna State Opera house"
       },
-      "confidence": "C",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -143,14 +150,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/8097149",
+          "deltaM": 6
+        },
+        {
           "kind": "wikipedia",
           "ref": "Karlskirche",
           "deltaM": 1
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.19828,
       "lng": 16.37188,
       "labels": {
@@ -161,7 +171,7 @@
         "de": "Wiener Karlskirche",
         "el": "Ναός του Αγίου Καρόλου"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -244,14 +254,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/97979331",
+          "deltaM": 20
+        },
+        {
           "kind": "wikipedia",
           "ref": "Wiener Riesenrad",
           "deltaM": 20
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.21683,
       "lng": 16.39592,
       "labels": {
@@ -261,7 +274,7 @@
         "de": "Wiener Riesenrad",
         "fr": "Grande Roue de Vienne"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -308,10 +321,14 @@
           "kind": "wikidata",
           "ref": "Q752283",
           "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/8079437",
+          "deltaM": 150
         }
       ],
       "warnings": [
-        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 48.18222,
@@ -338,14 +355,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/11187",
+          "deltaM": 20
+        },
+        {
           "kind": "wikipedia",
           "ref": "Natural History Museum, Vienna",
           "deltaM": 8
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.20513,
       "lng": 16.35993,
       "labels": {
@@ -356,7 +376,7 @@
         "de": "Naturhistorisches Museum Wien",
         "el": "Μουσείο Φυσικής Ιστορίας της Βιένης"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -370,14 +390,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/20165",
+          "deltaM": 21
+        },
+        {
           "kind": "wikipedia",
           "ref": "Kunsthistorisches Museum",
           "deltaM": 0
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.20388,
       "lng": 16.3616,
       "labels": {
@@ -388,7 +411,7 @@
         "it": "Kunsthistorisches Museum",
         "el": "Μουσείο Ιστορίας της Τέχνης"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {

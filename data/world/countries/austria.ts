@@ -1,8 +1,9 @@
 /**
  * WiseBot World — Austria.
  *
- * Same shape as `greece.ts`: the country plus the metadata of its cities. The cities are
- * still empty; they land through the pipeline. Facts checked against the Wikipedia REST
+ * Same shape as `greece.ts`: the country plus the metadata of its cities. Its city list
+ * currently holds Vienna; Salzburg, the second city COUNTRIES.md gives Austria, follows in
+ * its own pass. Facts checked against the Wikipedia REST
  * summaries for Großglockner, Eisriesenwelt, Tiergarten Schönbrunn and Austria, and
  * cross-checked on Wikidata (Q3388 elevation, Q40 current shared borders: eight, once the
  * Q1277557 pre-1918 entry is set aside), 12 September 2026.
