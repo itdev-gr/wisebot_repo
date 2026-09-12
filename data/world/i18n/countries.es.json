@@ -66,7 +66,13 @@
         "Dentro de Roma está el Vaticano, el país más pequeño del mundo: solo 44 hectáreas, como unos 60 campos de fútbol.",
         "Su montaña más alta, el Mont Blanc, llega a los 4.807 metros y la comparte con Francia.",
         "Está dividida en 20 regiones, y cada una tiene sus propias recetas y su propio acento."
-      ]
+      ],
+      "cities": {
+        "rome": {
+          "name": "Roma",
+          "intro": "Roma es una ciudad construida encima de sí misma, capa sobre capa. Debajo de una plaza llena de fuentes se esconde un estadio, dentro de unas termas cabe una iglesia, y la tumba de un emperador se convirtió en un castillo con un ángel en lo alto. El agua de las fuentes llega por acueductos de dos mil años, y en medio de la ciudad hay otro país entero, el más pequeño del mundo. Caves donde caves, encuentras algo; te pongas donde te pongas, alguien estuvo ahí hace dos mil años."
+        }
+      }
     },
     "turkey": {
       "name": "Turquía",
@@ -86,7 +92,13 @@
         "El metro de Londres es el más antiguo del mundo: se abrió en 1863 y hoy tiene 272 estaciones.",
         "La campana del Big Ben pesa 13,7 toneladas, y para llegar hasta ella hay que subir 334 escalones.",
         "Las piedras grandes de Stonehenge se levantaron hace unos 4.500 años. Cada una pesa unas 25 toneladas."
-      ]
+      ],
+      "cities": {
+        "london": {
+          "name": "Londres",
+          "intro": "Londres es una ciudad construida alrededor de un río que sube y baja con la marea dos veces al día. En una orilla, un castillo de mil años guarda las coronas; en la otra, una noria gigante levanta a la gente por los aires, y entre ellas un puente se abre en dos para que pasen los barcos. Sus tres museos más grandes son gratis: en uno vive una ballena, en otro hay una cápsula que volvió de la Luna, y en el tercero una piedra negra que enseñó al mundo a leer los jeroglíficos gracias al griego escrito en ella. Y en lo alto de una colina, una raya en el suelo desde la que el planeta mide su hora."
+        }
+      }
     },
     "united-states": {
       "name": "Estados Unidos",
@@ -135,7 +147,13 @@
         "La «montaña» más alta de los Países Bajos continentales, el Vaalserberg, llega solo a los 323 metros.",
         "Tiene más bicicletas que personas: unos 23 millones de bicis para 18 millones de habitantes, y 35.000 kilómetros de carril bici.",
         "En 1932 un dique de 32 kilómetros, el Afsluitdijk, cerró una bahía entera del mar y la convirtió en un lago de agua dulce."
-      ]
+      ],
+      "cities": {
+        "amsterdam": {
+          "name": "Ámsterdam",
+          "intro": "Ámsterdam es una ciudad construida sobre el agua, y lo sabe. Cada edificio pesado se apoya en miles de pilotes de madera clavados en el barro, tres canales rodean el casco antiguo como una media luna, y los puentes se abren para dejar pasar a las barcas. Hay más bicicletas que personas, y tienen su propio garaje debajo del mar. Aquí pintó Rembrandt, aquí escribió su diario Anne Frank, y aquí un museo verde con forma de barco te deja subir a su tejado sin entrada."
+        }
+      }
     },
     "japan": {
       "name": "Japón",

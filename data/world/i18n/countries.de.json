@@ -66,7 +66,13 @@
         "Mitten in Rom liegt der Vatikan, der kleinste Staat der Welt: nur 44 Hektar, etwa so groß wie 60 Fußballfelder.",
         "Sein höchster Berg, der Mont Blanc, ist 4.807 Meter hoch, und Italien teilt ihn mit Frankreich.",
         "Es ist in 20 Regionen aufgeteilt, und jede hat ihre eigenen Rezepte und ihren eigenen Akzent."
-      ]
+      ],
+      "cities": {
+        "rome": {
+          "name": "Rom",
+          "intro": "Rom ist eine Stadt, die auf sich selbst gebaut ist, Schicht für Schicht. Unter einem Platz voller Brunnen versteckt sich ein Stadion, in einem Badehaus steckt eine Kirche, und das Grab eines Kaisers wurde zu einer Burg mit einem Engel auf der Spitze. Das Wasser der Brunnen kommt durch Aquädukte, die zweitausend Jahre alt sind, und mitten in der Stadt liegt ein ganzes anderes Land, das kleinste der Welt. Wo du auch gräbst, findest du etwas; wo du auch stehst, hat vor zweitausend Jahren schon jemand gestanden."
+        }
+      }
     },
     "turkey": {
       "name": "Türkei",
@@ -86,7 +92,13 @@
         "Die Londoner U-Bahn ist die älteste der Welt: Sie wurde 1863 eröffnet und hat heute 272 Stationen.",
         "Die Glocke von Big Ben wiegt 13,7 Tonnen, und bis zu ihr hinauf sind es 334 Stufen.",
         "Die großen Steine von Stonehenge wurden vor etwa 4.500 Jahren aufgerichtet. Jeder wiegt rund 25 Tonnen."
-      ]
+      ],
+      "cities": {
+        "london": {
+          "name": "London",
+          "intro": "London ist eine Stadt, die um einen Fluss herum gebaut ist, der zweimal am Tag mit der Flut steigt und wieder fällt. An einem Ufer bewacht eine tausend Jahre alte Burg die Kronen, am anderen hebt ein riesiges Rad die Menschen in den Himmel, und dazwischen klappt eine Brücke in der Mitte auf, damit die Schiffe durchfahren können. Ihre drei größten Museen kosten nichts: In einem lebt ein Wal, in einem zweiten steht eine Kapsel, die vom Mond zurückkam, und im dritten liegt ein schwarzer Stein, der der Welt beibrachte, Hieroglyphen zu lesen, dank des Griechischen, das darauf steht. Und oben auf einem Hügel eine Linie auf dem Boden, von der aus der Planet seine Zeit misst."
+        }
+      }
     },
     "united-states": {
       "name": "Vereinigte Staaten",
@@ -135,7 +147,13 @@
         "Der höchste „Berg“ auf dem niederländischen Festland, der Vaalserberg, ist nur 323 Meter hoch.",
         "Sie haben mehr Fahrräder als Menschen: etwa 23 Millionen Fahrräder für 18 Millionen Einwohner, und 35.000 Kilometer Radwege.",
         "1932 schloss ein 32 Kilometer langer Damm, der Afsluitdijk, eine ganze Meeresbucht ab und machte aus ihr einen Süßwassersee."
-      ]
+      ],
+      "cities": {
+        "amsterdam": {
+          "name": "Amsterdam",
+          "intro": "Amsterdam ist eine Stadt, die auf dem Wasser gebaut ist, und sie weiß es. Jedes schwere Gebäude steht auf Tausenden von Holzpfählen, die in den Schlamm gerammt wurden, drei Grachten legen sich wie ein Halbmond um die Altstadt, und die Brücken öffnen sich, damit die Boote durchfahren können. Es gibt mehr Fahrräder als Menschen, und sie haben ihre eigene Garage unter dem Meer. Hier malte Rembrandt, hier schrieb Anne Frank ihr Tagebuch, und ein grünes Museum in Form eines Schiffs lässt dich ohne Eintrittskarte auf sein Dach steigen."
+        }
+      }
     },
     "japan": {
       "name": "Japan",

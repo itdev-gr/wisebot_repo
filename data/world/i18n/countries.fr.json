@@ -66,7 +66,13 @@
         "À l’intérieur de Rome se trouve le Vatican, le plus petit pays du monde : à peine 44 hectares, environ la taille de 60 terrains de football.",
         "Son plus haut sommet, le mont Blanc, atteint 4 807 mètres, et elle le partage avec la France.",
         "Elle est divisée en 20 régions, et chacune a ses propres recettes et son propre accent."
-      ]
+      ],
+      "cities": {
+        "rome": {
+          "name": "Rome",
+          "intro": "Rome est une ville construite par-dessus elle-même, couche après couche. Sous une place pleine de fontaines se cache un stade, dans d’anciens thermes tient une église entière, et le tombeau d’un empereur est devenu un château avec un ange au sommet. L’eau des fontaines arrive par des aqueducs de deux mille ans, et au milieu de la ville il y a tout un autre pays, le plus petit du monde. Creuse n’importe où et tu trouves quelque chose ; tiens-toi n’importe où et quelqu’un s’y est tenu il y a deux mille ans."
+        }
+      }
     },
     "turkey": {
       "name": "Turquie",
@@ -86,7 +92,13 @@
         "Le métro de Londres est le plus vieux du monde : il a ouvert en 1863 et compte aujourd’hui 272 stations.",
         "La cloche de Big Ben pèse 13,7 tonnes, et il faut monter 334 marches pour arriver près d’elle.",
         "Les grandes pierres de Stonehenge ont été dressées il y a environ 4 500 ans. Chacune pèse à peu près 25 tonnes."
-      ]
+      ],
+      "cities": {
+        "london": {
+          "name": "Londres",
+          "intro": "Londres est une ville bâtie autour d’un fleuve qui monte et descend avec la marée deux fois par jour. Sur une rive, un château de mille ans garde les couronnes, sur l’autre, une roue géante soulève les gens dans le ciel, et entre les deux, un pont s’ouvre en deux pour laisser passer les bateaux. Ses trois plus grands musées sont gratuits : dans l’un vit une baleine, dans un autre une capsule revenue de la Lune, et dans le troisième une pierre noire qui a appris au monde à lire les hiéroglyphes grâce au grec écrit dessus. Et au sommet d’une colline, une ligne tracée au sol à partir de laquelle la planète mesure son heure."
+        }
+      }
     },
     "united-states": {
       "name": "États-Unis",
@@ -135,7 +147,13 @@
         "La plus haute « montagne » des Pays-Bas continentaux, le Vaalserberg, atteint à peine 323 mètres.",
         "Il y a plus de vélos que d’habitants : environ 23 millions de vélos pour 18 millions de personnes, et 35 000 kilomètres de pistes cyclables.",
         "En 1932, une digue de 32 kilomètres, l’Afsluitdijk, a fermé toute une baie de la mer et l’a transformée en lac d’eau douce."
-      ]
+      ],
+      "cities": {
+        "amsterdam": {
+          "name": "Amsterdam",
+          "intro": "Amsterdam est une ville construite sur l’eau, et elle le sait. Chacun de ses bâtiments lourds repose sur des milliers de pieux de bois enfoncés dans la boue, trois canaux entourent la vieille ville comme un croissant de lune, et les ponts s’ouvrent pour laisser passer les bateaux. Il y a plus de vélos que d’habitants, et ils ont leur propre garage sous la mer. Rembrandt a peint ici, Anne Frank a écrit son journal ici, et un musée vert en forme de bateau te laisse monter sur son toit sans billet."
+        }
+      }
     },
     "japan": {
       "name": "Japon",
