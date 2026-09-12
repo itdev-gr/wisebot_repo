@@ -1,0 +1,769 @@
+{
+  "lang": "it",
+  "cityId": "london",
+  "places": {
+    "london-british-museum": {
+      "name": "Il British Museum",
+      "tagline": "Otto milioni di oggetti da tutto il mondo, e l’ingresso non costa niente",
+      "story": "Quando il medico e collezionista Hans Sloane morì nel 1753, lasciò 71.000 oggetti alla nazione a una condizione: che chiunque volesse potesse andare a vederli. Così nacque il primo museo nazionale del mondo; aprì nel 1759 ed è gratis dal primo giorno. Oggi qui vivono circa otto milioni di oggetti. Il più famoso è la Stele di Rosetta, una lastra nera con lo stesso messaggio in tre scritture; siccome una di quelle era il greco, un giovane francese di nome Champollion riuscì nel 1822 a leggere finalmente i geroglifici. Qui c’è anche circa la metà delle sculture del Partenone, tirate giù dal tempio da Lord Elgin duecento anni fa; la Grecia chiede che tornino ad Atene, il museo dice di no, e la discussione continua. In mezzo all’edificio, un cortile con un tetto di vetro ondulato fatto di 3.312 vetri, nessuno uguale all’altro, abbraccia una sala di lettura rotonda. È impossibile vedere tutto in un giorno. Nessuno ha visto tutto.",
+      "facts": [
+        "Aprì nel 1759 e da allora l’ingresso è gratis.",
+        "La Stele di Rosetta fu trovata in Egitto nel 1799.",
+        "Il tetto di vetro della Great Court ha 3.312 vetri, nessuno uguale all’altro."
+      ],
+      "question": {
+        "q": "Perché gli studiosi riuscirono a leggere la Stele di Rosetta?",
+        "answers": [
+          "Una parte era in greco",
+          "Era scritta con figure di animali",
+          "Aveva un dizionario accanto",
+          "La spiegò un re egiziano"
+        ],
+        "explanation": "Lo stesso testo era scritto tre volte. Il greco si sapeva leggere, e confrontando le scritture ruppero il codice dei geroglifici."
+      },
+      "findIt": "L’ingresso principale è su Great Russell Street: passi il cancello e sali i gradini sotto le colonne.",
+      "museum": {
+        "doorNote": "È gratis, ma enorme. Scegli tre sale e non provare a vedere tutto.",
+        "rooms": {
+          "london-british-museum-egypt": {
+            "name": "L’Egitto",
+            "intro": "Le sale egizie sono le più affollate del museo, e non per caso: qui c’è la pietra che ha insegnato al mondo a leggere i geroglifici, una gatta di bronzo con gli orecchini d’oro, e un uomo che dorme nella sabbia da cinquemilacinquecento anni. Va’ prima dalla pietra nera, prima che si raduni la gente."
+          },
+          "london-british-museum-greece": {
+            "name": "La Grecia a Londra",
+            "intro": "Queste sale ti sembreranno familiari. Qui ci sono marmi che stavano sul Partenone, una Cariatide che manca alle sue sorelle, e un’intera tomba venuta dall’Asia Minore. Sono arrivati qui duecento anni fa, e se dovessero restare è una discussione che due paesi fanno ancora."
+          },
+          "london-british-museum-kings-and-games": {
+            "name": "Re, giochi e un gigante",
+            "intro": "Tre cose trovate sepolte, nascoste o in piedi con la schiena al mare: un elmo dentro una nave, un esercito di piccoli pezzi intagliati nella sabbia di un’isola, e una testa di pietra nera arrivata dall’isola più lontana del mondo. Nessuna delle tre doveva essere trovata."
+          }
+        },
+        "exhibits": {
+          "london-british-museum-rosetta-stone": {
+            "name": "La Stele di Rosetta",
+            "blurb": "Una pietra nera, spezzata in cima, coperta di letterine. È un annuncio del 196 a.C. su un re ragazzino, Tolomeo V, scritto tre volte: in geroglifici per i sacerdoti, in egiziano di tutti i giorni per la gente, e in greco per chi comandava, che allora era greco. Dei soldati francesi la trovarono nel 1799 dentro un vecchio muro nella città di Rashid, che gli europei chiamavano Rosetta. Siccome il greco si poteva leggere, gli studiosi avevano finalmente una chiave. Champollion la girò nel 1822, e i geroglifici parlarono di nuovo dopo millequattrocento anni di silenzio.",
+            "question": {
+              "q": "Quante scritture ci sono sulla Stele di Rosetta?",
+              "answers": [
+                "Tre",
+                "Due",
+                "Cinque",
+                "Dieci"
+              ],
+              "explanation": "Geroglifici in alto, egiziano di tutti i giorni in mezzo, greco in basso. Lo stesso messaggio tre volte."
+            }
+          },
+          "london-british-museum-gayer-anderson-cat": {
+            "name": "La gatta con gli orecchini d’oro",
+            "blurb": "Una gatta di bronzo sta seduta dritta, con la testa alta, come stanno sedute le gatte quando vogliono farti capire che non hanno bisogno di te. Porta orecchini d’oro, un anello nel naso e un collare d’argento, e sul petto ha inciso un occhio che protegge. Fu fatta intorno al 600 a.C. e non è soltanto una gatta: è la dea Bastet, che gli egizi immaginavano con la forma di un gatto. Prende il nome da Robert Gayer-Anderson, che la regalò al museo nel 1939. È forse la gatta più fotografata di Londra.",
+            "question": {
+              "q": "Di che cosa è fatta la gatta?",
+              "answers": [
+                "Di bronzo",
+                "D’oro",
+                "Di marmo nero",
+                "Di legno di cedro"
+              ],
+              "explanation": "Il corpo è di bronzo. D’oro sono soltanto gli orecchini e l’anello nel naso."
+            }
+          },
+          "london-british-museum-gebelein-man": {
+            "name": "L’uomo della sabbia",
+            "blurb": "Cinquemilacinquecento anni fa, molto prima delle piramidi, un giovane fu sepolto in una buca poco profonda nel deserto, rannicchiato su un fianco, senza bara. La sabbia calda e asciutta tirò via l’acqua dal suo corpo e lo conservò: ci sono ancora i suoi capelli rossicci. Gli egizi videro che cosa sa fare la sabbia e più tardi impararono a farlo da soli, con il sale e le bende. Nel 2012 il museo lo passò in una macchina per la TAC e scoprì che era stato ferito alla schiena. Il visitatore lo vede come fu trovato, sdraiato nella sua sabbia.",
+            "question": {
+              "q": "Che cosa ha conservato il suo corpo per 5.500 anni?",
+              "answers": [
+                "La sabbia calda",
+                "Il ghiaccio",
+                "Un sarcofago d’oro",
+                "Il sale del mare"
+              ],
+              "explanation": "I microbi che fanno marcire un corpo hanno bisogno d’acqua. La sabbia lo asciugò prima che potessero cominciare."
+            }
+          },
+          "london-british-museum-parthenon-frieze": {
+            "name": "I cavalieri del Partenone",
+            "blurb": "Tutto intorno al Partenone correva un fregio lungo 160 metri, un nastro di marmo con una processione: cavalieri, carri, musicisti, ragazze che portano doni, buoi per il sacrificio, tutti in cammino verso la festa di Atena. In questa sala vedi i cavalli che si impennano e i giovani cavalieri che li trattengono, così vivi che quasi senti gli zoccoli. Lord Elgin li tirò giù dal tempio fra il 1801 e il 1812, e la Gran Bretagna li comprò nel 1816. Il resto del fregio è al Museo dell’Acropoli, con copie bianche di gesso al posto dei pezzi che sono qui.",
+            "question": {
+              "q": "Che cosa mostra il lungo fregio tutto intorno?",
+              "answers": [
+                "Un corteo a cavallo",
+                "Una battaglia navale",
+                "Dodici dèi a tavola",
+                "La costruzione del tempio"
+              ],
+              "explanation": "È la processione delle Panatenee, la grande festa di Atena, con i cavalieri davanti."
+            }
+          },
+          "london-british-museum-caryatid": {
+            "name": "La Cariatide che manca",
+            "blurb": "Una giovane donna di marmo sta in piedi da sola, con un cesto sulla testa che una volta reggeva un tetto. Era una delle sei Cariatidi dell’Eretteo, il tempio accanto al Partenone, dove sei ragazze facevano il lavoro delle colonne. Lord Elgin la portò via nel 1801, e le altre cinque oggi sono al Museo dell’Acropoli, con un vuoto nella loro fila. Se la guardi bene, il peso le cade su una gamba sola, come quando stai in piedi da tanto tempo e vuoi far riposare l’altra. Sta così da duemilacinquecento anni.",
+            "question": {
+              "q": "Quante sue sorelle stanno ancora ad Atene?",
+              "answers": [
+                "Cinque",
+                "Nessuna",
+                "Due",
+                "Undici"
+              ],
+              "explanation": "Erano sei. Una è qui, cinque al Museo dell’Acropoli, e nella loro fila c’è un vuoto."
+            }
+          },
+          "london-british-museum-nereid-monument": {
+            "name": "La tomba delle ragazze del vento",
+            "blurb": "Sembra un piccolo tempio greco, con le colonne e il frontone, ma è una tomba. Fu costruita intorno al 390 a.C. a Xanto, una città della Licia nell’attuale Turchia, per un signore del posto che voleva essere sepolto come un greco. Fra le colonne stanno delle ragazze con i vestiti che volano come se tirasse un vento forte; sono le Nereidi, figlie del mare, e i loro vestiti sono la cosa più vicina all’aria che il marmo abbia mai fatto. Il britannico Charles Fellows la trovò nel 1838 e la spedì a Londra pezzo per pezzo, dove fu rimontata come una facciata intera.",
+            "question": {
+              "q": "Che cos’era questo edificio a casa sua?",
+              "answers": [
+                "Una tomba",
+                "Un tempio",
+                "Una scuola",
+                "Un bagno pubblico"
+              ],
+              "explanation": "Un signore della Licia la costruì per sé, a forma di tempio, per farsi notare."
+            }
+          },
+          "london-british-museum-sutton-hoo-helmet": {
+            "name": "L’elmo della nave sepolta",
+            "blurb": "Nel 1939, in un campo dell’Inghilterra orientale, un’archeologa e un giardiniere scavarono in una collinetta e trovarono l’impronta di una nave lunga 27 metri. Il legno si era sciolto nella terra, ma i chiodi erano rimasti al loro posto, e in mezzo c’era il tesoro di un re del VII secolo. L’elmo fu trovato in centinaia di pezzi e fu rimontato due volte. Ha una faccia di ferro, con le sopracciglia, i baffi e il naso, e se lo guardi da davanti le sopracciglia e il naso formano un drago che vola. Accanto sta una copia lucente, per farti vedere come brillava da nuovo.",
+            "question": {
+              "q": "Dove fu trovato l’elmo?",
+              "answers": [
+                "In una nave sepolta",
+                "Sul fondo del Tamigi",
+                "In un castello di Scozia",
+                "In una grotta del Galles"
+              ],
+              "explanation": "Un re fu sepolto dentro la sua nave, sotto una collinetta di terra, con tutte le sue ricchezze intorno."
+            }
+          },
+          "london-british-museum-lewis-chessmen": {
+            "name": "Gli scacchi di Lewis",
+            "blurb": "Nel 1831, sulla spiaggia di un’isola a ovest della Scozia, venne alla luce un tesoro di piccoli pezzi degli scacchi intagliati: re seduti a pensare, regine con la guancia appoggiata a una mano come se fossero preoccupate, alfieri, cavalieri su piccoli cavalli, e guardie che mordono il bordo dello scudo per l’agitazione. Furono intagliati in Norvegia intorno al 1150 nelle zanne di tricheco. Ne furono trovati 93, di almeno quattro set diversi; 82 sono qui e 11 a Edimburgo. Sono i pezzi degli scacchi più famosi del mondo, e uno di loro ha recitato in un film di maghi.",
+            "question": {
+              "q": "Da che cosa sono intagliati quasi tutti i pezzi?",
+              "answers": [
+                "Zanne di tricheco",
+                "Avorio d’elefante",
+                "Legno di quercia scura",
+                "Marmo bianco"
+              ],
+              "explanation": "Al Nord non c’erano elefanti, ma c’erano trichechi con le zanne lunghe, perfette da intagliare."
+            }
+          },
+          "london-british-museum-hoa-hakananaia": {
+            "name": "Hoa Hakananai’a",
+            "blurb": "Una testa e un busto di pietra nera vulcanica, più alto di un adulto, con gli occhi profondi e le labbra strette. Gli abitanti di Rapa Nui, l’Isola di Pasqua in mezzo al Pacifico, lo scolpirono molti secoli fa e lo misero dentro una casa del villaggio di Orongo, con la schiena verso il mare. Su quella schiena sono incisi uccelli e uomini-uccello, da una festa che si faceva sull’isola. Nel 1868 l’equipaggio di una nave da guerra britannica lo dissotterrò e lo portò a Londra. Il suo nome vuol dire «l’amico rubato o nascosto», e nel 2018 Rapa Nui ha chiesto ufficialmente che torni a casa.",
+            "question": {
+              "q": "Come è arrivata a Londra la statua?",
+              "answers": [
+                "In nave militare",
+                "L’ha comprata un museo",
+                "Un regalo degli abitanti",
+                "In aereo nel 1960"
+              ],
+              "explanation": "L’equipaggio della HMS Topaze lo prese nel 1868. Gli abitanti dell’isola non lo regalarono mai, ed è per questo che lo rivogliono."
+            }
+          }
+        },
+        "riddles": {
+          "london-british-museum-riddle-1": {
+            "prompt": "Sono nera, pesante e spezzata in cima. Dico la stessa cosa tre volte, in tre modi diversi, e grazie al terzo il mondo ha capito finalmente i primi due.",
+            "hint": "Cerca una lastra coperta di letterine, con il greco in basso."
+          },
+          "london-british-museum-riddle-2": {
+            "prompt": "Stavo su un balcone in alto sopra Atene con cinque sorelle, e reggevo un tetto sulla testa. Duecento anni fa mi hanno tirata giù e portata qui. Le mie sorelle mi aspettano ancora.",
+            "hint": "Una ragazza che fa il lavoro di una colonna."
+          },
+          "london-british-museum-riddle-3": {
+            "prompt": "Siamo un piccolo esercito di re, regine e cavalieri, intagliati nei denti di animali del mare. Abbiamo dormito per secoli nella sabbia di un’isola, e alcuni di noi mordono il proprio scudo.",
+            "hint": "Cerca un gioco che si gioca su 64 caselle."
+          },
+          "london-british-museum-riddle-4": {
+            "prompt": "Mi hanno scolpito nella pietra nera su un’isola in mezzo all’oceano e mi hanno messo in piedi con la schiena al mare. Dei marinai mi hanno dissotterrato e portato via. Sulla schiena nascondo disegni di uccelli.",
+            "hint": "Una testa enorme con gli occhi profondi, venuta da molto lontano."
+          }
+        }
+      }
+    },
+    "london-tower-of-london": {
+      "name": "La Torre di Londra",
+      "tagline": "Un castello di mille anni, con corvi, corone e un orso polare",
+      "story": "Dopo aver vinto l’Inghilterra nel 1066, Guglielmo il Conquistatore volle una fortezza per far vedere a tutti chi comandava. Intorno al 1078 cominciò il grande torrione quadrato in mezzo, che più tardi fu imbiancato e chiamato Torre Bianca. I re che vennero dopo aggiunsero mura, torri e un fossato pieno d’acqua, e il castello diventò palazzo, tesoreria, zecca per battere le monete e prigione per le persone che il re considerava pericolose. Fu perfino uno zoo: nel 1252 il re di Norvegia regalò un orso polare, che lasciavano pescare nel Tamigi legato a una lunga corda. Oggi i Gioielli della Corona brillano in una camera blindata, almeno sei corvi camminano impettiti sull’erba, perché una leggenda dice che se se ne vanno il regno cadrà, e le guardie in rosso e blu, gli Yeoman Warders soprannominati Beefeaters, vivono dentro le mura con le loro famiglie. Il fossato fu svuotato nel 1843 e diventò un prato. Ogni sera, da settecento anni, i cancelli vengono chiusi con la stessa cerimonia.",
+      "facts": [
+        "La Torre Bianca fu cominciata intorno al 1078 da Guglielmo il Conquistatore.",
+        "Qui vivono sempre almeno sei corvi, con un guardiano tutto loro.",
+        "Il fossato fu svuotato nel 1843 e oggi è un prato."
+      ],
+      "question": {
+        "q": "Quale animale visse un tempo nel castello e pescava nel fiume?",
+        "answers": [
+          "Un orso",
+          "Un coccodrillo",
+          "Una giraffa",
+          "Un ippopotamo"
+        ],
+        "explanation": "Un orso polare, regalo del re di Norvegia nel 1252. Lo portavano sulla riva con una corda per farlo pescare da solo."
+      },
+      "findIt": "L’ingresso e la biglietteria sono sul lato ovest del castello, vicino al fiume."
+    },
+    "london-borough-market": {
+      "name": "Borough Market",
+      "tagline": "Mille anni di cibo sotto le arcate della ferrovia",
+      "story": "All’estremità sud del London Bridge, da quando quel ponte era l’unico della città, i contadini che salivano dal sud si fermavano qui a vendere quello che avevano portato prima di passare dall’altra parte. I primi documenti scritti del mercato sono del 1014, più di mille anni fa. Ma la strada si riempì talmente di carri e di banchi che nel 1754 il Parlamento lo chiuse. La gente del posto raccolse i soldi, comprò un triangolo di terreno accanto alla chiesa e riaprì il mercato nel 1756, dove sta ancora. I capannoni di ferro verdi furono costruiti nel 1851, e più tardi la ferrovia ci passò sopra su delle arcate, così fai la spesa con i treni che rombano sopra la tua testa. Per secoli qui si vendeva all’ingrosso, frutta e verdura per i negozi della città, da mezzanotte fino al mattino. Oggi sui banchi ci sono formaggi, pani, frutta, spezie e cibo da tutto il mondo, e il pranzo migliore è quello che ti danno da assaggiare.",
+      "facts": [
+        "I primi documenti scritti di un mercato qui sono del 1014.",
+        "Sta sullo stesso triangolo di terreno dal 1756.",
+        "I capannoni di ferro sono del 1851 e la ferrovia ci passa sopra."
+      ],
+      "question": {
+        "q": "Da quanto tempo si vende cibo in questo quartiere?",
+        "answers": [
+          "Da mille anni",
+          "Solo dagli anni Settanta",
+          "Dalla regina Vittoria",
+          "Dal Grande Incendio"
+        ],
+        "explanation": "I primi documenti sono del 1014. Il mercato si spostò di pochi metri nel 1756, ma non si fermò mai."
+      },
+      "findIt": "Il mercato è accanto alla cattedrale di Southwark, sotto le arcate della ferrovia; entra da Borough High Street."
+    },
+    "london-royal-observatory": {
+      "name": "L’Osservatorio Reale di Greenwich",
+      "tagline": "La linea per terra da cui il mondo misura la sua ora",
+      "story": "In cima alla collina del parco di Greenwich, il re Carlo II costruì nel 1675 un piccolo osservatorio con un compito solo: risolvere un problema che affondava le navi. I marinai sapevano dalle stelle quanto erano a nord o a sud, ma non quanto a est o a ovest, e per quello servivano orologi molto precisi e mappe del cielo molto precise. Gli astronomi di qui misurarono le stelle per duecento anni, e nel 1884 il mondo si mise d’accordo: la linea che passa dal telescopio di Greenwich è lo zero, il primo meridiano, da cui si misura ogni altro punto della Terra e da cui cominciano i fusi orari. Oggi la linea è segnata nel cortile, e puoi stare con un piede nella metà orientale del pianeta e l’altro in quella occidentale. Sul tetto c’è una grande palla rossa: dal 1833 sale su un palo e cade ogni giorno all’una in punto, così che le navi sul fiume potessero regolare i loro orologi. Cade ancora, ogni giorno, anche se non l’aspetta più nessuna nave.",
+      "facts": [
+        "Fu fondato nel 1675 dal re Carlo II.",
+        "Il primo meridiano, la linea zero del mondo, passa da qui dal 1884.",
+        "La palla rossa del tempo cade ogni giorno all’una del pomeriggio dal 1833."
+      ],
+      "question": {
+        "q": "Che cosa fa ogni giorno all’una la palla rossa sul tetto?",
+        "answers": [
+          "Cade",
+          "Si accende",
+          "Gira",
+          "Fischia"
+        ],
+        "explanation": "Sale poco prima dell’una e cade all’una in punto, dal 1833. Le navi sul fiume la guardavano e mettevano gli orologi all’ora giusta."
+      },
+      "findIt": "Sali la collina attraverso il parco di Greenwich; l’ingresso è il cancello del cortile, sotto la palla rossa sul tetto."
+    },
+    "london-buckingham-palace": {
+      "name": "Buckingham Palace",
+      "tagline": "775 stanze e una bandiera che dice chi è in casa",
+      "story": "Questo palazzo è nato come una casa molto più piccola, costruita trecento anni fa per un duca che si chiamava Buckingham. Il re Giorgio III la comprò nel 1761 per sua moglie, e i re che vennero dopo la fecero sempre più grande. La prima sovrana che ci abitò davvero fu la regina Vittoria, nel 1837, poche settimane dopo aver ricevuto la corona a diciotto anni. Oggi il palazzo ha 775 stanze, fra cui 78 bagni e 19 grandi sale per le feste ufficiali. Il giardino dietro è il più grande giardino privato di Londra e ha un lago tutto suo. Davanti, dietro le cancellate, si fa il cambio della guardia con la musica e la marcia, e i soldati con gli alti colbacchi di pelliccia stanno fermi come statue. Guarda il pennone sul tetto: se sventola la bandiera reale con i leoni, il re è dentro. Se sventola la bandiera del paese, è via. Un palazzo intero che ti dice con un’occhiata se c’è qualcuno in casa.",
+      "facts": [
+        "Ha 775 stanze, fra cui 78 bagni.",
+        "La regina Vittoria fu la prima sovrana ad abitare qui, nel 1837.",
+        "Il suo giardino è il più grande giardino privato di Londra."
+      ],
+      "question": {
+        "q": "Chi fu il primo re o la prima regina ad abitare in questo palazzo?",
+        "answers": [
+          "La regina Vittoria",
+          "Enrico VIII",
+          "Guglielmo il Conquistatore",
+          "La regina Elisabetta II"
+        ],
+        "explanation": "Vittoria si trasferì qui nel 1837, poche settimane dopo essere diventata regina. Da allora il palazzo è la casa del trono."
+      },
+      "findIt": "Mettiti davanti alle cancellate, accanto al bianco monumento alla regina Vittoria con la figura dorata in cima."
+    },
+    "london-big-ben": {
+      "name": "Big Ben",
+      "tagline": "La torre che tutti chiamano con il nome della sua campana",
+      "story": "Nel 1834 un grande incendio distrusse il vecchio edificio del Parlamento. I londinesi costruirono al suo posto un palazzo nuovo con più di mille stanze e una torre dell’orologio alta 96 metri. Dentro è appesa una campana di 13,7 tonnellate, pesante come due grossi elefanti, e quella campana, non la torre, è il Big Ben. Suonò per la prima volta nel 1859 e si crepò nel giro di pochi mesi. Invece di sostituirla, gli ingegneri la girarono un po’ e le misero un martello più leggero; la crepa c’è ancora e dà al suono il suo tono famoso, un pochino stonato. Nessuno sa con certezza da dove venga il nome; i più pensano che ricordi Benjamin Hall, il signore grande e grosso che dirigeva i lavori. Dal 2012 la torre si chiama Elizabeth Tower, la torre di Elisabetta. I suoi quattro quadranti sono larghi sette metri e, dopo il restauro del 2022, hanno le lancette dipinte di blu, il loro colore originale. Quando il Parlamento lavora dopo il tramonto, una luce si accende in cima perché tutta la città lo sappia.",
+      "facts": [
+        "La torre è alta 96 metri e ha 334 scalini fino alla campana.",
+        "La campana pesa 13,7 tonnellate e suonò per la prima volta nel 1859.",
+        "Ogni quadrante dell’orologio è largo sette metri."
+      ],
+      "question": {
+        "q": "Che cos’è davvero il «Big Ben»?",
+        "answers": [
+          "La campana",
+          "La torre stessa",
+          "I quattro quadranti",
+          "La luce in cima"
+        ],
+        "explanation": "Big Ben è la grande campana che suona le ore. La torre si chiama Elizabeth Tower, ma il soprannome è rimasto attaccato a tutto il palazzo."
+      },
+      "findIt": "La vista migliore è dal ponte di Westminster, con la torre proprio davanti a te."
+    },
+    "london-trafalgar-square": {
+      "name": "Trafalgar Square",
+      "tagline": "Quattro leoni, un ammiraglio e un piedistallo che cambia idea",
+      "story": "La piazza ricorda una battaglia navale del 1805 vicino a capo Trafalgar, in Spagna, dove l’ammiraglio Nelson portò la flotta britannica alla vittoria ma fu ferito e morì lo stesso giorno. La città gli costruì una colonna alta 52 metri, così che stia più in alto di tutto quello che ha intorno. I quattro leoni di bronzo ai suoi piedi arrivarono nel 1867 e li fece Edwin Landseer, un pittore famoso per i suoi animali, che non aveva mai fatto una scultura. Ai quattro angoli ci sono dei piedistalli, e tre di loro reggono statue antiche. Il quarto è rimasto vuoto per più di 150 anni, perché finirono i soldi per la statua che aspettava; oggi ospita una nuova opera d’arte contemporanea ogni due anni circa, e ogni volta la città discute se le piace oppure no. Nell’angolo sud-est cerca la più piccola guardiola di polizia della Gran Bretagna, con posto per un agente solo. E ogni dicembre dal 1947 la Norvegia manda qui un albero di Natale enorme, come grazie per l’aiuto durante la guerra.",
+      "facts": [
+        "La Colonna di Nelson è alta 52 metri.",
+        "I quattro leoni li fece un pittore, Edwin Landseer, nel 1867.",
+        "Ogni dicembre dal 1947 Oslo manda qui un albero di Natale."
+      ],
+      "question": {
+        "q": "Perché il quarto piedistallo è rimasto vuoto per più di 150 anni?",
+        "answers": [
+          "Finirono i soldi",
+          "La statua si ruppe per strada",
+          "Lo tennero per il re",
+          "Si dimenticarono di ordinarla"
+        ],
+        "explanation": "Aspettava la statua di un re a cavallo, ma i soldi non arrivarono mai. Il piedistallo vuoto è diventato l’angolo più interessante della piazza."
+      }
+    },
+    "london-covent-garden": {
+      "name": "Covent Garden",
+      "tagline": "Un giardino senza erba, dove i cavoli sono diventati capriole",
+      "story": "Cinquecento anni fa qui c’era l’orto dei monaci di Westminster, il «convent garden», il giardino del convento. Dillo in fretta e senti «Covent Garden». Negli anni Trenta del Seicento l’architetto Inigo Jones, che aveva visto le piazze d’Italia, disegnò qui la prima vera piazza di Londra, con case eleganti e una chiesa con grandi colonne. Presto arrivarono i contadini con la frutta e la verdura, e per più di trecento anni questo fu il grande mercato di Londra, che si svegliava prima del sole. L’edificio di pietra del mercato in mezzo fu costruito nel 1830, e i tetti di vetro furono aggiunti più tardi, perché la luce del giorno cadesse sui banchi. Nel 1974 il mercato si trasferì altrove e le vecchie gallerie furono salvate per i negozi e i caffè. Gli artisti di strada, però, sono sempre stati qui: nel maggio del 1662 Samuel Pepys vide davanti alla chiesa uno spettacolo di burattini, il primo Punch e Judy conosciuto in Gran Bretagna, e una targa sul muro lo ricorda. Oggi giocolieri e musicisti radunano la gente esattamente nello stesso punto.",
+      "facts": [
+        "Il nome viene dal «convent garden», l’orto dei monaci.",
+        "L’edificio del mercato fu costruito nel 1830 e il mercato se ne andò nel 1974.",
+        "Il primo spettacolo di Punch e Judy conosciuto in Gran Bretagna si fece qui nel 1662."
+      ],
+      "question": {
+        "q": "Che cosa si vendeva qui per più di trecento anni?",
+        "answers": [
+          "Frutta e verdura",
+          "Tappeti e mobili da casa",
+          "Libri e mappe",
+          "Pesce e sale"
+        ],
+        "explanation": "Cominciò come un orto e diventò il mercato della frutta e della verdura di tutta la città, finché non si trasferì nel 1974."
+      },
+      "findIt": "Gli artisti di strada suonano di solito davanti alla chiesa con le colonne, all’estremità ovest della piazza."
+    },
+    "london-tower-bridge": {
+      "name": "Tower Bridge",
+      "tagline": "Il ponte che si apre come un libro per far passare le navi",
+      "story": "Negli anni Ottanta dell’Ottocento i porti di Londra avevano così tanto lavoro che la città aveva bisogno di un ponte nuovo qui, ma un ponte normale avrebbe chiuso la strada alle navi. Così l’architetto Horace Jones e l’ingegnere John Wolfe Barry disegnarono un ponte che si apre: due metà di strada che si alzano in circa cinque minuti. Le torri di pietra sembrano un castello medievale, per stare bene con la Torre di Londra qui accanto, ma dentro nascondono acciaio e macchine, mosse prima dal vapore e dal 1976 dall’elettricità. Aprì nel 1894 dipinto di marrone cioccolato e si alza ancora circa 800 volte all’anno, gratis, purché la nave lo chieda un giorno prima. I due passaggi in alto, 42 metri sopra l’acqua, oggi hanno il pavimento di vetro. Nel dicembre del 1952 un autobus a due piani era sul ponte quando cominciò ad aprirsi per sbaglio; l’autista schiacciò l’acceleratore, l’autobus saltò il vuoto e tutti se la cavarono. Gli diedero un premio di dieci sterline.",
+      "facts": [
+        "Aprì nel 1894 e si alza circa 800 volte all’anno.",
+        "I passaggi in alto sono 42 metri sopra il fiume e hanno il pavimento di vetro.",
+        "Le macchine andavano a vapore fino al 1976; da allora a elettricità."
+      ],
+      "question": {
+        "q": "Perché il ponte si apre in mezzo?",
+        "answers": [
+          "Per le navi alte",
+          "Per far scolare la pioggia",
+          "Per far riposare le macchine",
+          "Per far passare gli autobus"
+        ],
+        "explanation": "Le due metà della strada si alzano perché un albero di nave ci passi sotto. La nave lo chiede un giorno prima, e il ponte si apre senza far pagare niente."
+      },
+      "findIt": "L’ingresso per i passaggi in alto è nella torre a nord-ovest, quella più vicina alla Torre di Londra."
+    },
+    "london-natural-history-museum": {
+      "name": "Il Museo di Storia Naturale",
+      "tagline": "Una balena sul soffitto, dinosauri al piano di sotto, animali sui muri",
+      "story": "L’edificio sembra una cattedrale, e l’architetto Alfred Waterhouse lo fece così apposta nel 1881: un tempio per la natura. Guarda i muri: sono vestiti di piastrelle di terracotta, e su di esse si arrampicano scimmie, serpenti, pesci e uccelli, tutti cotti nell’argilla. Nella metà ovest dell’edificio gli animali sono specie vive; nella metà est, specie che si sono estinte. Appena entri, guarda in alto: dal soffitto della grande sala pende lo scheletro di una balena azzurra lungo 25 metri, con la bocca aperta, come se stesse scendendo in picchiata verso di te. Più avanti aspettano i dinosauri, con un tirannosauro che si muove e ruggisce, e una stanza che trema per farti sentire com’è un terremoto. Il museo conserva 80 milioni di reperti, dai meteoriti alle farfalle, e centinaia di scienziati lavorano dietro le sale scoprendo specie nuove ogni anno. L’ingresso è gratis, e Darwin sta seduto su una sedia di marmo in cima alle scale, a guardare chi entra.",
+      "facts": [
+        "L’edificio ha aperto nel 1881 e i suoi muri sono pieni di animali di argilla cotta.",
+        "Lo scheletro della balena azzurra è lungo 25 metri.",
+        "Conserva 80 milioni di reperti e l’ingresso è gratis."
+      ],
+      "question": {
+        "q": "Quale animale pende dal soffitto della grande sala?",
+        "answers": [
+          "Una balena",
+          "Un dinosauro",
+          "Un calamaro gigante",
+          "Un mammut lanoso"
+        ],
+        "explanation": "Fino al 2017 al suo posto stava lo scheletro di un diplodoco. Adesso pende la balena azzurra, l’animale più grande che sia mai vissuto."
+      },
+      "findIt": "L’ingresso principale è in Cromwell Road, sotto le due torri; ce n’è un secondo in Exhibition Road.",
+      "museum": {
+        "doorNote": "Nei fine settimana la coda per i dinosauri è lunga. Vacci per primo, oppure nel tardo pomeriggio.",
+        "rooms": {
+          "london-natural-history-museum-hintze-hall": {
+            "name": "La Hintze Hall",
+            "intro": "La sala d’ingresso è già di per sé una mostra. In alto, una balena scende in picchiata. Ai lati, dentro le nicchie, stanno una fetta di albero più vecchia di qualunque castello d’Inghilterra, un meteorite e un corallo. E in cima alle scale sta seduto l’uomo che ha spiegato come siamo diventati tutti quello che siamo."
+          },
+          "london-natural-history-museum-dinosaurs-and-earth": {
+            "name": "I dinosauri e la Terra che trema",
+            "intro": "Due parti del museo che i bambini chiedono per prime. La sala dei dinosauri, con un tirannosauro che non è un fossile ma una macchina, e le sale della Terra, dove uno stegosauro con un nome da bambina ti accoglie e un negozio giapponese trema per farti sentire un terremoto vero."
+          }
+        },
+        "exhibits": {
+          "london-natural-history-museum-hope-whale": {
+            "name": "Hope, la balena azzurra",
+            "blurb": "Lo scheletro è lungo 25,2 metri e pesa quattro tonnellate e mezzo, anche se sono soltanto ossa. La balena era una femmina e nel 1891 entrò nelle acque basse di un porto in Irlanda, dove non riuscì più a tornare al mare profondo. Il museo comprò le ossa, le tenne in magazzino per anni e le appese per la prima volta nel 1934, in un’altra sala. Nel 2017 la spostarono qui e la appesero in posizione di tuffo, con la bocca aperta come se stesse mangiando. La chiamarono Hope, che vuol dire speranza, perché le balene azzurre sono state vicine a sparire e adesso, con la caccia vietata, tornano piano piano ad aumentare.",
+            "question": {
+              "q": "Quanto è lungo lo scheletro della balena?",
+              "answers": [
+                "25 metri",
+                "5 metri",
+                "50 metri",
+                "100 metri"
+              ],
+              "explanation": "Venticinque metri, come due autobus in fila. E non era nemmeno una delle più grandi."
+            }
+          },
+          "london-natural-history-museum-sequoia": {
+            "name": "La fetta di sequoia gigante",
+            "blurb": "Sul muro della scala è appesa una fetta di tronco d’albero, così larga che ci vorrebbero quattro bambini con le braccia aperte per abbracciarla. Viene da una sequoia gigante della California, che era alta 101 metri e aveva 1.300 anni quando fu tagliata nel 1891. Ogni anno un albero fa crescere un anello sotto la corteccia, così gli scienziati hanno contato i cerchi e hanno scoperto la sua età. L’albero è spuntato prima che a Londra fosse costruita la prima torre di pietra, ed era già vecchio quando arrivò Guglielmo il Conquistatore.",
+            "question": {
+              "q": "Come fanno gli scienziati a sapere quanti anni aveva l’albero?",
+              "answers": [
+                "Contarono gli anelli",
+                "Lo diceva un libro",
+                "Lo chiesero ai taglialegna",
+                "Lo pesarono"
+              ],
+              "explanation": "Un anello per ogni anno. Quelli larghi sono annate buone con la pioggia; quelli stretti, annate di siccità."
+            }
+          },
+          "london-natural-history-museum-darwin-statue": {
+            "name": "Darwin sulla scala",
+            "blurb": "Un vecchio con la barba lunga sta seduto su una sedia di marmo in cima alla scala principale, con le mani tranquille sulle ginocchia. È Charles Darwin, e la statua fu scoperta nel 1885, tre anni dopo la sua morte. Da giovane Darwin passò cinque anni su una nave che faceva il giro del mondo, raccogliendo uccelli, scarabei e fossili, e notò che su ogni isola i fringuelli avevano il becco un po’ diverso. Da piccole osservazioni come questa capì che gli animali cambiano poco a poco da una generazione all’altra. La statua fu spostata due volte e tornò al suo posto nel 2009, per i 200 anni dalla sua nascita.",
+            "question": {
+              "q": "Quali uccelli studiò Darwin per capire come cambiano gli animali?",
+              "answers": [
+                "Fringuelli",
+                "Leoni dell’Africa",
+                "Pesci rossi in una boccia",
+                "Pinguini dell’Antartide"
+              ],
+              "explanation": "Alle isole Galápagos ogni isola aveva fringuelli con il becco fatto apposta per il proprio cibo."
+            }
+          },
+          "london-natural-history-museum-t-rex": {
+            "name": "Il tirannosauro che si muove",
+            "blurb": "In fondo alla sala dei dinosauri, nella penombra, un tirannosauro a grandezza naturale gira la testa, sbatte le palpebre, annusa l’aria e ruggisce. Non è un fossile: è una macchina vestita di pelle, costruita a partire da scheletri veri, e sono i suoi motori a fare ogni movimento. Il tirannosauro vero visse 66 milioni di anni fa, era lungo 12 metri e aveva denti come banane. Qualche bambino piccolo piange; la maggior parte vuole rivederlo. Prima di arrivarci, il percorso ti porta sopra i fossili su una passerella, accanto al cranio di un triceratopo con le sue tre corna.",
+            "question": {
+              "q": "Che cosa fa il tirannosauro della sala che un fossile non può fare?",
+              "answers": [
+                "Si muove",
+                "Mangia carne vera",
+                "Cambia colore",
+                "Vola sopra la gente"
+              ],
+              "explanation": "È una macchina con i motori: si muove e ruggisce. L’hanno costruita scienziati e artigiani prendendo come guida ossa vere."
+            }
+          },
+          "london-natural-history-museum-sophie": {
+            "name": "Sophie, lo stegosauro",
+            "blurb": "Nella sala della Terra, vicino all’ingresso di Exhibition Road, sta uno scheletro vero di stegosauro, lungo 5,6 metri, con grandi placche lungo la schiena e quattro spine sulla coda. È stato trovato nel Wyoming, in America, nel 2003 ed è lo stegosauro più completo del mondo: quasi 300 delle sue ossa sono le sue, non copie. Il museo lo chiamò Sophie, come la figlia dell’uomo che aiutò a comprarlo, anche se nessuno sa se l’animale fosse maschio o femmina. Era giovane quando morì, 150 milioni di anni fa, quindi non era cresciuto quanto avrebbe potuto.",
+            "question": {
+              "q": "Che cosa rende Sophie speciale fra gli stegosauri?",
+              "answers": [
+                "È completa",
+                "È la più grande",
+                "È l’unica con le ali",
+                "È la più vecchia"
+              ],
+              "explanation": "Quasi 300 delle sue ossa sono state trovate insieme: è lo stegosauro più completo del mondo. Quasi tutti gli altri scheletri sono metà veri, completati con delle copie."
+            }
+          },
+          "london-natural-history-museum-earthquake-room": {
+            "name": "Il negozio che trema",
+            "blurb": "Nella sala dei vulcani e dei terremoti c’è un piccolo supermercato giapponese. Entri, stai in piedi fra gli scaffali, e il pavimento comincia a tremare come tremò la città di Kobe la mattina presto del 17 gennaio 1995. Gli schermi mostrano immagini vere dalle telecamere di un negozio quel giorno, con la merce che cade dagli scaffali. Il terremoto vero durò venti secondi e distrusse gran parte della città. Il museo non l’ha fatto per spaventarti, ma per farti capire perché in Giappone gli ingegneri costruiscono edifici che si piegano senza rompersi.",
+            "question": {
+              "q": "Quale città fu scossa dal terremoto che rivivi dentro il negozio?",
+              "answers": [
+                "Kobe",
+                "Lisbona",
+                "San Francisco",
+                "Città del Messico"
+              ],
+              "explanation": "Kobe, in Giappone, nel gennaio del 1995. Le immagini sugli schermi vengono da un negozio vero di quella mattina."
+            }
+          }
+        },
+        "riddles": {
+          "london-natural-history-museum-riddle-1": {
+            "prompt": "Sono l’animale più grande che sia mai vissuto, eppure volo. Sto appeso al soffitto con la bocca aperta, come se scendessi in picchiata verso il cibo, e sotto di me passano migliaia di persone ogni giorno.",
+            "hint": "Guarda in alto appena entri dall’ingresso principale."
+          },
+          "london-natural-history-museum-riddle-2": {
+            "prompt": "Ho vissuto milletrecento anni senza muovermi mai dal mio posto. Conto i miei anni a cerchi, uno dentro l’altro, e chi vuole può contarli anche lui.",
+            "hint": "Non sono un animale. Cerca sul muro della scala."
+          },
+          "london-natural-history-museum-riddle-3": {
+            "prompt": "Ho le placche sulla schiena come vele e quattro spine sulla coda, e la testa è piccola per la mia taglia. Sono il più completo di tutta la mia famiglia, e ho un nome da bambina.",
+            "hint": "Sono un dinosauro, ma non quello che ruggisce."
+          }
+        }
+      }
+    },
+    "london-london-zoo": {
+      "name": "Lo zoo di Londra",
+      "tagline": "Il più antico zoo scientifico, e un’orsa che è diventata una storia",
+      "story": "Lo zoo aprì nel 1828 ai margini di Regent’s Park, non per fare una passeggiata ma per studiare: gli scienziati volevano osservare gli animali da vicino, e il pubblico entrò soltanto nel 1847. Fu il primo zoo al mondo fatto per la scienza, e continuò ad arrivare primo: la prima casa dei rettili nel 1849, il primo acquario aperto al pubblico nel 1853, la prima casa degli insetti nel 1881 e il primo zoo per bambini nel 1938. Nel 1914 un soldato canadese che andava alla guerra lasciò qui in custodia una piccola orsa nera; la chiamava Winnie, come la sua città, Winnipeg. Un bambino di nome Christopher Robin veniva spesso a vederla e diede il suo nome al proprio orsacchiotto; suo padre, A. A. Milne, scrisse le storie di Winnie the Pooh. Oggi qui vivono più di 10.000 animali, dai gorilla ai pinguini, e una parte del lavoro dello zoo è far nascere animali che in natura stanno per sparire.",
+      "facts": [
+        "Aprì nel 1828 per gli scienziati e nel 1847 per il pubblico.",
+        "Ebbe la prima casa dei rettili del mondo (1849) e il primo acquario pubblico (1853).",
+        "L’orsa Winnie visse qui dal 1914 e diede il suo nome a Winnie the Pooh."
+      ],
+      "question": {
+        "q": "Come arrivò a Londra l’orsa Winnie?",
+        "answers": [
+          "Con un soldato",
+          "Con un circo dalla Russia",
+          "Regalo del re di Norvegia",
+          "Presa in un bosco in Scozia"
+        ],
+        "explanation": "Il soldato Harry Colebourn la comprò in Canada e la lasciò qui quando partì per la guerra. Dopo la guerra la regalò allo zoo."
+      },
+      "findIt": "L’ingresso principale è sull’Outer Circle, la strada che fa il giro di Regent’s Park, sul lato nord del parco."
+    },
+    "london-westminster-abbey": {
+      "name": "L’Abbazia di Westminster",
+      "tagline": "La chiesa dove i re vengono incoronati da mille anni",
+      "story": "Il giorno di Natale del 1066 Guglielmo il Conquistatore fu incoronato re proprio qui, e da allora quaranta re e regine hanno ricevuto la corona in questa chiesa. Quasi tutti si sono seduti sulla stessa sedia di legno, la Sedia dell’Incoronazione, che il re Edoardo I fece fare nel 1296. È coperta di nomi incisi: nel Settecento e nell’Ottocento gli allievi della scuola accanto ci graffiavano sopra il proprio nome quando nessuno guardava. L’edificio che vedi fu cominciato da Enrico III 750 anni fa, con archi a punta e finestre alte, fatte per tirarti gli occhi verso l’alto. Ma l’abbazia è anche un luogo di riposo. In un angolo riposano poeti e scrittori, e vicino a loro Isaac Newton, che spiegò perché cadono le mele, Charles Darwin, che spiegò come cambiano gli animali, e Stephen Hawking, che studiò i buchi neri. Sopra il grande portale ovest stanno dieci statue del 1998: non sono re, ma persone coraggiose del Novecento, come Martin Luther King.",
+      "facts": [
+        "Quaranta re e regine sono stati incoronati qui dal 1066.",
+        "La Sedia dell’Incoronazione fu ordinata nel 1296 e si usa ancora.",
+        "Newton, Darwin e Hawking riposano tutti dentro l’abbazia."
+      ],
+      "question": {
+        "q": "Su che cosa siedono i re quando vengono incoronati?",
+        "answers": [
+          "Su una sedia di legno",
+          "Su un trono d’oro",
+          "Su un sedile di pietra",
+          "Su uno sgabello d’argento"
+        ],
+        "explanation": "La Sedia dell’Incoronazione è di quercia e ha più di 700 anni. Una volta era dorata; adesso si vedono il legno e i nomi incisi."
+      },
+      "findIt": "I visitatori entrano dal grande portale nord, sul lato che guarda Parliament Square."
+    },
+    "london-london-eye": {
+      "name": "Il London Eye",
+      "tagline": "La ruota che doveva restare cinque anni ed è rimasta per sempre",
+      "story": "Questa ruota fu costruita per festeggiare l’anno 2000 e, quando aprì, era la ruota panoramica più alta del mondo: 135 metri, come trenta autobus a due piani uno sopra l’altro. L’idea venne a due architetti che erano anche marito e moglie, David Marks e Julia Barfield. I suoi pezzi arrivarono lungo il fiume su delle chiatte, furono uniti sdraiati sopra l’acqua e poi la ruota fu tirata su in piedi, piano piano, nel giro di una settimana. Ha 32 capsule di vetro, una per ognuno dei 32 quartieri di Londra, e ogni capsula porta 25 persone. Le capsule sono numerate fino a 33, perché il numero 13 è stato saltato per scaramanzia. La ruota non si ferma per farti salire: gira più piano di una persona che cammina, e un giro dura mezz’ora. Con il cielo limpido vedi fino a quaranta chilometri. Doveva essere smontata dopo cinque anni, ma i londinesi l’hanno amata troppo per lasciarla andare.",
+      "facts": [
+        "È alta 135 metri e ha aperto per l’anno 2000.",
+        "Le sue 32 capsule stanno per i 32 quartieri di Londra.",
+        "Un giro completo dura circa 30 minuti."
+      ],
+      "question": {
+        "q": "Quante capsule ha la ruota, e perché?",
+        "answers": [
+          "32, una per quartiere",
+          "12, una per ogni mese",
+          "24, una per ogni ora",
+          "52, una per ogni settimana"
+        ],
+        "explanation": "Londra è fatta di 32 quartieri, e la ruota ha una capsula per ciascuno. I numeri arrivano fino a 33, perché il 13 manca."
+      },
+      "findIt": "I biglietti si vendono dentro la County Hall, il grande edificio di pietra accanto alla ruota; si sale dalla passeggiata lungo il fiume."
+    },
+    "london-st-pauls-cathedral": {
+      "name": "La Cattedrale di St Paul",
+      "tagline": "La cupola nata da un incendio che ha resistito a una guerra",
+      "story": "Nel 1666 il Grande Incendio attraversò Londra e la vecchia cattedrale bruciò. Il re chiese a Christopher Wren, che oltre che architetto era astronomo e matematico, di disegnarne una nuova. Wren ci lavorò 35 anni, e la cattedrale fu finita nel 1710 con una cupola alta 111 metri, una delle più grandi del mondo. In realtà sono tre cupole una dentro l’altra: quella che vedi da fuori, quella che vedi da dentro, e un cono nascosto di mattoni in mezzo che regge il peso. Se sali 257 gradini arrivi alla Galleria dei Sussurri, dove un sussurro contro il muro fa tutto il giro fino alla parte opposta. Nella Seconda guerra mondiale le bombe cadevano tutt’intorno, ma dei volontari facevano la guardia al tetto ogni notte e la cupola resistette; una sua fotografia, in piedi in mezzo al fumo, diede coraggio a tutto il paese. Wren è sepolto nella cripta, e la sua tomba dice: «Se cerchi il suo monumento, guardati intorno».",
+      "facts": [
+        "Wren ci lavorò 35 anni, dal 1675 al 1710.",
+        "La cupola arriva a 111 metri ed è fatta di tre cupole una dentro l’altra.",
+        "La Galleria dei Sussurri è 257 gradini sopra il pavimento."
+      ],
+      "question": {
+        "q": "Che cosa succede nella Galleria dei Sussurri?",
+        "answers": [
+          "Il sussurro fa il giro",
+          "Il pavimento si muove un po’",
+          "Le luci si spengono da sole",
+          "La tua voce diventa più grave"
+        ],
+        "explanation": "Il muro rotondo porta il suono tutt’intorno come un binario, così un sussurro arriva 30 metri più in là, nell’orecchio di qualcuno che non vedi nemmeno."
+      },
+      "findIt": "Si entra dalla grande scalinata ovest, la facciata con davanti la statua della regina Anna."
+    },
+    "london-science-museum": {
+      "name": "Il Science Museum",
+      "tagline": "La locomotiva a vapore più vecchia del mondo e una capsula tornata dalla Luna",
+      "story": "Proprio accanto al Natural History Museum c’è un museo di tutto quello che hanno costruito le persone: motori, orologi, aeroplani, computer, medicine, veicoli spaziali. Cominciò nel 1857 con gli oggetti di una grande esposizione che si era tenuta a Hyde Park, e crebbe così tanto che gli servì un edificio suo. Al piano terra, in una sala che si chiama «Costruire il mondo moderno», sta la Puffing Billy, la locomotiva a vapore più vecchia rimasta al mondo, del 1814, che trascinava vagoni di carbone in una miniera. Accanto a lei ci sono il modello del DNA che due scienziati costruirono nel 1953 e un pezzo della prima macchina da calcolo, che il suo inventore non riuscì mai a finire. Nella sala dello Spazio, aperta nel 2025, una capsula bruciacchiata a forma di cono ha fatto il giro della Luna con tre astronauti dentro. L’ingresso è gratuito, e quasi tutti i visitatori se ne vanno chiedendosi come funziona davvero una cosa che usano tutti i giorni.",
+      "facts": [
+        "La Puffing Billy, del 1814, è la locomotiva a vapore più vecchia rimasta al mondo.",
+        "La capsula dell’Apollo 10 è qui in prestito dal 1978.",
+        "La sala dello Spazio ha aperto nel settembre del 2025."
+      ],
+      "question": {
+        "q": "Che cosa trasportava la locomotiva Puffing Billy?",
+        "answers": [
+          "Carbone",
+          "Passeggeri verso Londra",
+          "Lettere e pacchi",
+          "Soldati verso la guerra"
+        ],
+        "explanation": "Trascinava vagoni di carbone dalla miniera di Wylam fino al fiume, otto chilometri, per quasi cinquant’anni."
+      },
+      "findIt": "L’ingresso è su Exhibition Road, la stessa strada dell’ingresso laterale del Natural History Museum.",
+      "museum": {
+        "doorNote": "Il piano terra è gratis ed è enorme. La sala degli esperimenti per bambini, il Wonderlab, ha il biglietto.",
+        "rooms": {
+          "london-science-museum-making-the-modern-world": {
+            "name": "Costruire il mondo moderno",
+            "intro": "Una sala lunga con 250 anni di invenzioni in fila, dalle prime macchine a vapore ai primi computer. Non è tutto lucido: c’è un mostro di ferro che sbuffava fumo, una macchina che non è mai stata finita, e un modello di piastre di metallo che spiega come sei fatto tu."
+          },
+          "london-science-museum-space": {
+            "name": "Lo Spazio",
+            "intro": "La sala più nuova del museo, aperta dal settembre del 2025. Due capsule che sono davvero tornate dallo spazio stanno una accanto all’altra, una americana e una russa, e in mezzo a loro una pietra arrivata dalla Luna. Qui è tutto bruciacchiato, graffiato o impolverato, perché ha viaggiato sul serio."
+          }
+        },
+        "exhibits": {
+          "london-science-museum-puffing-billy": {
+            "name": "La Puffing Billy",
+            "blurb": "Una macchina nera e pesante con un camino alto, costruita fra il 1813 e il 1814 alla miniera di Wylam, nel nord dell’Inghilterra, da William Hedley e dai suoi ingegneri. È la locomotiva a vapore più vecchia rimasta al mondo. Trascinava vagoni di carbone fino al fiume alla velocità di una persona che cammina svelta, e sbuffava così forte che la gente del posto la soprannominò Puffing Billy, «Billy che sbuffa». Ha lavorato fino al 1862, quasi cinquant’anni, e poi è venuta dritta al museo. Le prime locomotive che portarono i passeggeri, pochi anni dopo, impararono dai suoi errori.",
+            "question": {
+              "q": "Quanti anni ha più o meno la Puffing Billy?",
+              "answers": [
+                "Oltre 200 anni",
+                "Circa 100 anni",
+                "Circa 50 anni",
+                "Più di 500 anni"
+              ],
+              "explanation": "È stata costruita nel 1814. Nessun’altra macchina a vapore è sopravvissuta da così tanto tempo."
+            }
+          },
+          "london-science-museum-dna-model": {
+            "name": "Il modello del DNA",
+            "blurb": "Nel 1953, a Cambridge, Francis Crick e James Watson capirono la forma del DNA, la ricetta che sta dentro ogni essere vivente: due filamenti attorcigliati uno intorno all’altro, come una scala a chiocciola. Per controllare se era giusta, costruirono un modello di piastre di metallo, fili e morsetti, alto due metri. Quello che vedi qui è una ricostruzione con alcune delle piastre originali. L’idea si appoggiò anche alle fotografie di Rosalind Franklin, che aveva catturato l’ombra della molecola con i raggi X. Senza la sua immagine, la scala non avrebbe trovato la sua forma.",
+            "question": {
+              "q": "Che forma ha il modello del DNA?",
+              "answers": [
+                "Una spirale",
+                "Una scala dritta",
+                "Una palla",
+                "Un cubo"
+              ],
+              "explanation": "Due filamenti girano uno intorno all’altro, come una scala attorcigliata. Gli scienziati la chiamano «doppia elica»."
+            }
+          },
+          "london-science-museum-difference-engine": {
+            "name": "La macchina che non è mai stata finita",
+            "blurb": "Un pezzo di ingranaggi e alberi di ottone, lucidato e silenzioso. È tutto quello che Charles Babbage riuscì a costruire della sua macchina differenziale, una macchina che avrebbe fatto i calcoli girando una manovella, perché nelle tavole di numeri che usavano i marinai non finissero degli errori. Cominciò nel 1823, litigò con il suo ingegnere, finì i soldi, e nel 1833 il lavoro si fermò. Ma questo pezzo funziona, ed era la prima volta che qualcuno costruiva una macchina che pensa con i numeri. Molto più tardi, i computer di tutto il mondo sono nati da questa idea.",
+            "question": {
+              "q": "Che cosa avrebbe fatto la macchina di Babbage se fosse stata finita?",
+              "answers": [
+                "Calcoli",
+                "Disegni colorati",
+                "Musica per pianoforte",
+                "Vestiti di lana"
+              ],
+              "explanation": "Avrebbe stampato tavole di numeri senza errori, girando una manovella. Le persone che le scrivevano a mano sbagliavano."
+            }
+          },
+          "london-science-museum-apollo-10": {
+            "name": "La capsula dell’Apollo 10",
+            "blurb": "Un cono di metallo, bruciacchiato e marrone da fuori, con tre piccoli posti dentro. Nel maggio del 1969 viaggiò fino alla Luna con tre astronauti, Stafford, Young e Cernan, e fece la prova dell’allunaggio: scese fino a 15 chilometri dalla superficie e risalì, senza toccarla. Due mesi dopo l’Apollo 11 fece il passo. Al ritorno la capsula entrò nell’atmosfera così veloce che l’aria la bruciò, ed è per questo che è nera. Sta a Londra in prestito dal 1978 ed è l’unica capsula andata alla Luna che si trova fuori dagli Stati Uniti.",
+            "question": {
+              "q": "Che cosa fece l’Apollo 10 quando arrivò alla Luna?",
+              "answers": [
+                "Una prova",
+                "Il primo allunaggio",
+                "Raccolse delle pietre",
+                "Piantò la bandiera"
+              ],
+              "explanation": "Scese fino a 15 chilometri dalla superficie e tornò su. L’Apollo 11 allunò due mesi dopo."
+            }
+          },
+          "london-science-museum-soyuz": {
+            "name": "La capsula di Tim Peake",
+            "blurb": "Una capsula russa Sojuz tutta tonda, bruciacchiata fuori, con dentro un sedile stampato nella forma esatta del corpo di una persona precisa. Nel dicembre del 2015 portò l’astronauta britannico Tim Peake alla Stazione Spaziale Internazionale, e nel giugno del 2016 lo riportò indietro, atterrando con il paracadute nella steppa del Kazakistan. Peake è rimasto sei mesi nello spazio, ha fatto una passeggiata fuori dalla stazione e ha corso una maratona intera su un tapis roulant, legato per non volare via. È la prima volta che una capsula Apollo e una Sojuz stanno una accanto all’altra.",
+            "question": {
+              "q": "Chi è tornato sulla Terra dentro questa capsula?",
+              "answers": [
+                "Tim Peake",
+                "Neil Armstrong",
+                "Jurij Gagarin",
+                "La cagnetta Laika"
+              ],
+              "explanation": "L’astronauta britannico Tim Peake, nel giugno del 2016, dopo sei mesi sulla stazione spaziale."
+            }
+          },
+          "london-science-museum-moon-rock": {
+            "name": "La pietra della Luna",
+            "blurb": "Una pietra piccola e scura dentro una teca di vetro, che non sembra granché finché non leggi da dove viene. L’hanno raccolta gli astronauti dell’Apollo 15 nel 1971, in una zona della Luna accanto a un canyon profondo, e ha circa tre miliardi di anni. Sulla Luna non c’è aria e non c’è pioggia, così le sue pietre non si consumano: sono come tempo congelato. La pietra è della NASA ed è in prestito al museo. In tutto gli astronauti hanno riportato 382 chili di Luna, e ancora oggi gli scienziati aprono qualche campione per la prima volta.",
+            "question": {
+              "q": "Quanti anni ha più o meno la pietra della Luna?",
+              "answers": [
+                "Tre miliardi",
+                "Tremila anni",
+                "Tre milioni di anni",
+                "Trecento anni"
+              ],
+              "explanation": "Tre miliardi. Sulla Terra le pietre vengono consumate di continuo dall’acqua e dall’aria; sulla Luna restano uguali."
+            }
+          }
+        },
+        "riddles": {
+          "london-science-museum-riddle-1": {
+            "prompt": "Sono andata fino alla Luna con tre persone dentro di me, le ho girato intorno e sono tornata indietro senza mai toccarla. La mia porta è molto piccola per un viaggio così lungo.",
+            "hint": "Ho la forma di un cono e da fuori sono bruciacchiata."
+          },
+          "london-science-museum-riddle-2": {
+            "prompt": "Sono la più vecchia della mia specie in tutto il mondo. Due secoli fa trascinavo carbone in una miniera, sbuffando fumo, e il mio soprannome è nato da quel rumore.",
+            "hint": "Ho le ruote, un camino, e niente corna."
+          },
+          "london-science-museum-riddle-3": {
+            "prompt": "Non sono una macchina e non sono un veicolo: sono un’idea fatta di piastre di metallo e di fili. Mostro com’è fatta la ricetta che ogni essere vivente si porta dentro, attorcigliata come una scala.",
+            "hint": "Due scienziati mi hanno costruito nel 1953 per capire qualcosa di molto piccolo."
+          }
+        }
+      }
+    },
+    "london-monument": {
+      "name": "Il Monumento al Grande Incendio",
+      "tagline": "Una colonna alta quanto la sua distanza dall’incendio",
+      "story": "Nelle prime ore del 2 settembre 1666, in un forno di Pudding Lane, un fuoco sfuggì di mano. Le case erano di legno e strette una accanto all’altra, tirava un vento forte, e nel giro di quattro giorni bruciò quasi tutta la città vecchia: 13.000 case e 87 chiese. I morti registrati furono stranamente pochissimi, perché la gente fece in tempo a scappare, ma decine di migliaia di persone rimasero senza casa. Londra fu ricostruita in mattoni e pietra, e Christopher Wren con il suo amico Robert Hooke disegnò questa colonna per ricordare quello che era successo. Fu finita nel 1677, è alta 61 metri e sta esattamente a 61 metri dal punto dove cominciò l’incendio; in cima brilla una palla dorata di fiamme. Dentro, 311 gradini si avvolgono su e su fino a una piattaforma con la vista su tutta la città, e chi arriva in cima riceve un certificato. Hooke ebbe un’altra idea: la colonna è vuota dentro, e da un laboratorio alla sua base guardava le stelle su per la canna, come se fosse un telescopio.",
+      "facts": [
+        "È alta 61 metri e sta a 61 metri dal forno dove cominciò l’incendio.",
+        "311 gradini portano fino alla piattaforma panoramica.",
+        "Fu costruita dal 1671 al 1677, da Wren e Hooke."
+      ],
+      "question": {
+        "q": "Quanto dista il Monumento dal punto dove cominciò l’incendio?",
+        "answers": [
+          "61 metri",
+          "Proprio lì sopra",
+          "Un chilometro",
+          "Dall’altra parte del fiume"
+        ],
+        "explanation": "Sono 61 metri, esattamente quanto è alta la colonna. Se cadesse verso est, la sua punta arriverebbe sul forno. È stata progettata così apposta."
+      },
+      "findIt": "La porta è alla base della colonna, all’angolo fra Monument Street e Fish Street Hill, accanto alla stazione Monument."
+    },
+    "london-cutty-sark": {
+      "name": "Il Cutty Sark",
+      "tagline": "Il veliero più veloce del suo tempo, adesso sollevato in aria",
+      "story": "Nel 1869 in Scozia fu costruito un veliero fatto per una cosa sola: correre. Era un clipper, con lo scafo sottile e vele enormi, e il suo mestiere era portare il tè dalla Cina a Londra prima delle altre navi, perché il primo tè dell’anno si vendeva a un prezzo più alto. Il suo nome vuol dire «camicia corta» in scozzese e viene da una poesia con una strega che ne indossava una; la figura di legno sulla prua è la strega stessa, che stringe la coda di un cavallo. Ma i piroscafi presero presto il tè, così il Cutty Sark passò alla lana dall’Australia, e su quella rotta diventò la nave più veloce: nel 1885 andò da Sydney a Londra in 73 giorni. È l’ultimo clipper del tè rimasto al mondo. Nel 2007, mentre lo stavano riparando, un incendio lo bruciò, ma la maggior parte del suo legname era stata tolta per il restauro e si salvò. Nel 2012 ha riaperto, sollevato tre metri in aria, così cammini sotto lo scafo e lo puoi toccare.",
+      "facts": [
+        "Fu costruito nel 1869 a Dumbarton, in Scozia.",
+        "Nel 1885 andò da Sydney a Londra in 73 giorni.",
+        "Dal 2012 sta sollevato tre metri da terra."
+      ],
+      "question": {
+        "q": "Che cosa trasportava il Cutty Sark nei suoi primi viaggi?",
+        "answers": [
+          "Tè dalla Cina",
+          "Oro dall’Australia",
+          "Spezie dall’India",
+          "Legname dal Canada"
+        ],
+        "explanation": "Il tè, il più in fretta possibile. Quando i piroscafi presero il tè, passò alla lana dall’Australia, ed è lì che diventò il più veloce."
+      },
+      "findIt": "Il veliero sta in un bacino asciutto accanto al fiume; l’ingresso è vicino alla prua, a un minuto dalla stazione Cutty Sark."
+    }
+  },
+  "trails": {
+    "london-first-time": {
+      "name": "Prima volta a Londra",
+      "promise": "Un palazzo, un’incoronazione, una campana, una ruota e quattro leoni, tutto a piedi."
+    },
+    "london-two-hours-by-the-river": {
+      "name": "Due ore lungo il fiume",
+      "promise": "Un castello, un ponte che si apre, una colonna con 311 scalini e qualcosa da mangiare alla fine."
+    },
+    "london-rainy-day": {
+      "name": "Un giorno di pioggia",
+      "promise": "Tre musei, tutti gratis, tutti asciutti: una pietra nera, una balena e una capsula tornata dalla Luna."
+    },
+    "london-day-for-playing": {
+      "name": "Un giorno per giocare",
+      "promise": "Giocolieri in una piazza, pinguini in un parco, una nave sotto cui passare e una linea su cui stare."
+    }
+  }
+}
