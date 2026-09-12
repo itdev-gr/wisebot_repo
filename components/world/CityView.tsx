@@ -24,6 +24,7 @@ import { ArrowLeft, Check, ChevronRight, Compass, DoorOpen, Footprints, MapPin }
 import type { City, Country, Place, PlaceId, Trail, WorldLang } from '../../data/world/types';
 import type { UiText } from './worldUi';
 import { CATEGORY_LABEL, CATEGORY_STYLE, WORLD_STYLE, say, ui } from './worldUi';
+import { WorldMap } from './WorldMap';
 
 export interface CityViewProps {
   lang: WorldLang;
@@ -585,56 +586,29 @@ const CityView: React.FC<CityViewProps> = ({
         </div>
       </motion.div>
 
-      {/* ── MAP ── */}
-      {(pinned.length > 0 || showArtwork) && (
+      {/* ── MAP ──
+          The real one: streets and a numbered pin per place, on OpenStreetMap, the way
+          the family reads a paper map. The illustrated SVG stays in the data as artwork
+          for later; on the street it showed a drawing with no pins and helped nobody. */}
+      {places.length > 0 && (
         <section className="mt-8">
           <SectionTitle icon={<MapPin size={14} aria-hidden="true" />}>{t.mapTitle}</SectionTitle>
-
-          <div className="relative w-full overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04]">
-            {/* Spacer: holds the artwork's exact box from first paint. */}
-            <div style={{ paddingTop: `${ratioPct}%` }} aria-hidden="true" />
-
-            {showArtwork ? (
-              <img
-                key={mapSrc}
-                src={mapSrc}
-                alt={city.map?.alt ? say(city.map.alt, lang) : t.mapAlt}
-                width={city.map?.width}
-                height={city.map?.height}
-                decoding="async"
-                onError={() => setBrokenSrc(mapSrc)}
-                className="absolute inset-0 w-full h-full object-contain"
-              />
-            ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10" />
-            )}
-
-            {pinned.map((entry, index) =>
-              entry.spot ? (
-                <Pin
-                  key={entry.place.id}
-                  place={entry.place}
-                  spot={entry.spot}
-                  index={index}
-                  stamped={isStamped(entry.place.id)}
-                  label={
-                    isStamped(entry.place.id)
-                      ? t.goToDone(say(entry.place.name, lang))
-                      : t.goTo(say(entry.place.name, lang))
-                  }
-                  onOpen={() => onOpenPlace(entry.place.id)}
-                />
-              ) : null,
-            )}
-          </div>
-
-          {!showArtwork && (
-            <p className="text-[11px] font-bold text-white/40 mt-2.5 uppercase tracking-wider">{t.mapPending}</p>
-          )}
-          {showArtwork && pinned.length > 0 && (
-            <p className="text-[11px] font-bold text-white/40 mt-2.5 uppercase tracking-wider">{t.mapHint}</p>
-          )}
-          {someoneOffMap && <p className="text-[11px] font-bold text-white/30 mt-1">{t.offMap}</p>}
+          <WorldMap
+            lang={lang}
+            centre={city.centre}
+            zoom={14}
+            pins={places.map((place, index) => ({
+              id: place.id,
+              name: place.name,
+              emoji: place.emoji,
+              lat: place.location.lat,
+              lng: place.location.lng,
+              index: index + 1,
+              stamped: isStamped(place.id),
+            }))}
+            onSelect={(id) => onOpenPlace(id)}
+          />
+          <p className="text-[11px] font-bold text-white/40 mt-2.5 uppercase tracking-wider">{t.mapHint}</p>
         </section>
       )}
 

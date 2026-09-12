@@ -592,6 +592,7 @@ const PlacePage: React.FC<{
       <PlaceCard
         lang={lang}
         place={place}
+        cityName={city.name}
         stamp={progress.progress.places[place.id]}
         onComplete={handleComplete}
         onEnterMuseum={place.museum ? () => navigate(`${cityUrl}/${place.id}/in`) : undefined}
