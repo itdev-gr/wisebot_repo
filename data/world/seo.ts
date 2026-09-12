@@ -133,10 +133,16 @@ export function countryMeta(
   const path = `/world/${country.id}`;
   const places = cities.reduce((n, c) => n + (placeCounts[c.id] ?? 0), 0);
   const cityNames = cities.map((c) => c.name[lang]).join(', ');
+  // A country that is open — intro, facts, entry stamp — but whose cities have not
+  // arrived yet: «0 πόλεις» in a search result reads as broken; say what is true.
   const title =
-    lang === 'el'
-      ? `${country.name.el} για παιδιά — ${cities.length} πόλεις, ${places} αξιοθέατα και μουσεία | ${BRAND}`
-      : `${country.name.en} for kids — ${cities.length} cities, ${places} places and museums | ${BRAND}`;
+    cities.length === 0
+      ? lang === 'el'
+        ? `${country.name.el} για παιδιά — σφραγίδα εισόδου, οι πόλεις έρχονται | ${BRAND}`
+        : `${country.name.en} for kids — entry stamp, cities coming soon | ${BRAND}`
+      : lang === 'el'
+        ? `${country.name.el} για παιδιά — ${cities.length} πόλεις, ${places} αξιοθέατα και μουσεία | ${BRAND}`
+        : `${country.name.en} for kids — ${cities.length} cities, ${places} places and museums | ${BRAND}`;
   return {
     path,
     title,
