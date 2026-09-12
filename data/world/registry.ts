@@ -21,10 +21,58 @@ import type {
 } from './types';
 import { mergeCityTranslation, mergeCountriesTranslation } from './mergeTranslation';
 
+import { country as austria_country, cities as austria_cities } from './countries/austria';
+import { country as belgium_country, cities as belgium_cities } from './countries/belgium';
+import { country as canada_country, cities as canada_cities } from './countries/canada';
+import { country as china_country, cities as china_cities } from './countries/china';
+import { country as croatia_country, cities as croatia_cities } from './countries/croatia';
+import { country as cyprus_country, cities as cyprus_cities } from './countries/cyprus';
+import { country as czechia_country, cities as czechia_cities } from './countries/czechia';
+import { country as denmark_country, cities as denmark_cities } from './countries/denmark';
+import { country as egypt_country, cities as egypt_cities } from './countries/egypt';
+import { country as france_country, cities as france_cities } from './countries/france';
+import { country as germany_country, cities as germany_cities } from './countries/germany';
 import { country as greece_country, cities as greece_cities } from './countries/greece';
+import { country as hungary_country, cities as hungary_cities } from './countries/hungary';
+import { country as italy_country, cities as italy_cities } from './countries/italy';
+import { country as japan_country, cities as japan_cities } from './countries/japan';
+import { country as mexico_country, cities as mexico_cities } from './countries/mexico';
+import { country as netherlands_country, cities as netherlands_cities } from './countries/netherlands';
+import { country as poland_country, cities as poland_cities } from './countries/poland';
+import { country as portugal_country, cities as portugal_cities } from './countries/portugal';
+import { country as spain_country, cities as spain_cities } from './countries/spain';
+import { country as thailand_country, cities as thailand_cities } from './countries/thailand';
+import { country as turkey_country, cities as turkey_cities } from './countries/turkey';
+import { country as united_arab_emirates_country, cities as united_arab_emirates_cities } from './countries/united-arab-emirates';
+import { country as united_kingdom_country, cities as united_kingdom_cities } from './countries/united-kingdom';
+import { country as united_states_country, cities as united_states_cities } from './countries/united-states';
 
 const COUNTRY_MODULES: CountryModule[] = [
+  { country: austria_country, cities: austria_cities },
+  { country: belgium_country, cities: belgium_cities },
+  { country: canada_country, cities: canada_cities },
+  { country: china_country, cities: china_cities },
+  { country: croatia_country, cities: croatia_cities },
+  { country: cyprus_country, cities: cyprus_cities },
+  { country: czechia_country, cities: czechia_cities },
+  { country: denmark_country, cities: denmark_cities },
+  { country: egypt_country, cities: egypt_cities },
+  { country: france_country, cities: france_cities },
+  { country: germany_country, cities: germany_cities },
   { country: greece_country, cities: greece_cities },
+  { country: hungary_country, cities: hungary_cities },
+  { country: italy_country, cities: italy_cities },
+  { country: japan_country, cities: japan_cities },
+  { country: mexico_country, cities: mexico_cities },
+  { country: netherlands_country, cities: netherlands_cities },
+  { country: poland_country, cities: poland_cities },
+  { country: portugal_country, cities: portugal_cities },
+  { country: spain_country, cities: spain_cities },
+  { country: thailand_country, cities: thailand_cities },
+  { country: turkey_country, cities: turkey_cities },
+  { country: united_arab_emirates_country, cities: united_arab_emirates_cities },
+  { country: united_kingdom_country, cities: united_kingdom_cities },
+  { country: united_states_country, cities: united_states_cities },
 ];
 
 const byOrder = <T extends { order: number }>(a: T, b: T) => a.order - b.order;
@@ -44,6 +92,7 @@ export const PLACE_COUNTS: Record<CityId, number> = {
   'delphi': 13,
   'heraklion': 12,
   'rhodes': 12,
+  'rome': 18,
   'thessaloniki': 17,
 };
 
@@ -52,6 +101,7 @@ const LOADERS: Record<CityId, () => Promise<CityModule>> = {
   'delphi': () => import('./cities/delphi'),
   'heraklion': () => import('./cities/heraklion'),
   'rhodes': () => import('./cities/rhodes'),
+  'rome': () => import('./cities/rome'),
   'thessaloniki': () => import('./cities/thessaloniki'),
 };
 
