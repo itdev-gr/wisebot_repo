@@ -1,0 +1,506 @@
+{
+  "city": "barcelona",
+  "resolvedAt": "2026-09-12T11:34:21.989Z",
+  "centre": {
+    "lat": 41.3825,
+    "lng": 2.17694
+  },
+  "places": [
+    {
+      "id": "barcelona-sagrada-familia",
+      "name": "Sagrada Família",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q48435",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Sagrada Família",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.40369,
+      "lng": 2.17433,
+      "labels": {
+        "es": "Templo Expiatorio de la Sagrada Familia",
+        "el": "Σαγράδα Φαμίλια",
+        "fr": "Sagrada Família",
+        "it": "Sagrada Família",
+        "de": "Sagrada Família",
+        "en": "Basilica and Expiatory Church of the Holy Family"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-casa-batllo",
+      "name": "Casa Batlló",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q461371",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Casa Batlló",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.39158,
+      "lng": 2.16492,
+      "labels": {
+        "fr": "Casa Batlló",
+        "es": "Casa Batlló",
+        "it": "Casa Batlló",
+        "de": "Casa Batlló",
+        "en": "Casa Batlló",
+        "el": "Κάζα Μπατλό"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-casa-mila",
+      "name": "Casa Milà (La Pedrera)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q207870",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "La Pedrera, Barcelona",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.39528,
+      "lng": 2.16167,
+      "labels": {
+        "fr": "Casa Milà",
+        "es": "Casa Milá",
+        "it": "Casa Milà",
+        "de": "Casa Milà",
+        "el": "Κάζα Μιλά",
+        "en": "Casa Milà"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-font-de-canaletes",
+      "name": "Font de Canaletes (La Rambla)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2723971",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Font de Canaletes",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.38528,
+      "lng": 2.17014,
+      "labels": {
+        "fr": "fontaine de Canaletes",
+        "en": "Font de Canaletes",
+        "es": "Fuente de Canaletas",
+        "it": "Font de Canaletes",
+        "de": "Font de Canaletes"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-boqueria",
+      "name": "Mercat de la Boqueria",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1334899",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "La Boqueria",
+          "deltaM": 37
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.3818,
+      "lng": 2.17155,
+      "labels": {
+        "fr": "La Boqueria",
+        "es": "La Boquería",
+        "en": "La Boqueria",
+        "it": "La Boqueria",
+        "de": "Mercat de la Boqueria"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-cathedral",
+      "name": "Catedral de Barcelona",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q17155",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Barcelona Cathedral",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.38389,
+      "lng": 2.17639,
+      "labels": {
+        "en": "Cathedral of the Holy Cross and Saint Eulalia",
+        "de": "Kathedrale von Barcelona",
+        "es": "Catedral de Santa Eulalia de Barcelona",
+        "fr": "cathédrale Sainte-Eulalie de Barcelone",
+        "it": "cattedrale di Barcellona",
+        "el": "Καθεδρικός Ναός της Βαρκελώνης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-placa-reial",
+      "name": "Plaça Reial",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1519964",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Royal Square (Barcelona)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.38,
+      "lng": 2.175,
+      "labels": {
+        "de": "Plaça Reial",
+        "fr": "place Royale",
+        "en": "Royal Square",
+        "es": "Plaza Real",
+        "it": "plaça Reial"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-columbus-monument",
+      "name": "Monument a Colom",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2288815",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Columbus Monument, Barcelona",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.3758,
+      "lng": 2.17776,
+      "labels": {
+        "fr": "colonne Christophe Colomb de Barcelone",
+        "es": "Monumento a Colón",
+        "en": "Columbus Monument",
+        "it": "Monumento di Cristoforo Colombo"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-arc-de-triomf",
+      "name": "Arc de Triomf",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q631075",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Arc de Triomf",
+          "deltaM": 31
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.39111,
+      "lng": 2.18056,
+      "labels": {
+        "fr": "arc de triomphe",
+        "de": "Arc de Triomf",
+        "it": "Arco di Trionfo",
+        "en": "Arc de Triomf",
+        "es": "Arco de Triunfo de Barcelona",
+        "el": "Αψίδα του Θριάμβου στη Βαρκελώνη"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-park-guell",
+      "name": "Park Güell",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q212867",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Park Güell",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.41361,
+      "lng": 2.15278,
+      "labels": {
+        "fr": "parc Güell",
+        "es": "Park Güell",
+        "it": "parco Güell",
+        "de": "Park Güell",
+        "en": "Park Güell",
+        "el": "Πάρκο Γκουέλ"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-cosmocaixa",
+      "name": "CosmoCaixa",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2625747",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 41.41306,
+      "lng": 2.13111,
+      "labels": {
+        "en": "CosmoCaixa Barcelona",
+        "es": "CosmoCaixa Barcelona",
+        "fr": "CosmoCaixa",
+        "it": "CosmoCaixa"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-museu-maritim",
+      "name": "Museu Marítim (Drassanes Reials)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q263924",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Barcelona Royal Shipyard",
+          "deltaM": 30
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.37527,
+      "lng": 2.17628,
+      "labels": {
+        "en": "Barcelona Royal Shipyard",
+        "de": "Drassanes Reials de Barcelona",
+        "es": "Atarazanas Reales de Barcelona",
+        "fr": "Drassanes",
+        "it": "Drassanes Reials de Barcelona"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-camp-nou",
+      "name": "Camp Nou",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q159848",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Camp Nou",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.38083,
+      "lng": 2.12278,
+      "labels": {
+        "es": "Camp Nou",
+        "el": "Καμπ Νόου",
+        "fr": "Camp Nou",
+        "it": "Camp Nou",
+        "de": "Camp Nou",
+        "en": "Camp Nou"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-zoo",
+      "name": "Zoo de Barcelona",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q220013",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Barcelona Zoo",
+          "deltaM": 139
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.38788,
+      "lng": 2.19119,
+      "labels": {
+        "fr": "jardin zoologique de Barcelone",
+        "en": "Barcelona Zoo",
+        "de": "Zoo Barcelona",
+        "it": "zoo di Barcellona",
+        "es": "Zoo de Barcelona"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-aquarium",
+      "name": "L'Aquàrium de Barcelona",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1200948",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Aquarium Barcelona",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.37667,
+      "lng": 2.18417,
+      "labels": {
+        "fr": "Aquarium de Barcelone",
+        "es": "Aquarium de Barcelona",
+        "en": "Aquarium Barcelona",
+        "de": "Aquarium Barcelona",
+        "it": "Aquarium Barcelona"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "barcelona-tibidabo",
+      "name": "Parc d'Atraccions Tibidabo",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1138985",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Tibidabo Amusement Park",
+          "deltaM": 51
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 41.42175,
+      "lng": 2.12004,
+      "labels": {
+        "es": "Parque de Atracciones Tibidabo",
+        "it": "Tibidabo",
+        "en": "Tibidabo Amusement Park"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}
