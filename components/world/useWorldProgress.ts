@@ -25,6 +25,13 @@
 
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { useEconomy } from '../../context/EconomyContext';
+import { pushWorldStamp } from '../../services/worldStampsSync';
+import {
+  readWorldProgress as read,
+  writeWorldProgress as write,
+  today,
+} from './worldProgressStore';
+import type { PlaceStamp, WorldProgress } from './worldProgressStore';
 import type {
   City,
   CityId,
@@ -38,8 +45,11 @@ import type {
   TrailId,
 } from '../../data/world/types';
 
-const KEY = 'wb_world_progress';
-const VERSION = 2;
+// The shape, the key and the two storage functions live in `worldProgressStore.ts`, so
+// the cloud-sync layer can read the same passport without importing this file's award
+// machinery. Re-exported here because three screens already import them from this path.
+export { today };
+export type { PlaceStamp, WorldProgress };
 
 /**
  * What each thing is worth.
@@ -68,85 +78,6 @@ export const WORLD_XP = {
   /** Every city in a country. */
   country: 100,
 } as const;
-
-// ------------------------------------------------------------------- storage
-
-export interface PlaceStamp {
-  /** ISO date of the first visit. What the passport prints. */
-  at: string;
-  /** Whether the question was right on that first attempt. */
-  correct: boolean;
-}
-
-export interface WorldProgress {
-  /** Bumped only for a breaking shape change; the reader resets rather than guesses. */
-  v: number;
-  /** ISO date the child first entered each country. The entry stamp. */
-  entries: Record<CountryId, string>;
-  places: Record<PlaceId, PlaceStamp>;
-  /** Exhibits answered correctly, by id. */
-  exhibits: Record<ExhibitId, string>;
-  /** Riddles solved, by id. */
-  riddles: Record<RiddleId, string>;
-  trailsDone: TrailId[];
-  citiesDone: CityId[];
-  countriesDone: CountryId[];
-}
-
-const EMPTY: WorldProgress = {
-  v: VERSION,
-  entries: {},
-  places: {},
-  exhibits: {},
-  riddles: {},
-  trailsDone: [],
-  citiesDone: [],
-  countriesDone: [],
-};
-
-/**
- * Today where the child is, not today in UTC.
- *
- * `toISOString()` converts to UTC first, so a child in Athens who earns a stamp at half
- * past midnight gets yesterday's date printed on it — the passport disagrees with the
- * clock they are looking at. Every hour east of Greenwich has this, and the three hours
- * of Greek summer time make it a nightly occurrence rather than an edge case.
- */
-export const today = (): string => {
-  const d = new Date();
-  const pad = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-};
-
-function read(): WorldProgress {
-  try {
-    const raw = localStorage.getItem(KEY);
-    if (!raw) return { ...EMPTY };
-    const parsed = JSON.parse(raw) as Partial<WorldProgress>;
-    if (parsed?.v !== VERSION) return { ...EMPTY };
-    return {
-      ...EMPTY,
-      ...parsed,
-      entries: parsed.entries ?? {},
-      places: parsed.places ?? {},
-      exhibits: parsed.exhibits ?? {},
-      riddles: parsed.riddles ?? {},
-      trailsDone: parsed.trailsDone ?? [],
-      citiesDone: parsed.citiesDone ?? [],
-      countriesDone: parsed.countriesDone ?? [],
-    };
-  } catch {
-    return { ...EMPTY };
-  }
-}
-
-function write(progress: WorldProgress): void {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(progress));
-  } catch {
-    /* full, or blocked in a private window — never break the screen over it */
-  }
-}
 
 // -------------------------------------------------------------------- awards
 
@@ -265,7 +196,8 @@ export function useWorldProgress(): UseWorldProgress {
       const current = ref.current;
       if (current.places[place.id]) return null;
 
-      const places = { ...current.places, [place.id]: { at: today(), correct } };
+      const stamp: PlaceStamp = { at: today(), correct };
+      const places = { ...current.places, [place.id]: stamp };
       let xp = WORLD_XP.visitPlace + (correct ? WORLD_XP.placeCorrect : 0);
       const award: WorldAward = { xp };
 
@@ -293,6 +225,13 @@ export function useWorldProgress(): UseWorldProgress {
 
       award.xp = xp;
       commit({ ...current, places, citiesDone, countriesDone }, xp, 'WORLD_VISIT_PLACE');
+
+      // Push the moment it is earned, not on the next sign-in. `AuthContext.signOut`
+      // clears every `wb_*` key, so a passport that had never been pushed would be gone.
+      // Guests have no session and this returns without a request; a failed push is
+      // picked up by the full sync at the next login, so it must not be awaited here.
+      void pushWorldStamp(place.id, stamp);
+
       return award;
     },
     [commit],

@@ -33,6 +33,20 @@ interface QuizEngineProps {
   finishSlot?: (score: number, total: number) => React.ReactNode;
   /** Label of the last button (default "ΠΑΙΞΕ ΑΛΛΟ"). */
   restartLabel?: string;
+  /**
+   * Whether finishing this quiz reports `PASS_QUIZ` to the economy. Default true, which
+   * is what School, Quiz and the challenge flow want.
+   *
+   * The Explorer passes false. Its quizzes are travel content that is being folded into
+   * WiseBot World, and World pays for itself in XP through `useWorldProgress` — a place
+   * is worth 10 or 20 XP there. Leaving `PASS_QUIZ` on would mean the same walk also
+   * moved `stats.quizzesPassed`, the Thinker and Scientist badges and the daily mission,
+   * which is the Academy's ladder, not the passport's.
+   *
+   * This only gates the economy call. Stars and diplomas still record: `saveQuizBest`
+   * runs either way, because that is the child's own best run and belongs to them.
+   */
+  countsAsQuizAction?: boolean;
 }
 
 // ─── PROGRESS PERSISTENCE ───
@@ -222,7 +236,7 @@ const CircleTimer = ({ timeLeft, total }: { timeLeft: number; total: number }) =
 // ═══════════════════════════════════════
 // MAIN COMPONENT
 // ═══════════════════════════════════════
-const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestions, onRestart, lang, categoryId, challengeData, finishSlot, restartLabel }) => {
+const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestions, onRestart, lang, categoryId, challengeData, finishSlot, restartLabel, countsAsQuizAction = true }) => {
   const { trackAction } = useEconomy();
   // The stored option order leaks the answer (see utils/shuffleOptions.ts). Question order is
   // kept, so a resumed quiz (currentIdx from localStorage) still lands on the same question.
@@ -329,7 +343,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
       // block must run exactly once per quiz even now that the full dep list can re-fire
       // the effect (same double-award shape as audit bugs H1/B4).
       completionRecordedRef.current = true;
-      if (totalScore > 0) trackAction('PASS_QUIZ');
+      if (countsAsQuizAction && totalScore > 0) trackAction('PASS_QUIZ');
       // Clear saved progress — quiz is done; record the run for stars/diplomas
       if (categoryId) {
         clearQuizProgress(categoryId);
@@ -337,7 +351,7 @@ const QuizEngine: React.FC<QuizEngineProps> = ({ topic, questions: sourceQuestio
       }
     }
     if (!isFinished) completionRecordedRef.current = false;
-  }, [isFinished, categoryId, questions.length, totalScore, trackAction]);
+  }, [isFinished, categoryId, questions.length, totalScore, trackAction, countsAsQuizAction]);
 
   const getSpeedMultiplier = (): number => {
     const elapsed = (Date.now() - questionStartRef.current) / 1000;

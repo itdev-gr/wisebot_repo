@@ -4,7 +4,12 @@
  * A city is a map with 8–10 sealed spots. The child reads a riddle, walks there (GPS) or
  * solves the riddle from home, and the envelope opens: a story card, a "did you know" for
  * the parent, an on-site observation task and a 3-question quiz played through the same
- * QuizEngine as School — so stars, XP and PASS_QUIZ credits work exactly the same way.
+ * QuizEngine as School — so stars and diplomas work exactly the same way.
+ *
+ * That quiz does NOT report `PASS_QUIZ` (`countsAsQuizAction={false}`). The Explorer is
+ * travel content being folded into WiseBot World, and World pays for a place in its own
+ * XP. Counting an Explorer quiz into `stats.quizzesPassed`, the Thinker and Scientist
+ * badges and the daily mission would pay the Academy's ladder for a walk.
  *
  * Screens: city picker → city map + trail → spot (riddle / unlock) → opened envelope → quiz.
  *
@@ -481,6 +486,7 @@ export default function Explore({ lang }: { lang: Lang }) {
           lang={lang}
           categoryId={spotQuizId(city.id, spot.id)}
           restartLabel={t.next}
+          countsAsQuizAction={false}
           finishSlot={(score, total) => (
             <div className="p-4 bg-white/5 border border-white/10 rounded-2xl text-left flex items-start gap-3">
               <span className="text-3xl leading-none">🦉</span>
