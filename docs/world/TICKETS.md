@@ -87,16 +87,36 @@ likely to be re-raised by somebody reading the brief cold:
 
 ---
 
-## 2. Open decisions only the owner can close
+## 2. The six decisions — all closed
 
-| # | Decision | Blocks |
-| --- | --- | --- |
-| 1 | May an on-site signal leave the device at all, given §28 forbids storing the time and §29 lists child-location history by name? | `world-analytics-minimum`, and with it the North Star |
-| 2 | What is the L3 museum stamp worth in XP, on the `data/makerLevels.ts` ladder where Explorer starts at 300? | `l3-museum-stamp` |
-| 3 | The four test prices, created in Stripe, and which of City Adventure / Greece Pack a Greek city falls under | `pricing-engine-gate` |
-| 4 | Field test #0: which three mission types the children actually ask for | every P2 in the quest cluster |
-| 5 | Walk the 16 Greek C-grade places, and Athens for the first Gold sign-off | `loc-greece-c-walk`, `gold-signoff-athens` |
-| 6 | Vercel Web Analytics: switch it on and accept a code change, or drop it | `vercel-web-analytics` |
+Closed by the owner on 13 Σεπτεμβρίου 2026 and relayed through the «WiseBot World roadmap»
+session. Each answer is binding on the ticket named beside it, and each ticket carries the
+consequence in its own text.
+
+**1. Nothing that says «I was there» leaves the device.** Analytics are anonymous counters
+per city — `mission_completed`, `stamp_earned`, `another_one_yes` / `another_one_no`,
+`second_city` — with **no** `on_site` flag, **no** trip id, **no** user id and **no**
+coordinate. The North Star is measured as a count, never as a history. This is stricter
+than the privacy audit asked for and settles `world-analytics-minimum`: the event that
+made it a §28 problem is simply not sent.
+
+**2. The L3 museum stamp is worth 30 XP.** A place is 10 and a city seal is 50, so a
+museum sits between them. `l3-museum-stamp` no longer waits on anybody.
+
+**3. Test prices.** City Adventure €4,99 for any single city, Greek cities included.
+Greece Pack €9,99 for the four Greek cities other than Athens. Family Pass €39,99/year.
+Founding Families €24,99 for the first hundred. **Athens is free.** No paywall before
+November. The owner creates the Stripe products; the engine prepares entitlements, the
+webhook branch and the copy, behind a flag that is off.
+
+**4. The three mission types stay open until field test #0**, this Saturday. **No P2 in
+the quest cluster starts before it.** That is the whole cluster, deliberately.
+
+**5. The C-grade walk and the Athens Gold sign-off are the owner's, on Saturdays.** They
+stay owner tickets and nothing is scheduled against them.
+
+**6. Vercel Web Analytics: yes to the code change.** The `inject()` call is an engine
+ticket; switching the toggle on in the dashboard stays with the owner.
 
 ---
 
@@ -119,13 +139,20 @@ likely to be re-raised by somebody reading the brief cold:
 
 Not tickets — in flight or already on the branch, listed so nobody writes them twice.
 
+All of PR #70 is on main as of 13 Σεπτεμβρίου.
+
 | | State |
 | --- | --- |
-| World stamps in Supabase (`world_stamps`, union merge, insert-only, seals re-derived) | **Done**, `aa04c16`. Migration applied. |
+| World stamps in Supabase (`world_stamps`, union merge, seals re-derived, XP never re-awarded) | **Done**, `aa04c16`. Migration applied. |
 | Explorer quizzes stop reporting `PASS_QUIZ` | **Done**, `87c0741`. |
-| «Άλλη μία;» card after a finished place | In flight |
-| «Λάθος σημείο» button for parents, three fixed options | In flight |
-| Kore narration for Paris, Rome, London, Amsterdam (284 clips, el+en) | In flight |
+| «Άλλη μία;» card after a finished place | **Done**, `dec662d` + `91d0444`. |
+| «Λάθος σημείο» button, three fixed options, `world_pin_reports` | **Done**, `f0df92b`. Migration applied. |
+| Kore narration, Paris, Rome, London, Amsterdam | **In flight.** Paris complete (50/50), Rome 47/82, London and Amsterdam not started. 97 clips generated 12/9 before the daily quota stopped it exactly where the script says it will. 187 of the 284 remain, about two more days. |
+
+One thing the narration work turned up, now `narration-overlay-langs` below:
+`scripts/world/extract-texts.mjs` calls `loadCity(cityId)` with no language, and
+`loadCity(cityId, lang)` is the signature that folds in the overlays. So de/fr/es/it cannot
+be narrated at all today, in any city, and the extractor silently reports only el and en.
 
 ---
 
@@ -607,7 +634,7 @@ A child can already walk every room of the Louvre, answer every exhibit and solv
 - The weaker definition ("all exhibits seen, riddles optional") is explicitly rejected and the rejection is written in the hook's comment: riddles are the only part that makes the child look around the room a second time, and a museum stamp earned without them would make the riddles decorative.
 - `WorldProgress` gains `museums: Record<PlaceId, string>` (ISO date, same shape as `exhibits`/`riddles`). `VERSION` at useWorldProgress.ts:42 is NOT bumped and the new field is defaulted with `?? {}` in `read()` alongside the existing ones (useWorldProgress.ts:127-137), so no existing passport is erased — see ticket `progress-version-migration` for why a bump is destructive today.
 - A new `sealMuseum(placeId, museum)` (or an extension of `answerExhibit`/`solveRiddle` that checks completion after each award) pays `WORLD_XP.museum` exactly once ever, decided from `ref.current.museums[placeId]` and written in the same synchronous step — the same shape as every other award in the file (useWorldProgress.ts:218-230). Action string `'WORLD_MUSEUM'`.
-- `WORLD_XP.museum` is added to the constant block at useWorldProgress.ts:53-70 with a comment tuning it against `data/makerLevels.ts:39` (Explorer = 300 XP). Proposed 25–50: a three-room museum already pays ~105 XP in exhibits and riddles, so anything larger makes museums outweigh a whole city (50). Owner picks the number; the comment records the reasoning.
+- `WORLD_XP.museum = 30` is added to the constant block at useWorldProgress.ts:53-70, with a comment recording why: a place is 10 and a city seal is 50, so a museum sits between them. Settled by the owner on 13/9 — this ticket no longer waits on anybody.
 - `WorldAward` gains `museumSealed?: PlaceId` (useWorldProgress.ts:157-167) and `MuseumView` shows a ceremony when it comes back non-null. The ceremony REUSES `CitySeal` from `components/world/SealCeremony.tsx:127-152` with `name` = the museum place's name and `ink` = the country's `stamp.ink` (data/world/types.ts:337-338). No new SVG drawing component.
 - The stamp appears in the book: `StampBook.tsx` shows museums sealed per country under the country's stamp, in the same quiet-note block as the sealed-city chips (StampBook.tsx:328-363), and the cover grid gains nothing (the cover is three columns wide by design, StampBook.tsx:477-493 — the museum counter belongs on the statistics page, ticket `passport-stats-page`).
 - All new chrome strings are written out whole in all six languages (el en de fr es it) in the file's local `T`/`S` dictionaries and read with `ui()`, matching StampBook.tsx:64-212. No string is assembled from fragments.
@@ -1100,7 +1127,9 @@ Today WiseBot World fires zero analytics events — the pilot would run and prod
 
 **Today.** Nothing in the module. grep for track|gtag|analytics across components/world/** returns only Tailwind `tracking-*` classes and a comment at components/world/useWorldProgress.ts:18 that reads "No credits, no badge, no trackAction". The transport already exists and is consent-safe: utils/analytics.ts:13-18 `track()`, loaded lazily at call sites (see App.tsx:98, context/EconomyContext.tsx:671-673 for the established pattern). GA4 property G-7834HP8GYV, index.html:16.
 
-**Changed after review.** REWRITTEN after the privacy audit. As drafted this shipped a coarse location history: every GA4 event is timestamped server-side, so `on_site=true` plus `city_id` plus `trip_id` is «Completed Porto» **with the ώρα attached**, which §28 forbids by name and §29 lists as `child-location history`. The transmitted payload must not carry `on_site`, `trip_id`, or anything that groups stops into one outing. Measure the North Star from the §35 post-trip survey instead. If the owner wants the on-site signal on the wire, that needs the explicit §29 product approval in `owner-analytics-approval`, not a test of payload shape — a shape test cannot see the timestamp GA4 adds.
+**Changed after review, then SETTLED by the owner (13/9).** As drafted this shipped a coarse location history: every GA4 event is timestamped server-side, so `on_site=true` plus `city_id` plus `trip_id` is «Completed Porto» **with the ώρα attached**, which §28 forbids by name and §29 lists as `child-location history`.
+
+The owner's answer is stricter than the audit asked for and is now the specification. Send anonymous counters per city and nothing else: `mission_completed`, `stamp_earned`, `another_one_yes`, `another_one_no`, `second_city`. **No `on_site` flag, no trip id, no user id, no coordinate.** The North Star is a count, not a history. Every acceptance criterion below that mentions `on_site` or `trip_id` is void — there is no on-site signal on the wire at all, so there is nothing for a payload test to police beyond the five names and the city. `owner-analytics-approval` is closed by this and needs no work.
 
 **Done when**
 
@@ -1317,9 +1346,14 @@ Uses the fields from loc-manual-verified and loc-entrance-pair. Per place, into 
 
 **Risk.** Nobody but the owner can do this, and it gates the credibility of all 22 museums' durations — if the Athens Quick route turns out to be 35 minutes, every other museum's estimate is suspect and mm-content needs a second pass. Schedule it immediately after the first two museums are authored, not after all 22, so the correction is cheap.
 
-### owner-analytics-approval — Owner: decide whether an on-site signal may leave the device at all
+### owner-analytics-approval — CLOSED 13/9: no on-site signal leaves the device, ever
 
-**P1** · owner **owner (only a human can do it)** · brief §28, §29, §34, §35
+**Closed** · owner **owner (only a human can do it)** · brief §28, §29, §34, §35
+
+**The answer.** Option (a), and stricter. Analytics are anonymous counters per city and
+carry no `on_site` flag, no trip id, no user id and no coordinate. There is nothing left to
+approve, and `world-analytics-minimum` has been rewritten to match. Kept here so nobody
+re-opens the question. The rest of this entry is the original framing.
 
 The North Star is «Completed Real-World Missions per Family Trip». Measuring it from telemetry means sending, per stop, the fact that this device completed an on-site mission in this city — and GA4 timestamps every event. That is a coarse location history for a child, which §29 puts on the list that needs product approval by name.
 
@@ -1340,6 +1374,8 @@ The North Star is «Completed Real-World Missions per Family Trip». Measuring i
 
 A parent cannot pay until a human has created the products in Stripe under the company account. No engineer can do this step, and the engine ticket cannot finish checkout without the resulting price ids.
 
+**Settled 13/9, so only the Stripe work is left.** City Adventure €4,99 buys any single city, Greek cities included. Greece Pack €9,99 is the four Greek cities other than Athens. Family Pass €39,99/year. Founding Families €24,99 for the first hundred. **Athens is free** and is not a product. No paywall before November. BUSINESS-PLAN.md:164 still says €29,99 and €19,99 and is now simply wrong — correcting it is part of this ticket.
+
 **Today.** Stripe is live and has taken exactly one real payment (€4,99, 22/8 — docs/world/STATUS.md:154). But the only catalogue that exists is credit packs, hardcoded server-side at api/stripe/checkout.ts:2 `CREDIT_PACKS` and api/stripe/packs.ts:1. There is no City Adventure, no Greece Pack, no Family Pass and no Founding Families product anywhere. Separately, the numbers conflict: the binding decisions row (brief line 30) says Family Pass €39,99/year and Founding Families €24,99, while docs/world/BUSINESS-PLAN.md:164 still says €29,99/year and €19,99. The decisions table wins; the business plan has not been updated.
 
 **Done when**
@@ -1355,6 +1391,35 @@ A parent cannot pay until a human has created the products in Stripe under the c
 
 **Risk.** Two documents currently state different prices for the same product. If the engine session reads BUSINESS-PLAN.md instead of the decisions table it will ship €29,99. Whoever does this ticket must fix the document, not just the Stripe dashboard. Second risk: creating a live product in Stripe is visible to customers immediately — keep them inactive until November.
 
+
+### narration-overlay-langs — the four optional languages cannot be narrated at all
+
+**P1** · owner **engine** · brief §21; found while generating the Paris and Rome clips
+
+A German family reading a German story hears nothing, in every city, including the three
+that are fully translated. Narration exists only in Greek and English and the pipeline
+cannot produce anything else, which is invisible because the extractor reports a total that
+looks complete.
+
+**Today.** `scripts/world/extract-texts.mjs:36` calls `loadCity(cityId)`. The signature that
+folds in a translation overlay is `loadCity(cityId, lang)` (`data/world/registry.ts:172`),
+so the extractor only ever sees `el` and `en` — the two languages that live in the city
+module itself. It then loops `WORLD_LANGS` and skips every language whose story is absent,
+which is all four, silently. Its own summary line says «by language: el 290, en 290» and
+reads like a complete run. Today's refresh produced 580 rows for nine cities; with the
+overlays folded in it would produce roughly 1.100.
+
+**Done when**
+
+- `extract-texts.mjs` loads each city once per language, `loadCity(cityId, lang)`, and a row is emitted for every language whose story is genuinely present in that language's overlay.
+- The fallback rule at extract-texts.mjs:41-44 still holds and gains a test: a language whose overlay is missing, or whose story is byte-identical to the English one, produces NO row. A German child must get silence rather than an English voice under German text.
+- The summary line names the languages it found and the ones it did not, so a run that produces only el and en says so instead of looking complete.
+- `world-for-tts.json` is regenerated and its new total is recorded in this ticket, so the quota can be planned against a real number.
+- No clip is regenerated: every existing `tag` is unchanged, verified by diffing the tag list before and after. A changed tag orphans an m4a and its timings.
+
+**Files.** `scripts/world/extract-texts.mjs`, `scripts/world/world-for-tts.json`
+
+**Risk.** It multiplies the narration backlog by roughly four at a quota of ~100 clips/day, so land the extractor fix now and decide the generation order separately — el and en for every city first is almost certainly right, because a missing overlay language falls back to silence gracefully while a missing el/en clip is the common case. Do not start the four extra languages before `i18n-overlays-rome-london-amsterdam` lands, or three of the four pilot cities have nothing to narrate anyway.
 
 ## P2 — later, and deliberately so
 
@@ -1729,11 +1794,15 @@ Appended to PageMeta.jsonLd on place pages:
 
 **Risk.** Third session in a row to touch data/world/seo.ts and scripts/world/generate-world-seo.mjs — run it after seo-faq-block and world-family-info-schema, never beside them. Low product risk: it changes only prerendered output, not the app. Watch the page size — 136 place pages each gaining a nearby list is fine, but do not let the block repeat the neighbours' full taglines in both languages or the noscript body doubles.
 
-### vercel-web-analytics — Decide Vercel Web Analytics: switch on and inject, or drop it
+### vercel-web-analytics — Vercel Web Analytics: yes, and it splits in two
 
 **P2** · owner **owner (only a human can do it)** · brief §34 (analytics); STATUS.md §5 and §6.3
 
-It is listed as an owner action in two documents and nobody has resolved it. GA4 already covers everything §34 names, so this is a yes/no, not a blocker.
+**Settled 13/9: yes to the code change.** That makes this two tickets rather than one. The
+`inject()` call and the `@vercel/analytics` dependency are an **engine** ticket — the button
+alone does not count a single-page app, which is the whole reason this was raised. Flipping
+the toggle in the Vercel dashboard stays with the **owner** and is the only part left here.
+Neither half may send anything §28 forbids; the same rule as `world-analytics-minimum`.
 
 **Today.** Not installed. `@vercel/analytics` does not appear in package.json (only @sentry/react at :23) and there is no `inject()` or `<Analytics />` anywhere in the tree. STATUS.md:155 and :169-170 say the dashboard switch is off and the owner must approve the package. Verified: both statements are true.
 
