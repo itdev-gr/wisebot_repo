@@ -14,8 +14,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   BookOpen, GraduationCap, Brain, Palette, Film, Music, Briefcase, Star,
-  Award, Lock, ChevronRight, Sparkles,
+  Award, Lock, ChevronRight, Sparkles, Globe, MapPin, Stamp,
 } from 'lucide-react';
+import { readWorldSummary } from './world/useWorldProgress';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
 import { MAKER_LEVELS, makerProgress } from '../data/makerLevels';
@@ -61,6 +62,7 @@ const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
   const { isGuest } = useAuth();
   const explorer = useMemo(() => explorerSummary(), []);
   const school = useSchoolSummary();
+  const world = useMemo(() => readWorldSummary(), []);
   const progress = makerProgress(xp);
   const { current, next } = progress;
 
@@ -76,6 +78,8 @@ const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
     books: 'Βιβλία', stories: 'Ιστορίες Ακαδημίας', quizzes: 'Quiz που πέρασες',
     heroes: 'Εικόνες & ήρωες', videos: 'Βίντεο', songs: 'Τραγούδια', businesses: 'Επιχειρήσεις',
     missions: 'Αποστολές', stars: 'Αστέρια', diplomas: 'Απολυτήρια',
+    world: 'Ο ΚΟΣΜΟΣ',
+    worldCountries: 'Χώρες', worldPlaces: 'Μέρη', worldSeals: 'Σφραγίδες',
     guestTitle: 'Το Διαβατήριο ζει μόνο σε αυτή τη συσκευή',
     guestText: 'Φτιάξε δωρεάν λογαριασμό για να το κρατήσεις για πάντα — σε κάθε συσκευή.',
     guestCta: 'Κράτα το Διαβατήριό μου',
@@ -93,6 +97,8 @@ const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
     books: 'Books', stories: 'Academy stories', quizzes: 'Quizzes passed',
     heroes: 'Images & heroes', videos: 'Videos', songs: 'Songs', businesses: 'Businesses',
     missions: 'Missions', stars: 'Stars', diplomas: 'Diplomas',
+    world: 'THE WORLD',
+    worldCountries: 'Countries', worldPlaces: 'Places', worldSeals: 'Seals',
     guestTitle: 'Your Passport lives only on this device',
     guestText: 'Create a free account to keep it forever — on every device.',
     guestCta: 'Keep my Passport',
@@ -213,6 +219,23 @@ const MakerPassport: React.FC<MakerPassportProps> = ({ lang, xp, level }) => {
             <StatCard icon={<Star size={22} className="text-yellow-300" />} value={school.stars} label={t.stars} accent="bg-yellow-500/15 border border-yellow-500/20" />
             <StatCard icon={<Award size={22} className="text-emerald-300" />} value={school.diplomas} label={t.diplomas} accent="bg-emerald-500/15 border border-emerald-500/20" />
           </div>
+        </section>
+      )}
+
+      {/* ── WORLD ──
+          Counts only, read straight from wb_world_progress. The stamps themselves live
+          in the World module's own passport at /world/passport; this is the summary
+          row, and like everything else on this page it awards nothing. */}
+      {world.countries > 0 && (
+        <section className="mt-10">
+          <h2 className="text-sm font-black text-white/50 uppercase tracking-[0.25em] mb-4">{t.world}</h2>
+          <Link to="/world/passport" className="block">
+            <div className="grid grid-cols-3 gap-3">
+              <StatCard icon={<Globe size={22} className="text-blue-300" />} value={world.countries} label={t.worldCountries} accent="bg-blue-500/15 border border-blue-500/20" />
+              <StatCard icon={<MapPin size={22} className="text-violet-300" />} value={world.places} label={t.worldPlaces} accent="bg-violet-500/15 border border-violet-500/20" />
+              <StatCard icon={<Stamp size={22} className="text-emerald-300" />} value={world.seals} label={t.worldSeals} accent="bg-emerald-500/15 border border-emerald-500/20" />
+            </div>
+          </Link>
         </section>
       )}
 

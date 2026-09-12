@@ -1,0 +1,26 @@
+{
+  "city": "rhodes",
+  "country": "greece",
+  "centre": { "lat": 36.43333, "lng": 28.21667 },
+  "note": "Wikidata q-ids only. Centre is Wikidata's point for the town (Q188731), not the island (Q43048) and not the ancient city-state (Q13533316) — all three are called Ρόδος and only the description separates them. No place here claims an 'entrance': none has had its door measured, so every point is the centroid it actually is. Like Heraklion, this is an island rather than a city: Lindos is 50 km south of the town and Monolithos 70 km south-west, and the map bounds are regional on purpose. Two entries were considered and rejected. The Medieval City (Q876685) graded D: Wikipedia's point sits 1419 m from Wikidata's, which is more than even an area tolerance allows. Its obvious replacement, the Fortifications of Rhodes (Q3748750), carries a coordinate rounded to three decimals that lands 24 m from the Archaeological Museum, under the separation floor, so the walls and the museum would have collided on one pin. The old town is represented instead by the Palace and the museum inside it.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "rhodes-palace-grand-master", "name": "Palace of the Grand Master", "wikidata": "Q931371", "anchor": "centroid" },
+    { "id": "rhodes-archaeological-museum", "name": "Archaeological Museum of Rhodes", "wikidata": "Q4785432", "anchor": "centroid" },
+    { "id": "rhodes-art-gallery", "name": "Municipal Art Gallery of Rhodes", "wikidata": "Q66058061", "anchor": "centroid" },
+    { "id": "rhodes-acropolis", "name": "Acropolis of Rhodes", "wikidata": "Q3557443", "anchor": "area" },
+    { "id": "rhodes-diagoras-stadium", "name": "Diagoras Stadium", "wikidata": "Q5270378", "anchor": "centroid" },
+    { "id": "rhodes-aquarium", "name": "Aquarium of Rhodes", "wikidata": "Q31833", "anchor": "centroid" },
+    { "id": "rhodes-kallithea", "name": "Kallithea Springs", "wikidata": "Q38282898", "anchor": "centroid" },
+
+    { "id": "rhodes-filerimos", "name": "Filerimos", "wikidata": "Q1412642", "anchor": "area",
+      "note": "The hill carries the ancient acropolis of Ialysos (Q29963099), whose own item sits 160 m away. One pin, not two: they are the same place to a visitor and would fail the separation audit as neighbours nobody declared." },
+
+    { "id": "rhodes-lindos", "name": "Acropolis of Lindos", "wikidata": "Q65122097", "anchor": "area",
+      "note": "The ancient city (Q65122097), not the modern village (Q738700) 250 m away. Both are called Λίνδος." },
+
+    { "id": "rhodes-kameiros", "name": "Ancient Kameiros", "wikidata": "Q1231539", "anchor": "area" },
+    { "id": "rhodes-monolithos", "name": "Monolithos Castle", "wikidata": "Q56450446", "anchor": "centroid" },
+    { "id": "rhodes-tsambika", "name": "Tsambika Monastery", "wikidata": "Q1483416", "anchor": "centroid" }
+  ]
+}

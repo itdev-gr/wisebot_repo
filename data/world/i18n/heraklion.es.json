@@ -1,0 +1,502 @@
+{
+  "lang": "es",
+  "cityId": "heraklion",
+  "places": {
+    "heraklion-knossos": {
+      "name": "Cnosos",
+      "tagline": "El palacio de mil salas y sus propias tuberías",
+      "story": "Hace unos cuatro mil años, en la colina de Cnosos había un edificio con más de mil salas, unidas por pasillos y escaleras que suben por cuatro pisos. No era solo la casa de un rey: era almacén, taller, oficina y santuario a la vez. Lo más impresionante no son los colores, sino las tuberías. Los minoicos tenían cañerías de barro que traían agua limpia y otras que sacaban el agua sucia, en una época en que casi todos los pueblos acarreaban el agua en cántaros. También tenían pozos de luz, aberturas en el techo que llevan luz y aire a las salas del medio. Un mito dice que debajo del palacio había un laberinto con un monstruo dentro, el Minotauro. Los arqueólogos no encontraron ningún laberinto, pero encontraron un edificio tan enredado que enseguida entiendes de dónde salió la historia.",
+      "facts": [
+        "Tenía más de mil salas, repartidas en cuatro pisos.",
+        "Tenía cañerías de barro para el agua limpia y otras aparte para la sucia.",
+        "Las partes rojas que ves son reconstrucciones del siglo XX, no minoicas."
+      ],
+      "question": {
+        "q": "¿Qué son las partes rojas y de bordes rectos que ves hoy en Cnosos?",
+        "answers": [
+          "Reconstrucciones de hormigón, hechas en el siglo XX",
+          "Muros minoicos que se conservaron enteros",
+          "Añadidos romanos construidos encima del palacio",
+          "Trozos de otro palacio, traídos hasta aquí"
+        ],
+        "explanation": "El arqueólogo que excavó Cnosos reconstruyó algunas partes para que la gente entendiera su forma. Es útil, y todavía se discute."
+      }
+    },
+    "heraklion-archaeological-museum": {
+      "name": "El Museo Arqueológico de Heraclión",
+      "tagline": "Todo lo que soltaron los palacios minoicos, en un solo edificio",
+      "story": "Si Cnosos es el edificio vacío, este museo es lo que había dentro. Aquí está casi todo lo importante que salió de los palacios minoicos de Creta, y es la mayor colección de hallazgos minoicos del mundo. Los frescos de Cnosos están aquí, no en Cnosos: allí arriba ves copias, para que los originales no se destiñan al sol. El museo enseña algo que sorprende: los minoicos casi no pintaban guerras. Pintaban delfines, lirios, monos, personas que saltan por encima de toros, mujeres con vestidos muy trabajados. Pintaban la vida, no las victorias. Y hay aquí un objeto que nadie ha conseguido leer, aunque los especialistas llevan más de cien años mirándolo. Si solo tienes tiempo para un museo en toda la isla, los arqueólogos te dirán que elijas este, y que después subas a Cnosos para ver dónde estuvo todo.",
+      "facts": [
+        "Tiene la mayor colección de hallazgos minoicos del mundo.",
+        "Los frescos originales de Cnosos se guardan aquí, no en el yacimiento.",
+        "El Disco de Festos sigue sin descifrarse."
+      ],
+      "question": {
+        "q": "¿Por qué en Cnosos ves copias de los frescos y no los originales?",
+        "answers": [
+          "Para que el sol y el tiempo no destruyan los originales",
+          "Porque los originales se perdieron en un terremoto",
+          "Porque los originales son de un dueño particular",
+          "Porque los originales son demasiado pequeños para verse"
+        ],
+        "explanation": "La pintura se destiñe con la luz y la humedad se come el yeso. Un museo se mantiene oscuro y estable a propósito."
+      },
+      "museum": {
+        "doorNote": "Los minoicos no pintaban guerras. Fíjate en lo que pintaban en su lugar.",
+        "rooms": {
+          "heraklion-archaeological-museum-frescoes": {
+            "name": "Los frescos",
+            "intro": "Estas imágenes fueron un día paredes de Cnosos. Se salvaron en trozos, a veces en muy pocos, y alrededor se ha rellenado con pintura más pálida para que distingas lo antiguo de lo que es una suposición. Busca primero dónde termina el color fuerte, y después mira qué pintaron los minoicos."
+          },
+          "heraklion-archaeological-museum-small-wonders": {
+            "name": "Las pequeñas maravillas",
+            "intro": "Los objetos más asombrosos de este museo caben en la palma de la mano. Son sellos, joyas, vasijas y un disco que nadie sabe leer. Acércate a las vitrinas: casi todo esto se hizo con herramientas y sin lupa, porque la lupa todavía no se había inventado."
+          }
+        },
+        "exhibits": {
+          "heraklion-archaeological-museum-bull-leaping": {
+            "name": "El fresco del salto del toro",
+            "blurb": "Un toro corre, y tres personas hacen algo increíble a su alrededor: una agarra los cuernos, la segunda está en el aire por encima del lomo, la tercera espera con los brazos abiertos para recogerla. Los especialistas no se ponen de acuerdo sobre si esto pasaba de verdad o si es la imagen de una ceremonia. Fíjate en el color de los cuerpos: en la pintura minoica los hombres suelen aparecer con la piel oscura y las mujeres, clara.",
+            "question": {
+              "q": "¿Cuántas personas participan en la escena del toro?",
+              "answers": [
+                "Tres, en tres momentos distintos del salto",
+                "Solo una, en el aire",
+                "Cinco, en círculo a su alrededor",
+                "Ninguna: el toro está solo"
+              ],
+              "explanation": "Puede que muestre a tres personas, o a la misma persona tres veces, como fotogramas de una película."
+            }
+          },
+          "heraklion-archaeological-museum-prince-lilies": {
+            "name": "El «Príncipe de los Lirios»",
+            "blurb": "Una figura que camina, con una corona de lirios y plumas de pavo real. Es una de las imágenes más conocidas de Creta y a la vez una de las más discutidas: los fragmentos auténticos son pocos, y el resto se rellenó a principios del siglo XX. Algunos investigadores creen que los trozos pueden pertenecer a más de una figura, y entonces el «príncipe» quizá no existió nunca así.",
+            "question": {
+              "q": "¿Por qué se discute este fresco?",
+              "answers": [
+                "Porque los fragmentos auténticos son pocos y el resto se rellenó",
+                "Porque lo pintó hace poco un falsificador",
+                "Porque se encontró fuera de Creta",
+                "Porque no conserva nada de color"
+              ],
+              "explanation": "Rellenar es suponer. Cuando los fragmentos son pocos, la suposición se hace grande."
+            }
+          },
+          "heraklion-archaeological-museum-saffron-gatherer": {
+            "name": "El «recolector de azafrán»",
+            "blurb": "Cuando se encontró este fresco, lo restauraron como un niño que recoge flores de azafrán en un prado. Años después aparecieron más fragmentos y mostraron otra cosa: la criatura no tenía manos humanas, sino patas, y era azul. Es un mono. Esa historia es el mejor ejemplo de cómo funciona la arqueología: una explicación se mantiene hasta que llegan pruebas nuevas.",
+            "question": {
+              "q": "¿Qué resultó ser al final la figura que recoge azafrán?",
+              "answers": [
+                "Un mono azul",
+                "Un niño con ropa azul",
+                "Una sacerdotisa",
+                "Un toro"
+              ],
+              "explanation": "Los fragmentos nuevos mostraron patas en lugar de manos. La ciencia cambió de opinión, que es justo lo que debe hacer."
+            }
+          },
+          "heraklion-archaeological-museum-phaistos-disc": {
+            "name": "El Disco de Festos",
+            "blurb": "Un disco de barro del tamaño de una pizza pequeña, con símbolos impresos en espiral por las dos caras. Los símbolos no están rayados: están estampados, cada uno con su propio punzón. Eso significa que alguien había hecho un juego de sellos, una especie de imprenta, tres mil quinientos años antes de la imprenta. Nadie sabe qué dice. Nunca se ha encontrado un segundo texto en la misma escritura para poder compararlo.",
+            "question": {
+              "q": "¿Por qué no se ha leído el Disco de Festos?",
+              "answers": [
+                "Porque no se ha encontrado otro texto en la misma escritura",
+                "Porque los símbolos se han borrado",
+                "Porque está partido por la mitad",
+                "Porque nadie lo ha intentado"
+              ],
+              "explanation": "Para descifrar una escritura hacen falta muchas muestras. Con un solo objeto, cualquier solución es una conjetura."
+            }
+          },
+          "heraklion-archaeological-museum-snake-goddess": {
+            "name": "La diosa de las serpientes",
+            "blurb": "Una figura pequeña de fayenza, de unos pocos centímetros de alto, que sostiene una serpiente en cada mano y lleva un vestido largo con volantes. Se encontró en un pozo tapiado de Cnosos, junto con otros objetos sagrados. Nadie sabe si es una diosa, una sacerdotisa u otra cosa; el nombre se lo pusieron los arqueólogos. Las serpientes no son una amenaza: en muchas culturas antiguas representan la casa, la tierra y la renovación, porque cambian de piel.",
+            "question": {
+              "q": "¿Quién le puso el nombre de «diosa de las serpientes»?",
+              "answers": [
+                "Los arqueólogos que la encontraron",
+                "Los minoicos, en una inscripción que había a su lado",
+                "Homero, en un poema",
+                "El museo, votando entre los visitantes"
+              ],
+              "explanation": "Muchos nombres de museo son modernos. Útiles, pero no son pruebas."
+            }
+          },
+          "heraklion-archaeological-museum-bee-pendant": {
+            "name": "Las abejas de oro",
+            "blurb": "Una joya de Malia, de solo unos centímetros: dos abejas que sostienen entre las dos una gota de miel. Encima llevan bolitas de oro diminutas pegadas una a una, con una técnica que se llama granulación, y alambres finos que forman las alas. Para ver ese trabajo hoy necesitas una lupa. El artesano que la hizo no tenía lupa: solo ojos jóvenes y muchísima paciencia.",
+            "question": {
+              "q": "¿Cómo se pusieron las bolitas de oro diminutas sobre la joya?",
+              "answers": [
+                "Pegadas una a una, con una técnica que se llama granulación",
+                "Fundidas junto con el resto del oro en un molde",
+                "Pintadas con pintura dorada",
+                "Martilleadas desde el revés"
+              ],
+              "explanation": "Cada bolita es un trozo de oro aparte. Cuéntalas, si tienes paciencia."
+            }
+          },
+          "heraklion-archaeological-museum-harvester-vase": {
+            "name": "El Vaso de los Segadores",
+            "blurb": "Una vasija negra y pequeña con una procesión tallada alrededor: hombres que vuelven del trabajo con las herramientas al hombro y, delante de ellos, algunos que cantan. Uno tiene la boca abierta de par en par y el pecho hinchado, y se ve clarísimo que va gritando la letra. Es raro poder ver el sonido en el arte antiguo. Las caras tampoco son iguales entre sí: uno se ríe, otro ya está cansado.",
+            "question": {
+              "q": "¿Qué tiene de raro el Vaso de los Segadores?",
+              "answers": [
+                "Se ve que las figuras cantan, o sea que ves el sonido",
+                "Está hecho de oro macizo",
+                "Lleva escrito un poema",
+                "Es la vasija más grande del museo"
+              ],
+              "explanation": "Boca abierta, pecho fuera, cuerpos a compás. El tallista dibujó ruido."
+            }
+          }
+        },
+        "riddles": {
+          "heraklion-archaeological-museum-riddle-1": {
+            "prompt": "Soy redondo y de barro, y llevo símbolos en espiral por mis dos caras. Llevan más de cien años mirándome y todavía nadie sabe qué digo.",
+            "hint": "Mis símbolos no se rayaron. Se estamparon."
+          },
+          "heraklion-archaeological-museum-riddle-2": {
+            "prompt": "Me tomaron por un niño en un prado de flores. Luego aparecieron más trozos míos, y se vio que no tengo manos sino patas, y que soy azul.",
+            "hint": "No soy una persona, pero tengo cinco dedos."
+          },
+          "heraklion-archaeological-museum-riddle-3": {
+            "prompt": "Quepo en tu mano y somos dos, no una. Entre las dos sostenemos algo dulce, y encima llevamos cientos de bolitas de oro pegadas una a una.",
+            "hint": "Mis alas son de alambre fino."
+          }
+        }
+      },
+      "findIt": "La entrada está en la calle Xanthoudidou, en el número 2, junto a la plaza Eleftherias."
+    },
+    "heraklion-koules": {
+      "name": "La fortaleza de Koules",
+      "tagline": "Una fortaleza dentro del mar, con muros de nueve metros",
+      "story": "A la entrada del puerto viejo se levanta una fortaleza cuadrada construida dentro del agua. Los venecianos la hicieron entre 1523 y 1540 y la llamaron Rocca a Mare, «la roca en el mar». Los turcos la llamaron después Koules, que quiere decir torre, y ese es el nombre que se quedó. Mira el grosor de sus muros: por el lado del mar llegan casi a los nueve metros, mientras que por el lado de tierra son mucho más finos. La razón es sencilla y lista: las balas de cañón venían de los barcos, no de la ciudad. En la planta baja hay veintiséis salas abovedadas, donde se guardaban pólvora, comida y agua. En los muros de fuera está tallado tres veces el león alado de Venecia, el emblema de la ciudad que la construyó.",
+      "facts": [
+        "La construyeron los venecianos entre 1523 y 1540.",
+        "Los muros que dan al mar llegan casi a 9 metros de grosor.",
+        "Su planta baja tiene 26 salas abovedadas."
+      ],
+      "question": {
+        "q": "¿Por qué son mucho más gruesos los muros que dan al mar?",
+        "answers": [
+          "Porque de ahí venían las balas de cañón",
+          "Porque la sal se come la piedra más deprisa",
+          "Porque en ese lado estaban las cárceles",
+          "Porque así se mantiene de pie dentro del agua"
+        ],
+        "explanation": "La fortaleza se construyó contra una amenaza concreta. El muro se engorda donde esperas el golpe."
+      },
+      "findIt": "Camina hasta el final del muelle, a la entrada del puerto veneciano. La fortaleza está allí, dentro del agua."
+    },
+    "heraklion-morosini-fountain": {
+      "name": "La fuente Morosini",
+      "tagline": "Los Leones, que son más viejos que la propia fuente",
+      "story": "En el centro de la ciudad, en el sitio donde la gente de Heraclión dice «nos vemos en los Leones», hay una fuente que se terminó en 1628. La ciudad se la debe a Francesco Morosini, que resolvió un problema de décadas: Heraclión no tenía suficiente agua para beber. Construyó un acueducto que bajaba el agua desde el monte Juktas, a unos quince kilómetros, solo con la pendiente del terreno y sin ninguna bomba. La pila tiene ocho lóbulos tallados con criaturas del mar, delfines y ninfas. Y los cuatro leones que la sostienen son unos trescientos años más viejos que ella: no se hicieron para la fuente, se trajeron de otro sitio y se volvieron a usar. Todavía hoy el agua sale de sus bocas. Si te sientas enfrente y escuchas, entenderás por qué todo el mundo se cita aquí: el agua se oye más fuerte que la ciudad.",
+      "facts": [
+        "Se terminó en 1628 y resolvió el problema del agua potable de la ciudad.",
+        "El agua venía desde unos 15 kilómetros, del monte Juktas, sin ninguna bomba.",
+        "Los cuatro leones son bastante más antiguos que la fuente y se volvieron a usar."
+      ],
+      "question": {
+        "q": "¿Cómo llegaba el agua a la fuente desde quince kilómetros de distancia?",
+        "answers": [
+          "Por un acueducto que bajaba poco a poco, solo con la pendiente del terreno",
+          "Con bombas movidas por caballos",
+          "En barriles que traían carros cada mañana",
+          "De un pozo que había justo debajo"
+        ],
+        "explanation": "Un acueducto no necesita energía, necesita precisión: la pendiente tiene que ser pequeña y constante en todo el recorrido."
+      }
+    },
+    "heraklion-loggia": {
+      "name": "La Loggia veneciana",
+      "tagline": "El club de los nobles venecianos, hoy el ayuntamiento",
+      "story": "La Loggia se construyó en la década de 1620 y no era una iglesia, ni un palacio, ni una fortaleza. Era un club. Los nobles venecianos de Heraclión se reunían aquí para hablar, cerrar tratos y tomar decisiones sobre la ciudad. Tiene dos pisos de arquerías, filas de arcos que se apoyan en columnas, y está hecha para enseñar riqueza sin gritar. Con el tiempo se quedó casi del todo en ruinas. La volvieron a levantar trozo a trozo, con todas las piedras originales que se pudieron encontrar, y ese trabajo ganó en 1987 el premio a la mejor restauración de un monumento en Europa. Hoy el edificio no es un museo: es el ayuntamiento de Heraclión, y dentro trabaja gente todos los días. Un edificio de cuatrocientos años que sigue haciendo más o menos el mismo trabajo es más raro que una ruina.",
+      "facts": [
+        "Se construyó en la década de 1620 como club de los nobles venecianos.",
+        "Su restauración fue premiada en 1987 como la mejor de Europa.",
+        "Hoy alberga el ayuntamiento de Heraclión."
+      ],
+      "question": {
+        "q": "¿Qué era al principio este edificio?",
+        "answers": [
+          "Un club donde se reunían los nobles venecianos",
+          "Una iglesia con dos campanarios",
+          "Un almacén del puerto",
+          "Una escuela para los niños de la ciudad"
+        ],
+        "explanation": "Las decisiones sobre una ciudad no se tomaban siempre en edificios oficiales. Aquí se tomaban en un club, y el edificio acabó siendo el ayuntamiento."
+      }
+    },
+    "heraklion-historical-museum": {
+      "name": "El Museo Histórico de Creta",
+      "tagline": "De los primeros cristianos a Kazantzakis, y dos cuadros del Greco",
+      "story": "El Museo Arqueológico se para más o menos donde empieza este. El Museo Histórico de Creta cubre los mil seiscientos años posteriores a los minoicos: paleocristiano, bizantino, veneciano, otomano y el siglo XX. Se fundó en 1953 en una casa señorial junto al mar. Lo más conocido que guarda son dos cuadros de un pintor nacido en Creta hacia 1541 y llamado Doménikos Theotokópoulos. Aprendió a pintar iconos, se marchó a Venecia y acabó en España, donde la gente lo llamaba sencillamente «el griego»: el Greco. Estos dos son los únicos cuadros suyos que hay en toda Creta. El museo tiene además una maqueta enorme de Heraclión tal como era en el siglo XVII, y el despacho de Nikos Kazantzakis, trasladado tal cual estaba, con sus libros y sus manuscritos en el sitio donde él los dejó.",
+      "facts": [
+        "Se fundó en 1953 y cubre la Creta posterior a los minoicos.",
+        "Guarda los dos únicos cuadros del Greco que hay en Creta.",
+        "Tiene una maqueta de Heraclión tal como era en el siglo XVII."
+      ],
+      "question": {
+        "q": "¿Por qué llamaron «el Greco» a Doménikos Theotokópoulos?",
+        "answers": [
+          "Porque en España lo llamaban sencillamente «el griego»",
+          "Porque firmaba así sus obras desde pequeño",
+          "Porque era el nombre de su maestro",
+          "Porque nació en un pueblo que se llamaba así"
+        ],
+        "explanation": "Su nombre era difícil para los españoles. El apodo se impuso y se quedó para siempre."
+      },
+      "museum": {
+        "doorNote": "Empieza por la maqueta. Vas a entender exactamente dónde estás ahora mismo.",
+        "rooms": {
+          "heraklion-historical-museum-el-greco": {
+            "name": "Dos cuadros que volvieron a casa",
+            "intro": "El pintor se fue de Creta joven y no volvió nunca. Su obra está en los grandes museos de Europa y de América, y en la isla que lo vio nacer solo hay dos cuadros. Son pequeños y piden tiempo: mira primero la luz, y después las caras."
+          },
+          "heraklion-historical-museum-city-and-people": {
+            "name": "La ciudad y su gente",
+            "intro": "La segunda sala baja de los pintores a los habitantes. Aquí hay una ciudad entera en miniatura, el despacho de un escritor tal como él lo dejó, y tejidos hechos por mujeres en los pueblos, con dibujos que pasaban de madre a hija sin escribirse nunca en ninguna parte."
+          }
+        },
+        "exhibits": {
+          "heraklion-historical-museum-sinai": {
+            "name": "La vista del monte Sinaí",
+            "blurb": "Una mole de roca que sube, con un monasterio pequeño al pie y personas todavía más pequeñas por los caminos. Es un paisaje, algo poco corriente para su época: la pintura de entonces quería sobre todo caras e historias. El joven Theotokópoulos lo hizo en Creta, o poco después de marcharse, cuando aún trabajaba con una técnica cercana a los iconos bizantinos, con oro y líneas finas.",
+            "question": {
+              "q": "¿Qué tiene de poco corriente este cuadro para su época?",
+              "answers": [
+                "Es un paisaje, con las personas diminutas",
+                "Está pintado sobre cristal",
+                "No tiene nada de color",
+                "Es más grande que una pared"
+              ],
+              "explanation": "El paisaje se convirtió en tema por sí solo mucho más tarde. Aquí el protagonista es la montaña."
+            }
+          },
+          "heraklion-historical-museum-baptism": {
+            "name": "El Bautismo de Cristo",
+            "blurb": "Un cuadro pequeño con una luz intensa, casi eléctrica, donde los cuerpos están estirados a lo alto y los colores no son naturales. Esa es la marca del Greco y la razón por la que lo reconoces enseguida. No intentaba pintar lo que ve el ojo; pintaba lo que quiere que sientas. Trescientos años después, pintores del siglo XX lo redescubrieron y lo tomaron por uno de los suyos.",
+            "question": {
+              "q": "¿Cómo reconoces un cuadro del Greco?",
+              "answers": [
+                "Por los cuerpos estirados y la luz poco natural",
+                "Porque siempre es enorme",
+                "Porque no tiene personas",
+                "Por la firma en español"
+              ],
+              "explanation": "Firmó en griego hasta el final. Pero su estilo no necesita firma."
+            }
+          },
+          "heraklion-historical-museum-byzantine-frescoes": {
+            "name": "Los frescos de las ermitas",
+            "blurb": "Creta tiene cientos de pequeñas ermitas bizantinas en pueblos y montañas, muchas con las paredes pintadas. Cuando una de ellas corre peligro de caerse, las pinturas se arrancan y se salvan. En el museo ves trozos así, con santos, ángeles y escenas de la vida diaria por los bordes. Mírales las manos y los ojos: son grandes y fuertes a propósito, porque el pintor sabía que la gente los miraría de lejos y con muy poca luz.",
+            "question": {
+              "q": "¿Por qué son tan grandes los ojos y las manos en estos frescos?",
+              "answers": [
+                "Para que se vean de lejos y con muy poca luz",
+                "Porque el pintor no sabía de proporciones",
+                "Porque la gente era así entonces",
+                "Para gastar menos pintura"
+              ],
+              "explanation": "Es una decisión de diseño. La ermita está oscura y la pared queda lejos."
+            }
+          },
+          "heraklion-historical-museum-city-model": {
+            "name": "La maqueta de la ciudad amurallada",
+            "blurb": "Una maqueta enorme enseña Heraclión tal como era en el siglo XVII, cuando se llamaba Candía: una muralla con baluartes que rodea la ciudad entera, el puerto con sus atarazanas, iglesias, callejones. Busca primero la fortaleza del mar y después la fuente de los leones, y de repente el Heraclión de hoy se coloca entero en su sitio. Las maquetas son la herramienta más olvidada de un museo: enseñan relaciones, no objetos.",
+            "question": {
+              "q": "¿Cómo se llamaba Heraclión en el siglo XVII?",
+              "answers": [
+                "Candía",
+                "Cnosos",
+                "Amnisos",
+                "Gortina"
+              ],
+              "explanation": "Ese nombre pasó al italiano como Candia, y durante siglos significó toda Creta, no solo la ciudad."
+            }
+          },
+          "heraklion-historical-museum-kazantzakis-study": {
+            "name": "El despacho del escritor",
+            "blurb": "Una habitación trasladada entera: el despacho de Nikos Kazantzakis, con su mesa, sus libros, sus gafas y sus manuscritos. Es una pieza extraña, porque no es escasa ni valiosa; es sencillamente de verdad. Enseña que los libros no aparecen de la nada: alguien se sentó en una silla, día tras día, y escribió a mano las páginas que luego se leyeron en decenas de idiomas.",
+            "question": {
+              "q": "¿Por qué merece la pena exponer una mesa de trabajo corriente?",
+              "answers": [
+                "Porque enseña cómo se hace de verdad un libro",
+                "Porque está hecha de una madera rarísima",
+                "Porque perteneció a un rey",
+                "Porque esconde un cajón secreto"
+              ],
+              "explanation": "El trabajo de un escritor es invisible. Una mesa con papeles encima lo hace visible."
+            }
+          },
+          "heraklion-historical-museum-weaving": {
+            "name": "Los tejidos",
+            "blurb": "Telas hechas en telar, con dibujos que se repiten en un orden estricto: rombos, árboles, pájaros, zigzags. Cada zona de Creta tenía sus propios motivos, y un especialista puede mirar una pieza y decir de qué pueblo viene, igual que tú reconocerías un acento. Los dibujos no estaban escritos en ninguna parte. Vivían en la memoria y en las manos, y pasaban de una generación a la siguiente trabajando al lado de alguien.",
+            "question": {
+              "q": "¿Cómo pasaban de una generación a otra los dibujos de los tejidos?",
+              "answers": [
+                "Trabajando al lado de alguien que los sabía",
+                "En libros de dibujos impresos",
+                "Con inspectores que los enseñaban",
+                "No pasaban: cada generación inventaba otros"
+              ],
+              "explanation": "Es un saber sin manual. Por eso, en cuanto deja de pasar de unas manos a otras, desaparece en una sola generación."
+            }
+          }
+        },
+        "riddles": {
+          "heraklion-historical-museum-riddle-1": {
+            "prompt": "Soy una ciudad entera y quepo en una sola sala. Tengo murallas, puerto y callejones, y si me miras el rato suficiente encontrarás encima de mí la calle por la que has andado hoy.",
+            "hint": "No soy un mapa. Tengo altura."
+          },
+          "heraklion-historical-museum-riddle-2": {
+            "prompt": "Soy una montaña pintada, y las personas que hay sobre mí son del tamaño de un grano. Me hizo un joven de esta isla, antes de irse y hacerse famoso con otro nombre.",
+            "hint": "A mis pies hay un monasterio."
+          }
+        }
+      },
+      "findIt": "La entrada está en Sofokli Venizelou 27, en la carretera del paseo marítimo."
+    },
+    "heraklion-natural-history-museum": {
+      "name": "El Museo de Historia Natural de Creta",
+      "tagline": "Una sala que te sacude y un gigante que vivió aquí de verdad",
+      "story": "El museo ocupa una vieja central eléctrica del paseo marítimo y pertenece a la Universidad de Creta. Enseña la naturaleza del Mediterráneo en escenas grandes: montañas, gargantas, desiertos, costas, con sus animales en su sitio. También tiene animales vivos, sobre todo reptiles e insectos. Hay dos cosas que no se olvidan. La primera es el simulador de terremotos: entras en una sala y el suelo repite terremotos reales que se han registrado, para que entiendas qué hace la tierra de verdad cuando se mueve. La segunda es un animal a tamaño natural: el Deinotherium, un pariente de los elefantes que vivió en Creta hace millones de años y era más alto que un autobús. Cuando te pones delante de él entiendes que Creta no fue siempre cabras y olivos: aquí hubo bestias, mucho antes que nosotros.",
+      "facts": [
+        "Ocupa una vieja central eléctrica y pertenece a la Universidad de Creta.",
+        "Su simulador repite terremotos reales que se registraron.",
+        "Expone a tamaño natural el Deinotherium, un pariente de los elefantes que vivió en Creta."
+      ],
+      "question": {
+        "q": "¿Qué hace el simulador de terremotos del museo?",
+        "answers": [
+          "Repite terremotos reales que se registraron de verdad",
+          "Predice cuándo va a ser el próximo terremoto",
+          "Pone una película sobre terremotos en tres dimensiones",
+          "Mide con cuánta fuerza puedes pisar el suelo"
+        ],
+        "explanation": "Nadie predice los terremotos. Pero saber cómo son ayuda a saber qué hacer."
+      },
+      "findIt": "La entrada está en la avenida Sofokli Venizelou, en la bahía de Dermata, dentro de la antigua central eléctrica."
+    },
+    "heraklion-cretaquarium": {
+      "name": "El Cretaquarium",
+      "tagline": "Dos mil metros cúbicos de agua de mar, toda mediterránea",
+      "story": "En Gournes, quince kilómetros al este de Heraclión, hay un acuario construido donde antes había una base aérea estadounidense. Abrió en 2005 y pertenece al Centro Helénico de Investigación Marina, así que es a la vez un sitio para visitar y un centro de investigación. Tiene decenas de tanques con unos dos mil metros cúbicos de agua de mar entre todos. Su decisión más importante es lo que no tiene: no hay peces tropicales ni nada de otros océanos. Todo lo que ves vive en el Mediterráneo, que es el mar que tienes justo fuera. Así que el tiburón de detrás del cristal no es exótico: nada en la misma agua que tú, y no hay motivo para tenerle más miedo del que hace falta.",
+      "facts": [
+        "Abrió en 2005, en el sitio de una antigua base aérea.",
+        "Sus tanques tienen unos 2.000 metros cúbicos de agua de mar.",
+        "Solo enseña especies que viven en el Mediterráneo."
+      ],
+      "question": {
+        "q": "¿Qué no vas a ver en este acuario?",
+        "answers": [
+          "Peces tropicales de otros océanos",
+          "Tiburones",
+          "Pulpos",
+          "Tortugas"
+        ],
+        "explanation": "La elección es a propósito: el acuario enseña el mar que tienes a la puerta, no un mar que no vas a ver nunca."
+      },
+      "findIt": "No está en la ciudad: se encuentra en Gournes, dentro de la antigua base americana."
+    },
+    "heraklion-pankritio-stadium": {
+      "name": "El Estadio Pankritio",
+      "tagline": "Construido para los Juegos Olímpicos de 2004, en una isla",
+      "story": "Cuando Atenas se hizo cargo de los Juegos Olímpicos de 2004, el fútbol no cabía en una sola ciudad. Los partidos se repartieron entre cinco estadios del país, y uno de ellos estaba aquí. El Pankritio se construyó justo para eso y en él caben unas veintiséis mil personas. Tiene una pista de atletismo alrededor del campo, así que las gradas quedan más lejos que en un estadio solo de fútbol, y se usa también para atletismo y para conciertos. La pregunta interesante sobre un edificio así no es cómo se construyó, sino qué pasó después: muchos estadios olímpicos del mundo se quedaron vacíos en cuanto terminaron los juegos. Este no. Aquí juegan equipos cretenses, y se llena a menudo. Un estadio solo sigue vivo si alguien lo necesita el lunes siguiente a la fiesta.",
+      "facts": [
+        "Se construyó para los Juegos Olímpicos de 2004 y en él caben unas 26.000 personas.",
+        "El fútbol olímpico se repartió entre cinco estadios de Grecia.",
+        "Tiene una pista de atletismo alrededor del campo, así que se usa también para atletismo."
+      ],
+      "question": {
+        "q": "¿Por qué se construyó este estadio en Creta?",
+        "answers": [
+          "Porque el fútbol olímpico de 2004 se repartió entre cinco ciudades",
+          "Porque Creta pidió unos Juegos Olímpicos propios",
+          "Porque el estadio viejo se destruyó en un terremoto",
+          "Porque hacía falta sitio para conciertos"
+        ],
+        "explanation": "Un torneo de fútbol necesita muchos campos a la vez. Por eso unos Juegos Olímpicos se reparten por todo un país."
+      }
+    },
+    "heraklion-kazantzakis-museum": {
+      "name": "El Museo de Nikos Kazantzakis",
+      "tagline": "En un pueblo, los papeles de un hombre al que leyeron en todas partes",
+      "story": "En Myrtia, un pueblo al sur de Heraclión, está la casa de la familia del padre de Nikos Kazantzakis, y dentro un museo dedicado a él. Abrió en 1983. Verás manuscritos llenos de tachones, cartas, fotografías, cosas con las que viajaba, decorados de sus obras de teatro y, lo más impresionante de todo para un niño, sus libros traducidos a decenas de idiomas, puestos en fila en el mismo estante. Kazantzakis escribió «Zorba el griego» y mucho más, viajó por todo el mundo y en lo que escribía volvía una y otra vez a Creta. Murió en 1957 y lo enterraron en Heraclión, arriba en las murallas. En la piedra de su tumba hay tres frases que eligió él mismo: «No espero nada. No temo nada. Soy libre.» Es uno de los pocos epitafios del mundo que se saben de memoria personas que no han estado nunca ante la tumba.",
+      "facts": [
+        "Está en Myrtia, el pueblo de la familia de su padre, y abrió en 1983.",
+        "Sus libros se han traducido a decenas de idiomas.",
+        "Su tumba en Heraclión dice: «No espero nada. No temo nada. Soy libre.»"
+      ],
+      "question": {
+        "q": "¿Qué dice la tumba de Kazantzakis en Heraclión?",
+        "answers": [
+          "«No espero nada. No temo nada. Soy libre.»",
+          "«Aquí descansa un viajero de Creta.»",
+          "«Escribe lo que ves, y después vete.»",
+          "«El mar no se acaba nunca.»"
+        ],
+        "explanation": "Las eligió él mismo antes de morir. Es uno de los poquísimos epitafios que puede repetir gente de todo el mundo."
+      },
+      "findIt": "No está en la ciudad: se encuentra en el pueblo de Myrtia, al sur."
+    },
+    "heraklion-juktas": {
+      "name": "El monte Juktas",
+      "tagline": "La montaña que parece una cara tumbada boca arriba",
+      "story": "Mira el Juktas desde Heraclión con el sol bajo. La línea de la cresta hace una frente, una nariz, una boca y una barba: una cara enorme tumbada boca arriba. Los cretenses antiguos decían que era Zeus, y que Zeus estaba enterrado ahí. Eso molestaba al resto de los griegos, porque para ellos Zeus no moría nunca, así que decían que los cretenses eran unos mentirosos. Una discusión entera entre una isla y un continente, por una montaña que parece una cara. En su cumbre, a 811 metros, hubo un santuario minoico: uno de esos santuarios que no se construían en las ciudades, sino arriba, al aire libre. Hoy el Juktas es una zona protegida, y por encima de sus laderas vuelan buitres que se apoyan en las corrientes de aire y se quedan arriba sin mover un ala.",
+      "facts": [
+        "Llega a los 811 metros y se ve desde todo Heraclión.",
+        "En su cumbre hubo un santuario minoico de altura.",
+        "De él bajaba el agua de la fuente Morosini hasta Heraclión."
+      ],
+      "question": {
+        "q": "¿Qué decían los cretenses antiguos de esta montaña?",
+        "answers": [
+          "Que es Zeus tumbado, enterrado ahí dentro",
+          "Que debajo de ella vive el Minotauro",
+          "Que la hizo la gente con tierra",
+          "Que crece un metro cada siglo"
+        ],
+        "explanation": "El resto de los griegos no estaba de acuerdo, porque para ellos Zeus no moría. La discusión duró siglos."
+      }
+    },
+    "heraklion-amnisos": {
+      "name": "Amnisos",
+      "tagline": "El puerto de Cnosos, y Homero lo nombra",
+      "story": "Un palacio sin puerto no se explica. Cnosos está a cinco kilómetros del mar, y su puerto estaba aquí, en Amnisos. Hoy ves ruinas bajas junto a la orilla, y entre ellas un edificio llamado la Casa de los Lirios, porque en sus paredes había lirios pintados en macetas. Homero nombra Amnisos en la Odisea, cuando Odiseo cuenta una mentira y dice que atracó ahí. Es una de las pocas veces en que un poema y una excavación señalan el mismo punto. Pero el hallazgo más serio es la piedra pómez: en las ruinas se encontró pómez de la erupción del volcán de Tera, que llegó hasta aquí cruzando el mar. Una piedra que flota trajo la noticia de un desastre ocurrido a cien kilómetros y la dejó aquí para que la leyéramos.",
+      "facts": [
+        "Era el puerto que servía a Cnosos.",
+        "Homero lo nombra en la Odisea.",
+        "En sus ruinas se encontró piedra pómez de la erupción de Tera."
+      ],
+      "question": {
+        "q": "¿Qué significa que aquí se encontrara piedra pómez de Tera?",
+        "answers": [
+          "Que la erupción del volcán llegó hasta esta costa",
+          "Que sus habitantes comerciaban con piedras",
+          "Que en Creta también había un volcán",
+          "Que el puerto se construyó encima de lava"
+        ],
+        "explanation": "La piedra pómez flota. Viaja con el agua, y donde llega deja una fecha."
+      }
+    }
+  },
+  "trails": {
+    "heraklion-minoan-day": {
+      "name": "Un día minoico",
+      "promise": "El palacio, sus cosas, su puerto y la montaña que lo miraba."
+    },
+    "heraklion-after-the-minoans": {
+      "name": "Después de los minoicos",
+      "promise": "Venecianos, agua traída de lejos, dos cuadros de un cretense y los papeles de un escritor."
+    },
+    "heraklion-living-crete": {
+      "name": "La Creta que vive ahora",
+      "promise": "Una sala que tiembla, dos mil metros cúbicos de mar y un estadio lleno."
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "lang": "de",
+  "countries": {
+    "greece": {
+      "name": "Griechenland",
+      "intro": "Griechenland ist ein Land aus Bergen und Meer. Es hat ungefähr sechstausend Inseln und Felseninseln, aber nur auf etwa zweihundert davon wohnen Menschen. Hier begannen die Olympischen Spiele, hier begann das Theater, und hier entstand das Wort „Demokratie“. Fast überall, wo du gräbst, stößt du auf etwas: Unter den Wohnhäusern von Athen laufen antike Straßen, und neben einem Hafen, in dem noch heute Schiffe anlegen, steht ein Tempel, der zweieinhalbtausend Jahre alt ist. Dieses Land hat nie etwas aus seiner Vergangenheit weggeworfen.",
+      "facts": [
+        "Es hat die längste Küste im Mittelmeer, ungefähr 13.600 Kilometer.",
+        "Der Olymp, sein höchster Berg, ist 2.917 Meter hoch. In den Mythen war er das Zuhause der Götter.",
+        "Griechisch wird seit etwa 2.800 Jahren mit demselben Alphabet geschrieben."
+      ],
+      "cities": {
+        "athens": {
+          "name": "Athen",
+          "intro": "Athen ist eine Stadt mit einem Felsen mitten drin. Oben auf dem Felsen steht ein Tempel, der zweieinhalbtausend Jahre alt ist, und rundherum breitet sich eine moderne Stadt aus, mit U-Bahn, Stadien und Wochenmärkten. Die beiden Leben sind nicht getrennt: Beim U-Bahn-Bau hielten die Bagger an, damit Archäologen graben konnten, und was sie fanden, ist heute in den Stationen ausgestellt. Hier stimmten zum ersten Mal ganz normale Bürger über Gesetze ab, hier wurden die ersten Theaterstücke gespielt, und hier begannen 1896 die Olympischen Spiele von Neuem."
+        },
+        "thessaloniki": {
+          "name": "Thessaloniki",
+          "intro": "Thessaloniki ist eine Stadt, die ihre Jahrhunderte nie versteckt hat. Ein römischer Triumphbogen steht über einer Straße voller Cafés, ein Kuppelbau, der siebzehnhundert Jahre alt ist, wird für Ausstellungen genutzt, und der Markt arbeitet dort, wo er schon immer gearbeitet hat. 1917 brannte ein Feuer das Zentrum nieder, also wurde die Stadt noch einmal von vorn geplant. Deshalb gibt es oben in der Altstadt enge Gassen und unten große Plätze. Und wohin du auch schaust: Am Ende der Straße wartet immer das Meer."
+        },
+        "heraklion": {
+          "name": "Heraklion",
+          "intro": "Heraklion ist die Stadt, die das älteste Europa hütet. Fünf Kilometer außerhalb steht Knossos, ein Palast mit Wasserleitungen und Lichtschächten, die viertausend Jahre alt sind, und in der Stadt selbst wird alles aufbewahrt, was dort gefunden wurde. Im Hafen steht eine venezianische Festung mitten im Wasser, und auf dem Platz spucken die Löwen eines Brunnens noch immer Wasser, das früher von einem Berg fünfzehn Kilometer weiter kam. Rundherum eine moderne Stadt, die nicht langsamer wird."
+        },
+        "rhodes": {
+          "name": "Rhodos",
+          "intro": "Rhodos ist eine Insel, die nacheinander allen gehörte, die durchs Mittelmeer kamen, und jeder ließ etwas stehen. Die alten Griechen bauten eine Stadt nach Lineal, die Johanniterritter errichteten Burgen, ein Krankenhaus und eine ganze mittelalterliche Stadt, in der bis heute Menschen wohnen, und die Italiener setzten im 20. Jahrhundert wieder zusammen, was eingestürzt war. Fünfzig Kilometer weiter südlich schaut ein Felsen mit einem antiken Tempel auf zwei Buchten hinunter. Und dazwischen liegen Strände, an denen das Wasser in drei verschiedenen Blautönen leuchtet."
+        },
+        "delphi": {
+          "name": "Delphi",
+          "intro": "Delphi war nie eine große Stadt. Es war der Ort, an den die ganze griechische Welt kam, um etwas zu fragen. Hoch an einem steilen Hang des Parnass, mit dem Meer in der Ferne, hütete es das berühmteste Orakel des Altertums und galt als Mittelpunkt der Erde. Jede Stadt, die die Antwort bekam, die sie wollte, schickte ein Geschenk, und die Geschenke füllten den Weg zum Tempel mit Statuen. Heute ist der Weg leer, und die Geschenke stehen im Museum, ein paar Meter weiter unten."
+        }
+      }
+    }
+  }
+}

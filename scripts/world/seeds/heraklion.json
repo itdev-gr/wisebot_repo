@@ -1,0 +1,27 @@
+{
+  "city": "heraklion",
+  "country": "greece",
+  "centre": { "lat": 35.34028, "lng": 25.13444 },
+  "note": "Wikidata q-ids only. Centre is Wikidata's own point for the city (Q160544). The settlement trap bites twice in Crete: 'Άγιος Μάρκος Ηρακλείου' returns a village 60 km away (Q21705668), and 'Κνωσός Ηρακλείου' returns the modern settlement (Q117884854) rather than the palace. Read the description every time. The Koules fortress is filed under its Venetian name, Rocca a Mare, and returns nothing at all when searched as Κούλες. The Venetian walls (Q20127741) were dropped rather than shipped: their OpenStreetMap match sits 990 m away because the relation traces the whole four-kilometre circuit, and no Wikipedia coordinate exists to back Wikidata up, so the place graded D. Thessaloniki's walls survive the same test only because Wikipedia agrees there. No separate item exists for the Martinengo bastion or for Kazantzakis's tomb on it, so there was nothing to replace it with.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "heraklion-knossos", "name": "Knossos", "wikidata": "Q173527", "anchor": "area",
+      "note": "The palace and archaeological site. Not Q117884854, which is the modern settlement of the same name 400 m away." },
+
+    { "id": "heraklion-archaeological-museum", "name": "Heraklion Archaeological Museum", "wikidata": "Q636972", "anchor": "entrance" },
+
+    { "id": "heraklion-koules", "name": "Koules Fortress (Rocca a Mare)", "wikidata": "Q603920", "anchor": "entrance",
+      "note": "Searching in Greek for Κούλες returns tower houses in the Balkans and two unrelated Cretan forts. The Heraklion sea fort is filed under its Venetian name." },
+
+    { "id": "heraklion-morosini-fountain", "name": "Morosini Fountain", "wikidata": "Q15616490", "anchor": "centroid" },
+    { "id": "heraklion-loggia", "name": "Venetian Loggia", "wikidata": "Q14175781", "anchor": "entrance" },
+    { "id": "heraklion-historical-museum", "name": "Historical Museum of Crete", "wikidata": "Q4204518", "anchor": "entrance" },
+    { "id": "heraklion-natural-history-museum", "name": "Natural History Museum of Crete", "wikidata": "Q6980521", "anchor": "entrance" },
+    { "id": "heraklion-cretaquarium", "name": "Cretaquarium", "wikidata": "Q31529", "anchor": "entrance" },
+    { "id": "heraklion-pankritio-stadium", "name": "Pankritio Stadium", "wikidata": "Q1928668", "anchor": "entrance" },
+    { "id": "heraklion-kazantzakis-museum", "name": "Nikos Kazantzakis Museum", "wikidata": "Q4306167", "anchor": "entrance" },
+    { "id": "heraklion-juktas", "name": "Mount Juktas summit", "wikidata": "Q18629969", "anchor": "viewpoint",
+      "note": "Replaces the mountain item (Q3321879), which graded D as a viewpoint for the same reason Lycabettus did: Wikipedia's point for the mountain sits 829 m south of the summit, because it describes a whole ridge rather than a place to stand. Q18629969 is the summit itself, where the peak sanctuary is and where the view over the plain of Heraklion opens up." },
+    { "id": "heraklion-amnisos", "name": "Amnisos", "wikidata": "Q473766", "anchor": "area" }
+  ]
+}

@@ -1,0 +1,587 @@
+{
+  "lang": "es",
+  "cityId": "thessaloniki",
+  "places": {
+    "thessaloniki-white-tower": {
+      "name": "La Torre Blanca",
+      "tagline": "El símbolo de la ciudad, que un día no fue nada blanco",
+      "story": "La Torre Blanca está al final del paseo marítimo, redonda y gruesa, de treinta y cuatro metros de alto. Se construyó hacia el siglo XV, en la esquina donde las murallas de la ciudad llegaban al mar, y formaba parte de las defensas. Más tarde se convirtió en cárcel, y en aquellos años le daban otros nombres, mucho más oscuros. La historia que cuenta la gente de Tesalónica es que, a finales del siglo XIX, un preso se ofreció a encalarla entera a cambio de su libertad. Pasara o no pasara así, la torre se encaló, el nombre cambió y Blanca se quedó incluso cuando la cal se fue gastando. Hoy no encierra a nadie: dentro subes por una rampa en espiral a lo largo de seis plantas, con el museo de la ciudad a tu alrededor, y sales arriba para ver el golfo Termaico y, los días claros, el monte Olimpo al otro lado del agua.",
+      "facts": [
+        "Mide unos 34 metros de alto y tiene seis plantas que se suben por una rampa.",
+        "Estaba en la esquina donde las murallas de la ciudad llegaban al mar.",
+        "El nombre «Blanca» viene de un encalado del siglo XIX y se quedó."
+      ],
+      "question": {
+        "q": "¿Cómo consiguió su nombre la Torre Blanca?",
+        "answers": [
+          "La encalaron en el siglo XIX y el nombre se quedó",
+          "Está construida con mármol blanco del monte Pentélico",
+          "La nieve la cubre todos los inviernos",
+          "La construyó un arquitecto que se llamaba Lefkos"
+        ],
+        "explanation": "La cal se fue con los años; el nombre no. Así nacen casi todos los nombres de edificios y de ciudades."
+      },
+      "findIt": "La torre está justo en el paseo marítimo, en la avenida Nikis. No hay manera de pasar de largo."
+    },
+    "thessaloniki-rotunda": {
+      "name": "La Rotonda",
+      "tagline": "Un edificio redondo que cambió de religión tres veces",
+      "story": "La Rotonda es un cilindro enorme de ladrillo, levantado hacia el año 306 d. C. para el emperador Galerio. Nadie sabe con seguridad qué quería ser al principio: un templo, o su propia tumba. Sus muros tienen más de seis metros de grosor y su cúpula mide unos veinticuatro metros y medio de ancho. Ese grosor es la razón de que siga en pie después de mil setecientos años y después de terremotos que tiraron casi todo lo que había alrededor. Se convirtió en iglesia cristiana y se llenó de mosaicos con fondo de oro. Se convirtió en mezquita en tiempos del Imperio otomano, y a su lado se levantó un minarete que sigue ahí, el único que queda en toda Tesalónica. Hoy es un monumento y una sala de exposiciones, y entras en un espacio que ya no pertenece a ninguna época concreta.",
+      "facts": [
+        "Sus muros tienen más de 6 metros de grosor.",
+        "Su cúpula mide unos 24,5 metros de ancho.",
+        "El minarete que tiene al lado es el único que queda en pie en Tesalónica."
+      ],
+      "question": {
+        "q": "¿Por qué aguantó la Rotonda terremotos que tiraron los edificios de alrededor?",
+        "answers": [
+          "Porque sus muros tienen más de seis metros de grosor",
+          "Porque está construida sobre goma",
+          "Porque está hecha de madera, que se dobla",
+          "Porque la vuelven a construir cada cien años"
+        ],
+        "explanation": "Un muro circular y grueso reparte las fuerzas por todo el contorno. No tiene ninguna esquina por donde partirse."
+      }
+    },
+    "thessaloniki-arch-of-galerius": {
+      "name": "El Arco de Galerio",
+      "tagline": "La Kamara: una puerta sobre el camino que unía dos mares",
+      "story": "La gente de Tesalónica lo llama simplemente la Kamara, y es el punto de encuentro más corriente de la ciudad: «en la Kamara, a las seis». Se construyó hacia el año 299 d. C. para celebrar una victoria del emperador Galerio. Al principio no era un solo arco, sino una construcción grande con ocho pilares y cuatro aberturas, y solo se conserva una parte. Los pilares llevan placas de mármol talladas en franjas, como un cómic que se lee de abajo arriba: soldados, caballos, elefantes, embajadas. Lo que más importa es dónde estaba. Por debajo pasaba la Vía Egnatia, la calzada romana que empezaba en el Adriático y llegaba hasta Bizancio. Cualquiera que viajara de Roma hacia Oriente pasaba por aquí. La ruta sigue existiendo: la calle Egnatia pasa justo al lado.",
+      "facts": [
+        "Se construyó hacia el año 299 d. C. y solo se conserva una parte.",
+        "Por debajo pasaba la Vía Egnatia, del Adriático hasta Bizancio.",
+        "Sus relieves se leen en franjas, de abajo arriba."
+      ],
+      "question": {
+        "q": "¿Qué pasaba por debajo cuando se construyó?",
+        "answers": [
+          "La Vía Egnatia, la calzada romana que iba hacia Oriente",
+          "Un río con un puente de madera",
+          "Un acueducto que traía agua a la ciudad",
+          "El camino al puerto y nada más"
+        ],
+        "explanation": "Los romanos construían arcos encima de las calzadas para que los viera todo el que pasaba. Era publicidad tallada en mármol."
+      }
+    },
+    "thessaloniki-agios-dimitrios": {
+      "name": "La iglesia de San Demetrio",
+      "tagline": "La iglesia más grande del país, reconstruida después de un incendio",
+      "story": "La iglesia de San Demetrio, Agios Dimitrios en griego, está considerada la más grande de Grecia, y está dedicada al patrón de la ciudad. Demetrio fue oficial del ejército romano hacia el año 300 d. C., se negó a cambiar de fe y lo mataron por eso. La iglesia se levantó encima de unas termas romanas, y bajo su suelo sigue estando la cripta, un espacio subterráneo de columnas por el que gotea el agua. En agosto de 1917 un incendio enorme quemó medio centro de Tesalónica y la iglesia con él. La reconstruyeron a lo largo de más de veinte años, guardando todos los mosaicos que se habían salvado. Algunos tienen mil cuatrocientos años y muestran a gente de la ciudad, niños entre ellos, y no solo a santos. Son de los poquísimos mosaicos de su época que se conservan en el mundo entero, y por eso vienen investigadores de todas partes a estudiarlos.",
+      "facts": [
+        "Está considerada la iglesia más grande de Grecia.",
+        "Se quemó en el gran incendio de 1917 y se reconstruyó.",
+        "Bajo su suelo hay una cripta, levantada sobre unas termas romanas."
+      ],
+      "question": {
+        "q": "¿Qué le pasó a la iglesia en agosto de 1917?",
+        "answers": [
+          "Se quemó en un gran incendio y la reconstruyeron",
+          "La inundó una riada y quedó abandonada",
+          "La trasladaron piedra a piedra a otro sitio",
+          "Se convirtió en museo y cerró al culto"
+        ],
+        "explanation": "El incendio de 1917 quemó medio centro de la ciudad. La iglesia se reconstruyó con los trozos que se salvaron."
+      },
+      "findIt": "La entrada principal está en la calle Agiou Dimitriou, en el número 83."
+    },
+    "thessaloniki-hagia-sophia": {
+      "name": "Santa Sofía",
+      "tagline": "Una cúpula con dos mosaicos, uno debajo del otro",
+      "story": "Santa Sofía de Tesalónica tiene unos mil doscientos años y guarda un secreto en su cúpula. Lo que se ve ahí arriba ahora es un mosaico de Cristo con ángeles y apóstoles sobre fondo de oro. Debajo, en trozos que todavía se distinguen, hay un mosaico más antiguo: una cruz sencilla, sin ninguna cara en ninguna parte. El motivo es una discusión de verdad que duró más de un siglo. Durante un tiempo, el imperio prohibió las imágenes de personas en las iglesias. Quien pintaba una cara corría peligro, y se destruyó muchísimo trabajo. Cuando la prohibición terminó, los artesanos taparon la cruz con un mosaico nuevo, pero no la rasparon. Así que la cúpula guarda las dos decisiones, una encima de la otra, como una página reescrita sin borrar lo que había antes.",
+      "facts": [
+        "Tiene unos 1.200 años y es uno de los monumentos de la UNESCO que hay aquí.",
+        "En la cúpula se conservan dos mosaicos, uno debajo del otro.",
+        "El más antiguo solo muestra una cruz, de la época en que las imágenes estaban prohibidas."
+      ],
+      "question": {
+        "q": "¿Por qué hay una cruz sin nada más debajo del mosaico de la cúpula?",
+        "answers": [
+          "Porque durante unos años estuvieron prohibidas las imágenes de personas",
+          "Porque al artesano no le dio tiempo a terminar el trabajo",
+          "Porque la cruz servía de guía para colocar el resto del mosaico",
+          "Porque la cúpula se construyó dos veces, por dos equipos distintos"
+        ],
+        "explanation": "Se llama iconoclasia. Cuando terminó, no borraron lo viejo: pusieron lo nuevo encima, y se salvaron los dos."
+      }
+    },
+    "thessaloniki-roman-agora": {
+      "name": "El Ágora Romana",
+      "tagline": "Una plaza de dos pisos que se encontró por casualidad",
+      "story": "En medio de la ciudad de hoy hay un rectángulo grande excavado por debajo del nivel de la calle. Es el ágora romana, la plaza principal de la Tesalónica del siglo II d. C. Nadie la estaba buscando: apareció en 1966, cuando unos obreros cavaban los cimientos de unos juzgados. La obra se paró y los juzgados se construyeron en otro sitio. El ágora tenía dos niveles. El de arriba era la plaza enlosada con soportales alrededor, y el de abajo era un criptopórtico, un pasillo cubierto y abovedado que servía de almacén y de tiendas. En un extremo se conserva un teatro pequeño, el odeón, con sitio para unas cuatrocientas personas. Allí se celebraban audiencias, música y concursos de oratoria, y en verano vuelve a haber funciones. Te sientas en unos escalones de mármol que llevan dieciocho siglos haciendo el mismo trabajo.",
+      "facts": [
+        "Se encontró en 1966, mientras cavaban los cimientos de unos juzgados.",
+        "Su teatro pequeño, el odeón, tenía sitio para unas 400 personas.",
+        "Bajo la plaza corre un pasillo cubierto con bóvedas."
+      ],
+      "question": {
+        "q": "¿Cómo se encontró el ágora romana?",
+        "answers": [
+          "Por casualidad, cavando para un edificio nuevo",
+          "Por un mapa que apareció en un monasterio",
+          "Después de un terremoto que abrió el suelo",
+          "Por unas fotos tomadas desde un avión"
+        ],
+        "explanation": "En Tesalónica, igual que en Atenas, cada excavación profunda es también un posible descubrimiento."
+      }
+    },
+    "thessaloniki-archaeological-museum": {
+      "name": "El Museo Arqueológico de Tesalónica",
+      "tagline": "Una crátera de bronce y el libro más antiguo de Europa",
+      "story": "El museo abrió en 1962 y reúne hallazgos de toda Macedonia. Ese mismo año pasó algo que acabaría llenando sus vitrinas más importantes. Unos kilómetros al norte, en Derveni, una cuadrilla que abría una carretera cortó por en medio de unas tumbas del siglo IV a. C. Dentro había coronas de oro, vasijas de plata, una crátera de bronce como ninguna otra y algo que nadie esperaba: un rollo de papiro medio quemado. Lo habían tirado sobre los restos de una pira funeraria, y el fuego, en lugar de destruirlo, lo carbonizó y lo conservó. El museo tiene además una segunda historia que contar, más cercana: los mosaicos, los mármoles y los vidrios que salieron de debajo de las casas de la Tesalónica de hoy, de la ciudad romana que está justo debajo.",
+      "facts": [
+        "Abrió en 1962, el mismo año en que se encontraron las tumbas de Derveni.",
+        "Guarda el papiro de Derveni, el libro más antiguo que se conserva en Europa.",
+        "Reúne hallazgos de toda Macedonia, no solo de la ciudad."
+      ],
+      "question": {
+        "q": "¿Cómo se salvó el papiro de Derveni?",
+        "answers": [
+          "El fuego lo carbonizó en lugar de quemarlo del todo",
+          "Estaba cerrado en un frasco de vidrio lleno de aceite",
+          "Unos monjes lo copiaban cada cien años",
+          "Estaba escrito en metal y no en papiro"
+        ],
+        "explanation": "El papiro carbonizado se queda como el carbón: frágil, pero ya no se pudre. Por eso ha llegado hasta nosotros."
+      },
+      "museum": {
+        "doorNote": "Empieza por Derveni. Tres objetos de allí explican todo lo demás.",
+        "rooms": {
+          "thessaloniki-archaeological-museum-derveni": {
+            "name": "Los hallazgos de Derveni",
+            "intro": "Todo lo que ves aquí salió de un puñado de tumbas, en un sitio donde nadie buscaba nada, un día de 1962. Eran de macedonios ricos del siglo IV a. C. y ardieron con ellos en la pira. El fuego destruyó muchísimo, y salvó una cosa."
+          },
+          "thessaloniki-archaeological-museum-roman-city": {
+            "name": "La ciudad que hay debajo de la ciudad",
+            "intro": "Esta sala no habla de reinos lejanos, sino del suelo que tienes bajo los pies. Cada vez que Tesalónica cava para un garaje, para el metro o para unos cimientos, aparece la ciudad romana. Los objetos de aquí eran cosas corrientes: suelos de casas, caras de vecinos, vasos para beber."
+          }
+        },
+        "exhibits": {
+          "thessaloniki-archaeological-museum-derveni-krater": {
+            "name": "La crátera de Derveni",
+            "blurb": "Una vasija enorme de casi noventa centímetros de alto, hecha con una aleación de cobre que lleva mucho estaño, y ese estaño le da un color dorado sin llevar nada de oro. Toda su superficie está trabajada con figuras que bailan, en un relieve tan alto que algunas se despegan del cuerpo de la vasija. Una crátera se hacía normalmente para mezclar vino con agua en un banquete. Esta acabó siendo un recipiente para cenizas, y dentro se encontraron huesos quemados.",
+            "question": {
+              "q": "¿Por qué parece de oro la crátera si no lleva nada de oro?",
+              "answers": [
+                "Porque su aleación lleva mucho estaño, que cambia el color",
+                "Porque está pintada con pintura dorada",
+                "Porque la pulieron con aceite y cera",
+                "Porque el fuego la cubrió de ceniza"
+              ],
+              "explanation": "Cambia la proporción de los metales y cambia el color. Fue una decisión del artesano, no una casualidad."
+            }
+          },
+          "thessaloniki-archaeological-museum-derveni-papyrus": {
+            "name": "El papiro de Derveni",
+            "blurb": "Parece trozos de papel quemado, y es el libro más antiguo que se conserva en Europa. Se escribió en el siglo IV a. C. y explica un poema más antiguo, así que es un libro sobre otro libro. Se encontró tirado sobre los restos de una pira funeraria. Como los bordes se quemaron pero el interior solo se carbonizó, el texto siguió pudiéndose leer. Desde 2015 está en el registro Memoria del Mundo de la UNESCO.",
+            "question": {
+              "q": "¿Qué clase de texto es el papiro de Derveni?",
+              "answers": [
+                "La explicación de un poema más antiguo",
+                "Una lista de impuestos y de deudas",
+                "La carta de un soldado a su madre",
+                "Un mapa de Macedonia"
+              ],
+              "explanation": "Alguien, hace 2.400 años, estaba escribiendo notas sobre un texto. Exactamente como se hace hoy."
+            }
+          },
+          "thessaloniki-archaeological-museum-gold-wreath": {
+            "name": "La corona de oro",
+            "blurb": "Una corona de oro fino, con hojitas y flores pequeñas, hecha para parecer una rama recién cortada de un árbol. Las hojas son tan finas que tiemblan con el menor movimiento. Coronas como esta se llevaban en las fiestas y bajaban a la tumba con los muertos como señal de honor. El oro no se oxida nunca, así que lo que vio alguien en el año 330 a. C. es exactamente lo que estás viendo tú, sin ninguna diferencia.",
+            "question": {
+              "q": "¿Por qué parece nuevo un objeto de oro de 2.300 años?",
+              "answers": [
+                "Porque el oro no se oxida",
+                "Porque lo pulen cada semana",
+                "Porque es una copia del original",
+                "Porque lo guardan metido en aceite"
+              ],
+              "explanation": "Por eso el oro fue siempre valioso: no cambia, le haga lo que le haga el tiempo."
+            }
+          },
+          "thessaloniki-archaeological-museum-mosaic-floor": {
+            "name": "El suelo de mosaico",
+            "blurb": "Un suelo hecho con miles de piedrecitas, cortadas en cubos y colocadas una a una. Estaba en una casa romana de Tesalónica y se levantó entero para traerlo al museo. Acércate y verás que las piedras no son todas del mismo tamaño: donde hacía falta detalle, en un ojo o en un dedo, el artesano usaba trozos mucho más pequeños. Es la misma idea que los píxeles de una pantalla, dos mil quinientos años antes.",
+            "question": {
+              "q": "¿Dónde usaba el artesano las teselas más pequeñas?",
+              "answers": [
+                "Donde hacía falta detalle, como en los ojos",
+                "En los bordes del suelo, para que no se rompieran",
+                "En el centro, porque la gente pisaba ahí",
+                "En ningún sitio: todas eran exactamente iguales"
+              ],
+              "explanation": "Cuanto más pequeño es el trozo, más nítida es la imagen. Exactamente igual que en una pantalla."
+            }
+          },
+          "thessaloniki-archaeological-museum-portraits": {
+            "name": "Las caras de mármol",
+            "blurb": "Filas de cabezas de mármol talladas hace unos dos mil años. No son dioses. Son personas que vivieron en Tesalónica, y se nota: una tiene la nariz torcida, otra papada, otra la boca apretada. Los romanos no querían que sus retratos salieran guapos; querían que se les reconociera. Algunas cabezas tienen las pupilas talladas en los ojos, algo que los escultores anteriores no hacían, y por eso su mirada parece seguirte.",
+            "question": {
+              "q": "¿Qué querían los romanos de un retrato?",
+              "answers": [
+                "Que se reconociera a la persona, con sus defectos incluidos",
+                "Que todos salieran jóvenes y guapos",
+                "Que se pareciera a un dios del Olimpo",
+                "Que fuera igual que todos los demás"
+              ],
+              "explanation": "Un retrato era una prueba de identidad. Si no se te parecía, no estaba haciendo su trabajo."
+            }
+          },
+          "thessaloniki-archaeological-museum-glass": {
+            "name": "Las vasijas de vidrio",
+            "blurb": "Botellitas y vasos de vidrio, finos como una cáscara, que con el tiempo han cogido colores tornasolados, como una pompa de jabón. Ese color no estaba ahí al principio: lo hizo la tierra, desgastando la superficie en capas finísimas que separan la luz. Los romanos aprendieron a soplar el vidrio y lo hicieron barato, así que en pocas generaciones dejó de ser un lujo y pasó a ser el vaso normal de una casa.",
+            "question": {
+              "q": "¿De dónde salen los colores de arcoíris del vidrio antiguo?",
+              "answers": [
+                "Del desgaste de la superficie mientras estuvo en la tierra",
+                "De unos tintes que echaban al vidrio fundido",
+                "Del vino que se quedó dentro",
+                "Del fuego de la pira funeraria"
+              ],
+              "explanation": "Es deterioro, no decoración. El vidrio salió transparente del taller."
+            }
+          }
+        },
+        "riddles": {
+          "thessaloniki-archaeological-museum-riddle-1": {
+            "prompt": "Parezco de oro y no lo soy. Me hicieron para mezclar vino en las fiestas, pero acabé guardando ceniza. Encima de mí bailan figuras, y algunas se despegan de mi cuerpo.",
+            "hint": "Mido casi un metro de alto y soy de metal."
+          },
+          "thessaloniki-archaeological-museum-riddle-2": {
+            "prompt": "Me tiraron al fuego y el fuego me salvó. Soy negro, estoy arrugado y todavía se me puede leer. Ningún otro libro de Europa es más viejo que yo.",
+            "hint": "No soy de papel ni de cuero."
+          }
+        }
+      },
+      "findIt": "La entrada está en la calle Manoli Andronikou, en el número 6, junto al recinto ferial."
+    },
+    "thessaloniki-byzantine-museum": {
+      "name": "El Museo de Cultura Bizantina",
+      "tagline": "Mil años de vida de cada día, y no solo de emperadores",
+      "story": "Bizancio suena lejano, y este museo hace justo lo contrario: enseña cómo vivía la gente. Abrió en 1994, en un edificio que diseñó Kyriakos Krokos, y en 2005 ganó el Premio del Museo del Consejo de Europa. Sus salas no están ordenadas por materiales, sino por temas: cómo enterraban a sus muertos, cómo construían, cómo comían, cómo compraban. Lo más impresionante son las tumbas paleocristianas, trasladadas enteras al museo con sus pinturas murales, así que entras en una tumba y te quedas de pie ahí dentro, con los colores alrededor. Hay además monedas, joyas, platos con dibujos rayados e iconos. El museo deja clara una cosa que se olvida con facilidad: Tesalónica fue la segunda ciudad de aquel imperio durante más de mil años.",
+      "facts": [
+        "Abrió en 1994 y ganó el Premio del Museo del Consejo de Europa en 2005.",
+        "Guarda tumbas paleocristianas enteras, trasladadas con sus pinturas murales.",
+        "Sus salas están organizadas por temas y no por materiales."
+      ],
+      "question": {
+        "q": "¿Cómo están organizadas las salas de este museo?",
+        "answers": [
+          "Por temas: cómo enterraban, cómo construían, cómo compraban",
+          "Por materiales: mármoles, metales, telas",
+          "Por tamaño, de lo más pequeño a lo más grande",
+          "Por orden alfabético, con el nombre de cada objeto"
+        ],
+        "explanation": "Así una moneda, un plato y un muro pueden estar juntos, porque hablan de lo mismo."
+      },
+      "museum": {
+        "doorNote": "Entra dentro de las tumbas. Se puede, y es la única forma de verlas.",
+        "rooms": {
+          "thessaloniki-byzantine-museum-tombs": {
+            "name": "Las tumbas pintadas",
+            "intro": "Esta sala está oscura a propósito, y no da miedo. Las tumbas que ves estuvieron bajo tierra, fuera de las murallas de la ciudad. Las trajeron aquí enteras, con sus paredes y sus colores, para que puedas ver qué querían dejar detrás de ellas aquellas personas."
+          },
+          "thessaloniki-byzantine-museum-daily-life": {
+            "name": "La vida de una ciudad grande",
+            "intro": "Tesalónica era la segunda ciudad del imperio, con puerto, mercados y gente de todas partes. Esta sala enseña los objetos que pasaban de mano en mano cada día: platos, joyas, monedas. Son las cosas más humildes del museo y las que más cuentan."
+          }
+        },
+        "exhibits": {
+          "thessaloniki-byzantine-museum-painted-tomb": {
+            "name": "La tumba del jardín",
+            "blurb": "Una tumba pequeña y abovedada, pintada por dentro como un jardín: ramas, pájaros, flores, luz. Los primeros cristianos de Tesalónica no pintaban la muerte; pintaban el sitio donde esperaban que estuviera alguien a quien querían. Las paredes se hicieron al fresco, con el color puesto sobre el yeso todavía húmedo, y por eso han durado. La tumba se sacó entera de la tierra y llegó al museo de una pieza.",
+            "question": {
+              "q": "¿Qué pintaban dentro de estas tumbas?",
+              "answers": [
+                "Jardines con pájaros, flores y luz",
+                "Batallas con soldados y caballos",
+                "Mapas de la ciudad y de sus murallas",
+                "Nada: las paredes se dejaban blancas"
+              ],
+              "explanation": "Es una imagen de esperanza, no de miedo. Por eso la sala no da miedo."
+            }
+          },
+          "thessaloniki-byzantine-museum-grave-goods": {
+            "name": "Los ajuares",
+            "blurb": "Con los muertos entraban en la tumba objetos pequeños: un anillo, un peine, un frasquito de vidrio con perfume, una moneda. Para los arqueólogos estos valen más que los hallazgos ricos, porque un peine cuenta cómo vivía alguien, mientras que una corona solo cuenta lo que tenía. Muchos están gastados por el uso, y eso significa que no se compraron para el entierro: eran las cosas de esa persona.",
+            "question": {
+              "q": "¿Qué nos dice que muchos ajuares estén gastados?",
+              "answers": [
+                "Que eran los objetos personales del muerto",
+                "Que eran copias baratas",
+                "Que los robaron y los devolvieron",
+                "Que se hicieron deprisa para el entierro"
+              ],
+              "explanation": "El desgaste es prueba de uso. Alguien los tuvo en las manos todos los días."
+            }
+          },
+          "thessaloniki-byzantine-museum-lamps": {
+            "name": "Las lámparas de aceite",
+            "blurb": "Lámparas pequeñas de barro que llevaban un poco de aceite y una mecha. Daban más o menos la misma luz que una vela, y eran la única luz que tenía una casa después de la puesta de sol. Muchas llevan dibujos: cruces, peces, hojas, y a veces el nombre del taller que las hizo, como una marca. Eran baratas, se rompían con facilidad y se tiraban, y por eso hoy aparecen por todas partes y ayudan a fechar las capas de tierra.",
+            "question": {
+              "q": "¿Por qué les sirven a los arqueólogos las lámparas rotas?",
+              "answers": [
+                "Porque aparecen por todas partes y ayudan a fechar la tierra",
+                "Porque dentro se escondían monedas",
+                "Porque eran objetos carísimos",
+                "Porque todavía arden si les echas aceite"
+              ],
+              "explanation": "Todo lo que es barato y se rompe a menudo también cambia de forma a menudo. Ese cambio de forma se convierte en un reloj."
+            }
+          },
+          "thessaloniki-byzantine-museum-sgraffito": {
+            "name": "Los platos rayados",
+            "blurb": "Platos cubiertos de barro blanco y después rayados con una aguja para que asome el color más oscuro de debajo. La técnica se llama esgrafiado, y el dibujo se hace quitando material en lugar de añadirlo. En ellos encuentras peces, pájaros, guerreros, bailarines, y a veces una figura que parece estar gastando una broma. Eran platos de cada día, no de iglesia, y se hacían por miles en los talleres de la ciudad para viajar lejos en barco.",
+            "question": {
+              "q": "¿Cómo se hace el dibujo en un plato esgrafiado?",
+              "answers": [
+                "Rayando la capa blanca para que asome lo oscuro de debajo",
+                "Pintando con pincel y oro",
+                "Pegando trocitos de vidrio",
+                "Estampando con un molde de madera"
+              ],
+              "explanation": "Es dibujar quitando. Todo lo que ves oscuro es donde el artesano rascó."
+            }
+          },
+          "thessaloniki-byzantine-museum-coins": {
+            "name": "Las monedas",
+            "blurb": "Discos pequeños de oro, de plata o de cobre, con la cara del emperador en un lado. Para casi toda la gente del imperio, ese era el único retrato de su gobernante que verían nunca: una moneda era dinero y noticia al mismo tiempo. Cuando cambiaba el emperador cambiaba la cara, y el cambio viajaba por las rutas del comercio. A los arqueólogos les encantan porque se fechan con precisión: cada cara pertenece a unos años concretos.",
+            "question": {
+              "q": "¿Por qué una moneda era también una noticia?",
+              "answers": [
+                "Porque enseñaba quién era el emperador a gente que no lo veía nunca",
+                "Porque encima se escribían los sucesos del año",
+                "Porque se repartía gratis a los ciudadanos",
+                "Porque se leía en voz alta en el mercado"
+              ],
+              "explanation": "Sin periódicos y sin fotografías, una moneda era el medio más rápido que existía."
+            }
+          },
+          "thessaloniki-byzantine-museum-jewellery": {
+            "name": "Las joyas",
+            "blurb": "Pendientes de alambre fino retorcido, anillos con nombres grabados, pulseras de cobre para quien no tenía oro. Uno de los hallazgos más frecuentes es el anillo de sello: se le grababa un monograma del revés, y al apretarlo contra la cera o el barro salía del derecho. Era la firma de una persona en una época en la que la mayoría no sabía escribir su propio nombre.",
+            "question": {
+              "q": "¿Por qué se grababa del revés el monograma de un anillo de sello?",
+              "answers": [
+                "Para que saliera del derecho al apretarlo en cera o en barro",
+                "Para que los ladrones no pudieran leerlo",
+                "Porque entonces la lengua se escribía así",
+                "Para que cupiera más texto"
+              ],
+              "explanation": "Todos los sellos funcionan así, hasta hoy. La imagen se da la vuelta en la huella."
+            }
+          }
+        },
+        "riddles": {
+          "thessaloniki-byzantine-museum-riddle-1": {
+            "prompt": "Estuve bajo tierra, fuera de las murallas. Me pintaron pájaros y ramas por dentro para no parecer oscuridad. Me sacaron de una pieza y ahora estoy de pie en una sala.",
+            "hint": "Puedes entrar dentro de mí, y está permitido."
+          },
+          "thessaloniki-byzantine-museum-riddle-2": {
+            "prompt": "Soy pequeña y redonda, y antes me daban a cambio de pan. Llevaba encima una cara que muy pocos habían visto de cerca, y cuando esa cara cambiaba, yo cambiaba también.",
+            "hint": "Puedo ser de oro, de plata o de cobre."
+          }
+        }
+      },
+      "findIt": "La entrada está en la avenida Stratou, en el número 2, a pocos minutos a pie del Museo Arqueológico."
+    },
+    "thessaloniki-cinema-museum": {
+      "name": "El Museo del Cine",
+      "tagline": "Proyectores y carteles dentro de un almacén del puerto",
+      "story": "El museo está dentro del puerto, en un viejo almacén de mercancías convertido en espacio cultural. Abrió en 1997, el año en que Tesalónica fue Capital Europea de la Cultura. Dentro hay proyectores llenos de engranajes y bobinas de metal, cámaras antiguas, vestuario, guiones escritos a mano y cientos de carteles pintados antes de que existieran los ordenadores. La parte más divertida son las máquinas de antes del cine: discos que giran, librillos que pasas deprisa con el dedo, cajas con ranuras. Todas hacen el mismo truco, que es el truco que hay detrás de cualquier película: enseñan muchas imágenes quietas tan deprisa que el ojo cree estar viendo movimiento. La ciudad tiene además su propio festival de cine, que se celebra todos los años desde 1960 y llena las salas de la ciudad durante diez días cada noviembre.",
+      "facts": [
+        "Está en un viejo almacén del puerto y abrió en 1997.",
+        "Guarda máquinas que enseñaban movimiento antes de que existiera el cine.",
+        "El festival de cine de la ciudad se celebra todos los años desde 1960."
+      ],
+      "question": {
+        "q": "¿Cuál es el truco que hay detrás de cualquier película?",
+        "answers": [
+          "Muchas imágenes quietas, enseñadas tan deprisa que parecen movimiento",
+          "Una imagen que se estira y se hace más grande",
+          "Espejos que reflejan a actores de verdad",
+          "Dibujos que se secan y cambian de forma"
+        ],
+        "explanation": "Una película no se mueve nunca. El movimiento entre las imágenes lo ponemos nosotros."
+      }
+    },
+    "thessaloniki-walls": {
+      "name": "Las murallas bizantinas",
+      "tagline": "Piedra, ladrillo, piedra, ladrillo: mil seiscientos años de pie",
+      "story": "Las murallas de Tesalónica rodean la ciudad vieja desde finales del siglo IV d. C. Al principio medían unos ocho kilómetros y bajaban hasta el mar; hoy se conserva más o menos la mitad, sobre todo en la parte alta de la ciudad. Míralas de cerca y verás algo que se repite: unas cuantas hiladas de piedra, después una franja de ladrillo, después piedra otra vez. No es decoración. Los ladrillos, todos del mismo grosor, nivelan las hiladas para que el muro no se tuerza según sube, y le dan un poco de juego cuando tiembla el suelo. Dentro de estas murallas está la Ciudad Alta, el único barrio que se libró del gran incendio de 1917, porque quedaba por encima de él. Por eso es también el único con callejuelas estrechas y casas viejas con los pisos de arriba salientes.",
+      "facts": [
+        "Medían al principio unos 8 kilómetros. Se conserva más o menos la mitad.",
+        "Las franjas de ladrillo nivelan las hiladas y ayudan en los terremotos.",
+        "La Ciudad Alta, dentro de las murallas, se libró del incendio de 1917."
+      ],
+      "question": {
+        "q": "¿Por qué tienen las murallas franjas de ladrillo entre las piedras?",
+        "answers": [
+          "Para nivelar las hiladas y que el muro aguante los terremotos",
+          "Para que los guardias supieran a qué altura estaban",
+          "Para enseñar cuántos años duró la construcción",
+          "Para que el muro se mantuviera caliente en invierno"
+        ],
+        "explanation": "Las piedras son irregulares y la hilada se tuerce. Los ladrillos, todos iguales, la vuelven a enderezar."
+      }
+    },
+    "thessaloniki-heptapyrgion": {
+      "name": "El Heptapyrgion",
+      "tagline": "La fortaleza en la esquina más alta de las murallas",
+      "story": "En la esquina más alta de las murallas hay una fortaleza dentro de la fortaleza. Su nombre significa «siete torres», aunque en realidad tiene diez: el nombre llegó aquí desde otra fortaleza y se quedó. Se construyó por fases, con obra bizantina y obra otomana una encima de la otra, y quien lo tenía controlaba toda la ciudad desde arriba. Tiene también una segunda historia, más reciente y más dura: de 1890 a 1989 se usó como cárcel. Durante cien años, un edificio hecho para dejar fuera a los enemigos sirvió para dejar dentro a personas. Dejó de ser cárcel en 1989, y desde entonces se restaura poco a poco como monumento. Desde su patio se ve Tesalónica entera, hasta el golfo.",
+      "facts": [
+        "Su nombre significa «siete torres», pero tiene diez.",
+        "Está en la esquina más alta de las murallas de la ciudad.",
+        "Funcionó como cárcel de 1890 a 1989."
+      ],
+      "question": {
+        "q": "¿Qué significa el nombre «Heptapyrgion»?",
+        "answers": [
+          "Siete torres",
+          "Siete puertas",
+          "Siete colinas",
+          "Siete hermanos"
+        ],
+        "explanation": "El «siete» no cuenta sus torres: tiene diez. El nombre vino de otro sitio y se quedó."
+      }
+    },
+    "thessaloniki-vlatades": {
+      "name": "El monasterio de Vlatades",
+      "tagline": "El único monasterio bizantino de la ciudad que sigue funcionando",
+      "story": "Arriba en la Ciudad Alta, justo debajo de las murallas, hay un monasterio del siglo XIV que no ha dejado de funcionar nunca. Tesalónica tuvo muchos monasterios bizantinos; este es el único que sigue vivo hoy. En su patio, debajo de los árboles, hay pavos reales que andan sueltos y abren la cola sin hacerle caso a nadie. Por eso los niños de la ciudad conocen este monasterio antes de aprender nada sobre Bizancio. El katholikón, la iglesia principal, conserva pinturas murales del siglo XIV. Y como el monasterio está en la parte más alta de la ciudad vieja, desde su patio se extiende Tesalónica entera: las tejas, el puerto, el golfo y, los días claros, el Olimpo al fondo. Es la mejor vista de la ciudad, y es gratis.",
+      "facts": [
+        "Se fundó en el siglo XIV y funciona sin parar desde entonces.",
+        "Es el único monasterio bizantino de la ciudad que sigue vivo.",
+        "En su patio viven pavos reales que andan sueltos."
+      ],
+      "question": {
+        "q": "¿Qué animal te vas a encontrar en el patio del monasterio?",
+        "answers": [
+          "Pavos reales",
+          "Ciervos",
+          "Cigüeñas",
+          "Tortugas"
+        ],
+        "explanation": "Los pavos reales fueron desde antiguo un símbolo en las imágenes bizantinas, y aquí, además, los hay de verdad."
+      }
+    },
+    "thessaloniki-aristotelous": {
+      "name": "La plaza Aristotélous",
+      "tagline": "Una plaza diseñada encima de una ciudad quemada",
+      "story": "En agosto de 1917 un incendio quemó casi todo el centro de Tesalónica. Miles de personas se quedaron sin casa. En lugar de volver a levantar las mismas callejuelas estrechas, se decidió algo poco corriente: diseñar la ciudad otra vez desde cero. El arquitecto francés Ernest Hébrard dirigió el trabajo, y su plano tenía un gran eje por el medio, que empieza en el mar y sube hacia la Ciudad Alta. La plaza Aristotélous es ese eje. El plan tardó décadas en terminarse, y la mayoría de los edificios de alrededor de la plaza se acabaron en los años cincuenta. Su mejor truco es sencillo: ponte arriba del todo y mira recto hacia el mar. Un día claro, al final del eje aparece el monte Olimpo.",
+      "facts": [
+        "Se diseñó después del gran incendio de 1917, obra de Ernest Hébrard.",
+        "Su eje empieza en el mar y sube hacia la Ciudad Alta.",
+        "La mayoría de sus edificios se terminaron en los años cincuenta."
+      ],
+      "question": {
+        "q": "¿Por qué se diseñó esta plaza?",
+        "answers": [
+          "Porque el incendio de 1917 quemó el centro y la ciudad se volvió a diseñar",
+          "Porque hacía falta sitio para los coches",
+          "Porque allí aparecieron restos antiguos y nadie podía construir",
+          "Porque antes era un puerto que se rellenó"
+        ],
+        "explanation": "Es raro que una ciudad grande se vuelva a planificar entera. Hizo falta una catástrofe para que pasara."
+      }
+    },
+    "thessaloniki-modiano": {
+      "name": "El mercado Modiano",
+      "tagline": "Un mercado cubierto de hierro y cristal, abierto otra vez",
+      "story": "El mercado Modiano se construyó en 1922, pocos años después del gran incendio, en el sitio donde se había quemado una escuela. Lo diseñó Eli Modiano, un arquitecto de la comunidad judía de Tesalónica, una comunidad que llevaba siglos viviendo en la ciudad. Es un mercado cubierto: una estructura de hierro, un techo de cristal y, debajo, filas de puestos con pescado, quesos, aceitunas, especias y tabernas pequeñas. La luz entra por arriba y cae sobre los pasillos, así que ni siquiera en invierno hacen falta muchas bombillas. Durante bastantes años el mercado se quedó casi vacío y estuvo a punto de cerrar para siempre. Se restauró y volvió a abrir en 2022, con su viejo caparazón en su sitio. Al lado funciona el Kapani, un mercado todavía más antiguo, que no tiene techo.",
+      "facts": [
+        "Se construyó en 1922 y lo diseñó el arquitecto Eli Modiano.",
+        "Su techo es de cristal, para que se ilumine desde arriba.",
+        "Estuvo años cerrado y volvió a abrir, restaurado, en 2022."
+      ],
+      "question": {
+        "q": "¿Por qué necesita pocas bombillas el mercado, incluso en invierno?",
+        "answers": [
+          "Porque su techo es de cristal y la luz entra desde arriba",
+          "Porque los puestos están pintados de blanco",
+          "Porque cierra antes de que anochezca",
+          "Porque tiene espejos en las paredes"
+        ],
+        "explanation": "Los mercados cubiertos de los siglos XIX y XX lo resolvieron así: hierro para la estructura, cristal para la luz."
+      }
+    },
+    "thessaloniki-noesis": {
+      "name": "El Centro de Divulgación Científica «Nóesis»",
+      "tagline": "El museo cuyas piezas quieren que las toques",
+      "story": "A unos kilómetros de la ciudad, camino de Thermi, hay un museo que funciona al revés que los demás: aquí nadie te dice «no tocar». Las piezas son máquinas y experimentos que tienes que girar, empujar o pisar para entender qué hacen. Hay un planetario con cúpula, donde te tumbas boca arriba y miras el cielo, y una sala con una pantalla enorme para películas de gran formato. Hay también un simulador que se mueve al mismo tiempo que la imagen. El museo de tecnología enseña máquinas que trabajaban en las fábricas y en los campos de Grecia hace ochenta años, y robots al lado de ellas. La idea que hay detrás de todo es una sola: un experimento no se aprende leyéndolo, se aprende haciéndolo.",
+      "facts": [
+        "Está fuera de la ciudad, camino de Thermi.",
+        "Tiene un planetario con cúpula y una sala con pantalla de gran formato.",
+        "Sus piezas están hechas para que las manejes, no para mirarlas."
+      ],
+      "question": {
+        "q": "¿Por qué te deja este museo tocar las piezas?",
+        "answers": [
+          "Porque un experimento se entiende haciéndolo",
+          "Porque todas las piezas son copias sin valor",
+          "Porque no hay suficientes vigilantes",
+          "Porque las piezas se limpian todas las noches"
+        ],
+        "explanation": "En un museo arqueológico el objeto es único. Aquí el objeto es una herramienta, y las herramientas necesitan manos."
+      },
+      "findIt": "No está dentro de la ciudad: se encuentra en el kilómetro 6 de la carretera de Thermi."
+    },
+    "thessaloniki-ote-tower": {
+      "name": "La Torre OTE",
+      "tagline": "La torre con el piso que gira",
+      "story": "Dentro del recinto de la Feria Internacional hay una torre delgada de hormigón, de setenta y seis metros de alto, construida en 1966. Entonces parecía algo salido del futuro, y durante décadas fue el edificio más alto de la ciudad. Arriba del todo hay un espacio circular con cristales por todo alrededor, y ese espacio gira: da una vuelta completa en aproximadamente una hora. El movimiento es tan lento que no lo notas en absoluto. Solo notas que, estando sentado sin moverte, al principio mirabas el mar y ahora estás mirando las montañas. Es una pequeña lección sobre la velocidad: algo que se mueve muy despacio parece quieto, igual que el sol en el cielo o el minutero de un reloj, al que nunca pillas avanzando.",
+      "facts": [
+        "Mide 76 metros de alto y se construyó en 1966.",
+        "Su piso de arriba da una vuelta completa en aproximadamente una hora.",
+        "Está dentro del recinto de la Feria Internacional de Tesalónica."
+      ],
+      "question": {
+        "q": "¿Por qué no notas que el piso de arriba está girando?",
+        "answers": [
+          "Porque se mueve muy despacio, una vuelta por hora",
+          "Porque solo gira cuando los visitantes están dormidos",
+          "Porque giran los cristales y no el suelo",
+          "Porque el suelo está cubierto de moqueta"
+        ],
+        "explanation": "Nuestros ojos no captan los movimientos muy lentos. Solo nos damos cuenta de que algo se ha movido comparando el antes y el después."
+      }
+    },
+    "thessaloniki-toumba-stadium": {
+      "name": "El estadio Toumba",
+      "tagline": "El campo donde las gradas casi tocan el terreno de juego",
+      "story": "El estadio de Toumba abrió en 1959, dentro de un barrio construido por refugiados, y es la casa del PAOK. Caben unas veintiocho mil personas, que no es ningún récord, y aun así el campo tiene fama de ser uno de los más ruidosos de Europa. El motivo no son solo los aficionados: es la forma. Las gradas están levantadas casi pegadas al terreno de juego, sin pista de atletismo en medio, y suben muy empinadas. Así el sonido no se escapa hacia fuera; choca contra el hormigón y vuelve al centro. Es exactamente el principio de un teatro antiguo, solo que allí se trataba de oír al actor y aquí de oír al público. El campo está construido en una ladera, así que entras por arriba.",
+      "facts": [
+        "Abrió en 1959 y caben unos 28.000 espectadores.",
+        "No tiene pista de atletismo, así que las gradas están casi encima del terreno de juego.",
+        "Las gradas empinadas devuelven el sonido al centro del campo."
+      ],
+      "question": {
+        "q": "¿Por qué suena tan fuerte este estadio?",
+        "answers": [
+          "Porque las gradas empinadas devuelven el sonido al centro",
+          "Porque es el estadio más grande de Grecia",
+          "Porque tiene altavoces debajo de los asientos",
+          "Porque está cubierto entero por un techo"
+        ],
+        "explanation": "Es acústica, no tamaño. El mismo público en un estadio abierto y ancho sonaría mucho más bajo."
+      }
+    }
+  },
+  "trails": {
+    "thessaloniki-roman-day": {
+      "name": "La ciudad de los romanos",
+      "promise": "Un arco, una cúpula enorme, una plaza de dos pisos y todo lo que se sacó de debajo."
+    },
+    "thessaloniki-upper-town": {
+      "name": "Cuesta arriba hasta la Ciudad Alta",
+      "promise": "El único barrio al que no llegó el incendio, con sus murallas y sus pavos reales."
+    },
+    "thessaloniki-after-the-fire": {
+      "name": "Después del incendio",
+      "promise": "Tres sitios que existen porque en 1917 la ciudad se volvió a planificar desde cero."
+    },
+    "thessaloniki-outside-the-walls": {
+      "name": "Fuera de las murallas",
+      "promise": "Desde la esquina donde acababan las murallas hasta un estadio y un cielo artificial."
+    }
+  }
+}

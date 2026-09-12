@@ -1,0 +1,501 @@
+{
+  "lang": "es",
+  "cityId": "rhodes",
+  "places": {
+    "rhodes-palace-grand-master": {
+      "name": "El Palacio del Gran Maestre",
+      "tagline": "Castillo, cárcel, ruina y otra vez palacio, en seis siglos",
+      "story": "En lo alto de la ciudad medieval se alza un castillo con dos torres redondas en la puerta. Lo construyeron en el siglo XIV los Caballeros de San Juan, encima de una fortaleza bizantina más antigua, y fue el centro de su poder. Aguantó asedios. Lo que no aguantó fue algo mucho más tonto: en 1856 estalló la pólvora que llevaba olvidada en un sótano desde los tiempos de los Caballeros, y el palacio se quedó en ruinas casi en un momento. Así estuvo ochenta años. A finales de los años treinta, cuando el Dodecaneso estaba bajo administración italiana, lo reconstruyeron desde cero. Para poner los suelos trajeron en barco mosaicos antiguos desde la isla de Cos. Así que hoy paseas por un castillo medieval pisando suelos romanos de otra isla.",
+      "facts": [
+        "Lo construyeron en el siglo XIV los Caballeros de San Juan.",
+        "Lo destruyó en 1856 la explosión de una pólvora olvidada.",
+        "Sus suelos de mosaico llegaron desde la isla de Cos en los años treinta."
+      ],
+      "question": {
+        "q": "¿Qué destruyó el palacio en 1856?",
+        "answers": [
+          "Pólvora olvidada en un sótano desde los tiempos de los Caballeros",
+          "Un asedio que duró meses",
+          "Un terremoto que abrió el suelo",
+          "Una inundación que entró desde el mar"
+        ],
+        "explanation": "La pólvora llevaba allí más de trescientos años. Ya nadie se acordaba de que estaba."
+      }
+    },
+    "rhodes-archaeological-museum": {
+      "name": "El Museo Arqueológico de Rodas",
+      "tagline": "Un museo dentro del hospital de los Caballeros",
+      "story": "El edificio fue un hospital antes de ser un museo, y eso no es un detalle: los Caballeros de San Juan fueron enfermeros antes que guerreros. Su orden empezó para cuidar a los peregrinos, y en cada sitio al que llegaban construían un hospital. Este se levantó en el siglo XV y tiene en el piso de arriba una sala enorme con el techo alto de madera, donde los enfermos se quedaban en filas de camas, con ventanas pequeñas puestas muy altas para que corriera el aire. Es uno de los poquísimos hospitales medievales que siguen en pie en Europa. Desde 1916 guarda el museo de la isla, con mármoles, vasijas y lápidas de las tres ciudades antiguas de Rodas. El edificio y lo que hay dentro hablan de dos mundos distintos, separados por mil quinientos años. Pocos museos tienen un edificio que valga tanto como su colección, y aquí no está nada claro cuál de los dos gana.",
+      "facts": [
+        "El edificio se levantó en el siglo XV como hospital de los Caballeros.",
+        "La gran sala de los enfermos se conserva entera en el piso de arriba.",
+        "Funciona como museo desde 1916."
+      ],
+      "question": {
+        "q": "¿Qué era en un principio la orden de los Caballeros de San Juan?",
+        "answers": [
+          "Enfermeros que cuidaban a los peregrinos",
+          "Comerciantes que viajaban en barco",
+          "Constructores que levantaban castillos por dinero",
+          "Cartógrafos del Mediterráneo"
+        ],
+        "explanation": "Por eso el primer gran edificio que levantaron en Rodas fue un hospital y no un cuartel."
+      },
+      "museum": {
+        "doorNote": "Sube primero a la gran sala. Aquí la pieza más importante es el edificio mismo.",
+        "rooms": {
+          "rhodes-archaeological-museum-hospital": {
+            "name": "El hospital",
+            "intro": "Antes de mirar nada antiguo, mira las paredes. Tienen quinientos años y se construyeron para un solo trabajo: que cupieran los enfermos, mantener el aire en movimiento y no caerse nunca. Los Caballeros sabían de medicina mucho más de lo que te imaginas, y el edificio lo demuestra."
+          },
+          "rhodes-archaeological-museum-marbles": {
+            "name": "Los mármoles",
+            "intro": "La Rodas antigua se hizo rica con el comercio y tuvo su propia escuela de escultura, famosa en todo el Mediterráneo. Lo que ves aquí salió de la tierra de la isla y del mar que la rodea. Dos de estas piezas son la misma diosa, en dos estados completamente distintos."
+          }
+        },
+        "exhibits": {
+          "rhodes-archaeological-museum-great-ward": {
+            "name": "La gran sala",
+            "blurb": "Una sala de casi cincuenta metros de largo, con el techo alto de madera y una fila de arcos por el medio. Aquí se quedaban los enfermos, cada uno en un hueco propio detrás de una cortina. Las ventanas son pequeñas y están altas a propósito: tiran del aire caliente hacia arriba y lo sacan fuera, para que no se quede quieto. Al fondo hay una capilla, porque para los Caballeros cuidar el cuerpo y cuidar el alma eran un mismo trabajo.",
+            "question": {
+              "q": "¿Por qué son pequeñas y están tan altas las ventanas de esta sala?",
+              "answers": [
+                "Para que salga el aire caliente y el aire se renueve",
+                "Para que los enfermos no pudieran ver fuera",
+                "Para que entrara menos polvo",
+                "Porque el vidrio era carísimo"
+              ],
+              "explanation": "El aire caliente sube. Una ventana alta es una chimenea para el aire."
+            }
+          },
+          "rhodes-archaeological-museum-knight-slabs": {
+            "name": "Las lápidas de los caballeros",
+            "blurb": "Losas de mármol con escudos tallados: leones, cruces, pájaros, franjas. Cada escudo funciona como la insignia de una familia, y como los Caballeros venían de toda Europa, las losas se leen como un mapa: apellidos franceses, españoles, italianos, ingleses. La orden se dividía en grupos según la lengua que hablaba cada uno, y cada grupo tenía su propia casa en la Calle de los Caballeros, unos metros cuesta arriba.",
+            "question": {
+              "q": "¿Cómo se dividía la orden de los Caballeros?",
+              "answers": [
+                "En grupos según la lengua que hablaban",
+                "En grupos según su altura",
+                "En grupos según su edad",
+                "No se dividía de ninguna manera"
+              ],
+              "explanation": "Se llamaban «lenguas». Por eso cada casa de la Calle de los Caballeros tiene escudos distintos encima de la puerta."
+            }
+          },
+          "rhodes-archaeological-museum-courtyard": {
+            "name": "El patio",
+            "blurb": "Un patio cuadrado con galerías en dos alturas, abierto al cielo. No es decoración: en un edificio sin electricidad, el patio es su lámpara y su extractor. Lleva luz a las habitaciones que no dan a la calle y tira de una corriente de aire por todo el edificio. El mismo plano lo encontrarás en casas, monasterios y escuelas de todo el Mediterráneo, miles de años antes de este y también después.",
+            "question": {
+              "q": "¿Qué trabajo hace un patio interior en un edificio antiguo?",
+              "answers": [
+                "Da luz y aire a las habitaciones de dentro",
+                "Recoge agua para lavar",
+                "Sujeta el edificio en los terremotos",
+                "Solo sirve para los desfiles"
+              ],
+              "explanation": "Antes de la electricidad, la forma de un edificio era su tecnología."
+            }
+          },
+          "rhodes-archaeological-museum-aphrodite": {
+            "name": "La Afrodita de Rodas",
+            "blurb": "Una figura pequeña de mármol, de rodillas, que se escurre el pelo después de salir del mar. Es una de las figuras antiguas más tranquilas que existen: no posa, no mira a nadie, solo hace algo corriente. La tallaron hacia el siglo I a. C. El mármol está trabajado finísimo en el pelo, donde se ven los mechones pesados de agua, algo dificilísimo de tallar en piedra.",
+            "question": {
+              "q": "¿Qué está haciendo esta figura?",
+              "answers": [
+                "Escurrirse el pelo al salir del mar",
+                "Sostener a un niño en brazos",
+                "Correr con una antorcha",
+                "Tocar un instrumento de música"
+              ],
+              "explanation": "Es un momento sin ninguna importancia, y justo por eso todavía te retiene."
+            }
+          },
+          "rhodes-archaeological-museum-marine-venus": {
+            "name": "La Venus marina",
+            "blurb": "La segunda Afrodita del museo apareció en el fondo del mar, y se nota. Tiene la cara comida, los detalles se han alisado y el mármol parece un poco derretido. Eso lo hizo el mar a lo largo de siglos: la sal, la arena y unos organismos pequeños que se comen la superficie. A mucha gente le emociona más así que si estuviera entera. Un escritor que vivió en Rodas le puso su nombre a un libro.",
+            "question": {
+              "q": "¿Por qué tiene la cara gastada?",
+              "answers": [
+                "Porque pasó siglos dentro del mar",
+                "Porque la golpearon a propósito",
+                "Porque el escultor no la terminó",
+                "Porque la quemó un incendio"
+              ],
+              "explanation": "El mar protege el bronce y se come el mármol. La misma agua, dos resultados completamente contrarios."
+            }
+          },
+          "rhodes-archaeological-museum-krito-timarista": {
+            "name": "Crito y Timarista",
+            "blurb": "Una lápida del siglo V a. C. con dos mujeres: una hija que abraza a su madre. Sus nombres están grabados encima. Lo asombroso es lo sencilla que es la despedida: no hay dioses, ni símbolos, ni palabras. Solo dos cuerpos que se tocan. Las lápidas antiguas de Rodas están llenas de escenas así, y nos han dejado cientos de nombres de personas de las que, si no, nunca sabríamos que existieron.",
+            "question": {
+              "q": "¿Qué enseña esta lápida?",
+              "answers": [
+                "Una hija que abraza a su madre",
+                "Dos soldados que se saludan",
+                "Un dios que se lleva un alma",
+                "Dos comerciantes que cierran un trato"
+              ],
+              "explanation": "Sin dioses y sin símbolos. Por eso se entiende al momento, dos mil quinientos años después."
+            }
+          },
+          "rhodes-archaeological-museum-vases": {
+            "name": "Las vasijas de Camiro",
+            "blurb": "Vasijas de barro con animales en filas: cabras salvajes, leones, pájaros, ciervos, uno detrás de otro como en un desfile. Son de Rodas y se hicieron en los siglos VII y VI a. C., cuando la isla comerciaba con Egipto y con Oriente. Se nota en los dibujos: algunos de esos animales no vivieron nunca en Rodas, y algunos no vivieron en ninguna parte. Los pintores copiaban imágenes que llegaban en los barcos y las mezclaban con su propia imaginación.",
+            "question": {
+              "q": "¿Por qué hay en ellas animales que nunca vivieron en Rodas?",
+              "answers": [
+                "Porque los pintores copiaban imágenes que llegaban en los barcos",
+                "Porque esos animales se habían extinguido hacía poco",
+                "Porque las vasijas se hicieron en otro sitio",
+                "Porque el molde estaba defectuoso"
+              ],
+              "explanation": "El comercio no llevaba solo mercancías. Llevaba también imágenes, y las imágenes viajan más lejos que los animales."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-archaeological-museum-riddle-1": {
+            "prompt": "Estoy de rodillas y me escurro el pelo. Acabo de salir del mar y no miro a nadie. Hago algo que tú también haces después del baño.",
+            "hint": "Soy pequeña, y mi mármol está entero."
+          },
+          "rhodes-archaeological-museum-riddle-2": {
+            "prompt": "Yo también vine del mar, pero él me guardó siglos. Tengo la cara alisada y parezco derretida. A mucha gente le gusto más así.",
+            "hint": "No estoy de rodillas."
+          },
+          "rhodes-archaeological-museum-riddle-3": {
+            "prompt": "Soy una pared, no un objeto, y mido casi cincuenta metros de largo. Aquí durmieron enfermos hace quinientos años, cada uno detrás de una cortina.",
+            "hint": "Mis ventanas son pequeñas y están muy altas."
+          }
+        }
+      }
+    },
+    "rhodes-aquarium": {
+      "name": "El Acuario de Rodas",
+      "tagline": "Una cueva marina de mentira en la punta norte de la isla",
+      "story": "En la punta norte de Rodas, donde la isla se acaba y se juntan los mares que la rodean, hay un edificio blanco de líneas rectas y severas, levantado en los años treinta. No se construyó para los turistas: era un instituto de investigación para estudiar el mar, y hoy sigue siendo una estación de investigación. En el sótano, eso sí, hicieron algo más listo que unas vitrinas normales. Excavaron un pasillo y le dieron forma de cueva marina, con roca, el techo bajo y los tanques abiertos dentro de las paredes. Así caminas como si estuvieras debajo del agua, con peces a tu izquierda y a tu derecha. Arriba está el museo, con animales del Mediterráneo conservados que nadie se encontraría nunca vivos. Es un edificio que hace dos trabajos a la vez, y ninguno de los dos es decorativo.",
+      "facts": [
+        "Se construyó en los años treinta como instituto de investigación, no como atracción.",
+        "Su sótano tiene forma de cueva marina.",
+        "Sigue funcionando como estación de investigación de biología marina."
+      ],
+      "question": {
+        "q": "¿Para qué se construyó este edificio en un principio?",
+        "answers": [
+          "Para el estudio científico del mar",
+          "Para recibir a los visitantes que llegaban en barco",
+          "Como faro para los barcos",
+          "Como casa del gobernador"
+        ],
+        "explanation": "El acuario vino después, como una manera de que la investigación enseñara lo que estudia. La estación sigue trabajando."
+      },
+      "museum": {
+        "doorNote": "Baja primero. La cueva está abajo, y ahí es donde están los seres vivos.",
+        "rooms": {
+          "rhodes-aquarium-cave": {
+            "name": "La cueva",
+            "intro": "El pasillo que hay debajo del edificio no es una cueva natural, pero está hecho para convencerte. Las paredes son rugosas, el techo bajo, la luz poca y azulada. El diseño tiene un objetivo: que no sientas que miras dentro de una caja de agua, sino que el visitante en casa ajena eres tú."
+          },
+          "rhodes-aquarium-museum-floor": {
+            "name": "El piso de arriba",
+            "intro": "Aquí no hay nada vivo, y ese es todo el sentido. El museo guarda animales que llegaron a la orilla o que cayeron por accidente en las redes, para que los científicos, y tú, puedan mirar de cerca a unos seres que nadie se encuentra nunca vivos. Cada uno de ellos está aquí porque algo salió mal allá afuera, en el mar."
+          }
+        },
+        "exhibits": {
+          "rhodes-aquarium-tunnel": {
+            "name": "El pasillo excavado",
+            "blurb": "El pasillo se excavó en la roca de debajo del edificio en los años treinta y se le dio forma de cueva. Los tanques no están encima de unas mesas: están abiertos dentro de las paredes, como ventanas. El agua de mar no se prepara en un laboratorio, se bombea del mar de al lado y vuelve a él. Es un edificio que vive al mismo ritmo que el agua que lo rodea.",
+            "question": {
+              "q": "¿De dónde viene el agua de los tanques?",
+              "answers": [
+                "Se bombea del mar de al lado y vuelve a él",
+                "Se prepara en el laboratorio con sal y agua del grifo",
+                "La traen en camiones cisterna desde otra isla",
+                "Se recoge de la lluvia"
+              ],
+              "explanation": "Justo por eso se construyó en la punta de la isla y no en medio del pueblo."
+            }
+          },
+          "rhodes-aquarium-octopus": {
+            "name": "El pulpo",
+            "blurb": "Mira con atención la roca de su tanque: muchas veces no verás nada, porque el pulpo cambia el color y la textura de su piel en menos de un segundo y se convierte en piedra. Tiene nueve cerebros, uno central y uno en cada brazo, así que sus brazos resuelven problemas casi solos. Su sangre es azul, porque lleva el oxígeno con cobre en vez de con hierro. Es el ser más extraterrestre que puedes conocer sin salir del Mediterráneo.",
+            "question": {
+              "q": "¿Por qué es azul la sangre del pulpo?",
+              "answers": [
+                "Porque lleva el oxígeno con cobre en vez de con hierro",
+                "Porque vive en aguas azules y profundas",
+                "Porque come algas azules",
+                "Porque refleja el color de su piel"
+              ],
+              "explanation": "Nuestra sangre es roja por el mismo motivo, al revés: lleva el oxígeno con hierro."
+            }
+          },
+          "rhodes-aquarium-mediterranean-fish": {
+            "name": "Los peces del mar de al lado",
+            "blurb": "Meros, sargos, escorpinas, morenas, chernas: peces que nadan justo fuera del edificio. A muchos los has visto en un plato y nunca vivos, y es una cosa completamente distinta. La escorpina, por ejemplo, casi no nada: se queda quieta en el fondo, parece una piedra cubierta de algas, y espera. Los tanques enseñan además algo que no se ve en ningún otro sitio: a qué profundidad y sobre qué clase de fondo vive cada uno.",
+            "question": {
+              "q": "¿Cómo caza la escorpina?",
+              "answers": [
+                "Se queda quieta, parece una piedra y espera",
+                "Caza en bancos",
+                "Nada muy rápido y en línea recta",
+                "Cava el fondo con la cola"
+              ],
+              "explanation": "El camuflaje es más barato que la velocidad. Solo cuesta paciencia."
+            }
+          },
+          "rhodes-aquarium-whale-bones": {
+            "name": "Los huesos de la ballena",
+            "blurb": "En el Mediterráneo viven ballenas, algo que sorprende a casi todo el mundo. Cuando una llega muerta a la orilla, los científicos intentan averiguar por qué murió, y después el esqueleto se limpia y se guarda. De pie a su lado entiendes el tamaño de una manera que no te da ninguna fotografía. Fíjate en los huesos de cerca de la cola, donde el animal tuvo patas alguna vez: las ballenas vienen de animales que andaban por tierra.",
+            "question": {
+              "q": "¿Qué nos dicen los huesos pequeños de cerca de la cola de una ballena?",
+              "answers": [
+                "Que sus antepasados andaban por tierra",
+                "Que alguna vez tuvo una segunda cola",
+                "Que estaba herida",
+                "Que era muy joven"
+              ],
+              "explanation": "Son los restos de unas patas. La evolución no borra; sencillamente deja de usar."
+            }
+          },
+          "rhodes-aquarium-turtles": {
+            "name": "Las tortugas marinas",
+            "blurb": "La tortuga boba pone sus huevos en las playas griegas y vive decenas de años. Las tortugas que se guardan aquí aparecieron muertas, y la mayoría por motivos que hemos fabricado nosotros: bolsas de plástico que confundieron con medusas, anzuelos, redes, hélices. Es una pieza difícil de mirar y por eso es útil. Una tortuga necesita unos veinticinco años para hacerse mayor y poder poner huevos, así que cada una que se pierde pronto le cuesta a la población mucho más que una sola vida.",
+            "question": {
+              "q": "¿Por qué confunden las tortugas las bolsas de plástico?",
+              "answers": [
+                "Porque parecen medusas, que son su comida",
+                "Porque creen que son un refugio",
+                "Porque huelen como las algas",
+                "Porque hacen ruido en el agua"
+              ],
+              "explanation": "Una bolsa en el agua se mueve como una medusa. La tortuga no se equivoca; nos equivocamos nosotros."
+            }
+          },
+          "rhodes-aquarium-monk-seal": {
+            "name": "La foca monje del Mediterráneo",
+            "blurb": "La foca monje del Mediterráneo es uno de los mamíferos marinos más raros del mundo, y Grecia acoge la mayor parte de lo que queda de ella. Vive en cuevas marinas con la entrada escondida por debajo del agua, donde tiene a sus crías, y por eso casi nadie la ve. La pieza existe porque se encontró a un animal muerto, no porque se capturara a uno. Si alguna vez ves una en el mar, lo correcto es quedarte lejos y no seguirla hasta su cueva.",
+            "question": {
+              "q": "¿Dónde tiene sus crías la foca monje del Mediterráneo?",
+              "answers": [
+                "En cuevas marinas con la entrada por debajo del agua",
+                "En playas de arena abiertas y con gente",
+                "Sobre rocas en medio del mar abierto",
+                "En ríos, cerca de la desembocadura"
+              ],
+              "explanation": "Se esconde porque la cazaron durante siglos. Esconderse es la razón de que todavía exista."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-aquarium-riddle-1": {
+            "prompt": "Tengo ocho brazos y nueve cerebros, y mi sangre no es roja. Si no me encuentras, mira otra vez la roca: es muy probable que la roca sea yo.",
+            "hint": "Cambio de color en menos de un segundo."
+          },
+          "rhodes-aquarium-riddle-2": {
+            "prompt": "Soy huesos y nada más, y soy enorme. Cerca de mi cola se esconden unos huesecillos que ya no necesito: eran las patas de mis antepasados.",
+            "hint": "Yo vivía en el Mediterráneo, aunque casi nadie se lo cree."
+          }
+        }
+      },
+      "findIt": "La entrada está en la plaza del Acuario (Plateia Enydreiou), en la punta norte de la isla."
+    },
+    "rhodes-art-gallery": {
+      "name": "La Pinacoteca Municipal de Rodas",
+      "tagline": "Pintura griega del siglo XX, en una isla",
+      "story": "Las grandes colecciones de arte suelen juntarse en las capitales. Rodas hizo algo poco corriente: desde los años sesenta empezó a comprar obra de pintores griegos de su propio momento, sin parar, año tras año. El resultado es una de las colecciones más importantes de pintura griega del siglo XX que hay fuera de Atenas, repartida en edificios de la ciudad vieja. Verás paisajes, retratos, mares, obra abstracta, grabados. Para un niño lo interesante no son los nombres, sino el orden: caminas por dentro de un siglo y ves cómo cambia la pintura, desde cuadros que intentan parecer una fotografía hasta cuadros que no quieren parecerse a nada. Ninguna de las dos maneras es más correcta que la otra, y ningún pintor se despertó una mañana y decidió cambiar de siglo.",
+      "facts": [
+        "La colección se fue formando poco a poco desde los años sesenta.",
+        "Es una de las colecciones más importantes de pintura griega fuera de Atenas.",
+        "Está en edificios de dentro de la ciudad medieval."
+      ],
+      "question": {
+        "q": "¿Qué cambia según pasas de una sala a otra aquí?",
+        "answers": [
+          "La manera de pintar de las personas, a lo largo de un siglo",
+          "El tamaño de los cuadros, de pequeño a grande",
+          "El país del que vienen las obras",
+          "El material, del óleo al mármol"
+        ],
+        "explanation": "Una colección que compra algo cada año acaba registrando el tiempo sin proponérselo."
+      }
+    },
+    "rhodes-acropolis": {
+      "name": "La Acrópolis de Rodas",
+      "tagline": "La ciudad antigua que se dibujó antes de construirse",
+      "story": "En la colina que hay encima de la ciudad moderna se conservan el templo de Apolo, un odeón pequeño de mármol y un estadio de unos doscientos metros. Pero lo más importante de aquí no es un edificio: es el plano. La Rodas antigua se fundó en el 408 a. C. con la unión de tres ciudades más antiguas, y no creció sin orden como la mayoría de las ciudades. Primero se dibujó, con calles que se cruzan en ángulo recto, tal y como enseñaba Hipódamo de Mileto. Los escritores antiguos la describían como la ciudad más bonita que habían visto, y lo asombroso es que aquel plano sigue ahí: bastantes calles de la Rodas de hoy siguen las mismas líneas, dos mil quinientos años después. La colina se llama hoy Monte Smith, por un almirante inglés que vigilaba el mar desde allí en el siglo XIX.",
+      "facts": [
+        "La ciudad antigua se fundó en el 408 a. C. con la unión de tres ciudades.",
+        "Se trazó con calles en ángulo recto, antes de construirse.",
+        "Su estadio mide unos 200 metros de largo."
+      ],
+      "question": {
+        "q": "¿Qué tenía la Rodas antigua que no tenían la mayoría de las ciudades?",
+        "answers": [
+          "Un plano de calles rectas, dibujado antes de levantar nada",
+          "Murallas de mármol macizo",
+          "Calles solo para peatones",
+          "Ningún puerto"
+        ],
+        "explanation": "La mayoría de las ciudades antiguas crecieron alrededor de unos senderos. Esta empezó en un papel."
+      }
+    },
+    "rhodes-diagoras-stadium": {
+      "name": "El Estadio Diágoras",
+      "tagline": "El nombre de un boxeador al que sus hijos llevaron a hombros",
+      "story": "El campo de fútbol de la ciudad lleva el nombre de una persona de verdad. Diágoras de Rodas era boxeador y ganó en Olimpia en el 464 a. C. Pero no se le recuerda por su propia victoria. Se le recuerda porque también ganaron sus hijos. En una fiesta en Olimpia, dos de sus hijos fueron coronados el mismo día, y en cuanto terminaron sus pruebas lo subieron a hombros y lo pasearon por el estadio mientras el público tiraba flores. Alguien gritó desde las gradas que ya no le quedaba nada más que desear. Diágoras murió ese mismo día, allí, en brazos de sus hijos, y la historia viajó durante siglos como ejemplo del momento más feliz que puede vivir una persona. El campo de Rodas conserva ese nombre, y el equipo de la ciudad juega allí todos los domingos.",
+      "facts": [
+        "Diágoras de Rodas ganó el boxeo en Olimpia en el 464 a. C.",
+        "Dos de sus hijos fueron coronados en Olimpia el mismo día.",
+        "El estadio de la ciudad sigue llevando su nombre hoy."
+      ],
+      "question": {
+        "q": "¿Por qué se recuerda a Diágoras?",
+        "answers": [
+          "Porque sus hijos también ganaron, y lo llevaron a hombros",
+          "Porque ganó en cuatro deportes distintos",
+          "Porque construyó él mismo el estadio de Olimpia",
+          "Porque fue el primer campeón olímpico de la historia"
+        ],
+        "explanation": "Su propia victoria se olvidó. La imagen de un padre a hombros de sus hijos no se olvidó nunca."
+      }
+    },
+    "rhodes-kallithea": {
+      "name": "Las Termas de Kallithea",
+      "tagline": "Baños de cúpulas y guijarros, construidos para un solo manantial",
+      "story": "En una cala pequeña al sur de la ciudad hay un manantial que ya se conocía en la antigüedad, porque la gente creía que su agua ayudaba al estómago. En 1929, cuando el Dodecaneso estaba bajo administración italiana, un arquitecto joven diseñó a su alrededor todo un conjunto de baños: cúpulas, galerías semicirculares, escaleras que bajan hasta el mar. Los suelos están hechos de guijarros blancos y negros, recogidos en las playas y colocados uno a uno formando dibujos. Los baños cerraron en los años sesenta y se quedaron abandonados más de cuarenta años, con la hierba creciendo dentro de los edificios. Se restauraron y volvieron a abrir en 2007. Hoy ya nadie bebe el agua, pero todo el mundo se baña en la cala, y los suelos de guijarros se vuelven a pisar cada verano.",
+      "facts": [
+        "El conjunto se construyó hacia 1929, alrededor de un manantial conocido desde la antigüedad.",
+        "Sus suelos están hechos de guijarros de playa, colocados uno a uno formando dibujos.",
+        "Estuvo abandonado más de cuarenta años y volvió a abrir en 2007."
+      ],
+      "question": {
+        "q": "¿Por qué se construyeron unos baños justo en este sitio?",
+        "answers": [
+          "Porque allí sale un manantial que se consideraba curativo",
+          "Porque era el único sitio con arena",
+          "Porque estaba cerca del puerto",
+          "Porque allí ya había un templo antiguo"
+        ],
+        "explanation": "Se levantó un edificio entero alrededor de un agua. Cuando dejaron de beberla, el edificio se quedó sin trabajo."
+      }
+    },
+    "rhodes-filerimos": {
+      "name": "Filerimos",
+      "tagline": "Una colina con una ciudad antigua, un monasterio y pavos reales",
+      "story": "Filerimos es una colina de unos doscientos setenta metros con vistas a toda la costa noroeste. Encima estaba Yaliso, una de las tres ciudades antiguas de la isla que se unieron para formar Rodas. Se conservan los cimientos de un templo de Atenea y una fuente dórica excavada en la roca. Al lado se alza un monasterio que construyeron los Caballeros y reconstruyeron los italianos, y desde allí sale un camino entre cipreses que termina en una cruz enorme. La cruz no está solo para mirarla: tiene una escalera dentro y subes hasta sus brazos horizontales. Y por toda la colina se pasean pavos reales que no te tienen ningún miedo y abren la cola cuando les apetece. Pocos sitios reúnen en tan poca distancia unas ruinas antiguas, un monasterio medieval y un desfile de pájaros.",
+      "facts": [
+        "En esta colina estaba Yaliso, una de las tres ciudades antiguas de Rodas.",
+        "La cruz de la cima tiene una escalera dentro y puedes subir hasta sus brazos.",
+        "En la colina viven pavos reales sueltos."
+      ],
+      "question": {
+        "q": "¿Qué hay dentro de la cruz de lo alto de la colina?",
+        "answers": [
+          "Una escalera, que te sube hasta sus brazos",
+          "Una iglesia pequeña llena de iconos",
+          "Una campana que suena cada mediodía",
+          "Un depósito de agua para el monasterio"
+        ],
+        "explanation": "Desde sus brazos ves a la vez el mar y los cimientos de la ciudad antigua."
+      }
+    },
+    "rhodes-lindos": {
+      "name": "La Acrópolis de Lindos",
+      "tagline": "Un templo en una roca, y un barco de guerra tallado en la escalera",
+      "story": "A cincuenta kilómetros al sur de la ciudad, una roca de ciento dieciséis metros se levanta por encima de unas casas blancas y de dos bahías. En su cima estuvo el templo de Atenea Lindia, y a su alrededor un pórtico de cuarenta y dos columnas, construido para que se viera desde el mar. Los Caballeros rodearon después la roca entera con un castillo, así que subes entre murallas medievales para llegar a un templo antiguo. Al pie de la gran escalera está lo mejor de todo: un barco de guerra tallado directamente en la roca, con la proa a tamaño real y los propios escalones apoyados contra él. Encima hubo una vez una estatua. Es publicidad de hace dos mil años: Lindos vivía de los barcos y lo decía en piedra, en lo primero que veía cualquiera que subiera.",
+      "facts": [
+        "La roca se alza 116 metros sobre el mar.",
+        "Al pie de la escalera hay un barco de guerra tallado en la roca.",
+        "Encima del templo antiguo los Caballeros construyeron después un castillo."
+      ],
+      "question": {
+        "q": "¿Qué está tallado en la roca al pie de la escalera?",
+        "answers": [
+          "Un barco de guerra, con la proa a tamaño real",
+          "Un caballo con su jinete",
+          "El mapa de la isla",
+          "Los nombres de los sacerdotes"
+        ],
+        "explanation": "Era la base de una estatua y a la vez una declaración: esta ciudad vivía del mar."
+      }
+    },
+    "rhodes-kameiros": {
+      "name": "La antigua Camiro",
+      "tagline": "Una ciudad antigua entera que no tenía ninguna muralla",
+      "story": "Camiro fue la tercera de las ciudades antiguas de Rodas, junto con Lindos y Yaliso. Se excavó en el siglo XIX y salió casi entera, repartida en tres niveles por la ladera: arriba los santuarios, en medio las calles con las casas, abajo la plaza del mercado. Caminas por calles de verdad y ves umbrales, patios, desagües. Lo más impresionante está en el punto más alto: un depósito enorme excavado en la roca, que guardaba agua suficiente para cientos de familias y la repartía por toda la ciudad con tuberías de barro. Y hay algo que falta: murallas. Camiro no tenía. Era una ciudad de agricultores, lejos del puerto, y por lo visto nadie pensó que corriera bastante peligro como para gastar piedra en una muralla. Esa ausencia cuenta de su época más de lo que contaría una muralla.",
+      "facts": [
+        "Está repartida en tres niveles: santuarios, casas y mercado.",
+        "En su punto más alto hay un depósito excavado en la roca que abastecía a toda la ciudad.",
+        "No tenía ninguna muralla."
+      ],
+      "question": {
+        "q": "¿Qué le faltaba a Camiro, a diferencia de casi cualquier ciudad antigua?",
+        "answers": [
+          "Murallas",
+          "Agua",
+          "Una plaza de mercado",
+          "Calles"
+        ],
+        "explanation": "Una muralla es carísima. Una ciudad solo la construye cuando tiene miedo, y Camiro por lo visto no lo tenía."
+      }
+    },
+    "rhodes-monolithos": {
+      "name": "El castillo de Monolithos",
+      "tagline": "Un castillo en una sola roca, con un solo camino",
+      "story": "En el extremo suroeste de la isla, una roca se levanta de golpe doscientos treinta y seis metros sobre el mar, sin nada a su alrededor. El nombre del pueblo de abajo lo dice exactamente: Monolithos, una sola piedra. En el siglo XV los Caballeros construyeron un castillo en la cima, y su diseño fue casi perezoso, en el buen sentido: casi no tuvieron que construir muralla, porque la roca ya es vertical por todos lados. Hay un camino que sube, y solo uno. Dentro del castillo hoy no quedan cuarteles ni salas, solo una capilla pequeña y blanca. Las vistas desde arriba llegan hasta el siguiente cabo, y entiendes enseguida qué veían los guardias y por qué eligieron esta piedra solitaria. Un castillo aquí no necesitaba un ejército. Necesitaba dos personas con buena vista.",
+      "facts": [
+        "La roca se alza 236 metros sobre el mar.",
+        "Los Caballeros construyeron el castillo en el siglo XV.",
+        "Solo hay un camino que sube hasta la cima."
+      ],
+      "question": {
+        "q": "¿Por qué necesitó tan poca muralla este castillo?",
+        "answers": [
+          "Porque la roca ya es vertical por todos lados",
+          "Porque lo construyeron con prisa",
+          "Porque no había piedra en la zona",
+          "Porque lo protegía un bosque"
+        ],
+        "explanation": "El mejor ingeniero de un castillo es el terreno. Los Caballeros sencillamente lo eligieron bien."
+      }
+    },
+    "rhodes-tsambika": {
+      "name": "El monasterio de Tsambika",
+      "tagline": "Trescientos escalones para una capilla y unas vistas",
+      "story": "Entre la ciudad y Lindos, una roca se asoma por encima de la costa este. En su cima hay una capilla pequeña, y para llegar subes unos trescientos escalones, sin sombra y sin ningún atajo. Es el ejercicio más sencillo de la isla y el más justo: a la roca le da igual quién sube. El monasterio es lugar de peregrinación desde hace siglos, y cada septiembre sube mucha gente. Pero la mayoría sube por el mismo motivo que tú: desde arriba ves la bahía entera de Tsambika, con la arena formando una media luna perfecta y el agua cambiando de tres azules distintos según la profundidad. Es uno de los pocos sitios donde tus ojos entienden de verdad lo hondo que es el mar.",
+      "facts": [
+        "Subes unos 300 escalones para llegar a la cima.",
+        "La capilla de la cima es lugar de peregrinación desde hace siglos.",
+        "Desde arriba, el color del agua enseña lo hondo que es el mar."
+      ],
+      "question": {
+        "q": "¿Qué te dice el color del agua cuando la miras desde arriba?",
+        "answers": [
+          "Lo hondo que es el mar en cada punto",
+          "Lo fría que está el agua",
+          "Dónde hay peces",
+          "Lo salada que está el agua"
+        ],
+        "explanation": "Donde hay poca profundidad la luz llega al fondo y vuelve clara. En lo hondo se pierde, y el azul se vuelve oscuro."
+      }
+    }
+  },
+  "trails": {
+    "rhodes-knights-day": {
+      "name": "El día de los Caballeros",
+      "promise": "Un palacio, un hospital y dos castillos, todo de la misma gente."
+    },
+    "rhodes-three-ancient-cities": {
+      "name": "Las tres ciudades antiguas",
+      "promise": "Lindos, Camiro, Yaliso, y la ciudad que hicieron uniendo sus fuerzas."
+    },
+    "rhodes-sea-and-steps": {
+      "name": "Mar y escalones",
+      "promise": "Una cueva de mentira con peces vivos, un manantial con cúpulas y trescientos escalones."
+    },
+    "rhodes-town-today": {
+      "name": "La ciudad hoy",
+      "promise": "Un siglo de pintura griega y un campo de fútbol con nombre antiguo."
+    }
+  }
+}

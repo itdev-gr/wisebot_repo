@@ -1,0 +1,635 @@
+{
+ "athens": [
+  {
+   "query": "Acropolis Museum",
+   "qid": "Q421084",
+   "label": "Μουσείο Ακρόπολης",
+   "desc": "μουσείο στην Αθήνα",
+   "coord": [
+    37.96842,
+    23.72847
+   ],
+   "visitors": 547910,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Εθνικό Αρχαιολογικό Μουσείο",
+   "qid": "Q38284056",
+   "label": "Εθνικό Αρχαιολογικό Μουσείο",
+   "desc": "διατηρητέο κτίριο",
+   "coord": [
+    37.98859,
+    23.73055
+   ],
+   "visitors": null,
+   "langs": [
+    "el",
+    "en"
+   ],
+   "note": "building item; the institution is Q637187, 80 m away — pick deliberately",
+   "status": "check"
+  },
+  {
+   "query": "Museum of Cycladic Art",
+   "qid": "Q1230253",
+   "label": "Μουσείο Κυκλαδικής Τέχνης",
+   "desc": "μουσείο στην Αθήνα",
+   "coord": [
+    37.9757,
+    23.74227
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Goulandris Natural History Museum",
+   "qid": "Q2036255",
+   "label": "Μουσείο Γουλανδρή Φυσικής Ιστορίας",
+   "desc": "μουσείο στην Κηφισιά",
+   "coord": [
+    38.07437,
+    23.81466
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "fr"
+   ]
+  },
+  {
+   "query": "Hellenic Children’s Museum",
+   "qid": "Q4159473",
+   "label": "Ελληνικό Παιδικό Μουσείο",
+   "desc": "παιδικό μουσείο στην Αθήνα",
+   "coord": [
+    37.97358,
+    23.74478
+   ],
+   "visitors": null,
+   "langs": [
+    "el",
+    "en"
+   ]
+  },
+  {
+   "query": "Benaki Toy Museum",
+   "qid": "Q108608183",
+   "label": "Μουσείο Μπενάκη Παιχνιδιών",
+   "desc": "",
+   "coord": [
+    37.93025,
+    23.687
+   ],
+   "visitors": null,
+   "langs": [
+    "el",
+    "en"
+   ]
+  },
+  {
+   "query": "Industrial Gas Museum Athens",
+   "qid": null,
+   "status": "no Wikidata item — needs a human"
+  },
+  {
+   "query": "Numismatic Museum of Athens",
+   "qid": "Q658339",
+   "label": "Νομισματικό Μουσείο Αθηνών",
+   "desc": "museum",
+   "coord": [
+    37.9778,
+    23.7354
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr",
+    "it"
+   ]
+  },
+  {
+   "query": "War Museum Athens",
+   "qid": null,
+   "status": "no Wikidata item — needs a human"
+  },
+  {
+   "query": "Herakleidon Museum",
+   "qid": "Q16252571",
+   "label": "Μουσείο Ηρακλειδών",
+   "desc": "museum in Greece",
+   "coord": [
+    37.97519,
+    23.71858
+   ],
+   "visitors": null,
+   "langs": [
+    "el",
+    "en"
+   ]
+  },
+  {
+   "query": "Benaki Museum",
+   "qid": "Q816669",
+   "label": "Μουσείο Μπενάκη",
+   "desc": "μουσείο στην Αθήνα",
+   "coord": [
+    37.97594,
+    23.74041
+   ],
+   "visitors": 141810,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Byzantine and Christian Museum",
+   "qid": "Q1018775",
+   "label": "Βυζαντινό και Χριστιανικό Μουσείο",
+   "desc": "μουσείο στην Αθήνα",
+   "coord": [
+    37.97507,
+    23.74452
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Hellenic Motor Museum",
+   "qid": "Q1163632",
+   "label": "Ελληνικό Μουσείο Αυτοκινήτου",
+   "desc": "car museum in Athens",
+   "coord": [
+    37.99134,
+    23.73002
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr"
+   ]
+  },
+  {
+   "query": "Museum of Greek Children’s Art",
+   "qid": "Q108651215",
+   "label": "Μουσείο Παιδικής Τέχνης",
+   "desc": "μουσείο στην Ελλάδα",
+   "coord": [
+    37.97297,
+    23.73246
+   ],
+   "visitors": null,
+   "langs": [
+    "el",
+    "en"
+   ]
+  },
+  {
+   "qid": "Q116246225",
+   "label": "Βιομηχανικό Μουσείο Φωταερίου",
+   "coord": [
+    37.97777,
+    23.71404
+   ],
+   "desc": "μουσείο της Αθήνας",
+   "visitors": null,
+   "langs": [
+    "el"
+   ]
+  },
+  {
+   "qid": "Q1788831",
+   "label": "Πολεμικό Μουσείο Αθηνών",
+   "coord": [
+    37.97528,
+    23.74528
+   ],
+   "desc": "μουσείο στην Αθήνα",
+   "visitors": null,
+   "langs": [
+    "el",
+    "en"
+   ]
+  }
+ ],
+ "lisbon": [
+  {
+   "query": "Oceanário de Lisboa",
+   "qid": "Q652806",
+   "label": "Oceanário de Lisboa",
+   "desc": "oceanário localizado em Lisboa, Portugal",
+   "coord": [
+    38.76353,
+    -9.09375
+   ],
+   "visitors": 1000000,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu Nacional dos Coches",
+   "qid": "Q1659559",
+   "label": "Museu Nacional dos Coches",
+   "desc": "museu em Lisboa",
+   "coord": [
+    38.69669,
+    -9.19817
+   ],
+   "visitors": 181594,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Pavilhão do Conhecimento",
+   "qid": "Q10346955",
+   "label": "Pavilhão do Conhecimento",
+   "desc": "centro de ciência em Lisboa, Portugal",
+   "coord": [
+    38.76223,
+    -9.09561
+   ],
+   "visitors": null,
+   "langs": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "query": "Calouste Gulbenkian Museum",
+   "qid": "Q211262",
+   "label": "Museu Calouste Gulbenkian",
+   "desc": "Museu de arte em Lisboa",
+   "coord": [
+    38.73667,
+    -9.15417
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "el",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu Nacional de Arte Antiga",
+   "qid": "Q212459",
+   "label": "Museu Nacional de Arte Antiga",
+   "desc": "museu de arte em Lisboa, Portugal",
+   "coord": [
+    38.7053,
+    -9.16072
+   ],
+   "visitors": 98626,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu de Marinha Lisboa",
+   "qid": null,
+   "status": "no Wikidata item — needs a human"
+  },
+  {
+   "query": "Museu Nacional do Azulejo",
+   "qid": "Q2313815",
+   "label": "Museu Nacional do Azulejo",
+   "desc": "museu em Lisboa, Portugal",
+   "coord": [
+    38.7244,
+    -9.11389
+   ],
+   "visitors": 202900,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu Nacional de História Natural e da Ciência",
+   "qid": "Q10333586",
+   "label": "Museu Nacional de História Natural e da Ciência",
+   "desc": "museu integrado na Universidade de Lisboa",
+   "coord": [
+    38.71787,
+    -9.15074
+   ],
+   "visitors": null,
+   "langs": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "query": "MAAT Lisboa",
+   "qid": null,
+   "status": "no Wikidata item — needs a human"
+  },
+  {
+   "query": "Museu do Aljube",
+   "qid": "Q17389986",
+   "label": "Cadeia do Aljube",
+   "desc": "building in Lisbon, Lisbon District, Portugal",
+   "coord": [
+    38.71019,
+    -9.1327
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Lisboa Story Centre",
+   "qid": "Q1827867",
+   "label": "Lisboa Story Centre – Memórias da Cidade",
+   "desc": "",
+   "coord": [
+    38.70755,
+    -9.13558
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu da Carris",
+   "qid": "Q5046467",
+   "label": "Museu da Carris",
+   "desc": "building in Alcântara, Lisbon District, Portugal",
+   "coord": [
+    38.70222,
+    -9.18056
+   ],
+   "visitors": null,
+   "langs": [
+    "en",
+    "es",
+    "pt"
+   ]
+  },
+  {
+   "qid": "Q1540177",
+   "label": "Museu de Marinha",
+   "coord": [
+    38.6971,
+    -9.20814
+   ],
+   "desc": "museu em Lisboa",
+   "visitors": null,
+   "langs": [
+    "pt",
+    "en"
+   ]
+  },
+  {
+   "qid": "Q27522479",
+   "label": "Museu de Arte, Arquitetura e Tecnologia (MAAT)",
+   "coord": [
+    38.69591,
+    -9.1935
+   ],
+   "desc": "museu em Lisboa",
+   "visitors": null,
+   "langs": [
+    "pt",
+    "en"
+   ]
+  }
+ ],
+ "porto": [
+  {
+   "query": "World of Discoveries",
+   "qid": "Q19708475",
+   "label": "World of Discoveries",
+   "desc": "Museu em Cedofeita, Santo Ildefonso, Sé, Miragaia, São Nicolau e Vitória, Portugal",
+   "coord": [
+    41.14345,
+    -8.62085
+   ],
+   "visitors": null,
+   "langs": [
+    "en",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu Nacional Soares dos Reis",
+   "qid": "Q1141468",
+   "label": "Museu Nacional de Soares dos Reis",
+   "desc": "museu de arte localizado na cidade do Porto",
+   "coord": [
+    41.14778,
+    -8.62167
+   ],
+   "visitors": 69970,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Serralves",
+   "qid": "Q1954380",
+   "label": "Museu de Arte Contemporânea de Serralves",
+   "desc": "museu de arte contemporânea, Porto",
+   "coord": [
+    41.15913,
+    -8.65945
+   ],
+   "visitors": null,
+   "langs": [
+    "en",
+    "pt"
+   ],
+   "status": "corrected: first search returned the wrong item"
+  },
+  {
+   "query": "Museu do Carro Eléctrico",
+   "qid": "Q908989",
+   "label": "Museu do Carro Eléctrico",
+   "desc": "tram museum in Portugal",
+   "coord": [
+    41.1478,
+    -8.63279
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu Futebol Clube do Porto",
+   "qid": null,
+   "status": "no Wikidata item — needs a human"
+  },
+  {
+   "query": "Palácio da Bolsa",
+   "qid": "Q1371109",
+   "label": "Palácio da Bolsa",
+   "desc": "edifício histórico da cidade do Porto",
+   "coord": [
+    41.14137,
+    -8.61569
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Livraria Lello",
+   "qid": "Q3408689",
+   "label": "Livraria Lello",
+   "desc": "Editora portuguesa",
+   "coord": [
+    41.14681,
+    -8.61483
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Museu dos Transportes e Comunicações",
+   "qid": "Q10333960",
+   "label": "Museu dos Transportes e Comunicações",
+   "desc": "museu no Porto, Portugal",
+   "coord": null,
+   "visitors": null,
+   "langs": [
+    "en",
+    "es",
+    "fr",
+    "pt"
+   ]
+  },
+  {
+   "query": "WOW Porto",
+   "qid": null,
+   "status": "no Wikidata item — needs a human"
+  },
+  {
+   "query": "Museu Romântico da Quinta da Macieirinha",
+   "qid": "Q10333620",
+   "label": "Museu Romântico da Quinta da Macieirinha",
+   "desc": "Museu localizado no Porto, Portugal",
+   "coord": [
+    41.14776,
+    -8.62855
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "pt"
+   ]
+  },
+  {
+   "query": "Casa do Infante",
+   "qid": "Q5047957",
+   "label": "Casa do Infante",
+   "desc": "building in Porto, Porto District, Portugal",
+   "coord": [
+    41.14069,
+    -8.61446
+   ],
+   "visitors": null,
+   "langs": [
+    "de",
+    "en",
+    "fr",
+    "pt"
+   ]
+  }
+ ]
+}

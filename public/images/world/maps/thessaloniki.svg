@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1054" width="800" height="1054" role="img" aria-label="Stylised map of Thessaloniki">
+  <title>Thessaloniki — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/greece.ts
+    (north 40.665, south 40.545, east 23.02, west 22.90) so that place pins can be
+    projected onto it rather than positioned by hand. Schematic on purpose: the line of
+    the Thermaic Gulf, the green of the upper town and the ring of the Byzantine walls
+    are placed from those bounds, and nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4eee2" />
+      <stop offset="1" stop-color="#ece0cd" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a3cfdd" />
+      <stop offset="1" stop-color="#6fb0c8" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dbcdb2" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="800" height="1054" fill="url(#ground)" />
+  <rect width="800" height="1054" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The Thermaic Gulf. The city sits on the northern shore of its head. -->
+  <path
+    d="M0 571 C 120 500, 220 410, 300 378 C 380 420, 430 480, 467 527 C 550 640, 610 720, 667 791 L800 960 L800 1054 L0 1054 Z"
+    fill="url(#water)"
+  />
+  <path
+    d="M0 571 C 120 500, 220 410, 300 378 C 380 420, 430 480, 467 527 C 550 640, 610 720, 667 791 L800 960"
+    fill="none"
+    stroke="#4f96b1"
+    stroke-width="3"
+  />
+
+  <!-- The upper town and the hills behind it, north of the walls. -->
+  <ellipse cx="380" cy="190" rx="130" ry="70" fill="#cbdbb2" stroke="#a7bc8a" stroke-width="2" />
+  <ellipse cx="540" cy="140" rx="90" ry="55" fill="#cbdbb2" stroke="#a7bc8a" stroke-width="2" />
+
+  <!-- The surviving arc of the Byzantine walls, sketched between its own two pins. -->
+  <path
+    d="M300 300 C 296 232, 330 190, 380 183 C 425 178, 455 190, 470 210"
+    fill="none"
+    stroke="#b39b74"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-dasharray="26 10"
+  />
+
+  <g fill="#8a7a5e" font-family="Georgia, 'Times New Roman', serif">
+    <text x="380" y="196" font-size="20" text-anchor="middle" letter-spacing="2">ΑΝΩ ΠΟΛΗ</text>
+    <text x="300" y="470" font-size="18" text-anchor="middle" letter-spacing="2">ΘΕΡΜΑΪΚΟΣ</text>
+    <text x="36" y="68" font-size="38" letter-spacing="4">ΘΕΣΣΑΛΟΝΙΚΗ</text>
+    <text x="36" y="100" font-size="20" letter-spacing="4">THESSALONIKI</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(730 90)" stroke="#8a7a5e" fill="#8a7a5e">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

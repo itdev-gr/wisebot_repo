@@ -1,0 +1,368 @@
+{
+  "city": "rhodes",
+  "resolvedAt": "2026-09-11T13:03:44.730Z",
+  "centre": {
+    "lat": 36.43333,
+    "lng": 28.21667
+  },
+  "places": [
+    {
+      "id": "rhodes-palace-grand-master",
+      "name": "Palace of the Grand Master",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q931371",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/7468393",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.44569,
+      "lng": 28.22411,
+      "labels": {
+        "en": "Palace of the Grand Master of the Knights of Rhodes",
+        "es": "Palacio del Gran Maestro de los Caballeros de Rodas",
+        "it": "Palazzo del Gran Maestro",
+        "de": "Großmeisterpalast",
+        "el": "Παλάτι του Μεγάλου Μαγίστρου",
+        "fr": "palais des grands maîtres de Rhodes"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-archaeological-museum",
+      "name": "Archaeological Museum of Rhodes",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q4785432",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Archaeological Museum of Rhodes",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match"
+      ],
+      "lat": 36.4448,
+      "lng": 28.2271,
+      "labels": {
+        "el": "Αρχαιολογικό Μουσείο Ρόδου",
+        "en": "Archaeological Museum of Rhodes",
+        "it": "Museo archeologico di Rodi",
+        "fr": "musée archéologique de Rhodes",
+        "es": "Museo Arqueológico de Rodas",
+        "de": "Archäologisches Museum Rhodos"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-art-gallery",
+      "name": "Municipal Art Gallery of Rhodes",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q66058061",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 36.44605,
+      "lng": 28.22696,
+      "labels": {
+        "en": "Municipal Art Gallery of Rhodes",
+        "el": "Δημοτική Πινακοθήκη Ρόδου"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-acropolis",
+      "name": "Acropolis of Rhodes",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3557443",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/20438585",
+          "deltaM": 210
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Acropolis of Rhodes",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 36.4402,
+      "lng": 28.2109,
+      "labels": {
+        "el": "Ακρόπολη Ρόδου",
+        "en": "Acropolis of Rhodes",
+        "fr": "Acropole de Rhodes",
+        "de": "Akropolis von Rhodos",
+        "it": "Acropoli di Rodi",
+        "es": "Acrópolis de Rodas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-diagoras-stadium",
+      "name": "Diagoras Stadium",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5270378",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/117916959",
+          "deltaM": 13
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Diagoras Stadium",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 36.43823,
+      "lng": 28.22823,
+      "labels": {
+        "en": "Diagoras Stadium",
+        "el": "Δημοτικό Στάδιο Ρόδου «Διαγόρας»",
+        "it": "Stadion Diagoras"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-aquarium",
+      "name": "Aquarium of Rhodes",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q31833",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/156945097",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Aquarium of Rhodes",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 36.4571,
+      "lng": 28.2207,
+      "labels": {
+        "fr": "Aquarium de Rhodes",
+        "en": "Aquarium of Rhodes",
+        "es": "Acuario de Rodas",
+        "el": "Ενυδρείο Ρόδου",
+        "it": "Acquario di Rodi",
+        "de": "Aquarium Rhodos"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-kallithea",
+      "name": "Kallithea Springs",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q38282898",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 36.37767,
+      "lng": 28.23726,
+      "labels": {
+        "el": "Συγκρότημα Ιαματικών Πηγών Καλλιθέας",
+        "en": "Kallithea Springs",
+        "de": "Kallithea Thermalquellenkomplex"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-filerimos",
+      "name": "Filerimos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1412642",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2361386932",
+          "deltaM": 191
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.40028,
+      "lng": 28.14306,
+      "labels": {
+        "de": "Filerimos",
+        "en": "Filerimos",
+        "el": "Φιλέρημος"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-lindos",
+      "name": "Acropolis of Lindos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q65122097",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Lindus",
+          "deltaM": 13
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 36.09139,
+      "lng": 28.08806,
+      "labels": {
+        "en": "Lindus",
+        "el": "Αρχαία Λίνδος",
+        "fr": "Lindos",
+        "it": "Lindo"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-kameiros",
+      "name": "Ancient Kameiros",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1231539",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Camirus",
+          "deltaM": 44
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 36.33622,
+      "lng": 27.92128,
+      "labels": {
+        "fr": "Camiros",
+        "en": "Kameiros",
+        "es": "Cámiros",
+        "it": "Camiro",
+        "de": "Kameiros",
+        "el": "Κάμειρος"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-monolithos",
+      "name": "Monolithos Castle",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q56450446",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 36.12453,
+      "lng": 27.72619,
+      "labels": {
+        "el": "Κάστρο Μονολίθου",
+        "en": "Kastro Monolithou"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "rhodes-tsambika",
+      "name": "Tsambika Monastery",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1483416",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 36.23611,
+      "lng": 28.15028,
+      "labels": {
+        "de": "Tsambika",
+        "el": "Μονή Παναγιάς Τσαμπίκα",
+        "es": "Tsambika",
+        "en": "Tsambika Monastery",
+        "it": "Monastero di Tsambika"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    }
+  ],
+  "problems": []
+}

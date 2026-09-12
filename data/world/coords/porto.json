@@ -1,0 +1,410 @@
+{
+  "city": "porto",
+  "resolvedAt": "2026-09-11T22:26:55.352Z",
+  "centre": {
+    "lat": 41.14961,
+    "lng": -8.61099
+  },
+  "places": [
+    {
+      "id": "porto-sao-bento",
+      "name": "São Bento station",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q579250",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/5391639447",
+          "deltaM": 54
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "São Bento railway station",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [],
+      "lat": 41.14542,
+      "lng": -8.6104,
+      "labels": {
+        "de": "Bahnhof Porto São Bento",
+        "fr": "Porto-São Bento",
+        "en": "São Bento railway station",
+        "es": "Estación de Porto-São Bento",
+        "it": "stazione di Porto São Bento"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-igreja-do-carmo",
+      "name": "Igreja do Carmo",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10300891",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/229772731",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14749,
+      "lng": -8.61627,
+      "labels": {
+        "en": "Igreja do Carmo",
+        "fr": "église des Carmes",
+        "es": "Iglesia del Carmen (Oporto)"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-igreja-dos-carmelitas",
+      "name": "Igreja dos Carmelitas",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10300948",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/229772732",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14747,
+      "lng": -8.61645,
+      "labels": {
+        "en": "Igreja dos Carmelitas Descalços",
+        "fr": "église des Carmélites",
+        "de": "Igreja dos Carmelitas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-clerigos",
+      "name": "Clérigos Church and Tower",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q18642",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Clérigos Church",
+          "deltaM": 53
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 41.14587,
+      "lng": -8.61401,
+      "labels": {
+        "es": "iglesia de los Clérigos",
+        "en": "Clérigos Church",
+        "it": "Torre dei Chierici",
+        "de": "Igreja dos Clérigos",
+        "fr": "église des Clercs"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-mercado-do-bolhao",
+      "name": "Bolhão Market",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10328805",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/3046626",
+          "deltaM": 24
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14917,
+      "lng": -8.60694,
+      "labels": {
+        "es": "Mercado de Bolhão",
+        "fr": "Mercado do Bolhão",
+        "en": "Bolhão Market",
+        "de": "Markthalle Bolhão"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-se-do-porto",
+      "name": "Porto Cathedral",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1441255",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/210461448",
+          "deltaM": 2
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Porto Cathedral",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [],
+      "lat": 41.14282,
+      "lng": -8.6112,
+      "labels": {
+        "de": "Kathedrale von Porto",
+        "en": "Porto Cathedral",
+        "es": "Catedral de Oporto",
+        "fr": "cathédrale de Porto",
+        "it": "cattedrale di Porto"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-palacio-da-bolsa",
+      "name": "Palácio da Bolsa",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1371109",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2478836067",
+          "deltaM": 6
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Palácio da Bolsa",
+          "deltaM": 22
+        }
+      ],
+      "warnings": [],
+      "lat": 41.14137,
+      "lng": -8.61569,
+      "labels": {
+        "de": "Palácio da Bolsa",
+        "en": "Palácio da Bolsa",
+        "es": "Palacio de la Bolsa de Oporto",
+        "fr": "palais de la Bourse",
+        "it": "Palácio da Bolsa"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-ponte-luis-i",
+      "name": "Luís I Bridge",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1322447",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Dom Luís I Bridge",
+          "deltaM": 18
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 41.13972,
+      "lng": -8.60944,
+      "labels": {
+        "fr": "pont Dom-Luís",
+        "es": "puente Don Luis I",
+        "en": "Luiz I Bridge",
+        "it": "Ponte Dom Luís I",
+        "de": "Luis I Brücke"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-serra-do-pilar",
+      "name": "Monastery of Serra do Pilar",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10332614",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/4673533",
+          "deltaM": 26
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Monastery of Serra do Pilar",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.13833,
+      "lng": -8.6075,
+      "labels": {
+        "en": "Monastery of Serra do Pilar",
+        "it": "Monastero di Serra do Pilar",
+        "es": "Monasterio de la Sierra del Pilar"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-palacio-de-cristal",
+      "name": "Gardens of the Palácio de Cristal",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10306385",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/244599647",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.14706,
+      "lng": -8.62646,
+      "labels": {
+        "es": "Jardines del Palacio de Cristal",
+        "en": "Gardens of the Palácio de Cristal"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-world-of-discoveries",
+      "name": "World of Discoveries",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q19708475",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 41.14345,
+      "lng": -8.62085,
+      "labels": {
+        "en": "World of Discoveries"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-carro-electrico",
+      "name": "Museu do Carro Eléctrico",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q908989",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/332479849",
+          "deltaM": 27
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Porto Tram Museum",
+          "deltaM": 11
+        }
+      ],
+      "warnings": [],
+      "lat": 41.1478,
+      "lng": -8.63279,
+      "labels": {
+        "de": "Museu do Carro Eléctrico",
+        "it": "Museu do Carro Eléctrico",
+        "en": "Porto Tram Museum"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "porto-casa-do-infante",
+      "name": "Casa do Infante",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5047957",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2880925",
+          "deltaM": 17
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Casa do Infante",
+          "deltaM": 13
+        }
+      ],
+      "warnings": [],
+      "lat": 41.14069,
+      "lng": -8.61446,
+      "labels": {
+        "en": "Casa do Infante",
+        "fr": "Casa do Infante",
+        "de": "Casa do Infante"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    }
+  ],
+  "problems": []
+}

@@ -1,0 +1,624 @@
+{
+  "city": "athens",
+  "resolvedAt": "2026-09-10T23:35:49.507Z",
+  "centre": {
+    "lat": 37.98381,
+    "lng": 23.72754
+  },
+  "places": [
+    {
+      "id": "athens-acropolis",
+      "name": "Acropolis",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q131013",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/4423249",
+          "deltaM": 28
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Acropolis of Athens",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 37.97167,
+      "lng": 23.72611,
+      "labels": {
+        "es": "Acrópolis de Atenas",
+        "el": "Ακρόπολη Αθηνών",
+        "fr": "Acropole d'Athènes",
+        "it": "acropoli di Atene",
+        "de": "Akropolis",
+        "en": "Acropolis of Athens"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-parthenon",
+      "name": "Parthenon",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10288",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/910010406",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Parthenon",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 37.97153,
+      "lng": 23.7266,
+      "labels": {
+        "en": "Parthenon",
+        "fr": "Parthénon",
+        "it": "Partenone",
+        "de": "Parthenon",
+        "el": "Παρθενώνας",
+        "es": "Partenón"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-temple-hephaestus",
+      "name": "Temple of Hephaestus",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q756824",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/27917370",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 37.97562,
+      "lng": 23.72139,
+      "labels": {
+        "fr": "Héphaïstéion",
+        "en": "Temple of Hephaestus",
+        "es": "Hefestión",
+        "it": "Tempio di Efesto",
+        "de": "Tempel des Hephaistos",
+        "el": "Ναός Ηφαίστου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-ancient-agora",
+      "name": "Ancient Agora",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q395367",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/13139942",
+          "deltaM": 41
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Ancient Agora of Athens",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 37.975,
+      "lng": 23.7225,
+      "labels": {
+        "el": "Αρχαία Αγορά της Αθήνας",
+        "fr": "Agora d'Athènes",
+        "en": "Ancient Agora of Athens",
+        "it": "Agorà di Atene",
+        "de": "Agora",
+        "es": "Ágora de Atenas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-tower-of-the-winds",
+      "name": "Tower of the Winds",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q372717",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/11199493",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Tower of the Winds",
+          "deltaM": 11
+        }
+      ],
+      "warnings": [],
+      "lat": 37.97418,
+      "lng": 23.727,
+      "labels": {
+        "de": "Turm der Winde",
+        "el": "Αέρηδες",
+        "en": "Tower of the Winds",
+        "es": "Torre de los Vientos",
+        "fr": "tour des Vents",
+        "it": "Torre dei venti"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-olympieion",
+      "name": "Temple of Olympian Zeus",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1123019",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/63765671",
+          "deltaM": 1
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Temple of Olympian Zeus, Athens",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 37.96937,
+      "lng": 23.73308,
+      "labels": {
+        "fr": "Olympiéion",
+        "en": "Temple of Olympian Zeus",
+        "es": "Templo de Zeus Olímpico",
+        "it": "Tempio di Zeus Olimpio",
+        "de": "Olympieion",
+        "el": "Ναός του Ολυμπίου Διός"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-panathenaic-stadium",
+      "name": "Panathenaic Stadium",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q208811",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/19023844",
+          "deltaM": 13
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Panathenaic Stadium",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.96833,
+      "lng": 23.74111,
+      "labels": {
+        "fr": "stade panathénaïque",
+        "es": "Estadio Panathinaikó",
+        "it": "stadio Panathinaiko",
+        "de": "Panathinaiko-Stadion",
+        "el": "Παναθηναϊκό Στάδιο",
+        "en": "Panathenaic Stadium"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-acropolis-museum",
+      "name": "Acropolis Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q421084",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/983921252",
+          "deltaM": 12
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Acropolis Museum",
+          "deltaM": 78
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.96842,
+      "lng": 23.72847,
+      "labels": {
+        "el": "Μουσείο Ακρόπολης",
+        "fr": "musée de l'Acropole d'Athènes",
+        "en": "Acropolis Museum",
+        "de": "Akropolismuseum",
+        "it": "Museo dell'acropoli di Atene",
+        "es": "Museo de la Acrópolis"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-national-archaeological-museum",
+      "name": "National Archaeological Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q637187",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2828",
+          "deltaM": 42
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "National Archaeological Museum, Athens",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.98917,
+      "lng": 23.73222,
+      "labels": {
+        "el": "Εθνικό Αρχαιολογικό Μουσείο Αθηνών",
+        "fr": "musée national archéologique d'Athènes",
+        "en": "National Archaeological Museum of Athens",
+        "de": "Archäologisches Nationalmuseum",
+        "it": "museo archeologico nazionale di Atene",
+        "es": "Museo Arqueológico Nacional de Atenas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-benaki-toy-museum",
+      "name": "Benaki Toy Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q108608183",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.93025,
+      "lng": 23.687,
+      "labels": {
+        "en": "Benaki Toy Museum",
+        "el": "Μουσείο Μπενάκη Παιχνιδιών"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-lycabettus",
+      "name": "Lycabettus summit, Agios Georgios",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q12872113",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/778661727",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 37.98194,
+      "lng": 23.74333,
+      "labels": {
+        "el": "Άγιος Γεώργιος Λυκαβηττού",
+        "en": "Saint George church"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-national-garden",
+      "name": "National Garden",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q646284",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/11505137",
+          "deltaM": 100
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "National Garden, Athens",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 37.97417,
+      "lng": 23.73833,
+      "labels": {
+        "de": "Nationalgarten",
+        "el": "Εθνικός Κήπος",
+        "en": "National Garden of Athens",
+        "fr": "jardin national d’Athènes",
+        "it": "Giardino Nazionale di Atene",
+        "es": "Jardín nacional de Atenas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-old-royal-palace",
+      "name": "Old Royal Palace (Parliament)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7084890",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2150086",
+          "deltaM": 5
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Old Royal Palace",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.97528,
+      "lng": 23.73694,
+      "labels": {
+        "el": "Παλαιά Ανάκτορα",
+        "en": "Old Royal Palace",
+        "es": "Antiguo Palacio Real",
+        "it": "Palazzo Reale (Atene)",
+        "fr": "ancien palais royal d'Athènes",
+        "de": "Königliches Schloss (Athen)"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-agios-eleftherios",
+      "name": "Agios Eleftherios (Little Metropolis)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2790568",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/713424516",
+          "deltaM": 2
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Little Metropolis",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.97506,
+      "lng": 23.72999,
+      "labels": {
+        "el": "Ναός Θεοτόκου Γοργοεπήκοου και Αγίου Ελευθερίου",
+        "en": "Agios Eleftherios Church, Athens",
+        "es": "iglesia de Agios Eleftherios de Atenas",
+        "de": "Panagia Gorgoepikoos",
+        "fr": "église Saint-Eleuthérios",
+        "it": "Piccola Cattedrale"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-kerameikos",
+      "name": "Kerameikos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q630974",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2096172464",
+          "deltaM": 90
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Kerameikos",
+          "deltaM": 24
+        }
+      ],
+      "warnings": [],
+      "lat": 37.97833,
+      "lng": 23.71861,
+      "labels": {
+        "de": "Kerameikos",
+        "el": "Κεραμεικός",
+        "en": "Kerameikos",
+        "es": "Cerámico",
+        "fr": "Céramique",
+        "it": "Ceramico"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-varvakios",
+      "name": "Varvakeios Market",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q755345",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/152257802",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.98041,
+      "lng": 23.7276,
+      "labels": {
+        "de": "Athener Markthalle",
+        "el": "Βαρβάκειος Αγορά",
+        "en": "Varvakeios market",
+        "fr": "Marché couvert d'Athènes"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-snfcc",
+      "name": "Stavros Niarchos Foundation Cultural Center",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q17511186",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/265733746",
+          "deltaM": 186
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Stavros Niarchos Foundation Cultural Center",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm is 186 m away — outlier, check by eye",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.9397,
+      "lng": 23.6917,
+      "labels": {
+        "en": "Stavros Niarchos Foundation Cultural Center",
+        "el": "Κέντρο Πολιτισμού Ίδρυμα Σταύρος Νιάρχος",
+        "de": "Stavros Niarchos Foundation Cultural Center",
+        "it": "Centro culturale della Fondazione Stavros Niarchos",
+        "fr": "Centre culturel de la fondation Stávros-Niárchos",
+        "es": "Centro Cultural de la Fundación Stavros Niarchos"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-10"
+    },
+    {
+      "id": "athens-planetarium",
+      "name": "Eugenides Planetarium",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q12877355",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/6693233",
+          "deltaM": 31
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 37.93983,
+      "lng": 23.69635,
+      "labels": {
+        "el": "Ευγενίδειο Πλανητάριο",
+        "en": "Eugenides Planetarium"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-10"
+    }
+  ],
+  "problems": []
+}

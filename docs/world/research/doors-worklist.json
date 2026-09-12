@@ -1,0 +1,247 @@
+{
+ "athens-panathenaic-stadium": {
+  "city": "athens",
+  "qid": "Q208811",
+  "name": "Panathenaic Stadium",
+  "address": "Λεωφόρος Βασιλέως Κωνσταντίνου",
+  "website": "http://www.panathenaicstadium.gr/"
+ },
+ "athens-acropolis-museum": {
+  "city": "athens",
+  "qid": "Q421084",
+  "name": "Acropolis Museum",
+  "address": "Διονυσίου Αρεοπαγίτου 15",
+  "website": "https://www.theacropolismuseum.gr/"
+ },
+ "athens-national-archaeological-museum": {
+  "city": "athens",
+  "qid": "Q637187",
+  "name": "National Archaeological Museum",
+  "address": "28is Oktovriou (Patission) 44",
+  "website": "https://www.namuseum.gr/"
+ },
+ "athens-benaki-toy-museum": {
+  "city": "athens",
+  "qid": "Q108608183",
+  "name": "Benaki Toy Museum",
+  "address": null,
+  "website": null
+ },
+ "athens-old-royal-palace": {
+  "city": "athens",
+  "qid": "Q7084890",
+  "name": "Old Royal Palace (Parliament)",
+  "address": null,
+  "website": null
+ },
+ "athens-agios-eleftherios": {
+  "city": "athens",
+  "qid": "Q2790568",
+  "name": "Agios Eleftherios (Little Metropolis)",
+  "address": null,
+  "website": null
+ },
+ "athens-varvakios": {
+  "city": "athens",
+  "qid": "Q755345",
+  "name": "Varvakeios Market",
+  "address": null,
+  "website": null
+ },
+ "athens-snfcc": {
+  "city": "athens",
+  "qid": "Q17511186",
+  "name": "Stavros Niarchos Foundation Cultural Center",
+  "address": "Λεωφόρος Ανδρέα Συγγρού 364",
+  "website": "http://www.snfcc.org/"
+ },
+ "athens-planetarium": {
+  "city": "athens",
+  "qid": "Q12877355",
+  "name": "Eugenides Planetarium",
+  "address": "Λεωφόρος Ανδρέα Συγγρού 387",
+  "website": "https://www.eef.edu.gr/el/to-idryma/planitario/"
+ },
+ "thessaloniki-white-tower": {
+  "city": "thessaloniki",
+  "qid": "Q550576",
+  "name": "White Tower",
+  "address": null,
+  "website": "http://www.lpth.gr/indexeg.php"
+ },
+ "thessaloniki-rotunda": {
+  "city": "thessaloniki",
+  "qid": "Q1584841",
+  "name": "Rotunda",
+  "address": null,
+  "website": null
+ },
+ "thessaloniki-agios-dimitrios": {
+  "city": "thessaloniki",
+  "qid": "Q730019",
+  "name": "Church of Agios Dimitrios",
+  "address": "Αγίου Δημητρίου 83",
+  "website": "https://www.agdimitriosthes.gr"
+ },
+ "thessaloniki-hagia-sophia": {
+  "city": "thessaloniki",
+  "qid": "Q1568660",
+  "name": "Hagia Sophia",
+  "address": null,
+  "website": null
+ },
+ "thessaloniki-archaeological-museum": {
+  "city": "thessaloniki",
+  "qid": "Q2658285",
+  "name": "Archaeological Museum",
+  "address": null,
+  "website": "http://www.amth.gr/"
+ },
+ "thessaloniki-byzantine-museum": {
+  "city": "thessaloniki",
+  "qid": "Q3563158",
+  "name": "Museum of Byzantine Culture",
+  "address": "Λεωφόρος Στρατού",
+  "website": "http://www.mbp.gr/en"
+ },
+ "thessaloniki-cinema-museum": {
+  "city": "thessaloniki",
+  "qid": "Q2613530",
+  "name": "Cinema Museum",
+  "address": null,
+  "website": "http://www.cinemuseum.gr"
+ },
+ "thessaloniki-heptapyrgion": {
+  "city": "thessaloniki",
+  "qid": "Q1572213",
+  "name": "Heptapyrgion",
+  "address": null,
+  "website": null
+ },
+ "thessaloniki-vlatades": {
+  "city": "thessaloniki",
+  "qid": "Q962846",
+  "name": "Vlatades Monastery",
+  "address": null,
+  "website": null
+ },
+ "thessaloniki-modiano": {
+  "city": "thessaloniki",
+  "qid": "Q15711710",
+  "name": "Modiano Market",
+  "address": null,
+  "website": null
+ },
+ "thessaloniki-noesis": {
+  "city": "thessaloniki",
+  "qid": "Q1271635",
+  "name": "Science Center and Technology Museum",
+  "address": null,
+  "website": "http://www.noesis.edu.gr"
+ },
+ "thessaloniki-ote-tower": {
+  "city": "thessaloniki",
+  "qid": "Q383061",
+  "name": "OTE Tower",
+  "address": null,
+  "website": null
+ },
+ "thessaloniki-toumba-stadium": {
+  "city": "thessaloniki",
+  "qid": "Q1141292",
+  "name": "Toumba Stadium",
+  "address": null,
+  "website": null
+ },
+ "heraklion-archaeological-museum": {
+  "city": "heraklion",
+  "qid": "Q636972",
+  "name": "Heraklion Archaeological Museum",
+  "address": "Xanthoudidou 2",
+  "website": "http://heraklionmuseum.gr/"
+ },
+ "heraklion-koules": {
+  "city": "heraklion",
+  "qid": "Q603920",
+  "name": "Koules Fortress (Rocca a Mare)",
+  "address": null,
+  "website": "https://www.heraklion.gr/en/ourplace/koule/koule.html"
+ },
+ "heraklion-loggia": {
+  "city": "heraklion",
+  "qid": "Q14175781",
+  "name": "Venetian Loggia",
+  "address": null,
+  "website": null
+ },
+ "heraklion-historical-museum": {
+  "city": "heraklion",
+  "qid": "Q4204518",
+  "name": "Historical Museum of Crete",
+  "address": null,
+  "website": "https://www.historical-museum.gr/"
+ },
+ "heraklion-natural-history-museum": {
+  "city": "heraklion",
+  "qid": "Q6980521",
+  "name": "Natural History Museum of Crete",
+  "address": null,
+  "website": "http://www.nhmc.uoc.gr"
+ },
+ "heraklion-cretaquarium": {
+  "city": "heraklion",
+  "qid": "Q31529",
+  "name": "Cretaquarium",
+  "address": null,
+  "website": "http://www.cretaquarium.gr"
+ },
+ "heraklion-pankritio-stadium": {
+  "city": "heraklion",
+  "qid": "Q1928668",
+  "name": "Pankritio Stadium",
+  "address": null,
+  "website": null
+ },
+ "heraklion-kazantzakis-museum": {
+  "city": "heraklion",
+  "qid": "Q4306167",
+  "name": "Nikos Kazantzakis Museum",
+  "address": null,
+  "website": "https://www.kazantzaki.gr/en"
+ },
+ "porto-igreja-do-carmo": {
+  "city": "porto",
+  "qid": "Q10300891",
+  "name": "Igreja do Carmo",
+  "address": "Rua do Carmo",
+  "website": null
+ },
+ "porto-igreja-dos-carmelitas": {
+  "city": "porto",
+  "qid": "Q10300948",
+  "name": "Igreja dos Carmelitas",
+  "address": "Rua do Carmo",
+  "website": null
+ },
+ "porto-mercado-do-bolhao": {
+  "city": "porto",
+  "qid": "Q10328805",
+  "name": "Bolhão Market",
+  "address": null,
+  "website": "http://visitporto.travel/Visitar/Paginas/Descobrir/detalhespoi.aspx?POI=1393"
+ },
+ "porto-clerigos": {
+  "city": "porto",
+  "qid": "Q18642",
+  "name": "Clérigos Church and Tower",
+  "address": null,
+  "website": "http://www.torredosclerigos.pt/en/"
+ },
+ "porto-sao-bento": {
+  "city": "porto",
+  "qid": "Q579250",
+  "name": "São Bento station",
+  "address": null,
+  "website": "https://servicos.infraestruturasdeportugal.pt/pt-pt/estacoes?estacaoId=9401008"
+ }
+}

@@ -1,0 +1,29 @@
+{
+  "city": "thessaloniki",
+  "country": "greece",
+  "centre": { "lat": 40.64361, "lng": 22.93028 },
+  "note": "Wikidata q-ids only. Searching in Greek matters here more than usual: 'Αγία Σοφία Θεσσαλονίκης' returns Q21079931, a village, not the church — the church is Q1568660, and only the description tells you apart. Two places that are not in Wikidata at all were dropped rather than pinned by hand: the Zongolopoulos Umbrellas on the waterfront, and the waterfront itself.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "thessaloniki-white-tower", "name": "White Tower", "wikidata": "Q550576", "anchor": "entrance" },
+    { "id": "thessaloniki-rotunda", "name": "Rotunda", "wikidata": "Q1584841", "anchor": "entrance" },
+
+    { "id": "thessaloniki-arch-of-galerius", "name": "Arch of Galerius", "wikidata": "Q1258082", "anchor": "centroid",
+      "note": "Wikidata files the arch and the Rotunda under one item, because UNESCO lists them together. Its coordinate is the arch, 150 m from the Rotunda's own item (Q1584841), so the two still resolve as separate pins." },
+
+    { "id": "thessaloniki-agios-dimitrios", "name": "Church of Agios Dimitrios", "wikidata": "Q730019", "anchor": "entrance" },
+    { "id": "thessaloniki-hagia-sophia", "name": "Hagia Sophia", "wikidata": "Q1568660", "anchor": "entrance" },
+    { "id": "thessaloniki-roman-agora", "name": "Roman Agora", "wikidata": "Q16932289", "anchor": "area" },
+    { "id": "thessaloniki-archaeological-museum", "name": "Archaeological Museum", "wikidata": "Q2658285", "anchor": "entrance" },
+    { "id": "thessaloniki-byzantine-museum", "name": "Museum of Byzantine Culture", "wikidata": "Q3563158", "anchor": "entrance" },
+    { "id": "thessaloniki-cinema-museum", "name": "Cinema Museum", "wikidata": "Q2613530", "anchor": "entrance" },
+    { "id": "thessaloniki-walls", "name": "Byzantine walls", "wikidata": "Q7963249", "anchor": "area" },
+    { "id": "thessaloniki-heptapyrgion", "name": "Heptapyrgion", "wikidata": "Q1572213", "anchor": "entrance" },
+    { "id": "thessaloniki-vlatades", "name": "Vlatades Monastery", "wikidata": "Q962846", "anchor": "entrance" },
+    { "id": "thessaloniki-aristotelous", "name": "Aristotelous Square", "wikidata": "Q667472", "anchor": "area" },
+    { "id": "thessaloniki-modiano", "name": "Modiano Market", "wikidata": "Q15711710", "anchor": "entrance" },
+    { "id": "thessaloniki-noesis", "name": "Science Center and Technology Museum", "wikidata": "Q1271635", "anchor": "entrance" },
+    { "id": "thessaloniki-ote-tower", "name": "OTE Tower", "wikidata": "Q383061", "anchor": "entrance" },
+    { "id": "thessaloniki-toumba-stadium", "name": "Toumba Stadium", "wikidata": "Q1141292", "anchor": "entrance" }
+  ]
+}

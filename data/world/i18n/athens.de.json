@@ -1,0 +1,844 @@
+{
+  "lang": "de",
+  "cityId": "athens",
+  "places": {
+    "athens-acropolis": {
+      "name": "Die Akropolis",
+      "tagline": "Der Felsen, der die Stadt seit dreitausend Jahren trägt",
+      "story": "Die Akropolis ist ein Felsen, 156 Meter über dem Meer, und oben ist er fast eben. Vor mehr als dreitausend Jahren stiegen die ersten Menschen hinauf, um dort zu wohnen, und das taten sie nicht wegen der Aussicht. Der Felsen war leicht zu verteidigen, er hatte eine eigene Quelle, und von oben sah man jeden schon von weitem kommen. Später wohnten die Athener nicht mehr dort und überließen den ganzen Felsen der Göttin Athene. 480 v. Chr. verbrannte ein persisches Heer alles, was darauf stand. Die Athener warfen die zerbrochenen Statuen nicht weg: Sie begruben sie sorgfältig im Felsen selbst und fingen wieder von vorn an zu bauen. Deshalb fanden Archäologen sie zweieinhalbtausend Jahre später wieder, mit Resten ihrer Farbe darauf. Heute ist die Akropolis eine Baustelle, die nie schließt. Kräne heben Marmor vom Berg Pentelikon hinauf, von demselben Berg, der ihn schon beim ersten Mal geliefert hat.",
+      "facts": [
+        "Der Felsen ragt 156 Meter über den Meeresspiegel.",
+        "Die Restaurierung läuft seit 1975 ohne Pause und ist noch nicht fertig.",
+        "Seit 1987 gehört sie zum UNESCO-Welterbe."
+      ],
+      "question": {
+        "q": "Warum wählten die ersten Athener diesen Felsen zum Wohnen?",
+        "answers": [
+          "Weil er leicht zu verteidigen war und eine eigene Quelle hatte",
+          "Weil er der einzige flache Boden in ganz Attika war",
+          "Weil das Meer damals bis an seinen Fuß reichte",
+          "Weil der Marmor schon oben lag, fertig zum Bauen"
+        ],
+        "explanation": "Eine Burg braucht zwei Dinge: Höhe und Wasser. Der Felsen hatte beides, deshalb zogen die Menschen lange vor dem ersten Tempel dort hinauf."
+      }
+    },
+    "athens-parthenon": {
+      "name": "Der Parthenon",
+      "tagline": "Ein Tempel fast ohne eine einzige gerade Linie",
+      "story": "Der Parthenon wurde in nur neun Jahren gebaut, von 447 bis 438 v. Chr., und seine Skulpturen waren sechs Jahre später fertig. Er war das Haus einer riesigen Statue der Athene aus Holz, Gold und Elfenbein, die es nicht mehr gibt. Das Seltsame an diesem Tempel ist, dass seine Baumeister gerade Linien mit Absicht vermieden. Die Säulen schwellen in der Mitte ein wenig an und neigen sich ein winziges Stück nach innen. Der Boden steigt an wie ein sehr sanfter Hügel. Wäre alles vollkommen gerade gebaut, würden unsere Augen es als durchhängend sehen; so, wie er gebaut ist, sieht er für uns vollkommen aus. Das Gebäude wechselte oft die Arbeit: Es wurde eine Kirche, dann eine Moschee. 1687 traf in einem Krieg eine Granate das Schießpulver, das darin gelagert wurde, und der Parthenon riss mitten auseinander. Alles, was du heute stehen siehst, ist das, was danach stehen geblieben ist.",
+      "facts": [
+        "Er hat 46 äußere Säulen: acht an jeder kurzen und siebzehn an jeder langen Seite.",
+        "Die Säulen sind in der Mitte etwas dicker, damit sie vollkommen gerade aussehen.",
+        "Sein Marmor kam vom Berg Pentelikon, etwa 16 Kilometer entfernt."
+      ],
+      "question": {
+        "q": "Was machten die Baumeister mit den Säulen des Parthenon mit Absicht?",
+        "answers": [
+          "Sie ließen sie in der Mitte etwas anschwellen, damit sie gerade aussehen",
+          "Sie machten sie alle verschieden hoch, damit sie wie ein Berg aussehen",
+          "Sie ließen sie innen hohl, damit Musik darin nachhallt",
+          "Sie strichen sie schwarz, damit sie sich im Sommer nicht aufheizen"
+        ],
+        "explanation": "Vollkommen gerade Linien sehen für unsere Augen aus, als würden sie durchhängen. Die alten Baumeister wussten das und korrigierten den Tempel, bevor ihn überhaupt jemand ansah."
+      }
+    },
+    "athens-temple-hephaestus": {
+      "name": "Der Tempel des Hephaistos",
+      "tagline": "Der antike Tempel, der sein Dach behalten hat",
+      "story": "Über der Antiken Agora steht der besterhaltene antike griechische Tempel überhaupt. Er wurde um 449 v. Chr. gebaut, kurz vor dem Parthenon, für Hephaistos, den Gott des Feuers und der Schmiede, und für Athene Ergane, die Göttin der Handwerker. Der Platz war nicht zufällig gewählt: Das ganze Viertel darunter war voller Werkstätten, die Metall und Ton bearbeiteten, und Archäologen fanden dort Rost, Nägel und Stücke von Gussformen im Boden. Der Tempel hat überlebt, weil er nie leer stand. Etwa vierzehnhundert Jahre lang war er die Kirche des heiligen Georg. Eine Kirche, in der Gottesdienst gefeiert wird, braucht ein Dach, und ein Dach hält den Regen von den Mauern fern. Während also ringsum alles einstürzte, blieb dieser eine ganz. 1834 hörte er auf, Kirche zu sein: In diesem Jahr wurde Athen Hauptstadt Griechenlands.",
+      "facts": [
+        "Er ist der besterhaltene antike griechische Tempel der Welt.",
+        "Er hat 34 Säulen, die meisten stehen seit dem Tag, an dem er fertig wurde.",
+        "Etwa 1.400 Jahre lang diente er als Kirche, bis 1834."
+      ],
+      "question": {
+        "q": "Warum ist dieser Tempel so viel besser erhalten als die anderen?",
+        "answers": [
+          "Weil er eine Kirche wurde und sein Dach behielt",
+          "Weil er aus Stein gebaut war und nicht aus Marmor",
+          "Weil Erde ihn zudeckte und er erst vor Kurzem ausgegraben wurde",
+          "Weil er im letzten Jahrhundert ganz neu aufgebaut wurde"
+        ],
+        "explanation": "Ein Gebäude, das benutzt wird, wird auch repariert. Das Dach hielt den Regen draußen, und Regen ist das, was Mauern einstürzen lässt."
+      }
+    },
+    "athens-ancient-agora": {
+      "name": "Die Antike Agora",
+      "tagline": "Der Platz, auf dem die Stadt einkaufte, Recht sprach und abstimmte",
+      "story": "Die Agora war der Platz, auf dem alles passierte. Morgens verkaufte man hier Fisch und Schuhe, mittags tagten die Gerichte, und nachmittags stand jemand auf und stritt über die Stadt. Hier stand außerdem eine Maschine, die keine andere Stadt hatte: das Kleroterion, eine Marmorplatte mit eingeschnittenen Schlitzen. Die Bürger steckten ihren Ausweis hinein, ein kleines Plättchen aus Bronze, und ein Gerät voller weißer und schwarzer Kugeln entschied, wer Richter wurde. Man wählte keine Person; der Zufall wählte dich, damit niemand das Amt kaufen konnte. Es gab auch die umgekehrte Regel. Wurde jemand gefährlich mächtig, kratzten die Athener seinen Namen in eine Tonscherbe, ein Ostrakon, und wer die meisten Scherben bekam, musste die Stadt für zehn Jahre verlassen. Archäologen haben Tausende solcher Scherben gefunden, mit den Namen noch darauf.",
+      "facts": [
+        "Das Kleroterion wählte Richter durch das Los und nicht durch eine Abstimmung.",
+        "Das Wort „Ostrakismos“ kommt vom Ostrakon, einer zerbrochenen Tonscherbe.",
+        "Die Stoa des Attalos wurde 1953-1956 wieder aufgebaut und ist heute das Museum des Geländes."
+      ],
+      "question": {
+        "q": "Wie wählten die Athener viele ihrer Richter aus?",
+        "answers": [
+          "Durch das Los, mit einer Marmormaschine namens Kleroterion",
+          "Durch Abstimmung, indem alle auf dem Platz die Hand hoben",
+          "Der reichste Bürger jedes Viertels bestimmte sie",
+          "Es waren immer die Söhne der früheren Richter"
+        ],
+        "explanation": "Wenn das Los entscheidet, kann man das Amt weder kaufen noch erben. Genau das war die ganze Idee."
+      }
+    },
+    "athens-tower-of-the-winds": {
+      "name": "Der Turm der Winde",
+      "tagline": "Uhr, Kompass und Wetterstation in einem Gebäude",
+      "story": "Der Turm der Winde ist ein achteckiger Turm aus Marmor, vor etwa zweitausend Jahren von einem Astronomen namens Andronikos gebaut. Jede seiner acht Seiten zeigt in eine Richtung, und auf jeder Seite ist ein Wind als fliegender Mann eingemeißelt: Der Nordwind hält eine Muschel, um hineinzublasen, der Westwind streut Blumen aus seinem Mantel. Unter jedem Relief saß eine Sonnenuhr. Bis hierhin ist nichts Zauberhaftes dabei: Wenn die Sonne scheint, sagt dir ein Schatten die Zeit. Klug ist, was passierte, wenn Wolken aufzogen. Im Turm lief eine Wasseruhr, gespeist von einer Quelle auf der Akropolis. Das Wasser tropfte gleichmäßig und zählte die Stunden auch bei Regen und auch nachts. Auf dem Dach drehte sich eine Wetterfahne aus Bronze, damit du auch wusstest, welcher Wind gerade wehte.",
+      "facts": [
+        "Er hat acht Seiten, eine für jeden Wind, mit diesem Wind darüber eingemeißelt.",
+        "Er gilt als die älteste Wetterstation, die noch steht.",
+        "Die Uhr in seinem Inneren lief mit Wasser, nicht mit Sonnenlicht, und zählte die Stunden auch nachts."
+      ],
+      "question": {
+        "q": "Wie zeigte der Turm die Zeit an, wenn Wolken die Sonne verdeckten?",
+        "answers": [
+          "Mit einer Wasseruhr, die in seinem Inneren lief",
+          "Mit einer Glocke, die ein Wächter jede Stunde läutete",
+          "Mit einer Kerze, die jede Stunde eine Linie tiefer brannte",
+          "Er zeigte an bewölkten Tagen keine Zeit an, nur den Wind"
+        ],
+        "explanation": "Wasser tropft gleich schnell, ob die Sonne scheint oder nicht. Genau deshalb war die Wasseruhr die Reserve der Sonnenuhr."
+      }
+    },
+    "athens-olympieion": {
+      "name": "Der Tempel des Olympischen Zeus",
+      "tagline": "Der Tempel, der 638 Jahre brauchte, bis er fertig war",
+      "story": "Dieser Tempel hält einen Rekord, um den ihn nie jemand beneidet hat: Er brauchte etwa 638 Jahre, bis er fertig war. Die Arbeit begann im 6. Jahrhundert v. Chr. und hörte auf, als die Stadt neue Herrscher bekam. Er stand so lange halb fertig herum, dass antike Schriftsteller ihn als Beispiel dafür nahmen, wie man sich übernimmt. Fertiggestellt hat ihn schließlich der römische Kaiser Hadrian im Jahr 131 n. Chr., und er stellte zwei riesige Statuen hinein: eine von Zeus und eine von sich selbst. Der Tempel hatte 104 Säulen, jede etwa 17 Meter hoch. Heute stehen noch fünfzehn davon. Eine sechzehnte liegt am Boden: Ein Sturm warf sie 1852 um, und niemand hat sie je wieder aufgerichtet. Sie ist das Beste, was man dort ansehen kann, denn sie fiel wie ein Turm aus Bauklötzen, und ihre Stücke rollten in einer Reihe auseinander wie aufgeschnittenes Brot. So lernst du, dass eine Säule nie ein einziger Stein war.",
+      "facts": [
+        "Zwischen dem ersten und dem letzten Stein vergingen etwa 638 Jahre.",
+        "Er hatte 104 Säulen. Fünfzehn stehen heute noch.",
+        "Eine Säule stürzte 1852 in einem Sturm um und blieb liegen, Stück für Stück."
+      ],
+      "question": {
+        "q": "Was lernst du, wenn du die umgestürzte Säule ansiehst?",
+        "answers": [
+          "Dass jede Säule aus vielen Stücken aufeinandergesetzt war",
+          "Dass die Säulen hohl waren und innen Treppen versteckt lagen",
+          "Dass der Marmor innen rot bemalt war",
+          "Dass die Säulen aus Beton gemacht waren"
+        ],
+        "explanation": "Jedes Stück heißt Trommel. Sie wurden wie riesige Münzen gestapelt und in der Mitte miteinander verriegelt."
+      }
+    },
+    "athens-panathenaic-stadium": {
+      "name": "Das Panathinaiko-Stadion",
+      "tagline": "Das einzige Stadion der Welt, das ganz aus Marmor besteht",
+      "story": "Die Athener nennen es Kallimarmaro, das heißt „schöner Marmor“, und der Name ist nicht übertrieben: die Sitze, die Gänge, die Treppen, alles ist Marmor. Es ist das einzige Stadion der Welt, das ganz daraus gebaut ist. Schon 330 v. Chr. stand an dieser Stelle ein Stadion für die Wettkämpfe der Panathenäen, und um 144 n. Chr. baute Herodes Atticus es in Marmor neu. Dann leerte es sich, füllte sich mit Erde und geriet in Vergessenheit. Im 19. Jahrhundert wurde es ausgegraben und für die ersten modernen Olympischen Spiele 1896 wieder hergerichtet. Es fasst etwa fünfzigtausend Zuschauer. Es hat die Form eines Hufeisens, und seine Kurven sind so eng, dass die Läufer 1896 klagten, sie verlören in jeder Runde Geschwindigkeit. Hier lief Spyridon Louis als Erster über die Ziellinie des ersten modernen Marathons, vor einem Stadion, das schrie.",
+      "facts": [
+        "Es ist das einzige Stadion der Welt, das ganz aus Marmor gebaut ist.",
+        "Es war der Austragungsort der ersten modernen Olympischen Spiele 1896.",
+        "Es bietet etwa 50.000 Menschen Platz, und alle sitzen auf Marmor."
+      ],
+      "question": {
+        "q": "Was macht dieses Stadion auf der ganzen Welt einzigartig?",
+        "answers": [
+          "Es ist ganz aus Marmor gebaut",
+          "Es ist das größte Stadion, das es gibt",
+          "Es hat ein Dach, das sich öffnen und schließen lässt",
+          "Es ist vollständig unter der Erde gebaut"
+        ],
+        "explanation": "Andere Stadien haben irgendwo Marmor. Dieses ist überall Marmor, von der ersten Stufe bis zum letzten Sitz."
+      },
+      "findIt": "Der Eingang liegt an der Vasileos-Konstantinou-Allee, direkt gegenüber der Statue des Diskuswerfers."
+    },
+    "athens-acropolis-museum": {
+      "name": "Das Akropolis-Museum",
+      "tagline": "Ein Museum mit einem antiken Viertel unter dem Fußboden",
+      "story": "Als beschlossen wurde, dieses Museum zu bauen, wurde zuerst gegraben, wie man es in Athen immer muss. Man fand ein ganzes antikes Viertel: Straßen, Häuser, Bäder, Brunnen. Normalerweise stoppt so etwas einen Bau. Hier änderte man stattdessen die Pläne. Das Museum steht auf etwa hundert Säulen, die zwischen den Ruinen hinunterreichen, und das Erdgeschoss bekam einen Boden aus Glas, sodass du über der Ausgrabung läufst und in sie hineinschaust. Das Museum wurde 2009 eröffnet und von Bernard Tschumi entworfen. Das oberste Stockwerk ist der klügste Teil: ein Saal aus Glas, der gegenüber dem übrigen Gebäude schräg gedreht ist, genau so weit, dass er dem Parthenon gerade ins Gesicht sieht, und der genauso groß gebaut ist wie er. Die Skulpturen stehen in der Reihenfolge, in der sie am Tempel standen, und der Tempel selbst ist durch das Glas zu sehen, vierhundert Meter entfernt.",
+      "facts": [
+        "Es wurde 2009 eröffnet, über einem antiken Viertel, das durch Glasböden zu sehen ist.",
+        "Der Parthenon-Saal ist schräg gedreht, damit er zum Tempel selbst hinschaut.",
+        "Fünf der sechs echten Karyatiden stehen hier."
+      ],
+      "question": {
+        "q": "Was machten die Ingenieure, als sie auf dem Grundstück des Museums antike Häuser fanden?",
+        "answers": [
+          "Sie stellten das Museum auf Säulen und legten einen Boden aus Glas ein",
+          "Sie brachten die antiken Häuser auf ein anderes Grundstück",
+          "Sie deckten die Funde mit Beton zu und machten weiter",
+          "Sie bauten das Museum woanders, zwei Kilometer entfernt"
+        ],
+        "explanation": "Das Museum ruht auf etwa hundert Säulen, die zwischen den Ruinen hindurch nach unten reichen, ohne sie zu berühren."
+      },
+      "museum": {
+        "doorNote": "Schau nach unten, bevor du nach oben schaust: Der Boden am Eingang ist aus Glas, und darunter liegt eine Stadt.",
+        "rooms": {
+          "athens-acropolis-museum-slopes": {
+            "name": "Der Saal der Hänge",
+            "intro": "Der erste Saal steigt an, so wie die Hänge des Felsens ansteigen. Hier gibt es keine Götter aus Marmor, nur Dinge, die Menschen gehört haben: Hochzeitsvasen, Dankgeschenke von Kranken, die wieder gesund wurden, und unter deinen Füßen, durch das Glas, das Viertel, das sie benutzt hat."
+          },
+          "athens-acropolis-museum-archaic": {
+            "name": "Der Archaische Saal",
+            "intro": "In diesem Saal gibt es keine Vitrinen an den Wänden. Die Statuen stehen frei, in einem Licht, das sich mit dem Himmel ändert, und du kannst um sie herumgehen wie um einen Menschen. Es sind die Skulpturen, die vor dem Parthenon auf dem Felsen standen, und viele haben überlebt, weil sie begraben wurden."
+          },
+          "athens-acropolis-museum-parthenon-gallery": {
+            "name": "Der Parthenon-Saal",
+            "intro": "Das oberste Stockwerk ist ein Rechteck aus Glas, genauso groß wie der Parthenon und so gedreht, dass es ihm gerade gegenübersteht. Die Skulpturen stehen an den Plätzen, die sie am Tempel hatten, in derselben Höhe, und das Licht Athens fällt auf sie. Der Tempel selbst ist durch das Glas zu sehen, vierhundert Meter entfernt."
+          }
+        },
+        "exhibits": {
+          "athens-acropolis-museum-glass-floor": {
+            "name": "Der Glasboden",
+            "blurb": "Das ist kein Ausstellungsstück in einer Vitrine; das ist der Fußboden. Unter deinen Füßen liegt ein athenisches Viertel, in dem über viertausend Jahre lang gewohnt wurde, von der Vorgeschichte bis ins 12. Jahrhundert. Du kannst Straßen, Höfe, Brunnen und ein Badehaus erkennen. Das Museum hat es nicht zugedeckt: Es steht auf Säulen, die zwischen den Ruinen hinunterreichen. Seit 2019 kannst du hinuntergehen und mitten hindurchlaufen.",
+            "question": {
+              "q": "Wie steht das Museum über dem antiken Viertel?",
+              "answers": [
+                "Auf Säulen, die zwischen den Ruinen hinunterreichen",
+                "Auf einer einzigen riesigen Platte aus Beton",
+                "Auf Erde, die über die Ruinen geschüttet wurde",
+                "Auf Holzpfählen, so wie Venedig gebaut ist"
+              ],
+              "explanation": "Die Säulen landen auf leeren Stellen, damit das Gewicht des Gebäudes nirgends auf den Ruinen lastet."
+            }
+          },
+          "athens-acropolis-museum-nymphe-vases": {
+            "name": "Die Hochzeitsvasen",
+            "blurb": "Am Hang unter der Akropolis gab es ein kleines Heiligtum der Nymphe, der Göttin der Hochzeit. Dort ließen athenische Frauen Loutrophoren zurück: hohe, schmale Vasen mit zwei Henkeln, die das Wasser für das Bad vor der Hochzeit trugen. Auf ihnen ist der Zug selbst gemalt: die Braut, ihre Freundinnen, die Fackeln. Archäologen fanden Tausende Scherben in einer einzigen Grube, als wäre das ganze Heiligtum an einem einzigen Tag ausgeräumt worden.",
+            "question": {
+              "q": "Was trug eine Loutrophore?",
+              "answers": [
+                "Das Wasser für das Bad vor der Hochzeit",
+                "Öl für die Lampen des Tempels",
+                "Wein für das Fest nach der Hochzeit",
+                "Asche vom Feuer eines Opfers"
+              ],
+              "explanation": "Der Name sagt es: loutron heißt Bad und phero heißt tragen. Es ist die Vase, die das Badewasser bringt."
+            }
+          },
+          "athens-acropolis-museum-asklepieion": {
+            "name": "Die Geschenke der Kranken",
+            "blurb": "Am Südhang stand das Asklepieion, ein Heiligtum, zu dem kranke Menschen kamen. Wer wieder gesund wurde, ließ ein Dankgeschenk da, und viele davon hatten die Form des Körperteils, der wehgetan hatte: ein Bein aus Marmor, eine Hand, ein Paar Augen. Sie sind seltsam und rührend zugleich, denn jedes einzelne ist eine wahre Geschichte von jemandem, der Angst hatte und dann gesund wurde. Andere ließen Reliefplatten da, auf denen eine ganze Familie zum Gott hinaufgeht.",
+            "question": {
+              "q": "Warum haben manche dieser Geschenke die Form eines Beins oder eines Auges?",
+              "answers": [
+                "Weil sie den Körperteil zeigen, der wehtat und dann gesund wurde",
+                "Weil sie Spielzeug für die Kinder des Heiligtums waren",
+                "Weil sie als Schlüssel für die Türen dienten",
+                "Weil sie Gussformen für die Bildhauer waren"
+              ],
+              "explanation": "Es war eine Art, Danke zu sagen und dabei genau zu zeigen, wofür."
+            }
+          },
+          "athens-acropolis-museum-moschophoros": {
+            "name": "Der Kälberträger",
+            "blurb": "Ein Mann trägt ein Kalb auf den Schultern und hält dessen vier Beine vor der Brust über Kreuz. Er wurde um 570 v. Chr. gemeißelt und stieg gerade den Felsen hinauf, um das Tier der Göttin zu opfern. Das Schönste sind die Beine des Kalbes und die Arme des Mannes: Zusammen bilden sie ein Kreuz, das einzige Muster an der ganzen Statue. Seine Augen waren einmal aus einem anderen, farbigen Material und saßen in den Höhlen. Heute fehlen sie.",
+            "question": {
+              "q": "Was fehlt dem Kälberträger heute?",
+              "answers": [
+                "Seine Augen, die aus einem anderen, farbigen Material waren",
+                "Das Kalb, das getrennt von ihm gefunden wurde",
+                "Sein Kopf, der nie gefunden wurde",
+                "Sein Sockel, der oben auf dem Felsen blieb"
+              ],
+              "explanation": "Antike Bildhauer setzten oft Augen aus farbigem Stein oder Glas in eine Statue, damit sie lebendig aussieht."
+            }
+          },
+          "athens-acropolis-museum-peplos-kore": {
+            "name": "Die Peplos-Kore",
+            "blurb": "Eine junge Gestalt, um 530 v. Chr. gemeißelt, mit dem kleinen Lächeln, das viele Statuen jener Zeit haben. Auf ihr sind Reste von Farbe erhalten: Rot, Grün, Spuren von Tiermustern auf ihrem Kleid. Das ist das große Geheimnis der antiken Bildhauerei, denn die Statuen waren nicht weiß. Sie waren bemalt, leuchtend, fast grell. Der weiße Marmor, den wir uns vorstellen, ist einfach die Farbe, die die Zeit abgewaschen hat.",
+            "question": {
+              "q": "Welche Farbe hatten antike Statuen wirklich?",
+              "answers": [
+                "Sie waren mit leuchtenden Farben bemalt",
+                "Sie waren immer schneeweiß, so wie wir sie sehen",
+                "Sie waren golden, ausnahmslos alle",
+                "Sie waren schwarz vom Rauch der Opfer"
+              ],
+              "explanation": "Die Farbe verblasste im Lauf der Jahrhunderte. Auf wenigen Statuen, wie dieser, blieben Reste davon übrig."
+            }
+          },
+          "athens-acropolis-museum-kritios-boy": {
+            "name": "Der Kritios-Knabe",
+            "blurb": "Schau, wie er steht. Jede ältere Statue verteilt ihr Gewicht gleichmäßig auf beide Füße, wie ein Soldat bei der Parade. Dieser Junge, um 480 v. Chr. gemeißelt, verlagert sein Gewicht auf ein Bein. Sofort hebt sich die Hüfte, die Schulter sinkt, der Kopf dreht sich ein wenig. Mit einer einzigen Bewegung hört der Stein auf zu posieren und fängt an zu stehen. Fachleute zählen ihn zu den ersten Statuen, die das tun, und danach ging die Bildhauerei nie wieder zurück.",
+            "question": {
+              "q": "Was macht dieser Junge, was ältere Statuen nicht machten?",
+              "answers": [
+                "Er verlagert sein Gewicht auf ein Bein",
+                "Er hält ein Tier in den Armen",
+                "Er sitzt, statt zu stehen",
+                "Er ist aus Bronze statt aus Marmor"
+              ],
+              "explanation": "Probier es aus: Stell dein Gewicht auf ein Bein und sieh zu, was deine Schultern ganz von allein machen."
+            }
+          },
+          "athens-acropolis-museum-caryatids": {
+            "name": "Die Karyatiden",
+            "blurb": "Sechs junge Frauen aus Marmor trugen statt Säulen das Dach eines kleinen Tempels auf dem Felsen, des Erechtheions. Fünf stehen hier in einer Reihe, mit der Lücke der sechsten daneben: Sie ist im British Museum in London. Schau auf ihre Füße. Jede beugt ein anderes Knie, damit keine von ihnen angestrengt wirkt. Ihre Zöpfe fallen dick über den Nacken, und das ist keine Verzierung: Sie verstärken den dünnen Hals, der sonst als Erstes brechen würde.",
+            "question": {
+              "q": "Warum haben die Karyatiden dicke Zöpfe im Nacken?",
+              "answers": [
+                "Weil die Zöpfe ihren dünnen Hals verstärken",
+                "Weil Königinnen ihr Haar so trugen",
+                "Weil dort die Unterschrift des Bildhauers versteckt ist",
+                "Weil Regenwasser durch sie hindurchlief"
+              ],
+              "explanation": "Der Hals ist die schwächste Stelle einer Marmorfigur, die Gewicht trägt. Die Zöpfe machten ihn dicker, ohne das Bild zu verderben."
+            }
+          },
+          "athens-acropolis-museum-frieze": {
+            "name": "Der Fries",
+            "blurb": "Ein Band aus Marmor, etwa 160 Meter lang, lief innen rund um den Tempel und zeigte einen Festzug: Pferde, die auf der Stelle tanzen, junge Männer, die Krüge tragen, Mädchen mit Gaben, alte Männer im Gespräch. Man nimmt an, dass er das Fest der Panathenäen zeigt, wenn die ganze Stadt auf den Felsen hinaufging. Das Erstaunliche ist, dass er nicht nur Götter und Helden zeigt. Er zeigt die Athener selbst, und das war an einem Tempel selten.",
+            "question": {
+              "q": "Wen zeigt der Fries des Parthenon vor allem?",
+              "answers": [
+                "Die Athener selbst, in einem Festzug",
+                "Nur die zwölf Götter des Olymp",
+                "Eine Seeschlacht mit Schiffen und Rudern",
+                "Die Könige von Persien"
+              ],
+              "explanation": "Das war ungewöhnlich: Der Tempel der Göttin zeigte an seinen Wänden die Stadt selbst."
+            }
+          },
+          "athens-acropolis-museum-metopes": {
+            "name": "Die Metopen",
+            "blurb": "Hoch oben an der Außenseite des Tempels saßen 92 quadratische Platten mit eingemeißelten Kämpfen: Kentauren gegen Menschen, Giganten gegen Götter, Amazonen gegen Athener. Das sind nicht einfach Prügeleien. Die Athener hatten gerade ihre Stadt brennen sehen, und die Metopen erzählen immer wieder dieselbe Geschichte: Ordnung besiegt Chaos. Viele sind stark abgerieben, denn von allen Skulpturen waren sie dem Wetter und den Menschen am meisten ausgesetzt.",
+            "question": {
+              "q": "Was wollten die Metopen mit ihren Kämpfen sagen?",
+              "answers": [
+                "Dass Ordnung das Chaos besiegt",
+                "Dass Krieg ein Spiel ist",
+                "Dass Kentauren echt waren",
+                "Dass Athen nie gegen jemanden gekämpft hat"
+              ],
+              "explanation": "Es waren Bilder mit einer Bedeutung, keine Verzierung: Die Stadt sprach über sich selbst."
+            }
+          },
+          "athens-acropolis-museum-white-casts": {
+            "name": "Die weißen Abgüsse",
+            "blurb": "Zwischen den echten Marmorstücken stehen Teile, die schneeweiß und ganz offensichtlich anders sind. Es sind Kopien aus Gips. Sie stehen für Skulpturen, die nicht hier sind, weil sie im frühen 19. Jahrhundert vom Tempel abgenommen wurden und heute in anderen Museen gezeigt werden, vor allem in London. Das Museum hat nicht versucht, die Kopien anzugleichen. Es ließ sie mit Absicht weiß, damit du auf einen Blick siehst, was fehlt.",
+            "question": {
+              "q": "Warum wurden diese Kopien schneeweiß gelassen?",
+              "answers": [
+                "Damit man sofort sieht, welche Skulpturen fehlen",
+                "Weil Gips sich nicht bemalen lässt",
+                "Weil die antiken Skulpturen auch so aussahen",
+                "Damit die Wächter sie im Dunkeln unterscheiden können"
+              ],
+              "explanation": "Das ist eine bewusste Entscheidung: Die Lücke wird gezeigt, statt versteckt."
+            }
+          }
+        },
+        "riddles": {
+          "athens-acropolis-museum-riddle-1": {
+            "prompt": "Wir waren sechs Schwestern und trugen ein Dach auf unseren Köpfen. Fünf von uns stehen hier in einer Reihe, und neben uns ist eine Lücke: Die sechste reiste weit weg und kam nie zurück.",
+            "hint": "Suche Gestalten, die die Arbeit einer Säule machen."
+          },
+          "athens-acropolis-museum-riddle-2": {
+            "prompt": "Ich steige den Felsen hinauf, ein Tier quer über meinen Schultern, und meine Arme kreuzen sich mit seinen Beinen. Einst hatte ich Augen aus farbigem Stein. Jetzt schaue ich dich mit zwei leeren Höhlen an.",
+            "hint": "Das Tier ist klein und hat vier Beine, und es kam nie wieder herunter."
+          },
+          "athens-acropolis-museum-riddle-3": {
+            "prompt": "Ich bin nicht antik, und ich verstecke es nicht. Ich stehe neben den echten Marmorstücken in einer Farbe, die den Unterschied herausschreit, damit du auf einen Blick verstehst, was nicht mehr zu Hause ist.",
+            "hint": "Ich bin aus Gips gemacht, nicht aus Marmor."
+          }
+        }
+      },
+      "findIt": "Der Eingang liegt an der Dionysiou-Areopagitou-Straße, auf der Seite, die zur Akropolis schaut."
+    },
+    "athens-national-archaeological-museum": {
+      "name": "Das Archäologische Nationalmuseum",
+      "tagline": "Masken aus Gold, Götter aus Bronze und ein antiker Computer",
+      "story": "Das ist das größte Museum Griechenlands, und es erzählt nicht nur von Athen. Funde aus dem ganzen Land kamen hierher: aus Mykene, von Santorin, aus Schiffswracks auf dem Meeresboden. Das Gebäude wurde 1889 eröffnet und sieht aus wie ein antiker Tempel, denn genau so sollte es aussehen. Drinnen sind etwa elftausend Stücke ausgestellt, viel zu viele für einen Besuch, also besteht der Trick darin, auszuwählen. Mykene schenkt dir Gold, das dreieinhalbtausend Jahre alt ist. Die Bronzesäle schenken dir Statuen, die Jahrhunderte unter Wasser lagen und fast unversehrt wieder herauskamen, weil das Salzwasser sie vor den Menschen schützte. Und in einer Vitrine beweisen kleine grüne Metallstücke mit Zahnrädchen, dass jemand eine Maschine gebaut hat, um den Himmel vorherzusagen, zweitausend Jahre vor der ersten Uhr mit Zahnrädern.",
+      "facts": [
+        "Es wurde 1889 eröffnet und ist das größte Museum Griechenlands.",
+        "Es zeigt etwa 11.000 Objekte aus dem ganzen Land.",
+        "Hier steht der Mechanismus von Antikythera, die älteste bekannte Maschine mit Zahnrädern."
+      ],
+      "question": {
+        "q": "Warum kamen die Bronzestatuen fast unversehrt aus dem Meer?",
+        "answers": [
+          "Weil auf dem Meeresboden niemand an sie herankam, um sie einzuschmelzen",
+          "Weil Bronze nirgendwo jemals verfällt",
+          "Weil man sie in Tierhäute gewickelt hatte",
+          "Weil sie innen aus massivem Gold waren"
+        ],
+        "explanation": "An Land wurden Bronzestatuen eingeschmolzen, um Werkzeuge oder Waffen zu werden. Die, die untergingen, waren die, die davonkamen."
+      },
+      "museum": {
+        "doorNote": "Es ist zu groß für einen einzigen Besuch. Such dir zwei Säle aus und schau sie dir richtig an.",
+        "rooms": {
+          "athens-national-archaeological-museum-mycenae": {
+            "name": "Der Mykenische Saal",
+            "intro": "Du trittst ein, und alles glänzt. Diese Sachen kamen aus Königsgräbern in Mykene, dreieinhalbtausend Jahre alt, ausgegraben von einem Mann, der nach den Helden Homers suchte. Er fand die Helden nicht. Er fand etwas, womit niemand gerechnet hatte: eine ganze Kultur, die viel älter war."
+          },
+          "athens-national-archaeological-museum-sea": {
+            "name": "Was das Meer zurückgab",
+            "intro": "Jedes Stück in diesem Saal kam vom Meeresboden. Zwei Schiffswracks, eines bei Artemision und eines bei Antikythera, hielten ihre Ladung zweitausend Jahre lang fest. Salzwasser überzog die Bronze, Schwammtaucher fanden sie, und nach oben kamen Dinge, die an Land längst eingeschmolzen worden wären."
+          },
+          "athens-national-archaeological-museum-thera": {
+            "name": "Die Fresken von Thera",
+            "intro": "Vor etwa dreieinhalbtausend Jahren brach auf Santorin ein Vulkan aus und begrub die Stadt Akrotiri unter Asche. Die Asche war eine Katastrophe und zugleich eine Decke: Sie hielt die Wände aufrecht und die Farben lebendig. Diese Bilder sind keine Kopien. Sie sind die Wände selbst."
+          }
+        },
+        "exhibits": {
+          "athens-national-archaeological-museum-mask": {
+            "name": "Die Maske des Agamemnon",
+            "blurb": "Ein dünnes Blatt Gold, so lange gehämmert, bis es die Form eines Gesichts hatte, und in Mykene einem toten König aufgelegt. Heinrich Schliemann fand es 1876 und glaubte, er halte das Gesicht Agamemnons in den Händen, des Königs aus der Ilias. Er irrte sich, und der Irrtum ist nützlich: Die Maske ist rund dreihundert Jahre älter als die Zeit, in die man den Trojanischen Krieg setzt. Der Name ist trotzdem geblieben.",
+            "question": {
+              "q": "Warum kann die Maske nicht Agamemnon gehören?",
+              "answers": [
+                "Weil sie etwa 300 Jahre älter ist als seine Zeit",
+                "Weil Agamemnon kein König war",
+                "Weil sie auf Kreta gefunden wurde und nicht in Mykene",
+                "Weil sie aus Bronze ist und nicht aus Gold"
+              ],
+              "explanation": "Schliemann wollte die Helden so sehr finden, dass er sie überall sah. Die Datierung widerlegte ihn später."
+            }
+          },
+          "athens-national-archaeological-museum-vaphio-cups": {
+            "name": "Die Becher von Vaphio",
+            "blurb": "Zwei kleine Becher aus Gold aus einem Grab bei Sparta, in Relief gearbeitet, mit Szenen, die sich lesen wie ein Comic. Auf dem einen stellen Männer Netze auf und fangen einen wilden Stier, und es geht schlecht aus. Auf dem anderen läuft ein zahmer Stier ruhig neben einer Kuh her. Das sind zwei Arten, zu bekommen, was man will: mit Gewalt oder mit List. Beide entstanden im 15. Jahrhundert v. Chr., von hinten mit dem Hammer herausgetrieben.",
+            "question": {
+              "q": "Was zeigen die beiden Becher zusammen?",
+              "answers": [
+                "Zwei verschiedene Arten, einen Stier zu fangen",
+                "Zwei Schlachten zwischen Städten",
+                "Dieselbe Szene von zwei Seiten",
+                "Eine Hochzeit und eine Beerdigung"
+              ],
+              "explanation": "Der eine zeigt die Falle und die Jagd, der andere die Ruhe. Dasselbe Tier, eine andere Methode."
+            }
+          },
+          "athens-national-archaeological-museum-lion-dagger": {
+            "name": "Der Dolch mit der Löwenjagd",
+            "blurb": "Ein Dolch aus Bronze aus den Gräbern von Mykene, seine Klinge verziert in einer Technik, die eher dem Malen auf Metall gleicht: winzige Stücke aus Gold, Silber und einer schwarzen Legierung, eingelegt in die Bronze. Die Szene zeigt Jäger mit Schilden, die Löwen gegenüberstehen. Die Figuren sind ein paar Millimeter groß, und trotzdem erkennst du Beine, Mähnen und Schilde. Damals gab es in Griechenland tatsächlich Löwen.",
+            "question": {
+              "q": "Wie wurden die Bilder auf der Klinge gemacht?",
+              "answers": [
+                "Mit winzigen Stücken aus Gold und Silber, eingelegt in die Bronze",
+                "Mit Pinsel und Lack aufgemalt",
+                "Mit einem Stempel aufgedrückt",
+                "Mit Feuer in das Metall eingebrannt"
+              ],
+              "explanation": "Das nennt man Einlegearbeit. Es ist geduldige Arbeit mit Werkzeugen, die feiner sind als eine Nadel."
+            }
+          },
+          "athens-national-archaeological-museum-artemision-bronze": {
+            "name": "Die Bronzestatue von Artemision",
+            "blurb": "Ein Mann über zwei Meter groß, die Arme weit ausgebreitet, das Gewicht auf dem vorderen Fuß, im Begriff, etwas zu werfen. Die ungelöste Frage ist: was? Hielt er einen Blitz, dann ist er Zeus; hielt er einen Dreizack, dann ist er Poseidon. Die Waffe wurde nie gefunden, deshalb heißt die Statue einfach die Bronzestatue von Artemision. Sie entstand um 460 v. Chr. und wurde in zwei Stücken nahe Euböa aus dem Meer gehoben.",
+            "question": {
+              "q": "Warum wissen wir nicht, welcher Gott das ist?",
+              "answers": [
+                "Weil der Gegenstand fehlt, den er in der Hand hielt",
+                "Weil sein Gesicht zerstört ist",
+                "Weil er überhaupt keine göttlichen Merkmale hat",
+                "Weil seine Inschrift in einer unbekannten Sprache geschrieben ist"
+              ],
+              "explanation": "Ein Blitz heißt Zeus, ein Dreizack heißt Poseidon. Bei einer leeren Hand gibt es keine Antwort."
+            }
+          },
+          "athens-national-archaeological-museum-jockey": {
+            "name": "Der Jockey von Artemision",
+            "blurb": "Ein Pferd in vollem Galopp, und darauf ein Kind ohne Sattel und ohne Steigbügel. Sein Gesicht ist angespannt, sein Haar fliegt nach hinten, sein Körper liegt flach auf dem Rücken des Tieres. Er kam aus demselben Wrack wie die große Bronzestatue, aber in Dutzenden Stücken, und es dauerte Jahre, ihn wieder zusammenzusetzen. Er entstand um 140 v. Chr. Forscher glauben, dass Pferd und Reiter immer zusammengehörten, obwohl sie bei verschiedenen Bergungen gefunden wurden, Jahre auseinander.",
+            "question": {
+              "q": "Was hat der kleine Reiter nicht?",
+              "answers": [
+                "Weder Sattel noch Steigbügel",
+                "Eine Peitsche in der Hand",
+                "Ein Zaumzeug am Pferd",
+                "Haare auf dem Kopf"
+              ],
+              "explanation": "Steigbügel kamen erst Jahrhunderte später nach Europa. Damals hielt man sich mit den Beinen fest."
+            }
+          },
+          "athens-national-archaeological-museum-antikythera-youth": {
+            "name": "Der Jüngling von Antikythera",
+            "blurb": "Ein junger Mann aus Bronze, um 340 v. Chr., der locker dasteht und die rechte Hand ausstreckt, als hielte er etwas Rundes zwischen den Fingern. Vielleicht war es der Apfel des Paris, vielleicht ein Ball. Er wurde 1900 von Schwammtauchern gefunden, die auf der Suche nach Schwämmen auf ein Wrack voller Statuen stießen. Er ist eine der ganz wenigen griechischen Statuen aus Bronze, die fast vollständig erhalten sind.",
+            "question": {
+              "q": "Wer fand das Schiffswrack von Antikythera?",
+              "answers": [
+                "Schwammtaucher, die nach Schwämmen suchten",
+                "Fischer, die ihre Netze auswarfen",
+                "Archäologen in einem U-Boot",
+                "Seeleute, die an derselben Stelle Schiffbruch erlitten"
+              ],
+              "explanation": "Die größte Entdeckung unter Wasser in jener Zeit geschah aus Versehen, an einem ganz gewöhnlichen Arbeitstag."
+            }
+          },
+          "athens-national-archaeological-museum-antikythera-mechanism": {
+            "name": "Der Mechanismus von Antikythera",
+            "blurb": "Er sieht aus wie grüne Steine. Es sind die Reste einer zweitausend Jahre alten Maschine, vollgepackt mit Zahnrädern aus Bronze und spitzen kleinen Zähnen. Man drehte an einer Kurbel, und Zeiger zeigten, wo Sonne und Mond standen, wann bei einer Finsternis das Licht ausgehen würde, sogar in welches Jahr die Wettkämpfe fielen. Es ist die älteste bekannte Maschine mit Zahnrädern auf der Welt, und danach wurde etwa tausend Jahre lang nichts so Kompliziertes mehr gebaut.",
+            "question": {
+              "q": "Was tat der Mechanismus von Antikythera?",
+              "answers": [
+                "Er zeigte die Stellungen von Sonne und Mond und sagte Finsternisse voraus",
+                "Er pumpte Wasser vom Grund eines Brunnens herauf",
+                "Er wog Gold ganz genau ab",
+                "Er öffnete die Türen eines Tempels von allein"
+              ],
+              "explanation": "Er war ein Computer für den Himmel, aus Zahnrädern. Er rechnete nicht; er zeigte dir, wo die Dinge am Himmel stehen würden."
+            }
+          },
+          "athens-national-archaeological-museum-spring-fresco": {
+            "name": "Das Frühlingsfresko",
+            "blurb": "Ein ganzes Zimmer, auf drei Wänden bemalt: rote Felsen, rote Lilien, die sich im Wind biegen, und Schwalben, die sich am Himmel jagen. Nirgends ist ein Mensch zu sehen. Soweit wir wissen, ist es das älteste Landschaftsbild Europas: Jemand malte einen Ort einfach deshalb, weil er schön war, ohne Götter, ohne Könige und ohne Geschichte. Und gemalt wurde es, während der Putz noch feucht war, eine Technik, die Tiefe gibt und die Farben jahrhundertelang mit der Wand verbunden hält.",
+            "question": {
+              "q": "Was fehlt auf dem Frühlingsfresko vollständig?",
+              "answers": [
+                "Die Menschen",
+                "Die Farben",
+                "Der Himmel",
+                "Die Blumen"
+              ],
+              "explanation": "Es ist reine Landschaft, und das war zu seiner Zeit äußerst selten."
+            }
+          },
+          "athens-national-archaeological-museum-boxing-boys": {
+            "name": "Die boxenden Jungen",
+            "blurb": "Zwei Jungen stehen sich gegenüber, jeder mit einem Handschuh an einer Hand und der anderen Hand bloß. Ihre Köpfe sind rasiert, mit langen Strähnen, die herabhängen, so wie Kinder damals ihr Haar trugen, und einer von ihnen trägt Schmuck. Es ist eines der ganz wenigen antiken Werke, die Kinder beim Sport zeigen, und es wurde vor etwa dreieinhalbtausend Jahren an die Wand eines Hauses in Akrotiri gemalt.",
+            "question": {
+              "q": "Was ist an den Händen der beiden Jungen seltsam?",
+              "answers": [
+                "Jeder trägt nur an einer Hand einen Handschuh",
+                "Beide halten Schwerter",
+                "Ihre Hände sind hinter dem Rücken gefesselt",
+                "Sie haben überhaupt keine Finger"
+              ],
+              "explanation": "Wir wissen nicht sicher, warum. Vielleicht war es eine Regel des Wettkampfs, vielleicht Teil einer Zeremonie."
+            }
+          },
+          "athens-national-archaeological-museum-antelopes": {
+            "name": "Die Antilopen",
+            "blurb": "An derselben Wand wie die Boxer stehen Antilopen, gezeichnet mit ein paar schwarzen Linien auf hellem Grund. Es gibt keine Schattierung und keine Einzelheit im Fell, und trotzdem wirken die Tiere lebendig: Die ganze Arbeit machen die Kurve des Halses und die Haltung des Kopfes. Das Seltsame ist, dass auf Santorin keine Antilopen lebten, der Maler sie also anderswo gesehen oder von ihnen gehört hatte.",
+            "question": {
+              "q": "Warum ist es seltsam, dass auf dieser Wand Antilopen zu sehen sind?",
+              "answers": [
+                "Weil auf Santorin keine Antilopen lebten",
+                "Weil Antilopen nur in Gräbern gemalt wurden",
+                "Weil jede von ihnen fünf Beine hat",
+                "Weil sie kopfüber gemalt sind"
+              ],
+              "explanation": "Akrotiri war ein Hafen mit Schiffen, die weit fuhren. Die Bilder reisten mit ihnen."
+            }
+          }
+        },
+        "riddles": {
+          "athens-national-archaeological-museum-riddle-1": {
+            "prompt": "Ich bin ein Gesicht aus Gold, aber es ist nicht mein eigenes. Man legte mich vor dreieinhalbtausend Jahren auf einen König, und dann gab man mir den falschen Namen.",
+            "hint": "Der falsche Name gehört einem König aus der Ilias."
+          },
+          "athens-national-archaeological-museum-riddle-2": {
+            "prompt": "Ich bin in grüne Stücke zerbrochen und sehe aus wie Stein. In mir stecken aber Zähne, die ineinandergreifen, und ich sagte den Menschen einst, wann die Sonne mitten am Tag dunkel werden würde.",
+            "hint": "Ich kam aus einem Schiffswrack, zusammen mit Statuen."
+          },
+          "athens-national-archaeological-museum-riddle-3": {
+            "prompt": "Ich bin kein Gegenstand, ich bin eine Wand. Auf mir wachsen rote Lilien und über mich fliegen Schwalben, und du wirst keinen einzigen Menschen finden. Was mich begraben hat, ist das, was mich gerettet hat.",
+            "hint": "Was mich begrub, war Asche aus einem Vulkan."
+          }
+        }
+      },
+      "findIt": "Der Eingang liegt an der 28-Oktober-Straße, die die Athener Patission nennen, bei Nummer 44."
+    },
+    "athens-benaki-toy-museum": {
+      "name": "Das Benaki-Spielzeugmuseum",
+      "tagline": "Zwanzigtausend Spielsachen in einem Haus wie ein kleiner Turm",
+      "story": "In Palaio Faliro, nahe am Meer, steht ein sonderbares Haus aus den 1920er-Jahren, das aussieht wie eine kleine Burg. Es heißt Haus Kouloura, und mehr als zwanzigtausend Spielsachen wohnen darin. Eine einzige Frau, Maria Argyriadi, hat sie ihr Leben lang gesammelt, in Griechenland und in vielen anderen Ländern, und sie dann verschenkt, damit alle sie sehen können. Es ist keine Sammlung teurer Gegenstände. Es ist eine Sammlung von Beweisen: womit Kinder spielten, als es noch keinen Strom gab, womit sie spielten, bevor es Plastik gab, was sie sich selbst bauten, wenn es gar nichts gab. Du wirst Spielsachen sehen, die zweieinhalbtausend Jahre alt sind, neben Spielsachen, mit denen deine Eltern gespielt haben, und du wirst etwas fast Ärgerliches merken: Das Spiel wechselt sein Material, nicht seine Idee. Den Ball, die Puppe und den Würfel gibt es überall und immer, in jeder Sprache und in jeder Zeit.",
+      "facts": [
+        "Die Sammlung umfasst mehr als 20.000 Spielsachen und Dinge aus der Kindheit.",
+        "Sie ist im Haus Kouloura untergebracht, einem Gebäude aus den 1920er-Jahren.",
+        "Das Museum wurde 2017 als Spielzeugmuseum eröffnet."
+      ],
+      "question": {
+        "q": "Wie kamen die Spielsachen dieses Museums zusammen?",
+        "answers": [
+          "Eine Sammlerin hat sie ihr ganzes Leben lang zusammengetragen",
+          "Kinder haben sie in den Werkstätten des Museums gebaut",
+          "Der Staat hat sie von einer Fabrik gekauft",
+          "Sie wurden alle zusammen bei einer Ausgrabung gefunden"
+        ],
+        "explanation": "Maria Argyriadi sammelte jahrzehntelang Spielsachen und gab sie weiter, damit ein Museum daraus wird."
+      },
+      "museum": {
+        "doorNote": "Such nicht das teuerste Stück. Such das älteste, mit dem du heute noch spielen würdest.",
+        "rooms": {
+          "athens-benaki-toy-museum-ancient": {
+            "name": "Spielsachen von ganz früher",
+            "intro": "Antike Kinder hatten keine Batterien, keine Bildschirme und kein Plastik. Sie hatten Ton, Holz, Knochen und Fantasie, und daraus bauten sie genau dieselben Spiele, die du auch spielst. Viele davon wurden in Kindergräbern gefunden, hineingelegt von Eltern, die ihre Kinder nicht ohne sie gehen lassen wollten."
+          },
+          "athens-benaki-toy-museum-attic": {
+            "name": "Der Dachboden der Großmutter",
+            "intro": "Hier fangen die Spielsachen an, an die sich Menschen noch erinnern: aus Blech, zum Aufziehen, von Hand bemalt. Sie sind dir näher als die antiken und gerade deshalb seltsamer, denn jemand, den du kennst, hat wirklich damit gespielt. Frag zu Hause, an welches davon sie sich erinnern, und du erfährst auch, wo sie es versteckt hatten."
+          }
+        },
+        "exhibits": {
+          "athens-benaki-toy-museum-knucklebones": {
+            "name": "Die Spielknöchel",
+            "blurb": "Kleine Fußknochen von Schafen und Ziegen, das verbreitetste Spiel der antiken Welt. Jeder Knochen hat vier verschiedene Seiten, jede mit eigenem Namen und eigener Punktzahl, er wirkt also wie ein Würfel, der nicht gerecht ist. Kinder warfen sie hoch und fingen sie auf dem Handrücken auf, oder sie zielten, um einen mit einem anderen zu treffen. Bei Ausgrabungen tauchen sie zu Tausenden auf.",
+            "question": {
+              "q": "Wie viele verschiedene Seiten hat so ein Knochen?",
+              "answers": [
+                "Vier, jede mit einer anderen Punktzahl",
+                "Sechs, wie ein Würfel",
+                "Zwei, wie eine Münze",
+                "Acht, wie ein Kreisel"
+              ],
+              "explanation": "Deshalb war er Würfel und Geschicklichkeitsspiel zugleich."
+            }
+          },
+          "athens-benaki-toy-museum-jointed-doll": {
+            "name": "Die Puppe mit beweglichen Gliedern",
+            "blurb": "Eine Puppe aus Ton, deren Arme und Beine einzeln angebunden sind, damit sie sich bewegen. Sie gehört zu den rührendsten antiken Funden, denn wir wissen, was mit diesen Puppen geschah: Mädchen behielten sie, solange sie Kinder waren, und ließen sie, wenn sie erwachsen wurden, in einem Heiligtum zurück, als Abschiedsgeschenk an die Kindheit. Das war ein offizielles Ende der Spielzeit, mit einer Zeremonie. Viele solcher Puppen wurden in Heiligtümern beieinander gefunden, und jede einzelne bedeutet, dass ein Mädchen erwachsen geworden ist.",
+            "question": {
+              "q": "Was machten Mädchen mit diesen Puppen, wenn sie erwachsen wurden?",
+              "answers": [
+                "Sie ließen sie als Geschenk in einem Heiligtum zurück",
+                "Sie zerbrachen sie und warfen sie weg",
+                "Sie verkauften sie auf dem Markt",
+                "Sie bemalten sie golden"
+              ],
+              "explanation": "Es war eine Art, mit einem Gegenstand zu sagen: „Ein Teil meines Lebens ist vorbei.“"
+            }
+          },
+          "athens-benaki-toy-museum-wheeled-animals": {
+            "name": "Die Tiere auf Rädern",
+            "blurb": "Pferdchen und Vögel aus Ton, auf vier kleine Räder gesetzt, mit einem Loch vorn für eine Schnur, damit man sie hinter sich herziehen kann. Sie gehören zu den ältesten Spielsachen, die je gefunden wurden, und es gibt sie in fast jeder antiken Kultur, unabhängig voneinander. Dasselbe Spielzeug wird heute noch gebaut, aus Plastik statt aus Ton, und Babys lieben es genauso sehr.",
+            "question": {
+              "q": "Warum haben diese Tierchen vorn ein Loch?",
+              "answers": [
+                "Damit eine Schnur hindurchgeht und man sie ziehen kann",
+                "Damit die Luft entweicht, während sie gebrannt werden",
+                "Damit man Wasser in sie hineinfüllen kann",
+                "Damit man sie an einen Baum hängen kann"
+              ],
+              "explanation": "Es ist ein Ziehspielzeug, also eines für Kinder, die gerade laufen gelernt haben."
+            }
+          },
+          "athens-benaki-toy-museum-tin-toys": {
+            "name": "Das Blechspielzeug zum Aufziehen",
+            "blurb": "Blech in leuchtenden Farben bemalt, ein kleiner Schlüssel an der Seite und innen eine Feder. Du ziehst es auf, lässt los, und das Spielzeug läuft, schlägt eine Trommel oder macht einen Purzelbaum, bis es abgelaufen ist. Es braucht keine Batterien, weil die Energie aus deiner Hand kommt und in der Feder gespeichert wird. Die meisten wurden im 20. Jahrhundert gebaut, und viele haben Beulen und Kratzer, denn sie standen nicht zum Bewundern im Regal: Sie wurden jeden Tag benutzt, bis sie kaputtgingen.",
+            "question": {
+              "q": "Woher bekommt ein Aufziehspielzeug seine Energie?",
+              "answers": [
+                "Aus deiner Hand, gespeichert in einer Feder",
+                "Aus einer kleinen Batterie im Sockel",
+                "Von der Sonne, durch die Farbe",
+                "Von Magneten in den Rädern"
+              ],
+              "explanation": "Beim Aufziehen spannst du eine Feder. Beim Entspannen macht diese Feder die Arbeit."
+            }
+          },
+          "athens-benaki-toy-museum-dolls-houses": {
+            "name": "Die Puppenhäuser",
+            "blurb": "Ganze Häuser in Miniatur, mit Möbeln, Küchensachen, sogar mit Tellern, die kleiner sind als dein Fingernagel. Für Historiker sind sie ein Schatz, denn sie zeigen, wie die Häuser ihrer Zeit wirklich aussahen: welchen Ofen sie hatten, wo das Wasser hinkam, wie viele Zimmer als normal galten. Ein Puppenhaus ist die Fotografie eines Zuhauses, gemacht, bevor es viele Fotografien gab. Und weil Erwachsene sie für Kinder bauten, zeigen sie noch etwas: was ihre Zeit für ein richtiges Zuhause hielt.",
+            "question": {
+              "q": "Warum sind Puppenhäuser für Historiker nützlich?",
+              "answers": [
+                "Weil sie zeigen, wie die Häuser der damaligen Zeit wirklich aussahen",
+                "Weil in ihnen Briefe versteckt wurden",
+                "Weil sie immer Nachbildungen von Palästen waren",
+                "Weil unten das Datum daraufsteht"
+              ],
+              "explanation": "Niemand baut ein Modell von einem Haus, das er nie gesehen hat."
+            }
+          },
+          "athens-benaki-toy-museum-shadow-figures": {
+            "name": "Die Figuren des Schattentheaters",
+            "blurb": "Flache Figuren aus Leder oder Karton, durchlöchert und bemalt, mit Gelenken an den Armen und dünnen Stäben zum Bewegen. Der Spieler hält sie hinter ein weißes Tuch, hinter dem ein Licht brennt, und das Publikum sieht nur ihren Schatten. Ein einziger Mensch macht alle Stimmen. In Griechenland ist Karagiozis die bekannteste Figur, ein armer Mann mit einem riesigen Arm, der immer mit List statt mit Kraft zurechtkommt.",
+            "question": {
+              "q": "Was sieht das Publikum im Schattentheater?",
+              "answers": [
+                "Nur den Schatten der Figuren auf einem weißen Tuch",
+                "Die Figuren vor dem Tuch",
+                "Schauspieler mit Masken",
+                "Einen Film, der an eine Wand geworfen wird"
+              ],
+              "explanation": "Das Licht ist hinten, die Figuren in der Mitte, du davor. Du siehst den Schatten, nicht den Gegenstand."
+            }
+          }
+        },
+        "riddles": {
+          "athens-benaki-toy-museum-riddle-1": {
+            "prompt": "Ich bin ein kleiner Knochen von einem Tier und habe vier Seiten. Die Menschen spielen seit Tausenden von Jahren mit mir, mal als Würfel und mal, indem sie mich in die Luft werfen.",
+            "hint": "Ich bin nie allein; es gibt immer mehrere von mir."
+          },
+          "athens-benaki-toy-museum-riddle-2": {
+            "prompt": "Ich bin flach und voller Löcher, und niemand sieht mich je. Das Publikum klatscht für etwas Schwarzes auf einem weißen Tuch, und ich stehe dahinter.",
+            "hint": "Ich brauche eine Lampe, damit es mich überhaupt gibt."
+          }
+        }
+      }
+    },
+    "athens-lycabettus": {
+      "name": "Der Lykabettos",
+      "tagline": "Der Hügel, der einer Göttin aus der Hand fiel, sagt der Mythos",
+      "story": "Der Lykabettos ist der höchste Punkt im Zentrum Athens, 277 Meter, und man sieht ihn von fast überall. Der Mythos erklärt ihn auf die menschlichste Art, die es gibt: Athene trug einen riesigen Felsen herbei, um die Akropolis höher zu machen, als eine Krähe ihr eine schlechte Nachricht brachte. Sie erschrak, der Felsen rutschte ihr aus der Hand und landete dort, wo er heute steht. In Wirklichkeit ist er Kalkstein, viel härter als der Boden ringsum, und er hielt stand, während alles andere abgetragen wurde. Früher war er kahl; die Kiefern haben Menschen im 19. und 20. Jahrhundert gepflanzt. Oben auf dem Gipfel steht eine kleine weiße Kapelle, Agios Georgios, und von ihrem Hof aus siehst du die ganze Stadt bis zum Meer. Du gehst zu Fuß hinauf, oder du nimmst eine Seilbahn, die seit 1965 im Dunkeln durch einen Tunnel fährt.",
+      "facts": [
+        "Er erreicht 277 Meter und ist der höchste Punkt im Zentrum Athens.",
+        "Die Seilbahn fährt seit 1965 und steigt im Inneren eines Tunnels hinauf.",
+        "Seine Kiefern sind nicht natürlich: Menschen haben sie gepflanzt."
+      ],
+      "question": {
+        "q": "Warum blieb der Lykabettos hoch, während der Boden ringsum absank?",
+        "answers": [
+          "Weil sein Fels viel härter ist und sich nicht so leicht abtragen ließ",
+          "Weil Menschen ihn aus Erde und Steinen aufgeschüttet haben",
+          "Weil unter ihm ein Vulkan liegt, der ihn nach oben drückt",
+          "Weil die Wurzeln der Kiefern ihn oben halten"
+        ],
+        "explanation": "Harter Kalkstein wird langsamer abgetragen. Gib ihm Millionen von Jahren, und was hart ist, bleibt stehen – als Hügel."
+      }
+    },
+    "athens-national-garden": {
+      "name": "Der Nationalgarten",
+      "tagline": "Der Garten einer Königin, der jetzt allen gehört",
+      "story": "Mitten in Athen liegen fünfzehn Hektar Schatten. Der Garten wurde um 1840 für Königin Amalia angelegt, die Pflanzen aus dem ganzen Mittelmeerraum bestellte und mit Schiffen herbringen ließ. Man erzählt, dass er am Anfang mit Wasser gegossen wurde, das man von weit her herantrug, weil Athen nicht genug hatte. Heute wachsen hier über fünfhundert Pflanzenarten, einige davon sehr selten, und Bäume, die schon vor den Großeltern unserer Großeltern gepflanzt wurden. Aber er ist nicht nur ein Garten. In ihm stehen antike Säulen und ein römisches Mosaik, Schildkröten laufen langsam über die Wege, es gibt einen kleinen Teich mit Enten, eine kleine Kinderbibliothek und eine alte Uhr aus Pflanzen. Im August ist er der kühlste Ort der Stadt, und die Athener wissen das genau: Wenn das Thermometer auf dem Asphalt vierzig Grad zeigt, merkst du unter den Bäumen den Unterschied schon beim ersten Schritt.",
+      "facts": [
+        "Er bedeckt etwa 15,5 Hektar mitten im Herzen der Stadt.",
+        "Er wurde um 1840 als privater Garten von Königin Amalia angelegt.",
+        "Er beherbergt über 500 Pflanzenarten, dazu antike Funde und Schildkröten."
+      ],
+      "question": {
+        "q": "Für wen wurde der Nationalgarten ursprünglich angelegt?",
+        "answers": [
+          "Für Königin Amalia, als ihr privater Garten",
+          "Für die Soldaten, als Übungsplatz",
+          "Für die Archäologen, als Grabungsgelände",
+          "Für die Schulen, als erster Spielplatz der Stadt"
+        ],
+        "explanation": "Später wurde er für alle geöffnet. Heute ist der Eintritt jeden Tag frei."
+      }
+    },
+    "athens-old-royal-palace": {
+      "name": "Der Alte Königspalast",
+      "tagline": "Erst Palast, dann Parlament, immer mit Wachen davor",
+      "story": "Als Athen Hauptstadt wurde, war es eine kleine Stadt mit ein paar tausend Einwohnern, und es brauchte einen Palast. Dieses Gebäude entstand zwischen 1836 und 1843 für den ersten König, Otto, und es ist mit Absicht schmucklos: gerade Mauern, fast kein Zierrat, fast schon eine Kaserne. Seit 1934 wohnt kein König mehr darin. Hier tagt das Parlament, also die Menschen, die die Gesetze des Landes beschließen. Davor, tief im Marmor, liegt das Grabmal des Unbekannten Soldaten: ein Grab ohne Namen, für alle, die in Kriegen umkamen und nie erkannt wurden. Zwei Evzonen stehen dort reglos, Tag und Nacht. Sie wechseln jede Stunde und gehen sehr langsam, mit riesigen Schritten, nicht um sich zu zeigen, sondern weil dieser Gang eine Zeremonie ist. Ihre Uniform ist keine militärische im heutigen Sinn: Es ist die Tracht der Kämpfer von 1821, Fustanella und Schuhe mit Bommeln.",
+      "facts": [
+        "Er wurde von 1836 bis 1843 als Palast gebaut und beherbergt seit 1934 das Parlament.",
+        "Die Wache wechselt jede Stunde, rund um die Uhr.",
+        "Die Fustanella der Evzonen hat der Überlieferung nach 400 Falten."
+      ],
+      "question": {
+        "q": "An wen erinnert das Denkmal vor dem Gebäude?",
+        "answers": [
+          "An alle Soldaten, die umkamen und nie erkannt wurden",
+          "An den ersten König Griechenlands",
+          "An den Architekten, der den Palast entworfen hat",
+          "An die Sportler der ersten Olympischen Spiele"
+        ],
+        "explanation": "Deshalb steht kein Name auf dem Grab. Ein einziger Name würde alle anderen ausschließen."
+      }
+    },
+    "athens-agios-eleftherios": {
+      "name": "Agios Eleftherios",
+      "tagline": "Eine kleine Kirche, gebaut aus Stücken anderer Gebäude",
+      "story": "Neben der großen Kathedrale steht eine sehr kleine Kirche, kaum zwölf Meter lang, die die Athener Kleine Metropolis nennen. Das Erstaunliche an ihr ist nicht die Größe, sondern das Material: Sie ist fast ganz aus Marmor gebaut, den man von älteren Gebäuden abgenommen hat. Etwa neunzig verschiedene Stücke aus verschiedenen Jahrhunderten wurden zusammengesetzt wie ein Puzzle. Über der Tür sitzt ein antiker Marmorfries, der einmal ein Kalender war: Er zeigt die Feste der Athener Monat für Monat, mit Sternzeichen und Szenen von den Feiern. Jemand hat später Kreuze hineingemeißelt, ohne das Ältere auszulöschen. Schau dir die Mauern genau an, und du findest Löwen, Adler, Buchstaben und Muster, die nicht zueinander passen, weil sie nie zueinander passen sollten. Für die Bauleute war das kein Problem. Sie hatten fertigen, guten Marmor um sich herum und benutzten ihn, so wie es jeder getan hätte.",
+      "facts": [
+        "Sie ist etwa 12 Meter lang und gehört zu den kleinsten alten Kirchen der Stadt.",
+        "Sie ist aus etwa 90 Marmorstücken gebaut, die von älteren Gebäuden stammen.",
+        "Über dem Eingang sitzt ein antiker Kalender mit den Festen Athens."
+      ],
+      "question": {
+        "q": "Woraus ist diese Kirche gebaut?",
+        "answers": [
+          "Aus Marmor, der von älteren Gebäuden abgenommen wurde",
+          "Aus Ziegeln, die eigens für sie gebrannt wurden",
+          "Aus Holz, bemalt, damit es wie Stein aussieht",
+          "Aus einem einzigen Stein, an Ort und Stelle behauen"
+        ],
+        "explanation": "Man nennt das Spolien: wiederverwendetes Material. Es war billiger und schneller, als neuen Marmor zu brechen."
+      }
+    },
+    "athens-kerameikos": {
+      "name": "Kerameikos",
+      "tagline": "Das Töpferviertel, das der Welt ein Wort geschenkt hat",
+      "story": "Hier arbeiteten die Töpfer Athens, und vom Namen ihres Viertels kommt das Wort „Keramik“, das heute die ganze Welt benutzt. Kerameikos war auch das Tor der Stadt: Hier begann die Straße nach Eleusis, und hier begann auch die Straße zur Akademie, wo Platon unterrichtete. Das Dipylon, das größte Tor der antiken Mauer, steht noch, und ein Stück der Mauer selbst ebenfalls. Diese Mauer entstand 479 v. Chr. in solcher Eile, dass die Athener hineinwarfen, was sie gerade hatten: Steine von Häusern, Stücke von Säulen, sogar Grabsteine. Draußen vor dem Tor lag der Friedhof, mit Tieren aus Marmor und Reliefplatten, die Menschen in einem ruhigen Augenblick ihres Lebens zeigen. Und mitten durch all das fließt noch immer der Eridanos, ein kleiner Fluss, der nie aufgehört hat.",
+      "facts": [
+        "Das Wort „Keramik“ stammt vom Namen dieses Viertels.",
+        "Die Mauer von 479 v. Chr. entstand so schnell, dass Grabsteine in sie eingebaut wurden.",
+        "Der Eridanos, der antike Fluss Athens, fließt noch immer durch das Gelände."
+      ],
+      "question": {
+        "q": "Welches Wort, das wir heute noch benutzen, kommt aus diesem Viertel?",
+        "answers": [
+          "Keramik",
+          "Marmor",
+          "Theater",
+          "Labyrinth"
+        ],
+        "explanation": "Das Viertel war nach seinen Kerameis benannt, seinen Töpfern. Von dort ging das Wort in Dutzende Sprachen über."
+      }
+    },
+    "athens-varvakios": {
+      "name": "Der Varvakios-Markt",
+      "tagline": "Der zentrale Markt der Stadt, offen seit 1886",
+      "story": "Auf halbem Weg die Athinas-Straße hinunter, unter einem Dach aus Eisen mit Oberlichtern, schlägt das lauteste Herz der Stadt. Der Varvakios-Markt öffnete 1886 und arbeitet seitdem jeden Tag außer sonntags, und er fängt vor Sonnenaufgang an. In der Mitte liegt der Fischmarkt: Theken aus Marmor, Berge von Eis und Verkäufer, die Preise auf eine Art ausrufen, die wie Singen klingt und die kein Fremder versteht. Ringsum stehen die Metzger, und gegenüber ist der Markt mit Obst und Gemüse. In den Gassen daneben gibt es Läden mit Gewürzen in offenen Säcken, wo der Geruch sich alle zwei Schritte ändert. Benannt ist er nach Ioannis Varvakis, einem Wohltäter, dessen Schule ganz in der Nähe stand. Es ist kein Museum: Es ist Arbeit, und man sieht es. Die Theken werden mit dem Eimer gewaschen, die Hände sind kalt, und niemand hält an, um zu erklären, was er tut.",
+      "facts": [
+        "Er arbeitet seit 1886 in der Athinas-Straße, unter einem Dach aus Eisen.",
+        "Benannt ist er nach dem Wohltäter Ioannis Varvakis.",
+        "Die Arbeit beginnt vor Sonnenaufgang, denn der Fisch muss frisch ankommen."
+      ],
+      "question": {
+        "q": "Warum beginnt die Arbeit auf dem Markt vor Sonnenaufgang?",
+        "answers": [
+          "Damit Fisch und Fleisch frisch an die Theken kommen",
+          "Weil das Tageslicht die Theken aus Marmor beschädigt",
+          "Weil der Markt um acht Uhr morgens schließt",
+          "Weil ein Gesetz von 1886 es vorschreibt"
+        ],
+        "explanation": "Frische Ware reist nachts und muss auf der Theke liegen, bevor die Läden öffnen."
+      }
+    },
+    "athens-snfcc": {
+      "name": "Das Kulturzentrum der Stavros-Niarchos-Stiftung",
+      "tagline": "Eine Bibliothek und ein Opernhaus unter einem Hügel",
+      "story": "In Faliro, auf einem Gelände, das früher ein Parkplatz war, hat jemand einen Hügel gebaut. Er war vorher nicht da; Menschen haben ihn gemacht, und darin haben sie zwei Gebäude versteckt: die Griechische Nationalbibliothek und die Griechische Nationaloper. Du gehst den Hügel hinauf, kommst oben an und siehst das Meer und die Akropolis gleichzeitig. Entworfen hat es Renzo Piano, eröffnet wurde es 2016. Auf dem Gipfel steht der Leuchtturm, ein Saal aus Glas unter einem riesigen flachen Dach aus Sonnenkollektoren, das Strom für das Gebäude darunter macht. Ringsum liegt ein Park mit etwa eintausendvierhundert Bäumen und ein Kanal, durch den auf seiner ganzen Länge Wasser fließt. Der Park kostet keinen Eintritt, und das war eine bewusste Entscheidung: Ein Haus für Kultur, dem man sich ohne Ticket nicht nähern kann, gehört seiner Stadt nicht wirklich.",
+      "facts": [
+        "Entworfen hat es Renzo Piano, eröffnet wurde es 2016.",
+        "Es beherbergt die Nationalbibliothek und die Nationaloper zusammen.",
+        "Das Dach des Leuchtturms ist mit Sonnenkollektoren belegt."
+      ],
+      "question": {
+        "q": "Was ist an dem Hügel besonders, auf dem das Gebäude steht?",
+        "answers": [
+          "Er ist nicht natürlich: Menschen haben ihn gebaut",
+          "Er ist der höchste Hügel Attikas",
+          "Er ist ein erloschener Vulkan",
+          "Er besteht aus Marmor vom Berg Pentelikon"
+        ],
+        "explanation": "Der Hügel wurde über die Gebäude gehoben, damit der Park über sie hinweg weitergeht, statt aufzuhören."
+      },
+      "findIt": "Der Eingang liegt an der Andrea-Syngrou-Allee 364, kurz bevor die Straße das Meer erreicht."
+    },
+    "athens-planetarium": {
+      "name": "Das Eugenides-Planetarium",
+      "tagline": "Ein künstlicher Himmel, 25 Meter breit, über deinem Kopf",
+      "story": "Das Planetarium wurde 1966 eröffnet und tut seitdem dasselbe, mit immer besseren Maschinen: das Licht ausmachen und den Himmel in ein Gebäude holen. Seine Kuppel hat fünfundzwanzig Meter Durchmesser, und die Fläche, auf die die Bilder geworfen werden, ist über neunhundert Quadratmeter groß. Die Sitze lehnen nach hinten, denn du schaust nicht nach vorn; du schaust nach oben. Die ersten Sekunden fühlen sich seltsam an, als würdest du nach oben fallen. Ein Planetarium ist kein Kino mit Sternen darin: Es ist eine Maschine, die zeigt, wo die Sterne heute Abend genau stehen werden, oder wo sie vor tausend Jahren standen, oder wie sie vom Mars aus aussähen. Näher an eine Zeitreise kommst du nicht, ohne Faliro zu verlassen.",
+      "facts": [
+        "Die Kuppel hat 25 Meter Durchmesser, die Projektionsfläche über 900 Quadratmeter.",
+        "Es arbeitet seit 1966 und gehört der Eugenides-Stiftung.",
+        "Die Sitze lehnen nach hinten, weil die ganze Vorstellung über deinem Kopf läuft."
+      ],
+      "question": {
+        "q": "Was macht ein Planetarium, was ein Kino nicht macht?",
+        "answers": [
+          "Es zeigt, wo die Sterne in einem bestimmten Augenblick wirklich stehen",
+          "Es zeigt Filme auf einer größeren Leinwand",
+          "Es hat Sitze, die sich mit dem Bild mitbewegen",
+          "Es zeigt nur Dokumentarfilme über Tiere"
+        ],
+        "explanation": "Hinter dem Bild stehen Berechnungen. Deshalb kann es dir auch den Himmel von 1821 oder den von 3000 zeigen."
+      },
+      "findIt": "Der Eingang liegt an der Andrea-Syngrou-Allee 387, gegenüber dem Kulturzentrum."
+    }
+  },
+  "trails": {
+    "athens-ancient-day": {
+      "name": "Ein Tag im antiken Athen",
+      "promise": "Du wirst gesehen haben, wo sie lebten, wo sie abstimmten und wo das Erhaltene aufbewahrt wird."
+    },
+    "athens-stones-that-remember": {
+      "name": "Steine, die sich erinnern",
+      "promise": "Fünf Gebäude, die ihre Arbeit wechselten und Stücke von jeder früheren Arbeit behielten."
+    },
+    "athens-day-for-playing": {
+      "name": "Ein Tag zum Spielen",
+      "promise": "Spielsachen, dreitausend Jahre alt, ein Stadion aus Marmor, ein Garten und ein Hügel."
+    },
+    "athens-city-at-work": {
+      "name": "Die Stadt bei der Arbeit",
+      "promise": "Drei Orte, die gerade jetzt arbeiten: ein Markt, ein Park mit einer Oper darin, ein künstlicher Himmel."
+    }
+  }
+}

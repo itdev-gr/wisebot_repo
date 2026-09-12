@@ -1,0 +1,36 @@
+{
+  "lang": "fr",
+  "countries": {
+    "greece": {
+      "name": "Grèce",
+      "intro": "La Grèce est un pays fait de montagnes et de mer. Elle compte environ six mille îles et îlots rocheux, et on habite seulement sur deux cents d’entre eux. C’est ici que sont nés les Jeux olympiques, le théâtre et le mot « démocratie ». Creuse presque n’importe où et tu trouves quelque chose : des rues antiques passent sous les immeubles d’Athènes, et un temple de deux mille cinq cents ans se dresse à côté d’un port qui travaille encore. C’est un pays qui n’a jamais rien jeté de son passé.",
+      "facts": [
+        "Ses côtes sont les plus longues de toute la Méditerranée : environ 13 600 kilomètres.",
+        "Le mont Olympe, son sommet le plus haut, atteint 2 917 mètres. Dans les mythes, c’était la maison des dieux.",
+        "Le grec s’écrit avec le même alphabet depuis environ 2 800 ans."
+      ],
+      "cities": {
+        "athens": {
+          "name": "Athènes",
+          "intro": "Athènes est une ville avec un rocher au milieu. Sur ce rocher se dresse un temple de deux mille cinq cents ans, et tout autour s’étend une ville moderne, avec son métro, ses stades et ses marchés. Les deux vies ne sont pas séparées : le chantier du métro s’est arrêté pour laisser fouiller les archéologues, et ce qu’ils ont trouvé est aujourd’hui exposé dans les stations. C’est ici qu’on a voté les premières lois écrites par des citoyens, ici qu’on a joué les premières pièces de théâtre, et ici que les Jeux olympiques ont recommencé en 1896."
+        },
+        "thessaloniki": {
+          "name": "Thessalonique",
+          "intro": "Thessalonique est une ville qui n’a jamais caché ses époques. Un arc romain se dresse au-dessus d’une rue pleine de cafés, un dôme de mille sept cents ans sert aux expositions, et le marché travaille là où il a toujours travaillé. En 1917, un incendie a brûlé son centre, et on a redessiné la ville entièrement : c’est pour cela qu’elle a des ruelles étroites dans la Ville haute et de grandes places en bas. Et quoi que tu regardes, la mer t’attend toujours au bout de la rue."
+        },
+        "heraklion": {
+          "name": "Héraklion",
+          "intro": "Héraklion est la ville qui garde l’Europe la plus ancienne. À cinq kilomètres de là se dresse Cnossos, un palais avec des canalisations et des puits de lumière de quatre mille ans, et tout ce qui en est sorti est conservé en ville. Dans le port, une forteresse vénitienne se tient au milieu de l’eau, et sur la place, les lions d’une fontaine versent encore l’eau qui descendait autrefois d’une montagne à quinze kilomètres. Autour de tout cela, une ville moderne qui ne s’arrête jamais."
+        },
+        "rhodes": {
+          "name": "Rhodes",
+          "intro": "Rhodes est une île que tous ceux qui ont traversé la Méditerranée ont tenue à leur tour, et chacun y a laissé quelque chose debout. Les Grecs anciens y ont tracé une ville à la règle, les chevaliers de Saint-Jean y ont bâti des châteaux, un hôpital et toute une ville médiévale encore habitée aujourd’hui, et les Italiens, au XXe siècle, ont relevé ce qui était tombé. Cinquante kilomètres plus au sud, un rocher avec un temple antique regarde deux baies. Et entre tout cela, des plages où l’eau prend trois bleus différents."
+        },
+        "delphi": {
+          "name": "Delphes",
+          "intro": "Delphes n’a jamais été une grande ville. C’était l’endroit où tout le monde grec allait pour poser une question. Accrochée à une pente raide du Parnasse, avec la mer qui se devine au loin, elle abritait l’oracle le plus célèbre de l’Antiquité et passait pour le centre de la terre. Chaque cité qui obtenait la réponse qu’elle voulait envoyait un cadeau, et les cadeaux ont rempli de statues la route qui monte vers le temple. Aujourd’hui, la route est vide et les cadeaux sont au musée, quelques mètres plus bas."
+        }
+      }
+    }
+  }
+}

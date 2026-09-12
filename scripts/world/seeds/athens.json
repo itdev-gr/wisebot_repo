@@ -1,0 +1,32 @@
+{
+  "city": "athens",
+  "country": "greece",
+  "centre": { "lat": 37.98381, "lng": 23.72754 },
+  "note": "Wikidata q-ids only. Pick the BUILDING, never the institution — 'Hellenic Parliament' (Q477089) is a legislature and its coordinate is not a door. Q7084890 is the building it sits in. Two entries in the first pass graded D and were replaced rather than nudged; the reason is written on each of them below.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "athens-acropolis", "name": "Acropolis", "wikidata": "Q131013", "anchor": "area" },
+    { "id": "athens-parthenon", "name": "Parthenon", "wikidata": "Q10288", "anchor": "centroid" },
+    { "id": "athens-temple-hephaestus", "name": "Temple of Hephaestus", "wikidata": "Q756824", "anchor": "centroid" },
+    { "id": "athens-ancient-agora", "name": "Ancient Agora", "wikidata": "Q395367", "anchor": "area" },
+    { "id": "athens-tower-of-the-winds", "name": "Tower of the Winds", "wikidata": "Q372717", "anchor": "centroid" },
+    { "id": "athens-olympieion", "name": "Temple of Olympian Zeus", "wikidata": "Q1123019", "anchor": "area" },
+    { "id": "athens-panathenaic-stadium", "name": "Panathenaic Stadium", "wikidata": "Q208811", "anchor": "entrance" },
+    { "id": "athens-acropolis-museum", "name": "Acropolis Museum", "wikidata": "Q421084", "anchor": "entrance" },
+    { "id": "athens-national-archaeological-museum", "name": "National Archaeological Museum", "wikidata": "Q637187", "anchor": "entrance" },
+
+    { "id": "athens-benaki-toy-museum", "name": "Benaki Toy Museum", "wikidata": "Q108608183", "anchor": "entrance",
+      "note": "Replaces the Hellenic Children's Museum (Q4159473), which graded D: its Wikidata point and its Wikipedia point sit 1159 m apart because the museum left Plaka and the two sources still record different addresses. This q-id is the toy museum's own building in Palaio Faliro, the Kouloura mansion, and it is a children's museum in everything but name." },
+
+    { "id": "athens-lycabettus", "name": "Lycabettus summit, Agios Georgios", "wikidata": "Q12872113", "anchor": "viewpoint",
+      "note": "Replaces the hill item (Q1357713), which graded D as a viewpoint: a hill is a kilometre wide, so its centroid is nowhere a child actually stands and Wikipedia's point sat 747 m from it. Q12872113 is the chapel of Agios Georgios on the summit — the chosen viewpoint, and where the funicular arrives." },
+
+    { "id": "athens-national-garden", "name": "National Garden", "wikidata": "Q646284", "anchor": "area" },
+    { "id": "athens-old-royal-palace", "name": "Old Royal Palace (Parliament)", "wikidata": "Q7084890", "anchor": "entrance" },
+    { "id": "athens-agios-eleftherios", "name": "Agios Eleftherios (Little Metropolis)", "wikidata": "Q2790568", "anchor": "entrance" },
+    { "id": "athens-kerameikos", "name": "Kerameikos", "wikidata": "Q630974", "anchor": "area" },
+    { "id": "athens-varvakios", "name": "Varvakeios Market", "wikidata": "Q755345", "anchor": "entrance" },
+    { "id": "athens-snfcc", "name": "Stavros Niarchos Foundation Cultural Center", "wikidata": "Q17511186", "anchor": "entrance" },
+    { "id": "athens-planetarium", "name": "Eugenides Planetarium", "wikidata": "Q12877355", "anchor": "entrance" }
+  ]
+}

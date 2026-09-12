@@ -1,0 +1,36 @@
+{
+  "lang": "it",
+  "countries": {
+    "greece": {
+      "name": "Grecia",
+      "intro": "La Grecia è un paese fatto di montagne e di mare. Ha circa seimila tra isole e isolotti di roccia, e la gente vive solo su duecento di questi. Qui sono nati i Giochi Olimpici, qui è nato il teatro e qui è nata la parola «democrazia». Scava quasi dovunque e trovi qualcosa: sotto le case di Atene passano strade antiche, e accanto a un porto che lavora ancora oggi sta in piedi un tempio di duemilacinquecento anni. È un paese che non ha mai buttato via niente del suo passato.",
+      "facts": [
+        "Ha la costa più lunga di tutto il Mediterraneo: circa 13.600 chilometri.",
+        "L’Olimpo, la sua montagna più alta, arriva a 2.917 metri. Nei miti era la casa degli dèi.",
+        "Il greco si scrive con lo stesso alfabeto da circa 2.800 anni."
+      ],
+      "cities": {
+        "athens": {
+          "name": "Atene",
+          "intro": "Atene è una città con una roccia nel mezzo. Sulla roccia sta in piedi un tempio di duemilacinquecento anni, e tutt’intorno si allarga una città moderna, con le linee della metro, gli stadi e i mercati di strada. Le due vite non stanno separate: gli scavi della metro si sono fermati per lasciar lavorare gli archeologi, e quello che è venuto fuori si vede oggi dentro le stazioni. Qui sono state votate le prime leggi decise da cittadini comuni, qui è stato recitato il primo teatro, e qui nel 1896 sono ricominciati i Giochi Olimpici."
+        },
+        "thessaloniki": {
+          "name": "Salonicco",
+          "intro": "Salonicco è una città che non ha mai nascosto i suoi secoli. Un arco romano sta in piedi sopra una strada piena di caffè, una cupola di millesettecento anni ospita le mostre, e il mercato lavora dove ha sempre lavorato. Nel 1917 un incendio bruciò il centro, e la città fu disegnata di nuovo da capo: per questo ha i vicoli stretti su nella Città Alta e le piazze larghe giù in basso. E qualunque cosa tu stia guardando, in fondo alla strada c’è sempre il mare."
+        },
+        "heraklion": {
+          "name": "Heraklion",
+          "intro": "Heraklion è la città che custodisce l’Europa più antica che ci sia. Cinque chilometri fuori città c’è Cnosso, un palazzo con tubature e pozzi di luce di quattromila anni fa, e dentro la città è conservato tutto quello che ne è uscito. Al porto una fortezza veneziana sta in mezzo all’acqua: i veneziani, che tennero l’isola per secoli, chiamavano questa città Candia. In piazza i leoni di una fontana versano ancora l’acqua che una volta scendeva da una montagna a quindici chilometri di distanza. E intorno a tutto questo, una città moderna che non si ferma mai."
+        },
+        "rhodes": {
+          "name": "Rodi",
+          "intro": "Rodi è un’isola che tutti quelli che passavano dal Mediterraneo hanno voluto tenere, uno dopo l’altro, e ognuno ha lasciato in piedi qualcosa. Gli antichi greci disegnarono una città col righello, i Cavalieri di San Giovanni costruirono castelli, un ospedale e un’intera città medievale dove la gente abita ancora, e nel Novecento gli italiani rimisero in piedi quello che era caduto. Cinquanta chilometri più a sud, una roccia con sopra un tempio antico guarda due baie. E in mezzo a tutto questo, spiagge dove l’acqua cambia tre azzurri diversi."
+        },
+        "delphi": {
+          "name": "Delfi",
+          "intro": "Delfi non è mai stata una grande città. Era il posto dove tutto il mondo greco andava per chiedere qualcosa. Arrampicata su un ripido pendio del Parnaso, con il mare che si vede in fondo, custodiva l’oracolo più famoso dell’antichità ed era considerata il centro della terra. Ogni città che riceveva la risposta che voleva mandava un dono, e i doni riempirono di statue la strada verso il tempio. Oggi la strada è vuota e i doni sono al museo, pochi metri più in basso."
+        }
+      }
+    }
+  }
+}

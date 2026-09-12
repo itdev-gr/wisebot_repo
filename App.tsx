@@ -12,6 +12,7 @@ const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage'));
 const SchoolGradeSEOPage = React.lazy(() => import('./components/SchoolGradeSEOPage'));
 const SubjectSEOPage = React.lazy(() => import('./components/SubjectSEOPage'));
 const MakerPassport = React.lazy(() => import('./components/MakerPassport'));
+const World = React.lazy(() => import('./components/world/World'));
 const OurStoryPage = React.lazy(() => import('./components/OurStoryPage'));
 const MakerLevelUp = React.lazy(() => import('./components/MakerLevelUp'));
 import { motion as m, AnimatePresence } from 'framer-motion';
@@ -68,7 +69,6 @@ const DISCOVER_FEATURES = {
     { to: '/cinema', emoji: '🧊', title: '3D & VIDEO', desc: 'Ζωντάνεψε τους ήρωές σου', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
     { to: '/game', emoji: '🧩', title: 'ΠΑΙΞΕ', desc: 'Quiz, παιχνίδια & προκλήσεις', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
     { to: '/wise-friends', emoji: '👫', title: 'ΜΟΙΡΑΣΟΥ', desc: 'Πρόκαλε φίλους & ανταγωνίσου', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
-    { to: '/explore', emoji: '🗺️', title: 'ΕΞΕΡΕΥΝΗΣΕ', desc: 'Κυνήγι θησαυρού στην πόλη', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
   ],
   en: [
     { to: '/academy', emoji: '🧠', title: 'LEARN', desc: `Stories of ${ACADEMY_STORY_COUNT} great people`, color: 'from-purple-500/20 to-purple-600/10', border: 'border-purple-500/30', glow: 'shadow-purple-500/20' },
@@ -79,7 +79,6 @@ const DISCOVER_FEATURES = {
     { to: '/cinema', emoji: '🧊', title: '3D & VIDEO', desc: 'Bring your heroes to life', color: 'from-cyan-500/20 to-sky-600/10', border: 'border-cyan-500/30', glow: 'shadow-cyan-500/20' },
     { to: '/game', emoji: '🧩', title: 'PLAY', desc: 'Quizzes, games & challenges', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
     { to: '/wise-friends', emoji: '👫', title: 'SHARE', desc: 'Challenge friends & compete', color: 'from-indigo-500/20 to-violet-600/10', border: 'border-indigo-500/30', glow: 'shadow-indigo-500/20' },
-    { to: '/explore', emoji: '🗺️', title: 'EXPLORE', desc: 'A treasure hunt in the city', color: 'from-amber-500/20 to-orange-600/10', border: 'border-amber-500/30', glow: 'shadow-amber-500/20' },
   ],
 };
 
@@ -554,7 +553,9 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/quiz" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="quiz" /><Quiz lang={lang} /><InternalLinks lang={lang} currentPage="quiz" /></SemiPublicRoute>} />
             <Route path="/school" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="school" /><School lang={lang} addXp={addXp} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="school" /></SemiPublicRoute>} />
             <Route path="/explore" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="explore" /><Explore lang={lang} /><InternalLinks lang={lang} currentPage="explore" /></SemiPublicRoute>} />
-            <Route path="/explore/passport" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="explorePassport" /><TravelPassport lang={lang} /></SemiPublicRoute>} />
+            {/* One passport. The old route survives as a redirect so a bookmark or a
+                shared link from before the merge still lands where the stamps are. */}
+            <Route path="/explore/passport" element={<Navigate to="/world/passport" replace />} />
             <Route path="/cinema" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="cinema" /><UnlockGate feature="cinema" lang={lang}><Cinema lang={lang} myHeroes={myHeroes} /></UnlockGate><InternalLinks lang={lang} currentPage="cinema" /></SemiPublicRoute>} />
             <Route path="/factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="factory" /><UnlockGate feature="factory" lang={lang}><HeroFactory lang={lang} addHero={addHero} /></UnlockGate><InternalLinks lang={lang} currentPage="factory" /></SemiPublicRoute>} />
             <Route path="/3d-factory" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="3d-factory" /><UnlockGate feature="3d" lang={lang}><ThreeDFactory lang={lang} /></UnlockGate><InternalLinks lang={lang} currentPage="3d-factory" /></SemiPublicRoute>} />
@@ -562,6 +563,9 @@ function AppContent({ lang, setLang }: { lang: 'el' | 'en'; setLang: React.Dispa
             <Route path="/market" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="market" /><HeroMarket lang={lang} myHeroes={myHeroes} /><InternalLinks lang={lang} currentPage="market" /></SemiPublicRoute>} />
             <Route path="/wise-friends" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="wise-friends" /><WiseFriends lang={lang} myHeroes={myHeroes} updateHero={updateHero} completedIds={completedIds} /><InternalLinks lang={lang} currentPage="wise-friends" /></SemiPublicRoute>} />
             <Route path="/passport" element={<SemiPublicRoute lang={lang}><MakerPassport lang={lang} xp={xp} level={level} /></SemiPublicRoute>} />
+            {/* World routes nest inside the module: /world/:country/:city/:place. One
+                entry here, the rest handled by components/world/World.tsx. */}
+            <Route path="/world/*" element={<SemiPublicRoute lang={lang}><SEO lang={lang} page="world" /><World lang={lang} /></SemiPublicRoute>} />
 
             {/* ═══ SEO LANDING PAGES — content-rich pages targeting search queries ═══ */}
             {/* Slugs are duplicated in scripts/generate-seo-pages.mjs and public/sitemap.xml — keep in sync. */}

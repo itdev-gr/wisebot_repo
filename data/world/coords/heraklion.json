@@ -1,0 +1,394 @@
+{
+  "city": "heraklion",
+  "resolvedAt": "2026-09-11T08:35:30.197Z",
+  "centre": {
+    "lat": 35.34028,
+    "lng": 25.13444
+  },
+  "places": [
+    {
+      "id": "heraklion-knossos",
+      "name": "Knossos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q173527",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Knossos",
+          "deltaM": 14
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 35.29796,
+      "lng": 25.16316,
+      "labels": {
+        "fr": "Cnossos",
+        "es": "Cnosos",
+        "it": "Cnosso",
+        "de": "Knossos",
+        "el": "Κνωσός",
+        "en": "Knossos"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-archaeological-museum",
+      "name": "Heraklion Archaeological Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q636972",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Heraklion Archaeological Museum",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.33917,
+      "lng": 25.1375,
+      "labels": {
+        "el": "Αρχαιολογικό Μουσείο Ηρακλείου",
+        "fr": "musée archéologique d'Héraklion",
+        "en": "Heraklion Archaeological Museum",
+        "de": "Archäologisches Museum Iraklio",
+        "it": "Museo archeologico di Candia",
+        "es": "Museo Arqueológico de Heraclión"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-koules",
+      "name": "Koules Fortress (Rocca a Mare)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q603920",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/5251038",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.34457,
+      "lng": 25.13688,
+      "labels": {
+        "fr": "forteresse d'Héraklion",
+        "en": "Rocca a Mare",
+        "el": "Rocca a Mare",
+        "de": "Rocca a Mare Festung",
+        "es": "Fortaleza Rocca a Mare"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-morosini-fountain",
+      "name": "Morosini Fountain",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q15616490",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/621718927",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 35.33917,
+      "lng": 25.13314,
+      "labels": {
+        "el": "Κρήνη Μοροζίνι",
+        "en": "Morosini Fountain",
+        "de": "Morosini-Brunnen",
+        "it": "fontana Morosini"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-loggia",
+      "name": "Venetian Loggia",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q14175781",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.33978,
+      "lng": 25.13396,
+      "labels": {
+        "el": "Λότζια",
+        "en": "Loggia of Heraklion",
+        "de": "Loggia in Heraklion"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-historical-museum",
+      "name": "Historical Museum of Crete",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q4204518",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Historical Museum of Crete",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.34181,
+      "lng": 25.13117,
+      "labels": {
+        "en": "Historical Museum of Crete",
+        "el": "Ιστορικό Μουσείο Κρήτης",
+        "it": "Museo storico di Creta",
+        "fr": "musée historique de Crète",
+        "es": "Museo Histórico de Creta",
+        "de": "Historisches Museum von Kreta"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-natural-history-museum",
+      "name": "Natural History Museum of Crete",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6980521",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/211917529",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Natural History Museum of Crete",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.3419,
+      "lng": 25.1266,
+      "labels": {
+        "el": "Μουσείο Φυσικής Ιστορίας Κρήτης",
+        "en": "Natural History Museum of Crete",
+        "fr": "musée d'histoire naturelle de Crète",
+        "de": "Naturhistorisches Museum Kreta"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-cretaquarium",
+      "name": "Cretaquarium",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q31529",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Cretaquarium",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.33269,
+      "lng": 25.28247,
+      "labels": {
+        "es": "Cretaquarium",
+        "en": "Cretaquarium",
+        "el": "Cretaquarium",
+        "fr": "Cretaquarium",
+        "it": "Cretaquarium",
+        "de": "Cretaquarium"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-pankritio-stadium",
+      "name": "Pankritio Stadium",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1928668",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/1626818",
+          "deltaM": 179
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Pankritio Stadium",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm is 179 m away — outlier, check by eye",
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.33667,
+      "lng": 25.10611,
+      "labels": {
+        "de": "Pankritio Stadion",
+        "el": "Παγκρήτιο Στάδιο",
+        "en": "Pankritio Stadium",
+        "it": "stadio Pankritio",
+        "fr": "stade Pankritio",
+        "es": "Estadio Pankritio"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-kazantzakis-museum",
+      "name": "Nikos Kazantzakis Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q4306167",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/5169462643",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Nikos Kazantzakis Museum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "seed claims an entrance but carries no measured door — stored as a centroid"
+      ],
+      "lat": 35.23485,
+      "lng": 25.20938,
+      "labels": {
+        "en": "Nikos Kazantzakis Museum",
+        "el": "Μουσείο Νίκου Καζαντζάκη",
+        "fr": "musée Níkos-Kazantzákis",
+        "es": "Museo Kazantzakis"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-juktas",
+      "name": "Mount Juktas summit",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q18629969",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 35.24,
+      "lng": 25.14442,
+      "labels": {
+        "de": "Psili Korfi",
+        "en": "Juktas Peak Sanctuary"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    },
+    {
+      "id": "heraklion-amnisos",
+      "name": "Amnisos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q473766",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Amnisos",
+          "deltaM": 98
+        }
+      ],
+      "warnings": [
+        "osm: no match"
+      ],
+      "lat": 35.33083,
+      "lng": 25.20611,
+      "labels": {
+        "fr": "Amnisos",
+        "en": "Amnisos",
+        "de": "Amnisos",
+        "es": "Amnisos",
+        "el": "Αμνισός",
+        "it": "Amniso"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-11"
+    }
+  ],
+  "problems": []
+}

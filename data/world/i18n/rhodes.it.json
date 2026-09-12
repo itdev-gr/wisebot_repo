@@ -1,0 +1,501 @@
+{
+  "lang": "it",
+  "cityId": "rhodes",
+  "places": {
+    "rhodes-palace-grand-master": {
+      "name": "Il Palazzo del Gran Maestro",
+      "tagline": "Castello, prigione, rovina e di nuovo palazzo, in sei secoli",
+      "story": "In cima alla città medievale sta un castello con due torri rotonde all’ingresso. Lo costruirono nel XIV secolo i Cavalieri di San Giovanni, sopra una più antica fortezza bizantina, ed era il centro del loro potere. Resistette agli assedi. Quello a cui non resistette fu una cosa molto più sciocca: nel 1856 della polvere da sparo dimenticata in una cantina fin dai tempi dei Cavalieri esplose, e il palazzo diventò una rovina quasi in un attimo. Rimase così per ottant’anni. Alla fine degli anni Trenta, quando il Dodecaneso era sotto amministrazione italiana, fu ricostruito da capo. Per fare i pavimenti portarono con le navi dei mosaici antichi dall’isola di Coo. Così oggi cammini dentro un castello medievale calpestando pavimenti romani venuti da un’altra isola.",
+      "facts": [
+        "Fu costruito nel XIV secolo dai Cavalieri di San Giovanni.",
+        "Fu distrutto nel 1856 dall’esplosione di polvere da sparo dimenticata.",
+        "I suoi pavimenti a mosaico furono portati dall’isola di Coo negli anni Trenta."
+      ],
+      "question": {
+        "q": "Che cosa distrusse il palazzo nel 1856?",
+        "answers": [
+          "Della polvere da sparo dimenticata in una cantina fin dai tempi dei Cavalieri",
+          "Un assedio che durò dei mesi",
+          "Un terremoto che aprì il terreno",
+          "Un’inondazione arrivata dal mare"
+        ],
+        "explanation": "La polvere da sparo era rimasta lì per più di trecento anni. Nessuno si ricordava più che ci fosse."
+      }
+    },
+    "rhodes-archaeological-museum": {
+      "name": "Il Museo Archeologico di Rodi",
+      "tagline": "Un museo dentro l’ospedale dei Cavalieri",
+      "story": "L’edificio era un ospedale prima di diventare un museo, e non è un dettaglio: i Cavalieri di San Giovanni erano prima infermieri e poi guerrieri. Il loro ordine nacque per prendersi cura dei pellegrini, e in ogni posto dove andavano costruivano un ospedale. Questo fu tirato su nel XV secolo, e al piano di sopra ha un’enorme corsia con un alto tetto di legno, dove i malati stavano in file di letti, con piccole finestre aperte in alto per l’aria. È uno dei pochissimi ospedali medievali ancora in piedi in Europa. Dal 1916 ospita il museo dell’isola, con marmi, vasi e lastre tombali dalle tre città antiche di Rodi. L’edificio e quello che contiene raccontano due mondi diversi, lontani millecinquecento anni l’uno dall’altro. Pochi musei al mondo hanno un edificio che vale quanto la loro collezione, e qui non è affatto sicuro quale dei due vinca.",
+      "facts": [
+        "L’edificio fu costruito nel XV secolo come ospedale dei Cavalieri.",
+        "La grande corsia dei malati si è conservata intera al piano di sopra.",
+        "Funziona come museo dal 1916."
+      ],
+      "question": {
+        "q": "Che cos’era all’inizio l’ordine dei Cavalieri di San Giovanni?",
+        "answers": [
+          "Infermieri che si prendevano cura dei pellegrini",
+          "Mercanti che viaggiavano con le navi",
+          "Costruttori che tiravano su castelli a pagamento",
+          "Cartografi del Mediterraneo"
+        ],
+        "explanation": "È per questo che il primo grande edificio che tirarono su a Rodi fu un ospedale e non una caserma."
+      },
+      "museum": {
+        "doorNote": "Sali prima alla grande corsia. Il pezzo più importante di questo museo è l’edificio stesso.",
+        "rooms": {
+          "rhodes-archaeological-museum-hospital": {
+            "name": "L’ospedale",
+            "intro": "Prima di guardare qualsiasi cosa antica, guarda i muri. Hanno cinquecento anni e furono costruiti per un lavoro preciso: ospitare i malati, tenere l’aria in movimento e non cadere mai. I Cavalieri capivano di medicina molto più di quanto ti aspetti, e l’edificio lo dimostra."
+          },
+          "rhodes-archaeological-museum-marbles": {
+            "name": "I marmi",
+            "intro": "L’antica Rodi era ricca grazie al commercio e aveva una scuola di scultura tutta sua, famosa in tutto il Mediterraneo. Quello che vedi qui è uscito dalla terra dell’isola e dal mare intorno a lei. Due di questi pezzi sono la stessa dea, in due condizioni completamente diverse."
+          }
+        },
+        "exhibits": {
+          "rhodes-archaeological-museum-great-ward": {
+            "name": "La grande corsia",
+            "blurb": "Una sala lunga quasi cinquanta metri, con un alto tetto di legno e una fila di archi nel mezzo. Qui stavano i malati, ognuno in uno spazio suo dietro una tenda. Le finestre sono piccole e messe in alto apposta: tirano l’aria calda verso l’alto e la mandano fuori, così non resta ferma. In fondo c’è una cappella, perché per i Cavalieri curare il corpo e curare l’anima erano un lavoro solo.",
+            "question": {
+              "q": "Perché le finestre della corsia sono piccole e messe in alto?",
+              "answers": [
+                "Perché l’aria calda esca e l’aria continui a cambiare",
+                "Perché i malati non potessero guardare fuori",
+                "Per far entrare meno polvere",
+                "Perché il vetro costava carissimo"
+              ],
+              "explanation": "L’aria calda sale. Una finestra in alto è un camino per l’aria."
+            }
+          },
+          "rhodes-archaeological-museum-knight-slabs": {
+            "name": "Le lastre tombali dei Cavalieri",
+            "blurb": "Lastre di marmo scolpite con degli stemmi: leoni, croci, uccelli, strisce. Ogni stemma funziona come il distintivo di una famiglia, e siccome i Cavalieri venivano da tutta Europa, le lastre si leggono come una carta geografica: nomi francesi, spagnoli, italiani, inglesi. L’ordine era diviso in gruppi secondo la lingua che ognuno parlava, e ogni gruppo aveva una casa sua in via dei Cavalieri, pochi metri più su.",
+            "question": {
+              "q": "Come era diviso l’ordine dei Cavalieri?",
+              "answers": [
+                "In gruppi, secondo la lingua che parlavano",
+                "In gruppi, secondo la loro altezza",
+                "In gruppi, secondo la loro età",
+                "Non era diviso per niente"
+              ],
+              "explanation": "Si chiamavano «lingue». È per questo che in via dei Cavalieri ogni casa ha stemmi diversi sopra la porta."
+            }
+          },
+          "rhodes-archaeological-museum-courtyard": {
+            "name": "Il cortile",
+            "blurb": "Un cortile quadrato con i portici su due piani, aperto sul cielo. Non è decorazione: in un edificio senza corrente elettrica, il cortile è la sua lampada e il suo aspiratore. Porta luce alle stanze che non danno sulla strada e tira una corrente d’aria attraverso tutto l’edificio. Lo stesso schema lo trovi in case, monasteri e scuole di tutto il Mediterraneo, per migliaia di anni prima di questo e dopo di questo.",
+            "question": {
+              "q": "Che lavoro fa un cortile interno in un edificio antico?",
+              "answers": [
+                "Dà luce e aria alle stanze interne",
+                "Raccoglie l’acqua per lavare",
+                "Tiene in piedi l’edificio durante i terremoti",
+                "Serve soltanto per le parate"
+              ],
+              "explanation": "Prima della corrente elettrica, la forma di un edificio era la sua tecnologia."
+            }
+          },
+          "rhodes-archaeological-museum-aphrodite": {
+            "name": "L’Afrodite di Rodi",
+            "blurb": "Una piccola figura di marmo inginocchiata, che si strizza i capelli dopo essere uscita dal mare. È una delle figure antiche più tranquille che esistano: non posa, non guarda nessuno, sta soltanto facendo una cosa di tutti i giorni. Fu scolpita intorno al I secolo a.C. Il marmo è lavorato in modo finissimo nei capelli, dove si vedono le ciocche pesanti d’acqua, una cosa difficilissima da scolpire nella pietra.",
+            "question": {
+              "q": "Che cosa sta facendo questa figura?",
+              "answers": [
+                "Si strizza i capelli uscendo dal mare",
+                "Tiene un bambino fra le braccia",
+                "Corre tenendo in mano una fiaccola",
+                "Suona uno strumento musicale"
+              ],
+              "explanation": "È un momento senza nessuna importanza, ed è proprio per questo che ti tiene ancora."
+            }
+          },
+          "rhodes-archaeological-museum-marine-venus": {
+            "name": "La Venere marina",
+            "blurb": "La seconda Afrodite del museo fu trovata sul fondo del mare, e si vede. Il suo viso è consumato, i dettagli si sono lisciati, e il marmo sembra essersi sciolto un poco. Questo lo ha fatto il mare nel giro di secoli: il sale, la sabbia e piccoli organismi che mangiano la superficie. In molti la trovano più commovente così di quanto sarebbe stata intera. Uno scrittore che visse a Rodi le ha intitolato un libro.",
+            "question": {
+              "q": "Perché il suo viso è consumato?",
+              "answers": [
+                "Perché è rimasta per secoli dentro il mare",
+                "Perché è stata rovinata apposta",
+                "Perché lo scultore non l’ha mai finita",
+                "Perché un incendio l’ha bruciata"
+              ],
+              "explanation": "Il mare protegge il bronzo e mangia il marmo. La stessa acqua, due risultati completamente opposti."
+            }
+          },
+          "rhodes-archaeological-museum-krito-timarista": {
+            "name": "Crito e Timarista",
+            "blurb": "Una lastra tombale del V secolo a.C. con due donne: una figlia che abbraccia sua madre. I loro nomi sono incisi sopra di loro. La cosa straordinaria è quanto semplicemente viene detto l’addio: non ci sono dèi, non ci sono simboli, non ci sono parole. Solo due corpi che si toccano. Le lastre tombali antiche di Rodi sono piene di scene così, e ci hanno lasciato centinaia di nomi di persone che altrimenti non sapremmo nemmeno che sono esistite.",
+            "question": {
+              "q": "Che cosa mostra questa lastra tombale?",
+              "answers": [
+                "Una figlia che abbraccia sua madre",
+                "Due soldati che si salutano",
+                "Un dio che porta via un’anima",
+                "Due mercanti che chiudono un affare"
+              ],
+              "explanation": "Senza dèi e senza simboli. È per questo che si legge subito, due millenni e mezzo dopo."
+            }
+          },
+          "rhodes-archaeological-museum-vases": {
+            "name": "I vasi di Camiro",
+            "blurb": "Vasi di argilla con gli animali disposti in fasce: capre selvatiche, leoni, uccelli, cervi, uno dietro l’altro come in un corteo. Sono rodii e furono fatti nel VII e nel VI secolo a.C., quando l’isola commerciava con l’Egitto e con l’Oriente. Lo vedi nei disegni: alcuni degli animali che ci stanno sopra non hanno mai vissuto a Rodi, e alcuni non hanno mai vissuto da nessuna parte. I pittori copiavano immagini che arrivavano sulle navi e le mescolavano con la loro fantasia.",
+            "question": {
+              "q": "Perché ci sono sopra animali che non hanno mai vissuto a Rodi?",
+              "answers": [
+                "Perché i pittori copiavano immagini che arrivavano sulle navi",
+                "Perché quegli animali si erano estinti da poco",
+                "Perché i vasi furono fatti da un’altra parte",
+                "Perché lo stampo era difettoso"
+              ],
+              "explanation": "Il commercio non trasportava soltanto merci. Trasportava anche immagini, e le immagini viaggiano più lontano degli animali."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-archaeological-museum-riddle-1": {
+            "prompt": "Sono inginocchiata e mi strizzo i capelli. Sono appena uscita dal mare e non guardo nessuno. Sto facendo una cosa che fai anche tu dopo il bagno.",
+            "hint": "Sono piccola, e il mio marmo è intero."
+          },
+          "rhodes-archaeological-museum-riddle-2": {
+            "prompt": "Anch’io sono venuta dal mare, ma lui mi ha tenuta per secoli. Il mio viso si è lisciato e sembro sciolta. In molti mi trovano più bella così.",
+            "hint": "Non sono inginocchiata."
+          },
+          "rhodes-archaeological-museum-riddle-3": {
+            "prompt": "Sono un muro, non un oggetto, e sono lungo quasi cinquanta metri. Qui dormivano dei malati cinquecento anni fa, ognuno dietro una tenda.",
+            "hint": "Le mie finestre sono piccole e molto in alto."
+          }
+        }
+      }
+    },
+    "rhodes-aquarium": {
+      "name": "L’Acquario di Rodi",
+      "tagline": "Una finta grotta marina sulla punta nord dell’isola",
+      "story": "Sulla punta nord di Rodi, dove l’isola finisce e i mari che la circondano si incontrano, sta un edificio bianco dalle linee severe, tirato su negli anni Trenta. Non fu costruito per i turisti: era un istituto di ricerca per lo studio del mare, e stazione di ricerca è rimasto ancora oggi. Nel seminterrato, però, fecero una cosa più furba delle solite vetrine. Scavarono un corridoio e gli diedero la forma di una grotta marina, con la roccia, il soffitto basso e le vasche aperte dentro i muri. Così cammini come se fossi sott’acqua, con i pesci alla tua destra e alla tua sinistra. Al piano di sopra c’è il museo, con animali del Mediterraneo conservati che nessuno incontrerebbe mai da vivi. È un edificio che fa due lavori nello stesso momento, e nessuno dei due è decorativo.",
+      "facts": [
+        "Fu costruito negli anni Trenta come istituto di ricerca, non come attrazione.",
+        "Il suo seminterrato ha la forma di una grotta marina.",
+        "Funziona ancora come stazione di ricerca di biologia marina."
+      ],
+      "question": {
+        "q": "Per quale motivo fu costruito all’inizio questo edificio?",
+        "answers": [
+          "Per lo studio scientifico del mare",
+          "Per accogliere i visitatori che arrivavano in nave",
+          "Come faro per le navi",
+          "Come residenza del governatore"
+        ],
+        "explanation": "L’acquario è venuto dopo, come modo per far vedere alla ricerca quello che studia. La stazione lavora ancora."
+      },
+      "museum": {
+        "doorNote": "Scendi prima di sotto. La grotta è là, ed è lì che stanno le cose vive.",
+        "rooms": {
+          "rhodes-aquarium-cave": {
+            "name": "La grotta",
+            "intro": "Il corridoio sotto l’edificio non è una grotta naturale, ma è fatto per convincerti. I muri sono ruvidi, il soffitto basso, la luce poca e azzurra. Il progetto ha uno scopo preciso: non farti sentire che stai guardando dentro una scatola d’acqua, ma che il visitatore nello spazio di qualcun altro sei tu."
+          },
+          "rhodes-aquarium-museum-floor": {
+            "name": "Il piano di sopra",
+            "intro": "Qui niente è vivo, e il senso è tutto lì. Il museo conserva animali finiti sulla spiaggia o presi per sbaglio nelle reti, così che gli scienziati, e tu, possano guardare da vicino creature che nessuno incontra mai da vive. Ognuna di loro è qui perché qualcosa è andato storto là fuori in mare."
+          }
+        },
+        "exhibits": {
+          "rhodes-aquarium-tunnel": {
+            "name": "Il corridoio scavato",
+            "blurb": "Il corridoio fu scavato nella roccia sotto l’edificio negli anni Trenta e gli fu data la forma di una grotta. Le vasche non stanno sopra dei tavoli: sono aperte dentro i muri, come finestre. L’acqua di mare non viene preparata in laboratorio, viene pompata dal mare qui accanto e ci ritorna. È un edificio che vive con lo stesso ritmo dell’acqua che lo circonda.",
+            "question": {
+              "q": "Da dove arriva l’acqua delle vasche?",
+              "answers": [
+                "Viene pompata dal mare qui accanto e ci ritorna",
+                "Viene preparata in laboratorio con sale e acqua del rubinetto",
+                "Viene portata con le autocisterne da un’altra isola",
+                "Viene raccolta dalla pioggia"
+              ],
+              "explanation": "È esattamente per questo che fu costruito sulla punta dell’isola e non in mezzo alla città."
+            }
+          },
+          "rhodes-aquarium-octopus": {
+            "name": "Il polpo",
+            "blurb": "Guarda con attenzione la roccia nella sua vasca: molto spesso non vedrai proprio niente, perché un polpo cambia il colore e la trama della sua pelle in meno di un secondo e diventa pietra. Ha nove cervelli, uno centrale e uno in ogni braccio, così le sue braccia risolvono i problemi quasi da sole. Il suo sangue è azzurro, perché trasporta l’ossigeno usando il rame invece del ferro. È la creatura più aliena che puoi incontrare senza uscire dal Mediterraneo.",
+            "question": {
+              "q": "Perché il sangue del polpo è azzurro?",
+              "answers": [
+                "Perché trasporta l’ossigeno usando il rame invece del ferro",
+                "Perché vive in acque azzurre e profonde",
+                "Perché mangia alghe azzurre",
+                "Perché riflette il colore della sua pelle"
+              ],
+              "explanation": "Il nostro sangue è rosso per lo stesso motivo, al contrario: trasporta l’ossigeno usando il ferro."
+            }
+          },
+          "rhodes-aquarium-mediterranean-fish": {
+            "name": "I pesci del mare qui accanto",
+            "blurb": "Cernie, saraghi, scorfani, murene, cernie dorate: pesci che nuotano proprio fuori dall’edificio. Molti di loro li hai visti in un piatto e mai da vivi, ed è una cosa completamente diversa. Lo scorfano, per esempio, non nuota quasi per niente: sta fermo sul fondo, sembra una pietra coperta di alghe, e aspetta. Le vasche mostrano anche una cosa che non si vede da nessun’altra parte: a che profondità e su che tipo di fondale vive ognuno di loro.",
+            "question": {
+              "q": "Come caccia lo scorfano?",
+              "answers": [
+                "Sta fermo, sembra una pietra e aspetta",
+                "Caccia in banchi",
+                "Nuota velocissimo in linea retta",
+                "Scava il fondale con la coda"
+              ],
+              "explanation": "Il camuffamento costa meno della velocità. Costa soltanto pazienza."
+            }
+          },
+          "rhodes-aquarium-whale-bones": {
+            "name": "Le ossa della balena",
+            "blurb": "Nel Mediterraneo vivono le balene, una cosa che sorprende quasi tutti. Quando una finisce sulla spiaggia, gli scienziati cercano di capire perché è morta, e poi lo scheletro viene pulito e conservato. Standoci accanto capisci la sua grandezza in un modo che nessuna fotografia ti dà. Guarda le ossa vicino alla coda, dove l’animale un tempo aveva le zampe: le balene discendono da animali che camminavano sulla terraferma.",
+            "question": {
+              "q": "Che cosa ci dicono le piccole ossa vicino alla coda di una balena?",
+              "answers": [
+                "Che i suoi antenati camminavano sulla terraferma",
+                "Che un tempo aveva una seconda coda",
+                "Che era ferita",
+                "Che era molto giovane"
+              ],
+              "explanation": "Sono quello che resta delle zampe. L’evoluzione non cancella, smette soltanto di usare."
+            }
+          },
+          "rhodes-aquarium-turtles": {
+            "name": "Le tartarughe marine",
+            "blurb": "La tartaruga caretta depone le uova sulle spiagge greche e vive per decenni. Le tartarughe conservate qui sono state trovate morte, e quasi tutte per motivi che abbiamo creato noi: sacchetti di plastica scambiati per meduse, ami, reti, eliche. È un pezzo difficile ed è proprio questo che lo rende utile. A una tartaruga servono circa venticinque anni per crescere abbastanza da poter fare le uova, quindi ognuna che si perde presto costa alla popolazione molto più di una vita sola.",
+            "question": {
+              "q": "Perché le tartarughe si confondono con i sacchetti di plastica?",
+              "answers": [
+                "Perché sembrano meduse, e le meduse sono il loro cibo",
+                "Perché le prendono per un riparo",
+                "Perché odorano di alghe",
+                "Perché fanno rumore nell’acqua"
+              ],
+              "explanation": "Un sacchetto nell’acqua si muove come una medusa. La tartaruga non sta sbagliando: l’errore lo abbiamo fatto noi."
+            }
+          },
+          "rhodes-aquarium-monk-seal": {
+            "name": "La foca monaca del Mediterraneo",
+            "blurb": "La foca monaca del Mediterraneo è uno dei mammiferi marini più rari del mondo, e la Grecia ospita la parte più grande di quello che ne resta. Vive in grotte marine con l’ingresso nascosto sotto il livello dell’acqua, dove fa i suoi cuccioli, ed è per questo che quasi nessuno ne vede una. Il pezzo esiste perché un animale è stato trovato morto, non perché ne è stato catturato uno. Se un giorno ne vedrai una in mare, la cosa giusta è restare lontano e non seguirla dentro la sua grotta.",
+            "question": {
+              "q": "Dove fa i suoi cuccioli la foca monaca del Mediterraneo?",
+              "answers": [
+                "In grotte marine con l’ingresso sotto il livello dell’acqua",
+                "Su spiagge aperte piene di gente",
+                "Su scogli in mezzo al mare aperto",
+                "Nei fiumi, vicino alla foce"
+              ],
+              "explanation": "Si nasconde perché è stata cacciata per secoli. Nascondersi è il motivo per cui esiste ancora."
+            }
+          }
+        },
+        "riddles": {
+          "rhodes-aquarium-riddle-1": {
+            "prompt": "Ho otto braccia e nove cervelli, e il mio sangue non è rosso. Se non mi trovi, guarda di nuovo la roccia: c’è una buona probabilità che la roccia sia io.",
+            "hint": "Cambio colore in meno di un secondo."
+          },
+          "rhodes-aquarium-riddle-2": {
+            "prompt": "Sono fatto di ossa e nient’altro, e sono enorme. Vicino alla mia coda ci sono piccole ossa che non mi servono più: erano le zampe dei miei antenati.",
+            "hint": "Vivevo nel Mediterraneo, anche se quasi nessuno ci crede."
+          }
+        }
+      },
+      "findIt": "L’ingresso è in piazza dell’Acquario (Plateia Enydreiou), sulla punta nord dell’isola."
+    },
+    "rhodes-art-gallery": {
+      "name": "La Pinacoteca Comunale di Rodi",
+      "tagline": "Pittura greca del Novecento, su un’isola",
+      "story": "Le grandi collezioni d’arte di solito si radunano nelle capitali. Rodi ha fatto una cosa insolita: dagli anni Sessanta in poi ha cominciato a comprare opere di pittori greci del suo tempo, con costanza, anno dopo anno. Il risultato è una delle più importanti collezioni di pittura greca del Novecento fuori da Atene, ospitata in edifici della città vecchia. Troverai paesaggi, ritratti, mari, opere astratte, incisioni. Per un bambino la parte interessante non sono i nomi ma l’ordine: cammini dentro un secolo e guardi la pittura che cambia, da quadri che cercano di somigliare a una fotografia a quadri che non vogliono somigliare a niente. Nessuno dei due modi è più giusto dell’altro, e nessun pittore si è svegliato una mattina e ha deciso di cambiare secolo.",
+      "facts": [
+        "La collezione è stata costruita a poco a poco a partire dagli anni Sessanta.",
+        "È una delle più importanti collezioni di pittura greca fuori da Atene.",
+        "Ha sede in edifici dentro la città medievale."
+      ],
+      "question": {
+        "q": "Che cosa cambia mentre passi da una sala all’altra qui dentro?",
+        "answers": [
+          "Il modo in cui le persone dipingono, nell’arco di un secolo",
+          "La grandezza dei quadri, dal piccolo al grande",
+          "Il paese da cui vengono le opere",
+          "Il materiale, dalla pittura a olio al marmo"
+        ],
+        "explanation": "Una collezione che compra qualcosa ogni anno finisce per registrare il tempo senza nemmeno provarci."
+      }
+    },
+    "rhodes-acropolis": {
+      "name": "L’Acropoli di Rodi",
+      "tagline": "La città antica che fu progettata prima di essere costruita",
+      "story": "Sulla collina sopra la città moderna stanno il tempio di Apollo, un piccolo odeon di marmo e uno stadio di circa duecento metri. Ma la cosa più importante qui non è un edificio: è il progetto. L’antica Rodi fu fondata nel 408 a.C. dall’unione di tre città più antiche, e non è cresciuta a caso come la maggior parte delle città. Fu disegnata prima, con le strade che si incrociano ad angolo retto, come insegnava Ippodamo di Mileto. Gli scrittori antichi la descrivevano come la città più bella che avessero visto, e la cosa sorprendente è che quel disegno esiste ancora: parecchie strade della Rodi di oggi seguono le stesse linee, duemilacinquecento anni dopo. La collina oggi si chiama Monte Smith, dal nome di un ammiraglio inglese che da lassù teneva d’occhio il mare nell’Ottocento.",
+      "facts": [
+        "La città antica fu fondata nel 408 a.C. dall’unione di tre città.",
+        "Fu disegnata con le strade ad angolo retto, prima di essere costruita.",
+        "Il suo stadio è lungo circa 200 metri."
+      ],
+      "question": {
+        "q": "Che cosa aveva l’antica Rodi che la maggior parte delle città non aveva?",
+        "answers": [
+          "Un progetto di strade dritte, disegnato prima che si costruisse qualcosa",
+          "Mura di marmo massiccio",
+          "Strade soltanto per chi va a piedi",
+          "Nessun porto"
+        ],
+        "explanation": "La maggior parte delle città antiche è cresciuta intorno a dei sentieri. Questa è cominciata su un foglio."
+      }
+    },
+    "rhodes-diagoras-stadium": {
+      "name": "Lo Stadio Diagoras",
+      "tagline": "Il nome di un pugile che i suoi figli sollevarono sulle spalle",
+      "story": "Il campo da calcio della città porta il nome di una persona vera. Diagora di Rodi era un pugile e vinse a Olimpia nel 464 a.C. Non è ricordato per la sua vittoria, però. È ricordato perché vinsero anche i suoi figli. A una festa di Olimpia due dei suoi figli furono incoronati lo stesso giorno, e appena finite le loro gare lo sollevarono sulle spalle e lo portarono in giro per lo stadio mentre la gente lanciava fiori. Qualcuno dagli spalti gridò che ormai non gli restava più niente da desiderare. Diagora morì quello stesso giorno, lì, fra le braccia dei suoi figli, e la storia ha viaggiato per secoli come esempio del momento più felice che una persona possa avere. Il campo di Rodi tiene ancora quel nome, e la squadra della città ci gioca ogni domenica.",
+      "facts": [
+        "Diagora di Rodi vinse la gara di pugilato a Olimpia nel 464 a.C.",
+        "Due dei suoi figli furono incoronati a Olimpia lo stesso giorno.",
+        "Lo stadio della città porta il suo nome ancora oggi."
+      ],
+      "question": {
+        "q": "Perché Diagora è rimasto famoso?",
+        "answers": [
+          "Perché vinsero anche i suoi figli, e lo portarono in trionfo sulle spalle",
+          "Perché vinse in quattro sport diversi",
+          "Perché costruì lui stesso lo stadio di Olimpia",
+          "Perché fu il primissimo campione olimpico"
+        ],
+        "explanation": "La sua vittoria è stata dimenticata. L’immagine di un padre sulle spalle dei suoi figli non lo è stata mai."
+      }
+    },
+    "rhodes-kallithea": {
+      "name": "Le Terme di Kallithea",
+      "tagline": "Bagni con le cupole e i ciottoli, costruiti per una sorgente",
+      "story": "In una piccola baia a sud della città c’è una sorgente conosciuta fin dall’antichità, perché la gente credeva che la sua acqua facesse bene allo stomaco. Nel 1929, quando il Dodecaneso era sotto amministrazione italiana, un giovane architetto disegnò intorno alla sorgente un intero complesso di bagni: cupole, portici semicircolari, scale che scendono al mare. I pavimenti sono fatti di ciottoli bianchi e neri, raccolti sulle spiagge e messi uno per uno a formare dei disegni. I bagni chiusero negli anni Sessanta e restarono abbandonati per più di quarant’anni, con le erbacce che spuntavano dentro gli edifici. Sono stati restaurati e riaperti nel 2007. Oggi nessuno beve l’acqua, ma tutti nuotano nella baia, e i pavimenti di ciottoli vengono calpestati di nuovo ogni estate.",
+      "facts": [
+        "Il complesso fu costruito intorno al 1929, attorno a una sorgente conosciuta fin dall’antichità.",
+        "I suoi pavimenti sono fatti di ciottoli di spiaggia, messi uno per uno a formare dei disegni.",
+        "È stato abbandonato per più di quarant’anni e ha riaperto nel 2007."
+      ],
+      "question": {
+        "q": "Perché dei bagni furono costruiti esattamente in questo punto?",
+        "answers": [
+          "Perché lì sgorga una sorgente che consideravano curativa",
+          "Perché era l’unico posto con la sabbia",
+          "Perché era vicino al porto",
+          "Perché lì c’era già un tempio antico"
+        ],
+        "explanation": "Un intero edificio è stato tirato su intorno a un’acqua. Quando la gente ha smesso di berla, l’edificio è rimasto senza uno scopo."
+      }
+    },
+    "rhodes-filerimos": {
+      "name": "Filerimo",
+      "tagline": "Una collina con una città antica, un monastero e dei pavoni",
+      "story": "Filerimo è una collina di circa duecentosettanta metri, con vista su tutta la costa nord-occidentale. In cima ci stava Ialiso, una delle tre città antiche dell’isola che si unirono per formare Rodi. Si sono conservate le fondamenta di un tempio di Atena e una fontana dorica scavata nella roccia. Accanto a loro sta un monastero costruito dai Cavalieri e ricostruito dagli italiani, e da lì un sentiero fiancheggiato da cipressi porta a una croce enorme. La croce non è lì soltanto per essere guardata: ha una scala dentro e si sale fin dentro le sue braccia orizzontali. E per tutta la collina passeggiano dei pavoni che non hanno per niente paura di te e aprono la coda quando gli va. Pochi posti mettono insieme in così poco spazio delle rovine antiche, un monastero medievale e una sfilata di uccelli.",
+      "facts": [
+        "Su questa collina sorgeva Ialiso, una delle tre città antiche di Rodi.",
+        "La croce in cima ha una scala dentro e si sale fin dentro le sue braccia.",
+        "Sulla collina vivono dei pavoni che girano liberi."
+      ],
+      "question": {
+        "q": "Che cosa c’è dentro la croce in cima alla collina?",
+        "answers": [
+          "Una scala, che ti porta su fin dentro le sue braccia",
+          "Una chiesetta piena di icone",
+          "Una campana che suona ogni mezzogiorno",
+          "Una cisterna d’acqua per il monastero"
+        ],
+        "explanation": "Dalle sue braccia vedi nello stesso momento il mare e le fondamenta della città antica."
+      }
+    },
+    "rhodes-lindos": {
+      "name": "L’Acropoli di Lindo",
+      "tagline": "Un tempio su una roccia, e una nave da guerra scolpita nella scala",
+      "story": "Cinquanta chilometri a sud della città, una roccia alta centosedici metri si alza sopra delle case bianche e due baie. Sulla sua cima stava il tempio di Atena Lindia, e intorno a esso un portico di quarantadue colonne, costruito in modo da poter essere visto dal mare. I Cavalieri più tardi avvolsero tutta la roccia dentro un castello, così sali attraverso mura medievali per arrivare a un tempio antico. Ai piedi della grande scala c’è il pezzo migliore di tutti: una trireme scolpita direttamente nella roccia, con la prua a grandezza naturale, e i gradini stessi che vanno a poggiarsi contro di lei. Sopra ci stava una volta una statua. È pubblicità vecchia di duemila anni: Lindo viveva di navi, e lo diceva nella pietra, nella prima cosa che vedeva chiunque salisse.",
+      "facts": [
+        "La roccia si alza 116 metri sopra il mare.",
+        "Ai piedi della scala è scolpita nella roccia una trireme.",
+        "Sopra il tempio antico i Cavalieri costruirono più tardi un castello."
+      ],
+      "question": {
+        "q": "Che cosa è scolpito nella roccia ai piedi della scala?",
+        "answers": [
+          "Una nave da guerra, con la prua a grandezza naturale",
+          "Un cavallo con un cavaliere",
+          "La carta dell’isola",
+          "I nomi dei sacerdoti"
+        ],
+        "explanation": "Era la base di una statua e nello stesso tempo una dichiarazione: questa città viveva del mare."
+      }
+    },
+    "rhodes-kameiros": {
+      "name": "L’antica Camiro",
+      "tagline": "Un’intera città antica senza nemmeno un muro di cinta",
+      "story": "Camiro era la terza delle città antiche di Rodi, insieme a Lindo e Ialiso. Fu scavata nel XIX secolo e venne fuori quasi intera, distesa su tre livelli lungo un pendio: in alto i santuari, in mezzo le strade con le case, in basso la piazza del mercato. Cammini lungo strade vere e proprie e vedi soglie, cortili, scoli per l’acqua. La cosa più impressionante sta nel punto più alto: un’enorme cisterna scavata nella roccia, che conteneva acqua per centinaia di famiglie e la distribuiva con tubi di argilla in tutta la città. E c’è una cosa che manca: le mura. Camiro non le aveva. Era una città di contadini, lontana dal porto, ed evidentemente nessuno pensò che fosse in pericolo abbastanza da spendere pietra per un muro di cinta. Questa assenza racconta della sua epoca più di quanto racconterebbe una cinta di mura.",
+      "facts": [
+        "È distesa su tre livelli: santuari, case, mercato.",
+        "Una cisterna scavata nella roccia in cima riforniva d’acqua tutta la città.",
+        "Non aveva nessun muro di cinta."
+      ],
+      "question": {
+        "q": "Che cosa non aveva Camiro, al contrario di quasi ogni città antica?",
+        "answers": [
+          "Le mura",
+          "L’acqua",
+          "Una piazza del mercato",
+          "Le strade"
+        ],
+        "explanation": "Una cinta di mura costa carissima. Una città la costruisce soltanto quando ha paura, e Camiro evidentemente non ne aveva."
+      }
+    },
+    "rhodes-monolithos": {
+      "name": "Il Castello di Monolithos",
+      "tagline": "Un castello su una roccia sola, con un sentiero solo",
+      "story": "All’estremità sud-occidentale dell’isola una roccia si alza a picco duecentotrentasei metri sopra il mare, con niente intorno. Il nome del paese lì sotto lo dice esattamente: Monolithos, una pietra sola. Nel XV secolo i Cavalieri costruirono un castello sulla cima, e il loro progetto fu quasi pigro, nel senso buono: non ebbero quasi bisogno di costruire mura, perché la roccia è già verticale da tutti i lati. C’è un sentiero che sale, e uno soltanto. Dentro il castello oggi non ci sono caserme e non ci sono sale, solo una piccola cappella bianca di calce. La vista dall’alto arriva fino al capo successivo, e capisci subito che cosa vedevano le guardie e perché scelsero questa pietra solitaria. Un castello qui non aveva bisogno di un esercito. Aveva bisogno di due persone con buoni occhi.",
+      "facts": [
+        "La roccia si alza 236 metri sopra il mare.",
+        "I Cavalieri costruirono il castello nel XV secolo.",
+        "C’è un solo sentiero che sale fino in cima."
+      ],
+      "question": {
+        "q": "Perché a questo castello servirono pochissime mura?",
+        "answers": [
+          "Perché la roccia è già verticale da tutti i lati",
+          "Perché fu costruito di fretta",
+          "Perché nella zona non c’era pietra",
+          "Perché lo proteggeva un bosco"
+        ],
+        "explanation": "Il miglior ingegnere di un castello è il terreno. I Cavalieri lo scelsero semplicemente bene."
+      }
+    },
+    "rhodes-tsambika": {
+      "name": "Il Monastero di Tsambika",
+      "tagline": "Trecento gradini per una chiesetta e un panorama",
+      "story": "Fra la città e Lindo una roccia sporge sopra la costa orientale. Sulla sua cima sta una chiesetta, e per arrivarci sali circa trecento gradini, senza ombra e senza una strada più breve. È l’esercizio più semplice dell’isola ed è il più giusto: alla roccia non importa chi sta salendo. Il monastero è luogo di pellegrinaggio da secoli, e ogni settembre ci sale una folla di gente. La maggior parte, però, sale per lo stesso motivo per cui salirai tu: da lassù vedi tutta la baia di Tsambika, con la sabbia che disegna una mezzaluna perfetta e l’acqua che cambia tre azzurri diversi a seconda della profondità. È uno dei pochi posti dove i tuoi occhi riescono davvero a leggere quanto è profondo il mare.",
+      "facts": [
+        "Sali circa 300 gradini per arrivare in cima.",
+        "La chiesetta in cima è luogo di pellegrinaggio da secoli.",
+        "Da lassù il colore dell’acqua mostra quanto è profondo il mare."
+      ],
+      "question": {
+        "q": "Che cosa ti dice il colore dell’acqua quando la guardi dall’alto?",
+        "answers": [
+          "Quanto è profondo il mare in ogni punto",
+          "Quanto è fredda l’acqua",
+          "Dove ci sono i pesci",
+          "Quanto è salata l’acqua"
+        ],
+        "explanation": "Dove è basso la luce arriva sul fondo e torna indietro chiara. Dove è profondo si perde, e l’azzurro diventa scuro."
+      }
+    }
+  },
+  "trails": {
+    "rhodes-knights-day": {
+      "name": "La giornata dei Cavalieri",
+      "promise": "Un palazzo, un ospedale e due castelli, tutti dalle stesse persone."
+    },
+    "rhodes-three-ancient-cities": {
+      "name": "Le tre città antiche",
+      "promise": "Lindo, Camiro, Ialiso, e la città che fecero unendo le loro forze."
+    },
+    "rhodes-sea-and-steps": {
+      "name": "Mare e gradini",
+      "promise": "Una finta grotta con pesci vivi, una sorgente con le cupole e trecento gradini."
+    },
+    "rhodes-town-today": {
+      "name": "La città di oggi",
+      "promise": "Un secolo di pittura greca e un campo da calcio con un nome antico."
+    }
+  }
+}
