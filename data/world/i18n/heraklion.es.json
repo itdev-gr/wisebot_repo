@@ -14,12 +14,12 @@
       "question": {
         "q": "¿Qué son las partes rojas y de bordes rectos que ves hoy en Cnosos?",
         "answers": [
-          "Reconstrucciones de hormigón, hechas en el siglo XX",
+          "Reconstrucciones de hormigón",
           "Muros minoicos que se conservaron enteros",
           "Añadidos romanos construidos encima del palacio",
           "Trozos de otro palacio, traídos hasta aquí"
         ],
-        "explanation": "El arqueólogo que excavó Cnosos reconstruyó algunas partes para que la gente entendiera su forma. Es útil, y todavía se discute."
+        "explanation": "El arqueólogo que excavó Cnosos reconstruyó algunas partes en el siglo XX, para que la gente entendiera su forma. Es útil, y todavía se discute."
       }
     },
     "heraklion-archaeological-museum": {
@@ -34,12 +34,12 @@
       "question": {
         "q": "¿Por qué en Cnosos ves copias de los frescos y no los originales?",
         "answers": [
-          "Para que el sol y el tiempo no destruyan los originales",
+          "Para que el sol no los destruya",
           "Porque los originales se perdieron en un terremoto",
           "Porque los originales son de un dueño particular",
           "Porque los originales son demasiado pequeños para verse"
         ],
-        "explanation": "La pintura se destiñe con la luz y la humedad se come el yeso. Un museo se mantiene oscuro y estable a propósito."
+        "explanation": "La pintura se destiñe con la luz y, con el tiempo, la humedad se come el yeso. Un museo se mantiene oscuro y estable a propósito."
       },
       "museum": {
         "doorNote": "Los minoicos no pintaban guerras. Fíjate en lo que pintaban en su lugar.",
@@ -60,12 +60,12 @@
             "question": {
               "q": "¿Cuántas personas participan en la escena del toro?",
               "answers": [
-                "Tres, en tres momentos distintos del salto",
+                "Tres",
                 "Solo una, en el aire",
                 "Cinco, en círculo a su alrededor",
                 "Ninguna: el toro está solo"
               ],
-              "explanation": "Puede que muestre a tres personas, o a la misma persona tres veces, como fotogramas de una película."
+              "explanation": "Puede que muestre a tres personas, o a la misma persona en tres momentos distintos del salto, como fotogramas de una película."
             }
           },
           "heraklion-archaeological-museum-prince-lilies": {
@@ -74,12 +74,12 @@
             "question": {
               "q": "¿Por qué se discute este fresco?",
               "answers": [
-                "Porque los fragmentos auténticos son pocos y el resto se rellenó",
+                "Porque hay pocos trozos auténticos",
                 "Porque lo pintó hace poco un falsificador",
                 "Porque se encontró fuera de Creta",
                 "Porque no conserva nada de color"
               ],
-              "explanation": "Rellenar es suponer. Cuando los fragmentos son pocos, la suposición se hace grande."
+              "explanation": "Los fragmentos auténticos son pocos y el resto se rellenó. Rellenar es suponer, y cuando los fragmentos son pocos, la suposición se hace grande."
             }
           },
           "heraklion-archaeological-museum-saffron-gatherer": {
@@ -102,12 +102,12 @@
             "question": {
               "q": "¿Por qué no se ha leído el Disco de Festos?",
               "answers": [
-                "Porque no se ha encontrado otro texto en la misma escritura",
+                "Porque no hay otro texto",
                 "Porque los símbolos se han borrado",
                 "Porque está partido por la mitad",
                 "Porque nadie lo ha intentado"
               ],
-              "explanation": "Para descifrar una escritura hacen falta muchas muestras. Con un solo objeto, cualquier solución es una conjetura."
+              "explanation": "Nunca se ha encontrado otro texto en la misma escritura. Para descifrar una escritura hacen falta muchas muestras: con un solo objeto, cualquier solución es una conjetura."
             }
           },
           "heraklion-archaeological-museum-snake-goddess": {
@@ -130,12 +130,12 @@
             "question": {
               "q": "¿Cómo se pusieron las bolitas de oro diminutas sobre la joya?",
               "answers": [
-                "Pegadas una a una, con una técnica que se llama granulación",
+                "Pegadas una a una",
                 "Fundidas junto con el resto del oro en un molde",
                 "Pintadas con pintura dorada",
                 "Martilleadas desde el revés"
               ],
-              "explanation": "Cada bolita es un trozo de oro aparte. Cuéntalas, si tienes paciencia."
+              "explanation": "La técnica se llama granulación. Cada bolita es un trozo de oro aparte. Cuéntalas, si tienes paciencia."
             }
           },
           "heraklion-archaeological-museum-harvester-vase": {
@@ -144,12 +144,12 @@
             "question": {
               "q": "¿Qué tiene de raro el Vaso de los Segadores?",
               "answers": [
-                "Se ve que las figuras cantan, o sea que ves el sonido",
+                "Se ve el sonido: cantan",
                 "Está hecho de oro macizo",
                 "Lleva escrito un poema",
                 "Es la vasija más grande del museo"
               ],
-              "explanation": "Boca abierta, pecho fuera, cuerpos a compás. El tallista dibujó ruido."
+              "explanation": "Las figuras van cantando, o sea que ves el sonido. Boca abierta, pecho fuera, cuerpos a compás: el tallista dibujó ruido."
             }
           }
         },
@@ -203,12 +203,12 @@
       "question": {
         "q": "¿Cómo llegaba el agua a la fuente desde quince kilómetros de distancia?",
         "answers": [
-          "Por un acueducto que bajaba poco a poco, solo con la pendiente del terreno",
+          "Por un acueducto, cuesta abajo",
           "Con bombas movidas por caballos",
           "En barriles que traían carros cada mañana",
           "De un pozo que había justo debajo"
         ],
-        "explanation": "Un acueducto no necesita energía, necesita precisión: la pendiente tiene que ser pequeña y constante en todo el recorrido."
+        "explanation": "El agua bajaba poco a poco, solo con la pendiente del terreno. Un acueducto no necesita energía, necesita precisión: la pendiente tiene que ser pequeña y constante en todo el recorrido."
       }
     },
     "heraklion-loggia": {
@@ -223,12 +223,12 @@
       "question": {
         "q": "¿Qué era al principio este edificio?",
         "answers": [
-          "Un club donde se reunían los nobles venecianos",
+          "Un club de nobles venecianos",
           "Una iglesia con dos campanarios",
           "Un almacén del puerto",
           "Una escuela para los niños de la ciudad"
         ],
-        "explanation": "Las decisiones sobre una ciudad no se tomaban siempre en edificios oficiales. Aquí se tomaban en un club, y el edificio acabó siendo el ayuntamiento."
+        "explanation": "Las decisiones sobre una ciudad no se tomaban siempre en edificios oficiales. Aquí se tomaban en el club donde se reunían los nobles venecianos, y el edificio acabó siendo el ayuntamiento."
       }
     },
     "heraklion-historical-museum": {
@@ -243,12 +243,12 @@
       "question": {
         "q": "¿Por qué llamaron «el Greco» a Doménikos Theotokópoulos?",
         "answers": [
-          "Porque en España lo llamaban sencillamente «el griego»",
+          "Porque en España lo llamaban «griego»",
           "Porque firmaba así sus obras desde pequeño",
           "Porque era el nombre de su maestro",
           "Porque nació en un pueblo que se llamaba así"
         ],
-        "explanation": "Su nombre era difícil para los españoles. El apodo se impuso y se quedó para siempre."
+        "explanation": "Su nombre era difícil para los españoles, así que lo llamaban sencillamente «el griego». El apodo se impuso y se quedó para siempre."
       },
       "museum": {
         "doorNote": "Empieza por la maqueta. Vas a entender exactamente dónde estás ahora mismo.",
@@ -269,12 +269,12 @@
             "question": {
               "q": "¿Qué tiene de poco corriente este cuadro para su época?",
               "answers": [
-                "Es un paisaje, con las personas diminutas",
+                "Es solo un paisaje",
                 "Está pintado sobre cristal",
                 "No tiene nada de color",
                 "Es más grande que una pared"
               ],
-              "explanation": "El paisaje se convirtió en tema por sí solo mucho más tarde. Aquí el protagonista es la montaña."
+              "explanation": "Las personas son diminutas y el protagonista es la montaña. El paisaje se convirtió en tema por sí solo mucho más tarde."
             }
           },
           "heraklion-historical-museum-baptism": {
@@ -283,12 +283,12 @@
             "question": {
               "q": "¿Cómo reconoces un cuadro del Greco?",
               "answers": [
-                "Por los cuerpos estirados y la luz poco natural",
+                "Por los cuerpos estirados",
                 "Porque siempre es enorme",
                 "Porque no tiene personas",
                 "Por la firma en español"
               ],
-              "explanation": "Firmó en griego hasta el final. Pero su estilo no necesita firma."
+              "explanation": "Cuerpos estirados y una luz poco natural: esa es su marca. Firmó en griego hasta el final, pero su estilo no necesita firma."
             }
           },
           "heraklion-historical-museum-byzantine-frescoes": {
@@ -297,12 +297,12 @@
             "question": {
               "q": "¿Por qué son tan grandes los ojos y las manos en estos frescos?",
               "answers": [
-                "Para que se vean de lejos y con muy poca luz",
+                "Para verse de lejos y con poca luz",
                 "Porque el pintor no sabía de proporciones",
                 "Porque la gente era así entonces",
                 "Para gastar menos pintura"
               ],
-              "explanation": "Es una decisión de diseño. La ermita está oscura y la pared queda lejos."
+              "explanation": "Es una decisión de diseño: tenían que verse de lejos y con muy poca luz. La ermita está oscura y la pared queda lejos."
             }
           },
           "heraklion-historical-museum-city-model": {
@@ -325,12 +325,12 @@
             "question": {
               "q": "¿Por qué merece la pena exponer una mesa de trabajo corriente?",
               "answers": [
-                "Porque enseña cómo se hace de verdad un libro",
+                "Porque enseña cómo se hace un libro",
                 "Porque está hecha de una madera rarísima",
                 "Porque perteneció a un rey",
                 "Porque esconde un cajón secreto"
               ],
-              "explanation": "El trabajo de un escritor es invisible. Una mesa con papeles encima lo hace visible."
+              "explanation": "El trabajo de un escritor es invisible. Una mesa con papeles encima lo hace visible: enseña cómo se hace de verdad un libro."
             }
           },
           "heraklion-historical-museum-weaving": {
@@ -339,7 +339,7 @@
             "question": {
               "q": "¿Cómo pasaban de una generación a otra los dibujos de los tejidos?",
               "answers": [
-                "Trabajando al lado de alguien que los sabía",
+                "Trabajando al lado de quien los sabía",
                 "En libros de dibujos impresos",
                 "Con inspectores que los enseñaban",
                 "No pasaban: cada generación inventaba otros"
@@ -373,12 +373,12 @@
       "question": {
         "q": "¿Qué hace el simulador de terremotos del museo?",
         "answers": [
-          "Repite terremotos reales que se registraron de verdad",
+          "Repite terremotos reales",
           "Predice cuándo va a ser el próximo terremoto",
           "Pone una película sobre terremotos en tres dimensiones",
           "Mide con cuánta fuerza puedes pisar el suelo"
         ],
-        "explanation": "Nadie predice los terremotos. Pero saber cómo son ayuda a saber qué hacer."
+        "explanation": "Repite terremotos que se registraron de verdad. Nadie predice los terremotos, pero saber cómo son ayuda a saber qué hacer."
       },
       "findIt": "La entrada está en la avenida Sofokli Venizelou, en la bahía de Dermata, dentro de la antigua central eléctrica."
     },
@@ -394,12 +394,12 @@
       "question": {
         "q": "¿Qué no vas a ver en este acuario?",
         "answers": [
-          "Peces tropicales de otros océanos",
+          "Peces tropicales",
           "Tiburones",
           "Pulpos",
           "Tortugas"
         ],
-        "explanation": "La elección es a propósito: el acuario enseña el mar que tienes a la puerta, no un mar que no vas a ver nunca."
+        "explanation": "Aquí no hay peces tropicales de otros océanos. La elección es a propósito: el acuario enseña el mar que tienes a la puerta, no un mar que no vas a ver nunca."
       },
       "findIt": "No está en la ciudad: se encuentra en Gournes, dentro de la antigua base americana."
     },
@@ -415,12 +415,12 @@
       "question": {
         "q": "¿Por qué se construyó este estadio en Creta?",
         "answers": [
-          "Porque el fútbol olímpico de 2004 se repartió entre cinco ciudades",
+          "Porque el fútbol olímpico de 2004 se repartió",
           "Porque Creta pidió unos Juegos Olímpicos propios",
           "Porque el estadio viejo se destruyó en un terremoto",
           "Porque hacía falta sitio para conciertos"
         ],
-        "explanation": "Un torneo de fútbol necesita muchos campos a la vez. Por eso unos Juegos Olímpicos se reparten por todo un país."
+        "explanation": "El fútbol de 2004 se repartió entre cinco ciudades. Un torneo de fútbol necesita muchos campos a la vez, y por eso unos Juegos Olímpicos se reparten por todo un país."
       }
     },
     "heraklion-kazantzakis-museum": {
@@ -456,12 +456,12 @@
       "question": {
         "q": "¿Qué decían los cretenses antiguos de esta montaña?",
         "answers": [
-          "Que es Zeus tumbado, enterrado ahí dentro",
+          "Que es Zeus tumbado",
           "Que debajo de ella vive el Minotauro",
           "Que la hizo la gente con tierra",
           "Que crece un metro cada siglo"
         ],
-        "explanation": "El resto de los griegos no estaba de acuerdo, porque para ellos Zeus no moría. La discusión duró siglos."
+        "explanation": "Decían que Zeus estaba enterrado ahí dentro. El resto de los griegos no estaba de acuerdo, porque para ellos Zeus no moría. La discusión duró siglos."
       }
     },
     "heraklion-amnisos": {
@@ -476,12 +476,12 @@
       "question": {
         "q": "¿Qué significa que aquí se encontrara piedra pómez de Tera?",
         "answers": [
-          "Que la erupción del volcán llegó hasta esta costa",
+          "Que la erupción llegó a esta costa",
           "Que sus habitantes comerciaban con piedras",
           "Que en Creta también había un volcán",
           "Que el puerto se construyó encima de lava"
         ],
-        "explanation": "La piedra pómez flota. Viaja con el agua, y donde llega deja una fecha."
+        "explanation": "La erupción del volcán llegó hasta esta costa. La piedra pómez flota: viaja con el agua, y donde llega deja una fecha."
       }
     }
   },

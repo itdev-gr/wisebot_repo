@@ -14,12 +14,12 @@
       "question": {
         "q": "Warum wählten die ersten Athener diesen Felsen zum Wohnen?",
         "answers": [
-          "Weil er leicht zu verteidigen war und eine eigene Quelle hatte",
+          "Weil er leicht zu verteidigen war",
           "Weil er der einzige flache Boden in ganz Attika war",
           "Weil das Meer damals bis an seinen Fuß reichte",
           "Weil der Marmor schon oben lag, fertig zum Bauen"
         ],
-        "explanation": "Eine Burg braucht zwei Dinge: Höhe und Wasser. Der Felsen hatte beides, deshalb zogen die Menschen lange vor dem ersten Tempel dort hinauf."
+        "explanation": "Eine Burg braucht zwei Dinge: Höhe und Wasser. Der Felsen hatte beides, sogar eine eigene Quelle. Deshalb zogen die Menschen lange vor dem ersten Tempel dort hinauf."
       }
     },
     "athens-parthenon": {
@@ -34,12 +34,12 @@
       "question": {
         "q": "Was machten die Baumeister mit den Säulen des Parthenon mit Absicht?",
         "answers": [
-          "Sie ließen sie in der Mitte etwas anschwellen, damit sie gerade aussehen",
+          "Sie ließen sie in der Mitte etwas anschwellen",
           "Sie machten sie alle verschieden hoch, damit sie wie ein Berg aussehen",
           "Sie ließen sie innen hohl, damit Musik darin nachhallt",
           "Sie strichen sie schwarz, damit sie sich im Sommer nicht aufheizen"
         ],
-        "explanation": "Vollkommen gerade Linien sehen für unsere Augen aus, als würden sie durchhängen. Die alten Baumeister wussten das und korrigierten den Tempel, bevor ihn überhaupt jemand ansah."
+        "explanation": "Vollkommen gerade Linien sehen für unsere Augen aus, als würden sie durchhängen. Die leichte Wölbung sorgt dafür, dass die Säulen gerade aussehen. Die alten Baumeister korrigierten den Tempel, bevor ihn überhaupt jemand ansah."
       }
     },
     "athens-temple-hephaestus": {
@@ -74,7 +74,7 @@
       "question": {
         "q": "Wie wählten die Athener viele ihrer Richter aus?",
         "answers": [
-          "Durch das Los, mit einer Marmormaschine namens Kleroterion",
+          "Durch das Los, mit der Marmormaschine Kleroterion",
           "Durch Abstimmung, indem alle auf dem Platz die Hand hoben",
           "Der reichste Bürger jedes Viertels bestimmte sie",
           "Es waren immer die Söhne der früheren Richter"
@@ -114,7 +114,7 @@
       "question": {
         "q": "Was lernst du, wenn du die umgestürzte Säule ansiehst?",
         "answers": [
-          "Dass jede Säule aus vielen Stücken aufeinandergesetzt war",
+          "Dass jede Säule aus vielen Stücken bestand",
           "Dass die Säulen hohl waren und innen Treppen versteckt lagen",
           "Dass der Marmor innen rot bemalt war",
           "Dass die Säulen aus Beton gemacht waren"
@@ -155,12 +155,12 @@
       "question": {
         "q": "Was machten die Ingenieure, als sie auf dem Grundstück des Museums antike Häuser fanden?",
         "answers": [
-          "Sie stellten das Museum auf Säulen und legten einen Boden aus Glas ein",
+          "Sie stellten es auf Säulen, mit einem Glasboden",
           "Sie brachten die antiken Häuser auf ein anderes Grundstück",
           "Sie deckten die Funde mit Beton zu und machten weiter",
           "Sie bauten das Museum woanders, zwei Kilometer entfernt"
         ],
-        "explanation": "Das Museum ruht auf etwa hundert Säulen, die zwischen den Ruinen hindurch nach unten reichen, ohne sie zu berühren."
+        "explanation": "Das Museum ruht auf etwa hundert Säulen, die zwischen den Ruinen hindurch nach unten reichen, ohne sie zu berühren. Durch den Boden aus Glas siehst du die antiken Häuser unter deinen Füßen."
       },
       "museum": {
         "doorNote": "Schau nach unten, bevor du nach oben schaust: Der Boden am Eingang ist aus Glas, und darunter liegt eine Stadt.",
@@ -185,7 +185,7 @@
             "question": {
               "q": "Wie steht das Museum über dem antiken Viertel?",
               "answers": [
-                "Auf Säulen, die zwischen den Ruinen hinunterreichen",
+                "Auf Säulen zwischen den Ruinen",
                 "Auf einer einzigen riesigen Platte aus Beton",
                 "Auf Erde, die über die Ruinen geschüttet wurde",
                 "Auf Holzpfählen, so wie Venedig gebaut ist"
@@ -199,7 +199,7 @@
             "question": {
               "q": "Was trug eine Loutrophore?",
               "answers": [
-                "Das Wasser für das Bad vor der Hochzeit",
+                "Wasser für das Hochzeitsbad",
                 "Öl für die Lampen des Tempels",
                 "Wein für das Fest nach der Hochzeit",
                 "Asche vom Feuer eines Opfers"
@@ -213,12 +213,12 @@
             "question": {
               "q": "Warum haben manche dieser Geschenke die Form eines Beins oder eines Auges?",
               "answers": [
-                "Weil sie den Körperteil zeigen, der wehtat und dann gesund wurde",
+                "Weil sie den Körperteil zeigen, der wehtat",
                 "Weil sie Spielzeug für die Kinder des Heiligtums waren",
                 "Weil sie als Schlüssel für die Türen dienten",
                 "Weil sie Gussformen für die Bildhauer waren"
               ],
-              "explanation": "Es war eine Art, Danke zu sagen und dabei genau zu zeigen, wofür."
+              "explanation": "Man brachte das Geschenk, wenn der Körperteil wieder gesund geworden war. Es war eine Art, Danke zu sagen und dabei genau zu zeigen, wofür."
             }
           },
           "athens-acropolis-museum-moschophoros": {
@@ -227,7 +227,7 @@
             "question": {
               "q": "Was fehlt dem Kälberträger heute?",
               "answers": [
-                "Seine Augen, die aus einem anderen, farbigen Material waren",
+                "Seine Augen aus farbigem Material",
                 "Das Kalb, das getrennt von ihm gefunden wurde",
                 "Sein Kopf, der nie gefunden wurde",
                 "Sein Sockel, der oben auf dem Felsen blieb"
@@ -255,12 +255,12 @@
             "question": {
               "q": "Was macht dieser Junge, was ältere Statuen nicht machten?",
               "answers": [
-                "Er verlagert sein Gewicht auf ein Bein",
+                "Er verlagert sein Gewicht",
                 "Er hält ein Tier in den Armen",
                 "Er sitzt, statt zu stehen",
                 "Er ist aus Bronze statt aus Marmor"
               ],
-              "explanation": "Probier es aus: Stell dein Gewicht auf ein Bein und sieh zu, was deine Schultern ganz von allein machen."
+              "explanation": "Er verlagert sein Gewicht auf ein Bein. Probier es aus und sieh zu, was deine Schultern ganz von allein machen."
             }
           },
           "athens-acropolis-museum-caryatids": {
@@ -283,7 +283,7 @@
             "question": {
               "q": "Wen zeigt der Fries des Parthenon vor allem?",
               "answers": [
-                "Die Athener selbst, in einem Festzug",
+                "Die Athener selbst, im Festzug",
                 "Nur die zwölf Götter des Olymp",
                 "Eine Seeschlacht mit Schiffen und Rudern",
                 "Die Könige von Persien"
@@ -349,12 +349,12 @@
       "question": {
         "q": "Warum kamen die Bronzestatuen fast unversehrt aus dem Meer?",
         "answers": [
-          "Weil auf dem Meeresboden niemand an sie herankam, um sie einzuschmelzen",
+          "Weil sie im Meer niemand einschmolz",
           "Weil Bronze nirgendwo jemals verfällt",
           "Weil man sie in Tierhäute gewickelt hatte",
           "Weil sie innen aus massivem Gold waren"
         ],
-        "explanation": "An Land wurden Bronzestatuen eingeschmolzen, um Werkzeuge oder Waffen zu werden. Die, die untergingen, waren die, die davonkamen."
+        "explanation": "An Land wurden Bronzestatuen eingeschmolzen, um Werkzeuge oder Waffen zu werden. Auf dem Meeresboden kam niemand an sie heran. Die, die untergingen, waren die, die davonkamen."
       },
       "museum": {
         "doorNote": "Es ist zu groß für einen einzigen Besuch. Such dir zwei Säle aus und schau sie dir richtig an.",
@@ -393,7 +393,7 @@
             "question": {
               "q": "Was zeigen die beiden Becher zusammen?",
               "answers": [
-                "Zwei verschiedene Arten, einen Stier zu fangen",
+                "Zwei Arten, Stiere zu fangen",
                 "Zwei Schlachten zwischen Städten",
                 "Dieselbe Szene von zwei Seiten",
                 "Eine Hochzeit und eine Beerdigung"
@@ -407,12 +407,12 @@
             "question": {
               "q": "Wie wurden die Bilder auf der Klinge gemacht?",
               "answers": [
-                "Mit winzigen Stücken aus Gold und Silber, eingelegt in die Bronze",
+                "Mit Gold und Silber eingelegt",
                 "Mit Pinsel und Lack aufgemalt",
                 "Mit einem Stempel aufgedrückt",
                 "Mit Feuer in das Metall eingebrannt"
               ],
-              "explanation": "Das nennt man Einlegearbeit. Es ist geduldige Arbeit mit Werkzeugen, die feiner sind als eine Nadel."
+              "explanation": "Winzige Stücke aus Gold und Silber wurden in die Bronze eingelassen. Das nennt man Einlegearbeit: geduldige Arbeit mit Werkzeugen, die feiner sind als eine Nadel."
             }
           },
           "athens-national-archaeological-museum-artemision-bronze": {
@@ -435,7 +435,7 @@
             "question": {
               "q": "Was hat der kleine Reiter nicht?",
               "answers": [
-                "Weder Sattel noch Steigbügel",
+                "Sattel und Steigbügel",
                 "Eine Peitsche in der Hand",
                 "Ein Zaumzeug am Pferd",
                 "Haare auf dem Kopf"
@@ -463,12 +463,12 @@
             "question": {
               "q": "Was tat der Mechanismus von Antikythera?",
               "answers": [
-                "Er zeigte die Stellungen von Sonne und Mond und sagte Finsternisse voraus",
+                "Er zeigte Sonne, Mond und Finsternisse",
                 "Er pumpte Wasser vom Grund eines Brunnens herauf",
                 "Er wog Gold ganz genau ab",
                 "Er öffnete die Türen eines Tempels von allein"
               ],
-              "explanation": "Er war ein Computer für den Himmel, aus Zahnrädern. Er rechnete nicht; er zeigte dir, wo die Dinge am Himmel stehen würden."
+              "explanation": "Er war ein Computer für den Himmel, aus Zahnrädern. Er zeigte die Stellungen von Sonne und Mond zu einem bestimmten Zeitpunkt und sagte Finsternisse voraus."
             }
           },
           "athens-national-archaeological-museum-spring-fresco": {
@@ -491,7 +491,7 @@
             "question": {
               "q": "Was ist an den Händen der beiden Jungen seltsam?",
               "answers": [
-                "Jeder trägt nur an einer Hand einen Handschuh",
+                "Jeder trägt nur einen Handschuh",
                 "Beide halten Schwerter",
                 "Ihre Hände sind hinter dem Rücken gefesselt",
                 "Sie haben überhaupt keine Finger"
@@ -505,7 +505,7 @@
             "question": {
               "q": "Warum ist es seltsam, dass auf dieser Wand Antilopen zu sehen sind?",
               "answers": [
-                "Weil auf Santorin keine Antilopen lebten",
+                "Weil auf Santorin keine lebten",
                 "Weil Antilopen nur in Gräbern gemalt wurden",
                 "Weil jede von ihnen fünf Beine hat",
                 "Weil sie kopfüber gemalt sind"
@@ -543,7 +543,7 @@
       "question": {
         "q": "Wie kamen die Spielsachen dieses Museums zusammen?",
         "answers": [
-          "Eine Sammlerin hat sie ihr ganzes Leben lang zusammengetragen",
+          "Eine Sammlerin trug sie ihr Leben lang zusammen",
           "Kinder haben sie in den Werkstätten des Museums gebaut",
           "Der Staat hat sie von einer Fabrik gekauft",
           "Sie wurden alle zusammen bei einer Ausgrabung gefunden"
@@ -569,12 +569,12 @@
             "question": {
               "q": "Wie viele verschiedene Seiten hat so ein Knochen?",
               "answers": [
-                "Vier, jede mit einer anderen Punktzahl",
+                "Vier",
                 "Sechs, wie ein Würfel",
                 "Zwei, wie eine Münze",
                 "Acht, wie ein Kreisel"
               ],
-              "explanation": "Deshalb war er Würfel und Geschicklichkeitsspiel zugleich."
+              "explanation": "Jede der vier Seiten zählte eine andere Punktzahl. Deshalb war er Würfel und Geschicklichkeitsspiel zugleich."
             }
           },
           "athens-benaki-toy-museum-jointed-doll": {
@@ -583,7 +583,7 @@
             "question": {
               "q": "Was machten Mädchen mit diesen Puppen, wenn sie erwachsen wurden?",
               "answers": [
-                "Sie ließen sie als Geschenk in einem Heiligtum zurück",
+                "Sie schenkten sie dem Heiligtum",
                 "Sie zerbrachen sie und warfen sie weg",
                 "Sie verkauften sie auf dem Markt",
                 "Sie bemalten sie golden"
@@ -597,7 +597,7 @@
             "question": {
               "q": "Warum haben diese Tierchen vorn ein Loch?",
               "answers": [
-                "Damit eine Schnur hindurchgeht und man sie ziehen kann",
+                "Damit man sie an einer Schnur ziehen kann",
                 "Damit die Luft entweicht, während sie gebrannt werden",
                 "Damit man Wasser in sie hineinfüllen kann",
                 "Damit man sie an einen Baum hängen kann"
@@ -611,12 +611,12 @@
             "question": {
               "q": "Woher bekommt ein Aufziehspielzeug seine Energie?",
               "answers": [
-                "Aus deiner Hand, gespeichert in einer Feder",
+                "Aus deiner Hand, in einer Feder",
                 "Aus einer kleinen Batterie im Sockel",
                 "Von der Sonne, durch die Farbe",
                 "Von Magneten in den Rädern"
               ],
-              "explanation": "Beim Aufziehen spannst du eine Feder. Beim Entspannen macht diese Feder die Arbeit."
+              "explanation": "Beim Aufziehen spannst du eine Feder, und sie speichert deine Kraft. Beim Entspannen macht diese Feder die Arbeit."
             }
           },
           "athens-benaki-toy-museum-dolls-houses": {
@@ -625,12 +625,12 @@
             "question": {
               "q": "Warum sind Puppenhäuser für Historiker nützlich?",
               "answers": [
-                "Weil sie zeigen, wie die Häuser der damaligen Zeit wirklich aussahen",
+                "Weil sie echte Häuser zeigen",
                 "Weil in ihnen Briefe versteckt wurden",
                 "Weil sie immer Nachbildungen von Palästen waren",
                 "Weil unten das Datum daraufsteht"
               ],
-              "explanation": "Niemand baut ein Modell von einem Haus, das er nie gesehen hat."
+              "explanation": "Sie zeigen, wie die Häuser der damaligen Zeit wirklich aussahen. Niemand baut ein Modell von einem Haus, das er nie gesehen hat."
             }
           },
           "athens-benaki-toy-museum-shadow-figures": {
@@ -639,7 +639,7 @@
             "question": {
               "q": "Was sieht das Publikum im Schattentheater?",
               "answers": [
-                "Nur den Schatten der Figuren auf einem weißen Tuch",
+                "Nur den Schatten auf dem weißen Tuch",
                 "Die Figuren vor dem Tuch",
                 "Schauspieler mit Masken",
                 "Einen Film, der an eine Wand geworfen wird"
@@ -672,12 +672,12 @@
       "question": {
         "q": "Warum blieb der Lykabettos hoch, während der Boden ringsum absank?",
         "answers": [
-          "Weil sein Fels viel härter ist und sich nicht so leicht abtragen ließ",
+          "Weil sein Fels viel härter ist",
           "Weil Menschen ihn aus Erde und Steinen aufgeschüttet haben",
           "Weil unter ihm ein Vulkan liegt, der ihn nach oben drückt",
           "Weil die Wurzeln der Kiefern ihn oben halten"
         ],
-        "explanation": "Harter Kalkstein wird langsamer abgetragen. Gib ihm Millionen von Jahren, und was hart ist, bleibt stehen – als Hügel."
+        "explanation": "Sein Fels ließ sich nicht so leicht abtragen. Harter Kalkstein verschwindet langsamer: Gib ihm Millionen von Jahren, und was hart ist, bleibt stehen – als Hügel."
       }
     },
     "athens-national-garden": {
@@ -712,12 +712,12 @@
       "question": {
         "q": "An wen erinnert das Denkmal vor dem Gebäude?",
         "answers": [
-          "An alle Soldaten, die umkamen und nie erkannt wurden",
+          "An alle gefallenen Soldaten ohne Namen",
           "An den ersten König Griechenlands",
           "An den Architekten, der den Palast entworfen hat",
           "An die Sportler der ersten Olympischen Spiele"
         ],
-        "explanation": "Deshalb steht kein Name auf dem Grab. Ein einziger Name würde alle anderen ausschließen."
+        "explanation": "Es erinnert an alle Soldaten, die umkamen und nie erkannt wurden. Deshalb steht kein Name auf dem Grab: Ein einziger Name würde alle anderen ausschließen."
       }
     },
     "athens-agios-eleftherios": {
@@ -732,12 +732,12 @@
       "question": {
         "q": "Woraus ist diese Kirche gebaut?",
         "answers": [
-          "Aus Marmor, der von älteren Gebäuden abgenommen wurde",
+          "Aus Marmor von älteren Gebäuden",
           "Aus Ziegeln, die eigens für sie gebrannt wurden",
           "Aus Holz, bemalt, damit es wie Stein aussieht",
           "Aus einem einzigen Stein, an Ort und Stelle behauen"
         ],
-        "explanation": "Man nennt das Spolien: wiederverwendetes Material. Es war billiger und schneller, als neuen Marmor zu brechen."
+        "explanation": "Der Marmor wurde von älteren Gebäuden abgenommen. Man nennt das Spolien: wiederverwendetes Material. Es war billiger und schneller, als neuen Marmor zu brechen."
       }
     },
     "athens-kerameikos": {
@@ -772,7 +772,7 @@
       "question": {
         "q": "Warum beginnt die Arbeit auf dem Markt vor Sonnenaufgang?",
         "answers": [
-          "Damit Fisch und Fleisch frisch an die Theken kommen",
+          "Damit Fisch und Fleisch frisch ankommen",
           "Weil das Tageslicht die Theken aus Marmor beschädigt",
           "Weil der Markt um acht Uhr morgens schließt",
           "Weil ein Gesetz von 1886 es vorschreibt"
@@ -792,12 +792,12 @@
       "question": {
         "q": "Was ist an dem Hügel besonders, auf dem das Gebäude steht?",
         "answers": [
-          "Er ist nicht natürlich: Menschen haben ihn gebaut",
+          "Menschen haben ihn gebaut",
           "Er ist der höchste Hügel Attikas",
           "Er ist ein erloschener Vulkan",
           "Er besteht aus Marmor vom Berg Pentelikon"
         ],
-        "explanation": "Der Hügel wurde über die Gebäude gehoben, damit der Park über sie hinweg weitergeht, statt aufzuhören."
+        "explanation": "Der Hügel ist nicht natürlich. Er wurde über die Gebäude gehoben, damit der Park über sie hinweg weitergeht, statt aufzuhören."
       },
       "findIt": "Der Eingang liegt an der Andrea-Syngrou-Allee 364, kurz bevor die Straße das Meer erreicht."
     },
@@ -813,12 +813,12 @@
       "question": {
         "q": "Was macht ein Planetarium, was ein Kino nicht macht?",
         "answers": [
-          "Es zeigt, wo die Sterne in einem bestimmten Augenblick wirklich stehen",
+          "Es zeigt, wo die Sterne wirklich stehen",
           "Es zeigt Filme auf einer größeren Leinwand",
           "Es hat Sitze, die sich mit dem Bild mitbewegen",
           "Es zeigt nur Dokumentarfilme über Tiere"
         ],
-        "explanation": "Hinter dem Bild stehen Berechnungen. Deshalb kann es dir auch den Himmel von 1821 oder den von 3000 zeigen."
+        "explanation": "Es zeigt den Himmel eines bestimmten Augenblicks, denn hinter dem Bild stehen Berechnungen. Deshalb kann es dir auch den Himmel von 1821 oder den von 3000 zeigen."
       },
       "findIt": "Der Eingang liegt an der Andrea-Syngrou-Allee 387, gegenüber dem Kulturzentrum."
     }

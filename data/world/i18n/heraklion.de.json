@@ -14,12 +14,12 @@
       "question": {
         "q": "Was sind die roten Teile mit den geraden Kanten, die du heute in Knossos siehst?",
         "answers": [
-          "Rekonstruktionen aus Beton, gebaut im 20. Jahrhundert",
+          "Rekonstruktionen aus Beton",
           "Minoische Mauern, die vollständig erhalten geblieben sind",
           "Römische Anbauten oben auf dem Palast",
           "Teile eines anderen Palasts, die hierher gebracht wurden"
         ],
-        "explanation": "Der Archäologe, der Knossos ausgrub, baute Teile wieder auf, damit Besucher ihre Form verstehen konnten. Das ist nützlich, und es wird bis heute darüber gestritten."
+        "explanation": "Der Archäologe, der Knossos ausgrub, baute im 20. Jahrhundert Teile wieder auf, damit Besucher ihre Form verstehen konnten. Das ist nützlich, und es wird bis heute darüber gestritten."
       }
     },
     "heraklion-archaeological-museum": {
@@ -34,7 +34,7 @@
       "question": {
         "q": "Warum siehst du in Knossos Kopien der Fresken und nicht die Originale?",
         "answers": [
-          "Damit Sonne und Wetter die Originale nicht zerstören",
+          "Damit Sonne und Wetter sie nicht zerstören",
           "Weil die Originale bei einem Erdbeben verloren gingen",
           "Weil die Originale einem privaten Besitzer gehören",
           "Weil die Originale zu klein sind, um sie zu sehen"
@@ -60,12 +60,12 @@
             "question": {
               "q": "Wie viele Menschen sind an der Szene mit dem Stier beteiligt?",
               "answers": [
-                "Drei, in drei verschiedenen Momenten des Sprungs",
+                "Drei",
                 "Nur einer, in der Luft",
                 "Fünf, im Kreis um ihn herum",
                 "Keiner: Der Stier ist allein"
               ],
-              "explanation": "Vielleicht zeigt es drei Personen, vielleicht dieselbe Person dreimal, wie die Einzelbilder eines Films."
+              "explanation": "Vielleicht zeigt es drei Personen, vielleicht dieselbe Person in drei verschiedenen Momenten des Sprungs, wie die Einzelbilder eines Films."
             }
           },
           "heraklion-archaeological-museum-prince-lilies": {
@@ -74,12 +74,12 @@
             "question": {
               "q": "Warum ist dieses Fresko umstritten?",
               "answers": [
-                "Weil es nur wenige echte Bruchstücke gibt und der Rest ergänzt wurde",
+                "Weil es nur wenige echte Bruchstücke gibt",
                 "Weil es vor Kurzem von einem Fälscher gemalt wurde",
                 "Weil es außerhalb Kretas gefunden wurde",
                 "Weil überhaupt keine Farbe darauf erhalten ist"
               ],
-              "explanation": "Ergänzen heißt raten. Wenn es wenige Bruchstücke gibt, wird das Geratene groß."
+              "explanation": "Der Rest wurde ergänzt, und Ergänzen heißt raten. Wenn es wenige Bruchstücke gibt, wird das Geratene groß."
             }
           },
           "heraklion-archaeological-museum-saffron-gatherer": {
@@ -102,12 +102,12 @@
             "question": {
               "q": "Warum ist der Diskos von Phaistos nicht gelesen worden?",
               "answers": [
-                "Weil kein anderer Text in derselben Schrift gefunden wurde",
+                "Weil es nur diesen Text gibt",
                 "Weil die Zeichen abgerieben sind",
                 "Weil er in der Mitte zerbrochen ist",
                 "Weil es niemand versucht hat"
               ],
-              "explanation": "Um eine Schrift zu knacken, braucht man viele Proben. Bei einem einzigen Fundstück ist jede Lösung geraten."
+              "explanation": "Kein zweiter Text in derselben Schrift wurde je gefunden. Um eine Schrift zu knacken, braucht man viele Proben. Bei einem einzigen Fundstück ist jede Lösung geraten."
             }
           },
           "heraklion-archaeological-museum-snake-goddess": {
@@ -130,12 +130,12 @@
             "question": {
               "q": "Wie kamen die winzigen Goldkügelchen auf das Schmuckstück?",
               "answers": [
-                "Sie wurden eines nach dem anderen aufgesetzt, in einer Technik namens Granulation",
+                "Sie wurden eines nach dem anderen aufgesetzt",
                 "Sie wurden mit dem übrigen Gold in einer Form gegossen",
                 "Sie wurden mit goldener Farbe aufgemalt",
                 "Sie wurden von hinten herausgehämmert"
               ],
-              "explanation": "Jedes Kügelchen ist ein eigenes Stück Gold. Zähl sie, wenn du Geduld hast."
+              "explanation": "Diese Technik heißt Granulation. Jedes Kügelchen ist ein eigenes Stück Gold. Zähl sie, wenn du Geduld hast."
             }
           },
           "heraklion-archaeological-museum-harvester-vase": {
@@ -144,7 +144,7 @@
             "question": {
               "q": "Was macht die Schnittervase ungewöhnlich?",
               "answers": [
-                "Man sieht, dass die Figuren singen, man sieht also Klang",
+                "Man sieht Klang: Sie singen",
                 "Sie ist aus massivem Gold",
                 "Auf ihr steht ein Gedicht",
                 "Sie ist das größte Gefäß des Museums"
@@ -182,7 +182,7 @@
       "question": {
         "q": "Warum sind die Mauern zur Meerseite so viel dicker?",
         "answers": [
-          "Weil von dort die Kanonenkugeln kamen",
+          "Weil von dort Kanonenkugeln kamen",
           "Weil Salz den Stein schneller auffrisst",
           "Weil dort die Gefängnisse lagen",
           "Weil sie dadurch im Wasser aufrecht steht"
@@ -203,12 +203,12 @@
       "question": {
         "q": "Wie kam das Wasser aus fünfzehn Kilometern Entfernung zum Brunnen?",
         "answers": [
-          "Durch eine Wasserleitung, die ganz sacht bergab lief, allein mit dem Gefälle des Bodens",
+          "Durch eine Wasserleitung, ganz sacht bergab",
           "Durch Pumpen, die von Pferden angetrieben wurden",
           "In Fässern, die jeden Morgen mit Karren gebracht wurden",
           "Aus einem Ziehbrunnen direkt darunter"
         ],
-        "explanation": "Eine Wasserleitung braucht keine Energie, sondern Genauigkeit: Das Gefälle muss auf der ganzen Strecke gering und gleichmäßig sein."
+        "explanation": "Sie lief allein mit dem Gefälle des Bodens. Eine Wasserleitung braucht keine Energie, sondern Genauigkeit: Das Gefälle muss auf der ganzen Strecke gering und gleichmäßig sein."
       }
     },
     "heraklion-loggia": {
@@ -223,12 +223,12 @@
       "question": {
         "q": "Was war dieses Gebäude ursprünglich?",
         "answers": [
-          "Ein Klub, in dem sich die venezianischen Adligen trafen",
+          "Ein Klub für Venedigs Adlige",
           "Eine Kirche mit zwei Glockentürmen",
           "Ein Lagerhaus des Hafens",
           "Eine Schule für die Kinder der Stadt"
         ],
-        "explanation": "Entscheidungen über eine Stadt fielen nicht immer in Amtsgebäuden. Hier fielen sie in einem Klub, und am Ende wurde das Gebäude das Rathaus."
+        "explanation": "Hier trafen sich die venezianischen Adligen. Entscheidungen über eine Stadt fielen nicht immer in Amtsgebäuden: Diese fielen in einem Klub, und am Ende wurde das Gebäude das Rathaus."
       }
     },
     "heraklion-historical-museum": {
@@ -243,12 +243,12 @@
       "question": {
         "q": "Warum wurde Domenikos Theotokopoulos „El Greco“ genannt?",
         "answers": [
-          "Weil man ihn in Spanien einfach „den Griechen“ nannte",
+          "Weil ihn die Spanier „den Griechen“ nannten",
           "Weil er seine Werke von klein auf so unterschrieb",
           "Weil es der Name seines Lehrers war",
           "Weil er in einem Dorf dieses Namens geboren wurde"
         ],
-        "explanation": "Sein Name war für Spanier schwer auszusprechen. Der Spitzname setzte sich durch und blieb für immer."
+        "explanation": "In Spanien war sein Name schwer auszusprechen, also sagten die Leute einfach „der Grieche“. Der Spitzname setzte sich durch und blieb für immer."
       },
       "museum": {
         "doorNote": "Fang beim Modell an. Dann weißt du genau, wo du gerade stehst.",
@@ -269,12 +269,12 @@
             "question": {
               "q": "Was ist an diesem Bild für seine Zeit ungewöhnlich?",
               "answers": [
-                "Es ist eine Landschaft, und die Menschen darauf sind winzig",
+                "Es ist nur Landschaft",
                 "Es ist auf Glas gemalt",
                 "Es hat überhaupt keine Farbe",
                 "Es ist größer als eine Wand"
               ],
-              "explanation": "Die Landschaft wurde erst viel später ein eigenes Thema. Hier ist der Berg die Hauptfigur."
+              "explanation": "Die Menschen darauf sind winzig. Die Landschaft wurde erst viel später ein eigenes Thema. Hier ist der Berg die Hauptfigur."
             }
           },
           "heraklion-historical-museum-baptism": {
@@ -283,12 +283,12 @@
             "question": {
               "q": "Woran erkennst du ein Bild von El Greco?",
               "answers": [
-                "An den langgezogenen Körpern und dem unnatürlichen Licht",
+                "An den langgezogenen Körpern",
                 "Daran, dass es immer riesig ist",
                 "Daran, dass keine Menschen darauf sind",
                 "An der Unterschrift auf Spanisch"
               ],
-              "explanation": "Er unterschrieb bis zuletzt auf Griechisch. Aber sein Stil braucht keine Unterschrift."
+              "explanation": "Dazu kommt das unnatürliche Licht. Er unterschrieb bis zuletzt auf Griechisch. Aber sein Stil braucht keine Unterschrift."
             }
           },
           "heraklion-historical-museum-byzantine-frescoes": {
@@ -297,12 +297,12 @@
             "question": {
               "q": "Warum sind die Augen und Hände auf diesen Fresken so groß?",
               "answers": [
-                "Damit man sie aus der Ferne und bei sehr wenig Licht lesen kann",
+                "Damit man sie von Weitem lesen kann",
                 "Weil der Maler keine Proportionen kannte",
                 "Weil die Menschen damals so aussahen",
                 "Damit weniger Farbe gebraucht wird"
               ],
-              "explanation": "Das ist eine gestalterische Entscheidung. Die Kapelle ist dunkel und die Wand weit weg."
+              "explanation": "Das ist eine gestalterische Entscheidung. Die Kapelle ist dunkel und die Wand weit weg: Große Augen und Hände liest man auch bei sehr wenig Licht."
             }
           },
           "heraklion-historical-museum-city-model": {
@@ -325,7 +325,7 @@
             "question": {
               "q": "Warum lohnt es sich, einen ganz gewöhnlichen Schreibtisch auszustellen?",
               "answers": [
-                "Weil er zeigt, wie ein Buch wirklich entsteht",
+                "Weil er zeigt, wie ein Buch entsteht",
                 "Weil er aus seltenem Holz gemacht ist",
                 "Weil er einem König gehörte",
                 "Weil er ein geheimes Fach verbirgt"
@@ -339,12 +339,12 @@
             "question": {
               "q": "Wie wurden die Webmuster von einer Generation zur nächsten weitergegeben?",
               "answers": [
-                "Indem man neben jemandem arbeitete, der sie kannte",
+                "Indem man neben jemandem arbeitete",
                 "Aus gedruckten Musterbüchern",
                 "Von Inspektoren, die sie unterrichteten",
                 "Gar nicht: Jede Generation erfand neue"
               ],
-              "explanation": "Das ist Wissen ohne Handbuch. Deshalb verschwindet es in einer einzigen Generation, sobald es nicht mehr weitergegeben wird."
+              "explanation": "Man lernte neben jemandem, der die Muster kannte. Das ist Wissen ohne Handbuch. Deshalb verschwindet es in einer einzigen Generation, sobald es nicht mehr weitergegeben wird."
             }
           }
         },
@@ -373,12 +373,12 @@
       "question": {
         "q": "Was macht der Erdbebensimulator des Museums?",
         "answers": [
-          "Er spielt echte Erdbeben nach, die wirklich aufgezeichnet wurden",
+          "Er spielt echte Erdbeben nach",
           "Er sagt voraus, wann das nächste Erdbeben kommt",
           "Er zeigt einen dreidimensionalen Film über Erdbeben",
           "Er misst, wie fest du auf den Boden stampfen kannst"
         ],
-        "explanation": "Niemand sagt Erdbeben voraus. Aber zu wissen, wie sich eines anfühlt, hilft dir zu wissen, was zu tun ist."
+        "explanation": "Die Beben, die er nachspielt, wurden wirklich aufgezeichnet. Niemand sagt Erdbeben voraus. Aber zu wissen, wie sich eines anfühlt, hilft dir zu wissen, was zu tun ist."
       },
       "findIt": "Der Eingang liegt an der Sofokli-Venizelou-Allee an der Bucht von Dermata, im alten Kraftwerk."
     },
@@ -394,12 +394,12 @@
       "question": {
         "q": "Was wirst du in diesem Aquarium nicht sehen?",
         "answers": [
-          "Tropische Fische aus anderen Ozeanen",
+          "Tropenfische",
           "Haie",
           "Kraken",
           "Schildkröten"
         ],
-        "explanation": "Die Auswahl ist Absicht: Das Aquarium zeigt das Meer vor der Tür, nicht ein Meer, das du nie sehen wirst."
+        "explanation": "Tropenfische leben in anderen Ozeanen. Die Auswahl ist Absicht: Das Aquarium zeigt das Meer vor der Tür, nicht ein Meer, das du nie sehen wirst."
       },
       "findIt": "Es liegt nicht in der Stadt: Es steht in Gournes, auf dem Gelände der alten amerikanischen Basis."
     },
@@ -415,12 +415,12 @@
       "question": {
         "q": "Warum wurde dieses Stadion auf Kreta gebaut?",
         "answers": [
-          "Weil der olympische Fußball 2004 auf fünf Städte verteilt wurde",
+          "Weil der olympische Fußball verteilt wurde",
           "Weil sich Kreta um eigene Olympische Spiele bewarb",
           "Weil das alte Stadion bei einem Erdbeben zerstört wurde",
           "Weil Platz für Konzerte gebraucht wurde"
         ],
-        "explanation": "Ein Fußballturnier braucht viele Plätze gleichzeitig. Deshalb verteilen sich Olympische Spiele über ein ganzes Land."
+        "explanation": "2004 wurde der olympische Fußball auf fünf Städte verteilt. Ein Fußballturnier braucht viele Plätze gleichzeitig. Deshalb verteilen sich Olympische Spiele über ein ganzes Land."
       }
     },
     "heraklion-kazantzakis-museum": {
@@ -456,12 +456,12 @@
       "question": {
         "q": "Was sagten die alten Kreter über diesen Berg?",
         "answers": [
-          "Dass er der liegende Zeus ist, dort begraben",
+          "Dass er der liegende Zeus ist",
           "Dass unter ihm der Minotaurus lebt",
           "Dass Menschen ihn aus Erde aufgeschüttet haben",
           "Dass er jedes Jahrhundert einen Meter wächst"
         ],
-        "explanation": "Die übrigen Griechen widersprachen, denn für sie starb Zeus nie. Der Streit hielt Jahrhunderte an."
+        "explanation": "Sie sagten, er liege dort begraben. Die übrigen Griechen widersprachen, denn für sie starb Zeus nie. Der Streit hielt Jahrhunderte an."
       }
     },
     "heraklion-amnisos": {
@@ -476,7 +476,7 @@
       "question": {
         "q": "Was bedeutet es, dass hier Bimsstein von Thera gefunden wurde?",
         "answers": [
-          "Dass der Ausbruch des Vulkans bis an diese Küste reichte",
+          "Dass der Vulkanausbruch hierher reichte",
           "Dass die Bewohner mit Steinen Handel trieben",
           "Dass es auch auf Kreta einen Vulkan gab",
           "Dass der Hafen auf Lava gebaut war"

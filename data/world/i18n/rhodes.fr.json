@@ -14,12 +14,12 @@
       "question": {
         "q": "Qu’est-ce qui a détruit le palais en 1856 ?",
         "answers": [
-          "De la poudre à canon oubliée dans une cave depuis l’époque des chevaliers",
+          "De la poudre à canon oubliée en cave",
           "Un siège qui a duré des mois",
           "Un tremblement de terre qui a ouvert le sol",
           "Une inondation venue de la mer"
         ],
-        "explanation": "La poudre était restée là plus de trois cents ans. Plus personne ne se souvenait qu’elle existait."
+        "explanation": "Elle dormait dans une cave depuis l’époque des chevaliers. La poudre était restée là plus de trois cents ans, et plus personne ne se souvenait qu’elle existait."
       }
     },
     "rhodes-archaeological-museum": {
@@ -60,12 +60,12 @@
             "question": {
               "q": "Pourquoi les fenêtres de la salle sont-elles petites et placées très haut ?",
               "answers": [
-                "Pour que l’air chaud sorte et que l’air se renouvelle",
+                "Pour que l’air chaud sorte",
                 "Pour que les malades ne voient pas dehors",
                 "Pour laisser entrer moins de poussière",
                 "Parce que le verre coûtait très cher"
               ],
-              "explanation": "L’air chaud monte. Une fenêtre placée haut est une cheminée à air."
+              "explanation": "L’air chaud monte. Une fenêtre placée haut est une cheminée à air : le chaud s’en va, et l’air de la salle se renouvelle."
             }
           },
           "rhodes-archaeological-museum-knight-slabs": {
@@ -74,12 +74,12 @@
             "question": {
               "q": "Comment l’ordre des chevaliers était-il divisé ?",
               "answers": [
-                "En groupes, selon la langue qu’ils parlaient",
+                "En groupes, par langue",
                 "En groupes, selon leur taille",
                 "En groupes, selon leur âge",
                 "Il n’était pas divisé du tout"
               ],
-              "explanation": "On les appelait des « langues ». C’est pour cela que dans la rue des Chevaliers, chaque maison porte d’autres armoiries au-dessus de sa porte."
+              "explanation": "Les chevaliers étaient réunis selon la langue qu’ils parlaient, et on appelait ces groupes des « langues ». C’est pour cela que dans la rue des Chevaliers, chaque maison porte d’autres armoiries au-dessus de sa porte."
             }
           },
           "rhodes-archaeological-museum-courtyard": {
@@ -102,12 +102,12 @@
             "question": {
               "q": "Que fait cette figure ?",
               "answers": [
-                "Elle tord ses cheveux en sortant de la mer",
+                "Elle tord ses cheveux",
                 "Elle tient un enfant dans ses bras",
                 "Elle court en portant une torche",
                 "Elle joue d’un instrument de musique"
               ],
-              "explanation": "C’est un moment sans aucune importance, et c’est exactement pour cela qu’il te retient encore."
+              "explanation": "Elle sort de la mer et essore ses cheveux. C’est un moment sans aucune importance, et c’est exactement pour cela qu’il te retient encore."
             }
           },
           "rhodes-archaeological-museum-marine-venus": {
@@ -116,7 +116,7 @@
             "question": {
               "q": "Pourquoi son visage est-il rongé ?",
               "answers": [
-                "Parce qu’elle a passé des siècles dans la mer",
+                "Parce qu’elle a passé des siècles en mer",
                 "Parce qu’on l’a abîmée exprès",
                 "Parce que le sculpteur ne l’a jamais terminée",
                 "Parce qu’un incendie l’a brûlée"
@@ -144,12 +144,12 @@
             "question": {
               "q": "Pourquoi y a-t-il dessus des animaux qui n’ont jamais vécu à Rhodes ?",
               "answers": [
-                "Parce que les peintres copiaient des images qui arrivaient par bateau",
+                "Parce que les peintres copiaient des images",
                 "Parce que ces animaux avaient disparu peu de temps avant",
                 "Parce que les vases ont été faits ailleurs",
                 "Parce que le moule était défectueux"
               ],
-              "explanation": "Le commerce ne transportait pas que des marchandises. Il transportait aussi des images, et les images voyagent plus loin que les animaux."
+              "explanation": "Ces images arrivaient par bateau. Le commerce ne transportait pas que des marchandises : il transportait aussi des images, et les images voyagent plus loin que les animaux."
             }
           }
         },
@@ -221,7 +221,7 @@
             "question": {
               "q": "Pourquoi le sang de la pieuvre est-il bleu ?",
               "answers": [
-                "Parce qu’il transporte l’oxygène avec du cuivre au lieu du fer",
+                "Parce qu’il porte l’oxygène avec du cuivre",
                 "Parce qu’elle vit dans des eaux bleues et profondes",
                 "Parce qu’elle mange des algues bleues",
                 "Parce qu’il reflète la couleur de sa peau"
@@ -235,12 +235,12 @@
             "question": {
               "q": "Comment la rascasse chasse-t-elle ?",
               "answers": [
-                "Elle reste immobile, on dirait une pierre, et elle attend",
+                "Elle reste immobile et attend",
                 "Elle chasse en banc",
                 "Elle nage très vite en ligne droite",
                 "Elle creuse le fond avec sa queue"
               ],
-              "explanation": "Le camouflage coûte moins cher que la vitesse. Il ne coûte que de la patience."
+              "explanation": "On dirait une pierre posée au fond. Le camouflage coûte moins cher que la vitesse : il ne coûte que de la patience."
             }
           },
           "rhodes-aquarium-whale-bones": {
@@ -249,12 +249,12 @@
             "question": {
               "q": "Que nous disent les petits os près de la queue d’une baleine ?",
               "answers": [
-                "Que ses ancêtres marchaient sur la terre",
+                "Que ses ancêtres marchaient",
                 "Qu’elle a eu autrefois une deuxième queue",
                 "Qu’elle avait été blessée",
                 "Qu’elle était très jeune"
               ],
-              "explanation": "Ce sont des restes de pattes. L’évolution n’efface pas ; elle arrête simplement de se servir."
+              "explanation": "Ce sont des restes de pattes : ses ancêtres marchaient sur la terre. L’évolution n’efface pas ; elle arrête simplement de se servir."
             }
           },
           "rhodes-aquarium-turtles": {
@@ -263,12 +263,12 @@
             "question": {
               "q": "Pourquoi les tortues se trompent-elles avec les sacs plastique ?",
               "answers": [
-                "Parce qu’ils ressemblent aux méduses, dont elles se nourrissent",
+                "Parce qu’on dirait des méduses",
                 "Parce qu’elles les prennent pour un abri",
                 "Parce qu’ils sentent l’algue",
                 "Parce qu’ils font du bruit dans l’eau"
               ],
-              "explanation": "Un sac dans l’eau bouge comme une méduse. La tortue ne fait pas d’erreur ; c’est nous qui l’avons faite."
+              "explanation": "Les tortues se nourrissent de méduses. Un sac dans l’eau bouge exactement comme une méduse : la tortue ne fait pas d’erreur ; c’est nous qui l’avons faite."
             }
           },
           "rhodes-aquarium-monk-seal": {
@@ -277,12 +277,12 @@
             "question": {
               "q": "Où le phoque moine de Méditerranée met-il ses petits au monde ?",
               "answers": [
-                "Dans des grottes marines dont l’entrée est sous la surface",
+                "Dans des grottes marines",
                 "Sur des plages de sable ouvertes, avec du monde autour",
                 "Sur des rochers au milieu du large",
                 "Dans les rivières, près de leur embouchure"
               ],
-              "explanation": "Il se cache parce qu’il a été chassé pendant des siècles. Sa cachette est la raison pour laquelle il existe encore."
+              "explanation": "Leur entrée est cachée sous la surface. Il se cache parce qu’il a été chassé pendant des siècles, et sa cachette est la raison pour laquelle il existe encore."
             }
           }
         },
@@ -311,12 +311,12 @@
       "question": {
         "q": "Qu’est-ce qui change quand tu passes d’une salle à l’autre ici ?",
         "answers": [
-          "La façon dont les gens peignent, au fil d’un siècle",
+          "La façon dont les gens peignent",
           "La taille des tableaux, du plus petit au plus grand",
           "Le pays d’où viennent les œuvres",
           "La matière, de la peinture à l’huile au marbre"
         ],
-        "explanation": "Une collection qui achète chaque année finit par enregistrer le temps sans même essayer."
+        "explanation": "Les salles se suivent au fil d’un siècle. Une collection qui achète chaque année finit par enregistrer le temps sans même essayer."
       }
     },
     "rhodes-acropolis": {
@@ -331,12 +331,12 @@
       "question": {
         "q": "Qu’avait la Rhodes antique que la plupart des villes n’avaient pas ?",
         "answers": [
-          "Un plan de rues droites, dessiné avant qu’on bâtisse quoi que ce soit",
+          "Un plan dessiné d’avance",
           "Des murailles en marbre massif",
           "Des rues réservées aux piétons",
           "Aucun port"
         ],
-        "explanation": "La plupart des villes antiques ont grandi autour de sentiers. Celle-ci a commencé sur du papier."
+        "explanation": "Les rues droites ont été dessinées avant qu’on bâtisse quoi que ce soit. La plupart des villes antiques ont grandi autour de sentiers ; celle-ci a commencé sur du papier."
       }
     },
     "rhodes-diagoras-stadium": {
@@ -351,12 +351,12 @@
       "question": {
         "q": "Pourquoi se souvient-on de Diagoras ?",
         "answers": [
-          "Parce que ses enfants ont gagné aussi, et l’ont porté sur leurs épaules",
+          "Parce que ses enfants ont gagné aussi",
           "Parce qu’il a gagné dans quatre sports différents",
           "Parce qu’il a bâti lui-même le stade d’Olympie",
           "Parce qu’il a été le tout premier champion olympique"
         ],
-        "explanation": "Sa propre victoire a été oubliée. L’image d’un père sur les épaules de ses fils ne l’a jamais été."
+        "explanation": "Ses fils l’ont porté sur leurs épaules. Sa propre victoire a été oubliée ; l’image d’un père sur les épaules de ses fils ne l’a jamais été."
       }
     },
     "rhodes-kallithea": {
@@ -371,12 +371,12 @@
       "question": {
         "q": "Pourquoi a-t-on bâti des bains exactement à cet endroit ?",
         "answers": [
-          "Parce qu’une source y sort de terre et qu’on la croyait guérisseuse",
+          "Parce qu’une source y sort de terre",
           "Parce que c’était le seul endroit avec du sable",
           "Parce que c’était près du port",
           "Parce qu’un temple antique s’y dressait déjà"
         ],
-        "explanation": "Tout un bâtiment a été élevé autour d’une seule eau. Quand les gens ont cessé de la boire, le bâtiment s’est retrouvé sans travail."
+        "explanation": "On croyait cette eau guérisseuse. Tout un bâtiment a été élevé autour d’une seule source, et quand les gens ont cessé de la boire, il s’est retrouvé sans travail."
       }
     },
     "rhodes-filerimos": {
@@ -391,12 +391,12 @@
       "question": {
         "q": "Qu’y a-t-il à l’intérieur de la croix au sommet de la colline ?",
         "answers": [
-          "Un escalier, qui te fait monter jusque dans ses bras",
+          "Un escalier qui monte",
           "Une petite église pleine d’icônes",
           "Une cloche qui sonne chaque midi",
           "Un réservoir d’eau pour le monastère"
         ],
-        "explanation": "Depuis ses bras, tu vois en même temps la mer et les fondations de la cité antique."
+        "explanation": "Il te fait monter jusque dans ses bras. De là-haut, tu vois en même temps la mer et les fondations de la cité antique."
       }
     },
     "rhodes-lindos": {
@@ -411,12 +411,12 @@
       "question": {
         "q": "Qu’est-ce qui est taillé dans la roche au pied de l’escalier ?",
         "answers": [
-          "Un navire de guerre, sa proue grandeur nature",
+          "Un navire de guerre",
           "Un cheval avec un cavalier",
           "La carte de l’île",
           "Les noms des prêtres"
         ],
-        "explanation": "C’était à la fois le socle d’une statue et une déclaration : cette cité vivait de la mer."
+        "explanation": "C’est sa proue, taillée grandeur nature. C’était à la fois le socle d’une statue et une déclaration : cette cité vivait de la mer."
       }
     },
     "rhodes-kameiros": {
@@ -451,12 +451,12 @@
       "question": {
         "q": "Pourquoi ce château a-t-il eu besoin de si peu de murailles ?",
         "answers": [
-          "Parce que le rocher est déjà vertical de tous les côtés",
+          "Parce que le rocher est déjà vertical",
           "Parce qu’il a été bâti à la hâte",
           "Parce qu’il n’y avait pas de pierre dans la région",
           "Parce qu’une forêt le protégeait"
         ],
-        "explanation": "Le meilleur ingénieur d’un château, c’est le terrain. Les chevaliers l’ont simplement bien choisi."
+        "explanation": "Le rocher tombe à pic de tous les côtés. Le meilleur ingénieur d’un château, c’est le terrain ; les chevaliers l’ont simplement bien choisi."
       }
     },
     "rhodes-tsambika": {
@@ -471,12 +471,12 @@
       "question": {
         "q": "Que t’apprend la couleur de l’eau quand tu la regardes d’en haut ?",
         "answers": [
-          "La profondeur de la mer à chaque endroit",
+          "La profondeur de la mer",
           "La température de l’eau",
           "L’endroit où sont les poissons",
           "La quantité de sel dans l’eau"
         ],
-        "explanation": "Dans le peu profond, la lumière atteint le fond et revient pâle. Dans le profond, elle se perd, et le bleu devient sombre."
+        "explanation": "La couleur change à chaque endroit. Dans le peu profond, la lumière atteint le fond et revient pâle ; dans le profond, elle se perd, et le bleu devient sombre."
       }
     }
   },

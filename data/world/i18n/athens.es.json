@@ -14,12 +14,12 @@
       "question": {
         "q": "¿Por qué eligieron los primeros atenienses esta roca para vivir en ella?",
         "answers": [
-          "Porque era fácil de defender y tenía un manantial propio",
+          "Porque era fácil de defender y tenía un manantial",
           "Porque era el único terreno llano de toda el Ática",
           "Porque entonces el mar llegaba hasta sus pies",
           "Porque el mármol ya estaba allí arriba, listo para construir"
         ],
-        "explanation": "Una fortaleza necesita dos cosas: altura y agua. La roca tenía las dos, y por eso la gente subió a vivir allí mucho antes de que se construyera el primer templo."
+        "explanation": "Una fortaleza necesita dos cosas: altura y agua. La roca tenía las dos, y su manantial era propio, no venía de fuera. Por eso la gente subió a vivir allí mucho antes de que se construyera el primer templo."
       }
     },
     "athens-parthenon": {
@@ -54,12 +54,12 @@
       "question": {
         "q": "¿Por qué se conservó este templo mucho mejor que los demás?",
         "answers": [
-          "Porque se convirtió en iglesia y conservó su tejado",
+          "Porque se hizo iglesia y conservó el tejado",
           "Porque estaba construido de piedra y no de mármol",
           "Porque lo enterró la tierra y se desenterró hace poco",
           "Porque lo reconstruyeron entero el siglo pasado"
         ],
-        "explanation": "Un edificio que se usa se repara. El tejado dejaba la lluvia fuera, y es la lluvia la que tira los muros."
+        "explanation": "Un edificio que se usa se repara, y al convertirse en iglesia este siguió usándose. El tejado dejaba la lluvia fuera, y es la lluvia la que tira los muros."
       }
     },
     "athens-ancient-agora": {
@@ -74,12 +74,12 @@
       "question": {
         "q": "¿Cómo elegían los atenienses a muchos de sus jueces?",
         "answers": [
-          "Por sorteo, con una máquina de mármol llamada kleroterion",
+          "Por sorteo, con una máquina de mármol",
           "Por votación, levantando todos la mano en la plaza",
           "Los nombraba el ciudadano más rico de cada barrio",
           "Eran siempre los hijos de los jueces anteriores"
         ],
-        "explanation": "Si se decide por sorteo, el puesto no se puede comprar ni heredar. Esa era toda la idea."
+        "explanation": "La máquina de mármol se llamaba kleroterion. Si se decide por sorteo, el puesto no se puede comprar ni heredar. Esa era toda la idea."
       }
     },
     "athens-tower-of-the-winds": {
@@ -94,12 +94,12 @@
       "question": {
         "q": "¿Cómo daba la hora la torre cuando las nubes tapaban el sol?",
         "answers": [
-          "Con un reloj de agua que funcionaba en su interior",
+          "Con un reloj de agua en su interior",
           "Con una campana que un guardia tocaba cada hora",
           "Con una vela que quemaba una raya cada hora",
           "No daba la hora los días nublados, solo el viento"
         ],
-        "explanation": "El agua gotea igual haya sol o no, y por eso el reloj de agua era el repuesto del reloj de sol."
+        "explanation": "Dentro de la torre funcionaba un reloj de agua. El agua gotea igual haya sol o no, y por eso el reloj de agua era el repuesto del reloj de sol."
       }
     },
     "athens-olympieion": {
@@ -114,12 +114,12 @@
       "question": {
         "q": "¿Qué aprendes mirando la columna caída?",
         "answers": [
-          "Que cada columna estaba hecha de muchos trozos apilados uno encima de otro",
+          "Que cada columna era de muchos trozos",
           "Que las columnas eran huecas y escondían escaleras dentro",
           "Que el mármol estaba pintado de rojo por dentro",
           "Que las columnas estaban hechas de hormigón"
         ],
-        "explanation": "Cada trozo se llama tambor. Se apilaban como monedas gigantes y se enganchaban entre sí por el centro."
+        "explanation": "Cada trozo se llama tambor, y se apilaban uno encima de otro como monedas gigantes, enganchados entre sí por el centro."
       }
     },
     "athens-panathenaic-stadium": {
@@ -155,12 +155,12 @@
       "question": {
         "q": "¿Qué hicieron los ingenieros cuando encontraron casas antiguas en el solar del museo?",
         "answers": [
-          "Levantaron el museo sobre columnas y pusieron un suelo de cristal",
+          "Levantaron el museo sobre columnas",
           "Trasladaron las casas antiguas a otro solar",
           "Taparon los hallazgos con hormigón y siguieron",
           "Construyeron el museo en otro sitio, a dos kilómetros"
         ],
-        "explanation": "El museo se apoya en unas cien columnas que se cuelan entre las ruinas sin tocarlas."
+        "explanation": "El museo se apoya en unas cien columnas que se cuelan entre las ruinas sin tocarlas, y un suelo de cristal te deja verlas desde arriba."
       },
       "museum": {
         "doorNote": "Mira hacia abajo antes de mirar hacia arriba: el suelo de la entrada es de cristal, y debajo hay una ciudad.",
@@ -213,12 +213,12 @@
             "question": {
               "q": "¿Por qué algunos regalos tienen forma de pierna o de ojo?",
               "answers": [
-                "Porque enseñan la parte del cuerpo que dolía y luego se curó",
+                "Porque enseñan la parte del cuerpo que dolía",
                 "Porque eran juguetes para los niños del santuario",
                 "Porque servían de llaves para las puertas",
                 "Porque eran moldes para los escultores"
               ],
-              "explanation": "Era una manera de dar las gracias y de enseñar exactamente por qué."
+              "explanation": "Se dejaban cuando esa parte ya se había curado. Era una manera de dar las gracias y de enseñar exactamente por qué."
             }
           },
           "athens-acropolis-museum-moschophoros": {
@@ -227,7 +227,7 @@
             "question": {
               "q": "¿Qué le falta hoy al Moscóforo?",
               "answers": [
-                "Los ojos, que estaban hechos de otro material de color",
+                "Los ojos, que eran de otro material",
                 "El ternero, que se encontró por separado",
                 "La cabeza, que no se encontró nunca",
                 "La base, que se quedó allí arriba en la roca"
@@ -255,12 +255,12 @@
             "question": {
               "q": "¿Qué hace este chico que no hacían las estatuas anteriores?",
               "answers": [
-                "Carga el peso sobre una sola pierna",
+                "Carga el peso en una sola pierna",
                 "Sostiene un animal en los brazos",
                 "Está sentado en lugar de estar de pie",
                 "Está hecho de bronce y no de mármol"
               ],
-              "explanation": "Pruébalo: pon el peso sobre una pierna y mira lo que hacen tus hombros ellos solos."
+              "explanation": "Pruébalo: pon el peso sobre una sola pierna y mira lo que hacen tus hombros ellos solos."
             }
           },
           "athens-acropolis-museum-caryatids": {
@@ -283,12 +283,12 @@
             "question": {
               "q": "¿A quién enseña sobre todo el friso del Partenón?",
               "answers": [
-                "A los propios atenienses, en un desfile",
+                "A los atenienses, en un desfile",
                 "Solo a los doce dioses del Olimpo",
                 "Una batalla naval con barcos y remos",
                 "A los reyes de Persia"
               ],
-              "explanation": "Era poco corriente: el templo de la diosa enseñaba en sus paredes a la propia ciudad."
+              "explanation": "Era poco corriente: el templo de la diosa enseñaba en sus paredes a los propios atenienses, a la ciudad entera."
             }
           },
           "athens-acropolis-museum-metopes": {
@@ -311,12 +311,12 @@
             "question": {
               "q": "¿Por qué dejaron los vaciados de un blanco crudo?",
               "answers": [
-                "Para que se vea enseguida qué esculturas faltan",
+                "Para que se vea qué esculturas faltan",
                 "Porque el yeso no se puede pintar",
                 "Porque las antiguas también eran así",
                 "Para que los guardias las distingan a oscuras"
               ],
-              "explanation": "Es una decisión tomada a propósito: el hueco se enseña en vez de esconderse."
+              "explanation": "Es una decisión tomada a propósito: el hueco se ve enseguida, se enseña en vez de esconderse."
             }
           }
         },
@@ -349,12 +349,12 @@
       "question": {
         "q": "¿Por qué salieron casi enteras del mar las estatuas de bronce?",
         "answers": [
-          "Porque en el fondo del mar nadie podía alcanzarlas para fundirlas",
+          "Porque en el fondo del mar nadie las fundió",
           "Porque el bronce no se estropea nunca, en ningún sitio",
           "Porque las habían envuelto en pieles de animales",
           "Porque por dentro eran de oro macizo"
         ],
-        "explanation": "En tierra, las estatuas de bronce se fundían para convertirlas en herramientas o en armas. Las que se hundieron fueron las que se libraron."
+        "explanation": "En tierra, las estatuas de bronce se fundían para convertirlas en herramientas o en armas. En el fondo del mar nadie podía alcanzarlas, así que las que se hundieron fueron las que se libraron."
       },
       "museum": {
         "doorNote": "Es demasiado grande para una sola vez. Elige dos salas y míralas bien.",
@@ -379,12 +379,12 @@
             "question": {
               "q": "¿Por qué no puede ser de Agamenón la máscara?",
               "answers": [
-                "Porque es unos 300 años más antigua que su época",
+                "Porque es unos 300 años más antigua",
                 "Porque Agamenón no era rey",
                 "Porque se encontró en Creta y no en Micenas",
                 "Porque no es de oro sino de bronce"
               ],
-              "explanation": "Schliemann quería tanto encontrar a los héroes que los vio por todas partes. Las fechas le quitaron la razón más tarde."
+              "explanation": "La máscara es unos 300 años más antigua que la época de Agamenón. Schliemann quería tanto encontrar a los héroes que los vio por todas partes. Las fechas le quitaron la razón más tarde."
             }
           },
           "athens-national-archaeological-museum-vaphio-cups": {
@@ -393,12 +393,12 @@
             "question": {
               "q": "¿Qué enseñan juntas las dos copas?",
               "answers": [
-                "Dos maneras distintas de atrapar a un toro",
+                "Dos formas de atrapar toros",
                 "Dos batallas entre ciudades",
                 "La misma escena, desde dos lados",
                 "Una boda y un funeral"
               ],
-              "explanation": "Una enseña la trampa y la persecución, la otra enseña la calma. Mismo animal, método distinto."
+              "explanation": "Son dos maneras distintas de atrapar un toro. Una enseña la trampa y la persecución, la otra enseña la calma. Mismo animal, método distinto."
             }
           },
           "athens-national-archaeological-museum-lion-dagger": {
@@ -407,12 +407,12 @@
             "question": {
               "q": "¿Cómo se hicieron los dibujos de la hoja?",
               "answers": [
-                "Con trocitos de oro y de plata incrustados en el bronce",
+                "Con oro y plata en el bronce",
                 "Pintados con un pincel y barniz",
                 "Estampados con un sello",
                 "Quemados sobre el metal con fuego"
               ],
-              "explanation": "Se llama incrustación. Es un trabajo paciente con herramientas más finas que una aguja."
+              "explanation": "Son trocitos de oro y de plata incrustados en el bronce. Se llama incrustación. Es un trabajo paciente con herramientas más finas que una aguja."
             }
           },
           "athens-national-archaeological-museum-artemision-bronze": {
@@ -435,12 +435,12 @@
             "question": {
               "q": "¿Qué no tiene el pequeño jinete?",
               "answers": [
-                "Ni silla ni estribos",
+                "Silla y estribos",
                 "Un látigo en la mano",
                 "Riendas en el caballo",
                 "Pelo en la cabeza"
               ],
-              "explanation": "Los estribos llegaron a Europa siglos después. Entonces te agarrabas con las piernas."
+              "explanation": "No lleva ni silla ni estribos. Los estribos llegaron a Europa siglos después. Entonces te agarrabas con las piernas."
             }
           },
           "athens-national-archaeological-museum-antikythera-youth": {
@@ -449,12 +449,12 @@
             "question": {
               "q": "¿Quiénes encontraron el barco hundido de Anticitera?",
               "answers": [
-                "Unos buceadores de esponjas que buscaban esponjas",
+                "Unos buceadores que buscaban esponjas",
                 "Unos pescadores que echaban las redes",
                 "Unos arqueólogos en un submarino",
                 "Unos marineros que naufragaron en el mismo sitio"
               ],
-              "explanation": "El mayor descubrimiento submarino de su tiempo ocurrió por casualidad, en un día normal de trabajo."
+              "explanation": "El mayor descubrimiento submarino de su tiempo ocurrió por casualidad, en un día normal de trabajo de unos buceadores de esponjas."
             }
           },
           "athens-national-archaeological-museum-antikythera-mechanism": {
@@ -463,12 +463,12 @@
             "question": {
               "q": "¿Qué hacía el mecanismo de Anticitera?",
               "answers": [
-                "Enseñaba dónde estaban el sol y la luna y predecía los eclipses",
+                "Seguía el sol y la luna",
                 "Sacaba agua del fondo de un pozo",
                 "Pesaba el oro con precisión",
                 "Abría él solo las puertas de un templo"
               ],
-              "explanation": "Era un ordenador del cielo hecho de engranajes. No hacía cuentas; te enseñaba dónde estarían las cosas del cielo."
+              "explanation": "Era un ordenador del cielo hecho de engranajes: enseñaba dónde estaban el sol y la luna, y hasta predecía los eclipses. No hacía cuentas; te enseñaba dónde estarían las cosas del cielo."
             }
           },
           "athens-national-archaeological-museum-spring-fresco": {
@@ -491,12 +491,12 @@
             "question": {
               "q": "¿Qué tienen de raro las manos de los dos niños?",
               "answers": [
-                "Cada uno lleva guante en una sola mano",
+                "Cada uno lleva un solo guante",
                 "Los dos sostienen espadas",
                 "Tienen las manos atadas a la espalda",
                 "No tienen dedos"
               ],
-              "explanation": "No sabemos seguro por qué. Puede que fuera una regla del combate, o parte de una ceremonia."
+              "explanation": "Cada niño lleva el guante en una sola mano. No sabemos seguro por qué. Puede que fuera una regla del combate, o parte de una ceremonia."
             }
           },
           "athens-national-archaeological-museum-antelopes": {
@@ -543,12 +543,12 @@
       "question": {
         "q": "¿Cómo se reunieron los juguetes de este museo?",
         "answers": [
-          "Los juntó una coleccionista a lo largo de toda su vida",
+          "Los juntó una sola coleccionista",
           "Los hicieron niños en los talleres del museo",
           "El Estado se los compró a una fábrica",
           "Se encontraron todos juntos en una excavación"
         ],
-        "explanation": "María Argyriadi coleccionó juguetes durante décadas y los entregó para que se convirtieran en un museo."
+        "explanation": "Los juntó una sola persona a lo largo de toda su vida: María Argyriadi coleccionó juguetes durante décadas y los entregó para que se convirtieran en un museo."
       },
       "museum": {
         "doorNote": "No busques el más caro. Busca el más viejo con el que todavía querrías jugar.",
@@ -569,12 +569,12 @@
             "question": {
               "q": "¿Cuántas caras distintas tiene una taba?",
               "answers": [
-                "Cuatro, cada una con una puntuación diferente",
+                "Cuatro",
                 "Seis, como el dado",
                 "Dos, como la moneda",
                 "Ocho, como la peonza"
               ],
-              "explanation": "Por eso era un dado y un juego de habilidad al mismo tiempo."
+              "explanation": "Una taba tiene cuatro caras, y cada una vale una puntuación diferente. Por eso era un dado y un juego de habilidad al mismo tiempo."
             }
           },
           "athens-benaki-toy-museum-jointed-doll": {
@@ -583,12 +583,12 @@
             "question": {
               "q": "¿Qué hacían las niñas con estas muñecas al hacerse mayores?",
               "answers": [
-                "Las dejaban en un santuario como regalo",
+                "Las dejaban en un santuario",
                 "Las rompían y las tiraban",
                 "Las vendían en el mercado",
                 "Las pintaban de dorado"
               ],
-              "explanation": "Era una manera de decir «una parte de mi vida se ha terminado» con un objeto."
+              "explanation": "Las dejaban allí de regalo. Era una manera de decir «una parte de mi vida se ha terminado» con un objeto."
             }
           },
           "athens-benaki-toy-museum-wheeled-animals": {
@@ -597,12 +597,12 @@
             "question": {
               "q": "¿Por qué tienen un agujero delante estos animalitos?",
               "answers": [
-                "Para que pase una cuerda y puedas arrastrarlos",
+                "Para pasar una cuerda y arrastrarlos",
                 "Para que salga el aire mientras se cuecen",
                 "Para poder echarles agua dentro",
                 "Para poder colgarlos de un árbol"
               ],
-              "explanation": "Es un juguete de arrastre, o sea, para niños que acaban de aprender a andar."
+              "explanation": "La cuerda pasa por el agujero y tiras de ella. Es un juguete de arrastre, o sea, para niños que acaban de aprender a andar."
             }
           },
           "athens-benaki-toy-museum-tin-toys": {
@@ -611,12 +611,12 @@
             "question": {
               "q": "¿De dónde saca la energía un juguete de cuerda?",
               "answers": [
-                "De tu mano, guardada en un muelle",
+                "De tu mano, en un muelle",
                 "De una pila pequeña en la base",
                 "Del sol, a través de la pintura",
                 "De unos imanes en las ruedas"
               ],
-              "explanation": "Al dar cuerda aprietas un muelle. Al aflojarse, es él quien hace el trabajo."
+              "explanation": "La energía viene de tu mano y se guarda en un muelle. Al dar cuerda aprietas el muelle. Al aflojarse, es él quien hace el trabajo."
             }
           },
           "athens-benaki-toy-museum-dolls-houses": {
@@ -625,12 +625,12 @@
             "question": {
               "q": "¿Por qué les sirven las casas de muñecas a los historiadores?",
               "answers": [
-                "Porque enseñan cómo eran de verdad las casas de la época",
+                "Porque enseñan casas de verdad",
                 "Porque dentro se escondían cartas",
                 "Porque siempre eran copias de palacios",
                 "Porque llevan la fecha escrita debajo"
               ],
-              "explanation": "Nadie hace la miniatura de una casa que no ha visto nunca."
+              "explanation": "Enseñan cómo eran de verdad las casas de su época. Nadie hace la miniatura de una casa que no ha visto nunca."
             }
           },
           "athens-benaki-toy-museum-shadow-figures": {
@@ -639,12 +639,12 @@
             "question": {
               "q": "¿Qué ve el público en un teatro de sombras?",
               "answers": [
-                "Solo la sombra de las figuras sobre una tela blanca",
+                "Solo la sombra en la tela",
                 "Las figuras por delante de la tela",
                 "Actores con máscaras",
                 "Una película proyectada en una pared"
               ],
-              "explanation": "La luz está detrás, las figuras en medio y tú delante. Ves una sombra, no un objeto."
+              "explanation": "La tela es blanca y la luz está detrás; las figuras están en medio y tú delante. Ves una sombra, no un objeto."
             }
           }
         },
@@ -672,12 +672,12 @@
       "question": {
         "q": "¿Por qué se quedó alto el Licabeto mientras el terreno de alrededor bajaba?",
         "answers": [
-          "Porque su roca es mucho más dura y aguantó el desgaste",
+          "Porque su roca es mucho más dura",
           "Porque lo levantaron personas con tierra y piedras",
           "Porque debajo hay un volcán que lo empuja hacia arriba",
           "Porque lo sujetan las raíces de los pinos"
         ],
-        "explanation": "La caliza dura se gasta más despacio. Pasan millones de años y lo que es duro es lo que queda en pie, convertido en colina."
+        "explanation": "La caliza dura aguanta el desgaste y se gasta más despacio. Pasan millones de años y lo que es duro es lo que queda en pie, convertido en colina."
       }
     },
     "athens-national-garden": {
@@ -712,12 +712,12 @@
       "question": {
         "q": "¿A quién recuerda el monumento que hay delante del edificio?",
         "answers": [
-          "A todos los soldados que se perdieron y nunca fueron identificados",
+          "A los soldados perdidos sin nombre",
           "Al primer rey de Grecia",
           "Al arquitecto que diseñó el palacio",
           "A los atletas de los primeros Juegos Olímpicos"
         ],
-        "explanation": "Por eso la tumba no lleva ningún nombre. Un solo nombre dejaría fuera a todos los demás."
+        "explanation": "Recuerda a todos los soldados que se perdieron y nunca fueron identificados. Por eso la tumba no lleva ningún nombre: un solo nombre dejaría fuera a todos los demás."
       }
     },
     "athens-agios-eleftherios": {
@@ -732,12 +732,12 @@
       "question": {
         "q": "¿Con qué está construida esta iglesia?",
         "answers": [
-          "Con mármoles quitados de edificios más antiguos",
+          "Con mármoles de edificios más antiguos",
           "Con ladrillos hechos especialmente para ella",
           "Con madera, pintada para que parezca piedra",
           "Con una sola piedra, tallada allí mismo"
         ],
-        "explanation": "Se llaman spolia: material reutilizado. Era más barato y más rápido que sacar mármol nuevo de la cantera."
+        "explanation": "Los mármoles se quitaron de edificios más antiguos. Se llaman spolia: material reutilizado. Era más barato y más rápido que sacar mármol nuevo de la cantera."
       }
     },
     "athens-kerameikos": {
@@ -772,7 +772,7 @@
       "question": {
         "q": "¿Por qué empieza el trabajo del mercado antes de amanecer?",
         "answers": [
-          "Para que el pescado y la carne lleguen frescos a los mostradores",
+          "Para que el pescado y la carne lleguen frescos",
           "Porque la luz del día estropea los mostradores de mármol",
           "Porque el mercado cierra a las ocho de la mañana",
           "Porque lo obliga una ley de 1886"
@@ -792,12 +792,12 @@
       "question": {
         "q": "¿Qué tiene de raro la colina sobre la que está el edificio?",
         "answers": [
-          "No es natural: la construyó la gente",
+          "La construyó la gente",
           "Es la colina más alta del Ática",
           "Es un volcán apagado",
           "Está hecha de mármol del Pentélico"
         ],
-        "explanation": "La colina se levantó por encima de los edificios para que el parque siguiera por arriba en vez de pararse."
+        "explanation": "No es natural. La colina se levantó por encima de los edificios para que el parque siguiera por arriba en vez de pararse."
       },
       "findIt": "La entrada está en la avenida Andrea Syngrou, en el número 364, justo antes de que la calle llegue al mar."
     },
@@ -813,12 +813,12 @@
       "question": {
         "q": "¿Qué hace un planetario que no hace un cine?",
         "answers": [
-          "Enseña dónde estarán de verdad las estrellas en un momento concreto",
+          "Enseña dónde estarán las estrellas",
           "Proyecta películas en una pantalla más grande",
           "Tiene asientos que se mueven con la imagen",
           "Solo pone documentales sobre animales"
         ],
-        "explanation": "Detrás de la imagen hay cálculos. Por eso puede enseñarte también el cielo de 1821 o el del año 3000."
+        "explanation": "Te enseña dónde estarán de verdad las estrellas en un momento concreto, porque detrás de la imagen hay cálculos. Por eso puede enseñarte también el cielo de 1821 o el del año 3000."
       },
       "findIt": "La entrada está en la avenida Andrea Syngrou, en el número 387, enfrente del centro cultural."
     }
