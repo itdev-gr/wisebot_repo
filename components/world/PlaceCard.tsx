@@ -34,6 +34,7 @@ import { ArrowLeft, Check, X, Sparkles, DoorOpen, MapPin, Stamp, Info } from 'lu
 import type { LocText, Place, PlaceId, WorldLang } from '../../data/world/types';
 import type { PlaceStamp } from './useWorldProgress';
 import StoryNarration from './StoryNarration';
+import { PinReport } from './PinReport';
 import { WorldMap } from './WorldMap';
 import { distanceM, formatDistance, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
 import {
@@ -675,6 +676,9 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
             </a>
           </div>
           <p className="mt-2 text-[11px] font-bold uppercase tracking-wider text-white/40">{ui(T.opensMaps, lang)}</p>
+          {/* The grown-up's line. Everything it needs lives in PinReport.tsx, so this
+              file gains one element and no new prop, string or state. */}
+          <PinReport lang={lang} placeId={place.id} />
         </section>
 
         {/* ── THE DOOR — for a museum, going inside is the point of the place ── */}
