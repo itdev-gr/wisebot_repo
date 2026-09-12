@@ -15,12 +15,12 @@ interface InternalLinksProps {
 
 const PAGES = [
   {
-    id: 'explore',
-    path: '/explore',
+    id: 'world',
+    path: '/world',
     icon: Compass,
     color: 'from-amber-500 to-orange-600',
-    label: { el: 'Explorer', en: 'Explorer' },
-    desc: { el: 'Κυνήγι θησαυρού στην πόλη', en: 'City treasure hunt' },
+    label: { el: 'WiseBot World', en: 'WiseBot World' },
+    desc: { el: 'Διαβατήριο, πόλεις, μουσεία', en: 'Passport, cities, museums' },
   },
   {
     id: 'school',

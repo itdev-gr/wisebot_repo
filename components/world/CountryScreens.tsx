@@ -28,7 +28,7 @@ import {
   Sparkles,
   Stamp,
 } from 'lucide-react';
-import type { City, CityId, Country, CountryId, WorldLang } from '../../data/world/types';
+import type { City, CityId, Country, CountryId, LocText, WorldLang } from '../../data/world/types';
 import { WORLD_STYLE, say, ui, type UiText } from './worldUi';
 import { PassportStamp } from './PassportStamp';
 
@@ -154,6 +154,25 @@ const T = {
     fr: 'ARRIVE BIENTÔT',
     es: 'MUY PRONTO',
     it: 'ARRIVA PRESTO',
+  },
+  // A country whose cities still live on the older Explorer engine. They are shown,
+  // honestly labelled, rather than hidden — hiding them would take fourteen countries
+  // off the map; showing them unlabelled would be a lie the first tap exposes.
+  elsewhereTitle: {
+    el: 'ΠΡΟΣΩΡΙΝΑ ΣΤΟΝ ΠΑΛΙΟ ΕΞΕΡΕΥΝΗΤΗ',
+    en: 'FOR NOW ON THE OLD EXPLORER',
+    de: 'VORERST IM ALTEN EXPLORER',
+    fr: 'POUR L’INSTANT SUR L’ANCIEN EXPLORER',
+    es: 'POR AHORA EN EL EXPLORER ANTIGUO',
+    it: 'PER ORA NEL VECCHIO EXPLORER',
+  },
+  elsewhereBody: {
+    el: 'Αυτές οι πόλεις υπάρχουν ήδη ως κυνήγι θησαυρού με GPS. Μεταφέρονται μία μία στο WiseBot World, με ελεγμένα σημεία, μουσεία και αινίγματα.',
+    en: 'These cities already exist as a GPS treasure hunt. They are moving into WiseBot World one by one, with checked pins, museums and riddles.',
+    de: 'Diese Städte gibt es schon als GPS-Schatzsuche. Sie ziehen eine nach der anderen in WiseBot World um, mit geprüften Orten, Museen und Rätseln.',
+    fr: 'Ces villes existent déjà en chasse au trésor GPS. Elles rejoignent WiseBot World une par une, avec des lieux vérifiés, des musées et des énigmes.',
+    es: 'Estas ciudades ya existen como búsqueda del tesoro con GPS. Pasan a WiseBot World una a una, con lugares comprobados, museos y acertijos.',
+    it: 'Queste città esistono già come caccia al tesoro con GPS. Passano in WiseBot World una alla volta, con luoghi verificati, musei e indovinelli.',
   },
 
   cityProgress: {
@@ -405,14 +424,25 @@ export const CountryList: React.FC<CountryListProps> = ({
                     </span>
 
                     <span className="flex flex-wrap items-center gap-2">
-                      <span className={WORLD_STYLE.chip}>
-                        <Building2 size={12} aria-hidden />
-                        {ui(T.cityCount, lang)(cities)}
-                      </span>
-                      <span className={WORLD_STYLE.chip}>
-                        <MapPin size={12} aria-hidden />
-                        {ui(T.placeCount, lang)(places)}
-                      </span>
+                      {cities === 0 ? (
+                        /* An open country whose cities have not arrived: the flag, the
+                           intro and the entry stamp are real, «0 ΠΟΛΕΙΣ» would read as broken. */
+                        <span className={WORLD_STYLE.chip}>
+                          <Sparkles size={12} className="text-amber-300" aria-hidden />
+                          {ui(T.soon, lang)}
+                        </span>
+                      ) : (
+                        <>
+                          <span className={WORLD_STYLE.chip}>
+                            <Building2 size={12} aria-hidden />
+                            {ui(T.cityCount, lang)(cities)}
+                          </span>
+                          <span className={WORLD_STYLE.chip}>
+                            <MapPin size={12} aria-hidden />
+                            {ui(T.placeCount, lang)(places)}
+                          </span>
+                        </>
+                      )}
                       {item.done ? (
                         <StateChip
                           tone="earned"
@@ -446,12 +476,27 @@ export interface CountryCityItem {
   stamped: number;
 }
 
+/** A city of this country that still lives on the older Explorer engine. */
+export interface LegacyCity {
+  id: string;
+  name: LocText;
+  emoji: string;
+  spotCount: number;
+}
+
 interface CountryViewProps {
   lang: WorldLang;
   country: Country;
   entryDate?: string;
   cities: CountryCityItem[];
+  /**
+   * Shown only while the country has no World city yet: the Explorer's cities for it,
+   * honestly labelled, so «France» opens Paris today instead of an empty page.
+   */
+  legacyCities?: LegacyCity[];
   onOpenCity: (id: CityId) => void;
+  /** Opens a city on the old engine, e.g. `/explore?city=paris`. */
+  onOpenLegacy?: (cityId: string) => void;
   onBack: () => void;
 }
 
@@ -460,7 +505,9 @@ export const CountryView: React.FC<CountryViewProps> = ({
   country,
   entryDate,
   cities,
+  legacyCities = [],
   onOpenCity,
+  onOpenLegacy,
   onBack,
 }) => {
   const list = cities ?? [];
@@ -540,7 +587,27 @@ export const CountryView: React.FC<CountryViewProps> = ({
           {ui(T.citiesHeading, lang)}
         </h2>
 
-        {list.length === 0 ? (
+        {list.length === 0 && legacyCities.length > 0 ? (
+          <div className={`${WORLD_STYLE.card} p-5`}>
+            <h3 className={`${WORLD_STYLE.label} mb-2`}>{ui(T.elsewhereTitle, lang)}</h3>
+            <p className={`${WORLD_STYLE.body} mb-4 max-w-2xl text-sm`}>{ui(T.elsewhereBody, lang)}</p>
+            <ul className="flex flex-wrap gap-2">
+              {legacyCities.map((city) => (
+                <li key={city.id}>
+                  <button
+                    type="button"
+                    onClick={() => onOpenLegacy?.(city.id)}
+                    className={`${WORLD_STYLE.chip} min-h-[44px] transition-colors hover:bg-white/[0.12]`}
+                  >
+                    <span role="img" aria-hidden="true">{city.emoji}</span>
+                    {say(city.name, lang)}
+                    <span className="text-white/35">{city.spotCount}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : list.length === 0 ? (
           <EmptyState
             emoji="🗺️"
             title={ui(T.emptyCitiesTitle, lang)}

@@ -686,9 +686,11 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         ))}
       </div>
 
-      {/* 🧭 EXPLORER — the family feature: a treasure hunt in a real city */}
+      {/* 🌍 WISEBOT WORLD — the family feature: real cities, museums, a passport.
+          The older Explorer keeps its /explore route until every city has moved across,
+          but there is one door on the dashboard, and this is it. */}
       <button
-        onClick={() => navigate('/explore')}
+        onClick={() => navigate('/world')}
         className="w-full text-left relative overflow-hidden rounded-[2rem] border-2 border-amber-500/25 bg-gradient-to-r from-amber-500/10 via-orange-500/5 to-transparent p-5 md:p-6 flex items-center gap-4 hover:border-amber-400/50 hover:-translate-y-0.5 active:scale-[0.99] transition-all"
       >
         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shrink-0" style={{ boxShadow: '0 4px 20px rgba(245,158,11,0.35)' }}>
@@ -696,10 +698,10 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
         </div>
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-black uppercase tracking-widest text-amber-300">{lang === 'el' ? 'ΝΕΟ · ΓΙΑ ΟΛΗ ΤΗΝ ΟΙΚΟΓΕΝΕΙΑ' : 'NEW · FOR THE WHOLE FAMILY'}</p>
-          <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none mt-0.5">WiseBot Explorer</h3>
-          <p className="text-white/55 text-xs md:text-sm font-bold mt-1 truncate">{lang === 'el' ? 'Κυνήγι θησαυρού σε 18 πόλεις της Ευρώπης — αινίγματα, ιστορία, quiz.' : 'A treasure hunt in 18 European cities — riddles, history, quizzes.'}</p>
+          <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none mt-0.5">WiseBot World</h3>
+          <p className="text-white/55 text-xs md:text-sm font-bold mt-1 truncate">{lang === 'el' ? 'Διαβατήριο με σφραγίδες, αληθινές πόλεις, μουσεία με αινίγματα.' : 'A passport with stamps, real cities, museums with riddles.'}</p>
         </div>
-        <span className="text-3xl shrink-0" role="img" aria-hidden>🗺️</span>
+        <span className="text-3xl shrink-0" role="img" aria-hidden>🛂</span>
       </button>
 
       {/* 🗺️ 2. QUEST PROGRESS TRACKER */}

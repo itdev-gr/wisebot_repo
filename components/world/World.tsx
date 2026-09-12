@@ -62,6 +62,9 @@ import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
 import SealCeremony from './SealCeremony';
+// The older Explorer's city list, read only to bridge a country that has no World city
+// yet to the cities it already has over there. Goes away when the last city has moved.
+import { CITY_META as EXPLORER_CITIES } from '../../data/explore/registry';
 
 const StampBook = React.lazy(() => import('./StampBook'));
 const CityView = React.lazy(() => import('./CityView'));
@@ -346,13 +349,27 @@ const CountryPage: React.FC<{
       stamped: stampedIds.filter((id) => id.startsWith(`${city.id}-`)).length,
     }));
 
+  // A country that is open but whose cities have not been converted yet still has
+  // them on the old engine. Offer those, labelled, rather than an empty page.
+  const legacyCities =
+    cities.length === 0
+      ? EXPLORER_CITIES.filter((c) => c.countryCode === country.code).map((c) => ({
+          id: c.id,
+          name: c.name,
+          emoji: c.emoji,
+          spotCount: c.spotCount,
+        }))
+      : [];
+
   return (
     <CountryView
       lang={lang}
       country={country}
       entryDate={progress.progress.entries[country.id]}
       cities={cities}
+      legacyCities={legacyCities}
       onOpenCity={(id) => navigate(`/world/${country.id}/${id}`)}
+      onOpenLegacy={(id) => navigate(`/explore?city=${id}`)}
       onBack={() => navigate('/world')}
     />
   );
