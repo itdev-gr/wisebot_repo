@@ -1,0 +1,551 @@
+{
+  "city": "amsterdam",
+  "resolvedAt": "2026-09-12T11:44:25.328Z",
+  "centre": {
+    "lat": 52.372,
+    "lng": 4.895
+  },
+  "places": [
+    {
+      "id": "amsterdam-centraal",
+      "name": "Amsterdam Centraal",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q50719",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/4290854847",
+          "deltaM": 29
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Amsterdam Centraal station",
+          "deltaM": 69
+        }
+      ],
+      "warnings": [],
+      "lat": 52.37895,
+      "lng": 4.90016,
+      "labels": {
+        "en": "Amsterdam Central station",
+        "de": "Bahnhof Amsterdam Centraal",
+        "fr": "Amsterdam-centrale",
+        "es": "Estación Central de Ámsterdam",
+        "it": "stazione di Amsterdam Centrale"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-dam",
+      "name": "Dam Square",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q839050",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/94756489",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Dam Square",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [],
+      "lat": 52.37306,
+      "lng": 4.89278,
+      "labels": {
+        "fr": "place du Dam",
+        "en": "Dam Square",
+        "es": "Plaza Dam",
+        "it": "Dam",
+        "de": "Damplatz"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-westerkerk",
+      "name": "Westerkerk",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1130722",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/99205257",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Westerkerk",
+          "deltaM": 21
+        }
+      ],
+      "warnings": [],
+      "lat": 52.3745,
+      "lng": 4.8839,
+      "labels": {
+        "fr": "Westerkerk",
+        "en": "Westerkerk",
+        "it": "Westerkerk",
+        "de": "Westerkerk"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-anne-frank-house",
+      "name": "Anne Frank House",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q165366",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/601081859",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Anne Frank House",
+          "deltaM": 22
+        }
+      ],
+      "warnings": [],
+      "lat": 52.37515,
+      "lng": 4.88404,
+      "labels": {
+        "fr": "maison Anne Frank",
+        "es": "Casa de Ana Frank",
+        "en": "Anne Frank House",
+        "it": "casa di Anne Frank",
+        "de": "Anne-Frank-Haus",
+        "el": "Μουσείο Άννας Φρανκ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-bloemenmarkt",
+      "name": "Bloemenmarkt",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q643079",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/145953534",
+          "deltaM": 20
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Bloemenmarkt",
+          "deltaM": 42
+        }
+      ],
+      "warnings": [],
+      "lat": 52.36678,
+      "lng": 4.89135,
+      "labels": {
+        "de": "Bloemenmarkt",
+        "en": "Bloemenmarkt",
+        "fr": "Bloemenmarkt",
+        "es": "Bloemenmarkt",
+        "it": "Bloemenmarkt"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-magere-brug",
+      "name": "Magere Brug",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1344400",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/601096321",
+          "deltaM": 1
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Magere Brug",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [],
+      "lat": 52.36359,
+      "lng": 4.90236,
+      "labels": {
+        "fr": "Magere Brug",
+        "en": "Magere Brug",
+        "it": "Magere Brug",
+        "de": "Magere Brug",
+        "es": "Magere Brug"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-rijksmuseum",
+      "name": "Rijksmuseum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q190804",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/29989787",
+          "deltaM": 25
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Rijksmuseum",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 52.36,
+      "lng": 4.88528,
+      "labels": {
+        "fr": "Rijksmuseum",
+        "es": "Rijksmuseum",
+        "it": "Rijksmuseum",
+        "de": "Rijksmuseum",
+        "el": "Ρέικσμουζεουμ",
+        "en": "Rijksmuseum"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-vondelpark",
+      "name": "Vondelpark",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1419691",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/17080648",
+          "deltaM": 152
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Vondelpark",
+          "deltaM": 161
+        }
+      ],
+      "warnings": [],
+      "lat": 52.35694,
+      "lng": 4.86639,
+      "labels": {
+        "fr": "Vondelpark",
+        "en": "Vondelpark",
+        "it": "Vondelpark",
+        "de": "Vondelpark",
+        "es": "Vondelpark"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-nemo",
+      "name": "NEMO Science Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1422000",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2741083161",
+          "deltaM": 34
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "NEMO (museum)",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 52.37411,
+      "lng": 4.91239,
+      "labels": {
+        "fr": "NEMO",
+        "en": "NEMO Science Center",
+        "it": "NEMO",
+        "de": "NEMO",
+        "es": "NEMO"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-waag",
+      "name": "De Waag",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2466999",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/57857390",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Waag, Amsterdam",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.37278,
+      "lng": 4.90028,
+      "labels": {
+        "en": "Waag, Amsterdam",
+        "it": "Waag",
+        "fr": "Waag",
+        "es": "Waag",
+        "de": "De Waag"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-scheepvaartmuseum",
+      "name": "Het Scheepvaartmuseum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1616123",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/1287492683",
+          "deltaM": 69
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Het Scheepvaartmuseum",
+          "deltaM": 31
+        }
+      ],
+      "warnings": [],
+      "lat": 52.37139,
+      "lng": 4.91472,
+      "labels": {
+        "fr": "Nederlands Scheepvaartmuseum",
+        "en": "Het Scheepvaartmuseum",
+        "de": "Het Scheepvaartmuseum",
+        "it": "Nederlands Scheepvaartmuseum",
+        "es": "Scheepvaartmuseum"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-artis",
+      "name": "Artis",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q713124",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4366723",
+          "deltaM": 8
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Artis (zoo)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.36611,
+      "lng": 4.91667,
+      "labels": {
+        "fr": "Artis",
+        "en": "Natura Artis Magistra",
+        "de": "Artis",
+        "it": "Artis",
+        "es": "Artis"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-albert-cuyp-market",
+      "name": "Albert Cuyp Market",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2342892",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/7112728",
+          "deltaM": 134
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Albert Cuyp Market",
+          "deltaM": 108
+        }
+      ],
+      "warnings": [],
+      "lat": 52.35611,
+      "lng": 4.89694,
+      "labels": {
+        "de": "Albert Cuyp",
+        "en": "Albert Cuyp Market",
+        "es": "Mercado de Albert Cuyp",
+        "fr": "Albert Cuypmarkt",
+        "it": "Albert Cuypmarkt"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-olympic-stadium",
+      "name": "Olympic Stadium",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q503319",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Olympic Stadium (Amsterdam)",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 52.34342,
+      "lng": 4.85419,
+      "labels": {
+        "es": "Estadio Olímpico de Ámsterdam",
+        "it": "Stadio Olimpico",
+        "de": "Olympiastadion",
+        "en": "Olympic Stadium",
+        "fr": "Stade Olympique"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-de-gooyer",
+      "name": "De Gooyer windmill",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2756543",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/33057057",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "De Gooyer, Amsterdam",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.36667,
+      "lng": 4.92611,
+      "labels": {
+        "fr": "De Gooyer",
+        "en": "De Gooyer",
+        "it": "De Gooyer"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "amsterdam-hortus",
+      "name": "Hortus Botanicus",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1576733",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/31527079",
+          "deltaM": 58
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hortus Botanicus (Amsterdam)",
+          "deltaM": 41
+        }
+      ],
+      "warnings": [],
+      "lat": 52.36697,
+      "lng": 4.90844,
+      "labels": {
+        "de": "Hortus Botanicus Amsterdam",
+        "fr": "jardin botanique d'Amsterdam",
+        "es": "Hortus Botanicus de Ámsterdam",
+        "en": "Hortus Botanicus Amsterdam",
+        "it": "Orto botanico di Amsterdam"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}

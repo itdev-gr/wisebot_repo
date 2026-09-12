@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="1000" height="900" role="img" aria-label="Stylised map of Amsterdam">
+  <title>Amsterdam — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/netherlands.ts
+    (north 52.39, south 52.335, east 4.94, west 4.84) so that place pins can be projected
+    onto it rather than positioned by hand. Deliberately schematic: the IJ across the top,
+    the Oosterdok inlet where NEMO stands, the Amstel coming up from the south-east, the
+    three canals of the ring as a half-moon around the old town, and the green of the
+    Vondelpark, Artis and the Hortus are all placed from those bounds. Nothing here is
+    traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4efe4" />
+      <stop offset="1" stop-color="#ebe3d1" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fcbdc" />
+      <stop offset="1" stop-color="#7ab4cb" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dbcfb6" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="900" fill="url(#ground)" />
+  <rect width="1000" height="900" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The IJ. The station stands on its islands at the water's edge, so the shore runs just south of it. -->
+  <path d="M0 0 H1000 V120 C 860 150, 700 150, 640 160 C 610 165, 560 200, 520 205 C 420 215, 200 190, 0 170 Z" fill="url(#water)" />
+  <path d="M0 170 C 200 190, 420 215, 520 205 C 560 200, 610 165, 640 160 C 700 150, 860 150, 1000 120" fill="none" stroke="#5b9db7" stroke-width="3" />
+
+  <!-- The Oosterdok, the inlet east of the station that NEMO rises out of. -->
+  <path d="M650 158 C 690 190, 700 250, 705 300 C 708 330, 760 335, 780 300 C 800 260, 820 190, 850 150 Z" fill="url(#water)" stroke="#5b9db7" stroke-width="3" />
+
+  <!-- The Amstel, up from the south-east through the Magere Brug to the Munt. -->
+  <path d="M760 900 C 720 760, 690 600, 624 432 C 590 360, 540 400, 520 380" fill="none" stroke="#7ab4cb" stroke-width="16" stroke-linecap="round" />
+  <path d="M760 900 C 720 760, 690 600, 624 432 C 590 360, 540 400, 520 380" fill="none" stroke="#5b9db7" stroke-width="3" />
+
+  <!-- The canal ring: three half-moons around the old town, Prinsengracht outermost. -->
+  <g fill="none" stroke="#7ab4cb" stroke-width="7" stroke-linecap="round">
+    <path d="M470 205 C 400 240, 380 330, 420 400 C 460 470, 640 470, 680 400 C 700 360, 690 320, 680 295" />
+    <path d="M450 200 C 370 245, 350 345, 395 425 C 445 505, 660 505, 705 420 C 725 370, 715 320, 700 292" />
+    <path d="M430 195 C 340 250, 320 360, 372 450 C 430 540, 680 540, 730 440 C 752 380, 740 322, 720 290" />
+  </g>
+
+  <!-- The Vondelpark, a long green from the Stadhouderskade gate down to the south-west. -->
+  <ellipse cx="290" cy="560" rx="160" ry="44" transform="rotate(-32 290 560)" fill="#c3d9a9" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The Museumplein lawn behind the Rijksmuseum. -->
+  <rect x="405" y="505" width="100" height="70" rx="14" fill="#cfe0b8" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- Artis and, beside it, the Hortus. -->
+  <ellipse cx="775" cy="395" rx="60" ry="42" fill="#c3d9a9" stroke="#a3bd85" stroke-width="2" />
+  <ellipse cx="686" cy="378" rx="26" ry="18" fill="#c3d9a9" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The Olympic Stadium's running track. -->
+  <ellipse cx="142" cy="762" rx="44" ry="26" fill="none" stroke="#c9a86a" stroke-width="8" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="70" font-size="42" letter-spacing="6">ΑΜΣΤΕΡΝΤΑΜ</text>
+    <text x="40" y="104" font-size="22" letter-spacing="4">AMSTERDAM</text>
+    <text x="300" y="120" font-size="22" letter-spacing="3" fill="#3f7d95">IJ</text>
+    <text x="700" y="700" font-size="20" letter-spacing="3" fill="#3f7d95">AMSTEL</text>
+    <text x="250" y="640" font-size="18" letter-spacing="2">VONDELPARK</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 560)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
