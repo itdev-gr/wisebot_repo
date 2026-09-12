@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 612" width="1000" height="612" role="img" aria-label="Stylised map of London">
+  <title>London — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/united-kingdom.ts
+    (north 51.545, south 51.468, east 0.012, west -0.19) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the Thames is
+    a dozen waypoints from general knowledge of where the river bends, the four parks are
+    ellipses on their own centres, and nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3efe6" />
+      <stop offset="1" stop-color="#e9e2d3" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#d9d0bd" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="612" fill="url(#ground)" />
+  <rect width="1000" height="612" fill="url(#grid)" opacity="0.55" />
+
+  <!-- Parks, projected from their own centres. -->
+  <g fill="#c6d9ad" stroke="#a6bf8a" stroke-width="2">
+    <ellipse cx="120" cy="300" rx="62" ry="34" />
+    <ellipse cx="163" cy="109" rx="52" ry="40" />
+    <ellipse cx="273" cy="336" rx="34" ry="18" />
+    <ellipse cx="941" cy="540" rx="44" ry="30" />
+  </g>
+
+  <!-- The Thames. West to east: Chelsea, Westminster, the City, the Isle of Dogs, Greenwich. -->
+  <path d="M0 517 L149 485 L248 473 L312 449 L329 401 L337 354 L344 306 L386 282 L446 278 L505 290 L569 314 L644 330 L718 306 L777 290 L802 358 L812 437 L866 489 L926 481 L960 421 L1000 358" fill="none" stroke="#8cc0d3" stroke-width="30" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M0 517 L149 485 L248 473 L312 449 L329 401 L337 354 L344 306 L386 282 L446 278 L505 290 L569 314 L644 330 L718 306 L777 290 L802 358 L812 437 L866 489 L926 481 L960 421 L1000 358" fill="none" stroke="#5c9fb8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.7" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="406" y="258" font-size="16" text-anchor="middle" letter-spacing="2">ΤΑΜΕΣΗΣ · THAMES</text>
+    <text x="163" y="91" font-size="14" text-anchor="middle" letter-spacing="2">REGENT'S PARK</text>
+    <text x="120" y="282" font-size="14" text-anchor="middle" letter-spacing="2">HYDE PARK</text>
+    <text x="941" y="513" font-size="14" text-anchor="middle" letter-spacing="2">GREENWICH</text>
+    <text x="40" y="60" font-size="40" letter-spacing="6">ΛΟΝΔΙΝΟ</text>
+    <text x="40" y="92" font-size="20" letter-spacing="4">LONDON</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(940 70)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="24" fill="none" stroke-width="2" />
+    <path d="M0 -20 L6 4 L0 -2 L-6 4 Z" />
+    <text y="-28" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
