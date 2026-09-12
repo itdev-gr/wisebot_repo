@@ -4,6 +4,46 @@
 της Supabase, του Gmail και των transcripts των άλλων sessions. Ό,τι γράφεται εδώ
 μετρήθηκε· δεν είναι εκτίμηση. Το business plan είναι στο [BUSINESS-PLAN.md](BUSINESS-PLAN.md).
 
+## 0α. HANDOFF για το επόμενο session (12/9, 21:00) — ξεκίνα από εδώ
+
+**Πού είμαστε.** Branch `content/world-cities`, ~14 commits μπροστά από το `origin/main`, gates
+πράσινα (typecheck 0, `vitest data/world/world.test.ts` 159/159). Στο main είναι live τα PR
+#67 (WiseBot World, 25 χώρες, Ελλάδα) και #68 (πραγματικός χάρτης, Google/Apple Maps, σφραγίδα
+μόνο επί τόπου, runtime SEO). Στο branch, ΟΧΙ ακόμη στο main: **Παρίσι (13 μέρη, 4 γλώσσες),
+Ρώμη (18 μέρη, 3 μουσεία), Λονδίνο (17/3), Άμστερνταμ (16/3)** — μετατροπές από το Explorer
+μέσα από τον resolver, με ανεξάρτητο έλεγχο η καθεμία· Βιέννη: seed + coords μόνο (b1cae78).
+
+**Μισοτελειωμένα, ΜΗΝ τα σβήσεις:** δύο agent worktrees με γραμμένα αλλά μη ελεγμένα αρχεία:
+`.claude/worktrees/wf_305d6b08-8eb-3` = **Βαρκελώνη** (cities/barcelona.ts, coords, seeds,
+spain.ts, svg) και `wf_305d6b08-8eb-4` = **Κωνσταντινούπολη** (ίδια δομή, turkey.ts). Για να
+κλείσουν: `cd` στο worktree, `node scripts/world/resolve-coords.mjs <city>` (κανένα D),
+`node scripts/world/build-registry.mjs`, `npm run typecheck`, `npx vitest run data/world/world.test.ts`
+(το test μήκους απάντησης πρέπει να περνά), commit εκεί, μετά `git merge <branch του worktree>`
+στο `content/world-cities` και ξανά `build-registry` (το registry.ts είναι generated, λύνεται
+πάντα με regeneration). Τα worktrees wt-1/2/5 (Ρώμη, Λονδίνο, Άμστερνταμ) έχουν ήδη γίνει
+merge και μπορούν να αφαιρεθούν (`git worktree remove --force`).
+
+**Τι μένει, με σειρά:**
+1. Βαρκελώνη + Κωνσταντινούπολη (παραπάνω), Βιέννη (το content session γράφει vienna.ts).
+2. Overlays fr/de/es/it για Ρώμη, Λονδίνο, Άμστερνταμ (+ Βαρκελώνη, Κων/πολη, Βιέννη όταν
+   μπουν): 4 μεταφραστές ανά πόλη, ίδιο brief με το Παρίσι (δες το workflow «paris-languages»
+   στο ιστορικό: πηγή = city.ts, σχήμα = CityTranslation, sibling = athens.<lang>.json, gate =
+   «<city> is completely translated into <lang>»).
+3. **countries.<lang>.json: μόνο greece + paris έχουν μετάφραση.** Οι 24 νέες χώρες δείχνουν
+   αγγλικά σε de/fr/es/it. Ένας μεταφραστής ανά γλώσσα, name+intro+facts για 24 χώρες, χωρίς
+   stamp. (Το workflow «countries-languages» κόπηκε πριν γράψει.)
+4. PR #69 από `content/world-cities` → main (Παρίσι, Ρώμη, Λονδίνο, Άμστερνταμ + ό,τι κλείσει).
+   Ο ιδιοκτήτης έχει δώσει ΟΚ για merge όταν το CI είναι πράσινο. Merge με `--merge`.
+5. Μετά: αφήγηση Kore για τις νέες πόλεις (quota ~100 κλιπ/μέρα), cloud sync σφραγίδων
+   (`world_stamps`), κάρτα «Άλλη μία;», κουμπί «Λάθος σημείο», PASS_QUIZ off στο Explorer,
+   StampBook adapter για wb_explore_* — δες BUSINESS-PLAN.md §6 εβδομάδες 2–3.
+
+**Κανόνες που πλήρωσαν:** ένα session ανά φάκελο, `git fetch` στην αρχή· μη γράφεις σε
+αρχείο που γράφει άλλος (το CountryScreens.tsx ξαναγράφτηκε πάνω από edits δύο φορές)· τα
+agents σε worktrees, ποτέ στο κοινό tree· η σωστή απάντηση σύντομη από το πρώτο draft·
+κτίριο αντί για είσοδο στο Wikidata (Λούβρο, όχι Πυραμίδα)· `npx vitest run … --exclude '**/.claude/**'`
+(μπήκε και στο vite.config).
+
 ## 0. Τι αποφασίστηκε και τι έγινε 11→12/9
 
 **LIVE (12/9, 13:47): το PR #67 έγινε merge στο main** (bf3f0d0). Το wisebot.gr έχει πλέον
