@@ -11,6 +11,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react';
 import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 import { pullFromCloud, pushToCloud, mergeState, debouncedPush, cancelPendingPush, syncQuizBests, type SyncState } from '../services/syncService';
+import { syncWorldStamps } from '../services/worldStampsSync';
 import { trackSignUp, trackLogin } from '../utils/analytics';
 import { useEconomy } from './EconomyContext';
 import { authFetch } from '../services/backendApi';
@@ -397,6 +398,9 @@ const SyncBridge: React.FC<{ userId: string; syncDoneRef: React.MutableRefObject
       // Quiz best runs (School stars/diplomas) sync independently of profile/stats —
       // a failed profile fetch below must not stop them.
       void syncQuizBests(userId);
+      // WiseBot World stamps, same deal: the passport is unioned with the account's, and
+      // city and country seals are re-derived from the result. It never awards XP.
+      void syncWorldStamps(userId);
 
       const cloudState = await pullFromCloud(userId);
       if (!cloudState) {
