@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 810" width="1000" height="810" role="img" aria-label="Stylised map of Istanbul">
+  <title>Istanbul — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/turkey.ts
+    (north 41.048, south 40.998, east 29.012, west 28.93) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the Golden
+    Horn, the mouth of the Bosphorus, the Marmara shore and the sliver of the Asian side
+    are placed from those bounds, the three hills from the projected positions of the
+    Galata Tower, the Süleymaniye and the Topkapı ridge, and nothing here is traced from
+    any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9d3e0" />
+      <stop offset="1" stop-color="#7cb8cd" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="810" fill="url(#ground)" />
+  <rect width="1000" height="810" fill="url(#grid)" opacity="0.55" />
+
+  <!--
+    The water, as one shape: the Golden Horn coming in from the top left, the mouth of the
+    Bosphorus on the right, the Sea of Marmara along the bottom. Every shore point is a
+    projected coordinate, so the Galata Bridge pin lands on the narrows and Sarayburnu
+    really is the corner where the two waters meet.
+  -->
+  <path
+    d="M80 0
+       C 120 120, 150 200, 183 243
+       C 210 265, 300 330, 341 356
+       C 390 390, 470 420, 512 502
+       C 560 520, 630 520, 671 510
+       C 660 600, 640 690, 610 729
+       C 540 750, 420 745, 366 761
+       C 320 780, 280 800, 244 810
+       L 1000 810
+       L 1000 0
+       L 960 0
+       C 930 60, 905 95, 890 113
+       C 830 160, 770 190, 732 211
+       C 690 260, 640 300, 610 324
+       C 590 360, 575 385, 561 405
+       C 520 350, 470 300, 427 259
+       C 330 200, 250 160, 195 130
+       C 175 90, 165 40, 150 0
+       Z"
+    fill="url(#water)"
+  />
+  <path
+    d="M80 0 C 120 120, 150 200, 183 243 C 210 265, 300 330, 341 356 C 390 390, 470 420, 512 502 C 560 520, 630 520, 671 510 C 660 600, 640 690, 610 729 C 540 750, 420 745, 366 761 C 320 780, 280 800, 244 810"
+    fill="none" stroke="#5c9fb8" stroke-width="3"
+  />
+  <path
+    d="M960 0 C 930 60, 905 95, 890 113 C 830 160, 770 190, 732 211 C 690 260, 640 300, 610 324 C 590 360, 575 385, 561 405 C 520 350, 470 300, 427 259 C 330 200, 250 160, 195 130 C 175 90, 165 40, 150 0"
+    fill="none" stroke="#5c9fb8" stroke-width="3"
+  />
+
+  <!-- The Asian shore: Üsküdar just touches the east edge, so the Maiden's Tower sits in open water. -->
+  <path d="M1000 300 C 990 330, 984 345, 985 360 C 978 480, 976 600, 975 700 C 978 750, 982 780, 985 810 L1000 810 Z" fill="url(#ground)" stroke="#5c9fb8" stroke-width="3" />
+
+  <!-- The Galata Bridge, drawn across the mouth of the Golden Horn between Eminönü and Karaköy. -->
+  <path d="M512 502 L561 405" stroke="#8a7c62" stroke-width="7" stroke-linecap="round" />
+  <path d="M512 502 L561 405" stroke="#f6efe1" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round" />
+
+  <!-- The land walls of Theodosius, running down the west edge from the Golden Horn. -->
+  <path d="M122 130 C 110 300, 85 550, 60 810" fill="none" stroke="#b9a98a" stroke-width="4" stroke-dasharray="14 8" />
+
+  <!-- Hills. Centres are the projected positions of the Galata Tower, the Süleymaniye and the Topkapı ridge. -->
+  <g fill="#cddcb4" stroke="#a9bd8c" stroke-width="2">
+    <ellipse cx="538" cy="362" rx="56" ry="38" />
+    <ellipse cx="413" cy="517" rx="64" ry="40" />
+    <ellipse cx="659" cy="567" rx="60" ry="44" />
+  </g>
+
+  <!-- Gülhane Park, projected from its own coordinate. -->
+  <ellipse cx="610" cy="580" rx="30" ry="24" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="70" font-size="40" letter-spacing="5">ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΗ</text>
+    <text x="40" y="104" font-size="22" letter-spacing="4">ISTANBUL</text>
+    <text x="300" y="215" font-size="20" letter-spacing="3" transform="rotate(38 300 215)" fill="#4f8ea6">ΚΕΡΑΤΙΟΣ ΚΟΛΠΟΣ</text>
+    <text x="800" y="70" font-size="20" letter-spacing="3" fill="#4f8ea6">ΒΟΣΠΟΡΟΣ</text>
+    <text x="700" y="780" font-size="20" letter-spacing="3" fill="#4f8ea6">ΘΑΛΑΣΣΑ ΤΟΥ ΜΑΡΜΑΡΑ</text>
+    <text x="992" y="560" font-size="16" letter-spacing="2" text-anchor="end" transform="rotate(-90 992 560)">ΑΣΙΑ</text>
+    <text x="538" y="368" font-size="16" text-anchor="middle" letter-spacing="2">ΓΑΛΑΤΑΣ</text>
+    <text x="659" y="573" font-size="16" text-anchor="middle" letter-spacing="2">ΣΑΡΑΪ</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 200)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
