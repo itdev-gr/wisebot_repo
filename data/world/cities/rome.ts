@@ -326,8 +326,8 @@ export const places: Place[] = [
         'world, which officially opened its doors to visitors in 1734. Today it fills two ' +
         'palaces facing each other across Michelangelo’s square, joined by an underground ' +
         'passage that runs beneath the paving. In the courtyard of the first palace a head ' +
-        'two and a half metres tall and a foot taller than you are waiting: pieces of a ' +
-        'statue of the emperor Constantine that stood twelve metres high. In the second ' +
+        'two and a half metres tall and a stone foot taller than you are wait for you: ' +
+        'pieces of a statue of the emperor Constantine that stood twelve metres high. In the second ' +
         'palace sits a marble river god on whom Romans used to pin anonymous jokes about ' +
         'their rulers.',
     },
@@ -669,7 +669,7 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Του κολλούσαν σημειώματα με πειράγματα', en: 'People pinned mocking notes on him' },
-                  { el: 'Είχε κρυμμένο σωλήνα για τη φωνή', en: 'He had a hidden pipe for a voice' },
+                  { el: 'Είχε κρυμμένο σωλήνα μέσα του για τη φωνή', en: 'He had a hidden pipe inside him for a voice' },
                   { el: 'Το νερό του κάνει ήχο σαν ομιλία', en: 'His water makes a sound like speech' },
                   { el: 'Ένας ιερέας μιλούσε από πίσω του', en: 'A priest used to speak from behind him' },
                 ],
@@ -1456,7 +1456,7 @@ export const places: Place[] = [
         'πλατεία του κέντρου που δεν έχει εκκλησία. Στη μέση στέκεται ένα σκοτεινό άγαλμα ' +
         'με κουκούλα: ο Giordano Bruno, ένας φιλόσοφος που πίστευε ότι το σύμπαν είναι ' +
         'άπειρο και ότι υπάρχουν κι άλλοι ήλιοι με δικούς τους πλανήτες. Το 1600 τον ' +
-        'έκαψαν ζωντανό σε αυτό το σημείο, επειδή η Εκκλησία θεωρούσε τις ιδέες του ' +
+        'έκαψαν στην πυρά σε αυτό το σημείο, επειδή η Εκκλησία θεωρούσε τις ιδέες του ' +
         'επικίνδυνες. Το άγαλμα στήθηκε το 1889, όταν η Ρώμη αποφάσισε να τον θυμάται: ' +
         'από κάτω γράφει «εδώ όπου άναψε η φωτιά». Το πρωί η πλατεία μυρίζει φρούτα, το ' +
         'βράδυ γεμίζει κόσμο, και ο Bruno κοιτάζει προς το Βατικανό.',
@@ -1469,7 +1469,7 @@ export const places: Place[] = [
         'place in Rome to see what the city eats. It is also the only big square in the ' +
         'centre without a church. In the middle stands a dark, hooded statue: Giordano ' +
         'Bruno, a philosopher who believed the universe was endless and that there were ' +
-        'other suns with planets of their own. In 1600 he was burned alive on this spot, ' +
+        'other suns with planets of their own. In 1600 he was burned at the stake on this spot, ' +
         'because the Church considered his ideas dangerous. The statue was put up in 1889, ' +
         'when Rome decided to remember him: the words beneath say “here, where the fire ' +
         'burned”. In the morning the square smells of fruit, in the evening it fills with ' +
@@ -1717,7 +1717,7 @@ export const places: Place[] = [
                   en: 'Why does the young man with the spear have empty sockets instead of eyes?',
                 },
                 answers: [
-                  { el: 'Τα ένθετα μάτια του χάθηκαν', en: 'His inlaid eyes were lost' },
+                  { el: 'Τα ένθετα μάτια του έπεσαν και χάθηκαν', en: 'His inlaid eyes fell out and were lost' },
                   { el: 'Ο γλύπτης δεν πρόλαβε να τα φτιάξει', en: 'The sculptor never got round to them' },
                   { el: 'Τα έβγαλαν για να μη «βλέπει»', en: 'They were removed so he could not “see”' },
                   { el: 'Έλιωσαν όταν κάηκε η έπαυλη', en: 'They melted when the villa burned down' },
@@ -1830,7 +1830,7 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Όλα ανθισμένα και ώριμα μαζί', en: 'Everything in flower and ripe at once' },
-                  { el: 'Πουλιά να κάθονται στα κλαδιά', en: 'Birds sitting on the branches' },
+                  { el: 'Πουλιά να κάθονται ήσυχα στα κλαδιά', en: 'Birds sitting quietly on the branches' },
                   { el: 'Ο ουρανός να είναι γαλάζιος', en: 'The sky being blue overhead' },
                   { el: 'Δέντρα να έχουν καρπούς', en: 'Trees carrying any fruit at all' },
                 ],
@@ -1899,7 +1899,7 @@ export const places: Place[] = [
                   'Στο υπόγειο του παλατιού, σε ένα θησαυροφυλάκιο με βαριές πόρτες, ' +
                   'βρίσκεται η συλλογή νομισμάτων. Η ιστορία ξεκινά πριν υπάρξουν καθόλου ' +
                   'νομίσματα: οι πρώτοι Ρωμαίοι πλήρωναν με βαριά κομμάτια χαλκού που τα ' +
-                  'ζύγιζαν, και η λέξη τους για τα λεφτά, pecunia, βγαίνει από το pecus, ' +
+                  'ζύγιζαν, και η λέξη τους για τα λεφτά, pecunia, βγαίνει από το pecu, ' +
                   'που σημαίνει τα ζώα του κοπαδιού, γιατί ακόμα πιο παλιά ο πλούτος ' +
                   'μετριόταν σε ζώα. Μετά έρχονται τα στρογγυλά νομίσματα με πρόσωπα αυτοκρατόρων, ' +
                   'χρυσά, ασημένια και χάλκινα, και η σειρά συνεχίζεται ως τα νομίσματα του ' +
@@ -1979,11 +1979,11 @@ export const places: Place[] = [
           prompt: {
             el:
               'Σκύβω για να ρίξω, κι όμως δεν έριξα ποτέ. Είμαι αντίγραφο ενός χαμένου, ' +
-              'ταξίδεψα σε μια ξένη χώρα μέσα σε έναν πόλεμο και γύρισα σπίτι δέκα χρόνια ' +
-              'μετά.',
+              'με πήραν σε μια ξένη χώρα λίγο πριν από έναν πόλεμο και γύρισα σπίτι δέκα ' +
+              'χρόνια μετά.',
             en:
               'I bend to throw, and yet I never threw. I am a copy of something lost; I ' +
-              'travelled to a foreign country during a war and came home ten years later.',
+              'was taken to a foreign country just before a war and came home ten years later.',
           },
           hint: {
             el: 'Αυτό που κρατάω είναι στρογγυλό και επίπεδο.',
@@ -2003,7 +2003,7 @@ export const places: Place[] = [
     category: 'science',
     difficulty: 3,
 
-    name: { el: 'Η γραμμή του ήλιου', en: 'The sun line' },
+    name: { el: 'Σάντα Μαρία ντέλι Άντζελι', en: 'Santa Maria degli Angeli' },
     tagline: {
       el: 'Μια εκκλησία μέσα σε λουτρά, με ένα ρολόι από μια ακτίνα ήλιου',
       en: 'A church inside a bath house, with a one-sunbeam clock',
@@ -2282,7 +2282,7 @@ export const places: Place[] = [
 
     name: { el: 'Μουσεία του Βατικανού', en: 'The Vatican Museums' },
     tagline: {
-      el: 'Επτά χιλιόμετρα διάδρομοι που τελειώνουν σε μια ζωγραφισμένη οροφή',
+      el: 'Χιλιόμετρα διάδρομοι που τελειώνουν σε μια ζωγραφισμένη οροφή',
       en: 'Kilometres of corridors that end under a painted ceiling',
     },
     story: {
@@ -2422,7 +2422,7 @@ export const places: Place[] = [
                   en: 'What was the pine cone when the Romans made it?',
                 },
                 answers: [
-                  { el: 'Ένα σιντριβάνι', en: 'A fountain' },
+                  { el: 'Ένα σιντριβάνι που έβγαζε νερό', en: 'A fountain that sprayed water' },
                   { el: 'Η κορυφή ενός ναού', en: 'The top of a temple' },
                   { el: 'Ένα δοχείο για κρασί', en: 'A container for wine' },
                   { el: 'Η καμπάνα μιας εκκλησίας', en: 'The bell of a church' },
@@ -2465,7 +2465,7 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Μια δεύτερη σφαίρα με γρανάζια', en: 'A second sphere with gears' },
-                  { el: 'Ένας χάρτης του κόσμου', en: 'A map of the world' },
+                  { el: 'Ένας χάρτης ολόκληρου του κόσμου', en: 'A map of the whole world' },
                   { el: 'Το άγαλμα ενός Πάπα', en: 'The statue of a Pope' },
                   { el: 'Μια πηγή νερού που τρέχει', en: 'A spring of running water' },
                 ],
@@ -2667,7 +2667,7 @@ export const places: Place[] = [
                   { el: 'Του Λεονάρντο ντα Βίντσι', en: 'Leonardo da Vinci’s' },
                   { el: 'Του Πάπα Ιουλίου Β΄', en: 'Pope Julius II’s' },
                   { el: 'Του πατέρα του', en: 'His own father’s' },
-                  { el: 'Του γλύπτη Bernini', en: 'The sculptor Bernini’s' },
+                  { el: 'Του γλύπτη Gian Lorenzo Bernini', en: 'The sculptor Gian Lorenzo Bernini’s' },
                 ],
                 explanation: {
                   el:
