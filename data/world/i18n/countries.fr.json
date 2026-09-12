@@ -33,12 +33,245 @@
       }
     },
     "france": {
+      "name": "France",
+      "intro": "La France est un pays qui change de forme toutes les quelques heures de route. Au nord, une abbaye se dresse sur un rocher qui devient une île quand la marée monte. Au centre, des châteaux aux tours de conte de fées regardent couler une rivière tranquille. Au sud, il y a des champs de lavande, et derrière eux les Alpes, avec de la neige sur les sommets toute l’année. Au fond de ses grottes, il y a des peintures faites au temps où les mammouths marchaient encore ici. Et dans presque chaque rue, une boulangerie qui sort du pain chaud du four chaque matin.",
+      "facts": [
+        "Le mont Blanc, le plus haut sommet des Alpes, atteint 4 807 mètres.",
+        "La tour Eiffel mesure 330 mètres de haut. Pendant 41 ans, elle a été la plus haute construction jamais bâtie par les humains.",
+        "En 2007, un TGV français a roulé à 574,8 kilomètres à l’heure, un record du monde pour un train sur rails.",
+        "Le Louvre expose environ 35 000 œuvres d’art. Pour les voir toutes, il te faudrait des jours."
+      ],
       "cities": {
         "paris": {
           "name": "Paris",
           "intro": "Paris est une ville qui se dispute avec ses bâtiments, puis qui les aime. On voulait démolir la tour Eiffel, on disait que la pyramide de verre du Louvre était une insulte, et aujourd’hui les deux sont son emblème. Au milieu coule la Seine, et au milieu du fleuve il y a une petite île : c’est de là qu’est partie toute la ville. Elle a un musée si grand qu’on n’en voit jamais la fin, et un pendule qui a prouvé que la Terre tourne."
         }
       }
+    },
+    "spain": {
+      "name": "Espagne",
+      "intro": "L’Espagne est un pays où l’on déjeune à trois heures et où le soir prend son temps pour finir. Elle a des montagnes enneigées et des plages assez chaudes pour le mois de décembre, et loin dans l’Atlantique, des îles avec un volcan plus haut que n’importe quel sommet du continent. À Barcelone, une église est en construction depuis plus de cent quarante ans, à Grenade, un palais a des murs sculptés aussi finement que de la dentelle, et à Madrid, des enfants dessinent devant des tableaux peints il y a quatre cents ans. Et où que tu ailles, quelqu’un te proposera des olives.",
+      "facts": [
+        "Son plus haut sommet, le Teide, est un volcan sur l’île de Tenerife et atteint 3 715 mètres.",
+        "Elle compte 50 sites du patrimoine mondial de l’UNESCO, le cinquième plus grand nombre de tous les pays du monde.",
+        "La Sagrada Família, à Barcelone, est en construction depuis 1882, et c’est la plus haute église du monde avec 172,5 mètres.",
+        "Elle produit plus d’huile d’olive que n’importe quel autre pays du monde."
+      ]
+    },
+    "italy": {
+      "name": "Italie",
+      "intro": "L’Italie a la forme d’une botte, et la botte a l’air de donner un coup de pied à une île au milieu de la Méditerranée. En haut, les Alpes enneigées ; en bas, un volcan qui fume encore ; et entre les deux, des villes qui semblent chacune appartenir à un autre siècle : Rome avec ses ruines romaines, Venise avec des canaux au lieu de rues, Florence avec ses peintres. Les Romains ont construit des routes et des aqueducs qui sont toujours debout, et les Italiens ont ensuite inventé la pizza et le piano. Où que tu t’arrêtes, quelque chose de vieux et quelque chose de délicieux ne sont jamais loin.",
+      "facts": [
+        "Elle compte 62 sites du patrimoine mondial de l’UNESCO, plus que n’importe quel autre pays du monde.",
+        "À l’intérieur de Rome se trouve le Vatican, le plus petit pays du monde : à peine 44 hectares, environ la taille de 60 terrains de football.",
+        "Son plus haut sommet, le mont Blanc, atteint 4 807 mètres, et elle le partage avec la France.",
+        "Elle est divisée en 20 régions, et chacune a ses propres recettes et son propre accent."
+      ]
+    },
+    "turkey": {
+      "name": "Turquie",
+      "intro": "La Turquie est le pays où l’Europe et l’Asie se touchent. À Istanbul, tu peux prendre ton petit-déjeuner sur un continent, traverser un pont et déjeuner sur l’autre. En Cappadoce, les gens ont creusé leurs maisons dans des rochers en forme de cheminées, et chaque matin des dizaines de ballons s’élèvent au-dessus d’eux. À Pamukkale, toute une colline est d’un blanc éclatant, faite d’eau chaude de source qui s’est lentement transformée en pierre. Sous les champs, il y a des villes entières creusées à la main, assez profondes pour cacher des milliers de personnes. Et où que tu t’assoies, quelqu’un te proposera du thé dans un petit verre en forme de tulipe.",
+      "facts": [
+        "Son plus haut sommet, l’Ararat, atteint 5 137 mètres et garde sa neige toute l’année.",
+        "Göbekli Tepe a été bâti il y a environ 11 500 ans, avant que les humains ne fabriquent leur premier pot en argile.",
+        "Le Grand Bazar d’Istanbul a 61 rues couvertes et environ 4 000 boutiques.",
+        "La ville souterraine de Derinkuyu descend à 85 mètres sous terre et pouvait abriter jusqu’à 20 000 personnes."
+      ]
+    },
+    "united-kingdom": {
+      "name": "Royaume-Uni",
+      "intro": "Le Royaume-Uni, ce sont quatre pays qui partagent une île et un peu plus : l’Angleterre, l’Écosse, le pays de Galles et l’Irlande du Nord. Ici, les voitures roulent à gauche, les bus sont rouges et ont un étage, et un train peut passer sous la mer et ressortir en France. À Londres, tu peux rencontrer des dinosaures, des momies et une horloge que la ville entière entend. Plus loin, des châteaux se dressent sur des falaises, des lacs profonds gardent leurs légendes, et des pierres levées il y a des milliers d’années attendent encore que quelqu’un explique pourquoi.",
+      "facts": [
+        "Son plus haut sommet, le Ben Nevis, en Écosse, atteint 1 345 mètres.",
+        "Le métro de Londres est le plus vieux du monde : il a ouvert en 1863 et compte aujourd’hui 272 stations.",
+        "La cloche de Big Ben pèse 13,7 tonnes, et il faut monter 334 marches pour arriver près d’elle.",
+        "Les grandes pierres de Stonehenge ont été dressées il y a environ 4 500 ans. Chacune pèse à peu près 25 tonnes."
+      ]
+    },
+    "united-states": {
+      "name": "États-Unis",
+      "intro": "Les États-Unis sont si larges que, quand le soleil se lève à New York, il fait encore nuit noire à Hawaï. Le pays compte cinquante États, et chacun ressemble à un pays à part : des déserts pleins de cactus, des montagnes enneigées, des marais avec des alligators et des forêts d’arbres plus hauts que des immeubles. Le plus gros arbre de la Terre pousse en Californie, et à Yellowstone un geyser lance de l’eau bouillante vers le ciel à peu près toutes les quatre-vingt-dix minutes. C’est ici qu’a été construite la fusée qui a emmené les premiers hommes sur la Lune, et ici qu’a ouvert le premier parc Disney.",
+      "facts": [
+        "Le Denali, en Alaska, le plus haut sommet d’Amérique du Nord, atteint 6 190 mètres.",
+        "Le Grand Canyon mesure 446 kilomètres de long et jusqu’à 1 857 mètres de profondeur.",
+        "Le drapeau a 50 étoiles, une pour chaque État, et 13 bandes, une pour chacune des premières colonies.",
+        "Yellowstone est devenu en 1872 le premier parc national du monde. Aujourd’hui, le pays en compte 63."
+      ]
+    },
+    "germany": {
+      "name": "Allemagne",
+      "intro": "L’Allemagne commence à deux mers et finit dans les Alpes. Au nord, quand la marée se retire, tu peux marcher sur le fond de la mer, au milieu des crabes et des phoques. Au sud, un téléphérique te conduit sur son plus haut sommet, où la neige ne fond presque jamais. Entre les deux, des fleuves serpentent au pied de châteaux posés sur leurs rives, et des trains blancs filent à trois cents kilomètres à l’heure. C’est ici qu’a été construite l’imprimerie qui a rempli l’Europe de livres, ici que les frères Grimm ont écrit leurs contes, et ici que la première voiture du monde est sortie d’un atelier.",
+      "facts": [
+        "Son plus haut sommet, la Zugspitze, atteint 2 962 mètres. La frontière avec l’Autriche passe juste sur sa cime.",
+        "Elle a une frontière avec neuf pays, du Danemark au nord à la Suisse au sud.",
+        "La cathédrale de Cologne a mis 632 ans à être terminée, de 1248 à 1880. Ses tours montent à 157 mètres."
+      ]
+    },
+    "portugal": {
+      "name": "Portugal",
+      "intro": "Le Portugal est un pays qui regarde l’océan. C’est d’ici que sont partis les navires qui ont atteint l’Inde par la mer pour la première fois, et à Lisbonne presque chaque rue qui monte se termine par une vue sur l’eau. Ses trottoirs sont pavés de pierres noires et blanches qui dessinent des motifs, ses murs sont habillés de carreaux peints en bleu, et des tramways jaunes grimpent les collines en grinçant. Près de la moitié du liège du monde est tirée de l’écorce de ses arbres. Et au cap de Roca, la dernière falaise de l’Europe continentale, il n’y a rien devant toi que de l’eau, jusqu’à l’Amérique.",
+      "facts": [
+        "Son plus haut sommet, le Pico, est un volcan de 2 351 mètres sur une île des Açores, au milieu de l’Atlantique.",
+        "Près de la moitié du liège du monde vient d’ici. On enlève l’écorce tous les 9 ans et l’arbre continue de vivre.",
+        "Le pont Vasco-de-Gama, à Lisbonne, mesure 17,2 kilomètres de long : c’est le plus long de l’Union européenne.",
+        "La librairie Bertrand, à Lisbonne, est ouverte depuis 1732 : c’est la plus vieille librairie du monde encore en activité."
+      ]
+    },
+    "austria": {
+      "name": "Autriche",
+      "intro": "L’Autriche n’a pas du tout de mer, mais elle a des montagnes presque partout. Les Alpes couvrent la plus grande partie du pays, alors les enfants apprennent ici à skier comme ailleurs on apprend à faire du vélo. À l’intérieur d’une montagne près de Salzbourg se cache une grotte de glace qui ne fond jamais, même pas en été. À Vienne, une grande roue construite en 1897 soulève encore les gens au-dessus des toits, et le plus vieux zoo du monde ouvre ses portes chaque matin depuis plus de deux cent soixante-dix ans. Et dans presque chaque ville, quelque part, quelqu’un joue du Mozart.",
+      "facts": [
+        "Son plus haut sommet, le Grossglockner, atteint 3 798 mètres.",
+        "L’Eisriesenwelt est la plus grande grotte de glace du monde, avec des galeries de plus de 42 kilomètres.",
+        "Le zoo de Schönbrunn, à Vienne, a ouvert en 1752 : c’est le plus vieux zoo encore en activité au monde.",
+        "Elle n’a pas du tout de côte, mais elle a une frontière avec huit pays."
+      ]
+    },
+    "netherlands": {
+      "name": "Pays-Bas",
+      "intro": "Les Pays-Bas sont un pays que les gens ont construit presque autant que la nature. Un quart du pays se trouve sous le niveau de la mer, et il reste sec seulement grâce aux digues, aux pompes et aux moulins à vent qui ont passé des siècles à tirer l’eau dehors. Ici, tout le monde va partout à vélo : à l’école, au travail, au marché, même sous la pluie. Au printemps, des champs entiers deviennent des rayures de tulipes, rouges, jaunes et violettes, comme si quelqu’un avait peint la terre à la règle. Et où que tu sois, il y a un canal tout près.",
+      "facts": [
+        "Environ 26 % du pays se trouve sous le niveau de la mer. Son point le plus bas est à 7 mètres en dessous.",
+        "La plus haute « montagne » des Pays-Bas continentaux, le Vaalserberg, atteint à peine 323 mètres.",
+        "Il y a plus de vélos que d’habitants : environ 23 millions de vélos pour 18 millions de personnes, et 35 000 kilomètres de pistes cyclables.",
+        "En 1932, une digue de 32 kilomètres, l’Afsluitdijk, a fermé toute une baie de la mer et l’a transformée en lac d’eau douce."
+      ]
+    },
+    "japan": {
+      "name": "Japon",
+      "intro": "Le Japon est un pays fait d’îles, plus de quatorze mille, même si presque tout le monde habite sur les quatre grandes. Ici, un train passe devant toi à trois cent vingt kilomètres à l’heure et n’est presque jamais en retard. Au printemps, les cerisiers fleurissent quelques jours seulement, et les familles sortent dans les parcs pour s’asseoir dessous. Un volcan avec de la neige au sommet se voit depuis la capitale les jours clairs. Et dans les écoles, les enfants nettoient eux-mêmes leur classe chaque après-midi, avec des balais et des chiffons.",
+      "facts": [
+        "Le mont Fuji, son plus haut sommet, atteint 3 776 mètres. C’est un volcan, et il s’est réveillé pour la dernière fois en 1707.",
+        "En 2023, le Japon a recompté ses îles avec de nouvelles cartes et en a trouvé 14 125, plus du double du chiffre d’avant.",
+        "Le premier train à grande vitesse, le Shinkansen, est parti en 1964. Aujourd’hui, il roule jusqu’à 320 kilomètres à l’heure."
+      ]
+    },
+    "mexico": {
+      "name": "Mexique",
+      "intro": "Le Mexique est un pays construit par-dessus d’autres pays. Sa capitale se dresse là où il y avait autrefois un lac avec une ville au milieu, et quand on creuse pour le métro, on tombe sur des temples. Dans la jungle du sud, des pyramides s’élèvent avec des escaliers qui comptent les jours de l’année. Chaque automne, des millions de papillons arrivent du Canada et remplissent des forêts entières. Le chocolat, les tomates, le maïs et les piments sont tous partis d’ici vers le reste du monde, alors il y a un peu de Mexique dans chaque cuisine.",
+      "facts": [
+        "Son plus haut sommet, le Pico de Orizaba, est un volcan et atteint 5 636 mètres.",
+        "La pyramide de Chichén Itzá a 91 marches de chaque côté. Ajoute le sommet et tu obtiens 365, une pour chaque jour de l’année.",
+        "Il compte 36 sites du patrimoine mondial de l’UNESCO, plus que n’importe quel autre pays d’Amérique."
+      ]
+    },
+    "egypt": {
+      "name": "Égypte",
+      "intro": "L’Égypte est un pays construit autour d’un fleuve. Le Nil traverse le milieu du désert comme un long ruban vert, et presque tout le monde vit à côté de lui : à quelques kilomètres de là, le sable commence et ne s’arrête plus. Au bord du Caire se dressent des pyramides élevées il y a quatre mille cinq cents ans, et dans ses musées on trouve des jouets, des sandales et même des pains de cette époque. Les anciens Égyptiens écrivaient avec de petites images, des oiseaux, des serpents et des yeux, et aujourd’hui on peut lire ce qu’ils disaient.",
+      "facts": [
+        "Le Nil, le plus long fleuve du monde, mesure plus de 6 600 kilomètres et coule vers le nord, jusqu’à la Méditerranée.",
+        "La grande pyramide de Gizeh est faite d’environ 2,3 millions de blocs. Elle mesurait 146 mètres de haut quand on l’a bâtie, et elle est restée la plus haute construction du monde pendant plus de 3 700 ans.",
+        "Environ 99 % des Égyptiens vivent sur 5 % seulement du pays, dans la vallée et le delta du Nil. Le reste est un désert."
+      ]
+    },
+    "thailand": {
+      "name": "Thaïlande",
+      "intro": "La Thaïlande est un pays où une grande partie de la vie se passe sur l’eau. Dans ses marchés flottants, les magasins sont des barques, les vendeurs pagaient entre leurs clients, et le déjeuner cuit sur un réchaud au fond d’une pirogue. Au nord, les montagnes sont couvertes de brume et de forêt ; au sud, la mer est parsemée d’îles qui sortent de l’eau comme des tours de pierre. Ses temples brillent de feuilles d’or et de milliers de petits miroirs. Et chaque mois d’avril, pour le nouvel an thaï, le pays entier sort dans la rue et fait la plus grande bataille d’eau de la Terre.",
+      "facts": [
+        "Son plus haut sommet, le Doi Inthanon, atteint 2 565 mètres.",
+        "L’alphabet thaï a 44 consonnes, et les mots s’écrivent sans espace entre eux.",
+        "Le nom complet de Bangkok compte 168 lettres. C’est le plus long nom de lieu du monde."
+      ]
+    },
+    "china": {
+      "name": "Chine",
+      "intro": "La Chine est un pays si grand qu’il a des déserts, des jungles, des rizières en terrasses et, le long de sa frontière, la plus haute montagne de la Terre. Une muraille qu’on a mis deux mille ans à bâtir grimpe par-dessus les collines et les falaises, et dans un champ près de Xi’an, toute une armée en argile se tient sous terre, enterrée pour garder un empereur. Dans les forêts de bambous vivent les pandas, qui passent presque toute la journée à manger. Le papier, le cerf-volant et la boussole ont tous été inventés ici. Et les enfants apprennent des caractères qui ne sont pas des lettres mais de petites images, des milliers d’entre elles.",
+      "facts": [
+        "La Grande Muraille, avec tous ses morceaux, a été mesurée en 2012 : elle fait 21 196 kilomètres.",
+        "L’Everest, à la frontière de la Chine et du Népal, est la plus haute montagne du monde : 8 848,86 mètres.",
+        "L’armée de terre cuite compte plus de 8 000 soldats. Des paysans l’ont trouvée en 1974 en creusant un puits.",
+        "Environ 1 864 pandas vivent en liberté. Chacun mange 9 à 14 kilos de bambou par jour."
+      ]
+    },
+    "canada": {
+      "name": "Canada",
+      "intro": "Le Canada est si large que, quand le soleil se lève sur sa côte est, il fait encore nuit noire sur sa côte ouest. Il a plus de lacs que n’importe quel autre pays, des forêts que tu pourrais traverser en voiture pendant des jours, et une chute d’eau, le Niagara, qu’on entend avant de la voir. Les panneaux routiers parlent deux langues, l’anglais et le français. En hiver, les étangs gèlent et deviennent des patinoires de hockey, et au printemps les gens percent les érables pour récolter la sève qui devient du sirop. Monte assez loin vers le nord et le ciel lui-même danse en vert pendant la nuit.",
+      "facts": [
+        "Il a la plus longue côte du monde, environ 243 000 kilomètres.",
+        "Son plus haut sommet, le mont Logan, atteint 5 959 mètres : plus que deux monts Olympe posés l’un sur l’autre.",
+        "Il a plus de lacs que n’importe quel autre pays : plus de 880 000 en comptant seulement les grands.",
+        "C’est le deuxième plus grand pays de la Terre, avec 10 provinces, 3 territoires et deux langues officielles."
+      ]
+    },
+    "poland": {
+      "name": "Pologne",
+      "intro": "La Pologne garde ses choses les plus étranges sous terre. Près de Cracovie, il y a une mine de sel avec des chapelles, des lustres et des statues, tous taillés dans le sel, et en haut, dans la ville, un trompettiste joue chaque heure le même petit air depuis la plus haute tour, vers les quatre directions. Au nord s’étendent des plages de sable sur la Baltique, au sud des montagnes avec des lacs immobiles comme des miroirs, et à l’est une forêt si vieille que des bisons sauvages y marchent encore. C’est un pays plat comme une table, et on a l’impression qu’il ne finit jamais.",
+      "facts": [
+        "La Vistule, son plus long fleuve, coule sur 1 047 kilomètres et passe par Cracovie et Varsovie avant d’atteindre la Baltique.",
+        "La mine de sel de Wieliczka a environ 287 kilomètres de galeries et descend à 327 mètres sous terre.",
+        "Plus de 800 bisons d’Europe, l’animal sauvage terrestre le plus lourd d’Europe, vivent dans la forêt de Białowieża.",
+        "Son point le plus haut est le sommet du Rysy, dans les Tatras, presque 2 500 mètres, juste sur la frontière avec la Slovaquie."
+      ]
+    },
+    "croatia": {
+      "name": "Croatie",
+      "intro": "La Croatie a la forme d’un boomerang. Un bras s’étire vers l’intérieur, au-dessus des plaines et des rivières ; l’autre descend l’Adriatique le long de plus de mille îles. Au milieu du pays, seize lacs se déversent l’un dans l’autre par des cascades que l’on traverse sur des passerelles en bois. À Dubrovnik, tu peux faire le tour complet d’une ville entière en marchant sur ses murailles, les toits d’un côté et la mer de l’autre. Et chaque fois que quelqu’un, quelque part, met une cravate, il porte quelque chose que des soldats croates ont lancé il y a quatre cents ans.",
+      "facts": [
+        "Elle compte 1 246 îles, îlots et rochers, mais on n’habite toute l’année que sur 47 d’entre eux.",
+        "Son point le plus haut, sur le mont Dinara, atteint 1 831 mètres.",
+        "Les lacs de Plitvice sont seize lacs posés l’un au-dessus de l’autre, devenus parc national en 1949.",
+        "Les murailles de Dubrovnik font environ 1 940 mètres de long et montent jusqu’à 25 mètres de haut."
+      ]
+    },
+    "united-arab-emirates": {
+      "name": "Émirats arabes unis",
+      "intro": "Les Émirats arabes unis sont un pays qui a poussé hors du sable. Il y a cinquante ans, il n’y avait ici que des villages de pêcheurs et des caravanes de chameaux ; aujourd’hui, le plus haut bâtiment de la Terre se dresse ici, et son ascenseur t’emmène au-dessus des nuages en moins de deux minutes. Juste à la sortie de la ville, des dunes rouges roulent jusqu’à l’horizon, et à l’est des montagnes grises tombent droit dans la mer. Sept petits États se sont réunis en 1971 pour devenir un seul pays, et à Dubaï des bateaux en bois chargent encore des frigos et des machines à laver le long d’un bras de mer bordé de tours de verre.",
+      "facts": [
+        "Le Burj Khalifa, à Dubaï, est le plus haut bâtiment du monde : 828 mètres jusqu’au toit.",
+        "Le pays est fait de sept émirats qui se sont réunis en 1971. Abou Dabi est la capitale.",
+        "Son point le plus haut, sur le mont Jebel Jais, atteint 1 892 mètres.",
+        "Sa côte mesure environ 1 318 kilomètres, presque entièrement sur le golfe Persique."
+      ]
+    },
+    "cyprus": {
+      "name": "Chypre",
+      "intro": "Chypre est une île avec une montagne au milieu. En hiver, le sommet du Troodos devient blanc de neige, alors qu’à quelques kilomètres plus bas, la mer reste si claire que tu vois tes propres pieds au fond. Sur les rochers près de Paphos, dit un mythe, Aphrodite est sortie de l’écume, et sur la plage de Lara, les tortues de mer creusent leurs nids dans le sable chaque été. Le halloumi, le fromage qui grince sous les dents quand on le grille, est né ici. Et le mot « cuivre » lui-même a commencé sur cette île.",
+      "facts": [
+        "C’est la troisième plus grande île de la Méditerranée, avec une surface de 9 251 kilomètres carrés.",
+        "Son plus haut sommet, l’Olympe, appelé aussi Chionistra, atteint 1 952 mètres et reçoit de la neige chaque hiver.",
+        "Le mot « cuivre » vient du latin « aes cyprium », qui veut dire « métal de Chypre ».",
+        "Sa côte mesure environ 648 kilomètres, alors nulle part sur l’île tu n’es loin de la mer."
+      ]
+    },
+    "czechia": {
+      "name": "Tchéquie",
+      "intro": "La Tchéquie n’a pas du tout de mer, mais elle se rattrape avec ses châteaux. Au-dessus de Prague se dresse le plus grand château ancien du monde, et en dessous, un pont de pierre bordé de trente statues fait passer les gens au-dessus du fleuve depuis six cents ans. Sur une place, une horloge construite en 1410 montre encore où sont le soleil et la lune. Et voilà le meilleur : le mot « robot » a été inventé ici, dans une pièce de théâtre de 1920. Sans la Tchéquie, WiseBot n’aurait même pas de nom.",
+      "facts": [
+        "Son plus haut sommet, le Sněžka, atteint 1 603 mètres, et sa cime est partagée avec la Pologne.",
+        "Le château de Prague s’étend sur près de 70 000 mètres carrés, environ dix terrains de football.",
+        "Le pont Charles mesure 516 mètres de long, avec 16 arches et une rangée de 30 statues.",
+        "Le mot « robot » est apparu pour la première fois en 1920, dans la pièce R.U.R. de Karel Čapek."
+      ]
+    },
+    "hungary": {
+      "name": "Hongrie",
+      "intro": "La Hongrie n’a pas de mer, mais elle est pleine d’eau. Des sources chaudes jaillissent sous Budapest, et les gens nagent dans des bains ouverts depuis des centaines d’années, même quand la neige tombe sur le bassin. Au milieu du pays s’étend le Balaton, un lac si large que les Hongrois l’appellent leur mer. Le Danube traverse la capitale en plein milieu et la coupe en deux : Buda et ses collines sur une rive, Pest et sa plaine sur l’autre. Et en 1974, un professeur hongrois qui travaillait à Budapest a inventé le cube-casse-tête le plus célèbre du monde.",
+      "facts": [
+        "Le lac Balaton est le plus grand lac d’Europe centrale : environ 78 kilomètres de long et 600 kilomètres carrés.",
+        "Son point le plus haut, le Kékes, atteint à peine 1 014 mètres. Le pays est presque entièrement une plaine.",
+        "Le Parlement de Budapest a 691 pièces et 29 escaliers, et son dôme monte à 96 mètres.",
+        "Le Rubik’s Cube a été inventé à Budapest en 1974. Il s’en est vendu environ 500 millions."
+      ]
+    },
+    "denmark": {
+      "name": "Danemark",
+      "intro": "Le Danemark est un pays que la mer a façonné de tous les côtés. C’est une longue péninsule et des centaines d’îles, reliées entre elles par des ferries, des ponts et un pont si long qu’il atteint la Suède. Il n’y a pas une seule montagne : le point le plus haut de tout le pays est une colline que tu montes avant le déjeuner. C’est pour cela que tout le monde va partout à vélo, les enfants aussi, même dans la neige. Ici, un menuisier d’un petit village a fabriqué les premières briques LEGO, et c’est ici que Hans Christian Andersen s’est assis pour écrire La Petite Sirène et Le Vilain Petit Canard.",
+      "facts": [
+        "Son point naturel le plus haut, la colline de Møllehøj, atteint à peine 171 mètres.",
+        "Où que tu te trouves au Danemark, la mer n’est jamais à plus de 52 kilomètres.",
+        "LEGO a commencé en 1932 avec un menuisier de Billund. Le nom vient de « leg godt », qui veut dire « joue bien ».",
+        "Son drapeau, le Dannebrog, est utilisé sans interruption depuis 1625, plus longtemps que n’importe quel autre drapeau national."
+      ]
+    },
+    "belgium": {
+      "name": "Belgique",
+      "intro": "La Belgique est un petit pays que tu traverses en voiture en une journée, et qui change pourtant de langue à mi-chemin : le néerlandais au nord, le français au sud, et l’allemand dans un coin à l’est. Tintin et les Schtroumpfs sont nés ici, et à Bruxelles, des héros de bande dessinée sont peints sur des murs entiers. Les chocolatiers ont une boutique sur presque chaque place, les frites sont cuites deux fois, et à Bruges les rues sont des canaux. Et tu peux aller d’un bout de la plage à l’autre avec un seul tram.",
+      "facts": [
+        "Son point le plus haut, le Signal de Botrange, atteint seulement 694 mètres.",
+        "Sa côte mesure 67 kilomètres, et un seul tram, avec 67 arrêts, la parcourt sur toute sa longueur.",
+        "Elle a trois langues officielles : le néerlandais, le français et l’allemand.",
+        "Les albums de Tintin se sont vendus à environ 200 millions d’exemplaires dans le monde."
+      ]
     }
   }
 }

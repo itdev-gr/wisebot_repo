@@ -33,12 +33,245 @@
       }
     },
     "france": {
+      "name": "Frankreich",
+      "intro": "Frankreich ist ein Land, das alle paar Stunden Fahrt seine Form ändert. Im Norden steht eine Abtei auf einem Felsen, der zur Insel wird, wenn die Flut kommt. In der Mitte schauen Schlösser mit Märchentürmen auf einen langsamen Fluss hinunter. Im Süden liegen Felder voller Lavendel, und dahinter die Alpen, auf deren Gipfeln das ganze Jahr Schnee liegt. Tief in seinen Höhlen gibt es Bilder, die gemalt wurden, als hier noch Mammuts herumliefen. Und in fast jeder Straße holt eine Bäckerei jeden Morgen warmes Brot aus dem Ofen.",
+      "facts": [
+        "Der Mont Blanc, der höchste Berg der Alpen, ist 4.807 Meter hoch.",
+        "Der Eiffelturm ist 330 Meter hoch. 41 Jahre lang war er das höchste Bauwerk, das Menschen je gebaut hatten.",
+        "2007 fuhr ein französischer TGV 574,8 Kilometer pro Stunde, Weltrekord für einen Zug auf Schienen.",
+        "Der Louvre zeigt etwa 35.000 Kunstwerke. Um sie alle zu sehen, bräuchtest du Tage."
+      ],
       "cities": {
         "paris": {
           "name": "Paris",
           "intro": "Paris ist eine Stadt, die sich mit ihren Gebäuden streitet und sie dann liebt. Den Eiffelturm wollte man abreißen, die Glaspyramide des Louvre nannte man eine Beleidigung, und heute sind beide ihr Wahrzeichen. In der Mitte fließt die Seine, und mitten im Fluss liegt eine kleine Insel: Von dort aus begann die ganze Stadt. Sie hat ein Museum, das so groß ist, dass du nie damit fertig wirst, und ein Pendel, das bewiesen hat, dass die Erde sich dreht."
         }
       }
+    },
+    "spain": {
+      "name": "Spanien",
+      "intro": "Spanien ist ein Land, in dem um drei Uhr Mittag gegessen wird und der Abend sich Zeit lässt, bis er zu Ende geht. Es hat Berge mit Schnee und Strände, die im Dezember noch warm sind, und weit draußen im Atlantik hat es Inseln mit einem Vulkan, der höher ist als jeder Gipfel auf dem Festland. In Barcelona wird seit mehr als hundertvierzig Jahren an einer Kirche gebaut, in Granada hat ein Palast Wände, die so fein geschnitzt sind wie Spitze, und in Madrid zeichnen Kinder vor Gemälden, die vor vierhundert Jahren entstanden sind. Und wohin du auch gehst, jemand wird dir Oliven anbieten.",
+      "facts": [
+        "Sein höchster Berg, der Teide, ist ein Vulkan auf der Insel Teneriffa und 3.715 Meter hoch.",
+        "Es hat 50 UNESCO-Welterbestätten. Nur vier Länder auf der Welt haben mehr.",
+        "Die Sagrada Família in Barcelona wird seit 1882 gebaut und ist mit 172,5 Metern die höchste Kirche der Welt.",
+        "Es produziert mehr Olivenöl als jedes andere Land der Welt."
+      ]
+    },
+    "italy": {
+      "name": "Italien",
+      "intro": "Italien hat die Form eines Stiefels, und der Stiefel sieht aus, als würde er eine Insel ins Mittelmeer kicken. Oben sitzen die schneebedeckten Alpen, weiter unten ein Vulkan, der immer noch raucht, und dazwischen liegen Städte, von denen sich jede wie ein anderes Jahrhundert anfühlt: Rom mit seinen römischen Ruinen, Venedig mit Kanälen statt Straßen, Florenz mit seinen Malern. Die Römer bauten Straßen und Wasserleitungen, die heute noch stehen, und später erfanden die Italiener die Pizza und das Klavier. Wo du auch stehen bleibst, etwas Altes und etwas Köstliches ist nie weit weg.",
+      "facts": [
+        "Es hat 62 UNESCO-Welterbestätten, mehr als jedes andere Land der Welt.",
+        "Mitten in Rom liegt der Vatikan, der kleinste Staat der Welt: nur 44 Hektar, etwa so groß wie 60 Fußballfelder.",
+        "Sein höchster Berg, der Mont Blanc, ist 4.807 Meter hoch, und Italien teilt ihn mit Frankreich.",
+        "Es ist in 20 Regionen aufgeteilt, und jede hat ihre eigenen Rezepte und ihren eigenen Akzent."
+      ]
+    },
+    "turkey": {
+      "name": "Türkei",
+      "intro": "Die Türkei ist das Land, in dem Europa und Asien sich berühren. In Istanbul kannst du auf einem Kontinent frühstücken, über eine Brücke fahren und auf dem anderen Mittag essen. In Kappadokien haben Menschen Wohnungen in Felsen gehauen, die wie Schornsteine aussehen, und jeden Morgen steigen Dutzende Heißluftballons über ihnen auf. In Pamukkale ist ein ganzer Berghang schneeweiß, gemacht aus warmem Quellwasser, das langsam zu Stein geworden ist. Unter den Feldern liegen ganze Städte, von Hand gegraben, tief genug, um Tausende Menschen zu verstecken. Und wo du dich auch hinsetzt, jemand wird dir Tee in einem kleinen Glas in Tulpenform anbieten.",
+      "facts": [
+        "Ihr höchster Berg, der Ararat, ist 5.137 Meter hoch und behält das ganze Jahr über Schnee.",
+        "Göbekli Tepe wurde vor etwa 11.500 Jahren gebaut, bevor die Menschen ihren ersten Tontopf gemacht hatten.",
+        "Der Große Basar in Istanbul hat 61 überdachte Gassen und etwa 4.000 Läden.",
+        "Die unterirdische Stadt Derinkuyu reicht 85 Meter in die Tiefe und konnte bis zu 20.000 Menschen aufnehmen."
+      ]
+    },
+    "united-kingdom": {
+      "name": "Vereinigtes Königreich",
+      "intro": "Das Vereinigte Königreich sind vier Länder, die sich eine Insel und ein Stück mehr teilen: England, Schottland, Wales und Nordirland. Hier fahren die Autos links, die Busse sind rot und haben ein Obergeschoss, und ein Zug kann unter dem Meer hindurchfahren und in Frankreich wieder herauskommen. In London kannst du Dinosaurier treffen, Mumien und eine Uhr, die die ganze Stadt hören kann. Weiter draußen stehen Burgen auf Klippen, tiefe Seen hüten ihre Legenden, und Steine, die vor Tausenden von Jahren aufgerichtet wurden, warten noch immer darauf, dass jemand erklärt, warum.",
+      "facts": [
+        "Sein höchster Berg, der Ben Nevis in Schottland, ist 1.345 Meter hoch.",
+        "Die Londoner U-Bahn ist die älteste der Welt: Sie wurde 1863 eröffnet und hat heute 272 Stationen.",
+        "Die Glocke von Big Ben wiegt 13,7 Tonnen, und bis zu ihr hinauf sind es 334 Stufen.",
+        "Die großen Steine von Stonehenge wurden vor etwa 4.500 Jahren aufgerichtet. Jeder wiegt rund 25 Tonnen."
+      ]
+    },
+    "united-states": {
+      "name": "Vereinigte Staaten",
+      "intro": "Die Vereinigten Staaten sind so breit, dass in Hawaii noch tiefe Nacht ist, wenn in New York die Sonne aufgeht. Es gibt fünfzig Bundesstaaten, und jeder fühlt sich wie ein eigenes Land an: Wüsten voller Kakteen, Berge mit Schnee, Sümpfe mit Alligatoren und Wälder mit Bäumen, die höher sind als Wohnblocks. Der größte Baum der Erde wächst in Kalifornien, und im Yellowstone schleudert ein Geysir etwa alle neunzig Minuten kochendes Wasser in den Himmel. Die Rakete, die die ersten Menschen zum Mond brachte, wurde hier gebaut, und der erste Disney-Park auch.",
+      "facts": [
+        "Der Denali in Alaska, der höchste Berg Nordamerikas, ist 6.190 Meter hoch.",
+        "Der Grand Canyon ist 446 Kilometer lang und bis zu 1.857 Meter tief.",
+        "Die Flagge hat 50 Sterne, einen für jeden Bundesstaat, und 13 Streifen, einen für jede der ersten Kolonien.",
+        "Der Yellowstone wurde 1872 der erste Nationalpark der Welt. Heute hat das Land 63 davon."
+      ]
+    },
+    "germany": {
+      "name": "Deutschland",
+      "intro": "Deutschland beginnt an zwei Meeren und endet in den Alpen. Im Norden kannst du, wenn die Flut zurückgeht, über den Meeresboden laufen, an Krabben und Seehunden vorbei. Im Süden bringt dich eine Seilbahn auf seinen höchsten Berg, wo der Schnee fast nie schmilzt. Dazwischen schlängeln sich Flüsse an Burgen auf ihren Ufern vorbei, und weiße Züge fahren mit dreihundert Kilometern pro Stunde. Die Druckerpresse, die Europa mit Büchern füllte, wurde hier gebaut, die Brüder Grimm schrieben hier ihre Märchen, und das erste Auto der Welt rollte hier aus einer Werkstatt.",
+      "facts": [
+        "Sein höchster Berg, die Zugspitze, ist 2.962 Meter hoch. Die Grenze zu Österreich läuft genau über ihren Gipfel.",
+        "Es grenzt an neun Länder, von Dänemark im Norden bis zur Schweiz im Süden.",
+        "Der Kölner Dom brauchte 632 Jahre, bis er fertig war, von 1248 bis 1880. Seine Türme sind 157 Meter hoch."
+      ]
+    },
+    "portugal": {
+      "name": "Portugal",
+      "intro": "Portugal ist ein Land, das auf den Ozean schaut. Die Schiffe, die als erste auf dem Seeweg Indien erreichten, liefen von hier aus, und in Lissabon endet fast jede Straße, die bergauf führt, mit Blick aufs Wasser. Seine Gehwege sind aus schwarzen und weißen Steinen zu Mustern gelegt, seine Wände sind mit blau bemalten Fliesen bekleidet, und gelbe Straßenbahnen quietschen die Hügel hinauf. Fast die Hälfte des Korks der Welt wird von der Rinde seiner Bäume geschält. Und am Cabo da Roca, der letzten Klippe des europäischen Festlands, liegt vor dir nichts als Wasser, bis nach Amerika.",
+      "facts": [
+        "Sein höchster Berg, der Pico, ist ein 2.351 Meter hoher Vulkan auf einer Azoreninsel, mitten im Atlantik.",
+        "Fast die Hälfte des Korks der Welt kommt von hier. Die Rinde wird alle 9 Jahre abgeschält, und der Baum lebt weiter.",
+        "Die Vasco-da-Gama-Brücke in Lissabon ist 17,2 Kilometer lang, die längste der Europäischen Union.",
+        "Die Buchhandlung Bertrand in Lissabon ist seit 1732 geöffnet: Sie ist die älteste Buchhandlung der Welt, die noch arbeitet."
+      ]
+    },
+    "austria": {
+      "name": "Österreich",
+      "intro": "Österreich hat überhaupt kein Meer, aber fast überall Berge. Die Alpen bedecken den größten Teil des Landes, und deshalb lernen Kinder hier Skifahren, wie Kinder anderswo Radfahren lernen. In einem Berg bei Salzburg steckt eine Höhle aus Eis, das nie schmilzt, nicht einmal im Sommer. In Wien hebt ein Riesenrad von 1897 noch immer Menschen über die Dächer, und der älteste Zoo der Welt öffnet seit mehr als zweihundertsiebzig Jahren jeden Morgen seine Tore. Und in fast jeder Stadt spielt irgendwo jemand Mozart.",
+      "facts": [
+        "Sein höchster Berg, der Großglockner, ist 3.798 Meter hoch.",
+        "Die Eisriesenwelt ist die größte Eishöhle der Welt, mit Gängen von mehr als 42 Kilometern.",
+        "Der Tiergarten Schönbrunn in Wien öffnete 1752 und ist der älteste Zoo, der überhaupt noch in Betrieb ist.",
+        "Es hat gar keine Küste, aber es grenzt an acht Länder."
+      ]
+    },
+    "netherlands": {
+      "name": "Niederlande",
+      "intro": "Die Niederlande sind ein Land, das die Menschen fast genauso gebaut haben wie die Natur. Ein Viertel davon liegt unter dem Meeresspiegel, und es bleibt nur trocken wegen der Deiche, der Pumpen und der Windmühlen, die jahrhundertelang das Wasser herausgeschafft haben. Hier fahren alle überall mit dem Fahrrad hin: zur Schule, zur Arbeit, zum Markt, selbst im Regen. Im Frühling werden ganze Felder zu Streifen aus Tulpen, rot, gelb und violett, als hätte jemand den Boden mit dem Lineal bemalt. Und wo du auch stehst, ein Kanal ist nicht weit.",
+      "facts": [
+        "Etwa 26 % des Landes liegen unter dem Meeresspiegel. Der tiefste Punkt liegt 7 Meter darunter.",
+        "Der höchste „Berg“ auf dem niederländischen Festland, der Vaalserberg, ist nur 323 Meter hoch.",
+        "Sie haben mehr Fahrräder als Menschen: etwa 23 Millionen Fahrräder für 18 Millionen Einwohner, und 35.000 Kilometer Radwege.",
+        "1932 schloss ein 32 Kilometer langer Damm, der Afsluitdijk, eine ganze Meeresbucht ab und machte aus ihr einen Süßwassersee."
+      ]
+    },
+    "japan": {
+      "name": "Japan",
+      "intro": "Japan ist ein Land aus Inseln, mehr als vierzehntausend davon, auch wenn fast alle Menschen auf den vier großen wohnen. Hier rast ein Zug mit dreihundertzwanzig Kilometern pro Stunde an dir vorbei und ist fast nie zu spät. Im Frühling blühen die Kirschbäume nur ein paar Tage lang, und Familien gehen in die Parks, um sich darunter zu setzen. Ein Vulkan mit Schnee auf der Spitze ist an einem klaren Tag von der Hauptstadt aus zu sehen. Und in den Schulen putzen die Kinder jeden Nachmittag ihr Klassenzimmer selbst, mit Besen und Lappen.",
+      "facts": [
+        "Der Fuji, sein höchster Berg, ist 3.776 Meter hoch. Er ist ein Vulkan, und zuletzt ist er 1707 aufgewacht.",
+        "2023 zählte Japan seine Inseln mit neuen Karten noch einmal und fand 14.125, mehr als doppelt so viele wie vorher.",
+        "Der erste Hochgeschwindigkeitszug, der Shinkansen, fuhr 1964 los. Heute fährt er bis zu 320 Kilometer pro Stunde."
+      ]
+    },
+    "mexico": {
+      "name": "Mexiko",
+      "intro": "Mexiko ist ein Land, das auf anderen Ländern gebaut ist. Seine Hauptstadt steht da, wo einmal ein See lag, mit einer Stadt mitten darin, und wenn für die U-Bahn gegraben wird, kommen Tempel zum Vorschein. Im Dschungel des Südens erheben sich Pyramiden mit Treppen, die die Tage des Jahres zählen. Jeden Herbst kommen Millionen Schmetterlinge aus Kanada hier an und füllen ganze Wälder. Schokolade, Tomaten, Mais und Chilischoten sind alle von hier in die übrige Welt aufgebrochen, und deshalb steckt in jeder Küche ein kleines Stück Mexiko.",
+      "facts": [
+        "Sein höchster Berg, der Pico de Orizaba, ist ein Vulkan und 5.636 Meter hoch.",
+        "Die Pyramide von Chichén Itzá hat auf jeder Seite 91 Stufen. Zähl die Spitze dazu, und du kommst auf 365, eine für jeden Tag des Jahres.",
+        "Es hat 36 UNESCO-Welterbestätten, mehr als jedes andere Land Amerikas."
+      ]
+    },
+    "egypt": {
+      "name": "Ägypten",
+      "intro": "Ägypten ist ein Land, das um einen Fluss herum gebaut ist. Der Nil zieht wie ein langes grünes Band mitten durch die Wüste, und fast alle Menschen wohnen an seinem Ufer: Ein paar Kilometer weiter fängt der Sand an und hört nicht mehr auf. Am Rand von Kairo stehen Pyramiden, die vor viereinhalbtausend Jahren aufgerichtet wurden, und in den Museen findest du Spielzeug, Sandalen und sogar Brote aus dieser Zeit. Die alten Ägypter schrieben mit kleinen Bildern, Vögeln, Schlangen und Augen, und heute können wir lesen, was sie gesagt haben.",
+      "facts": [
+        "Der Nil, der längste Fluss der Welt, ist mehr als 6.600 Kilometer lang und fließt nach Norden, bis zum Mittelmeer.",
+        "Die Große Pyramide von Gizeh besteht aus etwa 2,3 Millionen Steinblöcken. Als sie gebaut wurde, war sie 146 Meter hoch, und über 3.700 Jahre lang blieb sie das höchste Bauwerk der Welt.",
+        "Etwa 99 % der Ägypter leben auf nur 5 % des Landes, im Tal und im Delta des Nils. Der Rest ist Wüste."
+      ]
+    },
+    "thailand": {
+      "name": "Thailand",
+      "intro": "Thailand ist ein Land, in dem viel vom Leben auf dem Wasser stattfindet. Auf seinen schwimmenden Märkten sind die Läden Boote, die Verkäufer rudern zwischen ihren Kunden hindurch, und das Mittagessen wird auf einem Kocher im Boden eines Kanus gekocht. Im Norden liegen die Berge unter Nebel und Wald; im Süden ist das Meer mit Inseln übersät, die wie steinerne Türme aus dem Wasser ragen. Seine Tempel glitzern von Blattgold und Tausenden winzigen Spiegeln. Und jeden April, zum thailändischen Neujahr, geht das ganze Land vor die Tür und macht die größte Wasserschlacht der Welt.",
+      "facts": [
+        "Sein höchster Berg, der Doi Inthanon, ist 2.565 Meter hoch.",
+        "Das thailändische Alphabet hat 44 Konsonanten, und die Wörter werden ohne Lücken dazwischen geschrieben.",
+        "Der vollständige Name von Bangkok hat 168 Buchstaben. Es ist der längste Ortsname der Welt."
+      ]
+    },
+    "china": {
+      "name": "China",
+      "intro": "China ist ein Land, das so groß ist, dass es Wüsten, Dschungel, Reisterrassen und an seiner Grenze den höchsten Berg der Erde hat. Eine Mauer, an der zweitausend Jahre lang gebaut wurde, klettert über Hügel und Klippen, und auf einem Feld bei Xi'an steht unter der Erde ein ganzes Heer aus Ton, begraben, um einen Kaiser zu bewachen. In den Bambuswäldern leben die Pandas, die fast den ganzen Tag mit Fressen verbringen. Papier, der Drachen und der Kompass wurden alle hier erfunden. Und die Kinder lernen Zeichen, die gar keine Buchstaben sind, sondern winzige Bilder, Tausende davon.",
+      "facts": [
+        "Die Chinesische Mauer wurde 2012 mit allen ihren Teilstücken gemessen und kam auf 21.196 Kilometer.",
+        "Der Everest, an der Grenze zwischen China und Nepal, ist der höchste Berg der Welt: 8.848,86 Meter.",
+        "Die Terrakotta-Armee hat mehr als 8.000 Soldaten. Bauern fanden sie 1974, als sie einen Brunnen gruben.",
+        "Etwa 1.864 Pandas leben in der Wildnis. Jeder frisst 9 bis 14 Kilogramm Bambus am Tag."
+      ]
+    },
+    "canada": {
+      "name": "Kanada",
+      "intro": "Kanada ist so breit, dass an seiner Westküste noch tiefe Nacht ist, wenn an der Ostküste die Sonne aufgeht. Es hat mehr Seen als jedes andere Land, Wälder, durch die du tagelang fahren könntest, und einen Wasserfall, den Niagara, den du hörst, bevor du ihn siehst. Die Straßenschilder sprechen zwei Sprachen, Englisch und Französisch. Im Winter frieren die Teiche zu und werden zu Eishockeyfeldern, und im Frühling zapfen die Menschen Zuckerahorne an, um den Saft zu sammeln, aus dem Sirup wird. Fahr weit genug nach Norden, und der Himmel selbst tanzt nachts grün.",
+      "facts": [
+        "Es hat die längste Küste der Welt, ungefähr 243.000 Kilometer.",
+        "Sein höchster Berg, der Mount Logan, ist 5.959 Meter hoch, mehr als zwei Olymp-Gipfel übereinander.",
+        "Es hat mehr Seen als jedes andere Land: über 880.000, und das sind nur die großen.",
+        "Es ist das zweitgrößte Land der Erde, mit 10 Provinzen, 3 Territorien und zwei Amtssprachen."
+      ]
+    },
+    "poland": {
+      "name": "Polen",
+      "intro": "Polen bewahrt seine merkwürdigsten Dinge unter der Erde auf. Bei Krakau gibt es ein Salzbergwerk mit Kapellen, Kronleuchtern und Statuen darin, und jedes einzelne davon ist aus Salz geschnitten; oben in der Stadt spielt ein Trompeter jede Stunde vom höchsten Turm dieselbe kurze Melodie, in vier Richtungen. Im Norden liegen Sandstrände an der Ostsee, im Süden Berge mit Seen, die so still sind wie Spiegel, und im Osten ein Wald, der so alt ist, dass noch wilde Wisente durch ihn laufen. Es ist ein Land, flach wie ein Tisch, und es scheint nie zu enden.",
+      "facts": [
+        "Die Weichsel, sein längster Fluss, fließt 1.047 Kilometer weit und kommt auf ihrem Weg zur Ostsee durch Krakau und Warschau.",
+        "Das Salzbergwerk von Wieliczka hat etwa 287 Kilometer Gänge und reicht 327 Meter unter die Erde.",
+        "Im Wald von Białowieża leben mehr als 800 Wisente, das schwerste wilde Landtier Europas.",
+        "Sein höchster Punkt ist der Gipfel der Rysy in der Tatra, fast 2.500 Meter, genau auf der Grenze zur Slowakei."
+      ]
+    },
+    "croatia": {
+      "name": "Kroatien",
+      "intro": "Kroatien hat die Form eines Bumerangs. Der eine Arm streckt sich ins Binnenland über Ebenen und Flüsse; der andere läuft die Adria hinunter, an mehr als tausend Inseln vorbei. In der Mitte des Landes stürzen sechzehn Seen einer in den nächsten, über Wasserfälle, die du auf Holzstegen überquerst. In Dubrovnik kannst du oben auf den Stadtmauern einmal ganz um eine Stadt herumgehen, mit den Dächern auf der einen Seite und dem Meer auf der anderen. Und immer wenn irgendwo jemand eine Krawatte umbindet, trägt er etwas, das kroatische Soldaten vor vierhundert Jahren angefangen haben.",
+      "facts": [
+        "Es hat 1.246 Inseln, Inselchen und Felsen, aber nur auf 47 davon wohnen Menschen das ganze Jahr über.",
+        "Sein höchster Punkt, auf dem Berg Dinara, liegt 1.831 Meter hoch.",
+        "Die Plitvicer Seen sind sechzehn Seen, einer über dem anderen, und wurden 1949 Nationalpark.",
+        "Die Mauern von Dubrovnik sind etwa 1.940 Meter lang und bis zu 25 Meter hoch."
+      ]
+    },
+    "united-arab-emirates": {
+      "name": "Vereinigte Arabische Emirate",
+      "intro": "Die Vereinigten Arabischen Emirate sind ein Land, das aus dem Sand herausgewachsen ist. Vor fünfzig Jahren waren hier Fischerdörfer und Kamelkarawanen; heute steht hier das höchste Gebäude der Erde, und sein Aufzug bringt dich in weniger als zwei Minuten über die Wolken. Kurz außerhalb der Stadt rollen rote Dünen bis zum Horizont, und im Osten fallen graue Berge steil ins Meer. Sieben kleine Staaten schlossen sich 1971 zu einem Land zusammen, und in Dubai laden hölzerne Boote noch immer Kühlschränke und Waschmaschinen an einem Wasserarm, an dem Glastürme stehen.",
+      "facts": [
+        "Der Burj Khalifa in Dubai ist das höchste Gebäude der Welt: 828 Meter bis zum Dach.",
+        "Das Land besteht aus sieben Emiraten, die sich 1971 zusammenschlossen. Abu Dhabi ist die Hauptstadt.",
+        "Ihr höchster Punkt, auf dem Berg Jebel Jais, liegt 1.892 Meter hoch.",
+        "Ihre Küste ist etwa 1.318 Kilometer lang, fast ganz am Persischen Golf."
+      ]
+    },
+    "cyprus": {
+      "name": "Zypern",
+      "intro": "Zypern ist eine Insel mit einem Berg in der Mitte. Im Winter wird die Spitze des Troodos weiß vor Schnee, während das Meer eine kurze Fahrt weiter unten so klar bleibt, dass du deine eigenen Füße auf dem Grund sehen kannst. Auf den Felsen bei Paphos, sagt ein Mythos, stieg Aphrodite aus dem Schaum, und am Strand von Lara graben Meeresschildkröten jeden Sommer ihre Nester in den Sand. Halloumi, der Käse, der zwischen den Zähnen quietscht, wenn du ihn grillst, ist hier entstanden. Und das Wort „Kupfer“ selbst hat auf dieser Insel angefangen.",
+      "facts": [
+        "Sie ist die drittgrößte Insel des Mittelmeers, mit einer Fläche von 9.251 Quadratkilometern.",
+        "Ihr höchster Gipfel, der Olymp, auch Chionistra genannt, ist 1.952 Meter hoch, und jeden Winter fällt dort Schnee.",
+        "Das Wort „Kupfer“ kommt vom lateinischen „aes cyprium“, also „Metall von Zypern“.",
+        "Ihre Küste ist etwa 648 Kilometer lang, nirgendwo auf der Insel bist du also weit vom Meer entfernt."
+      ]
+    },
+    "czechia": {
+      "name": "Tschechien",
+      "intro": "Tschechien hat überhaupt kein Meer, macht das aber mit Burgen wieder gut. Über Prag steht die größte alte Burg der Welt, und darunter trägt eine Steinbrücke mit dreißig Statuen die Menschen seit sechshundert Jahren über den Fluss. Auf einem Platz zeigt eine Uhr von 1410 noch immer, wo die Sonne und der Mond stehen. Und jetzt das Beste: Das Wort „Roboter“ wurde hier erfunden, in einem Theaterstück von 1920. Ohne Tschechien hätte WiseBot nicht einmal einen Namen.",
+      "facts": [
+        "Sein höchster Berg, die Sněžka, ist 1.603 Meter hoch, und ihren Gipfel teilt es mit Polen.",
+        "Die Prager Burg breitet sich über fast 70.000 Quadratmeter aus, etwa zehn Fußballfelder.",
+        "Die Karlsbrücke ist 516 Meter lang, mit 16 Bögen und einer Reihe von 30 Statuen.",
+        "Das Wort „Roboter“ tauchte 1920 zum ersten Mal auf, im Theaterstück R.U.R. von Karel Čapek."
+      ]
+    },
+    "hungary": {
+      "name": "Ungarn",
+      "intro": "Ungarn hat kein Meer, aber es ist voller Wasser. Unter Budapest blubbern heiße Quellen herauf, und die Menschen schwimmen in Badehäusern, die seit Hunderten von Jahren offen sind, selbst wenn Schnee auf das Becken fällt. In der Mitte des Landes liegt der Balaton, ein See, der so weit ist, dass die Ungarn ihn ihr Meer nennen. Die Donau fließt mitten durch die Hauptstadt und teilt sie in zwei Hälften: das hügelige Buda auf dem einen Ufer, das flache Pest auf dem anderen. Und 1974 erfand ein ungarischer Lehrer in Budapest den berühmtesten Zauberwürfel der Welt.",
+      "facts": [
+        "Der Balaton ist der größte See Mitteleuropas: etwa 78 Kilometer lang und 600 Quadratkilometer groß.",
+        "Sein höchster Punkt, der Kékes, liegt gerade einmal 1.014 Meter hoch. Das Land ist fast ganz flache Ebene.",
+        "Das Parlament in Budapest hat 691 Zimmer und 29 Treppen, und seine Kuppel ist 96 Meter hoch.",
+        "Der Zauberwürfel von Rubik wurde 1974 in Budapest erfunden. Etwa 500 Millionen Stück wurden verkauft."
+      ]
+    },
+    "denmark": {
+      "name": "Dänemark",
+      "intro": "Dänemark ist ein Land, das das Meer von allen Seiten geformt hat. Es ist eine lange Halbinsel und Hunderte von Inseln, verbunden durch Fähren, Brücken und eine Brücke, die so lang ist, dass sie bis Schweden reicht. Es gibt keinen einzigen Berg: Der höchste Punkt im ganzen Land ist ein Hügel, den du vor dem Mittagessen hinaufgehen kannst. Deshalb fahren alle überall mit dem Fahrrad, Kinder eingeschlossen, sogar im Schnee. Ein Tischler in einem kleinen Dorf hier machte die ersten LEGO-Steine, und Hans Christian Andersen saß hier und schrieb Die kleine Meerjungfrau und Das hässliche Entlein.",
+      "facts": [
+        "Sein höchster natürlicher Punkt, der Hügel Møllehøj, liegt gerade einmal 171 Meter hoch.",
+        "Wo du in Dänemark auch stehst, das Meer ist nie weiter weg als 52 Kilometer.",
+        "LEGO begann 1932 mit einem Tischler in Billund. Der Name kommt von „leg godt“, das heißt „spiel gut“.",
+        "Seine Flagge, der Dannebrog, ist seit 1625 ohne Unterbrechung in Gebrauch, länger als jede andere Nationalflagge."
+      ]
+    },
+    "belgium": {
+      "name": "Belgien",
+      "intro": "Belgien ist ein kleines Land, das du an einem Tag durchfahren kannst, und doch wechselt es auf halbem Weg die Sprache: im Norden Niederländisch, im Süden Französisch und in einer Ecke im Osten Deutsch. Tim und Struppi und die Schlümpfe sind hier geboren, und in Brüssel sind Comic-Helden über ganze Hauswände gemalt. Schokoladenmacher haben fast an jedem Platz einen Laden, die Pommes werden zweimal frittiert, und in Brügge sind die Straßen Kanäle. Und von einem Ende des Strands zum anderen kommst du mit einer einzigen Straßenbahn.",
+      "facts": [
+        "Sein höchster Punkt, das Signal de Botrange, liegt nur 694 Meter hoch.",
+        "Seine Küste ist 67 Kilometer lang, und eine Straßenbahn mit 67 Haltestellen fährt sie ganz ab.",
+        "Es hat drei Amtssprachen: Niederländisch, Französisch und Deutsch.",
+        "Die Bücher von Tim und Struppi haben sich weltweit rund 200 Millionen Mal verkauft."
+      ]
     }
   }
 }
