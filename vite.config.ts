@@ -1,6 +1,8 @@
+/// <reference types="vitest/config" />
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig, loadEnv } from 'vite';
+import { configDefaults } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import tailwindcss from 'tailwindcss';
@@ -16,6 +18,12 @@ export default defineConfig(({ mode }) => {
         // PORT lets a second checkout (git worktree) run alongside the main one.
         port: Number(process.env.PORT) || 3000,
         host: '0.0.0.0',
+      },
+      test: {
+        // Agent worktrees live under .claude/worktrees and carry a full copy of the
+        // suite; `vitest run data/world` from the root must not pick those up, or a
+        // half-written city in someone else's worktree reads as a failure here.
+        exclude: [...configDefaults.exclude, '.claude/**'],
       },
       plugins: [
         react(),
