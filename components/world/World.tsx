@@ -557,9 +557,12 @@ const PlacePage: React.FC<{
       // Revisiting pays nothing and asks nothing: `visitPlace` returns null when the
       // stamp was already there, and a child rereading a story is not finishing a
       // mission. A child who already said «αρκετά για σήμερα» is not asked again either.
+      // Counted through `hasPlace`, not `progress.progress`. The stamp that was just
+      // earned is in the hook's ref synchronously but not yet in the state this render
+      // closed over, so reading the state here counts the place the child just finished
+      // as still to do — «μένουν 18» on a city of 18, one second after finishing one.
       if (award && !saidEnoughToday()) {
-        const stamped = progress.progress.places;
-        setAskAnother(module.places.filter((p) => !stamped[p.id]).length);
+        setAskAnother(module.places.filter((p) => !progress.hasPlace(p.id)).length);
       }
 
       if (!award?.citySealed) return;
@@ -575,12 +578,11 @@ const PlacePage: React.FC<{
     [place, city, module, countryCityIds, content, visitPlace, completeTrail, progress],
   );
 
-  /** The next place in this city the child has not stamped yet. */
-  const nextUnstamped = useCallback(() => {
-    if (!module) return undefined;
-    const stamped = progress.progress.places;
-    return module.places.find((p) => p.id !== placeId && !stamped[p.id]);
-  }, [module, progress, placeId]);
+  /** The next place in this city the child has not stamped yet. Same ref, same reason. */
+  const nextUnstamped = useCallback(
+    () => module?.places.find((p) => p.id !== placeId && !progress.hasPlace(p.id)),
+    [module, progress, placeId],
+  );
 
   if (failed) return <NotFound lang={lang} onBack={() => navigate(cityUrl)} />;
   if (!module) return <Loading lang={lang} />;
