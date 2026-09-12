@@ -1,0 +1,616 @@
+{
+  "city": "istanbul",
+  "note": "Explorer texts carried over verbatim from data/explore/cities/istanbul.ts (origin/main), keyed by the World place id each spot became. They are not yet fields of the World model; when riddle/parentHint/onSite land in data/world/types.ts they merge from here. istiklal-street became the Flower Passage building and fener-patriarchate became the Patriarchal Church of St George, so those two hints still describe the same walk.",
+  "spots": {
+    "istanbul-hippodrome": {
+      "explorerId": "hippodrome",
+      "riddle": {
+        "el": "Εδώ κάποτε άλογα έτρεχαν γύρω γύρω και μια ολόκληρη πόλη φώναζε για τους Γαλάζιους ή τους Πράσινους. Σήμερα στη μέση της μακρόστενης πλατείας στέκονται τρεις πανάρχαιες κολόνες, και η μία ήρθε με καράβι από την Αίγυπτο.",
+        "en": "Here horses once raced round and round while a whole city cheered for the Blues or the Greens. Today three ancient pillars stand in the middle of the long square, and one of them sailed here all the way from Egypt."
+      },
+      "parentHint": {
+        "el": "Είναι ο Ιππόδρομος, η σημερινή πλατεία Sultanahmet (Σουλταναχμέτ), δίπλα στον Οβελίσκο του Θεοδοσίου. Ξεκινήστε από εδώ: η στάση Sultanahmet του τραμ T1 είναι 3 λεπτά με τα πόδια.",
+        "en": "It is the Hippodrome, today Sultanahmet Square, by the Obelisk of Theodosius. Start here: the Sultanahmet stop of tram T1 is a 3-minute walk away."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Τι αγώνες γίνονταν εδώ την εποχή των αυτοκρατόρων;",
+          "en": "What kind of races were held here in the days of the emperors?"
+        },
+        "options": {
+          "el": [
+            "Αγώνες αυτοκινήτων",
+            "Αρματοδρομίες με άλογα",
+            "Αγώνες κολύμβησης",
+            "Αγώνες με καμήλες"
+          ],
+          "en": [
+            "Car races",
+            "Chariot races pulled by horses",
+            "Swimming races",
+            "Camel races"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Άρματα με τέσσερα άλογα έτρεχαν επτά γύρους, και οι ηνίοχοι ήταν οι σταρ της εποχής. Η λέξη «ιππόδρομος» είναι ελληνική: ίππος, δηλαδή άλογο, και δρόμος.",
+          "en": "Chariots pulled by four horses raced seven laps, and the drivers were the superstars of their day. The word “hippodrome” is Greek: hippos means horse, and dromos means racecourse."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Βρες την πράσινη μπρούντζινη κολόνα που στρίβει σαν κορδόνι. Με τι μοιάζει;",
+          "en": "Find the green bronze column that twists like a rope. What does it look like?"
+        },
+        "options": {
+          "el": [
+            "Με κορμό δέντρου",
+            "Με κατάρτι καραβιού",
+            "Με τρία φίδια πλεγμένα μαζί, χωρίς τα κεφάλια τους",
+            "Με έναν δράκο με φτερά"
+          ],
+          "en": [
+            "A tree trunk",
+            "A ship's mast",
+            "Three snakes twisted together, missing their heads",
+            "A dragon with wings"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Είναι η Στήλη των Όφεων, τρία μπρούντζινα φίδια που την έφτιαξαν οι Έλληνες μετά τη νίκη τους στις Πλαταιές, το 479 π.Χ. Τα κεφάλια χάθηκαν πριν από αιώνες· το ένα βρέθηκε και φυλάγεται στο Αρχαιολογικό Μουσείο, λίγο πιο κάτω.",
+          "en": "It is the Serpent Column, three bronze snakes made by the Greeks after their victory at Plataea in 479 BC. The heads were lost centuries ago; one was found and is kept in the Archaeological Museum, just down the hill."
+        }
+      }
+    },
+    "istanbul-hagia-sophia": {
+      "explorerId": "hagia-sophia",
+      "riddle": {
+        "el": "Ένας αυτοκράτορας ήθελε τη μεγαλύτερη εκκλησία του κόσμου και την έχτισε σε πέντε μόνο χρόνια. Ο τεράστιος θόλος της μοιάζει να κρέμεται από τον ουρανό, και εδώ και σχεδόν 1.500 χρόνια κανείς δεν σταμάτησε να την θαυμάζει.",
+        "en": "An emperor wanted the biggest church in the world and had it built in just five years. Its enormous dome seems to hang from the sky, and for almost 1,500 years people have not stopped gazing at it."
+      },
+      "parentHint": {
+        "el": "Είναι η Αγία Σοφία (Ayasofya). Από τον Οβελίσκο περπατήστε 4 λεπτά προς τα βορειοανατολικά, μέσα από την πλατεία με τα σιντριβάνια· η είσοδος των επισκεπτών είναι στην πλευρά που βλέπει προς την πλατεία. Προσοχή: οι ξένοι επισκέπτες πληρώνουν εισιτήριο (περίπου 25 ευρώ, 2024) και μπαίνουν από ξεχωριστή είσοδο επισκεπτών στη νοτιοδυτική πλευρά, βλέποντας το εσωτερικό από τον πάνω όροφο· το ισόγειο είναι για την προσευχή. Ελέγξτε τιμές και ωράριο πριν πάτε.",
+        "en": "It is Hagia Sophia (Ayasofya). From the Obelisk walk 4 minutes north-east through the square with the fountains; the visitor entrance is on the side facing the square. Note: foreign visitors pay an entrance fee (about €25 in 2024) and use a separate tourist entrance on the south-west side, viewing the interior from the upper gallery; the ground floor is for prayer. Check prices and hours before you go."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για μια τεράστια στρογγυλή στέγη. Πώς λέγεται μια τέτοια στέγη;",
+          "en": "The riddle talks about a giant round roof. What is a roof like that called?"
+        },
+        "options": {
+          "el": [
+            "Πύργος",
+            "Πυραμίδα",
+            "Θόλος (τρούλος)",
+            "Μπαλκόνι"
+          ],
+          "en": [
+            "A tower",
+            "A pyramid",
+            "A dome",
+            "A balcony"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Ο θόλος, ή τρούλος, είναι μια στέγη σαν μισή μπάλα. Εδώ έχει πλάτος 31 μέτρα και ύψος 55, και μια σειρά από 40 παράθυρα στη βάση του τον κάνει να μοιάζει σαν να αιωρείται.",
+          "en": "A dome is a roof shaped like half a ball. This one is 31 metres wide and 55 metres high, and a ring of 40 windows at its base makes it look as if it is floating."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Σταθείτε λίγο πιο μακριά και μετρήστε τους ψηλούς, λεπτούς πύργους στις γωνίες του κτιρίου. Πόσοι είναι;",
+          "en": "Stand a little way back and count the tall, thin towers at the corners of the building. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Ένας",
+            "Δύο",
+            "Τρεις",
+            "Τέσσερις"
+          ],
+          "en": [
+            "One",
+            "Two",
+            "Three",
+            "Four"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Τέσσερις μιναρέδες. Προστέθηκαν μετά το 1453, όταν το κτίριο έγινε τζαμί, από διαφορετικούς σουλτάνους· γι' αυτό δεν είναι όλοι ίδιοι: ο ένας είναι από κόκκινο τούβλο και οι άλλοι από πέτρα.",
+          "en": "Four minarets. They were added after 1453, when the building became a mosque, by different sultans; that is why they do not all match: one is red brick and the others are stone."
+        }
+      }
+    },
+    "istanbul-blue-mosque": {
+      "explorerId": "blue-mosque",
+      "riddle": {
+        "el": "Απέναντι από τη γριά εκκλησία με τον θόλο, ένας νεαρός σουλτάνος έχτισε έναν ναό προσευχής για να την ξεπεράσει. Μέσα, χιλιάδες πλακάκια τον κάνουν να λάμπει σαν θάλασσα, και έξω οι θόλοι του κατεβαίνουν σαν σκαλοπάτια.",
+        "en": "Across from the old domed church, a young sultan built a house of prayer to outshine it. Inside, thousands of tiles make it glow like the sea, and outside its domes tumble down like steps."
+      },
+      "parentHint": {
+        "el": "Είναι το Γαλάζιο Τζαμί (Sultanahmet Camii). Από την Αγία Σοφία περάστε ξανά την πλατεία με τα σιντριβάνια, 5 λεπτά νοτιοδυτικά, και μπείτε στη μεγάλη αυλή· οι επισκέπτες μπαίνουν από την πλαϊνή είσοδο, εκτός από τις ώρες προσευχής, με τα παπούτσια στο χέρι και καλυμμένους ώμους και γόνατα.",
+        "en": "It is the Blue Mosque (Sultanahmet Camii). From Hagia Sophia cross the fountain square again, 5 minutes south-west, and enter the big courtyard; visitors go in through the side entrance outside prayer times, shoes in hand, shoulders and knees covered."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι μέσα λάμπει σαν θάλασσα. Τι χρώμα έχουν τα περισσότερα πλακάκια του;",
+          "en": "The riddle says it glows like the sea inside. What colour are most of its tiles?"
+        },
+        "options": {
+          "el": [
+            "Γαλάζιο",
+            "Κόκκινο",
+            "Μαύρο",
+            "Χρυσό"
+          ],
+          "en": [
+            "Blue",
+            "Red",
+            "Black",
+            "Gold"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Περίπου 20.000 πλακάκια από την πόλη İznik (Νίκαια), ζωγραφισμένα με τουλίπες και γαρίφαλα σε γαλάζιο και άσπρο, σκεπάζουν τους τοίχους. Γι' αυτό όλος ο κόσμος το λέει «Γαλάζιο Τζαμί».",
+          "en": "About 20,000 tiles from the town of İznik, painted with tulips and carnations in blue and white, cover the walls. That is why everyone calls it the Blue Mosque."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Βγες στην αυλή ή στην πλατεία και μέτρησε τους μιναρέδες, τους ψηλούς λεπτούς πύργους. Πόσοι είναι;",
+          "en": "Step into the courtyard or the square and count the minarets, the tall thin towers. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Τέσσερις",
+            "Έξι",
+            "Δύο",
+            "Οκτώ"
+          ],
+          "en": [
+            "Four",
+            "Six",
+            "Two",
+            "Eight"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Έξι μιναρέδες, κάτι πολύ σπάνιο. Λένε πως ο σουλτάνος ζήτησε μιναρέδες από χρυσό, «altın» στα τουρκικά, και ο αρχιτέκτονας άκουσε «altı», δηλαδή έξι!",
+          "en": "Six minarets, which is very rare. People say the sultan asked for minarets of gold, “altın” in Turkish, and the architect heard “altı”, which means six!"
+        }
+      }
+    },
+    "istanbul-gulhane-park": {
+      "explorerId": "gulhane-park",
+      "riddle": {
+        "el": "Πίσω από ψηλά τείχη με πύργους κρυβόταν κάποτε ο κήπος με τα τριαντάφυλλα των σουλτάνων. Σήμερα περνάς την πύλη του ελεύθερα, περπατάς κάτω από τα πλατάνια, και στο τέλος του δρόμου σε περιμένει η θάλασσα.",
+        "en": "Behind tall walls with towers, the rose garden of the sultans was once hidden away. Today you walk through its gate for free, stroll under the plane trees, and at the end of the path the sea is waiting for you."
+      },
+      "parentHint": {
+        "el": "Είναι το πάρκο Gülhane (Γκιουλχανέ, «το σπίτι των ρόδων»), δίπλα στο παλάτι Topkapı. Από το Γαλάζιο Τζαμί περάστε πίσω από την Αγία Σοφία, δείτε αριστερά την Αυτοκρατορική Πύλη του παλατιού και την κρήνη του Ahmed III με τη φαρδιά στέγη, και κατηφορίστε την Alemdar Caddesi, 15 λεπτά συνολικά, ως την πύλη του πάρκου δίπλα στη στάση Gülhane του τραμ.",
+        "en": "It is Gülhane Park, “the house of roses”, beside Topkapı Palace. From the Blue Mosque walk round behind Hagia Sophia, spot the palace's Imperial Gate and the Fountain of Ahmed III with its wide roof on your left, then head downhill along Alemdar Caddesi, 15 minutes in all, to the park gate next to the Gülhane tram stop."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Οι τουλίπες ξεκίνησαν από τους κήπους των σουλτάνων και ταξίδεψαν στην Ευρώπη. Ποια χώρα είναι σήμερα διάσημη για τις τουλίπες της;",
+          "en": "Tulips started in the gardens of the sultans and travelled to Europe. Which country is famous for its tulips today?"
+        },
+        "options": {
+          "el": [
+            "Η Ιταλία",
+            "Η Ελλάδα",
+            "Η Αίγυπτος",
+            "Η Ολλανδία"
+          ],
+          "en": [
+            "Italy",
+            "Greece",
+            "Egypt",
+            "The Netherlands (Holland)"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Οι βολβοί της τουλίπας έφυγαν από την αυλή του σουλτάνου για τη Βιέννη τον 16ο αιώνα και από εκεί για την Ολλανδία. Η λέξη «τουλίπα» έρχεται από την τουρκική λέξη για το τουρμπάνι, το «tülbent», γιατί το λουλούδι έμοιαζε με τουρμπάνι.",
+          "en": "Tulip bulbs left the sultan's court for Vienna in the 1500s and went on from there to Holland. The word “tulip” comes from the Turkish word for a turban, “tülbent”, because the flower looked like one."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Περπάτησε τον μεγάλο δρόμο του πάρκου ως το τέλος του, εκεί που ανοίγει μια βεράντα. Τι βλέπεις από κάτω;",
+          "en": "Walk the main path of the park all the way to the end, where a terrace opens up. What do you see below?"
+        },
+        "options": {
+          "el": [
+            "Τη θάλασσα με καράβια",
+            "Μια μεγάλη λίμνη",
+            "Ένα γήπεδο ποδοσφαίρου",
+            "Μια έρημο με άμμο"
+          ],
+          "en": [
+            "The sea, with ships",
+            "A big lake",
+            "A football stadium",
+            "A sandy desert"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Η άκρη του πάρκου λέγεται Sarayburnu, «η μύτη του παλατιού». Εδώ ο Κεράτιος Κόλπος συναντά τον Βόσπορο και τη θάλασσα του Μαρμαρά, και απέναντι βλέπεις την Ασία.",
+          "en": "The tip of the park is called Sarayburnu, “Palace Point”. Here the Golden Horn meets the Bosphorus and the Sea of Marmara, and across the water you can see Asia."
+        }
+      }
+    },
+    "istanbul-grand-bazaar": {
+      "explorerId": "grand-bazaar",
+      "riddle": {
+        "el": "Μια ολόκληρη πόλη κρύβεται κάτω από μία στέγη: δρόμοι, σιντριβάνια, ακόμη και ταχυδρομείο. Χιλιάδες μαγαζιά πουλάνε χαλιά, λάμπες και λουκούμια, και κανένας δεν πληρώνει την πρώτη τιμή που ακούει!",
+        "en": "A whole town hides under one roof: streets, fountains, even a post office. Thousands of shops sell carpets, lamps and sweets, and nobody ever pays the first price they hear!"
+      },
+      "parentHint": {
+        "el": "Είναι το Μεγάλο Παζάρι (Kapalıçarşı, η «σκεπαστή αγορά»), στην πύλη Nuruosmaniye. Από το πάρκο Gülhane πάρτε το τραμ T1 δύο στάσεις ως το Çemberlitaş και περπατήστε 5 λεπτά από τη Vezirhan Caddesi ως το τζαμί Nuruosmaniye· η πύλη είναι ακριβώς δίπλα του.",
+        "en": "It is the Grand Bazaar (Kapalıçarşı, the “covered market”), at the Nuruosmaniye gate. From Gülhane Park take tram T1 two stops to Çemberlitaş and walk 5 minutes along Vezirhan Caddesi to the Nuruosmaniye Mosque; the gate is right beside it."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι κανείς δεν πληρώνει την πρώτη τιμή. Πώς λέγεται αυτό το παιχνίδι ανάμεσα σε αγοραστή και πωλητή;",
+          "en": "The riddle says nobody pays the first price. What is this game between buyer and seller called?"
+        },
+        "options": {
+          "el": [
+            "Κρυφτό",
+            "Παζάρι (διαπραγμάτευση)",
+            "Λαχειοφόρος",
+            "Δημοπρασία"
+          ],
+          "en": [
+            "Hide and seek",
+            "Bargaining (haggling)",
+            "A lottery",
+            "An auction"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ο πωλητής ξεκινά ψηλά, εσύ προσφέρεις λιγότερα, και συναντιέστε κάπου στη μέση, με χαμόγελο και συχνά με ένα τσάι. Η ελληνική λέξη «παζάρι» έρχεται από την τουρκική «pazar», που σημαίνει αγορά.",
+          "en": "The seller starts high, you offer less, and you meet somewhere in the middle, with a smile and often a glass of tea. The Greek word for haggling, “pazari”, comes from the Turkish “pazar”, which means market."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε ψηλά, πάνω από την πύλη. Τι είναι σκαλισμένο εκεί;",
+          "en": "Look up above the gate. What is carved there?"
+        },
+        "options": {
+          "el": [
+            "Ένα μεγάλο ρολόι",
+            "Ένα άγαλμα αλόγου",
+            "Ένα έμβλημα με σημαίες, όπλα και μια περίτεχνη υπογραφή",
+            "Ένα τεράστιο χαλί"
+          ],
+          "en": [
+            "A big clock",
+            "A statue of a horse",
+            "An emblem with flags, weapons and a fancy signature",
+            "A giant carpet"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Είναι το έμβλημα της Οθωμανικής Αυτοκρατορίας. Η στριφτή «υπογραφή» λέγεται τουγράς (tuğra): το όνομα του σουλτάνου ζωγραφισμένο σαν εικόνα. Η επιγραφή λέει ότι ο Θεός αγαπά τον έμπορο.",
+          "en": "It is the emblem of the Ottoman Empire. The curly “signature” is called a tughra (tuğra): the sultan's name drawn like a picture. The inscription says that God loves the merchant."
+        }
+      }
+    },
+    "istanbul-spice-bazaar": {
+      "explorerId": "spice-bazaar",
+      "riddle": {
+        "el": "Δίπλα σε ένα τζαμί γεμάτο περιστέρια, μια αγορά σε σχήμα Γ μυρίζει κανέλα, πιπέρι και τριαντάφυλλο. Τα μπαχαρικά στέκονται σε πολύχρωμες πυραμίδες, και το όνομά της είναι δανεικό από τη χώρα των Φαραώ.",
+        "en": "Next to a mosque full of pigeons, an L-shaped market smells of cinnamon, pepper and rose. Spices sit in colourful pyramids, and its name is borrowed from the land of the pharaohs."
+      },
+      "parentHint": {
+        "el": "Είναι η Αιγυπτιακή Αγορά (Mısır Çarşısı), γνωστή και ως Αγορά των Μπαχαρικών, στο Eminönü. Από την πύλη Nuruosmaniye κατηφορίστε 12 λεπτά προς τη θάλασσα από τη Mahmutpaşa Yokuşu ως την πλατεία με το Νέο Τζαμί (Yeni Cami)· η κύρια είσοδος είναι στην πλατεία.",
+        "en": "It is the Spice Bazaar (Mısır Çarşısı, the Egyptian Market), in Eminönü. From the Nuruosmaniye gate walk 12 minutes downhill towards the water along Mahmutpaşa Yokuşu to the square with the New Mosque (Yeni Cami); the main entrance is on the square."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Το όνομα της αγοράς είναι δανεικό από τη χώρα των Φαραώ. Ποια χώρα είναι αυτή;",
+          "en": "The market's name is borrowed from the land of the pharaohs. Which country is that?"
+        },
+        "options": {
+          "el": [
+            "Η Ινδία",
+            "Η Περσία",
+            "Η Αίγυπτος",
+            "Η Κίνα"
+          ],
+          "en": [
+            "India",
+            "Persia",
+            "Egypt",
+            "China"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Mısır σημαίνει Αίγυπτος στα τουρκικά. Η αγορά πληρώθηκε με φόρους από την Αίγυπτο, που τότε ανήκε στην Οθωμανική Αυτοκρατορία, και πολλά μπαχαρικά έφταναν από την Ινδία μέσω Αιγύπτου.",
+          "en": "Mısır means Egypt in Turkish. The market was paid for with taxes from Egypt, then part of the Ottoman Empire, and many spices arrived from India by way of Egypt."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κάνε ένα βήμα πίσω στην πλατεία και κοίτα τη στέγη της αγοράς. Τι έχει επάνω της;",
+          "en": "Take a step back into the square and look at the roof of the market. What is on top of it?"
+        },
+        "options": {
+          "el": [
+            "Μια σειρά από μικρούς θόλους",
+            "Κόκκινα κεραμίδια",
+            "Έναν ψηλό πύργο με ρολόι",
+            "Μια γυάλινη οροφή"
+          ],
+          "en": [
+            "A row of small domes",
+            "Red roof tiles",
+            "A tall clock tower",
+            "A glass roof"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Δεκάδες μικροί θόλοι σκεπάζουν τα δύο μακριά σκέλη της αγοράς. Από ψηλά μοιάζει με ένα Γ φτιαγμένο από φούσκες, και οι γλάροι λατρεύουν να κάθονται πάνω τους.",
+          "en": "Dozens of little domes cover the two long arms of the market. From above it looks like an L made of bubbles, and the seagulls love to perch on them."
+        }
+      }
+    },
+    "istanbul-galata-bridge": {
+      "explorerId": "galata-bridge",
+      "riddle": {
+        "el": "Μια γέφυρα με δύο ορόφους: επάνω, εκατοντάδες καλάμια ψαρέματος κρέμονται πάνω από το νερό, και από κάτω ο κόσμος τρώει με τα πόδια σχεδόν μέσα στη θάλασσα. Γλάροι ακολουθούν τα πλοία που φεύγουν για μια άλλη ήπειρο.",
+        "en": "A bridge with two floors: on top, hundreds of fishing rods dangle over the water, and underneath people eat with their feet almost in the sea. Seagulls chase the boats that leave for another continent."
+      },
+      "parentHint": {
+        "el": "Είναι η Γέφυρα του Γαλατά (Galata Köprüsü) πάνω από τον Κεράτιο Κόλπο. Από την Αιγυπτιακή Αγορά περάστε την πλατεία του Eminönü, 3 λεπτά, και περπατήστε στο πάνω κατάστρωμα ως τη μέση της γέφυρας.",
+        "en": "It is the Galata Bridge (Galata Köprüsü) over the Golden Horn. From the Spice Bazaar cross Eminönü square, 3 minutes, and walk along the top deck to the middle of the bridge."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Το νερό κάτω από τη γέφυρα λέγεται Κεράτιος Κόλπος, στα αγγλικά «Χρυσό Κέρας». Γιατί «κέρας»;",
+          "en": "The water under the bridge is called the Golden Horn. Why “horn”?"
+        },
+        "options": {
+          "el": [
+            "Γιατί ο κόλπος είναι στενός και κυρτός σαν κέρατο",
+            "Γιατί ζουν ελάφια στις όχθες του",
+            "Γιατί τα πλοία κορνάρουν",
+            "Γιατί το νερό του είναι χρυσό"
+          ],
+          "en": [
+            "Because the inlet is narrow and curved like a horn",
+            "Because deer live on its banks",
+            "Because the ships blow their horns",
+            "Because its water is gold"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Από ψηλά ο κόλπος μοιάζει με κυρτό κέρατο, και «χρυσός» τον είπαν για τα χρυσαφένια ηλιοβασιλέματα και τα πλούτη που έφερναν τα καράβια. Οι Έλληνες τον λένε Κεράτιο, από την ίδια λέξη: κέρας.",
+          "en": "From above, the inlet looks like a curved horn, and “golden” came from its golden sunsets and the riches the ships brought in. Greeks call it Keratios, from the same word for horn."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Σκύψε λίγο από το κάγκελο. Τι υπάρχει ακριβώς κάτω από τα πόδια σου, στον κάτω όροφο της γέφυρας;",
+          "en": "Lean a little over the railing. What is right under your feet, on the lower floor of the bridge?"
+        },
+        "options": {
+          "el": [
+            "Σιδηροδρομικές γραμμές",
+            "Ένα μουσείο",
+            "Αποθήκες για τα ψάρια",
+            "Εστιατόρια και καφενεία με τραπέζια δίπλα στο νερό"
+          ],
+          "en": [
+            "Railway tracks",
+            "A museum",
+            "Storerooms for the fish",
+            "Restaurants and cafés with tables by the water"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Ο κάτω όροφος είναι γεμάτος εστιατόρια και καφενεία, με τα τραπέζια σχεδόν να αγγίζουν το νερό. Πρόσεχε από πάνω: τα αγκίστρια των ψαράδων περνούν ακριβώς μπροστά από τα πιάτα!",
+          "en": "The lower floor is lined with restaurants and cafés, their tables almost touching the water. Watch out from above: the fishermen's hooks drop right past the plates!"
+        }
+      }
+    },
+    "istanbul-galata-tower": {
+      "explorerId": "galata-tower",
+      "riddle": {
+        "el": "Ένας πέτρινος πύργος με μυτερό καπέλο στέκεται στην κορυφή ενός λόφου εδώ και σχεδόν 700 χρόνια. Λένε πως ένας τολμηρός άντρας πήδηξε από την κορυφή του με ξύλινα φτερά και πέταξε πάνω από τη θάλασσα ως την Ασία!",
+        "en": "A stone tower wearing a pointed hat has stood on its hilltop for almost 700 years. They say a daring man once jumped from its top with wooden wings and glided over the sea all the way to Asia!"
+      },
+      "parentHint": {
+        "el": "Είναι ο Πύργος του Γαλατά (Galata Kulesi). Από τη γέφυρα συνεχίστε στο Karaköy και ανηφορίστε 10 λεπτά από τα σκαλιά Kamondo και τη Galata Kulesi Sokak, ή πάρτε τον ιστορικό υπόγειο Tünel από το Karaköy και κατεβείτε 5 λεπτά από τη Galip Dede Caddesi.",
+        "en": "It is the Galata Tower (Galata Kulesi). From the bridge carry on into Karaköy and climb 10 minutes up the Kamondo Steps and Galata Kulesi Sokak, or ride the historic Tünel funicular from Karaköy and walk 5 minutes down Galip Dede Caddesi."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι ο πύργος στέκεται σχεδόν 700 χρόνια. Πότε περίπου χτίστηκε;",
+          "en": "The riddle says the tower has stood for almost 700 years. About when was it built?"
+        },
+        "options": {
+          "el": [
+            "Γύρω στο 500",
+            "Γύρω στο 1900",
+            "Γύρω στο 1750",
+            "Γύρω στο 1350"
+          ],
+          "en": [
+            "Around the year 500",
+            "Around 1900",
+            "Around 1750",
+            "Around 1350"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Σωστά: 700 χρόνια πριν από σήμερα μας πάνε γύρω στο 1350. Ο πύργος τελείωσε το 1348, όταν αυτός ο λόφος ήταν μια μικρή πόλη Ιταλών εμπόρων από τη Γένοβα.",
+          "en": "Right: 700 years before today takes us to around 1350. The tower was finished in 1348, when this hill was a little town of Italian merchants from Genoa."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα την κορυφή του πύργου. Τι σχήμα έχει η στέγη του;",
+          "en": "Look at the top of the tower. What shape is its roof?"
+        },
+        "options": {
+          "el": [
+            "Επίπεδη, σαν ταράτσα",
+            "Μυτερός κώνος, σαν ανάποδο χωνάκι παγωτού",
+            "Στρογγυλός θόλος",
+            "Πυραμίδα με τέσσερις πλευρές"
+          ],
+          "en": [
+            "Flat, like a terrace",
+            "A pointed cone, like an upside-down ice-cream cone",
+            "A round dome",
+            "A four-sided pyramid"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ο κώνος χάθηκε σε καταιγίδες και φωτιές περισσότερες από μία φορές· ο σημερινός μπήκε ξανά στη θέση του τη δεκαετία του 1960. Κάτω από αυτόν, το μπαλκόνι κάνει ολόκληρο τον γύρο του πύργου.",
+          "en": "The cone was lost to storms and fires more than once; today's cone was put back in the 1960s. Just below it, the balcony runs all the way round the tower."
+        }
+      }
+    },
+    "istanbul-flower-passage": {
+      "explorerId": "istiklal-street",
+      "riddle": {
+        "el": "Σε έναν μακρύ δρόμο χωρίς αυτοκίνητα, ένα παλιό τραμ κουδουνίζει ανάμεσα σε πλήθη, εκκλησίες και πρώην πρεσβείες. Στη μέση της διαδρομής, μια στοά με γυάλινη οροφή που την έχτισε ένας Έλληνας ήταν κάποτε γεμάτη λουλούδια.",
+        "en": "On a long street with no cars, an old-fashioned tram rings its bell through crowds, churches and former embassies. Halfway along, a glass-roofed arcade built by a Greek was once filled with flowers."
+      },
+      "parentHint": {
+        "el": "Είναι η οδός İstiklal (Ιστικλάλ, «οδός Ανεξαρτησίας»), στην πλατεία Galatasaray. Από τον Πύργο του Γαλατά ανεβείτε 8 λεπτά τη Galip Dede Caddesi ως την πλατεία Tünel και μετά περπατήστε 12 λεπτά στον πεζόδρομο, ή πάρτε το νοσταλγικό τραμ από το Tünel ως τη στάση Galatasaray.",
+        "en": "It is İstiklal Street (“Independence Street”), at Galatasaray Square. From Galata Tower climb Galip Dede Caddesi for 8 minutes to Tünel Square, then walk 12 minutes along the pedestrian street, or ride the nostalgic tram from Tünel to the Galatasaray stop."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για πρώην πρεσβείες. Τι είναι μια πρεσβεία;",
+          "en": "The riddle mentions former embassies. What is an embassy?"
+        },
+        "options": {
+          "el": [
+            "Ένα μεγάλο ξενοδοχείο",
+            "Ένα μουσείο με πίνακες",
+            "Το σπίτι όπου μια ξένη χώρα έχει τους εκπροσώπους της",
+            "Ένας σταθμός τρένου"
+          ],
+          "en": [
+            "A big hotel",
+            "A museum of paintings",
+            "The house where a foreign country keeps its representatives",
+            "A railway station"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Σε μια πρεσβεία μένουν και δουλεύουν οι εκπρόσωποι μιας άλλης χώρας. Όταν η πρωτεύουσα μεταφέρθηκε στην Άγκυρα το 1923, οι πρεσβείες έγιναν προξενεία, αλλά τα μεγαλοπρεπή κτίρια έμειναν στη θέση τους.",
+          "en": "An embassy is where the representatives of another country live and work. When the capital moved to Ankara in 1923, the embassies became consulates, but the grand buildings stayed put."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Περίμενε να περάσει το παλιό τραμ. Τι χρώμα είναι;",
+          "en": "Wait for the old tram to pass. What colour is it?"
+        },
+        "options": {
+          "el": [
+            "Κίτρινο",
+            "Κόκκινο",
+            "Πράσινο",
+            "Μπλε"
+          ],
+          "en": [
+            "Yellow",
+            "Red",
+            "Green",
+            "Blue"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Κόκκινο, το χρώμα των παλιών τραμ της Πόλης. Τα ηλεκτρικά τραμ πρωτοπέρασαν από εδώ το 1914, και το νοσταλγικό τραμ επέστρεψε το 1990, όταν ο δρόμος έγινε πεζόδρομος.",
+          "en": "Red, the colour of the city's old trams. Electric trams first ran here in 1914, and the nostalgic tram came back in 1990, when the street became car-free."
+        }
+      }
+    },
+    "istanbul-patriarchate": {
+      "explorerId": "fener-patriarchate",
+      "riddle": {
+        "el": "Σε μια γειτονιά με πλακόστρωτα σοκάκια, πίσω από μια πύλη που κλείδωσε πριν από 200 χρόνια, ζει ο γέροντας που είναι πρώτος ανάμεσα σε όλους τους Ορθόδοξους της γης. Ψηλά στον λόφο, ένα κατακόκκινο σχολείο μοιάζει με κάστρο.",
+        "en": "In a neighbourhood of cobbled lanes, behind a gate locked 200 years ago, lives the elder who is first among all the Orthodox Christians of the world. High on the hill above, a bright red school looks like a castle."
+      },
+      "parentHint": {
+        "el": "Είναι το Οικουμενικό Πατριαρχείο στο Φανάρι (Fener), με τον ναό του Αγίου Γεωργίου. Από την πλατεία Galatasaray πάρτε ταξί (περίπου 15 λεπτά), ή κατεβείτε στο Karaköy και πάρτε το πλοιάριο του Κεράτιου (γραμμή Haliç) ως την αποβάθρα Fener· από εκεί 5 λεπτά με τα πόδια ως την πύλη στη Sadrazam Ali Paşa Caddesi.",
+        "en": "It is the Ecumenical Patriarchate in Fener, with the church of Saint George. From Galatasaray Square take a taxi (about 15 minutes), or go down to Karaköy and ride the Golden Horn ferry (Haliç line) to the Fener pier; from there it is a 5-minute walk to the gate on Sadrazam Ali Paşa Caddesi."
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος μιλάει για τον «πρώτο ανάμεσα στους Ορθόδοξους». Πώς λέγεται ο τίτλος του;",
+          "en": "The riddle speaks of the “first among the Orthodox”. What is his title?"
+        },
+        "options": {
+          "el": [
+            "Πάπας",
+            "Πατριάρχης",
+            "Σουλτάνος",
+            "Δήμαρχος"
+          ],
+          "en": [
+            "Pope",
+            "Patriarch",
+            "Sultan",
+            "Mayor"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ο Οικουμενικός Πατριάρχης Κωνσταντινουπόλεως είναι «πρώτος μεταξύ ίσων» ανάμεσα στους Ορθόδοξους επισκόπους όλου του κόσμου. Από το 1601 το σπίτι του είναι εδώ, στο Φανάρι.",
+          "en": "The Ecumenical Patriarch of Constantinople is “first among equals” of all the Orthodox bishops in the world. Since 1601 his home has been here, in Fener."
+        }
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα την κεντρική είσοδο. Τι παράξενο έχει η μεγάλη πόρτα στη μέση;",
+          "en": "Look at the main entrance. What is strange about the big door in the middle?"
+        },
+        "options": {
+          "el": [
+            "Είναι κλειστή και σφραγισμένη· ο κόσμος μπαίνει από πλαϊνή πόρτα",
+            "Είναι βαμμένη χρυσή",
+            "Είναι περιστρεφόμενη, σαν σε ξενοδοχείο",
+            "Έχει μια κρεμαστή γέφυρα"
+          ],
+          "en": [
+            "It is shut and sealed; people go in through a side door",
+            "It is painted gold",
+            "It is a revolving door, like in a hotel",
+            "It has a drawbridge"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Είναι η Πύλη του Αγίου Πέτρου. Κλείστηκε το 1821, μια πολύ δύσκολη χρονιά, στη μνήμη του Πατριάρχη Γρηγορίου Ε΄, που έχασε τη ζωή του εδώ, και από τότε δεν άνοιξε ποτέ ξανά.",
+          "en": "It is the Gate of Saint Peter. It was closed in 1821, a very hard year, in memory of Patriarch Gregory V, who lost his life here, and it has never been opened since."
+        }
+      }
+    }
+  }
+}

@@ -34,8 +34,8 @@ export const country: Country = {
     en:
       'Spain is a country where lunch happens at three o’clock and the evening takes ' +
       'its time to end. It has mountains with snow and beaches warm enough for December, ' +
-      'and far out in the Atlantic it has islands with a volcano taller than any peak on ' +
-      'the mainland. In Barcelona a church has been under construction for more than a ' +
+      'and far out in the Atlantic it has islands with a volcano taller than any other ' +
+      'peak in the country. In Barcelona a church has been under construction for more than a ' +
       'hundred and forty years, in Granada a palace has walls carved as finely as lace, ' +
       'and in Madrid children sketch in front of paintings made four hundred ' +
       'years ago. And wherever you go, somebody will offer you olives.',
@@ -68,4 +68,58 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'barcelona',
+    countryId: 'spain',
+    order: 1,
+    emoji: '🎨',
+
+    name: {
+      el: 'Βαρκελώνη',
+      en: 'Barcelona',
+    },
+
+    intro: {
+      el:
+        'Η Βαρκελώνη είναι μια πόλη ανάμεσα σε λόφους και θάλασσα, όπου ένας αρχιτέκτονας ' +
+        'ονειρευόταν σπίτια σαν δράκους και μια εκκλησία που χτίζεται εδώ και 144 χρόνια ' +
+        'και μόλις έγινε η ψηλότερη του κόσμου. Οι δρόμοι της παλιάς πόλης είναι στενοί και ' +
+        'πέτρινοι, οι δρόμοι της καινούργιας είναι χαραγμένοι με χάρακα, και ένας μακρύς ' +
+        'περίπατος με πλατάνια τα ενώνει με το λιμάνι. Εδώ μιλούν δύο γλώσσες, καταλανικά ' +
+        'και ισπανικά, χορεύουν σε κύκλο μπροστά στον καθεδρικό, και οι φίλαθλοι ' +
+        'πανηγυρίζουν σε ένα σιντριβάνι.',
+      en:
+        'Barcelona is a city between hills and sea, where an architect dreamed up houses ' +
+        'like dragons and a church that has been under construction for 144 years and has ' +
+        'just become the tallest in the world. The streets of the old town are narrow and ' +
+        'made of stone, the streets of the new town are drawn with a ruler, and a long walk ' +
+        'lined with plane trees joins them to the harbour. People here speak two languages, ' +
+        'Catalan and Spanish, they dance in a circle in front of the cathedral, and ' +
+        'football fans celebrate at a fountain.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/barcelona.json`, which takes it from Wikidata's own
+     * point for the city (Q1492). The resolver audits every place against this exact point.
+     */
+    centre: { lat: 41.3825, lng: 2.17694 },
+
+    map: {
+      src: '/images/world/maps/barcelona.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Βαρκελώνης, με τη θάλασσα στα νοτιοανατολικά, τον Μοντζουίκ δίπλα στο λιμάνι και τον Τιμπιντάμπο στους λόφους από πίσω.',
+        en: 'A stylised map of Barcelona, with the sea to the south-east, Montjuïc by the harbour and Tibidabo on the hills behind.',
+      },
+      width: 1000,
+      height: 909,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the sixteen places in `cities/barcelona.ts` falls
+       * inside them, with Tibidabo in the top-left corner, the zoo on the right edge and
+       * the Columbus column and the shipyard down by the water.
+       */
+      bounds: { north: 41.435, south: 41.36, east: 2.21, west: 2.1 },
+    },
+  },
+];

@@ -1,0 +1,588 @@
+{
+  "city": "istanbul",
+  "resolvedAt": "2026-09-12T10:52:21.175Z",
+  "centre": {
+    "lat": 41.015,
+    "lng": 28.972
+  },
+  "places": [
+    {
+      "id": "istanbul-hippodrome",
+      "name": "Hippodrome of Constantinople (Sultanahmet Square)",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q387548",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/25512790",
+          "deltaM": 44
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hippodrome of Constantinople",
+          "deltaM": 23
+        }
+      ],
+      "warnings": [],
+      "lat": 41.00639,
+      "lng": 28.97556,
+      "labels": {
+        "fr": "hippodrome de Constantinople",
+        "es": "Hipódromo de Constantinopla",
+        "it": "ippodromo di Costantinopoli",
+        "de": "Hippodrom",
+        "en": "Hippodrome of Constantinople",
+        "el": "Ιππόδρομος της Κωνσταντινούπολης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-hagia-sophia",
+      "name": "Hagia Sophia",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q12506",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/109862851",
+          "deltaM": 20
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hagia Sophia",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.00833,
+      "lng": 28.98,
+      "labels": {
+        "en": "Hagia Sophia",
+        "fr": "Sainte-Sophie",
+        "it": "basilica di Santa Sofia",
+        "de": "Hagia Sophia",
+        "el": "Αγία Σοφία",
+        "es": "Santa Sofía"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-blue-mosque",
+      "name": "Sultan Ahmed Mosque (Blue Mosque)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q80541",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/18055570",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Blue Mosque, Istanbul",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 41.00539,
+      "lng": 28.97682,
+      "labels": {
+        "es": "Mezquita Azul",
+        "el": "Μπλε Τζαμί",
+        "fr": "mosquée bleue",
+        "it": "Moschea Blu",
+        "de": "Sultan-Ahmed-Moschee",
+        "en": "Sultan Ahmed Mosque"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-basilica-cistern",
+      "name": "Basilica Cistern",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q216511",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/11006008339",
+          "deltaM": 40
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Basilica Cistern",
+          "deltaM": 40
+        }
+      ],
+      "warnings": [],
+      "lat": 41.0084,
+      "lng": 28.97792,
+      "labels": {
+        "fr": "Citerne Basilique",
+        "es": "Cisterna Basílica",
+        "it": "Cisterna Basilica",
+        "de": "Cisterna Basilica",
+        "el": "Βασιλική Κινστέρνα",
+        "en": "Basilica Cistern"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-topkapi-palace",
+      "name": "Topkapı Palace",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q170495",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/10284696709",
+          "deltaM": 196
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Topkapı Palace",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.013,
+      "lng": 28.984,
+      "labels": {
+        "fr": "palais de Topkapı",
+        "es": "palacio de Topkapı",
+        "it": "Palazzo di Topkapı",
+        "de": "Topkapı-Palast",
+        "el": "Τοπ Καπί",
+        "en": "Topkapı Palace"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-archaeology-museums",
+      "name": "Istanbul Archaeology Museums",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q636978",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/335374188",
+          "deltaM": 15
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.01167,
+      "lng": 28.98139,
+      "labels": {
+        "fr": "musée archéologique d'Istanbul",
+        "en": "Istanbul Archaeology Museums",
+        "de": "Archäologisches Museum Istanbul",
+        "it": "Musei archeologici di Istanbul",
+        "es": "Museo arqueológico de Estambul",
+        "el": "Αρχαιολογικά μουσεία Κωνσταντινούπολης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-gulhane-park",
+      "name": "Gülhane Park",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1560106",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/25542618",
+          "deltaM": 218
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.01222,
+      "lng": 28.98,
+      "labels": {
+        "fr": "parc Gülhane",
+        "en": "Gülhane Park",
+        "es": "Parque Gülhane",
+        "de": "Gülhane-Park",
+        "it": "parco Gülhane"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-grand-bazaar",
+      "name": "Grand Bazaar",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q505954",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/303807317",
+          "deltaM": 51
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Grand Bazaar, Istanbul",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.01058,
+      "lng": 28.96793,
+      "labels": {
+        "fr": "Grand bazar d'Istanbul",
+        "es": "Gran Bazar",
+        "it": "Grande Bazar d'Istanbul",
+        "de": "Großer Basar",
+        "en": "Grand Bazaar",
+        "el": "Το Μεγάλο Παζάρι"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-spice-bazaar",
+      "name": "Spice Bazaar (Mısır Çarşısı)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q668641",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/24234971",
+          "deltaM": 46
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Spice Bazaar",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.01639,
+      "lng": 28.97056,
+      "labels": {
+        "de": "Ägyptenbasar",
+        "en": "Spice Bazaar",
+        "es": "Bazar de las Especias",
+        "fr": "Bazar aux épices",
+        "it": "Bazar Egiziano",
+        "el": "Αιγυπτιακό Παζάρι Μπαχαρικών"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-suleymaniye-mosque",
+      "name": "Süleymaniye Mosque",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q178643",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/1564032",
+          "deltaM": 15
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Süleymaniye Mosque",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.01611,
+      "lng": 28.96389,
+      "labels": {
+        "fr": "mosquée Süleymaniye",
+        "es": "mezquita de Süleymaniye",
+        "it": "Moschea di Solimano",
+        "de": "Süleymaniye-Moschee",
+        "el": "Τέμενος Σουλεϊμανιγιέ",
+        "en": "Süleymaniye Mosque"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-galata-bridge",
+      "name": "Galata Bridge",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q81523",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4885624",
+          "deltaM": 19
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Galata Bridge",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 41.02,
+      "lng": 28.97306,
+      "labels": {
+        "fr": "pont de Galata",
+        "es": "puente Gálata",
+        "en": "Galata Bridge",
+        "it": "ponte di Galata",
+        "de": "Galatabrücke",
+        "el": "Γέφυρα του Γαλατά"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-galata-tower",
+      "name": "Galata Tower",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q91274",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/23236783",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.02563,
+      "lng": 28.97415,
+      "labels": {
+        "de": "Galataturm",
+        "el": "Πύργος Γαλατά",
+        "en": "Galata Tower",
+        "es": "Torre de Gálata",
+        "fr": "tour de Galata",
+        "it": "Torre di Galata"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-flower-passage",
+      "name": "Çiçek Pasajı (Flower Passage), İstiklal Avenue",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q595289",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/5602054323",
+          "deltaM": 18
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Çiçek Pasajı",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 41.03394,
+      "lng": 28.97792,
+      "labels": {
+        "en": "Çiçek Pasajı",
+        "fr": "Çiçek Pasajı",
+        "it": "Çiçek Pasajı",
+        "el": "Τσιτσέκ Πασαζί",
+        "es": "Çiçek Pasajı"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-patriarchate",
+      "name": "Patriarchal Church of St George, Fener",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1346546",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/526875901",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St. George's Cathedral, Istanbul",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [],
+      "lat": 41.02909,
+      "lng": 28.95182,
+      "labels": {
+        "de": "Georgskathedrale",
+        "en": "Church of St. George",
+        "es": "Catedral Patriarcal de San Jorge",
+        "it": "cattedrale di San Giorgio",
+        "el": "Πάνσεπτος Πατριαρχικός Ναός Αγίου Γεωργίου",
+        "fr": "église Saint-Georges d'Istanbul"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-rahmi-koc-museum",
+      "name": "Rahmi M. Koç Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3404565",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/4297527",
+          "deltaM": 69
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 41.04227,
+      "lng": 28.94926,
+      "labels": {
+        "en": "Rahmi M. Koç Museum",
+        "fr": "musée Rahmi M. Koç"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-maidens-tower",
+      "name": "Maiden's Tower (Kız Kulesi)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q848397",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/103821246",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Maiden's Tower",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [],
+      "lat": 41.02111,
+      "lng": 29.00417,
+      "labels": {
+        "fr": "tour de Léandre",
+        "en": "Maiden's Tower",
+        "it": "Torre di Leandro",
+        "de": "Leanderturm",
+        "el": "Πύργος του Λεάνδρου",
+        "es": "Torre de la Doncella"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "istanbul-chora",
+      "name": "Chora Church (Kariye)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q849489",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/7614527",
+          "deltaM": 16
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "The Chora",
+          "deltaM": 17
+        }
+      ],
+      "warnings": [],
+      "lat": 41.03111,
+      "lng": 28.93917,
+      "labels": {
+        "fr": "Saint-Sauveur-in-Chora",
+        "en": "Chora Church",
+        "es": "San Salvador en Chora",
+        "de": "Chora-Kirche",
+        "el": "Μονή της Χώρας",
+        "it": "chiesa di San Salvatore in Chora"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}

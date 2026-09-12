@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 909" width="1000" height="909" role="img" aria-label="Stylised map of Barcelona">
+  <title>Barcelona — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/spain.ts
+    (north 41.435, south 41.36, east 2.21, west 2.1) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the line of
+    the shore, the two hills (Montjuïc by the harbour, Tibidabo on the ridge behind the
+    city), the green of the Ciutadella park and the diagonal of the Passeig de Gràcia are
+    placed from projected coordinates, and nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9d3e0" />
+      <stop offset="1" stop-color="#7cb8cd" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="909" fill="url(#ground)" />
+  <rect width="1000" height="909" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The Collserola ridge behind the city, with Tibidabo as its summit. -->
+  <path d="M0 217 C 51 117, 251 87, 431 147 S 1000 37, 1000 17 L1000 0 L0 0 Z" fill="#d8e0c3" stroke="#b7c49a" stroke-width="2" />
+
+  <!-- The sea. The shore runs south-west to north-east across the bottom right. -->
+  <path d="M409 964 L618 861 L727 764 L800 715 L891 642 L1000 545 L1000 909 L409 909 Z" fill="url(#water)" />
+  <path d="M409 964 L618 861 L727 764 L800 715 L891 642 L1000 545" fill="none" stroke="#5c9fb8" stroke-width="3" />
+
+  <!-- Montjuïc, the hill by the harbour. Centre is the projected castle. -->
+  <ellipse cx="602" cy="868" rx="96" ry="58" fill="#cddcb4" stroke="#a9bd8c" stroke-width="2" />
+
+  <!-- Tibidabo's summit. -->
+  <ellipse cx="171" cy="157" rx="70" ry="40" fill="#cddcb4" stroke="#a9bd8c" stroke-width="2" />
+
+  <!-- The Ciutadella park, projected from its own coordinate. -->
+  <ellipse cx="796" cy="568" rx="52" ry="36" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The Passeig de Gràcia axis, from Plaça de Catalunya up into the Eixample, and La
+       Rambla from the same square down to the Columbus column. -->
+  <path d="M636 582 L531 447" fill="none" stroke="#c9b48f" stroke-width="6" stroke-linecap="round" />
+  <path d="M636 582 L707 718" fill="none" stroke="#c9b48f" stroke-width="6" stroke-linecap="round" />
+
+  <!-- The harbour mole around the aquarium. -->
+  <path d="M717 730 L795 737 L809 711 L731 712 Z" fill="#e2d7bf" stroke="#c9b48f" stroke-width="2" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="602" y="874" font-size="20" text-anchor="middle" letter-spacing="2">MONTJUÏC</text>
+    <text x="171" y="163" font-size="20" text-anchor="middle" letter-spacing="2">TIBIDABO</text>
+    <text x="869" y="641" font-size="16" text-anchor="middle" letter-spacing="2" fill="#5c9fb8">MAR MEDITERRÀNIA</text>
+    <text x="40" y="849" font-size="42" letter-spacing="6">ΒΑΡΚΕΛΩΝΗ</text>
+    <text x="40" y="883" font-size="22" letter-spacing="4">BARCELONA</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
