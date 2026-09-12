@@ -31,9 +31,11 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Check, X, Sparkles, DoorOpen, MapPin, Stamp, Info } from 'lucide-react';
-import type { Place, PlaceId, WorldLang } from '../../data/world/types';
+import type { LocText, Place, PlaceId, WorldLang } from '../../data/world/types';
 import type { PlaceStamp } from './useWorldProgress';
 import StoryNarration from './StoryNarration';
+import { WorldMap } from './WorldMap';
+import { distanceM, formatDistance, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
 import {
   CATEGORY_LABEL,
   CATEGORY_STYLE,
@@ -46,12 +48,30 @@ import {
 export interface PlaceCardProps {
   lang: WorldLang;
   place: Place;
+  /** The city's name, so a maps search can say «Acropolis Museum, Athens» and land on the right pin. */
+  cityName?: LocText;
   /** From `useWorldProgress`. Present means this place is already visited and paid. */
   stamp?: PlaceStamp;
   onComplete: (correct: boolean) => void;
   /** Present only when `place.museum` exists. */
   onEnterMuseum?: () => void;
   onBack: () => void;
+}
+
+/**
+ * Links that open the place in the phone's own maps app, on the pin those apps
+ * themselves hold for it. Google is asked by name and city, which is how a person
+ * types it and what returns Google's own place page rather than a bare coordinate;
+ * Apple takes the name plus our coordinate to search near. Neither URL carries a
+ * child's position — there is none to carry.
+ */
+export function mapsLinksFor(place: Place, cityName?: LocText): { google: string; apple: string } {
+  const label = cityName ? `${place.name.en}, ${cityName.en}` : place.name.en;
+  const { lat, lng } = place.location;
+  return {
+    google: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(label)}`,
+    apple: `https://maps.apple.com/?q=${encodeURIComponent(place.name.en)}&ll=${lat.toFixed(6)},${lng.toFixed(6)}&z=16`,
+  };
 }
 
 // ------------------------------------------------------------------- chrome
@@ -214,6 +234,78 @@ const T = {
     es: 'EN VERDE, LA RESPUESTA CORRECTA',
     it: 'IN VERDE LA RISPOSTA GIUSTA',
   },
+  imHere: {
+    el: 'ΕΙΜΑΙ ΕΔΩ!',
+    en: 'I’M HERE!',
+    de: 'ICH BIN DA!',
+    fr: 'JE SUIS LÀ !',
+    es: '¡ESTOY AQUÍ!',
+    it: 'SONO QUI!',
+  },
+  locating: {
+    el: 'Ψάχνω πού είσαι…',
+    en: 'Finding where you are…',
+    de: 'Ich suche, wo du bist…',
+    fr: 'Je cherche où tu es…',
+    es: 'Buscando dónde estás…',
+    it: 'Cerco dove sei…',
+  },
+  hereOk: {
+    el: 'Είσαι εδώ! Η ερώτηση και η σφραγίδα άνοιξαν.',
+    en: 'You are here! The question and the stamp are open.',
+    de: 'Du bist da! Frage und Stempel sind frei.',
+    fr: 'Tu y es ! La question et le tampon sont débloqués.',
+    es: '¡Estás aquí! La pregunta y el sello están abiertos.',
+    it: 'Sei qui! Domanda e timbro sono sbloccati.',
+  },
+  tooFar: {
+    el: (d: string, min: number): string => `Είσαι ${d} μακριά, περίπου ${min} λεπτά με τα πόδια. Περπάτα προς το σημείο και ξαναπάτα.`,
+    en: (d: string, min: number): string => `You are ${d} away, about ${min} minutes on foot. Walk towards it and tap again.`,
+    de: (d: string, min: number): string => `Du bist ${d} entfernt, etwa ${min} Minuten zu Fuß. Geh hin und tippe noch einmal.`,
+    fr: (d: string, min: number): string => `Tu es à ${d}, environ ${min} minutes à pied. Approche-toi et appuie encore.`,
+    es: (d: string, min: number): string => `Estás a ${d}, unos ${min} minutos a pie. Camina hacia allí y vuelve a pulsar.`,
+    it: (d: string, min: number): string => `Sei a ${d}, circa ${min} minuti a piedi. Avvicinati e tocca di nuovo.`,
+  },
+  geoDenied: {
+    el: 'Χωρίς άδεια τοποθεσίας η σφραγίδα δεν μπορεί να μπει. Δώσε άδεια στο τηλέφωνο και ξαναπάτα.',
+    en: 'Without location permission the stamp cannot be earned. Allow location on your phone and tap again.',
+    de: 'Ohne Standortfreigabe gibt es keinen Stempel. Erlaube den Standort und tippe noch einmal.',
+    fr: 'Sans l’autorisation de position, pas de tampon. Autorise la position et appuie encore.',
+    es: 'Sin permiso de ubicación no se puede poner el sello. Permite la ubicación y vuelve a pulsar.',
+    it: 'Senza il permesso di posizione il timbro non si può mettere. Consenti la posizione e tocca di nuovo.',
+  },
+  geoUnavailable: {
+    el: 'Δεν βρέθηκε η θέση σου. Δοκίμασε έξω, με ανοιχτό τον ουρανό, ή λίγο αργότερα.',
+    en: 'Your position could not be found. Try outdoors, under open sky, or a little later.',
+    de: 'Dein Standort wurde nicht gefunden. Versuch es draußen unter freiem Himmel oder etwas später.',
+    fr: 'Ta position n’a pas été trouvée. Essaie dehors, à ciel ouvert, ou un peu plus tard.',
+    es: 'No se encontró tu posición. Prueba al aire libre, a cielo abierto, o un poco más tarde.',
+    it: 'La tua posizione non è stata trovata. Prova all’aperto, sotto il cielo, o un po’ più tardi.',
+  },
+  stampOnSite: {
+    el: 'Η σφραγίδα μπαίνει μόνο όταν είσαι εκεί. Διάβασε την ιστορία, περπάτα ως το σημείο και πάτα «Είμαι εδώ!».',
+    en: 'The stamp is earned only on the spot. Read the story, walk to the place and tap “I’m here!”.',
+    de: 'Den Stempel gibt es nur vor Ort. Lies die Geschichte, geh hin und tippe auf „Ich bin da!“.',
+    fr: 'Le tampon ne s’obtient que sur place. Lis l’histoire, va jusqu’au lieu et appuie sur « Je suis là ! ».',
+    es: 'El sello solo se consigue en el lugar. Lee la historia, camina hasta allí y pulsa «¡Estoy aquí!».',
+    it: 'Il timbro si ottiene solo sul posto. Leggi la storia, cammina fin lì e tocca «Sono qui!».',
+  },
+  howToGet: {
+    el: 'ΠΩΣ ΘΑ ΠΑΩ',
+    en: 'HOW TO GET THERE',
+    de: 'SO KOMMST DU HIN',
+    fr: 'COMMENT Y ALLER',
+    es: 'CÓMO LLEGAR',
+    it: 'COME ARRIVARE',
+  },
+  opensMaps: {
+    el: 'Ανοίγει τον χάρτη του τηλεφώνου σου, με το σημείο ήδη πάνω του.',
+    en: 'Opens your phone’s own map, with the pin already on it.',
+    de: 'Öffnet die Karte deines Handys, mit dem Ort schon markiert.',
+    fr: 'Ouvre la carte de ton téléphone, avec le lieu déjà marqué.',
+    es: 'Abre el mapa de tu móvil, con el lugar ya marcado.',
+    it: 'Apre la mappa del telefono, con il posto già segnato.',
+  },
   museumTitle: {
     el: 'Η πόρτα είναι ανοιχτή',
     en: 'The door is open',
@@ -270,6 +362,7 @@ const FALLBACK_CATEGORY_STYLE = 'bg-white/10 text-white/70 border-white/20';
 const PlaceCard: React.FC<PlaceCardProps> = ({
   lang,
   place,
+  cityName,
   stamp,
   onComplete,
   onEnterMuseum,
@@ -297,6 +390,34 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
    */
   const [answer, setAnswer] = useState<{ placeId: PlaceId; index: number } | null>(null);
   const [failedImage, setFailedImage] = useState<string | null>(null);
+
+  /**
+   * The stamp is earned on the pavement, not on the sofa. «Είμαι εδώ!» asks the phone
+   * where it is — the browser shows its own permission prompt every time it must — and
+   * the question, and with it the stamp, opens only within reach of the place. A place
+   * already stamped stays open: the walk was done once.
+   *
+   * The fix never leaves the device: it is compared with our coordinate and dropped.
+   */
+  const [geo, setGeo] = useState<'idle' | 'checking' | 'here' | 'far' | 'error'>('idle');
+  const [geoError, setGeoError] = useState<GeoError | null>(null);
+  const [distance, setDistance] = useState<number | null>(null);
+  const radiusM = place.location.anchor === 'area' ? 120 : 60;
+  const onSite = Boolean(stamp) || geo === 'here';
+
+  const locate = async () => {
+    setGeo('checking');
+    setGeoError(null);
+    const fix = await locateOnce();
+    if (typeof fix === 'string') {
+      setGeo('error');
+      setGeoError(fix);
+      return;
+    }
+    const m = distanceM(fix, place.location);
+    setDistance(m);
+    setGeo(isWithin(fix, fix.accuracyM, place.location, radiusM) ? 'here' : 'far');
+  };
 
   /**
    * The authority for "has this place already paid out from this screen?". A ref, read
@@ -482,6 +603,80 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
           </section>
         )}
 
+        {/* ── HOW TO GET THERE ──
+            The real map with the one pin, and the two buttons a parent actually taps:
+            Google Maps and Apple Maps open the place on their own pin, in the app the
+            phone already navigates with. No position of the child is involved. */}
+        <section className="mt-8" aria-labelledby={`${headingId}-directions`}>
+          <h2
+            id={`${headingId}-directions`}
+            className="flex items-center gap-2 text-xs font-black text-white/50 uppercase tracking-[0.25em] mb-3"
+          >
+            <MapPin size={14} aria-hidden="true" />
+            {ui(T.howToGet, lang)}
+          </h2>
+
+          {/* The gate. Already stamped: nothing to prove. Otherwise the one button that
+              asks the phone where it is, and an honest sentence about what it found. */}
+          {!stamp && (
+            <div className="mb-3 rounded-2xl border border-amber-500/30 bg-amber-500/[0.08] p-4">
+              <button
+                type="button"
+                onClick={locate}
+                disabled={geo === 'checking' || geo === 'here'}
+                className={`inline-flex w-full min-h-[52px] items-center justify-center gap-2 ${WORLD_STYLE.cta} disabled:opacity-70`}
+              >
+                <MapPin size={18} aria-hidden />
+                {geo === 'checking' ? ui(T.locating, lang) : geo === 'here' ? ui(T.hereOk, lang) : ui(T.imHere, lang)}
+              </button>
+              <p className="mt-2 text-sm font-bold text-white/60" aria-live="polite">
+                {geo === 'idle' && ui(T.stampOnSite, lang)}
+                {geo === 'far' &&
+                  distance !== null &&
+                  ui(T.tooFar, lang)(formatDistance(distance, lang === 'el' ? 'el' : 'en'), walkMinutes(distance))}
+                {geo === 'error' && geoError === 'denied' && ui(T.geoDenied, lang)}
+                {geo === 'error' && geoError !== 'denied' && ui(T.geoUnavailable, lang)}
+              </p>
+            </div>
+          )}
+
+          <WorldMap
+            lang={lang}
+            centre={{ lat: place.location.lat, lng: place.location.lng }}
+            zoom={16}
+            pins={[
+              {
+                id: place.id,
+                name: place.name,
+                emoji: place.emoji,
+                lat: place.location.lat,
+                lng: place.location.lng,
+                stamped: Boolean(stamp),
+              },
+            ]}
+            className="h-[48vw] max-h-[300px] min-h-[200px]"
+          />
+          <div className="mt-3 grid grid-cols-2 gap-3">
+            <a
+              href={mapsLinksFor(place, cityName).google}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-[48px] items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-sm font-black text-white transition-colors hover:bg-white/[0.12]"
+            >
+              <span aria-hidden="true">🗺️</span> Google Maps
+            </a>
+            <a
+              href={mapsLinksFor(place, cityName).apple}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-[48px] items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.06] px-4 text-sm font-black text-white transition-colors hover:bg-white/[0.12]"
+            >
+              <span aria-hidden="true"></span> Apple Maps
+            </a>
+          </div>
+          <p className="mt-2 text-[11px] font-bold uppercase tracking-wider text-white/40">{ui(T.opensMaps, lang)}</p>
+        </section>
+
         {/* ── THE DOOR — for a museum, going inside is the point of the place ── */}
         {onEnterMuseum && (
           <section className="mt-8">
@@ -507,8 +702,19 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
           </section>
         )}
 
-        {/* ── THE QUESTION ── */}
-        {hasQuestion && (
+        {/* ── THE QUESTION — opens on the spot, or once the stamp is already there ── */}
+        {hasQuestion && !onSite && (
+          <section className="mt-8" aria-labelledby={questionId}>
+            <h2 id={questionId} className={`${WORLD_STYLE.label} mb-3`}>
+              {ui(T.question, lang)}
+            </h2>
+            <div className={`${WORLD_STYLE.card} p-5 text-center`}>
+              <div className="text-3xl" aria-hidden>🔒</div>
+              <p className="mt-2 text-sm font-bold text-white/60">{ui(T.stampOnSite, lang)}</p>
+            </div>
+          </section>
+        )}
+        {hasQuestion && onSite && (
           <section className="mt-8" aria-labelledby={questionId}>
             <h2 id={questionId} className={`${WORLD_STYLE.label} mb-3`}>
               {ui(T.question, lang)}
