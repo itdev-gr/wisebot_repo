@@ -1,0 +1,506 @@
+{
+  "lang": "es",
+  "cityId": "paris",
+  "places": {
+    "paris-eiffel-tower": {
+      "name": "La Torre Eiffel",
+      "tagline": "Se construyó para derribarla a los veinte años",
+      "story": "En 1889 París preparaba una fiesta enorme, la Exposición Universal, y el ingeniero Gustave Eiffel prometió como puerta de entrada la torre más alta del mundo. Su equipo unió unas dieciocho mil piezas de hierro con dos millones y medio de remaches, y en poco más de dos años la torre llegó a los trescientos metros. A muchos parisinos les parecía horrible y pedían que la derribaran. No era un disparate: el permiso decía que se quedaría en pie solo veinte años y que después se convertiría en chatarra. La salvó algo que nadie había imaginado cuando la diseñaron. Era lo más alto de la ciudad, o sea, el sitio perfecto para poner antenas, y cuando la radio se volvió importante la torre se volvió útil. No se salvó porque los parisinos le cogieran cariño. Se salvó porque resultó útil.",
+      "facts": [
+        "Se levantó en poco más de dos años, con unas 18.000 piezas de hierro.",
+        "En una ola de calor crece unos quince centímetros, porque el hierro se dilata.",
+        "Eiffel tenía un pequeño apartamento propio cerca de la cima."
+      ],
+      "question": {
+        "q": "¿Qué salvó a la torre de que la derribaran?",
+        "answers": [
+          "Las antenas",
+          "Una petición firmada por artistas famosos que la defendieron en público",
+          "La decisión de Eiffel de comprarla entera con su propio dinero",
+          "Una ley que prohibió derribar edificios altos en todo París"
+        ],
+        "explanation": "Era el punto más alto de la ciudad, o sea, el sitio perfecto para las antenas. Cuando la radio se volvió importante, la torre se volvió útil y nadie la desmontó."
+      }
+    },
+    "paris-arc-de-triomphe": {
+      "name": "El Arco de Triunfo",
+      "tagline": "El hombre que lo mandó construir nunca lo vio terminado",
+      "story": "En 1806 Napoleón acababa de ganar una gran batalla y mandó construir un arco enorme, para que sus soldados pasaran por debajo al volver a casa. Las obras duraron treinta años, mucho más de lo que duró su propio poder, y Napoleón nunca lo vio terminado. El arco mide cincuenta metros de alto, como un edificio de dieciséis pisos, y en sus muros hay tallados cientos de nombres de batallas y de generales. Está en el centro de una plaza de la que salen doce avenidas como rayos, y por eso desde arriba parece una estrella. Debajo del arco está la tumba de un soldado al que nunca se identificó, y a su lado una llama que se enciende todas las tardes desde 1923 y que no se ha apagado nunca desde entonces.",
+      "facts": [
+        "Mide cincuenta metros de alto y tardó treinta años en construirse.",
+        "De su plaza salen doce avenidas, como los rayos de una estrella.",
+        "En 1919 un piloto atravesó el arco volando con su avión."
+      ],
+      "question": {
+        "q": "¿Por qué parece una estrella la plaza que rodea el arco?",
+        "answers": [
+          "De ella salen doce avenidas",
+          "Porque sus farolas están colocadas en forma de estrella sobre la calzada",
+          "Porque el diseño copia la bandera de Francia vista desde arriba",
+          "Porque las aceras están hechas con piedras cortadas en forma de estrella"
+        ],
+        "explanation": "Las doce calles se van en todas direcciones como rayos. Por eso, vista desde arriba, la plaza se llamó Plaza de la Estrella."
+      }
+    },
+    "paris-place-de-la-concorde": {
+      "name": "La Plaza de la Concordia",
+      "tagline": "La plaza más grande de la ciudad, con un visitante egipcio",
+      "story": "Es la plaza más grande de París, tan ancha que parece un prado de piedra. Se construyó para un rey, y en los años de la Revolución francesa fue un lugar donde pasaron cosas muy duras. Cuando volvió la calma, la ciudad le puso un nombre nuevo: Concordia, que significa vivir juntos en paz. El nombre fue una decisión, una manera de decir la ciudad qué quería recordar y qué no. En 1836 llegó aquí un visitante muy poco corriente: un obelisco de más de tres mil años, regalo de Egipto, que viajó en un barco construido especialmente para él. Pesa unas doscientas toneladas. En su pedestal hay dibujos tallados que enseñan, paso a paso, las máquinas que lo bajaron en Luxor y lo volvieron a levantar aquí, en medio de París.",
+      "facts": [
+        "Su obelisco tiene más de 3.000 años y pesa unas 200 toneladas.",
+        "Viajó desde Egipto en un barco construido especialmente para transportarlo.",
+        "Su gemelo sigue en pie en Luxor: Francia lo devolvió oficialmente en 1981."
+      ],
+      "question": {
+        "q": "¿Qué significa el nombre «Concordia» que le pusieron a la plaza?",
+        "answers": [
+          "Vivir juntos en paz",
+          "La gran victoria que celebró aquí el ejército de Francia",
+          "El nombre del rey para el que se construyó la plaza al principio",
+          "El acuerdo con Egipto que trajo aquí el gran obelisco"
+        ],
+        "explanation": "El nombre se puso a propósito, después de unos años muy difíciles. Era la manera de la ciudad de decir qué quería recordar a partir de entonces."
+      }
+    },
+    "paris-louvre": {
+      "name": "El Museo del Louvre",
+      "tagline": "Fortaleza, después palacio, después museo para todos",
+      "story": "Hace más de ochocientos años, un rey construyó aquí una fortaleza para proteger París, con muros gruesos y un torreón alto y redondo. Los reyes siguientes la convirtieron en un palacio con salas llenas de oro, hasta que uno de ellos se mudó a Versalles y lo dejó medio vacío. En la Revolución francesa se tomó una decisión que cambió los museos en todas partes: el pueblo dijo que los tesoros de los reyes eran de todos, y en 1793 el palacio abrió como museo. No fue un regalo; fue el pueblo reclamando lo que era suyo. Hoy es el museo de arte más grande del mundo, tan grande que si te quedaras treinta segundos delante de cada obra necesitarías meses. Se entra por una pirámide de cristal que, cuando se hizo, la gente odiaba, exactamente igual que odiaba la Torre Eiffel.",
+      "facts": [
+        "Abrió como museo en 1793, después de la Revolución francesa.",
+        "Es el museo de arte más grande del mundo.",
+        "Lo de que la pirámide tiene 666 cristales es un mito: tiene más."
+      ],
+      "question": {
+        "q": "¿Cómo se convirtió el palacio en museo?",
+        "answers": [
+          "Lo decidió el pueblo en la Revolución",
+          "Un rey se lo dejó a la ciudad en su testamento antes de morir",
+          "Lo compró un coleccionista rico y lo abrió al público",
+          "Se construyó desde el principio como museo y nunca fue una casa"
+        ],
+        "explanation": "Se decidió que los tesoros de los reyes eran de todos. De aquella decisión nació la idea del museo público en toda Europa."
+      },
+      "museum": {
+        "doorNote": "No intentes verlo entero. Elige una sala y mírala de verdad.",
+        "rooms": {
+          "paris-louvre-medieval": {
+            "name": "La fortaleza de debajo",
+            "intro": "Antes de subir a los cuadros, baja. Debajo del museo se conservan los cimientos del castillo medieval, y caminas por dentro de su foso sobre suelo seco. Es el sitio donde entiendes que el edificio mismo es mucho más antiguo que casi todo lo que contiene."
+          },
+          "paris-louvre-famous": {
+            "name": "Las tres famosísimas",
+            "intro": "Tres obras de aquí las conoce casi todo el planeta, y lo interesante es que ninguna se hizo famosa por la razón que crees. Una la robaron, otra apareció rota en un campo, y a la tercera le faltan la cabeza y los brazos."
+          }
+        },
+        "exhibits": {
+          "paris-louvre-moat": {
+            "name": "El foso seco",
+            "blurb": "Un pasillo de piedra que un día estuvo lleno de agua y rodeaba la fortaleza entera. Hoy caminas por el fondo, entre muros de diez metros de alto que no vieron la luz durante siglos. Mira las piedras de cerca: muchas tienen marcas grabadas, las señales de los canteros que las cortaron, porque cobraban por piedra y tenía que poder demostrarse quién había hecho exactamente qué.",
+            "question": {
+              "q": "¿Por qué hay marcas grabadas en las piedras?",
+              "answers": [
+                "Para que cobrara el cantero correcto",
+                "Para indicar el orden en que había que colocarlas",
+                "Para espantar la mala suerte del edificio recién terminado",
+                "Para distinguir las piedras que venían de otra cantera"
+              ],
+              "explanation": "Cobraban por pieza. La marca era el recibo, en una época sin papeles."
+            }
+          },
+          "paris-louvre-keep": {
+            "name": "La base del torreón",
+            "blurb": "En el centro del sótano se alza un muro circular enorme: es lo que queda de la torre central de la fortaleza, que era también su lugar más seguro. Allí se guardaban el tesoro y los archivos. El torreón se derribó cuando la fortaleza se convirtió en palacio, porque un rey que quiere luz y ventanas grandes no quiere una torre ciega de piedra en medio de su patio.",
+            "question": {
+              "q": "¿Por qué se derribó la torre central?",
+              "answers": [
+                "La fortaleza se convirtió en palacio",
+                "Se cayó sola en un terremoto que sacudió París",
+                "Ardió en un gran incendio y no merecía la pena reconstruirla",
+                "Sus piedras hicieron falta para construir la muralla de la ciudad"
+              ],
+              "explanation": "Un edificio cambia cuando cambia su trabajo. La fortaleza quería una torre; el palacio quería luz."
+            }
+          },
+          "paris-louvre-pyramid": {
+            "name": "La pirámide de cristal",
+            "blurb": "La pirámide no es un adorno: es la solución a un problema. El museo tenía muchas entradas repartidas alrededor del palacio y la gente se perdía antes incluso de entrar. La pirámide reunió a todo el mundo en un solo punto y hace bajar la luz a un vestíbulo subterráneo. Cuando se presentó, la gente la consideraba un insulto a un edificio histórico. Hoy es la parte más fotografiada de todo el museo.",
+            "question": {
+              "q": "¿Qué problema resolvió la pirámide?",
+              "answers": [
+                "Los visitantes se perdían entre tantas entradas",
+                "Las obras corrían peligro por la humedad que subía del suelo",
+                "El palacio no tenía espacio suficiente para exponer los cuadros",
+                "Las escaleras viejas eran peligrosas para las personas mayores"
+              ],
+              "explanation": "Una entrada para todos, y luz que baja desde arriba a un vestíbulo bajo tierra."
+            }
+          },
+          "paris-louvre-mona-lisa": {
+            "name": "La Gioconda",
+            "blurb": "Un retrato pequeño, más pequeño de lo que la gente espera, pintado por Leonardo da Vinci sobre madera y no sobre lienzo. Era conocido pero no famoso hasta 1911, cuando un antiguo trabajador del museo lo robó sacándolo escondido debajo del abrigo. Durante dos años los periódicos de todo el mundo hablaron de la pared vacía. Cuando apareció, ya era la obra más conocida del planeta. Lo hizo famoso el robo, no la pintura.",
+            "question": {
+              "q": "¿Qué hizo famosa en el mundo entero a la Gioconda?",
+              "answers": [
+                "Que la robaran en 1911",
+                "La decisión de Napoleón de colgarla en su dormitorio",
+                "Que sea el cuadro más grande de todo el museo",
+                "Una carta de Leonardo que explica quién era la mujer"
+              ],
+              "explanation": "Dos años con la pared vacía y portadas en todas partes. Cuando volvió, la conocía todo el mundo."
+            }
+          },
+          "paris-louvre-venus": {
+            "name": "La Venus de Milo",
+            "blurb": "Una estatua de mármol de unos dos metros, hecha hacia el siglo II a. C., que encontró en 1820 un campesino en la isla griega de Milo. Le faltan los dos brazos y nadie sabe qué sostenían. Se han propuesto decenas de soluciones: una manzana, un espejo, un escudo, una tela. El misterio es parte de su encanto, porque cada visitante le completa los brazos con la imaginación y a nadie se le puede llevar la contraria.",
+            "question": {
+              "q": "¿Qué no sabemos de la Venus de Milo?",
+              "answers": [
+                "Qué sostenían sus brazos",
+                "De qué material exactamente está hecha la estatua entera",
+                "En qué isla de Grecia la encontró el campesino en 1820",
+                "Cuánto mide, porque nunca se ha medido con precisión"
+              ],
+              "explanation": "Los brazos no aparecieron nunca. Cada respuesta es una suposición, y hay decenas."
+            }
+          },
+          "paris-louvre-victory": {
+            "name": "La Victoria de Samotracia",
+            "blurb": "Una figura con alas colocada en lo alto de una gran escalera, como si acabara de posarse en la proa de un barco. Le falta la cabeza y le faltan los brazos, y aun así es una de las esculturas más vivas que se han hecho: la tela se pega al cuerpo como si la golpearan el viento y el mar. El mármol está tallado para que parezca mojado. Se encontró en trozos en la isla griega de Samotracia en 1863.",
+            "question": {
+              "q": "¿Cómo está tallado el mármol de esta estatua?",
+              "answers": [
+                "Para que la tela parezca mojada",
+                "Para que cambie de color según la luz del día",
+                "Para que sea hueco por dentro y muy ligero para su tamaño",
+                "Para que sea del mismo color exacto que la proa del barco"
+              ],
+              "explanation": "La tela mojada se pega y deja ver el cuerpo de debajo. Es lo más difícil de hacer en piedra."
+            }
+          }
+        },
+        "riddles": {
+          "paris-louvre-riddle-1": {
+            "prompt": "Soy más pequeña de lo que esperas y estoy pintada sobre madera. Me hice famosa porque alguien me sacó de aquí escondida debajo del abrigo y estuve desaparecida dos años.",
+            "hint": "Me encontraron en Florencia."
+          },
+          "paris-louvre-riddle-2": {
+            "prompt": "Tengo alas y me falta la cabeza, y aun así parece que me muevo. Estoy en lo alto de una escalera, y mi mármol está tallado para que parezca mojado.",
+            "hint": "Piso la proa de un barco."
+          },
+          "paris-louvre-riddle-3": {
+            "prompt": "Estaba lleno de agua y rodeaba el castillo entero. Ahora caminas por mi fondo en seco, entre muros que no vieron el sol durante siglos.",
+            "hint": "Estoy debajo del museo, no dentro."
+          }
+        }
+      }
+    },
+    "paris-pont-neuf": {
+      "name": "El Pont Neuf",
+      "tagline": "Se llama Puente Nuevo y es el más viejo",
+      "story": "La primera piedra se puso en 1578 y el puente se terminó en 1607, o sea, que hicieron falta casi treinta años. Entonces era el puente más nuevo de la ciudad, y la gente lo llamó simplemente Puente Nuevo. El nombre se quedó, y hoy es el puente más antiguo de París que sigue en pie. Pero era algo más importante que viejo o nuevo: era diferente. Todos los demás puentes de aquella época estaban cubiertos de casas y tiendas, es decir, pasabas por una calle y no veías el agua en ningún momento. Este se dejó abierto y le pusieron aceras, las primeras de la ciudad. De repente los parisinos podían pararse encima del río y mirar el agua. Enseguida se convirtió en el sitio donde se juntaban músicos, vendedores ambulantes, magos y curiosos, y el puente se convirtió en plaza.",
+      "facts": [
+        "Se empezó en 1578 y se terminó en 1607.",
+        "Fue el primer puente de la ciudad sin casas encima.",
+        "En 1985 dos artistas lo envolvieron entero con tela."
+      ],
+      "question": {
+        "q": "¿Qué tenía este puente que no tenían los demás de su época?",
+        "answers": [
+          "Vistas al río",
+          "Dos filas de tiendas y de viviendas a lo largo de todo el puente",
+          "Un tramo móvil en el medio que se levantaba para dejar pasar los barcos",
+          "Un tejado de madera que protegía de la lluvia a los que cruzaban"
+        ],
+        "explanation": "Los demás puentes estaban cubiertos de casas. Aquí, por primera vez, podías pararte encima del agua y verla."
+      }
+    },
+    "paris-notre-dame": {
+      "name": "Notre-Dame de París",
+      "tagline": "Doscientos años de obras, y monstruos de piedra en el tejado",
+      "story": "Las obras empezaron en 1163 y duraron casi doscientos años, es decir, que ninguno de los que pusieron las primeras piedras vivió para verla terminada. Sus dos torres miden sesenta y nueve metros de alto y sus tres ventanas redondas, los rosetones, brillan como flores enormes de cristal de colores. Alrededor del tejado están sentadas las gárgolas, monstruos de piedra con la boca abierta. No son adornos ni están ahí para dar miedo: son desagües. El agua de la lluvia pasa por dentro de ellas y sale despedida lejos de los muros, porque el agua que corre por la piedra es el peor enemigo de un edificio antiguo. En abril de 2019 un incendio destruyó el tejado y la aguja. No se cayó. La reconstruyeron, y volvió a abrir a finales de 2024.",
+      "facts": [
+        "Las obras empezaron en 1163 y duraron casi doscientos años.",
+        "Las gárgolas son desagües, no adornos.",
+        "Después del incendio de 2019 se reconstruyó y abrió a finales de 2024."
+      ],
+      "question": {
+        "q": "¿Para qué sirven las gárgolas?",
+        "answers": [
+          "Echan la lluvia lejos",
+          "Enseñan a los fieles dónde está la entrada de la iglesia",
+          "Sostienen el peso del tejado sobre los muros exteriores",
+          "Dan la hora con su sombra, como un reloj de sol"
+        ],
+        "explanation": "El agua pasa por dentro de su cuerpo y sale despedida lejos del muro. Sin ellas, la lluvia se comería la piedra."
+      }
+    },
+    "paris-pantheon": {
+      "name": "El Panteón",
+      "tagline": "Aquí un péndulo demostró que la Tierra gira",
+      "story": "Un rey se puso muy enfermo y prometió que, si se curaba, construiría una iglesia espléndida. Se curó, y el arquitecto diseñó un edificio con una cúpula que se ve desde muy lejos. Pero justo cuando se terminó estalló la Revolución francesa, y el pueblo decidió usarlo de otra manera: como lugar de descanso para las personas a las que el país quería honrar. Allí descansan escritores, científicos y pensadores. Lo más emocionante, sin embargo, cuelga de la cúpula. En 1851 Léon Foucault colgó aquí una bola de veintiocho kilos de un cable de sesenta y siete metros y la dejó oscilar. A lo largo del día el plano de su movimiento iba girando poco a poco. No giraba el péndulo. Giraba el edificio, y con él la Tierra entera bajo los pies de los que miraban.",
+      "facts": [
+        "Se diseñó como iglesia y se convirtió en la tumba de los que el país quiso honrar.",
+        "El péndulo de Foucault es una bola de 28 kilos colgada de un cable de 67 metros.",
+        "Marie Curie descansa aquí, la primera mujer trasladada por su propia obra."
+      ],
+      "question": {
+        "q": "¿Qué demostró el péndulo de Foucault?",
+        "answers": [
+          "Que la Tierra gira",
+          "Que la cúpula del edificio se balancea un poco con el viento fuerte",
+          "Que el peso de un cuerpo cambia según la altura del terreno",
+          "Que el tiempo pasa distinto en distintos puntos del planeta"
+        ],
+        "explanation": "Un péndulo oscila siempre en el mismo plano. Si parece que ese plano gira, entonces lo que gira es lo que hay debajo."
+      }
+    },
+    "paris-luxembourg-gardens": {
+      "name": "El Jardín de Luxemburgo",
+      "tagline": "Niños que empujan barcos de madera con un palo",
+      "story": "En 1612 una reina que había crecido en Florencia compró aquí una finca grande y pidió un palacio y un jardín como los de su tierra. Se quedó solo unos años, pero el jardín se quedó y creció. Hoy el palacio es la casa del Senado francés, donde se discuten las leyes, y el jardín es de todos. En el medio hay un estanque redondo, y desde hace unos cien años los niños alquilan pequeños veleros de madera y los empujan con un palo largo. No tienen motor ni mando a distancia: los mueve el viento, y tu trabajo es empujarlos bien y después correr alrededor para alcanzarlos en la otra orilla. El jardín tiene además colmenas y una escuela de apicultura desde 1856.",
+      "facts": [
+        "El jardín se hizo en 1612 para una reina que había crecido en Florencia.",
+        "Los barcos de madera del estanque se mueven solo con el viento.",
+        "Tiene colmenas y una escuela de apicultura desde 1856."
+      ],
+      "question": {
+        "q": "¿Qué mueve los barquitos del estanque?",
+        "answers": [
+          "El viento",
+          "Un motor pequeño con pila escondido dentro del casco",
+          "Una corriente de agua que crea una bomba en el fondo del estanque",
+          "Cuerdas de las que tiran los niños desde las dos orillas del estanque"
+        ],
+        "explanation": "Son veleros de verdad en miniatura. El palo solo te ayuda a ponerlos en marcha hacia el lado correcto."
+      }
+    },
+    "paris-palais-garnier": {
+      "name": "La Ópera Garnier",
+      "tagline": "Tiene un lago de verdad debajo del suelo",
+      "story": "En 1861 un arquitecto joven y desconocido ganó el concurso para el teatro de ópera más majestuoso del mundo. Las obras duraron catorce años, y la razón fue el agua: el sótano se inundaba sin parar, por mucho que la bombearan. Al final los ingenieros dejaron de pelear e hicieron algo más listo. Construyeron un depósito enorme y estanco y dejaron que el agua se juntara allí, para que la presión debajo de los cimientos se mantuviera estable. El depósito sigue existiendo y los bomberos de París lo usan para hacer prácticas de buceo. De ahí, y de un accidente con la lámpara de siete toneladas en 1896, nació la historia del Fantasma de la Ópera, que se convirtió en libro y después en película y en obra de teatro en todo el mundo. El lago subterráneo es de verdad y puedes verlo en fotografías. El fantasma no.",
+      "facts": [
+        "Las obras duraron catorce años, sobre todo por culpa del agua.",
+        "El depósito subterráneo sigue existiendo y se usa para prácticas de buceo.",
+        "La lámpara de la sala pesa unas siete toneladas."
+      ],
+      "question": {
+        "q": "¿Por qué hicieron un depósito debajo de la ópera?",
+        "answers": [
+          "El sótano se inundaba sin parar",
+          "Para tener agua guardada por si había un gran incendio",
+          "Para refrescar la sala en verano, antes del aire acondicionado",
+          "Para usarlo en funciones con decorados dentro del agua"
+        ],
+        "explanation": "Dejaron de pelear con el agua y la encerraron en un depósito. Así la presión debajo de los cimientos se mantuvo estable."
+      }
+    },
+    "paris-sacre-coeur": {
+      "name": "El Sacré-Cœur",
+      "tagline": "Su piedra se blanquea sola cada vez que llueve",
+      "story": "Montmartre es la colina más alta de París, ciento treinta metros, y durante mucho tiempo fue un pueblo con molinos de viento y viñas. Después de unos años difíciles para la ciudad, en la década de 1870, los vecinos prometieron construir allí una iglesia, y la pagaron con incontables donativos pequeños. Las obras duraron casi cuarenta años. La iglesia es de un blanco impresionante, y nadie la pinta. Su piedra viene de una cantera concreta y tiene una propiedad poco corriente: cuando se moja, suelta una sustancia que funciona como la cal y lava la suciedad. Es decir, la lluvia, que ennegrece todos los demás edificios de París, a este lo limpia. La colina de debajo está llena de antiguas canteras de yeso, y por eso hicieron falta ochenta y tres pozos profundos rellenos de hormigón antes de poner la primera piedra.",
+      "facts": [
+        "Montmartre es la colina más alta de París, 130 metros.",
+        "Su piedra se blanquea sola cuando llueve, y no se pinta nunca.",
+        "Hicieron falta 83 pozos rellenos de hormigón para sujetar la colina de debajo."
+      ],
+      "question": {
+        "q": "¿Por qué sigue blanca la iglesia sin que la pinten?",
+        "answers": [
+          "La lluvia la limpia",
+          "La lavan cada año unos obreros con escaleras y esponjas especiales",
+          "Está hecha de mármol blanco que no se ensucia nunca",
+          "El aire de la colina es tan limpio que no deja nada de hollín"
+        ],
+        "explanation": "Su piedra, al mojarse, suelta una sustancia que funciona como la cal. La lluvia ennegrece los demás edificios y a este lo blanquea."
+      }
+    },
+    "paris-sainte-chapelle": {
+      "name": "La Sainte-Chapelle",
+      "tagline": "Muros de cristal de colores en vez de piedra",
+      "story": "Entras por una planta baja oscura y de techo bajo y subes una escalera estrecha. Y entonces te paras. La capilla de arriba no parece tener muros: quince ventanas enormes de cristal de colores llegan casi hasta el techo, y entre ellas solo hay columnas finas de piedra. Es el truco más atrevido de la arquitectura gótica: el peso del tejado no lo aguantan los muros sino un esqueleto de piedra, así que el muro puede desaparecer y convertirse en cristal. Se construyó en el siglo XIII en menos de diez años, muy deprisa para la época. Las ventanas cuentan historias en unas mil escenas, y se leen de abajo a la izquierda hacia arriba, como un cómic de mil viñetas que solo ves cuando el sol está detrás y lo ilumina.",
+      "facts": [
+        "Tiene quince ventanas enormes y muy poco muro entre ellas.",
+        "Sus cristales cuentan historias en unas mil escenas.",
+        "Se construyó en el siglo XIII en menos de diez años."
+      ],
+      "question": {
+        "q": "¿Cómo se sostiene el tejado si el muro es casi todo cristal?",
+        "answers": [
+          "Lo aguanta un esqueleto de piedra",
+          "El propio cristal es muy grueso y soporta el peso del tejado",
+          "El tejado es de madera y tan ligero que no necesita ningún apoyo",
+          "Unos cables de metal lo sujetan colgado del edificio alto de al lado"
+        ],
+        "explanation": "Esa es toda la idea del gótico: el peso va a columnas y nervios, no a un muro macizo. Así el muro queda libre."
+      }
+    },
+    "paris-cite-des-sciences": {
+      "name": "La Ciudad de las Ciencias",
+      "tagline": "El matadero que nunca se terminó y se convirtió en museo",
+      "story": "En el norte de París empezaron a construir en los años sesenta un matadero enorme, el más grande de Europa. Costó una fortuna y no funcionó nunca: para cuando se terminó, la manera de transportar la carne había cambiado y el edificio ya no servía. Se quedó durante años como un esqueleto vacío de hormigón, la vergüenza de la ciudad. En vez de derribarlo, decidieron llenarlo de algo completamente distinto, y en 1986 abrió allí el museo de ciencias más grande de Europa. La regla de dentro es la contraria a la de los demás museos: aquí tocas, aprietas, tiras y rompes. Hay una sección entera solo para niños, dividida por edades, para que un niño de tres años y uno de diez no tengan que compartir el mismo experimento. Y fuera, en el parque, hay un submarino de verdad y una esfera plateada y brillante.",
+      "facts": [
+        "Es el museo de ciencias más grande de Europa y abrió en 1986.",
+        "El edificio empezó siendo un matadero que nunca funcionó.",
+        "En el parque de fuera hay un submarino de verdad por el que puedes pasear."
+      ],
+      "question": {
+        "q": "¿Qué iba a ser este edificio al principio?",
+        "answers": [
+          "Un matadero que nunca abrió",
+          "Una fábrica de coches que cerró después de solo unos años",
+          "Una estación de tren sustituida por otra más grande en otro sitio",
+          "Un cuartel abandonado cuando el ejército se fue fuera de la ciudad"
+        ],
+        "explanation": "Para cuando se terminó, la manera de transportar la carne había cambiado. El edificio ya no servía antes incluso de usarse."
+      },
+      "museum": {
+        "doorNote": "Aquí está permitido tocar. Si algo no se mueve, seguramente es que no has buscado lo suficiente.",
+        "rooms": {
+          "paris-cite-enfants": {
+            "name": "La Ciudad de los Niños",
+            "intro": "Una sección entera del museo es solo para niños, y está dividida por edades, para que un niño de tres años y uno de diez no tengan que compartir el mismo experimento. Aquí nada se explica primero y se prueba después. Se hace exactamente al revés, y funciona mejor."
+          },
+          "paris-cite-outside": {
+            "name": "Los objetos grandes",
+            "intro": "Dos de las piezas más impresionantes no cabían dentro, así que están en el parque: un submarino de verdad y una esfera plateada que refleja el cielo entero. A los dos llegas andando, y los dos son bastante más grandes de lo que esperas."
+          }
+        },
+        "exhibits": {
+          "paris-cite-water": {
+            "name": "La mesa de agua",
+            "blurb": "Una mesa larga llena de agua que corre, con presas, ruedas, tubos y barcos que puedes mover. Te pones un delantal impermeable y te mojas de todas formas. Lo que aprendes no se dice con palabras: que el agua va siempre hacia abajo, que si la aprietas corre más deprisa, y que una presa no para el agua sino que le cambia el camino. Lo entiendes con las manos, no con la cabeza.",
+            "question": {
+              "q": "¿Qué hace en realidad una presa?",
+              "answers": [
+                "Le cambia el camino al agua",
+                "Para el agua del todo, para que no pase ni una gota",
+                "Deja el agua más limpia al pasar por dentro de sus muros",
+                "Baja la temperatura del agua que baja de la montaña"
+              ],
+              "explanation": "El agua siempre encuentra un camino. La presa elige qué camino va a encontrar."
+            }
+          },
+          "paris-cite-building-site": {
+            "name": "La obra",
+            "blurb": "Cascos, poleas, cuerdas y ladrillos ligeros de espuma. Levantas cargas con una grúa pequeña y entiendes algo que parece magia: con una polea, un peso que no puedes mover con las manos sube con facilidad. No se ha vuelto más ligero. Simplemente tiras de más cuerda para el mismo trabajo, y el esfuerzo se reparte. Es el mismo truco que levantó las piedras de todas las catedrales que vas a ver en la ciudad.",
+            "question": {
+              "q": "¿Qué le hace la polea al peso que levantas?",
+              "answers": [
+                "Reparte el esfuerzo",
+                "Reduce de verdad el peso de la carga a la mitad",
+                "Hace más fuerte la cuerda para que la carga no la rompa",
+                "Sujeta la carga quieta en el aire sin necesidad de fuerza"
+              ],
+              "explanation": "El peso sigue siendo el mismo. Tiras de más cuerda con menos fuerza, y por eso parece más ligero."
+            }
+          },
+          "paris-cite-studio": {
+            "name": "El estudio de televisión",
+            "blurb": "Un estudio pequeño con una cámara, luces y una tela verde muy iluminada. Te pones delante y en la pantalla de al lado apareces volando sobre París o de pie en la Luna. El truco es sencillo y lo entiendes en cuanto lo haces: el ordenador borra un color concreto y pone una imagen en su lugar. Por eso no debes llevar nada verde, o tú también te volverás transparente.",
+            "question": {
+              "q": "¿Por qué no debes llevar ropa verde en el estudio?",
+              "answers": [
+                "Te volverás transparente",
+                "Porque el verde refleja las luces y estropea la calidad de la imagen",
+                "Porque a la cámara le cuesta enfocar los objetos verdes",
+                "Porque el verde se confunde con el color de la piel en la pantalla"
+              ],
+              "explanation": "El ordenador borra todo lo que tiene ese color. Si llevas verde, te borra a ti también."
+            }
+          },
+          "paris-cite-argonaute": {
+            "name": "El submarino Argonaute",
+            "blurb": "Un submarino francés de verdad, de más de cincuenta metros de largo, que estuvo en servicio durante décadas y ahora está posado sobre hormigón en el parque. Entras y lo primero que entiendes es lo estrecho que es: en los pasillos no caben dos personas una al lado de la otra y las camas están apiladas entre los tubos. Cincuenta personas vivían aquí dentro durante semanas, sin ver la luz, respirando aire hecho por máquinas.",
+            "question": {
+              "q": "¿Qué es lo que más te impresiona dentro del submarino?",
+              "answers": [
+                "Lo estrecho que es",
+                "Lo grandes y luminosas que son las ventanas que dan al mar",
+                "Lo cómodos que eran los cuartos de los marineros que vivían dentro",
+                "Lo silenciosos que eran sus motores cuando funcionaban con normalidad"
+              ],
+              "explanation": "No tiene ni una ventana. Cincuenta personas, semanas enteras, sin ver la luz."
+            }
+          },
+          "paris-cite-geode": {
+            "name": "La esfera plateada",
+            "blurb": "Una esfera perfecta de treinta y seis metros de diámetro, cubierta de miles de espejitos triangulares de acero. Por fuera refleja las nubes y a la gente que pasa, así que nunca se ve igual dos veces. Por dentro es un cine con una pantalla esférica que te rodea por arriba, por abajo y por los lados, y los asientos se reclinan. La misma forma, por fuera y por dentro, hace dos trabajos completamente distintos.",
+            "question": {
+              "q": "¿Por qué la esfera nunca se ve igual?",
+              "answers": [
+                "Refleja lo que tiene alrededor",
+                "Gira muy despacio sobre su eje a lo largo del día",
+                "Cambia de color con unas luces especiales escondidas en su base",
+                "Sus espejitos los cambian sin parar unos equipos de operarios"
+              ],
+              "explanation": "No tiene color propio. Enseña lo que hay a su alrededor, así que cambia con el tiempo que hace y con la hora."
+            }
+          },
+          "paris-cite-planetarium": {
+            "name": "La cúpula del planetario",
+            "blurb": "Dentro del edificio hay una cúpula sobre la que se proyecta el cielo. La diferencia con una pantalla es que aquí no hay borde: mires donde mires ves imagen, así que el cerebro deja de discutir y te convence de que te mueves. Las proyecciones enseñan el cielo de hoy, pero también cómo se veía en otras épocas o cómo se vería desde otro planeta. Es lo más parecido a viajar sin moverte de la silla.",
+            "question": {
+              "q": "¿Por qué te convence la cúpula de que te mueves?",
+              "answers": [
+                "No ves borde por ningún lado",
+                "Los asientos se mueven un poco junto con la imagen que se proyecta",
+                "El aire de la sala sopla desde delante mientras dura la proyección",
+                "El sonido llega desde muchos altavoces y da sensación de velocidad"
+              ],
+              "explanation": "El ojo sabe que algo es una imagen porque ve su marco. Quita el marco y el truco funciona."
+            }
+          }
+        },
+        "riddles": {
+          "paris-cite-riddle-1": {
+            "prompt": "Soy de acero, mido más de cincuenta metros de largo y no tengo ni una ventana. Antes me escondía debajo del mar y ahora estoy quieto en medio de un parque.",
+            "hint": "Dentro de mí no caben dos personas una al lado de la otra."
+          },
+          "paris-cite-riddle-2": {
+            "prompt": "Soy redonda y no tengo color propio. Enseño siempre lo que tengo alrededor, así que unas veces soy azul y otras gris, sin hacer nada.",
+            "hint": "Por dentro soy un cine."
+          }
+        }
+      }
+    },
+    "paris-grande-galerie": {
+      "name": "La Gran Galería de la Evolución",
+      "tagline": "Un desfile de animales que camina por la sala",
+      "story": "La mayoría de los museos de historia natural ponen los animales en filas dentro de vitrinas, con etiquetas. Aquí hicieron otra cosa. En medio de una sala enorme con techo de cristal, decenas de animales de la sabana africana están colocados en un desfile que avanza: elefantes, jirafas, rinocerontes, antílopes, uno detrás de otro, como si fueran juntos a alguna parte. No hay cristales en medio. Te pones al lado de un elefante y ves lo pequeño que eres. La luz cambia a lo largo del día, de amanecer a tormenta y a noche, como si pasara un día entero en la sabana. Hay también una segunda sala, más oscura, con animales que ya no existen, animales que se extinguieron y que nadie volverá a ver nunca. Allí dentro ningún niño hace ruido, y nadie tiene que pedírselo.",
+      "facts": [
+        "Los animales están colocados en un desfile que avanza, sin cristales en medio.",
+        "La luz de la sala cambia a lo largo del día, del amanecer a la tormenta.",
+        "Hay una sala aparte para los animales que se han extinguido."
+      ],
+      "question": {
+        "q": "¿Qué tiene de diferente esta sala respecto a los demás museos?",
+        "answers": [
+          "Los animales caminan en desfile",
+          "Todos los animales son de plástico y de su tamaño natural",
+          "Los visitantes pueden tocar y acariciar todas las piezas",
+          "Cada animal va acompañado de una grabación con su voz en la naturaleza"
+        ],
+        "explanation": "No hay cristales ni filas. Te pones al lado de los animales, y por eso entiendes su tamaño."
+      }
+    }
+  },
+  "trails": {
+    "paris-the-river": {
+      "name": "A lo largo del río",
+      "promise": "La isla en medio del Sena, sus dos iglesias y el puente que cambió las costumbres de una ciudad."
+    },
+    "paris-the-grand-axis": {
+      "name": "El gran eje",
+      "promise": "Tres cosas enormes en una sola línea recta, y una de ellas iba a ser derribada."
+    },
+    "paris-how-things-work": {
+      "name": "Cómo funcionan las cosas",
+      "promise": "Un péndulo que hace girar la Tierra, un submarino en un parque y elefantes sin cristal."
+    },
+    "paris-up-the-hill": {
+      "name": "Las dos colinas",
+      "promise": "La iglesia blanca que la lluvia mantiene limpia, una cúpula con un péndulo y un estanque con barcos de madera."
+    }
+  }
+}

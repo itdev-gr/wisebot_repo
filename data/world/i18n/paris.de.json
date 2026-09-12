@@ -1,0 +1,506 @@
+{
+  "lang": "de",
+  "cityId": "paris",
+  "places": {
+    "paris-eiffel-tower": {
+      "name": "Der Eiffelturm",
+      "tagline": "Gebaut, um nach zwanzig Jahren wieder abgerissen zu werden",
+      "story": "1889 bereitete Paris ein riesiges Fest vor, die Weltausstellung, und der Ingenieur Gustave Eiffel versprach ihr als Eingangstor den höchsten Turm der Welt. Sein Team verband ungefähr achtzehntausend Eisenteile mit zweieinhalb Millionen Nieten, und in etwas mehr als zwei Jahren erreichte der Turm dreihundert Meter. Viele Pariser fanden ihn scheußlich und verlangten, dass er abgerissen wird. Das war nicht unvernünftig: Die Genehmigung besagte, dass er nur zwanzig Jahre stehen bleiben und danach zu Schrott werden sollte. Gerettet hat ihn etwas, woran niemand gedacht hatte, als er entworfen wurde. Er war das höchste Ding in der Stadt, also der perfekte Platz für Antennen, und als der Funk wichtig wurde, wurde der Turm nützlich. Er wurde nicht gerettet, weil die Pariser ihn liebgewonnen hatten. Er wurde gerettet, weil er sich als nützlich erwies.",
+      "facts": [
+        "Er entstand in etwas mehr als zwei Jahren, aus ungefähr 18.000 Eisenteilen.",
+        "Bei großer Hitze wächst er um etwa fünfzehn Zentimeter, weil Eisen sich ausdehnt.",
+        "Eiffel hatte nahe der Spitze eine kleine Wohnung ganz für sich."
+      ],
+      "question": {
+        "q": "Was rettete den Turm vor dem Abriss?",
+        "answers": [
+          "Die Antennen",
+          "Eine Unterschriftenliste berühmter Künstler, die ihn öffentlich verteidigten",
+          "Eiffels Entscheidung, ihn mit seinem eigenen Geld ganz zu kaufen",
+          "Ein Gesetz, das den Abriss hoher Gebäude in ganz Paris verbot"
+        ],
+        "explanation": "Er war der höchste Punkt der Stadt, also der perfekte Platz für Antennen. Als der Funk wichtig wurde, wurde der Turm nützlich, und niemand nahm ihn auseinander."
+      }
+    },
+    "paris-arc-de-triomphe": {
+      "name": "Der Arc de Triomphe",
+      "tagline": "Der Mann, der ihn in Auftrag gab, sah ihn nie fertig",
+      "story": "1806 hatte Napoleon gerade eine große Schlacht gewonnen und befahl einen riesigen Bogen, damit seine Soldaten auf dem Heimweg darunter hindurchmarschieren konnten. Der Bau dauerte dreißig Jahre, viel länger als seine eigene Herrschaft, und Napoleon sah ihn nie fertig. Der Bogen ist fünfzig Meter hoch, so hoch wie ein Gebäude mit sechzehn Stockwerken, und in seine Wände sind Hunderte Namen von Schlachten und Generälen gemeißelt. Er steht in der Mitte eines Platzes, von dem zwölf Alleen wie Strahlen ausgehen, und deshalb sieht er von oben aus wie ein Stern. Unter dem Bogen liegt das Grab eines Soldaten, der nie erkannt wurde, und daneben brennt eine Flamme, die seit 1923 jeden Abend entzündet wird und seitdem nie erloschen ist.",
+      "facts": [
+        "Er ist fünfzig Meter hoch, und sein Bau dauerte dreißig Jahre.",
+        "Von seinem Platz gehen zwölf Alleen aus, wie die Strahlen eines Sterns.",
+        "1919 flog ein Pilot mit seinem Flugzeug mitten durch den Bogen."
+      ],
+      "question": {
+        "q": "Warum sieht der Platz rund um den Bogen aus wie ein Stern?",
+        "answers": [
+          "Zwölf Alleen gehen von ihm aus",
+          "Weil seine Lampen in Sternform auf der Fahrbahn angeordnet sind",
+          "Weil das Muster von oben die Flagge Frankreichs nachbildet",
+          "Weil die Gehwege mit sternförmig geschnittenen Steinen gepflastert sind"
+        ],
+        "explanation": "Die zwölf Straßen laufen wie Strahlen in alle Richtungen davon. Deshalb wurde der Platz nach dem Bild von oben benannt: Place de l’Étoile, der Platz des Sterns."
+      }
+    },
+    "paris-place-de-la-concorde": {
+      "name": "Die Place de la Concorde",
+      "tagline": "Der größte Platz der Stadt, mit einem Besucher aus Ägypten",
+      "story": "Das ist der größte Platz von Paris, so breit, dass er wie eine Wiese aus Stein aussieht. Er wurde für einen König gebaut, und in den Jahren der Französischen Revolution wurde er zu einem Ort, an dem sehr harte Dinge geschahen. Als wieder Ruhe einkehrte, gab die Stadt ihm einen neuen Namen: Concorde, das heißt Eintracht, friedlich zusammenleben. Der Name war eine Entscheidung, eine Art für die Stadt zu sagen, woran sie sich erinnern wollte und woran nicht. 1836 kam ein sehr ungewöhnlicher Besucher hier an: ein Obelisk, über dreitausend Jahre alt, ein Geschenk aus Ägypten, der auf einem Schiff reiste, das eigens für ihn gebaut worden war. Er wiegt ungefähr zweihundert Tonnen. In seinen Sockel sind Zeichnungen gemeißelt, die Schritt für Schritt die Maschinen zeigen, die ihn in Luxor herunterließen und hier, mitten in Paris, wieder aufrichteten.",
+      "facts": [
+        "Sein Obelisk ist über 3.000 Jahre alt und wiegt ungefähr 200 Tonnen.",
+        "Er reiste aus Ägypten auf einem Schiff, das eigens für ihn gebaut wurde.",
+        "Sein Zwilling steht noch in Luxor: Frankreich gab ihn 1981 offiziell zurück."
+      ],
+      "question": {
+        "q": "Was bedeutet der Name „Concorde“, den der Platz bekam?",
+        "answers": [
+          "Friedlich zusammenleben",
+          "Den großen Sieg, den Frankreichs Heer an dieser Stelle feierte",
+          "Den Namen des Königs, für den der Platz ursprünglich gebaut wurde",
+          "Die Abmachung mit Ägypten, die den großen Obelisken hierherbrachte"
+        ],
+        "explanation": "Der Name wurde mit Absicht gewählt, nach sehr schweren Jahren. Es war die Art der Stadt zu sagen, woran sie sich von nun an erinnern wollte."
+      }
+    },
+    "paris-louvre": {
+      "name": "Der Louvre",
+      "tagline": "Erst Festung, dann Palast, dann ein Museum für alle",
+      "story": "Vor mehr als achthundert Jahren baute ein König hier eine Festung, um Paris zu bewachen, mit dicken Mauern und einem hohen runden Turm. Die nächsten Könige machten daraus einen Palast mit Sälen voller Gold, bis einer von ihnen nach Versailles zog und ihn halb leer zurückließ. In der Französischen Revolution fiel eine Entscheidung, die die Museen überall veränderte: Das Volk sagte, die Schätze der Könige gehören allen, und 1793 öffnete der Palast als Museum. Es war kein Geschenk, es war eine Forderung. Heute ist es das größte Kunstmuseum der Welt, so groß, dass du Monate bräuchtest, wenn du vor jedem Werk dreißig Sekunden stehen bleiben würdest. Du gehst durch eine Pyramide aus Glas hinein, die man hasste, als sie neu war, genau so, wie man auch den Eiffelturm gehasst hatte.",
+      "facts": [
+        "Er öffnete 1793 als Museum, nach der Französischen Revolution.",
+        "Er ist das größte Kunstmuseum der Welt.",
+        "Das Gerücht, die Pyramide habe 666 Glasscheiben, ist ein Mythos: Sie hat mehr."
+      ],
+      "question": {
+        "q": "Wie wurde aus dem Palast ein Museum?",
+        "answers": [
+          "Das Volk beschloss es in der Revolution",
+          "Ein König vermachte ihn der Stadt vor seinem Tod in seinem Testament",
+          "Ein reicher Sammler kaufte ihn und öffnete ihn für alle Besucher",
+          "Er wurde von Anfang an als Museum gebaut und war nie ein Wohnhaus"
+        ],
+        "explanation": "Die Schätze der Könige, so wurde entschieden, gehören allen. Mit dieser Entscheidung begann die Idee des öffentlichen Museums in ganz Europa."
+      },
+      "museum": {
+        "doorNote": "Versuch nicht, alles zu sehen. Such dir einen Saal aus und schau ihn dir wirklich an.",
+        "rooms": {
+          "paris-louvre-medieval": {
+            "name": "Die Festung darunter",
+            "intro": "Bevor du zu den Gemälden hinaufgehst, geh hinunter. Unter dem Museum sind die Grundmauern der mittelalterlichen Burg erhalten, und du läufst auf trockenem Boden durch ihren Graben. Es ist der Ort, an dem du begreifst, dass das Gebäude selbst viel älter ist als fast alles, was es enthält."
+          },
+          "paris-louvre-famous": {
+            "name": "Die ganz Berühmten",
+            "intro": "Drei Werke hier kennt fast der ganze Planet, und das Interessante ist, dass keines davon aus dem Grund berühmt wurde, den du vermutest. Das eine wurde gestohlen, das andere wurde zerbrochen auf einem Feld gefunden, und dem dritten fehlen der Kopf und die Arme."
+          }
+        },
+        "exhibits": {
+          "paris-louvre-moat": {
+            "name": "Der trockene Graben",
+            "blurb": "Ein Gang aus Stein, der einst voller Wasser war und rund um die ganze Festung lief. Heute läufst du auf seinem Grund entlang, zwischen zehn Meter hohen Mauern, die jahrhundertelang kein Tageslicht gesehen haben. Schau dir die Steine aus der Nähe an: Viele tragen eingeritzte Zeichen, die Marken der Steinmetze, die sie behauen haben, denn die wurden pro Stein bezahlt, und es musste sich beweisen lassen, wer genau was gemacht hatte.",
+            "question": {
+              "q": "Warum sind in die Steine Zeichen geritzt?",
+              "answers": [
+                "Damit der richtige Steinmetz bezahlt wurde",
+                "Um die Reihenfolge zu zeigen, in der sie gesetzt werden mussten",
+                "Um Unglück von dem gerade fertig gebauten Gebäude fernzuhalten",
+                "Um die Steine zu unterscheiden, die aus einem anderen Steinbruch kamen"
+              ],
+              "explanation": "Sie wurden pro Stück bezahlt. Das Zeichen war die Quittung, in einer Zeit ohne Papierkram."
+            }
+          },
+          "paris-louvre-keep": {
+            "name": "Der Fuß des Bergfrieds",
+            "blurb": "In der Mitte des Untergeschosses steht eine riesige runde Mauer: Sie ist das, was vom Bergfried übrig ist, dem Hauptturm der Festung, der zugleich ihr sicherster Ort war. Dort wurden die Schatzkammer und die Urkunden aufbewahrt. Der Turm wurde abgerissen, als die Festung zum Palast wurde, denn ein König, der Licht und große Fenster will, will keinen fensterlosen Turm aus Stein mitten in seinem Hof.",
+            "question": {
+              "q": "Warum wurde der Hauptturm abgerissen?",
+              "answers": [
+                "Die Festung wurde ein Palast",
+                "Er stürzte bei einem Erdbeben, das Paris traf, von allein ein",
+                "Er brannte bei einem großen Feuer ab und lohnte den Wiederaufbau nicht",
+                "Seine Steine wurden gebraucht, um die Mauer rund um die Stadt zu bauen"
+              ],
+              "explanation": "Ein Gebäude ändert sich, wenn sich seine Aufgabe ändert. Die Festung wollte einen Turm, der Palast wollte Licht."
+            }
+          },
+          "paris-louvre-pyramid": {
+            "name": "Die Glaspyramide",
+            "blurb": "Die Pyramide ist keine Verzierung: Sie ist die Lösung für ein Problem. Das Museum hatte viele Eingänge, verstreut rund um den Palast, und die Leute verliefen sich, bevor sie überhaupt drinnen waren. Die Pyramide sammelte alle an einem Punkt und bringt das Tageslicht hinunter in eine unterirdische Empfangshalle. Als sie vorgestellt wurde, hielt man sie für eine Beleidigung für ein historisches Gebäude. Heute ist sie der meistfotografierte Teil des ganzen Museums.",
+            "question": {
+              "q": "Welches Problem hat die Pyramide gelöst?",
+              "answers": [
+                "Besucher verliefen sich an den vielen Eingängen",
+                "Die Kunstwerke waren durch Feuchtigkeit gefährdet, die aus dem Boden aufstieg",
+                "Der Palast hatte nicht genug Platz, um alle Gemälde aufzuhängen",
+                "Die alten Treppen waren für ältere Besucher gefährlich zu steigen"
+              ],
+              "explanation": "Ein Eingang für alle, und Licht, das von oben in eine Halle unter der Erde fällt."
+            }
+          },
+          "paris-louvre-mona-lisa": {
+            "name": "Die Mona Lisa",
+            "blurb": "Ein kleines Porträt, kleiner, als die Leute erwarten, von Leonardo da Vinci auf Holz gemalt und nicht auf Leinwand. Es war bekannt, aber nicht berühmt, bis 1911 ein früherer Arbeiter des Museums es stahl, indem er es unter seinem Mantel hinaustrug. Zwei Jahre lang schrieben die Zeitungen der ganzen Welt über die leere Wand. Als es wiedergefunden wurde, war es das bekannteste Werk auf dem Planeten. Der Diebstahl machte es berühmt, nicht die Malerei.",
+            "question": {
+              "q": "Was machte die Mona Lisa weltberühmt?",
+              "answers": [
+                "Ihr Diebstahl im Jahr 1911",
+                "Napoleons Entscheidung, sie eine Zeit lang in seinem Schlafzimmer aufzuhängen",
+                "Die Tatsache, dass sie das größte Gemälde im ganzen Museum ist",
+                "Ein Brief von Leonardo, der genau beschreibt, wer die Frau wirklich war"
+              ],
+              "explanation": "Zwei Jahre lang eine leere Wand und Titelseiten überall. Als sie zurückkam, kannte sie die ganze Welt."
+            }
+          },
+          "paris-louvre-venus": {
+            "name": "Die Venus von Milo",
+            "blurb": "Eine Marmorstatue von etwa zwei Metern, entstanden um das 2. Jahrhundert v. Chr., die 1820 ein Bauer auf der griechischen Insel Milos fand. Ihr fehlen beide Arme, und niemand weiß, was sie hielten. Dutzende Lösungen sind vorgeschlagen worden: ein Apfel, ein Spiegel, ein Schild, ein Tuch. Das Rätsel ist ein Teil ihres Zaubers, denn jeder Besucher ergänzt die Arme mit seiner Fantasie, und niemandem kann man das Gegenteil beweisen.",
+            "question": {
+              "q": "Was wissen wir über die Venus von Milo nicht?",
+              "answers": [
+                "Was ihre Arme hielten",
+                "Aus welchem Material genau die ganze Statue gemacht ist",
+                "Auf welcher griechischen Insel der Bauer sie 1820 gefunden hat",
+                "Wie groß sie ist, weil sie nie genau vermessen wurde"
+              ],
+              "explanation": "Die Arme wurden nie gefunden. Jede Antwort ist eine Vermutung, und es gibt Dutzende."
+            }
+          },
+          "paris-louvre-victory": {
+            "name": "Die Nike von Samothrake",
+            "blurb": "Eine geflügelte Gestalt, aufgestellt am oberen Ende einer großen Treppe, als wäre sie gerade auf dem Bug eines Schiffes gelandet. Ihr fehlen der Kopf und die Arme, und trotzdem ist sie eine der lebendigsten Skulpturen, die je gemacht wurden: Der Stoff klebt am Körper, als würden Wind und Meer dagegenschlagen. Der Marmor ist so gemeißelt, dass er nass aussieht. Gefunden wurde sie 1863 in Stücken auf der griechischen Insel Samothrake.",
+            "question": {
+              "q": "Wie ist der Marmor dieser Statue gemeißelt?",
+              "answers": [
+                "So, dass der Stoff nass aussieht",
+                "So, dass er je nach Tageslicht seine Farbe wechselt",
+                "So, dass er innen hohl und für seine Größe sehr leicht ist",
+                "So, dass er genau zur Farbe des Schiffsbugs passt"
+              ],
+              "explanation": "Nasser Stoff klebt und zeigt den Körper darunter. Das ist das Schwierigste, was man in Stein machen kann."
+            }
+          }
+        },
+        "riddles": {
+          "paris-louvre-riddle-1": {
+            "prompt": "Ich bin kleiner, als du erwartest, und ich bin auf Holz gemalt. Berühmt wurde ich, weil mich jemand unter seinem Mantel von hier hinaustrug und ich zwei Jahre lang fort war.",
+            "hint": "Gefunden hat man mich in Florenz."
+          },
+          "paris-louvre-riddle-2": {
+            "prompt": "Ich habe Flügel und keinen Kopf, und doch sehe ich aus, als würde ich mich bewegen. Ich stehe hoch oben auf einer Treppe, und mein Marmor ist so gemeißelt, dass er nass aussieht.",
+            "hint": "Ich stehe auf dem Bug eines Schiffes."
+          },
+          "paris-louvre-riddle-3": {
+            "prompt": "Ich war voller Wasser und lief rund um die ganze Burg. Jetzt läufst du im Trockenen über meinen Boden, zwischen Mauern, die jahrhundertelang keine Sonne gesehen haben.",
+            "hint": "Ich bin unter dem Museum, nicht darin."
+          }
+        }
+      }
+    },
+    "paris-pont-neuf": {
+      "name": "Der Pont Neuf",
+      "tagline": "Er heißt Neue Brücke und ist die älteste",
+      "story": "Der Grundstein wurde 1578 gelegt, und die Brücke war 1607 fertig, sie brauchte also fast dreißig Jahre. Damals war sie die neueste Brücke der Stadt, und so nannten die Leute sie einfach Neue Brücke. Der Name blieb, und heute ist sie die älteste Brücke von Paris, die noch steht. Sie war aber etwas Wichtigeres als alt oder neu: Sie war anders. Alle anderen Brücken jener Zeit waren mit Häusern und Läden bedeckt, du gingst also durch eine Straße und sahst überhaupt kein Wasser. Diese blieb offen und bekam Gehwege, die ersten der Stadt. Auf einmal konnten die Pariser über dem Fluss stehen bleiben und aufs Wasser schauen. Sie wurde sofort ein Ort, an dem sich Musiker, fliegende Händler, Taschenspieler und Neugierige versammelten, und die Brücke wurde zum Platz.",
+      "facts": [
+        "Sie wurde 1578 begonnen und 1607 fertiggestellt.",
+        "Sie war die erste Brücke der Stadt ohne Häuser darauf.",
+        "1985 wickelten zwei Künstler sie ganz in Stoff ein."
+      ],
+      "question": {
+        "q": "Was hatte diese Brücke, was die anderen ihrer Zeit nicht hatten?",
+        "answers": [
+          "Blick auf den Fluss",
+          "Zwei Reihen Läden und Wohnhäuser auf ihrer ganzen Länge",
+          "Ein bewegliches Teil in der Mitte, das sich für Schiffe hob",
+          "Ein Dach aus Holz, das die Leute beim Überqueren vor Regen schützte"
+        ],
+        "explanation": "Die anderen Brücken waren mit Häusern bedeckt. Hier konntest du zum ersten Mal über dem Wasser stehen bleiben und es sehen."
+      }
+    },
+    "paris-notre-dame": {
+      "name": "Notre-Dame de Paris",
+      "tagline": "Zweihundert Jahre Bauzeit, und steinerne Ungeheuer auf dem Dach",
+      "story": "Der Bau begann 1163 und dauerte fast zweihundert Jahre, das heißt, keiner von denen, die die ersten Steine setzten, erlebte sie fertig. Ihre beiden Türme sind neunundsechzig Meter hoch, und ihre drei runden Fenster, die Rosetten, leuchten wie riesige Blumen aus farbigem Glas. Rund um das Dach hocken die Gargoyles, steinerne Ungeheuer mit offenem Maul. Sie sind weder Verzierung noch Schreckgespenster: Sie sind Regenrinnen, und deshalb heißen sie auf Deutsch Wasserspeier. Das Regenwasser läuft durch sie hindurch und wird weit weg von den Mauern geschleudert, denn Wasser, das über Stein rinnt, ist der schlimmste Feind eines alten Gebäudes. Im April 2019 zerstörte ein Feuer das Dach und den Spitzturm. Sie stürzte nicht ein. Man baute sie wieder auf, und Ende 2024 öffnete sie wieder.",
+      "facts": [
+        "Der Bau begann 1163 und dauerte fast zweihundert Jahre.",
+        "Die Gargoyles sind Regenrinnen, keine Verzierungen.",
+        "Nach dem Feuer von 2019 wurde sie wieder aufgebaut und öffnete Ende 2024 wieder."
+      ],
+      "question": {
+        "q": "Wozu sind die Gargoyles da?",
+        "answers": [
+          "Sie schleudern den Regen weg",
+          "Sie zeigen den Gläubigen, wo der Eingang der Kirche ist",
+          "Sie tragen das Gewicht des Daches auf den Außenmauern",
+          "Sie zeigen mit ihrem Schatten die Uhrzeit an, wie eine Sonnenuhr"
+        ],
+        "explanation": "Das Wasser läuft durch ihren Körper und wird weit weg von der Mauer geschleudert. Ohne sie würde der Regen den Stein auffressen."
+      }
+    },
+    "paris-pantheon": {
+      "name": "Das Panthéon",
+      "tagline": "Hier bewies ein Pendel, dass die Erde sich dreht",
+      "story": "Ein König wurde schwer krank und versprach, eine prächtige Kirche zu bauen, wenn er wieder gesund würde. Er wurde gesund, und der Architekt entwarf ein Gebäude mit einer Kuppel, die man von sehr weit her sieht. Doch kaum war es fertig, brach die Französische Revolution aus, und das Volk beschloss, es anders zu nutzen: als Ruhestätte für die Menschen, die das Land geehrt hat. Dort ruhen Schriftsteller, Wissenschaftler und Denker. Das Spannendste aber hängt von der Kuppel. 1851 hängte Léon Foucault hier eine Kugel von achtundzwanzig Kilo an einen siebenundsechzig Meter langen Draht und ließ sie schwingen. Im Lauf des Tages drehte sich die Ebene ihrer Bewegung langsam. Nicht das Pendel drehte sich. Das Gebäude drehte sich, und mit ihm die ganze Erde unter den Füßen aller, die zusahen.",
+      "facts": [
+        "Es wurde als Kirche entworfen und wurde zur Grabstätte derer, die das Land geehrt hat.",
+        "Foucaults Pendel ist eine Kugel von 28 Kilo an einem 67 Meter langen Draht.",
+        "Marie Curie ruht hier, die erste Frau, die für ihr eigenes Werk hierher überführt wurde."
+      ],
+      "question": {
+        "q": "Was bewies Foucaults Pendel?",
+        "answers": [
+          "Dass die Erde sich dreht",
+          "Dass die Kuppel des Gebäudes bei starkem Wind leicht schwankt",
+          "Dass das Gewicht eines Körpers sich mit der Höhe des Bodens ändert",
+          "Dass die Zeit an verschiedenen Punkten des Planeten verschieden vergeht"
+        ],
+        "explanation": "Ein Pendel schwingt immer in derselben Ebene. Wenn die sich zu drehen scheint, dann dreht sich das, was darunter liegt."
+      }
+    },
+    "paris-luxembourg-gardens": {
+      "name": "Der Jardin du Luxembourg",
+      "tagline": "Kinder schieben Holzboote mit einem Stock an",
+      "story": "1612 kaufte eine Königin, die in Florenz aufgewachsen war, hier ein großes Grundstück und wünschte sich einen Palast und einen Garten wie die ihrer Heimat. Sie blieb nur wenige Jahre, aber der Garten blieb und wuchs. Heute ist der Palast das Haus des französischen Senats, wo über die Gesetze gestritten wird, und der Garten gehört allen. In der Mitte liegt ein runder Teich, und seit ungefähr hundert Jahren leihen sich Kinder dort kleine Segelboote aus Holz und schieben sie mit einem langen Stock an. Sie haben keinen Motor und keine Fernsteuerung: Der Wind bewegt sie, und deine Aufgabe ist es, sie richtig anzuschieben und dann außen herum zu rennen, um sie am anderen Ufer abzufangen. Der Garten hat außerdem seit 1856 Bienenstöcke und eine Imkerschule.",
+      "facts": [
+        "Der Garten wurde 1612 für eine Königin angelegt, die in Florenz aufgewachsen war.",
+        "Die Holzboote auf dem Teich bewegen sich allein durch den Wind.",
+        "Er hat seit 1856 Bienenstöcke und eine Imkerschule."
+      ],
+      "question": {
+        "q": "Was bewegt die kleinen Boote auf dem Teich?",
+        "answers": [
+          "Der Wind",
+          "Ein kleiner Motor mit Batterie, versteckt im Rumpf jedes Bootes",
+          "Eine Strömung, die eine Pumpe am Grund des Teichs erzeugt",
+          "Seile, an denen die Kinder von den beiden Enden des Teichs ziehen"
+        ],
+        "explanation": "Es sind richtige Segelboote im Kleinformat. Der Stock hilft dir nur, sie in die richtige Richtung zu starten."
+      }
+    },
+    "paris-palais-garnier": {
+      "name": "Die Opéra Garnier",
+      "tagline": "Sie hat einen echten See unter ihrem Fußboden",
+      "story": "1861 gewann ein junger, unbekannter Architekt den Wettbewerb für das prächtigste Opernhaus der Welt. Der Bau dauerte vierzehn Jahre, und der Grund war das Wasser: Das Untergeschoss lief immer wieder voll, so viel man auch abpumpte. Am Ende hörten die Ingenieure auf zu kämpfen und machten etwas Klügeres. Sie bauten ein riesiges wasserdichtes Becken und ließen das Wasser sich darin sammeln, damit der Druck unter den Fundamenten gleich bleibt. Das Becken gibt es noch, und die Pariser Feuerwehr nutzt es für Tauchübungen. Aus ihm, und aus einem Unfall mit dem sieben Tonnen schweren Kronleuchter im Jahr 1896, entstand die Geschichte vom Phantom der Oper, die ein Buch wurde und dann ein Film und ein Musical auf der ganzen Welt. Der unterirdische See ist echt, und du kannst ihn auf Fotos sehen. Das Phantom nicht.",
+      "facts": [
+        "Der Bau dauerte vierzehn Jahre, vor allem wegen des Wassers.",
+        "Das unterirdische Becken gibt es noch, und es wird für Tauchübungen genutzt.",
+        "Der Kronleuchter im Saal wiegt ungefähr sieben Tonnen."
+      ],
+      "question": {
+        "q": "Warum wurde unter der Oper ein Becken gebaut?",
+        "answers": [
+          "Das Untergeschoss lief ständig voll",
+          "Um Wasser gespeichert zu haben, falls je ein großes Feuer ausbricht",
+          "Um den Saal im Sommer zu kühlen, in der Zeit vor den Klimaanlagen",
+          "Damit es bei Aufführungen mit Kulissen im Wasser genutzt werden kann"
+        ],
+        "explanation": "Sie hörten auf, gegen das Wasser zu kämpfen, und sperrten es in ein Becken. So blieb der Druck unter den Fundamenten gleich."
+      }
+    },
+    "paris-sacre-coeur": {
+      "name": "Sacré-Cœur",
+      "tagline": "Ihr Stein wird bei jedem Regen von selbst wieder weiß",
+      "story": "Montmartre ist der höchste Hügel von Paris, hundertdreißig Meter, und lange Zeit war er ein Dorf mit Windmühlen und Weinbergen. Nach schweren Jahren für die Stadt, in den 1870er-Jahren, versprachen die Bewohner, dort oben eine Kirche zu bauen, und sie bezahlten sie mit unzähligen kleinen Spenden. Der Bau dauerte fast vierzig Jahre. Die Kirche ist auffallend weiß, und niemand streicht sie. Ihr Stein kommt aus einem ganz bestimmten Steinbruch und hat eine ungewöhnliche Eigenschaft: Wenn er nass wird, gibt er einen Stoff ab, der wie Kalk wirkt und den Schmutz abwäscht. Der Regen also, der jedes andere Gebäude in Paris schwarz macht, putzt dieses hier. Der Hügel darunter ist voller alter Gipsbrüche, deshalb mussten dreiundachtzig tiefe Schächte mit Beton gefüllt werden, bevor der erste Stein gesetzt wurde.",
+      "facts": [
+        "Montmartre ist der höchste Hügel von Paris, 130 Meter.",
+        "Ihr Stein wird bei Regen von selbst weiß, und er wird nie gestrichen.",
+        "Es brauchte 83 mit Beton gefüllte Schächte, damit der Hügel darunter hält."
+      ],
+      "question": {
+        "q": "Warum bleibt die Kirche weiß, ohne dass man sie streicht?",
+        "answers": [
+          "Der Regen putzt sie",
+          "Arbeiter waschen sie jedes Jahr mit Leitern und besonderen Schwämmen",
+          "Sie ist aus weißem Marmor, der einfach nie schmutzig wird",
+          "Die Luft auf dem Hügel ist so sauber, dass sich gar kein Ruß absetzt"
+        ],
+        "explanation": "Wenn ihr Stein nass wird, gibt er einen Stoff ab, der wie Kalk wirkt. Der Regen macht die anderen Gebäude schwarz und dieses weiß."
+      }
+    },
+    "paris-sainte-chapelle": {
+      "name": "Die Sainte-Chapelle",
+      "tagline": "Wände aus farbigem Glas statt aus Stein",
+      "story": "Du kommst durch ein niedriges, dunkles Erdgeschoss herein und steigst eine schmale Treppe hinauf. Und dann bleibst du stehen. Die obere Kapelle scheint gar keine Wände zu haben: Fünfzehn riesige Fenster aus farbigem Glas reichen fast bis zur Decke, und dazwischen stehen nur dünne Säulen aus Stein. Es ist der kühnste Trick der gotischen Baukunst: Das Gewicht des Daches tragen nicht die Wände, sondern ein Skelett aus Stein, also kann die Wand verschwinden und zu Glas werden. Gebaut wurde sie im 13. Jahrhundert in weniger als zehn Jahren, sehr schnell für ihre Zeit. Die Fenster erzählen Geschichten in ungefähr tausend Szenen, und man liest sie von unten links nach oben, wie einen Comic mit tausend Bildern, den du nur siehst, wenn die Sonne dahintersteht und ihn beleuchtet.",
+      "facts": [
+        "Sie hat fünfzehn riesige Fenster und kaum Wand dazwischen.",
+        "Ihre Glasfenster erzählen Geschichten in ungefähr tausend Szenen.",
+        "Sie wurde im 13. Jahrhundert in weniger als zehn Jahren gebaut."
+      ],
+      "question": {
+        "q": "Wie hält das Dach, wenn die Wand fast ganz aus Glas ist?",
+        "answers": [
+          "Ein Skelett aus Stein trägt es",
+          "Das Glas selbst ist sehr dick und trägt das Gewicht des Daches",
+          "Das Dach ist aus Holz und so leicht, dass es keine Stütze braucht",
+          "Metallseile halten es, aufgehängt am hohen Gebäude gleich nebenan"
+        ],
+        "explanation": "Das ist die ganze Idee der Gotik: Das Gewicht geht in Säulen und Rippen, nicht in eine massive Wand. Also wird die Wand frei."
+      }
+    },
+    "paris-cite-des-sciences": {
+      "name": "Die Cité des Sciences",
+      "tagline": "Der Schlachthof, der nie in Betrieb ging und ein Museum wurde",
+      "story": "Im Norden von Paris begann man in den 1960er-Jahren, einen riesigen Schlachthof zu bauen, den größten Europas. Er kostete Unsummen und ging nie in Betrieb: Bis er fertig war, hatte sich die Art, wie Fleisch transportiert wird, geändert, und das Gebäude war schon nutzlos. Jahrelang stand es als leeres Skelett aus Beton herum, eine Schande für die Stadt. Statt es abzureißen, beschloss man, es mit etwas ganz anderem zu füllen, und 1986 öffnete darin das größte Wissenschaftsmuseum Europas. Die Regel hier drinnen ist das Gegenteil von der in anderen Museen: Hier fasst du an, drückst, ziehst und machst kaputt. Es gibt einen ganzen Bereich nur für Kinder, nach Alter getrennt, damit sich ein Dreijähriges und ein Zehnjähriges nicht dasselbe Experiment teilen müssen. Und draußen, im Park, stehen ein echtes U-Boot und eine glänzende silberne Kugel.",
+      "facts": [
+        "Es ist das größte Wissenschaftsmuseum Europas und öffnete 1986.",
+        "Das Gebäude begann als Schlachthof, der nie in Betrieb ging.",
+        "Im Park draußen steht ein echtes U-Boot, durch das du hindurchgehen kannst."
+      ],
+      "question": {
+        "q": "Was sollte dieses Gebäude ursprünglich sein?",
+        "answers": [
+          "Ein Schlachthof, der nie öffnete",
+          "Eine Autofabrik, die nach nur wenigen Jahren wieder schloss",
+          "Ein Bahnhof, der durch einen größeren woanders ersetzt wurde",
+          "Eine Kaserne, verlassen, als die Armee aus der Stadt wegzog"
+        ],
+        "explanation": "Bis es fertig war, hatte sich der Fleischtransport geändert. Das Gebäude war nutzlos, bevor es je benutzt wurde."
+      },
+      "museum": {
+        "doorNote": "Hier darfst du anfassen. Wenn sich etwas nicht bewegt, hast du wahrscheinlich nicht genau genug hingeschaut.",
+        "rooms": {
+          "paris-cite-enfants": {
+            "name": "Die Stadt der Kinder",
+            "intro": "Ein ganzer Bereich des Museums ist nur für Kinder, und er ist nach Alter getrennt, damit sich ein Dreijähriges und ein Zehnjähriges nicht dasselbe Experiment teilen müssen. Nichts hier wird zuerst erklärt und danach ausprobiert. Es läuft genau andersherum, und das funktioniert besser."
+          },
+          "paris-cite-outside": {
+            "name": "Die großen Objekte",
+            "intro": "Zwei der eindrucksvollsten Ausstellungsstücke passten nicht hinein, also stehen sie im Park: ein echtes U-Boot und eine silberne Kugel, die den ganzen Himmel spiegelt. Zu beiden gehst du zu Fuß hin, und beide sind ein gutes Stück größer, als du erwartest."
+          }
+        },
+        "exhibits": {
+          "paris-cite-water": {
+            "name": "Der Wassertisch",
+            "blurb": "Ein langer Tisch voller fließendem Wasser, mit Dämmen, Rädern, Rohren und Booten, die du verschieben kannst. Du ziehst eine wasserdichte Schürze an und wirst trotzdem nass. Was du hier lernst, lässt sich nicht in Worten sagen: dass Wasser immer nach unten will, dass es schneller fließt, wenn du es einengst, und dass ein Damm das Wasser nicht aufhält, sondern seinen Weg verändert. Du begreifst es mit den Händen, nicht mit dem Kopf.",
+            "question": {
+              "q": "Was macht ein Damm in Wirklichkeit?",
+              "answers": [
+                "Er verändert den Weg des Wassers",
+                "Er hält das Wasser vollständig auf, sodass kein Tropfen durchkommt",
+                "Er macht das Wasser sauberer, während es durch seine dicken Wände fließt",
+                "Er senkt die Temperatur des Wassers, das vom Berg herunterkommt"
+              ],
+              "explanation": "Wasser findet immer einen Weg. Der Damm entscheidet, welchen Weg es findet."
+            }
+          },
+          "paris-cite-building-site": {
+            "name": "Die Baustelle",
+            "blurb": "Helme, Flaschenzüge, Seile und leichte Ziegel aus Schaumstoff. Du hebst Lasten mit einem kleinen Kran und begreifst etwas, das wie Zauberei aussieht: Mit einem Flaschenzug geht ein Gewicht, das du mit den Händen nicht bewegen kannst, leicht nach oben. Es ist nicht leichter geworden. Du ziehst einfach mehr Seil für dieselbe Arbeit, und die Anstrengung verteilt sich. Es ist derselbe Trick, der die Steine jeder Kathedrale gehoben hat, die du in dieser Stadt sehen wirst.",
+            "question": {
+              "q": "Was macht der Flaschenzug mit dem Gewicht, das du hebst?",
+              "answers": [
+                "Er verteilt die Anstrengung",
+                "Er halbiert tatsächlich das Gewicht der Last",
+                "Er macht das Seil stärker, damit die Last es nicht zerreißt",
+                "Er hält die Last ohne jede Kraft still in der Luft"
+              ],
+              "explanation": "Das Gewicht bleibt gleich. Du ziehst mehr Seil mit weniger Kraft, und deshalb fühlt es sich leichter an."
+            }
+          },
+          "paris-cite-studio": {
+            "name": "Das Fernsehstudio",
+            "blurb": "Ein kleines Studio mit Kamera, Scheinwerfern und einer hell ausgeleuchteten grünen Wand. Du stellst dich davor, und auf dem Bildschirm daneben fliegst du über Paris oder stehst auf dem Mond. Der Trick ist einfach, und du verstehst ihn sofort, wenn du ihn machst: Der Computer löscht eine ganz bestimmte Farbe und setzt ein Bild an ihre Stelle. Deshalb darfst du nichts Grünes anhaben, sonst wirst du selbst durchsichtig.",
+            "question": {
+              "q": "Warum darfst du im Studio nichts Grünes tragen?",
+              "answers": [
+                "Du wirst durchsichtig",
+                "Weil Grün die Scheinwerfer spiegelt und die Bildqualität verdirbt",
+                "Weil die Kamera grüne Dinge nur schwer scharf stellen kann",
+                "Weil Grün auf dem Bildschirm mit der Hautfarbe verwechselt wird"
+              ],
+              "explanation": "Der Computer löscht alles, was diese Farbe hat. Wenn du Grün trägst, löscht er auch dich."
+            }
+          },
+          "paris-cite-argonaute": {
+            "name": "Das U-Boot Argonaute",
+            "blurb": "Ein echtes französisches U-Boot, über fünfzig Meter lang, das jahrzehntelang im Dienst war und jetzt auf Beton im Park sitzt. Du gehst hinein, und das Erste, was du begreifst, ist, wie eng es ist: In den Gängen passen keine zwei Menschen nebeneinander, und die Betten sind zwischen die Rohre gestapelt. Fünfzig Menschen lebten hier drin, wochenlang, ohne Tageslicht zu sehen, und atmeten Luft aus Maschinen.",
+            "question": {
+              "q": "Was beeindruckt dich im U-Boot am meisten?",
+              "answers": [
+                "Wie eng es ist",
+                "Wie groß und hell die Fenster zum Meer hinaus sind",
+                "Wie bequem die Räume für die Matrosen waren, die darin lebten",
+                "Wie leise seine Maschinen waren, wenn sie normal liefen"
+              ],
+              "explanation": "Es hat überhaupt keine Fenster. Fünfzig Menschen, wochenlang, ohne Tageslicht."
+            }
+          },
+          "paris-cite-geode": {
+            "name": "Die silberne Kugel",
+            "blurb": "Eine vollkommene Kugel mit sechsunddreißig Metern Durchmesser, bedeckt mit Tausenden kleiner dreieckiger Spiegel aus Stahl. Von außen spiegelt sie die Wolken und die Leute, die vorbeigehen, deshalb sieht sie nie zweimal gleich aus. Innen ist sie ein Kino mit einer kugelförmigen Leinwand, die dich oben, unten und an den Seiten umgibt, und die Sitze lehnen nach hinten. Dieselbe Form macht von außen und von innen zwei völlig verschiedene Arbeiten.",
+            "question": {
+              "q": "Warum sieht die Kugel nie gleich aus?",
+              "answers": [
+                "Sie spiegelt, was um sie herum ist",
+                "Sie dreht sich im Lauf des Tages sehr langsam um ihre eigene Achse",
+                "Sie wechselt die Farbe mit besonderen Lampen, die in ihrem Sockel versteckt sind",
+                "Ihre kleinen Spiegel werden ständig von Arbeitertrupps ausgetauscht"
+              ],
+              "explanation": "Sie hat keine eigene Farbe. Sie zeigt, was um sie herum ist, also ändert sie sich mit dem Wetter und mit der Uhrzeit."
+            }
+          },
+          "paris-cite-planetarium": {
+            "name": "Die Kuppel des Planetariums",
+            "blurb": "Im Gebäude gibt es eine Kuppel, auf die der Himmel projiziert wird. Der Unterschied zu einer Leinwand ist, dass es hier keinen Rand gibt: Wohin du auch schaust, du siehst Bild, also hört dein Gehirn auf zu widersprechen und überzeugt dich, dass du dich bewegst. Die Vorführungen zeigen den heutigen Himmel, aber auch, wie er in anderen Zeiten aussah oder wie er von einem anderen Planeten aus aussähe. Näher kommst du einer Reise nicht, ohne dich vom Stuhl zu rühren.",
+            "question": {
+              "q": "Warum überzeugt dich die Kuppel, dass du dich bewegst?",
+              "answers": [
+                "Du siehst nirgends einen Rand",
+                "Die Sitze bewegen sich leicht mit dem Bild mit, das projiziert wird",
+                "Die Luft im Saal bläst dir von vorn entgegen, solange die Vorführung läuft",
+                "Der Ton kommt aus vielen Lautsprechern und vermittelt ein Gefühl von Tempo"
+              ],
+              "explanation": "Das Auge erkennt, dass etwas ein Bild ist, weil es dessen Rahmen sieht. Nimm den Rahmen weg, und der Trick funktioniert."
+            }
+          }
+        },
+        "riddles": {
+          "paris-cite-riddle-1": {
+            "prompt": "Ich bin aus Stahl, über fünfzig Meter lang, und ich habe kein einziges Fenster. Früher versteckte ich mich unter dem Meer, und jetzt sitze ich reglos in einem Park.",
+            "hint": "In mir passen keine zwei Menschen nebeneinander."
+          },
+          "paris-cite-riddle-2": {
+            "prompt": "Ich bin rund und habe keine eigene Farbe. Ich zeige immer, was um mich herum ist, deshalb bin ich mal blau und mal grau, ohne irgendetwas zu tun.",
+            "hint": "Von innen bin ich ein Kino."
+          }
+        }
+      }
+    },
+    "paris-grande-galerie": {
+      "name": "Die Große Galerie der Evolution",
+      "tagline": "Ein Zug von Tieren, der durch den Saal wandert",
+      "story": "Die meisten Naturkundemuseen stellen ihre Tiere in Reihen in Vitrinen, mit Schildchen daran. Hier hat man etwas anderes gemacht. In der Mitte eines riesigen Saals mit Glasdach wurden Dutzende Tiere der afrikanischen Savanne zu einem Zug aufgestellt, der vorwärtsgeht: Elefanten, Giraffen, Nashörner, Antilopen, eines hinter dem anderen, als wären sie gemeinsam irgendwohin unterwegs. Dazwischen gibt es keine Scheiben. Du stehst neben einem Elefanten und siehst, wie klein du bist. Das Licht ändert sich im Lauf des Tages, von Sonnenaufgang zu Gewitter und zu Nacht, als verginge ein ganzer Tag in der Savanne. Es gibt auch einen zweiten, dunkleren Saal, mit Tieren, die es nicht mehr gibt, Tieren, die ausgestorben sind und die niemand je wiedersehen wird. Da drin macht kein Kind Lärm, und niemand muss es darum bitten.",
+      "facts": [
+        "Die Tiere stehen in einem Zug, der vorwärtsgeht, ohne Scheiben dazwischen.",
+        "Das Licht im Saal ändert sich im Lauf des Tages, von Sonnenaufgang bis Gewitter.",
+        "Es gibt einen eigenen Saal für Tiere, die ausgestorben sind."
+      ],
+      "question": {
+        "q": "Was macht dieser Saal anders als andere Museen?",
+        "answers": [
+          "Die Tiere wandern in einem Zug",
+          "Alle Tiere sind aus Plastik gemacht, in ihrer natürlichen Größe",
+          "Die Besucher dürfen alle Ausstellungsstücke anfassen und streicheln",
+          "Zu jedem Tier gibt es eine Aufnahme seiner Stimme in der Wildnis"
+        ],
+        "explanation": "Es gibt keine Scheiben und keine Reihen. Du stehst neben den Tieren, und deshalb begreifst du ihre Größe."
+      }
+    }
+  },
+  "trails": {
+    "paris-the-river": {
+      "name": "Am Fluss entlang",
+      "promise": "Die Insel mitten in der Seine, ihre beiden Kirchen und die Brücke, die die Gewohnheiten einer Stadt veränderte."
+    },
+    "paris-the-grand-axis": {
+      "name": "Die große Achse",
+      "promise": "Drei riesige Dinge auf einer Geraden, und eines davon sollte abgerissen werden."
+    },
+    "paris-how-things-work": {
+      "name": "Wie die Dinge funktionieren",
+      "promise": "Ein Pendel, das die Erde dreht, ein U-Boot in einem Park und Elefanten ohne Scheibe."
+    },
+    "paris-up-the-hill": {
+      "name": "Die zwei Hügel",
+      "promise": "Die weiße Kirche, die der Regen sauber hält, eine Kuppel mit einem Pendel und ein Teich mit Holzbooten."
+    }
+  }
+}
