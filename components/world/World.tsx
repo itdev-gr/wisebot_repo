@@ -62,6 +62,10 @@ import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
 import SealCeremony from './SealCeremony';
+// Per-page title, description, canonical and JSON-LD, from the same functions the
+// build-time prerender uses — so what Googlebot renders matches what it fetched.
+import { WorldSeo } from './WorldSeo';
+import { cityMeta, countryMeta, placeMeta, seoLang, worldMeta } from '../../data/world/seo';
 // The older Explorer's city list, read only to bridge a country that has no World city
 // yet to the cities it already has over there. Goes away when the last city has moved.
 import { CITY_META as EXPLORER_CITIES } from '../../data/explore/registry';
@@ -315,13 +319,16 @@ const CountriesPage: React.FC<{
   );
 
   return (
-    <CountryList
-      lang={lang}
-      items={items}
-      stampsCollected={Object.keys(progress.progress.places).length}
-      onOpenCountry={(id) => navigate(`/world/${id}`)}
-      onOpenPassport={() => navigate('/world/passport')}
-    />
+    <>
+      <WorldSeo meta={worldMeta(content.countries, content.cities, content.placeCounts, seoLang(lang))} />
+      <CountryList
+        lang={lang}
+        items={items}
+        stampsCollected={Object.keys(progress.progress.places).length}
+        onOpenCountry={(id) => navigate(`/world/${id}`)}
+        onOpenPassport={() => navigate('/world/passport')}
+      />
+    </>
   );
 };
 
@@ -362,16 +369,26 @@ const CountryPage: React.FC<{
       : [];
 
   return (
-    <CountryView
-      lang={lang}
-      country={country}
-      entryDate={progress.progress.entries[country.id]}
-      cities={cities}
-      legacyCities={legacyCities}
-      onOpenCity={(id) => navigate(`/world/${country.id}/${id}`)}
-      onOpenLegacy={(id) => navigate(`/explore?city=${id}`)}
-      onBack={() => navigate('/world')}
-    />
+    <>
+      <WorldSeo
+        meta={countryMeta(
+          country,
+          cities.map((c) => c.city),
+          content.placeCounts,
+          seoLang(lang),
+        )}
+      />
+      <CountryView
+        lang={lang}
+        country={country}
+        entryDate={progress.progress.entries[country.id]}
+        cities={cities}
+        legacyCities={legacyCities}
+        onOpenCity={(id) => navigate(`/world/${country.id}/${id}`)}
+        onOpenLegacy={(id) => navigate(`/explore?city=${id}`)}
+        onBack={() => navigate('/world')}
+      />
+    </>
   );
 };
 
@@ -458,16 +475,19 @@ const CityPage: React.FC<{
   if (!module) return <Loading lang={lang} />;
 
   return (
-    <CityView
-      lang={lang}
-      city={city}
-      country={country}
-      places={module.places}
-      trails={module.trails ?? []}
-      isStamped={isStamped}
-      onOpenPlace={(id) => navigate(`/world/${country.id}/${city.id}/${id}`)}
-      onBack={() => navigate(`/world/${country.id}`)}
-    />
+    <>
+      <WorldSeo meta={cityMeta(country, city, module, seoLang(lang))} />
+      <CityView
+        lang={lang}
+        city={city}
+        country={country}
+        places={module.places}
+        trails={module.trails ?? []}
+        isStamped={isStamped}
+        onOpenPlace={(id) => navigate(`/world/${country.id}/${city.id}/${id}`)}
+        onBack={() => navigate(`/world/${country.id}`)}
+      />
+    </>
   );
 };
 
@@ -484,6 +504,7 @@ const PlacePage: React.FC<{
   }>();
   const navigate = useNavigate();
   const city = content.cities.find((c) => c.id === cityId);
+  const country = content.countries.find((c) => c.id === countryId) ?? findCountry(countryId ?? '');
   const { module, failed } = useCityContent(content, cityId, lang);
   const place: Place | undefined = module?.places.find((p) => p.id === placeId);
 
@@ -545,23 +566,29 @@ const PlacePage: React.FC<{
   if (!module) return <Loading lang={lang} />;
   if (!place || !city) return <NotFound lang={lang} onBack={() => navigate(cityUrl)} />;
 
+  const seo = country ? <WorldSeo meta={placeMeta(country, city, place, seoLang(lang))} /> : null;
+
   if (inside) {
     if (!place.museum) return <Navigate to={`${cityUrl}/${place.id}`} replace />;
     return (
-      <MuseumView
-        lang={lang}
-        place={place}
-        answeredExhibits={progress.progress.exhibits}
-        solvedRiddles={progress.progress.riddles}
-        onExhibitAnswer={answerExhibit}
-        onRiddleSolved={solveRiddle}
-        onBack={() => navigate(`${cityUrl}/${place.id}`)}
-      />
+      <>
+        {seo}
+        <MuseumView
+          lang={lang}
+          place={place}
+          answeredExhibits={progress.progress.exhibits}
+          solvedRiddles={progress.progress.riddles}
+          onExhibitAnswer={answerExhibit}
+          onRiddleSolved={solveRiddle}
+          onBack={() => navigate(`${cityUrl}/${place.id}`)}
+        />
+      </>
     );
   }
 
   return (
     <>
+      {seo}
       <PlaceCard
         lang={lang}
         place={place}
