@@ -1,0 +1,33 @@
+{
+  "city": "rome",
+  "country": "italy",
+  "centre": { "lat": 41.8955, "lng": 12.4823 },
+  "note": "Wikidata q-ids only, searched in Italian and checked against the description. The ten Explorer spots come first, with their q-ids taken from docs/world/research/explorer-pins.json where the verdict was ok or check; the two re-chosen items say why. The centre is Piazza Venezia, the same point the Explorer used, chosen because the Wikidata point for Rome itself (Q220) sits on Piazza del Campidoglio and would flag that square as a centroid mistake. Three museums; Explora, the children's museum, was left out because its hands-on exhibits rotate and no blurb about them could be checked a year from now.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "rome-colosseum", "name": "Colosseum", "wikidata": "Q10285", "anchor": "centroid" },
+    { "id": "rome-roman-forum", "name": "Roman Forum", "wikidata": "Q180212", "anchor": "area",
+      "note": "The Explorer audit marked this pin 'wrong' because the Explorer stood a child on the pavement terrace of Via dei Fori Imperiali, 173 m from the item. The item itself is the Forum, which is what this place is, so it is kept as an area." },
+    { "id": "rome-campidoglio", "name": "Piazza del Campidoglio", "wikidata": "Q34921", "anchor": "centroid" },
+    { "id": "rome-capitoline-museums", "name": "Capitoline Museums (Palazzo dei Conservatori)", "wikidata": "Q64103", "anchor": "centroid",
+      "note": "The building, not the institution. Q333906 is the museum as an organisation spread over two palaces; Q64103 is the Palazzo dei Conservatori, where the ticket office and the visitor entrance are according to museicapitolini.org." },
+    { "id": "rome-bocca-della-verita", "name": "Bocca della Verità", "wikidata": "Q729490", "anchor": "centroid" },
+    { "id": "rome-circus-maximus", "name": "Circus Maximus", "wikidata": "Q207808", "anchor": "area" },
+    { "id": "rome-orange-garden", "name": "Giardino degli Aranci", "wikidata": "Q3763895", "anchor": "viewpoint" },
+    { "id": "rome-pantheon", "name": "Pantheon", "wikidata": "Q99309", "anchor": "centroid" },
+    { "id": "rome-trevi-fountain", "name": "Trevi Fountain", "wikidata": "Q185382", "anchor": "centroid" },
+    { "id": "rome-spanish-steps", "name": "Spanish Steps", "wikidata": "Q848072", "anchor": "centroid",
+      "note": "Replaces Q15124814 (Piazza di Spagna, the square) from the Explorer audit: the place a child climbs is the staircase, and Q848072 is the staircase." },
+    { "id": "rome-piazza-navona", "name": "Piazza Navona", "wikidata": "Q463400", "anchor": "area" },
+    { "id": "rome-campo-de-fiori", "name": "Campo de' Fiori", "wikidata": "Q28303", "anchor": "area" },
+    { "id": "rome-palazzo-massimo", "name": "Palazzo Massimo alle Terme", "wikidata": "Q3890451", "anchor": "centroid",
+      "note": "The building. Q1135392 is the Museo Nazionale Romano as an institution with four seats, and Q510071 is the museum-as-collection; the palazzo is the thing a child walks into." },
+    { "id": "rome-santa-maria-degli-angeli", "name": "Santa Maria degli Angeli e dei Martiri", "wikidata": "Q569253", "anchor": "centroid",
+      "note": "The church building, Q569253. Q925982 is the titular church as a church-law concept and carries no coordinate." },
+    { "id": "rome-castel-sant-angelo", "name": "Castel Sant'Angelo", "wikidata": "Q486382", "anchor": "centroid" },
+    { "id": "rome-st-peters-square", "name": "St Peter's Square", "wikidata": "Q83425", "anchor": "area" },
+    { "id": "rome-vatican-museums", "name": "Vatican Museums", "wikidata": "Q182955", "anchor": "area",
+      "note": "A complex of buildings rather than one, so an area. The entrance is on Viale Vaticano, which is recorded as findIt in the city file from museivaticani.va." },
+    { "id": "rome-bioparco", "name": "Bioparco di Roma", "wikidata": "Q864639", "anchor": "area" }
+  ]
+}

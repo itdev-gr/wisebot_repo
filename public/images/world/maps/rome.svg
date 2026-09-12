@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1018" width="1000" height="1018" role="img" aria-label="Stylised map of Rome">
+  <title>Rome — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/italy.ts
+    (north 41.925, south 41.878, east 12.508, west 12.446) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the bend
+    of the Tiber, the seven-hill green of the Capitoline, Palatine and Aventine, the
+    long oval of the Circus Maximus, the park of the Villa Borghese and the walled
+    square of the Vatican are placed from those bounds, and nothing here is traced
+    from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a9d3e0" />
+      <stop offset="1" stop-color="#7cb8cd" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="1018" fill="url(#ground)" />
+  <rect width="1000" height="1018" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The Tiber. Enters at the top, bulges west round the castle, then bends south-east
+       past the island and out at the bottom. -->
+  <path
+    d="M355 0 C 380 110, 405 170, 395 217 C 380 300, 340 340, 347 390 C 352 440, 328 470, 331 498 C 333 560, 328 580, 331 607 C 335 660, 370 690, 395 715 C 430 750, 490 760, 508 780 C 525 810, 528 840, 524 866 C 518 920, 495 970, 492 1018 L 470 1018 C 473 970, 496 920, 502 866 C 506 840, 503 815, 488 792 C 470 770, 415 758, 378 725 C 350 695, 313 660, 309 607 C 306 580, 311 560, 309 498 C 306 470, 330 440, 325 390 C 318 340, 358 300, 373 217 C 383 170, 358 110, 333 0 Z"
+    fill="url(#water)" />
+  <path d="M355 0 C 380 110, 405 170, 395 217 C 380 300, 340 340, 347 390 C 352 440, 328 470, 331 498 C 333 560, 328 580, 331 607 C 335 660, 370 690, 395 715 C 430 750, 490 760, 508 780 C 525 810, 528 840, 524 866 C 518 920, 495 970, 492 1018" fill="none" stroke="#5c9fb8" stroke-width="2" opacity="0.6" />
+
+  <!-- The Tiber Island, in the bend. -->
+  <ellipse cx="470" cy="748" rx="26" ry="10" transform="rotate(-30 470 748)" fill="#e6dcc4" stroke="#5c9fb8" stroke-width="2" />
+
+  <!-- Hills. Centres are the projected positions of the real summits: Capitoline,
+       Palatine, Aventine, the Janiculum across the river. -->
+  <g fill="#cddcb4" stroke="#a9bd8c" stroke-width="2">
+    <ellipse cx="598" cy="686" rx="40" ry="30" />
+    <ellipse cx="669" cy="775" rx="62" ry="44" />
+    <ellipse cx="548" cy="909" rx="56" ry="40" />
+    <ellipse cx="242" cy="736" rx="48" ry="110" />
+  </g>
+
+  <!-- The Circus Maximus: a long oval in the valley between Palatine and Aventine. -->
+  <ellipse cx="640" cy="847" rx="70" ry="18" transform="rotate(-32 640 847)" fill="#e2d9bd" stroke="#b9ab88" stroke-width="2" />
+
+  <!-- The park of the Villa Borghese, with the zoo on its north edge. -->
+  <ellipse cx="634" cy="245" rx="120" ry="95" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The Vatican: a small walled country in the west, with its own gardens. -->
+  <g transform="translate(119 478)">
+    <path d="M-95 -75 L 60 -75 L 75 -20 L 60 70 L -95 70 Z" fill="#e9dfc8" stroke="#8a7c62" stroke-width="3" stroke-dasharray="8 5" />
+    <ellipse cx="-30" cy="0" rx="40" ry="34" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+  </g>
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="70" font-size="42" letter-spacing="6">ΡΩΜΗ</text>
+    <text x="40" y="104" font-size="22" letter-spacing="4">ROME</text>
+    <text x="634" y="252" font-size="18" text-anchor="middle" letter-spacing="2">VILLA BORGHESE</text>
+    <text x="119" y="560" font-size="18" text-anchor="middle" letter-spacing="2">ΒΑΤΙΚΑΝΟ</text>
+    <text x="598" y="692" font-size="16" text-anchor="middle" letter-spacing="2">ΚΑΠΙΤΩΛΙΟ</text>
+    <text x="669" y="781" font-size="16" text-anchor="middle" letter-spacing="2">ΠΑΛΑΤΙΝΟΣ</text>
+    <text x="548" y="915" font-size="16" text-anchor="middle" letter-spacing="2">ΑΒΕΝΤΙΝΟΣ</text>
+    <text x="300" y="560" font-size="18" letter-spacing="3" transform="rotate(88 300 560)">ΤΙΒΕΡΗΣ</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

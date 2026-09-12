@@ -1,0 +1,366 @@
+{
+  "city": "rome",
+  "note": "Explorer texts kept verbatim from data/explore/cities/rome.ts on origin/main, keyed by the World place id, so the riddle, the parent hint and the on-site question can become fields later without a second transcription. The Explorer lat/lng and radius are NOT copied: World coordinates come only from the resolver.",
+  "places": {
+    "rome-colosseum": {
+      "explorerId": "colosseum",
+      "riddle": {
+        "el": "Ένας πέτρινος γίγαντας, φτιαγμένος από αψίδα πάνω σε αψίδα, άνοιγε κάποτε τις ογδόντα πόρτες του για να χωρέσει 50.000 θεατές. Σήμερα του λείπει ένα μεγάλο κομμάτι από τον εξωτερικό του τοίχο, μα στέκεται ακόμη περήφανος.",
+        "en": "A stone giant made of arch upon arch once opened its eighty doors to let in 50,000 spectators. Today a big piece of its outer wall is missing, but it still stands proud."
+      },
+      "parentHint": {
+        "el": "Είναι το Colosseo (το Κολοσσαίο). Ξεκινήστε από εδώ: ο σταθμός του μετρό Colosseo (γραμμή B) βγαίνει ακριβώς απέναντι· το σημείο είναι η ανοιχτή πλατεία στη δυτική πλευρά, δίπλα στην Αψίδα του Κωνσταντίνου, όπου δεν χρειάζεται εισιτήριο.",
+        "en": "It is the Colosseo, the Colosseum. Start here: Colosseo metro station (line B) comes out right opposite; the spot is the open plaza on the west side, next to the Arch of Constantine, where no ticket is needed."
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου μπροστά στο ψηλότερο κομμάτι του εξωτερικού τοίχου. Πόσες σειρές από μεγάλες αψίδες βλέπεις, τη μία πάνω από την άλλη;",
+          "en": "Stand in front of the tallest part of the outer wall. How many rows of big arches can you see, one above the other?"
+        },
+        "options": {
+          "el": [
+            "Δύο",
+            "Τρεις",
+            "Πέντε",
+            "Επτά"
+          ],
+          "en": [
+            "Two",
+            "Three",
+            "Five",
+            "Seven"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Τρεις σειρές αψίδων και, από πάνω, ένας τέταρτος όροφος με μικρά παράθυρα. Οι 80 αψίδες του ισογείου ήταν οι είσοδοι: πάνω από μερικές διακρίνεις ακόμη σκαλισμένους λατινικούς αριθμούς, σαν τους αριθμούς στις θύρες ενός γηπέδου.",
+          "en": "Three rows of arches, and above them a fourth storey with small windows. The 80 arches at ground level were the entrances: above some of them you can still spot carved Roman numerals, like the gate numbers in a stadium."
+        }
+      }
+    },
+    "rome-roman-forum": {
+      "explorerId": "roman-forum",
+      "riddle": {
+        "el": "Μια κοιλάδα γεμάτη σπασμένες κολόνες και αψίδες ήταν κάποτε το πιο πολυσύχναστο μέρος του κόσμου: εδώ έβγαζαν λόγους, ψώνιζαν, έφτιαχναν νόμους και εδώ περνούσαν οι νικητές στρατηγοί με τα άρματά τους. Κοίταξέ την από ψηλά, από την άκρη ενός φαρδιού δρόμου.",
+        "en": "A valley full of broken columns and archways was once the busiest place in the world: people made speeches here, went shopping, wrote laws, and victorious generals paraded through on their chariots. Look at it from above, from the edge of a wide road."
+      },
+      "parentHint": {
+        "el": "Είναι το Foro Romano (η Ρωμαϊκή Αγορά). Από το Κολοσσαίο περπατήστε 6 λεπτά βορειοδυτικά στη Via dei Fori Imperiali· το σημείο είναι το πεζοδρόμιο-μπαλκόνι στα αριστερά, λίγο μετά τη διασταύρωση με τη Via Cavour, απ' όπου βλέπετε όλη την Αγορά χωρίς εισιτήριο.",
+        "en": "It is the Foro Romano, the Roman Forum. From the Colosseum walk 6 minutes north-west along Via dei Fori Imperiali; the spot is the pavement terrace on the left, just past the Via Cavour crossing, where you can look over the whole Forum without a ticket."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα προς το βάθος των ερειπίων, προς τον λόφο. Θα δεις μια μεγάλη πέτρινη αψίδα. Πόσα περάσματα έχει;",
+          "en": "Look towards the far end of the ruins, towards the hill. You will see a big stone archway. How many passages does it have?"
+        },
+        "options": {
+          "el": [
+            "Ένα",
+            "Δύο",
+            "Τρία",
+            "Τέσσερα"
+          ],
+          "en": [
+            "One",
+            "Two",
+            "Three",
+            "Four"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Είναι η Αψίδα του Σεπτιμίου Σεβήρου, με ένα μεγάλο πέρασμα στη μέση και δύο μικρότερα στα πλάγια. Χτίστηκε το 203 μ.Χ. για να γιορτάσει τις νίκες του αυτοκράτορα, και τα σκαλίσματά της διηγούνται τις μάχες του σαν κόμικ από πέτρα.",
+          "en": "It is the Arch of Septimius Severus, with one big passage in the middle and two smaller ones at the sides. It was built in 203 AD to celebrate the emperor's victories, and its carvings tell the story of his battles like a comic strip in stone."
+        }
+      }
+    },
+    "rome-campidoglio": {
+      "explorerId": "capitoline-hill",
+      "riddle": {
+        "el": "Ο καλλιτέχνης που ζωγράφισε την πιο διάσημη οροφή του κόσμου σχεδίασε αυτή την πλατεία στην κορυφή ενός λόφου. Στη μέση της, ένας χάλκινος αυτοκράτορας καβαλάει το άλογό του πάνω σε ένα αστέρι, και λίγο πιο πέρα μια λύκαινα ταΐζει δύο μωρά.",
+        "en": "The artist who painted the most famous ceiling in the world designed this square on top of a hill. In the middle, a bronze emperor rides his horse over a star, and just nearby a she-wolf feeds two babies."
+      },
+      "parentHint": {
+        "el": "Είναι η Piazza del Campidoglio (η Πλατεία του Καπιτωλίου), στον λόφο του Καπιτωλίου. Από το μπαλκόνι της Αγοράς περπατήστε 7 λεπτά δυτικά ως την Piazza Venezia, περάστε μπροστά από το λευκό μνημείο Vittoriano και ανεβείτε τη φαρδιά ράμπα με τα σκαλιά (την cordonata) που ξεκινά από την Piazza d'Aracoeli.",
+        "en": "It is the Piazza del Campidoglio, on the Capitoline Hill. From the Forum terrace walk 7 minutes west to Piazza Venezia, pass in front of the white Vittoriano monument and climb the wide stepped ramp (the cordonata) that starts at Piazza d'Aracoeli."
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου στη μέση της πλατείας και κοίτα τις γραμμές στο πλακόστρωτο γύρω από το άγαλμα. Τι σχήμα σχεδιάζουν;",
+          "en": "Stand in the middle of the square and look at the lines on the paving around the statue. What shape do they draw?"
+        },
+        "options": {
+          "el": [
+            "Μια σκακιέρα",
+            "Ένα αστέρι με πολλές ακτίνες",
+            "Μια σπείρα",
+            "Κύματα"
+          ],
+          "en": [
+            "A chessboard",
+            "A star with many points",
+            "A spiral",
+            "Waves"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ένα αστέρι με δώδεκα ακτίνες μέσα σε ένα οβάλ. Ο Μιχαήλ Άγγελος το σχεδίασε πριν από σχεδόν 500 χρόνια, αλλά στρώθηκε στο έδαφος μόλις το 1940. Το κέντρο του αστεριού είναι ακριβώς κάτω από το άλογο.",
+          "en": "A star with twelve points inside an oval. Michelangelo drew it almost 500 years ago, but it was only laid on the ground in 1940. The centre of the star is right under the horse."
+        }
+      }
+    },
+    "rome-bocca-della-verita": {
+      "explorerId": "bocca-della-verita",
+      "riddle": {
+        "el": "Πίσω από μια σειρά κολόνες, ένα στρογγυλό πέτρινο πρόσωπο με ορθάνοιχτο στόμα περιμένει το χέρι σου. Πες ένα ψέμα, λένε, και... κρατς!",
+        "en": "Behind a row of columns, a round stone face with a wide-open mouth is waiting for your hand. Tell a lie, they say, and... snap!"
+      },
+      "parentHint": {
+        "el": "Είναι η Bocca della Verità (το Στόμα της Αλήθειας), κάτω από τη στοά της εκκλησίας Santa Maria in Cosmedin. Από την Piazza del Campidoglio κατεβείτε ξανά τη ράμπα και περπατήστε 8 λεπτά νότια στη Via del Teatro di Marcello, δίπλα στο αρχαίο θέατρο, ως την πλατεία με τον στρογγυλό ναό· συχνά υπάρχει ουρά και ζητείται μια μικρή προσφορά.",
+        "en": "It is the Bocca della Verità, the Mouth of Truth, under the portico of the church of Santa Maria in Cosmedin. From Piazza del Campidoglio go back down the ramp and walk 8 minutes south along Via del Teatro di Marcello, past the ancient theatre, to the square with the round temple; there is often a queue and a small donation is asked for."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα το πρόσωπο από κοντά. Από τι υλικό είναι φτιαγμένο;",
+          "en": "Look closely at the face. What is it made of?"
+        },
+        "options": {
+          "el": [
+            "Από ξύλο",
+            "Από μπρούντζο",
+            "Από μάρμαρο",
+            "Από πηλό"
+          ],
+          "en": [
+            "Wood",
+            "Bronze",
+            "Marble",
+            "Clay"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Είναι ένας δίσκος από μάρμαρο, φαρδύς σχεδόν όσο είναι ψηλός ένας μεγάλος άνθρωπος, και ζυγίζει πάνω από έναν τόνο. Κοίτα τα μάτια, τη μύτη και το στόμα: είναι τρύπες που περνάνε ως την άλλη πλευρά, γι' αυτό οι ειδικοί πιστεύουν ότι κάποτε ήταν καπάκι υπονόμου ή μέρος ενός σιντριβανιού.",
+          "en": "It is a disc of marble, almost as wide as a tall grown-up is high, and it weighs more than a tonne. Look at the eyes, nose and mouth: they are holes that go right through, which is why experts think it was once a drain cover or part of a fountain."
+        }
+      }
+    },
+    "rome-pantheon": {
+      "explorerId": "pantheon",
+      "riddle": {
+        "el": "Ένας ναός για όλους τους θεούς μαζί έχει στέγη σαν τεράστια μπάλα κομμένη στη μέση, με ένα μάτι ανοιχτό στον ουρανό: από εκεί μπαίνουν ο ήλιος και η βροχή. Μπροστά του, δεκαέξι γιγάντιες κολόνες και μια πλατεία με σιντριβάνι.",
+        "en": "A temple for all the gods at once has a roof like a giant ball cut in half, with an eye open to the sky: sunshine and rain both come in through it. In front of it stand sixteen giant columns and a square with a fountain."
+      },
+      "parentHint": {
+        "el": "Είναι το Pantheon (το Πάνθεον), στην Piazza della Rotonda. Από τη Bocca della Verità περπατήστε 20 λεπτά βόρεια μέσα από το ιστορικό κέντρο (Via del Teatro di Marcello, Piazza Venezia, Via del Gesù και μετά η Piazza della Minerva με τον μικρό ελέφαντα που κουβαλάει οβελίσκο)· η πλατεία μπροστά είναι ελεύθερη, για το εσωτερικό οι ενήλικες πληρώνουν εισιτήριο.",
+        "en": "It is the Pantheon, on Piazza della Rotonda. From the Bocca della Verità walk 20 minutes north through the old centre (Via del Teatro di Marcello, Piazza Venezia, Via del Gesù, then Piazza della Minerva with the little elephant carrying an obelisk); the square in front is free, adults pay a ticket to go inside."
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου μπροστά στην είσοδο και μέτρησε τις κολόνες της πρώτης σειράς. Πόσες είναι;",
+          "en": "Stand in front of the entrance and count the columns in the front row. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Έξι",
+            "Δέκα",
+            "Δώδεκα",
+            "Οκτώ"
+          ],
+          "en": [
+            "Six",
+            "Ten",
+            "Twelve",
+            "Eight"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Οκτώ μπροστά και άλλες οκτώ πίσω τους, δεκαέξι συνολικά. Κάθε κολόνα είναι ένα μονοκόμματο κομμάτι γρανίτη, ψηλό όσο ένα τετραώροφο κτίριο, που ταξίδεψε από την Αίγυπτο με καράβι. Κοίτα και τη μεγάλη επιγραφή από πάνω: γράφει το όνομα του Αγρίππα, που έχτισε τον πρώτο ναό εδώ.",
+          "en": "Eight in front and another eight behind them, sixteen in all. Each column is a single piece of granite, as tall as a four-storey building, that travelled from Egypt by ship. Look at the big inscription above too: it carries the name of Agrippa, who built the first temple here."
+        }
+      }
+    },
+    "rome-trevi-fountain": {
+      "explorerId": "trevi-fountain",
+      "riddle": {
+        "el": "Ένας βασιλιάς της θάλασσας ξεπροβάλλει από τον τοίχο ενός παλατιού και οδηγεί δύο φτερωτά άλογα μέσα στους παφλασμούς. Το νερό του έρχεται από μια πηγή που βρέθηκε πριν από 2.000 χρόνια, και στον πάτο του λάμπουν χιλιάδες ευχές.",
+        "en": "A king of the sea bursts out of the wall of a palace, driving two winged horses through the splashing water. His water comes from a spring found 2,000 years ago, and thousands of wishes glitter at the bottom."
+      },
+      "parentHint": {
+        "el": "Είναι η Fontana di Trevi (η Κρήνη ντι Τρέβι). Από το Pantheon περπατήστε 8 λεπτά ανατολικά από τη Via del Seminario και τη Via delle Muratte· η μικρή πλατεία είναι πάντα γεμάτη κόσμο, οπότε πηγαίνετε νωρίς το πρωί ή μετά το δείπνο.",
+        "en": "It is the Fontana di Trevi, the Trevi Fountain. From the Pantheon walk 8 minutes east along Via del Seminario and Via delle Muratte; the little square is always crowded, so go early in the morning or after dinner."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα τη μεγάλη φιγούρα στη μέση. Πάνω σε τι στέκεται;",
+          "en": "Look at the big figure in the middle. What is he standing on?"
+        },
+        "options": {
+          "el": [
+            "Σε ένα άρμα σε σχήμα κοχυλιού",
+            "Σε μια βάρκα με πανιά",
+            "Σε ένα δελφίνι",
+            "Σε έναν βράχο με σημαία"
+          ],
+          "en": [
+            "A chariot shaped like a seashell",
+            "A boat with sails",
+            "A dolphin",
+            "A rock with a flag"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Ο Ωκεανός στέκεται σε ένα άρμα-κοχύλι που το τραβούν δύο φτερωτά θαλάσσια άλογα. Κοίτα τα προσεκτικά: το ένα είναι ήρεμο και το άλλο αφηνιασμένο, όπως η θάλασσα, που πότε είναι γαλήνια και πότε άγρια.",
+          "en": "Oceanus stands on a seashell chariot pulled by two winged sea horses. Look at them closely: one is calm and one is wild, just like the sea, which is sometimes peaceful and sometimes stormy."
+        }
+      }
+    },
+    "rome-spanish-steps": {
+      "explorerId": "spanish-steps",
+      "riddle": {
+        "el": "Μια πέτρινη σκάλα χύνεται από τον λόφο σαν καταρράκτης, από μια εκκλησία στην κορυφή ως ένα σιντριβάνι σε σχήμα βάρκας στο κάτω μέρος. Έχει το όνομα μιας χώρας, αλλά την πλήρωσε μια άλλη.",
+        "en": "A stone staircase pours down the hill like a waterfall, from a church at the top to a boat-shaped fountain at the bottom. It carries the name of one country, but a different country paid for it."
+      },
+      "parentHint": {
+        "el": "Είναι η Piazza di Spagna με τη Scalinata (την Ισπανική Σκάλα). Από την Fontana di Trevi περπατήστε 10 λεπτά βόρεια από τη Via della Stamperia και τη Via di Propaganda, ή πάρτε το μετρό (γραμμή A) ως τη στάση Spagna, που βγαίνει δίπλα στην πλατεία. Θυμηθείτε: απαγορεύεται να καθίσετε στα σκαλιά.",
+        "en": "It is Piazza di Spagna with the Scalinata, the Spanish Steps. From the Trevi Fountain walk 10 minutes north along Via della Stamperia and Via di Propaganda, or take metro line A to Spagna, which comes out next to the square. Remember: sitting on the steps is not allowed."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα ψηλά, την εκκλησία στην κορυφή της σκάλας. Πόσους πύργους με καμπάνες έχει;",
+          "en": "Look up at the church at the top of the steps. How many bell towers does it have?"
+        },
+        "options": {
+          "el": [
+            "Έναν",
+            "Δύο",
+            "Τρεις",
+            "Τέσσερις"
+          ],
+          "en": [
+            "One",
+            "Two",
+            "Three",
+            "Four"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Δύο δίδυμοι πύργοι: είναι η Trinità dei Monti, η γαλλική εκκλησία, που τελείωσε πριν από περισσότερα από 400 χρόνια. Μπροστά της στέκεται ένας οβελίσκος, αντίγραφο ενός αιγυπτιακού που έφτιαξαν οι ίδιοι οι Ρωμαίοι.",
+          "en": "Two twin towers: this is Trinità dei Monti, the French church, finished more than 400 years ago. In front of it stands an obelisk, a copy of an Egyptian one made by the Romans themselves."
+        }
+      }
+    },
+    "rome-piazza-navona": {
+      "explorerId": "piazza-navona",
+      "riddle": {
+        "el": "Κάποτε 30.000 θεατές ζητωκραύγαζαν εδώ τους δρομείς. Σήμερα ο στίβος έγινε μια μακρόστενη πλατεία με τρία σιντριβάνια, όπου τέσσερις πέτρινοι γίγαντες κάθονται κάτω από μια πέτρινη βελόνα.",
+        "en": "Once, 30,000 spectators cheered the runners here. Today the racetrack has become a long, narrow square with three fountains, where four stone giants sit beneath a needle of stone."
+      },
+      "parentHint": {
+        "el": "Είναι η Piazza Navona (η Πλατεία Ναβόνα). Από την Piazza di Spagna ο πιο εύκολος δρόμος είναι να γυρίσετε με τα πόδια ως το Pantheon (12 λεπτά, από τη Via Condotti και τη Via del Corso) και μετά 5 λεπτά δυτικά από τη Via Giustiniani και το Corso del Rinascimento· το σημείο είναι το κεντρικό σιντριβάνι με τον οβελίσκο.",
+        "en": "It is Piazza Navona. From Piazza di Spagna the easiest way is to walk back to the Pantheon (12 minutes, via Via Condotti and Via del Corso) and then 5 minutes west along Via Giustiniani and Corso del Rinascimento; the spot is the central fountain with the obelisk."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίτα την κορυφή της ψηλής πέτρινης βελόνας πάνω από το κεντρικό σιντριβάνι. Τι στέκεται εκεί πάνω;",
+          "en": "Look at the very top of the tall stone needle above the central fountain. What stands up there?"
+        },
+        "options": {
+          "el": [
+            "Ένα αστέρι",
+            "Ένας σταυρός",
+            "Ένα περιστέρι",
+            "Μια μπάλα"
+          ],
+          "en": [
+            "A star",
+            "A cross",
+            "A dove",
+            "A ball"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Ένα χάλκινο περιστέρι με ένα κλαδί ελιάς: ήταν το σύμβολο της οικογένειας του Πάπα Ιννοκέντιου Ι΄, που παρήγγειλε το σιντριβάνι το 1651. Το παλάτι της οικογένειάς του είναι ακριβώς δίπλα, στην πλατεία.",
+          "en": "A bronze dove with an olive twig: it was the symbol of the family of Pope Innocent X, who ordered the fountain in 1651. His family's palace is right next to it, on the square."
+        }
+      }
+    },
+    "rome-castel-sant-angelo": {
+      "explorerId": "castel-sant-angelo",
+      "riddle": {
+        "el": "Ένας στρογγυλός γίγαντας στην όχθη του ποταμού ξεκίνησε ως τάφος αυτοκράτορα, έγινε κάστρο με μυστικό πέρασμα και πήρε το όνομά του από έναν άγγελο που έβαλε το σπαθί του στη θήκη. Για να φτάσεις, περνάς μια γέφυρα που τη φυλάνε άγγελοι.",
+        "en": "A round giant on the riverbank began life as an emperor's tomb, became a castle with a secret passage, and got its name from an angel who put his sword away. To reach it, you cross a bridge guarded by angels."
+      },
+      "parentHint": {
+        "el": "Είναι το Castel Sant'Angelo (το Κάστρο του Αγίου Αγγέλου) με την Ponte Sant'Angelo. Από την Piazza Navona περπατήστε 10 λεπτά δυτικά μέσα από τη Via dei Coronari ως τον ποταμό Τίβερη· το σημείο είναι πάνω στη γέφυρα με τους αγγέλους, μπροστά στο κάστρο. Η είσοδος στο κάστρο είναι με εισιτήριο, η γέφυρα είναι δωρεάν.",
+        "en": "It is Castel Sant'Angelo with the Ponte Sant'Angelo. From Piazza Navona walk 10 minutes west along Via dei Coronari to the river Tiber; the spot is on the angel bridge, in front of the castle. Going inside the castle needs a ticket, the bridge is free."
+      },
+      "onSite": {
+        "question": {
+          "el": "Περπάτησε τη γέφυρα από τη μία άκρη ως την άλλη και μέτρησε τους αγγέλους πάνω στα κάγκελά της. Πόσοι είναι;",
+          "en": "Walk the bridge from one end to the other and count the angels on its railings. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Έξι",
+            "Οκτώ",
+            "Δώδεκα",
+            "Δέκα"
+          ],
+          "en": [
+            "Six",
+            "Eight",
+            "Twelve",
+            "Ten"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Δέκα άγγελοι, πέντε σε κάθε πλευρά, και καθένας κρατάει κάτι διαφορετικό: μια κολόνα, ένα στεφάνι από αγκάθια, καρφιά, ένα σφουγγάρι. Τους σχεδίασε ο Bernini το 1668 και τους σκάλισαν οι μαθητές του. Στην άκρη προς την πόλη στέκονται δύο ακόμη αγάλματα, οι άγιοι Πέτρος και Παύλος.",
+          "en": "Ten angels, five on each side, and each one holds something different: a column, a crown of thorns, nails, a sponge. Bernini designed them in 1668 and his pupils carved them. At the city end stand two more statues, Saint Peter and Saint Paul."
+        }
+      }
+    },
+    "rome-st-peters-square": {
+      "explorerId": "st-peters-square",
+      "riddle": {
+        "el": "Δύο γιγάντια πέτρινα χέρια ανοίγουν διάπλατα για να αγκαλιάσουν όποιον φτάνει σε αυτή την πλατεία, στην πιο μικρή χώρα του κόσμου. Στη μέση στέκεται μια πέτρινη βελόνα που κάποτε έβλεπε αρματοδρομίες.",
+        "en": "Two giant stone arms open wide to hug everyone who arrives in this square, in the smallest country in the world. In the middle stands a stone needle that once watched chariot races."
+      },
+      "parentHint": {
+        "el": "Είναι η Piazza San Pietro (η Πλατεία του Αγίου Πέτρου), στο Βατικανό. Από το κάστρο περπατήστε 10 λεπτά δυτικά στη φαρδιά Via della Conciliazione, με τον τρούλο μπροστά σας. Η πλατεία είναι ανοιχτή και δωρεάν· για τη βασιλική υπάρχει έλεγχος ασφαλείας και ουρά, και οι ώμοι και τα γόνατα πρέπει να είναι καλυμμένα.",
+        "en": "It is Piazza San Pietro, St Peter's Square, in the Vatican. From the castle walk 10 minutes west along the wide Via della Conciliazione, with the dome straight ahead of you. The square is open and free; for the basilica there is a security check and a queue, and shoulders and knees must be covered."
+      },
+      "onSite": {
+        "question": {
+          "el": "Βρες στο έδαφος έναν στρογγυλό μαρμάρινο δίσκο ανάμεσα στον οβελίσκο και σε ένα από τα δύο σιντριβάνια, και στάσου ακριβώς πάνω του. Κοίτα τις κολόνες. Τι βλέπεις;",
+          "en": "Find a round marble disc on the ground between the obelisk and one of the two fountains, and stand right on it. Look at the colonnade. What do you see?"
+        },
+        "options": {
+          "el": [
+            "Οι κολόνες γυρίζουν σαν καρουζέλ",
+            "Οι τέσσερις σειρές κολόνες ευθυγραμμίζονται και μοιάζουν με μία",
+            "Οι κολόνες εξαφανίζονται",
+            "Οι κολόνες γίνονται χρυσές"
+          ],
+          "en": [
+            "The columns spin like a carousel",
+            "The four rows of columns line up and look like a single row",
+            "The columns disappear",
+            "The columns turn gold"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Από αυτό το σημείο, το κέντρο του κύκλου της κιονοστοιχίας, οι τέσσερις σειρές κρύβονται η μία πίσω από την άλλη και βλέπεις μόνο μία. Ο Bernini το σχεδίασε έτσι πριν από περισσότερα από 350 χρόνια: γεωμετρία που κάνει μαγικά!",
+          "en": "From this point, the centre of the colonnade's circle, the four rows hide one behind the other and you see only one. Bernini planned it that way more than 350 years ago: geometry doing magic!"
+        }
+      }
+    }
+  }
+}
