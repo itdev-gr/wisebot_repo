@@ -1,0 +1,50 @@
+{
+  "city": "berlin",
+  "country": "germany",
+  "centre": { "lat": 52.51667, "lng": 13.38333 },
+  "note": "Wikidata q-ids only. Sixteen places: the ten spots of the Explorer product on origin/main, whose text is the raw material for the city file, plus six additions. Explorer's own lat/lng are hand-written and are exactly what this pipeline replaces, so nothing here is copied from that file — only the q-ids, and only after checking each one's German label and description. CENTRE: Wikidata's own point for Berlin (Q64), 52.51667/13.38333. It falls between the Brandenburger Tor and the Potsdamer Platz and is 383 m from the nearest place in this seed, so no place sits on it. WHY SIX ADDITIONS: Explorer has no model for a museum a child walks into, so it offers no museum with an interior at all, and its ten spots leave the science, sport, food, nature and museum categories empty. Neues Museum and Museum für Naturkunde are the two museums with interiors; the Deutsches Technikmuseum, the Olympiastadion, the Markthalle IX and the Zoologischer Garten fill the remaining categories. NO ENTRANCE IS CLAIMED: no door in this city has been measured by anyone on this project, so every point is the centroid or area it actually is, and the door guidance lives in the city file's location.findIt instead. THE PERGAMONMUSEUM IS DELIBERATELY ABSENT even though it is the island's most famous building: it has been wholly closed for rebuilding since October 2023 and a child cannot go inside it, which is the one thing this module's museums are for. INSTITUTION VS BUILDING: for the Museum für Naturkunde (Q233098) and the Deutsches Technikmuseum (Q706530) Wikidata has no separate building item — the searches for one return nothing — and the institution item's P625 already sits on the museum's own building, on Invalidenstraße and on Trebbiner Straße respectively. That is the exception to 'pick the building', and it is safe here only because it was checked rather than assumed.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "berlin-brandenburg-gate", "name": "Brandenburger Tor", "wikidata": "Q82425", "anchor": "centroid" },
+
+    { "id": "berlin-reichstag", "name": "Reichstagsgebäude", "wikidata": "Q151897", "anchor": "centroid",
+      "note": "The building, not the legislature. Q151897's German label is Reichstagsgebäude and its P31 is 'parliament building'; the Bundestag as an institution is a different item and has no door." },
+
+    { "id": "berlin-victory-column", "name": "Siegessäule", "wikidata": "Q154987", "anchor": "centroid" },
+
+    { "id": "berlin-potsdamer-platz", "name": "Potsdamer Platz", "wikidata": "Q152252", "anchor": "area",
+      "note": "Re-picked. The research file matched Explorer's pin to Q106086519, the Potsdamer Platz S-Bahn station, which is a platform under the square rather than the square. Q152252 is the square itself." },
+
+    { "id": "berlin-checkpoint-charlie", "name": "Checkpoint Charlie", "wikidata": "Q68689", "anchor": "centroid" },
+
+    { "id": "berlin-gendarmenmarkt", "name": "Gendarmenmarkt", "wikidata": "Q170103", "anchor": "area" },
+
+    { "id": "berlin-berliner-dom", "name": "Berliner Dom", "wikidata": "Q154563", "anchor": "centroid",
+      "note": "Re-picked. The research file matched Explorer's pin to Q19950914, which is the SECOND Berliner Dom, the church of 1747–1894 that was pulled down to make room for the present one. A German search for 'Berliner Dom' returns three churches of that name in the same place across three centuries; Q154563's description says 'evangelische Kirche und dynastische Grabstätte in Berlin' and is the building of 1905 that is standing today." },
+
+    { "id": "berlin-fernsehturm", "name": "Berliner Fernsehturm", "wikidata": "Q151356", "anchor": "centroid" },
+
+    { "id": "berlin-nikolaiviertel", "name": "Nikolaiviertel", "wikidata": "Q703927", "anchor": "area" },
+
+    { "id": "berlin-east-side-gallery", "name": "East Side Gallery", "wikidata": "Q313746", "anchor": "area",
+      "note": "Anchor 'area' because the gallery is a 1.3 km stretch of wall, not a point. The research file graded Explorer's hand-written pin 'wrong' at 507 m from Wikidata; that is a statement about Explorer's pin, not about this q-id, and it is one more reason the Explorer coordinates are not reused anywhere in this city." },
+
+    { "id": "berlin-neues-museum", "name": "Neues Museum", "wikidata": "Q157316", "anchor": "centroid",
+      "note": "Added. One of the two museums with an interior. Q157316's description names it as one of the museum BUILDINGS on the Museumsinsel, which is the item wanted here." },
+
+    { "id": "berlin-naturkundemuseum", "name": "Museum für Naturkunde", "wikidata": "Q233098", "anchor": "centroid",
+      "note": "Added. The second museum with an interior. Institution item used deliberately: see the note at the top of this file." },
+
+    { "id": "berlin-technikmuseum", "name": "Deutsches Technikmuseum", "wikidata": "Q706530", "anchor": "centroid",
+      "note": "Added, for the science category. Institution item used deliberately: see the note at the top of this file." },
+
+    { "id": "berlin-olympiastadion", "name": "Olympiastadion Berlin", "wikidata": "Q151374", "anchor": "centroid",
+      "note": "Added, for the sport category. Q151374 is the stadium of 1936 in Charlottenburg, not the Olympiapark around it." },
+
+    { "id": "berlin-markthalle-neun", "name": "Markthalle IX", "wikidata": "Q1226563", "anchor": "centroid",
+      "note": "Added, for the food category. Wikidata files this hall under its official number, Markthalle IX, while everyone in Berlin writes Markthalle Neun; both are the same building on Eisenbahnstraße in Kreuzberg." },
+
+    { "id": "berlin-zoo", "name": "Zoologischer Garten Berlin", "wikidata": "Q154828", "anchor": "area",
+      "note": "Added, for the nature category. Deliberately the zoo rather than the Großer Tiergarten (Q694020): the park's centroid falls close to the Siegessäule, which already ships as its own place, and a park centroid is nowhere a child actually stands." }
+  ]
+}

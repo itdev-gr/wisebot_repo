@@ -56,7 +56,13 @@
         "Es hat 50 UNESCO-Welterbestätten. Nur vier Länder auf der Welt haben mehr.",
         "Die Sagrada Família in Barcelona wird seit 1882 gebaut und ist mit 172,5 Metern die höchste Kirche der Welt.",
         "Es produziert mehr Olivenöl als jedes andere Land der Welt."
-      ]
+      ],
+      "cities": {
+        "barcelona": {
+          "name": "Barcelona",
+          "intro": "Barcelona ist eine Stadt zwischen Hügeln und Meer, in der ein Architekt sich Häuser wie Drachen ausdachte und eine Kirche, an der seit 144 Jahren gebaut wird und die gerade die höchste der Welt geworden ist. Die Straßen der Altstadt sind eng und aus Stein, die Straßen der neuen Stadt sind mit dem Lineal gezogen, und eine lange Promenade mit Platanen verbindet sie mit dem Hafen. Die Menschen hier sprechen zwei Sprachen, Katalanisch und Spanisch, sie tanzen im Kreis vor der Kathedrale, und die Fußballfans feiern an einem Brunnen."
+        }
+      }
     },
     "italy": {
       "name": "Italien",
@@ -82,7 +88,13 @@
         "Göbekli Tepe wurde vor etwa 11.500 Jahren gebaut, bevor die Menschen ihren ersten Tontopf gemacht hatten.",
         "Der Große Basar in Istanbul hat 61 überdachte Gassen und etwa 4.000 Läden.",
         "Die unterirdische Stadt Derinkuyu reicht 85 Meter in die Tiefe und konnte bis zu 20.000 Menschen aufnehmen."
-      ]
+      ],
+      "cities": {
+        "istanbul": {
+          "name": "Istanbul",
+          "intro": "Istanbul ist die einzige große Stadt, die auf zwei Kontinenten steht: Du kannst in Europa frühstücken, auf eine Fähre steigen und zwanzig Minuten später in Asien zu Mittag essen. Mehr als tausend Jahre lang war sie Konstantinopel, die Hauptstadt der byzantinischen Griechen, und danach fast fünfhundert Jahre lang die Hauptstadt der Sultane; beide Städte sind immer noch da, die eine auf der anderen. Eine Kuppel aus dem Jahr 537 steht neben einem Palast mit vier Höfen, die Möwen jagen den Fähren hinterher, und unter den Straßen trägt ein Wald aus Marmorsäulen noch immer den Boden."
+        }
+      }
     },
     "united-kingdom": {
       "name": "Vereinigtes Königreich",

@@ -16,7 +16,7 @@
         "answers": [
           "Parce qu’il se défendait bien et avait une source",
           "Parce que c’était le seul terrain plat de toute l’Attique",
-          "Parce que la mer arrivait alors jusqu’à son pied",
+          "Parce que la mer arrivait jusqu’à son pied",
           "Parce que le marbre était déjà là-haut, prêt à bâtir"
         ],
         "explanation": "Une forteresse a besoin de deux choses : de la hauteur et de l’eau. Le rocher se défendait facilement et il avait sa propre source, et c’est pour cela que les gens sont montés y vivre bien avant qu’on y bâtisse le premier temple."
@@ -36,7 +36,7 @@
         "answers": [
           "Ils les ont fait gonfler un peu au milieu",
           "Ils les ont faites de hauteurs toutes différentes, pour imiter une montagne",
-          "Ils les ont laissées creuses, pour que la musique résonne",
+          "Ils les ont laissées creuses",
           "Ils les ont peintes en noir, pour qu’elles ne chauffent pas l’été"
         ],
         "explanation": "Nos yeux font paraître creuses les lignes parfaitement droites. Ce léger renflement au milieu annule l’illusion : les colonnes ont l’air bien droites. Les bâtisseurs anciens le savaient et ont corrigé le temple avant que personne ne le regarde."
@@ -55,7 +55,7 @@
         "q": "Pourquoi ce temple a-t-il bien mieux survécu que les autres ?",
         "answers": [
           "Parce qu’il est devenu une église et a gardé son toit",
-          "Parce qu’il était bâti en pierre et non en marbre",
+          "Parce qu’il est en pierre et non en marbre",
           "Parce que la terre l’a enseveli et qu’on l’a dégagé récemment",
           "Parce qu’on l’a entièrement rebâti au siècle dernier"
         ],
@@ -77,7 +77,7 @@
           "Par tirage au sort, avec une machine en marbre",
           "Par un vote, tout le monde levant la main sur la place",
           "Le citoyen le plus riche de chaque quartier les nommait",
-          "C’étaient toujours les fils des jurés précédents"
+          "C’étaient les fils des jurés précédents"
         ],
         "explanation": "La machine s’appelait un clérotérion. Si c’est le sort qui décide, la place ne peut être ni achetée ni héritée. C’était toute l’idée."
       }
@@ -95,7 +95,7 @@
         "q": "Comment la tour donnait-elle l’heure quand les nuages cachaient le soleil ?",
         "answers": [
           "Avec une horloge à eau qui marchait à l’intérieur",
-          "Avec une cloche qu’un gardien sonnait chaque heure",
+          "Avec une cloche qu’un gardien sonnait",
           "Avec une bougie qui brûlait une ligne par heure",
           "Elle ne donnait pas l’heure les jours de nuages, seulement le vent"
         ],
@@ -136,7 +136,7 @@
         "answers": [
           "Il est fait entièrement de marbre",
           "C’est le plus grand stade qui existe",
-          "Il a un toit qui s’ouvre et se ferme",
+          "Il a un toit qui s’ouvre",
           "Il est bâti entièrement sous le niveau du sol"
         ],
         "explanation": "D’autres stades ont du marbre quelque part. Celui-ci est en marbre partout, de la première marche au dernier siège."
@@ -156,7 +156,7 @@
         "q": "Qu’ont fait les ingénieurs quand ils ont trouvé des maisons antiques sur le terrain du musée ?",
         "answers": [
           "Ils ont soulevé le musée sur des colonnes",
-          "Ils ont déplacé les maisons antiques sur un autre terrain",
+          "Ils ont déplacé les maisons antiques",
           "Ils ont recouvert les trouvailles de béton et ont continué",
           "Ils ont bâti le musée ailleurs, à deux kilomètres de là"
         ],
@@ -188,7 +188,7 @@
                 "Sur des colonnes",
                 "Sur une énorme dalle de béton",
                 "Sur de la terre versée par-dessus",
-                "Sur des pieux de bois, comme Venise"
+                "Sur du bois"
               ],
               "explanation": "Les colonnes descendent entre les ruines et se posent sur des endroits vides, pour que le poids du bâtiment ne pèse jamais sur les murs antiques."
             }
@@ -200,7 +200,7 @@
               "q": "Que portait une loutrophore ?",
               "answers": [
                 "L’eau du bain de mariage",
-                "L’huile des lampes du temple",
+                "L’huile des lampes",
                 "Le vin de la fête après le mariage",
                 "La cendre du feu d’un sacrifice"
               ],
@@ -243,7 +243,7 @@
               "answers": [
                 "Elles étaient peintes de couleurs vives",
                 "Elles étaient toujours d’un blanc pur, comme nous les voyons",
-                "Elles étaient dorées, absolument toutes",
+                "Elles étaient dorées",
                 "Elles étaient noires, à cause de la fumée des sacrifices"
               ],
               "explanation": "La peinture s’est effacée au fil des siècles. Sur quelques statues, comme celle-ci, il en est resté des morceaux."
@@ -256,7 +256,7 @@
               "q": "Que fait ce garçon que les statues d’avant ne faisaient pas ?",
               "answers": [
                 "Il s’appuie sur une jambe",
-                "Il tient un animal dans ses bras",
+                "Il tient un animal",
                 "Il est assis au lieu d’être debout",
                 "Il est en bronze et non en marbre"
               ],
@@ -272,7 +272,7 @@
                 "Parce que les tresses renforcent leur cou",
                 "Parce que c’est ainsi que les reines se coiffaient",
                 "Parce que la signature du sculpteur y est cachée",
-                "Parce que l’eau de pluie coulait dedans"
+                "Parce que la pluie coulait dedans"
               ],
               "explanation": "Le cou mince est le point le plus faible d’une figure de marbre qui porte du poids. Les tresses l’ont épaissi sans abîmer l’allure."
             }
@@ -312,7 +312,7 @@
               "q": "Pourquoi a-t-on laissé les copies d’un blanc cru ?",
               "answers": [
                 "Pour que tu voies ce qui manque",
-                "Parce que le plâtre ne peut pas être peint",
+                "Le plâtre ne se peint pas",
                 "Parce que les antiques étaient comme cela aussi",
                 "Pour que les gardiens les distinguent dans le noir"
               ],
@@ -350,7 +350,7 @@
         "q": "Pourquoi les statues de bronze sont-elles sorties de la mer presque entières ?",
         "answers": [
           "Parce que personne ne les a fondues en mer",
-          "Parce que le bronze ne s’abîme jamais, nulle part",
+          "Parce que le bronze ne s’abîme jamais",
           "Parce qu’on les avait enveloppées dans des peaux de bêtes",
           "Parce qu’elles étaient en or massif à l’intérieur"
         ],
@@ -382,7 +382,7 @@
                 "Parce qu’il est 300 ans plus ancien",
                 "Parce qu’Agamemnon n’était pas roi",
                 "Parce qu’il a été trouvé en Crète et non à Mycènes",
-                "Parce qu’il est en bronze et non en or"
+                "Parce qu’il est en bronze"
               ],
               "explanation": "Le masque a environ 300 ans de plus que l’époque d’Agamemnon. Schliemann voulait tellement trouver les héros qu’il les voyait partout. La datation lui a donné tort plus tard."
             }
@@ -394,7 +394,7 @@
               "q": "Que montrent les deux coupes quand on les met ensemble ?",
               "answers": [
                 "Comment attraper un taureau",
-                "Deux batailles entre des villes",
+                "Deux batailles",
                 "La même scène, vue de deux côtés",
                 "Un mariage et un enterrement"
               ],
@@ -409,7 +409,7 @@
               "answers": [
                 "Avec de l’or dans le bronze",
                 "Peintes au pinceau et au vernis",
-                "Imprimées avec un sceau",
+                "Marquées avec un sceau",
                 "Brûlées sur le métal avec du feu"
               ],
               "explanation": "De minuscules morceaux d’or et d’argent sont enfoncés dans le métal. Cela s’appelle l’incrustation. C’est un travail patient, avec des outils plus fins qu’une aiguille."
@@ -436,7 +436,7 @@
               "q": "Qu’est-ce que le petit cavalier n’a pas ?",
               "answers": [
                 "Ni selle ni étrier",
-                "Un fouet dans la main",
+                "Un fouet",
                 "Une bride sur le cheval",
                 "Des cheveux sur la tête"
               ],
@@ -452,7 +452,7 @@
                 "Des pêcheurs d’éponges",
                 "Des pêcheurs qui jetaient leurs filets",
                 "Des archéologues dans un sous-marin",
-                "Des marins qui ont fait naufrage au même endroit"
+                "Des naufragés"
               ],
               "explanation": "Ils cherchaient des éponges, pas des statues. La plus grande découverte sous-marine de son temps s’est faite par hasard, un jour de travail ordinaire."
             }
@@ -465,7 +465,7 @@
               "answers": [
                 "Il suivait le soleil et la lune",
                 "Il remontait l’eau du fond d’un puits",
-                "Il pesait l’or avec précision",
+                "Il pesait l’or",
                 "Il ouvrait les portes d’un temple tout seul"
               ],
               "explanation": "C’était un ordinateur du ciel fait de roues dentées. Il montrait la position du soleil et de la lune, et il prévoyait même les éclipses. Il ne faisait pas d’opérations ; il te montrait où les astres allaient se trouver."
@@ -586,7 +586,7 @@
                 "Elles en faisaient un cadeau",
                 "Elles les cassaient et les jetaient",
                 "Elles les vendaient au marché",
-                "Elles les peignaient en doré"
+                "Elles les doraient"
               ],
               "explanation": "Elles les laissaient dans un sanctuaire. C’était une façon de dire « une partie de ma vie est finie » avec un objet."
             }
@@ -599,7 +599,7 @@
               "answers": [
                 "Pour passer une ficelle et les tirer",
                 "Pour que l’air s’échappe pendant la cuisson",
-                "Pour qu’on puisse verser de l’eau dedans",
+                "Pour y verser de l’eau",
                 "Pour qu’on puisse les suspendre à un arbre"
               ],
               "explanation": "C’est un jouet à tirer, c’est-à-dire un jouet pour les enfants qui viennent d’apprendre à marcher."
@@ -614,7 +614,7 @@
                 "De ta main, dans un ressort",
                 "D’une petite pile dans le socle",
                 "Du soleil, à travers la peinture",
-                "D’aimants dans les roues"
+                "D’aimants"
               ],
               "explanation": "En remontant, tu serres un ressort. En se desserrant, c’est lui qui fait le travail."
             }
@@ -628,7 +628,7 @@
                 "Parce qu’elles montrent de vraies maisons",
                 "Parce qu’on cachait des lettres à l’intérieur",
                 "Parce que c’étaient toujours des copies de palais",
-                "Parce que la date est écrite en dessous"
+                "Parce que la date est dessous"
               ],
               "explanation": "Elles copient les vraies maisons de leur époque, pièce par pièce. Personne ne fabrique la miniature d’une maison qu’il n’a jamais vue."
             }
@@ -642,7 +642,7 @@
                 "Seulement l’ombre des figures",
                 "Les figures devant le drap",
                 "Des acteurs qui portent des masques",
-                "Un film projeté sur un mur"
+                "Un film sur un mur"
               ],
               "explanation": "La lumière est derrière, les figures au milieu, le drap blanc devant. Tu vois l’ombre, pas l’objet."
             }
@@ -675,7 +675,7 @@
           "Parce que sa roche est bien plus dure",
           "Parce que des gens l’ont bâti avec de la terre et des pierres",
           "Parce qu’un volcan, en dessous, le pousse vers le haut",
-          "Parce que les racines des pins le tiennent en l’air"
+          "Parce que les pins le soulèvent"
         ],
         "explanation": "Le calcaire dur s’use plus lentement. Donne-lui des millions d’années et ce qui est dur est ce qui reste debout, sous la forme d’une colline."
       }
@@ -693,7 +693,7 @@
         "q": "Pour qui le Jardin national a-t-il été planté au départ ?",
         "answers": [
           "Pour la reine Amalia, comme jardin privé",
-          "Pour les soldats, comme terrain d’entraînement",
+          "Pour l’entraînement des soldats",
           "Pour les archéologues, comme chantier de fouilles",
           "Pour les écoles, comme première aire de jeux de la ville"
         ],
@@ -735,7 +735,7 @@
           "Avec des marbres de bâtiments plus anciens",
           "Avec des briques fabriquées exprès pour elle",
           "Avec du bois, peint pour ressembler à de la pierre",
-          "Avec une seule pierre, sculptée sur place"
+          "Avec une seule pierre"
         ],
         "explanation": "On les appelle des spolia : des matériaux réutilisés. C’était moins cher et plus rapide que de tailler du marbre neuf."
       }
@@ -775,7 +775,7 @@
           "Pour que le poisson arrive frais",
           "Parce que la lumière du jour abîme les étals de marbre",
           "Parce que le marché ferme à huit heures du matin",
-          "Parce qu’une loi de 1886 l’oblige"
+          "À cause d’une loi de 1886"
         ],
         "explanation": "Le poisson et la viande voyagent la nuit et doivent être sur l’étal avant que les boutiques ouvrent."
       }
@@ -815,7 +815,7 @@
         "answers": [
           "Il montre où les étoiles seront vraiment",
           "Il projette des films sur un écran plus grand",
-          "Il a des sièges qui bougent avec l’image",
+          "Il a des sièges qui bougent",
           "Il ne montre que des documentaires sur les animaux"
         ],
         "explanation": "Derrière l’image, il y a des calculs. C’est pour cela qu’il peut te montrer le ciel de 1821, ou celui de l’an 3000."

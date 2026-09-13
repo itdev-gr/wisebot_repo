@@ -1,0 +1,593 @@
+{
+  "lang": "de",
+  "cityId": "barcelona",
+  "places": {
+    "barcelona-boqueria": {
+      "name": "Der Markt La Boqueria",
+      "tagline": "An dieser Stelle wird seit 800 Jahren Essen verkauft",
+      "story": "1217 stellten Bauern genau an dieser Stelle Tische vor dem Stadttor auf und verkauften Fleisch. Innerhalb der Mauern war kein Platz, also blieb der Markt draußen und wurde immer größer. Sein Name kommt wahrscheinlich von „boc“, dem katalanischen Wort für Ziegenbock. Jahrhundertelang stand ein Kloster daneben, das Kloster des heiligen Josef, das 1835 abgerissen wurde. An seiner Stelle beschloss die Stadt, einen richtigen Markt zu bauen, und der erste Stein wurde am 19. März 1840 gelegt, am Festtag des Heiligen; deshalb heißt er offiziell Mercat de Sant Josep. 1914 bekam er das große Eisendach, das du heute siehst, und über dem Eingang ein Schild aus buntem Glas. Drinnen verkaufen Hunderte Stände Obst, Säfte in allen Farben, Fisch auf Eis, Süßigkeiten, Nüsse und Jamón, den Schinken, der gesalzen und monatelang zum Trocknen aufgehängt wird. Die Köche der besten Restaurants kaufen hier früh am Morgen ein. Sonntags ist der Markt geschlossen.",
+      "facts": [
+        "Die erste Erwähnung eines Marktes an dieser Stelle stammt von 1217.",
+        "Der erste Stein wurde am 19. März 1840 gelegt, am Tag des heiligen Josef.",
+        "Sein Eisendach stammt von 1914."
+      ],
+      "question": {
+        "q": "Was stand an dieser Stelle, bevor die überdachte Markthalle gebaut wurde?",
+        "answers": [
+          "Ein Kloster",
+          "Ein Burgturm",
+          "Ein Fischerhafen",
+          "Ein Königsgarten"
+        ],
+        "explanation": "Das Kloster des heiligen Josef fiel 1835. Fünf Jahre später, am Tag des Heiligen, wurde der erste Stein des Marktes gelegt, der seinen Namen trägt."
+      }
+    },
+    "barcelona-columbus-monument": {
+      "name": "Das Kolumbusdenkmal",
+      "tagline": "Ein 60 Meter hohes Denkmal mit einem Seefahrer obenauf",
+      "story": "Im Frühjahr 1493 kam Christoph Kolumbus von seiner ersten Fahrt über den Ozean zurück und reiste nach Barcelona, wo König Ferdinand und Königin Isabella ihn empfingen. Er zeigte ihnen Papageien, unbekannte Pflanzen und ein wenig Gold. Seine Rechnung war falsch gewesen: Er dachte, er würde nach Westen segelnd Indien erreichen, und dazwischen lag ein ganzer Erdteil. Seine Fahrten veränderten die Welt, aber für die Menschen, die auf diesem Erdteil schon lebten, war hart, was danach kam, und deshalb streiten heute viele Städte darüber, was sie mit Denkmälern wie diesem machen sollen. Vierhundert Jahre später stellte Barcelona zur Weltausstellung von 1888 dieses Denkmal am unteren Ende der Rambla auf: eine Säule mit einem 7 Meter großen Kolumbus aus Bronze obenauf, zusammen 60 Meter hoch. Acht bronzene Löwen bewachen ihren Sockel, und in ihrem Inneren bringt ein winziger Aufzug die Besucher hinauf auf einen kleinen Balkon unter seinen Füßen. Sein Finger zeigt nach Südosten, aufs offene Meer, wo jede Fahrt beginnt, und nicht nach Amerika, das hinter ihm im Westen liegt.",
+      "facts": [
+        "Es wurde 1888 errichtet, zur Weltausstellung von Barcelona.",
+        "Das Denkmal ist insgesamt 60 Meter hoch, und 7 davon sind der Kolumbus aus Bronze.",
+        "Acht bronzene Löwen bewachen die vier Treppen des Sockels."
+      ],
+      "question": {
+        "q": "Wohin zeigt Kolumbus mit seinem Finger?",
+        "answers": [
+          "Aufs Meer",
+          "Nach Amerika",
+          "Auf die Kathedrale",
+          "Hoch in den Himmel"
+        ],
+        "explanation": "Er zeigt nach Südosten, aufs offene Meer. Amerika liegt in der Gegenrichtung, hinter seinem Rücken."
+      }
+    },
+    "barcelona-cosmocaixa": {
+      "name": "CosmoCaixa",
+      "tagline": "Ein Stück Amazonas in einem Wissenschaftsmuseum",
+      "story": "Das Gebäude am Hang des Tibidabo entstand zwischen 1904 und 1909, entworfen vom Architekten Josep Domènech i Estapà als Heim für blinde Menschen. 1981 wurde ein Wissenschaftsmuseum daraus, und 2004 öffnete es viermal so groß wieder, größtenteils unter der Erde. Du kommst oben herein und gehst eine Rampe hinunter, die sich um einen echten Baum aus dem Amazonas windet, eine über 300 Jahre alte Acariquara, die im Wald von selbst gestorben ist und hierhergebracht wurde. Unten wartet der überflutete Wald: tausend Quadratmeter Amazonas mit mehr als hundert Arten, wo Capybaras und Kaimane zwischen den Pflanzen schwimmen, Piranhas hinter dem Glas zurückstarren, Ameisen geschnittene Blätter tragen und es ab und zu regnet. Etwas weiter steht die Geologische Wand, sieben riesige Platten aus echtem Fels, die zeigen, wie der Planet gemacht wurde, und ein Pendel mit einem langen Draht und einer schweren Kugel, das beweist, dass die Erde sich dreht. Ein Planetarium gibt es auch. Es ist ein Museum, in dem Anfassen erlaubt ist, und für Kinder unter 16 ist der Eintritt frei.",
+      "facts": [
+        "Es öffnete 2004 wieder, in und unter einem Gebäude von 1909.",
+        "Der überflutete Wald hat 1.000 Quadratmeter und mehr als 100 Arten.",
+        "Die Geologische Wand besteht aus sieben großen Platten aus echtem Fels."
+      ],
+      "question": {
+        "q": "Was ist in diesem Museum drin, das du in einer Stadt nicht erwarten würdest?",
+        "answers": [
+          "Ein Stück Regenwald",
+          "Ein Leuchtturm, der noch arbeitet",
+          "Ein zugefrorener See zum Eislaufen",
+          "Ein unterirdischer Bahnhof"
+        ],
+        "explanation": "Tausend Quadratmeter Amazonas, mit echten Tieren, echten Pflanzen und echtem Regen, fünf Stockwerke unter dem Eingang."
+      },
+      "findIt": "Der Eingang liegt am Carrer d’Isaac Newton 26, den Hang hinauf über der Avinguda del Tibidabo.",
+      "museum": {
+        "doorNote": "Der Besuch beginnt oben und geht nach unten. Nimm nicht den Aufzug: Die Rampe ist das erste Ausstellungsstück.",
+        "rooms": {
+          "barcelona-cosmocaixa-the-way-down": {
+            "name": "Der Weg nach unten",
+            "intro": "Das Museum liegt fast ganz unter der Erde, und der Abstieg gehört zum Besuch. Hier triffst du drei Dinge, die in keine Vitrine passen: einen Baum von einem anderen Erdteil, eine Wand aus echten Bergen und eine Kugel, die den ganzen Tag schwingt, um dir zu zeigen, dass der Planet nicht stillsteht."
+          },
+          "barcelona-cosmocaixa-flooded-forest": {
+            "name": "Der überflutete Wald",
+            "intro": "Wenn im Amazonas die Regen kommen, schwillt der Fluss an und der Wald steht monatelang unter Wasser. Fische schwimmen zwischen den Stämmen, und die Tiere lernen, hüfttief im Wasser zu leben. Dieser Saal ist ein Stück von jenem Wald, tausend Quadratmeter davon, mit echter Hitze, echter Feuchtigkeit und Regen, der ab und zu von der Decke fällt."
+          }
+        },
+        "exhibits": {
+          "barcelona-cosmocaixa-acariquara-tree": {
+            "name": "Der Baum an der Rampe",
+            "blurb": "Die Rampe geht fünf Stockwerke hinunter und dreht sich dabei um einen einzigen Stamm. Es ist eine Acariquara, ein Baum aus dem Amazonaswald in Brasilien, über dreihundert Jahre alt. Niemand hat ihn gefällt: Er starb von selbst, an Altersschwäche, und wurde dann über den Ozean getragen, um hier zu stehen. Sein Holz ist so hart, dass man in Brasilien Pfähle daraus macht, die in die Erde kommen und nicht faulen. Beim Hinuntergehen siehst du ihn von der Wurzel bis zur Krone, was in einem Wald unmöglich ist.",
+            "question": {
+              "q": "Wie kam dieser Baum ins Museum?",
+              "answers": [
+                "Er starb von selbst im Wald",
+                "Er wurde gepflanzt, als das Museum öffnete",
+                "Holzfäller fällten ihn für Möbel",
+                "Er ist aus Beton und Farbe gemacht"
+              ],
+              "explanation": "Er ist echt und über 300 Jahre alt. Nachdem er an Altersschwäche gestorben war, wurde er aus Brasilien hergebracht."
+            }
+          },
+          "barcelona-cosmocaixa-foucault-pendulum": {
+            "name": "Das Pendel",
+            "blurb": "Eine schwere Eisenkugel hängt an einem Draht, der länger als vierzig Meter ist, und schwingt langsam hin und her, den ganzen Tag. Rings um sie stehen im Kreis kleine Pfosten. Alle paar Minuten wirft die Kugel einen davon um. Dabei ändert die Kugel selbst nie ihre Richtung: Ein Pendel schwingt immer in derselben Ebene. Was sich dreht, ist der Fußboden, zusammen mit der ganzen Erde. Der französische Physiker Léon Foucault zeigte das 1851 in Paris zum ersten Mal. Daneben ist eine echte Kugel ausgestellt, wie er sie benutzt hat.",
+            "question": {
+              "q": "Warum wirft das Pendel nach und nach alle Pfosten um sich herum um?",
+              "answers": [
+                "Die Erde dreht sich darunter",
+                "Ein Motor dreht es Stück für Stück",
+                "Der Luftzug von der Tür schiebt es",
+                "Sein Draht wickelt sich langsam ab"
+              ],
+              "explanation": "Das Pendel schwingt immer in derselben Ebene. Der Fußboden, die Pfosten und du drehen sich mit dem Planeten."
+            }
+          },
+          "barcelona-cosmocaixa-geological-wall": {
+            "name": "Die Geologische Wand",
+            "blurb": "Sieben riesige Felsstücke, aus echten Bergen und Steinbrüchen geschnitten, stehen in einer Reihe wie die Seiten eines Buches. Jedes erzählt eine andere Geschichte: wie ein Fluss Schicht für Schicht Sand ablegte, wie Hitze und Druck den Stein wie Papier falteten, wie ein Vulkan in einer einzigen Nacht erstarrte. Das Seltsamste ist, dass all das sehr langsam geschah, über Millionen von Jahren, und du es jetzt mit einem Blick siehst. Wenn du die Linien im Fels findest, kannst du die Schichten zählen wie die Ringe eines Baumes.",
+            "question": {
+              "q": "Woraus besteht die Geologische Wand?",
+              "answers": [
+                "Echter Fels",
+                "Bemalter Gips",
+                "Eingefärbter Beton",
+                "Große Fotos"
+              ],
+              "explanation": "Es sind sieben große Platten aus echtem Fels, jede von einem anderen geologischen Vorgang geformt."
+            }
+          },
+          "barcelona-cosmocaixa-capybaras": {
+            "name": "Die Capybaras",
+            "blurb": "Sie sehen aus wie riesige Meerschweinchen, und genau das sind sie: das größte Nagetier der Welt, verwandt mit Mäusen und Hamstern, bis zu sechzig Kilo schwer. Sie leben immer in der Nähe von Wasser. Augen, Ohren und Nasenlöcher sitzen oben auf dem Kopf, damit sie sehen und atmen können, während der Rest des Körpers unter Wasser ist, und zwischen ihren Zehen sind kleine Schwimmhäute, wie bei einer Ente. Sie schwimmen besser, als sie laufen. Im Wald des Museums siehst du sie am Ufer grasen oder langsam durchs Wasser ziehen.",
+            "question": {
+              "q": "Mit welchem Tier ist das Capybara am nächsten verwandt?",
+              "answers": [
+                "Meerschweinchen",
+                "Ein junges Flusspferd",
+                "Ein kleines Wildschwein",
+                "Ein großer Fischotter"
+              ],
+              "explanation": "Es ist ein Nagetier, wie das Meerschweinchen und die Maus, nur dass es so viel wiegt wie ein erwachsener Mensch."
+            }
+          },
+          "barcelona-cosmocaixa-caimans": {
+            "name": "Die Kaimane des Amazonas",
+            "blurb": "Der Kaiman ist der Alligator Südamerikas, ein kleinerer Vetter des Krokodils. Im überfluteten Wald liegt er die meiste Zeit reglos da, nur Augen und Nasenlöcher über dem Wasser, wie ein treibender Baumstamm. Er jagt nicht, indem er hinterherrennt; er wartet. Die Fische, die Frösche und die Vögel kommen von selbst zu ihm. Im Museum siehst du sie von oben, von der Brücke, und von unten durch das Glas, wo der ganze Körper im Wasser hängt und die Beine treiben.",
+            "question": {
+              "q": "Wie jagt ein Kaiman?",
+              "answers": [
+                "Er wartet reglos",
+                "Er rennt am Ufer entlang",
+                "Er klettert auf Bäume",
+                "Er jagt nachts im Rudel"
+              ],
+              "explanation": "Er sieht aus wie ein Baumstamm, und an einen Baumstamm kommt alles nah heran. Das ist der ganze Trick."
+            }
+          },
+          "barcelona-cosmocaixa-piranhas": {
+            "name": "Die Piranhas hinter dem Glas",
+            "blurb": "Unten im Saal, dort wo du den Wald von unter Wasser aus siehst, schwimmen die Piranhas. Sie haben scharfe dreieckige Zähne und einen schlechten Ruf, aber der Ruf ist größer als die Fische: Die meisten sind kleiner als deine Hand und fressen vor allem Fische, Insekten und Früchte, die ins Wasser fallen. Sie leben im Schwarm, nicht um anzugreifen, sondern um vor größeren Tieren sicher zu sein. Neben ihnen ziehen andere Fische des Amazonas vorbei, und wenn du Geduld hast, siehst du einen etwas von der Oberfläche schnappen.",
+            "question": {
+              "q": "Warum schwimmen Piranhas im Schwarm?",
+              "answers": [
+                "Um sich zu schützen",
+                "Um größere Tiere zu jagen",
+                "Allein sehen sie schlecht",
+                "Um sich gemeinsam zu wärmen"
+              ],
+              "explanation": "Ein kleiner Fisch im Schwarm ist schwerer zu fangen. Der Angriff im Rudel ist vor allem eine Geschichte."
+            }
+          },
+          "barcelona-cosmocaixa-leafcutter-ants": {
+            "name": "Die Blattschneiderameisen",
+            "blurb": "Eine Reihe von Ameisen läuft ohne Pause, und jede trägt ein Stück grünes Blatt über dem Kopf wie eine Fahne. Die Blätter fressen sie nicht. Sie schneiden sie mit ihren Kiefern, tragen sie ins Nest, kauen sie zu Brei, und auf diesem Brei ziehen sie einen Pilz. Den fressen sie. Sie sind also Bauern, und sie waren Bauern Millionen Jahre vor den Menschen. Ein Nest kann Millionen Ameisen fassen, jede mit einer anderen Arbeit: Schneider, Träger, Gärtner, Wächter.",
+            "question": {
+              "q": "Was machen die Ameisen mit den Blättern, die sie tragen?",
+              "answers": [
+                "Sie züchten darauf Pilze",
+                "Sie fressen sie nachts im Nest",
+                "Sie bauen daraus das Nestdach",
+                "Sie geben sie der Königin als Bett"
+              ],
+              "explanation": "Die Blätter sind der Kompost. Der Pilz, der darauf wächst, ist das Essen. Sie sind Bauern."
+            }
+          }
+        },
+        "riddles": {
+          "barcelona-cosmocaixa-riddle-1": {
+            "prompt": "Ich schwinge den ganzen Tag hin und her und werde nie müde. Alle paar Minuten werfe ich etwas um, aber schuld bin nicht ich: Ich habe meine Richtung nie geändert. Du hast sie geändert, zusammen mit dem Fußboden.",
+            "hint": "Such nach einer schweren Kugel an einem sehr langen Draht."
+          },
+          "barcelona-cosmocaixa-riddle-2": {
+            "prompt": "Ich bin älter als das Gebäude und bin auf einem anderen Erdteil groß geworden. Ich starb von allein, ohne Axt. Jetzt gehen die Leute fünf Stockwerke lang im Kreis um mich herum, und nur so bekommen sie mich ganz zu sehen.",
+            "hint": "Ich stehe nicht in einer Vitrine. Ich stehe mitten auf der Rampe."
+          },
+          "barcelona-cosmocaixa-riddle-3": {
+            "prompt": "Meine Vettern passen in deine Handfläche, ich wiege so viel wie ein Mensch. Meine Augen sitzen oben auf dem Kopf, damit ich beim Schwimmen sehen kann. Im Laufen bin ich nichts Besonderes. Im Wasser fängst du mich nicht.",
+            "hint": "Such am Ufer des Waldes ein Tier mit eckiger Schnauze."
+          }
+        }
+      }
+    },
+    "barcelona-cathedral": {
+      "name": "Die Kathedrale von Barcelona",
+      "tagline": "Dreizehn Gänse leben in ihrem Garten",
+      "story": "Die Bauleute begannen diese Kirche 1298 und arbeiteten etwa 150 Jahre daran, mit hohen Bögen und schlanken Säulen, in dem Stil, den wir gotisch nennen; der Kreuzgang, ihr überdachter Garten, war 1448 fertig. Die Front mit den spitzen Türmen ist allerdings viel neuer: Sie entstand zwischen 1887 und 1913, nach Zeichnungen, die seit 1408 in einer Schublade gewartet hatten. Die Kirche ist der heiligen Eulàlia geweiht, einem Mädchen aus Barcelona, das zur Römerzeit lebte, vor ungefähr 1.700 Jahren. Sie war dreizehn, als sie sich weigerte, ihren Glauben aufzugeben, und dafür starb sie. Ihr Grab liegt in der Krypta unter dem Altar. Deshalb leben dreizehn weiße Gänse im Kreuzgang, eine für jedes Jahr ihres Lebens; sie sind ausgezeichnete Wächter, denn sie schnattern laut, sobald ein Fremder näher kommt. Einen Tag im Jahr, am Fronleichnamsfest, tanzt eine leere Eierschale auf dem Strahl des Gartenbrunnens, ein Brauch, den man seit dem 16. Jahrhundert hält. Und sonntags fassen sich die Leute auf dem Platz davor an den Händen und tanzen die Sardana, den Tanz Kataloniens.",
+      "facts": [
+        "Der Bau begann 1298, und der Kreuzgang war 1448 fertig.",
+        "Die Front mit den spitzen Türmen stammt von 1887–1913, nach einer Zeichnung von 1408.",
+        "Dreizehn Gänse leben im Kreuzgang, eine für jedes Lebensjahr der heiligen Eulàlia."
+      ],
+      "question": {
+        "q": "Warum sind es genau dreizehn Gänse im Kreuzgang?",
+        "answers": [
+          "Eine für jedes Lebensjahr",
+          "Eine für jede Glocke im Turm",
+          "Eine für jede Kapelle im Kreuzgang",
+          "Eine für jedes alte Stadttor"
+        ],
+        "explanation": "Die heilige Eulàlia war dreizehn Jahre alt. Die Gänse zählen ihre Jahre und bewachen nebenbei den Garten."
+      }
+    },
+    "barcelona-arc-de-triomf": {
+      "name": "Arc de Triomf",
+      "tagline": "Ein Tor für ein Fest, nicht für ein Heer",
+      "story": "1888 feierte Barcelona ein riesiges Fest: die Weltausstellung, auf der Länder aus aller Welt ihre neuesten Maschinen und Erfindungen zeigten. Das Fest fand im Ciutadella-Park statt, wo früher eine riesige Festung gestanden hatte, nach 1714 von König Philipp V. gebaut, um eine Stadt zu bewachen, die gegen ihn gekämpft hatte; die Bürger mochten sie nie, und im 19. Jahrhundert rissen sie sie ab, damit ein Park daraus wurde. Dieser Bogen war die Eingangstür der Ausstellung. Der Architekt Josep Vilaseca wählte keinen weißen Marmor wie bei den Bögen der Römer, sondern roten Backstein und Muster wie in den arabischen Palästen Spaniens. Er ist fast 30 Meter hoch. Vorn zeigt ein steinernes Relief, wie Barcelona die Nationen empfängt, oben stehen das Wappen der Stadt und die Wappen der Provinzen Spaniens, und in die Pfeiler sind kleine Fledermäuse gemeißelt, ein altes Glückszeichen von König Jaume I. Als die Ausstellung vorbei war, blieb der Bogen stehen, als Andenken an ein Fest. Er ist ein Denkmal nicht für Schlachten, sondern für Ideen.",
+      "facts": [
+        "Er wurde 1888 als Haupteingang der Weltausstellung gebaut.",
+        "Er ist aus rotem Backstein und fast 30 Meter hoch.",
+        "In seine Pfeiler sind Fledermäuse gemeißelt, ein Zeichen von König Jaume I."
+      ],
+      "question": {
+        "q": "Wofür wurde dieser Bogen gebaut?",
+        "answers": [
+          "Als Tor einer Ausstellung",
+          "Als Denkmal für eine große Schlacht",
+          "Als Tor in der alten Stadtmauer",
+          "Als Brücke für eine Eisenbahnlinie"
+        ],
+        "explanation": "Die meisten Triumphbögen feiern Siege im Krieg. Dieser feierte Erfindungen: Er war die Eingangstür der Weltausstellung von 1888."
+      }
+    },
+    "barcelona-museu-maritim": {
+      "name": "Das Schifffahrtsmuseum, in den Drassanes",
+      "tagline": "Eine mittelalterliche Schiffsfabrik mit einer 60-Meter-Galeere darin",
+      "story": "Die Drassanes Reials, die Königlichen Werften, wurden ab dem 13. Jahrhundert am Strand vor den Mauern gebaut, am Fuß des Montjuïc. Dort bauten die Könige von Aragón ihre Kriegsgaleeren. Es ist ein riesiges Steingebäude aus langen Hallen und spitzen Bögen, und damals reichte das Meer bis an seine Tore, sodass neue Schiffe direkt ins Wasser glitten. Viele Galeeren entstanden gleichzeitig, eine neben der anderen. 1568 kam von hier die Königsgaleere, das Schiff von Don Juan de Austria in der Seeschlacht von Lepanto 1571. Seit 1941 ist das Gebäude ein Museum, und 1971, zum vierhundertsten Jahrestag der Schlacht, wurde darin eine Kopie der Galeere in Originalgröße gebaut: 60 Meter lang, 59 Ruder, 236 Ruderer. Die meisten dieser Ruderer waren nicht freiwillig dort; es waren Gefangene und versklavte Männer, an die Bänke gekettet. Eine Galeere war etwas Schönes und etwas Schreckliches zugleich. Ein Stück weiter, im Hafen, hält das Museum außerdem ein echtes Segelschiff, die Santa Eulàlia von 1918, die noch immer zur See fährt.",
+      "facts": [
+        "Die Werft stammt aus dem 13. Jahrhundert und ist seit 1941 ein Museum.",
+        "Die Kopie der Königsgaleere ist 60 Meter lang, hat 59 Ruder und Plätze für 236 Ruderer.",
+        "Der Schoner Santa Eulàlia wurde 1918 gebaut und fährt noch immer."
+      ],
+      "question": {
+        "q": "Warum wurde die Werft direkt an den Strand gebaut?",
+        "answers": [
+          "Damit Schiffe ins Wasser glitten",
+          "Weil der Stein am Meer billiger war",
+          "Weil der König direkt am Strand wohnte",
+          "Damit Matrosen im Sand schlafen konnten"
+        ],
+        "explanation": "Eine 60 Meter lange Galeere kann man nicht tragen. Man baut sie dort, wo sie schwimmen wird, mit dem Meer vor der Tür."
+      },
+      "findIt": "Der Eingang liegt an der Avinguda de les Drassanes, am Hafenende der Rambla, neben der Kolumbussäule; Metro Drassanes.",
+      "museum": {
+        "doorNote": "Das Gebäude ist das erste Ausstellungsstück: Schau dir die Bögen an, bevor du dir die Schiffe anschaust.",
+        "rooms": {
+          "barcelona-museu-maritim-the-naves": {
+            "name": "Die großen Hallen",
+            "intro": "Die Werft ist eine Reihe langer Steinhallen, hoch genug für ein Schiff mit aufgestellten Masten. Hier sägten, hämmerten und teerten die Handwerker, und hier stehen heute eine Galeere, ein U-Boot aus Olivenholz und die Bögen selbst, die sie seit siebenhundert Jahren überdachen."
+          },
+          "barcelona-museu-maritim-faces-of-ships": {
+            "name": "Die Gesichter der Schiffe",
+            "intro": "Jahrhundertelang hatte jedes Segelschiff ein hölzernes Gesicht am Bug, die Galionsfigur: eine Frau, einen Löwen, einen Heiligen. Die Seeleute glaubten, das Schiff sehe damit. Das Museum hat vierzehn davon, und daneben ein ganzes Schiff, das seine eigene noch trägt."
+          }
+        },
+        "exhibits": {
+          "barcelona-museu-maritim-royal-galley": {
+            "name": "Die Königsgaleere",
+            "blurb": "Sie füllt eine ganze Halle: 60 Meter lang, 59 Ruder und Plätze für 236 Ruderer, vier an jedem Ruder. Ihr Heck ist geschnitzt und vergoldet wie ein Palast. Die echte Galeere wurde hier 1568 gebaut und war das Flaggschiff von Don Juan de Austria in der Seeschlacht von Lepanto am 7. Oktober 1571. Die, die du siehst, ist eine Kopie, zwischen 1968 und 1971 zum vierhundertsten Jahrestag der Schlacht entstanden, aus Holz, Metall, Stoff und Farbe. Sie hat das Meer nie berührt. Die Ruderer der echten waren meist Gefangene, an ihre Bänke gekettet.",
+            "question": {
+              "q": "Wie viele Menschen zogen die Ruder der echten Galeere?",
+              "answers": [
+                "236 Männer",
+                "36 Männer",
+                "1.000 Männer",
+                "59 Männer"
+              ],
+              "explanation": "Zweihundertsechsunddreißig Menschen, vier an jedem der 59 Ruder."
+            }
+          },
+          "barcelona-museu-maritim-gothic-arches": {
+            "name": "Die Bögen der Werft",
+            "blurb": "Schau nach oben. Die spitzen Steinbögen, die das Dach tragen, stammen aus dem 14. Jahrhundert, als die Werft die Form bekam, die sie heute hat. Die ersten Hallen wurden 1378 am Meer gebaut, acht weitere weiter landeinwärts, und im 17. Jahrhundert kamen noch drei dazu. Es ist keine Kirche, auch wenn es so aussieht: Es ist eine Fabrik, so hoch gebaut, dass ein ganzes Schiff hineinpasst. Jede Halle war ein Fließband, mit einer Galeere, die in ihrer Mitte wuchs. Es ist die besterhaltene mittelalterliche Werft, die es gibt.",
+            "question": {
+              "q": "Warum wurden die Hallen so hoch gebaut?",
+              "answers": [
+                "Damit ein Schiff hineinpasste",
+                "Damit der Gesang besser hallte",
+                "Damit Schiffe sie von weitem sahen",
+                "Damit die Sommerhitze draußen blieb"
+              ],
+              "explanation": "Es sieht aus wie eine Kirche, ist aber eine Fabrik. Die Höhe verlangten die Masten."
+            }
+          },
+          "barcelona-museu-maritim-ictineo-model": {
+            "name": "Das Ictíneo, das Fischschiff",
+            "blurb": "1859 ließ ein katalanischer Erfinder, Narcís Monturiol, im Hafen von Barcelona eines der ersten U-Boote der Welt zu Wasser. Er nannte es Ictíneo, „Fischschiff“. Es war 7 Meter lang, hatte zwei Rümpfe, einen im anderen, aus Olivenholzplanken mit Kupfer beschlagen, und fünf Menschen fanden darin Platz. Monturiol baute es nicht für den Krieg: Er wollte die Taucher schützen, die Korallen holten und dabei ertranken. Das Museum hat sein Modell davon, aus Holz und Metall, aus jener Zeit. Eine Kopie in Originalgröße stand bis 2023 im Garten, dann hatte das Wetter sie zerfressen und sie musste abgebaut werden.",
+            "question": {
+              "q": "Wofür baute Monturiol sein U-Boot?",
+              "answers": [
+                "Um Taucher zu schützen",
+                "Um feindliche Schiffe zu versenken",
+                "Um versunkene Schätze zu suchen",
+                "Um ein Wettrennen im Hafen zu gewinnen"
+              ],
+              "explanation": "Taucher, die Korallen holten, ertranken. Monturiol wollte sie sicher nach unten bringen."
+            }
+          },
+          "barcelona-museu-maritim-blanca-aurora": {
+            "name": "Die Galionsfigur der Blanca Aurora",
+            "blurb": "Eine junge Frau aus bemaltem Holz, 1848 von Francesc Pascual Granés geschnitzt, einem Bildhauer aus Lloret de Mar, für den Bug der Korvette Blanca Aurora, die im selben Jahr gebaut wurde. Der Reeder und Kapitän des Schiffes, Silvestre Parés, hatte seine Tochter Maria sehr jung verloren. Man erzählt, er habe die Galionsfigur mit ihrem Gesicht schnitzen lassen, um sie immer vor sich zu haben, und behielt das Recht, sie zurückzunehmen. Das Schiff wechselte den Besitzer und endete sein Leben in Rio de Janeiro. Da holte Parés die Galionsfigur zurück und brachte sie heim nach Katalonien.",
+            "question": {
+              "q": "Wen zeigt diese Galionsfigur, wie man erzählt?",
+              "answers": [
+                "Die Tochter des Kapitäns",
+                "Die damalige Königin von Spanien",
+                "Die heilige Eulàlia von Barcelona",
+                "Die Frau des Bildhauers, der sie schnitzte"
+              ],
+              "explanation": "Maria Parés starb jung. Ihr Vater setzte sie an den Bug seines Schiffes, und als das Schiff zu Ende war, holte er sie nach Hause."
+            }
+          },
+          "barcelona-museu-maritim-el-ninot": {
+            "name": "El Ninot, die Galionsfigur eines Kindes",
+            "blurb": "Ein Junge aus bemaltem Holz, aus dem 19. Jahrhundert, mit einem Papier in der Hand: dem Diplom eines Lotsenlehrlings. Einst schmückte er den Bug eines Schiffes. Später nahm man ihn ab und hängte ihn vor eine Taverne in der Carrer de València, und die Leute begannen zu sagen „gehen wir zum Ninot“, zur Puppe. Die Taverne wurde so bekannt, dass das Viertel, das um sie herum wuchs, den Namen übernahm, und eine städtische Markthalle dort heißt bis heute Mercat del Ninot, mit einer Kopie von ihm am Eingang. Das Original ist hier.",
+            "question": {
+              "q": "Was wurde nach dieser Galionsfigur benannt?",
+              "answers": [
+                "Ein Viertel und sein Markt",
+                "Eine Station der städtischen Metro",
+                "Ein Schlepper, der im Hafen arbeitet",
+                "Die Fußballmannschaft des Hafens"
+              ],
+              "explanation": "Sie hing vor einer Taverne. Die Taverne wurde berühmt, und das Viertel ringsum nahm den Namen der Puppe an."
+            }
+          },
+          "barcelona-museu-maritim-santa-eulalia": {
+            "name": "Die Santa Eulàlia",
+            "blurb": "Ein paar Minuten zu Fuß vom Museum, am Kai Moll de la Fusta, liegt ein Segelschiff mit drei Masten. Es wurde 1918 in Torrevieja gebaut, unter dem Namen Carmen Flores, um Fracht durch das Mittelmeer zu fahren. In fast achtzig Arbeitsjahren wechselte es viermal den Namen, bekam einen Motor und endete als Begleitschiff für Taucher. 1997 kaufte das Museum es auf einer Auktion und brachte es in die Form zurück, die es bei seiner ersten Fahrt hatte. Du besuchst es vom Deck aus, außer an den Tagen, an denen es weg ist: Es setzt noch immer Segel.",
+            "question": {
+              "q": "Wie kam das Museum zu diesem Schiff?",
+              "answers": [
+                "Es kaufte es auf einer Auktion",
+                "Es baute es selbst in der Werft",
+                "Es fand es gesunken im Hafen liegen",
+                "Der König von Spanien schenkte es ihm"
+              ],
+              "explanation": "1997, als es ein müdes Begleitschiff für Taucher war. Seine Restaurierung war die erste ihrer Art in Spanien."
+            }
+          }
+        },
+        "riddles": {
+          "barcelona-museu-maritim-riddle-1": {
+            "prompt": "Ich bin sechzig Meter lang und habe neunundfünfzig Ruder, aber ich habe das Meer nie berührt. Ich bin die Kopie eines Schiffes, das vor vierhundertfünfzig Jahren kämpfte, und mein Heck glänzt wie ein Palast.",
+            "hint": "Ich fülle eine ganze Halle ganz allein."
+          },
+          "barcelona-museu-maritim-riddle-2": {
+            "prompt": "Ich bin geformt wie ein Fisch und aus Olivenholz, das in Kupfer gekleidet ist. Fünf Menschen passen in mich, und ich gehe hinunter, wohin sich andere nicht trauen. Man baute mich nicht, um jemanden zu versenken, sondern damit niemand ertrinkt.",
+            "hint": "Mein Erfinder tauchte mich 1859 zum ersten Mal im Hafen von Barcelona."
+          },
+          "barcelona-museu-maritim-riddle-3": {
+            "prompt": "Ich bin ein Mädchen aus Holz, und mein Vater stellte mich ganz vorn an sein Schiff, damit er mich sehen konnte. Ich reiste bis nach Brasilien und kam zurück, mein Schiff aber blieb für immer dort.",
+            "hint": "Suche ein Gesicht, das das Meer immer als Erstes sah."
+          }
+        }
+      }
+    },
+    "barcelona-tibidabo": {
+      "name": "Der Vergnügungspark Tibidabo",
+      "tagline": "Ein Vergnügungspark über der Stadt, seit 1901",
+      "story": "Der Tibidabo ist der höchste Gipfel der Hügel hinter Barcelona, 512 Meter, und von dort oben siehst du die ganze Stadt bis zum Meer. Am 29. Oktober 1901 eröffnete die erste Standseilbahn Spaniens, um die Leute nach oben zu bringen, und mit ihr eröffnete der Vergnügungspark: Er ist der älteste Spaniens und einer der ältesten Europas. Das Seltsame ist, dass die alten Fahrgeschäfte noch laufen. Die Luftbahn von 1915 hängt über dem Abgrund. Die Talaia, ein 50 Meter hoher Metallturm von 1921, hebt dich in einer Kabine auf 551 Meter über dem Meer. Und das Avió von 1928 ist ein rotes Flugzeug, eine Kopie von dem, das den ersten Flug Barcelona–Madrid machte, und es dreht sich am Ende eines Arms über dem Nichts. Es gibt ein Museum voller Automaten, mechanischer Spielzeuge aus den frühen 1900er-Jahren, die für eine Münze lebendig werden, und neben dem Park steht eine Kirche mit einer Statue auf ihrer Spitze. Seit 2021 fährt eine neue Standseilbahn hinauf, die Cuca de Llum, das Glühwürmchen, in vier Minuten.",
+      "facts": [
+        "Er eröffnete am 29. Oktober 1901, zusammen mit der ersten Standseilbahn Spaniens.",
+        "Das Avió, das Flugzeug, fliegt seit 1928 im Kreis.",
+        "Der Gipfel des Tibidabo ist 512 Meter hoch."
+      ],
+      "question": {
+        "q": "Was kopiert das Avió, das Fahrgeschäft, das über dem Abgrund kreist?",
+        "answers": [
+          "Ein altes Flugzeug",
+          "Eine Rakete aus einem Film",
+          "Den ersten Hubschrauber Spaniens",
+          "Einen Ballon aus dem 19. Jahrhundert"
+        ],
+        "explanation": "Es ist eine Kopie des Flugzeugs, das den ersten Flug Barcelona–Madrid machte. Es fliegt seit 1928, immer im Kreis."
+      },
+      "findIt": "Nimm die Standseilbahn Cuca de Llum von der Plaça del Doctor Andreu; in vier Minuten setzt sie dich am Parktor ab."
+    },
+    "barcelona-sagrada-familia": {
+      "name": "Die Sagrada Família",
+      "tagline": "Die Kirche, die seit 144 Jahren gebaut wird",
+      "story": "Der Bau dieser Kirche begann 1882, und ein Jahr später übernahm ihn ein junger Architekt: Antoni Gaudí. Er legte die alten Pläne beiseite und entwarf etwas, das noch niemand gesehen hatte: achtzehn Türme, Säulen, die sich oben teilen wie die Äste eines Baumes, und Fenster, die den Innenraum mit farbigem Licht füllen. Gaudí arbeitete dreiundvierzig Jahre hier. Er wusste, dass er sie nicht fertig sehen würde, und wenn man ihn danach fragte, sagte er, sein Auftraggeber habe es nicht eilig. 1926 starb er, nachdem ihn eine Straßenbahn angefahren hatte, und damals waren nur eine Fassade und ein Turm fertig. Seitdem bauen die Handwerker weiter, bezahlt von den Eintrittskarten der Besucher und von Spenden. Im Herbst 2025 übertraf sie die höchste Kirche Deutschlands und wurde die höchste Kirche der Welt; im Februar 2026, hundert Jahre nach Gaudís Tod, kam das letzte Stück des Kreuzes hinauf, und der Turm Jesu Christi erreichte seine vollen 172,5 Meter. Diese Höhe wählte Gaudí mit Absicht: Sie liegt ein wenig unter dem Montjuïc, dem Hügel neben der Stadt, weil er glaubte, ein Gebäude dürfe nicht höher stehen als das, was die Natur gemacht hat.",
+      "facts": [
+        "Der Bau begann 1882. Gaudí übernahm ihn 1883 und arbeitete 43 Jahre hier.",
+        "Der Turm Jesu Christi wurde im Februar 2026 fertig: 172,5 Meter, die höchste Kirche der Welt.",
+        "Gaudí selbst ist in der Krypta unter der Kirche begraben."
+      ],
+      "question": {
+        "q": "Warum ist der höchste Turm genau 172,5 Meter hoch und nicht höher?",
+        "answers": [
+          "Damit der Montjuïc höher bleibt",
+          "Weil der Boden nicht mehr Gewicht tragen konnte",
+          "Weil die Stadt höhere Türme verbot",
+          "Weil Gaudí das Geld für den Stein ausging"
+        ],
+        "explanation": "Gaudí glaubte, ein Werk von Menschen dürfe nicht höher stehen als das, was die Natur gemacht hat. Der Montjuïc ist ein wenig höher, und dort hörte er auf."
+      },
+      "findIt": "Der Eingang für Besucher ist am Carrer de la Marina, vor der Geburtsfassade, der Seite voller Figuren."
+    },
+    "barcelona-casa-batllo": {
+      "name": "Casa Batlló",
+      "tagline": "Ein Haus mit einem Drachenrücken als Dach",
+      "story": "1904 bat ein reicher Textilfabrikant, Josep Batlló, Gaudí darum, aus seinem gewöhnlichen Haus mit der Nummer 43 am Passeig de Gràcia das auffälligste der ganzen Straße zu machen. Gaudí riss es nicht ab. Er verwandelte es. Die Fassade kleidete er in Stücke aus zerbrochenen Kacheln und Glas, die in der Sonne glitzern, eine Technik, die trencadís heißt. Um die Fenster setzte er Säulen wie Knochen, auf die Balkone Masken aus Eisen, und obendrauf ein Dach aus Keramikschuppen, das sich wellt wie ein Drachenrücken. Der kleine Turm mit dem Kreuz ist die Lanze des heiligen Georg, des Schutzpatrons von Katalonien, der in der Sage einen Drachen besiegte. Innen ist der Lichthof oben dunkelblau gekachelt und wird nach unten hin immer heller, und die Fenster werden in den unteren Stockwerken größer, damit jedes Stockwerk gleich viel Licht bekommt. 1906 war das Haus fertig. Die Nachbarn hatten andere berühmte Architekten beauftragt, und der Häuserblock bekam den Namen „Block der Zwietracht“, weil seine Häuser in nichts miteinander übereinstimmen.",
+      "facts": [
+        "Gaudí verwandelte es von 1904 bis 1906; neu gebaut hat er es nicht.",
+        "Es ist seit 2005 Weltkulturerbe der UNESCO.",
+        "Die Kacheln im Lichthof sind oben dunkelblau und unten fast weiß."
+      ],
+      "question": {
+        "q": "Warum werden die Kacheln im Lichthof nach unten hin heller?",
+        "answers": [
+          "Damit jedes Stockwerk gleich hell ist",
+          "Weil die blaue Farbe auf halbem Weg ausging",
+          "Damit das Haus vom Dach aus tiefer wirkt",
+          "Weil die unteren Stockwerke billiger waren"
+        ],
+        "explanation": "Oben fällt viel Licht herein, also halten dunkle Kacheln es zurück. Unten kommt wenig an, und helle Kacheln und größere Fenster holen alles daraus."
+      },
+      "findIt": "Die Tür ist am Passeig de Gràcia, Nummer 43. Stell dich auf den Gehweg gegenüber, um das ganze Dach zu sehen."
+    },
+    "barcelona-casa-mila": {
+      "name": "Casa Milà, „La Pedrera“",
+      "tagline": "Das Gebäude, über das die Stadt lachte und es Steinbruch nannte",
+      "story": "Pere Milà und seine Frau Roser wollten ein Haus, das alle anstarren würden. Von 1906 bis 1912 baute Gaudí es ihnen an der Ecke Passeig de Gràcia und Carrer de Provença: ein Gebäude aus Stein, das sich wellt wie ein Fels, den die Wellen abgeleckt haben, mit Balkonen aus Eisen wie verheddertes Seegras. Sein Geheimnis steckt innen. Das Gebäude steht auf einem Eisenskelett, und die steinerne Fassade hängt daran wie ein Vorhang und trägt gar nichts. Deshalb konnten die Bewohner die Wände ihrer Zimmer verschieben. Im Untergeschoss lag eine der ersten Garagen der Stadt, zu einer Zeit, als Autos noch selten waren. Der Dachboden ruht auf 270 Ziegelbögen, die aussehen wie die Rippen eines Wals, und auf dem Dach stehen 28 Schornsteine wie Wächter mit Helmen; die Leute hier nennen sie „Hexenschrecks“. Am Anfang lachten die Barcelonesen und nannten es La Pedrera, „der Steinbruch“. Der Name blieb, und heute sagen sie ihn mit Stolz. Es war das letzte Haus, das Gaudí gebaut hat; danach arbeitete er nur noch an der Sagrada Família.",
+      "facts": [
+        "Gebaut von 1906 bis 1912, und seit 1984 Weltkulturerbe der UNESCO.",
+        "Der Dachboden ruht auf 270 Ziegelbögen.",
+        "Auf dem Dach stehen achtundzwanzig Schornsteine, die „Hexenschrecks“."
+      ],
+      "question": {
+        "q": "Was trägt das Gebäude?",
+        "answers": [
+          "Ein Eisenskelett",
+          "Dicke Mauern aus Stein",
+          "Hölzerne Dachbalken",
+          "Die Häuser nebenan"
+        ],
+        "explanation": "Die steinerne Fassade hängt am Eisenskelett wie ein Vorhang. Deshalb konnten die Wände drinnen den Platz wechseln."
+      },
+      "findIt": "Der Eingang für Besucher ist am Carrer de Provença, Nummer 261, gleich um die Ecke vom Passeig de Gràcia."
+    },
+    "barcelona-font-de-canaletes": {
+      "name": "Font de Canaletes, an der Rambla",
+      "tagline": "Der Brunnen, der verspricht, dass du wiederkommst",
+      "story": "Die Rambla ist die Promenade, die von der Plaça de Catalunya hinunter zum Hafen führt, 1,2 Kilometer unter Platanen, vorbei an Blumenständen, Kiosken und einem großen Opernhaus, dem Liceu. Vor Jahrhunderten floss hier, draußen vor der Stadtmauer, ein Bach, der nur Wasser hatte, wenn es regnete; die Araber nannten ihn „ramla“, sandiges Flussbett. Vor ungefähr 250 Jahren deckte die Stadt ihn zu und pflanzte Bäume. In Wirklichkeit sind es fünf Promenaden hintereinander, deshalb sagen die Leute hier „Les Rambles“, in der Mehrzahl. Ganz oben steht ein kleiner Brunnen aus Eisen mit vier Hähnen und einer Laterne darauf, gemacht 1892. Seinen Namen hat er von der mittelalterlichen Stadtmauer, in der kleine Kanäle liefen, „canaletes“, die das Wasser der Stadt trugen. Eine Tafel im Gehweg sagt, dass jeder, der hier trinkt, nach Barcelona zurückkommt. Und seit den 1930er-Jahren feiern die Fans des FC Barcelona hier jeden Sieg: Eine Sportzeitung hatte nebenan ihre Büros und schrieb die Ergebnisse mit Kreide auf eine Tafel, und die Leute kamen zusammen, um sie zu erfahren.",
+      "facts": [
+        "Der heutige Brunnen wurde 1892 gebaut.",
+        "Die Rambla ist ungefähr 1,2 Kilometer lang, von der Plaça de Catalunya bis zum Hafen.",
+        "Die Fans des FC Barcelona feiern hier seit den 1930er-Jahren."
+      ],
+      "question": {
+        "q": "Warum begannen die Fans, sich an diesem Brunnen zu treffen?",
+        "answers": [
+          "Eine Zeitung schrieb hier die Ergebnisse",
+          "Hier stand das erste Stadion der Mannschaft",
+          "Die Spieler tranken vor den Spielen daraus",
+          "Der Gründer des Vereins wohnte im Haus nebenan"
+        ],
+        "explanation": "Vor dem Radio erfuhr man den Spielstand dort, wo ihn jemand anschrieb. Die Zeitung zog weg, die Gewohnheit blieb."
+      }
+    },
+    "barcelona-placa-reial": {
+      "name": "Plaça Reial",
+      "tagline": "Hier fing Gaudí an, mit zwei Laternen",
+      "story": "Hier stand einmal ein Kapuzinerkloster mit einem großen Garten. 1835 wurde es abgerissen, und die Stadt beschloss, an seiner Stelle einen prächtigen Platz zu bauen, rundherum mit Arkaden, wie auf den Plätzen in Frankreich. Entworfen hat ihn der Architekt Francesc Daniel Molina, Mitte des 19. Jahrhunderts. Man pflanzte hohe Palmen, und in die Mitte kam ein Brunnen mit den drei Grazien, den Göttinnen der Schönheit und der Freude aus der griechischen Mythologie. Im März 1878 bekam ein junger Architekturstudent, Antoni Gaudí, 25 Jahre alt, seinen ersten Auftrag von der Stadt, zwei Monate bevor er überhaupt sein Diplom hatte: zwei Laternen mit je sechs Armen. Obenauf setzte er einen geflügelten Helm und zwei Schlangen, die sich um einen Stab winden, die Zeichen des Hermes, des Gottes der Händler und der Reisenden, denn von beiden war der Platz voll. Heute gibt es unter den Arkaden Cafés und Restaurants, sonntagmorgens tauschen Sammler Briefmarken und Münzen, und im September, beim Fest der Mercè, füllt sich der Platz mit Konzerten. Jeder fängt irgendwo an. Gaudí fing mit einer Laterne an.",
+      "facts": [
+        "Wo der Platz ist, stand ein Kapuzinerkloster; 1835 wurde es abgerissen.",
+        "Die zwei Laternen sind Gaudís erster öffentlicher Auftrag, 1878, bevor er überhaupt sein Diplom hatte.",
+        "Der Brunnen in der Mitte zeigt die drei Grazien."
+      ],
+      "question": {
+        "q": "Was war Gaudís allererster Auftrag für die Stadt?",
+        "answers": [
+          "Zwei Laternen",
+          "Ein Trinkbrunnen",
+          "Eine Reihe Parkbänke",
+          "Der Garten mit den Palmen"
+        ],
+        "explanation": "Er war 25, und sein Diplom kam zwei Monate später. Der geflügelte Helm oben gehört Hermes."
+      }
+    },
+    "barcelona-park-guell": {
+      "name": "Park Güell",
+      "tagline": "Ein Viertel, das niemand kaufte, und daraus wurde ein Park",
+      "story": "Um 1900 kaufte Eusebi Güell, ein reicher Geschäftsmann und Gaudís bester Freund, einen kahlen Hügel mit Blick aufs Meer und bat ihn, ein Viertel aus sechzig Grundstücken zu entwerfen, mit Häusern in Gärten, wie in den englischen Gartenstädten; deshalb schreibt man „Park“, auf Englisch. Von 1900 bis 1914 baute Gaudí Wege und Brücken auf schrägen Steinsäulen wie Baumstämme, eine Halle mit 86 Säulen, die der Markt werden sollte, und darüber eine große Terrasse mit einer wellenförmigen Bank von 110 Metern, die er zusammen mit seinem Mitarbeiter Josep Maria Jujol mit zerbrochenen Kacheln bekleidete. Auf der Treppe wartet eine Eidechse aus Mosaik, die alle „den Drachen“ nennen. Die Terrasse ist auch eine Maschine: Das Regenwasser sickert durch ihren Sand, läuft innen durch die hohlen Säulen hinunter und sammelt sich in einem unterirdischen Becken von 1.200 Kubikmetern. Wenn das Becken voll ist, kommt das überschüssige Wasser aus dem Maul des Drachen. Verkauft wurden aber nur zwei Häuser: Der Hügel lag weit draußen und war steil. In einem davon wohnte Gaudí selbst ab 1906. 1926 machte die Stadt daraus einen öffentlichen Park, und seit 1984 ist er Weltkulturerbe der UNESCO.",
+      "facts": [
+        "Der Plan hatte 60 Grundstücke. Verkauft wurden nur zwei.",
+        "Die Halle, die der Markt werden sollte, hat 86 Säulen.",
+        "1926 wurde er öffentlicher Park und 1984 Weltkulturerbe der UNESCO."
+      ],
+      "question": {
+        "q": "Was kommt aus dem Maul des Drachen, wenn es stark regnet?",
+        "answers": [
+          "Wasser aus einem Becken",
+          "Rauch aus einem versteckten Schornstein",
+          "Sand, der von der Terrasse gespült wird",
+          "Nichts, es ist nur eine Figur"
+        ],
+        "explanation": "Die Terrasse sammelt den Regen, die hohlen Säulen bringen ihn hinunter, und das Becken darunter fasst 1.200 Kubikmeter. Der Drache ist der Überlauf."
+      },
+      "findIt": "Der Park hat mehrere Tore. Für den Bereich mit dem Drachen sind die einfachsten am Carrer de Larrard und an der Avinguda del Santuari de Sant Josep de la Muntanya, wo Rolltreppen den Hügel hinauffahren."
+    },
+    "barcelona-camp-nou": {
+      "name": "Camp Nou",
+      "tagline": "Europas größtes Stadion, das rund um sein eigenes Spielfeld neu gebaut wird",
+      "story": "Der Name heißt auf Katalanisch einfach „neues Feld“, denn als es am 24. September 1957 öffnete, ersetzte es den alten Platz des FC Barcelona ein paar Straßen weiter. Damals passten mehr als hunderttausend Zuschauer hinein, und jahrzehntelang war es das größte Stadion Europas. Im Juni 2023 zog die Mannschaft aus, damit das Stadion fast von Grund auf neu gebaut werden konnte: Das Spielfeld blieb, die unteren Ränge blieben, und ringsherum wuchsen neue Ränge mit einem Dach. Am 22. November 2025 kam Barcelona nach Hause, mit ungefähr 45.000 offenen Plätzen und Kränen, die noch arbeiteten. Wenn es 2027 fertig ist, passen fast 105.000 Menschen hinein, mehr als in jedes andere Stadion Europas. Das Museum des Vereins, drinnen im Stadion, hat mehr als eine Million Besucher im Jahr und ist eines der meistbesuchten in Katalonien. Seit 2022 trägt das Stadion auch den Namen eines Sponsors. Und wenn die Mannschaft etwas Großes gewinnt, bleiben die Fans nicht hier: Sie gehen hinunter zum Brunnen von Canaletes an der Rambla.",
+      "facts": [
+        "Es öffnete am 24. September 1957.",
+        "Im November 2025 öffnete es halb fertig wieder; fertig gebaut passen fast 105.000 Menschen hinein.",
+        "Das Vereinsmuseum hat mehr als eine Million Besucher im Jahr."
+      ],
+      "question": {
+        "q": "Was bedeutet „Camp Nou“ auf Katalanisch?",
+        "answers": [
+          "Neues Feld",
+          "Großes Stadion",
+          "Feld der Träume",
+          "Heim der Meister"
+        ],
+        "explanation": "1957 war es „neu“, verglichen mit dem alten Platz in Les Corts. Der Name blieb, auch jetzt, wo es siebzig Jahre alt ist."
+      }
+    },
+    "barcelona-zoo": {
+      "name": "Der Zoo von Barcelona",
+      "tagline": "Hier lebte 37 Jahre lang der einzige weiße Gorilla",
+      "story": "Der Zoo öffnete am 24. September 1892, am Tag der Mercè, dem Fest der Stadt, als ein reicher Barcelonese, Lluís Martí i Codolar, der Stadt die Tiersammlung schenkte, die er auf seinem Gut hielt. Untergebracht wurden sie im Park der Ciutadella, wo der Zoo noch heute liegt, auf dreizehn Hektar. Das berühmteste Tier, das je hier gelebt hat, war ein Gorilla. 1966 brachte man ihn als Jungtier aus Äquatorialguinea, mit weißem Fell und blauen Augen: Er war ein Albino, der einzige weiße Gorilla, den je jemand gesehen hat. Man nannte ihn Floquet de Neu, Schneeflocke. Er lebte hier bis 2003, wurde Vater von 21 Jungen, alle mit gewöhnlichem dunklem Fell, und jahrzehntelang war er das Gesicht der Stadt. 2018 beschloss die Stadt, dass Barcelona keine Delfine mehr hält, und im Sommer 2020 flogen die letzten drei in einen Zoo in Athen, denn ein Becken ist viel zu klein für Tiere, die hundert Kilometer am Tag schwimmen. Heute gibt es hier eine Savanne mit Giraffen, Löwen und Elefanten, eines der größten Reptilienhäuser Europas, und man arbeitet daran, bedrohte Tiere in die Natur zurückzubringen.",
+      "facts": [
+        "Er öffnete am 24. September 1892, am Fest der Mercè.",
+        "Floquet de Neu, der einzige bekannte weiße Gorilla, lebte hier von 1966 bis 2003.",
+        "Die letzten Delfine gingen 2020, nachdem die Stadt 2018 beschlossen hatte, keine mehr zu halten."
+      ],
+      "question": {
+        "q": "Was machte Floquet de Neu anders als jeden anderen Gorilla?",
+        "answers": [
+          "Er war weiß",
+          "Er konnte zählen",
+          "Er wurde hier geboren",
+          "Er war doppelt so groß"
+        ],
+        "explanation": "Er war ein Albino: Sein Körper machte keinen Farbstoff. Seine 21 Kinder waren alle dunkel, wie jeder andere Gorilla."
+      },
+      "findIt": "Du gehst durch den Parc de la Ciutadella hinein: Der Eingang des Zoos liegt am Rand des Parks, zur Meerseite hin."
+    },
+    "barcelona-aquarium": {
+      "name": "L’Aquàrium de Barcelona",
+      "tagline": "Lauf unter Haien durch einen 80 Meter langen Tunnel",
+      "story": "Das Aquarium öffnete am 8. September 1995 im alten Hafen, auf einer Mole, die du über einen Holzsteg erreichst. Es hat ungefähr fünfunddreißig Becken mit elftausend Tieren aus vierhundertfünfzig Arten, und die meisten kommen aus dem Meer direkt vor der Tür, dem Mittelmeer: Kraken, die sich zwischen Steinen verstecken, Muränen, die aus Löchern schauen, Seepferdchen, die sich mit dem Schwanz festhalten. Das Herzstück ist das Ozeanarium, ein rundes Becken von 36 Metern Durchmesser und fünf Metern Tiefe, mit ungefähr vier Millionen Litern Wasser. Mitten hindurch führt ein Glastunnel von mehr als achtzig Metern, und während du ihn durchquerst, ziehen über deinem Kopf zwei Haiarten vorbei, dazu Rochen, Zackenbarsche, Doraden und einer der seltsamsten Fische des Meeres, der Mondfisch, der aussieht wie ein riesiger Kopf ohne Körper. Die Haie sehen furchterregend aus und sind es nicht: Sie fressen Fische, keine Menschen, und sie schwimmen ohne Pause, weil sie so atmen. Jedes Jahr pflegt das Aquarium außerdem Meeresschildkröten, die draußen im Meer verletzt wurden.",
+      "facts": [
+        "Es öffnete am 8. September 1995, im alten Hafen.",
+        "Der Tunnel durch das Ozeanarium ist mehr als 80 Meter lang.",
+        "Es hat ungefähr 35 Becken mit 11.000 Tieren aus 450 Arten."
+      ],
+      "question": {
+        "q": "Aus welchem Meer kommen die meisten Tiere des Aquariums?",
+        "answers": [
+          "Aus dem Mittelmeer",
+          "Aus der Karibik, bei Kuba",
+          "Aus dem Roten Meer, bei Ägypten",
+          "Aus dem Pazifik, bei Japan"
+        ],
+        "explanation": "Es ist das Meer direkt vor der Tür. Für Arten des Mittelmeers ist dieses Aquarium das größte in Europa."
+      },
+      "findIt": "Es liegt an der Mole Moll d’Espanya im alten Hafen: Geh über den Holzsteg, der neben der Kolumbussäule beginnt."
+    }
+  },
+  "trails": {
+    "barcelona-first-time": {
+      "name": "Zum ersten Mal in Barcelona",
+      "promise": "Drei Gebäude von Gaudí, der berühmteste Spaziergang Spaniens, ein Markt und dreizehn Gänse."
+    },
+    "barcelona-two-hours-down-la-rambla": {
+      "name": "Zwei Stunden die Rambla hinunter",
+      "promise": "Vom Brunnen oben bis zum Seefahrer auf seiner Säule, alles zu Fuß, alles bergab."
+    },
+    "barcelona-rainy-day": {
+      "name": "Ein Regentag",
+      "promise": "Ein Wald, in dem es mit Absicht regnet, eine Galeere unter steinernen Bögen, Haie über deinem Kopf und ein Stadion mit Museum."
+    },
+    "barcelona-up-high-and-down-by-the-park": {
+      "name": "Oben auf den Hügeln, unten im Park",
+      "promise": "Zwei Hügel mit Blick aufs Meer, ein Tor für ein Fest und ein weißer Gorilla, an den sich alle erinnern."
+    }
+  }
+}

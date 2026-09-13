@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" role="img" aria-label="Stylised map of Berlin">
+  <title>Berlin — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/germany.ts
+    (north 52.547, south 52.486, east 13.462, west 13.222) so that place pins can be
+    projected onto it rather than positioned by hand. The strip is wide because the
+    Olympiastadion sits eight kilometres west of the centre. The Spree, the Museum
+    Island, the Tiergarten, the Landwehrkanal, the Volkspark in the north-east and the
+    woods in the west are placed from those bounds; nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3efe6" />
+      <stop offset="1" stop-color="#e6e0d0" />
+    </linearGradient>
+    <linearGradient id="water" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#8fc3d6" />
+      <stop offset="1" stop-color="#a9d2e0" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dcd3bf" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="500" fill="url(#ground)" />
+  <rect width="1200" height="500" fill="url(#grid)" opacity="0.5" />
+
+  <!-- The woods in the west, where the city runs out into pine forest. -->
+  <path
+    d="M0 150 C 90 140, 190 175, 235 235 C 270 300, 240 400, 180 470 C 130 500, 40 500, 0 500 Z"
+    fill="#cddfba"
+    stroke="#a9bd92"
+    stroke-width="2"
+  />
+
+  <!-- The Olympiapark, on the western edge. -->
+  <ellipse cx="87" cy="265" rx="52" ry="34" fill="#dbe7c6" stroke="#a9bd92" stroke-width="2" />
+
+  <!-- The Tiergarten, the old royal hunting forest in the middle of the city. -->
+  <rect x="565" y="221" width="200" height="99" rx="46" fill="#cfe0bd" stroke="#a9bd92" stroke-width="2" />
+
+  <!-- The Spree, entering from the south-east and leaving to the west. -->
+  <path
+    d="M1200 405 C 1150 380, 1120 362, 1060 350 C 990 336, 940 285, 900 236 C 860 190, 810 214, 760 228 C 640 262, 520 238, 400 218 C 260 195, 120 200, 0 196"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="17"
+    stroke-linecap="round"
+  />
+
+  <!-- The second channel of the Spree, the one that makes the Museumsinsel an island. -->
+  <path
+    d="M934 247 C 910 268, 866 264, 846 236"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="11"
+    stroke-linecap="round"
+  />
+
+  <!-- The Museumsinsel, the island in the Spree that carries five museums. -->
+  <ellipse cx="890" cy="232" rx="34" ry="15" fill="#eee6d4" stroke="#b6a684" stroke-width="2" />
+
+  <!-- The Landwehrkanal, which leaves the Spree in the west and rejoins it in the east. -->
+  <path
+    d="M636 253 C 620 300, 700 356, 800 372 C 900 388, 1000 380, 1074 356"
+    fill="none"
+    stroke="#b6d6e2"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+
+  <!-- The Volkspark in the north-east, the city's oldest public park. -->
+  <ellipse cx="1052" cy="153" rx="58" ry="34" fill="#dbe7c6" stroke="#a9bd92" stroke-width="2" />
+
+  <g fill="#7d6c4c" font-family="Georgia, 'Times New Roman', serif">
+    <text x="665" y="277" font-size="19" text-anchor="middle" letter-spacing="3">TIERGARTEN</text>
+    <text x="890" y="236" font-size="11" text-anchor="middle" letter-spacing="1">ΤΟ ΝΗΣΙ</text>
+    <text x="105" y="450" font-size="17" text-anchor="middle" letter-spacing="3">ΔΑΣΟΣ</text>
+    <text x="1052" y="158" font-size="15" text-anchor="middle" letter-spacing="2">ΠΑΡΚΟ</text>
+    <text x="40" y="66" font-size="38" letter-spacing="5">ΒΕΡΟΛΙΝΟ</text>
+    <text x="40" y="96" font-size="19" letter-spacing="4">BERLIN</text>
+  </g>
+
+  <text
+    x="450"
+    y="205"
+    font-size="16"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+    transform="rotate(-5 450 205)"
+  >ΣΠΡΕΕ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(1142 70)" stroke="#7d6c4c" fill="#7d6c4c">
+    <circle r="24" fill="none" stroke-width="2" />
+    <path d="M0 -20 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-28" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

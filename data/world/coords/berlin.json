@@ -1,0 +1,547 @@
+{
+  "city": "berlin",
+  "resolvedAt": "2026-09-12T23:47:29.863Z",
+  "centre": {
+    "lat": 52.51667,
+    "lng": 13.38333
+  },
+  "places": [
+    {
+      "id": "berlin-brandenburg-gate",
+      "name": "Brandenburger Tor",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q82425",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Brandenburg Gate",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 52.51627,
+      "lng": 13.37772,
+      "labels": {
+        "es": "Puerta de Brandeburgo",
+        "el": "Πύλη του Βρανδεμβούργου",
+        "fr": "porte de Brandebourg",
+        "it": "Porta di Brandeburgo",
+        "de": "Brandenburger Tor",
+        "en": "Brandenburg Gate"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-reichstag",
+      "name": "Reichstagsgebäude",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q151897",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Reichstag building",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 52.51861,
+      "lng": 13.37611,
+      "labels": {
+        "es": "Edificio del Reichstag",
+        "el": "Κτήριο του Ράιχσταγκ",
+        "fr": "palais du Reichstag",
+        "it": "Palazzo del Reichstag",
+        "de": "Reichstagsgebäude",
+        "en": "Reichstag"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-victory-column",
+      "name": "Siegessäule",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q154987",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/718035022",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Berlin Victory Column",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [],
+      "lat": 52.51451,
+      "lng": 13.35011,
+      "labels": {
+        "fr": "colonne de la Victoire",
+        "es": "Columna de la victoria",
+        "it": "Colonna della Vittoria",
+        "de": "Berliner Siegessäule",
+        "en": "Siegessäule",
+        "el": "Στήλη Νίκης του Βερολίνου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-potsdamer-platz",
+      "name": "Potsdamer Platz",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q152252",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Potsdamer Platz",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 52.50894,
+      "lng": 13.37633,
+      "labels": {
+        "fr": "Potsdamer Platz",
+        "es": "Potsdamer Platz",
+        "it": "Potsdamer Platz",
+        "de": "Potsdamer Platz",
+        "en": "Potsdamer Platz"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-checkpoint-charlie",
+      "name": "Checkpoint Charlie",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q68689",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/417346627",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Checkpoint Charlie",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.5075,
+      "lng": 13.39028,
+      "labels": {
+        "fr": "Checkpoint Charlie",
+        "es": "Checkpoint Charlie",
+        "it": "Checkpoint Charlie",
+        "de": "Checkpoint Charlie",
+        "en": "Checkpoint Charlie",
+        "el": "Σημείο ελέγχου Τσάρλι"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-gendarmenmarkt",
+      "name": "Gendarmenmarkt",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q170103",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/844740667",
+          "deltaM": 33
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Gendarmenmarkt",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.51361,
+      "lng": 13.39278,
+      "labels": {
+        "fr": "Gendarmenmarkt",
+        "en": "Gendarmenmarkt",
+        "es": "Gendarmenmarkt",
+        "it": "Gendarmenmarkt",
+        "de": "Gendarmenmarkt"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-berliner-dom",
+      "name": "Berliner Dom",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q154563",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/313670734",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Berlin Cathedral",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.51917,
+      "lng": 13.40111,
+      "labels": {
+        "fr": "Berliner Dom",
+        "es": "Catedral de Berlín",
+        "it": "duomo di Berlino",
+        "de": "Berliner Dom",
+        "en": "Berlin Cathedral",
+        "el": "Καθεδρικός Ναός του Βερολίνου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-fernsehturm",
+      "name": "Berliner Fernsehturm",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q151356",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/556435241",
+          "deltaM": 2
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Fernsehturm Berlin",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.52083,
+      "lng": 13.40944,
+      "labels": {
+        "fr": "Fernsehturm de Berlin",
+        "es": "Torre de televisión de Berlin",
+        "it": "torre della televisione di Berlino",
+        "de": "Berliner Fernsehturm",
+        "el": "Τηλεοπτικός πύργος Βερολίνου",
+        "en": "Fernsehturm Berlin"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-nikolaiviertel",
+      "name": "Nikolaiviertel",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q703927",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/312391532",
+          "deltaM": 53
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Nikolaiviertel",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.51667,
+      "lng": 13.40722,
+      "labels": {
+        "fr": "Nikolaiviertel",
+        "en": "Nikolaiviertel",
+        "it": "Nikolaiviertel",
+        "de": "Nikolaiviertel"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-east-side-gallery",
+      "name": "East Side Gallery",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q313746",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/6807791",
+          "deltaM": 404
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 52.50306,
+      "lng": 13.44472,
+      "labels": {
+        "fr": "East Side Gallery",
+        "es": "East Side Gallery",
+        "en": "East Side Gallery",
+        "it": "East Side Gallery",
+        "de": "East Side Gallery"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-neues-museum",
+      "name": "Neues Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q157316",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/18578139",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Neues Museum",
+          "deltaM": 41
+        }
+      ],
+      "warnings": [],
+      "lat": 52.5202,
+      "lng": 13.3976,
+      "labels": {
+        "fr": "Neues Museum",
+        "es": "Neues Museum",
+        "it": "Neues Museum",
+        "de": "Neues Museum",
+        "en": "Neues Museum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-naturkundemuseum",
+      "name": "Museum für Naturkunde",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q233098",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/538692583",
+          "deltaM": 33
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museum für Naturkunde Berlin",
+          "deltaM": 28
+        }
+      ],
+      "warnings": [],
+      "lat": 52.5302,
+      "lng": 13.3792,
+      "labels": {
+        "en": "Museum für Naturkunde - Leibniz Institute for Evolution and Biodiversity Science",
+        "de": "Museum für Naturkunde Berlin",
+        "fr": "musée d'histoire naturelle de Berlin",
+        "it": "Museum für Naturkunde Berlin",
+        "es": "Museo de Ciencias Naturales de Berlín",
+        "el": "Μουσείο Φυσικής Ιστορίας του Βερολίνου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-technikmuseum",
+      "name": "Deutsches Technikmuseum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q706530",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/31622818",
+          "deltaM": 170
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "German Museum of Technology",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm is 170 m away — outlier, check by eye"
+      ],
+      "lat": 52.49861,
+      "lng": 13.3775,
+      "labels": {
+        "de": "Deutsches Technikmuseum",
+        "fr": "musée allemand des techniques de Berlin",
+        "en": "German Museum of Technology",
+        "it": "Deutsches Technikmuseum Berlin"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-olympiastadion",
+      "name": "Olympiastadion Berlin",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q151374",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/38862723",
+          "deltaM": 36
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Olympiastadion (Berlin)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.51472,
+      "lng": 13.23944,
+      "labels": {
+        "fr": "stade olympique de Berlin",
+        "es": "Estadio Olímpico de Berlín",
+        "it": "Stadio Olimpico",
+        "de": "Olympiastadion Berlin",
+        "el": "Ολυμπιακό Στάδιο Βερολίνου",
+        "en": "Berlin Olympic Stadium"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-markthalle-neun",
+      "name": "Markthalle IX",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1226563",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/9503840",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 52.5022,
+      "lng": 13.4315,
+      "labels": {
+        "de": "Markthalle IX",
+        "fr": "Markthalle Neun",
+        "en": "Markthalle IX"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    },
+    {
+      "id": "berlin-zoo",
+      "name": "Zoologischer Garten Berlin",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q154828",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/9393789",
+          "deltaM": 131
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Berlin Zoo",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 52.50833,
+      "lng": 13.3375,
+      "labels": {
+        "fr": "jardin zoologique de Berlin",
+        "es": "Jardín zoológico de Berlín",
+        "it": "Zoologischer Garten",
+        "de": "Zoologischer Garten Berlin",
+        "en": "Berlin Zoological Garden",
+        "el": "Ζωολογικός κήπος Βερολίνου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
+    }
+  ],
+  "problems": []
+}

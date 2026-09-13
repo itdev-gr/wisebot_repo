@@ -1,0 +1,748 @@
+{
+  "lang": "de",
+  "cityId": "istanbul",
+  "places": {
+    "istanbul-hippodrome": {
+      "name": "Das Hippodrom (Sultanahmet-Platz)",
+      "tagline": "Die Rennbahn, auf der eine ganze Stadt für die Blauen oder die Grünen schrie",
+      "story": "Unter den Steinplatten dieses langen Platzes liegt eine Rennbahn von ungefähr 450 Metern. Kaiser Konstantin machte sie vor etwa 1.700 Jahren größer, als er die Stadt zu seiner neuen Hauptstadt machte, und an Renntagen drängten sich etwa hunderttausend Menschen auf den Rängen. Wagen mit vier Pferden donnerten sieben Runden lang dahin, während die Menge für ihre Mannschaft brüllte, für die Blauen oder die Grünen, so wie die Leute heute für ihren Fußballverein schreien. Die Kaiser schmückten die Mitte der Bahn mit Schätzen aus ihrer ganzen Welt, und drei davon stehen noch. Der Obelisk aus rosa Granit wurde vor ungefähr 3.500 Jahren in Ägypten für einen Pharao gemeißelt; Theodosius ließ ihn im Jahr 390 hierherschiffen, und seine Arbeiter brauchten 32 Tage, um ihn wieder aufzurichten. Die gedrehte grüne Bronzesäule ist für Griechen noch besonderer: Sie wurde gegossen, nachdem die griechischen Städte die Perser bei Plataiai besiegt hatten, 479 v. Chr., und sie stand fast 800 Jahre in Delphi, bevor Konstantin sie hierherbrachte. Ihre drei Schlangenköpfe fielen in einer Nacht des Jahres 1700 ab; ein Kiefer liegt im Museum unten am Hang.",
+      "facts": [
+        "Die Ränge fassten ungefähr 100.000 Zuschauer.",
+        "Der Obelisk wurde um 1450 v. Chr. für Pharao Thutmosis III. gemeißelt und 390 n. Chr. hier wieder aufgestellt.",
+        "Die Köpfe der Schlangensäule fielen in der Nacht des 20. Oktober 1700 ab; ein Kiefer ist in den Archäologischen Museen erhalten.",
+        "Das letzte Wagenrennen, von dem wir wissen, fand im Jahr 1200 statt."
+      ],
+      "question": {
+        "q": "Wo stand die gedrehte Bronzesäule, bevor sie hierherkam?",
+        "answers": [
+          "In Delphi",
+          "In Olympia",
+          "In Athen",
+          "In Sparta"
+        ],
+        "explanation": "Die griechischen Städte machten sie aus den Waffen der besiegten Perser und schenkten sie Apollon in Delphi. Konstantin holte sie, um seine neue Hauptstadt zu schmücken."
+      }
+    },
+    "istanbul-archaeology-museums": {
+      "name": "Archäologische Museen Istanbul",
+      "tagline": "Eine Million Objekte und der älteste Friedensvertrag der Welt",
+      "story": "Das erste Museum der Türkei begann 1869 in einer alten byzantinischen Kirche, die die Osmanen als Waffenlager benutzt hatten. 1881 übernahm ein Maler und Archäologe, Osman Hamdi Bey, und änderte alles. 1887 grub er in Sidon, im heutigen Libanon, und fand die Gräber seiner Könige: Särge aus Marmor, so groß und so schön, dass das Museum ein neues Haus brauchte, um sie unterzubringen. Das Hauptgebäude öffnete am 13. Juni 1891, und seine Vorderseite kopiert den berühmtesten von ihnen, den Alexandersarkophag. Heute sind es drei Museen in einem, mit mehr als einer Million Objekten: das Hauptgebäude, das Museum des Alten Orients und der Fliesenpavillon von 1472, eines der ältesten osmanischen Gebäude der Stadt, das nie eine Moschee war. In einer Vitrine liegt der älteste Friedensvertrag, der irgendwo erhalten ist, auf einer Tontafel; eine Kopie davon hängt bei den Vereinten Nationen. Ein Stück weiter der Kiefer einer Bronzeschlange aus dem Hippodrom und ein Sarkophag von 32 Tonnen, den 1901 Wasserbüffel bis hierher schleppten.",
+      "facts": [
+        "Es begann 1869 als Kaiserliches Museum, das erste Museum der Türkei.",
+        "Das Hauptgebäude öffnete am 13. Juni 1891, und seine Fassade kopiert den Alexandersarkophag.",
+        "Es bewahrt über eine Million Objekte auf.",
+        "Der Fliesenpavillon von 1472 ist eines der ältesten osmanischen Gebäude der Stadt, das nie eine Moschee war."
+      ],
+      "question": {
+        "q": "Was kopierte der Architekt für die Vorderseite des Hauptgebäudes?",
+        "answers": [
+          "Einen Sarkophag",
+          "Den Parthenon in Athen",
+          "Das Kaisertor des Palasts",
+          "Eine Bank in Paris"
+        ],
+        "explanation": "Der Alexandersarkophag hat die Form eines kleinen Tempels. Der Architekt Alexander Vallaury gab ihm ein Gebäude mit demselben Gesicht."
+      },
+      "findIt": "Der Eingang liegt an der Steigung Osman Hamdi Bey, die am Tor des Gülhane-Parks an der Alemdar Caddesi beginnt.",
+      "museum": {
+        "doorNote": "Montags geschlossen. Die Sarkophage aus Sidon stehen im Hauptgebäude, die Tontafeln im kleineren Gebäude gegenüber.",
+        "rooms": {
+          "istanbul-archaeology-museums-stone-coffins": {
+            "name": "Die großen Steinsärge",
+            "intro": "Ein Sarkophag ist ein Sarg aus Stein, und die Könige von Sidon wollten ihre eigenen wie kleine Tempel gemeißelt haben. Osman Hamdi Bey brachte sie 1887 mit dem Schiff hierher, und das Museum wurde um sie herum gebaut. Schau genau hin: Bei manchen ist die Farbe noch da, zweieinhalbtausend Jahre später."
+          },
+          "istanbul-archaeology-museums-small-things": {
+            "name": "Kleine Dinge, die die Welt verändert haben",
+            "intro": "Im Museum des Alten Orients passen die wichtigsten Stücke in deine Hand. Es sind Tafeln aus gebranntem Ton, vor viertausend Jahren mit keilförmigen Zeichen beschrieben: Gesetze, Verträge, sogar ein Lied. Daneben Tiere aus glänzenden Ziegeln und der Kiefer einer Schlange aus dem Hippodrom."
+          }
+        },
+        "exhibits": {
+          "istanbul-archaeology-museums-alexander-sarcophagus": {
+            "name": "Der Alexandersarkophag",
+            "blurb": "Ein Sarg aus pentelischem Marmor, kurz nach 332 v. Chr. in der Form eines kleinen griechischen Tempels gemeißelt. Auf der einen langen Seite kämpft Alexander der Große zu Pferd, mit einem Löwenfell auf dem Kopf, gegen die Perser in der Schlacht bei Issos; auf der anderen jagen Makedonen und Perser gemeinsam Löwen. Er trägt Alexanders Namen, aber ihm gehörte er nie: Wahrscheinlich wurde er für Abdalonymos gemacht, den König, den Alexander in Sidon einsetzte. Als er 1887 aus der Erde kam, hatten die Soldaten noch ihre Farben, und ein wenig von dieser Farbe ist immer noch zu sehen.",
+            "question": {
+              "q": "Wer lag wahrscheinlich in diesem Sarkophag?",
+              "answers": [
+                "Ein König von Sidon",
+                "Alexander der Große selbst",
+                "Ein persischer General",
+                "Ein römischer Kaiser"
+              ],
+              "explanation": "Abdalonymos war ein Gärtner, den Alexander zum König machte. Der Sarg zeigt seinen Freund, nicht ihn selbst."
+            }
+          },
+          "istanbul-archaeology-museums-tabnit-sarcophagus": {
+            "name": "Der Sarkophag des Königs Tabnit",
+            "blurb": "Ein schwarzer Sarkophag in der Form eines Menschen, zuerst in Ägypten für einen Feldherrn gemacht, wie seine Hieroglyphen sagen. Die Phönizier von Sidon nahmen ihn und legten um 500 v. Chr. ihren König Tabnit hinein, und darunter meißelten sie eine zweite Inschrift in ihrer eigenen Sprache: einen Fluch für jeden, der ihn öffnet. 1887 öffneten die Arbeiter ihn trotzdem. Drinnen schwamm der König, fast unversehrt, in einer seltsamen Flüssigkeit. Während Osman Hamdi Bey beim Mittagessen war, kippten sie den Sarg um und schütteten die Flüssigkeit in den Sand. Ihr Geheimnis war für immer verloren.",
+            "question": {
+              "q": "Was geschah mit der Flüssigkeit, die den König bewahrt hatte?",
+              "answers": [
+                "Sie wurde ausgeschüttet",
+                "Sie wurde an Ärzte verkauft",
+                "Sie steht hier in einer Flasche",
+                "Sie verdunstete in der Sonne"
+              ],
+              "explanation": "Die Arbeiter schütteten sie aus, bevor jemand sie untersuchen konnte. Hamdi Bey behielt nur ein wenig Schlamm vom Boden."
+            }
+          },
+          "istanbul-archaeology-museums-sidamara-sarcophagus": {
+            "name": "Der Sidamara-Sarkophag",
+            "blurb": "Der schwerste Sarkophag der Welt: 32 Tonnen römischer Marmor aus dem 3. Jahrhundert n. Chr., gemeißelt mit Säulen, Bögen und ganzen Figuren, wie die Vorderseite eines Theaters. Auf dem Deckel liegen der Tote und seine Frau. Ein englischer Offizier entdeckte ihn 1882 in einem Dorf in Anatolien, aber er war so schwer, dass der Offizier ihn wieder vergrub. Ein Dorfbewohner fand ihn 1898 noch einmal, und 1901 brachte man ihn mit Wasserbüffeln und eigens gebauten Eisenbahnwagen hierher. Der Engländer hatte einen kleinen Eroskopf aus seinem Schmuck mitgenommen; ein Londoner Museum schickte ihn 2020 zurück, und der Kopf kam wieder an seinen Platz.",
+            "question": {
+              "q": "Warum vergrub der Mann, der ihn 1882 fand, ihn wieder?",
+              "answers": [
+                "Der Sarg war zu schwer",
+                "Er hatte Angst vor dem Fluch",
+                "Er versteckte ihn vor Dieben",
+                "Die Dorfleute jagten ihn fort"
+              ],
+              "explanation": "Zweiunddreißig Tonnen bewegt kein Karren. Es brauchte zwanzig Jahre, Wasserbüffel und einen Zug."
+            }
+          },
+          "istanbul-archaeology-museums-kadesh-treaty": {
+            "name": "Der Friedensvertrag von Kadesch",
+            "blurb": "Um 1259 v. Chr. versprachen Pharao Ramses II. und der Hethiterkönig Hattusili III., die bei Kadesch gegeneinander gekämpft hatten, wie Brüder zu leben und einander zu helfen. Die Abmachung wurde auf silberne Tafeln geschrieben, die verloren sind, aber beide Seiten behielten Kopien: die Ägypter an den Wänden ihrer Tempel, die Hethiter auf Tontafeln. 1906 fanden Archäologen sie in den Ruinen der Hethiterhauptstadt in Anatolien. Zwei der drei sind hier. Es ist der älteste Friedensvertrag, der erhalten ist, und eine große Kopie davon hängt an einer Wand der Vereinten Nationen in New York.",
+            "question": {
+              "q": "Wo hängt heute eine große Kopie dieses Vertrags?",
+              "answers": [
+                "Bei der UNO",
+                "In Kairo, bei den Pyramiden",
+                "In der Schatzkammer des Topkapı",
+                "Im Parlament in Ankara"
+              ],
+              "explanation": "Die Länder der Welt wählten das älteste Friedensversprechen für die Wand ihres Hauses in New York."
+            }
+          },
+          "istanbul-archaeology-museums-tablet-2461": {
+            "name": "Die Tontafel Istanbul 2461",
+            "blurb": "Eine kleine Tafel aus Ton, so groß wie eine Handfläche, vor ungefähr viertausend Jahren auf Sumerisch beschrieben, in der Stadt Nippur. Sie wurde unter Zehntausenden anderen gefunden und schlief in einer Schublade des Museums, bis der Forscher Samuel Kramer sie 1951 herausnahm, um zu sehen, was darauf steht. Es war ein Gedicht: Eine Braut singt dem König Schu-Sin, wie sehr sie ihn liebt. Kramer schrieb, er habe es wieder und wieder gelesen und nicht glauben können, dass er eines der ältesten Liebeslieder in den Händen hält, die je ein Mensch aufgeschrieben hat. Und sie hatte nicht einmal eine eigene Vitrine.",
+            "question": {
+              "q": "Wo lag die Tafel, als Kramer sie 1951 entdeckte?",
+              "answers": [
+                "In einer Schublade",
+                "In einem Grab vergraben",
+                "In der Bibliothek des Palasts",
+                "Auf dem Meeresgrund"
+              ],
+              "explanation": "Das Museum hatte 74.000 Tafeln. Die schönste wartete still in ihrer Schublade, bis jemand kam, der sie las."
+            }
+          },
+          "istanbul-archaeology-museums-serpent-head": {
+            "name": "Der Kiefer der Bronzeschlange",
+            "blurb": "Im Hippodrom steht eine gedrehte Bronzesäule aus drei ineinander verschlungenen Schlangen, gegossen von den Griechen nach ihrem Sieg bei Plataiai 479 v. Chr. Ihre drei Köpfe trugen einst einen goldenen Dreifuß in Delphi. In dieser Stadt blieben sie mehr als tausend Jahre an ihrem Platz, und die Osmanen glaubten, sie schützten die Stadt vor Schlangen. Ein Kiefer fehlt seit dem 16. Jahrhundert; man erzählt, ein Sultan habe ihn abgeschlagen, um seine Kraft zu zeigen. In der Nacht des 20. Oktober 1700 fielen die Köpfe alle zusammen herunter. Dieses Stück, der Oberkiefer von einem davon, ist alles, was gefunden wurde.",
+            "question": {
+              "q": "Was trugen die drei Köpfe, als die Säule in Delphi stand?",
+              "answers": [
+                "Einen goldenen Dreifuß",
+                "Eine Statue des Apollon",
+                "Eine Lampe, die nie ausging",
+                "Einen Kessel voll Wasser"
+              ],
+              "explanation": "Der goldene Dreifuß war schon Jahrhunderte weg, bevor die Säule Delphi verließ; die Bronze darunter blieb."
+            }
+          },
+          "istanbul-archaeology-museums-ishtar-animals": {
+            "name": "Die Tiere des Ischtar-Tors",
+            "blurb": "Löwen, Stiere und Drachen aus glasierten Ziegeln, in tiefem Blau, Gelb und Weiß. Sie schmückten das Ischtar-Tor und die große Prozessionsstraße von Babylon, die König Nebukadnezar II. vor ungefähr 2.600 Jahren bauen ließ, im heutigen Irak. Jedes Tier besteht aus vielen Ziegeln, jeder einzeln gebrannt und bemalt, die an der Wand zusammenpassen mussten wie ein Puzzle. Deutsche Archäologen gruben sie am Anfang des 20. Jahrhunderts aus und teilten die Funde mit dem Museum hier. Der Drache, mit dem Kopf einer Schlange und den Beinen eines Löwen und eines Adlers, war das Tier des Gottes Marduk.",
+            "question": {
+              "q": "Woraus sind diese Tiere gemacht?",
+              "answers": [
+                "Aus glasierten Ziegeln",
+                "Aus bemaltem Marmor",
+                "Aus gegossener Bronze",
+                "Aus geschnitztem Zedernholz"
+              ],
+              "explanation": "Jeder Ziegel wurde mit seinem Stück Tier gebrannt und dann mit glasiger Farbe überzogen. Deshalb glänzen sie noch heute."
+            }
+          }
+        },
+        "riddles": {
+          "istanbul-archaeology-museums-riddle-1": {
+            "prompt": "Man hat mich nach einem berühmten König benannt, aber er hat nie in mir gelegen. An meinen Seiten kämpfen bemalte Soldaten und jagen Löwen, und ein wenig von meiner Farbe hält sich noch, zweitausenddreihundert Jahre später.",
+            "hint": "Das Gebäude um dich herum hat mein Gesicht kopiert."
+          },
+          "istanbul-archaeology-museums-riddle-2": {
+            "prompt": "Ich bin eine kleine Platte aus gebranntem Ton, mit Zeichen wie kleine Keile. Auf mir haben zwei Könige, die gegeneinander gekämpft hatten, versprochen, für immer Brüder zu sein, und eine Kopie von mir hängt dort, wo sich die Nationen der Welt treffen.",
+            "hint": "Such im Gebäude mit den Tontafeln, nicht in dem mit den Särgen."
+          },
+          "istanbul-archaeology-museums-riddle-3": {
+            "prompt": "Ich habe in einer Schublade geschlafen, zwischen Tausenden wie mir, bis ein Forscher mich gelesen hat und rot geworden ist. Ich bin das älteste Lied einer Braut für ihren König, das je gefunden wurde.",
+            "hint": "Ich habe eine Nummer statt eines Namens."
+          }
+        }
+      }
+    },
+    "istanbul-gulhane-park": {
+      "name": "Gülhane-Park",
+      "tagline": "Der Rosengarten der Sultane, seit 1912 für alle offen",
+      "story": "Vierhundert Jahre lang war dieser Park der äußere Garten des Topkapı-Palasts, ein Hain aus Rosen hinter den Mauern; deshalb heißt er Gülhane, das Haus der Rosen. 1839 wurde hier ein Erlass verlesen, der versprach, dass für alle Menschen im Reich dasselbe Gesetz gelten soll, gleich welche Religion sie hatten, und er bekam den Namen des Gartens. 1912 öffnete ihn die Stadt für alle, und er ist der älteste öffentliche Park Istanbuls, 9,7 Hektar mit Platanen, die vor zweihundert Jahren gepflanzt wurden. Einmal hatte er einen Zoo und einen Rummelplatz; die nahm man heraus, und das Grün holte sich seinen Platz zurück. Tief in ihm steht eine einsame Marmorsäule von 18,5 Metern, die Gotensäule, das älteste römische Denkmal der Stadt, aufgestellt vielleicht, bevor die Stadt überhaupt nach Konstantin hieß. Jeden April füllen sich die Beete mit ungefähr einer Million Tulpen, der Blume, die die Sultane liebten, lange bevor Holland sie kannte. Geh bis ans Ende des großen Wegs: Dort öffnet sich eine Terrasse über dem Wasser, genau an der Stelle, wo das Goldene Horn auf den Bosporus trifft, und auf der anderen Seite siehst du Asien.",
+      "facts": [
+        "Er öffnete 1912 für alle und ist der älteste öffentliche Park der Stadt.",
+        "Er ist 9,7 Hektar groß.",
+        "Die Gotensäule in ihm ist 18,5 Meter hoch und das älteste römische Denkmal der Stadt.",
+        "Jeden April wird er mit ungefähr einer Million Tulpen bepflanzt."
+      ],
+      "question": {
+        "q": "Was war dieser Park vor 1912?",
+        "answers": [
+          "Der Palastgarten",
+          "Eine Pferderennbahn",
+          "Der Fischmarkt der Stadt",
+          "Ein Übungsplatz des Heeres"
+        ],
+        "explanation": "Er war der äußere Garten des Topkapı, und hinein durfte nur, wer im Palast lebte. Das Südtor des Parks ist noch immer ein Tor des Palasts."
+      },
+      "findIt": "Das Haupttor liegt an der Alemdar Caddesi, neben der Straßenbahnhaltestelle Gülhane."
+    },
+    "istanbul-galata-bridge": {
+      "name": "Die Galatabrücke",
+      "tagline": "Angler oben, Restaurants unten, Fähren nach Asien daneben",
+      "story": "1502 bat Sultan Bayezid II. um Entwürfe für eine Brücke genau an dieser Stelle, und Leonardo da Vinci schickte ihm einen: eine Brücke mit einem einzigen Bogen von 280 Metern, die längste der Welt. Der Sultan sagte Nein. 2001 wurde eine kleinere Fassung davon in Norwegen gebaut, und sie steht bestens. Die erste richtige Brücke hier war aus Holz und öffnete 1845, und zum Überqueren zahltest du Maut: fünf Para für einen Menschen, drei für ein Schaf, hundert für eine Kutsche. Männer in weißen Uniformen sammelten sie bis 1930 ein. Die, auf der du stehst, ist die fünfte, von 1994, 490 Meter lang, und ihre Mitte hebt sich wie zwei Türflügel, damit hohe Schiffe durchkommen. Tag und Nacht stehen Angler am Geländer, die Ruten über dem Goldenen Horn, und unter ihnen, auf dem unteren Deck, haben Restaurants ihre Tische fast im Wasser, genau wie bei der Brücke davor. Von den Anlegern daneben fahren die Fähren in zwanzig Minuten auf die asiatische Seite. Die Bucht heißt Horn, weil sie von oben wie eines aussieht, und golden entweder wegen ihrer Sonnenuntergänge oder wegen der Reichtümer, die die Schiffe hereinbrachten; niemand weiß es sicher.",
+      "facts": [
+        "Die erste Brücke an dieser Stelle öffnete 1845; die heutige ist die fünfte, von 1994.",
+        "Sie ist 490 Meter lang, und ihre Mitte hebt sich, damit Schiffe durchfahren können.",
+        "Bis 1930 zahltest du Maut zum Überqueren: 5 Para für einen Menschen, 3 für ein Schaf.",
+        "Leonardo da Vinci zeichnete 1502 eine Brücke für diese Stelle; gebaut wurde sie nie."
+      ],
+      "question": {
+        "q": "Was entwarf Leonardo da Vinci 1502 für diese Stelle?",
+        "answers": [
+          "Eine Bogenbrücke",
+          "Einen Tunnel unter dem Wasser",
+          "Einen Leuchtturm mit Aufzug",
+          "Einen schwimmenden Holzmarkt"
+        ],
+        "explanation": "Ein einziger Bogen von 280 Metern, ohne Pfeiler im Wasser, damit die Schiffe darunter durchfahren. Das war zu kühn für seine Zeit, aber 2001 zeigte sich, dass so eine Brücke steht."
+      },
+      "findIt": "Geh vom Platz in Eminönü auf das obere Deck, gleich neben dem Ägyptischen Basar."
+    },
+    "istanbul-patriarchate": {
+      "name": "Patriarchatskirche St. Georg, Fener",
+      "tagline": "Eine schlichte Kirche mit einem Tor, das seit 1821 zu ist",
+      "story": "Als das Byzantinische Reich 1453 endete, verschwanden die Griechen der Stadt nicht: Sie sammelten sich in diesem Viertel am Goldenen Horn, das nach einem alten Leuchtturm Fener heißt, einem fanari. Seit 1597 lebt hier der Ökumenische Patriarch, der Erste unter allen orthodoxen Bischöfen der Welt. Seine Kirche ist klein, weil das osmanische Gesetz sagte, keine Kirche dürfe höher sein als eine Moschee, aber innen leuchtet sie: alte Ikonen, silberne Lampen und ein hölzerner Thron, der aus dem 5. Jahrhundert stammen soll. 1821, als Griechenland sich erhob, wurde Patriarch Gregorios V. auf Befehl des Sultans am Haupttor aufgehängt, am Ostertag. Das Tor wurde im selben Jahr zugemauert und nie wieder geöffnet; alle gehen durch eine Seitentür hinein. 2004 gab der Papst dieser Kirche die Reliquien zweier Heiliger zurück, die die Kreuzfahrer 1204 mitgenommen hatten, achthundert Jahre später. Auf dem Hügel darüber zog die Große Schule der Nation, die älteste griechische Schule der Stadt, 1883 in ein riesiges rotes Gebäude mit einem Teleskop in der Kuppel, das alle das Rote Schloss nennen.",
+      "facts": [
+        "Der Patriarch lebt hier seit 1597.",
+        "Das Haupttor ist seit 1821 zugemauert.",
+        "Die Reliquien zweier Heiliger kamen 2004 aus Rom zurück, 800 Jahre nachdem die Kreuzfahrer sie mitgenommen hatten.",
+        "Die rote Schule auf dem Hügel wurde 1881–1883 gebaut und hat ein Teleskop in der Kuppel."
+      ],
+      "question": {
+        "q": "Wie kommen Besucher heute in das Patriarchat hinein?",
+        "answers": [
+          "Durch die Seitentür",
+          "Durch das große Haupttor",
+          "Über eine Zugbrücke",
+          "Mit dem Boot vom Steg"
+        ],
+        "explanation": "Das Haupttor wurde 1821 zum Andenken an Patriarch Gregorios V. zugemauert und nie wieder geöffnet."
+      },
+      "findIt": "Der Eingang ist in der Dr. Sadık Ahmet Caddesi, Nummer 19: eine Seitentür neben dem großen zugemauerten Tor."
+    },
+    "istanbul-hagia-sophia": {
+      "name": "Die Hagia Sophia",
+      "tagline": "Eine Kuppel, die seit fast fünfzehnhundert Jahren steht",
+      "story": "Kaiser Justinian gab diese Kirche im Jahr 532 in Auftrag, wenige Wochen nachdem die alte bei einem Aufstand abgebrannt war, und seine Bauleute wurden in fünf Jahren und zehn Monaten fertig. Zwei griechische Mathematiker, Anthemios von Tralleis und Isidoros von Milet, fanden heraus, wie man eine etwa 31 Meter breite Kuppel über die Mauern hängt. Ein Kranz von Fenstern an ihrem Fuß lässt das Licht herein, und deshalb scheint die Kuppel zu schweben; ein Schriftsteller jener Zeit schrieb, sie sehe aus, als hinge sie an einer goldenen Kette vom Himmel. Die erste Kuppel stürzte 558 bei einem Erdbeben ein. Die neue, 562 fertig geworden, wurde höher gebaut und bekam vierzig Rippen, damit sie weniger gegen die Mauern drückt, und das meiste davon ist immer noch dort oben. Mehr als fünfhundert Jahre lang war sie die größte Kirche der Welt. 1453 nahmen die Osmanen die Stadt ein, und sie wurde eine Moschee; Minarette kamen dazu, eines davon aus rotem Ziegel. Von 1935 bis 2020 war sie ein Museum und ist heute wieder eine Moschee. Oben auf der Empore kratzte vor tausend Jahren ein Wikinger, der hier Wache stand, seinen Namen in den Marmor; von „Halfdan“ sind heute nur noch die Buchstaben „-ftan“ zu lesen.",
+      "facts": [
+        "Sie wurde von 532 bis 537 gebaut: fünf Jahre und zehn Monate.",
+        "Die erste Kuppel stürzte beim Erdbeben von 558 ein; die, die du siehst, wurde 562 fertig.",
+        "Mehr als 500 Jahre lang blieb sie die größte Kirche der Welt.",
+        "Von ihren vier Minaretten ist eines aus rotem Ziegel und drei sind aus hellem Stein."
+      ],
+      "question": {
+        "q": "Warum scheint die große Kuppel in der Luft zu hängen?",
+        "answers": [
+          "Fenster ringsherum",
+          "Spiegel an den Wänden",
+          "Sie ist aus Glas gemacht",
+          "Versteckte Heißluftballons"
+        ],
+        "explanation": "Die Fenster rundherum am Fuß der Kuppel schneiden ein Band aus Licht, und so kann dein Auge nicht sehen, worauf die Kuppel wirklich steht."
+      },
+      "findIt": "Besucher gehen durch einen eigenen Eingang auf der Seite des Platzes hinein und sehen das Innere von der oberen Empore; das Erdgeschoss ist zum Beten da."
+    },
+    "istanbul-blue-mosque": {
+      "name": "Die Blaue Moschee (Sultanahmet Camii)",
+      "tagline": "Sechs Minarette und 21.043 blaue Fliesen",
+      "story": "Sultan Ahmed I. war neunzehn Jahre alt, als er diese Moschee 1609 in Auftrag gab, direkt gegenüber der Hagia Sophia, und 1617 wurde sie eröffnet, in dem Jahr, in dem er starb. Sein Architekt, Sedefkar Mehmed Ağa, hatte sein Handwerk beim großen Meister Sinan gelernt, und er stapelte Kuppel auf Kuppel, sodass das Gebäude aufsteigt wie ein Hügel aus Blasen. Innen sind die Wände mit 21.043 bemalten Fliesen aus der Stadt İznik bedeckt: Tulpen, Nelken, Zypressen, die meisten in Blau und Weiß. Der Sultan wollte so viele, dass er den Töpfern von İznik 1613 verbot, Fliesen für irgendjemand anderen zu machen. Wegen dieses Blaus nennen Besucher sie die Blaue Moschee. Ihre sechs Minarette sorgten für Aufsehen, denn damals hatte nur die allerheiligste Moschee, die in Mekka, so viele. Die Leute erzählen sich noch heute einen Witz darüber: Der Sultan habe „altın“, also goldene, Minarette verlangt, und der Architekt habe „altı“, sechs, verstanden. Es ist nur eine Geschichte, aber eine gute. Bevor du hineingehst, zieh die Schuhe aus wie alle anderen, und schau nach oben.",
+      "facts": [
+        "Sie wurde von 1609 bis 1617 gebaut.",
+        "21.043 Fliesen aus İznik bedecken die Wände, in mehr als fünfzig Mustern.",
+        "Sie ist eine von nur fünf Moscheen in der Türkei mit sechs Minaretten.",
+        "Am Hoftor zum Hippodrom hängt eine Kette, damit der Sultan den Kopf beugen musste, wenn er hereinritt."
+      ],
+      "question": {
+        "q": "Was tat der Sultan, damit seine Moschee alle Fliesen bekam, die sie brauchte?",
+        "answers": [
+          "Er verbot andere Verkäufe",
+          "Er kaufte die Werkstätten in İznik",
+          "Er baute eine eigene Fliesenwerkstatt",
+          "Er zahlte für jede Fliese das Doppelte"
+        ],
+        "explanation": "1613 verbot er den Töpfern von İznik, Fliesen an irgendjemand anderen zu verkaufen, bis seine eigenen Bestellungen fertig waren."
+      }
+    },
+    "istanbul-topkapi-palace": {
+      "name": "Der Topkapı-Palast",
+      "tagline": "Vierhundert Jahre lang das Zuhause der Sultane",
+      "story": "Sultan Mehmed II. begann 1459 mit dem Bau dieses Palastes, sechs Jahre nachdem er die Stadt eingenommen hatte, auf der Spitze der Halbinsel, wo das Goldene Horn auf das Meer trifft. Es ist nicht ein Gebäude, sondern es sind vier Höfe, einer im anderen, mit hohen Mauern und Toren, die bestimmten, wer wohin durfte. Durch den ersten Hof konnte jeder gehen; durch das zweite Tor durfte nur der Sultan reiten, alle anderen stiegen vom Pferd. In den Küchen, unter zwanzig hohen Schornsteinen, kochten achthundert Köche und Gehilfen jeden Tag für ungefähr viertausend Menschen. Im Ratssaal führten die Wesire das Reich, ohne zu wissen, ob der Sultan hinter einem kleinen Fenster mit goldenem Gitter hoch oben in der Wand zuhörte. Der Harem, in dem seine Familie lebte, hat mehr als vierhundert Zimmer. Die Sultane blieben hier bis 1856, dann zogen sie in einen neuen Palast am Bosporus, und 1924 wurde der Topkapı ein Museum. In seiner Schatzkammer hängt ein Diamant von 86 Karat, den ein Fischer, so geht die Geschichte, einmal gegen drei Löffel eingetauscht hat.",
+      "facts": [
+        "Der Bau begann 1459 auf Befehl von Mehmed II.",
+        "Seine Küchen kochten für ungefähr 4.000 Menschen am Tag.",
+        "Der Harem hat mehr als 400 Zimmer.",
+        "Am 3. April 1924 wurde er ein Museum."
+      ],
+      "question": {
+        "q": "Wer durfte zu Pferd durch das Tor des Grußes reiten?",
+        "answers": [
+          "Nur der Sultan",
+          "Nur der Großwesir",
+          "Jeder fremde Gesandte",
+          "Jede Palastwache"
+        ],
+        "explanation": "Alle anderen, sogar die Gesandten von Königen, stiegen vor den beiden Türmen des Tores vom Pferd. So wurde jedem in Erinnerung gerufen, wer hier bestimmt."
+      },
+      "findIt": "Der Weg hinein ist das Kaisertor (Bab-ı Hümayun), das große Tor direkt hinter der Hagia Sophia, neben dem Brunnen mit dem breiten Dach.",
+      "museum": {
+        "doorNote": "Zwei Eintrittskarten in einer: Für den Harem brauchst du eine eigene. Und der berühmte Diamant hängt in einem kleinen Raum mit Warteschlange, nicht in einem großen Saal.",
+        "rooms": {
+          "istanbul-topkapi-palace-second-court": {
+            "name": "Der Zweite Hof",
+            "intro": "Hier erledigte das Reich seine Arbeit. Auf der einen Seite die Küchen mit ihren Schornsteinen, auf der anderen der Saal, in dem sich die Wesire trafen, und dazwischen ein Garten, in dem einmal Pfauen und Gazellen herumliefen. Schau dir zuerst das Tor an, durch das du gekommen bist: Es hat zwei Türme wie eine Burg, und das ist kein Zufall."
+          },
+          "istanbul-topkapi-palace-treasury": {
+            "name": "Die Schatzkammer",
+            "intro": "Vier Räume im dritten Hof, gefüllt mit allem, was die Sultane in vierhundert Jahren gesammelt haben: Throne, Geschenke von Königen, Turbanfedern voller Edelsteine. Die Leute stehen für zwei Dinge Schlange, für einen Diamanten und für einen Dolch, und zu beiden gehört eine Geschichte, von der niemand sicher weiß, ob sie stimmt."
+          }
+        },
+        "exhibits": {
+          "istanbul-topkapi-palace-gate-of-salutation": {
+            "name": "Das Tor des Grußes",
+            "blurb": "Das mittlere Tor des Palastes, mit seinen zwei achteckigen Türmen, trennt den offenen ersten Hof von dem Teil, in dem das Reich regiert wurde. Eine Inschrift datiert es auf mindestens 1542. Der Durchgang war streng geregelt: Jeder Besucher, wie wichtig er auch war, stieg ab, denn nur der Sultan ritt hindurch. Die Osmanen hatten die Idee von den byzantinischen Kaisern übernommen, die es am Tor ihres eigenen Palastes genauso hielten. Rechts, vor dem Tor, steht ein kleiner Brunnen mit einem hässlichen Namen: der des Henkers. Die Leute sagen, er habe sich dort die Hände gewaschen, aber Historiker sind nicht sicher, ob er je wirklich so benutzt wurde.",
+            "question": {
+              "q": "Woher hatten die Osmanen die Regel, am Tor abzusteigen?",
+              "answers": [
+                "Von den Byzantinern",
+                "Von den Königen Persiens",
+                "Von den Genueser Kaufleuten",
+                "Von den Pharaonen Ägyptens"
+              ],
+              "explanation": "Am Chalke-Tor des byzantinischen Palastes galt dieselbe Regel, und die neuen Herren der Stadt behielten sie bei."
+            }
+          },
+          "istanbul-topkapi-palace-kitchens": {
+            "name": "Die Küchen mit den zwanzig Schornsteinen",
+            "blurb": "Zehn gewölbte Gebäude in einer Reihe, mit zwanzig breiten Schornsteinen, die man vom Meer aus sieht. Es waren die größten Küchen des Osmanischen Reiches: Mehr als achthundert Menschen arbeiteten hier und bereiteten jeden Tag Essen für ungefähr viertausend Münder zu, mit einer eigenen Küche für Süßes und einer weiteren für Getränke. Ein Feuer zerstörte sie 1574, und Sinan, der Architekt des Sultans, baute sie wieder auf und fügte die Schornsteine hinzu. Heute werden darin 10.700 chinesische Porzellanstücke gezeigt, eine der besten Sammlungen der Welt, Teller für Teller über vierhundert Jahre zusammengetragen.",
+            "question": {
+              "q": "Wie viele Menschen aßen jeden Tag aus diesen Küchen?",
+              "answers": [
+                "Etwa 4.000",
+                "Etwa 40.000",
+                "Etwa 400",
+                "Nur die Familie"
+              ],
+              "explanation": "Der Palast war eine kleine Stadt: Wachen, Köche, Gärtner, Schreiber und Schüler aßen alle hier."
+            }
+          },
+          "istanbul-topkapi-palace-council-window": {
+            "name": "Das versteckte Fenster des Rates",
+            "blurb": "Im Ratssaal, unter der Kuppel, saßen die Wesire auf einem niedrigen Sofa und entschieden über Steuern, Kriege und Gerichtsfälle. Hoch in der Wand ist eine kleine Öffnung, bedeckt mit einem goldenen Gitter. Dahinter konnte der Sultan sitzen und zuhören, ohne dass ihn jemand sah; er kam über einen Gang aus dem Gerechtigkeitsturm. Ein Gelehrter beschrieb das schon 1527. Weil niemand wusste, ob er da war, sprachen alle so, als wäre er immer da. Der Saal wurde nach einem Brand 1665 wieder aufgebaut, und sein vergoldeter Schmuck stammt heute von 1792 und 1819.",
+            "question": {
+              "q": "Warum sprachen die Wesire, als würde der Sultan immer zuhören?",
+              "answers": [
+                "Sie wussten es nie genau",
+                "Eine Wache schrieb alles mit",
+                "Die Kuppel trug ihre Stimmen",
+                "Das Gesetz schrieb es ihnen vor"
+              ],
+              "explanation": "Das Gitter verbirgt jeden, der dahinter sitzt. Ein leeres Fenster macht genauso viel Angst wie ein besetztes, wenn du den Unterschied nicht siehst."
+            }
+          },
+          "istanbul-topkapi-palace-spoonmakers-diamond": {
+            "name": "Der Diamant des Löffelmachers",
+            "blurb": "Ein Diamant von 86 Karat in der Form einer Birne, in Silber gefasst und von 49 kleineren Diamanten in zwei Reihen umgeben, wie ein Mond zwischen Sternen. Er hängt in einem Glaskasten an der Wand des dritten Raumes und ist der wertvollste einzelne Gegenstand des Palastes. Niemand weiß sicher, wie er hierhergekommen ist. Die liebste Geschichte erzählt, ein armer Fischer habe ihn auf einem Müllhaufen gefunden und zu einem Juwelier gebracht, und der habe ihm gesagt, es sei Glas, und ihm drei Löffel für seine Mühe gegeben. Eine andere Geschichte bringt ihn von Ali Pascha von Ioannina her. Beide können gut erfunden sein.",
+            "question": {
+              "q": "Wie viel Karat wiegt der Diamant?",
+              "answers": [
+                "86 Karat",
+                "186 Karat",
+                "8 Karat",
+                "860 Karat"
+              ],
+              "explanation": "Sechsundachtzig Karat sind ungefähr 17 Gramm, so viel wie eine große Walnuss, und er ist der viertgrößte Diamant seiner Art auf der Welt."
+            }
+          },
+          "istanbul-topkapi-palace-topkapi-dagger": {
+            "name": "Der Topkapı-Dolch",
+            "blurb": "Ein gebogenes Messer mit drei großen Smaragden im goldenen Griff und, an dessen Spitze, einer winzigen englischen Uhr, versteckt unter einem vierten Smaragd. Die Scheide ist mit Diamanten und gemalten Obstkörben bedeckt. Sultan Mahmud I. gab ihn 1746 als Friedensgeschenk für den Schah von Persien, Nadir, in Auftrag. Die Gesandten brachen mit tausend Begleitern auf, aber unterwegs erfuhren sie, dass der Schah getötet worden war, und sie kamen mit dem Geschenk in den Händen wieder nach Hause. Deshalb ist er hier. 1964 zeigte ein Film Diebe, die ihn stehlen wollten, und seitdem ist er das berühmteste Messer der Welt.",
+            "question": {
+              "q": "Warum kam das Geschenk nach Istanbul zurück?",
+              "answers": [
+                "Der Schah war tot",
+                "Der Schah fand ihn hässlich",
+                "Die Gesandten verirrten sich",
+                "Seine kleine Uhr blieb stehen"
+              ],
+              "explanation": "Die Gesandten hörten von seinem Tod, bevor sie die Grenze erreichten, und ein Geschenk für jemanden, den es nicht mehr gibt, wird nicht überreicht."
+            }
+          },
+          "istanbul-topkapi-palace-throne-of-ahmed": {
+            "name": "Der Thron von Ahmed I.",
+            "blurb": "In der Mitte des zweiten Raumes steht ein Thron aus Nussbaumholz, eingelegt mit Perlmutt und Schildpatt, mit einem Baldachin darüber und einem goldenen Anhänger mit einem großen Smaragd, der darunter hängt. Gemacht hat ihn Sedefkar Mehmed Ağa, derselbe Meister, der für denselben Sultan die Blaue Moschee baute. Das „Sedefkar“ in seinem Namen heißt „der, der Perlmutt bearbeitet“, das glänzende Innere einer Muschel, und hier siehst du, warum er den Namen bekam. Rund um den Thron liegen Turbanfedern voller Diamanten und Rubine, die die Sultane trugen und, einige davon, auch ihre Pferde.",
+            "question": {
+              "q": "Was hat der Meister dieses Throns außerdem gebaut?",
+              "answers": [
+                "Die Blaue Moschee",
+                "Die Brücke von Galata",
+                "Den Galataturm",
+                "Den Großen Basar"
+              ],
+              "explanation": "Sedefkar Mehmed Ağa war der Architekt von Ahmed I.: zuerst ein Thron, dann die Moschee gegenüber der Hagia Sophia."
+            }
+          }
+        },
+        "riddles": {
+          "istanbul-topkapi-palace-riddle-1": {
+            "prompt": "Sie sagen, man habe mich auf einem Müllhaufen gefunden und gegen drei billige Dinge aus einer Küche getauscht. Jetzt hänge ich an einer Wand, mit neunundvierzig kleinen Schwestern um mich herum, und niemand ist sich einig, woher ich komme.",
+            "hint": "Ich bin ein Stein, aber kein gewöhnlicher: Ich wiege 86 Karat."
+          },
+          "istanbul-topkapi-palace-riddle-2": {
+            "prompt": "Ich wurde als Geschenk für einen König in Persien gemacht, aber er starb, bevor ich ihn erreichen konnte, und so kam ich ungeöffnet nach Hause. Drei grüne Steine sitzen in meinem Griff, und an seiner Spitze versteckt sich eine kleine Uhr.",
+            "hint": "Ein Film von 1964 schickte Diebe hinter mir her."
+          },
+          "istanbul-topkapi-palace-riddle-3": {
+            "prompt": "Ich bin eine Öffnung hoch oben in einer Wand, bedeckt mit einem goldenen Netz. Niemand in dem Raum darunter konnte sagen, ob jemand hinter mir saß, und deshalb sprachen alle so, als säße dort immer jemand.",
+            "hint": "Such dort, wo die Wesire ihre Sitzungen hielten."
+          }
+        }
+      }
+    },
+    "istanbul-grand-bazaar": {
+      "name": "Der Große Basar (Kapalıçarşı)",
+      "tagline": "Eine Stadt aus 61 Straßen unter einem Dach",
+      "story": "Im Winter 1455, zwei Jahre nach der Einnahme der Stadt, baute Sultan Mehmed II. eine feste steinerne Halle, in der Händler Stoffe und Edelsteine sicher aufbewahren konnten. Ringsherum machten Läden auf, dann noch mehr, dann wurden die Straßen überdacht, bis der Markt eine eigene Stadt war: 61 überdachte Straßen, mehr als 4.000 Läden, 18 Tore, Brunnen, eine Moschee, ein Postamt. Jede Straße hatte ihr eigenes Handwerk, Schuhmacher in der einen, Goldschmiede in der anderen, und sogar die Schuhe in den Regalen hatten Farben, die die Regeln festlegten. Er war aus Holz gebaut, bis ein Feuer im Jahr 1700 ihn zu Stein und Ziegel machte, und danach beschädigten ihn Erdbeben und Brände noch viele Male; jedes Mal bauten die Händler ihn wieder auf. 1591 stahl jemand 30.000 Goldmünzen aus der alten Halle, und der Basar blieb zwei Wochen geschlossen, bis der Schatz unter einer Bodenmatte gefunden wurde. Heute gehen jeden Tag zwischen 250.000 und 400.000 Menschen hindurch. Jeden Abend werden die Tore abgeschlossen, und sonntags bleibt er zu. Seine Regel ist einfach: Frag nach dem Preis, lächle und biete weniger.",
+      "facts": [
+        "Er hat 61 überdachte Straßen und mehr als 4.000 Läden.",
+        "Zwischen 250.000 und 400.000 Menschen gehen jeden Tag hindurch.",
+        "Seine erste Halle wurde von 1455 bis 1461 von Mehmed II. gebaut.",
+        "Er schließt jeden Abend und den ganzen Sonntag."
+      ],
+      "question": {
+        "q": "Was erwarten die Händler, dass du mit dem ersten Preis machst, den du hörst?",
+        "answers": [
+          "Weniger bieten",
+          "Sofort bezahlen",
+          "Für Glück doppelt zahlen",
+          "Wütend weggehen"
+        ],
+        "explanation": "Der erste Preis ist der Anfang eines Gesprächs, nicht sein Ende. Der Verkäufer fängt hoch an, du fängst niedrig an, und ihr trefft euch irgendwo in der Mitte, oft bei einem Tee."
+      },
+      "findIt": "Von seinen 18 Toren ist das Nuruosmaniye-Tor auf der Ostseite am leichtesten zu finden, neben der Nuruosmaniye-Moschee."
+    },
+    "istanbul-galata-tower": {
+      "name": "Der Galataturm",
+      "tagline": "Der Turm mit dem spitzen Hut und dem Mann, der flog",
+      "story": "Kaufleute aus Genua in Italien hatten auf diesem Hügel einmal ihre eigene ummauerte Stadt, und 1348 bauten sie den Turm an der höchsten Stelle ihrer Mauern. Damals war er das höchste Gebäude der Stadt. Seine Mauern sind 3,75 Meter dick, und er ist 62,59 Meter hoch, ohne die Verzierung an der Spitze. Als die Osmanen die Stadt einnahmen, wurde der Turm ein Gefängnis, und ab 1717 ein Ausguck für Feuer: Wachen ganz oben beobachteten Tag und Nacht die hölzerne Stadt und schlugen Alarm. Seine berühmteste Geschichte handelt von Hezârfen Ahmed Çelebi, der sich um 1630, wie ein Reisender jener Zeit schreibt, Flügel wie die eines Adlers anschnallte, von der Spitze sprang und über den Bosporus bis zu einem Platz auf der asiatischen Seite segelte. Der Sultan schenkte ihm einen Sack Goldmünzen und schickte ihn dann weit weg, weil ein Mann, der fliegen konnte, ihm Angst machte. Ob wahr oder nicht, die Leute liebten die Vorstellung. Das spitze Dach ging im 19. Jahrhundert verloren und kam 1967 wieder hinauf. Heute bringt dich ein Aufzug nach oben, und von dem Balkon, der rundherum läuft, siehst du die ganze Stadt und zwei Erdteile.",
+      "facts": [
+        "1348 von den Genuesen gebaut, war er damals das höchste Gebäude der Stadt.",
+        "Er ist 62,59 m hoch, und seine Mauern sind 3,75 m dick.",
+        "Ab 1717 nutzten ihn die Osmanen als Ausguck für Feuer.",
+        "Das spitze Dach, das du siehst, kam 1965–1967 wieder an seinen Platz."
+      ],
+      "question": {
+        "q": "Welche Aufgabe hatte der Turm ab 1717 für die Osmanen?",
+        "answers": [
+          "Ein Feuerwachturm",
+          "Ein Leuchtturm für Schiffe",
+          "Das Schlafzimmer des Sultans",
+          "Eine Uhr für die Stadt"
+        ],
+        "explanation": "Eine Stadt aus Holzhäusern kann in einer Nacht abbrennen. Von hier oben sahst du den Rauch, bevor er zur Flamme wurde."
+      },
+      "findIt": "Die Tür ist am Fuß des Turms, an dem kleinen Platz rundherum."
+    },
+    "istanbul-maidens-tower": {
+      "name": "Der Mädchenturm (Kız Kulesi)",
+      "tagline": "Ein kleiner Turm auf einem Felsen mitten im Wasser",
+      "story": "Zweihundert Meter vor der asiatischen Küste, am Eingang zum Bosporus, trägt ein kleiner Felsen einen Turm. 1110 baute der Kaiser Alexios Komnenos hier einen hölzernen Turm und spannte von ihm eine eiserne Kette bis zum gegenüberliegenden Ufer, um die Meerenge für feindliche Schiffe zu sperren. Seitdem hat der Turm viele Male die Arbeit gewechselt: Wachturm, Leuchtturm und ab 1829 Quarantänestation, in der kranke Seeleute blieben, bis sie wieder gesund waren. Ein Erdbeben warf ihn 1509 um, ein Feuer brannte ihn 1721 nieder, und 1763 wurde er aus Stein wieder aufgebaut, so wie du ihn siehst. Sein Name kommt aus einer Sage: Ein Wahrsager sagte einem Kaiser, seine Tochter werde an ihrem achtzehnten Geburtstag an einem Schlangenbiss sterben. Ihr Vater schloss sie in diesen Turm ein, weit weg von jeder Schlange. An ihrem Geburtstag schickte er ihr einen Korb mit Obst, und zwischen dem Obst versteckt lag eine Schlange. Die Griechen nannten ihn Leanderturm, nach einem anderen Mythos über einen jungen Mann, der jede Nacht auf ein Licht zuschwamm. Von 2021 bis 2023 wurde der Turm hergerichtet und wieder geöffnet, und kleine Boote bringen dich von der Küste von Üsküdar hinüber.",
+      "facts": [
+        "Er steht auf einem Felsen, 200 m vor der Küste von Üsküdar.",
+        "1110 lief von hier eine Kette über das Wasser und sperrte die Meerenge.",
+        "Er war ein Leuchtturm, ab 1829 dann eine Quarantänestation für kranke Seeleute.",
+        "Im Mai 2023 wurde er nach zwei Jahren Reparatur wieder geöffnet."
+      ],
+      "question": {
+        "q": "Was war in der Sage im Korb mit dem Obst versteckt?",
+        "answers": [
+          "Schlange",
+          "Schlüssel",
+          "Brief",
+          "Ring"
+        ],
+        "explanation": "Der Vater baute einen Turm im Meer, damit niemals eine Schlange zu seiner Tochter käme, und die Schlange kam mit seinem eigenen Geschenk."
+      },
+      "findIt": "Zu Fuß kommst du nicht hin: Die Boote fahren vom Ufer Salacak in Üsküdar ab, 200 m entfernt."
+    },
+    "istanbul-basilica-cistern": {
+      "name": "Die Basilika-Zisterne (Yerebatan)",
+      "tagline": "Ein Wald aus 336 Säulen unter der Straße",
+      "story": "Zweiundfünfzig Stufen unter dem Gehweg, 150 Meter von der Hagia Sophia entfernt, liegt eine Halle, 138 Meter lang und 65 Meter breit. Justinian ließ sie im 6. Jahrhundert bauen, um Wasser für den Palast zu speichern: ungefähr 80.000 Kubikmeter, die Aquädukte aus einem Wald 19 Kilometer weiter nördlich herbrachten. Das Dach ruht auf 336 Marmorsäulen, 9 Meter hoch, in 12 Reihen zu je 28, die meisten aus älteren Gebäuden geholt. Dann vergaß die Stadt sie. 1545 entdeckte ein französischer Reisender, Petrus Gyllius, dass die Leute immer noch Wasser unter ihren Häusern schöpften; man ruderte ihn zwischen den Säulen hindurch, und er sah Fische unter den Rudern schwimmen. Zwischen 1985 und 1987 wurden 50.000 Tonnen Schlamm herausgetragen, hölzerne Stege kamen hinein, und sie öffnete für Besucher. In der hintersten Ecke stehen zwei Säulen auf gemeißelten Köpfen der Medusa, des Ungeheuers aus dem griechischen Mythos, dessen Blick Menschen zu Stein werden ließ: einer steht auf dem Kopf, der andere auf der Seite. Niemand weiß, aus welchem Gebäude sie kamen. 1963 wurde hier ein James-Bond-Film gedreht, und die Helden ruderten genau dort, wo du gehst.",
+      "facts": [
+        "Sie hat 336 Säulen, jede 9 m hoch, in 12 Reihen zu je 28.",
+        "Sie misst etwa 138 mal 65 Meter und fasste 80.000 Kubikmeter Wasser.",
+        "Sie öffnete am 9. September 1987 für Besucher, nachdem 50.000 Tonnen Schlamm herausgeräumt worden waren.",
+        "Ihr Wasser kam 19 km weit aus dem Belgrader Wald."
+      ],
+      "question": {
+        "q": "Wie fand ein französischer Reisender die Zisterne 1545 wieder?",
+        "answers": [
+          "Man holte dort noch Wasser",
+          "Ein Erdbeben öffnete das Dach",
+          "Er jagte eine Katze die Treppe hinab",
+          "Eine Karte fiel aus einem Buch"
+        ],
+        "explanation": "Die Leute ließen Eimer durch Löcher in ihren Fußböden hinunter. Gyllius merkte es, fragte, woher das Wasser kam, und wurde in einem Boot hinuntergebracht."
+      },
+      "findIt": "Der Kartenschalter liegt auf Straßenhöhe an der Yerebatan Caddesi: von dort gehst du die Stufen hinunter."
+    },
+    "istanbul-spice-bazaar": {
+      "name": "Der Gewürzbasar (Mısır Çarşısı)",
+      "tagline": "Pyramiden aus Zimt, Pfeffer und Safran in einer Halle in L-Form",
+      "story": "Dieser Markt wurde zwischen 1660 und 1664 zusammen mit der Neuen Moschee nebenan gebaut, und bezahlt wurde er mit Steuern aus Ägypten, damals ein Land des Osmanischen Reiches. Deshalb heißt er bis heute Ägyptischer Basar: Mısır ist Türkisch für Ägypten. In Auftrag gab ihn Turhan Sultan, die Mutter von Sultan Mehmed IV., und die Mieten seiner Läden bezahlten den Unterhalt der Moschee. Die Moschee selbst hatte 1597 eine andere Sultansmutter begonnen, Safiye, und sie stand sechzig Jahre lang halb fertig da, bis ein großes Feuer das Viertel niederbrannte und alles auf einmal wieder aufgebaut wurde. Das Gebäude hat zwei lange Arme, die sich an einer Ecke treffen, wie der Buchstabe L, mit sechs Toren und einer Reihe kleiner Kuppeln auf dem Dach. Jahrhundertelang luden hier Schiffe aus Ägypten und Indien Säcke mit Pfeffer, Zimt, Nelken und Safran ab, dem teuersten Gewürz der Welt, das aus den drei roten Fäden eines lila Krokus besteht. Heute türmen seine 85 Stände die Gewürze immer noch zu Pyramiden aus Rot, Gelb und Orange, neben Türmen aus Lokum. Draußen auf dem Platz warten Hunderte Tauben auf das Futter, das in kleinen Bechern verkauft wird.",
+      "facts": [
+        "Er wurde zwischen 1660 und 1664 gebaut und mit Steuern aus Ägypten bezahlt.",
+        "Das Gebäude hat die Form des Buchstabens L und sechs Tore.",
+        "Heute hat er 85 Läden.",
+        "Die Mieten seiner Läden bezahlten den Unterhalt der Neuen Moschee nebenan."
+      ],
+      "question": {
+        "q": "Warum heißt er Ägyptischer Basar?",
+        "answers": [
+          "Ägypten bezahlte ihn",
+          "Pharaonen kauften hier ein",
+          "Er verkauft Sand vom Nil",
+          "Sein Baumeister war Ägypter"
+        ],
+        "explanation": "Die Steuern, die das Reich in Ägypten einsammelte, bezahlten den Bau, und der Name blieb hängen."
+      },
+      "findIt": "Das Haupttor öffnet sich zum Platz vor der Neuen Moschee, an der Uferpromenade von Eminönü."
+    },
+    "istanbul-suleymaniye-mosque": {
+      "name": "Die Süleymaniye-Moschee",
+      "tagline": "Sinans Meisterwerk auf dem dritten Hügel der Stadt",
+      "story": "Süleyman der Prächtige, der zehnte Sultan, verlangte von seinem Architekten Sinan eine Moschee, die alles übertreffen sollte, was vor ihr gebaut worden war. Die Inschrift über der Tür sagt, dass sie 1550 gegründet und 1557 eröffnet wurde, auf dem dritten Hügel, wo der alte Palast gestanden hatte. Ihre Kuppel ist 53 Meter hoch und 26,5 Meter breit, genau die Hälfte, und Sinan versteckte ihre Stützen in den Wänden, sodass das Gebäude von außen wie eine Pyramide aus Kuppeln ansteigt. Die vier Minarette haben zusammen zehn Balkone, einen für jeden Sultan bis zu Süleyman. Rundherum wurde eine kleine Stadt gebaut: Schulen, ein Krankenhaus, Bäder, ein Gasthaus, eine Küche, die die Armen speiste, Läden und ein Platz, auf dem jede Woche Ringkämpfe stattfanden. Im Garten hinter der Moschee liegen die Gräber von Süleyman und seiner Frau Hürrem. Gleich außerhalb der Mauer baute Sinan sich selbst ein kleines, schlichtes Grab, von dem aus er auf sein Werk schaut. Die Moschee überstand den großen Brand von 1660 und eine Explosion von Munition, die im Ersten Weltkrieg in ihrem Hof lagerte; das Erdbeben von 1766 brachte einen Teil der Kuppel zum Einsturz, und sie wurde wieder aufgebaut.",
+      "facts": [
+        "Ihre Inschrift nennt 1550 als Gründungsjahr und 1557 als Eröffnung.",
+        "Die Kuppel ist 53 m hoch und 26,5 m breit: genau die Hälfte.",
+        "Ihre vier Minarette haben zehn Balkone, einen für jeden der ersten zehn Sultane.",
+        "Sinans eigenes Grab steht gleich außerhalb der Mauer der Anlage."
+      ],
+      "question": {
+        "q": "Warum haben die Minarette genau zehn Balkone?",
+        "answers": [
+          "Er war der zehnte Sultan",
+          "Zehn Baumeister arbeiteten daran",
+          "Einer für jeden von zehn Söhnen",
+          "Zehn Jahre Bauzeit"
+        ],
+        "explanation": "Süleyman war der zehnte Sultan seit dem Beginn der Dynastie, und Sinan schrieb das mit Balkonen statt mit Buchstaben auf die Minarette."
+      }
+    },
+    "istanbul-flower-passage": {
+      "name": "Die Blumenpassage (Çiçek Pasajı), İstiklal Caddesi",
+      "tagline": "Die Glaspassage eines griechischen Bankiers, an der Straße mit der roten Straßenbahn",
+      "story": "Vor hundertfünfzig Jahren war das die Grande Rue de Péra, die eleganteste Straße der Stadt, wo Griechen, Armenier, Türken, Juden und Europäer nebeneinander lebten, mit ihren Botschaften, Theatern und Konditoreien. Hier stand ein Theater, in dem die Sultane Opern hörten, bis ein großes Feuer es 1870 niederbrannte. Ein griechischer Bankier, Hristaki Zografos, kaufte das Grundstück und baute 1876 eine prächtige Passage mit einem Glasdach, die Cité de Péra. Nach 1917 eröffneten russische Adlige, die alles verloren hatten, hier Blumenläden, und in den 1940er-Jahren war die Passage voller Blumen; so bekam sie ihren heutigen Namen, Çiçek Pasajı. Heute ist sie voller Restaurants. Die Straße draußen, die İstiklal, läuft 1,4 Kilometer vom Tünel bis zum Taksim-Platz, ohne Autos, und seit 1990 klingelt eine alte rote Straßenbahn wieder durch die Menge. Gegenüber, hinter dem großen Tor, ist das Galatasaray-Gymnasium das älteste Gymnasium des Landes. Und am Ende der Straße bringt dich der Tünel, eine Untergrundbahn von 1875, die zweitälteste der Welt, in anderthalb Minuten hinunter zur Brücke.",
+      "facts": [
+        "Die Passage baute 1876 ein griechischer Bankier, Hristaki Zografos, an der Stelle eines abgebrannten Theaters.",
+        "Nach 1917 verkauften hier russische Adlige Blumen; das gab ihr ihren Namen.",
+        "Die İstiklal ist 1,4 km lang und autofrei, mit einer roten Straßenbahn seit 1990.",
+        "Der Tünel an ihrem Ende öffnete 1875, die zweitälteste Untergrundbahn der Welt."
+      ],
+      "question": {
+        "q": "Wer verkaufte hier Blumen und gab der Passage ihren Namen?",
+        "answers": [
+          "Russische Adlige",
+          "Die Gärtner des Sultans",
+          "Griechische Schulkinder",
+          "Holländische Tulpenhändler"
+        ],
+        "explanation": "Nach der Revolution von 1917 kamen viele reiche Russinnen mit nichts hierher und lebten vom Blumenverkauf. Çiçek heißt Blume."
+      },
+      "findIt": "Ihre Vorderseite öffnet sich zur İstiklal Caddesi am Galatasaray-Platz, und eine Seitentür führt in den Fischmarkt."
+    },
+    "istanbul-rahmi-koc-museum": {
+      "name": "Das Rahmi-M.-Koç-Museum",
+      "tagline": "Züge, Schiffe, Autos und Maschinen, die du anfassen darfst",
+      "story": "Rahmi Koç, einer der größten Industriellen der Türkei, besuchte einmal ein Maschinenmuseum in Amerika und beschloss, dass seine Stadt ein eigenes brauchte. 1991 kaufte er ein verfallenes Gebäude in Hasköy, am Nordufer des Goldenen Horns, das im frühen 18. Jahrhundert eine Gießerei gewesen war: Dort wurden Anker und Ketten für die osmanische Flotte gegossen. Ein Feuer hatte es 1984 ohne Dach zurückgelassen. In zweieinhalb Jahren wurde es wieder aufgebaut, und am 13. Dezember 1994 öffnete das Museum. 2001 kam auf der anderen Straßenseite eine alte Werft von 1861 dazu, wo eine Fährgesellschaft früher ihre Schiffe reparierte, mit einem Kai direkt am Wasser. Drinnen und draußen stehen Autos von 1898 an, Motorräder, Straßenbahnen, Dampflokomotiven, Flugzeuge, ein Wagen der Untergrundbahn von 1876, eine Amphibienmaschine von 1961, die halb Auto und halb Boot ist, Telefone, Grammophone und ein Modelltelegraf von Edison selbst. Am Kai liegt für immer eine Fähre von 1953, 76,8 Meter lang, mit Platz für 2.100 Fahrgäste, und du kannst über ihre Decks laufen. Viele Ausstellungsstücke haben Knöpfe und Kurbeln: Hier gilt „nicht anfassen“ weniger als irgendwo sonst in der Stadt. Montags geschlossen.",
+      "facts": [
+        "Es öffnete am 13. Dezember 1994 in einer alten Ankergießerei.",
+        "Sein zweites Gebäude, von 2001, war eine Schiffsreparaturwerft von 1861.",
+        "Die Fähre Fenerbahçe, draußen vertäut, ist 76,8 Meter lang, und du kannst an Bord gehen.",
+        "Montags ist es geschlossen."
+      ],
+      "question": {
+        "q": "Was wurde vor dreihundert Jahren im ersten Gebäude des Museums hergestellt?",
+        "answers": [
+          "Anker für Schiffe",
+          "Kanonen für das Heer",
+          "Teppiche für den Palast",
+          "Segel für die Flotte"
+        ],
+        "explanation": "Das Gebäude hieß Lengerhane, „das Haus der Anker“. Hier wurde Eisen für die Anker und Ketten der osmanischen Flotte geschmolzen."
+      },
+      "findIt": "Der Eingang liegt an der Rahmi M. Koç Caddesi 3 in Hasköy: Die beiden Gebäude stehen sich an derselben Straße gegenüber, und das mit den Schiffen ist auf der Wasserseite.",
+      "museum": {
+        "doorNote": "Zwei Gebäude, eine Eintrittskarte: Geh nicht weg, ohne die Straße zum Wasser zu überqueren, dort sind die Schiffe.",
+        "rooms": {
+          "istanbul-rahmi-koc-museum-on-the-water": {
+            "name": "Am Wasser",
+            "intro": "Die alte Werft hat einen Kai, und am Kai liegen Schiffe, auf die du steigen kannst. Das eine brachte zweitausend Menschen auf einmal zu den Inseln; das andere, so klein, dass du es kaum glauben wirst, fuhr einmal um die ganze Welt. Und ein Auto hier kann schwimmen."
+          },
+          "istanbul-rahmi-koc-museum-on-rails": {
+            "name": "Auf Schienen",
+            "intro": "In der Eisenbahnhalle stehen drei Fahrzeuge, die die Stadt besser kennen als die meisten ihrer Menschen: ein Wagen, der einen Sultan bis nach London brachte, eine Straßenbahn, die dreißig Jahre lang durch ihre Straßen klingelte, und ein Wagen der Untergrundbahn von 1875, zusammen mit der Maschine, die ihn zog."
+          }
+        },
+        "exhibits": {
+          "istanbul-rahmi-koc-museum-fenerbahce-ferry": {
+            "name": "Die Fähre Fenerbahçe",
+            "blurb": "Eine Personenfähre mit zwei Decks, 1952 in Schottland gebaut und seit dem 14. Mai 1953 im Dienst. Sie trug 2.100 Fahrgäste und fuhr jahrzehntelang von Sirkeci zu den Prinzeninseln und nach Yalova hin und zurück, mit Teeverkäufern auf den Decks und Möwen hinterher. 2009 übergab die Stadt sie dem Museum, und seitdem liegt sie hier für immer vertäut: 76,8 Meter Schiff am Kai. Du kannst an Bord gehen, dich auf die Holzbänke setzen und in den Maschinenraum schauen. 2021 brachte man sie zur Reparatur in eine Werft und holte sie erneuert zurück.",
+            "question": {
+              "q": "Wie viele Fahrgäste konnte diese Fähre tragen?",
+              "answers": [
+                "2.100 Fahrgäste",
+                "210 Fahrgäste",
+                "21.000 Fahrgäste",
+                "50 Fahrgäste"
+              ],
+              "explanation": "Zweitausendeinhundert Menschen, ein ganzes Dorf, auf jeder Fahrt zu den Inseln."
+            }
+          },
+          "istanbul-rahmi-koc-museum-kismet": {
+            "name": "Kısmet",
+            "blurb": "Ein Segelboot von gerade einmal 10,5 Metern Länge. Am 22. August 1965 stachen Sadun Boro und seine Frau Oda damit von Istanbul aus in See, und im Juni 1968 kamen sie zurück, nachdem sie einmal um die ganze Erde gefahren waren: der erste Türke, dem das je gelang. Auf den Kanarischen Inseln kam eine Katze namens Miço an Bord und reiste bis zum Schluss mit ihnen. Die Reise dauerte vierunddreißig Monate. Danach lebte und segelte Boro noch sechsundvierzig Jahre auf dem Boot und schenkte es dann dem Museum. Der Name bedeutet „Glück“, aber wer es aus der Nähe ansieht, versteht, dass es nicht nur Glück war.",
+            "question": {
+              "q": "Wer kam auf den Kanarischen Inseln an Bord?",
+              "answers": [
+                "Eine Katze",
+                "Ein Papagei",
+                "Ein Schiffbrüchiger",
+                "Ein Hund"
+              ],
+              "explanation": "Die Katze Miço wurde das dritte Mitglied der Mannschaft und fuhr um die Welt, ohne ein einziges Mal zu rudern."
+            }
+          },
+          "istanbul-rahmi-koc-museum-amphibious-car": {
+            "name": "Das Auto, das schwimmt",
+            "blurb": "Ein Amphibienauto von 1961: Auf der Straße fährt es auf vier Rädern, und wenn es eine Rampe erreicht, fährt es ins Wasser, die Räder werden zum Steuerruder, und zwei Propeller am Heck schieben es wie ein Boot voran. Sein Aufbau ist dicht wie ein Schiffsrumpf, seine Türen schließen doppelt, damit kein Wasser hereinkommt, und der Fahrer wird zum Kapitän, ohne den Sitz zu wechseln. Von solchen Autos wurden nur wenige gebaut, denn sie waren mittelmäßige Autos und mittelmäßige Boote, aber niemand, der eines ins Meer fahren sah, hat es je vergessen. Das Museum zeigt es neben den Schiffen, auf der Wasserseite, wo es zu beiden Welten gehört.",
+            "question": {
+              "q": "Was schiebt dieses Auto voran, wenn es im Wasser ist?",
+              "answers": [
+                "Zwei Propeller",
+                "Seine vier Räder",
+                "Ein kleines Segel",
+                "Ruder aus den Fenstern"
+              ],
+              "explanation": "Die Räder lenken nur, wie ein Steuerruder. Den Schub geben zwei Propeller am Heck, wie bei einem Motorboot."
+            }
+          },
+          "istanbul-rahmi-koc-museum-sultans-carriage": {
+            "name": "Der Eisenbahnwagen von Abdülaziz, 1867",
+            "blurb": "Ein Wagen, gebaut in Birmingham in England und Sultan Abdülaziz geschenkt von der Gesellschaft, die die erste Eisenbahn der Türkei baute. 1867 reiste der Sultan darin durch Europa, was noch kein Sultan je getan hatte: In Paris traf er Kaiser Napoleon III., in London Königin Victoria, und danach die Könige von Belgien und Preußen und den Kaiser von Österreich. Innen hat er Samt, Spiegel und geschnitztes Holz, wie ein kleines Empfangszimmer aus einem Palast, das auf Schienen fährt. Schau aus seinen Fenstern und stell dir vor, wie das Europa von 1867 draußen vorbeizieht.",
+            "question": {
+              "q": "Welche Königin traf der Sultan auf seiner Reise von 1867?",
+              "answers": [
+                "Victoria",
+                "Elisabeth",
+                "Kleopatra",
+                "Amalie"
+              ],
+              "explanation": "Königin Victoria empfing ihn in London. Es war die erste Reise eines osmanischen Sultans nach Westeuropa."
+            }
+          },
+          "istanbul-rahmi-koc-museum-tram-1934": {
+            "name": "Die Straßenbahn von 1934",
+            "blurb": "Eine elektrische Straßenbahn, gebaut von der deutschen Firma Siemens und am 29. Oktober 1934 in Dienst gestellt, am Jahrestag der Republik. Mehr als dreißig Jahre lang klingelte sie durch die Straßen der Stadt, mit dem Fahrer stehend vorn und dem Schaffner, der sich zwischen den Fahrgästen durchdrückte, bis die Straßenbahnen 1966 aufhörten, um den Bussen Platz zu machen. Ihre Holzbänke, ihre Messinggriffe und ihre Fenster zum Herunterkurbeln sind noch so, wie sie waren. Auf der İstiklal kam 1990 eine ähnliche rote Straßenbahn zurück auf die Schienen, du kannst hier also die alte ansehen und dann in die neue steigen.",
+            "question": {
+              "q": "Warum hörten die Straßenbahnen der Stadt 1966 auf?",
+              "answers": [
+                "Platz für die Busse",
+                "Der Strom reichte nicht mehr",
+                "Die Schienen waren verrostet",
+                "Die Leute hatten Angst vor ihnen"
+              ],
+              "explanation": "In den 1960er-Jahren glaubten viele Städte, die Zukunft sei der Bus. 1990 änderte die Stadt ihre Meinung."
+            }
+          },
+          "istanbul-rahmi-koc-museum-tunel-carriage": {
+            "name": "Der Tünel-Wagen und seine Seilwinde",
+            "blurb": "Der Tünel ist eine kurze, steile Untergrundbahn, die von Karaköy hinauf zur İstiklal fährt, 573 Meter im Tunnel. Er öffnete am 17. Januar 1875, zwölf Jahre nach der Londoner U-Bahn, und ist die zweitälteste Untergrundbahn der Welt. Der hölzerne Wagen hier ist aus dem 19. Jahrhundert und hatte keinen eigenen Motor: Ihn zogen Stahlseile, aufgewickelt auf einer riesigen Trommel, die eine Dampfmaschine mit zwei Zylindern drehte, 1873 in Frankreich gebaut. Genau diese Maschine steht neben dem Wagen. Der heutige Tünel schafft die Strecke in anderthalb Minuten, mit elektrischen Wagen auf Gummireifen.",
+            "question": {
+              "q": "Was zog diesen Wagen durch den Tunnel?",
+              "answers": [
+                "Stahlseile",
+                "Eine Lok davor",
+                "Zwei starke Pferde",
+                "Ein eigener Motor"
+              ],
+              "explanation": "Die Dampfmaschine blieb oben auf dem Hügel und drehte die Trommel; das Seil machte die übrige Arbeit."
+            }
+          }
+        },
+        "riddles": {
+          "istanbul-rahmi-koc-museum-riddle-1": {
+            "prompt": "Ich bin in Schottland geboren und brachte zweitausend Menschen auf einmal zu den Inseln. Jetzt liege ich für immer vertäut, und statt Fahrgästen steigen Kinder meine Treppen hinauf.",
+            "hint": "Ich bin das Einzige hier, über dessen Decks früher Teeverkäufer gingen."
+          },
+          "istanbul-rahmi-koc-museum-riddle-2": {
+            "prompt": "Ich bin klein, gerade mal zehn Meter und ein bisschen, aber ich bin mit zwei Menschen und einer Katze einmal ganz um die Erde gefahren. Wir haben fast drei Jahre gebraucht.",
+            "hint": "Mein Name bedeutet auf Türkisch „Glück“."
+          },
+          "istanbul-rahmi-koc-museum-riddle-3": {
+            "prompt": "Ich rollte einen Herrscher des Ostens bis nach Paris und London, damals, als noch niemand wie er so weit nach Westen gekommen war. Ich habe keinen eigenen Motor; man hat mich immer gezogen.",
+            "hint": "In mir gibt es Samt und Spiegel, wie in einem Empfangszimmer im Palast."
+          }
+        }
+      }
+    },
+    "istanbul-chora": {
+      "name": "Die Chora-Kirche (Kariye)",
+      "tagline": "Die schönsten byzantinischen Mosaike, 400 Jahre unter Putz versteckt",
+      "story": "Diese Kirche begann als Kloster außerhalb der Stadtmauern, „in der Chora“, das heißt auf dem Land, und der Name blieb, auch als die Mauern wuchsen und sie einschlossen. Zwischen 1310 und 1317 bezahlte ein reicher und sehr gelehrter Staatsmann, Theodoros Metochites, dafür, ihre Wände und Kuppeln mit Mosaiken und Fresken zu füllen: das Leben Marias von klein auf, Wunder, Heilige. Sie gehören zum Schönsten, was Byzanz je hinterlassen hat. Über der Tür siehst du den Mann selbst, kniend, wie er Christus ein kleines Modell der Kirche hinhält. Ungefähr fünfzig Jahre nach 1453 wurde sie eine Moschee, die Kariye, und weil Bilder von Menschen in Moscheen nicht erlaubt sind, wurden die Mosaike mit Putz überdeckt. Das rettete sie vierhundert Jahre lang vor Regen und Rauch. 1945 wurde das Gebäude ein Museum, und ab 1948 trugen amerikanische Fachleute den Putz vorsichtig ab; 1958 öffnete es für Besucher. Seit 2020 ist es wieder eine Moschee, und die Mosaike in den Vorhallen kann jeder sehen, der hereinkommt.",
+      "facts": [
+        "Die Mosaike entstanden zwischen etwa 1310 und 1317.",
+        "Theodoros Metochites, der sie bezahlte, ist abgebildet, wie er Christus ein Modell der Kirche reicht.",
+        "Sie war von 1945 bis 2020 ein Museum und ist wieder eine Moschee.",
+        "Der Name Chora bedeutet „auf dem Land“: Sie stand einst außerhalb der Stadtmauern."
+      ],
+      "question": {
+        "q": "Wie blieben die Mosaike jahrhundertelang in der Moschee unversehrt?",
+        "answers": [
+          "Unter Putz",
+          "Hinter Holzplatten",
+          "Unter dicken Teppichen",
+          "Eingeschlossen im Palast"
+        ],
+        "explanation": "Der Putz kam darauf, um die Bilder zu verbergen, aber er schützte sie auch. Als er abgenommen wurde, waren die goldenen Mosaike darunter."
+      },
+      "findIt": "Zieh an der Tür deine Schuhe aus und bedecke deine Schultern, wie in jeder Moschee."
+    }
+  },
+  "trails": {
+    "istanbul-first-time": {
+      "name": "Zum ersten Mal in der Stadt",
+      "promise": "Du wirst die Rennbahn gesehen haben, die Kuppel, die blaue Moschee, den Palast, den Basar und die Brücke, in dieser Reihenfolge."
+    },
+    "istanbul-two-hours": {
+      "name": "Zwei Stunden in Sultanahmet",
+      "promise": "Drei Orte in 450 Metern: eine Kuppel, eine unterirdische Zisterne, eine Rennbahn."
+    },
+    "istanbul-rainy-day": {
+      "name": "Ein Regentag",
+      "promise": "Vier Orte mit Dach: Sarkophage, Säulen unter der Straße, 61 überdachte Gassen und Maschinen."
+    },
+    "istanbul-across-the-horn": {
+      "name": "Rund um das Goldene Horn",
+      "promise": "Der Genueserturm, die rote Straßenbahn, Fener, die Mosaiken der Chora und ein Museum voller Maschinen."
+    }
+  }
+}

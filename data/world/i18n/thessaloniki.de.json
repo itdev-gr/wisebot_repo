@@ -97,7 +97,7 @@
         "q": "Warum liegt unter dem Mosaik der Kuppel ein schlichtes Kreuz?",
         "answers": [
           "Weil Bilder von Menschen verboten waren",
-          "Weil der Handwerker die Arbeit nicht rechtzeitig fertig bekam",
+          "Weil die Zeit nicht reichte",
           "Weil das Kreuz die Hilfslinie für den Rest des Mosaiks war",
           "Weil die Kuppel zweimal gebaut wurde, von zwei Gruppen"
         ],
@@ -138,7 +138,7 @@
         "answers": [
           "Das Feuer hat ihn nur verkohlt",
           "Er war in einem Glasgefäß voll Öl eingeschlossen",
-          "Mönche schrieben ihn alle hundert Jahre ab",
+          "Mönche schrieben ihn ab",
           "Er war auf Metall geschrieben und nicht auf Papyrus"
         ],
         "explanation": "Das Feuer verbrannte ihn nicht ganz. Verkohlter Papyrus wird fast wie Kohle: zerbrechlich, aber er kann nicht mehr verfaulen. Darum ist er bis zu uns gekommen."
@@ -191,7 +191,7 @@
               "q": "Warum sieht ein 2.300 Jahre altes Stück aus Gold wie neu aus?",
               "answers": [
                 "Weil Gold nicht rostet",
-                "Weil es jede Woche poliert wird",
+                "Weil man es oft poliert",
                 "Weil es eine Kopie des Originals ist",
                 "Weil es in Öl aufbewahrt wird"
               ],
@@ -205,7 +205,7 @@
               "q": "Wo benutzte der Handwerker die kleinsten Steinchen?",
               "answers": [
                 "Zum Beispiel bei den Augen",
-                "An den Rändern des Bodens, damit sie nicht brechen",
+                "An den Rändern",
                 "In der Mitte, weil die Leute dort liefen",
                 "Nirgends: Sie waren alle genau gleich"
               ],
@@ -336,7 +336,7 @@
               "answers": [
                 "Man ritzt die weiße Schicht auf",
                 "Man malt es mit einem Pinsel und mit Gold",
-                "Man klebt kleine Stücke aus Glas auf",
+                "Man klebt Glasstücke auf",
                 "Man druckt es mit einem Stempel aus Holz"
               ],
               "explanation": "Unter der weißen Schicht kommt das Dunkle hervor. Das ist Zeichnen durch Wegnehmen. Alles, was dunkel ist, ist dort, wo der Handwerker gekratzt hat."
@@ -419,7 +419,7 @@
           "Damit die Lagen gerade werden",
           "Damit die Wachen erkennen konnten, wie hoch oben sie waren",
           "Damit man sieht, wie viele Jahre der Bau gedauert hat",
-          "Damit die Mauer im Winter warm bleibt"
+          "Damit sie warm bleiben"
         ],
         "explanation": "Steine haben ungleiche Formen, und eine Lage wird schief. Ziegel, die alle gleich sind, machen sie wieder gerade. Eine gerade Mauer übersteht auch ein Erdbeben besser."
       }
@@ -499,7 +499,7 @@
           "Weil sein Dach aus Glas ist",
           "Weil die Stände weiß gestrichen sind",
           "Weil er schließt, bevor es dunkel wird",
-          "Weil er Spiegel an den Wänden hat"
+          "Weil er Spiegel hat"
         ],
         "explanation": "Durch das Glasdach fällt das Licht von oben herein. Die Markthallen des 19. und 20. Jahrhunderts haben es so gelöst: Eisen für das Gerüst, Glas für das Licht."
       }
@@ -540,7 +540,7 @@
           "Weil es sich sehr langsam dreht",
           "Weil es sich nur dreht, wenn die Besucher schlafen",
           "Weil sich die Scheiben drehen und nicht der Boden",
-          "Weil der Boden mit einem Teppich ausgelegt ist"
+          "Weil da ein Teppich liegt"
         ],
         "explanation": "Es braucht eine Stunde für eine Umdrehung. Unsere Augen bekommen sehr langsame Bewegungen nicht mit. Erst wenn wir vorher und nachher vergleichen, merken wir, dass sich etwas bewegt hat."
       }

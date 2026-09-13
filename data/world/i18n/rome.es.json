@@ -15,7 +15,7 @@
         "q": "¿Qué se ve por el ojo de la cerradura de la puerta verde?",
         "answers": [
           "La cúpula de San Pedro",
-          "El Coliseo visto desde arriba",
+          "El Coliseo",
           "Un jardín secreto con una fuente",
           "El río Tíber y un puente"
         ],
@@ -36,7 +36,7 @@
         "answers": [
           "De una embajada de la plaza",
           "De los albañiles que la construyeron",
-          "Del rey que pagó las obras",
+          "Del rey que pagó",
           "Del país que envió el mármol"
         ],
         "explanation": "La plaza tomó el nombre de la embajada, y la escalinata el nombre de la plaza. El dinero era francés."
@@ -55,7 +55,7 @@
         "q": "¿Qué enseña el rayo de sol cuando cae sobre la línea?",
         "answers": [
           "Qué día del año es",
-          "El calor que va a hacer",
+          "Si hará calor",
           "De dónde sopla el viento",
           "A qué distancia está la Luna"
         ],
@@ -76,7 +76,7 @@
         "answers": [
           "Con una estatua de una viña",
           "Con un regalo de cuadros de Francia",
-          "Con las joyas de un rey",
+          "Con joyas de un rey",
           "Con una colección de momias egipcias"
         ],
         "explanation": "El papa compró el Laocoonte y lo puso en un patio para que lo viera todo el mundo. De aquel patio crecieron los museos."
@@ -134,7 +134,7 @@
               "q": "¿Por qué mandaron los dioses las serpientes contra Laocoonte?",
               "answers": [
                 "Había avisado del caballo",
-                "Había robado un tesoro del templo",
+                "Robó un tesoro",
                 "Se había negado a luchar contra los griegos",
                 "Había matado a una serpiente sagrada del mar"
               ],
@@ -150,7 +150,7 @@
                 "Que era demasiado bonito para tocarlo",
                 "Que ya no le quedaba mármol para los miembros",
                 "Que solo lo haría por el doble de paga",
-                "Que prefería pintar antes que esculpir"
+                "Que prefería pintar a esculpir"
               ],
               "explanation": "No lo tocó nunca. Pero lo dibujó tantas veces que sigue vivo en las figuras de la Capilla Sixtina."
             }
@@ -162,7 +162,7 @@
               "q": "¿Qué separa los mapas de un lado del pasillo de los del otro?",
               "answers": [
                 "Los Apeninos",
-                "El río Po",
+                "El Po",
                 "La frontera con Francia",
                 "La línea del Ecuador"
               ],
@@ -177,7 +177,7 @@
               "answers": [
                 "La de Leonardo da Vinci",
                 "La del papa Julio II",
-                "La de su propio padre",
+                "La de su padre",
                 "La del escultor Gian Lorenzo Bernini"
               ],
               "explanation": "Leonardo era el hombre más sabio que conocía Rafael, así que se convirtió en el hombre más sabio del cuadro."
@@ -190,7 +190,7 @@
               "q": "¿Por qué guardaban los egipcios los cuerpos de los muertos?",
               "answers": [
                 "Los necesitarían en otra vida",
-                "Para poder exponerlos en sus museos",
+                "Para exponerlos",
                 "Para que no los encontraran los soldados romanos",
                 "Porque no había sitio para enterrarlos"
               ],
@@ -206,7 +206,7 @@
                 "De pie sobre andamios",
                 "Tumbado de espaldas sobre unas tablas",
                 "Colgado de cuerdas desde el tejado",
-                "Desde abajo, con pértigas muy largas"
+                "Con pértigas"
               ],
               "explanation": "De pie, con la cabeza echada atrás, cuatro años. Su poema sobre el dolor de cuello se conserva."
             }
@@ -218,7 +218,7 @@
               "q": "¿Qué se encontró al limpiar las pinturas entre 1980 y 1994?",
               "answers": [
                 "Colores más vivos",
-                "Una firma escondida",
+                "Una firma",
                 "Una segunda pintura debajo",
                 "Oro mezclado en la pintura"
               ],
@@ -232,7 +232,7 @@
               "q": "¿Por qué los que suben la escalera no se encuentran nunca con los que bajan?",
               "answers": [
                 "Son dos escaleras en una",
-                "Un guardia los deja pasar por turnos",
+                "Pasan por turnos",
                 "Una dirección usa el ascensor",
                 "Gira como una escalera mecánica"
               ],
@@ -273,7 +273,7 @@
         "q": "¿Por qué están llenos de agujeros los muros del Coliseo?",
         "answers": [
           "Sacaron el hierro de las piedras",
-          "Las abrieron los cañones en una guerra",
+          "Los cañones las abrieron",
           "Eran nidos de las palomas de la ciudad",
           "De ahí colgaban las banderas de los juegos"
         ],
@@ -294,7 +294,7 @@
         "answers": [
           "Para que subieran jinetes a caballo",
           "Para que bajaran las procesiones con velas",
-          "Porque a los constructores les faltó piedra",
+          "Porque se quedaron sin piedra",
           "Para que rodaran los barriles de vino"
         ],
         "explanation": "La rampa se llama cordonata. Sus escalones son tan suaves que un caballo los sube sin tropezar."
@@ -342,7 +342,7 @@
                 "Solo esas partes eran de mármol",
                 "Los vándalos se llevaron el resto",
                 "El cuerpo se derritió en un gran incendio",
-                "El escultor nunca terminó el resto"
+                "El escultor no lo terminó"
               ],
               "explanation": "El cuerpo era de ladrillo y madera. La madera se pudre; el mármol espera."
             }
@@ -355,7 +355,7 @@
               "answers": [
                 "Que es probablemente medieval",
                 "Que es aún más antigua que la propia Roma",
-                "Que en realidad es de oro",
+                "Que en realidad es oro",
                 "Que la fundieron en Grecia"
               ],
               "explanation": "Las muestras apuntan a una fundición entre 1021 y 1153. Los bebés son todavía más nuevos, del siglo XV."
@@ -383,7 +383,7 @@
               "answers": [
                 "Se saca una espina del pie",
                 "Se ata la sandalia para una carrera",
-                "Se lava los pies en un río",
+                "Se lava los pies",
                 "Esconde una moneda bajo la planta"
               ],
               "explanation": "En italiano lo llaman Spinario, de la palabra spina, que quiere decir espina."
@@ -396,7 +396,7 @@
               "q": "¿Cómo sabes que el guerrero es un galo?",
               "answers": [
                 "Por el collar y el bigote",
-                "Por la bandera que lleva en la mano",
+                "Por la bandera",
                 "Por el casco con plumas de águila",
                 "Por la inscripción de su escudo"
               ],
@@ -412,7 +412,7 @@
                 "Le pegaban notas con burlas",
                 "Tenía un tubo escondido dentro para la voz",
                 "Su agua suena como una conversación",
-                "Un cura hablaba desde detrás de él"
+                "Un cura hablaba detrás"
               ],
               "explanation": "Cuando no puedes decir algo en voz alta, lo escribes en un papelito y dejas que lo «diga» una estatua."
             }
@@ -425,7 +425,7 @@
               "answers": [
                 "Para verla por todos lados",
                 "Porque el mármol necesita oscuridad",
-                "Porque no cabía en el patio",
+                "No cabía en el patio",
                 "Para que no se peleara con Marforio"
               ],
               "explanation": "Una estatua así está hecha para dar vueltas alrededor. Pegada a la pared perderías la mitad de su espalda."
@@ -463,7 +463,7 @@
           "Bajaban un huevo o un delfín",
           "Un pregonero gritaba el número cada vez",
           "Encendían un fuego por cada vuelta",
-          "Cambiaban el color de las banderas"
+          "Cambiaban las banderas"
         ],
         "explanation": "Siete huevos y siete delfines estaban encima del muro del medio. Bajaba uno en cada vuelta, y se veía desde cualquier sitio de las gradas."
       }
@@ -502,7 +502,7 @@
         "answers": [
           "Un prado en la ciudad",
           "El patio de un gran palacio",
-          "Un puerto para las barcas del río",
+          "Un puerto de río",
           "El huerto de un monasterio"
         ],
         "explanation": "Campo quiere decir campo y fiori quiere decir flores. El nombre se quedó, aunque el prado se llenara de puestos."
@@ -522,7 +522,7 @@
         "answers": [
           "Dos brazos que abrazan",
           "Las alas de un pájaro gigante",
-          "Los cuernos de un toro",
+          "Cuernos de toro",
           "Dos olas que rompen en la orilla"
         ],
         "explanation": "Bernini dijo que son los brazos maternales de la Iglesia, abiertos para todo el que llega a la plaza."
@@ -543,7 +543,7 @@
           "Pastaban vacas sobre las ruinas",
           "Allí vendían los romanos sus bueyes",
           "A un emperador le gustaban mucho las vacas",
-          "El valle tiene forma de vaca"
+          "El valle parece una vaca"
         ],
         "explanation": "La tierra había tapado la plaza tan hondo que por encima se extendía un prado normal. Los arqueólogos cavaron varios metros para encontrar el pavimento."
       }
@@ -562,7 +562,7 @@
         "answers": [
           "Los ojos y la boca son agujeros",
           "Lo encontraron dentro de una alcantarilla antigua",
-          "Tiene grabada encima la palabra «agua»",
+          "Lleva escrito «agua»",
           "Está hecho del mismo material que las tuberías"
         ],
         "explanation": "Los agujeros que pasan de un lado al otro dejan que el agua se vaya. Una cara en una pared no los necesitaría."
@@ -582,7 +582,7 @@
         "answers": [
           "Se va por agujeros del suelo",
           "La recogen en un depósito para los baños",
-          "Se evapora antes de llegar al suelo",
+          "Se evapora antes",
           "Un cristal tapa el agujero cuando llueve"
         ],
         "explanation": "El suelo tiene una inclinación suave y agujeros pequeños, o sea, que el agua corre y desaparece. Los romanos lo tenían pensado desde el principio."
@@ -602,7 +602,7 @@
         "answers": [
           "Nadie sabía dónde nacía el río",
           "Le da vergüenza la iglesia de enfrente",
-          "Le molesta el sol de la plaza",
+          "Le molesta el sol",
           "El mármol de su cara se había rajado"
         ],
         "explanation": "En los tiempos de Bernini las fuentes del Nilo eran un misterio. La cara tapada significa «desconocido». Los exploradores las encontraron dos siglos más tarde."
@@ -648,7 +648,7 @@
               "q": "¿Cómo mostró el escultor la sangre en la cara del boxeador?",
               "answers": [
                 "Con trozos de cobre rojo",
-                "Con pintura roja sobre el bronce",
+                "Con pintura roja",
                 "Con piedrecitas rojas incrustadas",
                 "Con líneas hondas talladas en el metal"
               ],
@@ -662,7 +662,7 @@
               "q": "¿Por qué el joven de la lanza tiene las cuencas vacías en vez de ojos?",
               "answers": [
                 "Se le cayeron y se perdieron",
-                "El escultor no llegó a hacérselos",
+                "El escultor no los hizo",
                 "Se los quitaron para que no «viera»",
                 "Se derritieron en el incendio de la villa"
               ],
@@ -678,7 +678,7 @@
                 "Mirón, un escultor griego",
                 "Bernini, un escultor romano",
                 "Un artesano egipcio desconocido",
-                "La propia familia Massimo"
+                "La familia Massimo"
               ],
               "explanation": "Mirón trabajaba en Atenas alrededor del 460 a. C. A los romanos les gustaba tanto su estatua que hicieron muchas copias de mármol."
             }
@@ -691,7 +691,7 @@
               "answers": [
                 "Todo florido y maduro a la vez",
                 "Pájaros posados tranquilos en las ramas",
-                "Que el cielo de arriba sea azul",
+                "Que el cielo sea azul",
                 "Que los árboles tengan algún fruto"
               ],
               "explanation": "Cada planta florece y da fruta en una época distinta. Los pintores pusieron todas las épocas juntas, para que fuera siempre verano."
@@ -719,7 +719,7 @@
               "answers": [
                 "De la palabra «ganado»",
                 "De la palabra para el oro",
-                "Del nombre de un emperador",
+                "De un emperador",
                 "De la palabra para la balanza"
               ],
               "explanation": "Pecu significa ganado. Antes de las monedas, la riqueza de un romano eran sus animales."
@@ -757,7 +757,7 @@
           "La tumba de un emperador",
           "Un faro para los barcos del río",
           "Un depósito de agua para la ciudad",
-          "El tesoro de los papas"
+          "El tesoro del papa"
         ],
         "explanation": "Adriano lo construyó para él y para su familia. El castillo, la cárcel y el museo llegaron mucho después."
       }
@@ -777,7 +777,7 @@
           "Fosos en vez de barrotes",
           "Animales sueltos entre los visitantes",
           "Solo animales de Italia",
-          "Jaulas de cristal en vez de hierro"
+          "Jaulas de cristal"
         ],
         "explanation": "Una zanja mantiene a un león en su sitio igual de bien que los barrotes, pero tú lo ves sin nada en medio."
       },

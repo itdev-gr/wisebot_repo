@@ -56,7 +56,13 @@
         "Ha 50 siti Patrimonio dell’Umanità UNESCO: solo quattro paesi nel mondo ne hanno di più.",
         "La Sagrada Família di Barcellona è in costruzione dal 1882 ed è la chiesa più alta del mondo, con i suoi 172,5 metri.",
         "Produce più olio d’oliva di ogni altro paese del mondo."
-      ]
+      ],
+      "cities": {
+        "barcelona": {
+          "name": "Barcellona",
+          "intro": "Barcellona è una città tra le colline e il mare, dove un architetto sognava case come draghi e una chiesa che è in costruzione da 144 anni ed è appena diventata la più alta del mondo. Le strade della città vecchia sono strette e di pietra, quelle della città nuova sono disegnate col righello, e un lungo viale di platani le unisce al porto. Qui si parlano due lingue, il catalano e lo spagnolo, si balla in cerchio davanti alla cattedrale, e i tifosi del calcio festeggiano a una fontana."
+        }
+      }
     },
     "italy": {
       "name": "Italia",
@@ -82,7 +88,13 @@
         "Göbekli Tepe fu costruito circa 11.500 anni fa, prima che gli uomini facessero il loro primo vaso di argilla.",
         "Il Grande Bazar di Istanbul ha 61 strade coperte e circa 4.000 negozi.",
         "La città sotterranea di Derinkuyu scende 85 metri sotto terra e poteva ospitare fino a 20.000 persone."
-      ]
+      ],
+      "cities": {
+        "istanbul": {
+          "name": "Istanbul",
+          "intro": "Istanbul è l’unica grande città che sta in piedi su due continenti: puoi fare colazione in Europa, salire su un traghetto e pranzare in Asia venti minuti dopo. Per più di mille anni è stata Costantinopoli, la capitale dei greci bizantini, e poi per quasi cinquecento anni la capitale dei sultani; tutte e due le città sono ancora qui, una sopra l’altra. Una cupola del 537 sta accanto a un palazzo con quattro cortili, i gabbiani rincorrono i traghetti, e sotto le strade una foresta di colonne di marmo regge ancora il terreno."
+        }
+      }
     },
     "united-kingdom": {
       "name": "Regno Unito",
