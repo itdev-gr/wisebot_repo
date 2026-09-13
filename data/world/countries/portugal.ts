@@ -112,7 +112,7 @@ export const cities: City[] = [
       height: 850,
       /**
        * Wide enough to hold the Torre de Belém in the south-west corner and the Oceanário
-       * in the north-east — the two furthest places in the city file, twelve kilometres
+       * in the north-east — the two furthest places in the city file, 13.3 kilometres
        * apart. The box is 12.3 km by 10.5 km, which is the 1000 × 850 aspect ratio of the
        * artwork, so pins project without stretching.
        */

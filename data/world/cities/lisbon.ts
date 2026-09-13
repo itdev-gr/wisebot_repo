@@ -9,10 +9,10 @@
  *
  * Every coordinate is copied from `data/world/coords/lisbon.json`, field for field.
  * Nothing graded `D`. No place claims an `entrance`, because no door in this city has
- * been measured. The Overpass API was down for the whole of this run — the resolver
- * records `osm: fetch failed` on every place — so most points rest on Wikidata plus the
- * English Wikipedia and grade B or C. A failed cross-check never moves a point, and the
- * coordinate is Wikidata's either way.
+ * been measured. Overpass answered for only five of the sixteen places; for the other
+ * eleven the resolver records `osm: overpass 429` or `osm: overpass 504`, so those points
+ * rest on Wikidata plus the English Wikipedia and grade B or C. A cross-check that never
+ * arrives does not move a point: the coordinate is Wikidata's either way.
  *
  * Judgement calls, all of them:
  *
@@ -98,9 +98,12 @@ export const places: Place[] = [
       lng: -9.13639,
       anchor: 'area',
       confidence: 'C',
-      sources: [{ kind: 'wikidata', ref: 'Q999002', deltaM: 0 }],
+      sources: [
+        { kind: 'wikidata', ref: 'Q999002', deltaM: 0 },
+        { kind: 'osm', ref: 'node/1118902554', deltaM: 83 },
+      ],
       verifiedAt: '2026-09-13',
-      note: 'One source only: the Overpass fetch failed and the English Wikipedia article carries no coordinate for the square.',
+      note: 'An area: OSM’s node sits 83 m from Wikidata’s point, both inside a square about 175 m across. The English Wikipedia article carries no coordinate for it.',
       findIt: {
         el: 'Στάσου κάτω από τις κίτρινες στοές και προχώρα προς το νερό. Η πλατεία τελειώνει σε σκαλιά, όχι σε τοίχο.',
         en: 'Stand under the yellow arcades and walk towards the water. The square ends in steps, not in a wall.',
@@ -190,7 +193,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Rua Augusta Arch', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Overpass fetch failed during this run, so there is no OSM cross-check; the two sources that answered agree exactly.',
+      note: 'The Overpass API answered 429 during this run, so there is no OSM cross-check; the two sources that did answer agree exactly.',
       findIt: {
         el: 'Είναι στη βόρεια πλευρά της Praça do Comércio. Η πόρτα για το ασανσέρ της σκεπής είναι στο πλάι, όχι κάτω από το τόξο.',
         en: 'It is on the north side of Praça do Comércio. The door for the roof lift is at the side, not under the arch.',
@@ -234,7 +237,7 @@ export const places: Place[] = [
     story: {
       el:
         'Η Λισαβόνα είναι χτισμένη σε λόφους, και για να πας από τα μαγαζιά της Baixa στη ' +
-        'γειτονιά του Chiado, δεκαπέντε μέτρα πιο ψηλά, χρειαζόσουν πολλά, πάρα πολλά ' +
+        'γειτονιά του Chiado, τριάντα μέτρα πιο ψηλά, χρειαζόσουν πολλά, πάρα πολλά ' +
         'σκαλοπάτια. Το 1902 η πόλη απέκτησε τη λύση: έναν σιδερένιο πύργο σαράντα πέντε ' +
         'μέτρων, με δύο ξύλινες καμπίνες που ανεβοκατεβαίνουν μέσα του. Τον σχεδίασε ο ' +
         'μηχανικός Raoul Mesnier du Ponsard, που θαύμαζε τα σιδερένια κτίρια της εποχής ' +
@@ -246,7 +249,7 @@ export const places: Place[] = [
         'τον χρησιμοποιούν για να πάνε στη δουλειά τους.',
       en:
         'Lisbon is built on hills, and getting from the shops of the Baixa up to the Chiado ' +
-        'quarter, fifteen metres higher, meant many, many steps. In 1902 the city got its ' +
+        'quarter, thirty metres higher, meant many, many steps. In 1902 the city got its ' +
         'answer: an iron tower forty-five metres tall, with two wooden cabins riding up and ' +
         'down inside it. It was designed by the engineer Raoul Mesnier du Ponsard, who ' +
         'admired the iron buildings of his day. At first a steam engine hauled the cabins ' +
@@ -274,13 +277,14 @@ export const places: Place[] = [
       lat: 38.71194,
       lng: -9.13917,
       anchor: 'centroid',
-      confidence: 'C',
+      confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q168001', deltaM: 0 },
+        { kind: 'osm', ref: 'way/115238861', deltaM: 27 },
         { kind: 'wikipedia', ref: 'Santa Justa Lift', deltaM: 39 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Graded C: Wikipedia sits 39 m off, just past the 30 m agreement window, and the Overpass fetch failed so there was no third opinion. The tower is 45 m tall and both points are on it.',
+      note: 'All three sources answered: OSM 27 m from Wikidata’s point, Wikipedia 39 m. The tower is 45 m tall and every point is on it.',
       findIt: {
         el: 'Η ουρά σχηματίζεται κάτω, στη Rua do Ouro. Από πάνω μπαίνεις δωρεάν, από το Largo do Carmo.',
         en: 'The queue forms at the bottom, on Rua do Ouro. From above you can walk in free, from the Largo do Carmo.',
@@ -362,13 +366,14 @@ export const places: Place[] = [
       lat: 38.71389,
       lng: -9.13944,
       anchor: 'area',
-      confidence: 'B',
+      confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q1549270', deltaM: 0 },
+        { kind: 'osm', ref: 'way/1317749306', deltaM: 16 },
         { kind: 'wikipedia', ref: 'Rossio', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'The square (Q1549270), not the Rossio railway station 150 m north-west, which is a separate Wikidata item. Overpass fetch failed during this run.',
+      note: 'The square (Q1549270), not the Rossio railway station 150 m north-west, which is a separate Wikidata item. All three sources answered and land within 16 m of each other.',
       findIt: {
         el: 'Στάσου στη μέση, κάτω από την κολόνα, και κοίτα κάτω από τα παπούτσια σου πριν κοιτάξεις γύρω.',
         en: 'Stand in the middle, under the column, and look down at your shoes before you look around.',
@@ -454,10 +459,11 @@ export const places: Place[] = [
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q432290', deltaM: 0 },
+        { kind: 'osm', ref: 'relation/19372558', deltaM: 34 },
         { kind: 'wikipedia', ref: 'Lisbon Cathedral', deltaM: 16 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Overpass fetch failed during this run, so there is no OSM cross-check.',
+      note: 'All three sources answered and sit within 34 m of each other, which is inside one cathedral.',
       findIt: {
         el: 'Είναι πάνω στις ράγες του τραμ 28, στην ανηφόρα προς το κάστρο. Ψάξε τους δύο κοντούς πύργους και τον ρόδακα ανάμεσά τους.',
         en: 'It sits on the tram 28 rails, on the climb to the castle. Look for the two squat towers with the rose window between them.',
@@ -545,7 +551,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'São Jorge Castle', deltaM: 24 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area, not a door: the walled enclosure is roughly 300 m across. Overpass fetch failed during this run.',
+      note: 'An area, not a door: the walled enclosure is roughly 300 m across. The Overpass API answered 429 during this run.',
       findIt: {
         el: 'Η μοναδική είσοδος είναι στη δυτική πλευρά, στο Largo do Chão da Feira. Όλες οι ανηφόρες της Alfama καταλήγουν εκεί.',
         en: 'The one entrance is on the west side, at Largo do Chão da Feira. Every uphill lane in Alfama ends there.',
@@ -632,7 +638,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q6837314', deltaM: 0 }],
       verifiedAt: '2026-09-13',
-      note: 'One source only: the Overpass fetch failed and the English Wikipedia has no article with coordinates for this viewpoint.',
+      note: 'One source only: the Overpass API answered 429 and the English Wikipedia has no article with coordinates for this viewpoint.',
       findIt: {
         el: 'Στη Rua do Limoeiro, στην ανηφόρα από τον καθεδρικό προς το κάστρο. Ψάξε τη λευκή κληματαριά· τα πλακάκια είναι στον πίσω τοίχο.',
         en: 'On Rua do Limoeiro, on the climb from the cathedral to the castle. Look for the white pergola; the tiles are on the back wall.',
@@ -645,7 +651,7 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ο βράχος τα κράτησε όρθια στον σεισμό', en: 'The rock held them up in the earthquake' },
-        { el: 'Χτίστηκαν πρώτα από όλα τα άλλα', en: 'They were built first, before all the others' },
+        { el: 'Είναι από πολύ πιο σκληρό τούβλο', en: 'They are made of a much harder brick' },
         { el: 'Ένας νόμος απαγόρευε σε όλους να τα γκρεμίσουν', en: 'A law forbade knocking them down' },
         { el: 'Ο σεισμός σταμάτησε ακριβώς στα τείχη', en: 'The earthquake stopped right at the walls' },
       ],
@@ -720,7 +726,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Belém Tower', deltaM: 39 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Graded C: Wikipedia sits 39 m away, just outside the 30 m agreement window, and the Overpass fetch failed so nothing broke the tie. Both points are on the tower and its bastion.',
+      note: 'Graded C: Wikipedia sits 39 m away, just outside the 30 m agreement window, and the Overpass API answered 429, so nothing broke the tie. Both points are on the tower and its bastion.',
       findIt: {
         el: 'Περνάς τη γραμμή του τρένου με μια πεζογέφυρα και μετά μια μικρή ξύλινη γέφυρα μέχρι την πόρτα. Η ουρά είναι στην όχθη.',
         en: 'You cross the railway on a footbridge, then a short wooden bridge to the door. The queue forms on the bank.',
@@ -809,7 +815,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Monument of the Discoveries', deltaM: 9 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Overpass fetch failed during this run, so there is no OSM cross-check.',
+      note: 'The Overpass API answered 429 during this run, so there is no OSM cross-check.',
       findIt: {
         el: 'Στην προκυμαία, δίπλα στο νερό. Στάσου πρώτα στον χάρτη του πεζοδρομίου και βρες την Πορτογαλία, μετά μπες μέσα για το ασανσέρ.',
         en: 'On the waterfront, right by the river. Stand on the pavement map and find Portugal first, then go in for the lift.',
@@ -899,7 +905,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Jerónimos Monastery', deltaM: 45 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'The monastery building, not the World Heritage listing that pairs it with the Belém Tower a kilometre away. An area: the façade alone is about 300 m long. Overpass fetch failed during this run.',
+      note: 'The monastery building, not the World Heritage listing that pairs it with the Belém Tower a kilometre away. An area: the façade alone is about 300 m long. The Overpass API answered 429 during this run.',
       findIt: {
         el: 'Η εκκλησία και ο κλοιστρός έχουν δύο διαφορετικές πόρτες. Η ουρά για τον κλοιστρό είναι δεξιά, κάτω από τη μεγάλη νότια πύλη.',
         en: 'The church and the cloister have two different doors. The cloister queue is to the right, past the big south doorway.',
@@ -970,8 +976,8 @@ export const places: Place[] = [
         en: 'It is housed in the west wing of the Jerónimos monastery.',
       },
       {
-        el: 'Στη συλλογή του υπάρχουν πέτρινοι padrões, οι στήλες που οι Πορτογάλοι έστηναν σε κάθε νέα ακτή.',
-        en: 'Its collection holds stone padrões, the pillars the Portuguese set up on each new coast.',
+        el: 'Στη συλλογή του υπάρχουν αντίγραφα των padrões, των στηλών που οι Πορτογάλοι έστηναν σε κάθε νέα ακτή.',
+        en: 'Its collection holds copies of the padrões, the pillars the Portuguese set up on each new coast.',
       },
       {
         el: 'Φυλάει το υδροπλάνο Santa Cruz, που το 1922 ολοκλήρωσε την πρώτη αεροπορική διάσχιση του Νότιου Ατλαντικού.',
@@ -988,7 +994,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Navy Museum (Portugal)', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Its own point, 236 m west of the monastery’s: the same building, a different door, and well clear of the 25 m separation rule. Overpass fetch failed during this run.',
+      note: 'Its own point, 236 m west of the monastery’s: the same building, a different door, and well clear of the 25 m separation rule. The Overpass API answered 429 during this run.',
       findIt: {
         el: 'Δεν μπαίνεις από την εκκλησία. Συνέχισε δυτικά μέχρι το τέλος της πρόσοψης, εκεί που το κτίριο έχει καμάρες και μια πλατεία μπροστά.',
         en: 'You do not go in through the church. Keep walking west to the end of the façade, where the building has arches and a square in front.',
@@ -1128,14 +1134,18 @@ export const places: Place[] = [
                   'έστηναν σε κάθε ακτή που έβλεπαν πρώτη φορά, γράφοντας πάνω της τη χρονιά και ' +
                   'το όνομα του βασιλιά. Ήταν υπογραφή σε πέτρα, ορατή από τη θάλασσα. Για τους ' +
                   'ανθρώπους που ζούσαν ήδη σε εκείνες τις ακτές δεν άλλαζε τίποτα εκείνη τη ' +
-                  'μέρα, αλλά για την Ευρώπη ο τόπος τους έμπαινε ξαφνικά στους χάρτες.',
+                  'μέρα, αλλά για την Ευρώπη ο τόπος τους έμπαινε ξαφνικά στους χάρτες. Αυτή ' +
+                  'εδώ είναι αντίγραφο: οι κολόνες που ταξίδεψαν στ’ αλήθεια κατέληξαν μακριά ' +
+                  'από τη Λισαβόνα, σε μακρινές ακτές και σε άλλα μουσεία.',
                 en:
                   'A pillar of Portuguese limestone with a cross on top and letters cut into its ' +
                   'body. Ships carried one in the hold as ballast and planted it on every coast ' +
                   'they saw for the first time, writing on it the year and the king’s name. It ' +
                   'was a signature in stone, visible from the sea. For the people already living ' +
                   'on those coasts nothing changed that day, but for Europe their land had ' +
-                  'suddenly appeared on the maps.',
+                  'suddenly appeared on the maps. The pillar in this room is a copy: the ones ' +
+                  'that really sailed ended up far from Lisbon, on distant coasts and in other ' +
+                  'museums.',
               },
               question: {
                 q: {
@@ -1356,19 +1366,19 @@ export const places: Place[] = [
           },
           exhibits: [
             {
-              id: 'lisbon-museu-de-marinha-galeota-real',
-              name: { el: 'Η Βασιλική Γαλεότα', en: 'The Royal Barge' },
+              id: 'lisbon-museu-de-marinha-bergantim-real',
+              name: { el: 'Το Βασιλικό Μπριγαντίνι', en: 'The Royal Brigantine' },
               blurb: {
                 el:
                   'Χρυσωμένη από την πλώρη ως την πρύμνη, με μια σκεπαστή καμπίνα στη μέση και ' +
-                  'θέσεις για δεκάδες κωπηλάτες, αυτή η λέμβος φτιάχτηκε το 1780 για έναν ' +
+                  'θέσεις για δεκάδες κωπηλάτες, αυτό το σκάφος φτιάχτηκε το 1780 για έναν ' +
                   'βασιλικό γάμο. Δεν είναι πλοίο ανοιχτής θάλασσας· είναι για το ποτάμι, για ' +
                   'παρελάσεις μπροστά σε κόσμο που στέκεται στις όχθες. Το εντυπωσιακό είναι ' +
                   'ότι λειτουργεί ακόμα: το 1957 μπήκε στο νερό και μετέφερε τη βασίλισσα ' +
                   'Ελισάβετ Β΄ πάνω στον Τάγο, σχεδόν διακόσια χρόνια μετά το πρώτο της ταξίδι.',
                 en:
                   'Gilded from bow to stern, with a covered cabin amidships and benches for ' +
-                  'dozens of oarsmen, this barge was built in 1780 for a royal wedding. It is not ' +
+                  'dozens of oarsmen, this vessel was built in 1780 for a royal wedding. It is not ' +
                   'a seagoing ship; it is for the river, for processions in front of crowds ' +
                   'standing on the banks. The remarkable thing is that it still works: in 1957 it ' +
                   'went back on the water and carried Queen Elizabeth II along the Tagus, almost ' +
@@ -1376,8 +1386,8 @@ export const places: Place[] = [
               },
               question: {
                 q: {
-                  el: 'Πού ταξίδευε αυτή η λέμβος;',
-                  en: 'Where did this barge travel?',
+                  el: 'Πού ταξίδευε αυτό το σκάφος;',
+                  en: 'Where did this vessel travel?',
                 },
                 answers: [
                   { el: 'Στο ποτάμι, σε παρελάσεις', en: 'On the river, in processions' },
@@ -1396,18 +1406,18 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'lisbon-museu-de-marinha-bergantim',
-              name: { el: 'Το μπριγαντίνι με τα κουπιά', en: 'The oared brigantine' },
+              id: 'lisbon-museu-de-marinha-galeotas',
+              name: { el: 'Οι βασιλικές γαλεότες', en: 'The royal galiots' },
               blurb: {
                 el:
-                  'Δίπλα στη μεγάλη γαλεότα κάθονται μικρότερα σκάφη με κουπιά, τα μπριγαντίνια ' +
+                  'Δίπλα στο μεγάλο μπριγαντίνι κάθονται μικρότερα σκάφη με κουπιά, οι γαλεότες ' +
                   'της αυλής. Κοίτα πόσο κοντά είναι τα παγκάκια: οι κωπηλάτες κάθονταν κολλητά, ' +
                   'σε σειρές, και έπρεπε να τραβάνε όλοι μαζί στον ίδιο χρόνο, αλλιώς τα κουπιά ' +
                   'χτυπούσαν μεταξύ τους. Κάποιος κρατούσε τον ρυθμό δυνατά, σαν μετρονόμος. Ένα ' +
                   'σκάφος σαν αυτό δεν κινείται με δύναμη αλλά με συντονισμό: τριάντα άνθρωποι ' +
                   'που κάνουν την ίδια κίνηση την ίδια στιγμή.',
                 en:
-                  'Beside the great barge sit smaller oared boats, the court brigantines. Look at ' +
+                  'Beside the great brigantine sit smaller oared boats, the court galiots. Look at ' +
                   'how close the benches are: the rowers sat packed in rows and had to pull ' +
                   'together on the same beat, or the oars would clash. Somebody called that beat ' +
                   'out loud, like a metronome. A boat like this moves not by strength but by ' +
@@ -1544,12 +1554,13 @@ export const places: Place[] = [
           difficulty: 2,
           prompt: {
             el:
-              'Είμαι το μόνο πράγμα εδώ μέσα που έχει φτερά, και όμως στέκομαι σε ναυτικό ' +
-              'μουσείο. Δύο αδέρφια μου χάλασαν στη διαδρομή. Εγώ ήμουν το τρίτο και έφτασα ως ' +
-              'την άλλη μεριά.',
+              'Τρία από εμάς εδώ μέσα έχουν φτερά, κι ας είναι αυτό μουσείο για πλοία. Δύο ' +
+              'αδέρφια μου χάλασαν στη διαδρομή. Εγώ ήμουν το μόνο που έφτασε ως την άλλη ' +
+              'μεριά.',
             en:
-              'I am the only thing in here with wings, and yet I stand in a museum of ships. Two ' +
-              'of my brothers broke on the way. I was the third, and I reached the far side.',
+              'Three of us in here have wings, though this is a museum of ships. Two of my ' +
+              'brothers broke on the way across, and I was the only one that reached the far ' +
+              'side.',
           },
           hint: {
             el: 'Αντί για ρόδες έχω πλωτήρες.',
@@ -1562,13 +1573,13 @@ export const places: Place[] = [
           difficulty: 3,
           prompt: {
             el:
-              'Ταξίδεψα στο αμπάρι σαν σκέτο βάρος, και μετά με έστησαν όρθιο σε μια παραλία ' +
-              'που κανένα πορτογαλικό πλοίο δεν είχε ξαναδεί. Πάνω μου είναι χαραγμένη μια ' +
-              'χρονιά και ένα όνομα βασιλιά.',
+              'Είμαι αντίγραφο ενός πράγματος που ταξίδεψε στο αμπάρι σαν σκέτο βάρος και ' +
+              'μετά το έστησαν όρθιο σε μια παραλία που κανένα πορτογαλικό πλοίο δεν είχε ' +
+              'ξαναδεί. Πάνω μου είναι χαραγμένη μια χρονιά και ένα όνομα βασιλιά.',
             en:
-              'I travelled in the hold as plain dead weight, and then they stood me up on a ' +
-              'beach no Portuguese ship had ever seen. Cut into me are a year and the name of a ' +
-              'king.',
+              'I am a copy of something that travelled in a hold as plain dead weight and was ' +
+              'then stood up on a beach no Portuguese ship had ever seen. Cut into me are a ' +
+              'year and the name of a king.',
           },
           hint: {
             el: 'Έχω σταυρό στην κορυφή μου.',
@@ -1616,7 +1627,9 @@ export const places: Place[] = [
         'for. You will see the earliest tiles, with raised ridges to keep the colours apart, ' +
         'blue and white panels copying a Dutch fashion, and a wall twenty-three metres long ' +
         'showing Lisbon as it was before the earthquake. It is the closest thing there is to ' +
-        'a photograph of a city that no longer exists.',
+        'a photograph of a city that no longer exists. And because tiles are fired, their ' +
+        'colours do not fade the way paint does: what you see is almost exactly what the ' +
+        'craftsman saw when he opened the kiln three hundred years ago.',
     },
     facts: [
       {
@@ -1642,7 +1655,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'National Museum of the Azulejo', deltaM: 5 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'The museum item, not the Igreja da Madre de Deus, which is the church inside the same convent and has its own Wikidata item. Overpass fetch failed during this run.',
+      note: 'The museum item, not the Igreja da Madre de Deus, which is the church inside the same convent and has its own Wikidata item. The Overpass API answered 504 during this run.',
       findIt: {
         el: 'Είναι μακριά από το κέντρο, στη Rua da Madre de Deus. Η πρόσοψη είναι απλή και άσπρη: μοιάζει με εκκλησία, όχι με μουσείο.',
         en: 'It is well out of the centre, on Rua da Madre de Deus. The front is plain and white: it looks like a church, not a museum.',
@@ -1960,13 +1973,13 @@ export const places: Place[] = [
           intro: {
             el:
               'Σε κάποια μουσεία το κτίριο είναι απλώς ένα κουτί που κρατάει τα εκθέματα. ' +
-              'Εδώ το κτίριο είναι το ίδιο έκθεμα. Περνάς από δύο αίθρια χτισμένα σε ' +
-              'διαφορετικούς αιώνες, με εντελώς διαφορετικό ύφος, και μπαίνεις σε μια ' +
+              'Εδώ το κτίριο είναι το ίδιο έκθεμα. Περνάς από δύο αίθρια χτισμένα με ' +
+              'σαράντα περίπου χρόνια διαφορά, με εντελώς διαφορετικό ύφος, και μπαίνεις σε μια ' +
               'εκκλησία τόσο φορτωμένη με χρυσό και πλακάκια που δυσκολεύεσαι να βρεις πάνω ' +
               'της έναν γυμνό τοίχο.',
             en:
               'In some museums the building is just a box. Here it is an exhibit. You pass ' +
-              'through two cloisters built in different centuries and step into a church so ' +
+              'through two cloisters built about forty years apart and step into a church so ' +
               'loaded with gold and tiles that you struggle to find a bare patch of wall.',
           },
           exhibits: [
@@ -2055,14 +2068,14 @@ export const places: Place[] = [
               name: { el: 'Το μεγάλο αίθριο', en: 'The great cloister' },
               blurb: {
                 el:
-                  'Το δεύτερο αίθριο είναι μεγαλύτερο, πιο απλό και χτισμένο έναν αιώνα ' +
-                  'αργότερα, σε ρυθμό αναγεννησιακό: ίσιες γραμμές, ίσα διαστήματα, καθόλου ' +
+                  'Το δεύτερο αίθριο είναι μεγαλύτερο, πιο απλό και χτισμένο σαράντα περίπου ' +
+                  'χρόνια αργότερα, σε ρυθμό αναγεννησιακό: ίσιες γραμμές, ίσα διαστήματα, καθόλου ' +
                   'σκοινιά και κοχύλια. Βάλε τα δύο αίθρια δίπλα δίπλα και βλέπεις τη μόδα να ' +
                   'αλλάζει μπροστά σου, μέσα στο ίδιο κτίριο. Εδώ σήμερα είναι το ήσυχο σημείο ' +
                   'όπου κάθεται ο κόσμος να ξεκουραστεί, και οι τοίχοι γύρω κρατούν πίνακες από ' +
                   'πλακάκια που ήρθαν από κτίρια τα οποία δεν υπάρχουν πια.',
                 en:
-                  'The second cloister is bigger, plainer and built a century later, in a ' +
+                  'The second cloister is bigger, plainer and built about forty years later, in a ' +
                   'Renaissance style: straight lines, even spacing, no ropes and no seashells. ' +
                   'Put the two cloisters side by side and you watch a fashion change in front of ' +
                   'you, inside one building. Today this is the quiet place where people sit down ' +
@@ -2083,10 +2096,10 @@ export const places: Place[] = [
                 explanation: {
                   el:
                     'Το μικρό είναι μανουελίνο, γεμάτο σκαλίσματα. Το μεγάλο είναι αναγεννησιακό ' +
-                    'και λιτό, χτισμένο έναν αιώνα αργότερα.',
+                    'και λιτό, χτισμένο σαράντα περίπου χρόνια αργότερα.',
                   en:
                     'The small one is Manueline and covered in carving. The great one is ' +
-                    'Renaissance and bare, built a century later.',
+                    'Renaissance and bare, built about forty years later.',
                 },
               },
             },
@@ -2136,10 +2149,10 @@ export const places: Place[] = [
           prompt: {
             el:
               'Είμαι τετράγωνος και άδειος στη μέση, με καμάρες σε δύο πατώματα. Φοράω τα ίδια ' +
-              'πέτρινα σκοινιά με έναν πύργο δίπλα στο ποτάμι, δώδεκα χιλιόμετρα από εδώ.',
+              'πέτρινα σκοινιά με έναν πύργο δίπλα στο ποτάμι, δέκα χιλιόμετρα από εδώ.',
             en:
               'I am square and empty in the middle, with arches on two floors. I wear the same ' +
-              'stone ropes as a tower beside the river, twelve kilometres from here.',
+              'stone ropes as a tower beside the river, ten kilometres from here.',
           },
           hint: {
             el: 'Είμαι ο μικρότερος από τους δύο.',
@@ -2211,7 +2224,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Lisbon Oceanarium', deltaM: 5 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Overpass fetch failed during this run, so there is no OSM cross-check.',
+      note: 'The Overpass API answered 504 during this run, so there is no OSM cross-check.',
       findIt: {
         el: 'Στο Parque das Nações, δίπλα στο νερό. Το κτίριο στέκεται πάνω σε λιμνούλα και το φτάνεις με μια πεζογέφυρα.',
         en: 'In the Parque das Nações, next to the water. The building stands in a pool and you reach it over a footbridge.',
@@ -2297,10 +2310,11 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [
         { kind: 'wikidata', ref: 'Q623228', deltaM: 0 },
+        { kind: 'osm', ref: 'node/13950436040', deltaM: 34 },
         { kind: 'wikipedia', ref: 'Águas Livres Aqueduct', deltaM: 328 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area, and a long one: the aqueduct runs about eighteen kilometres, so the two sources sit 328 m apart on the same structure. Wikidata’s point is on the great arches over the Alcântara valley, which is the part you can walk. Overpass fetch failed during this run.',
+      note: 'An area, and a long one: the aqueduct runs about eighteen kilometres, so Wikipedia’s point sits 328 m from Wikidata’s on the same structure, while OSM’s is 34 m away. Wikidata’s point is on the great arches over the Alcântara valley, which is the part you can walk.',
       findIt: {
         el: 'Οι καμάρες φαίνονται από τον δρόμο κάτω, στην Alcântara. Η πόρτα για να ανέβεις πάνω τους είναι στην Calçada da Quintinha.',
         en: 'The arches are visible from the road below, in Alcântara. The door for walking on top is on Calçada da Quintinha.',
@@ -2351,8 +2365,9 @@ export const places: Place[] = [
         'ξεκινάει από το χέρι του εκπαιδευτή του, κάνει έναν κύκλο πάνω από το χορτάρι με ' +
         'εξήντα χιλιάδες ανθρώπους να φωνάζουν, και μετά επιστρέφει και κάθεται ήσυχα εκεί ' +
         'από όπου ξεκίνησε. Ο αετός είναι το σύμβολο της ομάδας εδώ και έναν αιώνα. Η ' +
-        'σκεπή του γηπέδου αφήνει το γήπεδο ανοιχτό στον ουρανό, ακριβώς για να έχει ο ' +
-        'αετός πού να πετάξει.',
+        'σκεπή σκεπάζει μόνο τις κερκίδες και είναι από διάφανο υλικό επίτηδες, ώστε ο ' +
+        'ήλιος να φτάνει στο χορτάρι και να το κρατάει ζωντανό — και έτσι μένει και για ' +
+        'τον αετό ένας ανοιχτός κύκλος ουρανού.',
       en:
         'This is the largest stadium in Portugal, with about sixty-four thousand seats, and ' +
         'it opened in 2003. Its name means “the stadium of the Light”, after the Luz ' +
@@ -2361,8 +2376,9 @@ export const places: Place[] = [
         'is not the building. Shortly before every Benfica match a real eagle launches from ' +
         'its handler’s arm, circles once above the grass while sixty thousand people roar, ' +
         'and then comes back and settles quietly where it started. The eagle has been the ' +
-        'club’s symbol for a century. The stadium’s roof leaves the pitch open to the sky, ' +
-        'precisely so that the eagle has somewhere to fly.',
+        'club’s symbol for a century. The roof covers only the stands, and it is made of a ' +
+        'see-through material on purpose, so that sunlight still reaches the grass and keeps ' +
+        'it alive — which leaves the eagle a clear circle of sky as well.',
     },
     facts: [
       {
@@ -2388,7 +2404,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Estádio da Luz', deltaM: 9 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'The stadium opened in 2003 (Q7875112), not the old one on nearly the same ground that was demolished that year, and not the Stadium of Light in England. Overpass fetch failed during this run.',
+      note: 'The stadium opened in 2003 (Q7875112), not the old one on nearly the same ground that was demolished that year, and not the Stadium of Light in England. The Overpass API answered 504 during this run.',
       findIt: {
         el: 'Το μετρό σε αφήνει ακριβώς απέναντι, στη στάση Colégio Militar. Το άγαλμα του Eusébio στέκεται έξω από την είσοδο.',
         en: 'The metro leaves you right opposite, at Colégio Militar. The statue of Eusébio stands outside the entrance.',
@@ -2453,7 +2469,9 @@ export const places: Place[] = [
         'a shop next door, which opened in 1837 and has been working ever since. The recipe ' +
         'has never been printed in a cookery book. The pastry is rolled in a locked room ' +
         'called the Oficina do Segredo, the “workshop of the secret”, and only a handful of ' +
-        'people know the whole of it.',
+        'people know the whole of it. The tarts come out of the oven a little burnt on top, ' +
+        'and that is on purpose: the very hot fire caramelises the sugar and gives them the ' +
+        'dark blisters everyone looks for.',
     },
     facts: [
       {
@@ -2476,7 +2494,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q3091352', deltaM: 0 }],
       verifiedAt: '2026-09-13',
-      note: 'One source only: the Overpass fetch failed and the English Wikipedia has no article with coordinates for the bakery. It sits 209 m east of the monastery point, well clear of the separation rule.',
+      note: 'One source only: the Overpass API answered 429 and the English Wikipedia has no article with coordinates for the bakery. It sits 209 m east of the monastery point, well clear of the separation rule.',
       findIt: {
         el: 'Είναι στη Rua de Belém, με μπλε πινακίδα. Η ουρά στο πεζοδρόμιο είναι για το πακέτο· μέσα υπάρχουν αίθουσες και τραπέζια.',
         en: 'It is on Rua de Belém, with a blue sign. The pavement queue is for takeaway; inside there are rooms and tables.',

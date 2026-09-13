@@ -1,6 +1,6 @@
 {
   "city": "lisbon",
-  "resolvedAt": "2026-09-13T07:31:07.762Z",
+  "resolvedAt": "2026-09-13T11:42:28.136Z",
   "centre": {
     "lat": 38.70804,
     "lng": -9.13902
@@ -15,10 +15,14 @@
           "kind": "wikidata",
           "ref": "Q999002",
           "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/1118902554",
+          "deltaM": 83
         }
       ],
       "warnings": [
-        "osm: fetch failed",
         "wikipedia: no match"
       ],
       "lat": 38.7075,
@@ -50,7 +54,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 38.7084,
       "lng": -9.1368,
@@ -75,14 +79,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/115238861",
+          "deltaM": 27
+        },
+        {
           "kind": "wikipedia",
           "ref": "Santa Justa Lift",
           "deltaM": 39
         }
       ],
-      "warnings": [
-        "osm: fetch failed"
-      ],
+      "warnings": [],
       "lat": 38.71194,
       "lng": -9.13917,
       "labels": {
@@ -92,7 +99,7 @@
         "fr": "ascenseur de Santa Justa",
         "it": "Elevador de Santa Justa"
       },
-      "confidence": "C",
+      "confidence": "B",
       "verifiedAt": "2026-09-13"
     },
     {
@@ -106,14 +113,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/1317749306",
+          "deltaM": 16
+        },
+        {
           "kind": "wikipedia",
           "ref": "Rossio",
           "deltaM": 0
         }
       ],
-      "warnings": [
-        "osm: fetch failed"
-      ],
+      "warnings": [],
       "lat": 38.71389,
       "lng": -9.13944,
       "labels": {
@@ -123,7 +133,7 @@
         "en": "Rossio Square",
         "it": "Rossio"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-13"
     },
     {
@@ -137,14 +147,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/19372558",
+          "deltaM": 34
+        },
+        {
           "kind": "wikipedia",
           "ref": "Lisbon Cathedral",
           "deltaM": 16
         }
       ],
-      "warnings": [
-        "osm: fetch failed"
-      ],
+      "warnings": [],
       "lat": 38.70985,
       "lng": -9.13298,
       "labels": {
@@ -175,7 +188,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 38.71389,
       "lng": -9.13333,
@@ -202,7 +215,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed",
+        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 38.71169,
@@ -233,7 +246,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 38.69139,
       "lng": -9.21583,
@@ -265,7 +278,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 38.69368,
       "lng": -9.20569,
@@ -297,7 +310,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 38.69785,
       "lng": -9.2056,
@@ -329,7 +342,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 38.6971,
       "lng": -9.20814,
@@ -359,7 +372,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 38.7244,
       "lng": -9.11389,
@@ -390,7 +403,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 38.76353,
       "lng": -9.09375,
@@ -415,14 +428,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "node/13950436040",
+          "deltaM": 34
+        },
+        {
           "kind": "wikipedia",
           "ref": "Águas Livres Aqueduct",
           "deltaM": 328
         }
       ],
-      "warnings": [
-        "osm: fetch failed"
-      ],
+      "warnings": [],
       "lat": 38.72667,
       "lng": -9.16667,
       "labels": {
@@ -453,7 +469,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 38.75278,
       "lng": -9.18472,
@@ -480,7 +496,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed",
+        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 38.69751,
