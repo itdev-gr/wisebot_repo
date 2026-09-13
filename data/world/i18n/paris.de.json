@@ -144,7 +144,7 @@
               "answers": [
                 "Ihr Diebstahl im Jahr 1911",
                 "Napoleon hängte sie auf",
-                "Das größte Gemälde hier",
+                "Ihre enorme Größe",
                 "Ein Brief von Leonardo"
               ],
               "explanation": "Zwei Jahre lang eine leere Wand und Titelseiten überall. Als sie zurückkam, kannte sie die ganze Welt."
@@ -411,7 +411,7 @@
           },
           "paris-cite-argonaute": {
             "name": "Das U-Boot Argonaute",
-            "blurb": "Ein echtes französisches U-Boot, über fünfzig Meter lang, das jahrzehntelang im Dienst war und jetzt auf Beton im Park sitzt. Du gehst hinein, und das Erste, was du begreifst, ist, wie eng es ist: In den Gängen passen keine zwei Menschen nebeneinander, und die Betten sind zwischen die Rohre gestapelt. Fünfzig Menschen lebten hier drin, wochenlang, ohne Tageslicht zu sehen, und atmeten Luft aus Maschinen.",
+            "blurb": "Ein echtes französisches U-Boot, fast fünfzig Meter lang, das jahrzehntelang im Dienst war und jetzt auf Beton im Park sitzt. Du gehst hinein, und das Erste, was du begreifst, ist, wie eng es ist: In den Gängen passen keine zwei Menschen nebeneinander, und die Betten sind zwischen die Rohre gestapelt. Vierzig Menschen lebten hier drin, wochenlang, ohne Tageslicht zu sehen, und atmeten Luft aus Maschinen.",
             "question": {
               "q": "Was beeindruckt dich im U-Boot am meisten?",
               "answers": [
@@ -420,7 +420,7 @@
                 "Wie bequem es dort war",
                 "Wie leise die Maschine war"
               ],
-              "explanation": "Es hat überhaupt keine Fenster. Fünfzig Menschen, wochenlang, ohne Tageslicht."
+              "explanation": "Es hat überhaupt keine Fenster. Vierzig Menschen, wochenlang, ohne Tageslicht."
             }
           },
           "paris-cite-geode": {

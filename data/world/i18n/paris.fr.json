@@ -144,7 +144,7 @@
               "answers": [
                 "Son vol en 1911",
                 "Napoléon l’a accrochée",
-                "Le plus grand tableau",
+                "Sa taille énorme",
                 "Un mot de Léonard"
               ],
               "explanation": "Deux ans de mur vide et des unes de journaux partout. Quand elle est revenue, le monde entier la connaissait."
@@ -411,7 +411,7 @@
           },
           "paris-cite-argonaute": {
             "name": "Le sous-marin Argonaute",
-            "blurb": "Un vrai sous-marin français, long de plus de cinquante mètres, qui a servi pendant des dizaines d’années et qui repose maintenant sur du béton dans le parc. Tu entres, et la première chose que tu comprends, c’est à quel point il est étroit : les couloirs ne laissent pas passer deux personnes côte à côte, et les lits sont empilés entre les tuyaux. Cinquante personnes vivaient là-dedans pendant des semaines, sans voir la lumière du jour, en respirant de l’air fabriqué par des machines.",
+            "blurb": "Un vrai sous-marin français, long de près de cinquante mètres, qui a servi pendant des dizaines d’années et qui repose maintenant sur du béton dans le parc. Tu entres, et la première chose que tu comprends, c’est à quel point il est étroit : les couloirs ne laissent pas passer deux personnes côte à côte, et les lits sont empilés entre les tuyaux. Quarante personnes vivaient là-dedans pendant des semaines, sans voir la lumière du jour, en respirant de l’air fabriqué par des machines.",
             "question": {
               "q": "Qu’est-ce qui te frappe le plus à l’intérieur du sous-marin ?",
               "answers": [
@@ -420,7 +420,7 @@
                 "Comme on y était bien",
                 "Comme le moteur était silencieux"
               ],
-              "explanation": "Il n’a aucune fenêtre. Cinquante personnes, des semaines entières, sans voir la lumière."
+              "explanation": "Il n’a aucune fenêtre. Quarante personnes, des semaines entières, sans voir la lumière."
             }
           },
           "paris-cite-geode": {

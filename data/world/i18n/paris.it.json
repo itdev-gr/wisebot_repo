@@ -144,7 +144,7 @@
               "answers": [
                 "Il furto del 1911",
                 "L’appese Napoleone",
-                "Il quadro più grande del museo",
+                "Le sue dimensioni enormi",
                 "Una lettera di Leonardo"
               ],
               "explanation": "Due anni con il muro vuoto e prime pagine dappertutto. Quando tornò, la conosceva tutto il mondo."
@@ -411,7 +411,7 @@
           },
           "paris-cite-argonaute": {
             "name": "Il sottomarino Argonaute",
-            "blurb": "Un vero sottomarino francese, lungo più di cinquanta metri, che ha lavorato per decenni e adesso sta posato sul cemento in mezzo al parco. Entri e la prima cosa che capisci è quanto è stretto: nei corridoi non ci passano due persone fianco a fianco e i letti sono impilati in mezzo ai tubi. Cinquanta persone vivevano qui dentro per settimane, senza vedere la luce, respirando aria fatta dalle macchine.",
+            "blurb": "Un vero sottomarino francese, lungo quasi cinquanta metri, che ha lavorato per decenni e adesso sta posato sul cemento in mezzo al parco. Entri e la prima cosa che capisci è quanto è stretto: nei corridoi non ci passano due persone fianco a fianco e i letti sono impilati in mezzo ai tubi. Quaranta persone vivevano qui dentro per settimane, senza vedere la luce, respirando aria fatta dalle macchine.",
             "question": {
               "q": "Che cosa colpisce di più dentro il sottomarino?",
               "answers": [
@@ -420,7 +420,7 @@
                 "Quanto era comodo",
                 "Quanto era silenzioso il motore"
               ],
-              "explanation": "Non ha nemmeno un finestrino. Cinquanta persone, per settimane, senza vedere la luce."
+              "explanation": "Non ha nemmeno un finestrino. Quaranta persone, per settimane, senza vedere la luce."
             }
           },
           "paris-cite-geode": {

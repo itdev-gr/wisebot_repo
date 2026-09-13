@@ -144,7 +144,7 @@
               "answers": [
                 "Que la robaran en 1911",
                 "Que la colgara Napoleón",
-                "Que sea el cuadro más grande",
+                "Su tamaño enorme",
                 "Carta de Leonardo"
               ],
               "explanation": "Dos años con la pared vacía y portadas en todas partes. Cuando volvió, la conocía todo el mundo."
@@ -411,7 +411,7 @@
           },
           "paris-cite-argonaute": {
             "name": "El submarino Argonaute",
-            "blurb": "Un submarino francés de verdad, de más de cincuenta metros de largo, que estuvo en servicio durante décadas y ahora está posado sobre hormigón en el parque. Entras y lo primero que entiendes es lo estrecho que es: en los pasillos no caben dos personas una al lado de la otra y las camas están apiladas entre los tubos. Cincuenta personas vivían aquí dentro durante semanas, sin ver la luz, respirando aire hecho por máquinas.",
+            "blurb": "Un submarino francés de verdad, de casi cincuenta metros de largo, que estuvo en servicio durante décadas y ahora está posado sobre hormigón en el parque. Entras y lo primero que entiendes es lo estrecho que es: en los pasillos no caben dos personas una al lado de la otra y las camas están apiladas entre los tubos. Cuarenta personas vivían aquí dentro durante semanas, sin ver la luz, respirando aire hecho por máquinas.",
             "question": {
               "q": "¿Qué es lo que más te impresiona dentro del submarino?",
               "answers": [
@@ -420,7 +420,7 @@
                 "Lo cómodo que era",
                 "Lo silencioso que era el motor en marcha"
               ],
-              "explanation": "No tiene ni una ventana. Cincuenta personas, semanas enteras, sin ver la luz."
+              "explanation": "No tiene ni una ventana. Cuarenta personas, semanas enteras, sin ver la luz."
             }
           },
           "paris-cite-geode": {
