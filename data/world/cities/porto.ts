@@ -514,14 +514,16 @@ export const places: Place[] = [
                 el:
                   'Το μουσείο είχε ένα πρόβλημα: ήθελε να δείξει την ανασκαφή, αλλά αν ' +
                   'περπατούσε ο κόσμος μέσα της θα την κατέστρεφε σε έναν μήνα. Η λύση ήταν ' +
-                  'ένας υπερυψωμένος διάδρομος. Περνάς από πάνω, βλέπεις τα πάντα, και δεν ' +
-                  'ακουμπάς τίποτα. Είναι ένα μικρό μάθημα για το πώς λειτουργούν τα μουσεία: ' +
+                  'να μπει γυαλί ανάμεσα. Περνάς από πάνω, κοιτάς κάτω από τα πόδια σου, ' +
+                  'βλέπεις τα πάντα και δεν ακουμπάς τίποτα. Είναι ένα μικρό μάθημα για το ' +
+                  'πώς λειτουργούν τα μουσεία: ' +
                   'σχεδόν κάθε βιτρίνα, κάθε σχοινί και κάθε γεφυράκι υπάρχει για να ' +
                   'μπορέσει να το δει και το παιδί που θα έρθει σε πενήντα χρόνια.',
                 en:
                   'The museum had a problem: it wanted to show the dig, but if people walked ' +
-                  'through it they would wreck it inside a month. The answer was a raised ' +
-                  'walkway. You cross above it, you see everything, and you touch nothing. It ' +
+                  'through it they would wreck it inside a month. The answer was to put glass ' +
+                  'in between. You cross above it, you look down past your own shoes, you see ' +
+                  'everything and you touch nothing. It ' +
                   'is a small lesson in how museums work: nearly every glass case, every rope ' +
                   'and every little bridge exists so that the child who comes in fifty years ' +
                   'can still see the thing.',
@@ -578,55 +580,57 @@ export const places: Place[] = [
           },
           exhibits: [
             {
-              id: 'porto-casa-do-infante-scales',
-              name: { el: 'Η ζυγαριά του τελωνείου', en: 'The customs scales' },
+              id: 'porto-casa-do-infante-lead-seals',
+              name: { el: 'Τα μολυβένια σφραγίσματα', en: 'The lead seals' },
               blurb: {
                 el:
-                  'Ο φόρος δεν υπολογιζόταν με το μάτι. Υπολογιζόταν με βάρος, και το βάρος ' +
-                  'έβγαινε από μια μεγάλη ζυγαριά με δύο δίσκους: στον έναν το εμπόρευμα, ' +
-                  'στον άλλο σιδερένια σταθμά. Γι’ αυτό η ζυγαριά είναι μέχρι σήμερα το ' +
-                  'σύμβολο της δικαιοσύνης: δεν συζητάει, δεν εντυπωσιάζεται και δεν κάνει ' +
-                  'χάρη σε κανέναν. Οι έμποροι το ήξεραν, και γι’ αυτό τα σταθμά ελέγχονταν ' +
-                  'και σφραγίζονταν από την πόλη, ώστε να μη μπορεί κανείς να κλέψει ' +
-                  'ζυγίζοντας με πειραγμένο μέταλλο.',
+                  'Ένα μικρό κομμάτι μόλυβδο, μαλακό σαν ζυμάρι, πιεσμένο πάνω στο δέμα με ' +
+                  'μια τσιμπίδα που άφηνε επάνω του το σημάδι του τελωνείου. Αυτό ήταν η ' +
+                  'απόδειξη ότι ο φόρος είχε πληρωθεί. Ο μόλυβδος διαλέχτηκε επειδή είναι ' +
+                  'μαλακός: σφραγίζεται εύκολα, αλλά αν κάποιος τον ανοίξει δεν ξανακλείνει ' +
+                  'ποτέ όπως ήταν. Στις βιτρίνες θα δεις δεκάδες τέτοια σφραγίσματα, και ' +
+                  'δίπλα τους τα μεταλλικά μάρκα με τα οποία έκαναν τους λογαριασμούς τους ' +
+                  'οι υπάλληλοι. Είναι ελάχιστα αντικείμενα, και κρατούσαν όρθιο ολόκληρο ' +
+                  'το λιμάνι.',
                 en:
-                  'The tax was not worked out by eye. It was worked out by weight, and the ' +
-                  'weight came off a big balance with two pans: the goods in one, iron ' +
-                  'weights in the other. That is why a balance is still the sign of justice: ' +
-                  'it does not argue, it is not impressed, and it does no favours. Merchants ' +
-                  'knew that, which is why the weights themselves were checked and stamped by ' +
-                  'the city, so nobody could cheat with a doctored lump of metal.',
+                  'A little piece of lead, soft as dough, squeezed onto a bale with a pair of ' +
+                  'pincers that left the customs mark in it. That was the proof that the duty ' +
+                  'had been paid. Lead was chosen because it is soft: it takes a stamp easily, ' +
+                  'but once somebody prises it open it never closes the same way again. In the ' +
+                  'cases you will see dozens of these seals, and beside them the counting ' +
+                  'tokens the clerks pushed around to do their sums. They are tiny objects, ' +
+                  'and they held a whole port together.',
               },
               question: {
                 q: {
-                  el: 'Γιατί σφράγιζε η πόλη τα σιδερένια σταθμά;',
-                  en: 'Why did the city stamp the iron weights?',
+                  el: 'Τι σου έλεγε ένα μολυβένιο σφράγισμα πάνω σε ένα δέμα;',
+                  en: 'What did a lead seal on a bale tell you?',
                 },
                 answers: [
                   {
-                    el: 'Για να μην κλέβει κανείς με πειραγμένο σιδερένιο βάρος',
-                    en: 'So that nobody could cheat with a doctored weight',
+                    el: 'Ότι ο φόρος του είχε ήδη πληρωθεί',
+                    en: 'That the tax on it had already been paid',
                   },
                   {
-                    el: 'Για να ξεχωρίζουν τα σταθμά κάθε εμπόρου',
-                    en: 'So each merchant’s weights were different',
+                    el: 'Ποιο πλοίο το είχε ανεβάσει στο ποτάμι',
+                    en: 'Which ship had carried it up the river',
                   },
                   {
-                    el: 'Για να θυμούνται οι υπάλληλοι τα βάρη',
-                    en: 'So the clerks could remember each weight',
+                    el: 'Πόσο ζύγιζε ολόκληρο το δέμα',
+                    en: 'How much the whole bale weighed',
                   },
                   {
-                    el: 'Για να μη σκουριάζει το σίδερο μέσα στην υγρασία του λιμανιού',
-                    en: 'To stop the iron rusting in the damp air of the river port',
+                    el: 'Ποιος έμπορος της πόλης το είχε παραγγείλει',
+                    en: 'Which merchant in the city had ordered it',
                   },
                 ],
                 explanation: {
                   el:
-                    'Ένα ελαφρύτερο σταθμό σημαίνει μικρότερος φόρος. Η σφραγίδα ήταν η ' +
-                    'εγγύηση ότι το κιλό ήταν κιλό.',
+                    'Σπασμένο σφράγισμα σήμαινε ότι κάποιος είχε ανοίξει το δέμα μετά το ' +
+                    'τελωνείο — και τότε άρχιζαν οι ερωτήσεις.',
                   en:
-                    'A lighter weight means a smaller tax. The stamp was the promise that a ' +
-                    'kilo really was a kilo.',
+                    'A broken seal meant somebody had opened the bale after the customs ' +
+                    'house — and then the questions started.',
                 },
               },
             },
@@ -755,158 +759,169 @@ export const places: Place[] = [
           },
           exhibits: [
             {
-              id: 'porto-casa-do-infante-prince-room',
-              name: { el: 'Το δωμάτιο του πρίγκιπα', en: 'The prince’s room' },
+              id: 'porto-casa-do-infante-many-faces',
+              name: { el: 'Τα πολλά πρόσωπα του Ερρίκου', en: 'Henry’s many faces' },
               blurb: {
                 el:
-                  'Ένα συνηθισμένο δωμάτιο σε ένα τελωνείο, με πέτρινους τοίχους και ένα ' +
-                  'παράθυρο προς το ποτάμι. Η μόνη του αξίωση είναι μια χρονολογία. Το ' +
-                  'μουσείο δεν κρύβει ότι πρόκειται για παράδοση: κανείς δεν φωτογράφισε ' +
-                  'τίποτα το 1394 και τα έγγραφα είναι λιγοστά. Είναι όμως καλή ευκαιρία να ' +
-                  'σκεφτείς κάτι απλό: κάθε άνθρωπος που άλλαξε τον κόσμο υπήρξε κάποτε ένα ' +
-                  'μωρό σε ένα οποιοδήποτε δωμάτιο, χωρίς να το ξέρει κανένας.',
+                  'Κανείς δεν ξέρει πώς έμοιαζε ο Ερρίκος. Δεν υπάρχει πορτρέτο φτιαγμένο ' +
+                  'από κάποιον που τον είδε, και ακόμα και η πιο διάσημη μορφή του, ο ' +
+                  'άντρας με το μεγάλο σκούρο καπέλο, αμφισβητείται. Το μουσείο βάζει στη ' +
+                  'σειρά τις εικόνες του μέσα στους αιώνες, και το αστείο φαίνεται αμέσως: ' +
+                  'κάθε εποχή τον ζωγράφισε να μοιάζει με τους δικούς της ανθρώπους. Άλλοτε ' +
+                  'αυστηρός μοναχός, άλλοτε στρατηγός, άλλοτε επιστήμονας ανάμεσα σε ' +
+                  'όργανα. Οι εικόνες δεν μας λένε πώς ήταν εκείνος. Μας λένε τι ήθελε να ' +
+                  'δει η κάθε γενιά.',
                 en:
-                  'An ordinary room in a customs house, with stone walls and a window facing ' +
-                  'the river. Its only claim is a date. The museum does not hide that this is ' +
-                  'tradition rather than proof: nobody photographed anything in 1394 and the ' +
-                  'documents are thin. But it is a good place to think something simple: ' +
-                  'every person who changed the world was once a baby in some ordinary room, ' +
-                  'with nobody yet aware of it.',
+                  'Nobody knows what Henry looked like. There is no portrait made by anyone ' +
+                  'who met him, and even his most famous face, the man in the big dark hat, ' +
+                  'is disputed. The museum lines up his pictures across the centuries and the ' +
+                  'joke shows at once: every age painted him to look like its own people. ' +
+                  'Sometimes a stern monk, sometimes a general, sometimes a scientist among ' +
+                  'his instruments. The pictures do not tell us what he was like. They tell ' +
+                  'us what each generation wanted to see.',
               },
               question: {
                 q: {
-                  el: 'Τι έκανε ο Ερρίκος, αφού δεν ταξίδεψε σχεδόν πουθενά;',
-                  en: 'What did Henry do, if he sailed almost nowhere himself?',
+                  el: 'Γιατί δεν μοιάζουν μεταξύ τους τα πορτρέτα του Ερρίκου;',
+                  en: 'Why do Henry’s portraits all look different?',
                 },
                 answers: [
                   {
-                    el: 'Οργάνωνε και πλήρωνε τα ταξίδια που έκαναν άλλοι',
-                    en: 'He organised and paid for other people’s voyages',
+                    el: 'Κάθε εποχή τον ζωγράφισε σαν άνθρωπό της',
+                    en: 'Each century drew him like its own people',
                   },
                   {
-                    el: 'Σχεδίαζε ο ίδιος κάθε καράβι που έφευγε',
-                    en: 'He designed every one of the ships himself',
+                    el: 'Άλλαξε πάρα πολύ καθώς μεγάλωνε σε ηλικία',
+                    en: 'He changed a great deal as he aged',
                   },
                   {
-                    el: 'Κυβέρνησε την Πορτογαλία ως βασιλιάς για πάνω από σαράντα χρόνια',
-                    en: 'He ruled Portugal as its king for more than forty long years',
+                    el: 'Έχει ξεθωριάσει η μπογιά στα παλιότερα',
+                    en: 'The paint on the older ones has faded',
                   },
                   {
-                    el: 'Δίδασκε στους ναυτικούς πώς διαβάζεις τα άστρα',
-                    en: 'He taught the sailors to read the stars',
+                    el: 'Μόνο ένας ζωγράφος είχε ποτέ άδεια να τον δει',
+                    en: 'Only one artist was ever allowed to see him',
                   },
                 ],
                 explanation: {
                   el:
-                    'Έβαζε τα χρήματα, τα πλοία και τους ανθρώπους, και κρατούσε ό,τι ' +
-                    'μάθαιναν. Αυτό ήταν η δουλειά του.',
+                    'Όταν δεν υπάρχει πορτρέτο εκ του φυσικού, ο καθένας ζωγραφίζει αυτό ' +
+                    'που φαντάζεται. Και φαντάζεται με τα μάτια της εποχής του.',
                   en:
-                    'He put up the money, the ships and the people, and kept what they ' +
-                    'learned. That was the job.',
+                    'When nobody drew him from life, everyone paints what they imagine. And ' +
+                    'they imagine with the eyes of their own time.',
                 },
               },
             },
             {
-              id: 'porto-casa-do-infante-growing-map',
-              name: { el: 'Ο χάρτης που μεγάλωνε', en: 'The map that kept growing' },
+              id: 'porto-casa-do-infante-milestones',
+              name: { el: 'Ο τοίχος με τις χρονολογίες', en: 'The wall of dates' },
               blurb: {
                 el:
-                  'Οι χάρτες εκείνης της εποχής σταματούσαν κάπου, και μετά ήταν λευκό ' +
-                  'χαρτί. Κάθε φορά που ένα πλοίο γύριζε, κάποιος πρόσθετε λίγη ακόμα ακτή. ' +
-                  'Έτσι ο χάρτης της Αφρικής μεγάλωνε δεκαετία τη δεκαετία, όχι επειδή ' +
-                  'άλλαζε η Αφρική αλλά επειδή άλλαζε αυτό που ήξεραν οι Ευρωπαίοι. Πρόσεξε ' +
-                  'τι σημαίνει αυτό: ένας χάρτης δεν δείχνει τον κόσμο, δείχνει πόσο κόσμο ' +
-                  'έχει δει αυτός που τον έφτιαξε.',
+                  'Ένας τοίχος με χρονολογίες, τη μία κάτω από την άλλη, και δίπλα σε κάθε ' +
+                  'μία λίγη ακόμα ακτή της Αφρικής. Έτσι δούλευε στ’ αλήθεια η εξερεύνηση: ' +
+                  'όχι ένα μεγάλο ταξίδι, αλλά δεκάδες μικρά, το καθένα λίγο πιο κάτω από ' +
+                  'το προηγούμενο. Ένα πλοίο έφτανε ως ένα ακρωτήρι, γύριζε πίσω και το ' +
+                  'έλεγε, και το επόμενο ξεκινούσε από εκεί. Ένας χάρτης δεν δείχνει τον ' +
+                  'κόσμο· δείχνει πόσο κόσμο έχει δει αυτός που τον έφτιαξε. Το λευκό χαρτί ' +
+                  'από κάτω δεν ήταν άδεια θάλασσα, ήταν άγνοια.',
                 en:
-                  'The maps of that time stopped somewhere, and after that there was blank ' +
-                  'paper. Every time a ship came back, somebody added a little more coast. So ' +
-                  'the map of Africa grew decade by decade, not because Africa was changing ' +
-                  'but because what Europeans knew was changing. Notice what that means: a ' +
-                  'map does not show you the world, it shows you how much of the world the ' +
-                  'person who drew it had seen.',
+                  'A wall of dates, one under the other, and beside each one a little more of ' +
+                  'the African coast. That is how exploring actually worked: not one great ' +
+                  'voyage but dozens of small ones, each going a little further than the last. ' +
+                  'A ship reached a headland, came home and said so, and the next ship set out ' +
+                  'from there. A map does not show you the world; it shows you how much of the ' +
+                  'world the person who drew it had seen. The blank paper below was not empty ' +
+                  'sea. It was not-knowing.',
               },
               question: {
                 q: {
-                  el: 'Γιατί μεγάλωνε ο χάρτης της Αφρικής κάθε δεκαετία;',
-                  en: 'Why did the map of Africa grow bigger every decade?',
+                  el: 'Πώς μεγάλωνε η ακτή πάνω στους χάρτες;',
+                  en: 'How did the coast on the maps get longer?',
                 },
                 answers: [
                   {
-                    el: 'Γύριζαν πλοία και πρόσθεταν την ακτή που μόλις είχαν δει',
-                    en: 'Ships came back and added the coast they had just seen',
+                    el: 'Κάθε ταξίδι πρόσθετε όσο είχε μόλις δει',
+                    en: 'Each voyage added what it had just seen',
                   },
                   {
-                    el: 'Επειδή τα φύλλα χαρτί γίνονταν μεγαλύτερα',
-                    en: 'Because the paper sheets were getting bigger',
+                    el: 'Οι βασιλιάδες τη διέταζαν μεγαλύτερη',
+                    en: 'Kings ordered it drawn larger than it was',
                   },
                   {
-                    el: 'Επειδή η ίδια η ήπειρος μεγάλωνε καθώς κατέβαινε η στάθμη της θάλασσας',
-                    en: 'Because the continent itself grew as the level of the sea went down',
+                    el: 'Τα φύλλα του χαρτιού γίνονταν μεγαλύτερα',
+                    en: 'The sheets of paper kept getting bigger',
                   },
                   {
-                    el: 'Επειδή οι βασιλιάδες διέταζαν να σχεδιάζεται μεγαλύτερη απ’ ό,τι ήταν',
-                    en: 'Because kings ordered it drawn larger than it actually was in truth',
+                    el: 'Η Αφρική μεγάλωνε καθώς έπεφτε η θάλασσα',
+                    en: 'Africa itself grew as the sea level fell',
                   },
                 ],
                 explanation: {
                   el:
-                    'Το λευκό χαρτί δεν ήταν άδεια θάλασσα. Ήταν άγνοια, και γέμιζε με ' +
-                    'κάθε ταξίδι που γύριζε πίσω.',
+                    'Κανείς δεν έκανε ένα ταξίδι ως την άκρη. Έκαναν πολλά, και το καθένα ' +
+                    'παρέδιδε στο επόμενο λίγα μίλια ακόμα.',
                   en:
-                    'The blank paper was not empty sea. It was not-knowing, and it filled ' +
-                    'in with every voyage that came home.',
+                    'Nobody made one voyage to the end. They made many, and each handed the ' +
+                    'next one a few more miles.',
                 },
               },
             },
             {
-              id: 'porto-casa-do-infante-caravel',
-              name: { el: 'Η καραβέλα', en: 'The caravel' },
+              id: 'porto-casa-do-infante-porcelain',
+              name: {
+                el: 'Ένα πιάτο που ταξίδεψε πιο μακριά από τον πρίγκιπα',
+                en: 'A plate that travelled further than the prince',
+              },
               blurb: {
                 el:
-                  'Η καραβέλα ήταν μικρό πλοίο και αυτό ήταν το ατού της. Είχε τριγωνικά ' +
-                  'πανιά, που της επέτρεπαν να κινείται και όταν ο άνεμος δεν φυσούσε από ' +
-                  'πίσω, και ρηχό κύτος, ώστε να μπαίνει σε ποτάμια και σε άγνωστους όρμους ' +
-                  'χωρίς να καθίσει. Για εξερεύνηση αυτό μετράει περισσότερο από το μέγεθος: ' +
-                  'ένα τεράστιο πλοίο κουβαλάει περισσότερα, αλλά ένα μικρό γυρίζει πίσω και ' +
-                  'σου λέει τι είδε. Και το να γυρίσεις πίσω είναι όλη η ουσία.',
+                  'Στις βιτρίνες με τα κεραμικά υπάρχει πορσελάνη από την Κίνα. Σκέψου ' +
+                  'πόσο δρόμο έκανε: φτιάχτηκε στην άλλη άκρη του κόσμου, μπήκε σε πλοίο, ' +
+                  'γύρισε την Αφρική και ξεφορτώθηκε σε αυτή εδώ την προκυμαία. Δίπλα της ' +
+                  'στέκονται πιατικά φτιαγμένα εδώ κοντά, στο Πόρτο και στη Βίλα Νόβα ντε ' +
+                  'Γκάια. Βάλ’ τα το ένα δίπλα στο άλλο και βλέπεις τι έκαναν τα ταξίδια ' +
+                  'στην καθημερινή ζωή: οι ντόπιοι κεραμιστές είδαν το άσπρο και μπλε της ' +
+                  'Κίνας και άρχισαν να το δοκιμάζουν κι εκείνοι. Οι ιδέες ταξιδεύουν μέσα ' +
+                  'στα κιβώτια, μαζί με τα πράγματα.',
                 en:
-                  'The caravel was a small ship and that was its advantage. It had triangular ' +
-                  'sails, which let it move even when the wind was not behind it, and a ' +
-                  'shallow hull, so it could enter rivers and unknown bays without running ' +
-                  'aground. For exploring, that matters more than size: an enormous ship ' +
-                  'carries more, but a small one comes back and tells you what it saw. And ' +
-                  'coming back is the whole point.',
+                  'In the ceramics cases there is porcelain from China. Think how far it ' +
+                  'came: made on the other side of the world, loaded onto a ship, carried ' +
+                  'around Africa and unloaded on this very quay. Next to it stand dishes made ' +
+                  'close by, in Porto and in Vila Nova de Gaia. Put them side by side and you ' +
+                  'can see what the voyages did to everyday life: local potters saw the blue ' +
+                  'and white of China and started trying it themselves. Ideas travel inside ' +
+                  'the crates, along with the things.',
               },
               question: {
                 q: {
-                  el: 'Γιατί ήταν καλή για εξερεύνηση η μικρή καραβέλα;',
-                  en: 'Why was the small caravel good for exploring?',
+                  el: 'Τι έγινε αφού έφτασε στο Πόρτο η κινέζικη πορσελάνη;',
+                  en: 'What happened after Chinese porcelain reached Porto?',
                 },
                 answers: [
                   {
-                    el: 'Ρηχή και ευέλικτη, έμπαινε σε άγνωστα ποτάμια',
-                    en: 'Shallow and nimble, it could enter unknown rivers',
+                    el: 'Οι κεραμιστές εδώ αντέγραψαν το άσπρο και μπλε',
+                    en: 'Potters in Porto copied its blue and white',
                   },
                   {
-                    el: 'Χωρούσε πολύ περισσότερο νερό και τροφή από τα μεγάλα πλοία',
-                    en: 'It could hold far more water and food than the larger ships',
+                    el: 'Στάλθηκε αμέσως πίσω στην Κίνα',
+                    en: 'It was sent straight back to China',
                   },
                   {
-                    el: 'Ήταν φτιαγμένη από σίδερο και δεν την πείραζαν τα βράχια',
-                    en: 'It was built out of iron and the rocks could not damage it',
+                    el: 'Η πόλη απαγόρευσε τα πήλινα πιατικά',
+                    en: 'The city banned all dishes made of clay',
                   },
                   {
-                    el: 'Ταξίδευε πάντα σε ζευγάρια, ώστε να μη χαθεί ποτέ καμία τους',
-                    en: 'It always sailed in pairs, so that none of them was ever lost',
+                    el: 'Οι ντόπιοι κεραμιστές σταμάτησαν τη δουλειά τους',
+                    en: 'Local potters stopped working altogether then',
                   },
                 ],
                 explanation: {
                   el:
-                    'Τριγωνικά πανιά για κόντρα άνεμο και ρηχό κύτος για άγνωστα νερά. Δύο ' +
-                    'ιδέες, ένα πλοίο εξερεύνησης.',
+                    'Το εμπόριο δεν κουβαλάει μόνο αντικείμενα. Κουβαλάει και σχέδια, ' +
+                    'χρώματα και ιδέες, και αυτά μένουν.',
                   en:
-                    'Triangular sails for a contrary wind and a shallow hull for unknown ' +
-                    'water. Two ideas, one exploring ship.',
+                    'Trade does not only carry objects. It carries patterns, colours and ' +
+                    'ideas, and those stay.',
                 },
               },
             },
@@ -938,38 +953,38 @@ export const places: Place[] = [
           difficulty: 2,
           prompt: {
             el:
-              'Τίποτα δεν έφευγε από αυτό το κτίριο πριν μιλήσω εγώ. Αλάτι, υφάσματα, ' +
-              'ψάρια και σίδερο κάθισαν πάνω μου, και αυτό που έλεγα όριζε πόσα χρωστούσε ' +
-              'ο έμπορος στον βασιλιά.',
+              'Είμαι μικρό, γκρίζο και μαλακό, και με έσφιξαν πάνω σε ένα δέμα με ' +
+              'υφάσματα. Όσο εγώ έμενα άθικτο, όλοι στον δρόμο ήξεραν ότι ο βασιλιάς ' +
+              'είχε ήδη πληρωθεί.',
             en:
-              'Nothing left this building before I had spoken. Salt, cloth, fish and iron ' +
-              'all sat on me, and what I said decided how much the merchant owed the ' +
-              'king.',
+              'I am small, grey and soft, and I was squeezed shut onto a bale of cloth. ' +
+              'For as long as I stayed unbroken, everyone along the road knew that the ' +
+              'king had already been paid.',
           },
           hint: {
-            el: 'Έχω δύο δίσκους και ισορροπώ.',
-            en: 'I have two pans and I balance.',
+            el: 'Αν με σπάσεις, δεν ξανακλείνω ποτέ όπως ήμουν.',
+            en: 'Break me and I never close the same way again.',
           },
-          answerExhibitId: 'porto-casa-do-infante-scales',
+          answerExhibitId: 'porto-casa-do-infante-lead-seals',
         },
         {
           id: 'porto-casa-do-infante-riddle-3',
           difficulty: 3,
           prompt: {
             el:
-              'Είμαι ένα συνηθισμένο δωμάτιο και η μόνη μου αξίωση είναι μια χρονολογία. ' +
-              'Λένε ότι το 1394 γεννήθηκε μέσα μου ένα μωρό που μεγάλωσε και έστελνε πλοία ' +
-              'πέρα από την άκρη κάθε χάρτη.',
+              'Είμαι ο ίδιος άνθρωπος ζωγραφισμένος ξανά και ξανά, και καμιά δύο εικόνες ' +
+              'μου δεν συμφωνούν μεταξύ τους. Κάθε αιώνας που με ζωγράφισε μού έδωσε το ' +
+              'πρόσωπο και τα ρούχα των δικών του ανθρώπων.',
             en:
-              'I am an ordinary room and my only claim is a date. They say a baby was born ' +
-              'inside me in 1394 who grew up to send ships past the edge of every map ' +
-              'there was.',
+              'I am the same man drawn over and over, and no two of my pictures agree with ' +
+              'each other. Every century that painted me gave me the face and the clothes ' +
+              'of its own people.',
           },
           hint: {
-            el: 'Ο ίδιος δεν πήγε σχεδόν πουθενά.',
-            en: 'He himself went almost nowhere.',
+            el: 'Κανένας από όσους με γνώρισαν δεν άφησε σχέδιό μου.',
+            en: 'Nobody who ever met me left a drawing of me.',
           },
-          answerExhibitId: 'porto-casa-do-infante-prince-room',
+          answerExhibitId: 'porto-casa-do-infante-many-faces',
         },
       ],
     },
@@ -1022,8 +1037,8 @@ export const places: Place[] = [
         en: 'The Arab Room took about eighteen years to decorate, inspired by the Alhambra.',
       },
       {
-        el: 'Στον κήπο μπροστά στέκεται από το 1894 άγαλμα του Ερρίκου του Θαλασσοπόρου.',
-        en: 'A statue of Henry the Navigator has stood in the garden in front since 1894.',
+        el: 'Ο θεμέλιος λίθος του αγάλματος του Ερρίκου, μπροστά στον κήπο, μπήκε το 1894· το άγαλμα αποκαλύφθηκε το 1900.',
+        en: 'The first stone of the Henry the Navigator statue in the garden was laid in 1894; the statue itself was unveiled in 1900.',
       },
     ],
     location: {
@@ -1095,10 +1110,13 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Πριν χτιστεί, οι άνθρωποι περνούσαν τον Δούρο πάνω σε μια γέφυρα από βάρκες ' +
-        'δεμένες τη μία με την άλλη. Όταν φούσκωνε το ποτάμι, αυτό ήταν επικίνδυνο. Έτσι ' +
-        'το 1881 ξεκίνησε το χτίσιμο μιας σιδερένιας γέφυρας που σχεδίασε ο Τεοφίλ ' +
-        'Σεϊρίγκ, μηχανικός που είχε δουλέψει με τον Γκυστάβ Άιφελ, και το 1886 άνοιξε. Η ' +
+        'Το Πόρτο πέρασε αυτή τη στροφή του Δούρου με τρεις γέφυρες μέσα σε ογδόντα ' +
+        'χρόνια. Πρώτα με μια γέφυρα από βάρκες δεμένες τη μία με την άλλη, που το ποτάμι ' +
+        'την ταρακουνούσε κάθε φορά που φούσκωνε. Ύστερα, από το 1843, με μια κρεμαστή ' +
+        'γέφυρα δεμένη σε πέτρινους πύργους. Και το 1881 ξεκίνησε το χτίσιμο μιας ' +
+        'σιδερένιας γέφυρας που σχεδίασε ο Τεοφίλ Σεϊρίγκ, μηχανικός που είχε δουλέψει με ' +
+        'τον Γκυστάβ Άιφελ· η παλιά κρεμαστή ξηλώθηκε καθώς αυτή ανέβαινε, και το 1886 ' +
+        'άνοιξε. Η ' +
         'ιδέα της είναι απλή και έξυπνη. Οι όχθες του Δούρου εδώ είναι απότομες και ' +
         'ψηλές, αλλά η παλιά πόλη είναι κάτω, στο νερό. Άρα χρειάζονταν δύο περάσματα: ' +
         'ένα ψηλά, από κορυφή σε κορυφή, και ένα χαμηλά, από προκυμαία σε προκυμαία. Ο ' +
@@ -1107,10 +1125,12 @@ export const places: Place[] = [
         'κόσμο. Σήμερα από πάνω περνάει το μετρό και από κάτω τα αυτοκίνητα, και πεζοί ' +
         'και στα δύο.',
       en:
-        'Before it was built, people crossed the Douro on a bridge made of boats tied to ' +
-        'each other. When the river rose, that was dangerous. So in 1881 work began on an ' +
-        'iron bridge designed by Théophile Seyrig, an engineer who had worked with Gustave ' +
-        'Eiffel, and in 1886 it opened. Its idea is simple and clever. The banks of the ' +
+        'Porto crossed this bend of the Douro with three bridges in eighty years. First a ' +
+        'bridge made of boats tied to each other, which the river shoved about every time ' +
+        'it rose. Then, from 1843, a suspension bridge hung from stone towers. Then in ' +
+        '1881 work began on an iron bridge designed by Théophile Seyrig, an engineer who ' +
+        'had worked with Gustave Eiffel; the old suspension bridge was taken down as this ' +
+        'one went up, and in 1886 it opened. Its idea is simple and clever. The banks of the ' +
         'Douro here are steep and high, but the old city is down at the water. So two ' +
         'crossings were needed: one up top, clifftop to clifftop, and one down low, quay to ' +
         'quay. Seyrig hung both of them on the same arch, one above the other. The arch ' +
@@ -1810,8 +1830,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Ένα μεγάλο στρογγυλό κτίριο με θόλο στην κορυφή',
-          en: 'A big round building with a dome on top of it',
+          el: 'Ένα στρογγυλό κτίριο με θόλο',
+          en: 'A round building with a dome on top',
         },
         {
           el: 'Μια λίμνη με βαρκάκια, πιο πρόσφατη',
@@ -1995,8 +2015,8 @@ export const places: Place[] = [
                     en: 'For daylight, and to let the hot air escape upwards',
                   },
                   {
-                    el: 'Για να μη βλέπουν μέσα οι περαστικοί',
-                    en: 'So passers-by could not see inside',
+                    el: 'Για να μπαίνει λιγότερος θόρυβος από τον δρόμο',
+                    en: 'To keep the noise of the street outside',
                   },
                   {
                     el: 'Γιατί χαμηλότερα θα τα έσπαγαν οι σπίθες από τις γεννήτριες',
@@ -2100,16 +2120,16 @@ export const places: Place[] = [
                     en: 'Back through the rails underneath the wheels',
                   },
                   {
-                    el: 'Από ένα δεύτερο καλώδιο τεντωμένο δίπλα στο πρώτο ψηλά πάνω',
-                    en: 'Along a second wire strung beside the first one high above',
+                    el: 'Από ένα δεύτερο καλώδιο τεντωμένο δίπλα στο πρώτο',
+                    en: 'Along a second wire strung beside the first',
                   },
                   {
-                    el: 'Από μια μπαταρία μέσα στο βαγόνι που την αδειάζει κάθε βράδυ',
-                    en: 'From a battery in the car that is emptied out every evening',
+                    el: 'Από μια μπαταρία που φορτίζει κάθε βράδυ',
+                    en: 'From a battery in the car, recharged nightly',
                   },
                   {
-                    el: 'Δεν γυρίζει πουθενά, το ρεύμα καταναλώνεται εντελώς στην πορεία',
-                    en: 'It does not go back at all, the current is entirely used up',
+                    el: 'Δεν γυρίζει πουθενά, καταναλώνεται όλο',
+                    en: 'It does not go back, the current is all used up',
                   },
                 ],
                 explanation: {
@@ -2171,16 +2191,16 @@ export const places: Place[] = [
                     en: 'A horse cannot work the whole day long',
                   },
                   {
-                    el: 'Γιατί κάθε βαγόνι χρειαζόταν τέσσερα άλογα ακόμα και στα ίσια',
-                    en: 'Because each car needed four horses even on the flattest street',
+                    el: 'Κάθε βαγόνι ήθελε τέσσερα άλογα στα ίσια',
+                    en: 'Each car needed four horses on the flat',
                   },
                   {
-                    el: 'Για να μπορεί να τρέχει και τη νύχτα, όταν έκλειναν οι στάβλοι',
-                    en: 'So that it could also run at night, when the stables were shut',
+                    el: 'Για να δουλεύει και όλη τη νύχτα',
+                    en: 'So it could keep running through the night',
                   },
                   {
-                    el: 'Γιατί τα άλογα φοβούνταν τα βαγόνια και άλλαζαν συνέχεια μεταξύ τους',
-                    en: 'Because the horses feared the cars and had to be swapped about a lot',
+                    el: 'Τα άλογα φοβούνταν τα ίδια τα βαγόνια',
+                    en: 'The horses were frightened of the cars',
                   },
                 ],
                 explanation: {
@@ -2452,16 +2472,16 @@ export const places: Place[] = [
                     en: 'Both of his hands were already busy',
                   },
                   {
-                    el: 'Γιατί το κουδούνι ήταν κάτω από το πάτωμα και δεν έφτανε αλλιώς',
-                    en: 'Because the gong sat under the floor and he could not reach it',
+                    el: 'Το κουδούνι ήταν κάτω από το πάτωμα',
+                    en: 'The gong was fixed under the floor',
                   },
                   {
-                    el: 'Για να ακούγεται πιο δυνατά απ’ ό,τι αν το χτυπούσε με το χέρι',
-                    en: 'So that it would sound louder than if he struck it with a hand',
+                    el: 'Το πόδι χτυπάει πιο δυνατά από το χέρι',
+                    en: 'A foot strikes it harder than a hand',
                   },
                   {
-                    el: 'Γιατί έτσι μπορούσε να το χτυπάει ρυθμικά χωρίς να σταματάει ποτέ',
-                    en: 'Because that way he could ring it in rhythm without ever stopping',
+                    el: 'Για να το χτυπάει σε σταθερό ρυθμό',
+                    en: 'So he could ring it in a steady rhythm',
                   },
                 ],
                 explanation: {
@@ -2506,16 +2526,16 @@ export const places: Place[] = [
                     en: 'Maintaining the wire strung above the rails',
                   },
                   {
-                    el: 'Να μεταφέρει επιβάτες που ήθελαν να δουν την πόλη από ψηλά',
-                    en: 'To carry passengers who wanted to see the city from up high',
+                    el: 'Να ανεβάζει επιβάτες για τη θέα από ψηλά',
+                    en: 'Carrying passengers up high for the view',
                   },
                   {
-                    el: 'Να τραβάει τα χαλασμένα βαγόνια πίσω στο εργοστάσιο ρεύματος',
-                    en: 'To tow the broken-down cars back to the electricity works',
+                    el: 'Να τραβάει τα χαλασμένα βαγόνια στο αμαξοστάσιο',
+                    en: 'Towing broken-down cars back to the depot',
                   },
                   {
-                    el: 'Να καθαρίζει τα φύλλα από τις ράγες στο τέλος κάθε φθινοπώρου',
-                    en: 'To clear the leaves off the rails at the end of every autumn',
+                    el: 'Να καθαρίζει τα φύλλα του φθινοπώρου από τις ράγες',
+                    en: 'Clearing the fallen autumn leaves off the rails',
                   },
                 ],
                 explanation: {
@@ -2803,8 +2823,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Αφού μπει στο νερό και φουσκώσει το ξύλο των σανίδων',
-                    en: 'After it goes into the water and the wood swells up',
+                    el: 'Αφού μείνει λίγη ώρα μέσα στο νερό',
+                    en: 'Once it has been in the water a while',
                   },
                   {
                     el: 'Όταν στεγνώσει εντελώς στον ήλιο',
@@ -2856,8 +2876,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Να προχωρά με λοξό άνεμο, ταξιδεύοντας σε ζιγκ ζαγκ',
-                    en: 'Keep going into a slanting wind, by sailing in a zigzag',
+                    el: 'Να προχωρά κι όταν ο άνεμος είναι λοξός',
+                    en: 'Keep going with the wind at an angle',
                   },
                   {
                     el: 'Να πιάνει περισσότερο αέρα στη φουρτούνα',
@@ -2923,13 +2943,13 @@ export const places: Place[] = [
               },
               question: {
                 q: {
-                  el: 'Τι σου έλεγε ο αστρολάβος και τι όχι;',
-                  en: 'What did an astrolabe tell you, and what did it not?',
+                  el: 'Τι μπορούσε να σου πει ο αστρολάβος;',
+                  en: 'What could an astrolabe tell you?',
                 },
                 answers: [
                   {
-                    el: 'Πόσο βόρεια ήσουν, όχι όμως πόσο ανατολικά',
-                    en: 'How far north you were, but never how far east',
+                    el: 'Πόσο βόρεια ή νότια είχες φτάσει',
+                    en: 'How far north or south of home you were',
                   },
                   {
                     el: 'Πόσο βαθιά ήταν η θάλασσα από κάτω',
@@ -2980,8 +3000,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Πόσα βαρέλια νερό χωρούσε το αμπάρι του πλοίου',
-                    en: 'How many barrels of water the hold could take',
+                    el: 'Πόσο νερό μπορούσε να κουβαλήσει',
+                    en: 'How much water the ship could carry',
                   },
                   {
                     el: 'Πόσο σταθερά φυσούσαν οι άνεμοι',

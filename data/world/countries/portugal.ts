@@ -1,8 +1,10 @@
 /**
  * WiseBot World — Portugal.
  *
- * Same shape as `greece.ts`: the country plus the metadata of its cities. The cities
- * arrive through the pipeline later, so `cities` is empty for now.
+ * Same shape as `greece.ts`: the country plus the metadata of its cities. Porto is in,
+ * at `order: 2`. Order 1 is deliberately left free for Lisbon, which has not been built
+ * yet: the capital should head the list when it arrives, and renumbering later would
+ * churn every city card's position for no reason.
  *
  * Facts checked on 12 September 2026 against the English Wikipedia articles for Mount
  * Pico (2,351 m, highest point of Portugal), Cork (Portugal ≈ 49.6 % of world output,
