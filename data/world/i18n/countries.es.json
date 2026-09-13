@@ -56,7 +56,13 @@
         "Tiene 50 lugares Patrimonio de la Humanidad de la UNESCO: es el quinto país del mundo con más.",
         "La Sagrada Familia de Barcelona se construye desde 1882 y es la iglesia más alta del mundo, con 172,5 metros.",
         "Produce más aceite de oliva que ningún otro país del mundo."
-      ]
+      ],
+      "cities": {
+        "barcelona": {
+          "name": "Barcelona",
+          "intro": "Barcelona es una ciudad entre colinas y mar, donde un arquitecto soñó casas que parecen dragones y una iglesia que se lleva construyendo 144 años y acaba de convertirse en la más alta del mundo. Las calles del casco antiguo son estrechas y de piedra, las de la ciudad nueva están trazadas con regla, y un paseo largo de plátanos de sombra las une con el puerto. Aquí se hablan dos lenguas, el catalán y el castellano; se baila en círculo delante de la catedral, y los aficionados al fútbol lo celebran en una fuente."
+        }
+      }
     },
     "italy": {
       "name": "Italia",
@@ -82,7 +88,13 @@
         "Göbekli Tepe se construyó hace unos 11.500 años, antes de que la gente hiciera su primera vasija de barro.",
         "El Gran Bazar de Estambul tiene 61 calles cubiertas y unas 4.000 tiendas.",
         "La ciudad subterránea de Derinkuyu baja 85 metros y cabían en ella hasta 20.000 personas."
-      ]
+      ],
+      "cities": {
+        "istanbul": {
+          "name": "Estambul",
+          "intro": "Estambul es la única ciudad grande que se apoya en dos continentes: puedes desayunar en Europa, subirte a un barco y comer en Asia veinte minutos después. Durante más de mil años fue Constantinopla, la capital de los griegos bizantinos, y después, durante casi quinientos años, la capital de los sultanes; las dos ciudades siguen aquí, una encima de la otra. Una cúpula del año 537 se levanta al lado de un palacio de cuatro patios, las gaviotas persiguen a los barcos, y debajo de las calles un bosque de columnas de mármol sigue sosteniendo el suelo."
+        }
+      }
     },
     "united-kingdom": {
       "name": "Reino Unido",
