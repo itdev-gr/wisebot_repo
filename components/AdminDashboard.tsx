@@ -11,7 +11,7 @@
  */
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
-  Users, Database, CheckCircle, Lock, KeyRound, RefreshCw, Zap,
+  Users, Database, CheckCircle, Lock, KeyRound, RefreshCw, Zap, Globe2,
   BookOpen, Brain, Mail, Crown, Loader2, AlertTriangle, LogOut,
   UserCheck, UserX, Cpu, Plus, Send, X, TrendingUp, TrendingDown,
   DollarSign, Activity, BarChart3, Clock, Shield, Eye, EyeOff,
@@ -64,7 +64,12 @@ interface DashData {
 }
 
 // ─── TAB TYPES ──────────────────────
-type TabId = 'overview' | 'health' | 'users' | 'market' | 'content' | 'system';
+type TabId = 'overview' | 'health' | 'users' | 'world' | 'traffic' | 'market' | 'content' | 'system';
+
+// World and Traffic pull their own data and, for World, the content registry; lazy so
+// the dashboard's first paint (Overview) does not wait for them.
+const WorldTab = React.lazy(() => import('./admin/WorldTab'));
+const TrafficTab = React.lazy(() => import('./admin/TrafficTab'));
 
 // ─── MAIN COMPONENT ─────────────────
 export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
@@ -415,6 +420,8 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
     { id: 'overview', label: 'Overview', icon: <BarChart3 size={16} /> },
     { id: 'health', label: health && (health.errors.last24h > 0 || health.payments.stripe.failedWebhookMatches > 0) ? `Health (!)` : 'Health', icon: <Activity size={16} /> },
     { id: 'users', label: `Users (${totals.userCount})`, icon: <Users size={16} /> },
+    { id: 'world', label: 'World', icon: <Globe2 size={16} /> },
+    { id: 'traffic', label: 'Traffic', icon: <TrendingUp size={16} /> },
     { id: 'market', label: 'Market', icon: <Star size={16} /> },
     { id: 'content', label: 'Content & Costs', icon: <DollarSign size={16} /> },
     { id: 'system', label: 'System', icon: <Server size={16} /> },
@@ -610,6 +617,16 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
           onRefundCredits={setRefundModal}
           formatDate={formatDate} timeAgo={timeAgo}
         />
+      )}
+      {activeTab === 'world' && (
+        <React.Suspense fallback={<div className="text-white/40 font-bold text-sm p-6">…</div>}>
+          <WorldTab adminToken={adminToken} lang={lang} />
+        </React.Suspense>
+      )}
+      {activeTab === 'traffic' && (
+        <React.Suspense fallback={<div className="text-white/40 font-bold text-sm p-6">…</div>}>
+          <TrafficTab adminToken={adminToken} lang={lang} />
+        </React.Suspense>
       )}
       {activeTab === 'market' && <MarketTab adminToken={adminToken} />}
       {activeTab === 'content' && <ContentTab stats={computedStats} totals={totals} data={data} />}
