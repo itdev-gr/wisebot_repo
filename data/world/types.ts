@@ -19,8 +19,8 @@
  *     a piece of text would need translating into six languages and would then need
  *     six spellings, six accent rules and six ways of being nearly right.
  *
- * Progress and stamps are NOT here. They live in `hooks/useWorldProgress.ts`, which
- * the engine session owns, so that the content session's contract stays this file.
+ * Progress and stamps are NOT here. They live in `components/world/useWorldProgress.ts`,
+ * which the engine session owns, so that the content session's contract stays this file.
  */
 
 // ---------------------------------------------------------------- languages
