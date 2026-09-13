@@ -31,7 +31,7 @@ import {
 import type { City, CityId, Country, CountryId, LocText, WorldLang } from '../../data/world/types';
 import { WORLD_STYLE, say, ui, type UiText } from './worldUi';
 import { PassportStamp } from './PassportStamp';
-import { Breadcrumb } from './Breadcrumb';
+import { GeoHow } from './GeoHow';
 
 // --------------------------------------------------------------------- chrome
 //
@@ -602,18 +602,9 @@ export const CountryView: React.FC<CountryViewProps> = ({
               {entry.asking ? entry.askingLabel : entry.label}
             </button>
             <p className="mt-2 text-sm font-bold text-white/60">{entry.note}</p>
-            {/* 13 px at 80 % amber: readable on a sunny pavement. The hierarchy comes from
-                order and the «Still no?» prefix, not from fading the escalation line. */}
-            {entry.hint && (
-              <p className="mt-1.5 text-[13px] font-bold leading-relaxed text-amber-200/80">
-                <Breadcrumb text={entry.hint} />
-              </p>
-            )}
-            {entry.hintMore && (
-              <p className="mt-1 text-[13px] font-bold leading-relaxed text-amber-200/80">
-                <Breadcrumb text={entry.hintMore} />
-              </p>
-            )}
+            {/* The settings path stays folded behind «Πώς;»: one button and one sentence
+                is the whole card unless a grown-up asks for more. */}
+            {entry.hint && <GeoHow key={entry.hint} lang={lang} path={entry.hint} more={entry.hintMore} />}
           </div>
         )}
 
