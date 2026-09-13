@@ -111,10 +111,10 @@ export const places: Place[] = [
         en: 'Which ancient building did the gate’s architect copy?',
       },
       answers: [
-        { el: 'Τα Προπύλαια της Ακρόπολης, στην Αθήνα', en: 'The Propylaea of the Acropolis' },
+        { el: 'Τα Προπύλαια της Ακρόπολης', en: 'The Propylaea of the Acropolis' },
         { el: 'Το Κολοσσαίο, τη μεγάλη αρένα της Ρώμης', en: 'The Colosseum, the great arena of Rome' },
         { el: 'Τον Πύργο της Πίζας, που γέρνει στην Ιταλία', en: 'The Leaning Tower of Pisa, over in Italy' },
-        { el: 'Μια πυραμίδα της Αιγύπτου', en: 'A pyramid from Giza, in Egypt' },
+        { el: 'Μια πυραμίδα της Αιγύπτου', en: 'A pyramid from Egypt' },
       ],
       explanation: {
         el:
@@ -145,7 +145,7 @@ export const places: Place[] = [
         'Κοινοβούλιο λέγεται η ομάδα ανθρώπων που διαλέγει ένας λαός για να μαλώνει για ' +
         'τους νόμους και μετά να τους ψηφίζει. Αυτό το κτίριο τελείωσε το 1894 για να ' +
         'στεγάσει το κοινοβούλιο της Γερμανίας, και το 1916 μπήκαν πάνω από τις κολόνες ' +
-        'τέσσερις μπρούντζινες λέξεις: «Dem Deutschen Volke», δηλαδή «Στον γερμανικό λαό». ' +
+        'τρεις μπρούντζινες λέξεις: «Dem Deutschen Volke», δηλαδή «Στον γερμανικό λαό». ' +
         'Ο αιώνας που ακολούθησε ήταν σκληρός. Το 1933 μια φωτιά έκαψε τη μεγάλη του ' +
         'αίθουσα, ο πόλεμος το γέμισε τρύπες, και μετά έμεινε σαράντα χρόνια σχεδόν άδειο ' +
         'δίπλα στο Τείχος: ένα σπίτι κοινοβουλίου χωρίς κοινοβούλιο μέσα του. Το 1995 οι ' +
@@ -157,7 +157,7 @@ export const places: Place[] = [
       en:
         'A parliament is the group of people a country chooses to argue about its laws and ' +
         'then vote on them. This building was finished in 1894 to give Germany’s parliament ' +
-        'a home, and in 1916 four bronze words were set above the columns: “Dem Deutschen ' +
+        'a home, and in 1916 three bronze words were set above the columns: “Dem Deutschen ' +
         'Volke”, meaning “To the German People”. The century that followed was hard on it. ' +
         'A fire gutted its great hall in 1933, the war left it full of holes, and then it ' +
         'stood forty years almost empty beside the Wall: a parliament house with no ' +
@@ -203,10 +203,10 @@ export const places: Place[] = [
         en: 'Why is there a glass dome above the chamber?',
       },
       answers: [
-        { el: 'Για να βλέπει ο κόσμος από ψηλά το κοινοβούλιο να δουλεύει', en: 'So that people up above can watch parliament working' },
-        { el: 'Για να μπαίνει τόσο φως ώστε να μη χρειάζονται λάμπες', en: 'So enough daylight gets in' },
-        { el: 'Για να ξαναγίνει το κτίριο ακριβώς όπως ήταν το 1894', en: 'To make it what it was in 1894' },
-        { el: 'Για να ξεχωρίζει από μακριά σαν σήμα ολόκληρης της πόλης', en: 'To stand out as a city emblem' },
+        { el: 'Για να βλέπει ο κόσμος το κοινοβούλιο να δουλεύει', en: 'So visitors can watch parliament work' },
+        { el: 'Για να ακούγονται καλύτερα οι ομιλίες στην αίθουσα', en: 'To make the speeches easier to hear' },
+        { el: 'Για να ξαναγίνει το κτίριο ακριβώς όπως ήταν το 1894', en: 'To make the building what it was in 1894' },
+        { el: 'Για να ξεχωρίζει από μακριά σαν σήμα της πόλης', en: 'To stand out from far off as a city emblem' },
       ],
       explanation: {
         el:
@@ -382,7 +382,7 @@ export const places: Place[] = [
         en: 'What was the policeman inside the 1924 tower doing?',
       },
       answers: [
-        { el: 'Άλλαζε ο ίδιος τα φανάρια με το χέρι', en: 'He switched the traffic lights by hand himself' },
+        { el: 'Άλλαζε τα φανάρια με το χέρι', en: 'He switched the lights by hand' },
         { el: 'Μετρούσε τα αυτοκίνητα', en: 'He counted the cars going past' },
         { el: 'Πουλούσε εισιτήρια για τα τραμ', en: 'He sold tickets for the trams' },
         { el: 'Φύλαγε το ρολόι της πόλης', en: 'He guarded the city clock' },
@@ -475,7 +475,7 @@ export const places: Place[] = [
         { el: 'Είναι το «C» στο αλφάβητο των στρατιωτών', en: 'It is “C” in the alphabet soldiers use' },
         { el: 'Ήταν το όνομα του πρώτου φρουρού που υπηρέτησε εδώ', en: 'It was the name of the first guard who served here' },
         { el: 'Το βάφτισαν έτσι προς τιμήν ενός Αμερικανού στρατηγού', en: 'It was named in honour of an American general' },
-        { el: 'Έτσι έλεγαν τη Friedrichstraße', en: 'It was English for Friedrichstraße' },
+        { el: 'Είναι η Friedrichstraße στα αγγλικά', en: 'It was English for Friedrichstraße' },
       ],
       explanation: {
         el:
@@ -511,8 +511,9 @@ export const places: Place[] = [
         'με μια πλατεία της Ρώμης, κι έτσι έβαλε τον ίδιο αρχιτέκτονα να προσθέσει σε κάθε ' +
         'εκκλησία έναν ολόιδιο πύργο με θόλο. Έτσι έγιναν δίδυμες, χωρίς να είναι. Στη ' +
         'μέση στέκεται το Konzerthaus, η αίθουσα συναυλιών που σχεδίασε ο Καρλ Φρίντριχ ' +
-        'Σίνκελ και άνοιξε το 1821, αφού το παλιό θέατρο είχε καεί. Μπροστά της κάθεται ' +
-        'μαρμάρινος ο ποιητής Φρίντριχ Σίλερ. Γύρω στο 1700, ένας στους πέντε Βερολινέζους ' +
+        'Σίνκελ και άνοιξε το 1821, αφού το παλιό θέατρο είχε καεί. Μπροστά της στέκεται ' +
+        'μαρμάρινος ο ποιητής Φρίντριχ Σίλερ, και γύρω από τη βάση του κάθονται τέσσερις ' +
+        'μαρμάρινες μορφές. Γύρω στο 1700, ένας στους πέντε Βερολινέζους ' +
         'μιλούσε γαλλικά: όταν μια πόλη δέχεται ξένους, γίνεται πιο πλούσια.',
       en:
         'More than three hundred years ago Berlin opened its doors to thousands of refugees ' +
@@ -523,8 +524,8 @@ export const places: Place[] = [
         'That is how they became twins without being related. In the middle stands the ' +
         'Konzerthaus, the concert hall designed by Karl Friedrich Schinkel, which opened in ' +
         '1821 after the old theatre burned down. In front of it the poet Friedrich Schiller ' +
-        'sits in marble. Around 1700, one Berliner in five spoke French: when a city takes ' +
-        'strangers in, the city gets richer.',
+        'stands in marble, with four marble figures seated round his base. Around 1700, one ' +
+        'Berliner in five spoke French: when a city takes strangers in, the city gets richer.',
     },
     facts: [
       {
@@ -1294,7 +1295,7 @@ export const places: Place[] = [
                   { el: 'Δεν είχε μείνει αρκετό από την παλιά', en: 'Too little of the old one was left' },
                   { el: 'Οι επισκέπτες ψήφισαν να γίνει σύγχρονη αντί για παλιά', en: 'Visitors voted for a modern one instead of an old' },
                   { el: 'Το παλιό της σχέδιο θεωρήθηκε επικίνδυνο για τα παιδιά', en: 'Its old design was judged unsafe for children' },
-                  { el: 'Είχε ήδη χτιστεί κάτι εκεί', en: 'Another architect got there first' },
+                  { el: 'Πρόλαβε άλλος αρχιτέκτονας', en: 'Another architect got there first' },
                 ],
                 explanation: {
                   el:

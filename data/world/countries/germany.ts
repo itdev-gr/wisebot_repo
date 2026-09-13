@@ -1,8 +1,8 @@
 /**
  * WiseBot World — Germany.
  *
- * Same shape as `greece.ts`: the country and the metadata for its cities. The cities
- * arrive later through the pipeline, so `cities` is empty for now. Facts were checked
+ * Same shape as `greece.ts`: the country and the metadata for its cities. Berlin is its
+ * only city so far; the rest arrive as the pipeline reaches them. Facts were checked
  * against Wikidata (Q3375 Zugspitze P2044; Q4176 Cologne Cathedral P571/P1619/P2048)
  * and the English Wikipedia summaries for Germany, Zugspitze and Cologne Cathedral.
  */
