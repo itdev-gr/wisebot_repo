@@ -16,7 +16,7 @@
         "answers": [
           "La encalaron y el nombre se quedó",
           "Está construida con mármol blanco del monte Pentélico",
-          "La nieve la cubre todos los inviernos",
+          "La nieve la cubre",
           "La construyó un arquitecto que se llamaba Lefkos"
         ],
         "explanation": "La encalaron en el siglo XIX. La cal se fue con los años; el nombre no. Así nacen casi todos los nombres de edificios y de ciudades."
@@ -36,7 +36,7 @@
         "q": "¿Por qué aguantó la Rotonda terremotos que tiraron los edificios de alrededor?",
         "answers": [
           "Porque sus muros son muy gruesos",
-          "Porque está construida sobre goma",
+          "Porque está sobre goma",
           "Porque está hecha de madera, que se dobla",
           "Porque la vuelven a construir cada cien años"
         ],
@@ -56,7 +56,7 @@
         "q": "¿Qué pasaba por debajo cuando se construyó?",
         "answers": [
           "La Vía Egnatia, la calzada romana",
-          "Un río con un puente de madera",
+          "Un río con un puente",
           "Un acueducto que traía agua a la ciudad",
           "El camino al puerto y nada más"
         ],
@@ -76,7 +76,7 @@
         "q": "¿Qué le pasó a la iglesia en agosto de 1917?",
         "answers": [
           "Se quemó y la reconstruyeron",
-          "La inundó una riada y quedó abandonada",
+          "Se inundó y quedó vacía",
           "La trasladaron piedra a piedra a otro sitio",
           "Se convirtió en museo y cerró al culto"
         ],
@@ -97,7 +97,7 @@
         "q": "¿Por qué hay una cruz sin nada más debajo del mosaico de la cúpula?",
         "answers": [
           "Porque se prohibieron las imágenes de personas",
-          "Porque al artesano no le dio tiempo a terminar el trabajo",
+          "Porque al artesano no le dio tiempo",
           "Porque la cruz servía de guía para colocar el resto del mosaico",
           "Porque la cúpula se construyó dos veces, por dos equipos distintos"
         ],
@@ -119,7 +119,7 @@
           "Por casualidad, cavando en una obra",
           "Por un mapa que apareció en un monasterio",
           "Después de un terremoto que abrió el suelo",
-          "Por unas fotos tomadas desde un avión"
+          "Por unas fotos desde un avión"
         ],
         "explanation": "Apareció cavando los cimientos de un edificio nuevo. En Tesalónica, igual que en Atenas, cada excavación profunda es también un posible descubrimiento."
       }
@@ -164,7 +164,7 @@
               "answers": [
                 "Porque lleva mucho estaño",
                 "Porque está pintada con pintura dorada",
-                "Porque la pulieron con aceite y cera",
+                "Porque la enceraron",
                 "Porque el fuego la cubrió de ceniza"
               ],
               "explanation": "Su aleación lleva mucho estaño. Cambia la proporción de los metales y cambia el color. Fue una decisión del artesano, no una casualidad."
@@ -206,7 +206,7 @@
               "answers": [
                 "Donde hacía falta detalle, como en los ojos",
                 "En los bordes del suelo, para que no se rompieran",
-                "En el centro, porque la gente pisaba ahí",
+                "En el centro, para que las pisaran",
                 "En ningún sitio: todas eran exactamente iguales"
               ],
               "explanation": "Cuanto más pequeño es el trozo, más nítida es la imagen. Exactamente igual que en una pantalla."
@@ -219,7 +219,7 @@
               "q": "¿Qué querían los romanos de un retrato?",
               "answers": [
                 "Que se reconociera a la persona",
-                "Que todos salieran jóvenes y guapos",
+                "Que todos salieran guapos",
                 "Que se pareciera a un dios del Olimpo",
                 "Que fuera igual que todos los demás"
               ],
@@ -268,7 +268,7 @@
         "answers": [
           "Por temas: enterrar, construir, comprar",
           "Por materiales: mármoles, metales, telas",
-          "Por tamaño, de lo más pequeño a lo más grande",
+          "Por tamaño, de pequeño a grande",
           "Por orden alfabético, con el nombre de cada objeto"
         ],
         "explanation": "Las salas cuentan cómo enterraban, cómo construían y cómo compraban. Así una moneda, un plato y un muro pueden estar juntos, porque hablan de lo mismo."
@@ -293,7 +293,7 @@
               "q": "¿Qué pintaban dentro de estas tumbas?",
               "answers": [
                 "Jardines con flores y pájaros",
-                "Batallas con soldados y caballos",
+                "Batallas con soldados",
                 "Mapas de la ciudad y de sus murallas",
                 "Nada: las paredes se dejaban blancas"
               ],
@@ -365,7 +365,7 @@
                 "Para que saliera del derecho",
                 "Para que los ladrones no pudieran leerlo",
                 "Porque entonces la lengua se escribía así",
-                "Para que cupiera más texto"
+                "Para meter más texto"
               ],
               "explanation": "Al apretarlo en la cera o en el barro, la marca sale del derecho. Todos los sellos funcionan así, hasta hoy. La imagen se da la vuelta en la huella."
             }
@@ -477,7 +477,7 @@
         "q": "¿Por qué se diseñó esta plaza?",
         "answers": [
           "Porque el incendio de 1917 quemó el centro",
-          "Porque hacía falta sitio para los coches",
+          "Porque faltaba sitio para coches",
           "Porque allí aparecieron restos antiguos y nadie podía construir",
           "Porque antes era un puerto que se rellenó"
         ],
@@ -499,7 +499,7 @@
           "Porque su techo es de cristal",
           "Porque los puestos están pintados de blanco",
           "Porque cierra antes de que anochezca",
-          "Porque tiene espejos en las paredes"
+          "Porque tiene espejos"
         ],
         "explanation": "La luz entra desde arriba. Los mercados cubiertos de los siglos XIX y XX lo resolvieron así: hierro para la estructura, cristal para la luz."
       }
@@ -518,7 +518,7 @@
         "answers": [
           "Porque se entiende haciéndolo",
           "Porque todas las piezas son copias sin valor",
-          "Porque no hay suficientes vigilantes",
+          "Porque faltan guardias",
           "Porque las piezas se limpian todas las noches"
         ],
         "explanation": "Un experimento se entiende haciéndolo. En un museo arqueológico el objeto es único. Aquí el objeto es una herramienta, y las herramientas necesitan manos."
@@ -540,7 +540,7 @@
           "Porque se mueve muy despacio",
           "Porque solo gira cuando los visitantes están dormidos",
           "Porque giran los cristales y no el suelo",
-          "Porque el suelo está cubierto de moqueta"
+          "Porque hay moqueta"
         ],
         "explanation": "Da una vuelta por hora. Nuestros ojos no captan los movimientos muy lentos. Solo nos damos cuenta de que algo se ha movido comparando el antes y el después."
       }

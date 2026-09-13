@@ -84,7 +84,7 @@
                 "Il lapislazzuli",
                 "Il succo di mirtillo",
                 "Il vetro blu macinato",
-                "L’indaco dall’India"
+                "L’indaco"
               ],
               "explanation": "Il lapislazzuli veniva da quello che oggi è l’Afghanistan e costava più dell’oro. Vermeer lo usò perfino per il grembiule di una serva."
             }
@@ -140,7 +140,7 @@
                 "Combattere",
                 "Portare la posta",
                 "Portare passeggeri",
-                "Vincere gare aeree"
+                "Vincere gare"
               ],
               "explanation": "Fu progettato per combattere in cielo nel 1918, con due mitragliatrici sul muso. La guerra finì prima che volasse in battaglia."
             }
@@ -217,7 +217,7 @@
         "q": "Che cosa diventò l’edificio nel 1617?",
         "answers": [
           "La pesa pubblica",
-          "La prigione della città",
+          "La prigione",
           "La caserma dei pompieri",
           "Un negozio di formaggi"
         ],
@@ -261,8 +261,8 @@
         "answers": [
           "Il municipio",
           "Il castello di un duca",
-          "Una chiesa per i marinai",
-          "Un mercato del formaggio"
+          "Una chiesa",
+          "Un mercato"
         ],
         "explanation": "Allora la città non aveva un re: aveva dei mercanti, e i mercanti si costruirono il municipio più grandioso d’Europa. Palazzo lo diventò nel 1808."
       }
@@ -280,7 +280,7 @@
         "q": "Perché il ponte alza così facilmente le sue due metà?",
         "answers": [
           "I contrappesi pesanti",
-          "Delle assi di legno molto sottili",
+          "Le assi sottili",
           "Aria pompata dentro il ponte",
           "Delle corde tirate da cavalli"
         ],
@@ -302,7 +302,7 @@
         "answers": [
           "Da gabbie aperte",
           "Da una nave venuta dall’Africa",
-          "Dalla voliera dello zoo",
+          "Dallo zoo",
           "Dal giardino del poeta"
         ],
         "explanation": "Qualche uccello da gabbia scappò o fu lasciato libero negli anni Settanta. Reggono il freddo, se trovano da mangiare, e i loro nipoti adesso sono migliaia."
@@ -325,7 +325,7 @@
           "Il rame è invecchiato",
           "L’hanno dipinto così apposta",
           "Ci cresce sopra il muschio",
-          "È fatto di vetro verde"
+          "È di vetro verde"
         ],
         "explanation": "Il rame è bruno-dorato quando è nuovo. L’aria e la pioggia gli fanno crescere sopra uno strato verde sottile, che poi lo protegge. Nessuno lo ha dipinto."
       },
@@ -406,7 +406,7 @@
               "q": "Che cosa fa andare le macchine sul tetto?",
               "answers": [
                 "Vento, acqua e sole",
-                "Delle pile in una scatola",
+                "Delle pile",
                 "Un cavo che arriva da sotto",
                 "Dei bambini che girano manovelle"
               ],
@@ -557,7 +557,7 @@
         "answers": [
           "Su chiatte nel canale",
           "Su pali dentro l’acqua",
-          "Su un ponte di legno",
+          "Su un ponte",
           "Sul vecchio muro della città"
         ],
         "explanation": "I coltivatori arrivavano in barca con i fiori e vendevano senza scendere a terra. Il mercato è rimasto dov’è nato: sull’acqua."
@@ -619,8 +619,8 @@
               "answers": [
                 "Nelle amache",
                 "In cuccette di legno",
-                "Sul ponte scoperto",
-                "Nella stiva delle merci"
+                "All’aperto",
+                "In stiva"
               ],
               "explanation": "Un’amaca sta appesa, così quando la nave si inclina il marinaio resta dritto. E la mattina la arrotoli e lo spazio torna libero."
             }
@@ -633,7 +633,7 @@
               "answers": [
                 "Da venti rematori",
                 "Da una macchina a vapore",
-                "Da una grande vela",
+                "Da una vela",
                 "Dai cavalli sulla riva"
               ],
               "explanation": "Venti remi, tutti insieme, a tempo. Una barca reale non ha fretta: il punto era che tutti la guardassero a lungo."
@@ -661,7 +661,7 @@
               "answers": [
                 "Il libro più caro dell’epoca",
                 "Il primo libro stampato in olandese",
-                "Il più piccolo atlante mai fatto",
+                "Il più piccolo atlante",
                 "L’unico libro senza nessuna immagine"
               ],
               "explanation": "Quasi 600 carte, incise nel rame e colorate a mano, fino a dodici volumi. Nessun libro del Seicento costava di più."
@@ -733,8 +733,8 @@
         "q": "Con che cosa è farcita una stroopwafel?",
         "answers": [
           "Caramello",
-          "Formaggio fuso",
-          "Marmellata di mele",
+          "Formaggio",
+          "Marmellata",
           "Crema al cioccolato"
         ],
         "explanation": "Stroop vuol dire sciroppo. Le due cialde sono incollate con caramello caldo, e finché è caldo si piega; quando si raffredda, diventa croccante."

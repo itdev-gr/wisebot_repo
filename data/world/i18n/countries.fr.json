@@ -56,7 +56,13 @@
         "Elle compte 50 sites du patrimoine mondial de l’UNESCO, le cinquième plus grand nombre de tous les pays du monde.",
         "La Sagrada Família, à Barcelone, est en construction depuis 1882, et c’est la plus haute église du monde avec 172,5 mètres.",
         "Elle produit plus d’huile d’olive que n’importe quel autre pays du monde."
-      ]
+      ],
+      "cities": {
+        "barcelona": {
+          "name": "Barcelone",
+          "intro": "Barcelone est une ville entre les collines et la mer, où un architecte rêvait de maisons en forme de dragons et d’une église en construction depuis 144 ans, qui vient de devenir la plus haute du monde. Les rues de la vieille ville sont étroites et pavées de pierre, celles de la ville neuve sont tracées à la règle, et une longue promenade bordée de platanes les relie au port. Ici, on parle deux langues, le catalan et l’espagnol, on danse en rond devant la cathédrale, et les supporters de football font la fête autour d’une fontaine."
+        }
+      }
     },
     "italy": {
       "name": "Italie",
@@ -82,7 +88,13 @@
         "Göbekli Tepe a été bâti il y a environ 11 500 ans, avant que les humains ne fabriquent leur premier pot en argile.",
         "Le Grand Bazar d’Istanbul a 61 rues couvertes et environ 4 000 boutiques.",
         "La ville souterraine de Derinkuyu descend à 85 mètres sous terre et pouvait abriter jusqu’à 20 000 personnes."
-      ]
+      ],
+      "cities": {
+        "istanbul": {
+          "name": "Istanbul",
+          "intro": "Istanbul est la seule grande ville posée sur deux continents : tu prends ton petit-déjeuner en Europe, tu montes sur un bateau et tu déjeunes en Asie vingt minutes plus tard. Pendant plus de mille ans, elle a été Constantinople, la capitale des Grecs de Byzance, puis, pendant près de cinq cents ans, la capitale des sultans ; les deux villes sont encore là, l’une par-dessus l’autre. Un dôme de l’an 537 se dresse à côté d’un palais à quatre cours, les mouettes poursuivent les bateaux, et sous les rues, une forêt de colonnes de marbre soutient encore le sol."
+        }
+      }
     },
     "united-kingdom": {
       "name": "Royaume-Uni",
