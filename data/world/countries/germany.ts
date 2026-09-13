@@ -63,4 +63,52 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'berlin',
+    countryId: 'germany',
+    order: 1,
+    emoji: '🐻',
+
+    name: {
+      el: 'Βερολίνο',
+      en: 'Berlin',
+    },
+
+    intro: {
+      el:
+        'Το Βερολίνο είναι μια πόλη που έχει ζήσει δύο ζωές. Για είκοσι οκτώ χρόνια ένα ' +
+        'τείχος την έκοβε στα δύο, και σήμερα περπατάς πάνω από τη γραμμή του χωρίς καν να ' +
+        'το καταλάβεις. Έχει έναν πύργο με μπάλα που γυρίζει, ένα κοινοβούλιο με γυάλινο ' +
+        'καπέλο, ένα νησί μέσα στο ποτάμι με πέντε μουσεία, και τον ψηλότερο σκελετό ' +
+        'δεινοσαύρου ολόκληρου του κόσμου. Και παντού αρκούδες: στις πινακίδες, στις ' +
+        'βιτρίνες, στα σιντριβάνια.',
+      en:
+        'Berlin is a city that has lived two lives. For twenty-eight years a wall cut it in ' +
+        'two, and today you walk across the line of it without even noticing. It has a tower ' +
+        'with a ball that turns, a parliament wearing a glass hat, an island in the river ' +
+        'with five museums on it, and the tallest dinosaur skeleton in the world. And bears ' +
+        'everywhere you look: on the signs, in the shop windows, on the fountains.',
+    },
+
+    /** Copied from `data/world/coords/berlin.json`, which is Wikidata's point for Q64. */
+    centre: { lat: 52.51667, lng: 13.38333 },
+
+    map: {
+      src: '/images/world/maps/berlin.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του Βερολίνου, με τον Σπρέε, το Νησί των Μουσείων και τα δάση στα δυτικά.',
+        en: 'A stylised map of Berlin, with the Spree, the Museum Island and the woods out west.',
+      },
+      width: 1200,
+      height: 500,
+      /**
+       * Wide on purpose. The Olympiastadion sits eight kilometres west of everything else in
+       * the city file, so the bounds have to reach out to 13.222 to hold it; the eastern edge
+       * is set by the East Side Gallery. That gives a strip about 16 km by 7 km, which is why
+       * the artwork is 1200 by 500 rather than something squarer.
+       */
+      bounds: { north: 52.547, south: 52.486, east: 13.462, west: 13.222 },
+    },
+  },
+];
