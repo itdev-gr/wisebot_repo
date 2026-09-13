@@ -211,9 +211,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ένας κύκλος παράθυρα', en: 'A ring of windows' },
-        { el: 'Καθρέφτες πάνω στους τοίχους', en: 'Mirrors on the walls' },
-        { el: 'Είναι φτιαγμένος από γυαλί', en: 'It is made of glass' },
-        { el: 'Κρυμμένα αερόστατα', en: 'Hidden hot-air balloons' },
+        { el: 'Καθρέφτες στον τοίχο', en: 'Mirrors on the wall' },
+        { el: 'Είναι όλος από γυαλί', en: 'It is all glass' },
+        { el: 'Κρυμμένα μπαλόνια', en: 'Hidden balloons' },
       ],
       explanation: {
         el:
@@ -306,9 +306,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Απαγόρευσε άλλες πωλήσεις', en: 'He banned other sales' },
-        { el: 'Αγόρασε τα εργαστήρια του İznik', en: 'He bought the İznik potteries' },
-        { el: 'Έχτισε δικό του εργαστήρι', en: 'He built his own tile factory' },
-        { el: 'Πλήρωνε διπλά κάθε πλακάκι', en: 'He paid double for every tile' },
+        { el: 'Αγόρασε τα εργαστήρια İznik', en: 'He bought İznik potteries' },
+        { el: 'Έχτισε δικό του εργαστήρι', en: 'He built his own factory' },
+        { el: 'Πλήρωνε διπλά τα πλακάκια', en: 'He paid double for tiles' },
       ],
       explanation: {
         el:
@@ -511,9 +511,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Μόνο ο σουλτάνος', en: 'Only the sultan' },
-        { el: 'Μόνο ο μεγάλος βεζίρης', en: 'Only the grand vizier' },
-        { el: 'Κάθε ξένος πρέσβης', en: 'Any foreign ambassador' },
-        { el: 'Κάθε φρουρός', en: 'Every palace guard' },
+        { el: 'Ο μεγάλος βεζίρης', en: 'The grand vizier' },
+        { el: 'Κάθε ξένος πρέσβης', en: 'Foreign ambassadors' },
+        { el: 'Οι φρουροί', en: 'The guards' },
       ],
       explanation: {
         el:
@@ -581,9 +581,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Από τους Βυζαντινούς', en: 'From the Byzantines' },
-                  { el: 'Από τους Πέρσες βασιλιάδες', en: 'From the kings of Persia' },
-                  { el: 'Από τους Γενουάτες εμπόρους', en: 'From the Genoese merchants' },
-                  { el: 'Από τους Φαραώ της Αιγύπτου', en: 'From the pharaohs of Egypt' },
+                  { el: 'Από τους Πέρσες βασιλείς', en: 'From the Persian kings' },
+                  { el: 'Από Γενουάτες εμπόρους', en: 'From Genoese merchants' },
+                  { el: 'Από Αιγύπτιους Φαραώ', en: 'From Egyptian pharaohs' },
                 ],
                 explanation: {
                   el: 'Στη Χαλκή Πύλη του βυζαντινού παλατιού ίσχυε ο ίδιος κανόνας, και οι νέοι κύριοι της Πόλης τον κράτησαν.',
@@ -764,9 +764,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Ο σάχης είχε πεθάνει', en: 'The Shah had died' },
-                  { el: 'Ο σάχης το βρήκε άσχημο', en: 'The Shah thought it was ugly' },
-                  { el: 'Οι απεσταλμένοι χάθηκαν', en: 'The envoys lost their way' },
-                  { el: 'Το ρολόι του σταμάτησε', en: 'Its little watch had stopped' },
+                  { el: 'Ο σάχης το βρήκε άσχημο', en: 'The Shah found it ugly' },
+                  { el: 'Οι απεσταλμένοι χάθηκαν', en: 'The envoys got lost' },
+                  { el: 'Το ρολόι του σταμάτησε', en: 'Its watch had stopped' },
                 ],
                 explanation: {
                   el: 'Οι απεσταλμένοι έμαθαν για τον θάνατό του πριν φτάσουν στα σύνορα, και ένα δώρο για κάποιον που δεν υπάρχει πια δεν παραδίδεται.',
@@ -968,8 +968,8 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Μια σαρκοφάγο από μέσα', en: 'A sarcophagus inside' },
-        { el: 'Τον Παρθενώνα της Αθήνας', en: 'The Parthenon in Athens' },
-        { el: 'Την πύλη του παλατιού δίπλα', en: 'The palace’s Imperial Gate' },
+        { el: 'Τον Παρθενώνα της Αθήνας', en: 'The Athens Parthenon' },
+        { el: 'Την Αυτοκρατορική Πύλη', en: 'The Imperial Gate' },
         { el: 'Μια τράπεζα στο Παρίσι', en: 'A bank in Paris' },
       ],
       explanation: {
@@ -1035,8 +1035,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Ένας βασιλιάς της Σιδώνας', en: 'A king of Sidon' },
-                  { el: 'Ο ίδιος ο Μέγας Αλέξανδρος', en: 'Alexander the Great himself' },
-                  { el: 'Ένας Πέρσης στρατηγός', en: 'A Persian army general' },
+                  { el: 'Ο Μέγας Αλέξανδρος', en: 'Alexander the Great' },
+                  { el: 'Ένας Πέρσης στρατηγός', en: 'A Persian general' },
                   { el: 'Ένας Ρωμαίος αυτοκράτορας', en: 'A Roman emperor' },
                 ],
                 explanation: {
@@ -1074,9 +1074,9 @@ export const places: Place[] = [
                   en: 'What happened to the liquid that preserved the king?',
                 },
                 answers: [
-                  { el: 'Χύθηκε στην άμμο', en: 'It was poured away' },
+                  { el: 'Χύθηκε μέσα στην άμμο', en: 'It was poured away' },
                   { el: 'Πουλήθηκε σε γιατρούς', en: 'It was sold to doctors' },
-                  { el: 'Φυλάγεται σε μπουκάλι εδώ', en: 'It is kept in a bottle here' },
+                  { el: 'Βρίσκεται ακόμα μέσα', en: 'It is still inside' },
                   { el: 'Εξατμίστηκε στον ήλιο', en: 'It evaporated in the sun' },
                 ],
                 explanation: {
@@ -1116,10 +1116,10 @@ export const places: Place[] = [
                   en: 'Why did the man who found it in 1882 bury it again?',
                 },
                 answers: [
-                  { el: 'Ήταν πολύ βαριά', en: 'It was too heavy' },
+                  { el: 'Ήταν πάρα πολύ βαριά', en: 'It was far too heavy' },
                   { el: 'Φοβήθηκε την κατάρα', en: 'He feared its curse' },
                   { el: 'Την έκρυβε από κλέφτες', en: 'To hide it from thieves' },
-                  { el: 'Οι χωρικοί τον έδιωξαν', en: 'Villagers chased him off' },
+                  { el: 'Οι χωρικοί τον έδιωξαν', en: 'Villagers chased him' },
                 ],
                 explanation: {
                   el: 'Τριάντα δύο τόνοι δεν κουνιούνται με κάρα. Χρειάστηκαν είκοσι χρόνια, βουβάλια και τρένο.',
@@ -1177,9 +1177,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Στα Ηνωμένα Έθνη', en: 'At the United Nations' },
-                  { el: 'Στις πυραμίδες', en: 'In Cairo, at the pyramids' },
-                  { el: 'Στο παλάτι Topkapı', en: 'In the Topkapı Palace treasury' },
-                  { el: 'Στη Βουλή στην Άγκυρα', en: 'In the parliament in Ankara' },
+                  { el: 'Στις πυραμίδες', en: 'At the pyramids' },
+                  { el: 'Στο παλάτι Topkapı', en: 'In the Topkapı Palace' },
+                  { el: 'Στη Βουλή στην Άγκυρα', en: 'In Ankara’s parliament' },
                 ],
                 explanation: {
                   el: 'Οι χώρες του κόσμου διάλεξαν την πιο παλιά υπόσχεση ειρήνης για τον τοίχο του σπιτιού τους στη Νέα Υόρκη.',
@@ -1216,9 +1216,9 @@ export const places: Place[] = [
                   en: 'Where was the tablet when Kramer discovered it in 1951?',
                 },
                 answers: [
-                  { el: 'Σε ένα συρτάρι', en: 'In a drawer' },
+                  { el: 'Μέσα σε ένα συρτάρι', en: 'Inside a drawer' },
                   { el: 'Θαμμένη σε έναν τάφο', en: 'Buried in a tomb' },
-                  { el: 'Στη βιβλιοθήκη', en: 'In the palace library' },
+                  { el: 'Στη βιβλιοθήκη', en: 'In the library' },
                   { el: 'Στον βυθό του Κεράτιου', en: 'On the seabed' },
                 ],
                 explanation: {
@@ -1257,8 +1257,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Έναν χρυσό τρίποδα', en: 'A golden tripod' },
-                  { el: 'Ένα άγαλμα του Απόλλωνα', en: 'A statue of Apollo' },
-                  { el: 'Μια λάμπα που έκαιγε πάντα', en: 'A lamp that never went out' },
+                  { el: 'Άγαλμα του Απόλλωνα', en: 'A statue of Apollo' },
+                  { el: 'Μια λάμπα πάντα αναμμένη', en: 'An always-burning lamp' },
                   { el: 'Ένα καζάνι με νερό', en: 'A cauldron of water' },
                 ],
                 explanation: {
@@ -1297,9 +1297,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Από γυαλιστερά τούβλα', en: 'Glazed bricks' },
-                  { el: 'Από ζωγραφισμένο μάρμαρο', en: 'Painted marble' },
+                  { el: 'Από βαμμένο μάρμαρο', en: 'Painted marble' },
                   { el: 'Από χυτό μπρούντζο', en: 'Cast bronze' },
-                  { el: 'Από σκαλισμένο ξύλο κέδρου', en: 'Carved cedar wood' },
+                  { el: 'Από σκαλιστό κέδρο', en: 'Carved cedar' },
                 ],
                 explanation: {
                   el: 'Κάθε τούβλο ψηνόταν με το κομμάτι του ζώου επάνω και μετά σκεπαζόταν με γυάλινο χρώμα. Γι’ αυτό λάμπουν ακόμα.',
@@ -1459,8 +1459,8 @@ export const places: Place[] = [
       answers: [
         { el: 'Ο κήπος του παλατιού', en: 'The palace garden' },
         { el: 'Ιππόδρομος για άλογα', en: 'A horse racecourse' },
-        { el: 'Η ψαραγορά της πόλης', en: 'The city’s main fish market' },
-        { el: 'Πεδίο ασκήσεων του στρατού', en: 'An army parade field' },
+        { el: 'Η ψαραγορά της πόλης', en: 'The city fish market' },
+        { el: 'Πεδίο ασκήσεων στρατού', en: 'An army parade field' },
       ],
       explanation: {
         el:
@@ -1559,9 +1559,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Να προσφέρεις λιγότερα', en: 'Offer less' },
-        { el: 'Να πληρώσεις αμέσως', en: 'Pay it at once' },
-        { el: 'Να πληρώσεις τα διπλά για γούρι', en: 'Pay double for luck' },
-        { el: 'Να φύγεις θυμωμένος', en: 'Walk away angry' },
+        { el: 'Να πληρώσεις αμέσως', en: 'Pay at once' },
+        { el: 'Να πληρώσεις διπλά', en: 'Pay double' },
+        { el: 'Να φύγεις θυμωμένος', en: 'Walk off angry' },
       ],
       explanation: {
         el:
@@ -1661,9 +1661,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Το πλήρωσε η Αίγυπτος', en: 'Egypt paid for it' },
-        { el: 'Ψώνιζαν εδώ οι Φαραώ', en: 'Pharaohs once shopped here' },
-        { el: 'Πουλάει άμμο από τον Νείλο', en: 'It sells sand from the Nile' },
-        { el: 'Ο αρχιτέκτονας ήταν Αιγύπτιος', en: 'Its architect was Egyptian' },
+        { el: 'Ψώνιζαν εδώ οι Φαραώ', en: 'Pharaohs shopped here' },
+        { el: 'Πουλάει άμμο του Νείλου', en: 'It sells Nile sand' },
+        { el: 'Αιγύπτιος αρχιτέκτονας', en: 'An Egyptian architect' },
       ],
       explanation: {
         el:
@@ -1759,8 +1759,8 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ήταν ο δέκατος σουλτάνος', en: 'He was the tenth sultan' },
-        { el: 'Δούλεψαν δέκα πρωτομάστορες', en: 'There were ten master builders' },
-        { el: 'Μία για καθέναν από δέκα γιους', en: 'One for each of ten sons' },
+        { el: 'Δέκα μάστορες δούλεψαν', en: 'Ten masters worked on it' },
+        { el: 'Ένας για κάθε του γιο', en: 'One for each of his sons' },
         { el: 'Δέκα χρόνια χτίσιμο', en: 'Ten years of building' },
       ],
       explanation: {
@@ -1861,8 +1861,8 @@ export const places: Place[] = [
         en: 'What did Leonardo da Vinci design for this spot in 1502?',
       },
       answers: [
-        { el: 'Μια γέφυρα με ένα τόξο', en: 'A one-arch bridge' },
-        { el: 'Ένα τούνελ κάτω από το νερό', en: 'A tunnel under the water' },
+        { el: 'Μια γέφυρα με ένα τόξο', en: 'A bridge with one arch' },
+        { el: 'Ένα υποβρύχιο τούνελ', en: 'An underwater tunnel' },
         { el: 'Έναν φάρο με ασανσέρ', en: 'A lighthouse with a lift' },
         { el: 'Μια πλωτή ξύλινη αγορά', en: 'A floating wooden market' },
       ],
@@ -1962,9 +1962,9 @@ export const places: Place[] = [
         en: 'What job did the tower do for the Ottomans from 1717?',
       },
       answers: [
-        { el: 'Βίγλα για φωτιές', en: 'A fire lookout' },
+        { el: 'Βίγλα για τις φωτιές', en: 'A fire lookout post' },
         { el: 'Φάρος για τα καράβια', en: 'A lighthouse for ships' },
-        { el: 'Κρεβατοκάμαρα του σουλτάνου', en: 'The sultan’s bedroom' },
+        { el: 'Υπνοδωμάτιο σουλτάνου', en: 'The sultan’s bedroom' },
         { el: 'Ρολόι της πόλης', en: 'A clock for the city' },
       ],
       explanation: {
@@ -2065,8 +2065,8 @@ export const places: Place[] = [
         en: 'Who sold flowers here and gave the arcade its name?',
       },
       answers: [
-        { el: 'Ρωσίδες ευγενείς', en: 'Russian noblewomen' },
-        { el: 'Οι κηπουροί του σουλτάνου', en: 'The sultan’s own gardeners' },
+        { el: 'Ρωσίδες αριστοκράτισσες', en: 'Russian noblewomen' },
+        { el: 'Κηπουροί του σουλτάνου', en: 'The sultan’s gardeners' },
         { el: 'Έλληνες μαθητές', en: 'Greek schoolchildren' },
         { el: 'Ολλανδοί έμποροι τουλίπας', en: 'Dutch tulip traders' },
       ],
@@ -2169,7 +2169,7 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Από μια πλαϊνή πόρτα', en: 'Through a side door' },
-        { el: 'Από τη μεγάλη κεντρική πύλη', en: 'Through the big main gate' },
+        { el: 'Από την κεντρική πύλη', en: 'Through the main gate' },
         { el: 'Από μια κρεμαστή γέφυρα', en: 'Over a drawbridge' },
         { el: 'Με βάρκα από την προβλήτα', en: 'By boat from the pier' },
       ],
@@ -2274,7 +2274,7 @@ export const places: Place[] = [
         en: 'What was made in the museum’s first building three hundred years ago?',
       },
       answers: [
-        { el: 'Άγκυρες για πλοία', en: 'Ship anchors' },
+        { el: 'Άγκυρες για πλοία', en: 'Anchors for ships' },
         { el: 'Κανόνια για τον στρατό', en: 'Cannons for the army' },
         { el: 'Χαλιά για το παλάτι', en: 'Carpets for the palace' },
         { el: 'Πανιά για τον στόλο', en: 'Sails for the navy' },
@@ -2425,7 +2425,7 @@ export const places: Place[] = [
                   en: 'What pushes this car along when it is in the water?',
                 },
                 answers: [
-                  { el: 'Δύο προπέλες', en: 'Two propellers' },
+                  { el: 'Οι δύο προπέλες του', en: 'Its two propellers' },
                   { el: 'Οι τέσσερις ρόδες του', en: 'Its four wheels turning' },
                   { el: 'Ένα μικρό πανί', en: 'A small folding sail' },
                   { el: 'Κουπιά από τα παράθυρα', en: 'Oars from the windows' },
@@ -2526,10 +2526,10 @@ export const places: Place[] = [
                   en: 'Why did the city’s trams stop in 1966?',
                 },
                 answers: [
-                  { el: 'Για να χωρέσουν τα λεωφορεία', en: 'To make room for buses' },
-                  { el: 'Γιατί τέλειωσε το ρεύμα', en: 'Because the electricity ran out' },
-                  { el: 'Γιατί οι ράγες σκούριασαν', en: 'Because the rails had rusted' },
-                  { el: 'Γιατί ο κόσμος τα φοβόταν', en: 'Because people were afraid of them' },
+                  { el: 'Για να μπουν τα λεωφορεία', en: 'To make room for buses' },
+                  { el: 'Γιατί τέλειωσε το ρεύμα', en: 'Because the power ran out' },
+                  { el: 'Γιατί οι ράγες σκούριασαν', en: 'Because the rails rusted' },
+                  { el: 'Γιατί ο κόσμος τα φοβόταν', en: 'Because people feared them' },
                 ],
                 explanation: {
                   el: 'Τη δεκαετία του 1960 πολλές πόλεις νόμιζαν ότι το μέλλον ήταν το λεωφορείο. Το 1990 η Πόλη άλλαξε γνώμη.',
@@ -2568,9 +2568,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Συρματόσχοινα', en: 'Steel cables' },
-                  { el: 'Μια ατμομηχανή μπροστά', en: 'A locomotive in front' },
+                  { el: 'Μια βαριά αλυσίδα', en: 'A heavy chain' },
                   { el: 'Δύο γερά άλογα', en: 'Two strong horses' },
-                  { el: 'Δικός του κινητήρας', en: 'A motor of its own' },
+                  { el: 'Ο κινητήρας του', en: 'Its own motor' },
                 ],
                 explanation: {
                   el: 'Η ατμομηχανή έμενε στην κορυφή του λόφου και γύριζε το τύμπανο· το συρματόσχοινο έκανε την υπόλοιπη δουλειά.',
@@ -2828,7 +2828,7 @@ export const places: Place[] = [
         en: 'How were the mosaics kept safe for centuries inside the mosque?',
       },
       answers: [
-        { el: 'Κάτω από σοβά', en: 'Under plaster' },
+        { el: 'Κάτω από στρώμα σοβά', en: 'Under a plaster layer' },
         { el: 'Πίσω από ξύλινες πόρτες', en: 'Behind wooden panels' },
         { el: 'Κάτω από χοντρά χαλιά', en: 'Under thick carpets' },
         { el: 'Κλειδωμένα στο παλάτι', en: 'Locked in the palace' },
