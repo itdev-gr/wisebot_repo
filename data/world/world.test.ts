@@ -621,6 +621,121 @@ describe('world content', async () => {
     );
   });
 
+  /**
+   * A place's location says exactly what the resolver said.
+   *
+   * `data/world/coords/<city>.json` is the resolver's output and the audit trail: which
+   * sources agreed, how far apart they were, what grade that earned, when it was checked.
+   * The city file copies that block. Nothing in this suite has ever read the coords folder,
+   * so the two could disagree for as long as nobody looked — and they did. Eight London
+   * places claim an `osm` source and an A grade that the committed json does not have,
+   * because the json was regenerated during an Overpass outage after the city file was
+   * written and nobody re-synced. It survived two merges.
+   *
+   * No child is sent anywhere wrong by that: every latitude and longitude matches. What
+   * breaks is the provenance — the file claims a confidence it cannot show its working
+   * for, which is the one thing brief §19 says a record may never do.
+   *
+   * Only the resolver's own fields are compared. `map`, `findIt` and `note` are authored
+   * by hand in the city file and have no business in the json.
+   */
+  it('every place location matches its coords file, field for field', async () => {
+    const drift: string[] = [];
+
+    for (const bundle of all) {
+      if (bundle.label.startsWith('fixture:')) continue;
+      const path = resolve(ROOT, `data/world/coords/${bundle.city.id}.json`);
+      if (!existsSync(path)) continue; // a city may ship before its audit trail is committed
+
+      const resolved = JSON.parse(await readFile(path, 'utf8')) as {
+        places: Array<{
+          id: string;
+          lat: number;
+          lng: number;
+          anchor?: string;
+          confidence?: string;
+          verifiedAt?: string;
+          sources?: Array<{ kind: string; ref: string; deltaM?: number }>;
+        }>;
+      };
+      const byId = new Map(resolved.places.map((p) => [p.id, p]));
+
+      for (const place of bundle.module.places) {
+        const r = byId.get(place.id);
+        if (!r) {
+          drift.push(`${place.id}: no entry in coords/${bundle.city.id}.json`);
+          continue;
+        }
+        const loc = place.location as unknown as Record<string, unknown>;
+        const say = (field: string, a: unknown, b: unknown) =>
+          drift.push(`${place.id}.${field}: file ${JSON.stringify(a)} vs coords ${JSON.stringify(b)}`);
+
+        if (loc.lat !== r.lat) say('lat', loc.lat, r.lat);
+        if (loc.lng !== r.lng) say('lng', loc.lng, r.lng);
+        if (loc.anchor !== r.anchor) say('anchor', loc.anchor, r.anchor);
+        if (loc.confidence !== r.confidence) say('confidence', loc.confidence, r.confidence);
+        if (loc.verifiedAt !== r.verifiedAt) say('verifiedAt', loc.verifiedAt, r.verifiedAt);
+
+        // Sources are the working behind the grade, so order and deltas count too.
+        const fmt = (s: Array<{ kind: string; ref: string; deltaM?: number }> = []) =>
+          s.map((x) => `${x.kind}:${x.ref}:${x.deltaM ?? 0}`).join(' | ');
+        const mine = fmt(loc.sources as Array<{ kind: string; ref: string; deltaM?: number }>);
+        const theirs = fmt(r.sources);
+        if (mine !== theirs) say('sources', mine, theirs);
+      }
+    }
+
+    /**
+     * Two drifts exist today, both found by this test the first time it ran, neither
+     * fixable by the session that can see them. They are named here rather than left to
+     * make the gate unmergeable, because a gate that waits for an outage protects nothing
+     * in the meantime — and this one exists precisely because London drifted through two
+     * merges while nothing was watching.
+     *
+     * The list is EXACT. An entry that stops drifting fails this test just as loudly as
+     * new drift does, so fixing London forces its eight lines out of here rather than
+     * leaving a stale licence behind.
+     *
+     *   london ×8   the city file carries an `osm` source and an A grade that the
+     *               committed json does not. The json is the degraded run: it was
+     *               regenerated during an Overpass outage after the city file was
+     *               written. The FILE is right and the json is poorer. Fix is one
+     *               resolver run once Overpass is properly back, then sync — never by
+     *               hand-editing the grade down to match a worse run.
+     *   rome ×3     a curly apostrophe in the city file against a straight one in the
+     *               json, in three Wikipedia refs. Three characters, and it belongs to
+     *               the content session's files, which are frozen.
+     *
+     * Every latitude and longitude in both agrees. No child is sent anywhere wrong; what
+     * is wrong is the provenance, which brief §19 says a record may never overstate.
+     */
+    const KNOWN = [
+      'london-westminster-abbey', 'london-st-pauls-cathedral', 'london-tower-of-london',
+      'london-tower-bridge', 'london-science-museum', 'london-monument',
+      'london-borough-market', 'london-cutty-sark',
+      'rome-campo-de-fiori', 'rome-castel-sant-angelo', 'rome-st-peters-square',
+    ];
+
+    const drifted = [...new Set(drift.map((d) => d.split('.')[0]))].sort();
+    const unexpected = drifted.filter((id) => !KNOWN.includes(id));
+    const fixed = KNOWN.filter((id) => !drifted.includes(id)).sort();
+
+    expect(
+      unexpected,
+      `${unexpected.length} place(s) newly disagree with their coords file. The json is the ` +
+        `resolver's output and the city file copies it — re-run the resolver and sync, never ` +
+        `hand-edit either to match the other. Detail:\n${drift
+          .filter((d) => unexpected.includes(d.split('.')[0]))
+          .slice(0, 20)
+          .join('\n')}`,
+    ).toEqual([]);
+
+    expect(
+      fixed,
+      `these places no longer drift — delete them from KNOWN in this test, the licence is stale`,
+    ).toEqual([]);
+  });
+
   it('the registry place counts match the real arrays', async () => {
     for (const bundle of all) {
       if (bundle.label.startsWith('fixture:')) continue;
