@@ -22,14 +22,21 @@ export const useAuthGate = () => useContext(AuthGateContext);
 const GuestTopBanner: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
   const navigate = useNavigate();
 
+  // One line, and it stays one line.
+  // The sentence wrapped to four rows on a 375-point phone and took 90 of the 812 points
+  // above the fold — on WiseBot World that was most of what a child could see before the
+  // city they had opened. `truncate` needs `min-w-0` on the flex child to do anything at
+  // all, and the icon must not shrink with it.
   return (
-    <div className="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-b border-amber-500/20 px-4 py-3">
-      <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
-        <p className="text-white/60 text-xs font-bold flex items-center gap-2">
-          <Sparkles size={14} className="text-amber-400" />
-          {lang === 'el'
-            ? 'Δημιούργησε δωρεάν λογαριασμό για να ξεκλειδώσεις όλες τις λειτουργίες!'
-            : 'Create a free account to unlock all features!'}
+    <div className="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-b border-amber-500/20 px-4 py-2">
+      <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
+        <p className="text-white/60 text-xs font-bold flex items-center gap-2 min-w-0">
+          <Sparkles size={14} className="text-amber-400 flex-shrink-0" />
+          <span className="truncate">
+            {lang === 'el'
+              ? 'Δημιούργησε δωρεάν λογαριασμό και ξεκλείδωσε τα πάντα!'
+              : 'Create a free account to unlock everything!'}
+          </span>
         </p>
         <button
           onClick={() => navigate('/login?mode=register')}

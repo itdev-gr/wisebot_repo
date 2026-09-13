@@ -33,6 +33,21 @@ export function isWithin(here: GeoPoint, accuracyM: number, spot: GeoPoint, radi
   return distanceM(here, spot) - Math.min(Math.max(accuracyM, 0), 40) <= radiusM;
 }
 
+/**
+ * How close to one of a country's cities counts as being in the country.
+ *
+ * A country is not a circle, so this is deliberately generous: 150 km around any city we
+ * actually have content for. A family in Fiesole is in Italy; a family on their sofa in
+ * Athens is not in France, which is the only thing this has to get right. It is a
+ * presence check, never a border.
+ */
+export const COUNTRY_RADIUS_M = 150_000;
+
+/** Is the phone within `radiusM` of ANY of these points? Same accuracy forgiveness. */
+export function isNearAny(here: GeoPoint, accuracyM: number, points: GeoPoint[], radiusM: number): boolean {
+  return points.some((p) => isWithin(here, accuracyM, p, radiusM));
+}
+
 export interface Fix extends GeoPoint { accuracyM: number; at: number }
 
 export type GeoError = 'unsupported' | 'denied' | 'unavailable' | 'timeout';
