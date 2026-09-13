@@ -99,6 +99,7 @@ export const PLACE_COUNTS: Record<CityId, number> = {
   'rhodes': 12,
   'rome': 18,
   'thessaloniki': 17,
+  'vienna': 13,
 };
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
@@ -113,6 +114,7 @@ const LOADERS: Record<CityId, () => Promise<CityModule>> = {
   'rhodes': () => import('./cities/rhodes'),
   'rome': () => import('./cities/rome'),
   'thessaloniki': () => import('./cities/thessaloniki'),
+  'vienna': () => import('./cities/vienna'),
 };
 
 /** Cities of one country, in order. */
