@@ -498,6 +498,11 @@ interface CountryViewProps {
     label: string;
     askingLabel: string;
     note: string;
+    /**
+     * A second, smaller line under the note, for the grown-up: where the location
+     * switch is on this phone, when the phone will not even ask. Absent otherwise.
+     */
+    hint?: string;
     asking: boolean;
     onAsk: () => void;
   };
@@ -594,6 +599,9 @@ export const CountryView: React.FC<CountryViewProps> = ({
             <p className="mt-2 text-sm font-bold text-white/60" aria-live="polite">
               {entry.note}
             </p>
+            {entry.hint && (
+              <p className="mt-1.5 break-words text-xs font-bold leading-relaxed text-amber-200/70">{entry.hint}</p>
+            )}
           </div>
         )}
 

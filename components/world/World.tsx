@@ -63,7 +63,8 @@ import {
   ui,
   type UiText,
 } from './worldUi';
-import { COUNTRY_RADIUS_M, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
+import { COUNTRY_RADIUS_M, geoPermissionState, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
+import { blockedNote, deniedKind } from './geoNotes';
 import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
@@ -146,6 +147,15 @@ const T = {
     fr: 'JE CHERCHE…',
     es: 'BUSCANDO…',
     it: 'CERCO…',
+  },
+  /** The same button once the phone has said no without asking: one thing to do after a grown-up flipped the switch. */
+  tryAgain: {
+    el: 'ΔΟΚΙΜΑΣΕ ΞΑΝΑ',
+    en: 'TRY AGAIN',
+    de: 'NOCH EINMAL',
+    fr: 'RÉESSAIE',
+    es: 'INTÉNTALO OTRA VEZ',
+    it: 'RIPROVA',
   },
 };
 
@@ -493,9 +503,37 @@ const CountryPage: React.FC<{
   const navigate = useNavigate();
   const country = content.countries.find((c) => c.id === countryId) ?? findCountry(countryId ?? '');
   const { attempt, asking } = useWorldEntry();
-  const [outcome, setOutcome] = useState<EntryOutcome | null>(null);
+  /**
+   * What the note under «Είμαι εδώ!» says. `blocked` is a «denied» that came with no
+   * prompt: the browser remembers a refusal (or a phone-wide switch is off) and will not
+   * ask again, so the sentence has to say where a grown-up turns it back on.
+   */
+  const [outcome, setOutcome] = useState<EntryOutcome | 'blocked' | null>(null);
+  const ask = useCallback(
+    (target: Country) => {
+      void attempt(target).then(async (result) => {
+        if (result !== 'denied') return setOutcome(result);
+        setOutcome((await deniedKind()) === 'blocked' ? 'blocked' : 'denied');
+      });
+    },
+    [attempt],
+  );
+
+  // If the phone already refuses this site, say so before the first tap: tapping into
+  // silence is how a child learns the button is "broken". Read without asking.
+  useEffect(() => {
+    let stale = false;
+    void geoPermissionState().then((state) => {
+      if (!stale && state === 'denied') setOutcome((current) => current ?? 'blocked');
+    });
+    return () => {
+      stale = true;
+    };
+  }, []);
 
   if (!country) return <NotFound lang={lang} onBack={() => navigate('/world')} />;
+
+  const blocked = outcome === 'blocked' ? blockedNote(lang) : null;
 
   // How many of each city's places are stamped, without loading a single city module.
   // Place ids are prefixed by their city id — `data/world/world.test.ts` enforces that
@@ -537,13 +575,12 @@ const CountryPage: React.FC<{
         country={country}
         entryDate={progress.progress.entries[country.id]}
         entry={{
-          label: ui(T.imInCountry, lang),
+          label: ui(blocked ? T.tryAgain : T.imInCountry, lang),
           askingLabel: ui(T.locating, lang),
-          note: ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
+          note: blocked ? blocked.note : ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
+          hint: blocked?.path,
           asking,
-          onAsk: () => {
-            void attempt(country).then(setOutcome);
-          },
+          onAsk: () => ask(country),
         }}
         cities={cities}
         legacyCities={legacyCities}
@@ -700,17 +737,26 @@ const CityPage: React.FC<{
   const isStamped = useCallback((id: PlaceId) => hasPlace(id), [hasPlace]);
 
   /**
-   * Opening a city is the moment worth asking about: a child who taps into Rome while
-   * standing in Rome has crossed the border this stamp records. Asked once per country,
-   * and never again once it is earned, so the permission prompt is not a tax on browsing.
+   * Opening a city is the moment worth checking: a child who taps into Rome while
+   * standing in Rome has crossed the border this stamp records. Checked once per
+   * country, and never again once it is earned.
    *
-   * A refusal is free — nothing here reads the result. The country page's «Είμαι εδώ!»
-   * button is the retry, and it is the one that explains what happened.
+   * Checked, not asked. This runs without a tap, and a system prompt that pops up
+   * unasked in front of a child is exactly how «Don't Allow» gets tapped — and Safari
+   * remembers that answer for the whole site, after which «Είμαι εδώ!» can never show a
+   * prompt again (it just fails). So the phone is consulted here only when the family
+   * has already said yes; the first question is always the button, from a tap.
    */
   const countryIdForEntry = country?.id;
   useEffect(() => {
     if (!country || !countryIdForEntry || entered(countryIdForEntry)) return;
-    void attempt(country);
+    let stale = false;
+    void geoPermissionState().then((state) => {
+      if (!stale && state === 'granted') void attempt(country);
+    });
+    return () => {
+      stale = true;
+    };
   }, [country, countryIdForEntry, entered, attempt]);
 
   if (!city || !country || failed) return <NotFound lang={lang} onBack={() => navigate('/world')} />;

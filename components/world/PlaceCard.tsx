@@ -37,6 +37,7 @@ import StoryNarration from './StoryNarration';
 import { PinReport } from './PinReport';
 import { WorldMap } from './WorldMap';
 import { distanceM, formatDistance, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
+import { blockedNote, deniedKind } from './geoNotes';
 import {
   CATEGORY_LABEL,
   CATEGORY_STYLE,
@@ -402,6 +403,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
    */
   const [geo, setGeo] = useState<'idle' | 'checking' | 'here' | 'far' | 'error'>('idle');
   const [geoError, setGeoError] = useState<GeoError | null>(null);
+  /** A «denied» that came with no prompt: the site is blocked and a setting must change. */
+  const [geoBlocked, setGeoBlocked] = useState(false);
   const [distance, setDistance] = useState<number | null>(null);
   const radiusM = place.location.anchor === 'area' ? 120 : 60;
   const onSite = Boolean(stamp) || geo === 'here';
@@ -409,8 +412,13 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
   const locate = async () => {
     setGeo('checking');
     setGeoError(null);
+    setGeoBlocked(false);
     const fix = await locateOnce();
     if (typeof fix === 'string') {
+      // Decide the sentence before showing anything, so the note never flips from
+      // «tap again» to «change a setting» in front of the child.
+      const blocked = fix === 'denied' && (await deniedKind()) === 'blocked';
+      setGeoBlocked(blocked);
       setGeo('error');
       setGeoError(fix);
       return;
@@ -635,7 +643,15 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
                 {geo === 'far' &&
                   distance !== null &&
                   ui(T.tooFar, lang)(formatDistance(distance, lang === 'el' ? 'el' : 'en'), walkMinutes(distance))}
-                {geo === 'error' && geoError === 'denied' && ui(T.geoDenied, lang)}
+                {geo === 'error' && geoError === 'denied' && !geoBlocked && ui(T.geoDenied, lang)}
+                {geo === 'error' && geoError === 'denied' && geoBlocked && (
+                  <>
+                    {blockedNote(lang).note}
+                    <span className="mt-1.5 block break-words text-xs leading-relaxed text-amber-200/70">
+                      {blockedNote(lang).path}
+                    </span>
+                  </>
+                )}
                 {geo === 'error' && geoError !== 'denied' && ui(T.geoUnavailable, lang)}
               </p>
             </div>
