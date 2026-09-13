@@ -14,12 +14,12 @@
       "question": {
         "q": "¿Qué destruyó el palacio en 1856?",
         "answers": [
-          "Pólvora olvidada en un sótano desde los tiempos de los Caballeros",
+          "Pólvora olvidada en un sótano",
           "Un asedio que duró meses",
           "Un terremoto que abrió el suelo",
           "Una inundación que entró desde el mar"
         ],
-        "explanation": "La pólvora llevaba allí más de trescientos años. Ya nadie se acordaba de que estaba."
+        "explanation": "La pólvora estaba en el sótano desde los tiempos de los Caballeros: más de trescientos años. Ya nadie se acordaba de que estaba."
       }
     },
     "rhodes-archaeological-museum": {
@@ -60,12 +60,12 @@
             "question": {
               "q": "¿Por qué son pequeñas y están tan altas las ventanas de esta sala?",
               "answers": [
-                "Para que salga el aire caliente y el aire se renueve",
+                "Para que salga el aire caliente",
                 "Para que los enfermos no pudieran ver fuera",
                 "Para que entrara menos polvo",
                 "Porque el vidrio era carísimo"
               ],
-              "explanation": "El aire caliente sube. Una ventana alta es una chimenea para el aire."
+              "explanation": "El aire caliente sube, sale por arriba y así el aire se renueva. Una ventana alta es una chimenea para el aire."
             }
           },
           "rhodes-archaeological-museum-knight-slabs": {
@@ -74,12 +74,12 @@
             "question": {
               "q": "¿Cómo se dividía la orden de los Caballeros?",
               "answers": [
-                "En grupos según la lengua que hablaban",
+                "En grupos según su lengua",
                 "En grupos según su altura",
                 "En grupos según su edad",
                 "No se dividía de ninguna manera"
               ],
-              "explanation": "Se llamaban «lenguas». Por eso cada casa de la Calle de los Caballeros tiene escudos distintos encima de la puerta."
+              "explanation": "Se agrupaban por el idioma que hablaban y a cada grupo lo llamaban «lengua». Por eso cada casa de la Calle de los Caballeros tiene escudos distintos encima de la puerta."
             }
           },
           "rhodes-archaeological-museum-courtyard": {
@@ -88,12 +88,12 @@
             "question": {
               "q": "¿Qué trabajo hace un patio interior en un edificio antiguo?",
               "answers": [
-                "Da luz y aire a las habitaciones de dentro",
+                "Da luz y aire a los cuartos",
                 "Recoge agua para lavar",
                 "Sujeta el edificio en los terremotos",
                 "Solo sirve para los desfiles"
               ],
-              "explanation": "Antes de la electricidad, la forma de un edificio era su tecnología."
+              "explanation": "Las habitaciones de dentro no dan a la calle: el patio es su ventana. Antes de la electricidad, la forma de un edificio era su tecnología."
             }
           },
           "rhodes-archaeological-museum-aphrodite": {
@@ -102,12 +102,12 @@
             "question": {
               "q": "¿Qué está haciendo esta figura?",
               "answers": [
-                "Escurrirse el pelo al salir del mar",
+                "Escurrirse el pelo",
                 "Sostener a un niño en brazos",
                 "Correr con una antorcha",
                 "Tocar un instrumento de música"
               ],
-              "explanation": "Es un momento sin ninguna importancia, y justo por eso todavía te retiene."
+              "explanation": "Acaba de salir del mar y se escurre el pelo. Es un momento sin ninguna importancia, y justo por eso todavía te retiene."
             }
           },
           "rhodes-archaeological-museum-marine-venus": {
@@ -116,7 +116,7 @@
             "question": {
               "q": "¿Por qué tiene la cara gastada?",
               "answers": [
-                "Porque pasó siglos dentro del mar",
+                "Porque pasó siglos en el mar",
                 "Porque la golpearon a propósito",
                 "Porque el escultor no la terminó",
                 "Porque la quemó un incendio"
@@ -144,12 +144,12 @@
             "question": {
               "q": "¿Por qué hay en ellas animales que nunca vivieron en Rodas?",
               "answers": [
-                "Porque los pintores copiaban imágenes que llegaban en los barcos",
+                "Porque los pintores copiaban imágenes",
                 "Porque esos animales se habían extinguido hacía poco",
                 "Porque las vasijas se hicieron en otro sitio",
                 "Porque el molde estaba defectuoso"
               ],
-              "explanation": "El comercio no llevaba solo mercancías. Llevaba también imágenes, y las imágenes viajan más lejos que los animales."
+              "explanation": "Copiaban imágenes que llegaban en los barcos. El comercio no llevaba solo mercancías: llevaba también imágenes, y las imágenes viajan más lejos que los animales."
             }
           }
         },
@@ -221,7 +221,7 @@
             "question": {
               "q": "¿Por qué es azul la sangre del pulpo?",
               "answers": [
-                "Porque lleva el oxígeno con cobre en vez de con hierro",
+                "Porque lleva el oxígeno con cobre",
                 "Porque vive en aguas azules y profundas",
                 "Porque come algas azules",
                 "Porque refleja el color de su piel"
@@ -235,12 +235,12 @@
             "question": {
               "q": "¿Cómo caza la escorpina?",
               "answers": [
-                "Se queda quieta, parece una piedra y espera",
+                "Se queda quieta y espera",
                 "Caza en bancos",
                 "Nada muy rápido y en línea recta",
                 "Cava el fondo con la cola"
               ],
-              "explanation": "El camuflaje es más barato que la velocidad. Solo cuesta paciencia."
+              "explanation": "Quieta parece una piedra y nadie la ve. El camuflaje es más barato que la velocidad: solo cuesta paciencia."
             }
           },
           "rhodes-aquarium-whale-bones": {
@@ -249,12 +249,12 @@
             "question": {
               "q": "¿Qué nos dicen los huesos pequeños de cerca de la cola de una ballena?",
               "answers": [
-                "Que sus antepasados andaban por tierra",
+                "Que sus antepasados andaban",
                 "Que alguna vez tuvo una segunda cola",
                 "Que estaba herida",
                 "Que era muy joven"
               ],
-              "explanation": "Son los restos de unas patas. La evolución no borra; sencillamente deja de usar."
+              "explanation": "Son los restos de unas patas que andaban por tierra. La evolución no borra; sencillamente deja de usar."
             }
           },
           "rhodes-aquarium-turtles": {
@@ -263,12 +263,12 @@
             "question": {
               "q": "¿Por qué confunden las tortugas las bolsas de plástico?",
               "answers": [
-                "Porque parecen medusas, que son su comida",
+                "Porque parecen medusas",
                 "Porque creen que son un refugio",
                 "Porque huelen como las algas",
                 "Porque hacen ruido en el agua"
               ],
-              "explanation": "Una bolsa en el agua se mueve como una medusa. La tortuga no se equivoca; nos equivocamos nosotros."
+              "explanation": "Las medusas son su comida. Una bolsa en el agua se mueve como una medusa: la tortuga no se equivoca; nos equivocamos nosotros."
             }
           },
           "rhodes-aquarium-monk-seal": {
@@ -277,12 +277,12 @@
             "question": {
               "q": "¿Dónde tiene sus crías la foca monje del Mediterráneo?",
               "answers": [
-                "En cuevas marinas con la entrada por debajo del agua",
+                "En cuevas marinas",
                 "En playas de arena abiertas y con gente",
                 "Sobre rocas en medio del mar abierto",
                 "En ríos, cerca de la desembocadura"
               ],
-              "explanation": "Se esconde porque la cazaron durante siglos. Esconderse es la razón de que todavía exista."
+              "explanation": "Son cuevas con la entrada por debajo del agua. Se esconde porque la cazaron durante siglos, y esconderse es la razón de que todavía exista."
             }
           }
         },
@@ -311,12 +311,12 @@
       "question": {
         "q": "¿Qué cambia según pasas de una sala a otra aquí?",
         "answers": [
-          "La manera de pintar de las personas, a lo largo de un siglo",
+          "La manera de pintar de las personas",
           "El tamaño de los cuadros, de pequeño a grande",
           "El país del que vienen las obras",
           "El material, del óleo al mármol"
         ],
-        "explanation": "Una colección que compra algo cada año acaba registrando el tiempo sin proponérselo."
+        "explanation": "Las salas recorren un siglo de pintura. Una colección que compra algo cada año acaba registrando el tiempo sin proponérselo."
       }
     },
     "rhodes-acropolis": {
@@ -331,12 +331,12 @@
       "question": {
         "q": "¿Qué tenía la Rodas antigua que no tenían la mayoría de las ciudades?",
         "answers": [
-          "Un plano de calles rectas, dibujado antes de levantar nada",
+          "Un plano hecho antes",
           "Murallas de mármol macizo",
           "Calles solo para peatones",
           "Ningún puerto"
         ],
-        "explanation": "La mayoría de las ciudades antiguas crecieron alrededor de unos senderos. Esta empezó en un papel."
+        "explanation": "El plano, con sus calles rectas, se dibujó antes de levantar nada. La mayoría de las ciudades antiguas crecieron alrededor de unos senderos; esta empezó en un papel."
       }
     },
     "rhodes-diagoras-stadium": {
@@ -351,7 +351,7 @@
       "question": {
         "q": "¿Por qué se recuerda a Diágoras?",
         "answers": [
-          "Porque sus hijos también ganaron, y lo llevaron a hombros",
+          "Porque sus hijos también ganaron",
           "Porque ganó en cuatro deportes distintos",
           "Porque construyó él mismo el estadio de Olimpia",
           "Porque fue el primer campeón olímpico de la historia"
@@ -371,12 +371,12 @@
       "question": {
         "q": "¿Por qué se construyeron unos baños justo en este sitio?",
         "answers": [
-          "Porque allí sale un manantial que se consideraba curativo",
+          "Porque allí sale un manantial",
           "Porque era el único sitio con arena",
           "Porque estaba cerca del puerto",
           "Porque allí ya había un templo antiguo"
         ],
-        "explanation": "Se levantó un edificio entero alrededor de un agua. Cuando dejaron de beberla, el edificio se quedó sin trabajo."
+        "explanation": "Su agua se consideraba curativa. Se levantó un edificio entero alrededor de un agua, y cuando dejaron de beberla el edificio se quedó sin trabajo."
       }
     },
     "rhodes-filerimos": {
@@ -391,12 +391,12 @@
       "question": {
         "q": "¿Qué hay dentro de la cruz de lo alto de la colina?",
         "answers": [
-          "Una escalera, que te sube hasta sus brazos",
+          "Una escalera",
           "Una iglesia pequeña llena de iconos",
           "Una campana que suena cada mediodía",
           "Un depósito de agua para el monasterio"
         ],
-        "explanation": "Desde sus brazos ves a la vez el mar y los cimientos de la ciudad antigua."
+        "explanation": "La escalera te sube hasta sus brazos. Desde allí ves a la vez el mar y los cimientos de la ciudad antigua."
       }
     },
     "rhodes-lindos": {
@@ -411,12 +411,12 @@
       "question": {
         "q": "¿Qué está tallado en la roca al pie de la escalera?",
         "answers": [
-          "Un barco de guerra, con la proa a tamaño real",
+          "Un barco de guerra",
           "Un caballo con su jinete",
           "El mapa de la isla",
           "Los nombres de los sacerdotes"
         ],
-        "explanation": "Era la base de una estatua y a la vez una declaración: esta ciudad vivía del mar."
+        "explanation": "La proa está tallada a tamaño real. Era la base de una estatua y a la vez una declaración: esta ciudad vivía del mar."
       }
     },
     "rhodes-kameiros": {
@@ -451,12 +451,12 @@
       "question": {
         "q": "¿Por qué necesitó tan poca muralla este castillo?",
         "answers": [
-          "Porque la roca ya es vertical por todos lados",
+          "Porque la roca es vertical",
           "Porque lo construyeron con prisa",
           "Porque no había piedra en la zona",
           "Porque lo protegía un bosque"
         ],
-        "explanation": "El mejor ingeniero de un castillo es el terreno. Los Caballeros sencillamente lo eligieron bien."
+        "explanation": "La roca cae en vertical por todos lados. El mejor ingeniero de un castillo es el terreno, y los Caballeros sencillamente lo eligieron bien."
       }
     },
     "rhodes-tsambika": {
@@ -471,12 +471,12 @@
       "question": {
         "q": "¿Qué te dice el color del agua cuando la miras desde arriba?",
         "answers": [
-          "Lo hondo que es el mar en cada punto",
+          "Lo hondo del mar",
           "Lo fría que está el agua",
           "Dónde hay peces",
           "Lo salada que está el agua"
         ],
-        "explanation": "Donde hay poca profundidad la luz llega al fondo y vuelve clara. En lo hondo se pierde, y el azul se vuelve oscuro."
+        "explanation": "El color te dice lo hondo que es el mar en cada punto. Donde hay poca profundidad la luz llega al fondo y vuelve clara; en lo hondo se pierde, y el azul se vuelve oscuro."
       }
     }
   },

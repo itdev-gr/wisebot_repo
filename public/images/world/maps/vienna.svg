@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 626" width="1000" height="626" role="img" aria-label="Stylised map of Vienna">
+  <title>Vienna — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/austria.ts
+    (north 48.222, south 48.176, east 16.404, west 16.294) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the ring
+    around the Innere Stadt, the curve of the Danube Canal, the Wien river with the
+    Naschmarkt laid over its covered stretch, the green of the Prater in the north-east
+    and the park of Schönbrunn in the south-west are all placed from those bounds, and
+    nothing here is traced from any map. The Danube itself is not drawn, because at this
+    latitude it runs just beyond the eastern edge of these bounds; the arrow in the
+    top-right corner points at where it is.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f0e2" />
+      <stop offset="1" stop-color="#ece2cd" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a6cfe0" />
+      <stop offset="1" stop-color="#77b0c9" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ddd1b8" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="626" fill="url(#ground)" />
+  <rect width="1000" height="626" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The park of Schönbrunn in the south-west, palace and zoo inside it. -->
+  <ellipse cx="141" cy="524" rx="132" ry="96" fill="#c6dcaa" stroke="#a4bd88" stroke-width="2" />
+
+  <!-- The Prater in the north-east, with the Ferris wheel at its western end. -->
+  <ellipse cx="940" cy="70" rx="132" ry="96" fill="#c6dcaa" stroke="#a4bd88" stroke-width="2" />
+
+  <!-- The Stadtpark, on the inner side of the canal. -->
+  <ellipse cx="782" cy="231" rx="36" ry="23" fill="#cfe2b6" stroke="#a4bd88" stroke-width="2" />
+
+  <!-- The Danube Canal, entering at the top and leaving at the eastern edge. -->
+  <path
+    d="M636 0 C 652 42, 706 88, 768 131 C 802 154, 848 200, 873 231 C 900 266, 926 291, 945 313 C 966 341, 986 371, 1000 395"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="24"
+    stroke-linecap="round"
+  />
+
+  <!-- The Wien river: open water in the west … -->
+  <path
+    d="M218 496 C 282 481, 351 431, 409 395 C 452 369, 480 361, 509 354"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="11"
+    stroke-linecap="round"
+  />
+  <!-- … and the stretch that was roofed over around 1900, drawn dashed. -->
+  <path
+    d="M509 354 C 560 337, 600 320, 633 314 C 672 306, 696 312, 712 322 C 744 292, 782 202, 809 143"
+    fill="none"
+    stroke="#8ebdd2"
+    stroke-width="9"
+    stroke-linecap="round"
+    stroke-dasharray="12 9"
+  />
+
+  <!-- The Ringstrasse: the boulevard that replaced the city wall, and the old town inside it. -->
+  <ellipse cx="686" cy="184" rx="124" ry="129" fill="#efe6d1" stroke="#b8a684" stroke-width="3" stroke-dasharray="10 7" />
+
+  <!-- The market laid over the covered river. -->
+  <rect x="521" y="318" width="190" height="22" rx="11" fill="#e6d9bb" stroke="#b8a684" stroke-width="2" transform="rotate(-10 616 329)" />
+
+  <g fill="#8a7a58" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="68" font-size="42" letter-spacing="6">ΒΙΕΝΝΗ</text>
+    <text x="40" y="102" font-size="22" letter-spacing="4">WIEN</text>
+    <text x="686" y="190" font-size="18" text-anchor="middle" letter-spacing="3">ΠΑΛΙΑ ΠΟΛΗ</text>
+    <text x="940" y="76" font-size="19" text-anchor="middle" letter-spacing="3">ΠΡΑΤΕΡ</text>
+    <text x="141" y="530" font-size="19" text-anchor="middle" letter-spacing="3">ΣΕΝΜΠΡΟΥΝ</text>
+    <text x="616" y="333" font-size="13" text-anchor="middle" letter-spacing="2">ΝΑΣΜΑΡΚΤ</text>
+  </g>
+
+  <text
+    x="880"
+    y="215"
+    font-size="16"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="3"
+    transform="rotate(52 880 215)"
+  >ΚΑΝΑΛΙ ΤΟΥ ΔΟΥΝΑΒΗ</text>
+
+  <text
+    x="250"
+    y="452"
+    font-size="15"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="3"
+    transform="rotate(-24 250 452)"
+  >ΠΟΤΑΜΟΣ ΒΙΝ</text>
+
+  <!-- The Danube itself lies just outside these bounds, to the north-east. -->
+  <g stroke="#2f7189" fill="#2f7189">
+    <path d="M900 22 L 968 22 M 958 15 L 968 22 L 958 29" fill="none" stroke-width="3" />
+    <text x="900" y="14" font-size="13" font-family="Georgia, serif" letter-spacing="2" stroke="none">ΔΟΥΝΑΒΗΣ</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 556)" stroke="#8a7a58" fill="#8a7a58">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

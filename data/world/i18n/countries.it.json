@@ -47,6 +47,249 @@
           "intro": "Parigi è una città che litiga con i suoi edifici e poi se ne innamora. La Torre Eiffel la volevano demolire, la piramide di vetro del Louvre la chiamavano un insulto, e oggi sono tutte e due il suo simbolo. In mezzo scorre la Senna, e in mezzo al fiume c’è una piccola isola: da lì è cominciata tutta la città. Ha un museo così grande che non si finisce mai, e un pendolo che ha dimostrato che la Terra gira."
         }
       }
+    },
+    "spain": {
+      "name": "Spagna",
+      "intro": "La Spagna è un paese dove si pranza alle tre del pomeriggio e la sera non ha fretta di finire. Ha montagne con la neve e spiagge dove fa caldo anche a dicembre, e lontano nell’Atlantico ha isole con un vulcano più alto di qualsiasi cima della terraferma. A Barcellona una chiesa è in costruzione da più di centoquaranta anni, a Granada un palazzo ha i muri intagliati fini come un pizzo, e a Madrid i bambini disegnano davanti a quadri dipinti quattrocento anni fa. E in qualunque posto vai, qualcuno ti offrirà delle olive.",
+      "facts": [
+        "La sua montagna più alta, il Teide, è un vulcano sull’isola di Tenerife e arriva a 3.715 metri.",
+        "Ha 50 siti Patrimonio dell’Umanità UNESCO: solo quattro paesi nel mondo ne hanno di più.",
+        "La Sagrada Família di Barcellona è in costruzione dal 1882 ed è la chiesa più alta del mondo, con i suoi 172,5 metri.",
+        "Produce più olio d’oliva di ogni altro paese del mondo."
+      ]
+    },
+    "italy": {
+      "name": "Italia",
+      "intro": "L’Italia ha la forma di uno stivale, e lo stivale sembra tirare un calcio a un’isola, buttandola nel Mediterraneo. In cima stanno le Alpi con la neve, vicino alla punta c’è un vulcano che fuma ancora, e in mezzo ci sono città che sembrano ognuna di un secolo diverso: Roma con le sue rovine romane, Venezia con i canali invece delle strade, Firenze con i suoi pittori. I Romani costruirono strade e acquedotti che stanno ancora in piedi, e più tardi gli italiani inventarono la pizza e il pianoforte. Dovunque ti fermi, qualcosa di antico e qualcosa di buono non sono mai lontani.",
+      "facts": [
+        "Ha 62 siti Patrimonio dell’Umanità UNESCO, più di ogni altro paese del mondo.",
+        "Dentro Roma c’è la Città del Vaticano, lo stato più piccolo del mondo: appena 44 ettari, più o meno come 60 campi da calcio.",
+        "La sua montagna più alta, il Monte Bianco, arriva a 4.807 metri e la divide con la Francia.",
+        "È divisa in 20 regioni, e ognuna ha le sue ricette e il suo accento."
+      ],
+      "cities": {
+        "rome": {
+          "name": "Roma",
+          "intro": "Roma è una città costruita sopra se stessa, strato su strato. Sotto una piazza piena di fontane si nasconde uno stadio, dentro delle terme sta una chiesa, e la tomba di un imperatore è diventata un castello con un angelo in cima. L’acqua delle fontane arriva da acquedotti di duemila anni, e in mezzo alla città c’è un altro paese intero, il più piccolo del mondo. Scava dovunque e trovi qualcosa; fermati dovunque e qualcuno si era già fermato lì duemila anni fa."
+        }
+      }
+    },
+    "turkey": {
+      "name": "Turchia",
+      "intro": "La Turchia è il paese dove l’Europa e l’Asia si toccano. A Istanbul puoi fare colazione in un continente, attraversare un ponte e pranzare nell’altro. In Cappadocia la gente ha scavato case dentro rocce a forma di camino, e ogni mattina decine di mongolfiere si alzano sopra di loro. A Pamukkale un intero fianco di collina è bianchissimo, fatto di acqua calda di sorgente che piano piano è diventata pietra. Sotto i campi ci sono città intere scavate a mano, profonde abbastanza per nascondere migliaia di persone. E dovunque ti siedi, qualcuno ti offrirà il tè in un bicchierino a forma di tulipano.",
+      "facts": [
+        "La sua montagna più alta, l’Ararat, arriva a 5.137 metri e tiene la neve tutto l’anno.",
+        "Göbekli Tepe fu costruito circa 11.500 anni fa, prima che gli uomini facessero il loro primo vaso di argilla.",
+        "Il Grande Bazar di Istanbul ha 61 strade coperte e circa 4.000 negozi.",
+        "La città sotterranea di Derinkuyu scende 85 metri sotto terra e poteva ospitare fino a 20.000 persone."
+      ]
+    },
+    "united-kingdom": {
+      "name": "Regno Unito",
+      "intro": "Il Regno Unito è fatto di quattro paesi che si dividono un’isola e qualcosa in più: Inghilterra, Scozia, Galles e Irlanda del Nord. Qui le auto vanno a sinistra, gli autobus sono rossi e hanno un piano di sopra, e un treno può passare sotto il mare e uscire in Francia. A Londra puoi incontrare dinosauri, mummie e un orologio che si sente in tutta la città. Più in là, i castelli stanno in piedi sulle scogliere, i laghi profondi si tengono le loro leggende, e pietre tirate su migliaia di anni fa aspettano ancora qualcuno che spieghi perché.",
+      "facts": [
+        "La sua montagna più alta, il Ben Nevis in Scozia, arriva a 1.345 metri.",
+        "La metropolitana di Londra è la più antica del mondo: ha aperto nel 1863 e oggi ha 272 stazioni.",
+        "La campana del Big Ben pesa 13,7 tonnellate, e per arrivare fino a lei si salgono 334 scalini.",
+        "Le grandi pietre di Stonehenge furono tirate su circa 4.500 anni fa. Ognuna pesa intorno alle 25 tonnellate."
+      ],
+      "cities": {
+        "london": {
+          "name": "Londra",
+          "intro": "Londra è una città costruita intorno a un fiume che sale e scende con la marea due volte al giorno. Su una riva un castello di mille anni custodisce le corone, sull’altra una ruota gigante alza la gente nel cielo, e in mezzo un ponte si apre in due per far passare le navi. I suoi tre musei più grandi sono gratis: in uno ci vive una balena, in un altro c’è una capsula tornata dalla Luna, e nel terzo una pietra nera che ha insegnato al mondo a leggere i geroglifici, grazie al greco scritto sopra. E in cima a una collina, una linea per terra da cui il pianeta misura la sua ora."
+        }
+      }
+    },
+    "united-states": {
+      "name": "Stati Uniti",
+      "intro": "Gli Stati Uniti sono un paese così largo che, quando a New York si alza il sole, alle Hawaii è ancora notte piena. Hanno cinquanta stati, e ognuno sembra un paese a parte: deserti pieni di cactus, montagne con la neve, paludi con gli alligatori e foreste di alberi più alti dei palazzi. L’albero più grande della Terra cresce in California, e a Yellowstone un geyser spara acqua bollente nel cielo più o meno ogni novanta minuti. Qui è stato costruito il razzo che ha portato i primi uomini sulla Luna, e qui ha aperto il primo parco di Disney.",
+      "facts": [
+        "Il Denali, in Alaska, la montagna più alta del Nord America, arriva a 6.190 metri.",
+        "Il Grand Canyon è lungo 446 chilometri e profondo fino a 1.857 metri.",
+        "La bandiera ha 50 stelle, una per ogni stato, e 13 strisce, una per ognuna delle prime colonie.",
+        "Nel 1872 Yellowstone diventò il primo parco nazionale del mondo. Oggi il paese ne ha 63."
+      ]
+    },
+    "germany": {
+      "name": "Germania",
+      "intro": "La Germania comincia su due mari e finisce nelle Alpi. Al nord, quando la marea si ritira, puoi camminare sul fondo del mare, tra i granchi e le foche. Al sud una funivia ti porta sulla sua montagna più alta, dove la neve non si scioglie quasi mai. In mezzo, i fiumi passano ai piedi dei castelli sulle loro rive e treni bianchi corrono a trecento chilometri all’ora. Qui fu costruita la macchina da stampa che riempì l’Europa di libri, qui i fratelli Grimm scrissero le loro fiabe, e qui la prima automobile del mondo uscì da un’officina.",
+      "facts": [
+        "La sua montagna più alta, lo Zugspitze, arriva a 2.962 metri. Il confine con l’Austria passa proprio sulla sua cima.",
+        "Confina con nove paesi, dalla Danimarca al nord alla Svizzera al sud.",
+        "Il duomo di Colonia ha avuto bisogno di 632 anni per essere finito, dal 1248 al 1880. Le sue torri arrivano a 157 metri."
+      ]
+    },
+    "portugal": {
+      "name": "Portogallo",
+      "intro": "Il Portogallo è un paese che guarda l’oceano. Da qui partirono le navi che per prime arrivarono in India per mare, e a Lisbona quasi ogni salita finisce con una vista sull’acqua. I suoi marciapiedi sono fatti di pietre bianche e nere messe a disegni, i muri sono vestiti di piastrelle azzurre, e tram gialli salgono le colline scricchiolando. Quasi metà del sughero del mondo viene sbucciato dalla corteccia dei suoi alberi. E a Cabo da Roca, l’ultima scogliera dell’Europa continentale, davanti a te non c’è altro che acqua, fino all’America.",
+      "facts": [
+        "La sua montagna più alta, il Pico, è un vulcano di 2.351 metri su un’isola delle Azzorre, in mezzo all’Atlantico.",
+        "Quasi metà del sughero del mondo viene da qui. La corteccia si stacca ogni 9 anni e l’albero continua a vivere.",
+        "Il ponte Vasco da Gama a Lisbona è lungo 17,2 chilometri, il più lungo dell’Unione Europea.",
+        "La libreria Bertrand di Lisbona è aperta dal 1732: è la libreria più antica del mondo ancora in attività."
+      ]
+    },
+    "austria": {
+      "name": "Austria",
+      "intro": "L’Austria non ha nemmeno un pezzo di mare, ma ha montagne quasi dappertutto. Le Alpi coprono la maggior parte del paese, così i bambini qui imparano a sciare come altrove imparano ad andare in bicicletta. Dentro una montagna vicino a Salisburgo c’è una grotta di ghiaccio che non si scioglie mai, nemmeno d’estate. A Vienna una ruota panoramica costruita nel 1897 porta ancora la gente sopra i tetti, e il più antico zoo del mondo apre i suoi cancelli ogni mattina da più di duecentosettanta anni. E in quasi ogni città, da qualche parte, qualcuno sta suonando Mozart.",
+      "facts": [
+        "La sua montagna più alta, il Grossglockner, arriva a 3.798 metri.",
+        "L’Eisriesenwelt è la più grande grotta di ghiaccio del mondo, con corridoi lunghi più di 42 chilometri.",
+        "Lo zoo di Schönbrunn a Vienna ha aperto nel 1752 ed è il più antico ancora in funzione al mondo.",
+        "Non ha nemmeno un pezzo di costa, ma confina con otto paesi."
+      ]
+    },
+    "netherlands": {
+      "name": "Paesi Bassi",
+      "intro": "I Paesi Bassi sono un paese costruito dalle persone quasi quanto dalla natura. Un quarto del suo territorio sta sotto il livello del mare, e resta asciutto solo grazie alle dighe, alle pompe e ai mulini a vento che per secoli hanno tirato fuori l’acqua. Qui tutti vanno in giro in bicicletta: a scuola, al lavoro, al mercato, anche con la pioggia. In primavera campi interi diventano a righe di tulipani, rossi, gialli e viola, come se qualcuno avesse dipinto la terra con la riga. E in qualunque punto ti fermi, c’è un canale a due passi.",
+      "facts": [
+        "Circa il 26% del paese sta sotto il livello del mare. Il suo punto più basso è 7 metri più in giù.",
+        "La «montagna» più alta dei Paesi Bassi continentali, il Vaalserberg, arriva soltanto a 323 metri.",
+        "Ha più biciclette che persone: circa 23 milioni di bici per 18 milioni di abitanti, e 35.000 chilometri di piste ciclabili.",
+        "Nel 1932 una diga lunga 32 chilometri, l’Afsluitdijk, chiuse un’intera baia del mare e la trasformò in un lago di acqua dolce."
+      ],
+      "cities": {
+        "amsterdam": {
+          "name": "Amsterdam",
+          "intro": "Amsterdam è una città costruita sull’acqua, e lo sa. Ogni edificio pesante sta in piedi su migliaia di pali di legno piantati nel fango, tre canali abbracciano la città vecchia come una mezzaluna, e i ponti si aprono per far passare le barche. Le biciclette sono più delle persone e hanno un garage tutto loro sotto il mare. Qui ha dipinto Rembrandt, qui Anne Frank ha scritto il suo diario, e un museo verde a forma di nave ti lascia salire sul tetto senza biglietto."
+        }
+      }
+    },
+    "japan": {
+      "name": "Giappone",
+      "intro": "Il Giappone è un paese fatto di isole, più di quattordicimila, ma quasi tutti vivono sulle quattro grandi. Qui un treno ti passa davanti a trecentoventi chilometri all’ora e non è quasi mai in ritardo. In primavera i ciliegi fioriscono per pochi giorni soltanto, e le famiglie vanno nei parchi per sedersi sotto di loro. Un vulcano con la neve in cima si vede dalla capitale nei giorni chiari. E nelle scuole i bambini puliscono la loro aula ogni pomeriggio, con le scope e gli stracci.",
+      "facts": [
+        "Il monte Fuji, la sua cima più alta, arriva a 3.776 metri. È un vulcano, e si è svegliato l’ultima volta nel 1707.",
+        "Nel 2023 il Giappone ha contato di nuovo le sue isole con mappe nuove e ne ha trovate 14.125, più del doppio di prima.",
+        "Il primo treno proiettile, lo Shinkansen, è partito nel 1964. Oggi corre fino a 320 chilometri all’ora."
+      ]
+    },
+    "mexico": {
+      "name": "Messico",
+      "intro": "Il Messico è un paese costruito sopra altri paesi. La sua capitale sta dove una volta c’era un lago con una città in mezzo, e quando scavano per la metropolitana vengono fuori dei templi. Nella giungla del sud si alzano piramidi con scalinate che contano i giorni dell’anno. Ogni autunno milioni di farfalle arrivano qui dal Canada e riempiono foreste intere. Cioccolato, pomodori, mais e peperoncini sono partiti tutti da qui per il resto del mondo, quindi c’è un po’ di Messico in ogni cucina.",
+      "facts": [
+        "La sua montagna più alta, il Pico de Orizaba, è un vulcano e arriva a 5.636 metri.",
+        "La piramide di Chichén Itzá ha 91 scalini per ogni lato. Aggiungi la cima e vengono 365, uno per ogni giorno dell’anno.",
+        "Ha 36 siti Patrimonio dell’Umanità UNESCO, più di ogni altro paese delle Americhe."
+      ]
+    },
+    "egypt": {
+      "name": "Egitto",
+      "intro": "L’Egitto è un paese costruito intorno a un fiume. Il Nilo passa in mezzo al deserto come un lungo nastro verde, e quasi tutti vivono accanto a lui: pochi chilometri più in là comincia la sabbia e non si ferma più. Ai bordi del Cairo stanno in piedi le piramidi, tirate su quattromilacinquecento anni fa, e nei musei puoi trovare giocattoli, sandali e perfino pagnotte di pane di quel tempo. Gli antichi egizi scrivevano con piccole figure, uccelli, serpenti e occhi, e oggi possiamo leggere quello che dicevano.",
+      "facts": [
+        "Il Nilo, il fiume più lungo del mondo, è lungo più di 6.600 chilometri e scorre verso nord, fino al Mediterraneo.",
+        "La Grande Piramide di Giza è fatta di circa 2,3 milioni di blocchi. Quando fu costruita era alta 146 metri ed è rimasta la costruzione più alta del mondo per oltre 3.700 anni.",
+        "Circa il 99% degli egiziani vive su appena il 5% del paese, nella valle e nel delta del Nilo. Il resto è deserto."
+      ]
+    },
+    "thailand": {
+      "name": "Thailandia",
+      "intro": "La Thailandia è un paese dove una buona parte della vita si svolge sull’acqua. Nei suoi mercati galleggianti i negozi sono barche, i venditori remano tra i clienti, e il pranzo si cucina su un fornello in fondo a una canoa. Al nord le montagne stanno sotto la nebbia e la foresta; al sud il mare è pieno di isole che escono dall’acqua come torri di pietra. I suoi templi brillano di foglia d’oro e di migliaia di piccoli specchi. E ogni aprile, per il capodanno thailandese, tutto il paese esce di casa e fa la più grande battaglia d’acqua della Terra.",
+      "facts": [
+        "La sua montagna più alta, il Doi Inthanon, arriva a 2.565 metri.",
+        "L’alfabeto thailandese ha 44 consonanti, e le parole si scrivono senza spazi in mezzo.",
+        "Il nome completo di Bangkok è lungo 168 lettere. È il nome di città più lungo del mondo."
+      ]
+    },
+    "china": {
+      "name": "Cina",
+      "intro": "La Cina è un paese così grande che ha deserti, giungle, risaie a terrazze e la montagna più alta della Terra sul suo confine. Una muraglia che hanno costruito per duemila anni sale sopra colline e dirupi, e in un campo vicino a Xi’an un intero esercito di argilla sta sotto terra, sepolto per fare la guardia a un imperatore. Nelle foreste di bambù vivono i panda, che passano quasi tutto il giorno a mangiare. La carta, l’aquilone e la bussola sono stati inventati qui. E i bambini imparano dei caratteri che non sono lettere ma piccole figure, migliaia di figure.",
+      "facts": [
+        "La Grande Muraglia, contando tutti i suoi pezzi, è stata misurata nel 2012 e sono venuti fuori 21.196 chilometri.",
+        "L’Everest, sul confine tra Cina e Nepal, è la montagna più alta del mondo: 8.848,86 metri.",
+        "L’Esercito di Terracotta ha più di 8.000 soldati. Lo trovarono dei contadini nel 1974 mentre scavavano un pozzo.",
+        "In natura vivono circa 1.864 panda. Ognuno mangia dai 9 ai 14 chili di bambù al giorno."
+      ]
+    },
+    "canada": {
+      "name": "Canada",
+      "intro": "Il Canada è così largo che, quando il sole si alza sulla sua costa orientale, su quella occidentale è ancora notte piena. Ha più laghi di ogni altro paese, foreste che potresti attraversare in auto per giorni, e una cascata, il Niagara, che senti prima di vederla. I cartelli per strada parlano due lingue, inglese e francese. D’inverno gli stagni si ghiacciano e diventano campi da hockey, e in primavera la gente fa un buco negli aceri per raccogliere la linfa che diventerà sciroppo. Vai abbastanza a nord e di notte il cielo stesso si mette a ballare, tutto verde.",
+      "facts": [
+        "Ha la costa più lunga del mondo, circa 243.000 chilometri.",
+        "La sua montagna più alta, il monte Logan, arriva a 5.959 metri, più di due Olimpi uno sopra l’altro.",
+        "Ha più laghi di ogni altro paese: più di 880.000 solo contando quelli grandi.",
+        "È il secondo paese più grande della Terra, con 10 province, 3 territori e due lingue ufficiali."
+      ]
+    },
+    "poland": {
+      "name": "Polonia",
+      "intro": "La Polonia tiene le sue cose più strane sotto terra. Vicino a Cracovia c’è una miniera di sale con cappelle, lampadari e statue dentro, e ognuna di queste cose è intagliata nel sale; su in città un trombettiere suona la stessa breve melodia dalla torre più alta ogni ora, verso i quattro lati del mondo. Al nord ci sono spiagge di sabbia sul Baltico, al sud montagne con laghi immobili come specchi, e all’est una foresta così antica che dentro camminano ancora i bisonti selvatici. È un paese piatto come un tavolo, e sembra non finire mai.",
+      "facts": [
+        "La Vistola, il suo fiume più lungo, corre per 1.047 chilometri e passa da Cracovia e Varsavia prima di arrivare al Baltico.",
+        "La miniera di sale di Wieliczka ha circa 287 chilometri di gallerie e scende 327 metri sotto terra.",
+        "Nella foresta di Białowieża vivono più di 800 bisonti europei, l’animale selvatico di terra più pesante d’Europa.",
+        "Il suo punto più alto è la cima del Rysy nei Tatra, quasi 2.500 metri, proprio sul confine con la Slovacchia."
+      ]
+    },
+    "croatia": {
+      "name": "Croazia",
+      "intro": "La Croazia ha la forma di un boomerang. Un braccio si allunga verso l’interno, sopra pianure e fiumi; l’altro scende lungo l’Adriatico davanti a più di mille isole. In mezzo al paese, sedici laghi si versano uno nell’altro con cascate che attraversi su passerelle di legno. A Dubrovnik puoi fare il giro di un’intera città camminando sopra le sue mura, con i tetti da una parte e il mare dall’altra. E ogni volta che qualcuno, in qualsiasi posto del mondo, si mette una cravatta, indossa una cosa che i soldati croati hanno cominciato quattrocento anni fa.",
+      "facts": [
+        "Ha 1.246 isole, isolotti e scogli, ma la gente vive tutto l’anno soltanto su 47 di questi.",
+        "Il suo punto più alto, sul monte Dinara, arriva a 1.831 metri.",
+        "I laghi di Plitvice sono sedici, uno sopra l’altro, e sono diventati parco nazionale nel 1949.",
+        "Le mura di Dubrovnik sono lunghe circa 1.940 metri e arrivano a 25 metri di altezza."
+      ]
+    },
+    "united-arab-emirates": {
+      "name": "Emirati Arabi Uniti",
+      "intro": "Gli Emirati Arabi Uniti sono un paese cresciuto fuori dalla sabbia. Cinquant’anni fa qui c’erano villaggi di pescatori e carovane di cammelli; oggi sta in piedi qui l’edificio più alto della Terra, e il suo ascensore ti porta sopra le nuvole in meno di due minuti. Appena fuori città, le dune rosse continuano fino all’orizzonte, e all’est montagne grigie scendono diritte nel mare. Sette piccoli stati si sono uniti nel 1971 per diventare un paese solo, e a Dubai barche di legno caricano ancora frigoriferi e lavatrici su un canale circondato da torri di vetro.",
+      "facts": [
+        "Il Burj Khalifa a Dubai è l’edificio più alto del mondo: 828 metri fino al tetto.",
+        "Il paese è fatto di sette emirati che si sono uniti nel 1971. Abu Dhabi è la capitale.",
+        "Il suo punto più alto, sul monte Jebel Jais, arriva a 1.892 metri.",
+        "La sua costa è lunga circa 1.318 chilometri, quasi tutta sul Golfo Persico."
+      ]
+    },
+    "cyprus": {
+      "name": "Cipro",
+      "intro": "Cipro è un’isola con una montagna nel mezzo. D’inverno la cima del Troodos diventa bianca di neve, mentre pochi chilometri più in basso il mare resta così pulito che vedi i tuoi piedi sul fondo. Sugli scogli vicino a Pafo, dice un mito, Afrodite nacque dalla schiuma, e sulla spiaggia di Lara le tartarughe marine scavano i loro nidi nella sabbia ogni estate. L’halloumi, il formaggio che scricchiola tra i denti quando lo cuoci sulla griglia, è nato qui. E il nome del rame in tante lingue, come l’inglese copper, è cominciato proprio su quest’isola.",
+      "facts": [
+        "È la terza isola più grande del Mediterraneo, con una superficie di 9.251 chilometri quadrati.",
+        "La sua cima più alta, l’Olimpo, chiamata anche Chionistra, arriva a 1.952 metri e ogni inverno ci nevica.",
+        "La parola inglese «copper», che vuol dire rame, viene dal latino «aes cyprium», cioè «metallo di Cipro».",
+        "La sua costa è lunga circa 648 chilometri, così sull’isola non sei mai lontano dal mare."
+      ]
+    },
+    "czechia": {
+      "name": "Repubblica Ceca",
+      "intro": "La Repubblica Ceca non ha nemmeno un pezzo di mare, ma si rifà con i castelli. Sopra Praga sta in piedi il più grande castello antico del mondo, e sotto di lui un ponte di pietra con trenta statue in fila porta la gente sopra il fiume da seicento anni. In una piazza un orologio costruito nel 1410 mostra ancora dove sono il sole e la luna. E la cosa più bella è questa: la parola «robot» è stata inventata qui, in un’opera di teatro del 1920. Senza la Repubblica Ceca, WiseBot non avrebbe nemmeno un nome.",
+      "facts": [
+        "La sua montagna più alta, la Sněžka, arriva a 1.603 metri, e la cima la divide con la Polonia.",
+        "Il Castello di Praga si allarga su quasi 70.000 metri quadrati, circa dieci campi da calcio.",
+        "Il Ponte Carlo è lungo 516 metri, con 16 arcate e una fila di 30 statue.",
+        "La parola «robot» è comparsa per la prima volta nel 1920, nell’opera di teatro R.U.R. di Karel Čapek."
+      ]
+    },
+    "hungary": {
+      "name": "Ungheria",
+      "intro": "L’Ungheria non ha mare, ma è piena d’acqua. Sotto Budapest gorgogliano sorgenti calde, e la gente nuota in bagni termali aperti da centinaia di anni, anche mentre sulla piscina cade la neve. In mezzo al paese si allarga il Balaton, un lago così grande che gli ungheresi lo chiamano il loro mare. Il Danubio passa dritto attraverso la capitale e la taglia in due: Buda, tutta colline, su una riva, e Pest, piatta, sull’altra. E nel 1974 un insegnante ungherese che lavorava a Budapest ha inventato il cubo rompicapo più famoso del mondo.",
+      "facts": [
+        "Il lago Balaton è il più grande dell’Europa centrale: circa 78 chilometri di lunghezza e 600 chilometri quadrati.",
+        "Il suo punto più alto, il Kékes, arriva appena a 1.014 metri. Il paese è quasi tutto pianura.",
+        "Il Parlamento di Budapest ha 691 stanze e 29 scale, e la sua cupola arriva a 96 metri.",
+        "Il cubo di Rubik fu inventato a Budapest nel 1974. Ne sono stati venduti circa 500 milioni."
+      ]
+    },
+    "denmark": {
+      "name": "Danimarca",
+      "intro": "La Danimarca è un paese che il mare ha modellato da tutti i lati. È una lunga penisola e centinaia di isole, legate insieme da traghetti, ponti e un ponte così lungo che arriva in Svezia. Non c’è nemmeno una montagna: il punto più alto di tutto il paese è una collina che sali prima di pranzo. Per questo qui vanno tutti in bicicletta, bambini compresi, anche con la neve. Un falegname di un piccolo paese ha costruito qui i primi mattoncini LEGO, e qui Hans Christian Andersen si è messo a scrivere La Sirenetta e Il Brutto Anatroccolo.",
+      "facts": [
+        "Il suo punto naturale più alto, la collina Møllehøj, arriva appena a 171 metri.",
+        "Dovunque ti fermi in Danimarca, il mare non è mai più lontano di 52 chilometri.",
+        "I LEGO sono cominciati nel 1932 con un falegname di Billund. Il nome viene da «leg godt», che vuol dire «gioca bene».",
+        "La sua bandiera, il Dannebrog, è in uso senza interruzioni dal 1625, più a lungo di ogni altra bandiera nazionale."
+      ]
+    },
+    "belgium": {
+      "name": "Belgio",
+      "intro": "Il Belgio è un paese piccolo, che attraversi in auto in un giorno, e però a metà strada cambia lingua: olandese al nord, francese al sud, e tedesco in un angolo all’est. Qui sono nati Tintin e i Puffi, e a Bruxelles gli eroi dei fumetti sono dipinti su interi muri. I cioccolatieri hanno un negozio quasi in ogni piazza, le patatine si friggono due volte, e a Bruges le strade sono canali. E da una punta all’altra della spiaggia puoi andare con un tram solo.",
+      "facts": [
+        "Il suo punto più alto, il Signal de Botrange, arriva soltanto a 694 metri.",
+        "La sua costa è lunga 67 chilometri, e un tram con 67 fermate la percorre tutta.",
+        "Ha tre lingue ufficiali: olandese, francese e tedesco.",
+        "I libri di Tintin hanno venduto circa 200 milioni di copie in tutto il mondo."
+      ]
     }
   }
 }

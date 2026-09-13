@@ -14,12 +14,12 @@
       "question": {
         "q": "Was zerstörte den Palast im Jahr 1856?",
         "answers": [
-          "Schießpulver, das seit der Zeit der Ritter in einem Keller vergessen war",
+          "Schießpulver in einem Keller",
           "Eine Belagerung, die Monate dauerte",
           "Ein Erdbeben, das den Boden aufriss",
           "Eine Flut, die vom Meer hereinkam"
         ],
-        "explanation": "Das Schießpulver hatte über dreihundert Jahre dort gelegen. Niemand wusste mehr, dass es überhaupt da war."
+        "explanation": "Das Schießpulver lag dort seit der Zeit der Ritter, über dreihundert Jahre lang. Niemand wusste mehr, dass es überhaupt da war."
       }
     },
     "rhodes-archaeological-museum": {
@@ -60,12 +60,12 @@
             "question": {
               "q": "Warum sind die Fenster des Saals klein und weit oben?",
               "answers": [
-                "Damit die warme Luft entweicht und die Luft in Bewegung bleibt",
+                "Damit die warme Luft entweicht",
                 "Damit die Kranken nicht hinaussehen konnten",
                 "Damit weniger Staub hereinkommt",
                 "Weil Glas sehr teuer war"
               ],
-              "explanation": "Warme Luft steigt auf. Ein Fenster weit oben ist ein Schornstein für Luft."
+              "explanation": "Warme Luft steigt auf. Ein Fenster weit oben ist ein Schornstein für Luft, und so bleibt die Luft im Saal immer in Bewegung."
             }
           },
           "rhodes-archaeological-museum-knight-slabs": {
@@ -74,12 +74,12 @@
             "question": {
               "q": "Wie war der Orden der Ritter eingeteilt?",
               "answers": [
-                "In Gruppen nach der Sprache, die sie sprachen",
+                "In Gruppen nach der Sprache",
                 "In Gruppen nach ihrer Körpergröße",
                 "In Gruppen nach ihrem Alter",
                 "Er war überhaupt nicht eingeteilt"
               ],
-              "explanation": "Man nannte sie „Zungen“. Deshalb hat in der Ritterstraße jedes Haus andere Wappen über der Tür."
+              "explanation": "Jede Gruppe sprach eine eigene Sprache, und man nannte sie „Zungen“. Deshalb hat in der Ritterstraße jedes Haus andere Wappen über der Tür."
             }
           },
           "rhodes-archaeological-museum-courtyard": {
@@ -88,12 +88,12 @@
             "question": {
               "q": "Welche Arbeit macht ein Innenhof in einem alten Gebäude?",
               "answers": [
-                "Er gibt den inneren Räumen Licht und Luft",
+                "Er bringt Licht und Luft nach innen",
                 "Er sammelt Wasser zum Waschen",
                 "Er hält das Gebäude bei Erdbeben aufrecht",
                 "Er dient nur für Umzüge"
               ],
-              "explanation": "Vor dem Strom war die Form eines Gebäudes seine Technik."
+              "explanation": "Die Räume ganz innen bekommen ihr Licht und ihre Luft nur aus dem Hof. Vor dem Strom war die Form eines Gebäudes seine Technik."
             }
           },
           "rhodes-archaeological-museum-aphrodite": {
@@ -102,12 +102,12 @@
             "question": {
               "q": "Was tut diese Figur?",
               "answers": [
-                "Sie wringt ihr Haar aus, als sie aus dem Meer kommt",
+                "Sie wringt ihr Haar aus",
                 "Sie hält ein Kind in den Armen",
                 "Sie läuft mit einer Fackel",
                 "Sie spielt ein Musikinstrument"
               ],
-              "explanation": "Es ist ein Augenblick ohne jede Bedeutung, und genau deshalb hält er dich immer noch fest."
+              "explanation": "Sie kommt gerade aus dem Meer. Es ist ein Augenblick ohne jede Bedeutung, und genau deshalb hält er dich immer noch fest."
             }
           },
           "rhodes-archaeological-museum-marine-venus": {
@@ -144,12 +144,12 @@
             "question": {
               "q": "Warum sind darauf Tiere zu sehen, die nie auf Rhodos gelebt haben?",
               "answers": [
-                "Weil die Maler Bilder kopierten, die mit den Schiffen ankamen",
+                "Weil die Maler Bilder kopierten",
                 "Weil diese Tiere kurz zuvor ausgestorben waren",
                 "Weil die Gefäße woanders gemacht wurden",
                 "Weil die Form fehlerhaft war"
               ],
-              "explanation": "Der Handel trug nicht nur Waren. Er trug auch Bilder, und Bilder reisen weiter als Tiere."
+              "explanation": "Die Bilder kamen mit den Schiffen an. Der Handel trug nicht nur Waren, er trug auch Bilder, und Bilder reisen weiter als Tiere."
             }
           }
         },
@@ -181,12 +181,12 @@
       "question": {
         "q": "Wofür wurde dieses Gebäude ursprünglich gebaut?",
         "answers": [
-          "Für die wissenschaftliche Erforschung des Meeres",
+          "Für die Erforschung des Meeres",
           "Um Besucher zu empfangen, die mit Schiffen ankommen",
           "Als Leuchtturm für die Schifffahrt",
           "Als Wohnhaus des Gouverneurs"
         ],
-        "explanation": "Das Aquarium kam danach, als Weg für die Forschung, zu zeigen, was sie untersucht. Die Station arbeitet immer noch."
+        "explanation": "Gebaut wurde es als wissenschaftliche Station. Das Aquarium kam danach, als Weg für die Forschung, zu zeigen, was sie untersucht. Die Station arbeitet immer noch."
       },
       "museum": {
         "doorNote": "Geh zuerst nach unten. Die Höhle liegt unten, und dort sind die lebenden Tiere.",
@@ -207,12 +207,12 @@
             "question": {
               "q": "Woher kommt das Wasser in den Becken?",
               "answers": [
-                "Es wird aus dem Meer nebenan gepumpt und fließt dorthin zurück",
+                "Es wird aus dem Meer nebenan gepumpt",
                 "Es wird im Labor aus Salz und Leitungswasser angerührt",
                 "Es wird mit Tankwagen von einer anderen Insel gebracht",
                 "Es wird aus Regen gesammelt"
               ],
-              "explanation": "Genau deshalb wurde es an der Spitze der Insel gebaut und nicht mitten in der Stadt."
+              "explanation": "Danach fließt das Wasser wieder ins Meer zurück. Genau deshalb wurde das Gebäude an der Spitze der Insel gebaut und nicht mitten in der Stadt."
             }
           },
           "rhodes-aquarium-octopus": {
@@ -221,7 +221,7 @@
             "question": {
               "q": "Warum ist das Blut eines Kraken blau?",
               "answers": [
-                "Weil es den Sauerstoff mit Kupfer statt mit Eisen trägt",
+                "Weil Kupfer den Sauerstoff trägt",
                 "Weil er in tiefem blauem Wasser lebt",
                 "Weil er blaue Algen frisst",
                 "Weil es die Farbe seiner Haut spiegelt"
@@ -235,12 +235,12 @@
             "question": {
               "q": "Wie jagt der Skorpionfisch?",
               "answers": [
-                "Er sitzt reglos da, sieht aus wie ein Stein und wartet",
+                "Er sitzt reglos da und wartet",
                 "Er jagt in Schwärmen",
                 "Er schwimmt sehr schnell geradeaus",
                 "Er gräbt mit seinem Schwanz im Meeresboden"
               ],
-              "explanation": "Tarnung ist billiger als Geschwindigkeit. Sie kostet nur Geduld."
+              "explanation": "Dabei sieht er aus wie ein Stein. Tarnung ist billiger als Geschwindigkeit; sie kostet nur Geduld."
             }
           },
           "rhodes-aquarium-whale-bones": {
@@ -249,7 +249,7 @@
             "question": {
               "q": "Was sagen uns die kleinen Knochen nahe am Schwanz eines Wals?",
               "answers": [
-                "Dass seine Vorfahren an Land gelaufen sind",
+                "Dass seine Vorfahren an Land liefen",
                 "Dass er einmal einen zweiten Schwanz hatte",
                 "Dass er verletzt war",
                 "Dass er sehr jung war"
@@ -263,12 +263,12 @@
             "question": {
               "q": "Warum verwechseln Schildkröten Plastiktüten?",
               "answers": [
-                "Weil sie wie Quallen aussehen, die sie fressen",
+                "Weil sie wie Quallen aussehen",
                 "Weil sie sie für einen Unterschlupf halten",
                 "Weil sie nach Algen riechen",
                 "Weil sie im Wasser Lärm machen"
               ],
-              "explanation": "Eine Tüte im Wasser bewegt sich wie eine Qualle. Die Schildkröte macht keinen Fehler; wir haben ihn gemacht."
+              "explanation": "Quallen sind ihr Futter, und eine Tüte im Wasser bewegt sich wie eine Qualle. Die Schildkröte macht keinen Fehler; wir haben ihn gemacht."
             }
           },
           "rhodes-aquarium-monk-seal": {
@@ -277,12 +277,12 @@
             "question": {
               "q": "Wo bekommt die Mittelmeer-Mönchsrobbe ihre Jungen?",
               "answers": [
-                "In Meereshöhlen mit Eingängen unter der Wasseroberfläche",
+                "In Meereshöhlen",
                 "An offenen Sandstränden, an denen Menschen sind",
                 "Auf Felsen mitten im offenen Meer",
                 "In Flüssen in der Nähe ihrer Mündung"
               ],
-              "explanation": "Sie versteckt sich, weil sie jahrhundertelang gejagt wurde. Ihr Versteck ist der Grund, warum es sie noch gibt."
+              "explanation": "Die Eingänge dieser Höhlen liegen unter der Wasseroberfläche. Sie versteckt sich, weil sie jahrhundertelang gejagt wurde, und ihr Versteck ist der Grund, warum es sie noch gibt."
             }
           }
         },
@@ -311,12 +311,12 @@
       "question": {
         "q": "Was verändert sich, wenn du hier von Saal zu Saal gehst?",
         "answers": [
-          "Die Art, wie Menschen malen, im Lauf eines Jahrhunderts",
+          "Die Art, wie Menschen malen",
           "Die Größe der Bilder, von klein zu groß",
           "Das Land, aus dem die Werke kommen",
           "Das Material, von Ölfarbe zu Marmor"
         ],
-        "explanation": "Eine Sammlung, die jedes Jahr etwas kauft, zeichnet die Zeit auf, ohne es zu versuchen."
+        "explanation": "Die Säle führen dich durch ein ganzes Jahrhundert. Eine Sammlung, die jedes Jahr etwas kauft, zeichnet die Zeit auf, ohne es zu versuchen."
       }
     },
     "rhodes-acropolis": {
@@ -331,12 +331,12 @@
       "question": {
         "q": "Was hatte das antike Rhodos, was die meisten Städte nicht hatten?",
         "answers": [
-          "Einen Plan mit geraden Straßen, gezeichnet, bevor gebaut wurde",
+          "Einen Plan, bevor gebaut wurde",
           "Mauern aus massivem Marmor",
           "Straßen nur für Fußgänger",
           "Überhaupt keinen Hafen"
         ],
-        "explanation": "Die meisten antiken Städte wuchsen um Fußwege herum. Diese hier begann auf dem Papier."
+        "explanation": "Auf dem Plan kreuzten sich die Straßen im rechten Winkel. Die meisten antiken Städte wuchsen um Fußwege herum; diese hier begann auf dem Papier."
       }
     },
     "rhodes-diagoras-stadium": {
@@ -351,7 +351,7 @@
       "question": {
         "q": "Warum ist Diagoras in Erinnerung geblieben?",
         "answers": [
-          "Weil auch seine Kinder siegten und ihn auf den Schultern trugen",
+          "Weil auch seine Kinder siegten",
           "Weil er in vier verschiedenen Sportarten siegte",
           "Weil er das Stadion von Olympia selbst gebaut hat",
           "Weil er der allererste Olympiasieger war"
@@ -371,12 +371,12 @@
       "question": {
         "q": "Warum wurden genau an dieser Stelle Bäder gebaut?",
         "answers": [
-          "Weil dort eine Quelle entspringt, die man für heilsam hielt",
+          "Weil dort eine Quelle entspringt",
           "Weil es die einzige Stelle mit Sand war",
           "Weil sie nah am Hafen lag",
           "Weil dort schon ein antiker Tempel stand"
         ],
-        "explanation": "Ein ganzes Gebäude wurde um ein einziges Wasser herum errichtet. Als die Menschen aufhörten, es zu trinken, blieb das Gebäude ohne Aufgabe zurück."
+        "explanation": "Man hielt ihr Wasser für heilsam. Ein ganzes Gebäude wurde um ein einziges Wasser herum errichtet. Als die Menschen aufhörten, es zu trinken, blieb das Gebäude ohne Aufgabe zurück."
       }
     },
     "rhodes-filerimos": {
@@ -391,12 +391,12 @@
       "question": {
         "q": "Was ist im Inneren des Kreuzes auf der Hügelkuppe?",
         "answers": [
-          "Eine Treppe, die dich in seine Arme hinaufbringt",
+          "Eine Treppe bis in seine Arme",
           "Eine kleine Kirche voller Ikonen",
           "Eine Glocke, die jeden Mittag läutet",
           "Ein Wassertank für das Kloster"
         ],
-        "explanation": "Von seinen Armen aus siehst du gleichzeitig das Meer und die Fundamente der antiken Stadt."
+        "explanation": "Du steigst innen hinauf. Von seinen Armen aus siehst du gleichzeitig das Meer und die Fundamente der antiken Stadt."
       }
     },
     "rhodes-lindos": {
@@ -411,12 +411,12 @@
       "question": {
         "q": "Was ist am Fuß der Treppe in den Felsen gehauen?",
         "answers": [
-          "Ein Kriegsschiff, sein Bug in Lebensgröße",
+          "Ein Kriegsschiff",
           "Ein Pferd mit einem Reiter",
           "Die Karte der Insel",
           "Die Namen der Priester"
         ],
-        "explanation": "Es war ein Sockel für eine Statue und zugleich eine Ansage: Diese Stadt lebte vom Meer."
+        "explanation": "Sein Bug ist in Lebensgröße in den Felsen gehauen. Es war ein Sockel für eine Statue und zugleich eine Ansage: Diese Stadt lebte vom Meer."
       }
     },
     "rhodes-kameiros": {
@@ -451,12 +451,12 @@
       "question": {
         "q": "Warum brauchte diese Burg so wenig Mauer?",
         "answers": [
-          "Weil der Felsen von allen Seiten schon senkrecht ist",
+          "Weil der Felsen senkrecht ist",
           "Weil sie in großer Eile gebaut wurde",
           "Weil es in der Gegend keinen Stein gab",
           "Weil ein Wald sie schützte"
         ],
-        "explanation": "Der beste Baumeister einer Burg ist der Boden. Die Ritter haben ihn einfach richtig ausgewählt."
+        "explanation": "Der Felsen fällt an allen Seiten steil ab. Der beste Baumeister einer Burg ist der Boden, und die Ritter haben ihn einfach richtig ausgewählt."
       }
     },
     "rhodes-tsambika": {
@@ -471,12 +471,12 @@
       "question": {
         "q": "Was sagt dir die Farbe des Wassers, wenn du von oben schaust?",
         "answers": [
-          "Wie tief das Meer an jeder Stelle ist",
+          "Wie tief es ist",
           "Wie kalt das Wasser ist",
           "Wo die Fische sind",
           "Wie salzig das Wasser ist"
         ],
-        "explanation": "Im Flachen erreicht das Licht den Grund und kommt hell zurück. Im Tiefen geht es verloren, und das Blau wird dunkel."
+        "explanation": "Die Farbe verrät dir die Tiefe an jeder einzelnen Stelle. Im Flachen erreicht das Licht den Grund und kommt hell zurück; im Tiefen geht es verloren, und das Blau wird dunkel."
       }
     }
   },

@@ -67,4 +67,58 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'istanbul',
+    countryId: 'turkey',
+    order: 1,
+    emoji: '🕌',
+
+    name: {
+      el: 'Κωνσταντινούπολη',
+      en: 'Istanbul',
+    },
+
+    intro: {
+      el:
+        'Η Κωνσταντινούπολη είναι η μόνη μεγάλη πόλη που πατάει σε δύο ηπείρους: παίρνεις ' +
+        'πρωινό στην Ευρώπη, μπαίνεις σε ένα πλοιάριο και τρως μεσημεριανό στην Ασία είκοσι ' +
+        'λεπτά αργότερα. Για περισσότερα από χίλια χρόνια ήταν η Κωνσταντινούπολη των ' +
+        'Βυζαντινών, και μετά για σχεδόν πεντακόσια η πρωτεύουσα των σουλτάνων· και οι δύο ' +
+        'πόλεις είναι ακόμα εδώ, η μία πάνω στην άλλη. Ένας θόλος του 537 στέκεται δίπλα σε ' +
+        'ένα παλάτι με τέσσερις αυλές, οι γλάροι κυνηγούν τα καράβια, και κάτω από τους ' +
+        'δρόμους ένα δάσος από μαρμάρινες κολόνες κρατάει ακόμα το χώμα.',
+      en:
+        'Istanbul is the only big city that stands on two continents: you can have breakfast ' +
+        'in Europe, step onto a ferry, and eat lunch in Asia twenty minutes later. For more ' +
+        'than a thousand years it was Constantinople, capital of the Byzantine Greeks, and ' +
+        'then for almost five hundred years the capital of the sultans, and both cities are ' +
+        'still here, one on top of the other. A dome from the year 537 stands beside a ' +
+        'palace of four courtyards, seagulls chase the ferries, and under the streets a ' +
+        'forest of marble columns still holds up the ground.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/istanbul.json`. The resolver audits every place
+     * against this exact point, so the two must not drift.
+     */
+    centre: { lat: 41.015, lng: 28.972 },
+
+    map: {
+      src: '/images/world/maps/istanbul.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Κωνσταντινούπολης με τον Κεράτιο Κόλπο, το στόμιο του Βοσπόρου και τη θάλασσα του Μαρμαρά.',
+        en: 'A stylised map of Istanbul showing the Golden Horn, the mouth of the Bosphorus and the Sea of Marmara.',
+      },
+      width: 1000,
+      height: 810,
+      /**
+       * The artwork is drawn to these bounds, and every `location.map` in
+       * `cities/istanbul.ts` is the projection of that place's resolved coordinate into
+       * them. The Chora sits on the west edge, the Rahmi M. Koç Museum on the north, the
+       * Maiden's Tower on the east and the Blue Mosque on the south.
+       */
+      bounds: { north: 41.048, south: 40.998, east: 29.012, west: 28.93 },
+    },
+  },
+];

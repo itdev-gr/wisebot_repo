@@ -14,12 +14,12 @@
       "question": {
         "q": "Pourquoi les premiers Athéniens ont-ils choisi ce rocher pour y vivre ?",
         "answers": [
-          "Parce qu’il se défendait facilement et avait sa propre source d’eau",
+          "Parce qu’il se défendait bien et avait une source",
           "Parce que c’était le seul terrain plat de toute l’Attique",
           "Parce que la mer arrivait alors jusqu’à son pied",
           "Parce que le marbre était déjà là-haut, prêt à bâtir"
         ],
-        "explanation": "Une forteresse a besoin de deux choses : de la hauteur et de l’eau. Le rocher avait les deux, et c’est pour cela que les gens sont montés y vivre bien avant qu’on y bâtisse le premier temple."
+        "explanation": "Une forteresse a besoin de deux choses : de la hauteur et de l’eau. Le rocher se défendait facilement et il avait sa propre source, et c’est pour cela que les gens sont montés y vivre bien avant qu’on y bâtisse le premier temple."
       }
     },
     "athens-parthenon": {
@@ -34,12 +34,12 @@
       "question": {
         "q": "Qu’ont fait exprès les bâtisseurs aux colonnes du Parthénon ?",
         "answers": [
-          "Ils les ont fait gonfler un peu au milieu, pour qu’elles paraissent droites",
+          "Ils les ont fait gonfler un peu au milieu",
           "Ils les ont faites de hauteurs toutes différentes, pour imiter une montagne",
           "Ils les ont laissées creuses, pour que la musique résonne",
           "Ils les ont peintes en noir, pour qu’elles ne chauffent pas l’été"
         ],
-        "explanation": "Nos yeux font paraître creuses les lignes parfaitement droites. Les bâtisseurs anciens le savaient et ont corrigé le temple avant que personne ne le regarde."
+        "explanation": "Nos yeux font paraître creuses les lignes parfaitement droites. Ce léger renflement au milieu annule l’illusion : les colonnes ont l’air bien droites. Les bâtisseurs anciens le savaient et ont corrigé le temple avant que personne ne le regarde."
       }
     },
     "athens-temple-hephaestus": {
@@ -74,12 +74,12 @@
       "question": {
         "q": "Comment les Athéniens choisissaient-ils beaucoup de leurs jurés ?",
         "answers": [
-          "Par tirage au sort, avec une machine en marbre appelée clérotérion",
+          "Par tirage au sort, avec une machine en marbre",
           "Par un vote, tout le monde levant la main sur la place",
           "Le citoyen le plus riche de chaque quartier les nommait",
           "C’étaient toujours les fils des jurés précédents"
         ],
-        "explanation": "Si c’est le sort qui décide, la place ne peut être ni achetée ni héritée. C’était toute l’idée."
+        "explanation": "La machine s’appelait un clérotérion. Si c’est le sort qui décide, la place ne peut être ni achetée ni héritée. C’était toute l’idée."
       }
     },
     "athens-tower-of-the-winds": {
@@ -114,7 +114,7 @@
       "question": {
         "q": "Qu’apprends-tu en regardant la colonne tombée ?",
         "answers": [
-          "Que chaque colonne était bâtie de nombreux morceaux empilés les uns sur les autres",
+          "Que chaque colonne était faite de morceaux empilés",
           "Que les colonnes étaient creuses et cachaient des escaliers",
           "Que le marbre était peint en rouge à l’intérieur",
           "Que les colonnes étaient faites de béton"
@@ -155,12 +155,12 @@
       "question": {
         "q": "Qu’ont fait les ingénieurs quand ils ont trouvé des maisons antiques sur le terrain du musée ?",
         "answers": [
-          "Ils ont soulevé le musée sur des colonnes et posé un sol de verre",
+          "Ils ont soulevé le musée sur des colonnes",
           "Ils ont déplacé les maisons antiques sur un autre terrain",
           "Ils ont recouvert les trouvailles de béton et ont continué",
           "Ils ont bâti le musée ailleurs, à deux kilomètres de là"
         ],
-        "explanation": "Le musée repose sur une centaine de colonnes qui se faufilent entre les ruines sans les toucher."
+        "explanation": "Le musée repose sur une centaine de colonnes qui se faufilent entre les ruines sans les toucher. Un sol de verre te laisse voir les maisons antiques sous tes pieds."
       },
       "museum": {
         "doorNote": "Regarde en bas avant de regarder en haut : le sol de l’entrée est en verre, et il y a une ville dessous.",
@@ -185,12 +185,12 @@
             "question": {
               "q": "Comment le musée tient-il debout au-dessus du quartier antique ?",
               "answers": [
-                "Sur des colonnes qui descendent entre les ruines",
+                "Sur des colonnes",
                 "Sur une énorme dalle de béton",
                 "Sur de la terre versée par-dessus",
                 "Sur des pieux de bois, comme Venise"
               ],
-              "explanation": "Les colonnes se posent sur des endroits vides, pour que le poids du bâtiment ne repose jamais sur les ruines."
+              "explanation": "Les colonnes descendent entre les ruines et se posent sur des endroits vides, pour que le poids du bâtiment ne pèse jamais sur les murs antiques."
             }
           },
           "athens-acropolis-museum-nymphe-vases": {
@@ -199,12 +199,12 @@
             "question": {
               "q": "Que portait une loutrophore ?",
               "answers": [
-                "L’eau du bain d’avant le mariage",
+                "L’eau du bain de mariage",
                 "L’huile des lampes du temple",
                 "Le vin de la fête après le mariage",
                 "La cendre du feu d’un sacrifice"
               ],
-              "explanation": "Le nom le dit : loutron, le bain, et phero, porter. C’est le vase qui apporte l’eau du bain."
+              "explanation": "Le nom le dit : loutron, le bain, et phero, porter. C’est le vase qui apporte l’eau du bain qu’on prenait avant le mariage."
             }
           },
           "athens-acropolis-museum-asklepieion": {
@@ -213,12 +213,12 @@
             "question": {
               "q": "Pourquoi certains cadeaux ont-ils la forme d’une jambe ou d’un œil ?",
               "answers": [
-                "Parce qu’ils montrent la partie du corps qui a fait mal puis a guéri",
+                "Parce qu’ils montrent la partie du corps qui a guéri",
                 "Parce que c’étaient des jouets pour les enfants du sanctuaire",
                 "Parce qu’ils servaient de clés pour les portes",
                 "Parce que c’étaient des moules pour les sculpteurs"
               ],
-              "explanation": "C’était une façon de dire merci et de montrer exactement pour quoi."
+              "explanation": "C’était une façon de dire merci et de montrer exactement pour quoi : voilà la partie qui avait fait mal, et qui va mieux."
             }
           },
           "athens-acropolis-museum-moschophoros": {
@@ -227,7 +227,7 @@
             "question": {
               "q": "Qu’est-ce qui manque au Moschophore aujourd’hui ?",
               "answers": [
-                "Ses yeux, qui étaient faits d’une autre matière colorée",
+                "Ses yeux",
                 "Le veau, qui a été trouvé à part",
                 "Sa tête, qu’on n’a jamais retrouvée",
                 "Sa base, restée là-haut sur le rocher"
@@ -255,7 +255,7 @@
             "question": {
               "q": "Que fait ce garçon que les statues d’avant ne faisaient pas ?",
               "answers": [
-                "Il fait passer son poids sur une seule jambe",
+                "Il s’appuie sur une jambe",
                 "Il tient un animal dans ses bras",
                 "Il est assis au lieu d’être debout",
                 "Il est en bronze et non en marbre"
@@ -269,12 +269,12 @@
             "question": {
               "q": "Pourquoi les Cariatides ont-elles d’épaisses tresses sur la nuque ?",
               "answers": [
-                "Parce que les tresses renforcent leur cou mince",
+                "Parce que les tresses renforcent leur cou",
                 "Parce que c’est ainsi que les reines se coiffaient",
                 "Parce que la signature du sculpteur y est cachée",
                 "Parce que l’eau de pluie coulait dedans"
               ],
-              "explanation": "Le cou est le point le plus faible d’une figure de marbre qui porte du poids. Les tresses l’ont épaissi sans abîmer l’allure."
+              "explanation": "Le cou mince est le point le plus faible d’une figure de marbre qui porte du poids. Les tresses l’ont épaissi sans abîmer l’allure."
             }
           },
           "athens-acropolis-museum-frieze": {
@@ -311,12 +311,12 @@
             "question": {
               "q": "Pourquoi a-t-on laissé les copies d’un blanc cru ?",
               "answers": [
-                "Pour que tu voies tout de suite quelles sculptures manquent",
+                "Pour que tu voies ce qui manque",
                 "Parce que le plâtre ne peut pas être peint",
                 "Parce que les antiques étaient comme cela aussi",
                 "Pour que les gardiens les distinguent dans le noir"
               ],
-              "explanation": "C’est un choix voulu : le vide se montre au lieu de se cacher."
+              "explanation": "C’est un choix voulu : le vide se montre au lieu de se cacher. D’un coup d’œil, tu vois tout de suite quelles sculptures ne sont pas là."
             }
           }
         },
@@ -349,12 +349,12 @@
       "question": {
         "q": "Pourquoi les statues de bronze sont-elles sorties de la mer presque entières ?",
         "answers": [
-          "Parce qu’au fond de la mer personne ne pouvait les atteindre pour les fondre",
+          "Parce que personne ne les a fondues en mer",
           "Parce que le bronze ne s’abîme jamais, nulle part",
           "Parce qu’on les avait enveloppées dans des peaux de bêtes",
           "Parce qu’elles étaient en or massif à l’intérieur"
         ],
-        "explanation": "Sur terre, on fondait les statues de bronze pour en refaire des outils ou des armes. Celles qui ont coulé sont celles qui ont échappé."
+        "explanation": "Sur terre, on fondait les statues de bronze pour en refaire des outils ou des armes. Au fond de la mer, personne ne pouvait les atteindre : celles qui ont coulé sont celles qui ont échappé."
       },
       "museum": {
         "doorNote": "C’est trop grand pour une seule visite. Choisis deux salles et regarde-les vraiment.",
@@ -379,12 +379,12 @@
             "question": {
               "q": "Pourquoi ce masque ne peut-il pas être celui d’Agamemnon ?",
               "answers": [
-                "Parce qu’il est environ 300 ans plus ancien que son époque",
+                "Parce qu’il est 300 ans plus ancien",
                 "Parce qu’Agamemnon n’était pas roi",
                 "Parce qu’il a été trouvé en Crète et non à Mycènes",
                 "Parce qu’il est en bronze et non en or"
               ],
-              "explanation": "Schliemann voulait tellement trouver les héros qu’il les voyait partout. La datation lui a donné tort plus tard."
+              "explanation": "Le masque a environ 300 ans de plus que l’époque d’Agamemnon. Schliemann voulait tellement trouver les héros qu’il les voyait partout. La datation lui a donné tort plus tard."
             }
           },
           "athens-national-archaeological-museum-vaphio-cups": {
@@ -393,12 +393,12 @@
             "question": {
               "q": "Que montrent les deux coupes quand on les met ensemble ?",
               "answers": [
-                "Deux façons différentes d’attraper un taureau",
+                "Comment attraper un taureau",
                 "Deux batailles entre des villes",
                 "La même scène, vue de deux côtés",
                 "Un mariage et un enterrement"
               ],
-              "explanation": "L’une montre le piège et la course, l’autre montre le calme. Même animal, autre méthode."
+              "explanation": "L’une montre le piège et la course, l’autre montre le calme. Deux façons différentes, avec le même animal."
             }
           },
           "athens-national-archaeological-museum-lion-dagger": {
@@ -407,12 +407,12 @@
             "question": {
               "q": "Comment les images ont-elles été faites sur la lame ?",
               "answers": [
-                "Avec de minuscules morceaux d’or et d’argent incrustés dans le bronze",
+                "Avec de l’or dans le bronze",
                 "Peintes au pinceau et au vernis",
                 "Imprimées avec un sceau",
                 "Brûlées sur le métal avec du feu"
               ],
-              "explanation": "Cela s’appelle l’incrustation. C’est un travail patient, avec des outils plus fins qu’une aiguille."
+              "explanation": "De minuscules morceaux d’or et d’argent sont enfoncés dans le métal. Cela s’appelle l’incrustation. C’est un travail patient, avec des outils plus fins qu’une aiguille."
             }
           },
           "athens-national-archaeological-museum-artemision-bronze": {
@@ -435,7 +435,7 @@
             "question": {
               "q": "Qu’est-ce que le petit cavalier n’a pas ?",
               "answers": [
-                "Ni selle ni étriers",
+                "Ni selle ni étrier",
                 "Un fouet dans la main",
                 "Une bride sur le cheval",
                 "Des cheveux sur la tête"
@@ -449,12 +449,12 @@
             "question": {
               "q": "Qui a trouvé l’épave d’Anticythère ?",
               "answers": [
-                "Des pêcheurs d’éponges qui cherchaient des éponges",
+                "Des pêcheurs d’éponges",
                 "Des pêcheurs qui jetaient leurs filets",
                 "Des archéologues dans un sous-marin",
                 "Des marins qui ont fait naufrage au même endroit"
               ],
-              "explanation": "La plus grande découverte sous-marine de son temps s’est faite par hasard, un jour de travail ordinaire."
+              "explanation": "Ils cherchaient des éponges, pas des statues. La plus grande découverte sous-marine de son temps s’est faite par hasard, un jour de travail ordinaire."
             }
           },
           "athens-national-archaeological-museum-antikythera-mechanism": {
@@ -463,12 +463,12 @@
             "question": {
               "q": "Que faisait le mécanisme d’Anticythère ?",
               "answers": [
-                "Il montrait la position du soleil et de la lune et prévoyait les éclipses",
+                "Il suivait le soleil et la lune",
                 "Il remontait l’eau du fond d’un puits",
                 "Il pesait l’or avec précision",
                 "Il ouvrait les portes d’un temple tout seul"
               ],
-              "explanation": "C’était un ordinateur du ciel fait de roues dentées. Il ne faisait pas d’opérations ; il te montrait où les astres allaient se trouver."
+              "explanation": "C’était un ordinateur du ciel fait de roues dentées. Il montrait la position du soleil et de la lune, et il prévoyait même les éclipses. Il ne faisait pas d’opérations ; il te montrait où les astres allaient se trouver."
             }
           },
           "athens-national-archaeological-museum-spring-fresco": {
@@ -491,7 +491,7 @@
             "question": {
               "q": "Qu’ont d’étrange les mains des deux garçons ?",
               "answers": [
-                "Chacun ne porte un gant qu’à une seule main",
+                "Chacun porte un gant à une seule main",
                 "Ils tiennent tous les deux des épées",
                 "Leurs mains sont attachées derrière leur dos",
                 "Ils n’ont pas de doigts du tout"
@@ -543,7 +543,7 @@
       "question": {
         "q": "Comment les jouets de ce musée ont-ils été rassemblés ?",
         "answers": [
-          "Une seule collectionneuse les a rassemblés toute sa vie",
+          "Une seule collectionneuse les a réunis",
           "Des enfants les ont fabriqués dans les ateliers du musée",
           "L’État les a achetés à une usine",
           "Ils ont tous été trouvés ensemble dans une fouille"
@@ -569,12 +569,12 @@
             "question": {
               "q": "Combien de faces différentes a un osselet ?",
               "answers": [
-                "Quatre, chacune valant des points différents",
+                "Quatre",
                 "Six, comme un dé",
                 "Deux, comme une pièce de monnaie",
                 "Huit, comme une toupie"
               ],
-              "explanation": "C’est pour cela qu’il était en même temps un dé et un jeu d’adresse."
+              "explanation": "Chaque face vaut un nombre de points différent. C’est pour cela qu’il était en même temps un dé et un jeu d’adresse."
             }
           },
           "athens-benaki-toy-museum-jointed-doll": {
@@ -583,12 +583,12 @@
             "question": {
               "q": "Que faisaient les filles de ces poupées en grandissant ?",
               "answers": [
-                "Elles les laissaient dans un sanctuaire, comme un cadeau",
+                "Elles en faisaient un cadeau",
                 "Elles les cassaient et les jetaient",
                 "Elles les vendaient au marché",
                 "Elles les peignaient en doré"
               ],
-              "explanation": "C’était une façon de dire « une partie de ma vie est finie » avec un objet."
+              "explanation": "Elles les laissaient dans un sanctuaire. C’était une façon de dire « une partie de ma vie est finie » avec un objet."
             }
           },
           "athens-benaki-toy-museum-wheeled-animals": {
@@ -597,7 +597,7 @@
             "question": {
               "q": "Pourquoi ces petits animaux ont-ils un trou à l’avant ?",
               "answers": [
-                "Pour qu’une ficelle passe dedans et que tu puisses les tirer",
+                "Pour passer une ficelle et les tirer",
                 "Pour que l’air s’échappe pendant la cuisson",
                 "Pour qu’on puisse verser de l’eau dedans",
                 "Pour qu’on puisse les suspendre à un arbre"
@@ -611,7 +611,7 @@
             "question": {
               "q": "D’où un jouet à remontoir tire-t-il son énergie ?",
               "answers": [
-                "De ta main, qui remonte un ressort",
+                "De ta main, dans un ressort",
                 "D’une petite pile dans le socle",
                 "Du soleil, à travers la peinture",
                 "D’aimants dans les roues"
@@ -625,12 +625,12 @@
             "question": {
               "q": "Pourquoi les maisons de poupées sont-elles utiles aux historiens ?",
               "answers": [
-                "Parce qu’elles montrent à quoi ressemblaient vraiment les maisons de l’époque",
+                "Parce qu’elles montrent de vraies maisons",
                 "Parce qu’on cachait des lettres à l’intérieur",
                 "Parce que c’étaient toujours des copies de palais",
                 "Parce que la date est écrite en dessous"
               ],
-              "explanation": "Personne ne fabrique la miniature d’une maison qu’il n’a jamais vue."
+              "explanation": "Elles copient les vraies maisons de leur époque, pièce par pièce. Personne ne fabrique la miniature d’une maison qu’il n’a jamais vue."
             }
           },
           "athens-benaki-toy-museum-shadow-figures": {
@@ -639,12 +639,12 @@
             "question": {
               "q": "Que voit le public dans un théâtre d’ombres ?",
               "answers": [
-                "Seulement l’ombre des figures sur un drap blanc",
+                "Seulement l’ombre des figures",
                 "Les figures devant le drap",
                 "Des acteurs qui portent des masques",
                 "Un film projeté sur un mur"
               ],
-              "explanation": "La lumière est derrière, les figures au milieu, toi devant. Tu vois l’ombre, pas l’objet."
+              "explanation": "La lumière est derrière, les figures au milieu, le drap blanc devant. Tu vois l’ombre, pas l’objet."
             }
           }
         },
@@ -672,7 +672,7 @@
       "question": {
         "q": "Pourquoi le Lycabette est-il resté haut alors que le sol autour a baissé ?",
         "answers": [
-          "Parce que sa roche est bien plus dure et a résisté à l’usure",
+          "Parce que sa roche est bien plus dure",
           "Parce que des gens l’ont bâti avec de la terre et des pierres",
           "Parce qu’un volcan, en dessous, le pousse vers le haut",
           "Parce que les racines des pins le tiennent en l’air"
@@ -712,12 +712,12 @@
       "question": {
         "q": "De qui le monument devant le bâtiment se souvient-il ?",
         "answers": [
-          "De tous les soldats perdus qu’on n’a jamais pu reconnaître",
+          "De tous les soldats sans nom",
           "Du premier roi de Grèce",
           "De l’architecte qui a dessiné le palais",
           "Des athlètes des premiers Jeux olympiques"
         ],
-        "explanation": "C’est pour cela que la tombe ne porte aucun nom. Un seul nom laisserait tous les autres dehors."
+        "explanation": "Ce sont tous ceux qu’on n’a jamais pu reconnaître. C’est pour cela que la tombe ne porte aucun nom : un seul nom laisserait tous les autres dehors."
       }
     },
     "athens-agios-eleftherios": {
@@ -732,7 +732,7 @@
       "question": {
         "q": "Avec quoi cette église est-elle bâtie ?",
         "answers": [
-          "Avec des marbres pris sur des bâtiments plus anciens",
+          "Avec des marbres de bâtiments plus anciens",
           "Avec des briques fabriquées exprès pour elle",
           "Avec du bois, peint pour ressembler à de la pierre",
           "Avec une seule pierre, sculptée sur place"
@@ -772,12 +772,12 @@
       "question": {
         "q": "Pourquoi le travail au marché commence-t-il avant le lever du soleil ?",
         "answers": [
-          "Pour que le poisson et la viande arrivent frais sur les étals",
+          "Pour que le poisson arrive frais",
           "Parce que la lumière du jour abîme les étals de marbre",
           "Parce que le marché ferme à huit heures du matin",
           "Parce qu’une loi de 1886 l’oblige"
         ],
-        "explanation": "Les produits frais voyagent la nuit et doivent être sur l’étal avant que les boutiques ouvrent."
+        "explanation": "Le poisson et la viande voyagent la nuit et doivent être sur l’étal avant que les boutiques ouvrent."
       }
     },
     "athens-snfcc": {
@@ -792,12 +792,12 @@
       "question": {
         "q": "Qu’est-ce que la colline sur laquelle est posé le bâtiment a d’inhabituel ?",
         "answers": [
-          "Elle n’est pas naturelle : ce sont des gens qui l’ont construite",
+          "Elle a été construite par des gens",
           "C’est la plus haute colline de l’Attique",
           "C’est un volcan éteint",
           "Elle est faite de marbre du mont Pentélique"
         ],
-        "explanation": "La colline a été montée par-dessus les bâtiments, pour que le parc continue au-dessus d’eux au lieu de s’arrêter."
+        "explanation": "Elle n’a rien de naturel. La colline a été montée par-dessus les bâtiments, pour que le parc continue au-dessus d’eux au lieu de s’arrêter."
       },
       "findIt": "L’entrée se trouve avenue Andrea Syngrou, au numéro 364, juste avant que la route n’atteigne la mer."
     },
@@ -813,7 +813,7 @@
       "question": {
         "q": "Que fait un planétarium qu’un cinéma ne fait pas ?",
         "answers": [
-          "Il montre où les étoiles seront vraiment à un moment donné",
+          "Il montre où les étoiles seront vraiment",
           "Il projette des films sur un écran plus grand",
           "Il a des sièges qui bougent avec l’image",
           "Il ne montre que des documentaires sur les animaux"

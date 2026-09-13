@@ -1,0 +1,616 @@
+{
+  "city": "barcelona",
+  "note": "Explorer texts carried over verbatim from origin/main data/explore/cities/barcelona.ts, keyed by the World place id. They are not rendered by World yet; they wait for riddle/parentHint/onSite fields on the Place type. Two on-site answers are known to be wrong against the sources checked for the city file: the Columbus base has eight bronze lions, not four, and Gaudí’s Plaça Reial lamps date from 1878. Fix them when the fields land rather than copying blindly.",
+  "places": {
+    "barcelona-sagrada-familia": {
+      "explorerId": "sagrada-familia",
+      "riddle": {
+        "el": "Μια εκκλησία με πύργους σαν κάστρα από άμμο χτίζεται εδώ και περισσότερα από 140 χρόνια και ακόμη έχει γερανούς στην κορυφή της. Στη μία της πόρτα, πέτρινα ζώα και φυτά σκαρφαλώνουν ανάμεσα στα αγάλματα.",
+        "en": "A church with towers like sandcastles has been growing for more than 140 years and still has cranes on top. On one of its doors, stone animals and plants climb between the statues."
+      },
+      "parentHint": {
+        "el": "Είναι η Sagrada Família (η «Ιερή Οικογένεια»), η βασιλική του Gaudí. Ξεκινήστε από εδώ: ο σταθμός του μετρό Sagrada Família (γραμμές L2 και L5) βγάζει ακριβώς μπροστά της· σταθείτε στην Plaça de Gaudí, τη μικρή πλατεία με τη λιμνούλα, απέναντι από την πρόσοψη της Γέννησης.",
+        "en": "It is the Sagrada Família, Gaudí's basilica. Start here: the Sagrada Família metro station (lines L2 and L5) comes out right in front of it; stand in Plaça de Gaudí, the little square with the pond, facing the Nativity façade."
+      },
+      "onSite": {
+        "question": {
+          "el": "Στάσου μπροστά στην πρόσοψη της Γέννησης, αυτή με τα πολλά αγάλματα. Στη βάση των δύο μεγάλων κολόνων, δίπλα στις πόρτες, κρύβονται δύο ζώα. Ποια είναι;",
+          "en": "Stand in front of the Nativity façade, the one covered in statues. At the bottom of the two big columns beside the doors, two animals are hiding. What are they?"
+        },
+        "options": {
+          "el": [
+            "Λιοντάρια",
+            "Άλογα",
+            "Χελώνες",
+            "Δράκοι"
+          ],
+          "en": [
+            "Lions",
+            "Horses",
+            "Turtles",
+            "Dragons"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Δύο χελώνες κρατούν τις κολόνες στην πλάτη τους: μια θαλάσσια χελώνα στην πλευρά που κοιτάζει τη θάλασσα και μια χερσαία στην πλευρά του βουνού. Ο Gaudí ήθελε η εκκλησία να είναι γεμάτη ζώα και φυτά, όπως η φύση. Ψάξε και τους χαμαιλέοντες στις άκρες της πρόσοψης!",
+          "en": "Two turtles carry the columns on their backs: a sea turtle on the side that faces the sea and a land tortoise on the mountain side. Gaudí wanted the church full of animals and plants, like nature itself. Look for the chameleons at the edges of the façade too!"
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ποιος αρχιτέκτονας σχεδίασε αυτή την εκκλησία που δεν έχει τελειώσει ακόμη;",
+          "en": "Which architect designed this church that is still not finished?"
+        },
+        "options": {
+          "el": [
+            "Ο Pablo Picasso",
+            "Ο Antoni Gaudí",
+            "Ο Leonardo da Vinci",
+            "Ο Gustave Eiffel"
+          ],
+          "en": [
+            "Pablo Picasso",
+            "Antoni Gaudí",
+            "Leonardo da Vinci",
+            "Gustave Eiffel"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ο Antoni Gaudí (Γκαουντί) ήταν ο αρχιτέκτονας που αγαπούσε τη φύση: οι κολόνες του μοιάζουν με δέντρα και οι πύργοι του με κάστρα από άμμο. Ο Picasso ήταν ζωγράφος που έζησε κι αυτός στη Βαρκελώνη, αλλά δεν έχτισε ποτέ εκκλησία!",
+          "en": "Antoni Gaudí was the architect who loved nature: his columns look like trees and his towers like sandcastles. Picasso was a painter who also lived in Barcelona, but he never built a church!"
+        }
+      }
+    },
+    "barcelona-casa-batllo": {
+      "explorerId": "casa-batllo",
+      "riddle": {
+        "el": "Ένα σπίτι που μοιάζει φτιαγμένο από κόκαλα, με μπαλκόνια σαν μάσκες καρναβαλιού και μια στέγη που κυματίζει σαν τη ράχη ενός δράκου που κοιμάται στον πιο κομψό δρόμο της πόλης.",
+        "en": "A house that looks as if it were made of bones, with balconies like carnival masks and a roof that curves like the back of a dragon sleeping on the smartest street in town."
+      },
+      "parentHint": {
+        "el": "Είναι η Casa Batlló (το «Σπίτι Μπατγιό») του Gaudí, στη λεωφόρο Passeig de Gràcia 43. Από τη Sagrada Família πάρτε το μετρό L2 από τον σταθμό Sagrada Família ως τον σταθμό Passeig de Gràcia (4 στάσεις) και θα το δείτε μόλις βγείτε· σταθείτε στο απέναντι πεζοδρόμιο για να δείτε όλη τη στέγη.",
+        "en": "It is Gaudí's Casa Batlló, at Passeig de Gràcia 43. From the Sagrada Família take metro L2 from the Sagrada Família station to Passeig de Gràcia (4 stops) and you will see it as you come out; stand on the opposite pavement to see the whole roof."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε ψηλά, στην αριστερή πλευρά της στέγης. Ο μικρός πύργος τελειώνει με έναν σταυρό. Πόσα μπράτσα έχει ο σταυρός;",
+          "en": "Look up at the left side of the roof. The little tower ends in a cross. How many arms does the cross have?"
+        },
+        "options": {
+          "el": [
+            "Δύο",
+            "Τρία",
+            "Έξι",
+            "Τέσσερα"
+          ],
+          "en": [
+            "Two",
+            "Three",
+            "Six",
+            "Four"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Ο σταυρός έχει τέσσερα μπράτσα, ένα για κάθε σημείο του ορίζοντα: βορρά, νότο, ανατολή και δύση. Ο Gaudí έβαζε τέτοιους σταυρούς σε πολλά κτίριά του. Πρόσεξε και τα «λέπια» της στέγης: είναι κεραμικά πλακάκια που αλλάζουν από πράσινο σε μπλε και πορτοκαλί, σαν το δέρμα του δράκου.",
+          "en": "The cross has four arms, one for each point of the compass: north, south, east and west. Gaudí put crosses like this on many of his buildings. Notice the “scales” of the roof too: they are ceramic tiles that shift from green to blue and orange, like a dragon's skin."
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ένας δράκος κοιμάται στη στέγη. Ποιος ιππότης, σύμφωνα με τον θρύλο, νίκησε έναν δράκο και είναι ο προστάτης άγιος της Καταλονίας;",
+          "en": "A dragon sleeps on the roof. According to the legend, which knight defeated a dragon and is the patron saint of Catalonia?"
+        },
+        "options": {
+          "el": [
+            "Ο Άγιος Νικόλαος",
+            "Ο Άγιος Γεώργιος",
+            "Ο Άγιος Πατρίκιος",
+            "Ο Άγιος Ανδρέας"
+          ],
+          "en": [
+            "Saint Nicholas",
+            "Saint George",
+            "Saint Patrick",
+            "Saint Andrew"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ο Άγιος Γεώργιος, Sant Jordi στα καταλανικά, είναι ο προστάτης της Καταλονίας. Στη γιορτή του, στις 23 Απριλίου, οι άνθρωποι χαρίζουν ο ένας στον άλλον βιβλία και τριαντάφυλλα. Ο πύργος με τον σταυρό στη στέγη είναι το κοντάρι του, καρφωμένο στη ράχη του δράκου!",
+          "en": "Saint George, Sant Jordi in Catalan, is the patron saint of Catalonia. On his feast day, 23 April, people give each other books and roses. The tower with the cross on the roof is his lance, plunged into the dragon's back!"
+        }
+      }
+    },
+    "barcelona-casa-mila": {
+      "explorerId": "casa-mila",
+      "riddle": {
+        "el": "Στη γωνία μιας λεωφόρου, ένα κτίριο μοιάζει με βράχο που τον έγλειψαν τα κύματα: η πέτρα του κυματίζει, τα μπαλκόνια του είναι σιδερένια φύκια και στη στέγη του φρουροί με κράνη κοιτάζουν τον ουρανό.",
+        "en": "On a corner of a wide avenue, a building looks like a cliff licked by the waves: its stone ripples, its balconies are iron seaweed, and on its roof helmeted guards stare at the sky."
+      },
+      "parentHint": {
+        "el": "Είναι η Casa Milà (το «Σπίτι Μιλά»), γνωστή ως La Pedrera (Λα Πεδρέρα, «το Λατομείο»), στη γωνία Passeig de Gràcia 92 και Carrer de Provença. Από την Casa Batlló περπατήστε 6 λεπτά ανηφορικά στην ίδια λεωφόρο, στην ίδια πλευρά του δρόμου.",
+        "en": "It is Casa Milà, better known as La Pedrera (“the Quarry”), on the corner of Passeig de Gràcia 92 and Carrer de Provença. From Casa Batlló walk 6 minutes up the same avenue, on the same side of the street."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε τα σιδερένια κάγκελα των μπαλκονιών. Με τι μοιάζουν;",
+          "en": "Look at the iron railings of the balconies. What do they look like?"
+        },
+        "options": {
+          "el": [
+            "Με ίσια κάγκελα φυλακής",
+            "Με μπερδεμένα φύκια και φύλλα",
+            "Με μικρά ζωάκια",
+            "Με γράμματα της αλφαβήτου"
+          ],
+          "en": [
+            "Straight prison bars",
+            "Tangled seaweed and leaves",
+            "Little animals",
+            "Letters of the alphabet"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Τα κάγκελα μοιάζουν με φύκια που στριφογυρίζουν στο νερό. Τα σφυρηλάτησε ο βοηθός του Gaudí, ο Josep Maria Jujol (Ζουζόλ), και κανένα δεν είναι ίδιο με το άλλο. Τώρα ψάξε μια ίσια γραμμή στην πρόσοψη: δύσκολο, ε;",
+          "en": "The railings look like seaweed swirling in the water. Gaudí's helper Josep Maria Jujol hammered them into shape, and no two are the same. Now try to find a straight line on the front: not easy, is it?"
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Οι κάτοικοι της πόλης έδωσαν σε αυτό το κτίριο το παρατσούκλι «το Λατομείο». Τι είναι το λατομείο;",
+          "en": "The people of the city nicknamed this building “the Quarry”. What is a quarry?"
+        },
+        "options": {
+          "el": [
+            "Ένας φούρνος για ψωμί",
+            "Ένα είδος καραβιού",
+            "Ένα μέρος όπου κόβουν πέτρα από τη γη",
+            "Ένα γλυκό με κρέμα"
+          ],
+          "en": [
+            "An oven for bread",
+            "A kind of ship",
+            "A place where stone is cut out of the ground",
+            "A cream cake"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Το λατομείο είναι ο τόπος όπου οι άνθρωποι κόβουν μεγάλες πέτρες από τον βράχο για να χτίσουν. Οι Βαρκελωνέζοι είδαν την τραχιά, κυματιστή πρόσοψη και κορόιδεψαν: «Μοιάζει με λατομείο!». Το όνομα έμεινε, και σήμερα το λένε με καμάρι.",
+          "en": "A quarry is a place where people cut big stones out of the rock for building. The people of Barcelona saw the rough, rippling front and joked: “It looks like a quarry!” The name stuck, and today they say it with pride."
+        }
+      }
+    },
+    "barcelona-font-de-canaletes": {
+      "explorerId": "la-rambla",
+      "riddle": {
+        "el": "Ένας μακρύς περίπατος με δέντρα, όπου κάποτε κυλούσε ένα ρυάκι με άμμο, κατεβαίνει από μια μεγάλη πλατεία ως τη θάλασσα. Στην αρχή του, ένα σιντριβάνι υπόσχεται σε όποιον πιει νερό ότι θα ξαναγυρίσει στην πόλη.",
+        "en": "A long tree-lined walk, where a sandy stream once ran, slopes down from a big square all the way to the sea. At its top, a fountain promises that whoever drinks from it will come back to the city."
+      },
+      "parentHint": {
+        "el": "Είναι η La Rambla (η Ράμπλα), στο σημείο του σιντριβανιού Font de Canaletes, λίγα μέτρα κάτω από την Plaça de Catalunya. Από την Casa Milà πάρτε το μετρό L3 από τον σταθμό Diagonal ως τον σταθμό Catalunya (2 στάσεις) ή περπατήστε 15 λεπτά κατηφορικά στην Passeig de Gràcia· το σιντριβάνι είναι στη δεξιά πλευρά, στην αρχή της Ράμπλα, όπως κατεβαίνετε.",
+        "en": "It is La Rambla, at the Font de Canaletes fountain, a few metres below Plaça de Catalunya. From Casa Milà take metro L3 from Diagonal station to Catalunya (2 stops) or walk 15 minutes down Passeig de Gràcia; the fountain is on the right-hand side at the very top of La Rambla as you walk down."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε τα ψηλά δέντρα που στέκονται σε δύο σειρές κατά μήκος του περιπάτου. Πώς είναι ο κορμός τους;",
+          "en": "Look at the tall trees standing in two rows along the walk. What is their trunk like?"
+        },
+        "options": {
+          "el": [
+            "Λείος και άσπρος σαν σημύδα",
+            "Καλυμμένος με μακριά αγκάθια",
+            "Με φλούδα που ξεφλουδίζει σε μπαλώματα, σαν παζλ",
+            "Τριχωτός σαν φοίνικας"
+          ],
+          "en": [
+            "Smooth and white like a birch",
+            "Covered in long thorns",
+            "Bark peeling off in patches, like a jigsaw",
+            "Hairy like a palm tree"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Είναι πλάτανοι. Η φλούδα τους πέφτει σε κομμάτια και αφήνει ανοιχτόχρωμα μπαλώματα, σαν στολή καμουφλάζ. Έτσι το δέντρο καθαρίζεται από τη σκόνη της πόλης, γι' αυτό οι πλάτανοι είναι ιδανικοί για λεωφόρους.",
+          "en": "They are plane trees. Their bark falls off in pieces and leaves pale patches, like a camouflage suit. This is how the tree cleans itself of city dust, which makes plane trees perfect for avenues."
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Το όνομα «Rambla» έρχεται από μια αραβική λέξη. Τι υπήρχε εδώ πριν από τον περίπατο;",
+          "en": "The name “Rambla” comes from an Arabic word. What was here before the promenade?"
+        },
+        "options": {
+          "el": [
+            "Ένα ρυάκι με άμμο που έτρεχε μόνο όταν έβρεχε",
+            "Ένα κάστρο",
+            "Ένα γήπεδο ποδοσφαίρου",
+            "Μια παραλία"
+          ],
+          "en": [
+            "A sandy stream that ran only when it rained",
+            "A castle",
+            "A football pitch",
+            "A beach"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Ramla στα αραβικά σημαίνει «αμμουδερή κοίτη». Εδώ, έξω από τα παλιά τείχη, κυλούσε ένα ρυάκι που γέμιζε νερό με τις βροχές. Όταν η πόλη μεγάλωσε, το σκέπασαν, φύτεψαν δέντρα και έγινε ο πιο διάσημος περίπατος της Ισπανίας.",
+          "en": "Ramla is Arabic for “sandy riverbed”. A stream ran here, outside the old city walls, filling with water whenever it rained. When the city grew, it was covered over, trees were planted and it became the most famous promenade in Spain."
+        }
+      }
+    },
+    "barcelona-boqueria": {
+      "explorerId": "boqueria-market",
+      "riddle": {
+        "el": "Κάτω από μια σιδερένια στέγη, βουνά από φρούτα, χυμοί σε όλα τα χρώματα του ουράνιου τόξου, ψάρια πάνω σε πάγο και πόδια από χοιρομέρι κρεμασμένα από το ταβάνι. Εδώ πουλάνε φαγητό εδώ και περισσότερα από 800 χρόνια.",
+        "en": "Under an iron roof: mountains of fruit, juices in every colour of the rainbow, fish on ice and legs of ham hanging from the ceiling. Food has been sold here for more than 800 years."
+      },
+      "parentHint": {
+        "el": "Είναι η αγορά La Boqueria (Μποκερία), στη La Rambla 91. Από το σιντριβάνι Canaletes κατηφορίστε τη Ράμπλα 6 λεπτά· η μεγάλη είσοδος με την πολύχρωμη γυάλινη επιγραφή είναι στη δεξιά πλευρά. Κλειστή τις Κυριακές.",
+        "en": "It is La Boqueria market, at La Rambla 91. From the Canaletes fountain walk 6 minutes down La Rambla; the big entrance with the colourful glass sign is on the right-hand side. Closed on Sundays."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε ψηλά, την πολύχρωμη επιγραφή με το όνομα της αγοράς πάνω από την είσοδο. Από τι είναι φτιαγμένη;",
+          "en": "Look up at the colourful sign with the market's name above the entrance. What is it made of?"
+        },
+        "options": {
+          "el": [
+            "Από βαμμένο ξύλο",
+            "Από κομμάτια χρωματιστού γυαλιού",
+            "Από μάρμαρο",
+            "Από λουλούδια"
+          ],
+          "en": [
+            "Painted wood",
+            "Pieces of coloured glass",
+            "Marble",
+            "Flowers"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Η επιγραφή είναι από χρωματιστό γυαλί, σαν τα βιτρό των εκκλησιών, στερεωμένο σε σιδερένιο σκελετό. Μέτρησε τα χρώματά της, και μετά μπες μέσα και μέτρησε τα χρώματα των χυμών: ποιο νούμερο είναι μεγαλύτερο;",
+          "en": "The sign is made of coloured glass, like the stained-glass windows of a church, held in an iron frame. Count its colours, then go inside and count the colours of the juices: which number is bigger?"
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Το jamón, που κρέμεται από το ταβάνι της αγοράς, είναι ένα διάσημο ισπανικό φαγητό. Τι είναι;",
+          "en": "Jamón, which hangs from the ceiling of the market, is a famous Spanish food. What is it?"
+        },
+        "options": {
+          "el": [
+            "Ένα γλυκό με σοκολάτα",
+            "Ένας χυμός φρούτων",
+            "Ένα τυρί από κατσικίσιο γάλα",
+            "Χοιρομέρι που το αλατίζουν και το αφήνουν να στεγνώσει για μήνες"
+          ],
+          "en": [
+            "A chocolate cake",
+            "A fruit juice",
+            "A cheese made of goat's milk",
+            "A ham that is salted and left to dry for months"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Το jamón (χαμόν) είναι χοιρομέρι που αλατίζεται και κρεμιέται να στεγνώσει για πολλούς μήνες, μερικές φορές και χρόνια. Οι πωλητές το κόβουν σε πολύ λεπτές φέτες με ένα μακρύ μαχαίρι.",
+          "en": "Jamón is a leg of pork that is salted and hung up to dry for many months, sometimes years. The sellers slice it paper-thin with a long knife."
+        }
+      }
+    },
+    "barcelona-cathedral": {
+      "explorerId": "barcelona-cathedral",
+      "riddle": {
+        "el": "Μια εκκλησία με μυτερούς πύργους σαν βελόνες, όπου άσπρες χήνες φυλάνε έναν κήπο με φοίνικες. Τις Κυριακές, μπροστά της, οι άνθρωποι πιάνονται χέρι χέρι και χορεύουν σε κύκλο.",
+        "en": "A church with pointed towers like needles, where white geese guard a garden of palm trees. On Sundays, in front of it, people join hands and dance in a circle."
+      },
+      "parentHint": {
+        "el": "Είναι ο Καθεδρικός Ναός της Βαρκελώνης (Catedral de Barcelona), στην πλατεία Pla de la Seu, στην καρδιά της Γοτθικής Συνοικίας. Από τη La Boqueria διασχίστε τη Ράμπλα και περπατήστε 8 λεπτά από την Carrer de la Portaferrissa και μετά την Carrer del Bisbe. Το περιστύλιο με τις χήνες έχει είσοδο και από την Carrer del Bisbe. Το περιστύλιο είναι δωρεάν μόνο τις πρωινές (8:30–12:30) και βραδινές ώρες λατρείας· το μεσημέρι χρειάζεται εισιτήριο.",
+        "en": "It is Barcelona Cathedral (Catedral de Barcelona), on the Pla de la Seu square in the heart of the Gothic Quarter. From La Boqueria cross La Rambla and walk 8 minutes along Carrer de la Portaferrissa and then Carrer del Bisbe. The cloister with the geese also has an entrance from Carrer del Bisbe. The cloister is free only during morning (8:30–12:30) and evening worship hours; at midday it needs a ticket."
+      },
+      "onSite": {
+        "question": {
+          "el": "Μπες στο περιστύλιο, τον σκεπαστό κήπο της εκκλησίας, και μέτρησε τις άσπρες χήνες. Πόσες είναι;",
+          "en": "Go into the cloister, the church's covered garden, and count the white geese. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Τρεις",
+            "Επτά",
+            "Δεκατρείς",
+            "Είκοσι"
+          ],
+          "en": [
+            "Three",
+            "Seven",
+            "Thirteen",
+            "Twenty"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Δεκατρείς χήνες, μία για κάθε χρόνο της ζωής της Αγίας Ευλαλίας, που ήταν 13 ετών. Χήνες ζουν εδώ εδώ και αιώνες και είναι εξαιρετικοί φύλακες: κακαρίζουν δυνατά μόλις πλησιάσει κάποιος ξένος!",
+          "en": "Thirteen geese, one for each year of the life of Saint Eulàlia, who was 13 years old. Geese have lived here for centuries and make excellent guards: they honk loudly the moment a stranger comes near!"
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο γρίφος λέει ότι τις Κυριακές οι άνθρωποι χορεύουν σε κύκλο μπροστά στην εκκλησία. Πώς λέγεται αυτός ο χορός της Καταλονίας;",
+          "en": "The riddle says that on Sundays people dance in a circle in front of the church. What is this Catalan dance called?"
+        },
+        "options": {
+          "el": [
+            "Φλαμένκο",
+            "Σαρντάνα",
+            "Τάνγκο",
+            "Συρτάκι"
+          ],
+          "en": [
+            "Flamenco",
+            "Sardana",
+            "Tango",
+            "Sirtaki"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Η σαρντάνα (sardana) είναι ο χορός της Καταλονίας: μικροί και μεγάλοι πιάνονται χέρι χέρι σε κύκλο και μετρούν τα βήματα με προσοχή, ενώ μια μπάντα με πνευστά, η cobla, παίζει τη μουσική. Το φλαμένκο είναι από τον νότο της Ισπανίας, και το συρτάκι, το ξέρεις, από την Ελλάδα!",
+          "en": "The sardana is the dance of Catalonia: young and old join hands in a circle and count their steps carefully while a wind band called a cobla plays the music. Flamenco comes from the south of Spain, and sirtaki, as you know, from Greece!"
+        }
+      }
+    },
+    "barcelona-placa-reial": {
+      "explorerId": "placa-reial",
+      "riddle": {
+        "el": "Μια πλατεία κρυμμένη πίσω από τις καμάρες της, με ψηλούς φοίνικες, ένα σιντριβάνι με τρεις κοπέλες στη μέση και δύο φανάρια που φορούν φτερωτό κράνος και έχουν φίδια τυλιγμένα γύρω τους. Τα σχεδίασε ένας νεαρός που έγινε αργότερα ο πιο διάσημος αρχιτέκτονας της πόλης.",
+        "en": "A square hidden behind its arcades, with tall palm trees, a fountain of three young ladies in the middle and two lamp posts wearing a winged helmet with snakes wound around them. A young man designed them who later became the most famous architect in town."
+      },
+      "parentHint": {
+        "el": "Είναι η Plaça Reial (η «Βασιλική Πλατεία»), ακριβώς δίπλα στη Ράμπλα. Από τον καθεδρικό κατηφορίστε 8 λεπτά από την Carrer del Bisbe και την Carrer de Ferran· η είσοδος της πλατείας είναι στα αριστερά, λίγο πριν φτάσετε στη Ράμπλα.",
+        "en": "It is Plaça Reial, right next to La Rambla. From the cathedral walk 8 minutes down Carrer del Bisbe and along Carrer de Ferran; the entrance to the square is on the left, just before you reach La Rambla."
+      },
+      "onSite": {
+        "question": {
+          "el": "Βρες τα δύο ψηλά φανάρια στη μέση της πλατείας, δίπλα στο σιντριβάνι, αυτά με τα έξι μπράτσα. Τι υπάρχει στην κορυφή τους;",
+          "en": "Find the two tall lamp posts in the middle of the square, beside the fountain, the ones with six arms. What is at the very top?"
+        },
+        "options": {
+          "el": [
+            "Ένα κράνος με φτερά",
+            "Μια κορώνα",
+            "Ένα αστέρι",
+            "Ένα πουλί"
+          ],
+          "en": [
+            "A helmet with wings",
+            "A crown",
+            "A star",
+            "A bird"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Ένα φτερωτό κράνος, όπως του Ερμή, και πιο κάτω δύο φίδια τυλιγμένα στο ραβδί. Είναι τα πρώτα έργα του Gaudí για την πόλη, το 1879, όταν ήταν μόλις 26 ετών. Κοίτα και τους φοίνικες: πολλοί από αυτούς είναι ψηλότεροι από τα κτίρια!",
+          "en": "A winged helmet, like the one Hermes wore, and lower down two snakes wound around the staff. These were Gaudí's first works for the city, in 1879, when he was only 26. Look at the palm trees too: many of them are taller than the buildings!"
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Τα φανάρια της πλατείας έχουν στην κορυφή ένα φτερωτό κράνος και δύο φίδια τυλιγμένα σε ένα ραβδί. Ποιος θεός της ελληνικής μυθολογίας φορούσε φτερωτό κράνος και κρατούσε τέτοιο ραβδί;",
+          "en": "The lamp posts of the square are topped with a winged helmet and two snakes wound around a staff. Which god of Greek mythology wore a winged helmet and carried a staff like that?"
+        },
+        "options": {
+          "el": [
+            "Ο Δίας",
+            "Ο Ποσειδώνας",
+            "Ο Ερμής",
+            "Ο Άρης"
+          ],
+          "en": [
+            "Zeus",
+            "Poseidon",
+            "Hermes",
+            "Ares"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Ο Ερμής, ο φτερωτός αγγελιοφόρος των θεών, ήταν ο προστάτης των ταξιδιωτών και των εμπόρων. Το ραβδί του με τα δύο φίδια λέγεται κηρύκειο. Ο Gaudí διάλεξε τα σύμβολά του για μια πλατεία γεμάτη εμπόρους και ταξιδιώτες.",
+          "en": "Hermes, the winged messenger of the gods, was the protector of travellers and merchants. His staff with the two snakes is called the caduceus. Gaudí chose his symbols for a square full of traders and travellers."
+        }
+      }
+    },
+    "barcelona-columbus-monument": {
+      "explorerId": "columbus-monument",
+      "riddle": {
+        "el": "Στο τέλος του μεγάλου περιπάτου, ένας θαλασσοπόρος στέκεται στην κορυφή μιας κολόνας ψηλής όσο ένα κτίριο 20 ορόφων και δείχνει με το δάχτυλό του τη θάλασσα. Στα πόδια της κολόνας, μπρούντζινα λιοντάρια φυλάνε το λιμάνι.",
+        "en": "At the end of the long promenade, a sailor stands on top of a column as tall as a 20-storey building and points his finger at the sea. At the foot of the column, bronze lions guard the harbour."
+      },
+      "parentHint": {
+        "el": "Είναι το Μνημείο του Κολόμβου (Monument a Colom), στην Plaça del Portal de la Pau, στο κάτω άκρο της Ράμπλα. Από την Plaça Reial βγείτε στη Ράμπλα και κατηφορίστε 8 λεπτά ως το λιμάνι· περάστε από τις διαβάσεις για να φτάσετε στη νησίδα γύρω από το μνημείο.",
+        "en": "It is the Columbus Monument (Monument a Colom), on Plaça del Portal de la Pau at the bottom end of La Rambla. From Plaça Reial step out onto La Rambla and walk 8 minutes down to the harbour; use the crossings to reach the island around the monument."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κάνε τον γύρο της βάσης του μνημείου και μέτρησε τα μπρούντζινα λιοντάρια. Πόσα είναι;",
+          "en": "Walk around the base of the monument and count the bronze lions. How many are there?"
+        },
+        "options": {
+          "el": [
+            "Δύο",
+            "Έξι",
+            "Οκτώ",
+            "Τέσσερα"
+          ],
+          "en": [
+            "Two",
+            "Six",
+            "Eight",
+            "Four"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Τέσσερα λιοντάρια φυλάνε τη βάση. Ανάμεσά τους θα δεις φτερωτές φιγούρες και σκαλισμένες σκηνές από τα ταξίδια του Κολόμβου. Τώρα κοίταξε ψηλά: πού δείχνει το δάχτυλό του;",
+          "en": "Four lions guard the base. Between them you will find winged figures and carved scenes from Columbus's voyages. Now look up: where is his finger pointing?"
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο Κολόμβος ξεκίνησε το 1492 να διασχίσει τον ωκεανό. Τι ήθελε να βρει;",
+          "en": "In 1492 Columbus set out to cross the ocean. What was he looking for?"
+        },
+        "options": {
+          "el": [
+            "Χρυσό στην Αφρική",
+            "Έναν θαλάσσιο δρόμο για την Ινδία πλέοντας προς τα δυτικά",
+            "Τον Βόρειο Πόλο",
+            "Ένα καλό μέρος για ψάρεμα"
+          ],
+          "en": [
+            "Gold in Africa",
+            "A sea route to India by sailing west",
+            "The North Pole",
+            "A good fishing spot"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Ο Κολόμβος πίστευε ότι, αν έπλεε δυτικά, θα έφτανε γρήγορα στην Ινδία και στα μπαχαρικά της. Είχε κάνει λάθος στους υπολογισμούς του: η Γη είναι πολύ μεγαλύτερη, και ανάμεσα βρισκόταν μια ολόκληρη ήπειρος, η Αμερική.",
+          "en": "Columbus believed that by sailing west he would quickly reach India and its spices. His sums were wrong: the Earth is much bigger, and a whole continent, America, lay in between."
+        }
+      }
+    },
+    "barcelona-arc-de-triomf": {
+      "explorerId": "arc-de-triomf",
+      "riddle": {
+        "el": "Μια πύλη από κόκκινα τούβλα στέκεται στην κορυφή ενός φαρδιού περιπάτου με φοίνικες, αλλά κανένας στρατός δεν πέρασε ποτέ από κάτω της: χτίστηκε για να πει «καλώς ήρθατε» σε όλον τον κόσμο.",
+        "en": "A gate of red bricks stands at the top of a wide walk lined with palm trees, but no army ever marched beneath it: it was built to say “welcome” to the whole world."
+      },
+      "parentHint": {
+        "el": "Είναι η Arc de Triomf (η «Αψίδα του Θριάμβου»), στην αρχή του περιπάτου Passeig de Lluís Companys, προς το πάρκο Ciutadella. Από το Μνημείο του Κολόμβου πάρτε το μετρό L3 από τον σταθμό Drassanes ως τον σταθμό Catalunya, αλλάξτε στη γραμμή L1 και κατεβείτε στον σταθμό Arc de Triomf (δύο στάσεις)· ή περπατήστε 25 λεπτά κατά μήκος του λιμανιού και μέσα από τη γειτονιά Born.",
+        "en": "It is the Arc de Triomf, at the top of the Passeig de Lluís Companys promenade leading to the Ciutadella park. From the Columbus Monument take metro L3 from Drassanes to Catalunya, change to line L1 and get off at Arc de Triomf (two stops); or walk 25 minutes along the harbour and through the Born quarter."
+      },
+      "onSite": {
+        "question": {
+          "el": "Από τι είναι χτισμένη η αψίδα και τι χρώμα έχει;",
+          "en": "What is the arch built of, and what colour is it?"
+        },
+        "options": {
+          "el": [
+            "Από άσπρο μάρμαρο",
+            "Από κόκκινα τούβλα",
+            "Από γκρίζα πέτρα",
+            "Από κίτρινη άμμο"
+          ],
+          "en": [
+            "White marble",
+            "Red bricks",
+            "Grey stone",
+            "Yellow sand"
+          ]
+        },
+        "correct": 1,
+        "explanation": {
+          "el": "Κόκκινα τούβλα, με σχέδια που θυμίζουν τα παλάτια των Αράβων της Ισπανίας. Κοίταξε ψηλά: πάνω από την καμάρα θα δεις σκαλισμένα οικόσημα και, αν ψάξεις καλά, μικρές νυχτερίδες, ένα παλιό τυχερό σύμβολο των βασιλιάδων αυτής της περιοχής.",
+          "en": "Red bricks, with patterns that recall the palaces of the Arabs in Spain. Look up: above the arch you will see carved coats of arms and, if you look carefully, little bats, an old lucky symbol of the kings of this region."
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Οι περισσότερες αψίδες του θριάμβου γιορτάζουν μια νίκη σε πόλεμο. Για ποιο γεγονός χτίστηκε αυτή, το 1888;",
+          "en": "Most triumphal arches celebrate a victory in war. What event was this one built for, in 1888?"
+        },
+        "options": {
+          "el": [
+            "Για μια μεγάλη έκθεση όπου χώρες από όλον τον κόσμο έδειχναν τις εφευρέσεις τους",
+            "Για έναν τελικό ποδοσφαίρου",
+            "Για τον γάμο ενός βασιλιά",
+            "Για μια ταυρομαχία"
+          ],
+          "en": [
+            "A great fair where countries from all over the world showed their inventions",
+            "A football final",
+            "A royal wedding",
+            "A bullfight"
+          ]
+        },
+        "correct": 0,
+        "explanation": {
+          "el": "Το 1888 η Βαρκελώνη οργάνωσε μια Παγκόσμια Έκθεση: μια τεράστια γιορτή με περίπτερα από πολλές χώρες, καινούργιες μηχανές και εφευρέσεις. Η αψίδα ήταν η μεγάλη είσοδός της, γι' αυτό μοιάζει με πύλη που λέει «περάστε!».",
+          "en": "In 1888 Barcelona held a World's Fair: a giant celebration with pavilions from many countries, new machines and inventions. The arch was its grand entrance, which is why it looks like a gate saying “come in!”."
+        }
+      }
+    },
+    "barcelona-park-guell": {
+      "explorerId": "park-guell",
+      "riddle": {
+        "el": "Σε έναν λόφο με θέα τη θάλασσα, μια σαύρα από χίλια χρωματιστά κομματάκια περιμένει στη σκάλα, δύο σπιτάκια μοιάζουν βγαλμένα από παραμύθι με μελόψωμο και ένα παγκάκι στριφογυρίζει σαν φίδι. Έμελλε να γίνει γειτονιά, μα κανείς δεν ήθελε να μείνει εκεί.",
+        "en": "On a hill with a view of the sea, a lizard made of a thousand coloured pieces waits on the staircase, two little houses look straight out of a gingerbread fairy tale, and a bench wriggles like a snake. It was meant to be a neighbourhood, but nobody wanted to live there."
+      },
+      "parentHint": {
+        "el": "Είναι το Park Güell (το «Πάρκο Γκουέλ»), κεντρική είσοδος στην Carrer d'Olot. Από την Arc de Triomf πάρτε το μετρό L1 ως τον σταθμό Catalunya, αλλάξτε στη γραμμή L3 ως τον σταθμό Lesseps και περπατήστε 15 λεπτά ανηφορικά ακολουθώντας τις πινακίδες, ή πάρτε το λεωφορείο 24 από την Plaça de Catalunya, που σταματά δίπλα στο πάρκο. Η ζώνη με τη σαύρα και το παγκάκι θέλει εισιτήριο· κλείστε το από πριν στο διαδίκτυο.",
+        "en": "It is Park Güell, main entrance on Carrer d'Olot. From the Arc de Triomf take metro L1 to Catalunya, change to line L3 to Lesseps and walk 15 minutes uphill following the signs, or take bus 24 from Plaça de Catalunya, which stops next to the park. The zone with the lizard and the bench needs a ticket; book it online in advance."
+      },
+      "onSite": {
+        "question": {
+          "el": "Κοίταξε τα δύο σπιτάκια δεξιά και αριστερά από την κεντρική είσοδο. Πώς είναι οι στέγες τους;",
+          "en": "Look at the two little houses on either side of the main entrance. What are their roofs like?"
+        },
+        "options": {
+          "el": [
+            "Επίπεδες σαν ταράτσα",
+            "Μυτερές σαν καπέλο μάγισσας",
+            "Από άχυρο",
+            "Κυματιστές, ντυμένες με χρωματιστά πλακάκια, σαν καπέλο μανιταριού"
+          ],
+          "en": [
+            "Flat like a terrace",
+            "Pointed like a witch's hat",
+            "Made of straw",
+            "Wavy, covered in coloured tiles, like a mushroom cap"
+          ]
+        },
+        "correct": 3,
+        "explanation": {
+          "el": "Οι στέγες κυματίζουν και είναι ντυμένες με ψηφιδωτό από σπασμένα πλακάκια, σαν καπέλα μανιταριού. Το ένα σπιτάκι έχει κι έναν ψηλό πύργο με σταυρό. Ήταν το σπίτι του φύλακα και το γραφείο υποδοχής της γειτονιάς που δεν έγινε ποτέ.",
+          "en": "The roofs ripple and are dressed in a mosaic of broken tiles, like mushroom caps. One of the little houses also has a tall tower with a cross. They were the gatekeeper's home and the reception office of the neighbourhood that never came to be."
+        }
+      },
+      "unlockQuestion": {
+        "question": {
+          "el": "Ο Gaudí έντυσε το κυματιστό παγκάκι και τις στέγες με κομμάτια σπασμένων πλακιδίων αντί για ολόκληρα πλακάκια. Γιατί;",
+          "en": "Gaudí covered the wavy bench and the roofs with pieces of broken tiles instead of whole tiles. Why?"
+        },
+        "options": {
+          "el": [
+            "Γιατί τα σπασμένα πλακάκια είναι πιο βαριά",
+            "Γιατί ήθελε να τα κρύψει",
+            "Γιατί τα μικρά κομμάτια ακολουθούν τις καμπύλες, ενώ τα ίσια πλακάκια όχι",
+            "Γιατί δεν του άρεσαν τα χρώματα"
+          ],
+          "en": [
+            "Because broken tiles are heavier",
+            "Because he wanted to hide them",
+            "Because small pieces can follow curves, while flat tiles cannot",
+            "Because he did not like colours"
+          ]
+        },
+        "correct": 2,
+        "explanation": {
+          "el": "Ένα ίσιο πλακάκι δεν κολλάει πάνω σε μια καμπύλη· εκατό μικρά κομμάτια όμως ναι! Έτσι ο Gaudí μπορούσε να ντύνει κυματιστές επιφάνειες, και επιπλέον χρησιμοποιούσε σπασμένα πλακάκια που τα εργοστάσια πετούσαν. Η τεχνική λέγεται trencadís.",
+          "en": "A flat tile will not stick to a curve, but a hundred small pieces will! That is how Gaudí could dress wavy surfaces, and he also used up broken tiles that factories threw away. The technique is called trencadís."
+        }
+      }
+    }
+  }
+}

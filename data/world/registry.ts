@@ -90,25 +90,31 @@ export const CITIES: City[] = COUNTRY_MODULES.flatMap((m) => m.cities).sort(byOr
 export const PLACE_COUNTS: Record<CityId, number> = {
   'amsterdam': 16,
   'athens': 18,
+  'barcelona': 16,
   'delphi': 13,
   'heraklion': 12,
+  'istanbul': 17,
   'london': 17,
   'paris': 13,
   'rhodes': 12,
   'rome': 18,
   'thessaloniki': 17,
+  'vienna': 13,
 };
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
   'amsterdam': () => import('./cities/amsterdam'),
   'athens': () => import('./cities/athens'),
+  'barcelona': () => import('./cities/barcelona'),
   'delphi': () => import('./cities/delphi'),
   'heraklion': () => import('./cities/heraklion'),
+  'istanbul': () => import('./cities/istanbul'),
   'london': () => import('./cities/london'),
   'paris': () => import('./cities/paris'),
   'rhodes': () => import('./cities/rhodes'),
   'rome': () => import('./cities/rome'),
   'thessaloniki': () => import('./cities/thessaloniki'),
+  'vienna': () => import('./cities/vienna'),
 };
 
 /** Cities of one country, in order. */
@@ -125,6 +131,10 @@ export function findCity(id: string): City | undefined {
 }
 
 const I18N: Record<string, () => Promise<{ default: unknown }>> = {
+  'amsterdam.de': () => import('./i18n/amsterdam.de.json'),
+  'amsterdam.es': () => import('./i18n/amsterdam.es.json'),
+  'amsterdam.fr': () => import('./i18n/amsterdam.fr.json'),
+  'amsterdam.it': () => import('./i18n/amsterdam.it.json'),
   'athens.de': () => import('./i18n/athens.de.json'),
   'athens.es': () => import('./i18n/athens.es.json'),
   'athens.fr': () => import('./i18n/athens.fr.json'),
@@ -137,6 +147,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'heraklion.es': () => import('./i18n/heraklion.es.json'),
   'heraklion.fr': () => import('./i18n/heraklion.fr.json'),
   'heraklion.it': () => import('./i18n/heraklion.it.json'),
+  'london.de': () => import('./i18n/london.de.json'),
+  'london.es': () => import('./i18n/london.es.json'),
+  'london.fr': () => import('./i18n/london.fr.json'),
+  'london.it': () => import('./i18n/london.it.json'),
   'paris.de': () => import('./i18n/paris.de.json'),
   'paris.es': () => import('./i18n/paris.es.json'),
   'paris.fr': () => import('./i18n/paris.fr.json'),
@@ -145,6 +159,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'rhodes.es': () => import('./i18n/rhodes.es.json'),
   'rhodes.fr': () => import('./i18n/rhodes.fr.json'),
   'rhodes.it': () => import('./i18n/rhodes.it.json'),
+  'rome.de': () => import('./i18n/rome.de.json'),
+  'rome.es': () => import('./i18n/rome.es.json'),
+  'rome.fr': () => import('./i18n/rome.fr.json'),
+  'rome.it': () => import('./i18n/rome.it.json'),
   'thessaloniki.de': () => import('./i18n/thessaloniki.de.json'),
   'thessaloniki.es': () => import('./i18n/thessaloniki.es.json'),
   'thessaloniki.fr': () => import('./i18n/thessaloniki.fr.json'),

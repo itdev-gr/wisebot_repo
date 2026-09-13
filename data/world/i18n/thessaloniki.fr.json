@@ -14,12 +14,12 @@
       "question": {
         "q": "Comment la Tour blanche a-t-elle reçu son nom ?",
         "answers": [
-          "On l’a blanchie à la chaux au XIXe siècle et le nom est resté",
+          "On l’a blanchie à la chaux et le nom est resté",
           "Elle est bâtie en marbre blanc du mont Pentélique",
           "La neige la recouvre chaque hiver",
           "Elle a été construite par un architecte qui s’appelait Lefkos"
         ],
-        "explanation": "La chaux est partie avec les années, le nom non. C’est ainsi que naissent la plupart des noms de bâtiments et de villes."
+        "explanation": "On l’a blanchie à la chaux au XIXe siècle. La chaux est partie avec les années, le nom non. C’est ainsi que naissent la plupart des noms de bâtiments et de villes."
       },
       "findIt": "La tour est juste sur le front de mer, avenue Nikis. Impossible de passer à côté sans la voir."
     },
@@ -55,12 +55,12 @@
       "question": {
         "q": "Qu’est-ce qui passait dessous quand il a été construit ?",
         "answers": [
-          "La Via Egnatia, la route romaine qui menait vers l’est",
+          "La Via Egnatia, la route romaine",
           "Une rivière avec un pont en bois",
           "Un aqueduc qui amenait l’eau dans la ville",
           "La route du port, et rien d’autre"
         ],
-        "explanation": "Les Romains construisaient les arcs au-dessus des routes, pour que tous ceux qui passaient les voient. C’était de la publicité taillée dans le marbre."
+        "explanation": "La Via Egnatia menait vers l’est. Les Romains construisaient les arcs au-dessus des routes, pour que tous ceux qui passaient les voient. C’était de la publicité taillée dans le marbre."
       }
     },
     "thessaloniki-agios-dimitrios": {
@@ -75,7 +75,7 @@
       "question": {
         "q": "Qu’est-il arrivé à l’église en août 1917 ?",
         "answers": [
-          "Elle a brûlé dans un grand incendie et elle a été rebâtie",
+          "Elle a brûlé, puis on l’a rebâtie",
           "Elle a été inondée et abandonnée",
           "On l’a déplacée pierre par pierre à un autre endroit",
           "Elle est devenue un musée et a fermé au culte"
@@ -96,12 +96,12 @@
       "question": {
         "q": "Pourquoi y a-t-il une simple croix sous la mosaïque de la coupole ?",
         "answers": [
-          "Parce que pendant quelques années les images de personnes étaient interdites",
+          "Parce que les images de personnes étaient interdites",
           "Parce que l’artisan n’a pas eu le temps de finir",
           "Parce que la croix servait de repère pour poser le reste de la mosaïque",
           "Parce que la coupole a été bâtie deux fois, par deux équipes différentes"
         ],
-        "explanation": "Cela s’appelle l’iconoclasme. Quand cela a pris fin, on n’a pas effacé l’ancien travail : le nouveau est passé par-dessus, et les deux ont survécu."
+        "explanation": "Pendant quelques années, les images de personnes ont été interdites. Cela s’appelle l’iconoclasme. Quand cela a pris fin, on n’a pas effacé l’ancien travail : le nouveau est passé par-dessus, et les deux ont survécu."
       }
     },
     "thessaloniki-roman-agora": {
@@ -116,12 +116,12 @@
       "question": {
         "q": "Comment a-t-on trouvé l’agora romaine ?",
         "answers": [
-          "Par hasard, en creusant pour un nouveau bâtiment",
+          "Par hasard, en creusant pour bâtir",
           "Grâce à une carte découverte dans un monastère",
           "Après un séisme qui a ouvert le sol",
           "Grâce à des photos prises depuis un avion"
         ],
-        "explanation": "À Thessalonique, comme à Athènes, chaque trou profond est aussi une découverte possible."
+        "explanation": "On creusait pour un nouveau bâtiment. À Thessalonique, comme à Athènes, chaque trou profond est aussi une découverte possible."
       }
     },
     "thessaloniki-archaeological-museum": {
@@ -136,12 +136,12 @@
       "question": {
         "q": "Comment le papyrus de Derveni a-t-il survécu ?",
         "answers": [
-          "Le feu l’a carbonisé au lieu de le brûler entièrement",
+          "Le feu l’a carbonisé au lieu de le brûler",
           "Il était enfermé dans un bocal de verre plein d’huile",
           "Des moines le recopiaient tous les cent ans",
           "Il était écrit sur du métal et non sur du papyrus"
         ],
-        "explanation": "Un papyrus carbonisé devient une sorte de charbon : fragile, mais il ne peut plus pourrir. C’est pour cela qu’il est arrivé jusqu’à nous."
+        "explanation": "Le feu ne l’a pas brûlé entièrement. Un papyrus carbonisé devient une sorte de charbon : fragile, mais il ne peut plus pourrir. C’est pour cela qu’il est arrivé jusqu’à nous."
       },
       "museum": {
         "doorNote": "Commence par Derveni. Trois objets là-bas expliquent tout le reste.",
@@ -162,7 +162,7 @@
             "question": {
               "q": "Pourquoi le cratère a-t-il l’air en or alors qu’il ne contient pas d’or ?",
               "answers": [
-                "Parce que son alliage contient beaucoup d’étain, qui change la couleur",
+                "Parce que son alliage a beaucoup d’étain",
                 "Parce qu’il est peint avec de la peinture dorée",
                 "Parce qu’on l’a lustré à l’huile et à la cire",
                 "Parce que le feu l’a recouvert de cendre"
@@ -176,12 +176,12 @@
             "question": {
               "q": "Quel genre de texte est le papyrus de Derveni ?",
               "answers": [
-                "L’explication d’un poème plus ancien",
+                "L’explication d’un poème",
                 "Une liste d’impôts et de dettes",
                 "La lettre d’un soldat à sa mère",
                 "Une carte de la Macédoine"
               ],
-              "explanation": "Quelqu’un, il y a 2 400 ans, écrivait des notes sur un texte. Exactement comme on le fait aujourd’hui."
+              "explanation": "Le poème était déjà ancien à l’époque. Quelqu’un, il y a 2 400 ans, écrivait des notes sur un texte. Exactement comme on le fait aujourd’hui."
             }
           },
           "thessaloniki-archaeological-museum-gold-wreath": {
@@ -218,12 +218,12 @@
             "question": {
               "q": "Que voulaient les Romains d’un portrait ?",
               "answers": [
-                "Que la personne soit reconnaissable, avec ses défauts",
+                "Que la personne soit reconnaissable",
                 "Que tout le monde ait l’air jeune et beau",
                 "Qu’il ressemble à un dieu de l’Olympe",
                 "Qu’il ne se distingue pas de tous les autres"
               ],
-              "explanation": "Un portrait était une preuve d’identité. S’il ne te ressemblait pas, il ne faisait pas son travail."
+              "explanation": "Avec ses défauts, sans rien embellir. Un portrait était une preuve d’identité. S’il ne te ressemblait pas, il ne faisait pas son travail."
             }
           },
           "thessaloniki-archaeological-museum-glass": {
@@ -232,7 +232,7 @@
             "question": {
               "q": "D’où viennent les couleurs d’arc-en-ciel sur le verre antique ?",
               "answers": [
-                "De la surface usée pendant qu’il était sous la terre",
+                "De la surface usée sous la terre",
                 "De colorants ajoutés dans le verre fondu",
                 "Du vin resté à l’intérieur",
                 "Du feu du bûcher funéraire"
@@ -266,12 +266,12 @@
       "question": {
         "q": "Comment les salles de ce musée sont-elles organisées ?",
         "answers": [
-          "Par thème : comment on enterrait, comment on bâtissait, comment on achetait",
+          "Par thème : enterrer, bâtir, acheter",
           "Par matériau : marbres, métaux, tissus",
           "Par taille, de la plus petite à la plus grande",
           "Par ordre alphabétique, selon le nom de chaque objet"
         ],
-        "explanation": "Ainsi une monnaie, une assiette et un mur peuvent se tenir ensemble, parce qu’ils parlent de la même chose."
+        "explanation": "Une salle sur la façon d’enterrer, une sur la façon de bâtir, une sur la façon d’acheter. Ainsi une monnaie, une assiette et un mur peuvent se tenir ensemble, parce qu’ils parlent de la même chose."
       },
       "museum": {
         "doorNote": "Entre dans les tombeaux. C’est permis, et c’est la seule façon de les voir.",
@@ -292,12 +292,12 @@
             "question": {
               "q": "Que peignait-on à l’intérieur de ces tombeaux ?",
               "answers": [
-                "Des jardins avec des oiseaux, des fleurs et de la lumière",
+                "Des jardins, des oiseaux et des fleurs",
                 "Des batailles avec des soldats et des chevaux",
                 "Des plans de la ville et de ses remparts",
                 "Rien : les murs restaient blancs"
               ],
-              "explanation": "C’est une image d’espoir, pas de peur. C’est pour cela que la salle n’est pas effrayante."
+              "explanation": "Des jardins, des oiseaux, des fleurs et de la lumière. C’est une image d’espoir, pas de peur. C’est pour cela que la salle n’est pas effrayante."
             }
           },
           "thessaloniki-byzantine-museum-grave-goods": {
@@ -320,12 +320,12 @@
             "question": {
               "q": "Pourquoi les lampes cassées sont-elles utiles aux archéologues ?",
               "answers": [
-                "Parce qu’on en trouve partout et qu’elles aident à dater la terre",
+                "Parce qu’elles aident à dater la terre",
                 "Parce qu’on cachait des pièces à l’intérieur",
                 "Parce que c’étaient des objets très chers",
                 "Parce qu’elles brûlent encore si on y met de l’huile"
               ],
-              "explanation": "Tout ce qui est bon marché et se casse souvent change souvent de forme. Ce changement de forme devient une horloge."
+              "explanation": "On en trouve partout. Tout ce qui est bon marché et se casse souvent change souvent de forme. Ce changement de forme devient une horloge."
             }
           },
           "thessaloniki-byzantine-museum-sgraffito": {
@@ -334,12 +334,12 @@
             "question": {
               "q": "Comment le dessin est-il tracé sur une assiette au sgraffite ?",
               "answers": [
-                "En grattant la couche blanche pour faire apparaître le foncé dessous",
+                "En grattant la couche blanche",
                 "En peignant au pinceau et à l’or",
                 "En collant de petits morceaux de verre",
                 "En imprimant avec un tampon en bois"
               ],
-              "explanation": "C’est un dessin par soustraction. Tout ce que tu vois en foncé, c’est là où l’artisan a gratté."
+              "explanation": "Sous le blanc, le foncé apparaît. C’est un dessin par soustraction. Tout ce que tu vois en foncé, c’est là où l’artisan a gratté."
             }
           },
           "thessaloniki-byzantine-museum-coins": {
@@ -348,12 +348,12 @@
             "question": {
               "q": "Pourquoi une monnaie était-elle aussi une nouvelle ?",
               "answers": [
-                "Parce qu’elle montrait qui était l’empereur à des gens qui ne le voyaient jamais",
+                "Parce qu’elle montrait le visage de l’empereur",
                 "Parce qu’on y écrivait les événements de l’année",
                 "Parce qu’on la distribuait gratuitement aux citoyens",
                 "Parce qu’on la lisait à voix haute au marché"
               ],
-              "explanation": "Sans journaux et sans photographies, la monnaie était le moyen le plus rapide qui existait."
+              "explanation": "Beaucoup de gens ne voyaient jamais l’empereur. Sans journaux et sans photographies, la monnaie était le moyen le plus rapide qui existait."
             }
           },
           "thessaloniki-byzantine-museum-jewellery": {
@@ -362,12 +362,12 @@
             "question": {
               "q": "Pourquoi le monogramme d’une bague-sceau était-il gravé à l’envers ?",
               "answers": [
-                "Pour qu’il ressorte à l’endroit quand on l’appuyait dans la cire ou l’argile",
+                "Pour ressortir à l’endroit dans la cire",
                 "Pour que les voleurs ne puissent pas le lire",
                 "Parce que la langue s’écrivait ainsi à l’époque",
                 "Pour qu’il y ait de la place pour plus de texte"
               ],
-              "explanation": "Chaque tampon fonctionne ainsi, encore aujourd’hui. L’image s’inverse dans l’empreinte."
+              "explanation": "On appuyait la bague dans la cire ou dans l’argile. Chaque tampon fonctionne ainsi, encore aujourd’hui. L’image s’inverse dans l’empreinte."
             }
           }
         },
@@ -396,12 +396,12 @@
       "question": {
         "q": "Quel est le tour de magie derrière chaque film ?",
         "answers": [
-          "Beaucoup d’images immobiles, montrées si vite qu’elles ressemblent à du mouvement",
+          "Des images immobiles, montrées très vite",
           "Une seule image qui s’étire et grandit",
           "Des miroirs qui reflètent de vrais acteurs",
           "Des peintures qui sèchent et changent de forme"
         ],
-        "explanation": "Un film ne bouge jamais. C’est nous qui complétons le mouvement entre les images."
+        "explanation": "Elles défilent si vite qu’elles ressemblent à du mouvement. Un film ne bouge jamais. C’est nous qui complétons le mouvement entre les images."
       }
     },
     "thessaloniki-walls": {
@@ -416,12 +416,12 @@
       "question": {
         "q": "Pourquoi les remparts ont-ils des bandes de briques entre les pierres ?",
         "answers": [
-          "Pour remettre les rangées de niveau et aider le mur à tenir pendant les séismes",
+          "Pour remettre les rangées de niveau",
           "Pour que les gardes sachent à quelle hauteur ils se trouvaient",
           "Pour montrer combien d’années la construction a duré",
           "Pour garder le mur au chaud en hiver"
         ],
-        "explanation": "Les pierres ont des formes irrégulières et la rangée part de travers. Les briques, toutes identiques, la redressent."
+        "explanation": "Les pierres ont des formes irrégulières et la rangée part de travers. Les briques, toutes identiques, la redressent. Un mur bien droit tient mieux pendant les séismes."
       }
     },
     "thessaloniki-heptapyrgion": {
@@ -476,7 +476,7 @@
       "question": {
         "q": "Pourquoi cette place a-t-elle été dessinée ?",
         "answers": [
-          "Parce que l’incendie de 1917 a brûlé le centre et que la ville a été redessinée",
+          "Parce que l’incendie de 1917 a brûlé le centre",
           "Parce qu’il fallait de la place pour les voitures",
           "Parce qu’on y a trouvé des vestiges antiques et qu’on ne pouvait plus bâtir",
           "Parce que c’était autrefois un port que l’on a comblé"
@@ -496,12 +496,12 @@
       "question": {
         "q": "Pourquoi le marché a-t-il besoin de peu de lampes, même en hiver ?",
         "answers": [
-          "Parce que son toit est en verre et que la lumière entre par le haut",
+          "Parce que son toit est en verre",
           "Parce que les étals sont peints en blanc",
           "Parce qu’il ferme avant la tombée de la nuit",
           "Parce qu’il y a des miroirs sur les murs"
         ],
-        "explanation": "Les marchés couverts du XIXe et du XXe siècle ont résolu le problème ainsi : du fer pour la charpente, du verre pour la lumière."
+        "explanation": "La lumière entre par le haut. Les marchés couverts du XIXe et du XXe siècle ont résolu le problème ainsi : du fer pour la charpente, du verre pour la lumière."
       }
     },
     "thessaloniki-noesis": {
@@ -516,12 +516,12 @@
       "question": {
         "q": "Pourquoi ce musée te laisse-t-il toucher les objets exposés ?",
         "answers": [
-          "Parce qu’une expérience se comprend en la faisant",
+          "Parce qu’on comprend en faisant",
           "Parce que tous les objets sont des copies sans valeur",
           "Parce qu’il n’y a pas assez de gardiens",
           "Parce que les objets sont nettoyés tous les soirs"
         ],
-        "explanation": "Dans un musée archéologique, l’objet est unique. Ici l’objet est un outil, et les outils ont besoin de mains."
+        "explanation": "Une expérience se comprend en la faisant. Dans un musée archéologique, l’objet est unique. Ici l’objet est un outil, et les outils ont besoin de mains."
       },
       "findIt": "Il n’est pas dans la ville : il se trouve au 6e kilomètre de la route de Thermi."
     },
@@ -557,12 +557,12 @@
       "question": {
         "q": "Pourquoi ce stade est-il aussi bruyant ?",
         "answers": [
-          "Parce que les tribunes en pente raide renvoient le son vers le centre",
+          "Parce que les tribunes renvoient le son",
           "Parce que c’est le plus grand stade de Grèce",
           "Parce qu’il a des haut-parleurs sous les sièges",
           "Parce qu’il est entièrement couvert par un toit"
         ],
-        "explanation": "C’est de l’acoustique, pas de la taille. La même foule dans un stade ouvert et large ferait beaucoup moins de bruit."
+        "explanation": "Les tribunes en pente raide renvoient le son vers le centre. C’est de l’acoustique, pas de la taille. La même foule dans un stade ouvert et large ferait beaucoup moins de bruit."
       }
     }
   },
