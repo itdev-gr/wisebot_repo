@@ -1,0 +1,527 @@
+{
+  "city": "prague",
+  "resolvedAt": "2026-09-13T07:29:56.081Z",
+  "centre": {
+    "lat": 50.08806,
+    "lng": 14.40389
+  },
+  "places": [
+    {
+      "id": "prague-powder-tower",
+      "name": "Prašná brána",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1488700",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Powder Tower, Prague",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08722,
+      "lng": 14.42778,
+      "labels": {
+        "de": "Prager Pulverturm",
+        "en": "Powder Tower",
+        "fr": "tour Poudrière de Prague",
+        "it": "Porta delle polveri",
+        "es": "Torre de la Pólvora"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-old-town-square",
+      "name": "Staroměstské náměstí",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q421678",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Old Town Square",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.0875,
+      "lng": 14.42139,
+      "labels": {
+        "fr": "place de la Vieille-Ville",
+        "es": "Plaza de la Ciudad Vieja",
+        "en": "Old Town Square",
+        "it": "piazza della Città Vecchia",
+        "de": "Altstädter Ring"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-astronomical-clock",
+      "name": "Staroměstský orloj",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q729370",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Prague astronomical clock",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08699,
+      "lng": 14.4207,
+      "labels": {
+        "fr": "horloge astronomique de Prague",
+        "es": "Reloj astronómico de Praga",
+        "en": "Prague Astronomical Clock",
+        "it": "Orologio astronomico di Praga",
+        "de": "Prager Rathausuhr",
+        "el": "Αστρονομικό Ρολόι της Πράγας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-charles-bridge",
+      "name": "Karlův most",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q204871",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Charles Bridge",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08639,
+      "lng": 14.41194,
+      "labels": {
+        "fr": "pont Charles",
+        "es": "puente Carlos",
+        "it": "ponte Carlo",
+        "de": "Karlsbrücke",
+        "el": "Γέφυρα του Καρόλου",
+        "en": "Charles Bridge"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-kampa",
+      "name": "Kampa",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3501077",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Kampa Island",
+          "deltaM": 248
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08722,
+      "lng": 14.40861,
+      "labels": {
+        "en": "Kampa Island",
+        "es": "Isla Kampa",
+        "it": "Kampa",
+        "de": "Kampa",
+        "fr": "île Kampa"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-lennon-wall",
+      "name": "Lennonova zeď",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1630131",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Lennon Wall",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08624,
+      "lng": 14.40695,
+      "labels": {
+        "de": "John-Lennon-Mauer",
+        "fr": "Mur Lennon",
+        "es": "Muro de John Lennon",
+        "en": "Lennon Wall",
+        "it": "Muro di John Lennon",
+        "el": "Τείχος του Λένον"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-castle",
+      "name": "Pražský hrad",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q193369",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Prague Castle",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.09,
+      "lng": 14.4,
+      "labels": {
+        "fr": "château de Prague",
+        "es": "Castillo de Praga",
+        "it": "castello di Praga",
+        "de": "Prager Burg",
+        "el": "Κάστρο της Πράγας",
+        "en": "Prague Castle"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-st-vitus",
+      "name": "Katedrála svatého Víta",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5949",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St. Vitus Cathedral",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.09083,
+      "lng": 14.40056,
+      "labels": {
+        "en": "St. Vitus Cathedral",
+        "de": "Veitsdom",
+        "it": "cattedrale di San Vito",
+        "el": "Καθεδρικός Ναός Αγίου Βίτου",
+        "es": "Catedral de San Vito",
+        "fr": "cathédrale Saint-Guy de Prague"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-petrin-tower",
+      "name": "Petřínská rozhledna",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q12256",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Petřín Lookout Tower",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08354,
+      "lng": 14.39505,
+      "labels": {
+        "fr": "tour de Petřín",
+        "en": "Petřín Lookout Tower",
+        "it": "torre panoramica di Petřín",
+        "de": "Aussichtsturm Petřín",
+        "es": "Petřínská rozhledna"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-wenceslas-square",
+      "name": "Václavské náměstí",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q847613",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Wenceslas Square",
+          "deltaM": 141
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08231,
+      "lng": 14.42614,
+      "labels": {
+        "fr": "place Venceslas",
+        "en": "Wenceslas Square",
+        "es": "Plaza de Wenceslao",
+        "it": "piazza San Venceslao",
+        "de": "Wenzelsplatz",
+        "el": "Πλατεία Βέντσεσλας"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-dancing-house",
+      "name": "Tančící dům",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q244816",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Dancing House",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.07556,
+      "lng": 14.41417,
+      "labels": {
+        "fr": "maison dansante",
+        "es": "Casa Danzante",
+        "it": "Casa danzante",
+        "de": "Tanzendes Haus",
+        "en": "Dancing House",
+        "el": "Κτήριο που χορεύει"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-national-museum",
+      "name": "Historická budova Národního muzea",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q43755714",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 50.07883,
+      "lng": 14.4308,
+      "labels": {
+        "en": "main building of National Museum in Prague",
+        "de": "Hauptgebäude des Prager Nationalmuseums"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-technical-museum",
+      "name": "Budova Národního technického muzea",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1789383",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 50.09746,
+      "lng": 14.42486,
+      "labels": {
+        "de": "Technisches Nationalmuseum in Prag",
+        "en": "National Technical Museum building",
+        "fr": "musée national des techniques de Prague"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-vysehrad",
+      "name": "Vyšehrad",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q616334",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Vyšehrad",
+          "deltaM": 132
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.06443,
+      "lng": 14.41764,
+      "labels": {
+        "de": "Vyšehrad",
+        "el": "Βίσεχραντ",
+        "en": "Vyšehrad",
+        "fr": "Vyšehrad",
+        "it": "Vyšehrad",
+        "es": "Vyšehrad"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-old-new-synagogue",
+      "name": "Staronová synagoga",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q443107",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Old New Synagogue",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.09,
+      "lng": 14.41861,
+      "labels": {
+        "fr": "synagogue Vieille-Nouvelle",
+        "en": "Old New Synagogue",
+        "de": "Altneu-Synagoge",
+        "it": "sinagoga Vecchia-Nuova",
+        "es": "Sinagoga Vieja-Nueva",
+        "el": "Παλιά Νέα Συναγωγή"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-havelske-trziste",
+      "name": "Havelské tržiště",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q31519093",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 50.08467,
+      "lng": 14.42088,
+      "labels": {
+        "en": "Havelské tržiště"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "prague-strahov-stadium",
+      "name": "Velký strahovský stadion",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1353687",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Great Strahov Stadium",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.08034,
+      "lng": 14.38786,
+      "labels": {
+        "en": "Great Strahov Stadium",
+        "es": "Estadio Strahov",
+        "it": "Velký Strahovský Stadion",
+        "de": "Strahov-Stadion",
+        "el": "Στάδιο του Στραχόφ",
+        "fr": "stade de Strahov"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    }
+  ],
+  "problems": []
+}

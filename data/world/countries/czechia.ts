@@ -1,10 +1,16 @@
 /**
  * WiseBot World — Czechia.
  *
- * Same shape as `greece.ts`. Cities arrive later through the pipeline, so `cities` is
- * empty for now. Facts checked against the English Wikipedia articles for Sněžka,
- * Prague Castle, Charles Bridge and Robot (etymology), September 2026. The stamp is
- * inked in Czech on purpose — see the note in `greece.ts`.
+ * Same shape as `greece.ts`. Facts checked against the English Wikipedia articles for
+ * Sněžka, Prague Castle, Charles Bridge and Robot (etymology), September 2026. The stamp
+ * is inked in Czech on purpose — see the note in `greece.ts`.
+ *
+ * Prague arrived on 13 September 2026 as the country's first city. Its `centre` is copied
+ * from `data/world/coords/prague.json`, which echoes the seed, and is Wikidata's point
+ * for Malá Strana rather than for Prague itself: the city's own Wikidata coordinate is
+ * character for character the coordinate of the Old Town Square, which would make the
+ * audit report that square as a centroid mistake. The reasoning is written out in full in
+ * `scripts/world/seeds/prague.json`.
  */
 
 import type { City, Country } from '../types';
@@ -65,4 +71,53 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'prague',
+    countryId: 'czechia',
+    order: 1,
+    emoji: '🕰️',
+
+    name: {
+      el: 'Πράγα',
+      en: 'Prague',
+    },
+
+    intro: {
+      el:
+        'Η Πράγα είναι μια πόλη που δεν γκρέμισε σχεδόν τίποτα. Γι’ αυτό ένα ρολόι του ' +
+        '1410 χτυπάει ακόμα κάθε ώρα, μια συναγωγή του 1270 δεν έκλεισε ποτέ, και ένα ' +
+        'κάστρο που άρχισε ως ξύλινο οχυρό είναι σήμερα το μεγαλύτερο του κόσμου. Στη ' +
+        'μέση κυλάει ο Vltava, με μια πέτρινη γέφυρα από το 1357 και ένα νησί που το ' +
+        'έφτιαξαν άνθρωποι για να αλέθουν αλεύρι. Και όταν βαρεθείς τα παλιά, στην όχθη ' +
+        'στέκονται δύο πύργοι που μοιάζουν να χορεύουν.',
+      en:
+        'Prague is a city that pulled almost nothing down. That is why a clock from 1410 ' +
+        'still strikes every hour, a synagogue from 1270 has never closed, and a castle ' +
+        'that began as a wooden fort is now the largest in the world. The Vltava runs ' +
+        'through the middle, with a stone bridge from 1357 and an island that people made ' +
+        'themselves so they could grind flour. And when you tire of old things, two towers ' +
+        'on the riverbank look as though they are dancing.',
+    },
+
+    /** Copied from `data/world/coords/prague.json`. */
+    centre: { lat: 50.08806, lng: 14.40389 },
+
+    map: {
+      src: '/images/world/maps/prague.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του κέντρου της Πράγας, με τον Vltava, το νησί του, τους λόφους της δύσης και τον βράχο του νότου.',
+        en: 'A stylised map of central Prague, with the Vltava, its island, the western hills and the rock in the south.',
+      },
+      width: 900,
+      height: 1000,
+      /**
+       * Taller than it is wide, because the places are: the Technical Museum sits in the
+       * north on Letná and Vyšehrad in the south, 3.7 km apart, while the east–west
+       * spread from the Strahov stadium to the National Museum is only 3.2 km. These
+       * bounds hold all seventeen with a margin on every side.
+       */
+      bounds: { north: 50.1, south: 50.06, east: 14.438, west: 14.382 },
+    },
+  },
+];
