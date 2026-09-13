@@ -488,6 +488,19 @@ interface CountryViewProps {
   lang: WorldLang;
   country: Country;
   entryDate?: string;
+  /**
+   * The entry stamp is earned by being in the country, not by opening its page. When it
+   * has not been earned yet, this is the button that asks the phone. Every string and
+   * every decision arrives ready-made: this file has never been allowed to decide that a
+   * child has entered a country and still is not.
+   */
+  entry?: {
+    label: string;
+    askingLabel: string;
+    note: string;
+    asking: boolean;
+    onAsk: () => void;
+  };
   cities: CountryCityItem[];
   /**
    * Shown only while the country has no World city yet: the Explorer's cities for it,
@@ -504,6 +517,7 @@ export const CountryView: React.FC<CountryViewProps> = ({
   lang,
   country,
   entryDate,
+  entry,
   cities,
   legacyCities = [],
   onOpenCity,
@@ -563,6 +577,25 @@ export const CountryView: React.FC<CountryViewProps> = ({
             <PassportStamp country={country} date={entryDate} size={96} />
           ) : null}
         </div>
+
+        {/* No stamp yet: offer the one thing that earns it. This component still decides
+            nothing — it calls back and prints whatever sentence it is handed. */}
+        {!entryDate && entry && (
+          <div className="mt-5 rounded-2xl border border-amber-500/25 bg-amber-500/[0.06] p-4">
+            <button
+              type="button"
+              onClick={entry.onAsk}
+              disabled={entry.asking}
+              className={`${WORLD_STYLE.cta} inline-flex min-h-[48px] w-full items-center justify-center gap-2 text-sm disabled:opacity-70`}
+            >
+              <MapPin size={16} aria-hidden />
+              {entry.asking ? entry.askingLabel : entry.label}
+            </button>
+            <p className="mt-2 text-sm font-bold text-white/60" aria-live="polite">
+              {entry.note}
+            </p>
+          </div>
+        )}
 
         <p className={`${WORLD_STYLE.body} mt-5 text-sm sm:text-base`}>{say(country.intro, lang)}</p>
 
