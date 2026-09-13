@@ -86,15 +86,17 @@ export const cities: City[] = [
     intro: {
       el:
         'Η Πράγα είναι μια πόλη που δεν γκρέμισε σχεδόν τίποτα. Γι’ αυτό ένα ρολόι του ' +
-        '1410 χτυπάει ακόμα κάθε ώρα, μια συναγωγή του 1270 δεν έκλεισε ποτέ, και ένα ' +
-        'κάστρο που άρχισε ως ξύλινο οχυρό είναι σήμερα το μεγαλύτερο του κόσμου. Στη ' +
+        '1410 χτυπάει ακόμα κάθε ώρα, μια συναγωγή του 1270 λειτουργεί ακόμα, και ένα ' +
+        'κάστρο που άρχισε ως ξύλινο οχυρό είναι σήμερα το μεγαλύτερο αρχαίο κάστρο ' +
+        'του κόσμου. Στη ' +
         'μέση κυλάει ο Vltava, με μια πέτρινη γέφυρα από το 1357 και ένα νησί που το ' +
         'έφτιαξαν άνθρωποι για να αλέθουν αλεύρι. Και όταν βαρεθείς τα παλιά, στην όχθη ' +
         'στέκονται δύο πύργοι που μοιάζουν να χορεύουν.',
       en:
         'Prague is a city that pulled almost nothing down. That is why a clock from 1410 ' +
-        'still strikes every hour, a synagogue from 1270 has never closed, and a castle ' +
-        'that began as a wooden fort is now the largest in the world. The Vltava runs ' +
+        'still strikes every hour, a synagogue from 1270 is still in use, and a castle ' +
+        'that began as a wooden fort is now the largest ancient castle in the world. ' +
+        'The Vltava runs ' +
         'through the middle, with a stone bridge from 1357 and an island that people made ' +
         'themselves so they could grind flour. And when you tire of old things, two towers ' +
         'on the riverbank look as though they are dancing.',

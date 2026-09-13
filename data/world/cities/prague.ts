@@ -23,8 +23,11 @@
  * viewpoint the resolver reported. Where the way in is worth describing, it is described
  * in words, in `location.findIt`, in both languages.
  *
- * OpenStreetMap did not answer on this pass — the resolver recorded `osm: fetch failed`
- * for all seventeen — so the grades rest on Wikidata and Wikipedia. Three places carry
+ * OpenStreetMap answered for one place out of seventeen. On the re-run of 13 September
+ * 2026 the Old Town Square picked up its Overpass relation 29 m away and is the city's
+ * only `A`; for the other sixteen the resolver recorded `osm: overpass 504` or
+ * `osm: overpass 429`, so their grades rest on Wikidata and Wikipedia. Each
+ * `location.note` names the code its own place got. Three places carry
  * no Wikipedia coordinate either and grade C on Wikidata alone: the two museum buildings,
  * whose articles are about the institutions rather than the buildings, and Havelské
  * tržiště, which has no article in any language. A thin audit trail is not a disagreement.
@@ -104,7 +107,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Powder Tower, Prague', deltaM: 3 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'OpenStreetMap did not answer in the resolver run (Overpass returned 504), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.817, y: 0.319 },
       findIt: {
         el: 'Στέκεται στην άκρη της οδού Celetná, κολλητά στο χρυσό κτίριο Obecní dům. Είναι η μόνη μαύρη πύλη στη γωνία, δεν τη χάνεις.',
@@ -202,13 +205,14 @@ export const places: Place[] = [
       lat: 50.0875,
       lng: 14.42139,
       anchor: 'area',
-      confidence: 'B',
+      confidence: 'A',
       sources: [
         { kind: 'wikidata', ref: 'Q421678', deltaM: 0 },
+        { kind: 'osm', ref: 'relation/2362716', deltaM: 29 },
         { kind: 'wikipedia', ref: 'Old Town Square', deltaM: 1 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area pin in the middle of the square. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone. This coordinate is also, character for character, Wikidata\'s coordinate for the city of Prague itself, which is why the seed uses Malá Strana as the audit\'s centre point instead.',
+      note: 'An area pin in the middle of the square, and the one place here where Overpass answered: the OpenStreetMap relation for the square lands 29 m away, which is why this is the only A in the city. This coordinate is also, character for character, Wikidata\'s coordinate for the city of Prague itself, which is why the seed uses Malá Strana as the audit\'s centre point instead.',
       map: { x: 0.703, y: 0.313 },
       findIt: {
         el: 'Από την Prašná brána πάρε την οδό Celetná προς τα δυτικά. Σε έξι λεπτά ο στενός δρόμος ανοίγει ξαφνικά και είσαι μέσα στην πλατεία.',
@@ -264,9 +268,10 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Αυτό το ρολόι χτύπησε για πρώτη φορά το 1410 και δεν έχει σταματήσει να ' +
-        'δουλεύει από τότε, πράγμα που δεν μπορεί να πει κανένα άλλο αστρονομικό ρολόι ' +
-        'στον κόσμο. Το έφτιαξαν μαζί ένας ωρολογοποιός, ο Mikuláš από το Kadaň, και ' +
+        'Αυτό το ρολόι χτύπησε για πρώτη φορά το 1410 και είναι το παλαιότερο ' +
+        'αστρονομικό ρολόι στον κόσμο που δουλεύει ακόμα. Μέσα σε εξακόσια χρόνια ' +
+        'σταμάτησε πάνω από μία φορά, και κάθε φορά η Πράγα το ξαναέφτιαξε. Το ' +
+        'έφτιαξαν μαζί ένας ωρολογοποιός, ο Mikuláš από το Kadaň, και ' +
         'ένας αστρονόμος, ο Jan Šindel. Ο αστρονόμος ήθελε ένα μηχάνημα που να μη λέει ' +
         'απλώς την ώρα αλλά να δείχνει ολόκληρο τον ουρανό: πού βρίσκεται ο ήλιος, πού ' +
         'το φεγγάρι, ποιο ζώδιο ανατέλλει. Το πάνω καντράν μετράει την ώρα με τρεις ' +
@@ -276,8 +281,9 @@ export const places: Place[] = [
         'γυρίζει την κλεψύδρα του και ένας χρυσός κόκορας λαλεί. Το 1945 το ρολόι κάηκε. ' +
         'Οι Πραγινοί το επισκεύασαν και σκάλισαν καινούργιους Αποστόλους από ξύλο.',
       en:
-        'This clock struck for the first time in 1410 and has been running ever since, ' +
-        'which no other astronomical clock in the world can say. It was made by a ' +
+        'This clock first struck in 1410, and it is the oldest astronomical clock in ' +
+        'the world that still works. Over six hundred years it has stopped more than ' +
+        'once, and each time Prague has mended it. It was made by a ' +
         'clockmaker, Mikuláš of Kadaň, together with an astronomer, Jan Šindel. The ' +
         'astronomer wanted a machine that did not merely tell the time but showed the ' +
         'whole sky: where the sun is, where the moon is, which sign of the zodiac is ' +
@@ -312,7 +318,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Prague astronomical clock', deltaM: 16 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'The clock, not the town hall it is fixed to: Staroměstská radnice is a separate Wikidata item and a separate building. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'The clock, not the town hall it is fixed to: Staroměstská radnice is a separate Wikidata item and a separate building. OpenStreetMap did not answer in the resolver run (Overpass returned 504), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.691, y: 0.325 },
       findIt: {
         el: 'Είναι στον νότιο τοίχο του πύργου του Παλιού Δημαρχείου, στη νοτιοδυτική γωνία της πλατείας. Στάσου από κάτω λίγο πριν χτυπήσει η ώρα.',
@@ -415,7 +421,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Charles Bridge', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'The middle of the span. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'The middle of the span. OpenStreetMap did not answer in the resolver run (Overpass returned 429), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.535, y: 0.34 },
       findIt: {
         el: 'Από την πλευρά της Παλιάς Πόλης μπαίνεις από την πλατεία Křižovnické náměstí, κάτω από τον γοτθικό πύργο της γέφυρας. Πήγαινε νωρίς: αργότερα γεμίζει.',
@@ -518,7 +524,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Kampa Island', deltaM: 248 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area pin on an island about 600 m long, so Wikipedia\'s point 248 m away is a different part of the same island rather than a disagreement — well inside the 500 m tolerance for an area. OpenStreetMap did not answer in the resolver run (the fetch failed), which is why only one source lands inside the agreement band and the grade is C.',
+      note: 'An area pin on an island about 600 m long, so Wikipedia\'s point 248 m away is a different part of the same island rather than a disagreement — well inside the 500 m tolerance for an area. OpenStreetMap did not answer in the resolver run (Overpass returned 429), which is why only one source lands inside the agreement band and the grade is C.',
       map: { x: 0.475, y: 0.319 },
       findIt: {
         el: 'Πέρασε τη γέφυρα και, λίγο πριν από τους πύργους στην απέναντι άκρη, κατέβα τα σκαλιά στα αριστερά. Το πάρκο με τα μωρά είναι μπροστά σου.',
@@ -622,7 +628,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Lennon Wall', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'OpenStreetMap did not answer in the resolver run (Overpass returned 429), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.446, y: 0.344 },
       findIt: {
         el: 'Είναι στη μικρή πλατεία Velkopřevorské náměstí. Από το πάρκο της Kampa περπάτα τρία λεπτά βόρεια και πέρασε το γεφυράκι δίπλα στον νερόμυλο.',
@@ -727,7 +733,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Prague Castle', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area pin on a complex of some seven hectares; the cathedral inside it has its own coordinate 101 m away and is a separate place in this file. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'An area pin on a complex of some seven hectares; the cathedral inside it has its own coordinate 101 m away and is a separate place in this file. OpenStreetMap did not answer in the resolver run (Overpass returned 429), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.321, y: 0.25 },
       findIt: {
         el: 'Οι αυλές είναι ελεύθερες και μπαίνεις από τις πύλες, όπου ελέγχουν τις τσάντες. Από τον τοίχο του Λένον ανηφορίζεις είκοσι λεπτά από την οδό Nerudova.',
@@ -831,7 +837,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'St. Vitus Cathedral', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'Split out of the castle rather than folded into it: the cathedral is its own Wikidata item with its own point, 101 m from the castle\'s. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'Split out of the castle rather than folded into it: the cathedral is its own Wikidata item with its own point, 101 m from the castle\'s. OpenStreetMap did not answer in the resolver run (Overpass returned 504), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.331, y: 0.229 },
       findIt: {
         el: 'Γεμίζει την τρίτη αυλή του κάστρου, οπότε δεν τη βλέπεις ολόκληρη παρά μόνο από κοντά. Μπαίνεις από τη δυτική πλευρά, κάτω από τους δύο ψηλούς πύργους.',
@@ -932,7 +938,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Petřín Lookout Tower', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'A viewpoint: the tower is the chosen spot on a hill a kilometre across, not the hill\'s middle. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'A viewpoint: the tower is the chosen spot on a hill a kilometre across, not the hill\'s middle. OpenStreetMap did not answer in the resolver run (Overpass returned 504), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.233, y: 0.412 },
       findIt: {
         el: 'Είναι τρία λεπτά με τα πόδια από τον πάνω σταθμό του τελεφερίκ, που ξεκινάει από το Újezd. Αλλιώς ανηφορίζεις μέσα από τους κήπους.',
@@ -1036,7 +1042,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Wenceslas Square', deltaM: 141 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area pin on a square 750 m long, so Wikipedia\'s point 141 m away is another stretch of the same paving rather than a disagreement. OpenStreetMap did not answer in the resolver run (the fetch failed), which is why only one source lands inside the agreement band and the grade is C.',
+      note: 'An area pin on a square 750 m long, so Wikipedia\'s point 141 m away is another stretch of the same paving rather than a disagreement. OpenStreetMap did not answer in the resolver run (Overpass returned 504), which is why only one source lands inside the agreement band and the grade is C.',
       map: { x: 0.788, y: 0.442 },
       findIt: {
         el: 'Στέκεται σε πλαγιά, οπότε ξέρεις πάντα πού είσαι: το άγαλμα και το μουσείο είναι στο ψηλό άκρο, ο πεζόδρομος με τα μαγαζιά στο χαμηλό.',
@@ -1141,7 +1147,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Dancing House', deltaM: 1 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'OpenStreetMap did not answer in the resolver run (Overpass returned 429), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.574, y: 0.611 },
       findIt: {
         el: 'Είναι στην προκυμαία Rašínovo nábřeží, στη γωνία της πλατείας Jiráskovo náměstí. Δες το από την απέναντι όχθη: μόνο από εκεί «χορεύει» σωστά.',
@@ -1242,7 +1248,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q43755714', deltaM: 0 }],
       verifiedAt: '2026-09-13',
-      note: 'The building (Q43755714), not the institution (Q188112), which runs a dozen addresses and whose point would be an administrative fiction. That is also why the grade is C: the Wikipedia article is about the institution, so it carries no coordinate for this building, and OpenStreetMap did not answer in the resolver run (the fetch failed). One source, no disagreement.',
+      note: 'The building (Q43755714), not the institution (Q188112), which runs a dozen addresses and whose point would be an administrative fiction. That is also why the grade is C: the Wikipedia article is about the institution, so it carries no coordinate for this building, and OpenStreetMap did not answer in the resolver run (Overpass returned 429). One source, no disagreement.',
       map: { x: 0.871, y: 0.529 },
       findIt: {
         el: 'Κλείνει το πάνω άκρο της Václavské náměstí, οπότε το βλέπεις από ένα χιλιόμετρο μακριά. Ανεβαίνεις τα φαρδιά σκαλιά από την πλευρά της πλατείας.',
@@ -1360,18 +1366,22 @@ export const places: Place[] = [
               blurb: {
                 el:
                   'Κάτω από τον μεγάλο θόλο υπάρχει μια αίθουσα φτιαγμένη σαν ρωμαϊκός ' +
-                  'ναός, γεμάτη αγάλματα και προτομές: πενήντα πέντε συνολικά, ' +
-                  'επιστήμονες, συγγραφείς, ζωγράφοι, ιστορικοί. Δεν τους διάλεξε το ' +
-                  'μουσείο· τους διάλεξε η Βουλή της Βοημίας, και αυτό είναι το πιο ' +
-                  'ενδιαφέρον. Το 1918, όταν άλλαξε το καθεστώς, δύο προτομές βγήκαν ' +
-                  'έξω. Ένας Πάνθεον δείχνει ποιους θαυμάζει μια χώρα σε μια ' +
+                  'ναός, γεμάτη αγάλματα και προτομές: πενήντα τέσσερις από μπρούντζο, ' +
+                  'επιστήμονες, συγγραφείς, ζωγράφοι, ιστορικοί, και δύο ακόμα από ' +
+                  'μάρμαρο. Δεν τους διάλεξε το μουσείο· τους διάλεξε η Βουλή της ' +
+                  'Βοημίας, και αυτό είναι το πιο ενδιαφέρον. Το 1919, όταν άλλαξε το ' +
+                  'κράτος, οι δύο μαρμάρινες προτομές του αυτοκράτορα και της ' +
+                  'αυτοκράτειρας βγήκαν έξω· γύρισαν πίσω το 2018, με τη μεγάλη ' +
+                  'ανακαίνιση. Ένας Πάνθεον δείχνει ποιους θαυμάζει μια χώρα σε μια ' +
                   'συγκεκριμένη στιγμή, και η στιγμή αλλάζει.',
                 en:
                   'Under the great dome is a hall built like a Roman temple, full of ' +
-                  'statues and busts: fifty-five of them, scientists, writers, painters, ' +
-                  'historians. The museum did not choose them; the Bohemian Diet did, and ' +
-                  'that is the interesting part. In 1918, when the state changed, two busts ' +
-                  'were taken out. A pantheon shows who a country admires at one particular ' +
+                  'statues and busts: fifty-four of them in bronze, scientists, writers, ' +
+                  'painters, historians, and two more in marble. The museum did not choose ' +
+                  'them; the Bohemian Diet did, and that is the interesting part. In 1919, ' +
+                  'when the state changed, the two marble busts of the emperor and the ' +
+                  'empress were taken out; they came back in 2018, with the great ' +
+                  'rebuilding. A pantheon shows who a country admires at one particular ' +
                   'moment, and the moment keeps changing.',
               },
               question: {
@@ -1398,8 +1408,8 @@ export const places: Place[] = [
                   },
                 ],
                 explanation: {
-                  el: 'Γι’ αυτό ο κατάλογος άλλαξε το 1918: όταν αλλάζει η πολιτική, αλλάζει και ποιον τιμάς.',
-                  en: 'That is why the list changed in 1918: when politics change, so does who you honour.',
+                  el: 'Γι’ αυτό ο κατάλογος άλλαξε το 1919, και ξανά το 2018: όταν αλλάζει η πολιτική, αλλάζει και ποιον τιμάς.',
+                  en: 'That is why the list changed in 1919, and again in 2018: when politics change, so does who you honour.',
                 },
               },
             },
@@ -1708,19 +1718,25 @@ export const places: Place[] = [
               blurb: {
                 el:
                   'Είκοσι δύο μισό μέτρα από τη μύτη ως την ουρά και τέσσερις τόνοι ' +
-                  'κόκαλα, κρεμασμένα από την οροφή. Είναι σκελετός πτεροφάλαινας, τη ' +
-                  'χάρισε στο μουσείο ο ταξιδευτής Antonín Frič, και είναι τόσο βαριά ' +
-                  'που ακόμα και το να τη μετακινήσουν ήταν εγχείρημα: κατέβηκε για την ' +
-                  'ανακαίνιση και ξανακρεμάστηκε την 1η Σεπτεμβρίου 2021. Στάσου από ' +
-                  'κάτω και κοίτα τα πλευρά της. Η φάλαινα δεν είναι ψάρι, είναι ' +
-                  'θηλαστικό, και τα κόκαλά της το φωνάζουν.',
+                  'κόκαλα, κρεμασμένα από την οροφή. Είναι σκελετός πτεροφάλαινας που ' +
+                  'ξεβράστηκε στη Νορβηγία το 1885. Δεν τον χάρισε κανείς: ο Antonín ' +
+                  'Frič, ο ίδιος ο υπεύθυνος των συλλογών του μουσείου, με τον αδελφό ' +
+                  'του Václav άνοιξαν έρανο και οι Πραγινοί μάζεψαν τα χρήματα για να ' +
+                  'τον αγοράσουν. Είναι τόσο βαρύς που ακόμα και το να τον μετακινήσουν ' +
+                  'είναι εγχείρημα: κατέβηκε για την ανακαίνιση και ξαναμπήκε στην ' +
+                  'έκθεση τον Σεπτέμβριο του 2021. Στάσου από κάτω και κοίτα τα πλευρά ' +
+                  'της. Η φάλαινα δεν είναι ψάρι, είναι θηλαστικό, και τα κόκαλά της το ' +
+                  'φωνάζουν.',
                 en:
                   'Twenty-two and a half metres from nose to tail and four tonnes of bone, ' +
-                  'hanging from the ceiling. It is the skeleton of a fin whale, given to ' +
-                  'the museum by the traveller Antonín Frič, and it is so heavy that simply ' +
-                  'moving it was an operation: it came down for the renovation and was hung ' +
-                  'again on 1 September 2021. Stand underneath and look at the ribs. A ' +
-                  'whale is not a fish but a mammal, and its bones say so out loud.',
+                  'hanging from the ceiling. It is the skeleton of a fin whale washed up in ' +
+                  'Norway in 1885. Nobody gave it to the museum: Antonín Frič, who ran the ' +
+                  'museum’s own collections, and his brother Václav opened a public ' +
+                  'subscription, and the people of Prague raised the money to buy it. It is ' +
+                  'so heavy that simply moving it is an operation: it came down for the ' +
+                  'renovation and was back on show in September 2021. Stand underneath and ' +
+                  'look at the ribs. A whale is not a fish but a mammal, and its bones say ' +
+                  'so out loud.',
               },
               question: {
                 q: {
@@ -1760,16 +1776,20 @@ export const places: Place[] = [
               name: { el: 'Οι τριλοβίτες του Barrande', en: 'Barrande’s trilobites' },
               blurb: {
                 el:
-                  'Ο Joachim Barrande ήταν Γάλλος μηχανικός και ήρθε στη Βοημία για να ' +
-                  'δουλέψει σε έναν σιδηρόδρομο. Στα σκαψίματα είδε πέτρες γεμάτες ' +
+                  'Ο Joachim Barrande ήταν Γάλλος και ήρθε στην Πράγα ως δάσκαλος μιας ' +
+                  'βασιλικής οικογένειας που είχε φύγει εξόριστη από τη Γαλλία. Όταν ' +
+                  'εκείνη μετακόμισε αλλού, αυτός έμεινε και πιάστηκε μηχανικός στη ' +
+                  'χάραξη ενός σιδηροδρόμου με άλογα. Στα σκαψίματα είδε πέτρες γεμάτες ' +
                   'παράξενα ζωάκια με πανοπλία και τρεις λοβούς στο σώμα, τους ' +
                   'τριλοβίτες. Άφησε τον σιδηρόδρομο και πέρασε την υπόλοιπη ζωή του ' +
                   'μελετώντας τα. Οι συλλογές του έκαναν αυτό το μουσείο διάσημο σε ' +
                   'ολόκληρο τον κόσμο. Οι τριλοβίτες ζούσαν στη θάλασσα, κι όμως τους ' +
                   'βρίσκεις σε μια χώρα που δεν έχει καθόλου θάλασσα.',
                 en:
-                  'Joachim Barrande was a French engineer who came to Bohemia to work on a ' +
-                  'railway. In the diggings he saw stones full of strange armoured ' +
+                  'Joachim Barrande was a Frenchman who came to Prague as tutor to a royal ' +
+                  'family living in exile from France. When they moved on he stayed behind ' +
+                  'and took work as an engineer, surveying a railway pulled by horses. In ' +
+                  'the diggings he saw stones full of strange armoured ' +
                   'creatures with three lobes down the body: trilobites. He left the ' +
                   'railway and spent the rest of his life studying them. His collections ' +
                   'made this museum famous all over the world. Trilobites lived in the sea, ' +
@@ -1906,12 +1926,13 @@ export const places: Place[] = [
           difficulty: 3,
           prompt: {
             el:
-              'Είμαι μια αίθουσα σαν ρωμαϊκός ναός και μέσα μου στέκονται πενήντα πέντε ' +
-              'άνθρωποι από πέτρα. Δεν διάλεξα εγώ ποιοι θα είναι, και το 1918 δύο από ' +
-              'αυτούς έφυγαν.',
+              'Είμαι μια αίθουσα σαν ρωμαϊκός ναός και μέσα μου στέκονται πάνω από ' +
+              'πενήντα άνθρωποι από μπρούντζο και μάρμαρο. Δεν διάλεξα εγώ ποιοι θα ' +
+              'είναι, και το 1919 δύο από αυτούς έφυγαν.',
             en:
-              'I am a hall built like a Roman temple and fifty-five people made of stone ' +
-              'stand inside me. I did not choose which ones, and in 1918 two of them left.',
+              'I am a hall built like a Roman temple and more than fifty people in bronze ' +
+              'and marble stand inside me. I did not choose which ones, and in 1919 two ' +
+              'of them left.',
           },
           hint: {
             el: 'Βρίσκομαι ακριβώς κάτω από τον μεγάλο θόλο.',
@@ -1981,7 +2002,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q1789383', deltaM: 0 }],
       verifiedAt: '2026-09-13',
-      note: 'The building (Q1789383), not the organisation (Q96482839). The Wikipedia article is about the organisation and carries no coordinate for the building, and OpenStreetMap did not answer in the resolver run (the fetch failed), so this grades C on Wikidata alone. One source, no disagreement.',
+      note: 'The building (Q1789383), not the organisation (Q96482839). The Wikipedia article is about the organisation and carries no coordinate for the building, and OpenStreetMap did not answer in the resolver run (Overpass returned 429), so this grades C on Wikidata alone. One source, no disagreement.',
       map: { x: 0.765, y: 0.064 },
       findIt: {
         el: 'Είναι στην οδό Kostelní, στη Letná, δίπλα στο γεωργικό μουσείο με το οποίο μοιάζει σαν δίδυμο. Ψάξε το κτίριο με τα τετράγωνα παράθυρα, όχι το διακοσμημένο.',
@@ -2105,15 +2126,19 @@ export const places: Place[] = [
                 el:
                   'Ψηλά στην αίθουσα κρέμεται ένα αεροπλάνο που μοιάζει με χαρταετό από ' +
                   'ξύλο και ύφασμα. Το πέταξε ο Jan Kašpar, ο πρώτος Τσέχος αεροπόρος, ' +
-                  'και είναι φτιαγμένο κατά το σύστημα Blériot, δηλαδή με ένα μόνο ζευγάρι ' +
-                  'φτερών αντί για δύο. Δεν έχει καμπίνα, ούτε ζώνη, ούτε όργανα: ο ' +
+                  'και είναι φτιαγμένο κατά το σύστημα Blériot: το έφτιαξε ο ίδιος, ' +
+                  'ακολουθώντας το σχέδιο του Γάλλου Louis Blériot, που είχε περάσει ' +
+                  'πετώντας τη Μάγχη. Γι’ αυτό έχει ένα μόνο ζευγάρι φτερών αντί για ' +
+                  'δύο. Δεν έχει καμπίνα, ούτε ζώνη, ούτε όργανα: ο ' +
                   'πιλότος καθόταν στον αέρα και κοίταζε κάτω. Πέρασαν μόλις λίγα χρόνια ' +
                   'από την πρώτη πτήση στον κόσμο ως αυτό το μηχάνημα.',
                 en:
                   'High up in the hall hangs an aeroplane that looks like a kite made of ' +
                   'wood and cloth. Jan Kašpar, the first Czech aviator, flew it, and it is ' +
-                  'built on the Blériot system, that is, with a single pair of wings ' +
-                  'instead of two. It has no cabin, no belt and no instruments: the pilot ' +
+                  'built on the Blériot system: he made it himself, following the design ' +
+                  'of the Frenchman Louis Blériot, who had flown across the Channel. That ' +
+                  'is why it has a single pair of wings instead of two. It has no cabin, ' +
+                  'no belt and no instruments: the pilot ' +
                   'sat out in the air and looked down. Only a few years passed between the ' +
                   'world’s first flight and this machine.',
               },
@@ -2124,8 +2149,8 @@ export const places: Place[] = [
                 },
                 answers: [
                   {
-                    el: 'Έχει ένα μόνο ζευγάρι φτερά, και όχι δύο το ένα πάνω στο άλλο',
-                    en: 'It has only one pair of wings, not two one above the other',
+                    el: 'Φτιάχτηκε κατά το σχέδιο του Γάλλου Louis Blériot',
+                    en: 'It follows the design of the Frenchman Louis Blériot',
                   },
                   {
                     el: 'Έχει μηχανή στην ουρά αντί για μπροστά στη μύτη του',
@@ -2142,11 +2167,11 @@ export const places: Place[] = [
                 ],
                 explanation: {
                   el:
-                    'Τα περισσότερα πρώτα αεροπλάνα είχαν δύο φτερά το ένα πάνω από το ' +
-                    'άλλο. Το ένα ζευγάρι ήταν το τολμηρό σχέδιο.',
+                    'Ο Blériot ήταν ο πρώτος που πέταξε πάνω από τη Μάγχη. Ο Kašpar ' +
+                    'αντέγραψε το σχέδιό του και έφτιαξε μόνος του το αεροπλάνο.',
                   en:
-                    'Most early aeroplanes had two wings, one above the other. A single ' +
-                    'pair was the daring design.',
+                    'Blériot was the first man to fly across the Channel. Kašpar copied ' +
+                    'his design and built the aeroplane himself.',
                 },
               },
             },
@@ -2738,7 +2763,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Vyšehrad', deltaM: 132 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area pin on a fortress the size of a small village, so Wikipedia\'s point 132 m away is another corner of the same walls rather than a disagreement. OpenStreetMap did not answer in the resolver run (the fetch failed), which is why only one source lands inside the agreement band and the grade is C.',
+      note: 'An area pin on a fortress the size of a small village, so Wikipedia\'s point 132 m away is another corner of the same walls rather than a disagreement. OpenStreetMap did not answer in the resolver run (Overpass returned 429), which is why only one source lands inside the agreement band and the grade is C.',
       map: { x: 0.636, y: 0.889 },
       findIt: {
         el: 'Ανηφορίζεις από το ποτάμι ή μπαίνεις από την τούβλινη πύλη Táborská brána στην ανατολική πλευρά. Μέσα στα τείχη ο δρόμος γίνεται ξαφνικά χωματόδρομος.',
@@ -2795,8 +2820,8 @@ export const places: Place[] = [
     story: {
       el:
         'Χτίστηκε γύρω στο 1270, όταν η γοτθική αρχιτεκτονική ήταν καινούργια στην ' +
-        'Πράγα, και από τότε δεν έπαψε ποτέ να χρησιμοποιείται. Είναι η παλαιότερη ' +
-        'συναγωγή της Ευρώπης που λειτουργεί ακόμα. Το εσωτερικό της είναι ασυνήθιστο: ' +
+        'Πράγα, και είναι η παλαιότερη συναγωγή της Ευρώπης που λειτουργεί ακόμα. ' +
+        'Το εσωτερικό της είναι ασυνήθιστο: ' +
         'δύο σειρές θόλων στηρίζονται σε μία μόνο σειρά κολόνων στη μέση, σχέδιο που ' +
         'σχεδόν πουθενά αλλού δεν σώζεται. Το όνομα «Παλιά-Νέα» μπερδεύει, και ο ' +
         'λόγος έχει ξεχαστεί: ήταν καινούργια όταν υπήρχε ήδη μια παλαιότερη, και ένας ' +
@@ -2804,24 +2829,26 @@ export const places: Place[] = [
         'γνωστός θρύλος αφορά τη σοφίτα της: εκεί λένε ότι αναπαύεται ο Γκόλεμ, μια ' +
         'φιγούρα από πηλό που έφτιαξε ο ραβίνος Löw. Η σοφίτα δεν είναι ανοιχτή. Στον ' +
         'πόλεμο της δεκαετίας του 1940 οι περισσότερες εβραϊκές οικογένειες της Πράγας ' +
-        'εκτοπίστηκαν και δεν γύρισαν· η συναγωγή έμεινε όρθια, και εξακολουθεί να είναι ' +
-        'ανοιχτή για προσευχή.',
+        'εκτοπίστηκαν και δεν γύρισαν, και από το 1941 ως το 1945 η συναγωγή έμεινε ' +
+        'κλειστή. Το κτίριο σώθηκε, οι προσευχές ξανάρχισαν το 1945, και συνεχίζονται ' +
+        'μέχρι σήμερα.',
       en:
-        'It was built around 1270, when Gothic building was new in Prague, and it has ' +
-        'never stopped being used since. It is the oldest synagogue in Europe still in ' +
+        'It was built around 1270, when Gothic building was new in Prague, and it is the ' +
+        'oldest synagogue in Europe that is still in ' +
         'use. Inside it is unusual: two rows of vaults rest on a single row of pillars ' +
         'down the middle, a design that survives almost nowhere else. The name “Old-New” ' +
         'is confusing, and the reason has been forgotten: it was new when an older one ' +
         'already existed, and one legend says its stones came from Jerusalem “on ' +
         'condition”. The best-known legend is about its attic: there, they say, rests the ' +
         'Golem, a figure of clay made by Rabbi Löw. The attic is not open. In the war of ' +
-        'the 1940s most of Prague’s Jewish families were taken away and did not come back; ' +
-        'the synagogue stood, and it is still open for prayer.',
+        'the 1940s most of Prague’s Jewish families were taken away and did not come back, ' +
+        'and from 1941 to 1945 the synagogue was shut. The building survived, prayers began ' +
+        'again in 1945, and they have carried on ever since.',
     },
     facts: [
       {
-        el: 'Ολοκληρώθηκε γύρω στο 1270 και δεν έπαψε ποτέ να χρησιμοποιείται.',
-        en: 'It was completed around 1270 and has never stopped being used.',
+        el: 'Ολοκληρώθηκε γύρω στο 1270 και μέσα της λέγονται προσευχές μέχρι σήμερα.',
+        en: 'It was completed around 1270 and prayers are still said in it today.',
       },
       {
         el: 'Οι θόλοι της στηρίζονται σε μία μόνο σειρά κολόνων, σχέδιο σπανιότατο.',
@@ -2842,7 +2869,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Old New Synagogue', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'OpenStreetMap did not answer in the resolver run (Overpass returned 504), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.654, y: 0.25 },
       findIt: {
         el: 'Στέκεται χαμηλά, στη συνοικία Josefov, ανάμεσα σε πολύ πιο ψηλά κτίρια του 1900. Ψάξε την απότομη τούβλινη σκεπή με τα σκαλοπάτια στο περίγραμμά της.',
@@ -2874,11 +2901,11 @@ export const places: Place[] = [
       ],
       explanation: {
         el:
-          'Χτίστηκε γύρω στο 1270 και δεν σταμάτησε ποτέ να λειτουργεί. Επτακόσια πενήντα ' +
-          'χρόνια συνεχούς χρήσης δεν τα έχει άλλη στην Ευρώπη.',
+          'Χτίστηκε γύρω στο 1270 και μέσα της λέγονται ακόμα προσευχές. Καμιά άλλη ' +
+          'συναγωγή στην Ευρώπη δεν λειτουργεί τόσα χρόνια.',
         en:
-          'It was built around 1270 and has never stopped working. No other synagogue in ' +
-          'Europe has seven hundred and fifty unbroken years.',
+          'It was built around 1270 and prayers are still said in it. No other synagogue ' +
+          'in Europe has been in use for so long.',
       },
     },
   },
@@ -2941,7 +2968,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q31519093', deltaM: 0 }],
       verifiedAt: '2026-09-13',
-      note: 'Wikidata alone: this market has no Wikipedia article in any language, and OpenStreetMap did not answer in the resolver run (the fetch failed). One source, no disagreement. The pin is an area pin on the surviving line of stalls, not on any one of them.',
+      note: 'Wikidata alone: this market has no Wikipedia article in any language, and OpenStreetMap did not answer in the resolver run (Overpass returned 504). One source, no disagreement. The pin is an area pin on the surviving line of stalls, not on any one of them.',
       map: { x: 0.694, y: 0.383 },
       findIt: {
         el: 'Είναι στην οδό Havelská, ανάμεσα στη Melantrichova και στο Na Můstku. Πήγαινε το πρωί: το απόγευμα οι πάγκοι μαζεύονται.',
@@ -3046,7 +3073,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Great Strahov Stadium', deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
-      note: 'An area pin in the middle of the field. OpenStreetMap did not answer in the resolver run (the fetch failed), so the grade rests on Wikidata and Wikipedia alone.',
+      note: 'An area pin in the middle of the field. OpenStreetMap did not answer in the resolver run (Overpass returned 504), so the grade rests on Wikidata and Wikipedia alone.',
       map: { x: 0.105, y: 0.492 },
       findIt: {
         el: 'Είναι στην κορυφή του λόφου, δυτικά από τον πύργο του Petřín. Περπατάς μέσα από τους κήπους περίπου είκοσι λεπτά και τα τείχη εμφανίζονται ξαφνικά.',
@@ -3144,8 +3171,8 @@ export const trails: Trail[] = [
     emoji: '🪨',
     name: { el: 'Οι παλαιότερες πέτρες', en: 'The oldest stones' },
     promise: {
-      el: 'Ένας βράχος με θρύλο, μια αίθουσα που δεν έκλεισε ποτέ, και η τελευταία αγορά του Μεσαίωνα.',
-      en: 'A rock with a legend, a hall that never closed, and the last market of the Middle Ages.',
+      el: 'Ένας βράχος με θρύλο, μια αίθουσα προσευχής επτακοσίων ετών, και η τελευταία αγορά του Μεσαίωνα.',
+      en: 'A rock with a legend, a hall of prayer seven hundred years old, and the last medieval market.',
     },
     placeIds: [
       'prague-vysehrad',

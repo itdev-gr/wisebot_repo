@@ -1,6 +1,6 @@
 {
   "city": "prague",
-  "resolvedAt": "2026-09-13T07:29:56.081Z",
+  "resolvedAt": "2026-09-13T11:43:21.529Z",
   "centre": {
     "lat": 50.08806,
     "lng": 14.40389
@@ -23,7 +23,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.08722,
       "lng": 14.42778,
@@ -48,14 +48,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/2362716",
+          "deltaM": 29
+        },
+        {
           "kind": "wikipedia",
           "ref": "Old Town Square",
           "deltaM": 1
         }
       ],
-      "warnings": [
-        "osm: fetch failed"
-      ],
+      "warnings": [],
       "lat": 50.0875,
       "lng": 14.42139,
       "labels": {
@@ -65,7 +68,7 @@
         "it": "piazza della Città Vecchia",
         "de": "Altstädter Ring"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-13"
     },
     {
@@ -85,7 +88,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.08699,
       "lng": 14.4207,
@@ -117,7 +120,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 50.08639,
       "lng": 14.41194,
@@ -149,7 +152,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 50.08722,
       "lng": 14.40861,
@@ -180,7 +183,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 50.08624,
       "lng": 14.40695,
@@ -212,7 +215,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 50.09,
       "lng": 14.4,
@@ -244,7 +247,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.09083,
       "lng": 14.40056,
@@ -276,7 +279,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.08354,
       "lng": 14.39505,
@@ -307,7 +310,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.08231,
       "lng": 14.42614,
@@ -339,7 +342,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 50.07556,
       "lng": 14.41417,
@@ -366,7 +369,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed",
+        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 50.07883,
@@ -390,7 +393,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed",
+        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 50.09746,
@@ -420,7 +423,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 429"
       ],
       "lat": 50.06443,
       "lng": 14.41764,
@@ -452,7 +455,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.09,
       "lng": 14.41861,
@@ -479,7 +482,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed",
+        "osm: overpass 504",
         "wikipedia: no match"
       ],
       "lat": 50.08467,
@@ -507,7 +510,7 @@
         }
       ],
       "warnings": [
-        "osm: fetch failed"
+        "osm: overpass 504"
       ],
       "lat": 50.08034,
       "lng": 14.38786,
