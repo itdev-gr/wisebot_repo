@@ -82,6 +82,25 @@ B adds a city by adding **one new file** and running `node scripts/world/build-r
 Nobody edits a shared list, so nobody has a merge conflict. When a wave of overlays lands,
 **one** session runs the final regeneration — not twelve translators in parallel.
 
+10. **A wrong answer must read as an ANSWER to the question, not merely be false.**
+    Every check built on 13 Σεπτεμβρίου asks whether a distractor is untrue. This one asks
+    whether it is even a candidate, and an option that is not one excludes itself without
+    failing anything — so no gate can see it, and the question quietly becomes a
+    three-option question.
+
+    The Mona Lisa's question asks what *made* her famous, so all four options have to be
+    causes. One was «the biggest painting here» — a bare noun phrase naming a different
+    painting on the same wall. It was false, its explanation did not argue for it, and it
+    passed every rule we had. It was simply answering a different question, and a child
+    would drop it on sight without knowing anything.
+
+    It now reads «its enormous size», a possessive phrase in all four languages, so it is
+    unambiguously about the Mona Lisa, stands as the subject of "made her famous", and is
+    false: the painting is 77 by 53 centimetres.
+
+    Like rule 9, this needs a person — read the stem and all four options together and ask
+    whether they all answer the same thing.
+
 ---
 
 ## Sequencing — the only hard dependency
