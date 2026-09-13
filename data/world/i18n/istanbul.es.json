@@ -38,7 +38,7 @@
         "answers": [
           "Un sarcófago de dentro",
           "El Partenón de Atenas",
-          "La Puerta Imperial del palacio",
+          "La Puerta Imperial",
           "Un banco de París"
         ],
         "explanation": "El sarcófago de Alejandro tiene forma de templo pequeño. El arquitecto, Alexander Vallaury, le dio un edificio con la misma cara."
@@ -64,8 +64,8 @@
               "q": "¿Quién estaba seguramente enterrado en este sarcófago?",
               "answers": [
                 "Un rey de Sidón",
-                "El propio Alejandro Magno",
-                "Un general del ejército persa",
+                "Alejandro Magno",
+                "Un general de Persia",
                 "Un emperador romano"
               ],
               "explanation": "Abdalónimo era un jardinero al que Alejandro hizo rey. El ataúd enseña a su amigo, no a él."
@@ -79,7 +79,7 @@
               "answers": [
                 "Lo derramaron",
                 "Se vendió a unos médicos",
-                "Se guarda aquí en una botella",
+                "Sigue ahí dentro",
                 "Se evaporó al sol"
               ],
               "explanation": "Los obreros lo tiraron antes de que nadie pudiera estudiarlo. Hamdi Bey solo guardó un poco de barro del fondo."
@@ -91,10 +91,10 @@
             "question": {
               "q": "¿Por qué el hombre que lo encontró en 1882 volvió a enterrarlo?",
               "answers": [
-                "Pesaba demasiado",
+                "Era demasiado pesado",
                 "Temía su maldición",
                 "Para esconderlo de los ladrones",
-                "Los del pueblo lo echaron"
+                "Los vecinos lo echaron"
               ],
               "explanation": "Treinta y dos toneladas no se mueven en un carro. Hicieron falta veinte años, búfalos y un tren."
             }
@@ -106,8 +106,8 @@
               "q": "¿Dónde cuelga hoy una copia grande de este tratado?",
               "answers": [
                 "En las Naciones Unidas",
-                "En El Cairo, en las pirámides",
-                "En el tesoro del palacio de Topkapı",
+                "En las pirámides",
+                "En el palacio de Topkapı",
                 "En el parlamento de Ankara"
               ],
               "explanation": "Los países del mundo eligieron la promesa de paz más antigua para la pared de su casa en Nueva York."
@@ -119,9 +119,9 @@
             "question": {
               "q": "¿Dónde estaba la tablilla cuando Kramer la descubrió en 1951?",
               "answers": [
-                "En un cajón",
+                "Dentro de un cajón",
                 "Enterrada en una tumba",
-                "En la biblioteca del palacio",
+                "En la biblioteca",
                 "En el fondo del mar"
               ],
               "explanation": "El museo tenía 74.000 tablillas. La más bonita esperó tranquila en su cajón hasta que alguien vino a leerla."
@@ -135,7 +135,7 @@
               "answers": [
                 "Un trípode de oro",
                 "Una estatua de Apolo",
-                "Una lámpara que nunca se apagaba",
+                "Una lámpara siempre encendida",
                 "Un caldero con agua"
               ],
               "explanation": "El trípode de oro desapareció siglos antes de que la columna se fuera de Delfos; el bronce de debajo se quedó."
@@ -150,7 +150,7 @@
                 "De ladrillo vidriado",
                 "De mármol pintado",
                 "De bronce fundido",
-                "De madera de cedro tallada"
+                "De cedro tallado"
               ],
               "explanation": "Cada ladrillo se cocía con su trozo de animal encima y luego se cubría con un color como de cristal. Por eso todavía brillan."
             }
@@ -187,8 +187,8 @@
         "answers": [
           "El jardín del palacio",
           "Un hipódromo de caballos",
-          "El mercado de pescado de la ciudad",
-          "Un campo de maniobras del ejército"
+          "El mercado de pescado",
+          "Un campo de maniobras"
         ],
         "explanation": "Era el jardín exterior de Topkapı, y solo podía entrar la gente del palacio. La puerta sur del parque sigue siendo una de las puertas del palacio."
       },
@@ -207,8 +207,8 @@
       "question": {
         "q": "¿Qué diseñó Leonardo da Vinci para este sitio en 1502?",
         "answers": [
-          "Un puente de un arco",
-          "Un túnel por debajo del agua",
+          "Un puente de un solo arco",
+          "Un túnel submarino",
           "Un faro con ascensor",
           "Un mercado flotante de madera"
         ],
@@ -230,7 +230,7 @@
         "q": "¿Por dónde entran hoy los visitantes al Patriarcado?",
         "answers": [
           "Por una puerta lateral",
-          "Por la gran puerta principal",
+          "Por la puerta principal",
           "Por un puente levadizo",
           "En barca desde el embarcadero"
         ],
@@ -252,9 +252,9 @@
         "q": "¿Por qué parece que la gran cúpula flota en el aire?",
         "answers": [
           "Un anillo de ventanas",
-          "Espejos en las paredes",
-          "Está hecha de cristal",
-          "Globos aerostáticos escondidos"
+          "Espejos en la pared",
+          "Es toda de cristal",
+          "Globos escondidos"
         ],
         "explanation": "Las ventanas de alrededor de la base cortan una cinta de luz, así que tu ojo no ve dónde se apoya de verdad la cúpula."
       },
@@ -274,9 +274,9 @@
         "q": "¿Qué hizo el sultán para que su mezquita tuviera todos los azulejos que necesitaba?",
         "answers": [
           "Prohibió otras ventas",
-          "Compró los talleres de İznik",
-          "Construyó su propia fábrica de azulejos",
-          "Pagaba el doble por cada azulejo"
+          "Compró talleres de İznik",
+          "Construyó su propia fábrica",
+          "Pagaba doble por azulejos"
         ],
         "explanation": "En 1613 prohibió a los alfareros de İznik vender azulejos a nadie más hasta que terminaran sus propios encargos."
       }
@@ -295,9 +295,9 @@
         "q": "¿Quién podía cruzar a caballo la Puerta del Saludo?",
         "answers": [
           "Solo el sultán",
-          "Solo el gran visir",
-          "Cualquier embajador extranjero",
-          "Cualquier guardia del palacio"
+          "El gran visir",
+          "Embajadores extranjeros",
+          "Los guardias"
         ],
         "explanation": "Todos los demás, incluso los embajadores de los reyes, se bajaban del caballo delante de las dos torres de la puerta. Era una manera de recordarle a todo el mundo quién mandaba."
       },
@@ -322,9 +322,9 @@
               "q": "¿De quién copiaron los otomanos la regla de bajarse del caballo en la puerta?",
               "answers": [
                 "De los bizantinos",
-                "De los reyes de Persia",
-                "De los mercaderes genoveses",
-                "De los faraones de Egipto"
+                "De los reyes persas",
+                "De mercaderes genoveses",
+                "De faraones egipcios"
               ],
               "explanation": "En la Puerta Chalke del palacio bizantino valía la misma regla, y los nuevos dueños de la ciudad la mantuvieron."
             }
@@ -380,7 +380,7 @@
                 "El sah había muerto",
                 "Al sah le pareció feo",
                 "Los enviados se perdieron",
-                "Su relojito se había parado"
+                "Su reloj estaba parado"
               ],
               "explanation": "Los enviados se enteraron de su muerte antes de llegar a la frontera, y un regalo para alguien que ya no está no se entrega."
             }
@@ -430,8 +430,8 @@
         "q": "¿Qué esperan los tenderos que hagas con el primer precio que oyes?",
         "answers": [
           "Ofrecer menos",
-          "Pagarlo enseguida",
-          "Pagar el doble por suerte",
+          "Pagar enseguida",
+          "Pagar el doble",
           "Irte enfadado"
         ],
         "explanation": "El primer precio es el principio de una conversación, no el final. El vendedor empieza alto, tú empiezas bajo, y os encontráis por el medio, muchas veces con un té."
@@ -451,7 +451,7 @@
       "question": {
         "q": "¿Qué trabajo hacía la torre para los otomanos desde 1717?",
         "answers": [
-          "Vigía de incendios",
+          "Vigilancia de incendios",
           "Faro para los barcos",
           "El dormitorio del sultán",
           "Reloj de la ciudad"
@@ -518,9 +518,9 @@
         "q": "¿Por qué se llama el Bazar Egipcio?",
         "answers": [
           "Lo pagó Egipto",
-          "Aquí compraban los faraones",
+          "Aquí compraban faraones",
           "Vende arena del Nilo",
-          "Su arquitecto era egipcio"
+          "Arquitecto egipcio"
         ],
         "explanation": "Los impuestos que el imperio cobraba en Egipto pagaron la obra, y el nombre se quedó."
       },
@@ -540,8 +540,8 @@
         "q": "¿Por qué tienen los minaretes exactamente diez balcones?",
         "answers": [
           "Era el décimo sultán",
-          "Hubo diez maestros de obra",
-          "Uno por cada uno de sus diez hijos",
+          "Trabajaron diez maestros",
+          "Uno por cada hijo suyo",
           "Diez años de obras"
         ],
         "explanation": "Solimán era el décimo sultán desde que empezó la dinastía, y Sinan lo escribió en los minaretes con balcones en vez de letras."
@@ -560,8 +560,8 @@
       "question": {
         "q": "¿Quiénes vendían flores aquí y le dieron su nombre al pasaje?",
         "answers": [
-          "Nobles rusas",
-          "Los jardineros del sultán",
+          "Aristócratas rusas",
+          "Jardineros del sultán",
           "Escolares griegos",
           "Comerciantes holandeses de tulipanes"
         ],
@@ -637,7 +637,7 @@
             "question": {
               "q": "¿Qué empuja a este coche cuando está en el agua?",
               "answers": [
-                "Dos hélices",
+                "Sus dos hélices",
                 "Sus cuatro ruedas girando",
                 "Una vela pequeña plegable",
                 "Remos por las ventanillas"
@@ -666,9 +666,9 @@
               "q": "¿Por qué pararon los tranvías de la ciudad en 1966?",
               "answers": [
                 "Para dejar paso al autobús",
-                "Porque se acabó la electricidad",
-                "Porque los raíles se oxidaron",
-                "Porque la gente les tenía miedo"
+                "Porque se acabó la corriente",
+                "Porque se oxidaron las vías",
+                "Porque la gente los temía"
               ],
               "explanation": "En los años sesenta muchas ciudades creían que el futuro era el autobús. En 1990 la ciudad cambió de idea."
             }
@@ -680,7 +680,7 @@
               "q": "¿Qué tiraba de este vagón por dentro del túnel?",
               "answers": [
                 "Cables de acero",
-                "Una locomotora delante",
+                "Una cadena pesada",
                 "Dos caballos fuertes",
                 "Un motor propio"
               ],
@@ -717,7 +717,7 @@
       "question": {
         "q": "¿Cómo se conservaron los mosaicos durante siglos dentro de la mezquita?",
         "answers": [
-          "Bajo el yeso",
+          "Bajo una capa de yeso",
           "Detrás de paneles de madera",
           "Bajo alfombras gruesas",
           "Encerrados en el palacio"

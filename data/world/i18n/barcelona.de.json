@@ -15,9 +15,9 @@
         "q": "Was stand an dieser Stelle, bevor die überdachte Markthalle gebaut wurde?",
         "answers": [
           "Ein Kloster",
-          "Ein Burgturm",
-          "Ein Fischerhafen",
-          "Ein Königsgarten"
+          "Eine Burg",
+          "Ein Fischkai",
+          "Ein Palast"
         ],
         "explanation": "Das Kloster des heiligen Josef fiel 1835. Fünf Jahre später, am Tag des Heiligen, wurde der erste Stein des Marktes gelegt, der seinen Namen trägt."
       }
@@ -34,10 +34,10 @@
       "question": {
         "q": "Wohin zeigt Kolumbus mit seinem Finger?",
         "answers": [
-          "Aufs Meer",
+          "Hinaus aufs Meer",
           "Nach Amerika",
-          "Auf die Kathedrale",
-          "Hoch in den Himmel"
+          "Auf die alte Kathedrale",
+          "Zum Himmel"
         ],
         "explanation": "Er zeigt nach Südosten, aufs offene Meer. Amerika liegt in der Gegenrichtung, hinter seinem Rücken."
       }
@@ -55,9 +55,9 @@
         "q": "Was ist in diesem Museum drin, das du in einer Stadt nicht erwarten würdest?",
         "answers": [
           "Ein Stück Regenwald",
-          "Ein Leuchtturm, der noch arbeitet",
-          "Ein zugefrorener See zum Eislaufen",
-          "Ein unterirdischer Bahnhof"
+          "Ein Leuchtturm, der arbeitet",
+          "Ein See zum Eislaufen",
+          "Ein U-Bahnhof"
         ],
         "explanation": "Tausend Quadratmeter Amazonas, mit echten Tieren, echten Pflanzen und echtem Regen, fünf Stockwerke unter dem Eingang."
       },
@@ -82,9 +82,9 @@
               "q": "Wie kam dieser Baum ins Museum?",
               "answers": [
                 "Er starb von selbst im Wald",
-                "Er wurde gepflanzt, als das Museum öffnete",
-                "Holzfäller fällten ihn für Möbel",
-                "Er ist aus Beton und Farbe gemacht"
+                "Er wurde hier im Museum gepflanzt",
+                "Holzfäller fällten ihn für Holz",
+                "Er ist aus Beton"
               ],
               "explanation": "Er ist echt und über 300 Jahre alt. Nachdem er an Altersschwäche gestorben war, wurde er aus Brasilien hergebracht."
             }
@@ -96,8 +96,8 @@
               "q": "Warum wirft das Pendel nach und nach alle Pfosten um sich herum um?",
               "answers": [
                 "Die Erde dreht sich darunter",
-                "Ein Motor dreht es Stück für Stück",
-                "Der Luftzug von der Tür schiebt es",
+                "Ein Motor dreht es",
+                "Der Luftzug der Tür bewegt es",
                 "Sein Draht wickelt sich langsam ab"
               ],
               "explanation": "Das Pendel schwingt immer in derselben Ebene. Der Fußboden, die Pfosten und du drehen sich mit dem Planeten."
@@ -109,10 +109,10 @@
             "question": {
               "q": "Woraus besteht die Geologische Wand?",
               "answers": [
-                "Echter Fels",
-                "Bemalter Gips",
+                "Echte Felsplatten",
+                "Gips und Farbe",
                 "Eingefärbter Beton",
-                "Große Fotos"
+                "Große Bilder"
               ],
               "explanation": "Es sind sieben große Platten aus echtem Fels, jede von einem anderen geologischen Vorgang geformt."
             }
@@ -123,10 +123,10 @@
             "question": {
               "q": "Mit welchem Tier ist das Capybara am nächsten verwandt?",
               "answers": [
-                "Meerschweinchen",
-                "Ein junges Flusspferd",
-                "Ein kleines Wildschwein",
-                "Ein großer Fischotter"
+                "Ein Meerschweinchen",
+                "Ein Flusspferd",
+                "Ein Wildschwein",
+                "Ein Fischotter"
               ],
               "explanation": "Es ist ein Nagetier, wie das Meerschweinchen und die Maus, nur dass es so viel wiegt wie ein erwachsener Mensch."
             }
@@ -137,9 +137,9 @@
             "question": {
               "q": "Wie jagt ein Kaiman?",
               "answers": [
-                "Er wartet reglos",
+                "Er wartet völlig reglos",
                 "Er rennt am Ufer entlang",
-                "Er klettert auf Bäume",
+                "Er klettert auf die Bäume",
                 "Er jagt nachts im Rudel"
               ],
               "explanation": "Er sieht aus wie ein Baumstamm, und an einen Baumstamm kommt alles nah heran. Das ist der ganze Trick."
@@ -154,7 +154,7 @@
                 "Um sich zu schützen",
                 "Um größere Tiere zu jagen",
                 "Allein sehen sie schlecht",
-                "Um sich gemeinsam zu wärmen"
+                "Zum Aufwärmen"
               ],
               "explanation": "Ein kleiner Fisch im Schwarm ist schwerer zu fangen. Der Angriff im Rudel ist vor allem eine Geschichte."
             }
@@ -166,9 +166,9 @@
               "q": "Was machen die Ameisen mit den Blättern, die sie tragen?",
               "answers": [
                 "Sie züchten darauf Pilze",
-                "Sie fressen sie nachts im Nest",
-                "Sie bauen daraus das Nestdach",
-                "Sie geben sie der Königin als Bett"
+                "Sie fressen sie im Nest",
+                "Sie bauen daraus ihr Nest",
+                "Sie geben sie der Königin"
               ],
               "explanation": "Die Blätter sind der Kompost. Der Pilz, der darauf wächst, ist das Essen. Sie sind Bauern."
             }
@@ -204,7 +204,7 @@
         "answers": [
           "Eine für jedes Lebensjahr",
           "Eine für jede Glocke im Turm",
-          "Eine für jede Kapelle im Kreuzgang",
+          "Eine für jede Kapelle der Kirche",
           "Eine für jedes alte Stadttor"
         ],
         "explanation": "Die heilige Eulàlia war dreizehn Jahre alt. Die Gänse zählen ihre Jahre und bewachen nebenbei den Garten."
@@ -223,9 +223,9 @@
         "q": "Wofür wurde dieser Bogen gebaut?",
         "answers": [
           "Als Tor einer Ausstellung",
-          "Als Denkmal für eine große Schlacht",
-          "Als Tor in der alten Stadtmauer",
-          "Als Brücke für eine Eisenbahnlinie"
+          "Als Denkmal für eine Schlacht",
+          "Als Tor in der Stadtmauer",
+          "Als Brücke für eine Eisenbahn"
         ],
         "explanation": "Die meisten Triumphbögen feiern Siege im Krieg. Dieser feierte Erfindungen: Er war die Eingangstür der Weltausstellung von 1888."
       }
@@ -243,9 +243,9 @@
         "q": "Warum wurde die Werft direkt an den Strand gebaut?",
         "answers": [
           "Damit Schiffe ins Wasser glitten",
-          "Weil der Stein am Meer billiger war",
-          "Weil der König direkt am Strand wohnte",
-          "Damit Matrosen im Sand schlafen konnten"
+          "Weil der Stein hier billiger war",
+          "Weil der König am Meer wohnte",
+          "Damit Matrosen im Sand schlafen"
         ],
         "explanation": "Eine 60 Meter lange Galeere kann man nicht tragen. Man baut sie dort, wo sie schwimmen wird, mit dem Meer vor der Tür."
       },
@@ -284,8 +284,8 @@
               "q": "Warum wurden die Hallen so hoch gebaut?",
               "answers": [
                 "Damit ein Schiff hineinpasste",
-                "Damit der Gesang besser hallte",
-                "Damit Schiffe sie von weitem sahen",
+                "Damit der Gesang hallte",
+                "Damit Matrosen sie sahen",
                 "Damit die Sommerhitze draußen blieb"
               ],
               "explanation": "Es sieht aus wie eine Kirche, ist aber eine Fabrik. Die Höhe verlangten die Masten."
@@ -299,8 +299,8 @@
               "answers": [
                 "Um Taucher zu schützen",
                 "Um feindliche Schiffe zu versenken",
-                "Um versunkene Schätze zu suchen",
-                "Um ein Wettrennen im Hafen zu gewinnen"
+                "Um Schätze zu suchen",
+                "Um ein Wettrennen zu gewinnen"
               ],
               "explanation": "Taucher, die Korallen holten, ertranken. Monturiol wollte sie sicher nach unten bringen."
             }
@@ -312,9 +312,9 @@
               "q": "Wen zeigt diese Galionsfigur, wie man erzählt?",
               "answers": [
                 "Die Tochter des Kapitäns",
-                "Die damalige Königin von Spanien",
-                "Die heilige Eulàlia von Barcelona",
-                "Die Frau des Bildhauers, der sie schnitzte"
+                "Die junge Königin von Spanien",
+                "Die Heilige von Barcelona",
+                "Die Frau des Bildhauers"
               ],
               "explanation": "Maria Parés starb jung. Ihr Vater setzte sie an den Bug seines Schiffes, und als das Schiff zu Ende war, holte er sie nach Hause."
             }
@@ -326,9 +326,9 @@
               "q": "Was wurde nach dieser Galionsfigur benannt?",
               "answers": [
                 "Ein Viertel und sein Markt",
-                "Eine Station der städtischen Metro",
-                "Ein Schlepper, der im Hafen arbeitet",
-                "Die Fußballmannschaft des Hafens"
+                "Eine Metrostation",
+                "Ein Schlepper, der hier arbeitet",
+                "Die Fußballmannschaft der Stadt"
               ],
               "explanation": "Sie hing vor einer Taverne. Die Taverne wurde berühmt, und das Viertel ringsum nahm den Namen der Puppe an."
             }
@@ -340,9 +340,9 @@
               "q": "Wie kam das Museum zu diesem Schiff?",
               "answers": [
                 "Es kaufte es auf einer Auktion",
-                "Es baute es selbst in der Werft",
-                "Es fand es gesunken im Hafen liegen",
-                "Der König von Spanien schenkte es ihm"
+                "Es baute es in der Werft",
+                "Es fand es in der Nähe gesunken",
+                "Der spanische König schenkte es ihm"
               ],
               "explanation": "1997, als es ein müdes Begleitschiff für Taucher war. Seine Restaurierung war die erste ihrer Art in Spanien."
             }
@@ -377,9 +377,9 @@
         "q": "Was kopiert das Avió, das Fahrgeschäft, das über dem Abgrund kreist?",
         "answers": [
           "Ein altes Flugzeug",
-          "Eine Rakete aus einem Film",
-          "Den ersten Hubschrauber Spaniens",
-          "Einen Ballon aus dem 19. Jahrhundert"
+          "Eine Rakete",
+          "Den ersten Hubschrauber",
+          "Einen Heißluftballon mit Korb"
         ],
         "explanation": "Es ist eine Kopie des Flugzeugs, das den ersten Flug Barcelona–Madrid machte. Es fliegt seit 1928, immer im Kreis."
       },
@@ -398,9 +398,9 @@
         "q": "Warum ist der höchste Turm genau 172,5 Meter hoch und nicht höher?",
         "answers": [
           "Damit der Montjuïc höher bleibt",
-          "Weil der Boden nicht mehr Gewicht tragen konnte",
+          "Weil der Boden nicht mehr Gewicht trug",
           "Weil die Stadt höhere Türme verbot",
-          "Weil Gaudí das Geld für den Stein ausging"
+          "Weil das Geld ausging"
         ],
         "explanation": "Gaudí glaubte, ein Werk von Menschen dürfe nicht höher stehen als das, was die Natur gemacht hat. Der Montjuïc ist ein wenig höher, und dort hörte er auf."
       },
@@ -420,8 +420,8 @@
         "answers": [
           "Damit jedes Stockwerk gleich hell ist",
           "Weil die blaue Farbe auf halbem Weg ausging",
-          "Damit das Haus vom Dach aus tiefer wirkt",
-          "Weil die unteren Stockwerke billiger waren"
+          "Damit es innen tiefer aussieht",
+          "Die unteren Stockwerke waren am billigsten"
         ],
         "explanation": "Oben fällt viel Licht herein, also halten dunkle Kacheln es zurück. Unten kommt wenig an, und helle Kacheln und größere Fenster holen alles daraus."
       },
@@ -439,10 +439,10 @@
       "question": {
         "q": "Was trägt das Gebäude?",
         "answers": [
-          "Ein Eisenskelett",
+          "Ein Eisenskelett innen",
           "Dicke Mauern aus Stein",
-          "Hölzerne Dachbalken",
-          "Die Häuser nebenan"
+          "Dicke Holzbalken unter dem Dach",
+          "Die Nachbarhäuser"
         ],
         "explanation": "Die steinerne Fassade hängt am Eisenskelett wie ein Vorhang. Deshalb konnten die Wände drinnen den Platz wechseln."
       },
@@ -461,9 +461,9 @@
         "q": "Warum begannen die Fans, sich an diesem Brunnen zu treffen?",
         "answers": [
           "Eine Zeitung schrieb hier die Ergebnisse",
-          "Hier stand das erste Stadion der Mannschaft",
-          "Die Spieler tranken vor den Spielen daraus",
-          "Der Gründer des Vereins wohnte im Haus nebenan"
+          "Hier stand das erste Stadion des Vereins",
+          "Die Spieler tranken hier vor dem Spiel",
+          "Der Gründer des Vereins wohnte nebenan"
         ],
         "explanation": "Vor dem Radio erfuhr man den Spielstand dort, wo ihn jemand anschrieb. Die Zeitung zog weg, die Gewohnheit blieb."
       }
@@ -481,9 +481,9 @@
         "q": "Was war Gaudís allererster Auftrag für die Stadt?",
         "answers": [
           "Zwei Laternen",
-          "Ein Trinkbrunnen",
-          "Eine Reihe Parkbänke",
-          "Der Garten mit den Palmen"
+          "Ein Wasserbrunnen",
+          "Bänke in einer Reihe",
+          "Ein Palmengarten"
         ],
         "explanation": "Er war 25, und sein Diplom kam zwei Monate später. Der geflügelte Helm oben gehört Hermes."
       }
@@ -501,9 +501,9 @@
         "q": "Was kommt aus dem Maul des Drachen, wenn es stark regnet?",
         "answers": [
           "Wasser aus einem Becken",
-          "Rauch aus einem versteckten Schornstein",
-          "Sand, der von der Terrasse gespült wird",
-          "Nichts, es ist nur eine Figur"
+          "Rauch aus einem Schornstein",
+          "Sand von der Terrasse",
+          "Nichts, es ist eine Figur"
         ],
         "explanation": "Die Terrasse sammelt den Regen, die hohlen Säulen bringen ihn hinunter, und das Becken darunter fasst 1.200 Kubikmeter. Der Drache ist der Überlauf."
       },
@@ -523,8 +523,8 @@
         "answers": [
           "Neues Feld",
           "Großes Stadion",
-          "Feld der Träume",
-          "Heim der Meister"
+          "Traumfeld",
+          "Heim der Sieger"
         ],
         "explanation": "1957 war es „neu“, verglichen mit dem alten Platz in Les Corts. Der Name blieb, auch jetzt, wo es siebzig Jahre alt ist."
       }
@@ -544,7 +544,7 @@
           "Er war weiß",
           "Er konnte zählen",
           "Er wurde hier geboren",
-          "Er war doppelt so groß"
+          "Er hatte grüne Augen"
         ],
         "explanation": "Er war ein Albino: Sein Körper machte keinen Farbstoff. Seine 21 Kinder waren alle dunkel, wie jeder andere Gorilla."
       },
@@ -563,9 +563,9 @@
         "q": "Aus welchem Meer kommen die meisten Tiere des Aquariums?",
         "answers": [
           "Aus dem Mittelmeer",
-          "Aus der Karibik, bei Kuba",
-          "Aus dem Roten Meer, bei Ägypten",
-          "Aus dem Pazifik, bei Japan"
+          "Aus der Karibik",
+          "Aus dem Atlantik",
+          "Aus dem Pazifik"
         ],
         "explanation": "Es ist das Meer direkt vor der Tür. Für Arten des Mittelmeers ist dieses Aquarium das größte in Europa."
       },

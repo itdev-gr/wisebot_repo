@@ -38,7 +38,7 @@
         "answers": [
           "Un sarcofago del museo",
           "Il Partenone di Atene",
-          "La Porta Imperiale del palazzo",
+          "La Porta Imperiale",
           "Una banca di Parigi"
         ],
         "explanation": "Il Sarcofago di Alessandro ha la forma di un piccolo tempio. L’architetto Alexander Vallaury gli diede un edificio con la stessa faccia."
@@ -64,7 +64,7 @@
               "q": "Chi fu probabilmente sepolto in questo sarcofago?",
               "answers": [
                 "Un re di Sidone",
-                "Alessandro Magno in persona",
+                "Alessandro Magno",
                 "Un generale persiano",
                 "Un imperatore romano"
               ],
@@ -79,7 +79,7 @@
               "answers": [
                 "Fu buttato via",
                 "Fu venduto a dei medici",
-                "È conservato qui in una bottiglia",
+                "È ancora lì dentro",
                 "Evaporò al sole"
               ],
               "explanation": "Gli operai lo versarono via prima che qualcuno potesse studiarlo. Hamdi Bey tenne solo un po’ di fanghiglia dal fondo."
@@ -91,7 +91,7 @@
             "question": {
               "q": "Perché l’uomo che lo trovò nel 1882 lo seppellì di nuovo?",
               "answers": [
-                "Era troppo pesante",
+                "Era fin troppo pesante",
                 "Aveva paura della maledizione",
                 "Per nasconderlo ai ladri",
                 "I contadini lo cacciarono"
@@ -106,8 +106,8 @@
               "q": "Dove è appesa oggi una grande copia di questo trattato?",
               "answers": [
                 "Alle Nazioni Unite",
-                "Al Cairo, alle piramidi",
-                "Nel tesoro del palazzo Topkapı",
+                "Alle piramidi",
+                "Nel palazzo Topkapı",
                 "Nel parlamento di Ankara"
               ],
               "explanation": "Le nazioni del mondo hanno scelto la promessa di pace più antica per il muro della loro casa a New York."
@@ -119,9 +119,9 @@
             "question": {
               "q": "Dov’era la tavoletta quando Kramer la scoprì nel 1951?",
               "answers": [
-                "In un cassetto",
+                "Dentro un cassetto",
                 "Sepolta in una tomba",
-                "Nella biblioteca del palazzo",
+                "Nella biblioteca",
                 "Sul fondo del mare"
               ],
               "explanation": "Il museo aveva 74.000 tavolette. La più bella aspettava tranquilla nel suo cassetto, finché non arrivò qualcuno a leggerla."
@@ -135,7 +135,7 @@
               "answers": [
                 "Un tripode d’oro",
                 "Una statua di Apollo",
-                "Una lampada sempre accesa",
+                "Una lampada mai spenta",
                 "Un calderone d’acqua"
               ],
               "explanation": "Il tripode d’oro era sparito secoli prima che la colonna lasciasse Delfi; il bronzo di sotto è rimasto."
@@ -150,7 +150,7 @@
                 "Di mattoni smaltati",
                 "Di marmo dipinto",
                 "Di bronzo fuso",
-                "Di legno di cedro scolpito"
+                "Di cedro scolpito"
               ],
               "explanation": "Ogni mattone veniva cotto con il suo pezzo di animale sopra e poi coperto di un colore vetroso. Per questo brillano ancora."
             }
@@ -187,7 +187,7 @@
         "answers": [
           "Il giardino del palazzo",
           "Una pista per i cavalli",
-          "Il mercato del pesce della città",
+          "Il mercato del pesce",
           "Un campo di parate dell’esercito"
         ],
         "explanation": "Era il giardino esterno del Topkapı, e potevano entrarci solo quelli che vivevano a palazzo. Il cancello sud del parco è ancora una porta del palazzo."
@@ -207,8 +207,8 @@
       "question": {
         "q": "Che cosa disegnò Leonardo da Vinci per questo punto nel 1502?",
         "answers": [
-          "Un ponte a un solo arco",
-          "Un tunnel sotto l’acqua",
+          "Un ponte con un solo arco",
+          "Un tunnel subacqueo",
           "Un faro con l’ascensore",
           "Un mercato di legno galleggiante"
         ],
@@ -230,7 +230,7 @@
         "q": "Da dove entrano oggi i visitatori nel Patriarcato?",
         "answers": [
           "Da una porta laterale",
-          "Dalla grande porta centrale",
+          "Dalla porta centrale",
           "Su un ponte levatoio",
           "In barca dal molo"
         ],
@@ -252,9 +252,9 @@
         "q": "Perché la grande cupola sembra sospesa in aria?",
         "answers": [
           "Un anello di finestre",
-          "Gli specchi sulle pareti",
-          "È fatto tutto di vetro",
-          "Delle mongolfiere nascoste"
+          "Gli specchi sulla parete",
+          "È tutta di vetro",
+          "Dei palloncini nascosti"
         ],
         "explanation": "Le finestre tutt’intorno alla base tagliano una striscia di luce, così il tuo occhio non vede dove la cupola poggia davvero."
       },
@@ -275,8 +275,8 @@
         "answers": [
           "Vietò le altre vendite",
           "Comprò i laboratori di İznik",
-          "Si costruì una sua fabbrica",
-          "Pagò il doppio ogni piastrella"
+          "Si costruì una fabbrica",
+          "Pagò doppio le piastrelle"
         ],
         "explanation": "Nel 1613 vietò ai ceramisti di İznik di vendere piastrelle a chiunque altro, finché non fossero finite le sue ordinazioni."
       }
@@ -295,9 +295,9 @@
         "q": "Chi poteva passare a cavallo dalla Porta del Saluto?",
         "answers": [
           "Solo il sultano",
-          "Solo il gran visir",
-          "Ogni ambasciatore straniero",
-          "Ogni guardia del palazzo"
+          "Il gran visir",
+          "Ambasciatori stranieri",
+          "Le guardie"
         ],
         "explanation": "Tutti gli altri, perfino gli ambasciatori dei re, scendevano da cavallo davanti alle due torri della porta. Era un modo per ricordare a tutti chi comandava."
       },
@@ -322,9 +322,9 @@
               "q": "Da chi presero gli ottomani la regola di scendere da cavallo alla porta?",
               "answers": [
                 "Dai bizantini",
-                "Dai re di Persia",
-                "Dai mercanti genovesi",
-                "Dai faraoni d’Egitto"
+                "Dai re persiani",
+                "Da mercanti genovesi",
+                "Da faraoni egiziani"
               ],
               "explanation": "Alla Porta Chalke del palazzo bizantino valeva la stessa regola, e i nuovi padroni della città la tennero."
             }
@@ -380,7 +380,7 @@
                 "Lo scià era morto",
                 "Lo scià lo trovò brutto",
                 "Gli inviati si persero",
-                "Il suo orologino si era fermato"
+                "Il suo orologio si era fermato"
               ],
               "explanation": "Gli inviati seppero della sua morte prima di arrivare al confine, e un regalo per qualcuno che non c’è più non si consegna."
             }
@@ -430,9 +430,9 @@
         "q": "Che cosa si aspettano i negozianti che tu faccia con il primo prezzo che senti?",
         "answers": [
           "Offrire meno",
-          "Pagarlo subito",
-          "Pagare il doppio per fortuna",
-          "Andartene arrabbiato"
+          "Pagare subito",
+          "Pagare il doppio",
+          "Andare via arrabbiato"
         ],
         "explanation": "Il primo prezzo è l’inizio di una conversazione, non la fine. Il venditore parte alto, tu parti basso, e vi incontrate a metà strada, spesso davanti a un tè."
       },
@@ -451,7 +451,7 @@
       "question": {
         "q": "Che lavoro faceva la torre per gli ottomani dal 1717?",
         "answers": [
-          "Vedetta antincendio",
+          "Una vedetta antincendio",
           "Il faro dello stretto",
           "La camera da letto del sultano",
           "L’orologio della città"
@@ -520,7 +520,7 @@
           "Lo pagò l’Egitto",
           "Qui facevano la spesa i faraoni",
           "Vende sabbia del Nilo",
-          "Il suo architetto era egiziano"
+          "Architetto egiziano"
         ],
         "explanation": "Le tasse che l’impero raccoglieva in Egitto pagarono la costruzione, e il nome è rimasto."
       },
@@ -540,8 +540,8 @@
         "q": "Perché i minareti hanno esattamente dieci balconi?",
         "answers": [
           "Era il decimo sultano",
-          "Ci lavorarono dieci capomastri",
-          "Uno per ognuno di dieci figli",
+          "Ci lavorarono dieci mastri",
+          "Uno per ogni suo figlio",
           "Dieci anni di lavori"
         ],
         "explanation": "Solimano era il decimo sultano dall’inizio della dinastia, e Sinan lo scrisse sui minareti con i balconi invece che con le lettere."
@@ -637,9 +637,9 @@
             "question": {
               "q": "Che cosa spinge questa automobile quando è in acqua?",
               "answers": [
-                "Due eliche",
+                "Le sue due eliche",
                 "Le sue quattro ruote che girano",
-                "Una piccola vela pieghevole",
+                "Una vela",
                 "Dei remi dai finestrini"
               ],
               "explanation": "Le ruote servono solo a sterzare, come un timone. La spinta viene da due eliche dietro, come su una barca a motore."
@@ -666,9 +666,9 @@
               "q": "Perché i tram della città si fermarono nel 1966?",
               "answers": [
                 "Per far posto agli autobus",
-                "Perché era finita la corrente",
-                "Perché le rotaie erano arrugginite",
-                "Perché la gente ne aveva paura"
+                "Perché finì la corrente",
+                "Perché le rotaie si arrugginirono",
+                "Perché la gente li temeva"
               ],
               "explanation": "Negli anni Sessanta molte città credevano che il futuro fosse l’autobus. Nel 1990 la città cambiò idea."
             }
@@ -680,9 +680,9 @@
               "q": "Che cosa tirava questo vagone dentro il tunnel?",
               "answers": [
                 "Cavi d’acciaio",
-                "Una locomotiva davanti",
+                "Una catena pesante",
                 "Due cavalli robusti",
-                "Un motore proprio"
+                "Il suo motore"
               ],
               "explanation": "La macchina a vapore stava in cima alla collina e faceva girare il tamburo; il resto del lavoro lo faceva il cavo."
             }
@@ -717,7 +717,7 @@
       "question": {
         "q": "Come si sono conservati i mosaici per secoli dentro la moschea?",
         "answers": [
-          "Sotto l’intonaco",
+          "Sotto uno strato d’intonaco",
           "Dietro pannelli di legno",
           "Sotto tappeti spessi",
           "Chiusi a chiave nel palazzo"

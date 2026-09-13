@@ -15,9 +15,9 @@
         "q": "Qu’y avait-il à cet endroit avant la construction du marché couvert ?",
         "answers": [
           "Un couvent",
-          "Une tour de château",
-          "Un port de pêche",
-          "Un jardin royal"
+          "Un château",
+          "Un quai de pêche",
+          "Un palais"
         ],
         "explanation": "Le couvent de Saint-Joseph est tombé en 1835. Cinq ans plus tard, le jour de la fête du saint, on a posé la première pierre du marché qui porte son nom."
       }
@@ -34,7 +34,7 @@
       "question": {
         "q": "Où Colomb pointe-t-il son doigt ?",
         "answers": [
-          "Vers la mer",
+          "Vers la mer ouverte",
           "Vers l’Amérique",
           "Vers la cathédrale",
           "Vers le ciel"
@@ -55,9 +55,9 @@
         "q": "Qu’y a-t-il dans ce musée qu’on ne s’attend pas à trouver en ville ?",
         "answers": [
           "Un bout de jungle",
-          "Un phare de bord de mer en service",
-          "Un lac gelé pour patiner",
-          "Une gare de train souterraine"
+          "Un phare en service",
+          "Un lac pour patiner",
+          "Une gare souterraine"
         ],
         "explanation": "Mille mètres carrés d’Amazonie, avec de vrais animaux, de vraies plantes et de la vraie pluie, cinq étages sous l’entrée."
       },
@@ -82,9 +82,9 @@
               "q": "Comment cet arbre s’est-il retrouvé au musée ?",
               "answers": [
                 "Il est mort tout seul dans la forêt",
-                "On l’a planté ici à l’ouverture du musée",
-                "Des bûcherons l’ont abattu pour en faire des meubles",
-                "Il est fabriqué en béton et en peinture"
+                "On l’a planté ici au musée",
+                "Des bûcherons l’ont abattu pour son bois",
+                "Il est fait de béton et de peinture"
               ],
               "explanation": "Il est vrai et il a plus de 300 ans. On l’a rapporté du Brésil après qu’il est mort de vieillesse."
             }
@@ -96,9 +96,9 @@
               "q": "Pourquoi le pendule fait-il tomber peu à peu tous les piquets autour de lui ?",
               "answers": [
                 "La Terre tourne sous lui",
-                "Un moteur le fait tourner petit à petit",
-                "Le courant d’air de la porte le pousse",
-                "Son fil se déroule lentement quand il se balance"
+                "Un moteur le fait tourner lentement",
+                "Un courant d’air de la porte le fait bouger",
+                "Son fil se déroule lentement"
               ],
               "explanation": "Le pendule se balance toujours dans le même plan. C’est le plancher, les piquets et toi qui tournez avec la planète."
             }
@@ -109,10 +109,10 @@
             "question": {
               "q": "De quoi est fait le Mur géologique ?",
               "answers": [
-                "De vraie roche",
-                "Du plâtre peint",
+                "De vrais blocs de roche",
+                "Du plâtre et de la peinture",
                 "Du béton coloré",
-                "De grandes photographies"
+                "De grandes images"
               ],
               "explanation": "Ce sont sept grands blocs de vraie roche, chacun façonné par un phénomène géologique différent."
             }
@@ -124,9 +124,9 @@
               "q": "Quel animal est le plus proche parent du capybara ?",
               "answers": [
                 "Un cochon d’Inde",
-                "Un jeune hippopotame",
-                "Un petit sanglier",
-                "Une grande loutre de rivière"
+                "Un hippopotame",
+                "Un sanglier",
+                "Une loutre de rivière"
               ],
               "explanation": "C’est un rongeur, comme le cochon d’Inde et la souris, sauf qu’il pèse autant qu’un adulte."
             }
@@ -137,9 +137,9 @@
             "question": {
               "q": "Comment le caïman chasse-t-il ?",
               "answers": [
-                "Il ne bouge pas",
+                "Il attend sans bouger du tout",
                 "Il court sur la berge",
-                "Il grimpe aux arbres",
+                "Il grimpe dans les arbres",
                 "Il chasse en bande la nuit"
               ],
               "explanation": "Il ressemble à un tronc, et tout le monde s’approche d’un tronc. C’est tout le truc."
@@ -153,8 +153,8 @@
               "answers": [
                 "Pour se protéger",
                 "Pour chasser de grosses proies",
-                "Ils voient mal tout seuls",
-                "Pour se réchauffer ensemble"
+                "Ils voient mal seuls",
+                "Pour se tenir chaud"
               ],
               "explanation": "Un petit poisson dans un banc est plus difficile à attraper. L’attaque en bande, c’est surtout une histoire."
             }
@@ -166,9 +166,9 @@
               "q": "Que font les fourmis des feuilles qu’elles transportent ?",
               "answers": [
                 "Elles y cultivent un champignon",
-                "Elles les mangent la nuit dans le nid",
-                "Elles s’en servent pour le toit du nid",
-                "Elles les donnent à la reine pour son lit"
+                "Elles les mangent dans le nid",
+                "Elles en font leur nid",
+                "Elles les donnent à la reine"
               ],
               "explanation": "Les feuilles sont l’engrais. Le champignon qui pousse dessus est la nourriture. Ce sont des agricultrices."
             }
@@ -204,8 +204,8 @@
         "answers": [
           "Une pour chaque année de sa vie",
           "Une pour chaque cloche du clocher",
-          "Une pour chaque chapelle du cloître",
-          "Une pour chaque ancienne porte de la ville"
+          "Une pour chaque chapelle de l’église",
+          "Une pour chaque ancienne porte"
         ],
         "explanation": "Sainte Eulalie avait treize ans. Les oies comptent ses années, et en même temps elles gardent le jardin."
       }
@@ -223,9 +223,9 @@
         "q": "À quoi cet arc devait-il servir ?",
         "answers": [
           "L’entrée d’une exposition",
-          "Un monument pour une grande bataille",
-          "Une porte dans les vieux remparts",
-          "Un pont pour une ligne de chemin de fer"
+          "Un monument à une bataille",
+          "Une porte dans les remparts",
+          "Un pont pour un chemin de fer"
         ],
         "explanation": "La plupart des arcs de triomphe fêtent des victoires à la guerre. Celui-ci a fêté des inventions : c’était la porte d’entrée de l’Exposition universelle de 1888."
       }
@@ -243,8 +243,8 @@
         "q": "Pourquoi le chantier naval a-t-il été construit juste sur la plage ?",
         "answers": [
           "Pour que les bateaux glissent à l’eau",
-          "Parce que la pierre coûtait moins cher près de la mer",
-          "Parce que le roi habitait sur le rivage",
+          "Parce que la pierre coûtait moins cher ici",
+          "Parce que le roi habitait près de la mer",
           "Pour que les marins dorment sur le sable"
         ],
         "explanation": "Une galère de 60 mètres ne se transporte pas. On la construit là où elle flottera, avec la mer qui arrive jusqu’à la porte."
@@ -284,9 +284,9 @@
               "q": "Pourquoi les salles ont-elles été bâties si hautes ?",
               "answers": [
                 "Pour qu’un navire tienne dedans",
-                "Pour que les chants résonnent mieux",
-                "Pour que les bateaux les voient de loin",
-                "Pour garder la chaleur de l’été dehors"
+                "Pour que les chants résonnent",
+                "Pour être vues des marins",
+                "Pour tenir la chaleur de l’été dehors"
               ],
               "explanation": "Ça ressemble à une église, mais c’est une usine. Ce sont les mâts qui ont demandé la hauteur."
             }
@@ -299,8 +299,8 @@
               "answers": [
                 "Pour protéger les plongeurs",
                 "Pour couler des navires ennemis",
-                "Pour chercher des trésors engloutis",
-                "Pour gagner une course dans le port"
+                "Pour chercher un trésor",
+                "Pour gagner une course"
               ],
               "explanation": "Les plongeurs qui ramassaient le corail se noyaient. Monturiol voulait pouvoir les descendre en sécurité."
             }
@@ -312,9 +312,9 @@
               "q": "Qui représente cette figure de proue, selon la tradition ?",
               "answers": [
                 "La fille du capitaine",
-                "La reine d’Espagne de l’époque",
-                "Sainte Eulalie de Barcelone",
-                "La femme du sculpteur qui l’a taillée"
+                "La jeune reine d’Espagne",
+                "La sainte de Barcelone",
+                "La femme du sculpteur"
               ],
               "explanation": "Maria Parés est morte jeune. Son père l’a mise à l’avant de son navire, et quand le navire a fini sa vie, il l’a ramenée à la maison."
             }
@@ -326,9 +326,9 @@
               "q": "Qu’est-ce qui a pris le nom de cette figure de proue ?",
               "answers": [
                 "Un quartier et son marché",
-                "Une station du métro de la ville",
-                "Un remorqueur qui travaille dans le port",
-                "L’équipe de football du port"
+                "Une station du métro",
+                "Un remorqueur qui travaille ici",
+                "L’équipe de football de la ville"
               ],
               "explanation": "Elle était accrochée devant une taverne. La taverne est devenue célèbre, et le quartier autour a pris le nom de la poupée."
             }
@@ -340,8 +340,8 @@
               "q": "Comment le musée est-il devenu propriétaire de ce navire ?",
               "answers": [
                 "Il l’a acheté aux enchères",
-                "Il l’a construit lui-même au chantier",
-                "Il l’a trouvé coulé dans le port",
+                "Il l’a construit au chantier",
+                "Il l’a trouvé coulé tout près",
                 "Le roi d’Espagne l’a offert"
               ],
               "explanation": "En 1997, quand c’était un navire d’assistance aux plongeurs bien fatigué. Sa restauration a été la première du genre en Espagne."
@@ -376,10 +376,10 @@
       "question": {
         "q": "Que copie l’Avió, le manège qui tourne au-dessus du vide ?",
         "answers": [
-          "Un vieil avion",
+          "Un des premiers avions",
           "Une fusée de cinéma",
-          "Le premier hélicoptère du pays",
-          "Un ballon du XIXe siècle"
+          "Le premier hélicoptère",
+          "Une montgolfière avec un panier"
         ],
         "explanation": "C’est une copie de l’avion qui a fait le premier vol Barcelone-Madrid. Il vole depuis 1928, toujours en rond."
       },
@@ -398,8 +398,8 @@
         "q": "Pourquoi la plus haute tour fait-elle exactement 172,5 mètres et pas davantage ?",
         "answers": [
           "Pour rester plus basse que Montjuïc",
-          "Parce que le sol ne supportait pas plus de poids",
-          "Parce que la ville interdisait des tours plus hautes",
+          "Le sol ne supportait pas plus de poids",
+          "La ville interdisait les tours plus hautes",
           "Parce que Gaudí n’avait plus d’argent pour la pierre"
         ],
         "explanation": "Gaudí pensait qu’une œuvre humaine ne doit pas se dresser plus haut que ce que la nature a fait. La colline Montjuïc est un peu plus haute, et c’est là qu’il s’est arrêté."
@@ -418,10 +418,10 @@
       "question": {
         "q": "Pourquoi les carreaux du puits de lumière deviennent-ils plus clairs quand on descend ?",
         "answers": [
-          "Pour que tous les étages soient aussi clairs",
-          "Parce que la peinture bleue a manqué à mi-chemin",
-          "Pour que la maison paraisse plus profonde vue du toit",
-          "Parce que les étages du bas coûtaient moins cher"
+          "Pour que chaque étage ait la même lumière",
+          "La peinture bleue a manqué à mi-chemin",
+          "Pour que l’intérieur paraisse plus profond",
+          "Les étages du bas étaient les moins chers"
         ],
         "explanation": "En haut, il entre beaucoup de lumière, donc les carreaux foncés la retiennent. En bas, il en arrive peu, et les carreaux clairs et les grandes fenêtres en tirent le maximum."
       },
@@ -439,9 +439,9 @@
       "question": {
         "q": "Qu’est-ce qui tient le bâtiment debout ?",
         "answers": [
-          "Un squelette de fer",
+          "Un squelette de fer à l’intérieur",
           "Les gros murs de pierre",
-          "Les poutres en bois du toit",
+          "Les poutres en bois de la toiture",
           "Les maisons des voisins"
         ],
         "explanation": "La façade de pierre est accrochée au squelette comme un rideau. C’est pour cela que les murs à l’intérieur pouvaient changer de place."
@@ -460,10 +460,10 @@
       "question": {
         "q": "Pourquoi les supporters ont-ils commencé à se rassembler à cette fontaine ?",
         "answers": [
-          "Un journal y affichait les scores",
+          "Un journal y affichait les résultats",
           "Le premier stade de l’équipe était ici",
-          "Les joueurs y buvaient avant les matchs",
-          "Le fondateur du club habitait la maison d’à côté"
+          "Les joueurs y buvaient avant un match",
+          "Le fondateur du club habitait à côté"
         ],
         "explanation": "Avant la radio, tu apprenais le score là où quelqu’un l’écrivait. Le journal est parti ; l’habitude est restée."
       }
@@ -481,9 +481,9 @@
         "q": "Quelle a été la toute première commande de Gaudí pour la ville ?",
         "answers": [
           "Deux réverbères",
-          "Une fontaine à boire",
-          "Une rangée de bancs",
-          "Le jardin de palmiers"
+          "Une fontaine d’eau",
+          "Des bancs en rang",
+          "Un jardin de palmiers"
         ],
         "explanation": "Il avait 25 ans et son diplôme est arrivé deux mois plus tard. Le casque ailé au sommet est celui d’Hermès."
       }
@@ -501,9 +501,9 @@
         "q": "Qu’est-ce qui sort de la bouche du dragon quand il pleut beaucoup ?",
         "answers": [
           "L’eau d’une citerne",
-          "De la fumée d’une cheminée cachée",
-          "Du sable emporté de la terrasse",
-          "Rien, c’est seulement une statue"
+          "De la fumée d’une cheminée",
+          "Du sable de la terrasse",
+          "Rien, c’est une statue"
         ],
         "explanation": "La terrasse ramasse la pluie, les colonnes creuses la font descendre, et la citerne en dessous contient 1 200 mètres cubes. Le dragon, c’est le trop-plein."
       },
@@ -523,8 +523,8 @@
         "answers": [
           "Terrain neuf",
           "Stade immense",
-          "Terrain des rêves",
-          "Maison des champions"
+          "Terrain de rêve",
+          "Maison des gagnants"
         ],
         "explanation": "Il était « neuf » en 1957, par rapport à l’ancien terrain de Les Corts. Le nom est resté, même maintenant qu’il a soixante-dix ans."
       }
@@ -544,7 +544,7 @@
           "Il était blanc",
           "Il savait compter",
           "Il est né dans ce zoo",
-          "Il était deux fois plus grand"
+          "Il avait les yeux verts"
         ],
         "explanation": "Il était albinos : son corps ne fabriquait pas de pigment. Ses 21 petits étaient tous foncés, comme tous les gorilles."
       },
@@ -562,10 +562,10 @@
       "question": {
         "q": "De quelle mer viennent la plupart des animaux de l’aquarium ?",
         "answers": [
-          "La Méditerranée",
-          "La mer des Caraïbes, près de Cuba",
-          "La mer Rouge, à côté de l’Égypte",
-          "L’océan Pacifique, près du Japon"
+          "La mer Méditerranée",
+          "La mer des Caraïbes",
+          "L’océan Atlantique",
+          "L’océan Pacifique"
         ],
         "explanation": "C’est la mer qui se trouve juste devant la porte. L’aquarium est le plus grand d’Europe pour les espèces de la Méditerranée."
       },
