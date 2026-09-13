@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 850" width="1000" height="850" role="img" aria-label="Stylised map of Lisbon">
+  <title>Lisbon — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/portugal.ts
+    (north 38.776, south 38.682, east -9.0848, west -9.2265) so that place pins can be
+    projected onto it rather than positioned by hand. The box is about 12.3 km by 10.5 km,
+    which is the 1000 × 850 ratio of the drawing, so nothing stretches. The Tagus, the
+    hills of the old town, Belém in the south-west and the Parque das Nações in the
+    north-east are placed from those bounds; nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f0e3" />
+      <stop offset="1" stop-color="#ebe0cb" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9ecadb" />
+      <stop offset="1" stop-color="#6ba8c4" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ded2b9" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="850" fill="url(#ground)" />
+  <rect width="1000" height="850" fill="url(#grid)" opacity="0.55" />
+
+  <!--
+    The Tagus. It runs along the south of the city, then swings north-east and widens,
+    which is why the water fills the whole right-hand corner of the drawing.
+  -->
+  <path
+    d="M0 782 L100 776 L200 768 L330 752 L450 700 L560 660 L650 638 L720 600
+       L780 505 L830 440 L868 360 L902 235 L938 115 L962 0 L1000 0 L1000 850 L0 850 Z"
+    fill="url(#water)"
+  />
+  <path
+    d="M0 782 L100 776 L200 768 L330 752 L450 700 L560 660 L650 638 L720 600
+       L780 505 L830 440 L868 360 L902 235 L938 115 L962 0"
+    fill="none"
+    stroke="#5b95b0"
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+
+  <!-- Monsanto, the big wooded hill on the western side of the city. -->
+  <ellipse cx="250" cy="500" rx="152" ry="92" fill="#cfdfb6" stroke="#a9bd8b" stroke-width="2" />
+
+  <!-- The park above the Marquês de Pombal roundabout. -->
+  <ellipse cx="518" cy="433" rx="52" ry="34" fill="#d6e2be" stroke="#adbd8d" stroke-width="2" />
+
+  <!-- The green of the Parque das Nações, along the north-eastern waterfront. -->
+  <ellipse cx="893" cy="195" rx="58" ry="96" fill="#cfe0c0" stroke="#a8bd96" stroke-width="2"
+           transform="rotate(-22 893 195)" />
+
+  <!-- The old town's hills: the castle hill and the two ridges either side of it. -->
+  <ellipse cx="655" cy="567" rx="62" ry="38" fill="#e2d3ad" stroke="#c1ac7d" stroke-width="2" />
+  <ellipse cx="596" cy="528" rx="46" ry="28" fill="#e6d9b8" stroke="#c1ac7d" stroke-width="2" />
+  <ellipse cx="714" cy="546" rx="42" ry="26" fill="#e6d9b8" stroke="#c1ac7d" stroke-width="2" />
+
+  <!-- The great arches that carry the aqueduct over the Alcântara valley. -->
+  <g stroke="#c1ac7d" stroke-width="3" fill="none">
+    <path d="M343 462 V 442 a14 14 0 0 1 28 0 V 462" />
+    <path d="M371 462 V 442 a14 14 0 0 1 28 0 V 462" />
+    <path d="M399 462 V 442 a14 14 0 0 1 28 0 V 462" />
+    <path d="M427 462 V 442 a14 14 0 0 1 28 0 V 462" />
+    <path d="M337 432 H 461" stroke-width="4" />
+  </g>
+
+  <!-- Belém, the flat river strip in the south-west where the monastery stands. -->
+  <path d="M36 692 Q 150 676, 258 700 L258 752 Q 150 758, 36 776 Z"
+        fill="#efe6d1" stroke="#c9b892" stroke-width="2" />
+
+  <!-- The Baixa: the grid of straight streets laid out after the 1755 earthquake. -->
+  <g stroke="#cbb894" stroke-width="1.5" fill="none" opacity="0.9">
+    <path d="M600 556 L616 624" />
+    <path d="M614 554 L630 622" />
+    <path d="M628 552 L644 620" />
+    <path d="M596 574 L652 566" />
+    <path d="M601 594 L657 586" />
+    <path d="M606 614 L662 606" />
+  </g>
+
+  <g fill="#84714f" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="66" font-size="38" letter-spacing="5">ΛΙΣΑΒΟΝΑ</text>
+    <text x="40" y="96" font-size="19" letter-spacing="4">LISBOA</text>
+    <text x="250" y="506" font-size="20" text-anchor="middle" letter-spacing="3">ΜΟΝΣΑΝΤΟ</text>
+    <text x="147" y="742" font-size="17" text-anchor="middle" letter-spacing="3">ΜΠΕΛΕΜ</text>
+    <text x="714" y="550" font-size="14" text-anchor="middle" letter-spacing="2">ΑΛΦΑΜΑ</text>
+    <text x="650" y="588" font-size="14" text-anchor="middle" letter-spacing="2">ΚΑΣΤΡΟ</text>
+    <text x="399" y="422" font-size="14" text-anchor="middle" letter-spacing="2">ΥΔΡΑΓΩΓΕΙΟ</text>
+    <text x="893" y="200" font-size="14" text-anchor="middle" letter-spacing="2" transform="rotate(-22 893 200)">ΠΑΡΚΟ ΤΩΝ ΕΘΝΩΝ</text>
+  </g>
+
+  <text
+    x="430"
+    y="800"
+    font-size="20"
+    fill="#eaf4f8"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="6"
+    transform="rotate(-11 430 800)"
+  >ΤΑΓΟΣ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(80 170)" stroke="#84714f" fill="#84714f">
+    <circle r="25" fill="none" stroke-width="2" />
+    <path d="M0 -21 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-29" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
