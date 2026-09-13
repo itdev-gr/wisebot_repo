@@ -52,13 +52,98 @@ export interface Fix extends GeoPoint { accuracyM: number; at: number }
 
 export type GeoError = 'unsupported' | 'denied' | 'unavailable' | 'timeout';
 
+/**
+ * What the browser has already decided about location for this site — read WITHOUT
+ * asking, so nothing pops up.
+ *
+ *   granted  → `locateOnce` will answer silently.
+ *   prompt   → `locateOnce` will show the system prompt; only call it from a tap.
+ *   denied   → `locateOnce` fails at once and NO prompt will ever appear again until a
+ *              grown-up changes a setting (Safari remembers «Don't Allow» per site;
+ *              Chrome blocks after repeated dismissals). The UI must say so.
+ *   unknown  → no Permissions API (older Safari) or it threw; nothing can be said in
+ *              advance, so treat it like `prompt` and never ask without a gesture.
+ */
+export type GeoPermission = 'granted' | 'prompt' | 'denied' | 'unknown';
+
+/**
+ * The slice of the Capacitor bridge this file touches, typed by hand: the plugin is a
+ * dependency of the iOS shell in `store/ios`, not of the web app, so its types are not
+ * installed here. Absent everywhere but inside the App Store build.
+ */
+interface CapacitorGeolocation {
+  checkPermissions?: () => Promise<{ location?: string }>;
+  requestPermissions?: (o: { permissions: string[] }) => Promise<{ location?: string }>;
+  getCurrentPosition?: (o: {
+    enableHighAccuracy: boolean;
+    timeout: number;
+    maximumAge: number;
+  }) => Promise<{ coords: { latitude: number; longitude: number; accuracy?: number }; timestamp?: number }>;
+}
+interface CapacitorBridge {
+  isNativePlatform?: () => boolean;
+  Plugins?: { Geolocation?: CapacitorGeolocation };
+}
+const capacitor = (): CapacitorBridge | undefined =>
+  typeof window === 'undefined' ? undefined : (window as unknown as { Capacitor?: CapacitorBridge }).Capacitor;
+
+export async function geoPermissionState(): Promise<GeoPermission> {
+  try {
+    // The iOS shell answers through the native plugin, whose states map one to one
+    // ('prompt-with-rationale' is Android's "ask again with a reason" — still a prompt).
+    const Geo = capacitor()?.Plugins?.Geolocation;
+    if (Geo?.checkPermissions) {
+      const p = await Geo.checkPermissions();
+      const s = String(p?.location ?? '');
+      return s === 'granted' || s === 'denied' ? s : s.startsWith('prompt') ? 'prompt' : 'unknown';
+    }
+    if (typeof navigator === 'undefined' || !navigator.permissions?.query) return 'unknown';
+    const status = await navigator.permissions.query({ name: 'geolocation' });
+    return status.state === 'granted' || status.state === 'prompt' || status.state === 'denied' ? status.state : 'unknown';
+  } catch {
+    return 'unknown';
+  }
+}
+
+/**
+ * Where the recovery instructions must point when location is blocked: the setting
+ * lives in a different place on each. `iosApp` is the App Store shell (Capacitor), whose
+ * permission is the app's own, under Settings → WiseBot, not Safari's.
+ */
+export type GeoPlatform = 'ios' | 'iosApp' | 'android' | 'desktop';
+
+export function geoPlatform(): GeoPlatform {
+  if (typeof navigator === 'undefined') return 'desktop';
+  const ua = navigator.userAgent;
+  // iPhone/iPod, iPad (which reports "Macintosh" with a touch screen) — not desktop Macs.
+  const apple = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
+  if (apple) return capacitor()?.isNativePlatform?.() ? 'iosApp' : 'ios';
+  if (/Android/i.test(ua)) return 'android';
+  return 'desktop';
+}
+
+/**
+ * The browser's `timeout` option does not tick while the permission sheet is on screen,
+ * so a family that leaves the sheet unanswered (or swipes it away on iOS, which fires no
+ * callback at all) would leave the button on «ΨΑΧΝΩ…» for ever. This outer clock does
+ * tick. Generous, because a first GPS fix outdoors can honestly take twenty seconds.
+ */
+const OUTER_TIMEOUT_MS = 45_000;
+
 /** One-shot position with a sane timeout; resolves to a Fix or a GeoError string. */
-export async function locateOnce(): Promise<Fix | GeoError> {
+export function locateOnce(): Promise<Fix | GeoError> {
+  return Promise.race([
+    locateUnbounded(),
+    new Promise<GeoError>(resolve => setTimeout(() => resolve('timeout'), OUTER_TIMEOUT_MS)),
+  ]);
+}
+
+async function locateUnbounded(): Promise<Fix | GeoError> {
   // Inside the iOS shell (Capacitor, WKWebView) the web geolocation API never shows the
   // system permission dialog: the request fails as "denied" before the parent sees any
   // prompt, and «Είμαι εδώ!» reads as broken. The native Geolocation plugin asks the
   // system properly; use it whenever the bridge exposes it, and fall through otherwise.
-  const Geo = (window as any).Capacitor?.Plugins?.Geolocation;
+  const Geo = capacitor()?.Plugins?.Geolocation;
   if (Geo?.getCurrentPosition) {
     try {
       const perm = await Geo.requestPermissions?.({ permissions: ['location'] });
@@ -67,7 +152,10 @@ export async function locateOnce(): Promise<Fix | GeoError> {
       return { lat: p.coords.latitude, lng: p.coords.longitude, accuracyM: p.coords.accuracy ?? 50, at: p.timestamp ?? Date.now() };
     } catch (e: unknown) {
       const msg = String((e as { message?: string })?.message ?? '').toLowerCase();
-      return msg.includes('denied') || msg.includes('permission') ? 'denied' : msg.includes('timeout') ? 'timeout' : 'unavailable';
+      // «Location services are not enabled» is the phone-wide switch. To the family that
+      // is a block with a setting to change, not a weak signal to retry outdoors.
+      if (/denied|permission|not enabled|disabled|location services/.test(msg)) return 'denied';
+      return msg.includes('timeout') ? 'timeout' : 'unavailable';
     }
   }
   if (typeof navigator === 'undefined' || !navigator.geolocation) return 'unsupported';
@@ -115,9 +203,8 @@ export function compass(deg: number, lang: 'el' | 'en'): { arrow: string; label:
 /** Walking directions in the maps app the phone already has. Apple Maps only makes sense on iOS. */
 export function mapsLinks(p: GeoPoint): { google: string; apple: string | null } {
   const dest = `${p.lat.toFixed(6)},${p.lng.toFixed(6)}`;
-  const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
-  // iPhone/iPod, iPad (which reports "Macintosh" with a touch screen) — not desktop Macs.
-  const isApple = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1);
+  const platform = geoPlatform();
+  const isApple = platform === 'ios' || platform === 'iosApp';
   return {
     google: `https://www.google.com/maps/dir/?api=1&destination=${dest}&travelmode=walking`,
     // `q=` would be a search in Apple's URL scheme, so only the coordinates go in.

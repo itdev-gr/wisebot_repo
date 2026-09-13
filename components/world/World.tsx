@@ -63,7 +63,8 @@ import {
   ui,
   type UiText,
 } from './worldUi';
-import { COUNTRY_RADIUS_M, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
+import { COUNTRY_RADIUS_M, geoPermissionState, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
+import { afterReloadNote, blockedNote, consumeRetryReload, deniedKind, reloadForRetry, retryNeedsReload } from './geoNotes';
 import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
@@ -147,6 +148,15 @@ const T = {
     es: 'BUSCANDO…',
     it: 'CERCO…',
   },
+  /** The same button once the phone has said no without asking: one thing to do after a grown-up flipped the switch. */
+  tryAgain: {
+    el: 'ΔΟΚΙΜΑΣΕ ΞΑΝΑ',
+    en: 'TRY AGAIN',
+    de: 'NOCH EINMAL',
+    fr: 'RÉESSAIE',
+    es: 'INTÉNTALO OTRA VEZ',
+    it: 'RIPROVA',
+  },
 };
 
 /**
@@ -173,13 +183,15 @@ const ENTRY_NOTE: Record<EntryOutcome | 'idle', UiText<string>> = {
     es: 'Ahora mismo no estás en este país. El sello te espera allí.',
     it: 'In questo momento non sei in questo Paese. Il timbro ti aspetta lì.',
   },
+  // A sheet was shown and someone said no. (A «no» with no sheet is `blocked`, which
+  // lives in geoNotes.ts with the settings path for the grown-up.)
   denied: {
-    el: 'Χρειάζομαι άδεια για την τοποθεσία μόνο για αυτή τη στιγμή. Δεν αποθηκεύεται ποτέ.',
-    en: 'I need location permission just for this moment. It is never stored.',
-    de: 'Ich brauche die Standortfreigabe nur für diesen Moment. Sie wird nie gespeichert.',
-    fr: 'J’ai besoin de la position juste pour cet instant. Elle n’est jamais enregistrée.',
-    es: 'Necesito el permiso de ubicación solo para este momento. Nunca se guarda.',
-    it: 'Mi serve il permesso di posizione solo per questo momento. Non viene mai salvata.',
+    el: 'Το τηλέφωνο ρώτησε και η απάντηση ήταν «όχι». Αν θέλεις τη σφραγίδα, πάτα ξανά και πες «ναι». Η θέση σου δεν αποθηκεύεται ποτέ.',
+    en: 'The phone asked and the answer was “no”. If you want the stamp, tap again and say “yes”. Your position is never stored.',
+    de: 'Das Handy hat gefragt, und die Antwort war „Nein“. Wenn du den Stempel willst, tippe noch einmal und sag „Ja“. Dein Standort wird nie gespeichert.',
+    fr: 'Le téléphone a demandé, et la réponse était « non ». Si tu veux le tampon, appuie encore et dis « oui ». Ta position n’est jamais enregistrée.',
+    es: 'El teléfono preguntó y la respuesta fue «no». Si quieres el sello, pulsa otra vez y di «sí». Tu posición nunca se guarda.',
+    it: 'Il telefono ha chiesto e la risposta è stata «no». Se vuoi il timbro, tocca di nuovo e di’ «sì». La tua posizione non viene mai salvata.',
   },
   unavailable: {
     el: 'Το τηλέφωνο δεν βρήκε πού είσαι. Δοκίμασε ξανά σε λίγο.',
@@ -493,9 +505,51 @@ const CountryPage: React.FC<{
   const navigate = useNavigate();
   const country = content.countries.find((c) => c.id === countryId) ?? findCountry(countryId ?? '');
   const { attempt, asking } = useWorldEntry();
-  const [outcome, setOutcome] = useState<EntryOutcome | null>(null);
+  /**
+   * What the note under «Είμαι εδώ!» says. `blocked` is a «denied» that came with no
+   * prompt: the browser remembers a refusal (or a phone-wide switch is off) and will not
+   * ask again, so the sentence has to say where a grown-up turns it back on.
+   */
+  const [outcome, setOutcome] = useState<EntryOutcome | 'blocked' | 'ready' | null>(() =>
+    // `ready` is the note after a retry reload: «Ready! Tap once more.»
+    countryId && consumeRetryReload(countryId) ? 'ready' : null,
+  );
+  const ask = useCallback(
+    (target: Country) => {
+      void (async () => {
+        // The permission state is read BEFORE asking, and the clock runs from the tap:
+        // together they tell a sheet that was refused from a «no» served from memory.
+        // Safari's Permissions API cannot on its own — it says «prompt» whatever it
+        // remembers, and «denied» only after this very document has been refused.
+        const stateBefore = await geoPermissionState();
+        const started = performance.now();
+        const result = await attempt(target);
+        if (result !== 'denied') return setOutcome(result);
+        setOutcome(deniedKind(performance.now() - started, stateBefore) === 'blocked' ? 'blocked' : 'denied');
+      })();
+    },
+    [attempt],
+  );
+
+  // If the phone already refuses this site, say so before the first tap: tapping into
+  // silence is how a child learns the button is "broken". Read without asking.
+  useEffect(() => {
+    let stale = false;
+    void geoPermissionState().then((state) => {
+      if (!stale && state === 'denied') setOutcome((current) => current ?? 'blocked');
+    });
+    return () => {
+      stale = true;
+    };
+  }, []);
 
   if (!country) return <NotFound lang={lang} onBack={() => navigate('/world')} />;
+
+  const blocked = outcome === 'blocked' ? blockedNote(lang) : null;
+  // After any «no» the button is a retry. WebKit answers every request after a denial
+  // from memory until the page is reloaded, whatever a grown-up fixed meanwhile — so a
+  // retry in a document that has seen a denial reloads first, and the next tap asks.
+  const retry = outcome === 'blocked' || outcome === 'denied';
 
   // How many of each city's places are stamped, without loading a single city module.
   // Place ids are prefixed by their city id — `data/world/world.test.ts` enforces that
@@ -537,12 +591,19 @@ const CountryPage: React.FC<{
         country={country}
         entryDate={progress.progress.entries[country.id]}
         entry={{
-          label: ui(T.imInCountry, lang),
+          label: ui(retry ? T.tryAgain : T.imInCountry, lang),
           askingLabel: ui(T.locating, lang),
-          note: ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
+          note: blocked
+            ? blocked.note
+            : outcome === 'ready'
+              ? afterReloadNote(lang)
+              : ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
+          hint: blocked?.path,
+          hintMore: blocked?.more,
           asking,
           onAsk: () => {
-            void attempt(country).then(setOutcome);
+            if (retry && retryNeedsReload()) return reloadForRetry(country.id);
+            ask(country);
           },
         }}
         cities={cities}
@@ -623,9 +684,10 @@ export const useWorldEntry = (): WorldEntry => React.useContext(WorldEntryContex
 /**
  * Holds the one ceremony and owns the one place the entry stamp can be awarded.
  *
- * Two screens ask: the city page, the moment a child opens a city, because opening a
- * city in the country you are standing in is the honest moment; and the country page's
- * «Είμαι εδώ!» button, for a child who wants it before choosing a city.
+ * Two screens call it: the country page's «Είμαι εδώ!» button, from a tap, which is the
+ * only place the phone is ever asked for permission; and the city page, the moment a
+ * child opens a city, which checks silently and only when the family has already said
+ * yes — opening a city in the country you are standing in is the honest moment.
  */
 const CountryEntryProvider: React.FC<{
   content: WorldContent;
@@ -635,6 +697,13 @@ const CountryEntryProvider: React.FC<{
   const [ceremony, setCeremony] = useState<Country | null>(null);
   const [asking, setAsking] = useState(false);
   const { enterCountry, hasEntered } = progress;
+  /**
+   * One question at a time. The city page's silent check and the country button can
+   * overlap, and React re-runs the check whenever `attempt` is rebuilt (every time the
+   * content loads a city). Two `getCurrentPosition` calls in flight mean two prompts, or
+   * one answer thrown away. A second caller for the same country joins the first.
+   */
+  const inFlight = useRef<{ countryId: CountryId; result: Promise<EntryOutcome> } | null>(null);
 
   const attempt = useCallback(
     async (country: Country): Promise<EntryOutcome> => {
@@ -645,22 +714,29 @@ const CountryEntryProvider: React.FC<{
       const centres = content.cities.filter((c) => c.countryId === country.id).map((c) => c.centre);
       if (centres.length === 0) return 'noCities';
 
-      setAsking(true);
-      try {
-        const fix = await locateOnce();
-        if (typeof fix === 'string') return fix;
-        if (!isNearAny(fix, fix.accuracyM, centres, COUNTRY_RADIUS_M)) return 'far';
+      if (inFlight.current?.countryId === country.id) return inFlight.current.result;
 
-        const award = enterCountry(country);
-        if (award?.enteredCountry) {
-          setCeremony(award.enteredCountry);
-          return 'stamped';
+      setAsking(true);
+      const result = (async (): Promise<EntryOutcome> => {
+        try {
+          const fix = await locateOnce();
+          if (typeof fix === 'string') return fix;
+          if (!isNearAny(fix, fix.accuracyM, centres, COUNTRY_RADIUS_M)) return 'far';
+
+          const award = enterCountry(country);
+          if (award?.enteredCountry) {
+            setCeremony(award.enteredCountry);
+            return 'stamped';
+          }
+          // Another screen got there first between the check and the award.
+          return 'already';
+        } finally {
+          setAsking(false);
+          inFlight.current = null;
         }
-        // Another screen got there first between the check and the award.
-        return 'already';
-      } finally {
-        setAsking(false);
-      }
+      })();
+      inFlight.current = { countryId: country.id, result };
+      return result;
     },
     [content, enterCountry, hasEntered],
   );
@@ -700,17 +776,26 @@ const CityPage: React.FC<{
   const isStamped = useCallback((id: PlaceId) => hasPlace(id), [hasPlace]);
 
   /**
-   * Opening a city is the moment worth asking about: a child who taps into Rome while
-   * standing in Rome has crossed the border this stamp records. Asked once per country,
-   * and never again once it is earned, so the permission prompt is not a tax on browsing.
+   * Opening a city is the moment worth checking: a child who taps into Rome while
+   * standing in Rome has crossed the border this stamp records. Checked once per
+   * country, and never again once it is earned.
    *
-   * A refusal is free — nothing here reads the result. The country page's «Είμαι εδώ!»
-   * button is the retry, and it is the one that explains what happened.
+   * Checked, not asked. This runs without a tap, and a system prompt that pops up
+   * unasked in front of a child is exactly how «Don't Allow» gets tapped — and Safari
+   * remembers that answer for the whole site, after which «Είμαι εδώ!» can never show a
+   * prompt again (it just fails). So the phone is consulted here only when the family
+   * has already said yes; the first question is always the button, from a tap.
    */
   const countryIdForEntry = country?.id;
   useEffect(() => {
     if (!country || !countryIdForEntry || entered(countryIdForEntry)) return;
-    void attempt(country);
+    let stale = false;
+    void geoPermissionState().then((state) => {
+      if (!stale && state === 'granted') void attempt(country);
+    });
+    return () => {
+      stale = true;
+    };
   }, [country, countryIdForEntry, entered, attempt]);
 
   if (!city || !country || failed) return <NotFound lang={lang} onBack={() => navigate('/world')} />;
@@ -853,6 +938,11 @@ const PlacePage: React.FC<{
     <>
       {seo}
       <PlaceCard
+        // One card per place. The route element is reused when only `:placeId` changes
+        // («Άλλη μία;» hops within a city), and without the key the card's «you are here»
+        // survived into the next place, 2 km away, with its question open — a stamp with
+        // no position behind it, the exact bug the entry stamp had.
+        key={place.id}
         lang={lang}
         place={place}
         cityName={city.name}

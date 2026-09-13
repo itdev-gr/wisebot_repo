@@ -36,7 +36,27 @@ import type { PlaceStamp } from './useWorldProgress';
 import StoryNarration from './StoryNarration';
 import { PinReport } from './PinReport';
 import { WorldMap } from './WorldMap';
-import { distanceM, formatDistance, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
+import { distanceM, formatDistance, geoPermissionState, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
+import { afterReloadNote, blockedNote, consumeRetryReload, deniedKind, reloadForRetry, retryNeedsReload } from './geoNotes';
+import { Breadcrumb } from './Breadcrumb';
+
+/** The lines for «the phone will not ask» — the same words the country page's card uses. */
+function BlockedLines({ lang }: { lang: WorldLang }) {
+  const blocked = blockedNote(lang);
+  return (
+    <>
+      {blocked.note}
+      <span className="mt-1.5 block text-[13px] leading-relaxed text-amber-200/80">
+        <Breadcrumb text={blocked.path} />
+      </span>
+      {blocked.more && (
+        <span className="mt-1 block text-[13px] leading-relaxed text-amber-200/80">
+          <Breadcrumb text={blocked.more} />
+        </span>
+      )}
+    </>
+  );
+}
 import {
   CATEGORY_LABEL,
   CATEGORY_STYLE,
@@ -400,17 +420,35 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
    *
    * The fix never leaves the device: it is compared with our coordinate and dropped.
    */
-  const [geo, setGeo] = useState<'idle' | 'checking' | 'here' | 'far' | 'error'>('idle');
+  // `ready` is the note after a retry reload: «Ready! Tap once more.» The card is keyed
+  // by place in PlacePage, so this initialiser runs once per place.
+  const [geo, setGeo] = useState<'idle' | 'ready' | 'checking' | 'here' | 'far' | 'error'>(() =>
+    consumeRetryReload(place.id) ? 'ready' : 'idle',
+  );
   const [geoError, setGeoError] = useState<GeoError | null>(null);
+  /** A «denied» that came with no prompt: the site is blocked and a setting must change. */
+  const [geoBlocked, setGeoBlocked] = useState(false);
   const [distance, setDistance] = useState<number | null>(null);
   const radiusM = place.location.anchor === 'area' ? 120 : 60;
   const onSite = Boolean(stamp) || geo === 'here';
 
   const locate = async () => {
+    // WebKit answers every request after a denial from memory until the page reloads,
+    // so a tap after a «no» reloads first; the tap after that is the one that asks.
+    if (geoError === 'denied' && retryNeedsReload()) return reloadForRetry(place.id);
     setGeo('checking');
     setGeoError(null);
+    setGeoBlocked(false);
+    // The permission state is read before asking and the clock runs from the tap: see
+    // geoNotes.ts for why neither alone can tell a refused sheet from a remembered «no».
+    const stateBefore = await geoPermissionState();
+    const started = performance.now();
     const fix = await locateOnce();
     if (typeof fix === 'string') {
+      // Decide the sentence before showing anything, so the note never flips from
+      // «tap again» to «change a setting» in front of the child.
+      const blocked = fix === 'denied' && deniedKind(performance.now() - started, stateBefore) === 'blocked';
+      setGeoBlocked(blocked);
       setGeo('error');
       setGeoError(fix);
       return;
@@ -632,10 +670,12 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
               </button>
               <p className="mt-2 text-sm font-bold text-white/60" aria-live="polite">
                 {geo === 'idle' && ui(T.stampOnSite, lang)}
+                {geo === 'ready' && afterReloadNote(lang)}
                 {geo === 'far' &&
                   distance !== null &&
                   ui(T.tooFar, lang)(formatDistance(distance, lang === 'el' ? 'el' : 'en'), walkMinutes(distance))}
-                {geo === 'error' && geoError === 'denied' && ui(T.geoDenied, lang)}
+                {geo === 'error' && geoError === 'denied' && !geoBlocked && ui(T.geoDenied, lang)}
+                {geo === 'error' && geoError === 'denied' && geoBlocked && <BlockedLines lang={lang} />}
                 {geo === 'error' && geoError !== 'denied' && ui(T.geoUnavailable, lang)}
               </p>
             </div>
