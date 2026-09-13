@@ -286,12 +286,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const resetPassword = useCallback(async (email: string): Promise<{ error?: string }> => {
     if (!configured) return { error: 'Auth not configured' };
     try {
-      // /login?mode=reset opens the new-password form even if the PASSWORD_RECOVERY
-      // event is missed (e.g. the tab was restored), instead of the dashboard.
-      const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://wisebot.gr/login?mode=reset',
+      // Through our own endpoint and Resend, not Supabase's mailer: that one is capped
+      // at a few emails per hour per project and answered "email rate limit exceeded"
+      // to the second parent of the day. The link lands on /login?mode=reset.
+      const response = await authFetch('/api/auth/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
       });
-      if (error) return { error: error.message };
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        return { error: data.error || 'Reset failed' };
+      }
       return {};
     } catch (err: any) {
       return { error: err.message || 'Reset failed' };
