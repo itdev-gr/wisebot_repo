@@ -1,0 +1,36 @@
+{
+  "city": "barcelona",
+  "country": "spain",
+  "centre": { "lat": 41.3825, "lng": 2.17694 },
+  "note": "Wikidata q-ids only. Centre is Wikidata's point for the city (Q1492). Ten of these sixteen places are carried over from the Explorer product on origin/main; the Explorer pin audit (docs/world/research/explorer-pins.json) gave two of them a wrong or doubtful item and both were re-chosen here: La Rambla (Q850593) is a 1.2 km street whose point sits 579 m from the Explorer pin, so the pin is now the Font de Canaletes (Q2723971), the fountain the Explorer text was actually about; and the Sagrada Família audit had matched the METRO STATION (Q2548808), so the basilica (Q48435) is used. The three museum q-ids proposed in the brief were checked and all three are wrong on Wikidata itself: Q1139034 is a plant, Q1478227 an Austrian economist and Q13161 a monument in Irkutsk. The real items were found by searching in Catalan: CosmoCaixa Q2625747, Drassanes Reials Q263924 (the building that holds the Museu Marítim, whose institution item is Q1286354, 30 m away — the building is the one that ships, per the rule), Museu Picasso Q1050032 (not used). No place claims an 'entrance': no door has been measured from a licensable source, so every point is the centroid or area it actually is, and the venue's own address goes into location.findIt in the city file instead.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "barcelona-sagrada-familia", "name": "Sagrada Família", "wikidata": "Q48435", "anchor": "centroid",
+      "note": "The basilica, not the metro station (Q2548808) that the Explorer audit had matched. Visitor entrance is on Carrer de la Marina per sagradafamilia.org/en/schedules-how-to-get; the stored point is the building's centre." },
+    { "id": "barcelona-casa-batllo", "name": "Casa Batlló", "wikidata": "Q461371", "anchor": "centroid" },
+    { "id": "barcelona-casa-mila", "name": "Casa Milà (La Pedrera)", "wikidata": "Q207870", "anchor": "centroid" },
+
+    { "id": "barcelona-font-de-canaletes", "name": "Font de Canaletes (La Rambla)", "wikidata": "Q2723971", "anchor": "centroid",
+      "note": "Replaces La Rambla (Q850593), which graded 'wrong' in the Explorer pin audit: a street over a kilometre long has no useful point. The fountain at its top is where the Explorer text sent the child anyway." },
+
+    { "id": "barcelona-boqueria", "name": "Mercat de la Boqueria", "wikidata": "Q1334899", "anchor": "centroid" },
+    { "id": "barcelona-cathedral", "name": "Catedral de Barcelona", "wikidata": "Q17155", "anchor": "centroid" },
+    { "id": "barcelona-placa-reial", "name": "Plaça Reial", "wikidata": "Q1519964", "anchor": "area" },
+    { "id": "barcelona-columbus-monument", "name": "Monument a Colom", "wikidata": "Q2288815", "anchor": "centroid" },
+    { "id": "barcelona-arc-de-triomf", "name": "Arc de Triomf", "wikidata": "Q631075", "anchor": "centroid" },
+    { "id": "barcelona-park-guell", "name": "Park Güell", "wikidata": "Q212867", "anchor": "area",
+      "note": "A park on a hillside: an area pin. The Explorer audit's 68 m delta is the park's size, not a wrong item." },
+
+    { "id": "barcelona-cosmocaixa", "name": "CosmoCaixa", "wikidata": "Q2625747", "anchor": "centroid",
+      "note": "The museum item carries the coordinate; the 1909 building item (Q94638192, Empar de Santa Llúcia) sits 4 m away and only covers the old asylum, while the museum is mostly the 2004 extension underneath it. Same pin either way." },
+
+    { "id": "barcelona-museu-maritim", "name": "Museu Marítim (Drassanes Reials)", "wikidata": "Q263924", "anchor": "centroid",
+      "note": "The building (the medieval Royal Shipyard), not the institution (Q1286354) — the two points are 30 m apart and the shipyard is what a child stands in." },
+
+    { "id": "barcelona-camp-nou", "name": "Camp Nou", "wikidata": "Q159848", "anchor": "centroid" },
+    { "id": "barcelona-zoo", "name": "Zoo de Barcelona", "wikidata": "Q220013", "anchor": "area" },
+    { "id": "barcelona-aquarium", "name": "L'Aquàrium de Barcelona", "wikidata": "Q1200948", "anchor": "centroid" },
+    { "id": "barcelona-tibidabo", "name": "Parc d'Atraccions Tibidabo", "wikidata": "Q1138985", "anchor": "area",
+      "note": "The amusement park, not the mountain (Q1067823) and not the church on the summit (Q1189293), which is 100 m away and would be a second pin for the same hilltop." }
+  ]
+}

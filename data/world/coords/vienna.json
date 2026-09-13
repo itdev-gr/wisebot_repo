@@ -1,6 +1,6 @@
 {
   "city": "vienna",
-  "resolvedAt": "2026-09-12T17:22:18.274Z",
+  "resolvedAt": "2026-09-12T23:38:49.985Z",
   "centre": {
     "lat": 48.20972,
     "lng": 16.37
@@ -17,14 +17,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/212496461",
+          "deltaM": 10
+        },
+        {
           "kind": "wikipedia",
           "ref": "St. Stephen's Cathedral, Vienna",
           "deltaM": 21
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.20843,
       "lng": 16.37326,
       "labels": {
@@ -35,7 +38,7 @@
         "fr": "cathédrale Saint-Étienne de Vienne",
         "it": "cattedrale metropolitana di Santo Stefano"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -147,14 +150,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/8097149",
+          "deltaM": 6
+        },
+        {
           "kind": "wikipedia",
           "ref": "Karlskirche",
           "deltaM": 1
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.19828,
       "lng": 16.37188,
       "labels": {
@@ -165,7 +171,7 @@
         "de": "Wiener Karlskirche",
         "el": "Ναός του Αγίου Καρόλου"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -179,14 +185,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/11101",
+          "deltaM": 8
+        },
+        {
           "kind": "wikipedia",
           "ref": "Vienna City Hall",
           "deltaM": 14
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.2108,
       "lng": 16.3574,
       "labels": {
@@ -197,7 +206,7 @@
         "de": "Wiener Rathaus",
         "el": "Δημαρχείο της Βιέννης"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -279,14 +288,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/8756754",
+          "deltaM": 23
+        },
+        {
           "kind": "wikipedia",
           "ref": "Schönbrunn Palace",
           "deltaM": 43
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.18479,
       "lng": 16.31227,
       "labels": {
@@ -297,7 +309,7 @@
         "de": "Schloss Schönbrunn",
         "en": "Schönbrunn Palace"
       },
-      "confidence": "C",
+      "confidence": "B",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -309,10 +321,14 @@
           "kind": "wikidata",
           "ref": "Q752283",
           "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/8079437",
+          "deltaM": 150
         }
       ],
       "warnings": [
-        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 48.18222,
@@ -339,14 +355,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/11187",
+          "deltaM": 20
+        },
+        {
           "kind": "wikipedia",
           "ref": "Natural History Museum, Vienna",
           "deltaM": 8
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 48.20513,
       "lng": 16.35993,
       "labels": {
@@ -357,7 +376,7 @@
         "de": "Naturhistorisches Museum Wien",
         "el": "Μουσείο Φυσικής Ιστορίας της Βιένης"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -371,14 +390,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "relation/20165",
+          "deltaM": 21
+        },
+        {
           "kind": "wikipedia",
           "ref": "Kunsthistorisches Museum",
           "deltaM": 0
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.20388,
       "lng": 16.3616,
       "labels": {
@@ -389,7 +411,7 @@
         "it": "Kunsthistorisches Museum",
         "el": "Μουσείο Ιστορίας της Τέχνης"
       },
-      "confidence": "B",
+      "confidence": "A",
       "verifiedAt": "2026-09-12"
     },
     {
@@ -403,14 +425,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/29320733",
+          "deltaM": 98
+        },
+        {
           "kind": "wikipedia",
           "ref": "Naschmarkt",
           "deltaM": 1
         }
       ],
-      "warnings": [
-        "osm: overpass 504"
-      ],
+      "warnings": [],
       "lat": 48.1989,
       "lng": 16.3636,
       "labels": {
