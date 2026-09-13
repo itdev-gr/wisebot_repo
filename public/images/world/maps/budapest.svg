@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1025" width="1000" height="1025" role="img" aria-label="Stylised map of Budapest">
+  <title>Budapest — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/hungary.ts
+    (north 47.525, south 47.482, east 19.090, west 19.028) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the Danube
+    running north to south and bending east, Margit-sziget in the middle of it, the long
+    ridge of Castle Hill and the green dome of Gellért Hill on the Buda bank, the flat
+    Pest side with Andrássy út running out to the Városliget park and its lake. Every
+    feature is placed from those bounds, and nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#ece2cd" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a6cfdf" />
+      <stop offset="1" stop-color="#77b0c9" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ded1b7" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="1025" fill="url(#ground)" />
+  <rect width="1000" height="1025" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The Danube. Enters at the top, runs south past the castle hill, then bends
+       east-south-east below Gellért Hill and leaves at the bottom. -->
+  <path
+    d="M215 0 C 226 90, 232 200, 240 330 C 246 430, 248 530, 252 620 C 258 704, 286 782, 331 851 C 376 918, 431 972, 470 1025"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="62"
+    stroke-linecap="butt"
+  />
+
+  <!-- Margit-sziget, the long island the river splits around. -->
+  <ellipse cx="234" cy="110" rx="24" ry="205" fill="#dfe6c8" stroke="#7fb0c4" stroke-width="2" />
+
+  <!-- Castle Hill: the long ridge on the Buda bank, with the church and the bastion at
+       its northern end and the palace at its southern one. -->
+  <ellipse cx="145" cy="616" rx="75" ry="115" fill="#cddcb4" stroke="#a8bd8c" stroke-width="2" />
+
+  <!-- Gellért Hill, the steep dome above the southern bend. -->
+  <ellipse cx="288" cy="916" rx="76" ry="58" fill="#c6d7aa" stroke="#a3b985" stroke-width="2" />
+
+  <!-- The Városliget, the great park in the east, with its lake below the castle. -->
+  <ellipse cx="875" cy="185" rx="95" ry="88" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+  <ellipse cx="872" cy="250" rx="42" ry="19" fill="#a8cfdd" stroke="#7fb0c4" stroke-width="2" />
+
+  <!-- Andrássy út, the straight avenue that runs from the flat centre of Pest out to
+       the corner of the park. -->
+  <path d="M452 556 L 796 246" fill="none" stroke="#d8c8a4" stroke-width="9" stroke-linecap="round" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="72" font-size="40" letter-spacing="5">ΒΟΥΔΑΠΕΣΤΗ</text>
+    <text x="40" y="106" font-size="21" letter-spacing="4">BUDAPEST</text>
+    <text x="145" y="625" font-size="16" text-anchor="middle" letter-spacing="2">ΤΟ ΚΑΣΤΡΟ</text>
+    <text x="288" y="958" font-size="16" text-anchor="middle" letter-spacing="2">GELLÉRT</text>
+    <text x="875" y="112" font-size="17" text-anchor="middle" letter-spacing="2">VÁROSLIGET</text>
+    <text x="120" y="330" font-size="26" letter-spacing="6">ΒΟΥΔΑ</text>
+    <text x="640" y="620" font-size="26" letter-spacing="6">ΠΕΣΤΗ</text>
+    <text x="234" y="114" font-size="13" text-anchor="middle" letter-spacing="1" transform="rotate(-90 234 114)">MARGIT-SZIGET</text>
+  </g>
+
+  <text
+    x="246"
+    y="452"
+    font-size="18"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+    transform="rotate(84 246 452)"
+  >ΔΟΥΝΑΒΗΣ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 930)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

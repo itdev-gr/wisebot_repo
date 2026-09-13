@@ -1,10 +1,15 @@
 /**
  * WiseBot World — Hungary.
  *
- * Same shape as `greece.ts`. Cities arrive later through the pipeline, so `cities` is
- * empty for now. Numbers were checked against the English Wikipedia articles for
- * Lake Balaton, Kékes, the Hungarian Parliament Building, the Rubik's Cube and
+ * Same shape as `greece.ts`. Numbers were checked against the English Wikipedia articles
+ * for Lake Balaton, Kékes, the Hungarian Parliament Building, the Rubik's Cube and
  * Budapest (fetched September 2026). The stamp is inked in Hungarian on purpose.
+ *
+ * Budapest joined on 13 September 2026, with sixteen places in
+ * `data/world/cities/budapest.ts`. Its `centre` is copied from
+ * `data/world/coords/budapest.json`, which took it from Wikidata's own point for the
+ * city (Q1781); it sits 213 m from the nearest place in the city file, so unlike
+ * Vienna's it needed no substitute.
  */
 
 import type { City, Country } from '../types';
@@ -67,4 +72,53 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'budapest',
+    countryId: 'hungary',
+    order: 1,
+    emoji: '♨️',
+
+    name: {
+      el: 'Βουδαπέστη',
+      en: 'Budapest',
+    },
+
+    intro: {
+      el:
+        'Η Βουδαπέστη ήταν κάποτε δύο πόλεις: η Βούδα στους λόφους και η Πέστη στην ' +
+        'πεδιάδα, και ο Δούναβης ανάμεσά τους. Τις ένωσε μια γέφυρα με αλυσίδες, επειδή ' +
+        'ένας άνθρωπος κουράστηκε να περιμένει τον πάγο. Κάτω από τα πόδια σου το νερό ' +
+        'είναι ζεστό και ανεβαίνει μόνο του από ένα χιλιόμετρο βάθος, γεμίζοντας λουτρά ' +
+        'όπου ο κόσμος κολυμπάει ακόμα και μέσα στο χιόνι. Και στην κορυφή του λόφου ένα ' +
+        'κάτασπρο κάστρο δεν φύλαξε ποτέ κανέναν: το έχτισαν μόνο για τη θέα.',
+      en:
+        'Budapest was once two towns: Buda up on the hills and Pest down on the flat, with ' +
+        'the Danube between them. A bridge hung from iron chains joined them, because one ' +
+        'man got tired of waiting for the ice. Under your feet the water is hot and climbs ' +
+        'up by itself from a kilometre down, filling baths where people swim even while it ' +
+        'snows. And on top of the hill a snow-white castle never guarded anybody: it was ' +
+        'built purely for the view.',
+    },
+
+    /** Copied from `data/world/coords/budapest.json`, which took it from Wikidata Q1781. */
+    centre: { lat: 47.49833, lng: 19.04083 },
+
+    map: {
+      src: '/images/world/maps/budapest.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Βουδαπέστης, με τον Δούναβη, το νησί του, τον λόφο του κάστρου και το μεγάλο πάρκο.',
+        en: 'A stylised map of Budapest, with the Danube, its island, the castle hill and the great park.',
+      },
+      width: 1000,
+      height: 1025,
+      /**
+       * Wide enough to hold the Hajós pool on Margit-sziget in the north and the market
+       * hall and Gellért Hill in the south, with the Városliget in the eastern corner.
+       * The two spans are almost equal on the ground — about 4,780 m north to south and
+       * 4,660 m east to west — which is where the 1000 × 1025 artwork comes from.
+       */
+      bounds: { north: 47.525, south: 47.482, east: 19.09, west: 19.028 },
+    },
+  },
+];
