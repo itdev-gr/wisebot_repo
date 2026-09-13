@@ -17,8 +17,8 @@
         "answers": [
           "Una corona",
           "Una veleta de oro",
-          "Un barco de vela",
-          "Un león de bronce"
+          "Un barco",
+          "Un león"
         ],
         "explanation": "En 1489 el emperador Maximiliano dejó que Ámsterdam pusiera su corona en el escudo de la ciudad. La ciudad la puso también en lo alto de la torre."
       }
@@ -37,7 +37,7 @@
         "q": "¿Quién pasa cada día por el pasaje de debajo del museo?",
         "answers": [
           "Los ciclistas",
-          "Los tranvías",
+          "Tranvías",
           "Los autobuses turísticos",
           "Los carros de caballos"
         ],
@@ -68,7 +68,7 @@
               "q": "¿Por qué se llama Ronda de Noche este cuadro?",
               "answers": [
                 "Por el barniz oscuro",
-                "Muestra la medianoche",
+                "Es medianoche",
                 "Los guardias trabajaban de noche",
                 "Rembrandt le puso ese nombre"
               ],
@@ -84,7 +84,7 @@
                 "Con lapislázuli",
                 "Con zumo de arándanos",
                 "Con cristal azul molido",
-                "Con añil traído de la India"
+                "Con añil"
               ],
               "explanation": "El lapislázuli venía de lo que hoy es Afganistán y costaba más que el oro. Había que machacar la piedra hasta hacerla polvo, y Vermeer lo usó hasta en el delantal de una criada."
             }
@@ -110,7 +110,7 @@
               "q": "¿Para quién se hizo la casa de muñecas?",
               "answers": [
                 "Para una mujer adulta",
-                "Para una niña pequeña",
+                "Para una niña",
                 "Para el hijo de un príncipe",
                 "Para una tienda de muñecas"
               ],
@@ -138,7 +138,7 @@
               "q": "¿Para qué trabajo se construyó el Bantam?",
               "answers": [
                 "Para luchar",
-                "Para llevar el correo",
+                "Correo",
                 "Para llevar pasajeros",
                 "Para ganar carreras aéreas"
               ],
@@ -262,7 +262,7 @@
           "El ayuntamiento",
           "Un castillo para un duque",
           "Una iglesia para marineros",
-          "Un mercado de quesos"
+          "Un mercado"
         ],
         "explanation": "La ciudad no tenía rey entonces; tenía comerciantes, y los comerciantes se construyeron el ayuntamiento más majestuoso de Europa. Palacio se hizo en 1808."
       }
@@ -281,7 +281,7 @@
         "answers": [
           "Tiene contrapesos",
           "Tiene tablas muy finas",
-          "Lleva aire dentro del tablero",
+          "Lleva aire",
           "Tiran de él unos caballos"
         ],
         "explanation": "Como en un balancín: un peso en un extremo levanta un peso en el otro. Los contrapesos dejan el tablero casi sin peso, y un motor, o antes una mano, hace el resto."
@@ -515,8 +515,8 @@
         "answers": [
           "El viento",
           "La hora en Londres",
-          "El día de la semana",
-          "El andén del próximo tren"
+          "El día",
+          "El andén"
         ],
         "explanation": "Una veleta en el tejado gira con el viento y mueve la aguja. En una ciudad de barcos de vela, el viento importaba tanto como la hora."
       }
@@ -556,7 +556,7 @@
         "q": "¿Sobre qué se apoyan las tiendas del mercado?",
         "answers": [
           "Sobre barcazas",
-          "Sobre pilotes en el agua",
+          "Pilotes",
           "Sobre un puente de madera",
           "Sobre la muralla vieja"
         ],
@@ -579,7 +579,7 @@
           "Un almacén naval",
           "El palacio del almirante",
           "Una escuela de marineros",
-          "Una cárcel de piratas"
+          "Una cárcel"
         ],
         "explanation": "Una flota necesita velas, cuerdas, cañones y clavos, todo en un sitio y cerca del agua. Por eso el edificio es un cuadrado con un patio en medio: un almacén."
       },
@@ -733,8 +733,8 @@
         "q": "¿Qué lleva dentro un stroopwafel?",
         "answers": [
           "Caramelo",
-          "Queso fundido",
-          "Mermelada de manzana",
+          "Queso",
+          "Mermelada",
           "Crema de chocolate"
         ],
         "explanation": "Stroop significa sirope. Los dos gofres se pegan con caramelo caliente, y mientras está templado se dobla; cuando se enfría, se vuelve crujiente."

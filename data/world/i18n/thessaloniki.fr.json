@@ -58,7 +58,7 @@
           "La Via Egnatia, la route romaine",
           "Une rivière avec un pont en bois",
           "Un aqueduc qui amenait l’eau dans la ville",
-          "La route du port, et rien d’autre"
+          "La route du port"
         ],
         "explanation": "La Via Egnatia menait vers l’est. Les Romains construisaient les arcs au-dessus des routes, pour que tous ceux qui passaient les voient. C’était de la publicité taillée dans le marbre."
       }
@@ -76,7 +76,7 @@
         "q": "Qu’est-il arrivé à l’église en août 1917 ?",
         "answers": [
           "Elle a brûlé, puis on l’a rebâtie",
-          "Elle a été inondée et abandonnée",
+          "Elle a été inondée",
           "On l’a déplacée pierre par pierre à un autre endroit",
           "Elle est devenue un musée et a fermé au culte"
         ],
@@ -118,7 +118,7 @@
         "answers": [
           "Par hasard, en creusant pour bâtir",
           "Grâce à une carte découverte dans un monastère",
-          "Après un séisme qui a ouvert le sol",
+          "Après un tremblement de terre",
           "Grâce à des photos prises depuis un avion"
         ],
         "explanation": "On creusait pour un nouveau bâtiment. À Thessalonique, comme à Athènes, chaque trou profond est aussi une découverte possible."
@@ -191,7 +191,7 @@
               "q": "Pourquoi un objet en or de 2 300 ans a-t-il l’air neuf ?",
               "answers": [
                 "Parce que l’or ne rouille pas",
-                "Parce qu’on le lustre chaque semaine",
+                "Parce qu’on le lustre",
                 "Parce que c’est une copie de l’original",
                 "Parce qu’on le garde dans de l’huile"
               ],
@@ -365,7 +365,7 @@
                 "Pour ressortir à l’endroit dans la cire",
                 "Pour que les voleurs ne puissent pas le lire",
                 "Parce que la langue s’écrivait ainsi à l’époque",
-                "Pour qu’il y ait de la place pour plus de texte"
+                "Pour faire tenir plus de texte"
               ],
               "explanation": "On appuyait la bague dans la cire ou dans l’argile. Chaque tampon fonctionne ainsi, encore aujourd’hui. L’image s’inverse dans l’empreinte."
             }
@@ -419,7 +419,7 @@
           "Pour remettre les rangées de niveau",
           "Pour que les gardes sachent à quelle hauteur ils se trouvaient",
           "Pour montrer combien d’années la construction a duré",
-          "Pour garder le mur au chaud en hiver"
+          "Pour garder le mur au chaud"
         ],
         "explanation": "Les pierres ont des formes irrégulières et la rangée part de travers. Les briques, toutes identiques, la redressent. Un mur bien droit tient mieux pendant les séismes."
       }
@@ -499,7 +499,7 @@
           "Parce que son toit est en verre",
           "Parce que les étals sont peints en blanc",
           "Parce qu’il ferme avant la tombée de la nuit",
-          "Parce qu’il y a des miroirs sur les murs"
+          "Parce qu’il a des miroirs"
         ],
         "explanation": "La lumière entre par le haut. Les marchés couverts du XIXe et du XXe siècle ont résolu le problème ainsi : du fer pour la charpente, du verre pour la lumière."
       }
@@ -519,7 +519,7 @@
           "Parce qu’on comprend en faisant",
           "Parce que tous les objets sont des copies sans valeur",
           "Parce qu’il n’y a pas assez de gardiens",
-          "Parce que les objets sont nettoyés tous les soirs"
+          "Parce qu’on les nettoie"
         ],
         "explanation": "Une expérience se comprend en la faisant. Dans un musée archéologique, l’objet est unique. Ici l’objet est un outil, et les outils ont besoin de mains."
       },
@@ -559,7 +559,7 @@
         "answers": [
           "Parce que les tribunes renvoient le son",
           "Parce que c’est le plus grand stade de Grèce",
-          "Parce qu’il a des haut-parleurs sous les sièges",
+          "Parce qu’il a des haut-parleurs",
           "Parce qu’il est entièrement couvert par un toit"
         ],
         "explanation": "Les tribunes en pente raide renvoient le son vers le centre. C’est de l’acoustique, pas de la taille. La même foule dans un stade ouvert et large ferait beaucoup moins de bruit."

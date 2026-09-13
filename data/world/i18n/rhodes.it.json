@@ -15,7 +15,7 @@
         "q": "Che cosa distrusse il palazzo nel 1856?",
         "answers": [
           "Della polvere da sparo",
-          "Un assedio che durò dei mesi",
+          "Un lungo assedio",
           "Un terremoto che aprì il terreno",
           "Un’inondazione arrivata dal mare"
         ],
@@ -37,7 +37,7 @@
           "Infermieri per i pellegrini",
           "Mercanti che viaggiavano con le navi",
           "Costruttori che tiravano su castelli a pagamento",
-          "Cartografi del Mediterraneo"
+          "Cartografi"
         ],
         "explanation": "Si prendevano cura dei pellegrini malati. È per questo che il primo grande edificio che tirarono su a Rodi fu un ospedale e non una caserma."
       },
@@ -103,7 +103,7 @@
               "q": "Che cosa sta facendo questa figura?",
               "answers": [
                 "Si strizza i capelli",
-                "Tiene un bambino fra le braccia",
+                "Tiene un bimbo",
                 "Corre tenendo in mano una fiaccola",
                 "Suona uno strumento musicale"
               ],
@@ -280,7 +280,7 @@
                 "In grotte marine",
                 "Su spiagge aperte piene di gente",
                 "Su scogli in mezzo al mare aperto",
-                "Nei fiumi, vicino alla foce"
+                "Nei fiumi"
               ],
               "explanation": "Sono grotte con l’ingresso sotto il livello dell’acqua. Si nasconde perché è stata cacciata per secoli, e nascondersi è il motivo per cui esiste ancora."
             }
@@ -393,7 +393,7 @@
         "answers": [
           "Una scala",
           "Una chiesetta piena di icone",
-          "Una campana che suona ogni mezzogiorno",
+          "Una campana",
           "Una cisterna d’acqua per il monastero"
         ],
         "explanation": "La scala ti porta su fin dentro le sue braccia. Da lassù vedi nello stesso momento il mare e le fondamenta della città antica."

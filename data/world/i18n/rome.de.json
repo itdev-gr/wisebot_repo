@@ -15,7 +15,7 @@
         "q": "Was siehst du durch das Schlüsselloch in der grünen Tür?",
         "answers": [
           "Die Petersdomkuppel",
-          "Das Kolosseum von oben",
+          "Das Kolosseum",
           "Einen versteckten Garten mit Springbrunnen",
           "Den Tiber und eine Brücke"
         ],
@@ -35,7 +35,7 @@
         "q": "Woher hat die Treppe ihren Namen?",
         "answers": [
           "Von einer Botschaft am Platz",
-          "Von den Handwerkern, die sie bauten",
+          "Von den Handwerkern",
           "Vom König, der sie bezahlt hat",
           "Von dem Land, das den Marmor schickte"
         ],
@@ -107,7 +107,7 @@
               "answers": [
                 "Ein Springbrunnen",
                 "Die Spitze eines Tempels",
-                "Ein Gefäß für Wein",
+                "Ein Weinkrug",
                 "Die Glocke einer Kirche"
               ],
               "explanation": "Das Wasser lief aus Löchern zwischen den Schuppen. Wenn du genau hinschaust, siehst du sie noch."
@@ -122,7 +122,7 @@
                 "Eine zweite Kugel",
                 "Eine Karte der ganzen Welt",
                 "Die Statue eines Papstes",
-                "Eine sprudelnde Quelle"
+                "Eine Quelle"
               ],
               "explanation": "Kugel in der Kugel, wie der Name sagt. Auch die innere ist aufgerissen, und darunter sitzen Zahnräder und Maschinen."
             }
@@ -135,7 +135,7 @@
               "answers": [
                 "Er hatte vor dem Holzpferd gewarnt",
                 "Er hatte einen Schatz aus dem Tempel gestohlen",
-                "Er wollte nicht gegen die Griechen kämpfen",
+                "Er wollte nicht kämpfen",
                 "Er hatte eine heilige Meerschlange getötet"
               ],
               "explanation": "Laokoon hatte recht mit dem Pferd. Aber die Götter wollten, dass Troja fällt, und schafften ihn aus dem Weg."
@@ -150,7 +150,7 @@
                 "Dass er zu schön zum Anfassen war",
                 "Dass er keinen Marmor mehr für die Glieder hatte",
                 "Dass er es nur für doppelten Lohn machen würde",
-                "Dass er lieber malte als meißelte"
+                "Dass er lieber malte"
               ],
               "explanation": "Er hat ihn nie angefasst. Er hat ihn aber so oft gezeichnet, dass er in den Figuren der Sixtinischen Kapelle weiterlebt."
             }
@@ -162,7 +162,7 @@
               "q": "Was trennt die Karten der einen Gangseite von denen der anderen?",
               "answers": [
                 "Die Apenninen",
-                "Der Fluss Po",
+                "Der Po",
                 "Die Grenze zu Frankreich",
                 "Die Linie des Äquators"
               ],
@@ -190,7 +190,7 @@
               "q": "Warum bewahrten die Ägypter die Körper der Toten auf?",
               "answers": [
                 "Für ein anderes Leben",
-                "Damit sie sie in ihren Museen zeigen konnten",
+                "Für ihre Museen",
                 "Damit römische Soldaten sie nicht finden",
                 "Weil es keinen Platz gab, sie zu begraben"
               ],
@@ -205,7 +205,7 @@
               "answers": [
                 "Stehend auf einem Gerüst",
                 "Auf dem Rücken auf Brettern liegend",
-                "An Seilen vom Dach hängend",
+                "An Seilen hängend",
                 "Von unten, mit sehr langen Stangen"
               ],
               "explanation": "Stehend, mit dem Kopf nach hinten, vier Jahre lang. Sein Gedicht über die Schmerzen im Hals ist erhalten."
@@ -234,7 +234,7 @@
                 "Es sind zwei Treppen ineinander",
                 "Ein Wächter lässt sie abwechselnd durch",
                 "Eine Richtung nimmt den Aufzug",
-                "Die Treppe fährt wie eine Rolltreppe"
+                "Die Treppe bewegt sich"
               ],
               "explanation": "Zwei Spiralen, eine in der anderen. Du wählst eine und wechselst nie."
             }
@@ -275,7 +275,7 @@
           "Man grub das Eisen aus den Steinen",
           "Kanonen schossen sie in einem Krieg",
           "Es waren Nester für die Tauben der Stadt",
-          "Daran hingen die Fahnen der Spiele"
+          "Daran hingen Fahnen"
         ],
         "explanation": "Die Steine waren mit Eisenklammern zusammengehalten. Im Mittelalter war Eisen wertvoll, also meißelte man es aus jeder Fuge."
       }
@@ -294,7 +294,7 @@
         "answers": [
           "Damit auch Reiter hinaufkommen",
           "Damit Prozessionen mit Kerzen hinuntergehen",
-          "Weil den Bauleuten die Steine ausgingen",
+          "Weil der Stein ausging",
           "Damit Weinfässer hinunterrollen"
         ],
         "explanation": "Die Rampe heißt cordonata. Ihre Stufen sind so sanft, dass ein Pferd sie hinaufgeht, ohne zu stolpern."
@@ -315,7 +315,7 @@
           "Er gab dem Volk antike Statuen",
           "Er baute den ersten Palast auf dem Hügel",
           "Er stellte die Statuen in Glasvitrinen",
-          "Er malte die Decke des Museums"
+          "Er malte die Decke"
         ],
         "explanation": "Bis dahin gehörten die Antiken Päpsten und Fürsten. Statuen, die allen gehören und die alle sehen: Das ist ein Museum."
       },
@@ -355,7 +355,7 @@
               "answers": [
                 "Dass sie wohl mittelalterlich ist",
                 "Dass sie noch älter ist als Rom selbst",
-                "Dass sie in Wirklichkeit aus Gold ist",
+                "Dass sie aus Gold ist",
                 "Dass sie aus Griechenland kommt"
               ],
               "explanation": "Die Proben deuten auf einen Guss zwischen 1021 und 1153. Die Babys sind noch jünger, aus dem 15. Jahrhundert."
@@ -382,7 +382,7 @@
               "q": "Was macht der Junge aus Bronze?",
               "answers": [
                 "Er zieht einen Dorn aus dem Fuß",
-                "Er bindet seine Sandale für ein Rennen",
+                "Er bindet seine Sandale",
                 "Er wäscht seine Füße in einem Fluss",
                 "Er versteckt eine Münze unter der Sohle"
               ],
@@ -397,7 +397,7 @@
               "answers": [
                 "Am Halsring und am Schnurrbart",
                 "An der Fahne, die er in der Hand hält",
-                "Am Helm mit den Adlerfedern",
+                "Am Helm mit Adlerfedern",
                 "An der Inschrift auf seinem Schild"
               ],
               "explanation": "Der Ring heißt Torques, und keltische Krieger trugen ihn. Römer und Griechen trugen nichts Vergleichbares."
@@ -410,7 +410,7 @@
               "q": "Warum nennt man Marforio eine „sprechende Statue“?",
               "answers": [
                 "Man klebte Spottzettel auf ihn",
-                "In ihm steckte ein verstecktes Rohr für die Stimme",
+                "Ein Rohr für die Stimme",
                 "Sein Wasser klingt wie Sprechen",
                 "Ein Priester sprach hinter ihm hervor"
               ],
@@ -461,7 +461,7 @@
         "q": "Woher wussten die Zuschauer, wie viele Runden noch fehlten?",
         "answers": [
           "Ein Ei oder Delfin kam herunter",
-          "Ein Herold rief jedes Mal die Zahl aus",
+          "Ein Herold rief die Zahl",
           "Für jede übrige Runde brannte ein Feuer",
           "Man wechselte die Farben der Fahnen"
         ],
@@ -503,7 +503,7 @@
           "Eine Wiese in der Stadt",
           "Der Hof eines großen Palasts",
           "Ein Hafen für die Boote auf dem Fluss",
-          "Der Garten eines Klosters"
+          "Ein Klostergarten"
         ],
         "explanation": "Campo heißt Feld und fiori heißt Blumen. Der Name blieb, auch als sich die Wiese mit Ständen füllte."
       }
@@ -522,7 +522,7 @@
         "answers": [
           "Zwei Arme, die umarmen",
           "Die zwei Flügel eines riesigen Vogels",
-          "Die zwei Hörner eines Stiers",
+          "Zwei Stierhörner",
           "Zwei Wellen, die am Ufer brechen"
         ],
         "explanation": "Bernini sagte, es seien die mütterlichen Arme der Kirche, offen für jeden, der auf den Platz kommt."
@@ -542,7 +542,7 @@
         "answers": [
           "Kühe weideten über den Ruinen",
           "Dort verkauften die Römer ihre Ochsen",
-          "Ein Kaiser liebte Kühe besonders",
+          "Ein Kaiser liebte Kühe",
           "Das Tal hat die Form einer Kuh"
         ],
         "explanation": "Die Erde hatte den Platz so tief bedeckt, dass sich darüber eine ganz normale Wiese ausbreitete. Die Archäologen gruben mehrere Meter tief, bis sie das Pflaster fanden."
@@ -562,7 +562,7 @@
         "answers": [
           "Augen und Mund sind Löcher",
           "Sie wurde in einem alten Abwasserkanal gefunden",
-          "In sie ist das Wort „Wasser“ gemeißelt",
+          "„Wasser“ steht darauf",
           "Sie ist aus dem gleichen Stoff wie Rohre"
         ],
         "explanation": "Löcher, die ganz durchgehen, lassen Wasser ablaufen. Ein Gesicht an einer Wand bräuchte sie nicht."
@@ -582,7 +582,7 @@
         "answers": [
           "Er läuft durch Löcher im Boden ab",
           "Er wird in einem Becken für die Bäder gesammelt",
-          "Er verdampft, bevor er unten ankommt",
+          "Er verdampft vorher",
           "Eine Glasscheibe schließt das Loch, wenn es regnet"
         ],
         "explanation": "Der Boden hat eine leichte Neigung und kleine Abflüsse, also läuft das Wasser weg und verschwindet. Die Römer hatten das von Anfang an so geplant."
@@ -602,7 +602,7 @@
         "answers": [
           "Niemand kannte seine Quellen",
           "Er schämt sich für die Kirche gegenüber",
-          "Die Sonne auf dem Platz stört ihn",
+          "Die Sonne stört ihn",
           "Der Marmor seines Gesichts war gerissen"
         ],
         "explanation": "Zu Berninis Zeit waren die Quellen des Nils ein Rätsel. Das verhüllte Gesicht heißt „unbekannt“. Forscher fanden sie zwei Jahrhunderte später."
@@ -664,7 +664,7 @@
                 "Seine Augen fielen heraus",
                 "Der Bildhauer kam nicht mehr dazu",
                 "Man nahm sie weg, damit er nicht „sieht“",
-                "Sie schmolzen, als die Villa abbrannte"
+                "Sie schmolzen"
               ],
               "explanation": "Die Augen von Statuen aus Bronze waren aus Stein oder Glas, eingesetzt in Höhlen. Sie fallen leicht heraus und gehen verloren."
             }
@@ -677,7 +677,7 @@
               "answers": [
                 "Myron, ein Grieche",
                 "Bernini, ein römischer Bildhauer",
-                "Ein unbekannter Ägypter",
+                "Ein Ägypter",
                 "Die Familie Massimo selbst"
               ],
               "explanation": "Myron arbeitete um 460 v. Chr. in Athen. Die Römer liebten seine Statue so sehr, dass sie viele Kopien aus Marmor machten."
@@ -756,7 +756,7 @@
         "answers": [
           "Das Grab eines Kaisers",
           "Ein Leuchtturm für die Boote auf dem Fluss",
-          "Ein Wasserbecken für die Stadt",
+          "Ein Wasserbecken",
           "Die Schatzkammer der Päpste"
         ],
         "explanation": "Hadrian baute es für sich und seine Familie. Die Burg, das Gefängnis und das Museum kamen viel später."
@@ -777,7 +777,7 @@
           "Gräben statt Gitter",
           "Tiere frei zwischen den Besuchern",
           "Nur Tiere aus Italien",
-          "Käfige aus Glas statt aus Eisen"
+          "Glaskäfige"
         ],
         "explanation": "Ein Graben hält einen Löwen genauso gut an seinem Platz wie Gitter, aber du siehst ihn, ohne dass etwas dazwischen ist."
       },

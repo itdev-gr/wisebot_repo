@@ -16,7 +16,7 @@
         "answers": [
           "Une partie était en grec",
           "Elle était écrite avec des dessins d’animaux",
-          "Un dictionnaire l’accompagnait",
+          "Un dictionnaire",
           "Un roi égyptien l’a expliquée"
         ],
         "explanation": "Le même texte était écrit trois fois. Le grec, on savait le lire, et en comparant les écritures on a cassé le code des hiéroglyphes."
@@ -221,7 +221,7 @@
         "answers": [
           "Depuis mille ans",
           "Depuis les années 1970 seulement",
-          "Depuis la reine Victoria",
+          "Depuis Victoria",
           "Depuis le Grand Incendie"
         ],
         "explanation": "Les premiers écrits datent de 1014. Le marché a bougé de quelques mètres en 1756, mais il ne s’est jamais arrêté."
@@ -283,9 +283,9 @@
         "q": "Qu’est-ce que « Big Ben », en réalité ?",
         "answers": [
           "La cloche",
-          "La tour elle-même",
+          "La tour",
           "Les quatre cadrans",
-          "La lumière au sommet"
+          "La lumière"
         ],
         "explanation": "Big Ben, c’est la grande cloche qui sonne les heures. La tour s’appelle la tour Elizabeth, mais le surnom a fini par coller à tout le bâtiment."
       },
@@ -305,7 +305,7 @@
         "answers": [
           "L’argent a manqué",
           "La statue s’est cassée en route",
-          "On l’a gardé pour le roi",
+          "Pour le roi",
           "On a oublié d’en commander une"
         ],
         "explanation": "Il attendait la statue d’un roi à cheval, mais l’argent n’est jamais venu. Le socle vide est devenu le coin le plus intéressant de la place."
@@ -563,7 +563,7 @@
         "q": "Que se passe-t-il dans la galerie des Murmures ?",
         "answers": [
           "Le murmure arrive en face",
-          "Le sol bouge un peu sous tes pieds",
+          "Le sol bouge un peu",
           "Les lumières s’éteignent toutes seules",
           "Ta voix devient beaucoup plus grave"
         ],
@@ -586,7 +586,7 @@
           "Du charbon de mine",
           "Des voyageurs jusqu’à Londres",
           "Des lettres et des colis",
-          "Des soldats vers la guerre"
+          "Des soldats"
         ],
         "explanation": "Elle tirait des wagons de charbon de la mine de Wylam jusqu’au fleuve, huit kilomètres, pendant presque cinquante ans."
       },
@@ -639,8 +639,8 @@
               "q": "Qu’aurait fait la machine de Babbage si elle avait été terminée ?",
               "answers": [
                 "Des calculs",
-                "Des dessins en couleurs",
-                "De la musique pour piano",
+                "Des dessins",
+                "De la musique",
                 "Des vêtements en laine"
               ],
               "explanation": "Elle aurait imprimé des tables de nombres sans la moindre erreur, rien qu’en tournant une manivelle. Les gens qui les écrivaient à la main se trompaient."
@@ -655,7 +655,7 @@
                 "Une répétition",
                 "Le premier alunissage",
                 "Il a ramassé des pierres",
-                "Il a planté le drapeau"
+                "Le drapeau planté"
               ],
               "explanation": "Il est descendu à 15 kilomètres de la surface, puis il est remonté. Apollo 11 s’est posé deux mois plus tard."
             }
@@ -669,7 +669,7 @@
                 "Tim Peake",
                 "Neil Armstrong",
                 "Youri Gagarine",
-                "Laïka la chienne"
+                "Laïka"
               ],
               "explanation": "L’astronaute britannique Tim Peake, en juin 2016, après six mois dans la station spatiale."
             }
@@ -718,8 +718,8 @@
         "q": "À quelle distance de l’endroit où le feu a commencé se dresse le Monument ?",
         "answers": [
           "61 mètres",
-          "Juste au-dessus",
-          "À un kilomètre de là",
+          "Juste dessus",
+          "Un kilomètre",
           "Sur l’autre rive du fleuve"
         ],
         "explanation": "Exactement sa propre hauteur. Si la colonne tombait vers l’est, son sommet toucherait la boulangerie. C’est exprès qu’on l’a dessinée comme ça."

@@ -55,7 +55,7 @@
         "q": "Que montre le rayon de soleil quand il tombe sur la ligne ?",
         "answers": [
           "La date du jour",
-          "La chaleur qu’il va faire",
+          "La chaleur",
           "D’où souffle le vent",
           "La distance de la Lune"
         ],
@@ -107,7 +107,7 @@
               "answers": [
                 "Une fontaine",
                 "Le sommet d’un temple",
-                "Un récipient à vin",
+                "Un vase",
                 "La cloche d’une église"
               ],
               "explanation": "L’eau coulait par des trous entre les écailles. Regarde de près : on les voit encore."
@@ -120,7 +120,7 @@
               "q": "Que voit-on par les déchirures de la surface de bronze ?",
               "answers": [
                 "Une deuxième sphère",
-                "Une carte du monde entier",
+                "Une mappemonde",
                 "La statue d’un pape",
                 "Une source d’eau qui coule"
               ],
@@ -134,7 +134,7 @@
               "q": "Pourquoi les dieux ont-ils envoyé les serpents contre Laocoon ?",
               "answers": [
                 "Il avait prévenu pour le cheval",
-                "Il avait volé un trésor dans le temple",
+                "Il avait volé un trésor",
                 "Il avait refusé de combattre les Grecs",
                 "Il avait tué un serpent sacré de la mer"
               ],
@@ -162,7 +162,7 @@
               "q": "Qu’est-ce qui sépare les cartes d’un côté du couloir de celles de l’autre ?",
               "answers": [
                 "Les Apennins",
-                "Le fleuve Pô",
+                "Le Pô",
                 "La frontière avec la France",
                 "La ligne de l’Équateur"
               ],
@@ -190,7 +190,7 @@
               "q": "Pourquoi les Égyptiens gardaient-ils les corps des morts ?",
               "answers": [
                 "Ils croyaient à une autre vie",
-                "Pour les montrer dans leurs musées",
+                "Pour les mettre au musée",
                 "Pour que les soldats romains ne les trouvent pas",
                 "Parce qu’il n’y avait pas de place pour les enterrer"
               ],
@@ -205,7 +205,7 @@
               "answers": [
                 "Debout sur un échafaudage",
                 "Allongé sur le dos, sur des planches",
-                "Pendu à des cordes sous le toit",
+                "Pendu à des cordes",
                 "D’en bas, avec de très longues perches"
               ],
               "explanation": "Debout, la tête en arrière, pendant quatre ans. Son poème sur le mal au cou existe encore."
@@ -218,7 +218,7 @@
               "q": "Qu’a-t-on trouvé en nettoyant les fresques de 1980 à 1994 ?",
               "answers": [
                 "Des couleurs plus vives",
-                "Une signature cachée",
+                "Une signature",
                 "Une deuxième image en dessous",
                 "De l’or mélangé à la peinture"
               ],
@@ -273,7 +273,7 @@
         "q": "Pourquoi les murs du Colisée sont-ils pleins de trous ?",
         "answers": [
           "On a arraché le fer des pierres",
-          "Des canons les ont creusés pendant une guerre",
+          "Des canons les ont creusés",
           "C’étaient des nids pour les pigeons de la ville",
           "Les drapeaux des jeux y étaient accrochés"
         ],
@@ -295,7 +295,7 @@
           "Pour y monter à cheval",
           "Pour que les processions descendent avec des cierges",
           "Parce que les bâtisseurs n’avaient plus de pierre",
-          "Pour que les tonneaux de vin roulent jusqu’en bas"
+          "Pour les tonneaux"
         ],
         "explanation": "La rampe s’appelle la cordonata. Ses marches sont si douces qu’un cheval les monte sans trébucher."
       }
@@ -315,7 +315,7 @@
           "Il a offert des statues au peuple",
           "Il a bâti le premier palais sur la colline",
           "Il a mis les statues sous des vitrines",
-          "Il a peint le plafond du musée"
+          "Il a peint le plafond"
         ],
         "explanation": "Jusque-là, les antiquités appartenaient aux papes et aux princes. Des statues qui appartiennent à tous et que tous peuvent voir : c’est cela, un musée."
       },
@@ -341,7 +341,7 @@
               "answers": [
                 "Eux seuls étaient en marbre",
                 "Les Vandales ont emporté le reste",
-                "Le corps a fondu dans un grand incendie",
+                "Le corps a fondu",
                 "Le sculpteur n’a jamais fini le reste"
               ],
               "explanation": "Le corps était en brique et en bois. Le bois pourrit ; le marbre attend."
@@ -382,7 +382,7 @@
               "q": "Que fait le garçon de bronze ?",
               "answers": [
                 "Il enlève une épine de son pied",
-                "Il attache sa sandale pour la course",
+                "Il attache sa sandale",
                 "Il se lave les pieds dans une rivière",
                 "Il cache une pièce sous son pied"
               ],
@@ -411,7 +411,7 @@
               "answers": [
                 "On lui collait des mots moqueurs",
                 "Il avait un tuyau caché à l’intérieur pour la voix",
-                "Son eau fait un bruit qui ressemble à une voix",
+                "Son eau fait comme une voix",
                 "Un prêtre parlait derrière lui"
               ],
               "explanation": "Quand tu ne peux pas dire une chose à voix haute, tu l’écris sur un bout de papier et tu laisses une statue la « dire » pour toi."
@@ -424,7 +424,7 @@
               "q": "Pourquoi la déesse a-t-elle sa propre salle au musée ?",
               "answers": [
                 "Pour la voir de tous les côtés",
-                "Parce que le marbre a besoin d’obscurité",
+                "Il faut du noir au marbre",
                 "Parce qu’elle ne tenait pas dans la cour",
                 "Pour qu’elle ne se dispute pas avec Marforio"
               ],
@@ -463,7 +463,7 @@
           "Un œuf ou un dauphin descendait",
           "Un héraut criait le numéro à chaque fois",
           "On allumait un feu pour chaque tour restant",
-          "On changeait la couleur des drapeaux"
+          "On changeait les drapeaux"
         ],
         "explanation": "Sept œufs et sept dauphins se dressaient sur le mur du milieu. Un descendait à chaque tour, et on le voyait de n’importe où dans les gradins."
       }
@@ -542,7 +542,7 @@
         "answers": [
           "Des vaches pâturaient sur les ruines",
           "C’est là que les Romains vendaient leurs bœufs",
-          "Un empereur aimait beaucoup les vaches",
+          "Un empereur aimait les vaches",
           "La vallée a la forme d’une vache"
         ],
         "explanation": "La terre avait recouvert la place si profondément qu’un vrai pré s’étendait par-dessus. Les archéologues ont creusé plusieurs mètres pour retrouver le pavage."
@@ -562,7 +562,7 @@
         "answers": [
           "Ses yeux et sa bouche sont percés",
           "On l’a trouvé à l’intérieur d’un ancien égout",
-          "Le mot « eau » est gravé dessus",
+          "Le mot « eau » est gravé",
           "Il est fait de la même matière que les tuyaux"
         ],
         "explanation": "Des trous qui traversent la pierre laissent l’eau s’en aller. Un visage sur un mur n’en aurait pas besoin."
@@ -582,7 +582,7 @@
         "answers": [
           "Elle part par des trous dans le sol",
           "On la recueille dans une citerne pour les bains",
-          "Elle s’évapore avant d’arriver en bas",
+          "Elle s’évapore avant le sol",
           "Une vitre ferme l’ouverture quand il pleut"
         ],
         "explanation": "Le sol a une pente douce et de petits trous, alors l’eau s’écoule et disparaît. Les Romains l’avaient prévu dès le départ."
@@ -602,7 +602,7 @@
         "answers": [
           "Personne ne savait où il naissait",
           "Il a honte de l’église qui est en face",
-          "Le soleil de la place le dérange",
+          "Le soleil le dérange",
           "Le marbre de son visage s’était fissuré"
         ],
         "explanation": "Au temps de Bernini, les sources du Nil étaient un mystère. Le visage couvert veut dire « inconnu ». Les explorateurs les ont trouvées deux siècles plus tard."
@@ -648,7 +648,7 @@
               "q": "Comment le sculpteur a-t-il montré le sang sur le visage du boxeur ?",
               "answers": [
                 "Avec des morceaux de cuivre rouge",
-                "Avec de la peinture rouge sur le bronze",
+                "Avec de la peinture rouge",
                 "Avec de petites pierres rouges incrustées",
                 "Avec des traits creusés dans le métal"
               ],
@@ -662,7 +662,7 @@
               "q": "Pourquoi le jeune homme à la lance a-t-il des orbites vides à la place des yeux ?",
               "answers": [
                 "Ses yeux incrustés sont tombés",
-                "Le sculpteur n’a pas eu le temps de les faire",
+                "Le sculpteur n’a pas fini",
                 "On les a enlevés pour qu’il ne « voie » pas",
                 "Ils ont fondu dans l’incendie de la villa"
               ],
@@ -678,7 +678,7 @@
                 "Myron, sculpteur grec",
                 "Bernini, un sculpteur romain",
                 "Un artisan égyptien inconnu",
-                "La famille Massimo elle-même"
+                "Les Massimo"
               ],
               "explanation": "Myron travaillait à Athènes vers 460 av. J.-C. Les Romains aimaient tant sa statue qu’ils en ont fait beaucoup de copies en marbre."
             }
