@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import PasswordResetForm from './PasswordResetForm';
 
 const motion = m as any;
 
@@ -78,17 +79,22 @@ const TEXT = {
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const navigate = useNavigate();
-  const { user, loading: authLoading, signUp, signIn, signInWithGoogle, resetPassword, resendVerification } = useAuth();
+  const { user, loading: authLoading, signUp, signIn, signInWithGoogle, resetPassword, resendVerification, passwordRecovery } = useAuth();
+  // The password-reset email lands on /login?mode=reset with a recovery session. That
+  // screen must ask for the new password, not wave the signed-in user through.
+  const resetMode =
+    passwordRecovery ||
+    (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('mode') === 'reset');
   const [verificationEmail, setVerificationEmail] = useState(''); // email to resend verification to
   const [resending, setResending] = useState(false);
   const t = TEXT[lang];
 
   // If already logged in, redirect — access is available before verification too.
   useEffect(() => {
-    if (!authLoading && user) {
+    if (!authLoading && user && !resetMode) {
       navigate('/dashboard', { replace: true });
     }
-  }, [user, authLoading, navigate]);
+  }, [user, authLoading, navigate, resetMode]);
 
   // /login?mode=register (guest banner, parent dashboard) opens straight on the signup tab.
   const [tab, setTab] = useState<'login' | 'register'>(() =>
@@ -203,6 +209,9 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
     }
   };
+
+  // Arrived from the "reset password" email: the only thing to do here is pick the new one.
+  if (resetMode && !authLoading) return <PasswordResetForm lang={lang} />;
 
   return (
     <div className="min-h-screen bg-[#0B0F1A] flex items-center justify-center p-4 relative overflow-hidden font-['Nunito']">

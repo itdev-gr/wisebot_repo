@@ -147,7 +147,15 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
         authFetch('/api/admin/stats', { headers: { 'X-Admin-Token': adminToken() } }),
         authFetch('/api/admin/health', { headers: { 'X-Admin-Token': adminToken() } }),
       ]);
-      if (!res.ok) throw new Error(res.status === 403 ? 'Unauthorized' : 'Failed to fetch');
+      if (res.status === 403) {
+        // The token is gone or expired (12 h). "Unauthorized / Retry" cannot recover
+        // from that; the login form can. Back to the door, with a sentence that says why.
+        sessionStorage.removeItem('wb_admin_token');
+        setIsUnlocked(false);
+        setLoginError(lang === 'el' ? 'Η συνεδρία έληξε. Συνδέσου ξανά.' : 'Your session expired. Sign in again.');
+        return;
+      }
+      if (!res.ok) throw new Error('Failed to fetch');
       const result = await res.json();
       setData(result);
       // Health is additive: if it fails, the rest of the dashboard still works.
@@ -159,8 +167,9 @@ export default function AdminDashboard({ lang }: { lang: 'el' | 'en' }) {
       setLoading(false);
     }
     // adminToken is a []-stable useCallback (line 75), so listing it cannot re-create
-    // fetchData or re-fire the effects that depend on it.
-  }, [adminToken]);
+    // fetchData or re-fire the effects that depend on it. `lang` only changes when the
+    // user flips the language, which is a fine moment to refetch.
+  }, [adminToken, lang]);
 
   useEffect(() => {
     if (isUnlocked) fetchData();

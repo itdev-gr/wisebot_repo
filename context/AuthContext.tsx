@@ -39,6 +39,9 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signInWithGoogle: () => Promise<{ error?: string }>;
   resetPassword: (email: string) => Promise<{ error?: string }>;
+  /** True from the moment a password-recovery link signs the browser in until a new password is saved. */
+  passwordRecovery: boolean;
+  clearPasswordRecovery: () => void;
   resendVerification: (email: string) => Promise<{ error?: string }>;
   setUserPassword: (newPassword: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
@@ -52,6 +55,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const [emailVerified, setEmailVerified] = useState(false);
+  // A recovery link signs the user in like any login; this flag is the only thing that
+  // tells the login screen "ask for a new password" instead of "go to the dashboard".
+  const [passwordRecovery, setPasswordRecovery] = useState(false);
+  const clearPasswordRecovery = useCallback(() => setPasswordRecovery(false), []);
   const syncDoneRef = useRef(false);
 
   const configured = isSupabaseConfigured();
@@ -168,6 +175,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         // Skip INITIAL_SESSION — already handled by getSession() above
         if (event === 'INITIAL_SESSION') return;
 
+        // The "reset password" email lands here. The session it creates is real, so the
+        // user is set below like any other; the flag keeps /login from bouncing them to
+        // the dashboard before they have typed the new password.
+        if (event === 'PASSWORD_RECOVERY') setPasswordRecovery(true);
+
         if (session?.user) {
           // OAuth logins return via redirect, so signInWithGoogle can't track them —
           // this is the only place a completed Google login is observable (CRO-AUDIT
@@ -274,8 +286,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const resetPassword = useCallback(async (email: string): Promise<{ error?: string }> => {
     if (!configured) return { error: 'Auth not configured' };
     try {
+      // /login?mode=reset opens the new-password form even if the PASSWORD_RECOVERY
+      // event is missed (e.g. the tab was restored), instead of the dashboard.
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'https://wisebot.gr/login',
+        redirectTo: 'https://wisebot.gr/login?mode=reset',
       });
       if (error) return { error: error.message };
       return {};
@@ -376,7 +390,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const isGuest = !user;
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, resendVerification, setUserPassword, signOut, completeOnboarding }}>
+    <AuthContext.Provider value={{ user, profile, loading, isGuest, emailVerified, signUp, signIn, signInWithGoogle, resetPassword, passwordRecovery, clearPasswordRecovery, resendVerification, setUserPassword, signOut, completeOnboarding }}>
       {children}
       {user && <SyncBridge userId={user.id} syncDoneRef={syncDoneRef} />}
     </AuthContext.Provider>
