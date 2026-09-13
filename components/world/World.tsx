@@ -660,9 +660,10 @@ export const useWorldEntry = (): WorldEntry => React.useContext(WorldEntryContex
 /**
  * Holds the one ceremony and owns the one place the entry stamp can be awarded.
  *
- * Two screens ask: the city page, the moment a child opens a city, because opening a
- * city in the country you are standing in is the honest moment; and the country page's
- * «Είμαι εδώ!» button, for a child who wants it before choosing a city.
+ * Two screens call it: the country page's «Είμαι εδώ!» button, from a tap, which is the
+ * only place the phone is ever asked for permission; and the city page, the moment a
+ * child opens a city, which checks silently and only when the family has already said
+ * yes — opening a city in the country you are standing in is the honest moment.
  */
 const CountryEntryProvider: React.FC<{
   content: WorldContent;
@@ -672,6 +673,13 @@ const CountryEntryProvider: React.FC<{
   const [ceremony, setCeremony] = useState<Country | null>(null);
   const [asking, setAsking] = useState(false);
   const { enterCountry, hasEntered } = progress;
+  /**
+   * One question at a time. The city page's silent check and the country button can
+   * overlap, and React re-runs the check whenever `attempt` is rebuilt (every time the
+   * content loads a city). Two `getCurrentPosition` calls in flight mean two prompts, or
+   * one answer thrown away. A second caller for the same country joins the first.
+   */
+  const inFlight = useRef<{ countryId: CountryId; result: Promise<EntryOutcome> } | null>(null);
 
   const attempt = useCallback(
     async (country: Country): Promise<EntryOutcome> => {
@@ -682,22 +690,29 @@ const CountryEntryProvider: React.FC<{
       const centres = content.cities.filter((c) => c.countryId === country.id).map((c) => c.centre);
       if (centres.length === 0) return 'noCities';
 
-      setAsking(true);
-      try {
-        const fix = await locateOnce();
-        if (typeof fix === 'string') return fix;
-        if (!isNearAny(fix, fix.accuracyM, centres, COUNTRY_RADIUS_M)) return 'far';
+      if (inFlight.current?.countryId === country.id) return inFlight.current.result;
 
-        const award = enterCountry(country);
-        if (award?.enteredCountry) {
-          setCeremony(award.enteredCountry);
-          return 'stamped';
+      setAsking(true);
+      const result = (async (): Promise<EntryOutcome> => {
+        try {
+          const fix = await locateOnce();
+          if (typeof fix === 'string') return fix;
+          if (!isNearAny(fix, fix.accuracyM, centres, COUNTRY_RADIUS_M)) return 'far';
+
+          const award = enterCountry(country);
+          if (award?.enteredCountry) {
+            setCeremony(award.enteredCountry);
+            return 'stamped';
+          }
+          // Another screen got there first between the check and the award.
+          return 'already';
+        } finally {
+          setAsking(false);
+          inFlight.current = null;
         }
-        // Another screen got there first between the check and the award.
-        return 'already';
-      } finally {
-        setAsking(false);
-      }
+      })();
+      inFlight.current = { countryId: country.id, result };
+      return result;
     },
     [content, enterCountry, hasEntered],
   );

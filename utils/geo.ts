@@ -122,8 +122,23 @@ export function geoPlatform(): GeoPlatform {
   return 'desktop';
 }
 
+/**
+ * The browser's `timeout` option does not tick while the permission sheet is on screen,
+ * so a family that leaves the sheet unanswered (or swipes it away on iOS, which fires no
+ * callback at all) would leave the button on «ΨΑΧΝΩ…» for ever. This outer clock does
+ * tick. Generous, because a first GPS fix outdoors can honestly take twenty seconds.
+ */
+const OUTER_TIMEOUT_MS = 45_000;
+
 /** One-shot position with a sane timeout; resolves to a Fix or a GeoError string. */
-export async function locateOnce(): Promise<Fix | GeoError> {
+export function locateOnce(): Promise<Fix | GeoError> {
+  return Promise.race([
+    locateUnbounded(),
+    new Promise<GeoError>(resolve => setTimeout(() => resolve('timeout'), OUTER_TIMEOUT_MS)),
+  ]);
+}
+
+async function locateUnbounded(): Promise<Fix | GeoError> {
   // Inside the iOS shell (Capacitor, WKWebView) the web geolocation API never shows the
   // system permission dialog: the request fails as "denied" before the parent sees any
   // prompt, and «Είμαι εδώ!» reads as broken. The native Geolocation plugin asks the
