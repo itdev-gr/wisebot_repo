@@ -15,11 +15,15 @@
  *   /world/:countryId/:cityId/:placeId      one place
  *   /world/:countryId/:cityId/:placeId/in   inside a museum
  *
- * The one award that is not triggered by a tap is the country entry stamp: it fires on
- * arriving at a country, because that IS the act of entering. It is safe under React 19
- * StrictMode's double-invoked effects for the same reason every other award here is —
- * `useWorldProgress` decides from a ref that has already been written, so a second call
- * returns null and pays nothing.
+ * Every award in this module costs the child something real. The country entry stamp used
+ * to be the exception — it fired on arriving at a country's URL, so twenty-five countries
+ * could be collected from the sofa in a minute. It now asks the phone where it is and
+ * inks only if the answer is inside the country, the same bargain «Είμαι εδώ!» makes for
+ * a place. Reading is never gated; only the stamp is.
+ *
+ * All of it is safe under React 19 StrictMode's double-invoked effects for the same
+ * reason: `useWorldProgress` decides from a ref that has already been written, so a
+ * second call returns null and pays nothing.
  */
 
 import React, { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -57,7 +61,9 @@ import {
   initialWorldLang,
   rememberWorldLang,
   ui,
+  type UiText,
 } from './worldUi';
+import { COUNTRY_RADIUS_M, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
 import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
@@ -124,6 +130,104 @@ const T = {
     fr: "Cette ville n'est pas encore traduite. Tu la lis en anglais.",
     es: 'Esta ciudad aún no está traducida. La estás leyendo en inglés.',
     it: 'Questa città non è ancora tradotta. La stai leggendo in inglese.',
+  },
+  imInCountry: {
+    el: 'ΕΙΜΑΙ ΕΔΩ!',
+    en: 'I’M HERE!',
+    de: 'ICH BIN DA!',
+    fr: 'JE SUIS LÀ !',
+    es: '¡ESTOY AQUÍ!',
+    it: 'SONO QUI!',
+  },
+  locating: {
+    el: 'ΨΑΧΝΩ…',
+    en: 'LOOKING…',
+    de: 'SUCHE…',
+    fr: 'JE CHERCHE…',
+    es: 'BUSCANDO…',
+    it: 'CERCO…',
+  },
+};
+
+/**
+ * What the country page says under the button, for every way asking can end.
+ *
+ * None of these is a telling-off. A child reading about Japan from a bedroom in Athens
+ * has done nothing wrong — they simply have not earned a border stamp, and the sentence
+ * says only that. The country, its cities and every story stay open either way.
+ */
+const ENTRY_NOTE: Record<EntryOutcome | 'idle', UiText<string>> = {
+  idle: {
+    el: 'Η σφραγίδα εισόδου μπαίνει όταν είσαι στη χώρα.',
+    en: 'The entry stamp is inked when you are in the country.',
+    de: 'Der Einreisestempel kommt, wenn du im Land bist.',
+    fr: 'Le tampon d’entrée arrive quand tu es dans le pays.',
+    es: 'El sello de entrada se pone cuando estás en el país.',
+    it: 'Il timbro d’ingresso arriva quando sei nel Paese.',
+  },
+  far: {
+    el: 'Δεν είσαι σε αυτή τη χώρα αυτή τη στιγμή. Η σφραγίδα σε περιμένει εκεί.',
+    en: 'You are not in this country right now. The stamp is waiting for you there.',
+    de: 'Du bist gerade nicht in diesem Land. Der Stempel wartet dort auf dich.',
+    fr: 'Tu n’es pas dans ce pays en ce moment. Le tampon t’attend là-bas.',
+    es: 'Ahora mismo no estás en este país. El sello te espera allí.',
+    it: 'In questo momento non sei in questo Paese. Il timbro ti aspetta lì.',
+  },
+  denied: {
+    el: 'Χρειάζομαι άδεια για την τοποθεσία μόνο για αυτή τη στιγμή. Δεν αποθηκεύεται ποτέ.',
+    en: 'I need location permission just for this moment. It is never stored.',
+    de: 'Ich brauche die Standortfreigabe nur für diesen Moment. Sie wird nie gespeichert.',
+    fr: 'J’ai besoin de la position juste pour cet instant. Elle n’est jamais enregistrée.',
+    es: 'Necesito el permiso de ubicación solo para este momento. Nunca se guarda.',
+    it: 'Mi serve il permesso di posizione solo per questo momento. Non viene mai salvata.',
+  },
+  unavailable: {
+    el: 'Το τηλέφωνο δεν βρήκε πού είσαι. Δοκίμασε ξανά σε λίγο.',
+    en: 'The phone could not find where you are. Try again in a moment.',
+    de: 'Das Handy hat nicht gefunden, wo du bist. Versuch es gleich noch einmal.',
+    fr: 'Le téléphone n’a pas trouvé où tu es. Réessaie dans un instant.',
+    es: 'El teléfono no encontró dónde estás. Inténtalo de nuevo en un momento.',
+    it: 'Il telefono non ha trovato dove sei. Riprova tra poco.',
+  },
+  timeout: {
+    el: 'Το τηλέφωνο άργησε να απαντήσει. Δοκίμασε ξανά.',
+    en: 'The phone took too long to answer. Try again.',
+    de: 'Das Handy hat zu lange gebraucht. Versuch es noch einmal.',
+    fr: 'Le téléphone a mis trop de temps. Réessaie.',
+    es: 'El teléfono tardó demasiado. Inténtalo otra vez.',
+    it: 'Il telefono ci ha messo troppo. Riprova.',
+  },
+  unsupported: {
+    el: 'Αυτή η συσκευή δεν μπορεί να πει πού είναι.',
+    en: 'This device cannot tell where it is.',
+    de: 'Dieses Gerät kann nicht sagen, wo es ist.',
+    fr: 'Cet appareil ne peut pas dire où il est.',
+    es: 'Este dispositivo no puede decir dónde está.',
+    it: 'Questo dispositivo non può dire dove si trova.',
+  },
+  noCities: {
+    el: 'Η σφραγίδα αυτής της χώρας μπαίνει όταν ανοίξει η πρώτη της πόλη.',
+    en: 'This country’s stamp arrives when its first city opens.',
+    de: 'Der Stempel dieses Landes kommt, wenn seine erste Stadt öffnet.',
+    fr: 'Le tampon de ce pays arrivera à l’ouverture de sa première ville.',
+    es: 'El sello de este país llegará cuando abra su primera ciudad.',
+    it: 'Il timbro di questo Paese arriverà quando aprirà la sua prima città.',
+  },
+  stamped: {
+    el: 'Πήρες τη σφραγίδα!',
+    en: 'You earned the stamp!',
+    de: 'Du hast den Stempel bekommen!',
+    fr: 'Tu as eu le tampon !',
+    es: '¡Conseguiste el sello!',
+    it: 'Hai preso il timbro!',
+  },
+  already: {
+    el: 'Έχεις ήδη τη σφραγίδα αυτής της χώρας.',
+    en: 'You already have this country’s stamp.',
+    de: 'Du hast den Stempel dieses Landes schon.',
+    fr: 'Tu as déjà le tampon de ce pays.',
+    es: 'Ya tienes el sello de este país.',
+    it: 'Hai già il timbro di questo Paese.',
   },
 };
 
@@ -388,6 +492,8 @@ const CountryPage: React.FC<{
   const { countryId } = useParams<{ countryId: string }>();
   const navigate = useNavigate();
   const country = content.countries.find((c) => c.id === countryId) ?? findCountry(countryId ?? '');
+  const { attempt, asking } = useWorldEntry();
+  const [outcome, setOutcome] = useState<EntryOutcome | null>(null);
 
   if (!country) return <NotFound lang={lang} onBack={() => navigate('/world')} />;
 
@@ -430,6 +536,15 @@ const CountryPage: React.FC<{
         lang={lang}
         country={country}
         entryDate={progress.progress.entries[country.id]}
+        entry={{
+          label: ui(T.imInCountry, lang),
+          askingLabel: ui(T.locating, lang),
+          note: ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
+          asking,
+          onAsk: () => {
+            void attempt(country).then(setOutcome);
+          },
+        }}
         cities={cities}
         legacyCities={legacyCities}
         onOpenCity={(id) => navigate(`/world/${country.id}/${id}`)}
@@ -443,14 +558,15 @@ const CountryPage: React.FC<{
 /**
  * The entry stamp, and the moment that inks it.
  *
- * It lives at the module root rather than on the country screen because a child can
- * arrive inside a country by any route — a shared link straight to a place, a browser
- * back, a refresh. Watching the URL instead of one screen means the stamp lands the
- * first time they are in the country at all, which is what a border does.
+ * It used to land on arriving at the country's URL, which meant a child on the sofa
+ * could collect twenty-five countries in a minute and the stamp meant nothing. A border
+ * stamp has to cost a border. It now works the way «Είμαι εδώ!» works for a place: the
+ * phone is asked where it is, and the stamp is inked only if the answer is inside the
+ * country — within 150 km of a city we actually have content for.
  *
- * Running the award from an effect is safe here, and only here, because `enterCountry`
- * decides from a ref it has already written: StrictMode's second invocation returns
- * null and pays nothing.
+ * The position is compared in memory and thrown away, like every other location check in
+ * this app. Nothing is stored, and a refusal costs the child nothing: the country, its
+ * cities and every story stay open to read from anywhere.
  */
 /**
  * Says so when the city on screen has not been translated into the language the child
@@ -474,34 +590,97 @@ const TranslationNote: React.FC<{ lang: WorldLang }> = ({ lang }) => {
   );
 };
 
-const CountryEntry: React.FC<{
+/** What came of asking the phone where it is, for the screen that asked. */
+export type EntryOutcome =
+  /** Inked. The ceremony is already on screen. */
+  | 'stamped'
+  /** The child already had this country's stamp. */
+  | 'already'
+  /** The phone answered, and it is not in this country. */
+  | 'far'
+  /** This country has no city with content yet, so there is nothing to be near. */
+  | 'noCities'
+  /** The phone refused or could not answer. */
+  | GeoError;
+
+interface WorldEntry {
+  /** Ask the phone, and ink the stamp if the answer is inside the country. */
+  attempt: (country: Country) => Promise<EntryOutcome>;
+  /** True while the phone is being asked, so a button can say «Ψάχνω…». */
+  asking: boolean;
+  /** Has this country's stamp already been earned? */
+  entered: (countryId: CountryId) => boolean;
+}
+
+const WorldEntryContext = React.createContext<WorldEntry>({
+  attempt: async () => 'unavailable',
+  asking: false,
+  entered: () => false,
+});
+
+export const useWorldEntry = (): WorldEntry => React.useContext(WorldEntryContext);
+
+/**
+ * Holds the one ceremony and owns the one place the entry stamp can be awarded.
+ *
+ * Two screens ask: the city page, the moment a child opens a city, because opening a
+ * city in the country you are standing in is the honest moment; and the country page's
+ * «Είμαι εδώ!» button, for a child who wants it before choosing a city.
+ */
+const CountryEntryProvider: React.FC<{
   content: WorldContent;
   progress: ReturnType<typeof useWorldProgress>;
-}> = ({ content, progress }) => {
-  const { pathname } = useLocation();
+  children: React.ReactNode;
+}> = ({ content, progress, children }) => {
   const [ceremony, setCeremony] = useState<Country | null>(null);
-  const { enterCountry } = progress;
+  const [asking, setAsking] = useState(false);
+  const { enterCountry, hasEntered } = progress;
 
-  // '/world/:countryId/...' — 'passport' is a screen, not a country.
-  const segment = pathname.split('/')[2];
-  const countryId = segment && segment !== 'passport' ? segment : undefined;
-  const country = countryId
-    ? content.countries.find((c) => c.id === countryId) ?? findCountry(countryId)
-    : undefined;
+  const attempt = useCallback(
+    async (country: Country): Promise<EntryOutcome> => {
+      if (hasEntered(country.id)) return 'already';
 
-  useEffect(() => {
-    if (!country) return;
-    const award = enterCountry(country);
-    if (award?.enteredCountry) setCeremony(award.enteredCountry);
-  }, [country, enterCountry]);
+      // Only cities we actually have content for. A country whose cities are not written
+      // yet has nothing to stand near, and saying so is more honest than a silent no.
+      const centres = content.cities.filter((c) => c.countryId === country.id).map((c) => c.centre);
+      if (centres.length === 0) return 'noCities';
 
-  if (!ceremony) return null;
+      setAsking(true);
+      try {
+        const fix = await locateOnce();
+        if (typeof fix === 'string') return fix;
+        if (!isNearAny(fix, fix.accuracyM, centres, COUNTRY_RADIUS_M)) return 'far';
+
+        const award = enterCountry(country);
+        if (award?.enteredCountry) {
+          setCeremony(award.enteredCountry);
+          return 'stamped';
+        }
+        // Another screen got there first between the check and the award.
+        return 'already';
+      } finally {
+        setAsking(false);
+      }
+    },
+    [content, enterCountry, hasEntered],
+  );
+
+  const value = useMemo<WorldEntry>(
+    () => ({ attempt, asking, entered: hasEntered }),
+    [attempt, asking, hasEntered],
+  );
+
   return (
-    <StampCeremony
-      country={ceremony}
-      date={progress.progress.entries[ceremony.id] ?? today()}
-      onDone={() => setCeremony(null)}
-    />
+    <WorldEntryContext.Provider value={value}>
+      {children}
+      {ceremony && (
+        <StampCeremony
+          country={ceremony}
+          date={progress.progress.entries[ceremony.id] ?? today()}
+          onDone={() => setCeremony(null)}
+        />
+      )}
+    </WorldEntryContext.Provider>
   );
 };
 
@@ -516,8 +695,23 @@ const CityPage: React.FC<{
   const country = content.countries.find((c) => c.id === countryId) ?? findCountry(countryId ?? '');
   const { module, failed } = useCityContent(content, cityId, lang);
   const { hasPlace } = progress;
+  const { attempt, entered } = useWorldEntry();
 
   const isStamped = useCallback((id: PlaceId) => hasPlace(id), [hasPlace]);
+
+  /**
+   * Opening a city is the moment worth asking about: a child who taps into Rome while
+   * standing in Rome has crossed the border this stamp records. Asked once per country,
+   * and never again once it is earned, so the permission prompt is not a tax on browsing.
+   *
+   * A refusal is free — nothing here reads the result. The country page's «Είμαι εδώ!»
+   * button is the retry, and it is the one that explains what happened.
+   */
+  const countryIdForEntry = country?.id;
+  useEffect(() => {
+    if (!country || !countryIdForEntry || entered(countryIdForEntry)) return;
+    void attempt(country);
+  }, [country, countryIdForEntry, entered, attempt]);
 
   if (!city || !country || failed) return <NotFound lang={lang} onBack={() => navigate('/world')} />;
   if (!module) return <Loading lang={lang} />;
@@ -792,6 +986,7 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
           <LangSwitcher lang={lang} available={available} onChange={setLang} />
         </header>
 
+        <CountryEntryProvider content={content} progress={progress}>
         <Suspense fallback={<Loading lang={lang} />}>
           <Routes>
             <Route index element={<CountriesPage lang={lang} content={content} progress={progress} />} />
@@ -809,8 +1004,8 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
             <Route path="*" element={<Navigate to="/world" replace />} />
           </Routes>
         </Suspense>
+        </CountryEntryProvider>
 
-        <CountryEntry content={content} progress={progress} />
         <TranslationNote lang={lang} />
       </div>
     </WorldLangContext.Provider>
