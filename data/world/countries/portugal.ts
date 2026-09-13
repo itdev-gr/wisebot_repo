@@ -1,8 +1,9 @@
 /**
  * WiseBot World — Portugal.
  *
- * Same shape as `greece.ts`: the country plus the metadata of its cities. The cities
- * arrive through the pipeline later, so `cities` is empty for now.
+ * Same shape as `greece.ts`: the country plus the metadata of its cities. Lisbon is
+ * `order: 1` and Porto `order: 2`, so the capital heads the list. The two were written
+ * by separate agents in separate worktrees on the same day and merged here.
  *
  * Facts checked on 12 September 2026 against the English Wikipedia articles for Mount
  * Pico (2,351 m, highest point of Portugal), Cork (Portugal ≈ 49.6 % of world output,
@@ -70,6 +71,7 @@ export const country: Country = {
   },
 };
 
+
 export const cities: City[] = [
   {
     id: 'lisbon',
@@ -117,6 +119,56 @@ export const cities: City[] = [
        * artwork, so pins project without stretching.
        */
       bounds: { north: 38.776, south: 38.682, east: -9.0848, west: -9.2265 },
+    },
+  },
+  {
+    id: 'porto',
+    countryId: 'portugal',
+    order: 2,
+    emoji: '🌉',
+
+    name: {
+      el: 'Πόρτο',
+      en: 'Porto',
+    },
+
+    intro: {
+      el:
+        'Το Πόρτο κάθεται σε δύο λόφους πάνω από έναν ποταμό που τρέχει προς τον ' +
+        'Ατλαντικό, και σχεδόν κάθε δρόμος του ή ανεβαίνει ή κατεβαίνει. Οι τοίχοι του ' +
+        'διηγούνται ιστορίες: χιλιάδες μπλε πλακάκια σε έναν σιδηροδρομικό σταθμό, μια ' +
+        'ολόκληρη εικόνα στο πλάι μιας εκκλησίας. Μια σιδερένια γέφυρα με δύο ' +
+        'καταστρώματα ενώνει τις δύο όχθες, ψηλά και χαμηλά ταυτόχρονα. Έχει έναν πύργο ' +
+        'που έδειχνε στα καράβια τον δρόμο χωρίς να ανάβει φως, μια αγορά που το όνομά ' +
+        'της σημαίνει «μεγάλη φουσκάλα», και παγώνια που περπατούν σε έναν κήπο σαν να ' +
+        'τους ανήκει.',
+      en:
+        'Porto sits on two hills above a river running out to the Atlantic, and almost ' +
+        'every street of it either climbs or drops. Its walls do the talking: thousands of ' +
+        'blue tiles in a railway station, one whole picture down the side of a church. An ' +
+        'iron bridge with two decks joins the banks, high and low at the same time. It has ' +
+        'a tower that showed ships the way without ever lighting a lamp, a market whose ' +
+        'name means «big bubble», and peacocks strolling a garden as though the place ' +
+        'belonged to them.',
+    },
+
+    /** Copied from `data/world/coords/porto.json`. */
+    centre: { lat: 41.14961, lng: -8.61099 },
+
+    map: {
+      src: '/images/world/maps/porto.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του Πόρτο, με τον Δούρο, τους δύο λόφους του και τη Γκάια απέναντι.',
+        en: 'A stylised map of Porto, with the Douro, its two hills and Gaia on the far bank.',
+      },
+      width: 1000,
+      height: 758,
+      /**
+       * Wide enough to hold the tram museum at Massarelos in the west and the Bolhão
+       * market in the east, and deep enough to reach the Serra do Pilar across the river
+       * in Gaia, which is the southernmost place in the city file.
+       */
+      bounds: { north: 41.155, south: 41.132, east: -8.6, west: -8.64 },
     },
   },
 ];
