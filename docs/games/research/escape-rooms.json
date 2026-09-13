@@ -1,0 +1,501 @@
+{
+ "rooms": [
+  {
+   "id": "room1",
+   "titleEl": "Το Εργαστήρι του WiseBot",
+   "titleEn": "WiseBot's Workshop",
+   "introEl": "Μπήκες στο Εργαστήρι του WiseBot για να δεις τις εφευρέσεις του — και η πόρτα έκλεισε πίσω σου! Μην ανησυχείς: ο WiseBot, ο Sparken, ο Pencilo, η Crocus και ο Link είναι εδώ και θα σε βοηθήσουν. Έξι μικροί γρίφοι φυλάνε την έξοδο. Πάμε έναν-έναν!",
+   "introEn": "You stepped into WiseBot's Workshop to see his inventions — and the door closed behind you! Don't worry: WiseBot, Sparken, Pencilo, Crocus and Link are all here to help. Six little puzzles guard the way out. Let's take them one by one!",
+   "outroEl": "Κλικ! Η πόρτα άνοιξε διάπλατα. Ο WiseBot χτυπάει χαρούμενος τα φτερά του και σου δίνει το μικρό χρυσό κλειδί του Εργαστηρίου. Μπράβο σου, μικρέ εξερευνητή — τα κατάφερες και βγήκες!",
+   "outroEn": "Click! The door swung wide open. WiseBot flaps his wings with joy and hands you the little golden key of the Workshop. Well done, young explorer — you made it out!",
+   "puzzles": [
+    {
+     "type": "logic",
+     "promptEl": "Τέσσερα κουτιά στο ράφι: κόκκινο, μπλε, πράσινο, κίτρινο. Ο WiseBot λέει: «Το κλειδί δεν είναι στο κόκκινο, ούτε στο μπλε, ούτε στο πράσινο.» Σε ποιο κουτί είναι;",
+     "promptEn": "Four boxes on the shelf: red, blue, green, yellow. WiseBot says: \"The key is not in the red one, not in the blue one, not in the green one.\" Which box has it?",
+     "answerType": "choice",
+     "optionsEl": [
+      "κόκκινο",
+      "μπλε",
+      "πράσινο",
+      "κίτρινο"
+     ],
+     "optionsEn": [
+      "red",
+      "blue",
+      "green",
+      "yellow"
+     ],
+     "answerEl": "κίτρινο",
+     "answerEn": "yellow",
+     "hintEl": "Σβήσε με τον νου σου όσα κουτιά απέκλεισε ο WiseBot. Μένει μόνο ένα!",
+     "hintEn": "Cross off every box WiseBot ruled out. Only one is left!",
+     "solutionEl": "Ο WiseBot απέκλεισε το κόκκινο, το μπλε και το πράσινο. Μένει μόνο το κίτρινο — εκεί ήταν το κλειδί του συρταριού!",
+     "solutionEn": "WiseBot ruled out red, blue and green. Only yellow is left — the drawer key was in there!"
+    },
+    {
+     "type": "pattern",
+     "promptEl": "Το συρτάρι ανοίγει με αριθμό. Ο Pencilo ζωγράφισε πάνω του: 2, 4, 6, 8, … Ποιος αριθμός είναι ο επόμενος;",
+     "promptEn": "The drawer opens with a number. Pencilo painted on it: 2, 4, 6, 8, … Which number comes next?",
+     "answerType": "number",
+     "answerEl": "10",
+     "answerEn": "10",
+     "hintEl": "Δες πόσο ανεβαίνει κάθε φορά: από το 2 στο 4, από το 4 στο 6. Κάνε το ίδιο βήμα και μετά το 8.",
+     "hintEn": "Look at how much it goes up each time: 2 to 4, 4 to 6. Take the same step after 8.",
+     "solutionEl": "Κάθε αριθμός είναι 2 μεγαλύτερος από τον προηγούμενο. Άρα μετά το 8 έρχεται 8 + 2 = 10.",
+     "solutionEn": "Each number is 2 more than the one before. So after 8 comes 8 + 2 = 10."
+    },
+    {
+     "type": "code",
+     "promptEl": "Η Crocus πάτησε τον διακόπτη και τα φώτα έσβησαν! Δίπλα του γράφει: ★=Φ, ●=Ω, ▲=Σ. Ποια λέξη γράφει το ★ ● ▲; Διάλεξε μία από τις τέσσερις.",
+     "promptEn": "Crocus hit the switch and the lights went out! Next to it you read: ★=L, ●=I, ▲=G, ◆=H, ■=T. What word does ★ ● ▲ ◆ ■ spell? Pick one of the four.",
+     "answerType": "choice",
+     "optionsEl": [
+      "ΦΩΣ",
+      "ΣΩΦ",
+      "ΩΣΦ",
+      "ΣΦΩ"
+     ],
+     "optionsEn": [
+      "LIGHT",
+      "LIGTH",
+      "NIGHT",
+      "RIGHT"
+     ],
+     "answerEl": "ΦΩΣ",
+     "answerEn": "LIGHT",
+     "hintEl": "Κοίτα τη σειρά των συμβόλων: πρώτα ★, μετά ●, μετά ▲. Μόνο μία επιλογή ξεκινάει με το γράμμα του ★ και συνεχίζει με τη σωστή σειρά.",
+     "hintEn": "Follow the order of the symbols: ★ first, then ●, ▲, ◆, ■. Only one choice starts with the letter ★ stands for and keeps every letter in that same order.",
+     "solutionEl": "★=Φ, ●=Ω, ▲=Σ, οπότε ★ ● ▲ = ΦΩΣ. Οι άλλες τρεις λέξεις έχουν τα ίδια γράμματα σε λάθος σειρά. Το εργαστήρι φωτίστηκε ξανά!",
+     "solutionEn": "★=L, ●=I, ▲=G, ◆=H, ■=T, so ★ ● ▲ ◆ ■ spells LIGHT. The other three words do not match the symbols. The workshop lit up again!"
+    },
+    {
+     "type": "observe",
+     "image": "/images/wisebot.jpg",
+     "overlay": "Draw an OPAQUE panel over the photo and place the countable shapes only on that panel, so nothing in the forest photo can be mistaken for a countable shape. Panel: a fully opaque dark-navy (#14224A) rounded rectangle (corner radius 3% of image width), left edge at x=6%, right edge at x=94%, top edge at y=60%, bottom edge at y=95% of the image, with a 4px solid white border; it must completely hide the photo underneath it (no transparency, no blur). The owl stays visible above the panel. On the panel draw EXACTLY 7 five-pointed stars and nothing else — no sparkles, dots, text or other decorations anywhere on the image. Each star: fill #FFD23F, 3px solid white (#FFFFFF) outline, width 11% of the image width but never rendered smaller than 34px. Fixed centres (percent of image width, percent of image height), top row of 4: (20,71), (40,71), (60,71), (80,71); bottom row of 3: (30,86), (50,86), (70,86). These positions are fixed, not random: every star sits fully inside the panel with at least 8% margin from every image edge, and no star touches or overlaps another star or the panel border. A renderer test should count the emitted star nodes and assert the count equals 7.",
+     "promptEl": "Ο Sparken κόλλησε μια σκούρα μπλε ταμπέλα κάτω από τον WiseBot και ζωγράφισε πάνω της κίτρινα αστέρια. Μέτρα ΜΟΝΟ τα κίτρινα αστέρια που είναι πάνω στην ταμπέλα — τα φωτάκια του δάσους δεν μετράνε. Πόσα αστέρια είναι;",
+     "promptEn": "Sparken stuck a dark blue sign under WiseBot and painted yellow stars on it. Count ONLY the yellow stars that are on the sign — the little lights in the forest do not count. How many stars are there?",
+     "answerType": "number",
+     "answerEl": "7",
+     "answerEn": "7",
+     "hintEl": "Τα αστέρια στην ταμπέλα είναι σε δύο σειρές. Μέτρα πρώτα την πάνω σειρά, μετά την κάτω, και πρόσθεσε τους δύο αριθμούς.",
+     "hintEn": "The stars on the sign are in two rows. Count the top row first, then the bottom row, and add the two numbers.",
+     "solutionEl": "Πάνω σειρά: 4 αστέρια. Κάτω σειρά: 3 αστέρια. 4 + 3 = 7 κίτρινα αστέρια πάνω στην ταμπέλα του Sparken.",
+     "solutionEn": "Top row: 4 stars. Bottom row: 3 stars. 4 + 3 = 7 yellow stars on Sparken's sign."
+    },
+    {
+     "type": "knowledge",
+     "promptEl": "Ο Link κρατάει το ημερολόγιο του εργαστηρίου. Σε ρωτάει: πόσους μήνες έχει ένας χρόνος;",
+     "promptEn": "Link is holding the workshop calendar. He asks you: how many months are there in one year?",
+     "answerType": "number",
+     "answerEl": "12",
+     "answerEn": "12",
+     "hintEl": "Ξεκίνα από τον Ιανουάριο και μέτρα τους μήνες μέχρι τον Δεκέμβριο.",
+     "hintEn": "Start at January and count the months all the way to December.",
+     "solutionEl": "Ιανουάριος, Φεβρουάριος, Μάρτιος, Απρίλιος, Μάιος, Ιούνιος, Ιούλιος, Αύγουστος, Σεπτέμβριος, Οκτώβριος, Νοέμβριος, Δεκέμβριος — 12 μήνες!",
+     "solutionEn": "January, February, March, April, May, June, July, August, September, October, November, December — 12 months!"
+    },
+    {
+     "type": "final",
+     "promptEl": "Τελευταία κλειδαριά! Θέλει έναν αριθμό. Πρόσθεσε τις τρεις απαντήσεις που έδωσες: τον αριθμό που ζωγράφισε ο Pencilo + τα αστέρια που μέτρησες στην ταμπέλα του Sparken + τους μήνες που σου ζήτησε ο Link.",
+     "promptEn": "Last lock! It wants a number. Add up the three answers you already gave: Pencilo's painted number + the stars you counted on Sparken's sign + Link's months.",
+     "answerType": "number",
+     "answerEl": "29",
+     "answerEn": "29",
+     "hintEl": "Κάν' το σε δύο βήματα. Θυμήσου: ο αριθμός του Pencilo ήταν ο επόμενος μετά το 8, και οι μήνες του χρόνου είναι 12. Πρόσθεσε πρώτα τον αριθμό του Pencilo με τα αστέρια του Sparken και μετά πρόσθεσε το 12.",
+     "hintEn": "Do it in two steps. Remember: Pencilo's number was the one right after 8, and a year has 12 months. First add Pencilo's number to Sparken's stars, then add 12 to that.",
+     "solutionEl": "10 (ο επόμενος αριθμός του Pencilo) + 7 (τα αστέρια στην ταμπέλα του Sparken) = 17. Και 17 + 12 (οι μήνες του Link) = 29. Κλικ — η πόρτα άνοιξε!",
+     "solutionEn": "10 (Pencilo's next number) + 7 (the stars on Sparken's sign) = 17. And 17 + 12 (Link's months) = 29. Click — the door opened!"
+    }
+   ]
+  },
+  {
+   "id": "room2",
+   "titleEl": "Ο Χαμένος Κώδικας",
+   "titleEn": "The Lost Code",
+   "introEl": "Κάτω από τη Βιβλιοθήκη της Ακαδημίας υπάρχει μια σιδερένια πόρτα με έναν πίνακα αριθμών. Πίσω της φυλάγεται ο Χαμένος Κώδικας — ο κωδικός που ξεκλειδώνει όλα τα βιβλία της Ακαδημίας. «Χθες το βράδυ ο κωδικός διαλύθηκε σε πέντε κομμάτια και σκόρπισε μέσα στο δωμάτιο», λέει ο WiseBot και ανοιγοκλείνει τα μεγάλα του μάτια. «Ο Link, ο Crocus, ο Sparken και ο Pencilo άφησαν ίχνη παντού. Βρες τα πέντε κομμάτια, κράτα σημειώσεις, και στο τέλος θα ξαναφτιάξουμε τον κωδικό μαζί.»",
+   "introEn": "Under the Academy Library there is an iron door with a number pad. Behind it is kept the Lost Code — the code that unlocks every book in the Academy. \"Last night the code broke into five pieces and scattered around this room,\" says WiseBot, blinking his big owl eyes. \"Link, Crocus, Sparken and Pencilo left clues everywhere. Find the five pieces, keep notes, and at the end we will rebuild the code together.\"",
+   "outroEl": "Ο πίνακας φωτίζει πράσινος, η σιδερένια πόρτα ανοίγει με ένα βαθύ «κλικ» και μέσα λάμπουν ράφια γεμάτα βιβλία που περίμεναν καιρό να ξανανοίξουν. «Πέντε κομμάτια, ένας κώδικας, ένας εξερευνητής», λέει ο WiseBot και σου δίνει το φτερό του για ένα χτύπημα νίκης. «Ο Χαμένος Κώδικας δεν είναι πια χαμένος — τον βρήκες εσύ.» Ο Link κάνει βόλτες χαρούμενος, ο Pencilo χειροκροτεί, και ο Sparken ήδη ετοιμάζει το επόμενο δωμάτιο. Μπράβο σου!",
+   "outroEn": "The pad glows green, the iron door opens with a deep click, and inside shine shelves full of books that have waited a long time to be opened again. \"Five pieces, one code, one explorer,\" says WiseBot, holding out a wing for a victory tap. \"The Lost Code is lost no more — you found it.\" Link zooms around in circles, Pencilo applauds, and Sparken is already preparing the next room. Well done!",
+   "puzzles": [
+    {
+     "type": "logic",
+     "promptEl": "Στο πρώτο ράφι βρίσκεις τρία κλειδιά — ένα κόκκινο, ένα πράσινο κι ένα μπλε — και ένα σημείωμα του WiseBot:\n• Ο Crocus κρατά το πράσινο κλειδί.\n• Ο Sparken δεν κρατά το μπλε.\n• Ο Pencilo δεν κρατά το κόκκινο.\nΚαθένας κρατά ένα μόνο κλειδί. Τι χρώμα είναι το κλειδί του Pencilo;",
+     "promptEn": "On the first shelf you find three keys — one red, one green and one blue — and a note from WiseBot:\n• Crocus holds the green key.\n• Sparken does not hold the blue one.\n• Pencilo does not hold the red one.\nEach friend holds exactly one key. What colour is Pencilo's key?",
+     "answerType": "word",
+     "answerEl": "ΜΠΛΕ",
+     "answerEn": "BLUE",
+     "hintEl": "Ξεκίνα από αυτό που ξέρεις σίγουρα: το πράσινο είναι του Crocus, άρα μένουν το κόκκινο και το μπλε για δύο φίλους. Ο Sparken δεν μπορεί να έχει το μπλε — ποιο του μένει;",
+     "hintEn": "Start from what you know for sure: green belongs to Crocus, so red and blue are left for two friends. Sparken cannot have the blue one — so which one is left for him?",
+     "solutionEl": "Ο Crocus έχει το πράσινο. Ο Sparken δεν έχει το μπλε, άρα του μένει το κόκκινο. Το μόνο κλειδί που περισσεύει για τον Pencilo είναι το ΜΠΛΕ — και ταιριάζει, αφού ο Pencilo δεν κρατά το κόκκινο. Κράτα σημείωση: η λέξη ΜΠΛΕ έχει 4 γράμματα.",
+     "solutionEn": "Crocus has the green key. Sparken cannot have blue, so he has the red one. The only key left for Pencilo is the BLUE one — which fits, because Pencilo does not hold the red key. Make a note: the word BLUE has 4 letters."
+    },
+    {
+     "type": "pattern",
+     "promptEl": "Στην πόρτα της αποθήκης ο Pencilo έχει ζωγραφίσει μια σκάλα από κλάσματα, όπου κάθε σκαλί είναι το μισό του προηγούμενου:\n1/2 , 1/4 , 1/8 , 1/16 , ;\nΓράψε τον κάτω αριθμό (τον παρονομαστή) του επόμενου κλάσματος.",
+     "promptEn": "On the storeroom door Pencilo has drawn a staircase of fractions, where each step is half of the one before it:\n1/2 , 1/4 , 1/8 , 1/16 , ?\nWrite the bottom number (the denominator) of the next fraction.",
+     "answerType": "number",
+     "answerEl": "32",
+     "answerEn": "32",
+     "hintEl": "Το μισό του 1/16 δεν είναι το 1/17. Κοίτα μόνο τους κάτω αριθμούς: 2, 4, 8, 16 — τι πράξη κάνεις κάθε φορά για να πας στον επόμενο;",
+     "hintEn": "Half of 1/16 is not 1/17. Look only at the bottom numbers: 2, 4, 8, 16 — what operation takes you from one to the next?",
+     "solutionEl": "Όταν παίρνεις το μισό ενός κλάσματος με αριθμητή 1, ο παρονομαστής διπλασιάζεται: 2 → 4 → 8 → 16 → 32. Άρα το επόμενο σκαλί είναι το 1/32 και ο παρονομαστής 32. Κράτα σημείωση: 32.",
+     "solutionEn": "When you halve a fraction with numerator 1, the denominator doubles: 2 → 4 → 8 → 16 → 32. So the next step is 1/32 and the denominator is 32. Make a note: 32."
+    },
+    {
+     "type": "code",
+     "promptEl": "Ο Link ξετυλίγει την ουρά του και σου δίνει μια χάρτινη ταινία με αριθμούς:\n4 - 5 - 10 - 1\n«Κάθε αριθμός δείχνει τη θέση ενός γράμματος στο ελληνικό αλφάβητο, που έχει 24 γράμματα», λέει. Α=1, Β=2, Γ=3, Δ=4, Ε=5, Ζ=6, Η=7, Θ=8, Ι=9, Κ=10 ... Ω=24.\nΠοια λέξη γράφουν οι τέσσερις αριθμοί; Γράψε τη λέξη με γράμματα, όχι με ψηφία.",
+     "promptEn": "Link unrolls his tail and hands you a paper strip with numbers:\n20 - 5 - 14\n\"Each number shows the position of a letter in the alphabet,\" he says. A=1, B=2, C=3, D=4, E=5 ... Z=26.\nWhich word do the three numbers spell? Write the word in letters, not in digits.",
+     "answerType": "word",
+     "answerEl": "ΔΕΚΑ",
+     "answerEn": "TEN",
+     "hintEl": "Μέτρα το αλφάβητο στα δάχτυλα για κάθε αριθμό: το 4 είναι το τέταρτο γράμμα (Α, Β, Γ, Δ). Η λέξη που βγαίνει είναι ένας αριθμός γραμμένος με γράμματα.",
+     "hintEn": "Count the alphabet on your fingers for each number: 20 is the twentieth letter (A, B, C, D...). The word you get is a number written out in letters.",
+     "solutionEl": "Δ=4, Ε=5, Κ=10, Α=1. Οι αριθμοί γράφουν τη λέξη ΔΕΚΑ — το τρίτο κομμάτι του κώδικα είναι ο αριθμός 10. Κράτα σημείωση: 10.",
+     "solutionEn": "T=20, E=5, N=14. The numbers spell the word TEN — the third piece of the code is the number 10. Make a note: 10."
+    },
+    {
+     "type": "observe",
+     "image": "/images/pencilo.jpg",
+     "overlay": "11 flat sticker shapes drawn ON TOP of the photo: 7 solid violet (#7C3AED) regular hexagons and 4 solid orange (#F97316) triangles. All 11 are the same size, about 9% of the image width, each with a 4px solid white outline and a soft dark drop shadow, so they read as stickers pressed onto the picture — flat fill, no glow, no gradient, no sparkle (these two colours appear nowhere in the base photo). Place them only inside the LOWER TWO THIRDS of the image (every centre below 33% of the height), at least 3% of the width away from each edge, at least 1.6 shape-widths apart so none overlap or touch, and keep the rectangle x 410-830, y 140-430 (Pencilo's face and eyes) completely clear. Verified layout on the 1280x859 original — hexagon centres: (302,441) (501,520) (850,551) (199,723) (456,700) (673,724) (1069,675); triangle centres: (113,433) (896,358) (1075,435) (888,747).",
+     "promptEl": "Ο Link μπαίνει τρέχοντας και κολλάει αυτοκόλλητα σχήματα πάνω στη φωτογραφία του Pencilo: μεγάλα ΜΩΒ ΕΞΑΓΩΝΑ (σχήματα με 6 πλευρές) και μεγάλα ΠΟΡΤΟΚΑΛΙ ΤΡΙΓΩΝΑ. Πόσα μωβ εξάγωνα κόλλησε; Μέτρα μόνο τα μεγάλα μωβ εξάγωνα με το άσπρο περίγραμμα — όχι τα πορτοκαλί τρίγωνα και όχι τις μικρές χρυσές λάμψεις που υπήρχαν ήδη στο δάσος.",
+     "promptEn": "Link runs in and sticks big shapes onto Pencilo's photo: big PURPLE HEXAGONS (shapes with 6 sides) and big ORANGE TRIANGLES. How many purple hexagons did he stick on? Count only the big purple hexagons with the white outline — not the orange triangles, and not the little golden sparkles that were already in the forest.",
+     "answerType": "number",
+     "answerEl": "7",
+     "answerEn": "7",
+     "hintEl": "Τα αυτοκόλλητα είναι 11 συνολικά — μωβ εξάγωνα και πορτοκαλί τρίγωνα μαζί. Τα τρίγωνα είναι λιγότερα και μετριούνται γρήγορα: μέτρησε πρώτα αυτά και αφαίρεσέ τα από το 11. Μέτρα με τάξη: πρώτα όσα είναι πάνω στον Pencilo, μετά όσα έπεσαν γύρω του.",
+     "hintEn": "There are 11 stickers in total — purple hexagons and orange triangles together. The triangles are fewer and quick to count: count those first, then take them away from 11. Count in an orderly way: first the ones on Pencilo, then the ones around him.",
+     "solutionEl": "Τα πορτοκαλί τρίγωνα είναι 4. Αφού όλα τα αυτοκόλλητα είναι 11, τα μωβ εξάγωνα είναι 11 − 4 = 7. Οι μικρές χρυσές λάμψεις του δάσους δεν είναι αυτοκόλλητα του Link, γι' αυτό δεν μετριούνται. Κράτα σημείωση: 7.",
+     "solutionEn": "There are 4 orange triangles. Since all the stickers together are 11, the purple hexagons are 11 − 4 = 7. The little golden sparkles in the forest are not Link's stickers, so they do not count. Make a note: 7."
+    },
+    {
+     "type": "knowledge",
+     "promptEl": "Στον τοίχο ο Crocus έχει κρεμάσει μια αφίσα από την αρχαία Ολυμπία, με δρομείς και στεφάνια από αγριελιά. Στην αρχαία Ελλάδα, κάθε πόσα χρόνια γίνονταν οι Ολυμπιακοί Αγώνες;",
+     "promptEn": "On the wall Crocus has hung a poster from ancient Olympia, with runners and wild-olive wreaths. In ancient Greece, how often were the Olympic Games held?",
+     "answerType": "choice",
+     "optionsEl": [
+      "Κάθε 2 χρόνια",
+      "Κάθε 3 χρόνια",
+      "Κάθε 4 χρόνια",
+      "Κάθε 5 χρόνια"
+     ],
+     "optionsEn": [
+      "Every 2 years",
+      "Every 3 years",
+      "Every 4 years",
+      "Every 5 years"
+     ],
+     "answerEl": "Κάθε 4 χρόνια",
+     "answerEn": "Every 4 years",
+     "hintEl": "Είναι το ίδιο διάστημα που περιμένουμε και σήμερα ανάμεσα σε δύο Ολυμπιάδες — όσο και τα δίσεκτα έτη.",
+     "hintEn": "It is the same gap we still wait between two Olympic Games today — the same as between leap years.",
+     "solutionEl": "Οι αρχαίοι Ολυμπιακοί Αγώνες γίνονταν στην Ολυμπία κάθε τέσσερα χρόνια. Αυτό το διάστημα των τεσσάρων χρόνων το έλεγαν Ολυμπιάδα, και οι σημερινοί Ολυμπιακοί Αγώνες κράτησαν το ίδιο έθιμο. Κράτα σημείωση: 4.",
+     "solutionEn": "The ancient Olympic Games took place at Olympia every four years. That four-year gap was called an Olympiad, and today's Olympic Games have kept the same custom. Make a note: 4."
+    },
+    {
+     "type": "final",
+     "promptEl": "Φτάνεις στη σιδερένια πόρτα. Ο πίνακας ζητά έναν αριθμό και ο WiseBot ανοίγει το σημειωματάριο με τα πέντε κομμάτια σου:\n1) Κλειδί του Pencilo (1ος γρίφος) → πόσα γράμματα έχει η λέξη του χρώματος; ____\n2) Παρονομαστής του επόμενου κλάσματος (2ος γρίφος) → ____\n3) Ο αριθμός που λέει η κρυμμένη λέξη (3ος γρίφος) → ____\n4) Μωβ εξάγωνα πάνω στη φωτογραφία (4ος γρίφος) → ____\n5) Χρόνια μιας Ολυμπιάδας (5ος γρίφος) → ____\nΣυμπλήρωσε και τις πέντε γραμμές και πρόσθεσέ τις. Ποιο είναι το άθροισμα;",
+     "promptEn": "You reach the iron door. The pad asks for a number and WiseBot opens the notebook with your five pieces:\n1) Pencilo's key (puzzle 1) → how many letters does the colour word have? ____\n2) Denominator of the next fraction (puzzle 2) → ____\n3) The number that the hidden word names (puzzle 3) → ____\n4) Purple hexagons on the photo (puzzle 4) → ____\n5) Years in one Olympiad (puzzle 5) → ____\nFill in all five lines and add them up. What is the total?",
+     "answerType": "number",
+     "answerEl": "57",
+     "answerEn": "57",
+     "hintEl": "Έλεγξε το σημειωματάριο γραμμή γραμμή πριν προσθέσεις. Δύο από τα πέντε νούμερα είναι ίδια. Ξεκίνα από το μεγαλύτερο (αυτό του 2ου γρίφου) και πρόσθεσε τα υπόλοιπα ένα ένα· το άθροισμα είναι ανάμεσα στο 50 και στο 60. Αν σου βγαίνει 1 ή 2 μονάδες πάνω ή κάτω, το λάθος είναι σχεδόν σίγουρα η γραμμή 4: ξαναμέτρησε τα μωβ εξάγωνα (όλα τα αυτοκόλλητα μαζί ήταν 11).",
+     "hintEn": "Check the notebook line by line before you add. Two of the five numbers are the same. Start from the biggest one (the one from puzzle 2) and add the rest one by one; the total is between 50 and 60. If you end up 1 or 2 above or below, the mistake is almost certainly line 4: count the purple hexagons again (all the stickers together were 11).",
+     "solutionEl": "Γραμμή 1: η λέξη ΜΠΛΕ έχει 4 γράμματα. Γραμμή 2: το επόμενο κλάσμα ήταν το 1/32, άρα 32. Γραμμή 3: η κρυμμένη λέξη ήταν ΔΕΚΑ, άρα 10. Γραμμή 4: τα μωβ εξάγωνα ήταν 7. Γραμμή 5: μια Ολυμπιάδα κρατά 4 χρόνια.\n4 + 32 + 10 + 7 + 4 = 57. Ο Χαμένος Κώδικας είναι το 57!",
+     "solutionEn": "Line 1: the word BLUE has 4 letters. Line 2: the next fraction was 1/32, so 32. Line 3: the hidden word was TEN, so 10. Line 4: the purple hexagons were 7. Line 5: one Olympiad lasts 4 years.\n4 + 32 + 10 + 7 + 4 = 57. The Lost Code is 57!"
+    }
+   ]
+  },
+  {
+   "id": "room3",
+   "titleEl": "Η Αίθουσα της Οικογένειας",
+   "titleEn": "The Family Room",
+   "introEl": "Κυριακή απόγευμα στην Ακαδημία. Στην Αίθουσα της Οικογένειας ο WiseBot έχει στρώσει κουβέρτες, ποπκόρν και επιτραπέζια — και μόλις μπήκατε, η πόρτα έκλεισε πίσω σας με ένα «κλικ». «Ωπ», λέει ο WiseBot ανοιγοκλείνοντας τα μεγάλα του μάτια. «Αυτή η κλειδαριά θέλει έξι γρίφους. Και την έφτιαξα πονηρά: άλλους θα τους λύσει πιο γρήγορα ο μεγάλος, άλλους το παιδί. Κανείς σας δεν βγαίνει μόνος του. Καθίστε δίπλα δίπλα και ξεκινάμε.»",
+   "introEn": "Sunday afternoon at the Academy. In the Family Room, WiseBot has laid out blankets, popcorn and board games — and the moment you walked in, the door shut behind you with a click. \"Oops,\" says WiseBot, blinking his big eyes. \"This lock wants six puzzles. And I built it to be sneaky: the grown-up will crack some faster, the child will crack the others. Neither of you gets out alone. Sit down side by side and let's begin.\"",
+   "outroEl": "Η κλειδαριά κάνει κλικ και η πόρτα ανοίγει διάπλατα. Ο Sparken χειροκροτεί, ο Pencilo σκορπάει ποπκόρν από τη χαρά του, η Crocus κρεμάει τα τέσσερα κλειδιά πίσω στο ράφι και ο Link σβήνει τους αριθμούς από τον πίνακα. «Το είδατε;» λέει ο WiseBot. «Ο ένας ξεμπέρδεψε τα κλειδιά, ο άλλος μέτρησε τα αστέρια πριν προλάβω να πω “αστέρι”. Η Αίθουσα της Οικογένειας δεν ανοίγει ποτέ με ένα μόνο ζευγάρι χέρια.» Βγαίνετε έξω — και το ποπκόρν είναι ακόμα ζεστό.",
+   "outroEn": "The lock clicks and the door swings wide open. Sparken applauds, Pencilo scatters popcorn out of sheer joy, Crocus hangs the four keys back on the shelf and Link wipes the numbers off the board. \"Did you see that?\" says WiseBot. \"One of you untangled the keys, the other counted the stars before I could even say 'star'. The Family Room never opens with just one pair of hands.\" You step outside — and the popcorn is still warm.",
+   "puzzles": [
+    {
+     "type": "logic",
+     "promptEl": "Μπροστά στην πόρτα στέκονται τέσσερις φίλοι σε μια σειρά. Οι θέσεις είναι αριθμημένες 1, 2, 3 και 4 — άκρες είναι η 1η και η 4η θέση. Είναι ο Sparken, ο Pencilo, η Crocus και ο Link, και ο καθένας κρατά ένα κλειδί: κόκκινο, μπλε, πράσινο ή χρυσό.\n• Ο Sparken κρατά το πράσινο κλειδί και δεν στέκεται σε καμία από τις δύο άκρες.\n• Όποιος στέκεται στη 2η θέση κρατά το χρυσό κλειδί.\n• Ο Link στέκεται στη θέση αμέσως μετά την Crocus (δηλαδή σε θέση με έναν αριθμό μεγαλύτερο).\n• Η Crocus δεν κρατά το μπλε κλειδί.\nΤι χρώμα είναι το κλειδί της Crocus;",
+     "promptEn": "Four friends are standing in a row in front of the door. The spots are numbered 1, 2, 3 and 4 — the ends are spot 1 and spot 4. They are Sparken, Pencilo, Crocus and Link, and each one holds a key: red, blue, green or gold.\n• Sparken holds the green key and is not standing at either end.\n• Whoever stands in 2nd place holds the gold key.\n• Link stands in the spot immediately after Crocus — one position number higher.\n• Crocus does not hold the blue key.\nWhat colour is Crocus's key?",
+     "answerType": "word",
+     "answerEl": "κοκκινο",
+     "answerEn": "red",
+     "hintEl": "Πιάσε πρώτα τον Sparken: δεν είναι ούτε 1ος ούτε 4ος, και δεν μπορεί να είναι 2ος γιατί η 2η θέση κρατά το χρυσό κλειδί ενώ αυτός κρατά πράσινο. Άρα ξέρεις ακριβώς τον αριθμό του — και μετά μένουν οι θέσεις 1, 2 και 4: μόνο ένα ζευγάρι από αυτές έχει διαδοχικούς αριθμούς.",
+     "hintEn": "Start with Sparken: he is not 1st or 4th, and he cannot be 2nd because spot 2 holds the gold key while he holds green. So you know his exact number — and then spots 1, 2 and 4 are left: only one pair of them has consecutive numbers.",
+     "solutionEl": "Ο Sparken δεν είναι στις άκρες, άρα είναι 2ος ή 3ος. Στη 2η θέση είναι το χρυσό κλειδί κι αυτός κρατά πράσινο, άρα ο Sparken είναι 3ος. Μένουν οι θέσεις 1, 2 και 4, και ο Link πρέπει να είναι στη θέση αμέσως μετά την Crocus (ένα νούμερο μεγαλύτερο) — αυτό γίνεται μόνο με την Crocus 1η και τον Link 2ο, οπότε ο Pencilo είναι 4ος. Ο Link, στη 2η θέση, κρατά το χρυσό. Περισσεύουν το κόκκινο και το μπλε για Crocus και Pencilo, κι επειδή η Crocus δεν κρατά μπλε, κρατά το ΚΟΚΚΙΝΟ.",
+     "solutionEn": "Sparken is not at an end, so he is 2nd or 3rd. Spot 2 holds the gold key and he holds green, so Sparken is 3rd. That leaves spots 1, 2 and 4, and Link must stand in the spot immediately after Crocus (one number higher) — only possible with Crocus 1st and Link 2nd, so Pencilo is 4th. Link, in 2nd place, holds the gold key. Red and blue are left for Crocus and Pencilo, and since Crocus does not hold blue, she holds the RED key."
+    },
+    {
+     "type": "pattern",
+     "promptEl": "Ο Pencilo στοιβάζει μαξιλάρια για το βραδινό σινεμά. Στην 1η στοίβα έβαλε 1 μαξιλάρι, στη 2η έβαλε 3, στην 3η έβαλε 6, στην 4η έβαλε 10 και στην 5η έβαλε 15. Πόσα μαξιλάρια θα βάλει στην 6η στοίβα;",
+     "promptEn": "Pencilo is stacking cushions for movie night. In the 1st stack he put 1 cushion, in the 2nd he put 3, in the 3rd he put 6, in the 4th he put 10 and in the 5th he put 15. How many cushions will he put in the 6th stack?",
+     "answerType": "number",
+     "answerEl": "21",
+     "answerEn": "21",
+     "hintEl": "Μην κοιτάς τους αριθμούς, κοίτα πόσα παραπάνω βάζει κάθε φορά. Από στοίβα σε στοίβα η προσθήκη μεγαλώνει πάντα κατά ένα.",
+     "hintEn": "Do not look at the numbers, look at how many more he adds each time. From stack to stack, the extra amount always grows by one.",
+     "solutionEl": "Κάθε φορά προσθέτει ένα παραπάνω από την προηγούμενη φορά: +2, +3, +4, +5 και μετά +6. Άρα 15 + 6 = 21 μαξιλάρια.",
+     "solutionEn": "Each time he adds one more than the time before: +2, +3, +4, +5 and then +6. So 15 + 6 = 21 cushions."
+    },
+    {
+     "type": "code",
+     "promptEl": "Η Crocus άφησε ένα σημείωμα στο ψυγείο, γραμμένο με αριθμούς αντί για γράμματα. Κάθε αριθμός δείχνει τη θέση του γράμματος στο ελληνικό αλφάβητο: Α=1, Β=2, Γ=3, Δ=4, Ε=5, και συνεχίζει έτσι μέχρι το Ω=24. Ποια λέξη κρύβεται;\n18 – 16 – 9 – 19 – 9",
+     "promptEn": "Crocus left a note on the fridge, written with numbers instead of letters. Each number shows the letter's position in the alphabet: A=1, B=2, C=3, D=4, E=5, and so on all the way to Z=26. Which word is hiding?\n8 – 15 – 21 – 19 – 5",
+     "answerType": "word",
+     "answerEl": "σπιτι",
+     "answerEn": "house",
+     "hintEl": "Μέτρα με τα δάχτυλα ξεκινώντας από το Α: το 18 πέφτει στο Σ και το 16 στο Π. Η λέξη έχει 5 γράμματα και είναι εκεί που μαζεύεται κάθε οικογένεια.",
+     "hintEn": "Count on your fingers starting from A: 8 lands on H and 15 lands on O. The word has 5 letters and it is the place where every family gathers.",
+     "solutionEl": "Σ είναι το 18ο γράμμα, Π το 16ο, Ι το 9ο, Τ το 19ο και Ι πάλι το 9ο: Σ-Π-Ι-Τ-Ι, δηλαδή ΣΠΙΤΙ.",
+     "solutionEn": "H is the 8th letter, O the 15th, U the 21st, S the 19th and E the 5th: H-O-U-S-E, that is HOUSE."
+    },
+    {
+     "type": "observe",
+     "promptEl": "Ο WiseBot κόλλησε πάνω στη φωτογραφία του όλα τα αυτοκόλλητά του: αστεράκια και καρδούλες, όλα στο ίδιο ροζ χρώμα. Μέτρησε ΜΟΝΟ τα αστέρια — αυτά με τις πέντε μύτες. Πόσα είναι;",
+     "promptEn": "WiseBot has stuck his whole sticker collection onto his own photo: stars and hearts, all in the very same pink colour. Count ONLY the stars — the ones with five points. How many are there?",
+     "answerType": "number",
+     "answerEl": "9",
+     "answerEn": "9",
+     "hintEl": "Το χρώμα δεν βοηθάει καθόλου, γιατί καρδούλες και αστέρια είναι ίδια ροζ: ξεχώρισέ τα από το σχήμα — τα αστέρια έχουν πέντε μύτες. Πήγαινε γραμμή γραμμή από πάνω προς τα κάτω, κράτα το δάχτυλό σου σε όσα μέτρησες ήδη, και θα δεις ότι είναι λιγότερα από δέκα.",
+     "hintEn": "The colour is no help at all, because hearts and stars are exactly the same pink: tell them apart by shape — stars have five points. Go row by row from top to bottom, keep your finger on the ones you have already counted, and you will see there are fewer than ten.",
+     "solutionEl": "Τα ροζ αστέρια με τις πέντε μύτες είναι 9. Οι 5 καρδούλες έχουν ακριβώς το ίδιο χρώμα αλλά άλλο σχήμα — αυτή ήταν η παγίδα του WiseBot.",
+     "solutionEn": "There are 9 pink five-pointed stars. The 5 hearts are exactly the same colour but a different shape — that was WiseBot's little trap.",
+     "image": "/images/wisebot.jpg",
+     "overlay": "DETERMINISTIC VECTOR OVERLAY — the game draws these shapes itself from this fixed coordinate list; never hand this spec to an image generator, and never randomise, jitter, rotate or re-seed it. Draw EXACTLY 9 five-pointed stars and EXACTLY 5 hearts over the photo, and nothing else (no extra sparkles, no decorations, no text). All 14 shapes use the SAME fill #E6007E with a 2px #FFFFFF outline and a soft dark drop shadow, so they stay countable over both the bright sunlit patches and the dark forest; the child must discriminate by SHAPE, not colour (the base photo is full of warm golden light, tiny white bokeh specks and a blue glow, so gold/white/blue overlay shapes are forbidden). Star width = 7% of image width; heart width = 5% of image width. Centres are (x%, y%) of the image box, origin top-left; base image is 644x799. STARS (9): (14,10) (40,8) (70,12) (88,30) (12,30) (30,45) (86,58) (20,66) (58,78). HEARTS (5): (58,20) (80,44) (36,60) (70,70) (12,50). Verified against these numbers: no two shapes overlap (minimum centre distance 100px, smallest gap between outlines ~54px), every shape sits fully inside the frame with margin, and none covers WiseBot's eyes or the lightbulb. The answer 9 is this list's length — if the renderer cannot emit exactly 9 star nodes and 5 heart nodes, fail the build instead of shipping a different count."
+    },
+    {
+     "type": "knowledge",
+     "promptEl": "Ο Sparken έστησε το τηλεσκόπιό του στο παράθυρο της αίθουσας. «Αυτή είναι ερώτηση για τους μεγάλους», λέει και κλείνει το μάτι στο παιδί. «Πόσους πλανήτες έχει σήμερα το Ηλιακό μας Σύστημα;»",
+     "promptEn": "Sparken has set up his telescope at the window of the room. \"This one is a question for the grown-ups,\" he says, winking at the child. \"How many planets does our Solar System have today?\"",
+     "answerType": "choice",
+     "optionsEl": [
+      "7 πλανήτες",
+      "8 πλανήτες",
+      "9 πλανήτες",
+      "10 πλανήτες"
+     ],
+     "optionsEn": [
+      "7 planets",
+      "8 planets",
+      "9 planets",
+      "10 planets"
+     ],
+     "answerEl": "8 πλανήτες",
+     "answerEn": "8 planets",
+     "hintEl": "Οι γονείς το έμαθαν αλλιώς στο σχολείο τους! Από το 2006 ο Πλούτωνας θεωρείται «νάνος πλανήτης» και βγήκε από τη λίστα, οπότε ο αριθμός είναι ένας λιγότερος απ' όσο θυμούνται.",
+     "hintEn": "Parents learned this differently at school! Since 2006 Pluto counts as a \"dwarf planet\" and left the list, so the number is one less than they remember.",
+     "solutionEl": "Οκτώ: Ερμής, Αφροδίτη, Γη, Άρης, Δίας, Κρόνος, Ουρανός, Ποσειδώνας. Ο Πλούτωνας από το 2006 κατατάσσεται ως νάνος πλανήτης — γι' αυτό πολλοί μεγάλοι λένε ακόμα εννιά.",
+     "solutionEn": "Eight: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune. Since 2006 Pluto is classified as a dwarf planet — which is why many grown-ups still say nine."
+    },
+    {
+     "type": "final",
+     "promptEl": "Η κλειδαριά της πόρτας είναι ένας δίσκος με αριθμούς, και δίπλα της ο WiseBot έχει κολλήσει ένα χαρτάκι:\n«Πρόσθεσε τα πέντε και θα βγει ο αριθμός που ανοίγει:\n1) το κλειδί της Crocus από τον 1ο γρίφο — κόκκινο 7, μπλε 4, πράσινο 6, χρυσό 9\n2) τα μαξιλάρια της 6ης στοίβας από τον 2ο γρίφο\n3) πόσα γράμματα έχει η κρυφή λέξη του σημειώματος από τον 3ο γρίφο\n4) τα ροζ αστέρια που μετρήσατε στον 4ο γρίφο\n5) τους πλανήτες από τον 5ο γρίφο»\nΠοιος αριθμός ανοίγει την πόρτα;",
+     "promptEn": "The door lock is a dial full of numbers, and next to it WiseBot has stuck a little note:\n\"Add the five and you get the number that opens it:\n1) Crocus's key from puzzle 1 — red 7, blue 4, green 6, gold 9\n2) the cushions in the 6th stack from puzzle 2\n3) how many letters the hidden word of the note has, from puzzle 3\n4) the pink stars you counted in puzzle 4\n5) the planets from puzzle 5\"\nWhich number opens the door?",
+     "answerType": "number",
+     "answerEl": "50",
+     "answerEn": "50",
+     "hintEl": "Ξεκίνα από τα τρία μεγάλα νούμερα — μαξιλάρια, αστέρια, πλανήτες. Μαζί κάνουν 38. Μένουν μόνο δύο μικρά: ο αριθμός του χρώματος και τα γράμματα της λέξης.",
+     "hintEn": "Start with the three big numbers — cushions, stars, planets. Together they make 38. Only two small ones are left: the number for the colour and the letters of the word.",
+     "solutionEl": "Το κλειδί της Crocus ήταν κόκκινο, άρα 7. Τα μαξιλάρια της 6ης στοίβας ήταν 21. Η κρυφή λέξη ΣΠΙΤΙ έχει 5 γράμματα. Τα ροζ αστέρια ήταν 9. Οι πλανήτες 8. Άρα 7 + 21 + 5 + 9 + 8 = 50.",
+     "solutionEn": "Crocus's key was red, so 7. The 6th stack had 21 cushions. The hidden word HOUSE has 5 letters. The pink stars were 9. The planets are 8. So 7 + 21 + 5 + 9 + 8 = 50."
+    }
+   ]
+  }
+ ],
+ "problemCount": 22,
+ "seriousCount": 11,
+ "problems": [
+  {
+   "puzzleIndex": 4,
+   "type": "ambiguity",
+   "severity": "blocker",
+   "issue": "The base image /public/images/wisebot.jpg is a sunlit forest scene already covered in dozens of small bright bokeh specks and floating light motes (top-left canopy, around both wings, lower left). Overlaying 7 yellow stars on top of that and asking a 6-8 year old 'how many stars can you see?' has no unique answer: many children will count the existing glowing specks as stars. The hint ('fewer than 10') actively makes it worse, because a child who counts the specks lands far above 10 and concludes they are miscounting.",
+   "suggestedFix": "Do not use this photo for a counting puzzle. Either (a) composite the stars onto a flat/low-noise panel (a plain workshop shelf, a solid-colour card) instead of the forest photo, or (b) keep the photo but put the 7 stars inside an obvious framed strip or on the owl's body only, and reword the prompt to 'How many BIG yellow stars are on WiseBot?' so the background sparkles are explicitly excluded.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 4,
+   "type": "unverifiable-answer",
+   "severity": "major",
+   "issue": "The overlay is a free-text description ('7 bright yellow five-pointed stars scattered pseudo-randomly across the whole image'). It constrains only star-star overlap and the owl's face. Nothing forbids a star landing half-off the image edge, on the pale cream wings or the blown-out sunlit patch (yellow on near-white = invisible on a phone), and nothing in the pipeline asserts that the rendered image actually contains exactly 7 fully visible stars. The stated answer 7 is therefore not guaranteed to be true of what the child sees.",
+   "suggestedFix": "Render the overlay deterministically instead of describing it: store 7 fixed (x,y) percentages with a seeded generator, draw them as an SVG layer with a dark outline/drop-shadow for contrast, enforce a >=8% margin from every edge and a minimum rendered size of 28px, and add a unit test that counts the emitted star nodes and asserts it equals the puzzle's answer.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 4,
+   "type": "age-fit",
+   "severity": "minor",
+   "issue": "'About 6% of the image width' is roughly 22px on a 375px-wide phone, which is small for a six-year-old to spot against a busy, high-detail forest background, especially the ones that land on the textured moss floor.",
+   "suggestedFix": "Set a floor in absolute pixels (min 28-32px rendered) as well as the percentage, and add a white or dark halo around each star so it separates from the background at any size.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 6,
+   "type": "solvability",
+   "severity": "major",
+   "issue": "The prompt tells the child to add 'Pencilo's number (puzzle 2) + Sparken's stars (puzzle 4) + Link's months (puzzle 5)'. That requires (a) the puzzles to be visibly numbered 1-6 in the UI and (b) the child to still have those three answers in front of them. A 6-8 year old will not hold 10, 7 and 12 in working memory across five screens, and 'puzzle 2 / puzzle 4 / puzzle 5' is meaningless if the UI shows only 'next puzzle'.",
+   "suggestedFix": "Render a recap on the final screen: three read-only chips showing the child's own accepted answers (Pencilo 10, Sparken 7, Link 12) with the character avatars, and drop the puzzle-number references from the prompt text — refer to the characters only, since the chips supply the numbers.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 6,
+   "type": "dependency",
+   "severity": "major",
+   "issue": "The final lock hardcodes 29 while the prompt says 'add YOUR three answers'. If the child read 8 stars in puzzle 4 (very likely given the bokeh problem above) they compute 30, are told they are wrong, and have no way to learn which of the three inputs was bad. A single miscount at puzzle 4 makes the room unfinishable rather than just costing a retry.",
+   "suggestedFix": "Compute the expected total from the answers the game already validated (each earlier puzzle is checked before the child moves on, so the three values are known-correct at this point), and on a wrong total give a targeted nudge naming the component that disagrees, e.g. 'Check Sparken's stars again' rather than a flat 'try again'.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 6,
+   "type": "age-fit",
+   "severity": "minor",
+   "issue": "17 + 12 = 29 is two-digit column addition. That is at the very top of the 6-8 band; a first-grader (Α' Δημοτικού) typically works within 20. The hint splits it into 10+7 then +12, which helps, but the second step is still two-digit.",
+   "suggestedFix": "Either keep the total under 20 by combining only two puzzle answers, or extend the hint to a third step ('17 + 10 = 27, then 27 + 2 = 29') so the carry-free decomposition is spelled out.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 3,
+   "type": "input-format",
+   "severity": "major",
+   "issue": "This is the only puzzle requiring free-text entry, and the project's own six-games brief states for this age band that answers must be multiple choice 'ώστε να μη χρειάζεται πληκτρολόγηση από εξάχρονο'. A Greek six-year-old must also type a capital Ω. On top of that, the stored answer is uppercase 'ΦΩΣ': unless the checker normalises case and strips accents/final sigma, a child typing 'φως', 'Φως' or 'ΦΩΣ ' is told they are wrong despite having solved it.",
+   "suggestedFix": "Turn the code puzzle into a 4-option choice (ΦΩΣ / ΦΑΣ / ΣΩΦ / ΩΦΣ, and LIGHT / LIGTH / NIGHT / RIGHT), or if free text stays, normalise both sides before comparing: uppercase, strip accents and diacritics, normalise final sigma, and trim whitespace.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 3,
+   "type": "locale-parity",
+   "severity": "minor",
+   "issue": "The Greek version decodes 3 symbols (ΦΩΣ) while the English version decodes 5 (LIGHT). The two languages are not the same puzzle — the English child does noticeably more work, and the English hint additionally gives the answer away ('what a lamp gives you') where the Greek hint gives both the first letter and the same clue.",
+   "suggestedFix": "Even the two out — either extend the Greek to a 5-symbol word (e.g. ΛΑΜΠΑ) or shorten the English to a 3-symbol word (SUN with ★=S, ●=U, ▲=N) — and drop the first-letter giveaway from whichever hint keeps it.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 3,
+   "type": "tone",
+   "severity": "minor",
+   "issue": "The room already opens with 'the door closed behind you', and this puzzle then puts the child in the dark ('the lights went out!'). For a sensitive six-year-old that is two mild scares stacked, and the reassurance ('the workshop lit up again') only appears in the solution text, i.e. after the puzzle is already solved.",
+   "suggestedFix": "Add a reassuring beat to the prompt itself, e.g. 'Μη φοβάσαι — ο WiseBot λάμπει με τη λάμπα του! Δίπλα στον διακόπτη γράφει...' / 'Don't worry — WiseBot's lamp is glowing. Next to the switch you read...'.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 5,
+   "type": "hint-quality",
+   "severity": "minor",
+   "issue": "The hint 'Start at January and count the months all the way to December' is circular: a child who already knows the list of months does not need the hint, and a child who does not know it cannot use the hint. It narrows nothing.",
+   "suggestedFix": "Make the hint give genuinely new information — e.g. 'Ένας χρόνος έχει 4 εποχές και κάθε εποχή 3 μήνες: 3+3+3+3' / 'A year has 4 seasons and each season has 3 months: 3+3+3+3' — or show a calendar graphic with 12 pages the child can count.",
+   "roomId": "room1"
+  },
+  {
+   "puzzleIndex": 4,
+   "type": "unique/solvable",
+   "severity": "blocker",
+   "issue": "Puzzle 4 (observe, 1-based numbering) is not uniquely countable on the image it uses. I opened /Users/vasilisskevis/Projects/wisebot-games/.claude/worktrees/daily/public/images/link.jpg: the base photo ALREADY contains golden star-like elements before any overlay is drawn — a scatter of warm white/gold bokeh sparkle motes across the sunlit left third and around the mouse's whiskers, plus a glowing yellow light bulb with visible rays in the backpack. The prompt says 'How many STARS landed on it?' with no wording that restricts counting to the shapes WiseBot/Link drew on top. A careful 9-12 year old who counts every golden star-ish glint reaches 8, 9 or 'too many', which is just as defensible a reading as 7. The hint ('more than 5 and fewer than 10') does not resolve it — it leaves 6/7/8/9 open and actually legitimises 8 and 9. Worse, the overlay spec asks for gold stars at ~5% of image width scattered 'pseudo-randomly over the whole image', so some will land on the blown-out sunlit background at upper-left where gold-on-gold has almost no contrast, and a child can just as easily count 6.",
+   "suggestedFix": "Two changes, both needed. (1) Swap the background for a low-detail, non-sparkly image (or a flat/blurred panel), or constrain placement to the darker forest-floor and trunk areas, away from the sunlit left third, the whisker area and the backpack. (2) Make the overlay stars unmistakably 'drawn on top': larger (8-10% of width), flat saturated gold with a 2-3px dark outline and a soft drop shadow, and reword the prompt to 'How many of the big golden stars Link threw onto the picture are there? (Do not count the small sparkles that were already in the forest, and do not count the hexagons.)' Then re-render and count the finished image yourself before shipping — the answer 7 is only true of a render nobody has verified.",
+   "roomId": "room2"
+  },
+  {
+   "puzzleIndex": 6,
+   "type": "dependency",
+   "severity": "major",
+   "issue": "The final's arithmetic is correct (4+32+10+7+4 = 57, verified in both EL and EN — ΜΠΛΕ and BLUE both have 4 letters, ΔΕΚΑ and TEN both name 10), but it inherits puzzle 4's fragility with no way for the child to recover. A child who counted 8 stars types 58, is told 'wrong', and has no signal about WHICH of the five pieces was off. The final hint gives away 32 and the two 4s, so the child can narrow it to the stars-or-TEN pair only by trial and error, and the room's promise in the intro ('keep notes') is never cashed in on screen.",
+   "suggestedFix": "Fix puzzle 4 first. In addition, show the five collected pieces as a visible checklist on the final screen (colour → 4, fraction → 32, word → 10, stars → ?, Olympiad → 4), so a mismatch is traceable to one line instead of one opaque total. Optionally, on a wrong total that is exactly ±1 or ±2 from 57, nudge: 'Πολύ κοντά! Ξαναμέτρησε τα αστέρια.'",
+   "roomId": "room2"
+  },
+  {
+   "puzzleIndex": 1,
+   "type": "clarity",
+   "severity": "minor",
+   "issue": "The intro names FOUR friends (Link, Crocus, Sparken, Pencilo) but puzzle 1 has three keys and names only three of them in the clues, while stating 'Each friend holds exactly one key' / 'Καθένας κρατά ένα μόνο κλειδί'. Read literally against the intro, that is four friends and three keys — a contradiction a precise child will stall on ('where is Link's key?'). It does not create a second valid answer (the deduction still forces Crocus=green, Sparken=red, Pencilo=blue), so it is only a stumble, not a break. Note also that clue 3 ('Pencilo does not hold the red one') is logically redundant — harmless, and useful as a self-check.",
+   "suggestedFix": "Name the three explicitly: 'Οι τρεις φίλοι — ο Crocus, ο Sparken και ο Pencilo — κρατούν από ένα κλειδί ο καθένας' / 'The three friends — Crocus, Sparken and Pencilo — hold one key each (Link is busy with his tail).'",
+   "roomId": "room2"
+  },
+  {
+   "puzzleIndex": 2,
+   "type": "presentation/input",
+   "severity": "minor",
+   "issue": "Two small things. (a) In the Greek prompt the missing term is written as the Greek question mark: '1/2 , 1/4 , 1/8 , 1/16 , ;'. Inside a comma-separated maths sequence that glyph reads as stray punctuation rather than as the blank to fill, unlike the EN '?'. (b) answerType is 'number', so a child who follows the fraction staircase and types the natural '1/32' is marked wrong even though they solved it. The prompt and hint do both say 'the bottom number', so this is a near-miss rather than a defect.",
+   "suggestedFix": "(a) Use an explicit blank in the Greek: '1/2 , 1/4 , 1/8 , 1/16 , ___'. (b) Normalise the input so '1/32' and '32' both pass, or add to the prompt 'Γράψε μόνο τον κάτω αριθμό, χωρίς το 1/'.",
+   "roomId": "room2"
+  },
+  {
+   "puzzleIndex": 5,
+   "type": "hint",
+   "severity": "minor",
+   "issue": "The hint pushes toward the wrong distractor for today's children: 'It is the same gap we still wait between two Olympic Games today.' Modern Winter and Summer Games alternate every two years, and the Winter Games were in February 2026 — very fresh for this age band — so a child reasoning from 'the Olympics we watch' can land on the offered distractor 'Every 2 years'. The leap-year half of the hint saves it, but the two halves of the hint point at different options. The stated answer itself is historically correct and unique.",
+   "suggestedFix": "Say 'Summer': 'Είναι το ίδιο διάστημα που περιμένουμε ανάμεσα σε δύο καλοκαιρινούς Ολυμπιακούς Αγώνες — όσο και τα δίσεκτα έτη.' / 'It is the same gap between two Summer Olympic Games — the same as between leap years.'",
+   "roomId": "room2"
+  },
+  {
+   "puzzleIndex": 4,
+   "type": "readability",
+   "severity": "minor",
+   "issue": "Secondary problems with the same overlay. The base image's robotic tail is a chain of roughly eight round glowing blue orbs in the upper-right, so the five blue hexagon distractors land in a field of blue glowing shapes and stop reading as a deliberate 'trap' — they just make the picture noisier. And at 'roughly 5% of the image width' the stars are about 64px on the 1280px source but only ~19px on a 375px phone viewport, over a detailed forest; counting seven of those on a phone is a genuine chore for a 9-year-old.",
+   "suggestedFix": "Place the hexagons away from the tail (left half / lower third), give them the same dark outline treatment, and raise both shapes to 8-10% of image width so they survive a 375px viewport. Verify the puzzle on a mobile-width render, not only on desktop.",
+   "roomId": "room2"
+  },
+  {
+   "puzzleIndex": 0,
+   "type": "ambiguity",
+   "severity": "major",
+   "issue": "Logic puzzle (puzzle 1 of 6). Clue 3 \"Link stands immediately to the right of Crocus\" / \"ακριβώς δεξιά από την Crocus\" has two readings for a family audience: reader's-right (position n+1) or the characters' own right (position n-1, since they face the door/the reader). Under the mirrored reading the grid is Link 1st, Crocus 2nd, Sparken 3rd, Pencilo 4th — which satisfies ALL four clues (Sparken green and not at an end, 2nd holds gold, Link adjacent-left of Crocus, Crocus not blue) and yields GOLD as Crocus's key. So the puzzle has two fully consistent answers, red and gold, and the wrong one is not self-correcting: it feeds 9 instead of 7 into the final lock and produces 52 instead of 50, so the door simply never opens.",
+   "suggestedFix": "Remove the left/right frame from the clue: EL \"Ο Link στέκεται στη θέση αμέσως μετά την Crocus (μεγαλύτερο νούμερο θέσης)\", EN \"Link stands in the spot immediately after Crocus — one position number higher.\" Mirror the same wording in solutionEl/solutionEn.",
+   "roomId": "room3"
+  },
+  {
+   "puzzleIndex": 0,
+   "type": "answer-format",
+   "severity": "minor",
+   "issue": "answerEl is \"κοκκινο\" (unaccented), but the very same colour is printed accented as \"κόκκινο 7\" inside puzzle 6's note, so a Greek player will naturally type \"κόκκινο\" and be marked wrong unless the checker strips accents. Same class of mismatch will hit \"πράσινο/πρασινο\" and \"χρυσό/χρυσο\" if those are ever accepted.",
+   "suggestedFix": "Guarantee accent- and case-insensitive comparison for answerType \"word\" (NFD normalize + strip combining marks + lowercase + trim), and keep the room text and the answer key spelled consistently.",
+   "roomId": "room3"
+  },
+  {
+   "puzzleIndex": 2,
+   "type": "answer-format",
+   "severity": "minor",
+   "issue": "Code puzzle (puzzle 3 of 6). The decode itself is clean and unique (Σ18-Π16-Ι9-Τ19-Ι9 = ΣΠΙΤΙ; H8-O15-U21-S19-E5 = HOUSE), but answerEl \"σπιτι\" is unaccented while every Greek child and parent will type \"σπίτι\". Without accent normalization this is a correct solution rejected at the keyboard.",
+   "suggestedFix": "Same normalization rule as above; also accept uppercase ΣΠΙΤΙ / HOUSE. Optionally show the answer field placeholder as \"5 γράμματα\" to confirm length.",
+   "roomId": "room3"
+  },
+  {
+   "puzzleIndex": 3,
+   "type": "unverifiable-answer",
+   "severity": "blocker",
+   "issue": "Observation puzzle (puzzle 4 of 6). The stated answer 9 is not derivable from the prompt at all — it lives entirely in a free-text overlay instruction (\"9 golden five-pointed stars and 5 smaller blue hearts scattered pseudo-randomly\") handed to an image generator. Nothing in the room data pins the count deterministically, and nothing here shows the shipped image was counted after rendering. If the renderer drops, merges, clips or duplicates a star, the puzzle's answer is wrong AND the final lock code is wrong (door never opens). This is the single highest-risk item in the room.",
+   "suggestedFix": "Do not generate this overlay with free text. Draw it deterministically: a fixed list of 9 star coordinates + 5 heart coordinates composited as SVG/canvas over the photo with a fixed seed, so the count is data, not a prompt. Then open the rendered image and count the stars yourself before ship, and add a test asserting the overlay emits exactly 9 star nodes.",
+   "roomId": "room3"
+  },
+  {
+   "puzzleIndex": 3,
+   "type": "ambiguity",
+   "severity": "major",
+   "issue": "Observation puzzle (puzzle 4 of 6). The overlay is laid over /images/wisebot.jpg, a character illustration. If the base art contains any star, sparkle, glint or gold-coloured decoration of its own (very common on a robot/book-wings character), a child cannot tell an overlay star from a star that was already in the picture, and \"count the golden stars\" has more than one defensible answer. Contrast is also unstated: gold stars on a bright/yellow area of the photo can become uncountable.",
+   "suggestedFix": "Check the base photo for existing stars/sparkles/gold elements; if any exist, either pick a clean frame, or drop a semi-transparent dark scrim behind the overlay so only the added stars read as gold, or switch the counted shape to something absent from the artwork. Give every star a thin white outline so it stays countable over light areas.",
+   "roomId": "room3"
+  },
+  {
+   "puzzleIndex": 5,
+   "type": "dependency",
+   "severity": "major",
+   "issue": "Final puzzle (puzzle 6 of 6). The arithmetic itself is correct — 7 (red) + 21 (cushions) + 5 (letters of ΣΠΙΤΙ/HOUSE) + 9 (stars) + 8 (planets) = 50, and the hint's 21+9+8=38 checks out — but two of the five inputs are not solid: puzzle 1 admits gold (9) under the mirrored left/right reading, and puzzle 4's star count is only as reliable as a generated overlay. Either fault silently changes the lock code (52, or whatever the image really shows), and a wrong final code is the worst failure mode in an escape room because the family has no way to tell which step betrayed them.",
+   "suggestedFix": "Fix puzzle 1's wording and make puzzle 4's overlay deterministic, then re-verify 50 end to end against the shipped image. Consider having the lock echo the five partial values it is adding (e.g. show the number the player enters for each line) so a mismatch is traceable instead of a dead door.",
+   "roomId": "room3"
+  }
+ ],
+ "checks": [
+  {
+   "roomId": "room1",
+   "verdict": "Room is mostly sound, but NOT shippable as-is: puzzle 4 is unreliable and it poisons puzzle 6. Per-puzzle (1-based index):\n\nP1 logic (yellow box): solvable YES, unique YES (the only colour not ruled out), answerFormatOk YES (\"κίτρινο\"/\"yellow\" are verbatim option entries), hintUseful YES, ageOk YES. Trivially easy — fine as a warm-up, no bug.\n\nP2 pattern (2,4,6,8 -> 10): solvable YES, unique YES for this band, format YES (digits), hint YES (tells you to look at the step), ageOk YES. Clean.\n\nP3 code (ΦΩΣ / LIGHT): solvable YES from the prompt alone (the key is printed right there — it is a transcription task, not a puzzle), unique YES, format YES (one word, no accents/spaces), hint YES, ageOk BORDERLINE — it is the only puzzle demanding free-text typing, which the project's own brief explicitly avoids for six-year-olds, and the Greek answer needs capital Ω. Also el has 3 symbols vs en 5, so the two languages are not the same puzzle.\n\nP4 observe (7 stars): solvable NO / unique NO. The base photo wisebot.jpg is a forest scene full of small bright bokeh specks and floating light motes. Over that, \"how many stars do you see?\" has no single defensible answer for a 6-8 year old. The overlay spec also guarantees nothing about contrast, edge clipping or minimum rendered size, and nothing verifies the render really contains exactly 7 countable stars. This is the room's worst puzzle.\n\nP5 knowledge (12 months): solvable YES if the child already knows the months, unique YES, format YES, ageOk YES, hintUseful NO — it is circular (\"count January to December\" presupposes the answer).\n\nP6 final (29): finalConsistent YES. Recomputed from the actual stated answers of P2/P4/P5: 10 + 7 = 17; 17 + 12 = 29. Matches answerEl/answerEn \"29\". Format YES (digits). But solvable only if the UI shows the child their three earlier answers and numbers the puzzles visibly, and it inherits P4's ambiguity — a child who counts 8 stars gets 30, is rejected, and has no way to see which of the three inputs was wrong.\n\nFix P4 (deterministic, verified star placement) and P6's recall/diagnostics before release; P3's typing barrier is the next most likely to stall a six-year-old."
+  },
+  {
+   "roomId": "room2",
+   "verdict": "NEEDS FIXES BEFORE SHIPPING — one blocker. (Indices below are 1-based, matching the room's own \"1ου/2ου γρίφου\" numbering: 1=logic, 2=pattern, 3=code, 4=observe, 5=knowledge, 6=final.)\n\nWhat is solid: puzzles 1, 2, 3, 5 and 6 are solvable from the prompt alone, have exactly one reasonable answer, and all six answers obey the format rules (numbers are digits only; ΜΠΛΕ/BLUE and ΔΕΚΑ/TEN are single unaccented words; the choice answer matches an option verbatim). The Greek cipher checks out letter by letter against the 24-letter alphabet (Δ=4, Ε=5, Κ=10, Α=1 → ΔΕΚΑ) and so does the English (T=20, E=5, N=14 → TEN); both name 10, so the two languages stay in sync. Nothing in the room is frightening and the content sits comfortably in the 9-12 band.\n\nfinalConsistent: YES. Recomputed from the puzzles' own answerEl/answerEn, not from the solution text: ΜΠΛΕ = Μ,Π,Λ,Ε = 4 letters and BLUE = B,L,U,E = 4 letters (the two languages agree, which is what makes a single stated total legal here); denominator 32; ΔΕΚΑ/TEN names 10; stars 7; Olympiad 4. 4+32=36, 36+10=46, 46+7=53, 53+4=57. Stated answer 57 — correct in both EL and EN.\n\nThe blocker: puzzle 4. Its answer of 7 is not uniquely derivable from the picture it is drawn on. I opened the actual asset — the base image is full of golden bokeh sparkles and a glowing yellow bulb before any overlay exists, and the prompt asks for \"stars\" without limiting the count to the shapes drawn on top. 8 and 9 are as defensible as 7, and the hint's \"more than 5 and fewer than 10\" explicitly keeps them alive. That single count also feeds the final, so an off-by-one there silently breaks the room's payoff with no diagnostic for the child. Fix the image and the wording, re-render, and count the shipped render yourself before signing this room off. The remaining five findings are polish."
+  },
+  {
+   "roomId": "room3",
+   "verdict": "NEEDS FIXES before ship — 1 blocker, 3 major, 2 minor. The room's spine is sound (the final code really is 7+21+5+9+8 = 50), but puzzle 1 has a second fully valid answer and puzzle 4's answer is unverifiable content.\n\nP1 logic — solvable: yes (adult-led). unique: NO — \"immediately to the right\" read from the characters' side gives Link 1st / Crocus 2nd, satisfies all four clues, and yields GOLD instead of red. answerFormatOk: yes (one word, unaccented) but \"κοκκινο\" vs the accented \"κόκκινο\" printed in puzzle 6 needs accent-insensitive matching. hintUseful: yes, it pins Sparken to 3rd. ageOk: yes.\n\nP2 pattern — solvable: yes. unique: yes (triangular numbers, +2/+3/+4/+5/+6 → 21; no competing rule fits all five terms). answerFormatOk: yes (digits). hintUseful: yes, it points at the differences without giving 21. ageOk: yes — the easiest puzzle in the room, good child-lane material.\n\nP3 code — solvable: yes with an alphabet to hand; Greek Σ=18, Π=16, Ι=9, Τ=19, Ι=9 → ΣΠΙΤΙ, English 8-15-21-19-5 → HOUSE, both 5 letters so the final lock stays language-consistent. unique: yes, decoding is deterministic. answerFormatOk: one word, no spaces, but \"σπιτι\" will be typed \"σπίτι\" — normalize. hintUseful: yes (gives 2 of 5 letters plus the meaning). ageOk: yes.\n\nP4 observe — solvable: NOT from the room data; the answer lives only in a free-text overlay instruction and nothing shows the rendered image was counted. unique: unverified, and at risk again if the base wisebot.jpg carries its own sparkles/gold. answerFormatOk: yes. hintUseful: yes (names the hearts as the trap, gives a counting method). ageOk: yes in principle — 9 non-overlapping items is a good child-lane count.\n\nP5 knowledge — solvable: yes. unique: yes; 8 is the settled answer and \"today\" forecloses the Pluto reading. answerFormatOk: yes, exactly matches option 2. hintUseful: yes (arguably too useful — it hands over the answer). ageOk: yes.\n\nP6 final — finalConsistent: YES as authored. Red = 7; 6th stack = 21; ΣΠΙΤΙ/HOUSE = 5 letters; stars = 9; planets = 8. 7+21 = 28, +5 = 33, +9 = 42, +8 = 50 = stated answer. Hint's shortcut also checks: 21+9+8 = 38, 38+7+5 = 50. answerFormatOk: yes (digits). ageOk: yes. But it inherits both upstream faults — the mirrored puzzle-1 reading produces 52, and a mis-rendered star count produces anything at all, either way leaving the door shut with no diagnostic."
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+  "city": "prague",
+  "country": "czechia",
+  "centre": { "lat": 50.08806, "lng": 14.40389 },
+  "note": "Wikidata q-ids only, searched in Czech and confirmed against the Czech description so that the item names Prague and not one of the seven other Czech towns with a Staroměstské náměstí. Converted from the Explorer product: all ten of its spots carry over and seven places are added, two of them museums with an interior, because the Explorer gives none. The Explorer's own lat/lng were hand-written and are not used anywhere — that is what this pipeline replaces. NO ENTRANCE IS CLAIMED: no door in Prague has been measured, so every point is the centroid, area or viewpoint it actually is. TWO INSTITUTION-VERSUS-BUILDING TRAPS, both caught here: 'Národní muzeum' (Q188112) is the institution, five research institutes and thirteen million objects across a dozen addresses, so its coordinate is not a door — Q43755714 is the neo-Renaissance building of 1891 at the top of Wenceslas Square that a child actually walks into. Likewise 'Národní technické muzeum' (Q96482839) is an organisation; Q1789383 is Milan Babuška's building on Letná. CENTRE: this is Wikidata's point for Malá Strana (Q753289), NOT Wikidata's point for Prague itself (Q1085). The city's own coordinate is 50.0875, 14.421389 — character for character the coordinate of Staroměstské náměstí (Q421678) — so using it makes the audit report the Old Town Square as sitting 0 m from the city centre. That would be a false positive on the reference point, not a fault in the place: the square has a perfectly good coordinate of its own and is exactly where it should be. The two other obvious substitutes are both inside the 60 m centroid check as well — Staré Město (Q748211) lands 41 m from Havelské tržiště and Praha 1 (Q973974) lands 59 m from Charles Bridge — while Malá Strana's point is 298 m clear of the nearest place and still sits between the castle hill and the river.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "prague-powder-tower", "name": "Prašná brána", "wikidata": "Q1488700", "anchor": "centroid" },
+    { "id": "prague-old-town-square", "name": "Staroměstské náměstí", "wikidata": "Q421678", "anchor": "area" },
+
+    { "id": "prague-astronomical-clock", "name": "Staroměstský orloj", "wikidata": "Q729370", "anchor": "centroid",
+      "note": "The clock, not the town hall it is bolted to. Q729370 is the machine and its two dials, which is the thing a child stands in front of; Staroměstská radnice is a separate item and a separate building with its own tower and its own door." },
+
+    { "id": "prague-charles-bridge", "name": "Karlův most", "wikidata": "Q204871", "anchor": "centroid" },
+    { "id": "prague-kampa", "name": "Kampa", "wikidata": "Q3501077", "anchor": "area" },
+
+    { "id": "prague-lennon-wall", "name": "Lennonova zeď", "wikidata": "Q1630131", "anchor": "centroid",
+      "note": "Q1630131 is the wall itself ('zeď v Praze na Malé Straně'). Q107161512 is a separate item for the memorial and was not used." },
+
+    { "id": "prague-castle", "name": "Pražský hrad", "wikidata": "Q193369", "anchor": "area" },
+    { "id": "prague-st-vitus", "name": "Katedrála svatého Víta", "wikidata": "Q5949", "anchor": "centroid" },
+    { "id": "prague-petrin-tower", "name": "Petřínská rozhledna", "wikidata": "Q12256", "anchor": "viewpoint" },
+    { "id": "prague-wenceslas-square", "name": "Václavské náměstí", "wikidata": "Q847613", "anchor": "area" },
+    { "id": "prague-dancing-house", "name": "Tančící dům", "wikidata": "Q244816", "anchor": "centroid" },
+
+    { "id": "prague-national-museum", "name": "Historická budova Národního muzea", "wikidata": "Q43755714", "anchor": "centroid",
+      "note": "The BUILDING, not the institution. Q188112 is the National Museum as an organisation and its point would be an administrative fiction; Q43755714 is Josef Schulz's 1891 palace on Wenceslas Square. Added to the Explorer's ten: the Explorer walks past this building twice and never goes in, and the city needs two museums with a real interior." },
+
+    { "id": "prague-technical-museum", "name": "Budova Národního technického muzea", "wikidata": "Q1789383", "anchor": "centroid",
+      "note": "The BUILDING again. Q96482839 is the organisation. Q1789383 is Milan Babuška's 1938–1941 building on Letná, whose transport hall is the room this city is worth visiting for. Added; the Explorer has no museum at all." },
+
+    { "id": "prague-vysehrad", "name": "Vyšehrad", "wikidata": "Q616334", "anchor": "area",
+      "note": "Q616334 is the fortress. Q21891843 is the city district of the same name and Q2013931 is the metro station; neither is the place. Added." },
+
+    { "id": "prague-old-new-synagogue", "name": "Staronová synagoga", "wikidata": "Q443107", "anchor": "centroid",
+      "note": "Added. Q102065754 shares the name but is an archive holding, not a building." },
+
+    { "id": "prague-havelske-trziste", "name": "Havelské tržiště", "wikidata": "Q31519093", "anchor": "area",
+      "note": "Added, for the food category. No Wikipedia article in any language, so this one will grade C on Wikidata alone unless Overpass answers; that is a thin audit trail, not a disagreement." },
+
+    { "id": "prague-strahov-stadium", "name": "Velký strahovský stadion", "wikidata": "Q1353687", "anchor": "area",
+      "note": "Added, for the sport category." }
+  ]
+}

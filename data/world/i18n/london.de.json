@@ -16,7 +16,7 @@
         "answers": [
           "Ein Teil war griechisch",
           "Er war mit Tierbildern geschrieben",
-          "Ein Wörterbuch lag dabei",
+          "Ein Wörterbuch",
           "Ein ägyptischer König erklärte ihn"
         ],
         "explanation": "Derselbe Text stand dreimal da. Griechisch konnte man lesen, und durch das Vergleichen der Schriften knackten sie den Code der Hieroglyphen."
@@ -132,7 +132,7 @@
                 "In einem Schiff",
                 "Auf dem Grund der Themse",
                 "In einer Burg in Schottland",
-                "In einer Höhle in Wales"
+                "In Wales"
               ],
               "explanation": "Ein König wurde in seinem Schiff begraben, unter einem Hügel aus Erde, mit all seinen Reichtümern um sich herum."
             }
@@ -146,7 +146,7 @@
                 "Walrosszahn",
                 "Elefantenelfenbein",
                 "Dunkles Eichenholz",
-                "Weißer Marmor"
+                "Marmor"
               ],
               "explanation": "Im Norden gab es keine Elefanten, aber Walrosse mit langen Zähnen, ideal zum Schnitzen."
             }
@@ -158,7 +158,7 @@
               "q": "Wie kam die Statue nach London?",
               "answers": [
                 "Mit einem Schiff",
-                "Ein Museum kaufte sie",
+                "Gekauft",
                 "Ein Geschenk der Inselbewohner",
                 "Mit dem Flugzeug 1960"
               ],
@@ -306,7 +306,7 @@
           "Das Geld ging aus",
           "Das Standbild zerbrach unterwegs",
           "Er war für den König reserviert",
-          "Man vergaß, eines zu bestellen"
+          "Vergessen"
         ],
         "explanation": "Er wartete auf das Standbild eines Königs zu Pferd, aber das Geld kam nie. Am Ende wurde der leere Sockel die interessanteste Ecke des Platzes."
       }
@@ -326,7 +326,7 @@
           "Obst und Gemüse",
           "Teppiche und Möbel",
           "Bücher und Landkarten",
-          "Fisch und Salz"
+          "Fisch"
         ],
         "explanation": "Er begann als Gemüsegarten und wurde der Obst- und Gemüsemarkt der ganzen Stadt, bis er 1974 wegzog."
       },
@@ -347,7 +347,7 @@
           "Damit Schiffe durchfahren",
           "Damit der Regen ablaufen kann",
           "Damit die Maschinen Pause machen",
-          "Damit die Busse hinüberkommen"
+          "Für die Busse"
         ],
         "explanation": "Die beiden Straßenhälften stellen sich auf, damit ein hoher Mast darunter passt. Das Schiff meldet sich einen Tag vorher, und die Brücke öffnet sich, ohne einen Penny zu verlangen."
       },
@@ -421,7 +421,7 @@
               "q": "Welche Vögel untersuchte Darwin, um zu verstehen, wie Tiere sich verändern?",
               "answers": [
                 "Finken von Inseln",
-                "Löwen in Afrika",
+                "Löwen",
                 "Goldfische im Glas",
                 "Pinguine der Antarktis"
               ],
@@ -435,7 +435,7 @@
               "q": "Was kann der Tyrannosaurus im Saal, was ein Fossil nicht kann?",
               "answers": [
                 "Er bewegt sich und brüllt",
-                "Er frisst echtes Fleisch",
+                "Er frisst Fleisch",
                 "Er wechselt die Farbe",
                 "Er fliegt über die Leute hinweg"
               ],
@@ -500,7 +500,7 @@
         "q": "Wie kam die Bärin Winnie nach London?",
         "answers": [
           "Mit einem Soldaten aus Kanada",
-          "Mit einem Zirkus aus Russland",
+          "Mit einem Zirkus",
           "Ein Geschenk des Königs von Norwegen",
           "In einem Wald in Schottland gefangen"
         ],
@@ -523,7 +523,7 @@
           "Auf einem Holzstuhl",
           "Auf einem goldenen Thron",
           "Auf einem steinernen Sitz",
-          "Auf einem Silberhocker"
+          "Auf Silber"
         ],
         "explanation": "Der Krönungsstuhl ist aus Eichenholz und über 700 Jahre alt. Früher war er vergoldet; heute sieht man das Holz und die eingeritzten Namen."
       },
@@ -564,7 +564,7 @@
         "answers": [
           "Ein Flüstern kommt drüben an",
           "Der Fußboden bewegt sich ein wenig",
-          "Die Lichter gehen von selbst aus",
+          "Die Lichter gehen aus",
           "Deine Stimme klingt viel tiefer"
         ],
         "explanation": "Die runde Wand führt den Schall herum wie eine Schiene, und so kommt ein Flüstern 30 Meter weiter im Ohr von jemandem an, den du nicht einmal siehst."
@@ -612,7 +612,7 @@
               "answers": [
                 "Gut 200 Jahre",
                 "Ungefähr 100 Jahre",
-                "Etwa 50 Jahre",
+                "50 Jahre",
                 "Mehr als 500 Jahre"
               ],
               "explanation": "Sie wurde 1814 gebaut. Keine andere Dampflok ist aus so alter Zeit erhalten geblieben."
@@ -740,7 +740,7 @@
         "answers": [
           "Tee aus China",
           "Gold aus Australien",
-          "Gewürze aus Indien",
+          "Gewürze",
           "Holz aus Kanada"
         ],
         "explanation": "Tee, so schnell wie möglich. Als die Dampfschiffe den Tee übernahmen, stieg sie auf Wolle aus Australien um, und dort wurde sie die Schnellste."

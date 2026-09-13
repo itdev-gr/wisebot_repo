@@ -1,6 +1,6 @@
 {
   "city": "porto",
-  "resolvedAt": "2026-09-11T22:26:55.352Z",
+  "resolvedAt": "2026-09-12T23:49:09.224Z",
   "centre": {
     "lat": 41.14961,
     "lng": -8.61099
@@ -38,7 +38,7 @@
         "it": "stazione di Porto São Bento"
       },
       "confidence": "B",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-igreja-do-carmo",
@@ -67,7 +67,7 @@
         "es": "Iglesia del Carmen (Oporto)"
       },
       "confidence": "B",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-igreja-dos-carmelitas",
@@ -96,7 +96,7 @@
         "de": "Igreja dos Carmelitas"
       },
       "confidence": "B",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-clerigos",
@@ -109,14 +109,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/223780953",
+          "deltaM": 7
+        },
+        {
           "kind": "wikipedia",
           "ref": "Clérigos Church",
           "deltaM": 53
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 41.14587,
       "lng": -8.61401,
       "labels": {
@@ -126,8 +129,8 @@
         "de": "Igreja dos Clérigos",
         "fr": "église des Clercs"
       },
-      "confidence": "C",
-      "verifiedAt": "2026-09-11"
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-mercado-do-bolhao",
@@ -157,7 +160,7 @@
         "de": "Markthalle Bolhão"
       },
       "confidence": "B",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-se-do-porto",
@@ -191,7 +194,7 @@
         "it": "cattedrale di Porto"
       },
       "confidence": "A",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-palacio-da-bolsa",
@@ -225,7 +228,7 @@
         "it": "Palácio da Bolsa"
       },
       "confidence": "A",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-ponte-luis-i",
@@ -238,14 +241,17 @@
           "deltaM": 0
         },
         {
+          "kind": "osm",
+          "ref": "way/98835981",
+          "deltaM": 50
+        },
+        {
           "kind": "wikipedia",
           "ref": "Dom Luís I Bridge",
           "deltaM": 18
         }
       ],
-      "warnings": [
-        "osm: overpass 429"
-      ],
+      "warnings": [],
       "lat": 41.13972,
       "lng": -8.60944,
       "labels": {
@@ -256,7 +262,7 @@
         "de": "Luis I Brücke"
       },
       "confidence": "B",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-serra-do-pilar",
@@ -288,7 +294,7 @@
         "es": "Monasterio de la Sierra del Pilar"
       },
       "confidence": "A",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-palacio-de-cristal",
@@ -316,7 +322,7 @@
         "en": "Gardens of the Palácio de Cristal"
       },
       "confidence": "B",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-world-of-discoveries",
@@ -327,10 +333,14 @@
           "kind": "wikidata",
           "ref": "Q19708475",
           "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/216386156",
+          "deltaM": 8
         }
       ],
       "warnings": [
-        "osm: overpass 429",
         "wikipedia: no match"
       ],
       "lat": 41.14345,
@@ -338,8 +348,8 @@
       "labels": {
         "en": "World of Discoveries"
       },
-      "confidence": "C",
-      "verifiedAt": "2026-09-11"
+      "confidence": "B",
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-carro-electrico",
@@ -371,7 +381,7 @@
         "en": "Porto Tram Museum"
       },
       "confidence": "A",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     },
     {
       "id": "porto-casa-do-infante",
@@ -403,7 +413,7 @@
         "de": "Casa do Infante"
       },
       "confidence": "A",
-      "verifiedAt": "2026-09-11"
+      "verifiedAt": "2026-09-12"
     }
   ],
   "problems": []

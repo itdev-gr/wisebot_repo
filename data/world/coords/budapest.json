@@ -1,0 +1,525 @@
+{
+  "city": "budapest",
+  "resolvedAt": "2026-09-13T07:25:43.951Z",
+  "centre": {
+    "lat": 47.49833,
+    "lng": 19.04083
+  },
+  "places": [
+    {
+      "id": "budapest-parliament",
+      "name": "Országház",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q11819",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/3199085",
+          "deltaM": 29
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hungarian Parliament Building",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 47.50694,
+      "lng": 19.04556,
+      "labels": {
+        "fr": "Parlement hongrois",
+        "en": "Hungarian Parliament Building",
+        "de": "Parlamentsgebäude",
+        "es": "Parlamento de Budapest",
+        "it": "Parlamento di Budapest",
+        "el": "Κτήριο Ουγγρικού Κοινοβουλίου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-basilica",
+      "name": "Szent István-bazilika",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q338665",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St. Stephen's Basilica",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 47.50083,
+      "lng": 19.05389,
+      "labels": {
+        "de": "St.-Stephans-Basilika",
+        "en": "St. Stephen's Basilica",
+        "es": "basílica de San Esteban",
+        "fr": "basilique Saint-Étienne de Pest",
+        "it": "basilica di Santo Stefano",
+        "el": "Βασιλική του Αγίου Στεφάνου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-chain-bridge",
+      "name": "Széchenyi lánchíd",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q465534",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/197110386",
+          "deltaM": 15
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Széchenyi Chain Bridge",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [],
+      "lat": 47.49891,
+      "lng": 19.04353,
+      "labels": {
+        "fr": "Széchenyi Lánchíd",
+        "es": "puente de las Cadenas",
+        "it": "Ponte delle Catene",
+        "de": "Széchenyi-Kettenbrücke",
+        "en": "Széchenyi Chain Bridge",
+        "el": "Γέφυρα των Αλυσίδων"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-buda-castle",
+      "name": "Budavári Palota",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q46313",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Buda Castle",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 47.49611,
+      "lng": 19.03972,
+      "labels": {
+        "fr": "palais de Budavár",
+        "es": "Castillo de Buda",
+        "it": "castello di Buda",
+        "de": "Budaer Burg",
+        "en": "Buda Castle",
+        "el": "Κάστρο της Βούδας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-matthias-church",
+      "name": "Mátyás-templom",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q493133",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Matthias Church",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 47.50194,
+      "lng": 19.03417,
+      "labels": {
+        "fr": "église Notre-Dame-de-l'Assomption de Budavár",
+        "es": "iglesia de Matías",
+        "en": "Matthias Church",
+        "it": "chiesa di Mattia",
+        "de": "Matthiaskirche",
+        "el": "Εκκλησία του Ματθία"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-fishermans-bastion",
+      "name": "Halászbástya",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q493117",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/17948384",
+          "deltaM": 12
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Fisherman's Bastion",
+          "deltaM": 59
+        }
+      ],
+      "warnings": [],
+      "lat": 47.50222,
+      "lng": 19.03472,
+      "labels": {
+        "fr": "bastion des pêcheurs",
+        "es": "Bastión de los Pescadores",
+        "en": "Fisherman's Bastion",
+        "it": "Bastione dei Pescatori",
+        "de": "Fischerbastei",
+        "el": "Προμαχώνας των Ψαράδων"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-liberty-statue",
+      "name": "Szabadság-szobor, Gellért-hegy",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q933182",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Liberty Statue (Budapest)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 47.48639,
+      "lng": 19.04806,
+      "labels": {
+        "de": "Freiheitsstatue",
+        "en": "Liberty Statue",
+        "es": "Estatua de la Libertad",
+        "fr": "Statue de la Liberté",
+        "it": "Monumento alla Liberazione"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-heroes-square",
+      "name": "Hősök tere",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q299973",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Heroes' Square (Budapest)",
+          "deltaM": 38
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.51528,
+      "lng": 19.07806,
+      "labels": {
+        "de": "Heldenplatz",
+        "en": "Heroes' Square",
+        "es": "Plaza de los Héroes",
+        "fr": "place des Héros",
+        "it": "piazza degli Eroi",
+        "el": "Πλατεία Ηρώων"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-vajdahunyad-castle",
+      "name": "Vajdahunyad vára",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1092030",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Vajdahunyad Castle",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.51528,
+      "lng": 19.08194,
+      "labels": {
+        "fr": "château de Vajdahunyad",
+        "en": "Vajdahunyad Castle",
+        "es": "Castillo de Vajdahunyad",
+        "it": "Castello Vajdahunyad",
+        "de": "Burg Vajdahunyad"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-great-market-hall",
+      "name": "Központi Vásárcsarnok",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q195344",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Great Market Hall",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.48669,
+      "lng": 19.0588,
+      "labels": {
+        "de": "Große Markthalle",
+        "fr": "Halles centrales de Budapest",
+        "en": "Great Market Hall",
+        "es": "Mercado Central de Budapest",
+        "it": "Mercato centrale"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-national-museum",
+      "name": "Magyar Nemzeti Múzeum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q914141",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hungarian National Museum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.49111,
+      "lng": 19.06278,
+      "labels": {
+        "es": "Museo Nacional Húngaro",
+        "it": "Museo nazionale ungherese",
+        "fr": "Musée national hongrois",
+        "en": "Hungarian National Museum",
+        "de": "Ungarisches Nationalmuseum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-fine-arts-museum",
+      "name": "Szépművészeti Múzeum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q840886",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museum of Fine Arts (Budapest)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.51587,
+      "lng": 19.07678,
+      "labels": {
+        "fr": "musée des Beaux-Arts de Budapest",
+        "en": "Museum of Fine Arts, Budapest",
+        "es": "Museo de Bellas Artes de Budapest",
+        "it": "Museo di Belle Arti di Budapest",
+        "de": "Szépművészeti Múzeum",
+        "el": "Μουσείο Καλών Τεχνών"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-szechenyi-bath",
+      "name": "Széchenyi gyógyfürdő",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q194783",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Széchenyi thermal bath",
+          "deltaM": 37
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.51833,
+      "lng": 19.08222,
+      "labels": {
+        "fr": "thermes Széchenyi",
+        "en": "Széchenyi thermal bath",
+        "es": "Baños Széchenyi",
+        "it": "Bagni Széchenyi",
+        "de": "Széchenyi-Heilbad"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-opera-house",
+      "name": "Magyar Állami Operaház",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q36833",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hungarian State Opera House",
+          "deltaM": 21
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.50278,
+      "lng": 19.05833,
+      "labels": {
+        "fr": "opéra d'État hongrois",
+        "es": "Ópera Nacional de Hungría",
+        "en": "Hungarian State Opera House",
+        "it": "Teatro dell'Opera di Stato ungherese",
+        "de": "Ungarische Staatsoper",
+        "el": "Κρατική Όπερα της Ουγγαρίας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-zoo",
+      "name": "Fővárosi Állat- és Növénykert",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q922178",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Budapest Zoo and Botanical Garden",
+          "deltaM": 134
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.5191,
+      "lng": 19.0783,
+      "labels": {
+        "fr": "parc animalier et botanique municipal",
+        "en": "Budapest Zoo & Botanical Garden",
+        "es": "Zoológico y Jardín botánico de Budapest",
+        "de": "Zoo Budapest",
+        "it": "Zoo e Giardino botanico di Budapest"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "budapest-hajos-pool",
+      "name": "Hajós Alfréd Nemzeti Sportuszoda",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q509841",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Alfréd Hajós National Swimming Stadium",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 47.52139,
+      "lng": 19.04278,
+      "labels": {
+        "fr": "piscine nationale Alfréd Hajós",
+        "en": "Alfréd Hajós National Swimming Stadium",
+        "it": "stadio del nuoto Alfréd Hajós",
+        "el": "Εθνικό Κολυμβητήριο Άλφρεντ Χάγιος",
+        "de": "Alfréd-Hajós-Schwimmstadion"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    }
+  ],
+  "problems": []
+}

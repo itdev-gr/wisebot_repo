@@ -1,0 +1,593 @@
+{
+  "lang": "it",
+  "cityId": "barcelona",
+  "places": {
+    "barcelona-boqueria": {
+      "name": "Il mercato della Boqueria",
+      "tagline": "In questo punto si vende cibo da 800 anni",
+      "story": "Nel 1217 dei contadini misero dei tavoli fuori dalla porta della città, proprio in questo punto, e vendevano carne. Dentro le mura non c’era posto, così il mercato restò fuori e continuò a crescere. Il suo nome viene probabilmente da «boc», la parola catalana che vuol dire capro. Per secoli accanto al mercato c’è stato un convento, il convento di San Giuseppe, che fu buttato giù nel 1835. Al suo posto la città decise di costruire un mercato vero, e la prima pietra fu posata il 19 marzo 1840, il giorno della festa del santo; per questo il suo nome ufficiale è Mercat de Sant Josep. Nel 1914 lo coprirono con il grande tetto di ferro che vedi oggi, e sopra l’ingresso misero un’insegna di vetro colorato. Dentro, centinaia di banchi vendono frutta, succhi di tutti i colori, pesce sul ghiaccio, dolci, frutta secca e jamón, il prosciutto che salano e appendono ad asciugare per mesi. I cuochi dei ristoranti migliori fanno la spesa qui la mattina presto. La domenica il mercato è chiuso.",
+      "facts": [
+        "La prima notizia di un mercato in questo punto è del 1217.",
+        "La prima pietra fu posata il 19 marzo 1840, il giorno di San Giuseppe.",
+        "Il suo tetto di ferro è del 1914."
+      ],
+      "question": {
+        "q": "Che cosa c’era in questo punto prima che costruissero il mercato coperto?",
+        "answers": [
+          "Un convento",
+          "Una torre di castello",
+          "Un porto di pescatori",
+          "Un giardino del re"
+        ],
+        "explanation": "Il convento di San Giuseppe fu buttato giù nel 1835. Cinque anni dopo, il giorno della festa del santo, fu posata la prima pietra del mercato che porta il suo nome."
+      }
+    },
+    "barcelona-columbus-monument": {
+      "name": "Il Monumento a Colombo",
+      "tagline": "Un monumento di 60 metri con un navigatore in cima",
+      "story": "Nella primavera del 1493 Cristoforo Colombo tornò dal suo primo viaggio dall’altra parte dell’oceano e venne a Barcellona, dove lo ricevettero il re Ferdinando e la regina Isabella. Mostrò loro dei pappagalli, piante sconosciute e un po’ d’oro. Nei suoi conti c’era un errore: pensava che navigando verso ovest sarebbe arrivato in India, e in mezzo c’era un continente intero. I suoi viaggi cambiarono il mondo, ma per le persone che su quel continente vivevano già, quello che venne dopo fu duro, ed è per questo che oggi molte città discutono su che cosa fare con statue come questa. Quattrocento anni dopo, per l’Esposizione Universale del 1888, Barcellona alzò questo monumento in fondo alla Rambla: una colonna con in cima un Colombo di bronzo di sette metri, sessanta metri di altezza in tutto. Otto leoni di bronzo fanno la guardia alla base, e dentro un piccolo ascensore porta i visitatori su un balconcino sotto i suoi piedi. Il suo dito indica a sud-est, verso il mare aperto da dove cominciano tutti i viaggi, e non verso l’America, che sta dietro di lui, a ovest.",
+      "facts": [
+        "Fu innalzato nel 1888, per l’Esposizione Universale di Barcellona.",
+        "Il monumento arriva in tutto a 60 metri, e 7 di questi sono il Colombo di bronzo.",
+        "Otto leoni di bronzo fanno la guardia alle quattro scalinate della base."
+      ],
+      "question": {
+        "q": "Dove indica Colombo con il dito?",
+        "answers": [
+          "Verso il mare",
+          "Verso l’America",
+          "Verso la cattedrale",
+          "In alto verso il cielo"
+        ],
+        "explanation": "Indica a sud-est, verso il mare aperto. L’America è nella direzione opposta, dietro le sue spalle."
+      }
+    },
+    "barcelona-cosmocaixa": {
+      "name": "CosmoCaixa",
+      "tagline": "Un pezzo di Amazzonia dentro un museo della scienza",
+      "story": "L’edificio sul fianco del Tibidabo fu costruito fra il 1904 e il 1909, su progetto dell’architetto Josep Domènech i Estapà, come casa per persone cieche. Nel 1981 diventò un museo della scienza, e nel 2004 riaprì quattro volte più grande, con quasi tutto sotto terra. Entri dall’alto e scendi una rampa che gira in tondo intorno a un vero albero dell’Amazzonia, un’acariquara di più di trecento anni, che è morta da sola nella foresta ed è stata portata qui. In fondo ti aspetta la Foresta Allagata: mille metri quadrati di Amazzonia con più di cento specie, dove capibara e caimani nuotano fra le piante, i piranha ti guardano da dietro il vetro e le formiche trasportano foglie tagliate, e dove ogni tanto piove. Poco più in là sta il Muro Geologico, sette enormi blocchi di roccia vera che mostrano come si è fatto il pianeta, e un pendolo con un filo lungo e una palla pesante che dimostra che la Terra gira. C’è anche un planetario. È un museo dove toccare è permesso, e per i bambini sotto i 16 anni l’ingresso è gratis.",
+      "facts": [
+        "Ha riaperto nel 2004, dentro e sotto un edificio del 1909.",
+        "La Foresta Allagata ha 1.000 metri quadrati e più di 100 specie.",
+        "Il Muro Geologico è fatto di sette grandi blocchi di roccia vera."
+      ],
+      "question": {
+        "q": "Che cosa c’è dentro questo museo che non ti aspetteresti in una città?",
+        "answers": [
+          "Un pezzo di giungla",
+          "Un faro sulla costa ancora acceso",
+          "Un lago ghiacciato per pattinare",
+          "Una stazione ferroviaria sotterranea"
+        ],
+        "explanation": "Mille metri quadrati di Amazzonia, con animali veri, piante vere e pioggia vera, cinque piani sotto l’ingresso."
+      },
+      "findIt": "L’ingresso è in Carrer d’Isaac Newton, al numero 26, su per la salita sopra l’Avinguda del Tibidabo.",
+      "museum": {
+        "doorNote": "La visita comincia in alto e scende. Non prendere l’ascensore: la rampa è già il primo pezzo del museo.",
+        "rooms": {
+          "barcelona-cosmocaixa-the-way-down": {
+            "name": "La discesa",
+            "intro": "Il museo è quasi tutto sotto terra, e scendere è parte della visita. Qui incontri tre cose che in una vetrina non ci starebbero: un albero di un altro continente, un muro fatto di montagne vere, e una palla che oscilla tutto il giorno per farti vedere che il pianeta non sta fermo."
+          },
+          "barcelona-cosmocaixa-flooded-forest": {
+            "name": "La Foresta Allagata",
+            "intro": "In Amazzonia, quando arrivano le piogge, il fiume si gonfia e la foresta resta allagata per mesi. I pesci nuotano fra i tronchi e gli animali imparano a vivere con l’acqua fino alla vita. Questa sala è un pezzo di quella foresta, mille metri quadrati, con caldo vero, umidità vera e pioggia che ogni tanto cade dal soffitto."
+          }
+        },
+        "exhibits": {
+          "barcelona-cosmocaixa-acariquara-tree": {
+            "name": "L’albero della rampa",
+            "blurb": "La rampa scende cinque piani girando intorno a un tronco. È un’acariquara, un albero della foresta amazzonica in Brasile, di più di trecento anni. Nessuno l’ha abbattuto: è morto da solo, di vecchiaia, e poi è stato portato dall’altra parte dell’oceano per stare qui. Il suo legno è così duro che in Brasile lo usano per i pali che si piantano nel terreno e non marciscono. Mentre scendi lo vedi dalle radici alla cima, una cosa che dentro una foresta è impossibile.",
+            "question": {
+              "q": "Come è arrivato questo albero nel museo?",
+              "answers": [
+                "È morto da solo",
+                "L’hanno piantato qui quando aprì il museo",
+                "L’hanno abbattuto dei boscaioli per farne mobili",
+                "È fatto di cemento e vernice"
+              ],
+              "explanation": "È vero e ha più di 300 anni. L’hanno portato dal Brasile dopo che era morto di vecchiaia nella foresta."
+            }
+          },
+          "barcelona-cosmocaixa-foucault-pendulum": {
+            "name": "Il pendolo",
+            "blurb": "Una pesante palla di ferro pende da un filo lungo più di quaranta metri e oscilla avanti e indietro, piano, tutto il giorno. Intorno a lei, in cerchio, stanno dei piccoli birilli. Ogni pochi minuti la palla ne butta giù uno. Eppure non è lei a cambiare direzione: un pendolo oscilla sempre sullo stesso piano. Quello che gira è il pavimento, insieme a tutta la Terra. Il fisico francese Léon Foucault lo mostrò per primo nel 1851 a Parigi. Accanto è esposta una sfera originale come quelle che usò lui.",
+            "question": {
+              "q": "Perché il pendolo butta giù piano piano tutti i birilli intorno a lui?",
+              "answers": [
+                "La Terra gira sotto di lui",
+                "Un motore lo gira poco per volta",
+                "Lo spinge la corrente d’aria della porta",
+                "Il suo filo si srotola piano piano"
+              ],
+              "explanation": "Il pendolo continua a oscillare su un piano solo. Il pavimento, i birilli e tu girate insieme al pianeta."
+            }
+          },
+          "barcelona-cosmocaixa-geological-wall": {
+            "name": "Il Muro Geologico",
+            "blurb": "Sette enormi blocchi di roccia, tagliati da montagne e da cave vere, stanno in fila come le pagine di un libro. Ognuno racconta una storia diversa: come un fiume ha posato la sabbia strato dopo strato, come il calore e la pressione hanno piegato la pietra come carta, come un vulcano si è raffreddato in una notte sola. La cosa più strana è che tutto questo è successo molto lentamente, in milioni di anni, e adesso lo vedi in un colpo d’occhio. Se trovi le righe dentro la roccia, puoi contare gli strati come gli anelli di un albero.",
+            "question": {
+              "q": "Di che cosa è fatto il Muro Geologico?",
+              "answers": [
+                "Di roccia vera",
+                "Di gesso dipinto",
+                "Di cemento colorato",
+                "Di grandi fotografie"
+              ],
+              "explanation": "Sono sette grandi blocchi di roccia vera, ognuno formato da un processo geologico diverso."
+            }
+          },
+          "barcelona-cosmocaixa-capybaras": {
+            "name": "I capibara",
+            "blurb": "Sembrano cavie giganti, ed è esattamente quello che sono: il roditore più grande del mondo, parente dei topi e dei criceti, che arriva a sessanta chili. Vivono sempre vicino all’acqua. Gli occhi, le orecchie e le narici stanno in cima alla testa, così possono vedere e respirare mentre il resto del corpo è sott’acqua, e le zampe hanno piccole membrane, come quelle di un’anatra. Nuotano meglio di come corrono. Nella foresta del museo li vedi brucare sulla riva o passare piano dentro l’acqua.",
+            "question": {
+              "q": "Qual è il parente più stretto del capibara?",
+              "answers": [
+                "La cavia",
+                "Un giovane ippopotamo",
+                "Un piccolo cinghiale",
+                "Una grossa lontra di fiume"
+              ],
+              "explanation": "È un roditore, come la cavia e il topo, solo che pesa quanto un uomo adulto."
+            }
+          },
+          "barcelona-cosmocaixa-caimans": {
+            "name": "I caimani dell’Amazzonia",
+            "blurb": "Il caimano è l’alligatore del Sud America, cugino più piccolo del coccodrillo. Nella foresta allagata passa quasi tutto il giorno immobile, con solo gli occhi e le narici fuori dall’acqua, come un tronco che galleggia. Non caccia inseguendo: aspetta. I pesci, le rane e gli uccelli arrivano da soli. Nel museo li vedi dall’alto, dal ponte, e dal basso, attraverso il vetro, dove si vede tutto il corpo appeso nell’acqua, con le zampe che dondolano.",
+            "question": {
+              "q": "Come caccia il caimano?",
+              "answers": [
+                "Aspetta fermo",
+                "Corre lungo la riva",
+                "Si arrampica sugli alberi",
+                "Caccia in gruppo di notte"
+              ],
+              "explanation": "Sembra un tronco, e a un tronco si avvicinano tutti. Il trucco è tutto qui."
+            }
+          },
+          "barcelona-cosmocaixa-piranhas": {
+            "name": "I piranha dietro il vetro",
+            "blurb": "In fondo alla sala, là dove vedi la foresta da sotto l’acqua, nuotano i piranha. Hanno denti triangolari affilati e una brutta fama, ma la fama è più grande dei pesci: quasi tutti sono più piccoli della tua mano e mangiano soprattutto pesci, insetti e frutti che cadono nell’acqua. Vivono in banchi, non per attaccare, ma per stare al sicuro dagli animali più grandi. Accanto a loro passano altri pesci dell’Amazzonia, e se hai pazienza ne vedrai uno afferrare qualcosa dalla superficie.",
+            "question": {
+              "q": "Perché i piranha nuotano in banco?",
+              "answers": [
+                "Per proteggersi",
+                "Per cacciare prede più grandi",
+                "Perché da soli vedono male",
+                "Per stare al caldo insieme"
+              ],
+              "explanation": "Un pesce piccolo dentro un banco è più difficile da prendere. L’attacco in gruppo è soprattutto una storia."
+            }
+          },
+          "barcelona-cosmocaixa-leafcutter-ants": {
+            "name": "Le formiche tagliafoglie",
+            "blurb": "Una fila di formiche cammina senza fermarsi mai, e ognuna porta sopra la testa un pezzo di foglia verde, come una bandiera. Le foglie non le mangiano. Le tagliano con le mandibole, le portano nel nido, le masticano fino a farne una poltiglia, e su quella poltiglia coltivano un fungo. È quello che mangiano. Sono cioè agricoltori, ed erano agricoltori milioni di anni prima degli uomini. Un nido può avere milioni di formiche, ognuna con un lavoro diverso: tagliatrici, trasportatrici, giardiniere, guardiane.",
+            "question": {
+              "q": "Che cosa fanno le formiche con le foglie che trasportano?",
+              "answers": [
+                "Ci coltivano sopra un fungo",
+                "Le mangiano di notte nel nido",
+                "Ci costruiscono il tetto del nido",
+                "Le danno alla regina per farne un letto"
+              ],
+              "explanation": "Le foglie sono il concime. Il fungo che ci cresce sopra è il cibo. Sono agricoltori."
+            }
+          }
+        },
+        "riddles": {
+          "barcelona-cosmocaixa-riddle-1": {
+            "prompt": "Vado avanti e indietro tutto il giorno e non mi stanco mai. Ogni pochi minuti butto giù qualcosa, ma non è colpa mia: io non ho cambiato direzione. L’hai cambiata tu, insieme al pavimento.",
+            "hint": "Cerca una palla pesante appesa a un filo lunghissimo."
+          },
+          "barcelona-cosmocaixa-riddle-2": {
+            "prompt": "Sono più vecchio dell’edificio e sono cresciuto in un altro continente. Sono morto da solo, senza nessuna scure. Adesso la gente mi gira intorno per cinque piani, ed è l’unico modo per vedermi tutto intero.",
+            "hint": "Non sono in una vetrina. Sto in mezzo alla rampa."
+          },
+          "barcelona-cosmocaixa-riddle-3": {
+            "prompt": "I miei cugini stanno nel palmo della tua mano, io peso quanto una persona. Ho gli occhi in cima alla testa per vedere mentre nuoto. A correre non sono niente di speciale. Nell’acqua non mi prendi.",
+            "hint": "Cerca sulla riva della foresta un animale con il muso squadrato."
+          }
+        }
+      }
+    },
+    "barcelona-cathedral": {
+      "name": "La Cattedrale di Barcellona",
+      "tagline": "Nel suo giardino vivono tredici oche",
+      "story": "I costruttori cominciarono questa chiesa nel 1298 e ci lavorarono circa 150 anni, con archi alti e colonne sottili, nello stile che chiamiamo gotico; il chiostro, il suo giardino coperto, fu finito nel 1448. La facciata con le torri appuntite è però molto più nuova: fu costruita fra il 1887 e il 1913, su disegni che aspettavano in un cassetto dal 1408. La chiesa è dedicata a sant’Eulalia, una ragazza di Barcellona che visse ai tempi dei Romani, circa 1.700 anni fa. Aveva tredici anni quando si rifiutò di rinunciare alla sua fede, e per questo morì. La sua tomba è nella cripta, sotto l’altare. Per questo nel chiostro vivono tredici oche bianche, una per ogni anno della sua vita; sono guardiane eccellenti, perché starnazzano forte appena si avvicina un estraneo. Un giorno all’anno, alla festa del Corpus Domini, un guscio d’uovo vuoto viene messo a ballare sul getto della fontana del giardino, un’usanza che dura dal XVI secolo. E la domenica, nella piazza davanti, la gente si prende per mano e balla la sardana, il ballo della Catalogna.",
+      "facts": [
+        "La costruzione cominciò nel 1298 e il chiostro fu finito nel 1448.",
+        "La facciata con le torri appuntite è del 1887–1913, su un disegno del 1408.",
+        "Nel chiostro vivono tredici oche, una per ogni anno di vita di sant’Eulalia."
+      ],
+      "question": {
+        "q": "Perché le oche del chiostro sono esattamente tredici?",
+        "answers": [
+          "Una per ogni anno che visse",
+          "Una per ogni campana del campanile",
+          "Una per ogni cappella del chiostro",
+          "Una per ogni porta antica della città"
+        ],
+        "explanation": "Sant’Eulalia aveva tredici anni. Le oche contano i suoi anni e, già che ci sono, fanno la guardia al giardino."
+      }
+    },
+    "barcelona-arc-de-triomf": {
+      "name": "L’Arc de Triomf",
+      "tagline": "Una porta costruita per una festa, non per un esercito",
+      "story": "Nel 1888 Barcellona fece una festa enorme: l’Esposizione Universale, dove paesi di tutto il mondo mostravano le loro macchine e invenzioni più nuove. La festa si tenne nel parco della Ciutadella, dove una volta stava una fortezza gigantesca, costruita dopo il 1714 dal re Filippo V per tenere d’occhio una città che aveva combattuto contro di lui; agli abitanti non piacque mai, e nell’Ottocento la buttarono giù per farne un parco. Quest’arco era la porta d’ingresso dell’esposizione. L’architetto Josep Vilaseca non scelse il marmo bianco, come negli archi dei Romani, ma mattoni rossi e disegni come quelli dei palazzi arabi di Spagna. È alto quasi 30 metri. Sulla facciata un fregio di pietra mostra Barcellona che accoglie le nazioni, in cima stanno lo stemma della città e gli stemmi delle province della Spagna, e sui pilastri sono scolpiti piccoli pipistrelli, un vecchio portafortuna del re Giacomo I. Quando l’esposizione finì, l’arco rimase, come un ricordo di una festa. È un monumento non alle battaglie, ma alle idee.",
+      "facts": [
+        "Fu costruito nel 1888 come ingresso principale dell’Esposizione Universale.",
+        "È di mattoni rossi ed è alto quasi 30 metri.",
+        "Sui suoi pilastri sono scolpiti dei pipistrelli, simbolo del re Giacomo I."
+      ],
+      "question": {
+        "q": "Per che cosa fu costruito quest’arco?",
+        "answers": [
+          "L’ingresso di un’esposizione",
+          "Un monumento a una grande battaglia",
+          "Una porta nelle vecchie mura della città",
+          "Un ponte per una linea ferroviaria"
+        ],
+        "explanation": "Quasi tutti gli archi di trionfo festeggiano vittorie in guerra. Questo festeggiava invenzioni: era la porta d’ingresso dell’Esposizione Universale del 1888."
+      }
+    },
+    "barcelona-museu-maritim": {
+      "name": "Il Museo Marittimo, nelle Drassanes",
+      "tagline": "Una fabbrica di navi medievale con dentro una galea di 60 metri",
+      "story": "Le Drassanes Reials, i Cantieri Navali Reali, cominciarono a essere costruite nel XIII secolo sulla spiaggia, fuori dalle mura, ai piedi del Montjuïc. Lì i re d’Aragona facevano le loro galee da guerra. È un enorme edificio di pietra con sale lunghe e archi a punta, e a quei tempi il mare arrivava fino alle sue porte, così che le navi nuove scivolassero dritte in acqua. Molte galee si costruivano nello stesso momento, una accanto all’altra. Nel 1568 da qui uscì la Galea Reale, la nave di don Giovanni d’Austria alla battaglia di Lepanto, nel 1571. Dal 1941 l’edificio è un museo, e nel 1971, per i quattrocento anni dalla battaglia, ci fu costruita dentro una copia della galea a grandezza naturale: 60 metri di lunghezza, 59 remi, 236 rematori. Quasi tutti quei rematori non erano lì per scelta; erano prigionieri e uomini ridotti in schiavitù, incatenati alle panche. Una galea era una cosa bellissima e una cosa terribile insieme. Poco più in là, nel porto, il museo tiene anche una vera nave a vela, la Santa Eulàlia del 1918, che va ancora per mare.",
+      "facts": [
+        "Il cantiere è del XIII secolo ed è un museo dal 1941.",
+        "La copia della Galea Reale è lunga 60 metri, con 59 remi e posti per 236 rematori.",
+        "La goletta Santa Eulàlia fu costruita nel 1918 e naviga ancora."
+      ],
+      "question": {
+        "q": "Perché il cantiere fu costruito proprio sulla spiaggia?",
+        "answers": [
+          "Per far scivolare le navi in acqua",
+          "Perché la pietra costava meno vicino al mare",
+          "Perché il re abitava sulla spiaggia",
+          "Perché i marinai dormissero sulla sabbia"
+        ],
+        "explanation": "Una galea di 60 metri non si può trasportare. Si costruisce dove galleggerà, con il mare che arriva fino alla porta."
+      },
+      "findIt": "L’ingresso è in Avinguda de les Drassanes, in fondo alla Rambla dalla parte del porto, accanto alla colonna di Colombo; metro Drassanes.",
+      "museum": {
+        "doorNote": "L’edificio è il primo pezzo esposto: guarda gli archi prima di guardare le navi.",
+        "rooms": {
+          "barcelona-museu-maritim-the-naves": {
+            "name": "Le grandi sale",
+            "intro": "Il cantiere è una fila di lunghe sale di pietra, così alte da contenere una nave con gli alberi in piedi. Qui i mastri segavano, inchiodavano e incatramavano, e qui oggi stanno una galea, un sottomarino di legno d’olivo, e gli stessi archi che li coprono da settecento anni."
+          },
+          "barcelona-museu-maritim-faces-of-ships": {
+            "name": "I volti delle navi",
+            "intro": "Per secoli ogni nave a vela aveva un volto di legno sulla prua, la polena: una donna, un leone, un santo. I marinai credevano che la nave guardasse con quel volto. Il museo ne conserva quattordici, e accanto a loro una nave intera che porta ancora la sua."
+          }
+        },
+        "exhibits": {
+          "barcelona-museu-maritim-royal-galley": {
+            "name": "La Galea Reale",
+            "blurb": "Riempie un’intera sala: 60 metri di lunghezza, 59 remi e posti per 236 rematori, quattro per ogni remo. La sua poppa è intagliata e dorata come un palazzo. La galea vera fu costruita qui nel 1568 ed era la nave ammiraglia di don Giovanni d’Austria alla battaglia di Lepanto, il 7 ottobre 1571. Quella che vedi è una copia, fatta fra il 1968 e il 1971 per i quattrocento anni dalla battaglia, con legno, metallo, stoffa e vernice. Non ha mai toccato il mare. I rematori di quella vera erano quasi tutti prigionieri, incatenati alle loro panche.",
+            "question": {
+              "q": "Quante persone tiravano i remi della galea vera?",
+              "answers": [
+                "236 uomini",
+                "36 uomini",
+                "1.000 uomini",
+                "59 uomini"
+              ],
+              "explanation": "Duecentotrentasei persone, quattro su ognuno dei 59 remi."
+            }
+          },
+          "barcelona-museu-maritim-gothic-arches": {
+            "name": "Gli archi del cantiere",
+            "blurb": "Guarda in alto. Gli archi a punta di pietra che reggono il tetto sono del XIV secolo, quando il cantiere prese la forma che ha oggi. Le prime sale furono costruite in riva al mare nel 1378, altre otto più verso l’interno, e nel XVII secolo se ne aggiunsero altre tre. Non è una chiesa, anche se sembra: è una fabbrica, costruita così alta perché ci stesse dentro una nave intera. Ogni sala era una linea di produzione, con una galea che cresceva in mezzo. È il cantiere navale medievale meglio conservato che esista.",
+            "question": {
+              "q": "Perché le sale furono costruite così alte?",
+              "answers": [
+                "Per farci stare una nave",
+                "Perché i canti risuonassero meglio",
+                "Perché le navi le vedessero da lontano",
+                "Per tenere fuori il caldo dell’estate"
+              ],
+              "explanation": "Sembra una chiesa, ma è una fabbrica. L’altezza la chiedevano gli alberi delle navi."
+            }
+          },
+          "barcelona-museu-maritim-ictineo-model": {
+            "name": "L’Ictíneo, la nave-pesce",
+            "blurb": "Nel 1859 un inventore catalano, Narcís Monturiol, calò nel porto di Barcellona uno dei primi sottomarini del mondo. Lo chiamò Ictíneo, «nave-pesce». Era lungo 7 metri, aveva due scafi uno dentro l’altro, fatti di tavole di legno d’olivo rivestite di rame, e ci stavano cinque persone. Monturiol non lo costruì per la guerra: voleva proteggere i sub che raccoglievano il corallo e annegavano. Il museo conserva il suo modellino, di legno e metallo, fatto in quegli anni. Una copia a grandezza naturale è stata nel giardino fino al 2023, quando il tempo se l’era mangiata e hanno dovuto toglierla.",
+            "question": {
+              "q": "Perché Monturiol costruì il suo sottomarino?",
+              "answers": [
+                "Per salvare i sub",
+                "Per affondare navi nemiche",
+                "Per cercare tesori affondati",
+                "Per vincere una gara nel porto"
+              ],
+              "explanation": "I sub che raccoglievano il corallo annegavano. Monturiol voleva un modo per portarli giù al sicuro."
+            }
+          },
+          "barcelona-museu-maritim-blanca-aurora": {
+            "name": "La polena della Blanca Aurora",
+            "blurb": "Una giovane donna di legno dipinto, intagliata nel 1848 da Francesc Pascual Granés, scultore di Lloret de Mar, per la prua della corvetta Blanca Aurora, costruita lo stesso anno. Il proprietario e capitano della nave, Silvestre Parés, aveva perso la figlia Maria molto giovane. Si racconta che chiese di scolpire la polena con il suo viso, per averla sempre davanti, e si tenne il diritto di riprendersela. La nave passò di mano in mano e finì la sua vita a Rio de Janeiro. Allora Parés riprese la polena e la riportò a casa, in Catalogna.",
+            "question": {
+              "q": "Chi mostra questa polena, secondo la tradizione?",
+              "answers": [
+                "La figlia del capitano",
+                "La regina di Spagna di allora",
+                "Sant’Eulalia di Barcellona",
+                "La moglie dello scultore che la fece"
+              ],
+              "explanation": "Maria Parés morì giovane. Suo padre la mise sulla prua della sua nave e, quando la nave finì, se la portò a casa."
+            }
+          },
+          "barcelona-museu-maritim-el-ninot": {
+            "name": "El Ninot, la polena bambino",
+            "blurb": "Un ragazzo di legno dipinto, dell’Ottocento, con un foglio in mano: il diploma di un allievo pilota. Una volta decorava la prua di una nave. Poi fu tolto e appeso fuori da una taverna in Carrer de València, e la gente cominciò a dire «andiamo al Ninot», al pupazzo. La taverna diventò così conosciuta che il quartiere cresciuto intorno prese quel nome, e lì un mercato comunale si chiama ancora Mercat del Ninot, con una sua copia all’ingresso. L’originale è qui.",
+            "question": {
+              "q": "Che cosa ha preso il nome da questa polena?",
+              "answers": [
+                "Un quartiere e il suo mercato",
+                "Una stazione del metrò della città",
+                "Un rimorchiatore che lavora nel porto",
+                "La squadra di calcio del porto"
+              ],
+              "explanation": "Era appeso fuori da una taverna. La taverna diventò famosa, e il quartiere intorno prese il nome del pupazzo."
+            }
+          },
+          "barcelona-museu-maritim-santa-eulalia": {
+            "name": "La Santa Eulàlia",
+            "blurb": "A pochi minuti a piedi dal museo, alla banchina del Moll de la Fusta, è ormeggiata una nave a vela con tre alberi. Fu costruita nel 1918 a Torrevieja, con il nome Carmen Flores, per portare carichi in giro per il Mediterraneo. In quasi ottant’anni di lavoro cambiò nome quattro volte, le misero un motore, e finì come nave d’appoggio per i sub. Nel 1997 il museo la comprò a un’asta e la riportò alla forma che aveva quando navigò la prima volta. La visiti dal ponte, tranne nei giorni in cui non c’è: alza ancora le vele.",
+            "question": {
+              "q": "Come è arrivata al museo questa nave?",
+              "answers": [
+                "L’ha comprata a un’asta",
+                "L’ha costruita nel suo cantiere",
+                "L’ha trovata affondata nel porto",
+                "Gliel’ha regalata il re di Spagna"
+              ],
+              "explanation": "Nel 1997, quando era una stanca nave d’appoggio per i sub. Il suo restauro fu il primo del genere in Spagna."
+            }
+          }
+        },
+        "riddles": {
+          "barcelona-museu-maritim-riddle-1": {
+            "prompt": "Sono lunga sessanta metri e ho cinquantanove remi, ma non ho mai toccato il mare. Copio una nave che combatté quattrocentocinquant’anni fa, e la mia poppa brilla come un palazzo.",
+            "hint": "Riempio da sola un’intera sala."
+          },
+          "barcelona-museu-maritim-riddle-2": {
+            "prompt": "Ho la forma di un pesce e sono fatto di legno d’olivo vestito di rame. Ci stanno dentro cinque persone e scendo dove le altre navi hanno paura di andare. Non mi hanno fatto per affondare qualcuno, ma perché nessuno annegasse.",
+            "hint": "Il mio inventore mi ha immerso per la prima volta nel porto di Barcellona, nel 1859."
+          },
+          "barcelona-museu-maritim-riddle-3": {
+            "prompt": "Sono una ragazza di legno, e mio padre mi ha messa proprio davanti alla sua nave per potermi vedere. Sono arrivata fino in Brasile e sono tornata, mentre la mia nave è rimasta là per sempre.",
+            "hint": "Cerca un viso che vedeva sempre il mare per primo."
+          }
+        }
+      }
+    },
+    "barcelona-tibidabo": {
+      "name": "Il Luna Park del Tibidabo",
+      "tagline": "Un luna park sopra la città, dal 1901",
+      "story": "Il Tibidabo è la cima più alta delle colline dietro Barcellona, 512 metri, e da lassù vedi tutta la città fino al mare. Il 29 ottobre 1901 aprì la prima funicolare della Spagna, per portare la gente in cima, e insieme a lei aprì il luna park: è il più vecchio della Spagna e uno dei più vecchi d’Europa. La cosa strana è che le giostre antiche funzionano ancora. La Ferrovia Aerea del 1915 sta appesa fuori, sopra il precipizio. La Talaia, una torre di metallo di 50 metri del 1921, ti solleva in una cabina fino a 551 metri sopra il mare. E l’Avió, del 1928, è un aeroplano rosso, copia di quello che fece il primo volo Barcellona–Madrid, che gira in tondo in cima a un braccio, sopra il vuoto. C’è un museo di automi, giocattoli meccanici dei primi del Novecento che si svegliano con una monetina, e accanto al parco sta una chiesa con una statua in cima. Dal 2021 una nuova funicolare, la Cuca de Llum, la lucciola, sale in quattro minuti.",
+      "facts": [
+        "Aprì il 29 ottobre 1901, insieme alla prima funicolare della Spagna.",
+        "L’Avió, la giostra-aeroplano, vola in tondo dal 1928.",
+        "La cima del Tibidabo è alta 512 metri."
+      ],
+      "question": {
+        "q": "Che cosa copia l’Avió, la giostra che gira sopra il vuoto?",
+        "answers": [
+          "Un vecchio aereo",
+          "Un razzo di un film",
+          "Il primo elicottero della Spagna",
+          "Un aerostato dell’Ottocento"
+        ],
+        "explanation": "È la copia dell’aeroplano che fece il primo volo Barcellona–Madrid. Vola dal 1928, sempre in tondo."
+      },
+      "findIt": "Prendi la funicolare Cuca de Llum da Plaça del Doctor Andreu; in quattro minuti ti lascia al cancello del parco."
+    },
+    "barcelona-sagrada-familia": {
+      "name": "La Sagrada Família",
+      "tagline": "La chiesa che si costruisce da 144 anni",
+      "story": "I lavori di questa chiesa cominciarono nel 1882, e un anno dopo li prese in mano un giovane architetto, Antoni Gaudí. Mise via i vecchi disegni e ne fece uno che nessuno aveva mai visto: diciotto torri, colonne che in alto si aprono come i rami di un albero, e finestre che riempiono l’interno di luce colorata. Gaudí lavorò qui quarantatré anni. Sapeva che non l’avrebbe vista finita, e quando glielo chiedevano rispondeva che il suo cliente non ha fretta. Morì nel 1926, investito da un tram, e allora erano pronte solo una facciata e una torre. Da allora i costruttori hanno continuato, pagati dai biglietti dei visitatori e dalle donazioni. Nell’autunno del 2025 ha superato la chiesa più alta della Germania ed è diventata la chiesa più alta del mondo; nel febbraio del 2026, cento anni dopo la morte di Gaudí, è stato messo l’ultimo pezzo della croce e la Torre di Gesù Cristo ha raggiunto i suoi 172,5 metri. Gaudí scelse quell’altezza apposta: è un po’ più bassa del Montjuïc, la collina accanto alla città, perché credeva che un edificio non debba essere più alto di quello che ha fatto la natura.",
+      "facts": [
+        "I lavori cominciarono nel 1882. Gaudí li prese in mano nel 1883 e lavorò qui 43 anni.",
+        "La Torre di Gesù Cristo è stata finita nel febbraio del 2026: 172,5 metri, la chiesa più alta del mondo.",
+        "Gaudí stesso è sepolto nella cripta, sotto la chiesa."
+      ],
+      "question": {
+        "q": "Perché la torre più alta misura esattamente 172,5 metri e non di più?",
+        "answers": [
+          "Per non superare il Montjuïc",
+          "Perché il terreno non reggeva più peso",
+          "Perché la città vietava torri più alte",
+          "Perché finirono i soldi per la pietra"
+        ],
+        "explanation": "Gaudí credeva che un’opera degli uomini non debba stare più in alto di quello che ha fatto la natura. La collina del Montjuïc è un po’ più alta, e lì si è fermato."
+      },
+      "findIt": "L’ingresso dei visitatori è in Carrer de la Marina, davanti alla facciata della Natività, il lato coperto di sculture."
+    },
+    "barcelona-casa-batllo": {
+      "name": "Casa Batlló",
+      "tagline": "Una casa con la schiena di un drago per tetto",
+      "story": "Nel 1904 un ricco industriale dei tessuti, Josep Batlló, chiese a Gaudí di trasformare la sua casa qualunque, al numero 43 del Passeig de Gràcia, nella più sorprendente del viale. Gaudí non la buttò giù; la trasformò. Vestì la facciata di pezzi di piastrelle e di vetro rotti che brillano al sole, una tecnica che si chiama trencadís. Intorno alle finestre mise colonne come ossa, sui balconi maschere di ferro, e sopra un tetto di scaglie di ceramica che ondeggia come la schiena di un drago. La torretta con la croce è la lancia di San Giorgio, il patrono della Catalogna, che nella leggenda sconfisse un drago. Dentro, il pozzo di luce ha piastrelle blu scuro in alto e sempre più chiare man mano che scendi, con finestre che diventano più grandi ai piani bassi, così ogni piano riceve la stessa luce. La casa fu finita nel 1906. I vicini avevano chiamato altri architetti famosi, e l’isolato finì per chiamarsi «Isolato della Discordia», perché le sue case non vanno d’accordo su niente.",
+      "facts": [
+        "Gaudí la trasformò dal 1904 al 1906; non la costruì da zero.",
+        "È Patrimonio dell’Umanità dell’UNESCO dal 2005.",
+        "Le piastrelle del pozzo di luce sono blu scuro in alto e quasi bianche in basso."
+      ],
+      "question": {
+        "q": "Perché le piastrelle del pozzo di luce diventano più chiare man mano che scendi?",
+        "answers": [
+          "Così ogni piano ha la stessa luce",
+          "Perché la vernice blu finì a metà lavoro",
+          "Perché la casa sembri più profonda dal tetto",
+          "Perché i piani bassi costavano meno"
+        ],
+        "explanation": "In alto entra molta luce, e le piastrelle scure la trattengono. In basso ne arriva poca, e le piastrelle chiare e le finestre più grandi la moltiplicano."
+      },
+      "findIt": "La porta è sul Passeig de Gràcia, al numero 43. Mettiti sul marciapiede di fronte per vedere tutto il tetto."
+    },
+    "barcelona-casa-mila": {
+      "name": "Casa Milà, «La Pedrera»",
+      "tagline": "L’edificio che la città prese in giro e chiamò cava",
+      "story": "Pere Milà e sua moglie Roser volevano una casa che tutti si fermassero a guardare. Fra il 1906 e il 1912 Gaudí gliela costruì all’angolo fra il Passeig de Gràcia e il Carrer de Provença: un edificio di pietra che ondeggia come una scogliera leccata dalle onde, con balconi di ferro come alghe aggrovigliate. Il suo segreto è dentro. L’edificio sta su uno scheletro di ferro, e la facciata di pietra ci pende davanti come una tenda, senza reggere niente. Per questo gli inquilini potevano spostare i muri delle loro stanze. Nel sotterraneo c’era uno dei primi garage della città, in un’epoca in cui le automobili erano rare. La soffitta poggia su 270 archi di mattoni che sembrano le costole di una balena, e sul tetto 28 camini stanno in piedi come guardie con l’elmo; la gente del posto li chiama «spaventastreghe». All’inizio i barcellonesi risero e la chiamarono La Pedrera, «la cava». Il nome è rimasto, e oggi lo dicono con orgoglio. Fu l’ultima casa che Gaudí costruì; dopo lavorò soltanto alla Sagrada Família.",
+      "facts": [
+        "Costruita fra il 1906 e il 1912, è Patrimonio dell’Umanità dell’UNESCO dal 1984.",
+        "La soffitta poggia su 270 archi di mattoni.",
+        "Sul tetto stanno 28 camini, gli «spaventastreghe»."
+      ],
+      "question": {
+        "q": "Che cosa tiene in piedi l’edificio?",
+        "answers": [
+          "Uno scheletro di ferro",
+          "I grossi muri di pietra",
+          "Le travi di legno del tetto",
+          "Le case della porta accanto"
+        ],
+        "explanation": "La facciata di pietra pende dallo scheletro come una tenda. Per questo i muri dentro potevano cambiare posto."
+      },
+      "findIt": "L’ingresso dei visitatori è in Carrer de Provença, al numero 261, appena girato l’angolo del Passeig de Gràcia."
+    },
+    "barcelona-font-de-canaletes": {
+      "name": "Font de Canaletes, sulla Rambla",
+      "tagline": "La fontana che promette che tornerai",
+      "story": "La Rambla è la passeggiata che scende da Plaça de Catalunya fino al porto, 1,2 chilometri sotto i platani, fra banchi di fiori, chioschi e un grande teatro d’opera, il Liceu. Secoli fa qui, fuori dalle mura, scorreva un torrente che aveva acqua solo quando pioveva; gli arabi lo chiamavano «ramla», letto sabbioso. Circa 250 anni fa la città lo coprì e piantò gli alberi. In realtà sono cinque passeggiate una dietro l’altra, ed è per questo che la gente del posto dice «Les Rambles», al plurale. In cima sta una piccola fontana di ferro con quattro rubinetti e un lampione sopra, fatta nel 1892. Prende il nome dalle mura medievali, che avevano dentro dei piccoli canali, le «canaletes», per portare l’acqua della città. Una targa sul marciapiede dice che chi beve qui tornerà a Barcellona. E dagli anni Trenta i tifosi del Barça festeggiano qui ogni vittoria: un giornale sportivo aveva gli uffici accanto e scriveva i risultati su una lavagna, così la gente si radunava qui per conoscerli.",
+      "facts": [
+        "La fontana di oggi è stata fatta nel 1892.",
+        "La Rambla è lunga circa 1,2 chilometri, da Plaça de Catalunya al porto.",
+        "I tifosi del Barça festeggiano qui dagli anni Trenta."
+      ],
+      "question": {
+        "q": "Perché i tifosi cominciarono a radunarsi davanti a questa fontana?",
+        "answers": [
+          "Un giornale scriveva qui i risultati",
+          "Qui c’era il primo stadio della squadra",
+          "I giocatori bevevano qui prima delle partite",
+          "Il fondatore del club abitava nella casa accanto"
+        ],
+        "explanation": "Prima della radio, il risultato lo imparavi dove qualcuno lo scriveva. Il giornale se n’è andato; l’abitudine è rimasta."
+      }
+    },
+    "barcelona-placa-reial": {
+      "name": "Plaça Reial",
+      "tagline": "Qui è cominciata la carriera di Gaudí, con due lampioni",
+      "story": "Una volta qui c’era un convento di cappuccini con un grande giardino. Fu demolito nel 1835, e la città decise di costruire al suo posto una piazza grandiosa, con i portici tutto intorno, come nelle piazze di Francia. La disegnò l’architetto Francesc Daniel Molina a metà dell’Ottocento. Piantarono palme alte, e in mezzo misero una fontana delle Tre Grazie, le dee della bellezza e della gioia della mitologia greca. Nel marzo del 1878 un giovane studente di architettura, Antoni Gaudí, 25 anni, ebbe dal comune il suo primo lavoro, due mesi prima ancora di prendere la laurea: due lampioni con sei bracci ciascuno. In cima mise un elmo alato e due serpenti attorcigliati a un bastone, i simboli di Ermes, il dio dei mercanti e dei viaggiatori, perché la piazza era piena degli uni e degli altri. Oggi sotto i portici ci sono caffè e ristoranti, la domenica mattina i collezionisti si scambiano francobolli e monete, e a settembre, per la festa della Mercè, la piazza si riempie di concerti. Tutti cominciano da qualche parte. Gaudí cominciò da un lampione.",
+      "facts": [
+        "Dove c’è la piazza stava un convento di cappuccini, demolito nel 1835.",
+        "I due lampioni sono il primo lavoro pubblico di Gaudí, nel 1878, prima ancora della sua laurea.",
+        "La fontana in mezzo mostra le Tre Grazie."
+      ],
+      "question": {
+        "q": "Qual è stato il primo lavoro di Gaudí per il comune?",
+        "answers": [
+          "Due lampioni",
+          "Una fontanella d’acqua",
+          "Una fila di panchine",
+          "Il giardino di palme"
+        ],
+        "explanation": "Aveva 25 anni, e la laurea arrivò due mesi dopo. L’elmo alato in cima è di Ermes."
+      }
+    },
+    "barcelona-park-guell": {
+      "name": "Park Güell",
+      "tagline": "Un quartiere che non comprò nessuno, e diventò un parco",
+      "story": "Intorno al 1900 Eusebi Güell, ricco uomo d’affari e il migliore amico di Gaudí, comprò una collina spoglia con vista sul mare e gli chiese di disegnare un quartiere di sessanta lotti, con le case dentro i giardini, come le città-giardino inglesi; per questo si scrive «Park», all’inglese. Dal 1900 al 1914 Gaudí costruì strade e ponti su colonne di pietra inclinate come tronchi d’albero, una sala di 86 colonne che doveva diventare il mercato, e sopra di essa una grande terrazza con una panchina ondulata di 110 metri, rivestita di piastrelle rotte insieme al suo aiutante, Josep Maria Jujol. Sulla scalinata aspetta una lucertola di mosaico che tutti chiamano «il drago». La terrazza è anche una macchina: l’acqua della pioggia filtra attraverso la sua sabbia, scende dentro le colonne cave e si raccoglie in una cisterna sotterranea da 1.200 metri cubi. Quando la cisterna è piena, l’acqua che avanza esce dalla bocca del drago. Ma furono vendute solo due case: la collina era lontana e ripida. Gaudí stesso abitò in una di quelle dal 1906. Nel 1926 la città lo trasformò in parco pubblico, e dal 1984 è Patrimonio dell’Umanità dell’UNESCO.",
+      "facts": [
+        "Il progetto aveva 60 lotti. Ne furono venduti solo due.",
+        "La sala che doveva diventare il mercato ha 86 colonne.",
+        "È diventato parco pubblico nel 1926 e Patrimonio dell’Umanità dell’UNESCO nel 1984."
+      ],
+      "question": {
+        "q": "Che cosa esce dalla bocca del drago quando piove molto?",
+        "answers": [
+          "Acqua da una cisterna",
+          "Il fumo di un camino nascosto",
+          "La sabbia lavata via dalla terrazza",
+          "Niente, è soltanto una statua"
+        ],
+        "explanation": "La terrazza raccoglie la pioggia, le colonne cave la portano giù, e la cisterna sotto contiene 1.200 metri cubi. Quando è piena, l’acqua che avanza esce dal drago."
+      },
+      "findIt": "Il parco ha diverse entrate. Per la zona del drago, le più comode sono in Carrer de Larrard e in Avinguda del Santuari de Sant Josep de la Muntanya, dove delle scale mobili salgono la collina."
+    },
+    "barcelona-camp-nou": {
+      "name": "Camp Nou",
+      "tagline": "Lo stadio più grande d’Europa, ricostruito intorno al suo campo",
+      "story": "Il nome vuol dire semplicemente «campo nuovo» in catalano, perché quando aprì, il 24 settembre 1957, prese il posto del vecchio campo del Barça a poche strade di distanza. Allora conteneva più di centomila spettatori, e per decenni fu lo stadio più grande d’Europa. Nel giugno del 2023 la squadra se ne andò perché lo stadio fosse ricostruito quasi da zero: il campo è rimasto, sono rimaste le tribune basse, e intorno a loro ne sono cresciute di nuove, con il tetto. Il 22 novembre 2025 il Barça è tornato a casa, con circa 45.000 posti aperti e le gru ancora al lavoro. Quando sarà finito, nel 2027, conterrà quasi 105.000 persone, più di ogni altro stadio d’Europa. Il museo della squadra, dentro lo stadio, riceve più di un milione di visitatori all’anno ed è uno dei più visitati della Catalogna. Dal 2022 lo stadio porta anche il nome di uno sponsor. E quando la squadra vince qualcosa di grosso, i tifosi non restano qui: scendono alla fontana di Canaletes, sulla Rambla.",
+      "facts": [
+        "Ha aperto il 24 settembre 1957.",
+        "Ha riaperto mezzo finito nel novembre del 2025; quando sarà completo conterrà quasi 105.000 persone.",
+        "Il museo della squadra riceve più di un milione di visitatori all’anno."
+      ],
+      "question": {
+        "q": "Che cosa vuol dire «Camp Nou» in catalano?",
+        "answers": [
+          "Campo nuovo",
+          "Grande stadio",
+          "Campo dei sogni",
+          "Casa dei campioni"
+        ],
+        "explanation": "Era «nuovo» nel 1957, rispetto al vecchio campo di Les Corts. Il nome è rimasto, anche adesso che ha settant’anni."
+      }
+    },
+    "barcelona-zoo": {
+      "name": "Lo Zoo di Barcellona",
+      "tagline": "Qui è vissuto 37 anni l’unico gorilla bianco",
+      "story": "Lo zoo aprì il 24 settembre 1892, il giorno della Mercè, la festa della città, quando un ricco barcellonese, Lluís Martí i Codolar, regalò alla città la collezione di animali che teneva nella sua tenuta. Li sistemarono dentro il parco della Ciutadella, dove lo zoo sta ancora, su tredici ettari. L’animale più famoso che sia mai vissuto qui era un gorilla. Nel 1966 lo portarono dalla Guinea Equatoriale, piccolo, con il pelo bianco e gli occhi azzurri: era albino, l’unico gorilla bianco che qualcuno abbia mai visto. Lo chiamarono Floquet de Neu, Fiocco di Neve. Visse qui fino al 2003, diventò padre di 21 piccoli, tutti con il normale pelo scuro, e per decenni fu il volto della città. Nel 2018 la città decise che Barcellona non avrebbe tenuto altri delfini, e nell’estate del 2020 gli ultimi tre volarono in uno zoo di Atene, perché una vasca è troppo piccola per animali che nuotano cento chilometri al giorno. Oggi ha una savana con giraffe, leoni ed elefanti, uno dei più grandi rettilari d’Europa, e lavora per riportare in natura gli animali che sono in pericolo.",
+      "facts": [
+        "Ha aperto il 24 settembre 1892, il giorno della festa della Mercè.",
+        "Floquet de Neu, l’unico gorilla bianco conosciuto, visse qui dal 1966 al 2003.",
+        "Gli ultimi delfini se ne andarono nel 2020, dopo che la città decise nel 2018 di non tenerne altri."
+      ],
+      "question": {
+        "q": "Che cosa rendeva Floquet de Neu diverso da ogni altro gorilla?",
+        "answers": [
+          "Era bianco",
+          "Sapeva contare",
+          "Era nato qui",
+          "Era grande il doppio"
+        ],
+        "explanation": "Era albino: il suo corpo non fabbricava il colore. I suoi 21 figli erano tutti scuri, come ogni altro gorilla."
+      },
+      "findIt": "Si entra passando dal parco della Ciutadella: l’ingresso dello zoo è al bordo del parco, dalla parte del mare."
+    },
+    "barcelona-aquarium": {
+      "name": "L’Acquario di Barcellona",
+      "tagline": "Cammina sotto gli squali in un tunnel di 80 metri",
+      "story": "L’acquario aprì l’8 settembre 1995 nel porto vecchio, su un molo a cui arrivi da una passerella di legno. Ha circa trentacinque vasche con undicimila animali di quattrocentocinquanta specie, e quasi tutti vengono dal mare che sta proprio fuori dalla porta, il Mediterraneo: polpi che si nascondono fra le pietre, murene che guardano fuori dai buchi, cavallucci marini che si tengono con la coda. Il pezzo centrale è l’Oceanario, una vasca rotonda di 36 metri, profonda cinque metri, con circa quattro milioni di litri d’acqua. Dentro passa un tunnel di vetro lungo più di ottanta metri, e mentre lo attraversi sopra la tua testa passano due specie di squalo, razze, cernie, orate, e uno dei pesci più strani del mare, il pesce luna, che sembra una testa enorme senza corpo. Gli squali sembrano spaventosi e non lo sono: mangiano pesci, non persone, e nuotano senza fermarsi mai perché è così che respirano. Ogni anno l’acquario cura anche le tartarughe marine che si sono ferite in mare.",
+      "facts": [
+        "Ha aperto l’8 settembre 1995, nel porto vecchio.",
+        "Il tunnel dentro l’Oceanario è lungo più di 80 metri.",
+        "Ha circa 35 vasche con 11.000 animali di 450 specie."
+      ],
+      "question": {
+        "q": "Da quale mare vengono quasi tutti gli animali dell’acquario?",
+        "answers": [
+          "Dal Mediterraneo",
+          "Dal Mar dei Caraibi, vicino a Cuba",
+          "Dal Mar Rosso, accanto all’Egitto",
+          "Dall’Oceano Pacifico, vicino al Giappone"
+        ],
+        "explanation": "È il mare che sta proprio fuori dalla porta. L’acquario è il più grande d’Europa per le specie del Mediterraneo."
+      },
+      "findIt": "È sul molo Moll d’Espanya, nel porto vecchio: attraversa la passerella di legno che parte accanto alla colonna di Colombo."
+    }
+  },
+  "trails": {
+    "barcelona-first-time": {
+      "name": "Prima volta a Barcellona",
+      "promise": "Tre edifici di Gaudí, la passeggiata più famosa della Spagna, un mercato e tredici oche."
+    },
+    "barcelona-two-hours-down-la-rambla": {
+      "name": "Due ore lungo la Rambla",
+      "promise": "Dalla fontana in cima al navigatore sulla sua colonna, tutto a piedi, tutto in discesa."
+    },
+    "barcelona-rainy-day": {
+      "name": "Una giornata di pioggia",
+      "promise": "Una foresta dove piove apposta, una galea sotto archi di pietra, squali sopra la testa e uno stadio con un museo."
+    },
+    "barcelona-up-high-and-down-by-the-park": {
+      "name": "In alto sulle colline, giù nel parco",
+      "promise": "Due colline con vista sul mare, una porta costruita per una festa e un gorilla bianco che tutti ricordano."
+    }
+  }
+}

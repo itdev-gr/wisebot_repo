@@ -76,7 +76,7 @@
         "answers": [
           "Con una statua da una vigna",
           "Con un dono di quadri dalla Francia",
-          "Con i gioielli di un re",
+          "Coi gioielli di un re",
           "Con una collezione di mummie egizie"
         ],
         "explanation": "Il Papa comprò il Laocoonte e lo mise in un cortile perché lo vedessero tutti. Da quel cortile sono cresciuti i musei."
@@ -134,7 +134,7 @@
               "q": "Perché gli dèi mandarono i serpenti contro Laocoonte?",
               "answers": [
                 "Aveva avvisato del cavallo",
-                "Aveva rubato un tesoro dal tempio",
+                "Aveva rubato tesori",
                 "Aveva rifiutato di combattere i Greci",
                 "Aveva ucciso un serpente sacro del mare"
               ],
@@ -190,7 +190,7 @@
               "q": "Perché gli Egizi conservavano i corpi dei morti?",
               "answers": [
                 "Servivano in un’altra vita",
-                "Per mostrarli nei loro musei",
+                "Per i loro musei",
                 "Perché non li trovassero i soldati romani",
                 "Perché non c’era posto per seppellirli"
               ],
@@ -205,7 +205,7 @@
               "answers": [
                 "In piedi su un’impalcatura",
                 "Steso sulla schiena su delle tavole",
-                "Appeso a delle corde dal tetto",
+                "Appeso a delle corde",
                 "Da sotto, con pertiche lunghissime"
               ],
               "explanation": "In piedi, con la testa rovesciata indietro, per quattro anni. La sua poesia sul dolore al collo si è conservata."
@@ -295,7 +295,7 @@
           "Per salirla a cavallo",
           "Perché le processioni scendessero con le candele",
           "Perché i costruttori finirono le pietre",
-          "Per far rotolare giù le botti di vino"
+          "Per le botti"
         ],
         "explanation": "La rampa si chiama cordonata. I suoi scalini sono così dolci che un cavallo li sale senza inciampare."
       }
@@ -315,7 +315,7 @@
           "Regalò statue antiche al popolo",
           "Costruì il primo palazzo sul colle",
           "Mise le statue dentro teche di vetro",
-          "Dipinse il soffitto del museo"
+          "Dipinse il soffitto"
         ],
         "explanation": "Fino a quel momento le antichità erano dei papi e dei principi. Statue che sono di tutti e che tutti vedono: questo è un museo."
       },
@@ -383,7 +383,7 @@
               "answers": [
                 "Si toglie una spina dal piede",
                 "Si lega il sandalo prima della gara",
-                "Si lava i piedi in un fiume",
+                "Si lava i piedi",
                 "Nasconde una moneta sotto il piede"
               ],
               "explanation": "Si chiama Spinario, proprio dalla parola spina."
@@ -398,7 +398,7 @@
                 "Dal collare e dai baffi",
                 "Dalla bandiera che tiene in mano",
                 "Dall’elmo con le penne d’aquila",
-                "Dalla scritta sul suo scudo"
+                "Dalla scritta"
               ],
               "explanation": "Quel collare si chiama torc e lo portavano i guerrieri celti. Romani e greci non ne portavano di simili."
             }
@@ -412,7 +412,7 @@
                 "Gli attaccavano bigliettini",
                 "Aveva un tubo nascosto dentro per la voce",
                 "La sua acqua fa un suono come una voce",
-                "Un prete parlava da dietro di lui"
+                "C’era un prete dietro"
               ],
               "explanation": "Quando non puoi dire una cosa a voce alta, la scrivi su un foglietto e la lasci «dire» a una statua."
             }
@@ -522,7 +522,7 @@
         "answers": [
           "A due braccia che abbracciano",
           "Alle due ali di un uccello gigante",
-          "Alle due corna di un toro",
+          "Alle due corna del toro",
           "A due onde che si rompono sulla riva"
         ],
         "explanation": "Bernini disse che sono le braccia materne della Chiesa, aperte per chiunque arrivi in piazza."
@@ -543,7 +543,7 @@
           "Ci pascolavano le vacche",
           "Lì i Romani vendevano i loro buoi",
           "Un imperatore amava molto le vacche",
-          "La valle ha la forma di una vacca"
+          "Sembra una vacca"
         ],
         "explanation": "La terra aveva coperto la piazza così in profondità che sopra si stendeva un prato come tanti. Gli archeologi scavarono per metri e metri prima di trovare il lastricato."
       }
@@ -582,7 +582,7 @@
         "answers": [
           "Esce da buchi nel pavimento",
           "La raccolgono in una vasca per le terme",
-          "Evapora prima di arrivare in basso",
+          "Evapora a mezz’aria",
           "Un vetro chiude l’apertura quando piove"
         ],
         "explanation": "Il pavimento ha una leggera pendenza e dei piccoli scarichi, così l’acqua scorre e sparisce. I Romani l’avevano pensato così dall’inizio."
@@ -602,7 +602,7 @@
         "answers": [
           "Nessuno sapeva dove nasceva",
           "Si vergogna della chiesa di fronte",
-          "Il sole della piazza lo disturba",
+          "Lo disturba il sole",
           "Il marmo del suo viso si era crepato"
         ],
         "explanation": "Ai tempi di Bernini le sorgenti del Nilo erano un mistero. La faccia coperta vuol dire «non si sa». Gli esploratori le trovarono due secoli dopo."
@@ -648,7 +648,7 @@
               "q": "Come ha mostrato lo scultore il sangue sulla faccia del pugile?",
               "answers": [
                 "Con pezzi di rame rosso",
-                "Con vernice rossa sopra il bronzo",
+                "Con vernice rossa",
                 "Con piccole pietre rosse incastonate",
                 "Con linee incise profonde nel metallo"
               ],
@@ -664,7 +664,7 @@
                 "I suoi occhi sono caduti",
                 "Lo scultore non fece in tempo a farli",
                 "Glieli hanno tolti per non farlo «vedere»",
-                "Si sono fusi nell’incendio della villa"
+                "Fusi in un incendio"
               ],
               "explanation": "Gli occhi delle statue di bronzo erano di pietra o di vetro, messi dentro delle orbite. Cadono facilmente e si perdono."
             }

@@ -68,7 +68,7 @@
               "q": "Warum heißt das Bild „Die Nachtwache“?",
               "answers": [
                 "Der dunkle Firnis",
-                "Es zeigt Mitternacht",
+                "Mitternacht",
                 "Die Wachen arbeiteten nachts",
                 "Rembrandt nannte es so"
               ],
@@ -84,7 +84,7 @@
                 "Aus Lapislazuli",
                 "Aus Blaubeersaft",
                 "Aus gemahlenem blauem Glas",
-                "Aus Indigo aus Indien"
+                "Aus Indigo"
               ],
               "explanation": "Lapislazuli kam aus dem heutigen Afghanistan und kostete mehr als Gold. Vermeer nahm ihn sogar für die Schürze einer Magd."
             }
@@ -261,7 +261,7 @@
         "answers": [
           "Das Rathaus",
           "Die Burg eines Herzogs",
-          "Eine Kirche für Seeleute",
+          "Kirche",
           "Ein Markt für Käse"
         ],
         "explanation": "Die Stadt hatte damals keinen König, sie hatte Kaufleute. Und die Kaufleute bauten sich das prächtigste Rathaus Europas. Palast wurde es 1808."
@@ -282,7 +282,7 @@
           "Gegengewichte",
           "Sehr dünne Bretter",
           "Luft im hohlen Deck",
-          "Pferde ziehen an Seilen"
+          "Pferde"
         ],
         "explanation": "Wie bei der Wippe: Ein Gewicht an dem einen Ende hebt ein Gewicht am anderen. Die schweren Gegengewichte machen das Deck fast schwerelos, und ein Motor, früher eine Hand, macht den Rest."
       }
@@ -302,7 +302,7 @@
         "answers": [
           "Aus Käfigen",
           "Von einem Schiff aus Afrika",
-          "Aus der Voliere im Zoo",
+          "Zoo",
           "Aus dem Garten des Dichters"
         ],
         "explanation": "Ein paar Haustiere entkamen in den 1970er-Jahren oder wurden freigelassen. Sie halten die Kälte aus, solange sie Futter finden, und ihre Enkel sind heute Tausende."
@@ -406,7 +406,7 @@
               "q": "Was treibt die Maschinen auf dem Dach an?",
               "answers": [
                 "Wind, Wasser, Sonne",
-                "Batterien in einem Kasten",
+                "Batterien",
                 "Ein Kabel von unten",
                 "Kinder, die Kurbeln drehen"
               ],
@@ -420,7 +420,7 @@
               "q": "Wer hat das Gebäude grün gemacht?",
               "answers": [
                 "Das Wetter",
-                "Ein Anstreicher",
+                "Maler",
                 "Renzo Piano",
                 "Die Stadtverwaltung"
               ],
@@ -515,7 +515,7 @@
         "answers": [
           "Die Windrichtung",
           "Die Uhrzeit in London",
-          "Den Wochentag",
+          "Wochentag",
           "Das Gleis des nächsten Zuges"
         ],
         "explanation": "Eine Windfahne auf dem Dach dreht sich mit dem Wind und bewegt den Zeiger. In einer Stadt voller Segelschiffe zählte der Wind so viel wie die Uhrzeit."
@@ -557,7 +557,7 @@
         "answers": [
           "Auf Lastkähnen",
           "Auf Pfählen im Wasser",
-          "Auf einer Holzbrücke",
+          "Brücke",
           "Auf der alten Stadtmauer"
         ],
         "explanation": "Die Züchter brachten die Blumen mit Booten und verkauften vom Deck. Der Markt blieb da, wo er entstanden ist: auf dem Wasser."
@@ -578,7 +578,7 @@
         "answers": [
           "Ein Lagerhaus",
           "Der Palast des Admirals",
-          "Eine Schule für Matrosen",
+          "Schule",
           "Ein Gefängnis für Piraten"
         ],
         "explanation": "Eine Flotte braucht Segel, Taue, Kanonen und Nägel, alles an einem Ort und nah am Wasser. Deshalb ist das Gebäude ein Viereck mit einem Hof in der Mitte: ein Lagerhaus der Marine."
@@ -605,7 +605,7 @@
               "answers": [
                 "Sie strandete",
                 "Sie erreichte Asien",
-                "Piraten kaperten sie",
+                "Piraten",
                 "Sie fing Feuer"
               ],
               "explanation": "Ohne Ruder, im Sturm, mit der halben Mannschaft krank, setzte der Kapitän sie auf den Sand, um die Menschen zu retten. Sie kam nie wieder los."
@@ -633,7 +633,7 @@
               "answers": [
                 "Von Ruderern",
                 "Von einer Dampfmaschine",
-                "Von einem großen Segel",
+                "Segel",
                 "Von Pferden am Ufer"
               ],
               "explanation": "Zwanzig Ruderer, alle zugleich, im Takt. Ein königliches Boot hat es nicht eilig: Alle sollten es lange anschauen können."
@@ -713,7 +713,7 @@
         "answers": [
           "Natur lehrt Kunst",
           "Alle Tiere dieser Welt",
-          "Der Garten der Könige",
+          "Königsgarten",
           "Kunst für alle"
         ],
         "explanation": "Natura Artis Magistra: Die Natur ist die Lehrerin der Kunst. Die Gründer glaubten, wer etwas Schönes machen will, soll sich zuerst die Tiere anschauen."

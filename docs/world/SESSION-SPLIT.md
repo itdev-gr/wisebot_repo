@@ -21,11 +21,22 @@ Decisions taken in that brief, all binding:
 
 ## The split
 
-| | Session A — the engine | Session B — the content |
-| --- | --- | --- |
-| Branch | `feature/world-engine` | `content/world-cities` |
-| Owns | the module's code | the module's data |
-| Never touches | `data/world/cities/`, `scripts/world/seeds/`, `public/images/world/` | everything in the left column |
+There are **three** sessions, not two. The third arrived with the four extra languages and
+was never written down here, which meant every i18n ticket was unverifiable against this
+document for a week.
+
+| | A — the engine | B — the content | C — the languages |
+| --- | --- | --- | --- |
+| Branch | `content/world-cities` (also the release branch) | `world/content` | `world/i18n` |
+| Owns | the module's code | the module's data | the translation overlays |
+| Never touches | `data/world/cities/`, `scripts/world/seeds/`, `public/images/world/`, `data/world/i18n/` | everything in A's column, and `data/world/i18n/` | everything that is not `data/world/i18n/*.json` |
+
+**Only session A opens a pull request or merges.** B and C push their branch and send A the
+hash **with the word "pushed"**. A merges from `origin/*` only, never from a local branch in
+another worktree: on 13 Σεπτεμβρίου a local branch was three commits ahead of its pushed
+ref, the merge silently lost two whole cities, and every test passed over the nine that
+remained. A also checks the city count `build-registry.mjs` prints against what the
+delivering session said it sent.
 
 ### Session A owns these paths
 
@@ -33,10 +44,13 @@ Decisions taken in that brief, all binding:
 data/world/types.ts            the model — frozen first, see "Sequencing"
 data/world/registry.ts         GENERATED, never hand-edited
 data/world/world.test.ts       the invariants, including the coordinate audit
+data/world/seo.ts              per-page metadata, shared with the prerender
+data/world/narration.ts        GENERATED from what is on disk
+data/world/mergeTranslation.ts how an overlay is folded into a city
 components/world/**            every screen
-hooks/useWorldProgress.ts      stamps, seals, one-shot awards
-scripts/world/resolve-coords.mjs   the coordinate resolver (already written)
-scripts/world/build-registry.mjs   regenerates registry.ts from the cities folder
+components/world/useWorldProgress.ts   stamps, seals, one-shot awards
+utils/geo.ts                   distance, geofence, the country radius
+scripts/world/*.mjs            resolver, registry, SEO, narration, extraction
 ```
 
 Plus four additive one-liners in shared files, listed in
@@ -53,9 +67,20 @@ data/world/cities/<city>.ts         the content: stories, facts, questions, muse
 public/images/world/**              artwork
 ```
 
+### Session C owns these paths
+
+```
+data/world/i18n/<city>.<lang>.json      one city in one language
+data/world/i18n/countries.<lang>.json   country names, intros, facts, and the city cards
+```
+
+Nothing else. A translation ticket that needs a TypeScript change is two tickets: the type
+belongs to A.
+
 `registry.ts` is the one file that would otherwise be shared, so it is generated. Session
 B adds a city by adding **one new file** and running `node scripts/world/build-registry.mjs`.
-Nobody edits a shared list, so nobody has a merge conflict.
+Nobody edits a shared list, so nobody has a merge conflict. When a wave of overlays lands,
+**one** session runs the final regeneration — not twelve translators in parallel.
 
 ---
 
@@ -95,6 +120,26 @@ That ordering means both sessions are productive from minute one.
 8. **Age 6–12.** Real places carry real history. True, plainly told, no violence for its
    own sake. When a place's honest story cannot be told well to a seven-year-old, leave
    the place out rather than sanitise it.
+
+9. **A trimmed distractor must be read again, against its question AND its explanation.**
+   This one was paid for twice in one day. Two rules govern answer length — a child who
+   always taps the longest option, and a child who always taps the shortest, must each do
+   no better than chance — and the only way to satisfy the second is to shorten the three
+   wrong answers. But a wrong answer is very often wrong *because* of the words that make
+   it long: the qualifier, the superlative, the invented detail. Cut those and a bare true
+   sentence is left, and the question now has two right answers.
+
+   It is not hypothetical. Twenty distractors across Paris, Barcelona and Istanbul became
+   true this way, and 275 more were trimmed in the overlays on the same afternoon. Every
+   mechanical check passed on both. «How large and bright the windows are» became «How
+   many windows it has» — and the submarine has none, which the question's own explanation
+   says, so the wrong answer stated the right one and the explanation argued its case.
+
+   Re-reading against the explanation is free, needs nothing outside the file, and catches
+   the worst of them on its own. **No test can do this.** The giveaway rules in
+   `world.test.ts` measure a proxy: a city can satisfy both perfectly while a distractor is
+   true. Treat the number as an indicator, never as the target — a city shipped honestly at
+   35% is worth more than one at 25% bought with a lie.
 
 ---
 

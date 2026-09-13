@@ -16,7 +16,7 @@
         "answers": [
           "Una parte era in greco",
           "Era scritta con figure di animali",
-          "Aveva un dizionario accanto",
+          "Con un dizionario",
           "La spiegò un re egiziano"
         ],
         "explanation": "Lo stesso testo era scritto tre volte. Il greco si sapeva leggere, e confrontando le scritture ruppero il codice dei geroglifici."
@@ -74,7 +74,7 @@
               "q": "Che cosa ha conservato il suo corpo per 5.500 anni?",
               "answers": [
                 "La sabbia calda",
-                "Il ghiaccio",
+                "Ghiaccio",
                 "Un sarcofago d’oro",
                 "Il sale del mare"
               ],
@@ -88,7 +88,7 @@
               "q": "Che cosa mostra il lungo fregio tutto intorno?",
               "answers": [
                 "Un corteo a cavallo",
-                "Una battaglia navale",
+                "Una battaglia",
                 "Dodici dèi a tavola",
                 "La costruzione del tempio"
               ],
@@ -130,7 +130,7 @@
               "q": "Dove fu trovato l’elmo?",
               "answers": [
                 "In una nave sepolta",
-                "Sul fondo del Tamigi",
+                "Nel Tamigi",
                 "In un castello di Scozia",
                 "In una grotta del Galles"
               ],
@@ -158,7 +158,7 @@
               "q": "Come è arrivata a Londra la statua?",
               "answers": [
                 "In nave militare",
-                "L’ha comprata un museo",
+                "Comprata",
                 "Un regalo degli abitanti",
                 "In aereo nel 1960"
               ],
@@ -283,9 +283,9 @@
         "q": "Che cos’è davvero il «Big Ben»?",
         "answers": [
           "La campana",
-          "La torre stessa",
+          "La torre",
           "I quattro quadranti",
-          "La luce in cima"
+          "La luce"
         ],
         "explanation": "Big Ben è la grande campana che suona le ore. La torre si chiama Elizabeth Tower, ma il soprannome è rimasto attaccato a tutto il palazzo."
       },
@@ -305,7 +305,7 @@
         "answers": [
           "Finirono i soldi",
           "La statua si ruppe per strada",
-          "Lo tennero per il re",
+          "Veto del re",
           "Si dimenticarono di ordinarla"
         ],
         "explanation": "Aspettava la statua di un re a cavallo, ma i soldi non arrivarono mai. Il piedistallo vuoto è diventato l’angolo più interessante della piazza."
@@ -325,7 +325,7 @@
         "answers": [
           "Frutta e verdura",
           "Tappeti e mobili da casa",
-          "Libri e mappe",
+          "Libri",
           "Pesce e sale"
         ],
         "explanation": "Cominciò come un orto e diventò il mercato della frutta e della verdura di tutta la città, finché non si trasferì nel 1974."
@@ -345,9 +345,9 @@
         "q": "Perché il ponte si apre in mezzo?",
         "answers": [
           "Per le navi alte",
-          "Per far scolare la pioggia",
+          "Per la pioggia",
           "Per far riposare le macchine",
-          "Per far passare gli autobus"
+          "Per gli autobus"
         ],
         "explanation": "Le due metà della strada si alzano perché un albero di nave ci passi sotto. La nave lo chiede un giorno prima, e il ponte si apre senza far pagare niente."
       },
@@ -421,7 +421,7 @@
               "q": "Quali uccelli studiò Darwin per capire come cambiano gli animali?",
               "answers": [
                 "Fringuelli",
-                "Leoni dell’Africa",
+                "Leoni",
                 "Pesci rossi in una boccia",
                 "Pinguini dell’Antartide"
               ],
@@ -437,7 +437,7 @@
                 "Si muove",
                 "Mangia carne vera",
                 "Cambia colore",
-                "Vola sopra la gente"
+                "Vola"
               ],
               "explanation": "È una macchina con i motori: si muove e ruggisce. L’hanno costruita scienziati e artigiani prendendo come guida ossa vere."
             }
@@ -450,7 +450,7 @@
               "answers": [
                 "È completa",
                 "È la più grande",
-                "È l’unica con le ali",
+                "Ha le ali",
                 "È la più vecchia"
               ],
               "explanation": "Quasi 300 delle sue ossa sono state trovate insieme: è lo stegosauro più completo del mondo. Quasi tutti gli altri scheletri sono metà veri, completati con delle copie."
@@ -500,8 +500,8 @@
         "q": "Come arrivò a Londra l’orsa Winnie?",
         "answers": [
           "Con un soldato",
-          "Con un circo dalla Russia",
-          "Regalo del re di Norvegia",
+          "Con un circo",
+          "Regalo del re",
           "Presa in un bosco in Scozia"
         ],
         "explanation": "Il soldato Harry Colebourn la comprò in Canada e la lasciò qui quando partì per la guerra. Dopo la guerra la regalò allo zoo."
@@ -542,7 +542,7 @@
         "q": "Quante capsule ha la ruota, e perché?",
         "answers": [
           "32, una per quartiere",
-          "12, una per ogni mese",
+          "12, una per mese",
           "24, una per ogni ora",
           "52, una per ogni settimana"
         ],
@@ -564,7 +564,7 @@
         "answers": [
           "Il sussurro fa il giro",
           "Il pavimento si muove un po’",
-          "Le luci si spengono da sole",
+          "La luce si spegne",
           "La tua voce diventa più grave"
         ],
         "explanation": "Il muro rotondo porta il suono tutt’intorno come un binario, così un sussurro arriva 30 metri più in là, nell’orecchio di qualcuno che non vedi nemmeno."
@@ -584,8 +584,8 @@
         "q": "Che cosa trasportava la locomotiva Puffing Billy?",
         "answers": [
           "Carbone",
-          "Passeggeri verso Londra",
-          "Lettere e pacchi",
+          "Passeggeri",
+          "Pacchi",
           "Soldati verso la guerra"
         ],
         "explanation": "Trascinava vagoni di carbone dalla miniera di Wylam fino al fiume, otto chilometri, per quasi cinquant’anni."
@@ -639,8 +639,8 @@
               "q": "Che cosa avrebbe fatto la macchina di Babbage se fosse stata finita?",
               "answers": [
                 "Calcoli",
-                "Disegni colorati",
-                "Musica per pianoforte",
+                "Disegni",
+                "Musica",
                 "Vestiti di lana"
               ],
               "explanation": "Avrebbe stampato tavole di numeri senza errori, girando una manovella. Le persone che le scrivevano a mano sbagliavano."
@@ -653,8 +653,8 @@
               "q": "Che cosa fece l’Apollo 10 quando arrivò alla Luna?",
               "answers": [
                 "Una prova",
-                "Il primo allunaggio",
-                "Raccolse delle pietre",
+                "Atterrò",
+                "Prese sassi",
                 "Piantò la bandiera"
               ],
               "explanation": "Scese fino a 15 chilometri dalla superficie e tornò su. L’Apollo 11 allunò due mesi dopo."
@@ -718,7 +718,7 @@
         "q": "Quanto dista il Monumento dal punto dove cominciò l’incendio?",
         "answers": [
           "61 metri",
-          "Proprio lì sopra",
+          "Lì sopra",
           "Un chilometro",
           "Dall’altra parte del fiume"
         ],
@@ -740,7 +740,7 @@
         "answers": [
           "Tè dalla Cina",
           "Oro dall’Australia",
-          "Spezie dall’India",
+          "Spezie",
           "Legname dal Canada"
         ],
         "explanation": "Il tè, il più in fretta possibile. Quando i piroscafi presero il tè, passò alla lana dall’Australia, ed è lì che diventò il più veloce."

@@ -130,9 +130,9 @@
               "q": "¿Dónde se encontró el casco?",
               "answers": [
                 "En un barco",
-                "En el fondo del Támesis",
+                "En el Támesis",
                 "En un castillo de Escocia",
-                "En una cueva de Gales"
+                "En una cueva"
               ],
               "explanation": "Un rey fue enterrado dentro de su barco, bajo un montículo de tierra, con todas sus riquezas alrededor."
             }
@@ -283,9 +283,9 @@
         "q": "¿Qué es en realidad el «Big Ben»?",
         "answers": [
           "La campana",
-          "La propia torre",
+          "La torre",
           "Las cuatro esferas del reloj",
-          "La luz de arriba"
+          "La luz"
         ],
         "explanation": "Big Ben es la gran campana que da las horas. La torre se llama Torre Isabel, pero el mote se le quedó a todo el edificio."
       },
@@ -306,7 +306,7 @@
           "Se acabó el dinero",
           "La estatua se rompió por el camino",
           "Lo guardaron para el rey",
-          "Se olvidaron de encargarla"
+          "Se olvidaron"
         ],
         "explanation": "Esperaba una estatua de un rey a caballo, pero el dinero no llegó nunca. El pedestal vacío acabó siendo la esquina más interesante de la plaza."
       }
@@ -639,8 +639,8 @@
               "q": "¿Qué habría hecho la máquina de Babbage si se hubiera terminado?",
               "answers": [
                 "Cuentas",
-                "Dibujos de colores",
-                "Música para piano",
+                "Dibujos",
+                "Música",
                 "Ropa de lana"
               ],
               "explanation": "Habría impreso tablas de números sin errores, girando una manivela. Las personas que las escribían a mano se equivocaban."
@@ -653,8 +653,8 @@
               "q": "¿Qué hizo el Apolo 10 cuando llegó a la Luna?",
               "answers": [
                 "Un ensayo",
-                "El primer alunizaje",
-                "Recogió piedras",
+                "El alunizaje",
+                "Recogió rocas",
                 "Puso la bandera"
               ],
               "explanation": "Bajó hasta 15 kilómetros de la superficie y volvió. El Apolo 11 alunizó dos meses después."
@@ -741,7 +741,7 @@
           "Té de China",
           "Oro de Australia",
           "Especias de la India",
-          "Madera de Canadá"
+          "Madera"
         ],
         "explanation": "Té, lo más rápido posible. Cuando los barcos de vapor se quedaron con el té, se pasó a la lana de Australia, y ahí se convirtió en el más rápido."
       },
