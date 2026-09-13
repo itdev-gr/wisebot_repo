@@ -550,39 +550,16 @@ const CityView: React.FC<CityViewProps> = ({
             {say(city.name, lang)}
           </h1>
 
-          <p className={`${WORLD_STYLE.body} text-sm sm:text-base mt-3`}>{say(city.intro, lang)}</p>
-
           {/*
-            Progress — only once there is something to count. A city whose places have
-            not been written yet would otherwise open on "0 / 0", an empty bar and
-            "You collected 0 of 0 stamps in this city.", directly above the empty state
-            that already explains, kindly, that the city is still being written.
+            The intro and the progress bar now sit BELOW the map.
+
+            On a phone the child arrived at a city and met, in order: the app header, the
+            guest banner, the module title, a two-row language switcher, a back link, the
+            country name, the city name, four lines of prose and a progress bar — and the
+            map, the thing they walked here to use, started past the bottom of the screen.
+            A paragraph about Rome is worth reading. It is not worth reading before you
+            can see where you are standing.
           */}
-          {total > 0 && (
-            <div className="mt-5">
-              <div className="flex items-end justify-between gap-3">
-                <div className="flex items-end gap-1.5">
-                  <span className={`${WORLD_STYLE.display} text-4xl`}>{done}</span>
-                  <span className="text-2xl font-[1000] italic tracking-tighter leading-none text-white/30">
-                    /{total}
-                  </span>
-                </div>
-                <span className={WORLD_STYLE.label}>{t.stamps}</span>
-              </div>
-              <div className="mt-2">
-                <Bar pct={percent(done, total)} tone="emerald" />
-              </div>
-              <p
-                className={
-                  complete
-                    ? 'text-[11px] font-bold text-emerald-300 mt-2 uppercase tracking-wider'
-                    : 'text-[11px] font-bold text-white/40 mt-2 uppercase tracking-wider'
-                }
-              >
-                {complete ? t.allDone : t.progress(done, total)}
-              </p>
-            </div>
-          )}
         </div>
       </motion.div>
 
@@ -611,6 +588,43 @@ const CityView: React.FC<CityViewProps> = ({
           <p className="text-[11px] font-bold text-white/40 mt-2.5 uppercase tracking-wider">{t.mapHint}</p>
         </section>
       )}
+
+      {/* ── WHAT THIS CITY IS, AND HOW FAR YOU ARE ── */}
+      <section className="mt-6">
+        <p className={`${WORLD_STYLE.body} text-sm sm:text-base`}>{say(city.intro, lang)}</p>
+
+        {/*
+          Progress — only once there is something to count. A city whose places have not
+          been written yet would otherwise show "0 / 0", an empty bar and "You collected
+          0 of 0 stamps in this city.", directly above the empty state that already
+          explains, kindly, that the city is still being written.
+        */}
+        {total > 0 && (
+          <div className="mt-5">
+            <div className="flex items-end justify-between gap-3">
+              <div className="flex items-end gap-1.5">
+                <span className={`${WORLD_STYLE.display} text-4xl`}>{done}</span>
+                <span className="text-2xl font-[1000] italic tracking-tighter leading-none text-white/30">
+                  /{total}
+                </span>
+              </div>
+              <span className={WORLD_STYLE.label}>{t.stamps}</span>
+            </div>
+            <div className="mt-2">
+              <Bar pct={percent(done, total)} tone="emerald" />
+            </div>
+            <p
+              className={
+                complete
+                  ? 'text-[11px] font-bold text-emerald-300 mt-2 uppercase tracking-wider'
+                  : 'text-[11px] font-bold text-white/40 mt-2 uppercase tracking-wider'
+              }
+            >
+              {complete ? t.allDone : t.progress(done, total)}
+            </p>
+          </div>
+        )}
+      </section>
 
       {/* ── TRAILS — suggestions, never gates ── */}
       {trails.length > 0 && (

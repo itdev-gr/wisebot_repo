@@ -22,9 +22,9 @@
  * returns null and pays nothing.
  */
 
-import React, { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Globe, Loader2 } from 'lucide-react';
+import React, { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Link, Navigate, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Check, Globe, Loader2 } from 'lucide-react';
 
 import {
   AVAILABLE_LANGS,
@@ -262,38 +262,85 @@ const LangSwitcher: React.FC<{
   lang: WorldLang;
   available: WorldLang[];
   onChange: (lang: WorldLang) => void;
-}> = ({ lang, available, onChange }) => (
-  <div
-    className="flex items-center gap-1 flex-wrap"
-    role="group"
-    aria-label={ui(T.langLabel, lang)}
-  >
-    {available.map((code) => {
-      const meta = LANG_LABELS[code];
-      const active = code === lang;
-      return (
-        <button
-          key={code}
-          type="button"
-          onClick={() => onChange(code)}
-          aria-pressed={active}
-          aria-label={meta.name}
-          title={meta.name}
-          className={
-            active
-              ? 'min-h-[44px] px-3 rounded-xl bg-white/[0.12] border border-white/25 text-white text-xs font-black tracking-widest'
-              : 'min-h-[44px] px-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white/50 text-xs font-black tracking-widest hover:text-white/80 transition-colors'
-          }
+}> = ({ lang, available, onChange }) => {
+  /**
+   * One button, not six.
+   *
+   * Six chips wrapped onto two rows on a phone and cost 92 of the 812 points a child
+   * has — more than the city's name, the map and the first place put together, spent on
+   * a choice most families make once and never revisit. The brief asks for this in so
+   * many words: «Όχι 30 σημαίες. 🌐 selector».
+   */
+  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const current = LANG_LABELS[lang];
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    const onDown = (e: MouseEvent) => {
+      if (!box.current?.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('mousedown', onDown);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('mousedown', onDown);
+    };
+  }, [open]);
+
+  return (
+    <div className="relative" ref={box}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={ui(T.langLabel, lang)}
+        className="min-h-[44px] flex items-center gap-2 px-3 rounded-xl bg-white/[0.06] border border-white/[0.12] text-white text-xs font-black tracking-widest hover:bg-white/[0.1] transition-colors"
+      >
+        <Globe size={15} className="text-blue-400" aria-hidden="true" />
+        <span aria-hidden="true">{current.flag}</span>
+        {current.short}
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          aria-label={ui(T.langLabel, lang)}
+          className="absolute right-0 z-30 mt-2 min-w-[190px] overflow-hidden rounded-2xl border border-white/[0.12] bg-[#0B0F1A] p-1 shadow-2xl"
         >
-          <span aria-hidden="true" className="mr-1">
-            {meta.flag}
-          </span>
-          {meta.short}
-        </button>
-      );
-    })}
-  </div>
-);
+          {available.map((code) => {
+            const meta = LANG_LABELS[code];
+            const active = code === lang;
+            return (
+              <li key={code} role="option" aria-selected={active}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onChange(code);
+                    setOpen(false);
+                  }}
+                  className={`flex min-h-[44px] w-full items-center gap-3 rounded-xl px-3 text-left text-sm font-bold transition-colors ${
+                    active ? 'bg-white/[0.12] text-white' : 'text-white/60 hover:bg-white/[0.06] hover:text-white'
+                  }`}
+                >
+                  <span aria-hidden="true" className="text-base">
+                    {meta.flag}
+                  </span>
+                  <span className="flex-1">{meta.name}</span>
+                  {active && <Check size={15} aria-hidden="true" />}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+};
 
 // --------------------------------------------------------------------- pages
 
@@ -694,6 +741,11 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
 
   const langValue = useMemo(() => ({ lang, setLang }), [lang, setLang]);
 
+  // `/world` and `/world/` are the front door; anything deeper is a page the child
+  // navigated to and already knows the name of.
+  const { pathname } = useLocation();
+  const atFrontDoor = pathname.replace(/\/+$/, '') === '/world';
+
   // Offered languages come from what is translated, not from the six the module could
   // one day hold. Filtered through LANG_LABELS so an overlay in a language World does
   // not know about cannot put an unlabelled button on the screen.
@@ -712,14 +764,31 @@ const World: React.FC<{ lang: 'el' | 'en' }> = ({ lang: appLang }) => {
           Βιβλίο» must render ΤΟ ΒΙΒΛΙΟ and not ΤΟ ΒΙΒΛΊΟ — and a screen reader reads
           German content in a Greek voice. One attribute fixes every screen below. */}
       <div lang={lang} className="max-w-6xl mx-auto px-4 pb-24">
-        <header className="flex items-center justify-between gap-4 flex-wrap py-6">
-          <h1 className={`${WORLD_STYLE.display} text-3xl flex items-center gap-3`}>
-            <Globe size={26} className="text-blue-400 not-italic" aria-hidden="true" />
-            <span className="flex flex-col">
-              {ui(T.title, lang)}
-              <span className={`${WORLD_STYLE.label} not-italic mt-1`}>{ui(T.subtitle, lang)}</span>
-            </span>
-          </h1>
+        {/*
+          The product's name is a front door, not a hat worn on every screen.
+          On a phone the full title plus its subtitle cost 65 points on every page, and
+          on a city page the child had already been told where they are by the country
+          page they tapped through. Inside, it shrinks to a line you can get home by; at
+          `/world` it stays the thing it is.
+        */}
+        <header className="flex items-center justify-between gap-4 py-4 sm:py-6">
+          {atFrontDoor ? (
+            <h1 className={`${WORLD_STYLE.display} text-3xl flex items-center gap-3`}>
+              <Globe size={26} className="text-blue-400 not-italic" aria-hidden="true" />
+              <span className="flex flex-col">
+                {ui(T.title, lang)}
+                <span className={`${WORLD_STYLE.label} not-italic mt-1`}>{ui(T.subtitle, lang)}</span>
+              </span>
+            </h1>
+          ) : (
+            <Link
+              to="/world"
+              className="flex min-h-[44px] items-center gap-2 text-white/45 transition-colors hover:text-white/80"
+            >
+              <Globe size={15} className="text-blue-400" aria-hidden="true" />
+              <span className="text-[11px] font-black uppercase tracking-widest">{ui(T.title, lang)}</span>
+            </Link>
+          )}
           <LangSwitcher lang={lang} available={available} onChange={setLang} />
         </header>
 
