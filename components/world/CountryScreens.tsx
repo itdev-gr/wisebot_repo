@@ -503,6 +503,8 @@ interface CountryViewProps {
      * switch is on this phone, when the phone will not even ask. Absent otherwise.
      */
     hint?: string;
+    /** A third line, iPhone only: the phone-wide switch the per-site path cannot reach. */
+    hintMore?: string;
     asking: boolean;
     onAsk: () => void;
   };
@@ -601,6 +603,9 @@ export const CountryView: React.FC<CountryViewProps> = ({
             </p>
             {entry.hint && (
               <p className="mt-1.5 break-words text-xs font-bold leading-relaxed text-amber-200/70">{entry.hint}</p>
+            )}
+            {entry.hintMore && (
+              <p className="mt-1 break-words text-xs font-bold leading-relaxed text-amber-200/50">{entry.hintMore}</p>
             )}
           </div>
         )}

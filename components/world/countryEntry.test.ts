@@ -84,4 +84,24 @@ describe('the stamp is not reachable from a route effect', () => {
   it('still says so at the top of the file', () => {
     expect(world.slice(0, 2000)).toMatch(/asks the phone where it is/);
   });
+
+  it('never asks the phone without a tap', () => {
+    // The city page may CHECK on arrival, but only when the family has already said
+    // yes: a system sheet that pops up unasked in front of a child is how «Don't Allow»
+    // gets tapped, and Safari then remembers it for the whole site. If this effect ever
+    // calls attempt() unconditionally again, this is the test that says so.
+    const start = world.indexOf('const countryIdForEntry');
+    const end = world.indexOf('if (!city || !country || failed)');
+    expect(start, 'the city-page entry effect is gone').toBeGreaterThan(0);
+    expect(end).toBeGreaterThan(start);
+    const effect = world.slice(start, end);
+    expect(effect).toMatch(/state === 'granted'\) void attempt\(/);
+    expect(effect).toMatch(/geoPermissionState\(\)/);
+  });
+
+  it('asks the phone in exactly one place', () => {
+    // Everything that wants a position goes through attempt(); a second locateOnce()
+    // would be a second prompt, or an answer thrown away.
+    expect(world.match(/locateOnce\(/g) ?? []).toHaveLength(1);
+  });
 });

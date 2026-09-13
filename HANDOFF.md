@@ -5,6 +5,23 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 13 Σεπτεμβρίου 2026 — World: «Είμαι εδώ!» όταν το τηλέφωνο δεν ρωτάει καν
+
+Στο iPhone του ιδιοκτήτη (Safari) το «Είμαι εδώ!» γύριζε `denied` σε χιλιοστά χωρίς
+παράθυρο άδειας: το Safari θυμάται το «Να μην επιτραπεί» ανά site (και το WebKit το
+θυμάται όσο ζει η σελίδα — SPA route change δεν το καθαρίζει). Το πιθανότερο αίτιο ήταν ο
+σιωπηλός έλεγχος τοποθεσίας στο άνοιγμα πόλης χωρίς πάτημα (2422ceb), που έβγαζε
+αιφνίδιο παράθυρο μπροστά σε παιδί. Τώρα (`components/world/geoNotes.ts`,
+`utils/geo.ts`): ο έλεγχος πόλης τρέχει μόνο αν `geoPermissionState()` = `granted`
+(στο Safari ποτέ — το Permissions API του απαντά πάντα `prompt`)· ένα `denied` που
+ήρθε σε <1 s (`NO_PROMPT_MS`) ή με state `denied` = «αποκλεισμένο» → δύο/τρεις γραμμές
+με το ακριβές μονοπάτι ρυθμίσεων (iOS 18+/26, iOS 17, App Store shell, Android Chrome,
+desktop, 6 γλώσσες)· μετά από άρνηση στο ίδιο document το κουμπί γίνεται «ΔΟΚΙΜΑΣΕ ΞΑΝΑ»
+και κάνει reload (`retryNeedsReload()`), το επόμενο πάτημα ρωτάει. Ένα αίτημα τη φορά
+ανά χώρα (in-flight dedupe) και εξωτερικό χρονόμετρο 45 s (το `timeout` του browser δεν
+τρέχει όσο το sheet είναι ανοιχτό). Tests: `geoNotes.test.ts`, `countryEntry.test.ts`.
+Το fix φτάνει στο κινητό μόνο μετά «Ανανέωση» στην κάρτα ενημέρωσης και πλήρες reload.
+
 ## ⚡ STATUS 6 Σεπτεμβρίου 2026 (β) — «Γεύσεις της πόλης»: φαγητό ανά πόλη + σφραγίδα γεύσης
 
 Ιδέα ιδιοκτήτη από φυλλάδιο Airbnb στο Πόρτο («Savor Porto's traditional cuisine»).

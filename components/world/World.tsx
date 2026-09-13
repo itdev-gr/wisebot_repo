@@ -64,7 +64,7 @@ import {
   type UiText,
 } from './worldUi';
 import { COUNTRY_RADIUS_M, geoPermissionState, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
-import { blockedNote, deniedKind } from './geoNotes';
+import { blockedNote, deniedKind, retryNeedsReload } from './geoNotes';
 import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
@@ -183,13 +183,15 @@ const ENTRY_NOTE: Record<EntryOutcome | 'idle', UiText<string>> = {
     es: 'Ahora mismo no estás en este país. El sello te espera allí.',
     it: 'In questo momento non sei in questo Paese. Il timbro ti aspetta lì.',
   },
+  // A sheet was shown and someone said no. (A «no» with no sheet is `blocked`, which
+  // lives in geoNotes.ts with the settings path for the grown-up.)
   denied: {
-    el: 'Χρειάζομαι άδεια για την τοποθεσία μόνο για αυτή τη στιγμή. Δεν αποθηκεύεται ποτέ.',
-    en: 'I need location permission just for this moment. It is never stored.',
-    de: 'Ich brauche die Standortfreigabe nur für diesen Moment. Sie wird nie gespeichert.',
-    fr: 'J’ai besoin de la position juste pour cet instant. Elle n’est jamais enregistrée.',
-    es: 'Necesito el permiso de ubicación solo para este momento. Nunca se guarda.',
-    it: 'Mi serve il permesso di posizione solo per questo momento. Non viene mai salvata.',
+    el: 'Το τηλέφωνο ρώτησε και η απάντηση ήταν «όχι». Αν θέλεις τη σφραγίδα, πάτα ξανά και πες «ναι». Η θέση σου δεν αποθηκεύεται ποτέ.',
+    en: 'The phone asked and the answer was “no”. If you want the stamp, tap again and say “yes”. Your position is never stored.',
+    de: 'Das Handy hat gefragt, und die Antwort war „Nein“. Wenn du den Stempel willst, tippe noch einmal und sag „Ja“. Dein Standort wird nie gespeichert.',
+    fr: 'Le téléphone a demandé, et la réponse était « non ». Si tu veux le tampon, appuie encore et dis « oui ». Ta position n’est jamais enregistrée.',
+    es: 'El teléfono preguntó y la respuesta fue «no». Si quieres el sello, pulsa otra vez y di «sí». Tu posición nunca se guarda.',
+    it: 'Il telefono ha chiesto e la risposta è stata «no». Se vuoi il timbro, tocca di nuovo e di’ «sì». La tua posizione non viene mai salvata.',
   },
   unavailable: {
     el: 'Το τηλέφωνο δεν βρήκε πού είσαι. Δοκίμασε ξανά σε λίγο.',
@@ -511,9 +513,12 @@ const CountryPage: React.FC<{
   const [outcome, setOutcome] = useState<EntryOutcome | 'blocked' | null>(null);
   const ask = useCallback(
     (target: Country) => {
+      // The clock tells a sheet that was refused from a «no» served from memory —
+      // Safari's Permissions API cannot (it says «prompt» whatever it remembers).
+      const started = performance.now();
       void attempt(target).then(async (result) => {
         if (result !== 'denied') return setOutcome(result);
-        setOutcome((await deniedKind()) === 'blocked' ? 'blocked' : 'denied');
+        setOutcome((await deniedKind(performance.now() - started)) === 'blocked' ? 'blocked' : 'denied');
       });
     },
     [attempt],
@@ -534,6 +539,10 @@ const CountryPage: React.FC<{
   if (!country) return <NotFound lang={lang} onBack={() => navigate('/world')} />;
 
   const blocked = outcome === 'blocked' ? blockedNote(lang) : null;
+  // After any «no» the button is a retry. WebKit answers every request after a denial
+  // from memory until the page is reloaded, whatever a grown-up fixed meanwhile — so a
+  // retry in a document that has seen a denial reloads first, and the next tap asks.
+  const retry = outcome === 'blocked' || outcome === 'denied';
 
   // How many of each city's places are stamped, without loading a single city module.
   // Place ids are prefixed by their city id — `data/world/world.test.ts` enforces that
@@ -575,12 +584,16 @@ const CountryPage: React.FC<{
         country={country}
         entryDate={progress.progress.entries[country.id]}
         entry={{
-          label: ui(blocked ? T.tryAgain : T.imInCountry, lang),
+          label: ui(retry ? T.tryAgain : T.imInCountry, lang),
           askingLabel: ui(T.locating, lang),
           note: blocked ? blocked.note : ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
           hint: blocked?.path,
+          hintMore: blocked?.more,
           asking,
-          onAsk: () => ask(country),
+          onAsk: () => {
+            if (retry && retryNeedsReload()) return window.location.reload();
+            ask(country);
+          },
         }}
         cities={cities}
         legacyCities={legacyCities}

@@ -37,7 +37,7 @@ import StoryNarration from './StoryNarration';
 import { PinReport } from './PinReport';
 import { WorldMap } from './WorldMap';
 import { distanceM, formatDistance, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
-import { blockedNote, deniedKind } from './geoNotes';
+import { blockedNote, deniedKind, retryNeedsReload } from './geoNotes';
 import {
   CATEGORY_LABEL,
   CATEGORY_STYLE,
@@ -410,14 +410,18 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
   const onSite = Boolean(stamp) || geo === 'here';
 
   const locate = async () => {
+    // WebKit answers every request after a denial from memory until the page reloads,
+    // so a tap after a «no» reloads first; the tap after that is the one that asks.
+    if (geoError === 'denied' && retryNeedsReload()) return window.location.reload();
     setGeo('checking');
     setGeoError(null);
     setGeoBlocked(false);
+    const started = performance.now();
     const fix = await locateOnce();
     if (typeof fix === 'string') {
       // Decide the sentence before showing anything, so the note never flips from
       // «tap again» to «change a setting» in front of the child.
-      const blocked = fix === 'denied' && (await deniedKind()) === 'blocked';
+      const blocked = fix === 'denied' && (await deniedKind(performance.now() - started)) === 'blocked';
       setGeoBlocked(blocked);
       setGeo('error');
       setGeoError(fix);
@@ -650,6 +654,11 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
                     <span className="mt-1.5 block break-words text-xs leading-relaxed text-amber-200/70">
                       {blockedNote(lang).path}
                     </span>
+                    {blockedNote(lang).more && (
+                      <span className="mt-1 block break-words text-xs leading-relaxed text-amber-200/50">
+                        {blockedNote(lang).more}
+                      </span>
+                    )}
                   </>
                 )}
                 {geo === 'error' && geoError !== 'denied' && ui(T.geoUnavailable, lang)}
