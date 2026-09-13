@@ -1,0 +1,39 @@
+{
+  "city": "budapest",
+  "country": "hungary",
+  "centre": { "lat": 47.49833, "lng": 19.04083 },
+  "note": "Wikidata q-ids only, every one of them found by searching in Hungarian and reading the Hungarian description to confirm it says Budapest. All ten Explorer spots for this city are carried over; six additions bring the count to sixteen and supply the two museums with an interior, plus the art, science, sport and nature categories Explorer has no model for. CENTRE: Wikidata's own point for Budapest (Q1781), 47.49833/19.04083. It sits 213 m from the Chain Bridge and 247 m from Buda Castle, so unlike Vienna's it does not land on a place and needed no substitute. NO ENTRANCE IS CLAIMED anywhere: no door in this city has been measured, so every point is the centroid, area or viewpoint it actually is. Two traps were avoided by hand. (1) Q11819 Országház is the parliament BUILDING — «a magyar Országgyűlés székhelye» — and not the Országgyűlés, which is the legislature and whose coordinate is not a door. (2) Q36833 Magyar Állami Operaház is described as «budapesti épület» and Q113044848 is the opera COMPANY of the same name; the building is the one seeded. Mátyás-templom and Halászbástya resolve 52 m apart, which is above the 25 m separation floor, so they are two honest pins and need no adjacentPairs entry.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "budapest-parliament", "name": "Országház", "wikidata": "Q11819", "anchor": "centroid" },
+    { "id": "budapest-basilica", "name": "Szent István-bazilika", "wikidata": "Q338665", "anchor": "centroid" },
+    { "id": "budapest-chain-bridge", "name": "Széchenyi lánchíd", "wikidata": "Q465534", "anchor": "centroid" },
+    { "id": "budapest-buda-castle", "name": "Budavári Palota", "wikidata": "Q46313", "anchor": "area" },
+    { "id": "budapest-matthias-church", "name": "Mátyás-templom", "wikidata": "Q493133", "anchor": "centroid" },
+    { "id": "budapest-fishermans-bastion", "name": "Halászbástya", "wikidata": "Q493117", "anchor": "centroid" },
+
+    { "id": "budapest-liberty-statue", "name": "Szabadság-szobor, Gellért-hegy", "wikidata": "Q933182", "anchor": "viewpoint",
+      "note": "Explorer pins the hill. A hill is not a place a child stands: Q577122 Gellért-hegy is a kilometre of slope and its centroid is nowhere in particular, which is exactly how Athens' Lycabettus graded D. Q933182 is the Liberty Statue on the summit — the actual viewpoint, and the thing you walk to. It resolves 167 m from the hill's own point, which is the difference between a summit and an average." },
+
+    { "id": "budapest-heroes-square", "name": "Hősök tere", "wikidata": "Q299973", "anchor": "area" },
+    { "id": "budapest-vajdahunyad-castle", "name": "Vajdahunyad vára", "wikidata": "Q1092030", "anchor": "centroid" },
+    { "id": "budapest-great-market-hall", "name": "Központi Vásárcsarnok", "wikidata": "Q195344", "anchor": "centroid" },
+
+    { "id": "budapest-national-museum", "name": "Magyar Nemzeti Múzeum", "wikidata": "Q914141", "anchor": "centroid",
+      "note": "Added. Explorer has no museum interior, and this module needs two. Q914141 carries «museum building» among its P31 values as well as «national museum», so the point is the building on Múzeum körút and not a head office somewhere else." },
+
+    { "id": "budapest-fine-arts-museum", "name": "Szépművészeti Múzeum", "wikidata": "Q840886", "anchor": "centroid",
+      "note": "Added, the second museum with an interior. Resolves 116 m from Hősök tere, which it stands on the edge of — comfortably past the 25 m floor, so both ship as separate pins." },
+
+    { "id": "budapest-szechenyi-bath", "name": "Széchenyi gyógyfürdő", "wikidata": "Q194783", "anchor": "centroid",
+      "note": "Added, for the science category: the water arrives from a well more than a kilometre deep, which is the whole reason this city is full of baths." },
+
+    { "id": "budapest-opera-house", "name": "Magyar Állami Operaház", "wikidata": "Q36833", "anchor": "centroid",
+      "note": "Added, for the art category. The building, «budapesti épület», not Q113044848, which is the opera company sharing the name." },
+
+    { "id": "budapest-zoo", "name": "Fővárosi Állat- és Növénykert", "wikidata": "Q922178", "anchor": "area" },
+
+    { "id": "budapest-hajos-pool", "name": "Hajós Alfréd Nemzeti Sportuszoda", "wikidata": "Q509841", "anchor": "centroid",
+      "note": "Added, for the sport category. Alfréd Hajós won the first Olympic swimming races in 1896, then trained as an architect and designed this pool himself, which is a true story a child can hold onto." }
+  ]
+}
