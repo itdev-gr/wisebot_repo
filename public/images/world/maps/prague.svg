@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1000" width="900" height="1000" role="img" aria-label="Stylised map of central Prague">
+  <title>Prague — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/czechia.ts
+    (north 50.100, south 50.060, east 14.438, west 14.382) so that place pins can be
+    projected onto it rather than positioned by hand. The Vltava, its island, the two
+    hills on the west bank and the rock in the south are placed from those bounds. The
+    frame is taller than it is wide because Prague's places are: the river runs north to
+    south through the middle of them. Nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5efe3" />
+      <stop offset="1" stop-color="#e8dfcb" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fb3c9" />
+      <stop offset="1" stop-color="#a6cede" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ddd1b8" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="900" height="1000" fill="url(#ground)" />
+  <rect width="900" height="1000" fill="url(#grid)" opacity="0.5" />
+
+  <!-- The two hills of the west bank: Petřín with Strahov above it, and the castle ridge. -->
+  <ellipse cx="185" cy="470" rx="150" ry="165" fill="#d2dfb6" stroke="#adbd8d" stroke-width="2" />
+  <ellipse cx="300" cy="245" rx="135" ry="72" fill="#d9e3c2" stroke="#adbd8d" stroke-width="2" />
+
+  <!-- Letná, the green shelf in the north, and the rock of Vyšehrad in the south. -->
+  <ellipse cx="690" cy="72" rx="130" ry="66" fill="#cfe0c0" stroke="#a8bd96" stroke-width="2" />
+  <ellipse cx="578" cy="892" rx="86" ry="60" fill="#cfe0c0" stroke="#a8bd96" stroke-width="2" />
+
+  <!-- The Old Town, a knot of small streets inside a bend of the river. -->
+  <ellipse cx="640" cy="330" rx="115" ry="80" fill="#efe6d3" stroke="#c3b393" stroke-width="2" />
+
+  <!-- The Vltava, entering from the south and leaving to the north. -->
+  <path
+    d="M538 1000 C 500 930, 476 870, 468 800 C 458 715, 452 640, 436 560 C 424 495, 430 430, 470 370
+       C 508 312, 546 262, 548 200 C 550 148, 518 90, 470 40 C 452 22, 440 10, 434 0"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="30"
+    stroke-linecap="round"
+  />
+
+  <!-- Kampa, the island the mill channel made, against the west bank by the bridge. -->
+  <ellipse cx="428" cy="326" rx="14" ry="42" fill="#eee5d2" stroke="#b9a888" stroke-width="2" transform="rotate(-12 428 326)" />
+
+  <g fill="#84714f" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="70" font-size="42" letter-spacing="5">ΠΡΑΓΑ</text>
+    <text x="40" y="102" font-size="20" letter-spacing="4">PRAHA</text>
+    <text x="185" y="478" font-size="19" text-anchor="middle" letter-spacing="3">ΠΕΤΡΖΙΝ</text>
+    <text x="300" y="251" font-size="17" text-anchor="middle" letter-spacing="3">ΛΟΦΟΣ ΤΟΥ ΚΑΣΤΡΟΥ</text>
+    <text x="640" y="336" font-size="17" text-anchor="middle" letter-spacing="3">ΠΑΛΙΑ ΠΟΛΗ</text>
+    <text x="690" y="78" font-size="17" text-anchor="middle" letter-spacing="3">ΛΕΤΝΑ</text>
+    <text x="578" y="898" font-size="16" text-anchor="middle" letter-spacing="3">ΒΙΣΕΧΡΑΝΤ</text>
+    <text x="404" y="332" font-size="11" text-anchor="end" letter-spacing="1">ΚΑΜΠΑ</text>
+  </g>
+
+  <text
+    x="470"
+    y="690"
+    font-size="18"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="5"
+    transform="rotate(80 470 690)"
+  >ΒΛΤΑΒΑ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(830 930)" stroke="#84714f" fill="#84714f">
+    <circle r="25" fill="none" stroke-width="2" />
+    <path d="M0 -21 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-29" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
