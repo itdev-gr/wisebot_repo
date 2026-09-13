@@ -14,10 +14,10 @@
       "question": {
         "q": "Qu’est-ce qui a sauvé la tour de la démolition ?",
         "answers": [
-          "Les antennes",
-          "Une pétition d’artistes célèbres qui l’ont défendue en public",
-          "La décision d’Eiffel de l’acheter tout entière avec son propre argent",
-          "Une loi qui a interdit de démolir les grands bâtiments dans Paris"
+          "Les antennes de la radio",
+          "Une pétition d’artistes",
+          "Eiffel l’a achetée lui-même",
+          "Une loi qui protégeait les tours"
         ],
         "explanation": "C’était le point le plus haut de la ville, donc l’endroit parfait pour des antennes. Quand la radio est devenue importante, la tour est devenue utile, et personne ne l’a démontée."
       }
@@ -35,9 +35,9 @@
         "q": "Pourquoi la place autour de l’arc ressemble-t-elle à une étoile ?",
         "answers": [
           "Douze avenues en partent",
-          "Parce que ses lampadaires sont disposés en forme d’étoile sur la chaussée",
-          "Parce que le dessin copie le drapeau de la France vu d’en haut",
-          "Parce que les trottoirs sont pavés de pierres taillées en forme d’étoile"
+          "Ses lampadaires dessinent une étoile",
+          "Le dessin copie le drapeau",
+          "Les pavés font des étoiles"
         ],
         "explanation": "Les douze rues s’en vont dans toutes les directions, comme des rayons. C’est pour cela que, vue d’en haut, la place a été appelée place de l’Étoile."
       }
@@ -55,9 +55,9 @@
         "q": "Que veut dire le nom « Concorde » donné à la place ?",
         "answers": [
           "Vivre ensemble en paix",
-          "La grande victoire que l’armée de France a fêtée à cet endroit",
-          "Le nom du roi pour qui la place avait d’abord été construite",
-          "L’accord avec l’Égypte qui a fait venir ici le grand obélisque"
+          "Une grande victoire française",
+          "Le nom d’un roi de France",
+          "Un accord avec l’Égypte"
         ],
         "explanation": "Le nom a été choisi exprès, après des années très difficiles. C’était la façon pour la ville de dire ce qu’elle voulait retenir à partir de là."
       }
@@ -75,9 +75,9 @@
         "q": "Comment le palais est-il devenu un musée ?",
         "answers": [
           "Le peuple l’a décidé pendant la Révolution",
-          "Un roi l’a offert à la ville par testament, avant de mourir",
-          "Un riche collectionneur l’a acheté et l’a ouvert au public",
-          "Il a été construit dès le départ comme musée et n’a jamais été une maison"
+          "Un roi l’a légué à la ville par testament",
+          "Un riche collectionneur l’a ouvert à tout le monde",
+          "Il a été bâti en musée dès le début"
         ],
         "explanation": "On a jugé que les trésors des rois appartenaient à tout le monde. C’est de cette décision qu’est née l’idée du musée public dans toute l’Europe."
       },
@@ -101,9 +101,9 @@
               "q": "Pourquoi y a-t-il des signes gravés sur les pierres ?",
               "answers": [
                 "Pour payer le bon tailleur de pierre",
-                "Pour montrer l’ordre dans lequel il fallait les poser",
-                "Pour éloigner la malchance du bâtiment tout neuf",
-                "Pour distinguer les pierres venues d’une autre carrière"
+                "Pour les poser dans l’ordre",
+                "Pour tenir la malchance à l’écart",
+                "Pour distinguer les différentes carrières"
               ],
               "explanation": "Ils étaient payés à la pièce. La marque était le reçu, à une époque sans paperasse."
             }
@@ -115,9 +115,9 @@
               "q": "Pourquoi le donjon a-t-il été démoli ?",
               "answers": [
                 "La forteresse est devenue un palais",
-                "Il s’est effondré tout seul lors d’un tremblement de terre à Paris",
-                "Il a brûlé dans un grand incendie et ne valait pas la peine d’être rebâti",
-                "On avait besoin de ses pierres pour construire le rempart de la ville"
+                "Un tremblement de terre l’a abattu",
+                "Il a brûlé dans un grand feu",
+                "Ses pierres sont parties dans le rempart"
               ],
               "explanation": "Un bâtiment change quand son métier change. La forteresse voulait un donjon, le palais voulait de la lumière."
             }
@@ -129,9 +129,9 @@
               "q": "Quel problème la pyramide a-t-elle résolu ?",
               "answers": [
                 "Les visiteurs se perdaient entre trop d’entrées",
-                "Les œuvres étaient menacées par l’humidité qui montait du sol",
-                "Le palais n’avait pas assez de place pour exposer tous les tableaux",
-                "Les vieux escaliers étaient dangereux pour les visiteurs âgés"
+                "L’humidité menaçait les œuvres",
+                "Le palais n’avait pas assez de place pour les tableaux",
+                "Les vieux escaliers étaient dangereux à monter"
               ],
               "explanation": "Une seule entrée pour tout le monde, et de la lumière qui descend d’en haut dans un hall souterrain."
             }
@@ -143,9 +143,9 @@
               "q": "Qu’est-ce qui a rendu la Joconde célèbre dans le monde entier ?",
               "answers": [
                 "Son vol en 1911",
-                "La décision de Napoléon de l’accrocher dans sa chambre à coucher",
-                "Le fait que c’est le plus grand tableau de tout le musée",
-                "Une lettre de Léonard qui décrit qui était vraiment cette femme"
+                "Napoléon l’a accrochée",
+                "Le plus grand tableau",
+                "Un mot de Léonard"
               ],
               "explanation": "Deux ans de mur vide et des unes de journaux partout. Quand elle est revenue, le monde entier la connaissait."
             }
@@ -157,9 +157,9 @@
               "q": "Que ne sait-on pas sur la Vénus de Milo ?",
               "answers": [
                 "Ce que tenaient ses bras",
-                "En quelle matière exactement toute la statue a été taillée",
-                "Sur quelle île de Grèce le paysan l’a trouvée en 1820",
-                "Sa taille, parce qu’on ne l’a jamais mesurée avec précision"
+                "De quelle pierre elle vient",
+                "Sur quelle île on l’a trouvée",
+                "Quelle est sa taille exacte"
               ],
               "explanation": "Les bras n’ont jamais été retrouvés. Chaque réponse est une supposition, et il y en a des dizaines."
             }
@@ -171,9 +171,9 @@
               "q": "Comment le marbre de cette statue est-il sculpté ?",
               "answers": [
                 "Pour que le tissu paraisse mouillé",
-                "Pour qu’il change de couleur selon la lumière du jour",
-                "Pour qu’il soit creux à l’intérieur et très léger pour sa taille",
-                "Pour qu’il ait exactement la couleur de la proue du navire"
+                "Pour qu’il change de couleur à la lumière",
+                "Pour être creux et léger",
+                "Pour avoir la couleur de la proue"
               ],
               "explanation": "Le tissu mouillé colle et montre le corps en dessous. C’est la chose la plus difficile à faire dans la pierre."
             }
@@ -207,10 +207,10 @@
       "question": {
         "q": "Qu’avait ce pont que les autres ponts de son époque n’avaient pas ?",
         "answers": [
-          "Une vue sur le fleuve",
-          "Deux rangées de boutiques et de maisons sur toute sa longueur",
-          "Une partie mobile au milieu, qui se levait pour laisser passer les bateaux",
-          "Un toit de bois qui protégeait les passants de la pluie"
+          "Une vue dégagée sur le fleuve",
+          "Deux rangées de boutiques et de maisons",
+          "Une partie mobile au milieu",
+          "Un toit de bois au-dessus"
         ],
         "explanation": "Les autres ponts étaient couverts de maisons. Ici, pour la première fois, tu pouvais t’arrêter au-dessus de l’eau et la voir."
       }
@@ -228,9 +228,9 @@
         "q": "À quoi servent les gargouilles ?",
         "answers": [
           "Elles rejettent la pluie au loin",
-          "Elles montrent aux fidèles où se trouve l’entrée de l’église",
-          "Elles portent le poids du toit sur les murs extérieurs",
-          "Elles donnent l’heure avec leur ombre, comme un cadran solaire"
+          "Elles montrent la porte",
+          "Elles portent le poids du toit",
+          "Elles donnent l’heure avec leur ombre"
         ],
         "explanation": "L’eau passe à travers leur corps et est projetée loin du mur. Sans elles, la pluie rongerait la pierre."
       }
@@ -248,9 +248,9 @@
         "q": "Qu’a prouvé le pendule de Foucault ?",
         "answers": [
           "Que la Terre tourne",
-          "Que le dôme du bâtiment bouge légèrement quand le vent est fort",
-          "Que le poids d’un corps change selon la hauteur du sol",
-          "Que le temps passe différemment selon les endroits de la planète"
+          "Que le dôme peut bouger",
+          "Que notre poids change",
+          "Que le temps passe autrement"
         ],
         "explanation": "Un pendule se balance toujours dans le même plan. Si celui-ci semble tourner, alors c’est ce qui est en dessous qui tourne."
       }
@@ -267,10 +267,10 @@
       "question": {
         "q": "Qu’est-ce qui fait avancer les petits bateaux sur le bassin ?",
         "answers": [
-          "Le vent",
-          "Un petit moteur à pile caché à l’intérieur de leur coque",
-          "Un courant d’eau créé par une pompe au fond du bassin",
-          "Des ficelles que les enfants tirent depuis les deux bords du bassin"
+          "Le vent dans les voiles",
+          "Une petite pile cachée",
+          "Une pompe au fond",
+          "Des ficelles tirées par les enfants"
         ],
         "explanation": "Ce sont de vrais voiliers en miniature. Le bâton t’aide seulement à les lancer du bon côté."
       }
@@ -288,9 +288,9 @@
         "q": "Pourquoi a-t-on construit une cuve sous l’opéra ?",
         "answers": [
           "Le sous-sol était sans arrêt inondé",
-          "Pour avoir de l’eau en réserve en cas de grand incendie",
-          "Pour rafraîchir la salle l’été, avant la climatisation",
-          "Pour servir dans des spectacles avec des décors dans l’eau"
+          "Pour alimenter les fontaines",
+          "Pour rafraîchir la salle l’été",
+          "Pour des spectacles avec des décors dans l’eau"
         ],
         "explanation": "Ils ont arrêté de se battre contre l’eau et l’ont enfermée dans une cuve. Ainsi, la pression sous les fondations est restée stable."
       }
@@ -308,9 +308,9 @@
         "q": "Pourquoi l’église reste-t-elle blanche sans qu’on la peigne ?",
         "answers": [
           "La pluie la nettoie",
-          "Des ouvriers la lavent chaque année avec des échelles et des éponges spéciales",
-          "Elle est faite d’un marbre blanc qui ne se salit jamais",
-          "L’air sur la colline est si pur qu’il ne laisse aucune suie"
+          "Des ouvriers la lavent chaque année",
+          "C’est du marbre blanc",
+          "L’air est pur là-haut"
         ],
         "explanation": "Sa pierre, quand elle est mouillée, libère une substance qui agit comme de la chaux. La pluie noircit les autres bâtiments et blanchit celui-ci."
       }
@@ -328,9 +328,9 @@
         "q": "Comment le toit tient-il si le mur est presque entièrement en verre ?",
         "answers": [
           "Un squelette de pierre le porte",
-          "Le verre lui-même est très épais et supporte le poids du toit",
-          "Le toit est en bois, si léger qu’il n’a besoin d’aucun soutien",
-          "Des câbles de métal le tiennent suspendu au grand bâtiment voisin"
+          "Le verre lui-même est très épais",
+          "Le toit de bois tient seul",
+          "Des câbles de métal le tiennent suspendu"
         ],
         "explanation": "C’est toute l’idée du gothique : le poids va dans des colonnes et des nervures, pas dans un mur plein. Le mur est donc libéré."
       }
@@ -348,9 +348,9 @@
         "q": "Qu’est-ce que ce bâtiment devait être au départ ?",
         "answers": [
           "Un abattoir jamais ouvert",
-          "Une usine de voitures qui a fermé après quelques années seulement",
-          "Une gare remplacée par une plus grande ailleurs",
-          "Une caserne abandonnée quand l’armée a quitté la ville"
+          "Une usine qui fabriquait des voitures",
+          "Une gare qui a fermé",
+          "Une caserne abandonnée"
         ],
         "explanation": "Le temps de le terminer, la façon de transporter la viande avait changé. Le bâtiment était inutile avant même d’avoir servi."
       },
@@ -374,9 +374,9 @@
               "q": "Que fait vraiment un barrage ?",
               "answers": [
                 "Il change le chemin de l’eau",
-                "Il arrête complètement l’eau, pour que pas une goutte ne passe",
-                "Il rend l’eau plus propre quand elle passe à travers ses murs",
-                "Il baisse la température de l’eau qui descend de la montagne"
+                "Il bloque toute l’eau",
+                "Il nettoie l’eau qui passe",
+                "Il refroidit l’eau de la montagne"
               ],
               "explanation": "L’eau trouve toujours un chemin. Le barrage choisit lequel."
             }
@@ -388,9 +388,9 @@
               "q": "Que fait la poulie au poids que tu soulèves ?",
               "answers": [
                 "Elle étale l’effort",
-                "Elle réduit vraiment de moitié le poids de la charge",
-                "Elle rend la corde plus solide pour que la charge ne la casse pas",
-                "Elle garde la charge immobile en l’air sans qu’il faille de force"
+                "Elle réduit le poids de moitié",
+                "Elle renforce la corde",
+                "Elle tient la charge immobile"
               ],
               "explanation": "Le poids reste le même. Tu tires plus de corde avec moins de force, et c’est pour cela qu’il paraît plus léger."
             }
@@ -402,9 +402,9 @@
               "q": "Pourquoi ne faut-il pas porter de vert dans le studio ?",
               "answers": [
                 "Tu deviens transparent",
-                "Parce que le vert reflète les lumières et abîme la qualité de l’image",
-                "Parce que la caméra a du mal à faire le point sur les objets verts",
-                "Parce que le vert se confond avec la couleur de la peau à l’écran"
+                "Le vert reflète les lumières",
+                "La caméra perd le point",
+                "Ça ressemble à la peau"
               ],
               "explanation": "L’ordinateur efface tout ce qui a cette couleur. Si tu portes du vert, il t’efface aussi."
             }
@@ -415,10 +415,10 @@
             "question": {
               "q": "Qu’est-ce qui te frappe le plus à l’intérieur du sous-marin ?",
               "answers": [
-                "Comme il est étroit",
-                "Comme les fenêtres qui donnent sur la mer sont grandes et lumineuses",
-                "Comme les chambres étaient confortables pour les marins qui y vivaient",
-                "Comme ses moteurs étaient silencieux quand ils marchaient normalement"
+                "Comme il est étroit dedans",
+                "Comme les fenêtres sont lumineuses",
+                "Comme on y était bien",
+                "Comme le moteur était silencieux"
               ],
               "explanation": "Il n’a aucune fenêtre. Cinquante personnes, des semaines entières, sans voir la lumière."
             }
@@ -430,9 +430,9 @@
               "q": "Pourquoi la sphère n’a-t-elle jamais la même allure ?",
               "answers": [
                 "Elle reflète ce qui l’entoure",
-                "Elle tourne très lentement sur elle-même pendant la journée",
-                "Elle change de couleur grâce à des lumières spéciales cachées à sa base",
-                "Ses petits miroirs sont sans cesse remplacés par des équipes d’ouvriers"
+                "Elle tourne lentement sur son axe",
+                "Des lumières cachées changent sa couleur",
+                "On change souvent ses miroirs"
               ],
               "explanation": "Elle n’a pas de couleur à elle. Elle montre ce qu’il y a autour d’elle, donc elle change avec le temps qu’il fait et avec l’heure."
             }
@@ -444,9 +444,9 @@
               "q": "Pourquoi le dôme te convainc-t-il que tu bouges ?",
               "answers": [
                 "Tu ne vois de bord nulle part",
-                "Les sièges bougent légèrement en même temps que l’image projetée",
-                "De l’air souffle sur toi par-devant pendant que la séance tourne",
-                "Le son vient de nombreux haut-parleurs et donne une sensation de vitesse"
+                "Les sièges bougent un peu",
+                "De l’air est soufflé depuis l’avant",
+                "Le son vient de partout"
               ],
               "explanation": "L’œil comprend qu’une image est une image parce qu’il en voit le cadre. Enlève le cadre et le tour fonctionne."
             }
@@ -477,9 +477,9 @@
         "q": "Qu’est-ce que cette salle fait différemment des autres musées ?",
         "answers": [
           "Les animaux marchent en cortège",
-          "Tous les animaux sont en plastique, à leur taille réelle",
-          "Les visiteurs peuvent toucher et caresser toutes les pièces exposées",
-          "Chaque animal est accompagné d’un enregistrement de sa voix dans la nature"
+          "Les animaux sont en plastique",
+          "Les visiteurs peuvent toucher les animaux",
+          "Chaque animal a sa voix enregistrée"
         ],
         "explanation": "Il n’y a ni vitres ni rangées. Tu te tiens à côté des animaux, et c’est pour cela que tu comprends leur taille."
       }

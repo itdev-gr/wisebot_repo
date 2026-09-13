@@ -15,9 +15,9 @@
         "q": "¿Qué había en este sitio antes de que se construyera el mercado cubierto?",
         "answers": [
           "Un convento",
-          "Una torre de castillo",
-          "Un puerto de pesca",
-          "Un jardín real"
+          "Un castillo",
+          "Un muelle de pesca",
+          "Un palacio"
         ],
         "explanation": "El convento de San José se derribó en 1835. Cinco años después, el día del santo, se puso la primera piedra del mercado que lleva su nombre."
       }
@@ -34,9 +34,9 @@
       "question": {
         "q": "¿Hacia dónde señala Colón con el dedo?",
         "answers": [
-          "Al mar",
+          "Por encima del mar",
           "Hacia América",
-          "A la catedral",
+          "Hacia la catedral de la ciudad",
           "Hacia el cielo"
         ],
         "explanation": "Señala hacia el sureste, hacia el mar abierto. América está en la dirección contraria, a su espalda."
@@ -55,9 +55,9 @@
         "q": "¿Qué hay dentro de este museo que no esperarías en una ciudad?",
         "answers": [
           "Un trozo de selva",
-          "Un faro de costa que aún funciona",
-          "Un lago helado para patinar",
-          "Una estación de tren subterránea"
+          "Un faro que funciona",
+          "Un lago para patinar",
+          "Una estación de metro"
         ],
         "explanation": "Mil metros cuadrados de Amazonas, con animales de verdad, plantas de verdad y lluvia de verdad, cinco pisos por debajo de la entrada."
       },
@@ -82,8 +82,8 @@
               "q": "¿Cómo llegó este árbol al museo?",
               "answers": [
                 "Murió solo en el bosque",
-                "Lo plantaron aquí al abrir el museo",
-                "Unos leñadores lo cortaron para hacer muebles",
+                "Lo plantaron aquí",
+                "Unos leñadores lo cortaron por la madera",
                 "Está hecho de cemento y pintura"
               ],
               "explanation": "Es de verdad y tiene más de 300 años. Lo trajeron de Brasil después de que muriera de viejo."
@@ -96,8 +96,8 @@
               "q": "¿Por qué el péndulo va tirando poco a poco todos los palos que tiene alrededor?",
               "answers": [
                 "La Tierra gira debajo",
-                "Un motor lo gira poco a poco",
-                "La corriente de la puerta lo empuja",
+                "Un motor lo gira despacio",
+                "El aire de la puerta lo mueve",
                 "Su cable se va desenrollando"
               ],
               "explanation": "El péndulo se balancea siempre en el mismo plano. El suelo, los palos y tú giráis con el planeta."
@@ -109,10 +109,10 @@
             "question": {
               "q": "¿De qué está hecho el Muro Geológico?",
               "answers": [
-                "De roca",
-                "De yeso pintado",
+                "De roca de verdad",
+                "De yeso y pintura",
                 "De hormigón de color",
-                "De fotografías grandes"
+                "De imágenes grandes"
               ],
               "explanation": "Son siete bloques grandes de roca de verdad, cada uno formado por un proceso geológico distinto."
             }
@@ -124,9 +124,9 @@
               "q": "¿Qué animal es el pariente más cercano del capibara?",
               "answers": [
                 "Una cobaya",
-                "Un hipopótamo joven",
-                "Un jabalí pequeño",
-                "Una nutria de río grande"
+                "Un hipopótamo",
+                "Un jabalí",
+                "Una nutria de río"
               ],
               "explanation": "Es un roedor, como la cobaya y el ratón, solo que pesa lo mismo que una persona adulta."
             }
@@ -137,10 +137,10 @@
             "question": {
               "q": "¿Cómo caza el caimán?",
               "answers": [
-                "Se queda quieto",
+                "Espera completamente quieto",
                 "Corre por la orilla",
                 "Se sube a los árboles",
-                "Caza en grupo de noche"
+                "Caza en grupo por la noche"
               ],
               "explanation": "Parece un tronco, y todo el mundo se acerca a un tronco. Ese es todo el truco."
             }
@@ -151,10 +151,10 @@
             "question": {
               "q": "¿Por qué nadan las pirañas en bancos?",
               "answers": [
-                "Para estar a salvo",
-                "Para cazar presas más grandes",
+                "Para protegerse",
+                "Para cazar presas grandes",
                 "Porque solas ven mal",
-                "Para darse calor juntas"
+                "Para darse calor"
               ],
               "explanation": "Un pez pequeño dentro de un banco es más difícil de pillar. Lo del ataque en grupo es casi todo cuento."
             }
@@ -166,9 +166,9 @@
               "q": "¿Qué hacen las hormigas con las hojas que llevan?",
               "answers": [
                 "Cultivan un hongo encima",
-                "Se las comen de noche en el hormiguero",
-                "Construyen con ellas el techo del hormiguero",
-                "Se las dan a la reina para su cama"
+                "Se las comen en el nido",
+                "Construyen con ellas su hormiguero",
+                "Se las dan a la reina"
               ],
               "explanation": "Las hojas son el abono. El hongo que crece encima es la comida. Son agricultoras."
             }
@@ -203,8 +203,8 @@
         "q": "¿Por qué hay exactamente trece ocas en el claustro?",
         "answers": [
           "Una por cada año que vivió",
-          "Una por cada campana del campanario",
-          "Una por cada capilla del claustro",
+          "Una por cada campana",
+          "Una por cada capilla de la iglesia",
           "Una por cada puerta antigua de la ciudad"
         ],
         "explanation": "Santa Eulalia tenía trece años. Las ocas cuentan sus años y, de paso, vigilan el jardín."
@@ -223,9 +223,9 @@
         "q": "¿Para qué se construyó este arco?",
         "answers": [
           "La entrada de una exposición",
-          "Un monumento a una batalla famosa",
-          "Una puerta de la muralla antigua",
-          "Un puente para una vía de tren"
+          "Un monumento a una batalla",
+          "Una puerta de las murallas",
+          "Un puente para el ferrocarril"
         ],
         "explanation": "La mayoría de los arcos de triunfo celebran victorias en la guerra. Este celebró inventos: era la puerta de entrada de la Exposición Universal de 1888."
       }
@@ -243,8 +243,8 @@
         "q": "¿Por qué se construyó el astillero justo en la playa?",
         "answers": [
           "Para echar los barcos al agua",
-          "Porque la piedra costaba menos junto al mar",
-          "Porque el rey vivía en la orilla",
+          "Porque la piedra costaba menos aquí",
+          "Porque el rey vivía junto al mar",
           "Para que los marineros durmieran en la arena"
         ],
         "explanation": "Una galera de 60 metros no se puede transportar. Se construye donde va a flotar, con el mar llegando hasta la puerta."
@@ -285,8 +285,8 @@
               "answers": [
                 "Para que cupiera un barco",
                 "Para que resonaran los cantos",
-                "Para que se vieran desde el mar",
-                "Para que no entrara el calor del verano"
+                "Para que las vieran los marineros",
+                "Para que no entrara el calor"
               ],
               "explanation": "Parece una iglesia, pero es una fábrica. La altura la pedían los mástiles."
             }
@@ -298,9 +298,9 @@
               "q": "¿Por qué construyó Monturiol su submarino?",
               "answers": [
                 "Para proteger a los buzos",
-                "Para hundir barcos enemigos",
-                "Para buscar tesoros escondidos",
-                "Para ganar una carrera en el puerto"
+                "Para hundir los barcos enemigos",
+                "Para buscar tesoros",
+                "Para ganar una carrera"
               ],
               "explanation": "Los buzos que recogían coral se ahogaban. Monturiol quería bajarlos sin peligro."
             }
@@ -312,9 +312,9 @@
               "q": "¿A quién representa este mascarón, según la tradición?",
               "answers": [
                 "La hija del capitán",
-                "La reina de España de entonces",
-                "Santa Eulalia de Barcelona",
-                "La mujer del escultor que lo talló"
+                "La joven reina de España",
+                "La santa de Barcelona",
+                "La mujer del escultor"
               ],
               "explanation": "Maria Parés murió joven. Su padre la puso en la proa de su barco y, cuando el barco terminó, se la llevó a casa."
             }
@@ -327,8 +327,8 @@
               "answers": [
                 "Un barrio y su mercado",
                 "Una estación del metro de la ciudad",
-                "Un remolcador que trabaja en el puerto",
-                "El equipo de fútbol del puerto"
+                "Un remolcador",
+                "El equipo de fútbol de la ciudad"
               ],
               "explanation": "Colgaba fuera de una taberna. La taberna se hizo famosa, y el barrio de alrededor tomó el nombre del muñeco."
             }
@@ -340,8 +340,8 @@
               "q": "¿Cómo llegó este barco a ser del museo?",
               "answers": [
                 "Lo compró en una subasta",
-                "Lo construyó él mismo en el astillero",
-                "Lo encontró hundido en el puerto",
+                "Lo construyó en el astillero",
+                "Lo encontró hundido cerca",
                 "Se lo regaló el rey de España"
               ],
               "explanation": "En 1997, cuando era un barco de apoyo para buzos, ya cansado. Su restauración fue la primera de este tipo en España."
@@ -378,8 +378,8 @@
         "answers": [
           "Un avión antiguo",
           "Un cohete de película",
-          "El primer helicóptero del país",
-          "Un globo del siglo XIX"
+          "El primer helicóptero",
+          "Un globo con cesta"
         ],
         "explanation": "Es una copia del avión que hizo el primer vuelo Barcelona-Madrid. Vuela desde 1928, siempre en círculo."
       },
@@ -400,7 +400,7 @@
           "Para no superar Montjuïc",
           "Porque el suelo no aguantaba más peso",
           "Porque la ciudad prohibía torres más altas",
-          "Porque Gaudí se quedó sin dinero para la piedra"
+          "Porque faltó dinero"
         ],
         "explanation": "Gaudí creía que una obra de los hombres no debe ser más alta que lo que hizo la naturaleza. La montaña de Montjuïc es un poco más alta, y ahí paró."
       },
@@ -420,8 +420,8 @@
         "answers": [
           "Para que cada piso tenga la misma luz",
           "Porque la pintura azul se acabó a la mitad",
-          "Para que la casa parezca más profunda desde el tejado",
-          "Porque los pisos de abajo costaban menos"
+          "Para que la casa parezca más profunda por dentro",
+          "Abajo los pisos costaban menos"
         ],
         "explanation": "Arriba entra mucha luz, así que los azulejos oscuros la frenan. Abajo llega poca, y los azulejos claros y las ventanas más grandes la aprovechan."
       },
@@ -439,8 +439,8 @@
       "question": {
         "q": "¿Qué mantiene el edificio en pie?",
         "answers": [
-          "Un esqueleto de hierro",
-          "Los gruesos muros de piedra",
+          "Un esqueleto de hierro por dentro",
+          "Gruesos muros de piedra",
           "Unas vigas de madera en el tejado",
           "Las casas de los vecinos"
         ],
@@ -462,8 +462,8 @@
         "answers": [
           "Un periódico ponía aquí el marcador",
           "Aquí estuvo el primer campo del equipo",
-          "Los jugadores bebían aquí antes de los partidos",
-          "El fundador del club vivía en la casa de al lado"
+          "Los jugadores bebían aquí antes del partido",
+          "El fundador del club vivía al lado"
         ],
         "explanation": "Antes de la radio, el resultado lo sabías donde alguien lo escribía. El periódico se fue; la costumbre se quedó."
       }
@@ -481,9 +481,9 @@
         "q": "¿Cuál fue el primer encargo de Gaudí para el ayuntamiento?",
         "answers": [
           "Dos farolas",
-          "Una fuente de agua potable",
-          "Una fila de bancos",
-          "El jardín de palmeras"
+          "Una fuente",
+          "Bancos en fila",
+          "Un palmeral"
         ],
         "explanation": "Tenía 25 años y el título le llegó dos meses después. El casco con alas de arriba es de Hermes."
       }
@@ -501,9 +501,9 @@
         "q": "¿Qué sale por la boca del dragón cuando llueve mucho?",
         "answers": [
           "Agua de un depósito",
-          "Humo de una chimenea escondida",
-          "Arena arrastrada de la terraza",
-          "Nada, es solo una estatua"
+          "Humo de una chimenea",
+          "Arena de la terraza",
+          "Nada, es una estatua"
         ],
         "explanation": "La terraza recoge la lluvia, las columnas huecas la bajan, y el depósito de abajo guarda 1.200 metros cúbicos. El dragón es el rebosadero."
       },
@@ -523,8 +523,8 @@
         "answers": [
           "Campo nuevo",
           "Estadio grande",
-          "Campo de los sueños",
-          "Casa de los campeones"
+          "Campo de sueños",
+          "Casa de campeones"
         ],
         "explanation": "Era «nuevo» en 1957, comparado con el viejo campo de Les Corts. El nombre se quedó, aunque ya tenga setenta años."
       }
@@ -544,7 +544,7 @@
           "Era blanco",
           "Sabía contar",
           "Había nacido aquí",
-          "Era el doble de grande"
+          "Tenía los ojos verdes"
         ],
         "explanation": "Era albino: su cuerpo no fabricaba pigmento. Sus 21 hijos fueron todos oscuros, como cualquier otro gorila."
       },
@@ -562,10 +562,10 @@
       "question": {
         "q": "¿De qué mar vienen la mayoría de los animales del acuario?",
         "answers": [
-          "El Mediterráneo",
-          "El Caribe, cerca de Cuba",
-          "El mar Rojo, junto a Egipto",
-          "El Pacífico, cerca de Japón"
+          "El mar Mediterráneo",
+          "El mar Caribe",
+          "El océano Atlántico",
+          "El océano Pacífico"
         ],
         "explanation": "Es el mar que está justo al otro lado de la puerta. El acuario es el más grande de Europa en especies del Mediterráneo."
       },

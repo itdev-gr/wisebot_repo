@@ -15,9 +15,9 @@
         "q": "Che cosa c’era in questo punto prima che costruissero il mercato coperto?",
         "answers": [
           "Un convento",
-          "Una torre di castello",
-          "Un porto di pescatori",
-          "Un giardino del re"
+          "Un castello",
+          "Un molo da pesca",
+          "Un palazzo"
         ],
         "explanation": "Il convento di San Giuseppe fu buttato giù nel 1835. Cinque anni dopo, il giorno della festa del santo, fu posata la prima pietra del mercato che porta il suo nome."
       }
@@ -34,7 +34,7 @@
       "question": {
         "q": "Dove indica Colombo con il dito?",
         "answers": [
-          "Verso il mare",
+          "Verso il mare aperto",
           "Verso l’America",
           "Verso la cattedrale",
           "In alto verso il cielo"
@@ -55,9 +55,9 @@
         "q": "Che cosa c’è dentro questo museo che non ti aspetteresti in una città?",
         "answers": [
           "Un pezzo di giungla",
-          "Un faro sulla costa ancora acceso",
-          "Un lago ghiacciato per pattinare",
-          "Una stazione ferroviaria sotterranea"
+          "Un faro acceso",
+          "Un lago per pattinare",
+          "Una stazione della metro"
         ],
         "explanation": "Mille metri quadrati di Amazzonia, con animali veri, piante vere e pioggia vera, cinque piani sotto l’ingresso."
       },
@@ -82,9 +82,9 @@
               "q": "Come è arrivato questo albero nel museo?",
               "answers": [
                 "È morto da solo",
-                "L’hanno piantato qui quando aprì il museo",
-                "L’hanno abbattuto dei boscaioli per farne mobili",
-                "È fatto di cemento e vernice"
+                "L’hanno piantato qui al museo",
+                "I boscaioli l’hanno tagliato per il legno",
+                "È cemento dipinto"
               ],
               "explanation": "È vero e ha più di 300 anni. L’hanno portato dal Brasile dopo che era morto di vecchiaia nella foresta."
             }
@@ -96,9 +96,9 @@
               "q": "Perché il pendolo butta giù piano piano tutti i birilli intorno a lui?",
               "answers": [
                 "La Terra gira sotto di lui",
-                "Un motore lo gira poco per volta",
-                "Lo spinge la corrente d’aria della porta",
-                "Il suo filo si srotola piano piano"
+                "Un motore lo gira",
+                "Lo muove la corrente della porta",
+                "Il suo filo si srotola piano"
               ],
               "explanation": "Il pendolo continua a oscillare su un piano solo. Il pavimento, i birilli e tu girate insieme al pianeta."
             }
@@ -109,10 +109,10 @@
             "question": {
               "q": "Di che cosa è fatto il Muro Geologico?",
               "answers": [
-                "Di roccia vera",
-                "Di gesso dipinto",
-                "Di cemento colorato",
-                "Di grandi fotografie"
+                "Di lastre di roccia vera",
+                "Di gesso e vernice",
+                "Di cemento verniciato",
+                "Di grandi immagini"
               ],
               "explanation": "Sono sette grandi blocchi di roccia vera, ognuno formato da un processo geologico diverso."
             }
@@ -124,9 +124,9 @@
               "q": "Qual è il parente più stretto del capibara?",
               "answers": [
                 "La cavia",
-                "Un giovane ippopotamo",
-                "Un piccolo cinghiale",
-                "Una grossa lontra di fiume"
+                "Un ippopotamo",
+                "Un cinghiale",
+                "Una lontra di fiume"
               ],
               "explanation": "È un roditore, come la cavia e il topo, solo che pesa quanto un uomo adulto."
             }
@@ -137,7 +137,7 @@
             "question": {
               "q": "Come caccia il caimano?",
               "answers": [
-                "Aspetta fermo",
+                "Aspetta del tutto immobile",
                 "Corre lungo la riva",
                 "Si arrampica sugli alberi",
                 "Caccia in gruppo di notte"
@@ -154,7 +154,7 @@
                 "Per proteggersi",
                 "Per cacciare prede più grandi",
                 "Perché da soli vedono male",
-                "Per stare al caldo insieme"
+                "Per stare al caldo"
               ],
               "explanation": "Un pesce piccolo dentro un banco è più difficile da prendere. L’attacco in gruppo è soprattutto una storia."
             }
@@ -166,9 +166,9 @@
               "q": "Che cosa fanno le formiche con le foglie che trasportano?",
               "answers": [
                 "Ci coltivano sopra un fungo",
-                "Le mangiano di notte nel nido",
-                "Ci costruiscono il tetto del nido",
-                "Le danno alla regina per farne un letto"
+                "Le mangiano dentro il nido",
+                "Con quelle si costruiscono il nido",
+                "Le danno alla regina"
               ],
               "explanation": "Le foglie sono il concime. Il fungo che ci cresce sopra è il cibo. Sono agricoltori."
             }
@@ -203,9 +203,9 @@
         "q": "Perché le oche del chiostro sono esattamente tredici?",
         "answers": [
           "Una per ogni anno che visse",
-          "Una per ogni campana del campanile",
-          "Una per ogni cappella del chiostro",
-          "Una per ogni porta antica della città"
+          "Una per ogni campana",
+          "Una per ogni cappella della chiesa",
+          "Una per ogni antica porta cittadina"
         ],
         "explanation": "Sant’Eulalia aveva tredici anni. Le oche contano i suoi anni e, già che ci sono, fanno la guardia al giardino."
       }
@@ -223,9 +223,9 @@
         "q": "Per che cosa fu costruito quest’arco?",
         "answers": [
           "L’ingresso di un’esposizione",
-          "Un monumento a una grande battaglia",
-          "Una porta nelle vecchie mura della città",
-          "Un ponte per una linea ferroviaria"
+          "Un monumento a una battaglia",
+          "Una porta nelle mura della città",
+          "Un ponte ferroviario"
         ],
         "explanation": "Quasi tutti gli archi di trionfo festeggiano vittorie in guerra. Questo festeggiava invenzioni: era la porta d’ingresso dell’Esposizione Universale del 1888."
       }
@@ -243,8 +243,8 @@
         "q": "Perché il cantiere fu costruito proprio sulla spiaggia?",
         "answers": [
           "Per far scivolare le navi in acqua",
-          "Perché la pietra costava meno vicino al mare",
-          "Perché il re abitava sulla spiaggia",
+          "Perché qui la pietra costava meno",
+          "Perché il re abitava sul mare",
           "Perché i marinai dormissero sulla sabbia"
         ],
         "explanation": "Una galea di 60 metri non si può trasportare. Si costruisce dove galleggerà, con il mare che arriva fino alla porta."
@@ -284,9 +284,9 @@
               "q": "Perché le sale furono costruite così alte?",
               "answers": [
                 "Per farci stare una nave",
-                "Perché i canti risuonassero meglio",
-                "Perché le navi le vedessero da lontano",
-                "Per tenere fuori il caldo dell’estate"
+                "Per l’eco dei canti",
+                "Perché i marinai le vedessero",
+                "Per tenere fuori il caldo estivo"
               ],
               "explanation": "Sembra una chiesa, ma è una fabbrica. L’altezza la chiedevano gli alberi delle navi."
             }
@@ -299,8 +299,8 @@
               "answers": [
                 "Per salvare i sub",
                 "Per affondare navi nemiche",
-                "Per cercare tesori affondati",
-                "Per vincere una gara nel porto"
+                "Per cercare tesori",
+                "Per vincere una gara di velocità"
               ],
               "explanation": "I sub che raccoglievano il corallo annegavano. Monturiol voleva un modo per portarli giù al sicuro."
             }
@@ -312,9 +312,9 @@
               "q": "Chi mostra questa polena, secondo la tradizione?",
               "answers": [
                 "La figlia del capitano",
-                "La regina di Spagna di allora",
-                "Sant’Eulalia di Barcellona",
-                "La moglie dello scultore che la fece"
+                "La giovane regina di Spagna",
+                "La santa di Barcellona",
+                "La moglie dello scultore"
               ],
               "explanation": "Maria Parés morì giovane. Suo padre la mise sulla prua della sua nave e, quando la nave finì, se la portò a casa."
             }
@@ -327,8 +327,8 @@
               "answers": [
                 "Un quartiere e il suo mercato",
                 "Una stazione del metrò della città",
-                "Un rimorchiatore che lavora nel porto",
-                "La squadra di calcio del porto"
+                "Un rimorchiatore che lavora qui",
+                "La squadra di calcio della città"
               ],
               "explanation": "Era appeso fuori da una taverna. La taverna diventò famosa, e il quartiere intorno prese il nome del pupazzo."
             }
@@ -340,9 +340,9 @@
               "q": "Come è arrivata al museo questa nave?",
               "answers": [
                 "L’ha comprata a un’asta",
-                "L’ha costruita nel suo cantiere",
-                "L’ha trovata affondata nel porto",
-                "Gliel’ha regalata il re di Spagna"
+                "L’ha costruita nel cantiere",
+                "L’ha trovata affondata qui vicino",
+                "L’ha regalata il re di Spagna"
               ],
               "explanation": "Nel 1997, quando era una stanca nave d’appoggio per i sub. Il suo restauro fu il primo del genere in Spagna."
             }
@@ -376,10 +376,10 @@
       "question": {
         "q": "Che cosa copia l’Avió, la giostra che gira sopra il vuoto?",
         "answers": [
-          "Un vecchio aereo",
+          "Un vecchio aeroplano",
           "Un razzo di un film",
-          "Il primo elicottero della Spagna",
-          "Un aerostato dell’Ottocento"
+          "Il primo elicottero",
+          "Una mongolfiera con il cesto"
         ],
         "explanation": "È la copia dell’aeroplano che fece il primo volo Barcellona–Madrid. Vola dal 1928, sempre in tondo."
       },
@@ -398,7 +398,7 @@
         "q": "Perché la torre più alta misura esattamente 172,5 metri e non di più?",
         "answers": [
           "Per non superare il Montjuïc",
-          "Perché il terreno non reggeva più peso",
+          "Il terreno non reggeva più peso",
           "Perché la città vietava torri più alte",
           "Perché finirono i soldi per la pietra"
         ],
@@ -419,9 +419,9 @@
         "q": "Perché le piastrelle del pozzo di luce diventano più chiare man mano che scendi?",
         "answers": [
           "Così ogni piano ha la stessa luce",
-          "Perché la vernice blu finì a metà lavoro",
-          "Perché la casa sembri più profonda dal tetto",
-          "Perché i piani bassi costavano meno"
+          "La vernice blu finì a metà",
+          "Perché la casa sembri più profonda dentro",
+          "I piani bassi erano i più economici"
         ],
         "explanation": "In alto entra molta luce, e le piastrelle scure la trattengono. In basso ne arriva poca, e le piastrelle chiare e le finestre più grandi la moltiplicano."
       },
@@ -439,7 +439,7 @@
       "question": {
         "q": "Che cosa tiene in piedi l’edificio?",
         "answers": [
-          "Uno scheletro di ferro",
+          "Uno scheletro di ferro dentro",
           "I grossi muri di pietra",
           "Le travi di legno del tetto",
           "Le case della porta accanto"
@@ -461,9 +461,9 @@
         "q": "Perché i tifosi cominciarono a radunarsi davanti a questa fontana?",
         "answers": [
           "Un giornale scriveva qui i risultati",
-          "Qui c’era il primo stadio della squadra",
-          "I giocatori bevevano qui prima delle partite",
-          "Il fondatore del club abitava nella casa accanto"
+          "Qui c’era il primo stadio",
+          "I giocatori bevevano qui prima della partita",
+          "Il fondatore del club abitava qui accanto"
         ],
         "explanation": "Prima della radio, il risultato lo imparavi dove qualcuno lo scriveva. Il giornale se n’è andato; l’abitudine è rimasta."
       }
@@ -481,9 +481,9 @@
         "q": "Qual è stato il primo lavoro di Gaudí per il comune?",
         "answers": [
           "Due lampioni",
-          "Una fontanella d’acqua",
-          "Una fila di panchine",
-          "Il giardino di palme"
+          "Una fontana d’acqua",
+          "Panchine in fila",
+          "Un giardino di palme"
         ],
         "explanation": "Aveva 25 anni, e la laurea arrivò due mesi dopo. L’elmo alato in cima è di Ermes."
       }
@@ -501,9 +501,9 @@
         "q": "Che cosa esce dalla bocca del drago quando piove molto?",
         "answers": [
           "Acqua da una cisterna",
-          "Il fumo di un camino nascosto",
-          "La sabbia lavata via dalla terrazza",
-          "Niente, è soltanto una statua"
+          "Il fumo di un camino",
+          "La sabbia della terrazza",
+          "Niente, è una statua"
         ],
         "explanation": "La terrazza raccoglie la pioggia, le colonne cave la portano giù, e la cisterna sotto contiene 1.200 metri cubi. Quando è piena, l’acqua che avanza esce dal drago."
       },
@@ -523,8 +523,8 @@
         "answers": [
           "Campo nuovo",
           "Grande stadio",
-          "Campo dei sogni",
-          "Casa dei campioni"
+          "Campo da sogno",
+          "Casa dei vincitori"
         ],
         "explanation": "Era «nuovo» nel 1957, rispetto al vecchio campo di Les Corts. Il nome è rimasto, anche adesso che ha settant’anni."
       }
@@ -544,7 +544,7 @@
           "Era bianco",
           "Sapeva contare",
           "Era nato qui",
-          "Era grande il doppio"
+          "Aveva gli occhi verdi"
         ],
         "explanation": "Era albino: il suo corpo non fabbricava il colore. I suoi 21 figli erano tutti scuri, come ogni altro gorilla."
       },
@@ -562,10 +562,10 @@
       "question": {
         "q": "Da quale mare vengono quasi tutti gli animali dell’acquario?",
         "answers": [
-          "Dal Mediterraneo",
-          "Dal Mar dei Caraibi, vicino a Cuba",
-          "Dal Mar Rosso, accanto all’Egitto",
-          "Dall’Oceano Pacifico, vicino al Giappone"
+          "Dal Mar Mediterraneo",
+          "Dal Mar dei Caraibi",
+          "Dall’Oceano Atlantico",
+          "Dall’Oceano Pacifico"
         ],
         "explanation": "È il mare che sta proprio fuori dalla porta. L’acquario è il più grande d’Europa per le specie del Mediterraneo."
       },

@@ -14,10 +14,10 @@
       "question": {
         "q": "Was rettete den Turm vor dem Abriss?",
         "answers": [
-          "Die Antennen",
-          "Eine Unterschriftenliste berühmter Künstler, die ihn öffentlich verteidigten",
-          "Eiffels Entscheidung, ihn mit seinem eigenen Geld ganz zu kaufen",
-          "Ein Gesetz, das den Abriss hoher Gebäude in ganz Paris verbot"
+          "Die Antennen für den Funk",
+          "Unterschriften von Künstlern",
+          "Eiffel kaufte ihn selbst",
+          "Ein Schutzgesetz für Türme"
         ],
         "explanation": "Er war der höchste Punkt der Stadt, also der perfekte Platz für Antennen. Als der Funk wichtig wurde, wurde der Turm nützlich, und niemand nahm ihn auseinander."
       }
@@ -35,9 +35,9 @@
         "q": "Warum sieht der Platz rund um den Bogen aus wie ein Stern?",
         "answers": [
           "Zwölf Alleen gehen von ihm aus",
-          "Weil seine Lampen in Sternform auf der Fahrbahn angeordnet sind",
-          "Weil das Muster von oben die Flagge Frankreichs nachbildet",
-          "Weil die Gehwege mit sternförmig geschnittenen Steinen gepflastert sind"
+          "Seine Lampen bilden einen Stern",
+          "Er kopiert Frankreichs Flagge",
+          "Die Pflastersteine bilden Sterne"
         ],
         "explanation": "Die zwölf Straßen laufen wie Strahlen in alle Richtungen davon. Deshalb wurde der Platz nach dem Bild von oben benannt: Place de l’Étoile, der Platz des Sterns."
       }
@@ -55,9 +55,9 @@
         "q": "Was bedeutet der Name „Concorde“, den der Platz bekam?",
         "answers": [
           "Friedlich zusammenleben",
-          "Den großen Sieg, den Frankreichs Heer an dieser Stelle feierte",
-          "Den Namen des Königs, für den der Platz ursprünglich gebaut wurde",
-          "Die Abmachung mit Ägypten, die den großen Obelisken hierherbrachte"
+          "Den Sieg Frankreichs hier",
+          "Den Namen eines Königs",
+          "Eine Abmachung mit Ägypten"
         ],
         "explanation": "Der Name wurde mit Absicht gewählt, nach sehr schweren Jahren. Es war die Art der Stadt zu sagen, woran sie sich von nun an erinnern wollte."
       }
@@ -75,9 +75,9 @@
         "q": "Wie wurde aus dem Palast ein Museum?",
         "answers": [
           "Das Volk beschloss es in der Revolution",
-          "Ein König vermachte ihn der Stadt vor seinem Tod in seinem Testament",
-          "Ein reicher Sammler kaufte ihn und öffnete ihn für alle Besucher",
-          "Er wurde von Anfang an als Museum gebaut und war nie ein Wohnhaus"
+          "Ein König vermachte ihn der Stadt",
+          "Ein reicher Sammler öffnete ihn für alle",
+          "Er wurde von Anfang an als Museum gebaut"
         ],
         "explanation": "Die Schätze der Könige, so wurde entschieden, gehören allen. Mit dieser Entscheidung begann die Idee des öffentlichen Museums in ganz Europa."
       },
@@ -101,9 +101,9 @@
               "q": "Warum sind in die Steine Zeichen geritzt?",
               "answers": [
                 "Damit der richtige Steinmetz bezahlt wurde",
-                "Um die Reihenfolge zu zeigen, in der sie gesetzt werden mussten",
-                "Um Unglück von dem gerade fertig gebauten Gebäude fernzuhalten",
-                "Um die Steine zu unterscheiden, die aus einem anderen Steinbruch kamen"
+                "Damit sie in die richtige Reihenfolge kamen",
+                "Damit das Unglück vom Gebäude fernblieb",
+                "Damit man die Steinbrüche erkennen konnte"
               ],
               "explanation": "Sie wurden pro Stück bezahlt. Das Zeichen war die Quittung, in einer Zeit ohne Papierkram."
             }
@@ -115,9 +115,9 @@
               "q": "Warum wurde der Hauptturm abgerissen?",
               "answers": [
                 "Die Festung wurde ein Palast",
-                "Er stürzte bei einem Erdbeben, das Paris traf, von allein ein",
-                "Er brannte bei einem großen Feuer ab und lohnte den Wiederaufbau nicht",
-                "Seine Steine wurden gebraucht, um die Mauer rund um die Stadt zu bauen"
+                "Ein Erdbeben ließ ihn einstürzen",
+                "Er brannte in einem großen Feuer",
+                "Seine Steine kamen in die Mauer"
               ],
               "explanation": "Ein Gebäude ändert sich, wenn sich seine Aufgabe ändert. Die Festung wollte einen Turm, der Palast wollte Licht."
             }
@@ -129,9 +129,9 @@
               "q": "Welches Problem hat die Pyramide gelöst?",
               "answers": [
                 "Besucher verliefen sich an den vielen Eingängen",
-                "Die Kunstwerke waren durch Feuchtigkeit gefährdet, die aus dem Boden aufstieg",
-                "Der Palast hatte nicht genug Platz, um alle Gemälde aufzuhängen",
-                "Die alten Treppen waren für ältere Besucher gefährlich zu steigen"
+                "Die Kunstwerke waren durch Feuchtigkeit bedroht",
+                "Der Palast hatte keinen Platz für die Gemälde",
+                "Die alten Treppen waren gefährlich zu steigen"
               ],
               "explanation": "Ein Eingang für alle, und Licht, das von oben in eine Halle unter der Erde fällt."
             }
@@ -143,9 +143,9 @@
               "q": "Was machte die Mona Lisa weltberühmt?",
               "answers": [
                 "Ihr Diebstahl im Jahr 1911",
-                "Napoleons Entscheidung, sie eine Zeit lang in seinem Schlafzimmer aufzuhängen",
-                "Die Tatsache, dass sie das größte Gemälde im ganzen Museum ist",
-                "Ein Brief von Leonardo, der genau beschreibt, wer die Frau wirklich war"
+                "Napoleon hängte sie auf",
+                "Das größte Gemälde hier",
+                "Ein Brief von Leonardo"
               ],
               "explanation": "Zwei Jahre lang eine leere Wand und Titelseiten überall. Als sie zurückkam, kannte sie die ganze Welt."
             }
@@ -157,9 +157,9 @@
               "q": "Was wissen wir über die Venus von Milo nicht?",
               "answers": [
                 "Was ihre Arme hielten",
-                "Aus welchem Material genau die ganze Statue gemacht ist",
-                "Auf welcher griechischen Insel der Bauer sie 1820 gefunden hat",
-                "Wie groß sie ist, weil sie nie genau vermessen wurde"
+                "Aus welchem Stein sie ist",
+                "Von welcher Insel sie kam",
+                "Wie groß sie genau ist"
               ],
               "explanation": "Die Arme wurden nie gefunden. Jede Antwort ist eine Vermutung, und es gibt Dutzende."
             }
@@ -171,9 +171,9 @@
               "q": "Wie ist der Marmor dieser Statue gemeißelt?",
               "answers": [
                 "So, dass der Stoff nass aussieht",
-                "So, dass er je nach Tageslicht seine Farbe wechselt",
-                "So, dass er innen hohl und für seine Größe sehr leicht ist",
-                "So, dass er genau zur Farbe des Schiffsbugs passt"
+                "So, dass er im Licht Farbe wechselt",
+                "So, dass er hohl und leicht ist",
+                "So, dass er die Farbe des Bugs hat"
               ],
               "explanation": "Nasser Stoff klebt und zeigt den Körper darunter. Das ist das Schwierigste, was man in Stein machen kann."
             }
@@ -207,10 +207,10 @@
       "question": {
         "q": "Was hatte diese Brücke, was die anderen ihrer Zeit nicht hatten?",
         "answers": [
-          "Blick auf den Fluss",
-          "Zwei Reihen Läden und Wohnhäuser auf ihrer ganzen Länge",
-          "Ein bewegliches Teil in der Mitte, das sich für Schiffe hob",
-          "Ein Dach aus Holz, das die Leute beim Überqueren vor Regen schützte"
+          "Freien Blick auf den Fluss",
+          "Zwei Reihen Läden und Häuser",
+          "Ein Mittelteil, das sich hob",
+          "Ein Holzdach über der Straße"
         ],
         "explanation": "Die anderen Brücken waren mit Häusern bedeckt. Hier konntest du zum ersten Mal über dem Wasser stehen bleiben und es sehen."
       }
@@ -228,9 +228,9 @@
         "q": "Wozu sind die Gargoyles da?",
         "answers": [
           "Sie schleudern den Regen weg",
-          "Sie zeigen den Gläubigen, wo der Eingang der Kirche ist",
-          "Sie tragen das Gewicht des Daches auf den Außenmauern",
-          "Sie zeigen mit ihrem Schatten die Uhrzeit an, wie eine Sonnenuhr"
+          "Sie zeigen, wo die Tür ist",
+          "Sie tragen das Dachgewicht",
+          "Ihr Schatten zeigt die Zeit"
         ],
         "explanation": "Das Wasser läuft durch ihren Körper und wird weit weg von der Mauer geschleudert. Ohne sie würde der Regen den Stein auffressen."
       }
@@ -248,9 +248,9 @@
         "q": "Was bewies Foucaults Pendel?",
         "answers": [
           "Dass die Erde sich dreht",
-          "Dass die Kuppel des Gebäudes bei starkem Wind leicht schwankt",
-          "Dass das Gewicht eines Körpers sich mit der Höhe des Bodens ändert",
-          "Dass die Zeit an verschiedenen Punkten des Planeten verschieden vergeht"
+          "Dass die Kuppel schwankt",
+          "Dass unser Gewicht wechselt",
+          "Dass die Zeit anders läuft"
         ],
         "explanation": "Ein Pendel schwingt immer in derselben Ebene. Wenn die sich zu drehen scheint, dann dreht sich das, was darunter liegt."
       }
@@ -267,10 +267,10 @@
       "question": {
         "q": "Was bewegt die kleinen Boote auf dem Teich?",
         "answers": [
-          "Der Wind",
-          "Ein kleiner Motor mit Batterie, versteckt im Rumpf jedes Bootes",
-          "Eine Strömung, die eine Pumpe am Grund des Teichs erzeugt",
-          "Seile, an denen die Kinder von den beiden Enden des Teichs ziehen"
+          "Der Wind in den Segeln",
+          "Eine versteckte Batterie",
+          "Eine Pumpe unter Wasser",
+          "Seile, die Kinder ziehen"
         ],
         "explanation": "Es sind richtige Segelboote im Kleinformat. Der Stock hilft dir nur, sie in die richtige Richtung zu starten."
       }
@@ -288,9 +288,9 @@
         "q": "Warum wurde unter der Oper ein Becken gebaut?",
         "answers": [
           "Das Untergeschoss lief ständig voll",
-          "Um Wasser gespeichert zu haben, falls je ein großes Feuer ausbricht",
-          "Um den Saal im Sommer zu kühlen, in der Zeit vor den Klimaanlagen",
-          "Damit es bei Aufführungen mit Kulissen im Wasser genutzt werden kann"
+          "Um die Brunnen draußen zu speisen",
+          "Um den Saal im Sommer kühl zu halten",
+          "Für Stücke mit Kulissen im Wasser"
         ],
         "explanation": "Sie hörten auf, gegen das Wasser zu kämpfen, und sperrten es in ein Becken. So blieb der Druck unter den Fundamenten gleich."
       }
@@ -307,10 +307,10 @@
       "question": {
         "q": "Warum bleibt die Kirche weiß, ohne dass man sie streicht?",
         "answers": [
-          "Der Regen putzt sie",
-          "Arbeiter waschen sie jedes Jahr mit Leitern und besonderen Schwämmen",
-          "Sie ist aus weißem Marmor, der einfach nie schmutzig wird",
-          "Die Luft auf dem Hügel ist so sauber, dass sich gar kein Ruß absetzt"
+          "Der Regen wäscht sie sauber",
+          "Arbeiter waschen sie jedes Jahr",
+          "Sie besteht aus weißem Marmor",
+          "Die Luft hier oben ist sauber"
         ],
         "explanation": "Wenn ihr Stein nass wird, gibt er einen Stoff ab, der wie Kalk wirkt. Der Regen macht die anderen Gebäude schwarz und dieses weiß."
       }
@@ -328,9 +328,9 @@
         "q": "Wie hält das Dach, wenn die Wand fast ganz aus Glas ist?",
         "answers": [
           "Ein Skelett aus Stein trägt es",
-          "Das Glas selbst ist sehr dick und trägt das Gewicht des Daches",
-          "Das Dach ist aus Holz und so leicht, dass es keine Stütze braucht",
-          "Metallseile halten es, aufgehängt am hohen Gebäude gleich nebenan"
+          "Das Glas selbst ist sehr dick",
+          "Das Holzdach trägt sich selbst",
+          "Metallseile halten es von oben"
         ],
         "explanation": "Das ist die ganze Idee der Gotik: Das Gewicht geht in Säulen und Rippen, nicht in eine massive Wand. Also wird die Wand frei."
       }
@@ -348,9 +348,9 @@
         "q": "Was sollte dieses Gebäude ursprünglich sein?",
         "answers": [
           "Ein Schlachthof, der nie öffnete",
-          "Eine Autofabrik, die nach nur wenigen Jahren wieder schloss",
-          "Ein Bahnhof, der durch einen größeren woanders ersetzt wurde",
-          "Eine Kaserne, verlassen, als die Armee aus der Stadt wegzog"
+          "Eine Fabrik, die Autos herstellte",
+          "Ein Bahnhof, der wieder schloss",
+          "Eine verlassene Kaserne der Armee"
         ],
         "explanation": "Bis es fertig war, hatte sich der Fleischtransport geändert. Das Gebäude war nutzlos, bevor es je benutzt wurde."
       },
@@ -374,9 +374,9 @@
               "q": "Was macht ein Damm in Wirklichkeit?",
               "answers": [
                 "Er verändert den Weg des Wassers",
-                "Er hält das Wasser vollständig auf, sodass kein Tropfen durchkommt",
-                "Er macht das Wasser sauberer, während es durch seine dicken Wände fließt",
-                "Er senkt die Temperatur des Wassers, das vom Berg herunterkommt"
+                "Er hält das Wasser komplett auf",
+                "Er macht das Wasser sauberer",
+                "Er kühlt das Wasser vom Berg"
               ],
               "explanation": "Wasser findet immer einen Weg. Der Damm entscheidet, welchen Weg es findet."
             }
@@ -388,9 +388,9 @@
               "q": "Was macht der Flaschenzug mit dem Gewicht, das du hebst?",
               "answers": [
                 "Er verteilt die Anstrengung",
-                "Er halbiert tatsächlich das Gewicht der Last",
-                "Er macht das Seil stärker, damit die Last es nicht zerreißt",
-                "Er hält die Last ohne jede Kraft still in der Luft"
+                "Er halbiert das echte Gewicht",
+                "Er macht das Seil viel stärker",
+                "Er hält die Last einfach still"
               ],
               "explanation": "Das Gewicht bleibt gleich. Du ziehst mehr Seil mit weniger Kraft, und deshalb fühlt es sich leichter an."
             }
@@ -402,9 +402,9 @@
               "q": "Warum darfst du im Studio nichts Grünes tragen?",
               "answers": [
                 "Du wirst durchsichtig",
-                "Weil Grün die Scheinwerfer spiegelt und die Bildqualität verdirbt",
-                "Weil die Kamera grüne Dinge nur schwer scharf stellen kann",
-                "Weil Grün auf dem Bildschirm mit der Hautfarbe verwechselt wird"
+                "Grün spiegelt die Lampen",
+                "Die Kamera stellt nicht scharf",
+                "Grün wirkt wie Hautfarbe"
               ],
               "explanation": "Der Computer löscht alles, was diese Farbe hat. Wenn du Grün trägst, löscht er auch dich."
             }
@@ -415,10 +415,10 @@
             "question": {
               "q": "Was beeindruckt dich im U-Boot am meisten?",
               "answers": [
-                "Wie eng es ist",
-                "Wie groß und hell die Fenster zum Meer hinaus sind",
-                "Wie bequem die Räume für die Matrosen waren, die darin lebten",
-                "Wie leise seine Maschinen waren, wenn sie normal liefen"
+                "Wie eng es drinnen ist",
+                "Wie hell die Fenster sind",
+                "Wie bequem es dort war",
+                "Wie leise die Maschine war"
               ],
               "explanation": "Es hat überhaupt keine Fenster. Fünfzig Menschen, wochenlang, ohne Tageslicht."
             }
@@ -430,9 +430,9 @@
               "q": "Warum sieht die Kugel nie gleich aus?",
               "answers": [
                 "Sie spiegelt, was um sie herum ist",
-                "Sie dreht sich im Lauf des Tages sehr langsam um ihre eigene Achse",
-                "Sie wechselt die Farbe mit besonderen Lampen, die in ihrem Sockel versteckt sind",
-                "Ihre kleinen Spiegel werden ständig von Arbeitertrupps ausgetauscht"
+                "Sie dreht sich langsam um ihre Achse",
+                "Versteckte Lampen ändern ihre Farbe",
+                "Ihre Spiegel werden oft gewechselt"
               ],
               "explanation": "Sie hat keine eigene Farbe. Sie zeigt, was um sie herum ist, also ändert sie sich mit dem Wetter und mit der Uhrzeit."
             }
@@ -444,9 +444,9 @@
               "q": "Warum überzeugt dich die Kuppel, dass du dich bewegst?",
               "answers": [
                 "Du siehst nirgends einen Rand",
-                "Die Sitze bewegen sich leicht mit dem Bild mit, das projiziert wird",
-                "Die Luft im Saal bläst dir von vorn entgegen, solange die Vorführung läuft",
-                "Der Ton kommt aus vielen Lautsprechern und vermittelt ein Gefühl von Tempo"
+                "Die Sitze bewegen sich leicht",
+                "Luft bläst dir von vorn entgegen",
+                "Der Ton kommt von allen Seiten"
               ],
               "explanation": "Das Auge erkennt, dass etwas ein Bild ist, weil es dessen Rahmen sieht. Nimm den Rahmen weg, und der Trick funktioniert."
             }
@@ -477,9 +477,9 @@
         "q": "Was macht dieser Saal anders als andere Museen?",
         "answers": [
           "Die Tiere wandern in einem Zug",
-          "Alle Tiere sind aus Plastik gemacht, in ihrer natürlichen Größe",
-          "Die Besucher dürfen alle Ausstellungsstücke anfassen und streicheln",
-          "Zu jedem Tier gibt es eine Aufnahme seiner Stimme in der Wildnis"
+          "Die Tiere sind alle aus Plastik",
+          "Besucher dürfen die Tiere anfassen",
+          "Jedes Tier hat seine eigene Stimme"
         ],
         "explanation": "Es gibt keine Scheiben und keine Reihen. Du stehst neben den Tieren, und deshalb begreifst du ihre Größe."
       }

@@ -37,8 +37,8 @@
         "q": "Was kopierte der Architekt für die Vorderseite des Hauptgebäudes?",
         "answers": [
           "Einen Sarkophag",
-          "Den Parthenon in Athen",
-          "Das Kaisertor des Palasts",
+          "Athens Parthenon",
+          "Das Kaisertor",
           "Eine Bank in Paris"
         ],
         "explanation": "Der Alexandersarkophag hat die Form eines kleinen Tempels. Der Architekt Alexander Vallaury gab ihm ein Gebäude mit demselben Gesicht."
@@ -64,7 +64,7 @@
               "q": "Wer lag wahrscheinlich in diesem Sarkophag?",
               "answers": [
                 "Ein König von Sidon",
-                "Alexander der Große selbst",
+                "Alexander der Große",
                 "Ein persischer General",
                 "Ein römischer Kaiser"
               ],
@@ -79,7 +79,7 @@
               "answers": [
                 "Sie wurde ausgeschüttet",
                 "Sie wurde an Ärzte verkauft",
-                "Sie steht hier in einer Flasche",
+                "Sie ist noch darin",
                 "Sie verdunstete in der Sonne"
               ],
               "explanation": "Die Arbeiter schütteten sie aus, bevor jemand sie untersuchen konnte. Hamdi Bey behielt nur ein wenig Schlamm vom Boden."
@@ -91,10 +91,10 @@
             "question": {
               "q": "Warum vergrub der Mann, der ihn 1882 fand, ihn wieder?",
               "answers": [
-                "Der Sarg war zu schwer",
+                "Der Sarg war viel zu schwer",
                 "Er hatte Angst vor dem Fluch",
                 "Er versteckte ihn vor Dieben",
-                "Die Dorfleute jagten ihn fort"
+                "Die Dorfleute jagten ihn"
               ],
               "explanation": "Zweiunddreißig Tonnen bewegt kein Karren. Es brauchte zwanzig Jahre, Wasserbüffel und einen Zug."
             }
@@ -106,9 +106,9 @@
               "q": "Wo hängt heute eine große Kopie dieses Vertrags?",
               "answers": [
                 "Bei der UNO",
-                "In Kairo, bei den Pyramiden",
-                "In der Schatzkammer des Topkapı",
-                "Im Parlament in Ankara"
+                "Bei den Pyramiden",
+                "Im Topkapı-Palast",
+                "In Ankaras Parlament"
               ],
               "explanation": "Die Länder der Welt wählten das älteste Friedensversprechen für die Wand ihres Hauses in New York."
             }
@@ -121,7 +121,7 @@
               "answers": [
                 "In einer Schublade",
                 "In einem Grab vergraben",
-                "In der Bibliothek des Palasts",
+                "In der Bibliothek",
                 "Auf dem Meeresgrund"
               ],
               "explanation": "Das Museum hatte 74.000 Tafeln. Die schönste wartete still in ihrer Schublade, bis jemand kam, der sie las."
@@ -135,7 +135,7 @@
               "answers": [
                 "Einen goldenen Dreifuß",
                 "Eine Statue des Apollon",
-                "Eine Lampe, die nie ausging",
+                "Eine ewig brennende Lampe",
                 "Einen Kessel voll Wasser"
               ],
               "explanation": "Der goldene Dreifuß war schon Jahrhunderte weg, bevor die Säule Delphi verließ; die Bronze darunter blieb."
@@ -150,7 +150,7 @@
                 "Aus glasierten Ziegeln",
                 "Aus bemaltem Marmor",
                 "Aus gegossener Bronze",
-                "Aus geschnitztem Zedernholz"
+                "Aus geschnitzter Zeder"
               ],
               "explanation": "Jeder Ziegel wurde mit seinem Stück Tier gebrannt und dann mit glasiger Farbe überzogen. Deshalb glänzen sie noch heute."
             }
@@ -207,8 +207,8 @@
       "question": {
         "q": "Was entwarf Leonardo da Vinci 1502 für diese Stelle?",
         "answers": [
-          "Eine Bogenbrücke",
-          "Einen Tunnel unter dem Wasser",
+          "Eine Brücke mit einem Bogen",
+          "Einen Unterwassertunnel",
           "Einen Leuchtturm mit Aufzug",
           "Einen schwimmenden Holzmarkt"
         ],
@@ -230,7 +230,7 @@
         "q": "Wie kommen Besucher heute in das Patriarchat hinein?",
         "answers": [
           "Durch die Seitentür",
-          "Durch das große Haupttor",
+          "Durch das Haupttor",
           "Über eine Zugbrücke",
           "Mit dem Boot vom Steg"
         ],
@@ -252,9 +252,9 @@
         "q": "Warum scheint die große Kuppel in der Luft zu hängen?",
         "answers": [
           "Fenster ringsherum",
-          "Spiegel an den Wänden",
-          "Sie ist aus Glas gemacht",
-          "Versteckte Heißluftballons"
+          "Spiegel an der Wand",
+          "Sie ist ganz aus Glas",
+          "Versteckte Luftballons"
         ],
         "explanation": "Die Fenster rundherum am Fuß der Kuppel schneiden ein Band aus Licht, und so kann dein Auge nicht sehen, worauf die Kuppel wirklich steht."
       },
@@ -274,9 +274,9 @@
         "q": "Was tat der Sultan, damit seine Moschee alle Fliesen bekam, die sie brauchte?",
         "answers": [
           "Er verbot andere Verkäufe",
-          "Er kaufte die Werkstätten in İznik",
-          "Er baute eine eigene Fliesenwerkstatt",
-          "Er zahlte für jede Fliese das Doppelte"
+          "Er kaufte İznik-Werkstätten",
+          "Er baute eine eigene Fabrik",
+          "Er zahlte doppelt für Fliesen"
         ],
         "explanation": "1613 verbot er den Töpfern von İznik, Fliesen an irgendjemand anderen zu verkaufen, bis seine eigenen Bestellungen fertig waren."
       }
@@ -295,9 +295,9 @@
         "q": "Wer durfte zu Pferd durch das Tor des Grußes reiten?",
         "answers": [
           "Nur der Sultan",
-          "Nur der Großwesir",
-          "Jeder fremde Gesandte",
-          "Jede Palastwache"
+          "Der Großwesir",
+          "Fremde Gesandte",
+          "Die Wachen"
         ],
         "explanation": "Alle anderen, sogar die Gesandten von Königen, stiegen vor den beiden Türmen des Tores vom Pferd. So wurde jedem in Erinnerung gerufen, wer hier bestimmt."
       },
@@ -322,9 +322,9 @@
               "q": "Woher hatten die Osmanen die Regel, am Tor abzusteigen?",
               "answers": [
                 "Von den Byzantinern",
-                "Von den Königen Persiens",
-                "Von den Genueser Kaufleuten",
-                "Von den Pharaonen Ägyptens"
+                "Von den Perserkönigen",
+                "Von Genueser Kaufleuten",
+                "Von ägyptischen Pharaonen"
               ],
               "explanation": "Am Chalke-Tor des byzantinischen Palastes galt dieselbe Regel, und die neuen Herren der Stadt behielten sie bei."
             }
@@ -380,7 +380,7 @@
                 "Der Schah war tot",
                 "Der Schah fand ihn hässlich",
                 "Die Gesandten verirrten sich",
-                "Seine kleine Uhr blieb stehen"
+                "Seine Uhr blieb stehen"
               ],
               "explanation": "Die Gesandten hörten von seinem Tod, bevor sie die Grenze erreichten, und ein Geschenk für jemanden, den es nicht mehr gibt, wird nicht überreicht."
             }
@@ -430,8 +430,8 @@
         "q": "Was erwarten die Händler, dass du mit dem ersten Preis machst, den du hörst?",
         "answers": [
           "Weniger bieten",
-          "Sofort bezahlen",
-          "Für Glück doppelt zahlen",
+          "Sofort zahlen",
+          "Doppelt zahlen",
           "Wütend weggehen"
         ],
         "explanation": "Der erste Preis ist der Anfang eines Gesprächs, nicht sein Ende. Der Verkäufer fängt hoch an, du fängst niedrig an, und ihr trefft euch irgendwo in der Mitte, oft bei einem Tee."
@@ -454,7 +454,7 @@
           "Ein Feuerwachturm",
           "Ein Leuchtturm für Schiffe",
           "Das Schlafzimmer des Sultans",
-          "Eine Uhr für die Stadt"
+          "Die Stadtuhr"
         ],
         "explanation": "Eine Stadt aus Holzhäusern kann in einer Nacht abbrennen. Von hier oben sahst du den Rauch, bevor er zur Flamme wurde."
       },
@@ -519,8 +519,8 @@
         "answers": [
           "Ägypten bezahlte ihn",
           "Pharaonen kauften hier ein",
-          "Er verkauft Sand vom Nil",
-          "Sein Baumeister war Ägypter"
+          "Er verkauft Nilsand",
+          "Ein Ägypter baute ihn"
         ],
         "explanation": "Die Steuern, die das Reich in Ägypten einsammelte, bezahlten den Bau, und der Name blieb hängen."
       },
@@ -540,8 +540,8 @@
         "q": "Warum haben die Minarette genau zehn Balkone?",
         "answers": [
           "Er war der zehnte Sultan",
-          "Zehn Baumeister arbeiteten daran",
-          "Einer für jeden von zehn Söhnen",
+          "Zehn Meister arbeiteten daran",
+          "Einer für jeden seiner Söhne",
           "Zehn Jahre Bauzeit"
         ],
         "explanation": "Süleyman war der zehnte Sultan seit dem Beginn der Dynastie, und Sinan schrieb das mit Balkonen statt mit Buchstaben auf die Minarette."
@@ -561,7 +561,7 @@
         "q": "Wer verkaufte hier Blumen und gab der Passage ihren Namen?",
         "answers": [
           "Russische Adlige",
-          "Die Gärtner des Sultans",
+          "Gärtner des Sultans",
           "Griechische Schulkinder",
           "Holländische Tulpenhändler"
         ],
@@ -637,7 +637,7 @@
             "question": {
               "q": "Was schiebt dieses Auto voran, wenn es im Wasser ist?",
               "answers": [
-                "Zwei Propeller",
+                "Seine zwei Propeller",
                 "Seine vier Räder",
                 "Ein kleines Segel",
                 "Ruder aus den Fenstern"
@@ -666,9 +666,9 @@
               "q": "Warum hörten die Straßenbahnen der Stadt 1966 auf?",
               "answers": [
                 "Platz für die Busse",
-                "Der Strom reichte nicht mehr",
-                "Die Schienen waren verrostet",
-                "Die Leute hatten Angst vor ihnen"
+                "Der Strom ging aus",
+                "Die Schienen rosteten",
+                "Die Leute fürchteten sie"
               ],
               "explanation": "In den 1960er-Jahren glaubten viele Städte, die Zukunft sei der Bus. 1990 änderte die Stadt ihre Meinung."
             }
@@ -680,8 +680,8 @@
               "q": "Was zog diesen Wagen durch den Tunnel?",
               "answers": [
                 "Stahlseile",
-                "Eine Lok davor",
-                "Zwei starke Pferde",
+                "Eine schwere Kette",
+                "Zwei Pferde",
                 "Ein eigener Motor"
               ],
               "explanation": "Die Dampfmaschine blieb oben auf dem Hügel und drehte die Trommel; das Seil machte die übrige Arbeit."
@@ -717,7 +717,7 @@
       "question": {
         "q": "Wie blieben die Mosaike jahrhundertelang in der Moschee unversehrt?",
         "answers": [
-          "Unter Putz",
+          "Unter einer Putzschicht",
           "Hinter Holzplatten",
           "Unter dicken Teppichen",
           "Eingeschlossen im Palast"
