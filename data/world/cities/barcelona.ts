@@ -118,8 +118,8 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Για να μην ξεπερνά τον λόφο Μοντζουίκ', en: 'So it stays lower than Montjuïc hill' },
-        { el: 'Γιατί το έδαφος δεν άντεχε περισσότερο βάρος', en: 'Because the ground could not take more weight' },
-        { el: 'Γιατί η πόλη απαγόρευε ψηλότερους πύργους', en: 'Because the city forbade any taller towers' },
+        { el: 'Γιατί το έδαφος δεν άντεχε άλλο βάρος', en: 'The ground could not hold more weight' },
+        { el: 'Γιατί η πόλη απαγόρευε ψηλότερους πύργους', en: 'Because the city banned taller towers' },
         { el: 'Γιατί τελείωσαν τα χρήματα για την πέτρα', en: 'Because Gaudí ran out of money for stone' },
       ],
       explanation: {
@@ -215,10 +215,10 @@ export const places: Place[] = [
         en: 'Why do the tiles in the light well get paler the lower you go?',
       },
       answers: [
-        { el: 'Για να παίρνει κάθε όροφος το ίδιο φως', en: 'So each floor is equally bright' },
-        { el: 'Γιατί η μπλε μπογιά τέλειωσε στα μισά της δουλειάς', en: 'Because the blue paint ran out halfway' },
-        { el: 'Για να φαίνεται το σπίτι πιο βαθύ από τη στέγη', en: 'So the house looks deeper from the roof' },
-        { el: 'Γιατί τα κάτω πατώματα κόστιζαν λιγότερα χρήματα', en: 'Because the lower floors were cheaper' },
+        { el: 'Για να παίρνει κάθε όροφος το ίδιο φως', en: 'So each floor gets the same light' },
+        { el: 'Γιατί η μπλε μπογιά τέλειωσε στη μέση', en: 'The blue paint ran out halfway down' },
+        { el: 'Για να φαίνεται το σπίτι πιο βαθύ μέσα', en: 'So the house looks deeper inside' },
+        { el: 'Τα κάτω πατώματα ήταν τα φθηνότερα', en: 'The lower floors were the cheapest' },
       ],
       explanation: {
         el:
@@ -312,8 +312,8 @@ export const places: Place[] = [
         en: 'What holds the building up?',
       },
       answers: [
-        { el: 'Σιδερένιος σκελετός', en: 'An iron frame' },
-        { el: 'Οι χοντροί πέτρινοι τοίχοι', en: 'Thick stone walls' },
+        { el: 'Σιδερένιος σκελετός μέσα', en: 'An iron frame inside' },
+        { el: 'Χοντροί πέτρινοι τοίχοι', en: 'Thick stone walls' },
         { el: 'Ξύλινα δοκάρια στη στέγη', en: 'Wooden roof beams' },
         { el: 'Τα σπίτια των γειτόνων', en: 'The houses next door' },
       ],
@@ -403,10 +403,10 @@ export const places: Place[] = [
         en: 'Why did football fans first start gathering at this fountain?',
       },
       answers: [
-        { el: 'Μια εφημερίδα κρεμούσε εδώ τα σκορ', en: 'A newspaper posted results here' },
-        { el: 'Εδώ βρισκόταν το πρώτο γήπεδο της ομάδας', en: 'The team’s first stadium stood here' },
-        { el: 'Οι παίκτες έπιναν από εδώ πριν τους αγώνες', en: 'The players drank from it before games' },
-        { el: 'Ο ιδρυτής της ομάδας έμενε στο διπλανό σπίτι', en: 'The club’s founder lived in the next house' },
+        { el: 'Μια εφημερίδα κρεμούσε εδώ τα σκορ', en: 'A newspaper posted the results here' },
+        { el: 'Εδώ ήταν το πρώτο γήπεδο της ομάδας', en: 'The team’s first stadium stood here' },
+        { el: 'Οι παίκτες έπιναν εδώ πριν τον αγώνα', en: 'The players drank here before a game' },
+        { el: 'Ο ιδρυτής της ομάδας έμενε εδώ δίπλα', en: 'The club’s founder lived next door' },
       ],
       explanation: {
         el:
@@ -495,9 +495,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ένα μοναστήρι', en: 'A convent' },
-        { el: 'Ένας πύργος κάστρου', en: 'A castle tower' },
-        { el: 'Ένα ψαρολίμανο', en: 'A fish harbour' },
-        { el: 'Ένας βασιλικός κήπος', en: 'A royal garden' },
+        { el: 'Ένα κάστρο', en: 'A castle' },
+        { el: 'Ένα ψαρολίμανο', en: 'A fish quay' },
+        { el: 'Ένα παλάτι', en: 'A palace' },
       ],
       explanation: {
         el:
@@ -588,9 +588,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Μία για κάθε χρόνο της ζωής της', en: 'One for each year she lived' },
-        { el: 'Μία για κάθε καμπάνα του καμπαναριού', en: 'One for each bell in the tower' },
-        { el: 'Μία για κάθε παρεκκλήσι του περιστυλίου', en: 'One for each chapel in the cloister' },
-        { el: 'Μία για κάθε παλιά πύλη της πόλης', en: 'One for each of the city’s old gates' },
+        { el: 'Μία για κάθε καμπάνα του πύργου', en: 'One for each bell in the tower' },
+        { el: 'Μία για κάθε παρεκκλήσι του ναού', en: 'One for each chapel in the church' },
+        { el: 'Μία για κάθε παλιά πύλη της πόλης', en: 'One for each old city gate' },
       ],
       explanation: {
         el:
@@ -682,10 +682,10 @@ export const places: Place[] = [
         en: 'What was Gaudí’s very first job for the city?',
       },
       answers: [
-        { el: 'Δύο φανάρια', en: 'Two lamp posts' },
-        { el: 'Μια βρύση με πόσιμο νερό', en: 'A drinking fountain' },
-        { el: 'Μια σειρά από παγκάκια', en: 'A row of park benches' },
-        { el: 'Ο κήπος με τους φοίνικες', en: 'The palm-tree garden' },
+        { el: 'Δύο φανοστάτες', en: 'Two lamp posts' },
+        { el: 'Μια βρύση νερού', en: 'A water fountain' },
+        { el: 'Παγκάκια σε σειρά', en: 'Benches in a row' },
+        { el: 'Κήπος με φοίνικες', en: 'A garden of palms' },
       ],
       explanation: {
         el:
@@ -776,7 +776,7 @@ export const places: Place[] = [
         en: 'Where does Columbus point his finger?',
       },
       answers: [
-        { el: 'Στη θάλασσα', en: 'Out to sea' },
+        { el: 'Πάνω από τη θάλασσα', en: 'Out over the sea' },
         { el: 'Προς την Αμερική', en: 'Towards America' },
         { el: 'Προς τον καθεδρικό', en: 'At the cathedral' },
         { el: 'Ψηλά προς τον ουρανό', en: 'Up at the sky' },
@@ -870,9 +870,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Η είσοδος μιας έκθεσης', en: 'The entrance to a fair' },
-        { el: 'Μνημείο για μια μεγάλη μάχη', en: 'A monument to a famous battle' },
-        { el: 'Πύλη στα παλιά τείχη της πόλης', en: 'A gate in the old city walls' },
-        { el: 'Γέφυρα για μια σιδηροδρομική γραμμή', en: 'A bridge for a railway line' },
+        { el: 'Μνημείο για μια μάχη', en: 'A monument to a battle' },
+        { el: 'Πύλη στα τείχη της πόλης', en: 'A gate in the city walls' },
+        { el: 'Γέφυρα για σιδηρόδρομο', en: 'A bridge for a railway' },
       ],
       explanation: {
         el:
@@ -972,9 +972,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Νερό από μια δεξαμενή', en: 'Overflow from a tank' },
-        { el: 'Καπνός από μια κρυμμένη καμινάδα', en: 'Smoke from a hidden chimney' },
-        { el: 'Άμμος που ξεπλένεται από τη βεράντα', en: 'Sand washed off the terrace' },
-        { el: 'Τίποτα, είναι μόνο ένα άγαλμα', en: 'Nothing, it is only a statue' },
+        { el: 'Καπνός από μια καμινάδα', en: 'Smoke from a chimney' },
+        { el: 'Άμμος από τη βεράντα', en: 'Sand from the terrace' },
+        { el: 'Τίποτα, είναι ένα άγαλμα', en: 'Nothing, it is a statue' },
       ],
       explanation: {
         el:
@@ -1070,9 +1070,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ένα κομμάτι ζούγκλας', en: 'A piece of rainforest' },
-        { el: 'Έναν φάρο που λειτουργεί ακόμα', en: 'A working coastal lighthouse' },
-        { el: 'Μια παγωμένη λίμνη για πατινάζ', en: 'A frozen lake for skating' },
-        { el: 'Έναν υπόγειο σταθμό τρένου', en: 'An underground railway station' },
+        { el: 'Έναν φάρο που δουλεύει', en: 'A working lighthouse' },
+        { el: 'Μια λίμνη για πατινάζ', en: 'A lake for skating' },
+        { el: 'Έναν σταθμό του μετρό', en: 'An underground station' },
       ],
       explanation: {
         el:
@@ -1135,9 +1135,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Πέθανε μόνο του στο δάσος', en: 'It died naturally in the forest' },
-                  { el: 'Το φύτεψαν εδώ όταν άνοιξε το μουσείο', en: 'It was planted here when the museum opened' },
-                  { el: 'Το έκοψαν ξυλοκόποι για τα έπιπλα', en: 'Loggers cut it down for making furniture' },
-                  { el: 'Είναι φτιαγμένο από τσιμέντο και μπογιά', en: 'It is made out of concrete and paint' },
+                  { el: 'Το φύτεψαν εδώ στο μουσείο', en: 'It was planted here at the museum' },
+                  { el: 'Το έκοψαν ξυλοκόποι για ξύλο', en: 'Loggers cut it down for the wood' },
+                  { el: 'Είναι από τσιμέντο και μπογιά', en: 'It is made of concrete and paint' },
                 ],
                 explanation: {
                   el: 'Είναι αληθινό και πάνω από 300 χρόνων. Το μετέφεραν από τη Βραζιλία αφού πέθανε από γεράματα.',
@@ -1173,9 +1173,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Η Γη γυρίζει από κάτω του', en: 'The Earth turns underneath it' },
-                  { el: 'Ένας κινητήρας το στρίβει λίγο λίγο', en: 'A motor turns it a little at a time' },
-                  { el: 'Ο αέρας από την πόρτα το σπρώχνει', en: 'The draught from the door pushes it' },
-                  { el: 'Το σύρμα του ξετυλίγεται σιγά σιγά', en: 'Its wire slowly unwinds as it swings' },
+                  { el: 'Ένας κινητήρας το στρίβει', en: 'A motor turns it slowly round' },
+                  { el: 'Ο αέρας της πόρτας το κουνά', en: 'A draught from the door moves it' },
+                  { el: 'Το σύρμα του ξετυλίγεται αργά', en: 'Its wire is slowly unwinding' },
                 ],
                 explanation: {
                   el: 'Το εκκρεμές κουνιέται πάντα στο ίδιο επίπεδο. Το πάτωμα, οι στύλοι και εσύ γυρίζετε μαζί με τον πλανήτη.',
@@ -1210,10 +1210,10 @@ export const places: Place[] = [
                   en: 'What is the Geological Wall made of?',
                 },
                 answers: [
-                  { el: 'Από αληθινό βράχο', en: 'Real rock' },
-                  { el: 'Από βαμμένο γύψο', en: 'Painted plaster' },
-                  { el: 'Από τσιμέντο με χρώμα', en: 'Coloured concrete' },
-                  { el: 'Από μεγάλες φωτογραφίες', en: 'Large photographs' },
+                  { el: 'Από αληθινό βράχο', en: 'Real rock slabs' },
+                  { el: 'Από γύψο με μπογιά', en: 'Plaster and paint' },
+                  { el: 'Από βαμμένο τσιμέντο', en: 'Coloured concrete' },
+                  { el: 'Από μεγάλες εικόνες', en: 'Large pictures' },
                 ],
                 explanation: {
                   el: 'Είναι εφτά μεγάλα κομμάτια αληθινού βράχου, το καθένα από άλλη γεωλογική διαδικασία.',
@@ -1270,10 +1270,10 @@ export const places: Place[] = [
                   en: 'Which animal is the capybara’s closest relative?',
                 },
                 answers: [
-                  { el: 'Ινδικό χοιρίδιο', en: 'A guinea pig' },
-                  { el: 'Ένας νεαρός ιπποπόταμος', en: 'A young hippopotamus' },
-                  { el: 'Ένα μικρό αγριογούρουνο', en: 'A small wild boar' },
-                  { el: 'Μια μεγάλη ενυδρίδα ποταμού', en: 'A large river otter' },
+                  { el: 'Ένα ινδικό χοιρίδιο', en: 'A guinea pig' },
+                  { el: 'Ένας ιπποπόταμος', en: 'A hippopotamus' },
+                  { el: 'Ένα αγριογούρουνο', en: 'A wild boar' },
+                  { el: 'Μια ενυδρίδα ποταμού', en: 'A river otter' },
                 ],
                 explanation: {
                   el: 'Είναι τρωκτικό, όπως το ινδικό χοιρίδιο και το ποντίκι, μόνο που ζυγίζει όσο ένας μεγάλος άνθρωπος.',
@@ -1308,10 +1308,10 @@ export const places: Place[] = [
                   en: 'How does a caiman hunt?',
                 },
                 answers: [
-                  { el: 'Περιμένει ακίνητος', en: 'It lies still' },
+                  { el: 'Περιμένει εντελώς ακίνητος', en: 'It waits completely still' },
                   { el: 'Τρέχει γρήγορα στην όχθη', en: 'It runs along the bank' },
-                  { el: 'Σκαρφαλώνει στα δέντρα', en: 'It climbs into trees' },
-                  { el: 'Κυνηγάει σε ομάδες τη νύχτα', en: 'It hunts in packs at night' },
+                  { el: 'Σκαρφαλώνει στα δέντρα', en: 'It climbs into the trees' },
+                  { el: 'Κυνηγάει ομαδικά τη νύχτα', en: 'It hunts in packs at night' },
                 ],
                 explanation: {
                   el: 'Μοιάζει με κούτσουρο, και όλοι πλησιάζουν ένα κούτσουρο. Αυτό είναι όλο το κόλπο.',
@@ -1346,9 +1346,9 @@ export const places: Place[] = [
                   en: 'Why do piranhas swim in shoals?',
                 },
                 answers: [
-                  { el: 'Για να προστατεύονται', en: 'To stay safe' },
-                  { el: 'Για να κυνηγούν μεγάλα ζώα', en: 'To hunt bigger prey' },
-                  { el: 'Γιατί βλέπουν άσχημα μόνες', en: 'They see poorly alone' },
+                  { el: 'Για να προστατεύονται', en: 'To protect themselves' },
+                  { el: 'Για να πιάνουν μεγάλα ζώα', en: 'To hunt bigger prey' },
+                  { el: 'Γιατί βλέπουν λίγο μόνες', en: 'They see poorly alone' },
                   { el: 'Για να ζεσταίνονται μαζί', en: 'To stay warm together' },
                 ],
                 explanation: {
@@ -1385,9 +1385,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Καλλιεργούν πάνω τους μύκητα', en: 'They grow a fungus on them' },
-                  { el: 'Τα τρώνε το βράδυ στη φωλιά', en: 'They eat them at night in the nest' },
-                  { el: 'Χτίζουν με αυτά τη στέγη της φωλιάς', en: 'They build the nest roof with them' },
-                  { el: 'Τα δίνουν στη βασίλισσα για κρεβάτι', en: 'They give them to the queen as a bed' },
+                  { el: 'Τα τρώνε μέσα στη φωλιά τους', en: 'They eat them inside the nest' },
+                  { el: 'Χτίζουν με αυτά τη φωλιά τους', en: 'They build the nest with them' },
+                  { el: 'Τα δίνουν όλα στη βασίλισσα', en: 'They give them to the queen' },
                 ],
                 explanation: {
                   el: 'Τα φύλλα είναι το λίπασμα. Ο μύκητας που φυτρώνει πάνω τους είναι το φαγητό. Είναι αγρότες.',
@@ -1544,9 +1544,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Για να γλιστρούν τα πλοία στο νερό', en: 'So new ships slid straight in' },
-        { el: 'Γιατί η πέτρα κόστιζε λιγότερο δίπλα στη θάλασσα', en: 'Because stone was cheaper by the sea' },
-        { el: 'Γιατί ο βασιλιάς έμενε πάνω στην παραλία', en: 'Because the king lived on the shore' },
-        { el: 'Για να κοιμούνται οι ναύτες πάνω στην άμμο', en: 'So sailors could sleep on the sand' },
+        { el: 'Γιατί η πέτρα κόστιζε λιγότερο εδώ', en: 'Because stone was cheaper here' },
+        { el: 'Γιατί ο βασιλιάς έμενε δίπλα στο νερό', en: 'Because the king lived by the sea' },
+        { el: 'Για να κοιμούνται οι ναύτες στην άμμο', en: 'So sailors could sleep on sand' },
       ],
       explanation: {
         el:
@@ -1649,9 +1649,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Για να χωράει ένα πλοίο', en: 'So a ship would fit inside' },
-                  { el: 'Για να ακούγονται οι ψαλμωδίες', en: 'So the singing would echo better' },
-                  { el: 'Για να φαίνονται από τη θάλασσα', en: 'So ships could see them from far away' },
-                  { el: 'Για να μην μπαίνει η ζέστη', en: 'To keep the summer heat out of them' },
+                  { el: 'Για να ηχούν οι ψαλμωδίες', en: 'So the singing would echo' },
+                  { el: 'Για να τις δουν οι ναύτες', en: 'So sailors could see them' },
+                  { el: 'Για να μην μπαίνει η ζέστη', en: 'To keep the summer heat out' },
                 ],
                 explanation: {
                   el: 'Μοιάζει με εκκλησία, αλλά είναι εργοστάσιο. Το ύψος το ζητούσαν τα κατάρτια.',
@@ -1691,8 +1691,8 @@ export const places: Place[] = [
                 answers: [
                   { el: 'Για να προστατέψει τους δύτες', en: 'To keep divers safe' },
                   { el: 'Για να βυθίζει εχθρικά πλοία', en: 'To sink enemy warships' },
-                  { el: 'Για να ψάχνει βυθισμένους θησαυρούς', en: 'To hunt for sunken treasure' },
-                  { el: 'Για να κερδίσει έναν αγώνα ταχύτητας', en: 'To win a race across the harbour' },
+                  { el: 'Για να ψάχνει για θησαυρούς', en: 'To hunt for treasure' },
+                  { el: 'Για να κερδίσει αγώνα ταχύτητας', en: 'To win a speed race' },
                 ],
                 explanation: {
                   el: 'Οι δύτες που μάζευαν κοράλλι πνίγονταν. Ο Μουντουριόλ ήθελε να τους κατεβάζει με ασφάλεια.',
@@ -1749,9 +1749,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Την κόρη του καπετάνιου', en: 'The captain’s daughter' },
-                  { el: 'Τη βασίλισσα της Ισπανίας', en: 'The Queen of Spain at the time' },
-                  { el: 'Την Αγία Ευλαλία της Βαρκελώνης', en: 'Saint Eulàlia of Barcelona' },
-                  { el: 'Τη γυναίκα του γλύπτη', en: 'The wife of the sculptor who made it' },
+                  { el: 'Τη βασίλισσα της Ισπανίας', en: 'The young Queen of Spain' },
+                  { el: 'Την αγία της Βαρκελώνης', en: 'The saint of Barcelona' },
+                  { el: 'Τη γυναίκα του γλύπτη', en: 'The wife of the sculptor' },
                 ],
                 explanation: {
                   el: 'Η Μαρία Παρές πέθανε νέα. Ο πατέρας της την έβαλε στην πλώρη του πλοίου του, και όταν το πλοίο τέλειωσε, την πήρε σπίτι.',
@@ -1787,9 +1787,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Μια γειτονιά και η αγορά της', en: 'A district and its market' },
-                  { el: 'Ένας σταθμός του μετρό της πόλης', en: 'A station on the city’s metro' },
-                  { el: 'Ένα ρυμουλκό του λιμανιού', en: 'A tugboat that works the harbour' },
-                  { el: 'Η ποδοσφαιρική ομάδα του λιμανιού', en: 'The football team of the port' },
+                  { el: 'Ένας σταθμός μετρό της πόλης', en: 'A station on the city metro' },
+                  { el: 'Ένα ρυμουλκό του λιμανιού', en: 'A tugboat that works here' },
+                  { el: 'Η ομάδα ποδοσφαίρου της πόλης', en: 'The football team of the city' },
                 ],
                 explanation: {
                   el: 'Κρεμόταν έξω από μια ταβέρνα. Η ταβέρνα έγινε διάσημη, και η γειτονιά γύρω της πήρε το όνομα της κούκλας.',
@@ -1827,9 +1827,9 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Το αγόρασε σε δημοπρασία', en: 'It bought it at an auction' },
-                  { el: 'Το έχτισε μόνο του στο ναυπηγείο', en: 'It built it itself in the shipyard' },
-                  { el: 'Το βρήκε βυθισμένο στο λιμάνι', en: 'It found it sunk in the harbour' },
-                  { el: 'Το χάρισε ο βασιλιάς της Ισπανίας', en: 'The King of Spain gave it as a gift' },
+                  { el: 'Το έχτισε στο ναυπηγείο του', en: 'It built it in the shipyard' },
+                  { el: 'Το βρήκε βυθισμένο κοντά', en: 'It found it sunk nearby' },
+                  { el: 'Το χάρισε ο Ισπανός βασιλιάς', en: 'The King of Spain gave it' },
                 ],
                 explanation: {
                   el: 'Το 1997, όταν ήταν ένα κουρασμένο πλοίο υποστήριξης δυτών. Η αποκατάστασή του ήταν η πρώτη τέτοια στην Ισπανία.',
@@ -1979,8 +1979,8 @@ export const places: Place[] = [
       answers: [
         { el: 'Νέο γήπεδο', en: 'New field' },
         { el: 'Μεγάλο στάδιο', en: 'Big stadium' },
-        { el: 'Γήπεδο των ονείρων', en: 'Field of dreams' },
-        { el: 'Σπίτι των πρωταθλητών', en: 'Home of champions' },
+        { el: 'Γήπεδο ονείρων', en: 'Dream field' },
+        { el: 'Σπίτι νικητών', en: 'Winners’ home' },
       ],
       explanation: {
         el:
@@ -2078,9 +2078,9 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Ήταν άσπρος', en: 'He was white' },
-        { el: 'Ήξερε να μετράει', en: 'He could count' },
+        { el: 'Ήξερε να μετρά', en: 'He could count' },
         { el: 'Γεννήθηκε εδώ', en: 'He was born here' },
-        { el: 'Ήταν διπλάσιος', en: 'He was twice as big' },
+        { el: 'Είχε πράσινα μάτια', en: 'He had green eyes' },
       ],
       explanation: {
         el:
@@ -2176,10 +2176,10 @@ export const places: Place[] = [
         en: 'Which sea do most of the aquarium’s animals come from?',
       },
       answers: [
-        { el: 'Τη Μεσόγειο', en: 'The Mediterranean' },
-        { el: 'Την Καραϊβική, κοντά στην Κούβα', en: 'The Caribbean, near Cuba' },
-        { el: 'Την Ερυθρά Θάλασσα, δίπλα στην Αίγυπτο', en: 'The Red Sea, by Egypt' },
-        { el: 'Τον Ειρηνικό Ωκεανό, κοντά στην Ιαπωνία', en: 'The Pacific, near Japan' },
+        { el: 'Τη Μεσόγειο Θάλασσα', en: 'The Mediterranean Sea' },
+        { el: 'Την Καραϊβική Θάλασσα', en: 'The Caribbean Sea' },
+        { el: 'Τον Ατλαντικό Ωκεανό', en: 'The Atlantic Ocean' },
+        { el: 'Τον Ειρηνικό Ωκεανό', en: 'The Pacific Ocean' },
       ],
       explanation: {
         el:
@@ -2274,10 +2274,10 @@ export const places: Place[] = [
         en: 'What does the Avió, the ride that circles over the drop, copy?',
       },
       answers: [
-        { el: 'Ένα παλιό αεροπλάνο', en: 'An early plane' },
+        { el: 'Ένα παλιό αεροπλάνο', en: 'An early aeroplane' },
         { el: 'Έναν πύραυλο από ταινία', en: 'A rocket from a film' },
-        { el: 'Το πρώτο ελικόπτερο της χώρας', en: 'Spain’s first helicopter' },
-        { el: 'Ένα αερόστατο του 19ου αιώνα', en: 'A balloon of the 1800s' },
+        { el: 'Το πρώτο ελικόπτερο', en: 'The first helicopter' },
+        { el: 'Ένα αερόστατο με καλάθι', en: 'A balloon with a basket' },
       ],
       explanation: {
         el:
