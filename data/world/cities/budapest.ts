@@ -27,6 +27,21 @@
  *    outright fetch failures. Where a `location.note` says so, that is what the resolver
  *    recorded. OSM is only a cross-check; a failed cross-check never moved a point.
  *  - **No operator data of any kind.** Not a stop, not a route, not a line name.
+ *  - **Review pass.** An independent review caught four claims that were wrong or that no
+ *    source would carry, and they were fixed rather than softened: Gellért Hill's 235 m is
+ *    above sea level and the hill is dolomite; the basilica's great bell is in the south
+ *    tower; the zoo's palm house is NOT Eiffel's work — the zoo's own history page and the
+ *    Hungarian article credit Gyula Végh and name no Paris workshop, so the claim and the
+ *    question built on it are gone, replaced by the Elephant House tower, which the zoo
+ *    documents; and Beethoven's 1817 Broadwood has a six-octave compass, not eighty-five
+ *    keys. The National Museum's Ottoman tent was replaced by the Ottoman sabre, which the
+ *    museum's own Török kor page lists in the permanent exhibition; the tent could not be
+ *    confirmed to be there at all.
+ *  - **The coords json is the earlier run's output and is kept deliberately.** Re-running
+ *    the resolver during the review returned the identical sixteen coordinates but a
+ *    different set of OSM cross-checks — Overpass answered for two other places and not for
+ *    these — which is the resolver's non-determinism, not a change in any point. The
+ *    committed run was kept and the `location` blocks match it field for field.
  *
  * `el` and `en` only. The other four arrive as overlay files and never as extra keys here.
  */
@@ -187,8 +202,8 @@ export const places: Place[] = [
         en: 'Its dome is 96 metres high, the same as the Parliament’s.',
       },
       {
-        el: 'Στον βόρειο πύργο της κρέμεται η μεγαλύτερη καμπάνα της Ουγγαρίας.',
-        en: 'The largest bell in Hungary hangs in its northern tower.',
+        el: 'Στον νότιο πύργο της κρέμεται η μεγαλύτερη καμπάνα της Ουγγαρίας.',
+        en: 'The largest bell in Hungary hangs in its southern tower.',
       },
     ],
     location: {
@@ -198,7 +213,7 @@ export const places: Place[] = [
       confidence: 'B',
       sources: [
         { kind: 'wikidata', ref: 'Q338665', deltaM: 0 },
-        { kind: 'wikipedia', ref: 'St. Stephen’s Basilica', deltaM: 0 },
+        { kind: 'wikipedia', ref: "St. Stephen's Basilica", deltaM: 0 },
       ],
       verifiedAt: '2026-09-13',
       note: 'Overpass answered 504 on this pass, so there is no OSM cross-check; Wikidata and Wikipedia land on the same point.',
@@ -259,10 +274,10 @@ export const places: Place[] = [
         'Πριν από περίπου διακόσια χρόνια η Μπούντα και η Πέστη ήταν δύο ξεχωριστές ' +
         'πόλεις. Για να περάσεις απέναντι έπαιρνες βάρκα, και τον χειμώνα περπατούσες ' +
         'πάνω στον παγωμένο Δούναβη. Όταν όμως ο πάγος έσπαγε, δεν περνούσε τίποτα. Ο ' +
-        'κόμης István Széchenyi έμεινε έτσι κολλημένος στη λάθος όχθη για μέρες, ενώ ο ' +
-        'πατέρας του πέθαινε απέναντι, και ορκίστηκε να φτιάξει γέφυρα που να στέκεται ' +
-        'όλο τον χρόνο. Ο Άγγλος μηχανικός William Tierney Clark τη σχεδίασε κρεμασμένη ' +
-        'από τεράστιες σιδερένιες αλυσίδες, και ένας Σκωτσέζος με το ίδιο επίθετο, ο Adam ' +
+        'κόμης István Széchenyi έμεινε έτσι κολλημένος στη λάθος όχθη για μια βδομάδα ' +
+        'και δεν πρόλαβε την κηδεία του πατέρα του απέναντι. Ορκίστηκε να φτιάξει μια ' +
+        'γέφυρα που να στέκεται όλο τον χρόνο. Ο Άγγλος μηχανικός William Tierney ' +
+        'Clark τη σχεδίασε κρεμασμένη από τεράστιες σιδερένιες αλυσίδες, και ένας Σκωτσέζος με το ίδιο επίθετο, ο Adam ' +
         'Clark, την έχτισε επί τόπου, χωρίς να είναι συγγενείς. Άνοιξε το 1849 και ήταν η ' +
         'πρώτη μόνιμη γέφυρα της πόλης. Στο τέλος του μεγάλου πολέμου, το 1945, ' +
         'ανατινάχτηκε. Οι κάτοικοι την ξαναέχτισαν και την άνοιξαν το 1949, ακριβώς εκατό ' +
@@ -271,9 +286,9 @@ export const places: Place[] = [
         'About two hundred years ago Buda and Pest were two separate towns. To cross you ' +
         'took a boat, and in winter you walked over the frozen Danube. But when the ice ' +
         'was breaking up, nothing crossed at all. Count István Széchenyi was stuck on the ' +
-        'wrong bank for days while his father was dying on the other side, and he swore to ' +
-        'build a bridge that would stand all year round. The English engineer William ' +
-        'Tierney Clark designed it, hanging from enormous iron chains, and a Scot with the ' +
+        'wrong bank for a week and missed his father’s funeral on the other side. He ' +
+        'swore to build a bridge that would stand all year round. The English engineer ' +
+        'William Tierney Clark designed it, hanging from enormous iron chains, and a Scot with the ' +
         'same surname, Adam Clark, built it on the spot — the two were no relation at all. ' +
         'It opened in 1849 as the city’s first permanent bridge. At the end of the great ' +
         'war, in 1945, it was blown up. The people of the city rebuilt it and opened it ' +
@@ -597,7 +612,7 @@ export const places: Place[] = [
       sources: [
         { kind: 'wikidata', ref: 'Q493117', deltaM: 0 },
         { kind: 'osm', ref: 'relation/17948384', deltaM: 12 },
-        { kind: 'wikipedia', ref: 'Fisherman’s Bastion', deltaM: 59 },
+        { kind: 'wikipedia', ref: "Fisherman's Bastion", deltaM: 59 },
       ],
       verifiedAt: '2026-09-13',
       note: 'The bastion is a long terrace, so Wikipedia\'s point sits 59 m along it. Two sources inside 30 m, hence B.',
@@ -655,8 +670,8 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Ο λόφος υψώνεται 235 μέτρα πάνω από τον Δούναβη και είναι ένας τεράστιος βράχος ' +
-        'από ασβεστόλιθο, γεμάτος ρωγμές. Πήρε το όνομά του από τον Gellért, έναν επίσκοπο ' +
+        'Ο λόφος υψώνεται 235 μέτρα πάνω από τη θάλασσα και είναι ένας τεράστιος βράχος ' +
+        'από δολομίτη, γεμάτος ρωγμές. Πήρε το όνομά του από τον Gellért, έναν επίσκοπο ' +
         'από την Ιταλία που δίδασκε τον γιο του βασιλιά Στεφάνου και σκοτώθηκε εδώ σε μια ' +
         'εξέγερση, πριν από περίπου χίλια χρόνια. Στην κορυφή, οι Αυστριακοί έχτισαν το ' +
         '1854 ένα φρούριο, την Citadella, για να επιτηρούν την πόλη από ψηλά· οι κάτοικοι ' +
@@ -667,7 +682,7 @@ export const places: Place[] = [
         'βράχου βγαίνει νερό ζεστό, όχι από τον ήλιο αλλά από τα βάθη της γης. Δύο λουτρά, ' +
         'το Rudas και το Gellért, γεμίζουν από αυτό εδώ και αιώνες.',
       en:
-        'The hill rises 235 metres above the Danube and is one enormous block of limestone, ' +
+        'The hill rises 235 metres above sea level and is one enormous block of dolomite, ' +
         'full of cracks. It takes its name from Gellért, a bishop from Italy who taught ' +
         'King Stephen’s son and who was killed here in a revolt about a thousand years ago. ' +
         'On top, the Austrians built a fortress in 1854, the Citadella, to watch over the ' +
@@ -681,8 +696,8 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Ο λόφος φτάνει τα 235 μέτρα πάνω από τον Δούναβη.',
-        en: 'The hill reaches 235 metres above the Danube.',
+        el: 'Ο λόφος φτάνει τα 235 μέτρα πάνω από τη θάλασσα.',
+        en: 'The hill reaches 235 metres above sea level.',
       },
       {
         el: 'Το άγαλμα είναι 14 μέτρα ψηλό και με το βάθρο του φτάνει τα 40.',
@@ -716,8 +731,8 @@ export const places: Place[] = [
       },
       answers: [
         {
-          el: 'Ζεσταίνεται βαθιά στη γη και ανεβαίνει από ρωγμές',
-          en: 'It is heated deep underground and rises through cracks',
+          el: 'Ο βράχος βαθιά στη γη το ζεσταίνει',
+          en: 'The rock deep underground heats it',
         },
         {
           el: 'Ο ήλιος ζεσταίνει τον βράχο όλη μέρα',
@@ -803,7 +818,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [
         { kind: 'wikidata', ref: 'Q299973', deltaM: 0 },
-        { kind: 'wikipedia', ref: 'Heroes’ Square (Budapest)', deltaM: 38 },
+        { kind: 'wikipedia', ref: "Heroes' Square (Budapest)", deltaM: 38 },
       ],
       verifiedAt: '2026-09-13',
       note: 'The Overpass fetch failed on this pass, so there is no OSM cross-check, and Wikipedia sits 38 m away — which on a square this size is a different corner of the same place, not a disagreement. One agreeing source, hence C.',
@@ -1075,8 +1090,8 @@ export const places: Place[] = [
         'βλέπεις σχεδιάστηκε από τον Mihály Pollack και τελείωσε το 1847: οκτώ τεράστιες ' +
         'κολόνες και μια πλατιά σκάλα, σαν αρχαίος ναός στη μέση της Πέστης. Μέσα ' +
         'φυλάγονται πράγματα που δεν μοιάζουν μεταξύ τους καθόλου: ρωμαϊκό ασήμι, ένα ' +
-        'χρυσό ελάφι παλαιότερο από την Ακρόπολη, ένας μανδύας χιλίων ετών, μια οθωμανική ' +
-        'σκηνή και ένα πιάνο που το έπαιξαν δύο διάσημοι μουσικοί. Και έξω, τα σκαλιά, που ' +
+        'χρυσό ελάφι παλαιότερο από την Ακρόπολη, ένας μανδύας χιλίων ετών, ένα οθωμανικό ' +
+        'σπαθί και ένα πιάνο που το έπαιξαν δύο διάσημοι μουσικοί. Και έξω, τα σκαλιά, που ' +
         'είναι τα ίδια διάσημα με ό,τι υπάρχει μέσα.',
       en:
         'In 1802 Count Ferenc Széchényi did something unusual for his time: he gave away ' +
@@ -1087,7 +1102,7 @@ export const places: Place[] = [
         'eight enormous columns and a wide flight of steps, like an ancient temple dropped ' +
         'into the middle of Pest. Inside are things with almost nothing in common: Roman ' +
         'silver, a golden stag older than the Acropolis, a thousand-year-old cloak, an ' +
-        'Ottoman tent and a piano played by two famous musicians. And outside, the steps, ' +
+        'Ottoman sabre and a piano played by two famous musicians. And outside, the steps, ' +
         'which are as famous as anything kept indoors.',
     },
     facts: [
@@ -1379,39 +1394,41 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-national-museum-tent',
-              name: { el: 'Η οθωμανική σκηνή', en: 'The Ottoman tent' },
+              id: 'budapest-national-museum-sabre',
+              name: { el: 'Το οθωμανικό σπαθί', en: 'The Ottoman sabre' },
               blurb: {
                 el:
-                  'Μια σκηνή από ύφασμα, αρκετά μεγάλη ώστε να σταθείς όρθιος μέσα της, ' +
-                  'κεντημένη μέσα-έξω με λουλούδια και καμάρες σε κόκκινο, μπλε και χρυσό. ' +
-                  'Οι Οθωμανοί στρατοί κουβαλούσαν τέτοιες σκηνές στις εκστρατείες τους ' +
-                  'τον 17ο αιώνα: ήταν ταυτόχρονα υπνοδωμάτιο, γραφείο και αίθουσα ' +
-                  'υποδοχής. Το εντυπωσιακό δεν είναι το μέγεθος αλλά ότι επιβίωσε: το ' +
-                  'ύφασμα είναι το πρώτο πράγμα που καταστρέφει ο χρόνος, και γι’ αυτό ' +
-                  'σκηνές τόσο παλιές σώζονται ελάχιστες στον κόσμο.',
+                  'Ένα σπαθί με καμπύλη λάμα, φτιαγμένο στην Οθωμανική Αυτοκρατορία στις ' +
+                  'αρχές του 17ου αιώνα. Η λαβή και η θήκη του είναι ντυμένες με ' +
+                  'επιχρυσωμένο ασήμι και χρυσάφι και καρφωμένες με ρουμπίνια και ' +
+                  'τιρκουάζ. Η καμπύλη δεν είναι στολίδι: ένα τέτοιο σπαθί κόβει καθώς ' +
+                  'το τραβάς προς το μέρος σου, κάτι που μετράει όταν είσαι πάνω σε ' +
+                  'άλογο. Όμως τόσα πετράδια δεν μπαίνουν σε εργαλείο. Μπαίνουν σε ' +
+                  'κάτι που δείχνει ποιος είσαι, και που το φοράς για να το δουν οι ' +
+                  'άλλοι πριν καν το βγάλεις από τη θήκη.',
                 en:
-                  'A tent of cloth, big enough to stand up inside, embroidered inside and ' +
-                  'out with flowers and arches in red, blue and gold. Ottoman armies ' +
-                  'carried tents like this on campaign in the 17th century: it was bedroom, ' +
-                  'office and reception room at once. The impressive part is not the size ' +
-                  'but that it survived at all. Cloth is the first thing time destroys, ' +
-                  'which is why very few tents this old are left anywhere in the world.',
+                  'A sword with a curved blade, made in the Ottoman Empire in the early ' +
+                  '17th century. Its hilt and scabbard are covered in gilt silver and ' +
+                  'gold and studded with rubies and turquoise. The curve is not for show: ' +
+                  'a blade like this cuts as you pull it towards you, which matters when ' +
+                  'you are sitting on a horse. But nobody sets that many jewels into a ' +
+                  'tool. They go into something that says who you are, worn so that other ' +
+                  'people see it before it ever leaves the scabbard.',
               },
               question: {
                 q: {
-                  el: 'Γιατί είναι σπάνιο να σωθεί μια τόσο παλιά σκηνή;',
-                  en: 'Why is it rare for a tent this old to survive?',
+                  el: 'Γιατί είναι καμπύλη η λάμα αυτού του σπαθιού;',
+                  en: 'Why is the blade of this sword curved?',
                 },
                 answers: [
-                  { el: 'Το ύφασμα καταστρέφεται πιο εύκολα από όλα', en: 'Cloth falls apart more easily than anything' },
-                  { el: 'Οι σκηνές καίγονταν πάντα μετά τη χρήση τους', en: 'Tents were always burned once they were used' },
-                  { el: 'Φτιάχνονταν σε ελάχιστα κομμάτια κάθε χρόνο', en: 'Only a handful were ever made in any year' },
-                  { el: 'Ήταν απαγορευμένο να τις κρατάει κάποιος', en: 'It was forbidden for anyone to keep one' },
+                  { el: 'Για να κόβει καθώς το τραβάς από το άλογο', en: 'So it cuts as you draw it from horseback' },
+                  { el: 'Για να μπαίνει σε μικρότερη θήκη στη μέση', en: 'So it fits a shorter scabbard at the waist' },
+                  { el: 'Για να λυγίζει και να μη σπάει στη μάχη', en: 'So it can bend instead of snapping in a fight' },
+                  { el: 'Για να χωράει επάνω του περισσότερο χρυσάφι', en: 'To leave room for more gold along the blade' },
                 ],
                 explanation: {
-                  el: 'Πέτρα και μέταλλο αντέχουν· ύφασμα, δέρμα και ξύλο όχι. Γι’ αυτό ένα κομμάτι πανί χιλίων ετών είναι μεγαλύτερος θησαυρός από χρυσάφι.',
-                  en: 'Stone and metal last; cloth, leather and wood do not. That is why old fabric can be a bigger treasure than gold.',
+                  el: 'Η καμπύλη λάμα κόβει με το τράβηγμα, ενώ η ίσια κόβει με το χτύπημα. Καβάλα σε άλογο που τρέχει, το τράβηγμα δουλεύει καλύτερα.',
+                  en: 'A curved blade cuts by being drawn; a straight one cuts by being struck. On a moving horse, drawing works better.',
                 },
               },
             },
@@ -1597,11 +1614,11 @@ export const places: Place[] = [
             el:
               'Ήρθα από το Λονδίνο δώρο σε έναν άνθρωπο που δεν με άκουγε πια. Ύστερα με ' +
               'πήρε ο πιο διάσημος πιανίστας της εποχής του, και εκείνος με χάρισε εδώ. ' +
-              'Έχω ουρά και ογδόντα πέντε πλήκτρα.',
+              'Έχω ουρά και έξι οκτάβες πλήκτρων.',
             en:
               'I came from London as a present for a man who could no longer hear me. Then ' +
               'the most famous pianist of his time owned me, and he gave me away to this ' +
-              'museum. I have a tail and eighty-five keys.',
+              'museum. I have a tail and six octaves of keys.',
           },
           hint: {
             el: 'Ο πρώτος μου ιδιοκτήτης έγραψε συμφωνίες.',
@@ -1721,7 +1738,7 @@ export const places: Place[] = [
       },
       rooms: [
         {
-          id: 'budapest-fine-arts-egypt',
+          id: 'budapest-fine-arts-museum-egypt',
           emoji: '⚱️',
           name: { el: 'Οι Αιγύπτιοι', en: 'The Egyptians' },
           intro: {
@@ -1738,7 +1755,7 @@ export const places: Place[] = [
           },
           exhibits: [
             {
-              id: 'budapest-fine-arts-coffin',
+              id: 'budapest-fine-arts-museum-coffin',
               name: { el: 'Το ζωγραφισμένο φέρετρο', en: 'The painted coffin' },
               blurb: {
                 el:
@@ -1786,7 +1803,7 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-fine-arts-animal-mummies',
+              id: 'budapest-fine-arts-museum-animal-mummies',
               name: { el: 'Οι μουμιοποιημένες γάτες', en: 'The mummified animals' },
               blurb: {
                 el:
@@ -1803,7 +1820,8 @@ export const places: Place[] = [
                   'they gave to people. Some were beloved pets, others were offerings ' +
                   'bought at temples much as people buy a candle today. Under an X-ray a ' +
                   'few of the bundles turn out to be empty, because there were people back ' +
-                  'then who sold fakes too.',
+                  'then who sold fakes too. Archaeologists say some cat mummies were made ' +
+                  'of nothing but cloth and mud.',
               },
               question: {
                 q: {
@@ -1835,7 +1853,7 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-fine-arts-shabti',
+              id: 'budapest-fine-arts-museum-shabti',
               name: { el: 'Οι μικροί εργάτες', en: 'The little workers' },
               blurb: {
                 el:
@@ -1852,7 +1870,8 @@ export const places: Place[] = [
                   'they had one job: if anyone called the dead person to work in the fields ' +
                   'of the next world, the figures would get up and go instead. Rich tombs ' +
                   'have turned up more than three hundred of them: one for each day of the ' +
-                  'year, plus foremen.',
+                  'year, plus a few extra who acted as foremen and carried a whip instead ' +
+                  'of a tool.',
               },
               question: {
                 q: {
@@ -1886,7 +1905,7 @@ export const places: Place[] = [
           ],
         },
         {
-          id: 'budapest-fine-arts-old-masters',
+          id: 'budapest-fine-arts-museum-old-masters',
           emoji: '🎨',
           name: { el: 'Οι παλιοί ζωγράφοι', en: 'The old masters' },
           intro: {
@@ -1904,7 +1923,7 @@ export const places: Place[] = [
           },
           exhibits: [
             {
-              id: 'budapest-fine-arts-el-greco',
+              id: 'budapest-fine-arts-museum-el-greco',
               name: { el: 'Ο Ελ Γκρέκο', en: 'The El Greco' },
               blurb: {
                 el:
@@ -1953,7 +1972,7 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-fine-arts-esterhazy-madonna',
+              id: 'budapest-fine-arts-museum-esterhazy-madonna',
               name: { el: 'Η Παναγία Esterházy', en: 'The Esterházy Madonna' },
               blurb: {
                 el:
@@ -2001,7 +2020,7 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-fine-arts-bruegel',
+              id: 'budapest-fine-arts-museum-bruegel',
               name: { el: 'Το πλήθος του Μπρίγκελ', en: 'Bruegel’s crowd' },
               blurb: {
                 el:
@@ -2052,7 +2071,7 @@ export const places: Place[] = [
           ],
         },
         {
-          id: 'budapest-fine-arts-the-building',
+          id: 'budapest-fine-arts-museum-the-building',
           emoji: '🏛️',
           name: { el: 'Το ίδιο το κτίριο', en: 'The building itself' },
           intro: {
@@ -2071,7 +2090,7 @@ export const places: Place[] = [
           },
           exhibits: [
             {
-              id: 'budapest-fine-arts-pediment',
+              id: 'budapest-fine-arts-museum-pediment',
               name: { el: 'Το αέτωμα από την Ολυμπία', en: 'The pediment from Olympia' },
               blurb: {
                 el:
@@ -2120,7 +2139,7 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-fine-arts-romanesque-hall',
+              id: 'budapest-fine-arts-museum-romanesque-hall',
               name: { el: 'Η αίθουσα που κοιμήθηκε', en: 'The hall that slept' },
               blurb: {
                 el:
@@ -2169,7 +2188,7 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'budapest-fine-arts-casts',
+              id: 'budapest-fine-arts-museum-casts',
               name: { el: 'Οι γύψινες πύλες', en: 'The plaster doorways' },
               blurb: {
                 el:
@@ -2222,7 +2241,7 @@ export const places: Place[] = [
       ],
       riddles: [
         {
-          id: 'budapest-fine-arts-riddle-1',
+          id: 'budapest-fine-arts-museum-riddle-1',
           difficulty: 1,
           prompt: {
             el:
@@ -2238,10 +2257,10 @@ export const places: Place[] = [
             el: 'Οι ακτινογραφίες αποκάλυψαν το μυστικό μου.',
             en: 'X-rays gave my secret away.',
           },
-          answerExhibitId: 'budapest-fine-arts-animal-mummies',
+          answerExhibitId: 'budapest-fine-arts-museum-animal-mummies',
         },
         {
-          id: 'budapest-fine-arts-riddle-2',
+          id: 'budapest-fine-arts-museum-riddle-2',
           difficulty: 2,
           prompt: {
             el:
@@ -2256,10 +2275,10 @@ export const places: Place[] = [
             el: 'Στο βάθος μου τα ερείπια είναι ακόμη σχέδιο.',
             en: 'In my background the ruins are still only drawing.',
           },
-          answerExhibitId: 'budapest-fine-arts-esterhazy-madonna',
+          answerExhibitId: 'budapest-fine-arts-museum-esterhazy-madonna',
         },
         {
-          id: 'budapest-fine-arts-riddle-3',
+          id: 'budapest-fine-arts-museum-riddle-3',
           difficulty: 3,
           prompt: {
             el:
@@ -2275,7 +2294,7 @@ export const places: Place[] = [
             el: 'Για εβδομήντα χρόνια με χρησιμοποιούσαν ως αποθήκη.',
             en: 'For seventy years I was used as a storeroom.',
           },
-          answerExhibitId: 'budapest-fine-arts-romanesque-hall',
+          answerExhibitId: 'budapest-fine-arts-museum-romanesque-hall',
         },
       ],
     },
@@ -2505,20 +2524,21 @@ export const places: Place[] = [
         'εντυπωσιακό όμως είναι ότι τα ίδια τα κτίρια αξίζουν επίσκεψη. Το Σπίτι των ' +
         'Ελεφάντων, του 1912, είναι στολισμένο με γυαλιστερά κεραμικά Zsolnay, τα ίδια ' +
         'που έχει η στέγη του Ναού του Ματθία, και έχει έναν λεπτό πύργο σαν μιναρέ. Το ' +
-        'Σπίτι των Πουλιών και ο βράχος των αγριοκάτσικων σχεδιάστηκαν από τον Károly ' +
-        'Kós, με ξύλο και πέτρα, σαν να τα έφεραν από ορεινό χωριό. Και ο σιδερένιος ' +
-        'σκελετός του θερμοκηπίου με τους φοίνικες φτιάχτηκε στο Παρίσι, στα εργαστήρια ' +
-        'του Gustave Eiffel, του ανθρώπου που έχτισε τον πύργο.',
+        'Σπίτι των Πουλιών και το Φασιανοτροφείο τα σχεδίασαν ο Károly Kós και ο Dezső ' +
+        'Zrumeczky με ξύλο και πέτρα, σαν να τα έφεραν από ορεινό χωριό. Το πυργάκι των ' +
+        'ελεφάντων, πάντως, παραλίγο να χαθεί: κάποιοι το βρήκαν άπρεπο, μάλωσαν γι’ αυτό ' +
+        'και το γκρέμισαν το 1915. Ξαναχτίστηκε ολόιδιο το 1997.',
       en:
         'It opened in 1866 and is one of the oldest zoos in the world. In those days a zoo ' +
         'was rows of cages; today the job is a different one, and animals that have become ' +
         'rare in the wild are looked after here. The surprising part is that the buildings ' +
         'are worth the visit by themselves. The Elephant House of 1912 is covered in shiny ' +
         'Zsolnay ceramics, the same ones on the roof of Matthias Church, and it has a slim ' +
-        'tower like a minaret. The Bird House and the rock for the mountain goats were ' +
-        'designed by Károly Kós in wood and stone, as though carried in from a mountain ' +
-        'village. And the iron frame of the palm house was made in Paris, in the workshops ' +
-        'of Gustave Eiffel, the man who built the tower.',
+        'tower like a minaret. The Bird House and the Pheasantry were designed by Károly ' +
+        'Kós and Dezső Zrumeczky in wood and stone, as though carried in from a mountain ' +
+        'village. The elephants’ little tower almost did not survive: ' +
+        'some people thought it improper, argued about it, and pulled it down in 1915. It ' +
+        'was rebuilt exactly as it had been in 1997.',
     },
     facts: [
       {
@@ -2530,8 +2550,8 @@ export const places: Place[] = [
         en: 'The Elephant House of 1912 is faced with Zsolnay ceramics.',
       },
       {
-        el: 'Ο σιδερένιος σκελετός του θερμοκηπίου ήρθε από τα εργαστήρια του Gustave Eiffel.',
-        en: 'The palm house’s iron frame came from the workshops of Gustave Eiffel.',
+        el: 'Το πυργάκι των ελεφάντων γκρεμίστηκε το 1915 και ξαναχτίστηκε το 1997.',
+        en: 'The elephants’ tower was pulled down in 1915 and rebuilt in 1997.',
       },
     ],
     location: {
@@ -2552,34 +2572,34 @@ export const places: Place[] = [
     },
     question: {
       q: {
-        el: 'Πού φτιάχτηκε ο σιδερένιος σκελετός του θερμοκηπίου;',
-        en: 'Where was the iron frame of the palm house made?',
+        el: 'Τι έπαθε το λεπτό πυργάκι του Σπιτιού των Ελεφάντων;',
+        en: 'What happened to the Elephant House’s slim tower?',
       },
       answers: [
         {
-          el: 'Στο Παρίσι, στα εργαστήρια του Eiffel',
-          en: 'In Paris, in Eiffel’s own workshops',
+          el: 'Γκρεμίστηκε το 1915 και ξαναχτίστηκε το 1997',
+          en: 'It came down in 1915 and went back up in 1997',
         },
         {
-          el: 'Στη Βιέννη, από τον ίδιο τον αυτοκράτορα',
-          en: 'In Vienna, ordered by the emperor himself',
+          el: 'Έγινε καμπαναριό για την εκκλησία του κήπου',
+          en: 'It became a bell tower for a park church',
         },
         {
-          el: 'Στο Λονδίνο, μαζί με τα σίδερα της γέφυρας',
-          en: 'In London, along with the iron for the bridge',
+          el: 'Οι φύλακες το είχαν για παρατηρητήριο',
+          en: 'The keepers used it as a lookout post',
         },
         {
-          el: 'Στη Βουδαπέστη, από τους χτίστες του κάστρου',
-          en: 'In Budapest, by the builders of the castle',
+          el: 'Το έχτισαν οι ίδιοι οι Οθωμανοί πριν από αιώνες',
+          en: 'The Ottomans themselves built it centuries ago',
         },
       ],
       explanation: {
         el:
-          'Είναι δουλειά της εταιρείας του Gustave Eiffel. Ο ίδιος άνθρωπος έχτισε τον ' +
-          'πύργο του Παρισιού και το σπίτι των φοινίκων της Βουδαπέστης.',
+          'Ο αρχιτέκτονας Kornél Neuschloss το έφτιαξε σαν μιναρέ, κάποιοι θύμωσαν και το ' +
+          'γκρέμισαν. Ογδόντα δύο χρόνια αργότερα η πόλη το ξαναέφτιαξε ολόιδιο.',
         en:
-          'It is the work of Gustave Eiffel’s company. The same man built the tower in ' +
-          'Paris and the palm house in Budapest.',
+          'The architect Kornél Neuschloss shaped it like a minaret, people took offence ' +
+          'and it was demolished. Eighty-two years later the city put it back exactly.',
       },
     },
   },
@@ -2620,7 +2640,9 @@ export const places: Place[] = [
         'architecture. He spent years designing buildings, and in 1930 a swimming pool ' +
         'opened on Margit-sziget island that he had designed himself. It is a rare thing: ' +
         'the man who won the first Olympic swimming races drew the plans for the place ' +
-        'where the champions after him trained.',
+        'where the champions after him trained. In 1924 he won a second Olympic medal ' +
+        'without going near the water: a silver, in a competition for designs of sports ' +
+        'buildings.',
     },
     facts: [
       {
@@ -2710,15 +2732,15 @@ export const trails: Trail[] = [
     emoji: '🎉',
     name: { el: 'Η γιορτή των χιλίων χρόνων', en: 'The thousand-year party' },
     promise: {
-      el: 'Πέντε πράγματα που υπάρχουν επειδή μια χώρα γιόρταζε τα γενέθλιά της το 1896.',
-      en: 'Five things that exist because a country was having a birthday in 1896.',
+      el: 'Πέντε πράγματα που έχτισε η Βουδαπέστη γύρω στα χίλια της γενέθλια, το 1896.',
+      en: 'Five things Budapest built around its thousandth birthday, in 1896.',
     },
     placeIds: [
       'budapest-heroes-square',
       'budapest-vajdahunyad-castle',
       'budapest-fine-arts-museum',
       'budapest-great-market-hall',
-      'budapest-zoo',
+      'budapest-fishermans-bastion',
     ],
   },
   {
