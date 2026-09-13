@@ -104,4 +104,11 @@ describe('the stamp is not reachable from a route effect', () => {
     // would be a second prompt, or an answer thrown away.
     expect(world.match(/locateOnce\(/g) ?? []).toHaveLength(1);
   });
+
+  it('gives each place its own card, so «you are here» cannot carry over to the next place', () => {
+    // The route element is reused when only :placeId changes. Without the key, the
+    // card's «here» survived into a place 2 km away with its question open — a stamp
+    // with no position behind it, the same shape as the old entry-stamp bug.
+    expect(world).toMatch(/<PlaceCard\s[^>]*key=\{place\.id\}/);
+  });
 });

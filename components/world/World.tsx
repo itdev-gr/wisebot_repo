@@ -64,7 +64,7 @@ import {
   type UiText,
 } from './worldUi';
 import { COUNTRY_RADIUS_M, geoPermissionState, isNearAny, locateOnce, type GeoError } from '../../utils/geo';
-import { blockedNote, deniedKind, retryNeedsReload } from './geoNotes';
+import { afterReloadNote, blockedNote, consumeRetryReload, deniedKind, reloadForRetry, retryNeedsReload } from './geoNotes';
 import { today, useWorldProgress } from './useWorldProgress';
 import { StampCeremony } from './PassportStamp';
 import { CountryList, CountryView } from './CountryScreens';
@@ -510,16 +510,23 @@ const CountryPage: React.FC<{
    * prompt: the browser remembers a refusal (or a phone-wide switch is off) and will not
    * ask again, so the sentence has to say where a grown-up turns it back on.
    */
-  const [outcome, setOutcome] = useState<EntryOutcome | 'blocked' | null>(null);
+  const [outcome, setOutcome] = useState<EntryOutcome | 'blocked' | 'ready' | null>(() =>
+    // `ready` is the note after a retry reload: «Ready! Tap once more.»
+    countryId && consumeRetryReload(countryId) ? 'ready' : null,
+  );
   const ask = useCallback(
     (target: Country) => {
-      // The clock tells a sheet that was refused from a «no» served from memory —
-      // Safari's Permissions API cannot (it says «prompt» whatever it remembers).
-      const started = performance.now();
-      void attempt(target).then(async (result) => {
+      void (async () => {
+        // The permission state is read BEFORE asking, and the clock runs from the tap:
+        // together they tell a sheet that was refused from a «no» served from memory.
+        // Safari's Permissions API cannot on its own — it says «prompt» whatever it
+        // remembers, and «denied» only after this very document has been refused.
+        const stateBefore = await geoPermissionState();
+        const started = performance.now();
+        const result = await attempt(target);
         if (result !== 'denied') return setOutcome(result);
-        setOutcome((await deniedKind(performance.now() - started)) === 'blocked' ? 'blocked' : 'denied');
-      });
+        setOutcome(deniedKind(performance.now() - started, stateBefore) === 'blocked' ? 'blocked' : 'denied');
+      })();
     },
     [attempt],
   );
@@ -586,12 +593,16 @@ const CountryPage: React.FC<{
         entry={{
           label: ui(retry ? T.tryAgain : T.imInCountry, lang),
           askingLabel: ui(T.locating, lang),
-          note: blocked ? blocked.note : ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
+          note: blocked
+            ? blocked.note
+            : outcome === 'ready'
+              ? afterReloadNote(lang)
+              : ui(ENTRY_NOTE[outcome ?? 'idle'], lang),
           hint: blocked?.path,
           hintMore: blocked?.more,
           asking,
           onAsk: () => {
-            if (retry && retryNeedsReload()) return window.location.reload();
+            if (retry && retryNeedsReload()) return reloadForRetry(country.id);
             ask(country);
           },
         }}
@@ -927,6 +938,11 @@ const PlacePage: React.FC<{
     <>
       {seo}
       <PlaceCard
+        // One card per place. The route element is reused when only `:placeId` changes
+        // («Άλλη μία;» hops within a city), and without the key the card's «you are here»
+        // survived into the next place, 2 km away, with its question open — a stamp with
+        // no position behind it, the exact bug the entry stamp had.
+        key={place.id}
         lang={lang}
         place={place}
         cityName={city.name}

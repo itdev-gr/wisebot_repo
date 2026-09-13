@@ -31,6 +31,7 @@ import {
 import type { City, CityId, Country, CountryId, LocText, WorldLang } from '../../data/world/types';
 import { WORLD_STYLE, say, ui, type UiText } from './worldUi';
 import { PassportStamp } from './PassportStamp';
+import { Breadcrumb } from './Breadcrumb';
 
 // --------------------------------------------------------------------- chrome
 //
@@ -588,7 +589,9 @@ export const CountryView: React.FC<CountryViewProps> = ({
         {/* No stamp yet: offer the one thing that earns it. This component still decides
             nothing — it calls back and prints whatever sentence it is handed. */}
         {!entryDate && entry && (
-          <div className="mt-5 rounded-2xl border border-amber-500/25 bg-amber-500/[0.06] p-4">
+          // The live region is the whole card, so a screen reader hears the note AND the
+          // settings path after a tap, not the first line only.
+          <div className="mt-5 rounded-2xl border border-amber-500/25 bg-amber-500/[0.06] p-4" aria-live="polite">
             <button
               type="button"
               onClick={entry.onAsk}
@@ -598,14 +601,18 @@ export const CountryView: React.FC<CountryViewProps> = ({
               <MapPin size={16} aria-hidden />
               {entry.asking ? entry.askingLabel : entry.label}
             </button>
-            <p className="mt-2 text-sm font-bold text-white/60" aria-live="polite">
-              {entry.note}
-            </p>
+            <p className="mt-2 text-sm font-bold text-white/60">{entry.note}</p>
+            {/* 13 px at 80 % amber: readable on a sunny pavement. The hierarchy comes from
+                order and the «Still no?» prefix, not from fading the escalation line. */}
             {entry.hint && (
-              <p className="mt-1.5 break-words text-xs font-bold leading-relaxed text-amber-200/70">{entry.hint}</p>
+              <p className="mt-1.5 text-[13px] font-bold leading-relaxed text-amber-200/80">
+                <Breadcrumb text={entry.hint} />
+              </p>
             )}
             {entry.hintMore && (
-              <p className="mt-1 break-words text-xs font-bold leading-relaxed text-amber-200/50">{entry.hintMore}</p>
+              <p className="mt-1 text-[13px] font-bold leading-relaxed text-amber-200/80">
+                <Breadcrumb text={entry.hintMore} />
+              </p>
             )}
           </div>
         )}

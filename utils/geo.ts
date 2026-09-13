@@ -152,7 +152,10 @@ async function locateUnbounded(): Promise<Fix | GeoError> {
       return { lat: p.coords.latitude, lng: p.coords.longitude, accuracyM: p.coords.accuracy ?? 50, at: p.timestamp ?? Date.now() };
     } catch (e: unknown) {
       const msg = String((e as { message?: string })?.message ?? '').toLowerCase();
-      return msg.includes('denied') || msg.includes('permission') ? 'denied' : msg.includes('timeout') ? 'timeout' : 'unavailable';
+      // «Location services are not enabled» is the phone-wide switch. To the family that
+      // is a block with a setting to change, not a weak signal to retry outdoors.
+      if (/denied|permission|not enabled|disabled|location services/.test(msg)) return 'denied';
+      return msg.includes('timeout') ? 'timeout' : 'unavailable';
     }
   }
   if (typeof navigator === 'undefined' || !navigator.geolocation) return 'unsupported';
