@@ -38,7 +38,7 @@
         "answers": [
           "Un sarcophage d’ici",
           "Le Parthénon d’Athènes",
-          "La Porte impériale du palais",
+          "La Porte impériale",
           "Une banque à Paris"
         ],
         "explanation": "Le sarcophage d’Alexandre a la forme d’un petit temple. L’architecte, Alexander Vallaury, lui a donné un bâtiment avec le même visage."
@@ -64,8 +64,8 @@
               "q": "Qui était sans doute enterré dans ce sarcophage ?",
               "answers": [
                 "Un roi de Sidon",
-                "Alexandre le Grand lui-même",
-                "Un général de l’armée perse",
+                "Alexandre le Grand",
+                "Un général perse",
                 "Un empereur romain"
               ],
               "explanation": "Abdalonyme était un jardinier qu’Alexandre a fait roi. Le cercueil montre son ami, pas lui-même."
@@ -79,7 +79,7 @@
               "answers": [
                 "On l’a versé par terre",
                 "On l’a vendu à des médecins",
-                "Il est gardé ici, en bouteille",
+                "Il est toujours dedans",
                 "Il s’est évaporé au soleil"
               ],
               "explanation": "Les ouvriers l’ont vidé avant que personne ne puisse l’étudier. Hamdi Bey n’a gardé qu’un peu de boue prise au fond."
@@ -91,7 +91,7 @@
             "question": {
               "q": "Pourquoi l’homme qui l’a trouvé en 1882 l’a-t-il réenterré ?",
               "answers": [
-                "Il était trop lourd",
+                "Il était bien trop lourd",
                 "Il avait peur de la malédiction",
                 "Pour le cacher des voleurs",
                 "Les villageois l’ont chassé"
@@ -106,8 +106,8 @@
               "q": "Où est accrochée aujourd’hui une grande copie de ce traité ?",
               "answers": [
                 "Aux Nations unies",
-                "Au Caire, près des pyramides",
-                "Dans le trésor du palais de Topkapı",
+                "Près des pyramides",
+                "Au palais de Topkapı",
                 "Au parlement d’Ankara"
               ],
               "explanation": "Les nations du monde ont choisi la plus vieille promesse de paix pour le mur de leur maison, à New York."
@@ -121,7 +121,7 @@
               "answers": [
                 "Dans un tiroir",
                 "Enterrée dans une tombe",
-                "Dans la bibliothèque du palais",
+                "Dans la bibliothèque",
                 "Au fond de la mer"
               ],
               "explanation": "Le musée avait 74 000 tablettes. La plus belle a attendu tranquillement dans son tiroir que quelqu’un vienne la lire."
@@ -135,7 +135,7 @@
               "answers": [
                 "Un trépied en or",
                 "Une statue d’Apollon",
-                "Une lampe qui ne s’éteignait jamais",
+                "Une lampe toujours allumée",
                 "Un chaudron plein d’eau"
               ],
               "explanation": "Le trépied en or avait disparu des siècles avant que la colonne ne quitte Delphes ; le bronze en dessous est resté."
@@ -150,7 +150,7 @@
                 "En brique émaillée",
                 "En marbre peint",
                 "En bronze fondu",
-                "En bois de cèdre sculpté"
+                "En cèdre sculpté"
               ],
               "explanation": "Chaque brique était cuite avec son morceau d’animal dessus, puis couverte d’une couleur de verre. C’est pour cela qu’elles brillent encore."
             }
@@ -187,8 +187,8 @@
         "answers": [
           "Le jardin du palais",
           "Un champ de courses de chevaux",
-          "Le marché aux poissons de la ville",
-          "Un terrain de manœuvres de l’armée"
+          "Le marché aux poissons",
+          "Un champ de manœuvres"
         ],
         "explanation": "C’était le jardin extérieur de Topkapı, et seuls les gens du palais pouvaient y entrer. La porte sud du parc est encore aujourd’hui une porte du palais."
       },
@@ -207,7 +207,7 @@
       "question": {
         "q": "Qu’a dessiné Léonard de Vinci pour cet endroit en 1502 ?",
         "answers": [
-          "Un pont à une arche",
+          "Un pont à une seule arche",
           "Un tunnel sous l’eau",
           "Un phare avec un ascenseur",
           "Un marché flottant en bois"
@@ -252,9 +252,9 @@
         "q": "Pourquoi le grand dôme a-t-il l’air de flotter ?",
         "answers": [
           "Un cercle de fenêtres",
-          "Des miroirs sur les murs",
-          "Le dôme est fait de verre",
-          "Des montgolfières cachées"
+          "Des miroirs sur le mur",
+          "Il est tout en verre",
+          "Des ballons cachés"
         ],
         "explanation": "Les fenêtres qui font tout le tour de la base découpent un ruban de lumière, et l’œil ne voit plus où le dôme se pose vraiment."
       },
@@ -274,9 +274,9 @@
         "q": "Qu’a fait le sultan pour que sa mosquée ait tous les carreaux qu’il lui fallait ?",
         "answers": [
           "Il a interdit les autres ventes",
-          "Il a acheté les ateliers de poterie d’İznik",
-          "Il a construit sa propre fabrique de carreaux",
-          "Il a payé le double pour chaque carreau"
+          "Il a acheté les ateliers d’İznik",
+          "Il a construit sa propre fabrique",
+          "Il a payé le double"
         ],
         "explanation": "En 1613, il a interdit aux potiers d’İznik de vendre des carreaux à quelqu’un d’autre, tant que ses propres commandes n’étaient pas finies."
       }
@@ -295,9 +295,9 @@
         "q": "Qui avait le droit de passer à cheval la porte du Salut ?",
         "answers": [
           "Seulement le sultan",
-          "Seulement le grand vizir",
-          "N’importe quel ambassadeur étranger",
-          "Chaque garde du palais"
+          "Le grand vizir",
+          "Les ambassadeurs étrangers",
+          "Les gardes"
         ],
         "explanation": "Tous les autres, même les ambassadeurs des rois, descendaient de cheval devant les deux tours de la porte. C’était une façon de rappeler à tout le monde qui commandait."
       },
@@ -378,9 +378,9 @@
               "q": "Pourquoi le cadeau est-il revenu à Istanbul ?",
               "answers": [
                 "Le chah était mort",
-                "Le chah l’a trouvé laid",
+                "Le chah l’a jugé laid",
                 "Les envoyés se sont perdus",
-                "Sa petite montre s’était arrêtée"
+                "Sa montre s’était arrêtée"
               ],
               "explanation": "Les envoyés ont appris sa mort avant d’arriver à la frontière, et un cadeau pour quelqu’un qui n’est plus là ne se livre pas."
             }
@@ -431,7 +431,7 @@
         "answers": [
           "Proposer moins",
           "Payer tout de suite",
-          "Payer le double pour la chance",
+          "Payer le double",
           "Partir en colère"
         ],
         "explanation": "Le premier prix est le début d’une conversation, pas la fin. Le vendeur commence haut, toi tu commences bas, et vous vous retrouvez quelque part au milieu, souvent autour d’un thé."
@@ -451,9 +451,9 @@
       "question": {
         "q": "Quel travail la tour faisait-elle pour les Ottomans à partir de 1717 ?",
         "answers": [
-          "Une vigie contre le feu",
+          "Une vigie contre les feux",
           "Un phare pour les bateaux",
-          "La chambre à coucher du sultan",
+          "La chambre du sultan",
           "Une horloge pour la ville"
         ],
         "explanation": "Une ville de maisons en bois peut brûler en une nuit. D’ici, on voyait la fumée avant qu’elle ne devienne flamme."
@@ -518,9 +518,9 @@
         "q": "Pourquoi l’appelle-t-on le bazar égyptien ?",
         "answers": [
           "L’Égypte l’a payé",
-          "Les pharaons y faisaient leurs courses",
+          "Les pharaons y venaient acheter",
           "On y vend du sable du Nil",
-          "Son architecte était égyptien"
+          "Un Égyptien l’a bâti"
         ],
         "explanation": "Les impôts que l’empire prenait à l’Égypte ont payé le bâtiment, et le nom est resté."
       },
@@ -540,8 +540,8 @@
         "q": "Pourquoi les minarets ont-ils exactement dix balcons ?",
         "answers": [
           "Il était le dixième sultan",
-          "Dix maîtres maçons y ont travaillé",
-          "Un pour chacun de ses dix fils",
+          "Dix maîtres maçons ont travaillé",
+          "Un pour chacun de ses fils",
           "Dix ans de travaux"
         ],
         "explanation": "Soliman était le dixième sultan depuis le début de la dynastie, et Sinan l’a écrit sur les minarets avec des balcons au lieu de lettres."
@@ -582,7 +582,7 @@
       "question": {
         "q": "Qu’est-ce qu’on fabriquait il y a trois cents ans dans le premier bâtiment du musée ?",
         "answers": [
-          "Des ancres",
+          "Des ancres pour bateaux",
           "Des canons pour l’armée",
           "Des tapis pour le palais",
           "Des voiles pour la flotte"
@@ -637,9 +637,9 @@
             "question": {
               "q": "Qu’est-ce qui fait avancer cette voiture dans l’eau ?",
               "answers": [
-                "Deux hélices",
+                "Ses deux hélices",
                 "Ses quatre roues qui tournent",
-                "Une petite voile pliante",
+                "Une voile pliante",
                 "Des rames par les fenêtres"
               ],
               "explanation": "Les roues servent seulement à diriger, comme un gouvernail. La poussée vient de deux hélices à l’arrière, comme sur un bateau à moteur."
@@ -666,9 +666,9 @@
               "q": "Pourquoi les trams de la ville se sont-ils arrêtés en 1966 ?",
               "answers": [
                 "Pour faire place aux autobus",
-                "Parce que l’électricité a manqué",
-                "Parce que les rails avaient rouillé",
-                "Parce que les gens en avaient peur"
+                "Parce que le courant a manqué",
+                "Parce que les rails ont rouillé",
+                "Parce que les gens avaient peur"
               ],
               "explanation": "Dans les années 1960, beaucoup de villes croyaient que l’avenir était l’autobus. En 1990, la ville a changé d’avis."
             }
@@ -680,9 +680,9 @@
               "q": "Qu’est-ce qui tirait ce wagon dans le tunnel ?",
               "answers": [
                 "Des câbles",
-                "Une locomotive devant",
-                "Deux chevaux costauds",
-                "Un moteur bien à lui"
+                "Une lourde chaîne",
+                "Deux chevaux",
+                "Son propre moteur"
               ],
               "explanation": "La machine à vapeur restait en haut de la colline et faisait tourner le tambour. Le câble d’acier faisait le reste du travail."
             }
@@ -717,7 +717,7 @@
       "question": {
         "q": "Comment les mosaïques sont-elles restées intactes pendant des siècles dans la mosquée ?",
         "answers": [
-          "Sous le plâtre",
+          "Sous la couche de plâtre",
           "Derrière des panneaux de bois",
           "Sous d’épais tapis",
           "Enfermées dans le palais"

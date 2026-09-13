@@ -551,7 +551,7 @@ export const places: Place[] = [
                 answers: [
                   { el: 'Η κλοπή της το 1911', en: 'Being stolen in 1911' },
                   { el: 'Την κρέμασε ο Ναπολέων', en: 'Napoleon hanging it up' },
-                  { el: 'Ο πιο μεγάλος πίνακας', en: 'The largest painting here' },
+                  { el: 'Το τεράστιο μέγεθός της', en: 'Its enormous size' },
                   { el: 'Γράμμα του Λεονάρντο', en: 'A letter by Leonardo' },
                 ],
                 explanation: {
@@ -1113,7 +1113,7 @@ export const places: Place[] = [
       },
       answers: [
         { el: 'Το υπόγειο πλημμύριζε συνέχεια', en: 'The foundations kept flooding' },
-        { el: 'Για να τρέφει τα σιντριβάνια', en: 'To feed the fountains outside' },
+        { el: 'Για να τροφοδοτεί τα σιντριβάνια', en: 'To feed the fountains outside' },
         { el: 'Για να δροσίζεται η αίθουσα', en: 'To cool the hall in the summer' },
         { el: 'Για παραστάσεις μέσα στο νερό', en: 'For shows with scenery in water' },
       ],
@@ -1543,17 +1543,17 @@ export const places: Place[] = [
               name: { el: 'Το υποβρύχιο Argonaute', en: 'The submarine Argonaute' },
               blurb: {
                 el:
-                  'Ένα αληθινό γαλλικό υποβρύχιο, πάνω από πενήντα μέτρα μακρύ, που ' +
+                  'Ένα αληθινό γαλλικό υποβρύχιο, σχεδόν πενήντα μέτρα μακρύ, που ' +
                   'υπηρέτησε για δεκαετίες και τώρα κάθεται σε τσιμέντο μέσα στο πάρκο. ' +
                   'Μπαίνεις μέσα και το πρώτο πράγμα που καταλαβαίνεις είναι πόσο στενό ' +
                   'είναι: οι διάδρομοι δεν χωρούν δύο ανθρώπους πλάι πλάι και τα κρεβάτια ' +
-                  'είναι στοιβαγμένα ανάμεσα σε σωλήνες. Πενήντα άνθρωποι ζούσαν εδώ μέσα ' +
+                  'είναι στοιβαγμένα ανάμεσα σε σωλήνες. Σαράντα άνθρωποι ζούσαν εδώ μέσα ' +
                   'για βδομάδες, χωρίς να δουν φως, αναπνέοντας αέρα από μηχανήματα.',
                 en:
-                  'A real French submarine, over fifty metres long, which served for decades ' +
+                  'A real French submarine, almost fifty metres long, which served for decades ' +
                   'and now sits on concrete in the park. You go inside and the first thing ' +
                   'you understand is how narrow it is: the corridors do not take two people ' +
-                  'side by side and the beds are stacked in among the pipes. Fifty people ' +
+                  'side by side and the beds are stacked in among the pipes. Forty people ' +
                   'lived in here for weeks at a time, without seeing daylight, breathing air ' +
                   'made by machines.',
               },
@@ -1569,8 +1569,8 @@ export const places: Place[] = [
                   { el: 'Πόσο ήσυχη ήταν η μηχανή', en: 'How quiet the engine was' },
                 ],
                 explanation: {
-                  el: 'Δεν έχει καθόλου παράθυρα. Πενήντα άνθρωποι, βδομάδες, χωρίς να δουν φως.',
-                  en: 'It has no windows at all. Fifty people, weeks at a time, with no daylight.',
+                  el: 'Δεν έχει καθόλου παράθυρα. Σαράντα άνθρωποι, βδομάδες, χωρίς να δουν φως.',
+                  en: 'It has no windows at all. Forty people, weeks at a time, with no daylight.',
                 },
               },
             },
