@@ -53,8 +53,24 @@ export interface Fix extends GeoPoint { accuracyM: number; at: number }
 export type GeoError = 'unsupported' | 'denied' | 'unavailable' | 'timeout';
 
 /** One-shot position with a sane timeout; resolves to a Fix or a GeoError string. */
-export function locateOnce(): Promise<Fix | GeoError> {
-  if (typeof navigator === 'undefined' || !navigator.geolocation) return Promise.resolve('unsupported');
+export async function locateOnce(): Promise<Fix | GeoError> {
+  // Inside the iOS shell (Capacitor, WKWebView) the web geolocation API never shows the
+  // system permission dialog: the request fails as "denied" before the parent sees any
+  // prompt, and «Είμαι εδώ!» reads as broken. The native Geolocation plugin asks the
+  // system properly; use it whenever the bridge exposes it, and fall through otherwise.
+  const Geo = (window as any).Capacitor?.Plugins?.Geolocation;
+  if (Geo?.getCurrentPosition) {
+    try {
+      const perm = await Geo.requestPermissions?.({ permissions: ['location'] });
+      if (perm?.location === 'denied') return 'denied';
+      const p = await Geo.getCurrentPosition({ enableHighAccuracy: true, timeout: 12000, maximumAge: 5000 });
+      return { lat: p.coords.latitude, lng: p.coords.longitude, accuracyM: p.coords.accuracy ?? 50, at: p.timestamp ?? Date.now() };
+    } catch (e: unknown) {
+      const msg = String((e as { message?: string })?.message ?? '').toLowerCase();
+      return msg.includes('denied') || msg.includes('permission') ? 'denied' : msg.includes('timeout') ? 'timeout' : 'unavailable';
+    }
+  }
+  if (typeof navigator === 'undefined' || !navigator.geolocation) return 'unsupported';
   return new Promise(resolve => {
     navigator.geolocation.getCurrentPosition(
       p => resolve({ lat: p.coords.latitude, lng: p.coords.longitude, accuracyM: p.coords.accuracy ?? 50, at: p.timestamp }),

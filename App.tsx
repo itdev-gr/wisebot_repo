@@ -348,12 +348,14 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode; lang?: 'el' | 'en' }
   return <>{children}</>;
 };
 
-// The admin dashboard is the one client route with no logged-out story at all —
-// guests got a confusing empty shell (server auth always protected the data).
+// The admin dashboard has its own door: an email + password form checked server-side
+// against the admin credentials, and a token every admin API verifies. It does not
+// need a WiseBot user account on top, and requiring one sent the owner to /login
+// first and read as "the admin does not open". Waiting for the auth context to settle
+// only avoids a flash of the form while a stored session is being read.
 const AdminRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
   if (loading) return <PageLoader />;
-  if (!user) return <Navigate to="/login" replace />;
   return <>{children}</>;
 };
 
