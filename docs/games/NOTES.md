@@ -6,6 +6,52 @@ implementation order, and a shared section for things that cut across all six.
 
 ---
 
+## ΠΟΥ ΕΜΕΙΝΑΜΕ — 13 Σεπτεμβρίου 2026
+
+Το session «Academy games» σταμάτησε εδώ με εντολή ιδιοκτήτη (όρια χρήσης). Επόμενη εντολή:
+**Παρασκευή, μετά το reset.**
+
+| # | παιχνίδι | κατάσταση |
+|---|---|---|
+| 1 | `daily` | ✅ **merged** — PR #77, CI πράσινο, στο `main` |
+| 2 | `draw` | ⏸️ δεν ξεκίνησε· **το περιεχόμενο είναι έτοιμο** |
+| 3 | `whoami` | ⏸️ δεν ξεκίνησε· **το περιεχόμενο είναι έτοιμο και επικυρωμένο** |
+| 4 | `escape` | ⏸️ δεν ξεκίνησε· **το περιεχόμενο είναι έτοιμο και ελεγμένο** |
+| 5 | `rhythm` | ⏸️ δεν ξεκίνησε· **τα beat maps μετρήθηκαν από τα πραγματικά mp3** |
+| 6 | `machine` | ⏸️ δεν ξεκίνησε· η ανάλυση του κωδικού έγινε (δες §6) |
+
+### Το ακριβό κομμάτι έχει ήδη γίνει — μην το ξαναπληρώσεις
+
+Το περιεχόμενο των τεσσάρων επόμενων παιχνιδιών παρήχθη και **επικυρώθηκε** πριν το stop, και
+σώθηκε στο `docs/games/research/`. Κοστίζει πολλή χρήση να ξαναφτιαχτεί· διάβασέ το, μην το
+ξαναπαράγεις:
+
+| αρχείο | τι είναι |
+|---|---|
+| `research/whoami-attributes.json` | 95 άνθρωποι × 36 ιδιότητες + 5 στοιχεία ο καθένας, el+en, με ελληνικά ονόματα. **0 collisions, worst case 9 ερωτήσεις** |
+| `research/escape-rooms.json` | 3 δωμάτια × 6 γρίφους, el+en. Ένας ανεξάρτητος λύτης βρήκε 22 προβλήματα (11 σοβαρά) και διορθώθηκαν |
+| `research/draw-words.json` | 145 μοναδικές λέξεις el+en με κατηγορία, emoji, δυσκολία και 3 distractors· λείπουν **5** για τη ζώνη Ε'–ΣΤ' |
+| `research/beatmaps.json` | 13 τραγούδια μετρημένα: BPM, offset, χρόνοι beat και ένταση ανά beat |
+| `../../scripts/games-beatmap.mjs` | ο αναλυτής: ffmpeg → spectral-flux onset envelope → autocorrelation tempo → phase-locked grid. `node scripts/games-beatmap.mjs public/songs/<x>.mp3` |
+| `research/whoami-check.py` | ο ελεγκτής του `whoami`: collisions, βάθος δέντρου, διαρροές ονόματος στα στοιχεία. `python3 docs/games/research/whoami-check.py` → exit 0 |
+
+### Τι να προσέξει το επόμενο session
+
+1. **Κλειδιά localStorage.** Κάνε `grep` στο `components/` πριν διαλέξεις κλειδί. Το
+   `wb_daily_streak` ανήκε ήδη στο `DailyRewardPopup` και η σύγκρουση έδινε **διπλό XP**. Δες §1.
+2. **Το `GameCenter.tsx` το πειράζουν και τα έξι.** Ένα PR τη φορά, rebase στο `main` πριν από
+   κάθε επόμενο, αλλιώς συγκρούονται στο `GameKey` union και στο `GAME_KEYS`.
+3. **Οι agents υπο-αναφέρουν τα αρχεία τους.** Στο `daily` ο builder είπε «5 αρχεία» ενώ ήταν
+   **19**. Πάντα `git status --porcelain -uall` πριν το commit, ποτέ `git add -A`.
+4. **Τα gates περνάνε και με σπασμένο παιχνίδι.** Το `lint` έχει 662 warnings baseline και 0
+   errors· τα tests δεν πιάνουν το UI. Το μόνο που έπιασε τα πραγματικά bugs ήταν να **παιχτεί**
+   σε preview 375×812.
+5. **Ο preview pane είναι κοινός με άλλα sessions.** Κατά τον έλεγχο του `daily` κάποιο άλλο
+   session καθάρισε το localStorage και άλλαξε το viewport στη μέση. Αν τα νούμερα δεν βγάζουν
+   νόημα, ξανακάνε τον έλεγχο ελεγχόμενα πριν κυνηγήσεις φάντασμα.
+
+---
+
 ## Κοινά (shared foundations)
 
 Three modules were added for game 1 and are reused by all six. They are the reason the later
