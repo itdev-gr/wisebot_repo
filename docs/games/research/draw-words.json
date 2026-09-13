@@ -1,0 +1,2612 @@
+[
+ {
+  "el": "γάτα",
+  "en": "cat",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🐱",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ελέφαντας",
+   "παπαγάλος",
+   "δελφίνι"
+  ],
+  "distractorsEn": [
+   "elephant",
+   "parrot",
+   "dolphin"
+  ]
+ },
+ {
+  "el": "σκύλος",
+  "en": "dog",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🐶",
+  "difficulty": 1,
+  "distractorsEl": [
+   "καμηλοπάρδαλη",
+   "πιγκουίνος",
+   "βάτραχος"
+  ],
+  "distractorsEn": [
+   "giraffe",
+   "penguin",
+   "frog"
+  ]
+ },
+ {
+  "el": "ψάρι",
+  "en": "fish",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🐟",
+  "difficulty": 1,
+  "distractorsEl": [
+   "κουνέλι",
+   "κότα",
+   "μέλισσα"
+  ],
+  "distractorsEn": [
+   "rabbit",
+   "hen",
+   "bee"
+  ]
+ },
+ {
+  "el": "πουλί",
+  "en": "bird",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🐦",
+  "difficulty": 1,
+  "distractorsEl": [
+   "αγελάδα",
+   "σαλιγκάρι",
+   "δελφίνι"
+  ],
+  "distractorsEn": [
+   "cow",
+   "snail",
+   "dolphin"
+  ]
+ },
+ {
+  "el": "χελώνα",
+  "en": "turtle",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🐢",
+  "difficulty": 2,
+  "distractorsEl": [
+   "άλογο",
+   "μέλισσα",
+   "παπαγάλος"
+  ],
+  "distractorsEn": [
+   "horse",
+   "bee",
+   "parrot"
+  ]
+ },
+ {
+  "el": "πεταλούδα",
+  "en": "butterfly",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🦋",
+  "difficulty": 2,
+  "distractorsEl": [
+   "χελώνα",
+   "κουνέλι",
+   "σκίουρος"
+  ],
+  "distractorsEn": [
+   "turtle",
+   "rabbit",
+   "squirrel"
+  ]
+ },
+ {
+  "el": "πρόβατο",
+  "en": "sheep",
+  "category": "animals",
+  "grades": "1-2",
+  "emoji": "🐑",
+  "difficulty": 3,
+  "distractorsEl": [
+   "πιγκουίνος",
+   "ελέφαντας",
+   "μέλισσα"
+  ],
+  "distractorsEn": [
+   "penguin",
+   "elephant",
+   "bee"
+  ]
+ },
+ {
+  "el": "μήλο",
+  "en": "apple",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🍎",
+  "difficulty": 1,
+  "distractorsEl": [
+   "τυρί",
+   "μακαρόνια",
+   "σοκολάτα"
+  ],
+  "distractorsEn": [
+   "cheese",
+   "pasta",
+   "chocolate"
+  ]
+ },
+ {
+  "el": "μπανάνα",
+  "en": "banana",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🍌",
+  "difficulty": 1,
+  "distractorsEl": [
+   "πίτσα",
+   "σούπα",
+   "τυρί"
+  ],
+  "distractorsEn": [
+   "pizza",
+   "soup",
+   "cheese"
+  ]
+ },
+ {
+  "el": "ψωμί",
+  "en": "bread",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🍞",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σούπα",
+   "σταφύλι",
+   "λεμόνι"
+  ],
+  "distractorsEn": [
+   "soup",
+   "grapes",
+   "lemon"
+  ]
+ },
+ {
+  "el": "παγωτό",
+  "en": "ice cream",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🍦",
+  "difficulty": 1,
+  "distractorsEl": [
+   "καρπούζι",
+   "τυρί",
+   "σούπα"
+  ],
+  "distractorsEn": [
+   "watermelon",
+   "cheese",
+   "soup"
+  ]
+ },
+ {
+  "el": "καρότο",
+  "en": "carrot",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🥕",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ντομάτα",
+   "μπρόκολο",
+   "αχλάδι"
+  ],
+  "distractorsEn": [
+   "tomato",
+   "broccoli",
+   "pear"
+  ]
+ },
+ {
+  "el": "πορτοκάλι",
+  "en": "orange",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🍊",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σταφύλι",
+   "μπρόκολο",
+   "φράουλα"
+  ],
+  "distractorsEn": [
+   "grapes",
+   "broccoli",
+   "strawberry"
+  ]
+ },
+ {
+  "el": "αυγό",
+  "en": "egg",
+  "category": "food",
+  "grades": "1-2",
+  "emoji": "🥚",
+  "difficulty": 2,
+  "distractorsEl": [
+   "πίτσα",
+   "μέλι",
+   "μακαρόνια"
+  ],
+  "distractorsEn": [
+   "pizza",
+   "honey",
+   "pasta"
+  ]
+ },
+ {
+  "el": "σπίτι",
+  "en": "house",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🏠",
+  "difficulty": 1,
+  "distractorsEl": [
+   "καναπές",
+   "λάμπα",
+   "σκούπα"
+  ],
+  "distractorsEn": [
+   "sofa",
+   "lamp",
+   "broom"
+  ]
+ },
+ {
+  "el": "πόρτα",
+  "en": "door",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🚪",
+  "difficulty": 1,
+  "distractorsEl": [
+   "κουβέρτα",
+   "κατσαρόλα",
+   "ρολόι"
+  ],
+  "distractorsEn": [
+   "blanket",
+   "pot",
+   "clock"
+  ]
+ },
+ {
+  "el": "παράθυρο",
+  "en": "window",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🪟",
+  "difficulty": 2,
+  "distractorsEl": [
+   "κουτάλι",
+   "χαλί",
+   "σκάλα"
+  ],
+  "distractorsEn": [
+   "spoon",
+   "rug",
+   "ladder"
+  ]
+ },
+ {
+  "el": "κρεβάτι",
+  "en": "bed",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🛏️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ψυγείο",
+   "τηλέφωνο",
+   "βάζο"
+  ],
+  "distractorsEn": [
+   "fridge",
+   "telephone",
+   "vase"
+  ]
+ },
+ {
+  "el": "καρέκλα",
+  "en": "chair",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🪑",
+  "difficulty": 2,
+  "distractorsEl": [
+   "πιάτο",
+   "κουρτίνα",
+   "ρολόι"
+  ],
+  "distractorsEn": [
+   "plate",
+   "curtain",
+   "clock"
+  ]
+ },
+ {
+  "el": "κλειδί",
+  "en": "key",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🔑",
+  "difficulty": 2,
+  "distractorsEl": [
+   "κουτάλι",
+   "σφουγγάρι",
+   "μαξιλάρι"
+  ],
+  "distractorsEn": [
+   "spoon",
+   "sponge",
+   "pillow"
+  ]
+ },
+ {
+  "el": "ομπρέλα",
+  "en": "umbrella",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "☂️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "μαξιλάρι",
+   "τηλεόραση",
+   "φλιτζάνι"
+  ],
+  "distractorsEn": [
+   "pillow",
+   "television",
+   "cup"
+  ]
+ },
+ {
+  "el": "αρκουδάκι",
+  "en": "teddy bear",
+  "category": "home",
+  "grades": "1-2",
+  "emoji": "🧸",
+  "difficulty": 3,
+  "distractorsEl": [
+   "μπάλα",
+   "παζλ",
+   "τρενάκι"
+  ],
+  "distractorsEn": [
+   "ball",
+   "jigsaw puzzle",
+   "toy train"
+  ]
+ },
+ {
+  "el": "μολύβι",
+  "en": "pencil",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "✏️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "γόμα",
+   "ψαλίδι",
+   "κόλλα"
+  ],
+  "distractorsEn": [
+   "eraser",
+   "scissors",
+   "glue"
+  ]
+ },
+ {
+  "el": "βιβλίο",
+  "en": "book",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "📚",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ψαλίδι",
+   "υδρόγειος σφαίρα",
+   "γόμα"
+  ],
+  "distractorsEn": [
+   "scissors",
+   "globe",
+   "eraser"
+  ]
+ },
+ {
+  "el": "τσάντα",
+  "en": "schoolbag",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "🎒",
+  "difficulty": 2,
+  "distractorsEl": [
+   "χάρακας",
+   "μπογιές",
+   "πίνακας"
+  ],
+  "distractorsEn": [
+   "ruler",
+   "paints",
+   "blackboard"
+  ]
+ },
+ {
+  "el": "κουδούνι",
+  "en": "bell",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "🔔",
+  "difficulty": 2,
+  "distractorsEl": [
+   "θρανίο",
+   "πίνακας",
+   "τσάντα"
+  ],
+  "distractorsEn": [
+   "desk",
+   "blackboard",
+   "backpack"
+  ]
+ },
+ {
+  "el": "χάρακας",
+  "en": "ruler",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "📏",
+  "difficulty": 2,
+  "distractorsEl": [
+   "μολύβι",
+   "ψαλίδι",
+   "γόμα"
+  ],
+  "distractorsEn": [
+   "pencil",
+   "scissors",
+   "eraser"
+  ]
+ },
+ {
+  "el": "κύκλος",
+  "en": "circle",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "⭕",
+  "difficulty": 1,
+  "distractorsEl": [
+   "τετράγωνο",
+   "ορθογώνιο",
+   "καρδιά"
+  ],
+  "distractorsEn": [
+   "square",
+   "rectangle",
+   "heart"
+  ]
+ },
+ {
+  "el": "τρίγωνο",
+  "en": "triangle",
+  "category": "school",
+  "grades": "1-2",
+  "emoji": "🔺",
+  "difficulty": 1,
+  "distractorsEl": [
+   "τετράγωνο",
+   "ορθογώνιο",
+   "ρόμβος"
+  ],
+  "distractorsEn": [
+   "square",
+   "rectangle",
+   "diamond"
+  ]
+ },
+ {
+  "el": "δέντρο",
+  "en": "tree",
+  "category": "nature",
+  "grades": "1-2",
+  "emoji": "🌳",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ποτάμι",
+   "βράχος",
+   "χορτάρι"
+  ],
+  "distractorsEn": [
+   "river",
+   "rock",
+   "grass"
+  ]
+ },
+ {
+  "el": "λουλούδι",
+  "en": "flower",
+  "category": "nature",
+  "grades": "1-2",
+  "emoji": "🌸",
+  "difficulty": 1,
+  "distractorsEl": [
+   "μανιτάρι",
+   "πεταλούδα",
+   "κοχύλι"
+  ],
+  "distractorsEn": [
+   "mushroom",
+   "butterfly",
+   "seashell"
+  ]
+ },
+ {
+  "el": "φύλλο",
+  "en": "leaf",
+  "category": "nature",
+  "grades": "1-2",
+  "emoji": "🍃",
+  "difficulty": 2,
+  "distractorsEl": [
+   "βελανίδι",
+   "κουκουνάρι",
+   "πέτρα"
+  ],
+  "distractorsEn": [
+   "acorn",
+   "pine cone",
+   "stone"
+  ]
+ },
+ {
+  "el": "βουνό",
+  "en": "mountain",
+  "category": "nature",
+  "grades": "1-2",
+  "emoji": "⛰️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "παραλία",
+   "λίμνη",
+   "σπηλιά"
+  ],
+  "distractorsEn": [
+   "beach",
+   "lake",
+   "cave"
+  ]
+ },
+ {
+  "el": "θάλασσα",
+  "en": "sea",
+  "category": "nature",
+  "grades": "1-2",
+  "emoji": "🌊",
+  "difficulty": 2,
+  "distractorsEl": [
+   "δάσος",
+   "καταρράκτης",
+   "έρημος"
+  ],
+  "distractorsEn": [
+   "forest",
+   "waterfall",
+   "desert"
+  ]
+ },
+ {
+  "el": "ήλιος",
+  "en": "sun",
+  "category": "weather",
+  "grades": "1-2",
+  "emoji": "☀️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "βροχή",
+   "χιόνι",
+   "ομίχλη"
+  ],
+  "distractorsEn": [
+   "rain",
+   "snow",
+   "fog"
+  ]
+ },
+ {
+  "el": "σύννεφο",
+  "en": "cloud",
+  "category": "weather",
+  "grades": "1-2",
+  "emoji": "☁️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "χιόνι",
+   "άνεμος",
+   "βροχή"
+  ],
+  "distractorsEn": [
+   "snow",
+   "wind",
+   "rain"
+  ]
+ },
+ {
+  "el": "χιονάνθρωπος",
+  "en": "snowman",
+  "category": "weather",
+  "grades": "1-2",
+  "emoji": "⛄",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ουράνιο τόξο",
+   "ομπρέλα",
+   "ήλιος"
+  ],
+  "distractorsEn": [
+   "rainbow",
+   "umbrella",
+   "sun"
+  ]
+ },
+ {
+  "el": "ουράνιο τόξο",
+  "en": "rainbow",
+  "category": "weather",
+  "grades": "1-2",
+  "emoji": "🌈",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ομίχλη",
+   "χαλάζι",
+   "αστραπή"
+  ],
+  "distractorsEn": [
+   "fog",
+   "hail",
+   "lightning"
+  ]
+ },
+ {
+  "el": "φεγγάρι",
+  "en": "moon",
+  "category": "space",
+  "grades": "1-2",
+  "emoji": "🌙",
+  "difficulty": 1,
+  "distractorsEl": [
+   "πύραυλος",
+   "αστροναύτης",
+   "κομήτης"
+  ],
+  "distractorsEn": [
+   "rocket",
+   "astronaut",
+   "comet"
+  ]
+ },
+ {
+  "el": "αστέρι",
+  "en": "star",
+  "category": "space",
+  "grades": "1-2",
+  "emoji": "⭐",
+  "difficulty": 1,
+  "distractorsEl": [
+   "πύραυλος",
+   "αστροναύτης",
+   "πλανήτης"
+  ],
+  "distractorsEn": [
+   "rocket",
+   "astronaut",
+   "planet"
+  ]
+ },
+ {
+  "el": "αυτοκίνητο",
+  "en": "car",
+  "category": "transport",
+  "grades": "1-2",
+  "emoji": "🚗",
+  "difficulty": 1,
+  "distractorsEl": [
+   "λεωφορείο",
+   "ελικόπτερο",
+   "αερόστατο"
+  ],
+  "distractorsEn": [
+   "bus",
+   "helicopter",
+   "hot air balloon"
+  ]
+ },
+ {
+  "el": "ποδήλατο",
+  "en": "bicycle",
+  "category": "transport",
+  "grades": "1-2",
+  "emoji": "🚲",
+  "difficulty": 2,
+  "distractorsEl": [
+   "φορτηγό",
+   "ελικόπτερο",
+   "τρακτέρ"
+  ],
+  "distractorsEn": [
+   "truck",
+   "helicopter",
+   "tractor"
+  ]
+ },
+ {
+  "el": "καράβι",
+  "en": "boat",
+  "category": "transport",
+  "grades": "1-2",
+  "emoji": "⛵",
+  "difficulty": 2,
+  "distractorsEl": [
+   "τρένο",
+   "φορτηγό",
+   "ποδήλατο"
+  ],
+  "distractorsEn": [
+   "train",
+   "truck",
+   "bicycle"
+  ]
+ },
+ {
+  "el": "αεροπλάνο",
+  "en": "airplane",
+  "category": "transport",
+  "grades": "1-2",
+  "emoji": "✈️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "αερόστατο",
+   "λεωφορείο",
+   "μοτοσικλέτα"
+  ],
+  "distractorsEn": [
+   "hot-air balloon",
+   "bus",
+   "motorcycle"
+  ]
+ },
+ {
+  "el": "τρένο",
+  "en": "train",
+  "category": "transport",
+  "grades": "1-2",
+  "emoji": "🚂",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ταξί",
+   "υποβρύχιο",
+   "ελικόπτερο"
+  ],
+  "distractorsEn": [
+   "taxi",
+   "submarine",
+   "helicopter"
+  ]
+ },
+ {
+  "el": "μάτι",
+  "en": "eye",
+  "category": "body",
+  "grades": "1-2",
+  "emoji": "👁️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "αυτί",
+   "μύτη",
+   "στόμα"
+  ],
+  "distractorsEn": [
+   "ear",
+   "nose",
+   "mouth"
+  ]
+ },
+ {
+  "el": "χέρι",
+  "en": "hand",
+  "category": "body",
+  "grades": "1-2",
+  "emoji": "✋",
+  "difficulty": 1,
+  "distractorsEl": [
+   "πόδι",
+   "αυτί",
+   "μύτη"
+  ],
+  "distractorsEn": [
+   "foot",
+   "ear",
+   "nose"
+  ]
+ },
+ {
+  "el": "μπάλα",
+  "en": "ball",
+  "category": "sports",
+  "grades": "1-2",
+  "emoji": "⚽",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ρακέτα",
+   "σφυρίχτρα",
+   "μετάλλιο"
+  ],
+  "distractorsEn": [
+   "racket",
+   "whistle",
+   "medal"
+  ]
+ },
+ {
+  "el": "τύμπανο",
+  "en": "drum",
+  "category": "music",
+  "grades": "1-2",
+  "emoji": "🥁",
+  "difficulty": 3,
+  "distractorsEl": [
+   "κιθάρα",
+   "πιάνο",
+   "βιολί"
+  ],
+  "distractorsEn": [
+   "guitar",
+   "piano",
+   "violin"
+  ]
+ },
+ {
+  "el": "ρολόι",
+  "en": "clock",
+  "category": "tech",
+  "grades": "1-2",
+  "emoji": "🕐",
+  "difficulty": 2,
+  "distractorsEl": [
+   "τηλέφωνο",
+   "υπολογιστής",
+   "φωτογραφική μηχανή"
+  ],
+  "distractorsEn": [
+   "phone",
+   "computer",
+   "camera"
+  ]
+ },
+ {
+  "el": "λεωφορείο",
+  "en": "bus",
+  "category": "transport",
+  "grades": "3-4",
+  "emoji": "🚌",
+  "difficulty": 1,
+  "distractorsEl": [
+   "τρένο",
+   "ποδήλατο",
+   "μοτοσικλέτα"
+  ],
+  "distractorsEn": [
+   "train",
+   "bicycle",
+   "motorcycle"
+  ]
+ },
+ {
+  "el": "ελικόπτερο",
+  "en": "helicopter",
+  "category": "transport",
+  "grades": "3-4",
+  "emoji": "🚁",
+  "difficulty": 3,
+  "distractorsEl": [
+   "αυτοκίνητο",
+   "μοτοσικλέτα",
+   "τρένο"
+  ],
+  "distractorsEn": [
+   "car",
+   "motorcycle",
+   "train"
+  ]
+ },
+ {
+  "el": "Μινώταυρος",
+  "en": "Minotaur",
+  "category": "myth",
+  "grades": "3-4",
+  "emoji": "🐂",
+  "difficulty": 3,
+  "distractorsEl": [
+   "κύκλωπας",
+   "γίγαντας",
+   "νεράιδα"
+  ],
+  "distractorsEn": [
+   "Cyclops",
+   "giant",
+   "fairy"
+  ]
+ },
+ {
+  "el": "λαβύρινθος",
+  "en": "labyrinth",
+  "category": "myth",
+  "grades": "3-4",
+  "emoji": "🌀",
+  "difficulty": 3,
+  "distractorsEl": [
+   "χρυσόμαλλο δέρας",
+   "τρίαινα",
+   "Πήγασος"
+  ],
+  "distractorsEn": [
+   "golden fleece",
+   "trident",
+   "Pegasus"
+  ]
+ },
+ {
+  "el": "Πήγασος",
+  "en": "Pegasus",
+  "category": "myth",
+  "grades": "3-4",
+  "emoji": "🦄",
+  "difficulty": 3,
+  "distractorsEl": [
+   "γρύπας",
+   "φοίνικας",
+   "σφίγγα"
+  ],
+  "distractorsEn": [
+   "griffin",
+   "phoenix",
+   "Sphinx"
+  ]
+ },
+ {
+  "el": "κένταυρος",
+  "en": "centaur",
+  "category": "myth",
+  "grades": "3-4",
+  "emoji": "🐎",
+  "difficulty": 3,
+  "distractorsEl": [
+   "γίγαντας",
+   "νεράιδα",
+   "φοίνικας"
+  ],
+  "distractorsEn": [
+   "giant",
+   "fairy",
+   "phoenix"
+  ]
+ },
+ {
+  "el": "γοργόνα",
+  "en": "mermaid",
+  "category": "myth",
+  "grades": "3-4",
+  "emoji": "🧜",
+  "difficulty": 2,
+  "distractorsEl": [
+   "νεράιδα",
+   "μονόκερος",
+   "κύκλωπας"
+  ],
+  "distractorsEn": [
+   "fairy",
+   "unicorn",
+   "Cyclops"
+  ]
+ },
+ {
+  "el": "δράκος",
+  "en": "dragon",
+  "category": "myth",
+  "grades": "3-4",
+  "emoji": "🐉",
+  "difficulty": 2,
+  "distractorsEl": [
+   "μονόκερος",
+   "γοργόνα",
+   "κένταυρος"
+  ],
+  "distractorsEn": [
+   "unicorn",
+   "mermaid",
+   "centaur"
+  ]
+ },
+ {
+  "el": "ναός",
+  "en": "temple",
+  "category": "history",
+  "grades": "3-4",
+  "emoji": "🏛️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "άγαλμα",
+   "υδραγωγείο",
+   "αρχαίο θέατρο"
+  ],
+  "distractorsEn": [
+   "statue",
+   "aqueduct",
+   "ancient theatre"
+  ]
+ },
+ {
+  "el": "κάστρο",
+  "en": "castle",
+  "category": "history",
+  "grades": "3-4",
+  "emoji": "🏰",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ιππότης",
+   "θρόνος",
+   "πανοπλία"
+  ],
+  "distractorsEn": [
+   "knight",
+   "throne",
+   "suit of armour"
+  ]
+ },
+ {
+  "el": "αμφορέας",
+  "en": "amphora",
+  "category": "history",
+  "grades": "3-4",
+  "emoji": "🏺",
+  "difficulty": 3,
+  "distractorsEl": [
+   "πάπυρος",
+   "αρχαίο νόμισμα",
+   "δάφνινο στεφάνι"
+  ],
+  "distractorsEn": [
+   "papyrus scroll",
+   "ancient coin",
+   "laurel wreath"
+  ]
+ },
+ {
+  "el": "πυραμίδα",
+  "en": "pyramid",
+  "category": "history",
+  "grades": "3-4",
+  "emoji": "🔺",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σφίγγα",
+   "οβελίσκος",
+   "αρχαίο θέατρο"
+  ],
+  "distractorsEn": [
+   "sphinx",
+   "obelisk",
+   "ancient theatre"
+  ]
+ },
+ {
+  "el": "κορώνα",
+  "en": "crown",
+  "category": "history",
+  "grades": "3-4",
+  "emoji": "👑",
+  "difficulty": 1,
+  "distractorsEl": [
+   "θρόνος",
+   "σκήπτρο",
+   "σεντούκι θησαυρού"
+  ],
+  "distractorsEn": [
+   "throne",
+   "scepter",
+   "treasure chest"
+  ]
+ },
+ {
+  "el": "φάρος",
+  "en": "lighthouse",
+  "category": "history",
+  "grades": "3-4",
+  "emoji": "🗼",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ανεμόμυλος",
+   "γέφυρα",
+   "αμφιθέατρο"
+  ],
+  "distractorsEn": [
+   "windmill",
+   "bridge",
+   "amphitheater"
+  ]
+ },
+ {
+  "el": "ηφαίστειο",
+  "en": "volcano",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "🌋",
+  "difficulty": 2,
+  "distractorsEl": [
+   "καταρράκτης",
+   "σπηλιά",
+   "λίμνη"
+  ],
+  "distractorsEn": [
+   "waterfall",
+   "cave",
+   "lake"
+  ]
+ },
+ {
+  "el": "νησί",
+  "en": "island",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "🏝️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "καταρράκτης",
+   "σπηλιά",
+   "ζούγκλα"
+  ],
+  "distractorsEn": [
+   "waterfall",
+   "cave",
+   "jungle"
+  ]
+ },
+ {
+  "el": "ποτάμι",
+  "en": "river",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "🏞️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σπηλιά",
+   "αμμόλοφος",
+   "παραλία"
+  ],
+  "distractorsEn": [
+   "cave",
+   "sand dune",
+   "beach"
+  ]
+ },
+ {
+  "el": "δάσος",
+  "en": "forest",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "🌲",
+  "difficulty": 2,
+  "distractorsEl": [
+   "παραλία",
+   "καταρράκτης",
+   "σπηλιά"
+  ],
+  "distractorsEn": [
+   "beach",
+   "waterfall",
+   "cave"
+  ]
+ },
+ {
+  "el": "καταρράκτης",
+  "en": "waterfall",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "💦",
+  "difficulty": 2,
+  "distractorsEl": [
+   "έρημος",
+   "λιβάδι",
+   "παραλία"
+  ],
+  "distractorsEn": [
+   "desert",
+   "meadow",
+   "beach"
+  ]
+ },
+ {
+  "el": "σπηλιά",
+  "en": "cave",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "🕳️",
+  "difficulty": 3,
+  "distractorsEl": [
+   "λίμνη",
+   "λιβάδι",
+   "παραλία"
+  ],
+  "distractorsEn": [
+   "lake",
+   "meadow",
+   "beach"
+  ]
+ },
+ {
+  "el": "ελιά",
+  "en": "olive tree",
+  "category": "nature",
+  "grades": "3-4",
+  "emoji": "🫒",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ηλιοτρόπιο",
+   "κάκτος",
+   "μανιτάρι"
+  ],
+  "distractorsEn": [
+   "sunflower",
+   "cactus",
+   "mushroom"
+  ]
+ },
+ {
+  "el": "καταιγίδα",
+  "en": "storm",
+  "category": "weather",
+  "grades": "3-4",
+  "emoji": "⛈️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "χιόνι",
+   "ομίχλη",
+   "λιακάδα"
+  ],
+  "distractorsEn": [
+   "snow",
+   "fog",
+   "sunshine"
+  ]
+ },
+ {
+  "el": "αστραπή",
+  "en": "lightning",
+  "category": "weather",
+  "grades": "3-4",
+  "emoji": "⚡",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ουράνιο τόξο",
+   "χιονονιφάδα",
+   "ομπρέλα"
+  ],
+  "distractorsEn": [
+   "rainbow",
+   "snowflake",
+   "umbrella"
+  ]
+ },
+ {
+  "el": "θερμόμετρο",
+  "en": "thermometer",
+  "category": "science",
+  "grades": "3-4",
+  "emoji": "🌡️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ζυγαριά",
+   "κλεψύδρα",
+   "πυξίδα"
+  ],
+  "distractorsEn": [
+   "scales",
+   "hourglass",
+   "compass"
+  ]
+ },
+ {
+  "el": "μαγνήτης",
+  "en": "magnet",
+  "category": "science",
+  "grades": "3-4",
+  "emoji": "🧲",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ζυγαριά",
+   "χωνί",
+   "μεγεθυντικός φακός"
+  ],
+  "distractorsEn": [
+   "scales",
+   "funnel",
+   "magnifying glass"
+  ]
+ },
+ {
+  "el": "πυξίδα",
+  "en": "compass",
+  "category": "science",
+  "grades": "3-4",
+  "emoji": "🧭",
+  "difficulty": 2,
+  "distractorsEl": [
+   "τηλεσκόπιο",
+   "μεγεθυντικός φακός",
+   "κλεψύδρα"
+  ],
+  "distractorsEn": [
+   "telescope",
+   "magnifying glass",
+   "hourglass"
+  ]
+ },
+ {
+  "el": "τηλεσκόπιο",
+  "en": "telescope",
+  "category": "science",
+  "grades": "3-4",
+  "emoji": "🔭",
+  "difficulty": 3,
+  "distractorsEl": [
+   "διαστημόπλοιο",
+   "γαλαξίας",
+   "διαστημική στολή"
+  ],
+  "distractorsEn": [
+   "spaceship",
+   "galaxy",
+   "space suit"
+  ]
+ },
+ {
+  "el": "μικροσκόπιο",
+  "en": "microscope",
+  "category": "science",
+  "grades": "3-4",
+  "emoji": "🔬",
+  "difficulty": 3,
+  "distractorsEl": [
+   "ζυγαριά",
+   "χωνί",
+   "πυξίδα"
+  ],
+  "distractorsEn": [
+   "scales",
+   "funnel",
+   "compass"
+  ]
+ },
+ {
+  "el": "μεγεθυντικός φακός",
+  "en": "magnifying glass",
+  "category": "science",
+  "grades": "3-4",
+  "emoji": "🔍",
+  "difficulty": 2,
+  "distractorsEl": [
+   "πυξίδα",
+   "μαγνήτης",
+   "κλεψύδρα"
+  ],
+  "distractorsEn": [
+   "compass",
+   "magnet",
+   "hourglass"
+  ]
+ },
+ {
+  "el": "πύραυλος",
+  "en": "rocket",
+  "category": "space",
+  "grades": "3-4",
+  "emoji": "🚀",
+  "difficulty": 1,
+  "distractorsEl": [
+   "γαλαξίας",
+   "διαστημική στολή",
+   "φεγγάρι"
+  ],
+  "distractorsEn": [
+   "galaxy",
+   "space suit",
+   "moon"
+  ]
+ },
+ {
+  "el": "πλανήτης",
+  "en": "planet",
+  "category": "space",
+  "grades": "3-4",
+  "emoji": "🪐",
+  "difficulty": 2,
+  "distractorsEl": [
+   "γαλαξίας",
+   "διαστημόπλοιο",
+   "διαστημικός σταθμός"
+  ],
+  "distractorsEn": [
+   "galaxy",
+   "spaceship",
+   "space station"
+  ]
+ },
+ {
+  "el": "αστροναύτης",
+  "en": "astronaut",
+  "category": "space",
+  "grades": "3-4",
+  "emoji": "👨‍🚀",
+  "difficulty": 2,
+  "distractorsEl": [
+   "μάγειρας",
+   "δάσκαλος",
+   "ταχυδρόμος"
+  ],
+  "distractorsEn": [
+   "chef",
+   "teacher",
+   "mail carrier"
+  ]
+ },
+ {
+  "el": "ψαράς",
+  "en": "fisherman",
+  "category": "jobs",
+  "grades": "3-4",
+  "emoji": "🎣",
+  "difficulty": 2,
+  "distractorsEl": [
+   "φούρναρης",
+   "ταχυδρόμος",
+   "δάσκαλος"
+  ],
+  "distractorsEn": [
+   "baker",
+   "postman",
+   "teacher"
+  ]
+ },
+ {
+  "el": "αγρότης",
+  "en": "farmer",
+  "category": "jobs",
+  "grades": "3-4",
+  "emoji": "👨‍🌾",
+  "difficulty": 2,
+  "distractorsEl": [
+   "γιατρός",
+   "ταχυδρόμος",
+   "δάσκαλος"
+  ],
+  "distractorsEn": [
+   "doctor",
+   "postman",
+   "teacher"
+  ]
+ },
+ {
+  "el": "φούρναρης",
+  "en": "baker",
+  "category": "jobs",
+  "grades": "3-4",
+  "emoji": "🥖",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ψαράς",
+   "αστυνομικός",
+   "δάσκαλος"
+  ],
+  "distractorsEn": [
+   "fisherman",
+   "police officer",
+   "teacher"
+  ]
+ },
+ {
+  "el": "πυροσβέστης",
+  "en": "firefighter",
+  "category": "jobs",
+  "grades": "3-4",
+  "emoji": "🚒",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ταχυδρόμος",
+   "αγρότης",
+   "αστυνομικός"
+  ],
+  "distractorsEn": [
+   "postman",
+   "farmer",
+   "police officer"
+  ]
+ },
+ {
+  "el": "δελφίνι",
+  "en": "dolphin",
+  "category": "animals",
+  "grades": "3-4",
+  "emoji": "🐬",
+  "difficulty": 1,
+  "distractorsEl": [
+   "χελώνα",
+   "παπαγάλος",
+   "κουνέλι"
+  ],
+  "distractorsEn": [
+   "turtle",
+   "parrot",
+   "rabbit"
+  ]
+ },
+ {
+  "el": "βάτραχος",
+  "en": "frog",
+  "category": "animals",
+  "grades": "3-4",
+  "emoji": "🐸",
+  "difficulty": 1,
+  "distractorsEl": [
+   "χελώνα",
+   "σκίουρος",
+   "παπαγάλος"
+  ],
+  "distractorsEn": [
+   "turtle",
+   "squirrel",
+   "parrot"
+  ]
+ },
+ {
+  "el": "αετός",
+  "en": "eagle",
+  "category": "animals",
+  "grades": "3-4",
+  "emoji": "🦅",
+  "difficulty": 2,
+  "distractorsEl": [
+   "κουνέλι",
+   "χελώνα",
+   "σκίουρος"
+  ],
+  "distractorsEn": [
+   "rabbit",
+   "turtle",
+   "squirrel"
+  ]
+ },
+ {
+  "el": "τηλεόραση",
+  "en": "television",
+  "category": "tech",
+  "grades": "3-4",
+  "emoji": "📺",
+  "difficulty": 1,
+  "distractorsEl": [
+   "τηλέφωνο",
+   "φωτογραφική μηχανή",
+   "ρομπότ"
+  ],
+  "distractorsEn": [
+   "telephone",
+   "camera",
+   "robot"
+  ]
+ },
+ {
+  "el": "ραδιόφωνο",
+  "en": "radio",
+  "category": "tech",
+  "grades": "3-4",
+  "emoji": "📻",
+  "difficulty": 2,
+  "distractorsEl": [
+   "τηλέφωνο",
+   "φωτογραφική μηχανή",
+   "ρομπότ"
+  ],
+  "distractorsEn": [
+   "telephone",
+   "camera",
+   "robot"
+  ]
+ },
+ {
+  "el": "χάρτης",
+  "en": "map",
+  "category": "school",
+  "grades": "3-4",
+  "emoji": "🗺️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "βιβλίο",
+   "χάρακας",
+   "μολύβι"
+  ],
+  "distractorsEn": [
+   "book",
+   "ruler",
+   "pencil"
+  ]
+ },
+ {
+  "el": "ποδόσφαιρο",
+  "en": "football",
+  "category": "sports",
+  "grades": "3-4",
+  "emoji": "⚽",
+  "difficulty": 1,
+  "distractorsEl": [
+   "μπάσκετ",
+   "τένις",
+   "κολύμβηση"
+  ],
+  "distractorsEn": [
+   "basketball",
+   "tennis",
+   "swimming"
+  ]
+ },
+ {
+  "el": "καρδιά",
+  "en": "heart",
+  "category": "body",
+  "grades": "3-4",
+  "emoji": "❤️",
+  "difficulty": 1,
+  "distractorsEl": [
+   "εγκέφαλος",
+   "στομάχι",
+   "μάτι"
+  ],
+  "distractorsEn": [
+   "brain",
+   "stomach",
+   "eye"
+  ]
+ },
+ {
+  "el": "έρημος",
+  "en": "desert",
+  "category": "nature",
+  "grades": "5-6",
+  "emoji": "🏜️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ζούγκλα",
+   "λίμνη",
+   "σπηλιά"
+  ],
+  "distractorsEn": [
+   "jungle",
+   "lake",
+   "cave"
+  ]
+ },
+ {
+  "el": "παγόβουνο",
+  "en": "iceberg",
+  "category": "nature",
+  "grades": "5-6",
+  "emoji": "🧊",
+  "difficulty": 3,
+  "distractorsEl": [
+   "αμμόλοφος",
+   "καταρράκτης",
+   "ζούγκλα"
+  ],
+  "distractorsEn": [
+   "sand dune",
+   "waterfall",
+   "jungle"
+  ]
+ },
+ {
+  "el": "δορυφόρος",
+  "en": "satellite",
+  "category": "space",
+  "grades": "5-6",
+  "emoji": "🛰️",
+  "difficulty": 3,
+  "distractorsEl": [
+   "γαλαξίας",
+   "φεγγάρι",
+   "διαστημική στολή"
+  ],
+  "distractorsEn": [
+   "galaxy",
+   "moon",
+   "space suit"
+  ]
+ },
+ {
+  "el": "κομήτης",
+  "en": "comet",
+  "category": "space",
+  "grades": "5-6",
+  "emoji": "☄️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "γαλαξίας",
+   "διαστημικός σταθμός",
+   "διαστημική στολή"
+  ],
+  "distractorsEn": [
+   "galaxy",
+   "space station",
+   "space suit"
+  ]
+ },
+ {
+  "el": "μπαταρία",
+  "en": "battery",
+  "category": "science",
+  "grades": "5-6",
+  "emoji": "🔋",
+  "difficulty": 1,
+  "distractorsEl": [
+   "πυξίδα",
+   "ζυγαριά",
+   "χωνί"
+  ],
+  "distractorsEn": [
+   "compass",
+   "scales",
+   "funnel"
+  ]
+ },
+ {
+  "el": "λάμπα",
+  "en": "light bulb",
+  "category": "science",
+  "grades": "5-6",
+  "emoji": "💡",
+  "difficulty": 1,
+  "distractorsEl": [
+   "μεγεθυντικός φακός",
+   "πυξίδα",
+   "ζυγαριά"
+  ],
+  "distractorsEn": [
+   "magnifying glass",
+   "compass",
+   "scales"
+  ]
+ },
+ {
+  "el": "καθρέφτης",
+  "en": "mirror",
+  "category": "science",
+  "grades": "5-6",
+  "emoji": "🪞",
+  "difficulty": 2,
+  "distractorsEl": [
+   "κλεψύδρα",
+   "ζυγαριά",
+   "χωνί"
+  ],
+  "distractorsEn": [
+   "hourglass",
+   "scales",
+   "funnel"
+  ]
+ },
+ {
+  "el": "δοκιμαστικός σωλήνας",
+  "en": "test tube",
+  "category": "science",
+  "grades": "5-6",
+  "emoji": "🧪",
+  "difficulty": 2,
+  "distractorsEl": [
+   "χωνί",
+   "ζυγαριά",
+   "μεγεθυντικός φακός"
+  ],
+  "distractorsEn": [
+   "funnel",
+   "scales",
+   "magnifying glass"
+  ]
+ },
+ {
+  "el": "ρομπότ",
+  "en": "robot",
+  "category": "tech",
+  "grades": "5-6",
+  "emoji": "🤖",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ντρόουν",
+   "φωτογραφική μηχανή",
+   "εκτυπωτής"
+  ],
+  "distractorsEn": [
+   "drone",
+   "camera",
+   "printer"
+  ]
+ },
+ {
+  "el": "υπολογιστής",
+  "en": "computer",
+  "category": "tech",
+  "grades": "5-6",
+  "emoji": "💻",
+  "difficulty": 1,
+  "distractorsEl": [
+   "εκτυπωτής",
+   "ντρόουν",
+   "φωτογραφική μηχανή"
+  ],
+  "distractorsEn": [
+   "printer",
+   "drone",
+   "camera"
+  ]
+ },
+ {
+  "el": "ανεμογεννήτρια",
+  "en": "wind turbine",
+  "category": "tech",
+  "grades": "5-6",
+  "emoji": "🌬️",
+  "difficulty": 3,
+  "distractorsEl": [
+   "γερανός",
+   "δορυφορικό πιάτο",
+   "ντρόουν"
+  ],
+  "distractorsEn": [
+   "crane",
+   "satellite dish",
+   "drone"
+  ]
+ },
+ {
+  "el": "ηλιακός συλλέκτης",
+  "en": "solar panel",
+  "category": "tech",
+  "grades": "5-6",
+  "emoji": "☀️",
+  "difficulty": 3,
+  "distractorsEl": [
+   "γερανός",
+   "φάρος",
+   "εκτυπωτής"
+  ],
+  "distractorsEn": [
+   "crane",
+   "lighthouse",
+   "printer"
+  ]
+ },
+ {
+  "el": "κεραυνός",
+  "en": "lightning",
+  "category": "weather",
+  "grades": "5-6",
+  "emoji": "⚡",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ουράνιο τόξο",
+   "χιονονιφάδα",
+   "ομίχλη"
+  ],
+  "distractorsEn": [
+   "rainbow",
+   "snowflake",
+   "fog"
+  ]
+ },
+ {
+  "el": "χιονονιφάδα",
+  "en": "snowflake",
+  "category": "weather",
+  "grades": "5-6",
+  "emoji": "❄️",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σταγόνα βροχής",
+   "σύννεφο",
+   "ομίχλη"
+  ],
+  "distractorsEn": [
+   "raindrop",
+   "cloud",
+   "fog"
+  ]
+ },
+ {
+  "el": "σημαία",
+  "en": "flag",
+  "category": "history",
+  "grades": "5-6",
+  "emoji": "🚩",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ασπίδα",
+   "άρμα",
+   "στέμμα"
+  ],
+  "distractorsEn": [
+   "shield",
+   "chariot",
+   "crown"
+  ]
+ },
+ {
+  "el": "πλοίο",
+  "en": "ship",
+  "category": "transport",
+  "grades": "5-6",
+  "emoji": "🚢",
+  "difficulty": 1,
+  "distractorsEl": [
+   "ελικόπτερο",
+   "ποδήλατο",
+   "φορτηγό"
+  ],
+  "distractorsEn": [
+   "helicopter",
+   "bicycle",
+   "truck"
+  ]
+ },
+ {
+  "el": "γέφυρα",
+  "en": "bridge",
+  "category": "transport",
+  "grades": "5-6",
+  "emoji": "🌉",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σήραγγα",
+   "φανάρι",
+   "πινακίδα στοπ"
+  ],
+  "distractorsEn": [
+   "tunnel",
+   "traffic light",
+   "stop sign"
+  ]
+ },
+ {
+  "el": "πνεύμονες",
+  "en": "lungs",
+  "category": "body",
+  "grades": "5-6",
+  "emoji": "🫁",
+  "difficulty": 3,
+  "distractorsEl": [
+   "εγκέφαλος",
+   "στομάχι",
+   "νεφρά"
+  ],
+  "distractorsEn": [
+   "brain",
+   "stomach",
+   "kidneys"
+  ]
+ },
+ {
+  "el": "δόντι",
+  "en": "tooth",
+  "category": "body",
+  "grades": "5-6",
+  "emoji": "🦷",
+  "difficulty": 1,
+  "distractorsEl": [
+   "αυτί",
+   "μάτι",
+   "δάχτυλο"
+  ],
+  "distractorsEn": [
+   "ear",
+   "eye",
+   "finger"
+  ]
+ },
+ {
+  "el": "καμήλα",
+  "en": "camel",
+  "category": "animals",
+  "grades": "5-6",
+  "emoji": "🐫",
+  "difficulty": 2,
+  "distractorsEl": [
+   "ελέφαντας",
+   "καμηλοπάρδαλη",
+   "ζέβρα"
+  ],
+  "distractorsEn": [
+   "elephant",
+   "giraffe",
+   "zebra"
+  ]
+ },
+ {
+  "el": "καγκουρό",
+  "en": "kangaroo",
+  "category": "animals",
+  "grades": "5-6",
+  "emoji": "🦘",
+  "difficulty": 2,
+  "distractorsEl": [
+   "κοάλα",
+   "ιπποπόταμος",
+   "παπαγάλος"
+  ],
+  "distractorsEn": [
+   "koala",
+   "hippopotamus",
+   "parrot"
+  ]
+ },
+ {
+  "el": "φάλαινα",
+  "en": "whale",
+  "category": "animals",
+  "grades": "5-6",
+  "emoji": "🐋",
+  "difficulty": 1,
+  "distractorsEl": [
+   "χταπόδι",
+   "χελώνα",
+   "φώκια"
+  ],
+  "distractorsEn": [
+   "octopus",
+   "turtle",
+   "seal"
+  ]
+ },
+ {
+  "el": "πιγκουίνος",
+  "en": "penguin",
+  "category": "animals",
+  "grades": "5-6",
+  "emoji": "🐧",
+  "difficulty": 1,
+  "distractorsEl": [
+   "πολική αρκούδα",
+   "κουκουβάγια",
+   "αλεπού"
+  ],
+  "distractorsEn": [
+   "polar bear",
+   "owl",
+   "fox"
+  ]
+ },
+ {
+  "el": "υδρόγειος σφαίρα",
+  "en": "globe",
+  "category": "school",
+  "grades": "5-6",
+  "emoji": "🌍",
+  "difficulty": 2,
+  "distractorsEl": [
+   "μικροσκόπιο",
+   "αριθμητήριο",
+   "μαυροπίνακας"
+  ],
+  "distractorsEn": [
+   "microscope",
+   "abacus",
+   "blackboard"
+  ]
+ },
+ {
+  "el": "κιθάρα",
+  "en": "guitar",
+  "category": "music",
+  "grades": "5-6",
+  "emoji": "🎸",
+  "difficulty": 2,
+  "distractorsEl": [
+   "τύμπανο",
+   "πιάνο",
+   "τρομπέτα"
+  ],
+  "distractorsEn": [
+   "drum",
+   "piano",
+   "trumpet"
+  ]
+ },
+ {
+  "el": "κύπελλο",
+  "en": "trophy",
+  "category": "sports",
+  "grades": "5-6",
+  "emoji": "🏆",
+  "difficulty": 1,
+  "distractorsEl": [
+   "σφυρίχτρα",
+   "μπάλα ποδοσφαίρου",
+   "χρονόμετρο"
+  ],
+  "distractorsEn": [
+   "whistle",
+   "soccer ball",
+   "stopwatch"
+  ]
+ },
+ {
+  "el": "ρακέτα",
+  "en": "racket",
+  "category": "sports",
+  "grades": "3-4",
+  "emoji": "🎾",
+  "difficulty": 2,
+  "distractorsEl": [
+   "σφυρίχτρα",
+   "σκοινάκι",
+   "μετάλλιο"
+  ],
+  "distractorsEn": [
+   "whistle",
+   "jump rope",
+   "medal"
+  ]
+ },
+ {
+  "el": "πιάνο",
+  "en": "piano",
+  "category": "music",
+  "grades": "3-4",
+  "emoji": "🎹",
+  "difficulty": 3,
+  "distractorsEl": [
+   "βιολί",
+   "τρομπέτα",
+   "φλάουτο"
+  ],
+  "distractorsEn": [
+   "violin",
+   "trumpet",
+   "flute"
+  ]
+ },
+ {
+  "el": "ζωγράφος",
+  "en": "painter",
+  "category": "jobs",
+  "grades": "3-4",
+  "emoji": "🎨",
+  "difficulty": 3,
+  "distractorsEl": [
+   "ταχυδρόμος",
+   "κηπουρός",
+   "μάγειρας"
+  ],
+  "distractorsEn": [
+   "postman",
+   "gardener",
+   "cook"
+  ]
+ },
+ {
+  "el": "πίτσα",
+  "en": "pizza",
+  "category": "food",
+  "grades": "3-4",
+  "emoji": "🍕",
+  "difficulty": 2,
+  "distractorsEl": [
+   "μακαρόνια",
+   "σαλάτα",
+   "σούπα"
+  ],
+  "distractorsEn": [
+   "spaghetti",
+   "salad",
+   "soup"
+  ]
+ },
+ {
+  "el": "ακουστικά",
+  "en": "headphones",
+  "category": "tech",
+  "grades": "3-4",
+  "emoji": "🎧",
+  "difficulty": 2,
+  "distractorsEl": [
+   "πληκτρολόγιο",
+   "φωτογραφική μηχανή",
+   "ποντίκι υπολογιστή"
+  ],
+  "distractorsEn": [
+   "keyboard",
+   "camera",
+   "computer mouse"
+  ]
+ },
+ {
+  "el": "σκούπα",
+  "en": "broom",
+  "category": "home",
+  "grades": "3-4",
+  "emoji": "🧹",
+  "difficulty": 2,
+  "distractorsEl": [
+   "κουβάς",
+   "πιρούνι",
+   "μαξιλάρι"
+  ],
+  "distractorsEn": [
+   "bucket",
+   "fork",
+   "pillow"
+  ]
+ },
+ {
+  "el": "μπασκέτα",
+  "en": "basketball hoop",
+  "category": "sports",
+  "grades": "5-6",
+  "emoji": "🏀",
+  "difficulty": 4,
+  "distractorsEl": [
+   "σφυρίχτρα",
+   "σκι",
+   "τραμπολίνο"
+  ],
+  "distractorsEn": [
+   "whistle",
+   "skis",
+   "trampoline"
+  ]
+ },
+ {
+  "el": "μετάλλιο",
+  "en": "medal",
+  "category": "sports",
+  "grades": "5-6",
+  "emoji": "🏅",
+  "difficulty": 4,
+  "distractorsEl": [
+   "δίχτυ",
+   "τραμπολίνο",
+   "σκι"
+  ],
+  "distractorsEn": [
+   "net",
+   "trampoline",
+   "skis"
+  ]
+ },
+ {
+  "el": "βιολί",
+  "en": "violin",
+  "category": "music",
+  "grades": "5-6",
+  "emoji": "🎻",
+  "difficulty": 4,
+  "distractorsEl": [
+   "τρομπέτα",
+   "φλάουτο",
+   "ταμπουρίνο"
+  ],
+  "distractorsEn": [
+   "trumpet",
+   "flute",
+   "tambourine"
+  ]
+ },
+ {
+  "el": "μικρόφωνο",
+  "en": "microphone",
+  "category": "music",
+  "grades": "5-6",
+  "emoji": "🎤",
+  "difficulty": 3,
+  "distractorsEl": [
+   "ηχείο",
+   "παρτιτούρα",
+   "μεταλλόφωνο"
+  ],
+  "distractorsEn": [
+   "speaker",
+   "sheet music",
+   "xylophone"
+  ]
+ },
+ {
+  "el": "δύτης",
+  "en": "diver",
+  "category": "jobs",
+  "grades": "5-6",
+  "emoji": "🤿",
+  "difficulty": 5,
+  "distractorsEl": [
+   "ναυαγοσώστης",
+   "ορειβάτης",
+   "κηπουρός"
+  ],
+  "distractorsEn": [
+   "lifeguard",
+   "mountain climber",
+   "gardener"
+  ]
+ },
+ {
+  "el": "ταχυδρόμος",
+  "en": "postman",
+  "category": "jobs",
+  "grades": "5-6",
+  "emoji": "📬",
+  "difficulty": 4,
+  "distractorsEl": [
+   "κουρέας",
+   "βιβλιοθηκάριος",
+   "μηχανικός"
+  ],
+  "distractorsEn": [
+   "barber",
+   "librarian",
+   "mechanic"
+  ]
+ },
+ {
+  "el": "εγκέφαλος",
+  "en": "brain",
+  "category": "body",
+  "grades": "5-6",
+  "emoji": "🧠",
+  "difficulty": 4,
+  "distractorsEl": [
+   "νεφρό",
+   "στομάχι",
+   "γλώσσα"
+  ],
+  "distractorsEn": [
+   "kidney",
+   "stomach",
+   "tongue"
+  ]
+ },
+ {
+  "el": "οστό",
+  "en": "bone",
+  "category": "body",
+  "grades": "5-6",
+  "emoji": "🦴",
+  "difficulty": 3,
+  "distractorsEl": [
+   "αυτί",
+   "νεφρό",
+   "γλώσσα"
+  ],
+  "distractorsEn": [
+   "ear",
+   "kidney",
+   "tongue"
+  ]
+ },
+ {
+  "el": "καρπούζι",
+  "en": "watermelon",
+  "category": "food",
+  "grades": "5-6",
+  "emoji": "🍉",
+  "difficulty": 3,
+  "distractorsEl": [
+   "σταφύλι",
+   "ανανάς",
+   "φράουλα"
+  ],
+  "distractorsEn": [
+   "grapes",
+   "pineapple",
+   "strawberry"
+  ]
+ },
+ {
+  "el": "φωτογραφική μηχανή",
+  "en": "camera",
+  "category": "tech",
+  "grades": "5-6",
+  "emoji": "📷",
+  "difficulty": 4,
+  "distractorsEl": [
+   "ηχείο",
+   "τηλεχειριστήριο",
+   "φορτιστής"
+  ],
+  "distractorsEn": [
+   "speaker",
+   "remote control",
+   "charger"
+  ]
+ },
+ {
+  "el": "εκτυπωτής",
+  "en": "printer",
+  "category": "tech",
+  "grades": "5-6",
+  "emoji": "🖨️",
+  "difficulty": 5,
+  "distractorsEl": [
+   "πρίζα",
+   "ηχείο",
+   "τηλεχειριστήριο"
+  ],
+  "distractorsEn": [
+   "power socket",
+   "speaker",
+   "remote control"
+  ]
+ },
+ {
+  "el": "σκάλα",
+  "en": "ladder",
+  "category": "home",
+  "grades": "5-6",
+  "emoji": "🪜",
+  "difficulty": 3,
+  "distractorsEl": [
+   "ντουλάπα",
+   "χαλί",
+   "ράφι"
+  ],
+  "distractorsEn": [
+   "wardrobe",
+   "carpet",
+   "shelf"
+  ]
+ },
+ {
+  "el": "τζάκι",
+  "en": "fireplace",
+  "category": "home",
+  "grades": "5-6",
+  "emoji": "🔥",
+  "difficulty": 5,
+  "distractorsEl": [
+   "καναπές",
+   "κουρτίνα",
+   "ψυγείο"
+  ],
+  "distractorsEn": [
+   "sofa",
+   "curtain",
+   "fridge"
+  ]
+ },
+ {
+  "el": "ζυγαριά",
+  "en": "scales",
+  "category": "science",
+  "grades": "5-6",
+  "emoji": "⚖️",
+  "difficulty": 4,
+  "distractorsEl": [
+   "χωνί",
+   "σταγονόμετρο",
+   "κλεψύδρα"
+  ],
+  "distractorsEn": [
+   "funnel",
+   "dropper",
+   "hourglass"
+  ]
+ },
+ {
+  "el": "γρανάζι",
+  "en": "gear",
+  "category": "science",
+  "grades": "5-6",
+  "emoji": "⚙️",
+  "difficulty": 4,
+  "distractorsEl": [
+   "ελατήριο",
+   "βίδα",
+   "τροχαλία"
+  ],
+  "distractorsEn": [
+   "spring",
+   "screw",
+   "pulley"
+  ]
+ },
+ {
+  "el": "γαλαξίας",
+  "en": "galaxy",
+  "category": "space",
+  "grades": "5-6",
+  "emoji": "🌌",
+  "difficulty": 5,
+  "distractorsEl": [
+   "αστερισμός",
+   "νεφέλωμα",
+   "μετεωρίτης"
+  ],
+  "distractorsEn": [
+   "constellation",
+   "nebula",
+   "meteorite"
+  ]
+ },
+ {
+  "el": "θεατρική μάσκα",
+  "en": "theatre mask",
+  "category": "culture",
+  "grades": "5-6",
+  "emoji": "🎭",
+  "difficulty": 4,
+  "distractorsEl": [
+   "λύρα",
+   "στεφάνι δάφνης",
+   "σανδάλι"
+  ],
+  "distractorsEn": [
+   "lyre",
+   "laurel wreath",
+   "sandal"
+  ]
+ },
+ {
+  "el": "άγαλμα",
+  "en": "statue",
+  "category": "history",
+  "grades": "5-6",
+  "emoji": "🗿",
+  "difficulty": 5,
+  "distractorsEl": [
+   "μωσαϊκό",
+   "σιντριβάνι",
+   "νόμισμα"
+  ],
+  "distractorsEn": [
+   "mosaic",
+   "fountain",
+   "coin"
+  ]
+ },
+ {
+  "el": "κάδος ανακύκλωσης",
+  "en": "recycling bin",
+  "category": "environment",
+  "grades": "5-6",
+  "emoji": "♻️",
+  "difficulty": 4,
+  "distractorsEl": [
+   "πλαστικό μπουκάλι",
+   "κομπόστ",
+   "φίλτρο νερού"
+  ],
+  "distractorsEn": [
+   "plastic bottle",
+   "compost",
+   "water filter"
+  ]
+ }
+]
