@@ -157,7 +157,23 @@ function giveawayRate(
  */
 const GIVEAWAY_LIMIT = 0.4;
 
-/** The sentence a failing giveaway test prints, so both strategies explain themselves. */
+/**
+ * The sentence a failing giveaway test prints.
+ *
+ * Each direction has exactly one safe repair and they are not the same one, so the
+ * message says which. Getting this backwards costs real work: lengthening the wrong
+ * answers does nothing for a correct answer that is already the shortest of the four.
+ *
+ * The shortest case carries a warning the longest case does not need, and it was learnt
+ * the expensive way. The only way to fix «the right answer is the shortest» is to bring
+ * the three wrong ones DOWN towards it — padding the right one just trades this tell for
+ * the other. But a distractor is very often padded WITH the very thing that makes it
+ * false: the qualifier, the superlative, the invented detail. Trim that away and you are
+ * left with a bare sentence that is simply true, and the question now has two right
+ * answers. It has already happened — twenty distractors across three cities became true
+ * statements, every mechanical check passed, and both strategies sat at chance. No test
+ * can see this. A person has to read every distractor that lost a qualifier.
+ */
 const giveawayMessage = (
   label: string,
   lang: string,
@@ -169,8 +185,10 @@ const giveawayMessage = (
   `${label}/${lang}: tapping the ${pick} answer scores ${Math.round(rate * 100)}% of ${total} ` +
   `questions. ${
     pick === 'longest'
-      ? 'Shorten the right answer and move its reason into the explanation.'
-      : 'Lengthen the three wrong answers — never pad the right one, which only trades one tell for the other.'
+      ? 'Shorten the RIGHT answer and move its reason into the explanation; the knowledge is not lost, only the tell.'
+      : 'Shorten the three WRONG answers towards the right one — never pad the right one. ' +
+        'Then read every wrong answer you trimmed: the padding is often what made it false, ' +
+        'and a trimmed distractor that has become true is a second right answer no test can see.'
   } Worst: ${worst.slice(0, 6).join(', ')}`;
 
 /** Real neighbours declared in a city's seed file, so a true adjacency is on record. */
