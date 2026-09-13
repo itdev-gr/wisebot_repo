@@ -1,0 +1,45 @@
+{
+  "city": "lisbon",
+  "country": "portugal",
+  "centre": { "lat": 38.70804, "lng": -9.13902 },
+  "note": "Wikidata q-ids only. CENTRE is Wikidata's own point for the city (Q597), the same convention athens.json, paris.json and porto.json follow; the nearest place to it is the Arco da Rua Augusta at 196 m, so nothing trips the centroid-mistake check. All ten Explorer spots for this city carried over: every one of them had a Wikidata item whose Portuguese description says Lisboa, and none of them collided. Their hand-written lat/lng were not consulted — this seed exists precisely to replace them. Six places are new, and the reason for each is written on it below. Every search here was run in Portuguese and the description read: 'Praça do Comércio' alone returns squares in Coimbra, Rio de Janeiro and Olinda before the Lisbon one, and 'Mercado da Ribeira' returns Olinda, Bilbao and Tavira. No entrance is claimed anywhere: no door in this city has been measured, so every point is the centroid, area or viewpoint it actually is. TWO PLACES WERE SEEDED AND THEN DROPPED, both graded D on the first pass and neither fixable by picking a different item. (1) Ponte 25 de Abril (Q721152): Wikipedia's point sits 567 m from Wikidata's, past even the 500 m tolerance an 'area' gets, because the bridge is 2.3 km long and the two sources picked different spans. There is no Wikidata item for a single span or for the Pilar 7 visitor lift, so there is nothing better to point at; the bridge is described inside the castle and Padrão stories instead of carrying a pin of its own. (2) Museu Nacional dos Coches (Q1659559): this is the classic institution-not-building failure. The collection lives in a 2015 building on Avenida da Índia and its old home, the Picadeiro Real de Belém, is across the road; Wikidata's point is the institution, OSM's is 80 m off it and Wikipedia's 181 m off it, so the three sources are pointing at two different doors. Q107104537, the Picadeiro Real, resolves cleanly but is the annexe rather than the museum a visitor is sent to, so it was not substituted. The Museu de Marinha took the slot.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "lisbon-praca-do-comercio", "name": "Praça do Comércio", "wikidata": "Q999002", "anchor": "area" },
+    { "id": "lisbon-arco-da-rua-augusta", "name": "Arco da Rua Augusta", "wikidata": "Q637590", "anchor": "centroid" },
+    { "id": "lisbon-elevador-de-santa-justa", "name": "Elevador de Santa Justa", "wikidata": "Q168001", "anchor": "centroid" },
+
+    { "id": "lisbon-rossio", "name": "Rossio (Praça de D. Pedro IV)", "wikidata": "Q1549270", "anchor": "area",
+      "note": "The square, not the railway station. 'Rossio' on Wikidata also returns Estação do Rossio (Q1348648), a different building 150 m north-west with its own horseshoe doorways; the Explorer spot is the square with the wave pavement, so the square is what is pinned." },
+
+    { "id": "lisbon-se-de-lisboa", "name": "Sé de Lisboa", "wikidata": "Q432290", "anchor": "centroid" },
+    { "id": "lisbon-castelo-de-sao-jorge", "name": "Castelo de São Jorge", "wikidata": "Q636780", "anchor": "area" },
+    { "id": "lisbon-miradouro-de-santa-luzia", "name": "Miradouro de Santa Luzia", "wikidata": "Q6837314", "anchor": "viewpoint" },
+    { "id": "lisbon-torre-de-belem", "name": "Torre de Belém", "wikidata": "Q215003", "anchor": "centroid" },
+    { "id": "lisbon-padrao-dos-descobrimentos", "name": "Padrão dos Descobrimentos", "wikidata": "Q1133712", "anchor": "centroid" },
+
+    { "id": "lisbon-mosteiro-dos-jeronimos", "name": "Mosteiro dos Jerónimos", "wikidata": "Q272781", "anchor": "area",
+      "note": "The monastery building (Q272781), not the World Heritage listing 'Mosteiro dos Jerónimos e Torre de Belém' (Q15229898), which is an inscription covering two places a kilometre apart and would pin neither." },
+
+    { "id": "lisbon-museu-de-marinha", "name": "Museu de Marinha", "wikidata": "Q1540177", "anchor": "centroid",
+      "note": "Added, and the first of the two museums with an interior — Explorer has no museum model at all. It occupies the west wing of the Jerónimos monastery and its own point sits 236 m from the monastery's, well clear of the 25 m separation rule: two doors, two visits, two pins. It replaced the Museu Nacional dos Coches, which graded D; the reason is in this file's top note." },
+
+    { "id": "lisbon-museu-nacional-do-azulejo", "name": "Museu Nacional do Azulejo", "wikidata": "Q2313815", "anchor": "centroid",
+      "note": "Added, the second museum with an interior. The museum (Q2313815), not the Igreja da Madre de Deus (Q11156794), which is the church inside the same former convent and is a separate Wikidata item: pinning the church would have pinned a chapel rather than the entrance hall a visitor walks into." },
+
+    { "id": "lisbon-oceanario-de-lisboa", "name": "Oceanário de Lisboa", "wikidata": "Q652806", "anchor": "centroid",
+      "note": "Added. Nothing in the Explorer ten is east of Alfama, and the whole Parque das Nações half of the city was missing." },
+
+    { "id": "lisbon-aqueduto-das-aguas-livres", "name": "Aqueduto das Águas Livres", "wikidata": "Q623228",
+      "anchor": "area",
+      "note": "Added. The Lisbon item (Q623228), not Q66814415/Q66814423/Q66814470, which are the Odivelas, Oeiras and Sintra stretches of the same aqueduct listed as separate heritage items in other municipalities. 'area' because the structure runs eighteen kilometres; Wikidata's point is on the great arches over the Alcântara valley, which is the part a visitor walks across." },
+
+    { "id": "lisbon-estadio-da-luz", "name": "Estádio da Luz", "wikidata": "Q7875112",
+      "anchor": "centroid",
+      "note": "Added, for the sport category. Q7875112 is the stadium opened in 2003. Q2736585 is the OLD Estádio da Luz on nearly the same ground, demolished in 2003, and Q31969 is the Stadium of Light in Sunderland, England — three items, one obvious-looking search." },
+
+    { "id": "lisbon-pasteis-de-belem", "name": "Fábrica dos Pastéis de Belém", "wikidata": "Q3091352",
+      "anchor": "centroid",
+      "note": "Added, for the food category, and it is the bakery the Explorer's Jerónimos text already points at: the monks' recipe went next door when the monastery closed. 209 m from the monastery point, so no separation problem." }
+  ]
+}

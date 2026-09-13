@@ -70,4 +70,53 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'lisbon',
+    countryId: 'portugal',
+    order: 1,
+    emoji: '🚋',
+
+    name: {
+      el: 'Λισαβόνα',
+      en: 'Lisbon',
+    },
+
+    intro: {
+      el:
+        'Η Λισαβόνα είναι χτισμένη σε λόφους, και σχεδόν κάθε δρόμος της είτε ανεβαίνει ' +
+        'είτε κατεβαίνει προς το νερό. Ένα πρωί του 1755 ένας σεισμός γκρέμισε το κέντρο ' +
+        'της, και η πόλη το ξαναέχτισε από την αρχή με ίσιους δρόμους και μια πλατεία ' +
+        'ανοιχτή στο ποτάμι. Από αυτό το ποτάμι έφυγαν τα καράβια που έψαχναν τον δρόμο ' +
+        'για την Ινδία. Έχει κίτρινα τραμ που τρίζουν στις ανηφόρες, ένα σιδερένιο ασανσέρ ' +
+        'που είναι κανονική συγκοινωνία, και τοίχους ντυμένους με γαλάζια πλακάκια.',
+      en:
+        'Lisbon is built on hills, and nearly every street either climbs away from the ' +
+        'water or runs down towards it. One morning in 1755 an earthquake flattened its ' +
+        'centre, and the city rebuilt it from scratch with straight streets and a square ' +
+        'left open to the river. From that river the ships set out to look for the sea road ' +
+        'to India. It has yellow trams that creak up the slopes, an iron lift that counts ' +
+        'as public transport, and walls dressed in blue tiles.',
+    },
+
+    /** Copied from `scripts/world/seeds/lisbon.json`, which takes it from Wikidata Q597. */
+    centre: { lat: 38.70804, lng: -9.13902 },
+
+    map: {
+      src: '/images/world/maps/lisbon.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Λισαβόνας, με τον Τάγο, τους λόφους της και το Μπελέμ στα δυτικά.',
+        en: 'A stylised map of Lisbon, with the Tagus, its hills and Belém out to the west.',
+      },
+      width: 1000,
+      height: 850,
+      /**
+       * Wide enough to hold the Torre de Belém in the south-west corner and the Oceanário
+       * in the north-east — the two furthest places in the city file, twelve kilometres
+       * apart. The box is 12.3 km by 10.5 km, which is the 1000 × 850 aspect ratio of the
+       * artwork, so pins project without stretching.
+       */
+      bounds: { north: 38.776, south: 38.682, east: -9.0848, west: -9.2265 },
+    },
+  },
+];

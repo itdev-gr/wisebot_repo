@@ -1,0 +1,498 @@
+{
+  "city": "lisbon",
+  "resolvedAt": "2026-09-13T07:31:07.762Z",
+  "centre": {
+    "lat": 38.70804,
+    "lng": -9.13902
+  },
+  "places": [
+    {
+      "id": "lisbon-praca-do-comercio",
+      "name": "Praça do Comércio",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q999002",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 38.7075,
+      "lng": -9.13639,
+      "labels": {
+        "de": "Praça do Comércio",
+        "en": "Praça do Comércio",
+        "es": "Praça do Comércio",
+        "fr": "praça do Comércio",
+        "it": "Praça do Comércio"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-arco-da-rua-augusta",
+      "name": "Arco da Rua Augusta",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q637590",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Rua Augusta Arch",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.7084,
+      "lng": -9.1368,
+      "labels": {
+        "de": "Arco da Rua Augusta",
+        "es": "Arco de la Rua Augusta",
+        "en": "Rua Augusta Arch",
+        "fr": "arc de triomphe de la rue Augusta",
+        "it": "Arco da Rua Augusta"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-elevador-de-santa-justa",
+      "name": "Elevador de Santa Justa",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q168001",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Santa Justa Lift",
+          "deltaM": 39
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.71194,
+      "lng": -9.13917,
+      "labels": {
+        "de": "Aufzug Santa Justa",
+        "en": "Santa Justa Lift",
+        "es": "Elevador de Santa Justa",
+        "fr": "ascenseur de Santa Justa",
+        "it": "Elevador de Santa Justa"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-rossio",
+      "name": "Rossio (Praça de D. Pedro IV)",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1549270",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Rossio",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.71389,
+      "lng": -9.13944,
+      "labels": {
+        "de": "Rossio",
+        "fr": "Rossio",
+        "es": "Plaza de Pedro IV",
+        "en": "Rossio Square",
+        "it": "Rossio"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-se-de-lisboa",
+      "name": "Sé de Lisboa",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q432290",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Lisbon Cathedral",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.70985,
+      "lng": -9.13298,
+      "labels": {
+        "it": "cattedrale di Lisbona",
+        "de": "Kathedrale von Lissabon",
+        "en": "Lisbon Cathedral",
+        "es": "Catedral de Lisboa",
+        "fr": "cathédrale Santa Maria Maior de Lisbonne",
+        "el": "Καθεδρικός Ναός της Λισαβόνας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-castelo-de-sao-jorge",
+      "name": "Castelo de São Jorge",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q636780",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "São Jorge Castle",
+          "deltaM": 24
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.71389,
+      "lng": -9.13333,
+      "labels": {
+        "de": "Castelo de São Jorge",
+        "en": "Castle of Saint George",
+        "es": "Castillo de San Jorge de Lisboa",
+        "fr": "château de Saint-Georges",
+        "it": "castello di São Jorge",
+        "el": "Κάστρο Αγίου Γεωργίου"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-miradouro-de-santa-luzia",
+      "name": "Miradouro de Santa Luzia",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6837314",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 38.71169,
+      "lng": -9.13021,
+      "labels": {
+        "es": "Mirador de Santa Lucía",
+        "en": "Miradouro de Santa Luzia",
+        "it": "Miradouro de Santa Luzia",
+        "fr": "Belvédère de Santa Luzia"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-torre-de-belem",
+      "name": "Torre de Belém",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q215003",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Belém Tower",
+          "deltaM": 39
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.69139,
+      "lng": -9.21583,
+      "labels": {
+        "fr": "tour de Belém",
+        "es": "Torre de Belém",
+        "it": "Torre di Belém",
+        "de": "Torre de Belém",
+        "en": "Belém Tower",
+        "el": "πύργος της Μπελέμ"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-padrao-dos-descobrimentos",
+      "name": "Padrão dos Descobrimentos",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1133712",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Monument of the Discoveries",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.69368,
+      "lng": -9.20569,
+      "labels": {
+        "fr": "Padrão dos Descobrimentos",
+        "es": "Monumento a los Descubrimientos",
+        "en": "Padrão dos Descobrimentos",
+        "it": "Monumento alle Scoperte",
+        "de": "Denkmal der Entdeckungen",
+        "el": "Μνημείο των Ανακαλύψεων"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-mosteiro-dos-jeronimos",
+      "name": "Mosteiro dos Jerónimos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q272781",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Jerónimos Monastery",
+          "deltaM": 45
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.69785,
+      "lng": -9.2056,
+      "labels": {
+        "fr": "monastère des Hiéronymites",
+        "es": "Monasterio de los Jerónimos de Belém",
+        "it": "Monastero dos Jerónimos",
+        "de": "Mosteiro dos Jerónimos",
+        "en": "Jerónimos Monastery",
+        "el": "Μοναστήρι των Ιερωνυμιτών"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-museu-de-marinha",
+      "name": "Museu de Marinha",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1540177",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Navy Museum (Portugal)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.6971,
+      "lng": -9.20814,
+      "labels": {
+        "de": "Museu de Marinha",
+        "es": "Museu de Marinha",
+        "en": "Navy Museum",
+        "fr": "musée de la Marine"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-museu-nacional-do-azulejo",
+      "name": "Museu Nacional do Azulejo",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2313815",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "National Museum of the Azulejo",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.7244,
+      "lng": -9.11389,
+      "labels": {
+        "en": "National Azulejo Museum",
+        "es": "Museo Nacional del Azulejo",
+        "it": "Museo Nazionale dell'Azulejo",
+        "de": "Museu Nacional do Azulejo",
+        "fr": "musée national de l'azulejo"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-oceanario-de-lisboa",
+      "name": "Oceanário de Lisboa",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q652806",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Lisbon Oceanarium",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.76353,
+      "lng": -9.09375,
+      "labels": {
+        "de": "Oceanário de Lisboa",
+        "en": "Lisbon Oceanarium",
+        "es": "Oceanário de Lisboa",
+        "fr": "Oceanarium de Lisbonne",
+        "it": "Oceanário di Lisbona"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-aqueduto-das-aguas-livres",
+      "name": "Aqueduto das Águas Livres",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q623228",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Águas Livres Aqueduct",
+          "deltaM": 328
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.72667,
+      "lng": -9.16667,
+      "labels": {
+        "fr": "aqueduc des Eaux Libres",
+        "en": "Águas Livres Aqueduct",
+        "de": "Aqueduto das Águas Livres",
+        "it": "acquedotto delle Acque Libere",
+        "es": "Acueducto de las Aguas Libres",
+        "el": "Υδραγωγείο Άκουας Λίβρες"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-estadio-da-luz",
+      "name": "Estádio da Luz",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7875112",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Estádio da Luz",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 38.75278,
+      "lng": -9.18472,
+      "labels": {
+        "it": "estádio da Luz",
+        "de": "Estádio da Luz",
+        "en": "Estádio da Luz",
+        "es": "Estádio da Luz",
+        "fr": "Estadio da Luz",
+        "el": "Στάδιο Ντα Λουζ"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-13"
+    },
+    {
+      "id": "lisbon-pasteis-de-belem",
+      "name": "Fábrica dos Pastéis de Belém",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3091352",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 38.69751,
+      "lng": -9.20323,
+      "labels": {
+        "fr": "Fábrica dos pastéis de Belém",
+        "en": "Pastéis de Belém",
+        "it": "Antiga Confeitaria de Belém"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-13"
+    }
+  ],
+  "problems": []
+}
