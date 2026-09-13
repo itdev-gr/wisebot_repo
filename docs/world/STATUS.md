@@ -4,7 +4,43 @@
 της Supabase, του Gmail και των transcripts των άλλων sessions. Ό,τι γράφεται εδώ
 μετρήθηκε· δεν είναι εκτίμηση. Το business plan είναι στο [BUSINESS-PLAN.md](BUSINESS-PLAN.md).
 
-## 0α. HANDOFF για το επόμενο session (12/9, 21:00) — ξεκίνα από εδώ
+## 0. HANDOFF (13/9, 18:40) — ξεκίνα από εδώ
+
+**Όλα στο main.** 17 πόλεις, 260 μέρη, 40 μουσεία, 303 prerendered σελίδες, 44 overlays.
+Τελευταίο merge `fc759bc`, CI πράσινο. Τα τρία branches (`world/content`, `world/i18n`,
+`engine/answer-giveaway-gate`) είναι μέσα και τα sessions τους πάγωσαν μέχρι την Παρασκευή
+λόγω ορίων.
+
+**Τρία ανοιχτά, κανένα επείγον, κανένα ορατό στο παιδί.** Και τα τρία τα πιάνει πλέον το
+νέο invariant «κάθε place.location ταιριάζει πεδίο-προς-πεδίο με το coords/<city>.json», και
+τα δύο πρώτα είναι γραμμένα ονομαστικά στη λίστα `KNOWN` μέσα στο `data/world/world.test.ts`:
+
+1. **Λονδίνο, 8 μέρη.** Το city file κρατά `osm` source και βαθμό A· το committed coords
+   json δεν τα έχει, γιατί ξαναπαράχθηκε όσο το Overpass ήταν κάτω. **Το αρχείο έχει το
+   καλό run, το json το φτωχό** — η διόρθωση είναι ένα τρέξιμο του resolver όταν επανέλθει
+   το Overpass και μετά sync, ΠΟΤΕ χειροκίνητο κατέβασμα του βαθμού για να ταιριάξει.
+2. **Ρώμη, 3 refs.** Καμπύλη απόστροφος στο city file, ίσια στο json. Τρεις χαρακτήρες,
+   αρχεία του content session.
+3. **Βαρκελώνη και Πράγα** αξίζουν re-resolve όταν το Overpass είναι σταθερά πάνω: και οι
+   δύο έκλεισαν χωρίς κανένα OSM cross-check (Βαρκελώνη 11 B / 5 C, Πράγα `fetch failed`
+   και στα 17).
+
+**Ο κανόνας του resolver, που πληρώθηκε:** ένα καθαρό run ΚΡΑΤΙΕΤΑΙ και δεν ξανατρέχει όσο
+το Overpass είναι κάτω — ένα re-run χωρίς OSM υποβαθμίζει μέρη που ήδη είχαν A. Η Κων/πολη
+κρατήθηκε έτσι (8 A / 6 B / 3 C).
+
+**Αφήγηση:** Αθήνα, Παρίσι, Ρώμη πλήρεις. Λονδίνο τρέχει. Μένουν ~820 κλιπ για 14 πόλεις με
+quota ~100/μέρα. Ο αγωγός είναι resumable: `extract-texts` → `generate-narration --city X`
+→ `transcribe-narration` → `align-narration.py` → `build-narration-manifest`.
+
+**Δεν αυτοματοποιείται, μην προσπαθήσεις:** ο έλεγχος «τριμμένος distractor έγινε αληθινός».
+Δύο sessions έφτιαξαν wordlist υπερθετικών· ανάκληση 0/9 και 6/19. Αυτό που τα βρίσκει είναι
+η ανάγνωση της απάντησης δίπλα στο `explanation` της ίδιας της ερώτησης. Λεπτομέρεια στον
+κανόνα 9 του [SESSION-SPLIT.md](SESSION-SPLIT.md).
+
+---
+
+## 0α. HANDOFF της 12/9 (ιστορικό)
 
 **Πού είμαστε.** Branch `content/world-cities`, ~14 commits μπροστά από το `origin/main`, gates
 πράσινα (typecheck 0, `vitest data/world/world.test.ts` 159/159). Στο main είναι live τα PR
