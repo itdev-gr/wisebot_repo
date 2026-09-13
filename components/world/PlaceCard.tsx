@@ -38,22 +38,20 @@ import { PinReport } from './PinReport';
 import { WorldMap } from './WorldMap';
 import { distanceM, formatDistance, geoPermissionState, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
 import { afterReloadNote, blockedNote, consumeRetryReload, deniedKind, reloadForRetry, retryNeedsReload } from './geoNotes';
-import { Breadcrumb } from './Breadcrumb';
+import { GeoHow } from './GeoHow';
 
-/** The lines for «the phone will not ask» — the same words the country page's card uses. */
+/**
+ * The line for «the phone will not ask» — the same words the country page's card uses —
+ * with the settings path folded behind «Πώς;».
+ */
 function BlockedLines({ lang }: { lang: WorldLang }) {
   const blocked = blockedNote(lang);
   return (
     <>
       {blocked.note}
-      <span className="mt-1.5 block text-[13px] leading-relaxed text-amber-200/80">
-        <Breadcrumb text={blocked.path} />
+      <span className="block">
+        <GeoHow key={blocked.path} lang={lang} path={blocked.path} more={blocked.more} />
       </span>
-      {blocked.more && (
-        <span className="mt-1 block text-[13px] leading-relaxed text-amber-200/80">
-          <Breadcrumb text={blocked.more} />
-        </span>
-      )}
     </>
   );
 }
