@@ -14,12 +14,12 @@
       "question": {
         "q": "Wie kam der Weiße Turm zu seinem Namen?",
         "answers": [
-          "Man kalkte ihn im 19. Jahrhundert weiß, und der Name blieb",
+          "Man kalkte ihn weiß, und der Name blieb",
           "Er ist aus weißem Marmor vom Berg Penteli gebaut",
           "Jeden Winter deckt ihn der Schnee zu",
           "Ein Baumeister namens Lefkos hat ihn gebaut"
         ],
-        "explanation": "Der Kalk verschwand mit den Jahren, der Name nicht. So entstehen die meisten Namen von Gebäuden und Städten."
+        "explanation": "Im 19. Jahrhundert kalkte man ihn weiß. Der Kalk verschwand mit den Jahren, der Name nicht. So entstehen die meisten Namen von Gebäuden und Städten."
       },
       "findIt": "Der Turm steht direkt an der Uferpromenade, an der Nikis-Allee. Du kannst ihn gar nicht übersehen."
     },
@@ -55,7 +55,7 @@
       "question": {
         "q": "Was lief unter ihm hindurch, als er gebaut wurde?",
         "answers": [
-          "Die Via Egnatia, die römische Straße nach Osten",
+          "Die Via Egnatia, die Römerstraße nach Osten",
           "Ein Fluss mit einer Brücke aus Holz",
           "Eine Wasserleitung, die Wasser in die Stadt brachte",
           "Nur der Weg zum Hafen"
@@ -75,7 +75,7 @@
       "question": {
         "q": "Was geschah mit der Kirche im August 1917?",
         "answers": [
-          "Sie brannte bei einem großen Feuer und wurde wieder aufgebaut",
+          "Sie brannte ab und wurde wieder aufgebaut",
           "Sie wurde überschwemmt und aufgegeben",
           "Sie wurde Stein für Stein an eine andere Stelle gebracht",
           "Sie wurde ein Museum und für Gottesdienste geschlossen"
@@ -96,12 +96,12 @@
       "question": {
         "q": "Warum liegt unter dem Mosaik der Kuppel ein schlichtes Kreuz?",
         "answers": [
-          "Weil Bilder von Menschen einige Jahre lang verboten waren",
+          "Weil Bilder von Menschen verboten waren",
           "Weil der Handwerker die Arbeit nicht rechtzeitig fertig bekam",
           "Weil das Kreuz die Hilfslinie für den Rest des Mosaiks war",
           "Weil die Kuppel zweimal gebaut wurde, von zwei Gruppen"
         ],
-        "explanation": "Man nennt das den Bilderstreit. Als er zu Ende war, löschte man das Alte nicht: Das Neue kam obendrauf, und beides ist erhalten geblieben."
+        "explanation": "Einige Jahre lang waren Bilder von Menschen verboten. Man nennt das den Bilderstreit. Als er zu Ende war, löschte man das Alte nicht: Das Neue kam obendrauf, und beides ist erhalten geblieben."
       }
     },
     "thessaloniki-roman-agora": {
@@ -116,7 +116,7 @@
       "question": {
         "q": "Wie wurde die römische Agora gefunden?",
         "answers": [
-          "Aus Versehen, beim Graben für ein neues Gebäude",
+          "Aus Versehen, beim Graben für einen Neubau",
           "Durch eine Karte, die in einem Kloster auftauchte",
           "Nach einem Erdbeben, das den Boden aufriss",
           "Auf Fotos, die aus einem Flugzeug gemacht wurden"
@@ -136,12 +136,12 @@
       "question": {
         "q": "Wie hat der Papyrus von Derveni überlebt?",
         "answers": [
-          "Das Feuer verkohlte ihn, statt ihn ganz zu verbrennen",
+          "Das Feuer hat ihn nur verkohlt",
           "Er war in einem Glasgefäß voll Öl eingeschlossen",
           "Mönche schrieben ihn alle hundert Jahre ab",
           "Er war auf Metall geschrieben und nicht auf Papyrus"
         ],
-        "explanation": "Verkohlter Papyrus wird fast wie Kohle: zerbrechlich, aber er kann nicht mehr verfaulen. Darum ist er bis zu uns gekommen."
+        "explanation": "Das Feuer verbrannte ihn nicht ganz. Verkohlter Papyrus wird fast wie Kohle: zerbrechlich, aber er kann nicht mehr verfaulen. Darum ist er bis zu uns gekommen."
       },
       "museum": {
         "doorNote": "Fang bei Derveni an. Drei Dinge dort erklären alles Übrige.",
@@ -162,7 +162,7 @@
             "question": {
               "q": "Warum sieht der Krater golden aus, obwohl kein Gold darin ist?",
               "answers": [
-                "Weil seine Legierung viel Zinn enthält, und das ändert die Farbe",
+                "Weil die Legierung viel Zinn enthält",
                 "Weil er mit goldener Farbe angemalt ist",
                 "Weil man ihn mit Öl und Wachs poliert hat",
                 "Weil das Feuer ihn mit Asche überzogen hat"
@@ -204,12 +204,12 @@
             "question": {
               "q": "Wo benutzte der Handwerker die kleinsten Steinchen?",
               "answers": [
-                "Dort, wo es genau werden musste, zum Beispiel bei den Augen",
+                "Zum Beispiel bei den Augen",
                 "An den Rändern des Bodens, damit sie nicht brechen",
                 "In der Mitte, weil die Leute dort liefen",
                 "Nirgends: Sie waren alle genau gleich"
               ],
-              "explanation": "Je kleiner das Stück, desto schärfer das Bild. Genau wie auf einem Bildschirm."
+              "explanation": "Dort, wo es genau werden musste, nahm er die kleinsten Steinchen. Je kleiner das Stück, desto schärfer das Bild. Genau wie auf einem Bildschirm."
             }
           },
           "thessaloniki-archaeological-museum-portraits": {
@@ -218,12 +218,12 @@
             "question": {
               "q": "Was wollten die Römer von einem Porträt?",
               "answers": [
-                "Dass man den Menschen wiedererkennt, mit seinen Fehlern",
+                "Dass man den Menschen wiedererkennt",
                 "Dass alle jung und schön aussehen",
                 "Dass es aussieht wie ein Gott vom Olymp",
                 "Dass es genauso aussieht wie alle anderen"
               ],
-              "explanation": "Ein Porträt war ein Ausweis. Wenn es dir nicht ähnlich sah, machte es seine Arbeit nicht."
+              "explanation": "Ein Porträt war ein Ausweis und zeigte den Menschen mit seinen Fehlern. Wenn es dir nicht ähnlich sah, machte es seine Arbeit nicht."
             }
           },
           "thessaloniki-archaeological-museum-glass": {
@@ -232,12 +232,12 @@
             "question": {
               "q": "Woher kommen die Regenbogenfarben auf altem Glas?",
               "answers": [
-                "Von der Oberfläche, die im Boden verwittert ist",
+                "Von der Verwitterung im Boden",
                 "Von Farbstoffen, die man ins flüssige Glas gab",
                 "Vom Wein, der darin zurückgeblieben ist",
                 "Vom Feuer des Scheiterhaufens"
               ],
-              "explanation": "Das ist ein Schaden und keine Verzierung. Aus der Werkstatt kam das Glas durchsichtig."
+              "explanation": "Die Oberfläche verwittert im Boden. Das ist ein Schaden und keine Verzierung. Aus der Werkstatt kam das Glas durchsichtig."
             }
           }
         },
@@ -266,12 +266,12 @@
       "question": {
         "q": "Wie sind die Säle dieses Museums geordnet?",
         "answers": [
-          "Nach Thema: wie man begrub, wie man baute, wie man einkaufte",
+          "Nach Thema: Begraben, Bauen, Einkaufen",
           "Nach Material: Marmor, Metall, Stoffe",
           "Nach Größe, vom Kleinsten zum Größten",
           "Nach dem Alphabet, mit dem Namen jedes Objekts"
         ],
-        "explanation": "So können eine Münze, ein Teller und eine Wand zusammen stehen, weil sie von derselben Sache erzählen."
+        "explanation": "Ein Saal zeigt, wie man begrub, einer, wie man baute, einer, wie man einkaufte. So können eine Münze, ein Teller und eine Wand zusammen stehen, weil sie von derselben Sache erzählen."
       },
       "museum": {
         "doorNote": "Geh in die Gräber hinein. Das ist erlaubt, und nur so kannst du sie sehen.",
@@ -292,7 +292,7 @@
             "question": {
               "q": "Was malten sie in diese Gräber hinein?",
               "answers": [
-                "Gärten mit Vögeln, Blumen und Licht",
+                "Gärten, Vögel, Blumen, Licht",
                 "Schlachten mit Soldaten und Pferden",
                 "Karten der Stadt und ihrer Mauern",
                 "Nichts: Die Wände blieben weiß"
@@ -306,7 +306,7 @@
             "question": {
               "q": "Was sagt es uns, dass viele Grabbeigaben abgenutzt sind?",
               "answers": [
-                "Dass es die eigenen Sachen der toten Person waren",
+                "Dass es die eigenen Sachen der Toten waren",
                 "Dass es billige Kopien waren",
                 "Dass sie gestohlen und zurückgebracht wurden",
                 "Dass sie in Eile für die Beerdigung gemacht wurden"
@@ -320,12 +320,12 @@
             "question": {
               "q": "Warum sind zerbrochene Öllampen für Archäologinnen und Archäologen nützlich?",
               "answers": [
-                "Weil sie überall liegen und helfen, den Boden zu datieren",
+                "Weil sie zeigen, wie alt der Boden ist",
                 "Weil in ihnen Münzen versteckt waren",
                 "Weil sie sehr teure Gegenstände waren",
                 "Weil sie noch brennen, wenn man Öl hineingibt"
               ],
-              "explanation": "Was billig ist und oft kaputtgeht, ändert auch oft seine Form. Dieser Wechsel der Form wird zur Uhr."
+              "explanation": "Öllampen liegen überall im Boden. Was billig ist und oft kaputtgeht, ändert auch oft seine Form. Dieser Wechsel der Form wird zur Uhr."
             }
           },
           "thessaloniki-byzantine-museum-sgraffito": {
@@ -334,12 +334,12 @@
             "question": {
               "q": "Wie kommt das Muster auf einen geritzten Teller?",
               "answers": [
-                "Man ritzt die weiße Schicht auf, damit das Dunkle darunter durchkommt",
+                "Man ritzt die weiße Schicht auf",
                 "Man malt es mit einem Pinsel und mit Gold",
                 "Man klebt kleine Stücke aus Glas auf",
                 "Man druckt es mit einem Stempel aus Holz"
               ],
-              "explanation": "Das ist Zeichnen durch Wegnehmen. Alles, was dunkel ist, ist dort, wo der Handwerker gekratzt hat."
+              "explanation": "Unter der weißen Schicht kommt das Dunkle hervor. Das ist Zeichnen durch Wegnehmen. Alles, was dunkel ist, ist dort, wo der Handwerker gekratzt hat."
             }
           },
           "thessaloniki-byzantine-museum-coins": {
@@ -348,12 +348,12 @@
             "question": {
               "q": "Warum war eine Münze auch eine Nachricht?",
               "answers": [
-                "Weil sie das Gesicht des Kaisers zu Menschen brachte, die ihn nie sahen",
+                "Weil sie das Gesicht des Kaisers zeigte",
                 "Weil die Ereignisse des Jahres darauf geschrieben wurden",
                 "Weil man sie gratis an die Bürger verteilte",
                 "Weil man sie auf dem Markt laut vorlas"
               ],
-              "explanation": "Ohne Zeitungen und ohne Fotos war die Münze das schnellste Mittel, das es gab."
+              "explanation": "So sahen auch Menschen sein Gesicht, die ihm nie begegneten. Ohne Zeitungen und ohne Fotos war die Münze das schnellste Mittel, das es gab."
             }
           },
           "thessaloniki-byzantine-museum-jewellery": {
@@ -362,12 +362,12 @@
             "question": {
               "q": "Warum wurde das Monogramm auf einem Siegelring seitenverkehrt eingeschnitten?",
               "answers": [
-                "Damit es richtig herum herauskam, wenn man es in Wachs oder Ton drückte",
+                "Damit es im Wachs richtig herum steht",
                 "Damit Diebe es nicht lesen konnten",
                 "Weil man die Sprache damals so geschrieben hat",
                 "Damit mehr Text daraufpasste"
               ],
-              "explanation": "Jeder Stempel funktioniert so, bis heute. Im Abdruck kippt das Bild um."
+              "explanation": "Drückt man den Ring in Wachs oder Ton, kippt das Bild um. Jeder Stempel funktioniert so, bis heute."
             }
           }
         },
@@ -396,12 +396,12 @@
       "question": {
         "q": "Was ist der Trick hinter jedem Film?",
         "answers": [
-          "Viele unbewegte Bilder, so schnell gezeigt, dass sie wie Bewegung aussehen",
+          "Unbewegte Bilder, sehr schnell gezeigt",
           "Ein Bild, das sich dehnt und größer wird",
           "Spiegel, die echte Schauspieler zurückwerfen",
           "Gemälde, die trocknen und dabei die Form ändern"
         ],
-        "explanation": "Ein Film bewegt sich nie. Die Bewegung zwischen den Bildern ergänzen wir selbst."
+        "explanation": "Sie werden so schnell gezeigt, dass sie wie Bewegung aussehen. Ein Film bewegt sich nie. Die Bewegung zwischen den Bildern ergänzen wir selbst."
       }
     },
     "thessaloniki-walls": {
@@ -416,12 +416,12 @@
       "question": {
         "q": "Warum haben die Mauern Bänder aus Ziegeln zwischen den Steinen?",
         "answers": [
-          "Damit die Lagen gerade werden und die Mauer Erdbeben übersteht",
+          "Damit die Lagen gerade werden",
           "Damit die Wachen erkennen konnten, wie hoch oben sie waren",
           "Damit man sieht, wie viele Jahre der Bau gedauert hat",
           "Damit die Mauer im Winter warm bleibt"
         ],
-        "explanation": "Steine haben ungleiche Formen, und eine Lage wird schief. Ziegel, die alle gleich sind, machen sie wieder gerade."
+        "explanation": "Steine haben ungleiche Formen, und eine Lage wird schief. Ziegel, die alle gleich sind, machen sie wieder gerade. Eine gerade Mauer übersteht auch ein Erdbeben besser."
       }
     },
     "thessaloniki-heptapyrgion": {
@@ -476,12 +476,12 @@
       "question": {
         "q": "Warum wurde dieser Platz entworfen?",
         "answers": [
-          "Weil das Feuer von 1917 das Zentrum verbrannte und die Stadt neu geplant wurde",
+          "Weil das Feuer von 1917 das Zentrum verbrannte",
           "Weil man Platz für die Autos brauchte",
           "Weil dort antike Reste gefunden wurden und niemand bauen konnte",
           "Weil dort früher ein Hafen war, den man zugeschüttet hat"
         ],
-        "explanation": "Es kommt selten vor, dass eine große Stadt noch einmal ganz neu geplant wird. Dafür hat es eine Katastrophe gebraucht."
+        "explanation": "Danach wurde die Stadt neu geplant. Es kommt selten vor, dass eine große Stadt noch einmal ganz neu geplant wird. Dafür hat es eine Katastrophe gebraucht."
       }
     },
     "thessaloniki-modiano": {
@@ -496,12 +496,12 @@
       "question": {
         "q": "Warum braucht der Markt selbst im Winter nur wenige Lampen?",
         "answers": [
-          "Weil sein Dach aus Glas ist und das Licht von oben hereinkommt",
+          "Weil sein Dach aus Glas ist",
           "Weil die Stände weiß gestrichen sind",
           "Weil er schließt, bevor es dunkel wird",
           "Weil er Spiegel an den Wänden hat"
         ],
-        "explanation": "Die Markthallen des 19. und 20. Jahrhunderts haben es so gelöst: Eisen für das Gerüst, Glas für das Licht."
+        "explanation": "Durch das Glasdach fällt das Licht von oben herein. Die Markthallen des 19. und 20. Jahrhunderts haben es so gelöst: Eisen für das Gerüst, Glas für das Licht."
       }
     },
     "thessaloniki-noesis": {
@@ -516,12 +516,12 @@
       "question": {
         "q": "Warum darfst du in diesem Museum die Objekte anfassen?",
         "answers": [
-          "Weil man einen Versuch versteht, indem man ihn macht",
+          "Weil man beim Selbermachen versteht",
           "Weil alle Objekte wertlose Kopien sind",
           "Weil es nicht genug Aufsicht gibt",
           "Weil die Objekte jeden Abend geputzt werden"
         ],
-        "explanation": "In einem archäologischen Museum ist das Objekt einmalig. Hier ist das Objekt ein Werkzeug, und Werkzeuge brauchen Hände."
+        "explanation": "Einen Versuch versteht man, indem man ihn macht. In einem archäologischen Museum ist das Objekt einmalig. Hier ist das Objekt ein Werkzeug, und Werkzeuge brauchen Hände."
       },
       "findIt": "Es liegt nicht in der Stadt: Es steht am 6. Kilometer der Straße nach Thermi."
     },
@@ -537,12 +537,12 @@
       "question": {
         "q": "Warum merkst du nicht, dass sich das oberste Stockwerk dreht?",
         "answers": [
-          "Weil es sich sehr langsam bewegt, eine Umdrehung in der Stunde",
+          "Weil es sich sehr langsam dreht",
           "Weil es sich nur dreht, wenn die Besucher schlafen",
           "Weil sich die Scheiben drehen und nicht der Boden",
           "Weil der Boden mit einem Teppich ausgelegt ist"
         ],
-        "explanation": "Unsere Augen bekommen sehr langsame Bewegungen nicht mit. Erst wenn wir vorher und nachher vergleichen, merken wir, dass sich etwas bewegt hat."
+        "explanation": "Es braucht eine Stunde für eine Umdrehung. Unsere Augen bekommen sehr langsame Bewegungen nicht mit. Erst wenn wir vorher und nachher vergleichen, merken wir, dass sich etwas bewegt hat."
       }
     },
     "thessaloniki-toumba-stadium": {
@@ -557,12 +557,12 @@
       "question": {
         "q": "Warum ist dieses Stadion so laut?",
         "answers": [
-          "Weil die steilen Ränge den Schall in die Mitte zurückwerfen",
+          "Weil die Ränge den Schall zurückwerfen",
           "Weil es das größte Stadion Griechenlands ist",
           "Weil es Lautsprecher unter den Sitzen hat",
           "Weil es komplett überdacht ist"
         ],
-        "explanation": "Das ist die Akustik und nicht die Größe. Dieselbe Menge würde in einem offenen, weiten Stadion viel leiser klingen."
+        "explanation": "Die Ränge sind steil und werfen den Schall in die Mitte zurück. Das ist die Akustik und nicht die Größe. Dieselbe Menge würde in einem offenen, weiten Stadion viel leiser klingen."
       }
     }
   },

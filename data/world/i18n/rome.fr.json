@@ -1,0 +1,809 @@
+{
+  "lang": "fr",
+  "cityId": "rome",
+  "places": {
+    "rome-orange-garden": {
+      "name": "Le jardin des orangers",
+      "tagline": "Une terrasse au-dessus de Rome, et un trou de serrure juste à côté",
+      "story": "Au sommet de la colline de l’Aventin, là où la famille Savelli avait bâti un château vers 1285, il y a aujourd’hui un petit jardin plein d’orangers amers. Il a été dessiné en 1932 par l’architecte Raffaele De Vico, celui-là même qui a fait la maison des reptiles du zoo de la ville. Une allée droite entre les arbres mène à une terrasse, et de là tu vois Rome entière étalée devant toi : le fleuve, les toits, les dômes, et au fond le plus grand dôme de tous, celui de Saint-Pierre. À l’entrée du jardin, une fontaine porte un visage de marbre de 1593, qui a changé quatre fois de place dans la ville avant de s’arrêter ici. Quelques pas plus loin, sur la place tranquille que Piranesi a dessinée en 1765, une porte verte cache le secret le plus connu de la colline : penche-toi et regarde par le trou de la serrure. Au bout d’une allée de cyprès, exactement au milieu, se dresse le dôme de Saint-Pierre, comme si quelqu’un l’avait posé là exprès.",
+      "facts": [
+        "Le jardin a été dessiné en 1932 et couvre environ 7 800 mètres carrés.",
+        "Ses arbres sont des orangers amers, pas des orangers doux.",
+        "La place du trou de serrure a été dessinée par Piranesi en 1765."
+      ],
+      "question": {
+        "q": "Que vois-tu par le trou de la serrure de la porte verte ?",
+        "answers": [
+          "Le dôme de Saint-Pierre",
+          "Le Colisée vu d’en haut",
+          "Un jardin caché avec une fontaine",
+          "Le fleuve Tibre et un pont"
+        ],
+        "explanation": "L’allée de cyprès est taillée pour que le dôme tombe exactement au milieu, comme dans un cadre."
+      }
+    },
+    "rome-spanish-steps": {
+      "name": "L’escalier espagnol",
+      "tagline": "135 marches qui coulent d’une église jusqu’à une barque",
+      "story": "Il y a trois cents ans, la pente entre la place et l’église française d’en haut n’était qu’une colline de boue. Un diplomate français, Étienne Gueffier, est mort en 1660 et a laissé une partie de sa fortune pour un escalier. Il a fallu des dizaines d’années pour que tout le monde se mette d’accord, et à la fin les architectes Francesco de Sanctis et Alessandro Specchi ont bâti 135 marches qui montent en courbes, en paliers et en virages, comme une cascade gelée. L’escalier a ouvert en 1725. On appelle ces marches « espagnoles » parce que l’ambassade d’Espagne se trouve depuis des siècles sur la place en dessous ; l’escalier, lui, a été payé par des Français. À ses pieds, une fontaine en forme de barque en train de couler, la Barcaccia, de 1627 à 1629, est l’œuvre de Pietro Bernini, le père du sculpteur le plus célèbre de Rome. La légende dit qu’une crue du Tibre avait laissé ici une vraie barque. Au printemps, les marches se remplissent de pots d’azalées roses. Dans la maison à droite de l’escalier, le poète anglais John Keats a vécu et est mort en 1821 ; c’est aujourd’hui un musée. Depuis 2019, il est interdit de s’asseoir sur les marches, pour protéger le marbre.",
+      "facts": [
+        "Il a 135 marches, bâties de 1723 à 1725.",
+        "L’argent a été laissé par un diplomate français, pas par un Espagnol.",
+        "Qui s’assoit sur les marches risque une amende de 250 euros."
+      ],
+      "question": {
+        "q": "D’où l’escalier tient-il son nom ?",
+        "answers": [
+          "De l’ambassade de la place",
+          "Des ouvriers qui l’ont construit",
+          "Du roi qui l’a payé",
+          "Du pays qui a envoyé le marbre"
+        ],
+        "explanation": "La place a pris le nom de l’ambassade, et l’escalier a pris le nom de la place. L’argent, lui, était français."
+      }
+    },
+    "rome-santa-maria-degli-angeli": {
+      "name": "Santa Maria degli Angeli",
+      "tagline": "Une église installée dans des thermes, avec une horloge à un seul rayon de soleil",
+      "story": "Cette église n’a pas été construite : elle s’est installée dans quelque chose qui existait déjà. Les thermes de Dioclétien, terminés en 306 apr. J.-C., étaient les plus grands de Rome, et leurs immenses salles voûtées tenaient encore debout mille deux cents ans plus tard. En 1563, Michel-Ange, qui avait presque quatre-vingt-dix ans, a trouvé comment en faire une église sans rien démolir. Mais la chose la plus étrange, ici, est par terre. En 1702, le pape Clément XI a demandé à l’astronome Francesco Bianchini de tracer une méridienne : une bande de bronze de 45 mètres de long, posée dans du marbre blanc et jaune. Tout en haut du mur, il y a un petit trou. Chaque jour, quand le soleil est au plus haut, un rayon passe par le trou et tombe sur la bande. En hiver, quand le soleil est bas, la tache tombe loin sur la ligne ; en été, tout près. La ligne dit donc la date, et les astronomes s’en servaient pour vérifier si le calendrier était juste et quand tombait Pâques. Si tu es là à midi, tu verras le soleil se poser.",
+      "facts": [
+        "La méridienne date de 1702 et mesure 45 mètres de long.",
+        "Les thermes de Dioclétien ont été terminés en 306 apr. J.-C. et étaient les plus grands de Rome.",
+        "Michel-Ange a dessiné l’église en 1563, alors qu’il avait presque quatre-vingt-dix ans."
+      ],
+      "question": {
+        "q": "Que montre le rayon de soleil quand il tombe sur la ligne ?",
+        "answers": [
+          "La date du jour",
+          "La chaleur qu’il va faire",
+          "D’où souffle le vent",
+          "La distance de la Lune"
+        ],
+        "explanation": "À midi, la tache tombe chaque jour à un endroit un peu différent, parce que le soleil monte et descend avec les saisons. L’endroit, c’est la date."
+      }
+    },
+    "rome-vatican-museums": {
+      "name": "Les musées du Vatican",
+      "tagline": "Des kilomètres de couloirs qui finissent sous un plafond peint",
+      "story": "Tout a commencé par un trou dans une vigne. En janvier 1506, un paysan qui creusait sur la colline de l’Esquilin a trouvé un groupe de marbre : un homme et ses deux fils en train de lutter contre des serpents de mer. Le pape Jules II a envoyé Michel-Ange le voir, l’a acheté et l’a mis dans une cour de son palais, pour que tout le monde l’admire. Cette cour a été la première salle des musées du Vatican. Cinq cents ans plus tard, les musées possèdent environ 70 000 œuvres, dont 20 000 exposées, en 24 collections : des momies égyptiennes, des statues grecques et romaines, un couloir de 120 mètres couvert de cartes peintes, les chambres de Raphaël et, tout au bout, la chapelle Sixtine, avec le plafond que Michel-Ange a peint debout sur un échafaudage. En 2024, 6,8 millions de visiteurs sont passés par ici, plus que dans n’importe quel musée du monde sauf le Louvre. Tu ressors par un double escalier en spirale, où ceux qui montent ne croisent jamais ceux qui descendent.",
+      "facts": [
+        "Ils ont commencé en 1506 avec une seule statue trouvée dans une vigne.",
+        "Ils possèdent environ 70 000 œuvres, dont 20 000 sont exposées.",
+        "En 2024, 6,8 millions de personnes les ont visités."
+      ],
+      "question": {
+        "q": "Comment les musées du Vatican ont-ils commencé en 1506 ?",
+        "answers": [
+          "Avec une statue venue d’une vigne",
+          "Avec un don de tableaux venu de France",
+          "Avec les bijoux d’un roi",
+          "Avec une collection de momies égyptiennes"
+        ],
+        "explanation": "Le pape a acheté le Laocoon et l’a posé dans une cour pour que tout le monde le voie. Les musées ont poussé à partir de cette cour."
+      },
+      "findIt": "L’entrée est sur la Viale Vaticano, à l’extérieur des murs, pas depuis la place Saint-Pierre.",
+      "museum": {
+        "doorNote": "L’entrée n’est pas sur la place Saint-Pierre : elle est de l’autre côté des murs.",
+        "rooms": {
+          "rome-vatican-museums-courtyards": {
+            "name": "Les cours",
+            "intro": "Avant les couloirs viennent les cours, ouvertes sur le ciel. Dans l’une se dresse une pomme de pin en bronze haute comme deux personnes, et une sphère qui tourne. Dans une autre, à huit côtés, vivent les statues par lesquelles tout a commencé, et un torse sans tête que Michel-Ange a refusé de compléter."
+          },
+          "rome-vatican-museums-corridors": {
+            "name": "Les couloirs",
+            "intro": "Des cours, tu entres dans une suite de longs couloirs qui mènent tous vers la chapelle Sixtine. Dans l’un d’eux, l’Italie est peinte sur les murs, région par région. Un peu plus loin, dans quatre pièces, un jeune peintre a mis tous les sages de l’Antiquité sur un seul escalier."
+          },
+          "rome-vatican-museums-chapel": {
+            "name": "La chapelle Sixtine et la sortie",
+            "intro": "Tous les couloirs finissent ici. C’est une grande salle rectangulaire, bâtie de 1473 à 1481, où l’on élit les papes, et tout son plafond est une seule peinture. Tu parles à voix basse et tu regardes en haut. Après ce moment-là, il ne reste qu’un escalier qui tourne jusqu’à la sortie."
+          }
+        },
+        "exhibits": {
+          "rome-vatican-museums-pine-cone": {
+            "name": "La pomme de pin en bronze",
+            "blurb": "Une pomme de pin en bronze de presque quatre mètres de haut se dresse dans une niche, au fond de la cour qui porte son nom. Les Romains l’ont fabriquée au Ier siècle apr. J.-C. comme fontaine : l’eau sortait par les trous entre ses écailles. Elle se trouvait près du Panthéon, à côté d’un temple de la déesse égyptienne Isis. Au Moyen Âge, on l’a déplacée dans la cour de l’ancienne basilique Saint-Pierre, où le poète Dante l’a vue et s’en est servi dans son Enfer pour dire la taille du visage d’un géant. Elle est ici depuis 1608. Les deux paons de bronze à côté d’elle sont des copies de ceux qui décoraient le tombeau d’Hadrien.",
+            "question": {
+              "q": "Qu’était la pomme de pin quand les Romains l’ont fabriquée ?",
+              "answers": [
+                "Une fontaine",
+                "Le sommet d’un temple",
+                "Un récipient à vin",
+                "La cloche d’une église"
+              ],
+              "explanation": "L’eau coulait par des trous entre les écailles. Regarde de près : on les voit encore."
+            }
+          },
+          "rome-vatican-museums-sphere": {
+            "name": "La sphère dans la sphère",
+            "blurb": "Au milieu de la même cour se dresse une énorme sphère dorée, en bronze. Elle n’est pas antique : c’est le sculpteur italien Arnaldo Pomodoro qui l’a faite. Sa surface est déchirée, et par les déchirures on voit une deuxième sphère, déchirée elle aussi, avec des engrenages et des machines dessous, comme si le monde s’était ouvert pour montrer ce qu’il a dedans. Le sculpteur a dit qu’il voulait casser la forme parfaite pour faire apparaître « l’agitation du dedans », et que la sphère est une image de la ville idéale. La sphère tourne lentement. Pomodoro a fait 45 sphères comme celle-ci, de tailles différentes ; d’autres se dressent aux Nations unies, à New York, et à Dublin.",
+            "question": {
+              "q": "Que voit-on par les déchirures de la surface de bronze ?",
+              "answers": [
+                "Une deuxième sphère",
+                "Une carte du monde entier",
+                "La statue d’un pape",
+                "Une source d’eau qui coule"
+              ],
+              "explanation": "Une sphère dans une sphère, comme le dit son nom. Celle du dedans est déchirée elle aussi."
+            }
+          },
+          "rome-vatican-museums-laocoon": {
+            "name": "Le Laocoon",
+            "blurb": "C’est la statue par laquelle les musées ont commencé. Un homme barbu et deux garçons luttent contre deux serpents énormes enroulés autour d’eux. C’est Laocoon, prêtre de Troie, qui avait prévenu les Troyens de ne pas faire entrer le cheval de bois dans la ville ; les dieux qui voulaient la chute de Troie ont envoyé les serpents hors de la mer. Le marbre mesure un peu plus de deux mètres de haut, et l’écrivain romain Pline raconte que trois sculpteurs de Rhodes l’ont taillé. Il a été trouvé en 1506 dans une vigne. Le bras droit de Laocoon manquait ; il est réapparu par hasard en 1905, plié exactement comme Michel-Ange l’avait deviné quatre cents ans plus tôt, et on l’a remis en place en 1957.",
+            "question": {
+              "q": "Pourquoi les dieux ont-ils envoyé les serpents contre Laocoon ?",
+              "answers": [
+                "Il avait prévenu pour le cheval",
+                "Il avait volé un trésor dans le temple",
+                "Il avait refusé de combattre les Grecs",
+                "Il avait tué un serpent sacré de la mer"
+              ],
+              "explanation": "Laocoon avait raison pour le cheval. Mais les dieux voulaient la chute de Troie, et ils l’ont écarté du chemin."
+            }
+          },
+          "rome-vatican-museums-torso": {
+            "name": "Le Torse du Belvédère",
+            "blurb": "Un corps de marbre sans tête, sans bras et sans le bas des jambes, haut de 1,59 mètre, assis sur une peau de bête et penché en avant. Sur la base, un sculpteur a signé : Apollonios d’Athènes. C’est une copie du Ier siècle av. J.-C. d’une œuvre grecque plus ancienne, et personne ne sait avec certitude qui il représente : peut-être Héraclès, peut-être Ajax. Michel-Ange l’a aimé plus que toute autre statue. Quand le pape lui a demandé d’ajouter les membres qui manquaient, il a refusé : c’était trop beau pour y toucher. À la place, il l’a dessiné encore et encore, et les figures musclées et tordues du plafond de la chapelle Sixtine sont sorties de ce torse.",
+            "question": {
+              "q": "Qu’a répondu Michel-Ange quand on lui a demandé de compléter le torse ?",
+              "answers": [
+                "Qu’il était trop beau pour y toucher",
+                "Qu’il n’avait plus de marbre pour les membres",
+                "Qu’il ne le ferait que pour le double",
+                "Qu’il aimait mieux peindre que sculpter"
+              ],
+              "explanation": "Il ne l’a jamais touché. Mais il l’a dessiné tant de fois qu’il vit encore dans les figures de la chapelle Sixtine."
+            }
+          },
+          "rome-vatican-museums-maps": {
+            "name": "La galerie des Cartes",
+            "blurb": "Un couloir de 120 mètres de long, avec un plafond doré, et sur ses deux murs 40 cartes peintes énormes. C’est toute l’Italie, région par région : d’un côté les régions qui regardent la mer de l’ouest, de l’autre celles qui regardent l’Adriatique, avec les montagnes des Apennins qui coupent le couloir en deux, comme si tu marchais sur la colonne vertébrale du pays. Elles ont été dessinées par le moine et géographe Ignazio Danti de 1580 à 1583, pour le pape Grégoire XIII, le même pape qui a fait le calendrier que nous utilisons aujourd’hui. On dit que les cartes sont justes à 80 %, ce qui est étonnant pour une époque sans satellites. Chaque carte porte aussi de petites images des villes de la région.",
+            "question": {
+              "q": "Qu’est-ce qui sépare les cartes d’un côté du couloir de celles de l’autre ?",
+              "answers": [
+                "Les Apennins",
+                "Le fleuve Pô",
+                "La frontière avec la France",
+                "La ligne de l’Équateur"
+              ],
+              "explanation": "Le couloir est la colonne vertébrale de l’Italie. La mer de l’ouest d’un côté, l’Adriatique de l’autre."
+            }
+          },
+          "rome-vatican-museums-school-of-athens": {
+            "name": "L’École d’Athènes",
+            "blurb": "Raphaël a peint ce mur de 1509 à 1511, dans une pièce où le pape signait ses documents. Il mesure cinq mètres de haut et presque huit de large, et il montre les sages de la Grèce antique rassemblés dans une immense salle à arcades. Au milieu marchent Platon, qui montre le ciel, et Aristote, qui tend la main vers la terre. Raphaël a donné aux anciens les visages de ses amis : Platon ressemble à Léonard de Vinci, Héraclite, assis dans ses pensées sur les marches, c’est Michel-Ange, Euclide penché sur son compas, c’est l’architecte Bramante. Au bord droit, un jeune homme au bonnet sombre te regarde droit dans les yeux : c’est Raphaël lui-même.",
+            "question": {
+              "q": "Quel visage Raphaël a-t-il donné à Platon ?",
+              "answers": [
+                "Celui de Léonard de Vinci",
+                "Celui du pape Jules II",
+                "Celui de son propre père",
+                "Celui du sculpteur Gian Lorenzo Bernini"
+              ],
+              "explanation": "Léonard était l’homme le plus sage que Raphaël connaissait, alors il est devenu l’homme le plus sage du tableau."
+            }
+          },
+          "rome-vatican-museums-mummies": {
+            "name": "Les momies égyptiennes",
+            "blurb": "Parmi les 24 collections des musées, il y a tout un musée égyptien, dans des salles peintes en sombre pour que tu t’imagines à l’intérieur d’un tombeau. Ici se trouvent des momies : les corps de gens que les Égyptiens, il y a des milliers d’années, ont séchés et enveloppés dans des bandes de lin pour qu’ils durent toujours, parce qu’ils croyaient qu’on aurait besoin de son corps dans une autre vie. À côté d’elles, il y a leurs boîtes de bois peintes, les sarcophages, avec des yeux, des visages et des hiéroglyphes. Beaucoup de ces objets ne sont pas venus d’Égypte directement : ce sont les empereurs romains, qui aimaient l’Égypte, qui les avaient rapportés pour décorer leurs villas.",
+            "question": {
+              "q": "Pourquoi les Égyptiens gardaient-ils les corps des morts ?",
+              "answers": [
+                "Ils croyaient à une autre vie",
+                "Pour les montrer dans leurs musées",
+                "Pour que les soldats romains ne les trouvent pas",
+                "Parce qu’il n’y avait pas de place pour les enterrer"
+              ],
+              "explanation": "Un corps qui ne pourrit pas, croyaient-ils, peut resservir. Les bandes de lin et le séchage y arrivaient."
+            }
+          },
+          "rome-vatican-museums-ceiling": {
+            "name": "Le plafond de Michel-Ange",
+            "blurb": "En 1508, le pape Jules II a demandé à Michel-Ange, qui se disait sculpteur et non peintre, de peindre le plafond de cette chapelle. Il fait environ 35 mètres de long et 14 de large, cinq cents mètres carrés. Pendant quatre ans, il a travaillé debout sur des échafaudages, la tête renversée en arrière, et il ne s’est jamais allongé, quoi qu’en disent les histoires. Il a même écrit un poème sur le mal qu’il avait au cou et au dos. Au milieu, il a peint neuf scènes du début du monde, avec plus de trois cents personnages en tout. La plus célèbre est la Création d’Adam : deux doigts qui se touchent presque. Vingt-cinq ans plus tard, il est revenu et a peint tout le mur derrière l’autel.",
+            "question": {
+              "q": "Comment Michel-Ange peignait-il le plafond ?",
+              "answers": [
+                "Debout sur un échafaudage",
+                "Allongé sur le dos, sur des planches",
+                "Pendu à des cordes sous le toit",
+                "D’en bas, avec de très longues perches"
+              ],
+              "explanation": "Debout, la tête en arrière, pendant quatre ans. Son poème sur le mal au cou existe encore."
+            }
+          },
+          "rome-vatican-museums-last-judgement": {
+            "name": "Le mur du Jugement",
+            "blurb": "Le mur derrière l’autel est une seule image, du sol au plafond. Michel-Ange l’a peinte de 1536 à 1541, alors qu’il avait plus de soixante ans, un quart de siècle après avoir fini le plafond. Elle montre le dernier jour du monde, avec des centaines de corps qui montent et qui tombent autour du Christ, au centre. Beaucoup de figures sont tordues et musclées comme le Torse du Belvédère, la statue que Michel-Ange aimait dans la cour. De 1980 à 1994, toute la chapelle a été nettoyée, et sous des siècles de fumée de bougies sont apparues des couleurs si vives que certains refusaient de croire que c’étaient les couleurs du début.",
+            "question": {
+              "q": "Qu’a-t-on trouvé en nettoyant les fresques de 1980 à 1994 ?",
+              "answers": [
+                "Des couleurs plus vives",
+                "Une signature cachée",
+                "Une deuxième image en dessous",
+                "De l’or mélangé à la peinture"
+              ],
+              "explanation": "La fumée des bougies avait tout assombri pendant des siècles. En dessous, les couleurs étaient éclatantes."
+            }
+          },
+          "rome-vatican-museums-spiral-staircase": {
+            "name": "Le double escalier en spirale",
+            "blurb": "La dernière image des musées n’est pas un tableau : c’est l’escalier par lequel tu sors. L’architecte Giuseppe Momo l’a dessiné en 1932 comme sortie, et ce sont deux escaliers enroulés l’un dans l’autre, comme deux serpents : ceux qui montent ne croisent jamais ceux qui descendent. Son cercle fait environ quinze mètres de large, avec une ouverture au milieu et un toit de verre qui verse la lumière jusqu’en bas. L’idée est bien plus vieille : en 1505, Bramante avait fait dans le même palais une double rampe en spirale sans marches, pour que le pape puisse monter jusque chez lui en carrosse. Regarde en bas depuis le haut avant de descendre : l’escalier ressemble à un coquillage.",
+            "question": {
+              "q": "Pourquoi ceux qui montent l’escalier ne croisent-ils jamais ceux qui descendent ?",
+              "answers": [
+                "Ce sont deux escaliers enroulés",
+                "Un gardien les fait passer à tour de rôle",
+                "Un des deux sens prend l’ascenseur",
+                "L’escalier bouge comme un escalator"
+              ],
+              "explanation": "Deux spirales, l’une dans l’autre. Tu en choisis une et tu n’en changes jamais."
+            }
+          }
+        },
+        "riddles": {
+          "rome-vatican-museums-riddle-1": {
+            "prompt": "Autrefois, de l’eau coulait entre mes écailles. Un poète s’est servi de moi pour dire la taille du visage d’un géant, et deux paons montent la garde à côté de moi.",
+            "hint": "Mes pareilles tombent des pins, mais moi je suis en bronze."
+          },
+          "rome-vatican-museums-riddle-2": {
+            "prompt": "Un paysan m’a trouvé dans la terre, et un pape m’a mis dans une cour. Tout a commencé ici avec moi. Mon bras droit a manqué pendant quatre cents ans.",
+            "hint": "Je ne suis pas seul : mes deux fils se débattent à côté de moi."
+          },
+          "rome-vatican-museums-riddle-3": {
+            "prompt": "Je n’ai pas de tête, pas de bras et pas le bas des jambes, et pourtant le plus grand sculpteur du monde a refusé de me les donner. À la place, il m’a peint cent fois sur un plafond.",
+            "hint": "Un Athénien a signé ma base."
+          },
+          "rome-vatican-museums-riddle-4": {
+            "prompt": "Je suis la dernière chose que tu vois ici, et je ne suis pas une œuvre d’art. Je suis deux chemins enroulés l’un dans l’autre, et personne ne me monte aujourd’hui : tout le monde me descend.",
+            "hint": "Vu d’en haut, je ressemble à un coquillage."
+          }
+        }
+      }
+    },
+    "rome-colosseum": {
+      "name": "Le Colisée",
+      "tagline": "La plus grande arène jamais construite, avec quatre-vingts portes",
+      "story": "L’empereur Vespasien a commencé à bâtir cette arène en 72 apr. J.-C., à l’endroit où Néron avait un lac artificiel dans son jardin. Son fils Titus l’a ouverte en 80 apr. J.-C. avec des jeux qui ont duré cent jours. Elle contenait de cinquante à quatre-vingt mille personnes, et pour les faire entrer sans bousculade elle avait quatre-vingts entrées au rez-de-chaussée, avec des numéros gravés au-dessus des arcades, comme les portes d’un stade aujourd’hui. Sous le sol de l’arène couraient des couloirs, des cages et des ascenseurs qui faisaient monter les animaux et les décors par des trappes. Quand le soleil tapait fort, des marins de la flotte tiraient une immense toile au-dessus des gradins. Les pierres étaient tenues par des crampons de fer ; au Moyen Âge, les Romains ont creusé pour récupérer ce fer, et c’est pour cela que les murs sont pleins de trous. En 1349, un tremblement de terre a fait tomber le côté sud. Le nom est emprunté : il vient du Colosse, une statue de 30 mètres qui se dressait juste à côté.",
+      "facts": [
+        "Il fait 189 mètres de long, 156 de large, et son mur extérieur monte à 48 mètres.",
+        "Il avait quatre-vingts entrées au rez-de-chaussée ; 76 servaient aux spectateurs ordinaires.",
+        "La toile qui faisait de l’ombre était manœuvrée par des marins de la base navale de Misène."
+      ],
+      "question": {
+        "q": "Pourquoi les murs du Colisée sont-ils pleins de trous ?",
+        "answers": [
+          "On a arraché le fer des pierres",
+          "Des canons les ont creusés pendant une guerre",
+          "C’étaient des nids pour les pigeons de la ville",
+          "Les drapeaux des jeux y étaient accrochés"
+        ],
+        "explanation": "Les pierres étaient attachées par des crampons de fer. Au Moyen Âge, le fer valait cher, et les gens l’ont creusé dans chaque joint."
+      }
+    },
+    "rome-campidoglio": {
+      "name": "La place du Capitole",
+      "tagline": "La place dessinée par Michel-Ange, avec une étoile au sol",
+      "story": "La colline du Capitole était la plus sacrée de la Rome antique : le temple de Jupiter se dressait ici, et c’est là que finissaient les défilés de la victoire. Au XVIe siècle, pourtant, le sommet n’était plus qu’un terrain boueux. En 1536, le pape Paul III a demandé à Michel-Ange de le refaire, parce que l’empereur Charles Quint venait en visite et qu’il voulait l’impressionner. Michel-Ange a tout dessiné : les façades des trois palais, la large rampe aux marches si basses qu’un cavalier peut la monter à cheval, et un ovale au sol avec une étoile à douze branches. L’étoile, il ne l’a jamais vue qu’en dessin : elle a été posée en 1940, quatre cents ans plus tard. Au milieu se dresse le Marc Aurèle de bronze sur son cheval. C’est une copie ; l’original, qui garde encore des traces d’or, est entré en 1981 dans le musée d’à côté, pour que la pluie arrête de le manger.",
+      "facts": [
+        "Michel-Ange a fait ses premiers dessins pour la place en 1534.",
+        "L’étoile au sol n’a été posée qu’en 1940, d’après son propre dessin.",
+        "Le Capitole de Washington a pris son nom de cette colline."
+      ],
+      "question": {
+        "q": "Pourquoi les marches de la grande rampe sont-elles si basses et si larges ?",
+        "answers": [
+          "Pour y monter à cheval",
+          "Pour que les processions descendent avec des cierges",
+          "Parce que les bâtisseurs n’avaient plus de pierre",
+          "Pour que les tonneaux de vin roulent jusqu’en bas"
+        ],
+        "explanation": "La rampe s’appelle la cordonata. Ses marches sont si douces qu’un cheval les monte sans trébucher."
+      }
+    },
+    "rome-capitoline-museums": {
+      "name": "Les musées du Capitole",
+      "tagline": "Le plus vieux musée public du monde, avec une louve en son cœur",
+      "story": "En 1471, le pape Sixte IV a fait quelque chose que personne n’avait fait avant lui : il a donné au peuple de Rome quelques statues antiques en bronze et les a fait installer dans un bâtiment public, pour que tout le monde les voie. Parmi elles, il y avait la louve qui allaite les jumeaux et un garçon qui retire une épine de son pied. C’est la naissance du premier musée public du monde, qui a officiellement ouvert ses portes aux visiteurs en 1734. Aujourd’hui, il occupe deux palais qui se font face sur la place de Michel-Ange, reliés par un passage souterrain qui court sous le pavé. Dans la cour du premier palais t’attendent une tête de deux mètres et demi et un pied de pierre plus grand que toi : les morceaux d’une statue de l’empereur Constantin qui mesurait douze mètres. Dans le second palais se tient un dieu fleuve de marbre, sur lequel les Romains collaient en cachette des blagues sur leurs dirigeants.",
+      "facts": [
+        "Ils ont commencé en 1471 avec un don de statues de bronze du pape Sixte IV.",
+        "Ils ont ouvert au public en 1734, avant tout autre musée au monde.",
+        "La statue originale de Marc Aurèle est gardée ici depuis 1981."
+      ],
+      "question": {
+        "q": "Qu’a fait le pape Sixte IV en 1471 que personne n’avait fait avant ?",
+        "answers": [
+          "Il a offert des statues au peuple",
+          "Il a bâti le premier palais sur la colline",
+          "Il a mis les statues sous des vitrines",
+          "Il a peint le plafond du musée"
+        ],
+        "explanation": "Jusque-là, les antiquités appartenaient aux papes et aux princes. Des statues qui appartiennent à tous et que tous peuvent voir : c’est cela, un musée."
+      },
+      "findIt": "L’entrée est au 1, Piazza del Campidoglio, dans le palais à ta droite quand tu montes la grande rampe.",
+      "museum": {
+        "doorNote": "La cour du géant vient avant l’escalier. Ne te dépêche pas de monter.",
+        "rooms": {
+          "rome-capitoline-museums-conservatori": {
+            "name": "Le palais des Conservateurs",
+            "intro": "Le premier palais est celui qui a reçu les cadeaux du pape en 1471. Dans sa cour est assis un géant en morceaux, et dans les salles du dessus vivent les bronzes les plus célèbres de Rome : une louve, un garçon avec une épine, et un empereur qui a survécu parce qu’on l’a pris pour quelqu’un d’autre."
+          },
+          "rome-capitoline-museums-palazzo-nuovo": {
+            "name": "Le palais Neuf",
+            "intro": "Tu passes sous la place par un couloir souterrain et tu ressors dans le palais d’en face, bâti en 1645 pour ressembler au premier. Ici, les statues sont en marbre : un guerrier qui tombe, une déesse timide, et un dieu fleuve qui « parlait »."
+          }
+        },
+        "exhibits": {
+          "rome-capitoline-museums-colossus-head": {
+            "name": "La tête du géant",
+            "blurb": "Vers 312 apr. J.-C., l’empereur Constantin a fait faire une statue de lui-même, assise, haute de douze mètres, à l’intérieur d’une énorme basilique du Forum. Seuls la tête, les bras et les jambes étaient en marbre ; le corps était en brique et en bois, sans doute recouvert de bronze. Quand le bois a pourri, il n’est resté que les morceaux de marbre. On les a trouvés en 1486 et on les a apportés ici. La tête fait deux mètres et demi de haut et chaque pied dépasse les deux mètres de long. En 2024, une copie entière de la statue, de treize mètres, a été dressée dans les jardins à côté du musée.",
+            "question": {
+              "q": "Pourquoi seuls la tête, les bras et les jambes de la statue ont-ils survécu ?",
+              "answers": [
+                "Eux seuls étaient en marbre",
+                "Les Vandales ont emporté le reste",
+                "Le corps a fondu dans un grand incendie",
+                "Le sculpteur n’a jamais fini le reste"
+              ],
+              "explanation": "Le corps était en brique et en bois. Le bois pourrit ; le marbre attend."
+            }
+          },
+          "rome-capitoline-museums-she-wolf": {
+            "name": "La Louve du Capitole",
+            "blurb": "Une louve de bronze, haute de 75 centimètres, se tient les oreilles dressées pendant que deux bébés tètent sous elle. Les bébés sont Romulus et Rémus, ceux de la légende, et ils n’appartiennent pas à la même statue : on les a ajoutés vers 1471 ou un peu plus tard. Pendant des siècles, tout le monde a cru que la louve était étrusque et vieille de deux mille cinq cents ans. Des mesures au carbone ont montré que le bronze a sans doute été coulé entre 1021 et 1153, au Moyen Âge. Les spécialistes se disputent encore. Quoi qu’il en soit, elle est le symbole de la ville, et elle faisait partie des premiers cadeaux du pape en 1471.",
+            "question": {
+              "q": "Qu’ont découvert les scientifiques en mesurant l’âge du bronze ?",
+              "answers": [
+                "Qu’elle est probablement médiévale",
+                "Qu’elle est encore plus vieille que Rome",
+                "Qu’elle est en réalité faite d’or",
+                "Qu’elle a été coulée en Grèce"
+              ],
+              "explanation": "Les échantillons indiquent une coulée entre 1021 et 1153. Les bébés sont encore plus jeunes : ils datent du XVe siècle."
+            }
+          },
+          "rome-capitoline-museums-marcus-aurelius": {
+            "name": "Le cavalier doré",
+            "blurb": "C’est la statue originale de Marc Aurèle, en bronze, haute de 4,24 mètres, faite vers 175 apr. J.-C. Elle était autrefois dorée partout, et si tu regardes bien tu vois encore l’or briller par endroits. De tous les empereurs de bronze à cheval, c’est le seul qui ait survécu : les autres ont été fondus pour leur métal. Il a été épargné parce que, pendant des siècles, tout le monde a cru qu’il représentait Constantin, le premier empereur chrétien. Il est resté au Latran jusqu’en 1538, puis au milieu de la place, et depuis 1981 il vit ici, à l’abri de la pluie. Dehors, c’est une copie qui se dresse.",
+            "question": {
+              "q": "Pourquoi cette statue n’a-t-elle pas été fondue comme les autres ?",
+              "answers": [
+                "On l’a prise pour un autre empereur",
+                "Elle était enterrée profondément sous la terre",
+                "Elle était trop lourde pour être déplacée",
+                "La Garde suisse la surveillait"
+              ],
+              "explanation": "Tout le monde croyait que c’était Constantin, le premier empereur chrétien, et personne n’osait le fondre."
+            }
+          },
+          "rome-capitoline-museums-spinario": {
+            "name": "Le garçon à l’épine",
+            "blurb": "Un garçon de bronze est assis sur un rocher, un pied posé sur l’autre genou, penché pour retirer une épine de sa plante de pied. C’est un des très rares bronzes antiques qui n’a jamais été perdu : pendant tout le Moyen Âge, il se tenait devant le palais du Latran, et des voyageurs le décrivent déjà dans les années 1160. Une vieille histoire disait que c’était un petit berger qui avait couru porter un message au Sénat et qui ne s’était assis pour enlever l’épine qu’après l’avoir remis. C’est une jolie histoire, mais plus personne n’y croit. Les sculpteurs de la Renaissance l’ont copié encore et encore.",
+            "question": {
+              "q": "Que fait le garçon de bronze ?",
+              "answers": [
+                "Il enlève une épine de son pied",
+                "Il attache sa sandale pour la course",
+                "Il se lave les pieds dans une rivière",
+                "Il cache une pièce sous son pied"
+              ],
+              "explanation": "En italien on l’appelle le Spinario, de spina, le mot qui veut dire épine."
+            }
+          },
+          "rome-capitoline-museums-dying-gaul": {
+            "name": "Le Galate mourant",
+            "blurb": "Un guerrier est tombé sur son bouclier et se tient sur un bras, blessé. À côté de lui sont posés une épée cassée et une trompette. C’est un Galate, un Celte : tu le reconnais à l’anneau de métal torsadé autour de son cou, à la moustache sans barbe et aux cheveux emmêlés. La statue est une copie en marbre d’un bronze perdu, fait à Pergame, en Asie Mineure, vers 230 av. J.-C., pour fêter une victoire sur les Galates. En 1797, Napoléon l’a emportée à Paris ; elle est revenue à Rome en 1816. Le poète Byron a écrit un poème sur elle.",
+            "question": {
+              "q": "À quoi reconnais-tu que le guerrier est un Galate ?",
+              "answers": [
+                "À son collier et sa moustache",
+                "Au drapeau qu’il tient dans sa main",
+                "Au casque aux plumes d’aigle",
+                "À l’inscription sur son bouclier"
+              ],
+              "explanation": "Cet anneau s’appelle un torc et les guerriers celtes le portaient. Les Romains et les Grecs n’en portaient pas."
+            }
+          },
+          "rome-capitoline-museums-marforio": {
+            "name": "Marforio",
+            "blurb": "Dans la cour est allongé un énorme homme de marbre à la barbe fournie, un dieu fleuve ou Océan, du Ier siècle apr. J.-C. On l’a trouvé avec un bassin où était gravé « mare in foro », la mer au Forum, et c’est de là que vient son nom. Aux XVIe et XVIIe siècles, les Romains n’osaient pas critiquer leurs dirigeants à voix haute : ils écrivaient donc des vers moqueurs sur des bouts de papier et les collaient la nuit sur des statues. Marforio était une de ces « statues parlantes », et il « répondait » souvent à une autre, Pasquino. Il est une fontaine depuis 1592, et il vit dans cette cour depuis 1645.",
+            "question": {
+              "q": "Pourquoi appelle-t-on Marforio une « statue parlante » ?",
+              "answers": [
+                "On lui collait des mots moqueurs",
+                "Il avait un tuyau caché à l’intérieur pour la voix",
+                "Son eau fait un bruit qui ressemble à une voix",
+                "Un prêtre parlait derrière lui"
+              ],
+              "explanation": "Quand tu ne peux pas dire une chose à voix haute, tu l’écris sur un bout de papier et tu laisses une statue la « dire » pour toi."
+            }
+          },
+          "rome-capitoline-museums-capitoline-venus": {
+            "name": "La Vénus du Capitole",
+            "blurb": "Une déesse de marbre, un peu plus grande qu’une personne avec ses 1,93 mètre, se tient comme si tu étais entré pendant son bain : une main couvre sa poitrine et l’autre son corps. C’est une copie romaine du IIe siècle apr. J.-C., faite d’après un modèle grec qui remonte au sculpteur Praxitèle. On l’a trouvée sur la colline du Viminal entre 1670 et 1676, et en 1752 le pape Benoît XIV l’a achetée et l’a offerte au musée. Napoléon l’a emportée à Paris elle aussi ; elle est revenue en 1816. Elle a sa propre petite salle, pour que tu puisses en faire tout le tour.",
+            "question": {
+              "q": "Pourquoi la déesse a-t-elle sa propre salle au musée ?",
+              "answers": [
+                "Pour la voir de tous les côtés",
+                "Parce que le marbre a besoin d’obscurité",
+                "Parce qu’elle ne tenait pas dans la cour",
+                "Pour qu’elle ne se dispute pas avec Marforio"
+              ],
+              "explanation": "Une statue comme celle-ci est faite pour qu’on tourne autour. Contre un mur, tu perdrais la moitié de son dos."
+            }
+          }
+        },
+        "riddles": {
+          "rome-capitoline-museums-riddle-1": {
+            "prompt": "Je ne suis pas leur mère, mais je leur donne du lait. Je suis en bronze, et eux sont bien plus jeunes que moi, même si nous avons l’air d’une famille.",
+            "hint": "Je me tiens sur quatre pattes, les oreilles dressées."
+          },
+          "rome-capitoline-museums-riddle-2": {
+            "prompt": "J’avais autrefois un corps de douze mètres, en brique et en bois. Le corps a pourri, et je t’attends dans la cour, à te regarder d’en haut, sans cou.",
+            "hint": "À côté de moi, il y a un pied plus grand que toi."
+          },
+          "rome-capitoline-museums-riddle-3": {
+            "prompt": "Je suis allongé dans cette cour depuis quatre cents ans, et l’eau coule sous moi. La nuit, les gens me collaient des bouts de papier, et c’est moi qui « parlais » à leur place.",
+            "hint": "J’ai une barbe, et mon nom a la mer dedans."
+          }
+        }
+      }
+    },
+    "rome-circus-maximus": {
+      "name": "Le Circus Maximus",
+      "tagline": "Le plus grand stade de l’histoire est aujourd’hui un parc",
+      "story": "Entre la colline du Palatin et celle de l’Aventin s’étend une longue vallée d’herbe. Ça n’a l’air de rien, mais c’était le plus grand lieu de spectacle que Rome ait jamais construit : 621 mètres de long, 118 de large, avec des gradins pour plus de 150 000 personnes. Trois fois la foule du Colisée. On y faisait des courses de chars : quatre chevaux tiraient un char léger, et les conducteurs faisaient sept tours autour d’un long mur bas planté au milieu. Pour que tout le monde sache combien de tours il restait, sept gros œufs de marbre se dressaient sur ce mur et, à partir de 33 av. J.-C., sept dauphins de bronze aussi ; on en descendait un après chaque tour. Sur le même mur, Auguste a fait dresser un obélisque égyptien, qui se trouve aujourd’hui Piazza del Popolo. Les dernières courses ont eu lieu en 549 apr. J.-C. Ensuite la vallée s’est vidée, et c’est maintenant un parc public où les Romains courent, promènent leur chien et vont à des concerts, là même où filaient les chars.",
+      "facts": [
+        "Il faisait 621 mètres de long et 118 de large, avec de la place pour plus de 150 000 spectateurs.",
+        "Une course durait sept tours, comptés avec des œufs et des dauphins.",
+        "Les dernières courses connues ont eu lieu en 549 apr. J.-C."
+      ],
+      "question": {
+        "q": "Comment le public savait-il combien de tours il restait ?",
+        "answers": [
+          "Un œuf ou un dauphin descendait",
+          "Un héraut criait le numéro à chaque fois",
+          "On allumait un feu pour chaque tour restant",
+          "On changeait la couleur des drapeaux"
+        ],
+        "explanation": "Sept œufs et sept dauphins se dressaient sur le mur du milieu. Un descendait à chaque tour, et on le voyait de n’importe où dans les gradins."
+      }
+    },
+    "rome-trevi-fountain": {
+      "name": "La fontaine de Trevi",
+      "tagline": "De l’eau vieille de deux mille ans et un roi de la mer",
+      "story": "L’eau de cette fontaine est plus vieille que la fontaine elle-même. En 19 av. J.-C., les ingénieurs d’Agrippa ont trouvé une source propre à treize kilomètres de la ville, avec l’aide, dit-on, d’une jeune fille qui leur a montré l’endroit, et ils ont construit un aqueduc, l’Aqua Virgo, l’Eau Vierge, pour l’amener à Rome. Il fonctionne encore. En 1732, l’architecte Nicola Salvi a commencé à bâtir au bout de l’aqueduc une fontaine si grande qu’elle a pris tout le côté d’un palais : 26 mètres de haut, 49 de large, la plus grande fontaine baroque du monde. Salvi est mort en 1751, le travail à moitié fait, et Giuseppe Pannini l’a terminé en 1762. Au milieu, Océan surgit sur un char-coquillage tiré par deux chevaux marins ailés : l’un calme, l’autre déchaîné, comme la mer elle-même. Chaque jour, les visiteurs y jettent environ trois mille euros en pièces. On les ramasse et on les donne à une association qui aide les gens dans le besoin.",
+      "facts": [
+        "Elle fait 26,3 mètres de haut et 49,15 mètres de large, la plus grande fontaine baroque du monde.",
+        "L’aqueduc qui l’alimente a été construit en 19 av. J.-C. et fonctionne encore.",
+        "En 2016, on a ramassé au fond environ 1,4 million d’euros en pièces."
+      ],
+      "question": {
+        "q": "Où vont les pièces que les visiteurs jettent dans l’eau ?",
+        "answers": [
+          "À une œuvre de charité",
+          "Au maire de Rome",
+          "Elles restent au fond du bassin",
+          "À celui qui les trouve"
+        ],
+        "explanation": "On les ramasse régulièrement et on les donne à Caritas, qui aide les gens dans le besoin. Chaque vœu fait aussi un peu de bien."
+      }
+    },
+    "rome-campo-de-fiori": {
+      "name": "Campo de’ Fiori",
+      "tagline": "Le « champ de fleurs » devenu le marché de la ville",
+      "story": "Le nom veut dire « champ de fleurs », et au Moyen Âge c’était exactement cela : un pré au milieu de la ville. Plus tard, c’est devenu une place, et deux fois par semaine, le lundi et le samedi, on y tenait un marché aux chevaux. Depuis 1869, le marché alimentaire s’installe ici chaque matin, après avoir déménagé de la Piazza Navona : des étals de tomates, d’artichauts, de fruits, de fromages, de tas d’épices et de poissons. C’est le meilleur endroit de Rome pour voir ce que la ville mange. C’est aussi la seule grande place du centre sans église. Au milieu se dresse une statue sombre à capuche : Giordano Bruno, un philosophe qui pensait que l’univers n’a pas de fin et qu’il existe d’autres soleils avec leurs propres planètes. En 1600, on l’a brûlé sur un bûcher à cet endroit, parce que l’Église trouvait ses idées dangereuses. La statue a été dressée en 1889, quand Rome a décidé de se souvenir de lui : en dessous, il est écrit « ici, où le bûcher a brûlé ». Le matin, la place sent le fruit, le soir elle se remplit de monde, et Bruno regarde vers le Vatican.",
+      "facts": [
+        "Le marché alimentaire s’installe ici chaque matin depuis 1869.",
+        "C’est la seule grande place du centre de Rome sans église.",
+        "La statue de Giordano Bruno a été dressée en 1889 ; elle est d’Ettore Ferrari."
+      ],
+      "question": {
+        "q": "Qu’était cet endroit au Moyen Âge ?",
+        "answers": [
+          "Un pré au milieu de la ville",
+          "La cour d’un grand palais",
+          "Un port pour les bateaux du fleuve",
+          "Le jardin d’un monastère"
+        ],
+        "explanation": "Campo veut dire champ et fiori veut dire fleurs. Le nom est resté, même quand le pré s’est rempli d’étals."
+      }
+    },
+    "rome-st-peters-square": {
+      "name": "La place Saint-Pierre",
+      "tagline": "Deux bras de pierre qui font un câlin, dans le plus petit pays du monde",
+      "story": "Dès que tu franchis la ligne blanche au sol, tu n’es plus en Italie. Le Vatican est un État indépendant depuis 1929, avec 44 hectares, à peu près soixante terrains de football, et moins de mille habitants. Il a ses propres timbres et ses propres gardes : la Garde suisse, qui protège le pape depuis 1506 et porte des uniformes à rayures bleues, rouges et jaunes. La place a été dessinée par le Bernin il y a plus de 350 ans. Deux colonnades courbes, avec des colonnes sur quatre rangs et 140 statues de saints tout en haut, sont, comme il le disait lui-même, les bras d’une mère qui serre contre elle tous ceux qui arrivent. Au milieu se dresse un obélisque de 25 mètres, venu d’Égypte par bateau au Ier siècle apr. J.-C. En 1586, il a fallu des centaines d’hommes, plus de cent chevaux et des dizaines de treuils pour le déplacer jusqu’ici et le remettre debout. C’est le seul obélisque antique de Rome qui ne soit jamais tombé. Le dôme au-dessus est un dessin de Michel-Ange.",
+      "facts": [
+        "Le Vatican a 44 hectares et moins de mille habitants.",
+        "La Garde suisse protège le pape depuis le 22 janvier 1506.",
+        "L’obélisque est le seul obélisque antique de Rome qui ne soit jamais tombé."
+      ],
+      "question": {
+        "q": "À quoi ressemblent les deux colonnades, d’après le Bernin ?",
+        "answers": [
+          "À deux bras qui font un câlin",
+          "Aux deux ailes d’un oiseau géant",
+          "Aux deux cornes d’un taureau",
+          "À deux vagues qui se brisent sur la côte"
+        ],
+        "explanation": "Le Bernin disait que ce sont les bras maternels de l’Église, ouverts à tous ceux qui arrivent sur la place."
+      }
+    },
+    "rome-roman-forum": {
+      "name": "Le Forum romain",
+      "tagline": "La place qui gouvernait le monde et qui est devenue un pré à vaches",
+      "story": "Pendant mille ans, cette vallée étroite entre deux collines a été le cœur de Rome. Les sénateurs discutaient les lois dans la Curie, un bâtiment qui tient encore debout presque entier. Les orateurs montaient sur les Rostres, une tribune de pierre, pour parler à la foule. Quand un général rentrait vainqueur, il descendait la Voie sacrée sur son char et toute la ville l’acclamait. Le corps de Jules César a été brûlé ici en 44 av. J.-C., et à cet endroit Auguste lui a bâti un temple ; l’autel a survécu, et aujourd’hui encore les gens y déposent des fleurs. Après la fin du monde antique, les bâtiments sont tombés, la terre les a recouverts, et des vaches ont pâturé ici pendant tant de siècles qu’on appelait l’endroit Campo Vaccino, le pré des vaches. En 1803, un archéologue nommé Carlo Fea a commencé à dégager les gravats de l’arc de Septime Sévère, et lentement la place est revenue à la lumière.",
+      "facts": [
+        "La Curie, le bâtiment du Sénat, tient encore debout presque entière.",
+        "On laisse des fleurs sur l’autel de César chaque jour, deux mille ans après.",
+        "L’arc de Septime Sévère a été inauguré en 203 apr. J.-C."
+      ],
+      "question": {
+        "q": "Pourquoi a-t-on appelé cet endroit « le pré des vaches » pendant des siècles ?",
+        "answers": [
+          "Des vaches pâturaient sur les ruines",
+          "C’est là que les Romains vendaient leurs bœufs",
+          "Un empereur aimait beaucoup les vaches",
+          "La vallée a la forme d’une vache"
+        ],
+        "explanation": "La terre avait recouvert la place si profondément qu’un vrai pré s’étendait par-dessus. Les archéologues ont creusé plusieurs mètres pour retrouver le pavage."
+      }
+    },
+    "rome-bocca-della-verita": {
+      "name": "La Bouche de la Vérité",
+      "tagline": "Un visage de pierre qui, dit-on, mord les menteurs",
+      "story": "Sous le porche d’une vieille église se dresse un disque de marbre avec un visage : des yeux, un nez et une bouche grande ouverte. Il pèse environ 1 300 kilos. Il montre sans doute Océan, le dieu de la mer, avec une barbe comme des vagues. Personne ne sait avec certitude ce qu’il était dans l’Antiquité. Les yeux et la bouche sont des trous qui traversent la pierre de part en part, et c’est pour cela que beaucoup pensent qu’il servait de couvercle d’égout dans un temple voisin, un temple qui avait une ouverture dans le toit et qui laissait entrer la pluie. Au Moyen Âge, la légende est née : tu mets la main dans la bouche, tu dis un mensonge, et la bouche se referme dessus. Au XVIIe siècle, le disque a été installé là où tu le vois maintenant. L’église a une histoire grecque : des marchands grecs vivaient ici il y a mille deux cents ans, et son nom, Cosmedin, vient du mot grec kosmos, qui veut dire ornement. Aujourd’hui encore, on y célèbre la messe selon le rite grec. En 1953, le disque est devenu célèbre dans le monde entier grâce à un film où un acteur fait semblant d’avoir la main coupée.",
+      "facts": [
+        "Le disque de marbre pèse environ 1 300 kilos.",
+        "Le campanile de l’église a sept étages et se dresse là depuis le XIIe siècle.",
+        "Le quartier s’appelait Ripa Graeca, la Rive grecque, à cause des Grecs qui y vivaient."
+      ],
+      "question": {
+        "q": "Pourquoi beaucoup de gens pensent-ils que le disque était un couvercle d’égout ?",
+        "answers": [
+          "Ses yeux et sa bouche sont percés",
+          "On l’a trouvé à l’intérieur d’un ancien égout",
+          "Le mot « eau » est gravé dessus",
+          "Il est fait de la même matière que les tuyaux"
+        ],
+        "explanation": "Des trous qui traversent la pierre laissent l’eau s’en aller. Un visage sur un mur n’en aurait pas besoin."
+      }
+    },
+    "rome-pantheon": {
+      "name": "Le Panthéon",
+      "tagline": "Un dôme de deux mille ans avec un œil ouvert sur le ciel",
+      "story": "Le nom est grec, « de tous les dieux », parce que le temple était dédié à tous les dieux à la fois. Le premier a été construit par Agrippa au temps d’Auguste ; le bâtiment que tu vois est celui de l’empereur Hadrien, vers 126 apr. J.-C., et il a laissé sur la façade le nom d’Agrippa au lieu du sien. Les seize colonnes de l’entrée sont en granit d’Égypte, chacune d’un seul bloc de 11,9 mètres et de 60 tonnes, arrivée par bateau. À l’intérieur, le dôme mesure 43,3 mètres de large et exactement autant de haut, donc une boule géante y tiendrait parfaitement. C’est encore le plus grand dôme du monde en béton sans fer à l’intérieur. Les ingénieurs l’ont fait épais de 6,4 mètres à la base et de 1,2 mètre seulement au sommet, avec de la pierre ponce tout en haut pour qu’il soit plus léger. En son centre s’ouvre un œil sans vitre : le soleil entre par là comme un projecteur, et quand il pleut, la pluie tombe sur un sol en pente, percé de trous qui emportent l’eau. En 609, le temple est devenu une église, et c’est pour cela que personne n’a jamais pris ses pierres. Le peintre Raphaël est enterré ici.",
+      "facts": [
+        "Le dôme mesure 43,3 mètres de large et exactement autant de haut, du sol à l’œil.",
+        "Chaque colonne de l’entrée est un seul bloc de granit de 11,9 mètres et 60 tonnes.",
+        "C’est une église depuis 609 apr. J.-C., et c’est pour cela qu’il a survécu entier."
+      ],
+      "question": {
+        "q": "Que devient la pluie qui entre par l’œil du dôme ?",
+        "answers": [
+          "Elle part par des trous dans le sol",
+          "On la recueille dans une citerne pour les bains",
+          "Elle s’évapore avant d’arriver en bas",
+          "Une vitre ferme l’ouverture quand il pleut"
+        ],
+        "explanation": "Le sol a une pente douce et de petits trous, alors l’eau s’écoule et disparaît. Les Romains l’avaient prévu dès le départ."
+      }
+    },
+    "rome-piazza-navona": {
+      "name": "La piazza Navona",
+      "tagline": "Un stade antique devenu une place à trois fontaines",
+      "story": "Cette place est longue et étroite, arrondie à un bout, parce qu’elle a exactement la forme d’un stade. L’empereur Domitien l’a construit vers 86 apr. J.-C. pour des courses et des combats de lutte, comme à Olympie, et il tenait environ 30 000 spectateurs. Ces concours s’appelaient agones, du mot grec qui veut dire combat, et au fil des siècles ce mot est devenu le nom Navona. Quand le stade s’est écroulé, on a bâti des maisons sur les gradins et la piste est restée vide, comme une place. En 1651, Gian Lorenzo Bernini a installé au milieu la fontaine des Quatre-Fleuves : quatre géants de marbre sont les grands fleuves des quatre continents qu’on connaissait à l’époque, le Nil, le Gange, le Danube et le Río de la Plata, et au-dessus d’eux se dresse un obélisque. Le Nil se cache le visage sous un tissu, parce qu’à ce moment-là personne ne savait où il naissait. En face se dresse l’église Sainte-Agnès, bâtie par Borromini, le grand rival de Bernini. De 1652 à 1866, chaque week-end du mois d’août, on bouchait les égouts et la place devenait un lac peu profond où les Romains venaient se rafraîchir.",
+      "facts": [
+        "Le stade de Domitien tenait environ 30 000 spectateurs et mesurait 275 mètres de long.",
+        "La fontaine des Quatre-Fleuves est de 1651, une œuvre de Bernini.",
+        "De 1652 à 1866, on inondait la place exprès les week-ends d’août."
+      ],
+      "question": {
+        "q": "Pourquoi le Nil de marbre se cache-t-il le visage ?",
+        "answers": [
+          "Personne ne savait où il naissait",
+          "Il a honte de l’église qui est en face",
+          "Le soleil de la place le dérange",
+          "Le marbre de son visage s’était fissuré"
+        ],
+        "explanation": "Au temps de Bernini, les sources du Nil étaient un mystère. Le visage couvert veut dire « inconnu ». Les explorateurs les ont trouvées deux siècles plus tard."
+      }
+    },
+    "rome-palazzo-massimo": {
+      "name": "Le Palazzo Massimo",
+      "tagline": "Un boxeur de bronze et un jardin peint il y a 2 000 ans",
+      "story": "À côté de la gare de Termini se dresse un grand palais construit de 1883 à 1887 pour être une école de jésuites. L’État l’a acheté en 1981, l’a restauré, et en 1998 il a ouvert entièrement comme musée : c’est le plus important des quatre sites du Musée national romain. On y garde des choses sorties de la terre de Rome quand la ville a grandi d’un coup, après 1870, et que chaque rue nouvelle déterrait quelque chose. Au rez-de-chaussée et au premier étage, tu verras des statues : un boxeur de bronze assis, épuisé après son combat, avec des blessures en cuivre sur le visage, et un lanceur de disque figé au milieu de son élan. Au deuxième étage, il n’y a pas de statues mais des murs : des pièces entières de maisons romaines, peintes, qu’on a décollées avec soin et remontées ici, à commencer par un jardin plein d’oiseaux et de fruits, venu de la villa de l’impératrice Livie. Au sous-sol se trouvent les monnaies, des premiers blocs de bronze de Rome jusqu’à l’euro.",
+      "facts": [
+        "Le bâtiment a été construit de 1883 à 1887 comme école, et il est devenu musée en 1998.",
+        "C’est l’un des quatre sites du Musée national romain.",
+        "Le deuxième étage est rempli de murs peints venus de maisons antiques."
+      ],
+      "question": {
+        "q": "Qu’était ce bâtiment avant de devenir un musée ?",
+        "answers": [
+          "Une école",
+          "Une gare",
+          "Le palais d’un roi",
+          "Des bains publics"
+        ],
+        "explanation": "Il a été construit pour des maîtres jésuites et leurs élèves. Les bains, les Terme, sont les ruines romaines d’en face, et c’est d’elles qu’il tient son nom."
+      },
+      "findIt": "L’entrée est au Largo di Villa Peretti 2, au coin, en face de la gare de Termini.",
+      "museum": {
+        "doorNote": "Le boxeur et le jardin sont à des étages différents. Prends l’ascenseur pour les deux.",
+        "rooms": {
+          "rome-palazzo-massimo-athletes": {
+            "name": "Les athlètes de bronze",
+            "intro": "La plupart des statues de bronze antiques ont été fondues pour leur métal. Les deux de cette salle ont survécu parce que quelqu’un les a enterrées avec soin, et on les a trouvées ensemble en 1885, pendant qu’on creusait pour un théâtre. À côté d’elles, un lanceur de disque en marbre qui a voyagé jusqu’en Allemagne et qui est revenu."
+          },
+          "rome-palazzo-massimo-painted-garden": {
+            "name": "Le jardin peint",
+            "intro": "Au deuxième étage, tu ne regardes pas des statues : tu te tiens à l’intérieur de pièces. Leurs murs ont été peints dans des maisons romaines il y a deux mille ans, décollés avec un soin énorme et remontés ici, dans la même forme. La pièce la plus célèbre n’a pas de murs du tout : elle a un jardin."
+          }
+        },
+        "exhibits": {
+          "rome-palazzo-massimo-boxer": {
+            "name": "Le boxeur au repos",
+            "blurb": "Un boxeur de bronze est assis, les coudes sur les genoux, il tourne la tête comme si on venait de l’appeler, et il est à bout de forces. À ses mains, il porte encore les lanières de cuir de son sport. Son nez est cassé, ses oreilles sont enflées, et le sculpteur a incrusté des morceaux de cuivre rouge dans le bronze pour montrer le sang de ses coupures. Il a été fait entre 330 et 50 av. J.-C. En 1885, on l’a trouvé soigneusement enterré sur la colline du Quirinal, comme si quelqu’un avait voulu le sauver. Ses orteils et ses doigts sont polis et lisses : dans l’Antiquité, les gens le touchaient sans doute pour avoir de la chance.",
+            "question": {
+              "q": "Comment le sculpteur a-t-il montré le sang sur le visage du boxeur ?",
+              "answers": [
+                "Avec des morceaux de cuivre rouge",
+                "Avec de la peinture rouge sur le bronze",
+                "Avec de petites pierres rouges incrustées",
+                "Avec des traits creusés dans le métal"
+              ],
+              "explanation": "Le cuivre est plus rouge que le bronze. Incrusté dans les coupures, il ressemble encore aujourd’hui à du sang frais."
+            }
+          },
+          "rome-palazzo-massimo-prince": {
+            "name": "Le prince à la lance",
+            "blurb": "Un jeune homme nu avec une barbe, haut de 2,04 mètres, se tient appuyé sur une longue lance, comme se tenaient les héros dans les statues du sculpteur Lysippe. Il est en bronze et on l’a trouvé en 1885 à côté du boxeur, enterré avec lui. Ses yeux étaient incrustés dans une autre matière et ils ont disparu, c’est pour cela qu’il te regarde avec des orbites vides. Personne ne sait qui il est. Autrefois on l’appelait le « prince hellénistique », un roi venu d’Orient. Aujourd’hui, la plupart des savants pensent que c’est un général romain du IIe siècle av. J.-C., peut-être Scipion Émilien, parce qu’on l’a trouvé près de l’endroit où Scipion avait sa villa.",
+            "question": {
+              "q": "Pourquoi le jeune homme à la lance a-t-il des orbites vides à la place des yeux ?",
+              "answers": [
+                "Ses yeux incrustés sont tombés",
+                "Le sculpteur n’a pas eu le temps de les faire",
+                "On les a enlevés pour qu’il ne « voie » pas",
+                "Ils ont fondu dans l’incendie de la villa"
+              ],
+              "explanation": "Les yeux des statues de bronze étaient en pierre ou en verre, posés dans des orbites creuses. Ils tombent facilement et se perdent."
+            }
+          },
+          "rome-palazzo-massimo-discobolus": {
+            "name": "Le Discobole",
+            "blurb": "Un athlète s’est baissé, le disque dans la main tendue derrière lui, un instant avant de le lancer. L’original était en bronze, fait par le sculpteur grec Myron vers 460 av. J.-C., et il est perdu. Celui-ci est une copie romaine en marbre, la meilleure qui soit conservée, trouvée en 1781 dans une villa de la famille Massimo, sur la colline de l’Esquilin. En 1938, Hitler l’a acheté pour cinq millions de lires, malgré les protestations des archéologues italiens, et l’a emmené à Munich. Il est revenu à Rome en 1948. Si tu essaies de te tenir comme ça, tu verras que personne ne lance un disque dans cette position : Myron a choisi le moment le plus beau, pas le plus vrai.",
+            "question": {
+              "q": "Qui a fait l’original en bronze, aujourd’hui perdu ?",
+              "answers": [
+                "Myron, sculpteur grec",
+                "Bernini, un sculpteur romain",
+                "Un artisan égyptien inconnu",
+                "La famille Massimo elle-même"
+              ],
+              "explanation": "Myron travaillait à Athènes vers 460 av. J.-C. Les Romains aimaient tant sa statue qu’ils en ont fait beaucoup de copies en marbre."
+            }
+          },
+          "rome-palazzo-massimo-livia-garden": {
+            "name": "Le jardin de Livie",
+            "blurb": "Livie, la femme de l’empereur Auguste, avait une villa hors de Rome avec une pièce à moitié enfoncée dans la terre, fraîche l’été. Vers 30 av. J.-C., des peintres ont fait disparaître ses quatre murs : du haut en bas, ils sont un jardin avec 24 espèces de plantes, toutes en fleur et toutes avec des fruits mûrs en même temps, ce qui n’arrive jamais dans un vrai jardin, et des oiseaux qui volent ou se posent sur les branches. Le ciel est peint en bleu égyptien, une couleur rare et chère. La pièce était une salle à manger : on s’allongeait sur des lits autour d’une table basse et on mangeait dans un jardin qui ne fanait jamais. Les murs ont été transportés ici pour que l’humidité ne les détruise pas.",
+            "question": {
+              "q": "Qu’est-ce qui ne pourrait jamais arriver dans un vrai jardin ?",
+              "answers": [
+                "Tout fleuri et mûr en même temps",
+                "Des oiseaux posés tranquillement sur les branches",
+                "Un ciel bleu au-dessus de toi",
+                "Des arbres qui portent des fruits"
+              ],
+              "explanation": "Chaque plante fleurit et donne ses fruits à une saison différente. Les peintres ont mis toutes les saisons ensemble, pour qu’il fasse toujours été."
+            }
+          },
+          "rome-palazzo-massimo-white-hen": {
+            "name": "La poule blanche et le rameau",
+            "blurb": "La villa de Livie avait un nom étrange en latin : Ad Gallinas Albas, « aux poules blanches ». La légende dit qu’un jour un aigle est passé au-dessus de Livie et qu’une poule blanche, vivante, un rameau de laurier dans le bec, est tombée de ses serres droit sur ses genoux. On y a vu un signe. On a planté le rameau, il est devenu un arbre puis tout un bois de lauriers, et c’est là qu’on coupait les couronnes que les empereurs portaient dans leurs défilés. La même villa a été fouillée en 1863 et on y a trouvé l’une des statues d’Auguste les plus célèbres ; elle est aujourd’hui aux Musées du Vatican. Le jardin peint et l’histoire de la poule appartiennent à la même maison.",
+            "question": {
+              "q": "Que portait dans son bec la poule blanche de la légende ?",
+              "answers": [
+                "Du laurier",
+                "Une bague en or",
+                "Une branche d’olivier",
+                "Une grappe de raisin"
+              ],
+              "explanation": "C’est avec du laurier qu’on faisait les couronnes des vainqueurs. Le rameau est devenu un arbre, et l’arbre a donné des couronnes aux empereurs."
+            }
+          },
+          "rome-palazzo-massimo-coins": {
+            "name": "Les monnaies du sous-sol",
+            "blurb": "Au sous-sol du palais, dans une salle forte aux portes lourdes, se trouve la collection de monnaies. L’histoire commence avant qu’il existe la moindre pièce : les premiers Romains payaient avec de lourds blocs de bronze qu’il fallait peser, et leur mot pour l’argent, pecunia, vient de pecu, qui veut dire le bétail, parce qu’encore plus tôt la richesse se comptait en animaux. Viennent ensuite les pièces rondes avec les visages des empereurs, en or, en argent et en bronze, et la suite continue jusqu’aux monnaies des papes, à la lire et à l’euro. Une pièce est une petite image de qui commandait et de ce qu’il voulait te montrer.",
+            "question": {
+              "q": "De quel mot vient pecunia, le mot latin pour l’argent ?",
+              "answers": [
+                "Du mot « bétail »",
+                "Du mot pour l’or",
+                "Du nom d’un empereur",
+                "Du mot pour la balance"
+              ],
+              "explanation": "Pecu veut dire le bétail. Avant les pièces, la richesse d’un Romain, c’était ses animaux."
+            }
+          }
+        },
+        "riddles": {
+          "rome-palazzo-massimo-riddle-1": {
+            "prompt": "Je viens de finir et je suis fatigué. J’ai le nez cassé et les oreilles enflées, et pourtant quelqu’un m’a enterré avec tant de soin que j’ai survécu.",
+            "hint": "Regarde mes mains : je porte encore les lanières."
+          },
+          "rome-palazzo-massimo-riddle-2": {
+            "prompt": "Je ne suis pas une statue. Je suis quatre murs qu’on a rendus invisibles. Dedans, c’est toujours l’été, chaque fruit est mûr et aucun oiseau ne s’envole jamais.",
+            "hint": "J’appartenais à une impératrice et j’étais à moitié enfoncé dans la terre."
+          },
+          "rome-palazzo-massimo-riddle-3": {
+            "prompt": "Je me penche pour lancer, et pourtant je n’ai jamais lancé. Je suis la copie d’un objet perdu ; on m’a emmené dans un pays étranger juste avant une guerre et je suis rentré dix ans plus tard.",
+            "hint": "Ce que je tiens est rond et plat."
+          }
+        }
+      }
+    },
+    "rome-castel-sant-angelo": {
+      "name": "Le château Saint-Ange",
+      "tagline": "Tombeau, château, prison et musée, le même bâtiment rond",
+      "story": "L’empereur Hadrien a fait construire cet énorme cylindre de pierre sur la rive du Tibre, de 134 à 139 apr. J.-C., pour être son tombeau et celui de sa famille. Au sommet, il y avait un jardin et un char d’or à quatre chevaux, et devant lui un pont, qui tient encore. Quand Rome a eu besoin d’être protégée, les murs épais du tombeau sont devenus un château. La légende dit qu’en 590, alors qu’une maladie tourmentait la ville, le pape a vu au sommet un ange remettre son épée dans son fourreau, signe que la maladie s’arrêtait, et depuis, le château porte le nom de l’ange. Un ange de bronze de 1753 se tient encore là-haut. Les papes en ont fait leur refuge : un couloir couvert de 800 mètres, le Passetto, court sur un vieux rempart jusqu’au Vatican, et en 1527 le pape Clément VII l’a traversé en courant quand des soldats étrangers sont entrés dans la ville. Le château a aussi été une prison. En 1901, il est devenu un musée, et aujourd’hui tu montes la rampe en spirale d’Hadrien jusqu’à la terrasse de l’ange, avec toute Rome en dessous. Les dix anges du pont ont été dessinés par Bernini en 1668.",
+      "facts": [
+        "Il a été construit comme tombeau d’Hadrien, de 134 à 139 apr. J.-C.",
+        "Le couloir secret jusqu’au Vatican, le Passetto, mesure environ 800 mètres.",
+        "C’est un musée depuis 1901."
+      ],
+      "question": {
+        "q": "Qu’était ce bâtiment au départ ?",
+        "answers": [
+          "Le tombeau d’un empereur",
+          "Un phare pour les bateaux du fleuve",
+          "Un réservoir d’eau pour la ville",
+          "Le trésor des papes"
+        ],
+        "explanation": "Hadrien l’a construit pour lui et pour sa famille. Le château, la prison et le musée sont venus bien plus tard."
+      }
+    },
+    "rome-bioparco": {
+      "name": "Le Bioparco",
+      "tagline": "Le zoo qui a remplacé les barreaux par des fossés",
+      "story": "Dans le grand parc de la Villa Borghese, au nord du centre, le zoo de Rome a ouvert le 5 janvier 1911. Il a été dessiné par l’Allemand Carl Hagenbeck, qui avait une idée nouvelle pour son époque : au lieu de cages à barreaux, les animaux vivraient dans des espaces ouverts et verts, séparés des visiteurs par des douves et des fossés, pour que tu les voies sans fer entre eux et toi. Au début, le zoo faisait douze hectares ; aujourd’hui il en fait dix-sept, et il abrite environ 1 100 animaux de 222 espèces : des mammifères, des reptiles et des oiseaux. En 1935, l’architecte Raffaele De Vico, celui-là même qui a fait le Jardin des orangers, a construit ici une maison des reptiles, qui a fermé en 1970 et a rouvert rénovée en 1983. En 1998, le zoo a changé de nom et de mission : il est devenu le Bioparco, et son travail n’est plus de montrer des animaux rares mais de les protéger et d’apprendre aux enfants pourquoi ils ont besoin d’être protégés. Tu y verras des éléphants, des lions, des chimpanzés, des rhinocéros blancs et des manchots d’Afrique, à deux pas du jardin peint de Livie.",
+      "facts": [
+        "Il a ouvert le 5 janvier 1911, dessiné par Carl Hagenbeck.",
+        "Il fait 17 hectares et abrite environ 1 100 animaux de 222 espèces.",
+        "Il s’appelle Bioparco depuis 1998, quand son but est devenu la protection des animaux."
+      ],
+      "question": {
+        "q": "Quelle était l’idée nouvelle de Hagenbeck pour le zoo ?",
+        "answers": [
+          "Des fossés au lieu de barreaux",
+          "Des animaux en liberté parmi les visiteurs",
+          "Seulement des animaux d’Italie",
+          "Des cages de verre au lieu du fer"
+        ],
+        "explanation": "Un fossé garde un lion à sa place aussi bien que des barreaux, mais toi, tu le vois sans rien entre vous."
+      },
+      "findIt": "L’entrée est au Viale del Giardino Zoologico 20, dans le parc de la Villa Borghese."
+    }
+  },
+  "trails": {
+    "rome-first-day": {
+      "name": "Première fois à Rome",
+      "promise": "Tu auras vu l’arène, la place qui gouvernait, un œil ouvert sur le ciel et deux fontaines."
+    },
+    "rome-two-hours-of-hands": {
+      "name": "Deux heures avec les mains",
+      "promise": "Une bouche qui mord, une piste où courir, un trou de serrure et une terrasse."
+    },
+    "rome-rainy-day": {
+      "name": "Une journée de pluie",
+      "promise": "Trois musées avec un toit, et un dôme où la pluie entre exprès."
+    },
+    "rome-across-the-river": {
+      "name": "De l’autre côté du fleuve",
+      "promise": "Un tombeau devenu château, un pont d’anges et le plus petit pays du monde."
+    },
+    "rome-day-for-playing": {
+      "name": "Une journée pour jouer",
+      "promise": "Des marches à compter, un marché à sentir, et des lions sans barreaux."
+    }
+  }
+}
