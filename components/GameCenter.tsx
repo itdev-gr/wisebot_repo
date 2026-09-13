@@ -2,7 +2,7 @@
 import React, { Suspense, useCallback } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays } from 'lucide-react';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
@@ -28,6 +28,7 @@ const GeoExplorer = React.lazy(() => import('./games/GeoExplorer'));
 const EcoHero = React.lazy(() => import('./games/EcoHero'));
 const TimeMachine = React.lazy(() => import('./games/TimeMachine'));
 const SpellListen = React.lazy(() => import('./games/SpellListen'));
+const DailyChallenge = React.lazy(() => import('./games/DailyChallenge'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -38,8 +39,8 @@ const GameLoader = () => (
 
 const motion = m as any;
 
-type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell';
-const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell'];
+type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily';
+const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily'];
 
 interface GameCenterProps {
   lang: 'el' | 'en';
@@ -83,6 +84,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
     eco: { title: 'ECO HERO', desc: lang === 'el' ? 'Σώσε τον πλανήτη!' : 'Save the planet!' },
     time: { title: 'TIME MACHINE', desc: lang === 'el' ? 'Ταξίδι στην ιστορία!' : 'Travel through history!' },
     spell: { title: 'SPELL & LISTEN', desc: lang === 'el' ? 'Άκου και γράψε!' : 'Listen and spell!' },
+    daily: { title: lang === 'el' ? 'ΠΡΟΚΛΗΣΗ ΗΜΕΡΑΣ' : 'DAILY CHALLENGE', desc: lang === 'el' ? '3 γύροι των 30". Ίδιοι για όλους!' : '3 rounds of 30s. Same for everyone!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -120,6 +122,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'eco': return <EcoHero lang={lang} onBack={handleBack} />;
         case 'time': return <TimeMachine lang={lang} onBack={handleBack} />;
         case 'spell': return <SpellListen lang={lang} onBack={handleBack} />;
+        case 'daily': return <DailyChallenge lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -142,6 +145,18 @@ export default function GameCenter({ lang }: GameCenterProps) {
 
   // GAME DATA with static Tailwind classes and thumbnails
   const games = [
+    {
+      key: 'daily' as const, icon: CalendarDays, featured: true,
+      thumbnail: '/images/wisebot.jpg',
+      category: lang === 'el' ? 'ΚΑΘΕ ΜΕΡΑ' : 'EVERY DAY',
+      cardBg: 'bg-gradient-to-br from-orange-950/90 to-rose-950/90',
+      borderColor: 'border-orange-500/30 hover:border-orange-400/60',
+      iconBg: 'bg-orange-500/20 border-orange-500/30',
+      iconColor: 'text-orange-400',
+      hoverShadow: 'hover:shadow-orange-500/20',
+      playBg: 'group-hover:bg-orange-500',
+      tagBg: 'bg-orange-500/20 text-orange-300',
+    },
     {
       key: 'mathrush' as const, icon: Calculator, featured: true,
       thumbnail: '/images/sparken.jpg',
