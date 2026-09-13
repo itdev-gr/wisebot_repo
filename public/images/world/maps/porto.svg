@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 758" width="1000" height="758" role="img" aria-label="Stylised map of Porto">
+  <title>Porto — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/portugal.ts
+    (north 41.155, south 41.132, east -8.600, west -8.640) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the Douro
+    running west to the Atlantic, the two hills of the old city on the north bank, the
+    green of the Palácio de Cristal gardens in the west, the cliff of Vila Nova de Gaia
+    on the south bank and the single arch of the Luís I bridge are all placed from those
+    bounds, and nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe2" />
+      <stop offset="1" stop-color="#eee3ce" />
+    </linearGradient>
+    <linearGradient id="water" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#8fc3d6" />
+      <stop offset="1" stop-color="#6aa9c4" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ded1b8" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="758" fill="url(#ground)" />
+  <rect width="1000" height="758" fill="url(#grid)" opacity="0.55" />
+
+  <!-- Vila Nova de Gaia: everything south of the river is a different town. -->
+  <path
+    d="M0 330 C 180 400, 360 452, 520 492 C 690 534, 860 552, 1000 540 L 1000 758 L 0 758 Z"
+    fill="#eadfc6"
+    opacity="0.85"
+  />
+
+  <!-- The Douro, entering from the east and leaving west towards the Atlantic. -->
+  <path
+    d="M1000 500 C 930 519, 850 522, 762 517 C 690 512, 600 492, 500 468 C 400 443, 270 400, 175 363 C 110 337, 50 310, 0 290"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="38"
+    stroke-linecap="round"
+  />
+
+  <!-- The two hills of the old city, north of the river: the cathedral rock in the
+       east and the Vitória hill with the Clérigos tower on it to the west. -->
+  <g fill="#d6e0b7" stroke="#adbd8c" stroke-width="2">
+    <ellipse cx="720" cy="410" rx="98" ry="64" />
+    <ellipse cx="650" cy="301" rx="72" ry="48" />
+  </g>
+
+  <!-- The gardens of the Palácio de Cristal, on their own hill above the river. -->
+  <ellipse cx="338" cy="262" rx="92" ry="62" fill="#c6dbaa" stroke="#a2ba86" stroke-width="2" />
+
+  <!-- The cliff of the Serra do Pilar, across the water in Gaia. -->
+  <ellipse cx="812" cy="553" rx="54" ry="37" fill="#cbdcae" stroke="#a6bb89" stroke-width="2" />
+
+  <!-- The Luís I bridge: one iron arch, two decks, straight over the water. -->
+  <g stroke="#7a6a4c" fill="none">
+    <path d="M728 458 L 796 552" stroke-width="7" />
+    <path d="M728 458 C 748 516, 768 540, 796 552" stroke-width="3" opacity="0.85" />
+    <path d="M735 468 L 789 543" stroke-width="2" stroke-dasharray="6 5" opacity="0.7" />
+  </g>
+
+  <g fill="#7a6a4c" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="70" font-size="42" letter-spacing="6">ΠΟΡΤΟ</text>
+    <text x="40" y="104" font-size="22" letter-spacing="4">PORTO</text>
+    <text x="338" y="268" font-size="17" text-anchor="middle" letter-spacing="2">ΚΗΠΟΙ</text>
+    <text x="720" y="416" font-size="17" text-anchor="middle" letter-spacing="2">ΠΑΛΙΑ ΠΟΛΗ</text>
+    <text x="650" y="307" font-size="15" text-anchor="middle" letter-spacing="2">ΚΛΕΡΙΓΚΟΣ</text>
+    <text x="812" y="560" font-size="15" text-anchor="middle" letter-spacing="2">ΣΕΡΑ ΝΤΟ ΠΙΛΑΡ</text>
+    <text x="470" y="690" font-size="26" text-anchor="middle" letter-spacing="5">ΓΚΑΪΑ</text>
+    <text x="470" y="716" font-size="15" text-anchor="middle" letter-spacing="3">VILA NOVA DE GAIA</text>
+  </g>
+
+  <text
+    x="300"
+    y="380"
+    font-size="18"
+    fill="#2d6f88"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+    transform="rotate(20 300 380)"
+  >ΔΟΥΡΟΣ</text>
+
+  <text
+    x="26"
+    y="248"
+    font-size="13"
+    fill="#2d6f88"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="2"
+  >← προς τον Ατλαντικό</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 96)" stroke="#7a6a4c" fill="#7a6a4c">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
