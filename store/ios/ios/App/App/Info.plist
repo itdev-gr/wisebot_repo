@@ -32,6 +32,10 @@
 	<string>Choose a photo to use in your creations.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>WiseBot Explorer checks whether you are standing at a treasure-hunt spot. Your location stays on this device and is never stored or sent.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>WiseBot World checks whether you are standing at a landmark when you tap “I’m here”. Your location is compared on this device and is never stored or sent.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>WiseBot World checks whether you are standing at a landmark when you tap “I’m here”. Your location is compared on this device and is never stored or sent.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
