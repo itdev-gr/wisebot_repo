@@ -152,6 +152,8 @@ const NARRATED = new Set<string>([
   'london-science-museum-en',
   'london-science-museum-puffing-billy-el',
   'london-science-museum-puffing-billy-en',
+  'london-science-museum-soyuz-el',
+  'london-science-museum-soyuz-en',
   'london-st-pauls-cathedral-el',
   'london-st-pauls-cathedral-en',
   'london-tower-bridge-el',
@@ -315,6 +317,7 @@ const NARRATED = new Set<string>([
   'thessaloniki-aristotelous-en',
   'thessaloniki-byzantine-museum-el',
   'thessaloniki-byzantine-museum-en',
+  'thessaloniki-byzantine-museum-grave-goods-el',
   'thessaloniki-byzantine-museum-painted-tomb-el',
   'thessaloniki-byzantine-museum-painted-tomb-en',
   'thessaloniki-cinema-museum-el',
@@ -358,4 +361,4 @@ export function narrationTimings(id: string, lang: string): string {
   return `/audio/world/${id}-${lang}.json`;
 }
 
-export const NARRATION_COUNT = 331;
+export const NARRATION_COUNT = 334;
