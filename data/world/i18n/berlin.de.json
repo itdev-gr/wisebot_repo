@@ -1,0 +1,650 @@
+{
+  "lang": "de",
+  "cityId": "berlin",
+  "places": {
+    "berlin-neues-museum": {
+      "name": "Das Neue Museum",
+      "tagline": "Sechzig Jahre eine Ruine, und seine Narben behielt es mit Absicht",
+      "story": "Das Museum wurde von 1843 bis 1855 vom Architekten Friedrich August Stüler gebaut. Im Februar 1945 rissen Bomben seinen Nordwestflügel herunter, und dann geschah etwas Seltsames: Niemand reparierte es. Fast sechzig Jahre lang stand es offen zum Himmel, der Regen kam durch das Loch im Dach, und Tauben nisteten in den Wänden. Ab 1999 baute der Architekt David Chipperfield es wieder auf, und im Oktober 2009 öffnete es erneut. Doch er versteckte die Schäden nicht. Du gehst an Wänden entlang, die voller Einschusslöcher sind, an verbranntem Ziegel und an Wandbildern, die mitten drin aufhören, und direkt daneben stehen neue, ganz glatte Wände. So erzählt das Gebäude seine eigene Geschichte. Zwei Sammlungen wohnen darin: die ägyptische, mit der berühmten Büste der Nofretete, und die vorgeschichtliche, mit einem Hut aus reinem Gold.",
+      "facts": [
+        "Es wurde von 1843 bis 1855 gebaut und öffnete im Oktober 2009 wieder.",
+        "Nach dem Krieg stand es fast sechzig Jahre ohne Dach als Ruine.",
+        "Es beherbergt zwei Museen: das Ägyptische Museum und das Museum für Vor- und Frühgeschichte."
+      ],
+      "question": {
+        "q": "Warum sieht man die Kriegsschäden an den Wänden noch?",
+        "answers": [
+          "Der Architekt ließ sie absichtlich stehen",
+          "Das Geld wurde nie gefunden",
+          "Ein Gesetz verbietet, sie anzufassen",
+          "Die Arbeit hörte früh auf"
+        ],
+        "explanation": "Chipperfield hätte alles überputzen können. Er entschied sich, die Geschichte des Gebäudes nicht zu löschen, sondern sie neben das Neue zu stellen."
+      },
+      "findIt": "Du gehst nicht durch das Gebäude selbst hinein: Der Eingang ist die gläserne James-Simon-Galerie, direkt am Fluss.",
+      "museum": {
+        "doorNote": "Fang im obersten Stock an, solange deine Beine frisch sind, und arbeite dich nach unten.",
+        "rooms": {
+          "berlin-neues-museum-egypt": {
+            "name": "Ägypten im Obergeschoss",
+            "intro": "Hier wohnt die meistfotografierte Dame Deutschlands, zusammen mit einem grünen Kopf und einem Familienbild, das vor dreieinhalbtausend Jahren gemalt wurde. Der Raum ist klein, das Licht ist wenig und die Ruhe ist groß. Lass dir Zeit: Alles hier ist kleiner, als du erwartest, und genau deshalb musst du nah herangehen."
+          },
+          "berlin-neues-museum-scars": {
+            "name": "Das Gebäude mit den Narben",
+            "intro": "In diesem Saal ist das Ausstellungsstück das Gebäude selbst. Schau nach oben, schau auf die Wände, schau, wo die alte Malerei aufhört und der neue Beton anfängt. Ein Gebäude, das einen Krieg hinter sich hat, kann auf zwei Arten wieder aufgebaut werden: Es kann so tun, als wäre nichts gewesen, oder es kann es zugeben. Hier hat man das Zweite gewählt."
+          },
+          "berlin-neues-museum-ground": {
+            "name": "Aus der Erde geholt",
+            "intro": "Unter Ägypten, in denselben Wänden, wohnt die Vorgeschichte Europas: Dinge, die niemand in ein Buch geschrieben hat, weil es damals noch keine Bücher gab. Was wir über sie wissen, wissen wir, weil jemand gegraben und sie gefunden hat. Drei davon bleiben dir: ein goldener Hut, ein Schädel und eine Sammlung, die auf zwei Länder verteilt ist."
+          }
+        },
+        "exhibits": {
+          "berlin-neues-museum-nefertiti": {
+            "name": "Die Büste der Nofretete",
+            "blurb": "Nofretete war vor etwa 3.350 Jahren Königin von Ägypten. Ihre Büste wurde 1912 in den Ruinen einer Bildhauerwerkstatt in der Stadt Amarna gefunden, und sie besteht aus Kalkstein, der mit Gips überzogen und bemalt wurde. Die Farben halten noch. Schau dir ihre Augen genau an: Das rechte hat eine Einlage aus Kristall, das linke hatte nie eine. Niemand weiß sicher, warum. Vielleicht war das Stück ein Musterstück, das in der Werkstatt blieb, um Lehrlingen zu zeigen, wie man ein Gesicht macht.",
+            "question": {
+              "q": "Was ist an den Augen der Nofretete seltsam?",
+              "answers": [
+                "Eines hat nie seine Einlage bekommen",
+                "Beide sind blau bemalt",
+                "Jedes schaut woanders hin",
+                "Sie sind aus Gold"
+              ],
+              "explanation": "Das rechte Auge hat einen Kristall, das linke ist von Anfang an leer. Es ist nicht herausgefallen: Es wurde nie eingesetzt."
+            }
+          },
+          "berlin-neues-museum-green-head": {
+            "name": "Der Berliner Grüne Kopf",
+            "blurb": "Ein kleiner Kopf aus dunkelgrünem Stein, gemeißelt ungefähr zwischen 100 und 50 v. Chr. Er ist kein König: Er ist ein Priester, mit rasiertem Kopf und Falten, die der Bildhauer gar nicht erst verstecken wollte. Im alten Ägypten wurden die meisten Gesichter vollkommen und jung gemacht, und deshalb ist dieser hier selten: Er zeigt einen echten Menschen, der alt geworden ist. Der Stein ist so gut poliert, dass er nass aussieht, obwohl ihn seit zweitausend Jahren kein Wasser berührt hat.",
+            "question": {
+              "q": "Warum fällt dieser Kopf unter den anderen ägyptischen auf?",
+              "answers": [
+                "Er zeigt einen gealterten Menschen",
+                "Er ist die größte Skulptur der ganzen Sammlung",
+                "Er ist der einzige, der alle Farben behalten hat",
+                "Ein Kind hat ihn gemeißelt"
+              ],
+              "explanation": "Falten sind in einem ägyptischen Porträt selten. Der Bildhauer zeigte ein Gesicht, kein Ideal."
+            }
+          },
+          "berlin-neues-museum-amarna-family": {
+            "name": "Die Familie aus Amarna",
+            "blurb": "Ein Relief von etwa 1350 v. Chr. zeigt den Pharao Echnaton und Nofretete mit ihren Kindern. Für seine Zeit war das fast ein Skandal: Pharaonen wurden immer streng und unbewegt dargestellt, und hier haben sie Kinder auf dem Schoß. Echnaton hatte die Religion seines Landes geändert und eine neue Hauptstadt gebaut, Amarna, und seine Künstler änderten ihre Arbeitsweise ebenfalls. Nach seinem Tod kehrte Ägypten zum Alten zurück, und die neue Stadt wurde verlassen.",
+            "question": {
+              "q": "Was war an diesem Bild für seine Zeit ungewöhnlich?",
+              "answers": [
+                "Die Pharaonen sind als Familie gezeigt",
+                "Es ist in reines Gold gemeißelt statt in Stein",
+                "Nirgendwo auf ihm steht ein Hieroglyphenzeichen",
+                "Es ist größer als jedes andere Relief Ägyptens"
+              ],
+              "explanation": "Pharaonen wurden als Götter gezeigt, unbewegt und allein. Hier haben sie Kinder auf dem Schoß."
+            }
+          },
+          "berlin-neues-museum-staircase": {
+            "name": "Die große Treppe",
+            "blurb": "Die erste Treppe des Museums war über und über mit Malereien und Verzierungen bedeckt. Der Krieg hat sie vollständig weggenommen und eine riesige leere Hülle aus Ziegel hinterlassen. Chipperfield baute eine neue Treppe in derselben Form, aber ohne eine einzige Verzierung: schlichter heller Beton, gemischt mit zerstoßenem Marmor. Wer sie hinaufsteigt, versteht zwei Dinge auf einmal: wie prächtig der Saal einmal war, und dass das, worauf er steht, neu ist.",
+            "question": {
+              "q": "Wie ist die neue Treppe im Vergleich zur alten?",
+              "answers": [
+                "Gleiche Form, gar keine Verzierungen",
+                "Genau gleich, nach alten Fotos von ihr kopiert",
+                "Völlig anders, eine Wendeltreppe aus Glas",
+                "Kleiner als vorher"
+              ],
+              "explanation": "Die Form erinnert an das, was da war. Die nackte Oberfläche sagt klar, dass das Material von heute ist."
+            }
+          },
+          "berlin-neues-museum-scarred-wall": {
+            "name": "Die Wände mit den Spuren",
+            "blurb": "In vielen Räumen tragen die Wände Dellen von Splittern, schwarze Rußspuren und Wandbilder, die mitten drin aufhören. Die Restauratoren haben sie gereinigt und gesichert, aber nicht ergänzt. Wo ein Ziegel fehlte, setzten sie einen neuen ein, deutlich heller, damit man es mit dem Auge erkennt. Es ist derselbe Gedanke, den ein Restaurator bei einem zerbrochenen Topf verfolgt: Du klebst die Scherben zusammen, aber du malst nicht dazu, was du dir nur vorstellst.",
+            "question": {
+              "q": "Warum sind die neuen Ziegel heller?",
+              "answers": [
+                "Damit man sieht, was neu ist",
+                "Weil sich nirgends Ton in derselben Farbe fand",
+                "Weil helle Ziegel besser gegen Feuer sind",
+                "Um die Räume zu erhellen"
+              ],
+              "explanation": "Es ist eine Entscheidung über Ehrlichkeit. Ein Besucher soll sehen können, was original ist und was nicht."
+            }
+          },
+          "berlin-neues-museum-egyptian-courtyard": {
+            "name": "Der Ägyptische Hof",
+            "blurb": "Dieser Hof hatte einmal Wände, auf die ägyptische Landschaften gemalt waren, als stündest du am Ufer des Nils. Der Krieg hat ihn völlig zerstört, und es war zu wenig übrig, um ihn wieder so zu machen, wie er gewesen war. Also versuchte der Architekt hier gar keine Nachahmung: Er setzte eine offen moderne Konstruktion aus Stützen und Balken hinein, die einen Boden im leeren Raum hält. Du stehst in einem Raum von heute und schaust auf Dinge, die dreitausend Jahre alt sind.",
+            "question": {
+              "q": "Warum wurde der Hof nicht so wieder aufgebaut, wie er war?",
+              "answers": [
+                "Vom alten Hof war zu wenig übrig geblieben",
+                "Besucher stimmten für einen modernen statt eines alten",
+                "Sein altes Design galt als gefährlich für Kinder",
+                "Ein anderer Architekt war schneller"
+              ],
+              "explanation": "Mit zu wenigen Teilen wäre ein Wiederaufbau geraten gewesen. Sie wählten etwas offen Neues statt einer schönen Erfindung."
+            }
+          },
+          "berlin-neues-museum-gold-hat": {
+            "name": "Der Berliner Goldhut",
+            "blurb": "Ein dünner goldener Kegel von etwa 75 Zentimetern Höhe, vor rund dreitausend Jahren aus einem einzigen Stück Gold getrieben. Er ist über und über mit Reihen kleiner Kreise und Sonnen bedeckt, eine nach der anderen von innen herausgeschlagen. Forscher haben die Kreise gezählt und sind auf etwas Erstaunliches gestoßen: Das Muster scheint ein Kalender zu sein, eine Art, Monate mit dem Mond und Jahre mit der Sonne zu zählen. Getragen hat ihn höchstwahrscheinlich ein Priester.",
+            "question": {
+              "q": "Was scheinen die Kreise auf dem Hut zu zählen?",
+              "answers": [
+                "Monate und Jahre, wie ein Kalender",
+                "Die Tiere in der Herde seines Besitzers",
+                "Die Dörfer, die ihrem König Steuern zahlten",
+                "Die Jahre seines Besitzers"
+              ],
+              "explanation": "Das Muster funktioniert wie eine Tabelle von Mond und Sonne. Es ist ein Gerät, nicht nur ein Schmuck."
+            }
+          },
+          "berlin-neues-museum-neanderthal": {
+            "name": "Der Schädel von Le Moustier",
+            "blurb": "Der Schädel eines jungen Neandertalers, etwa fünfundvierzigtausend Jahre alt, gefunden unter einem Felsüberhang in Frankreich. Neandertaler waren nicht unsere Vorfahren, sondern unsere Cousins: Sie lebten in Europa lange vor uns, machten Werkzeuge, entzündeten Feuer und begruben ihre Toten. Schau dir die Stirn an: Der Knochenwulst über den Augen ist viel kräftiger als deiner. Der Schädel selbst hat einen Krieg hinter sich, war jahrelang verschollen und wurde wiedergefunden.",
+            "question": {
+              "q": "Was waren die Neandertaler für uns?",
+              "answers": [
+                "Unsere Cousins, nicht unsere Vorfahren",
+                "Die ersten Menschen, die Amerika erreichten",
+                "Eine Art Affe, die überhaupt nicht aufrecht ging",
+                "Die Menschen, die Europas erste Dörfer bauten"
+              ],
+              "explanation": "Sie sind ein anderer Zweig desselben Baums. Sie lebten Tausende Jahre vor uns in Europa."
+            }
+          },
+          "berlin-neues-museum-troy": {
+            "name": "Die Funde aus Troja",
+            "blurb": "Heinrich Schliemann grub Ende des 19. Jahrhunderts in dem Hügel, den er für Troja hielt, und schenkte seine Funde diesem Museum. Die Sammlung ist heute geteilt: Den Goldschmuck nahm die Rote Armee 1945 aus Berlin mit, und seitdem ist er in Moskau. Hiergeblieben sind Tausende Gefäße, Werkzeuge und Waffen aus Ton und Kupfer. Sie glänzen weniger, aber sie sagen mehr darüber, wie die Menschen jener Stadt wirklich gelebt haben.",
+            "question": {
+              "q": "Wo ist das Gold aus Troja heute?",
+              "answers": [
+                "In Moskau, wohin es 1945 gebracht wurde",
+                "In einem türkischen Museum",
+                "Es ging im Krieg verloren",
+                "In einer Privatsammlung"
+              ],
+              "explanation": "Die Rote Armee nahm es 1945 mit, und es wird in Moskau gezeigt. Berlin behielt den Rest."
+            }
+          }
+        },
+        "riddles": {
+          "berlin-neues-museum-riddle-1": {
+            "prompt": "Ich bin das meistfotografierte Gesicht in diesem Haus, und doch ist nur eines meiner Augen je fertig geworden. Man hob mich aus dem Boden einer Werkstatt, in Ägypten, im Jahr 1912.",
+            "hint": "Ich trage eine hohe blaue Krone, und ich war eine Königin."
+          },
+          "berlin-neues-museum-riddle-2": {
+            "prompt": "Ich bin aus reinem Gold, so hoch wie dein Arm und so dünn wie ein Blatt. Die Kreise überall auf mir sind kein Schmuck: Richtig gezählt, sagen sie dir, wann der Mond wiederkommt.",
+            "hint": "Man trug mich auf dem Kopf, und ich laufe spitz zu."
+          },
+          "berlin-neues-museum-riddle-3": {
+            "prompt": "Du steigst an mir hinauf, um nach oben zu kommen, und ich habe noch die Form, die ich immer hatte, aber keine einzige von meinen alten Verzierungen. Ich bin grau, glatt und brandneu in einer Hülle aus nacktem Ziegel.",
+            "hint": "Ich bin kein Gegenstand in einer Vitrine: Ich bin ein Teil des Gebäudes."
+          }
+        }
+      }
+    },
+    "berlin-technikmuseum": {
+      "name": "Das Deutsche Technikmuseum",
+      "tagline": "Ein Flugzeug hängt vom Dach, hinaus über die Straße",
+      "story": "Das Museum sitzt auf dem alten Güterbahnhof des Anhalter Bahnhofs, wo den ganzen Tag lang Züge entladen wurden. Zwei runde Lokschuppen sind erhalten geblieben und stecken heute voller Züge, mit dreiunddreißig Gleisen, die wie Speichen aus der Mitte laufen. Das seltsamste Bild ist aber auf dem Dach: Ein echtes Flugzeug vom Typ Douglas C-47 hängt über der Kante des Gebäudes, die Nase draußen in der Luft. Flugzeuge dieses Typs hielten West-Berlin 1948 und 1949 am Leben, als die Straßen in die Stadt gesperrt waren und alles, von Mehl bis Kohle, eingeflogen werden musste. Kinder nannten sie „Rosinenbomber“, weil manche Piloten Süßigkeiten an kleinen Fallschirmen aus Taschentüchern abwarfen. Nebenan liegt das Spectrum, wo alles zum Anfassen gebaut wurde.",
+      "facts": [
+        "Das Museum steht auf dem alten Güterbahnhof des Anhalter Bahnhofs.",
+        "Die beiden runden Lokschuppen haben zusammen dreiunddreißig Gleise.",
+        "Das Flugzeug auf dem Dach ist eine Douglas C-47, ein Typ, der 1948/49 nach Berlin flog."
+      ],
+      "question": {
+        "q": "Warum nannte man die Flugzeuge „Rosinenbomber“?",
+        "answers": [
+          "Sie warfen Süßigkeiten an kleinen Fallschirmen ab",
+          "Sie brachten Rosinen, das einzige Essen, das nicht verdarb",
+          "Sie hatten die Farbe von Rosinen",
+          "Es waren so viele, dass sie wie ein Schwarm Punkte aussahen"
+        ],
+        "explanation": "Manche Piloten banden Bonbons an Taschentücher und warfen sie vor der Landung ab. Der Spitzname kam von den Kindern, die unten warteten."
+      },
+      "findIt": "Der Eingang ist in der Trebbiner Straße 9. Das Flugzeug auf dem Dach siehst du von der Straßenbrücke."
+    },
+    "berlin-zoo": {
+      "name": "Der Berliner Zoo",
+      "tagline": "Der älteste Zoo Deutschlands, mit einem Tor, das Elefanten tragen",
+      "story": "Der Zoo öffnete am 1. August 1844 und ist der älteste in Deutschland. Seine ersten Tiere kamen aus den königlichen Gehegen und Käfigen im Tiergarten, dem großen Park nebenan. Heute leben hier ungefähr zwanzigtausend Tiere aus etwa eintausenddreihundertachtzig verschiedenen Arten, also mehr Tierarten als in jedem anderen Zoo der Welt. Das berühmte Elefantentor von 1899 mit seinen zwei steinernen Elefanten wurde im Krieg zerstört und 1984 nach den alten Zeichnungen wieder aufgebaut. Der schwerste Teil seiner Geschichte ist wahr und gehört erzählt: Am Ende des Krieges waren von seinen 3.715 Tieren nur noch 91 am Leben. Darunter der Elefant Siam und das Flusspferd Knautschke. Der Zoo wurde um diese einundneunzig Tiere herum wieder aufgebaut.",
+      "facts": [
+        "Er öffnete am 1. August 1844 und ist der älteste Zoo Deutschlands.",
+        "Er hält etwa 1.380 verschiedene Arten, mehr als jeder andere Zoo.",
+        "Das Elefantentor von 1899 wurde 1984 nach den alten Plänen wieder aufgebaut."
+      ],
+      "question": {
+        "q": "Was machte das Kriegsende für den Zoo so schwer?",
+        "answers": [
+          "Von 3.715 Tieren blieben nur 91 übrig",
+          "Alle seine Tiere kamen in Zoos anderer Städte",
+          "Er blieb nach dem Krieg zehn Jahre geschlossen",
+          "Die Mauer lief mitten durch ihn und teilte ihn in zwei"
+        ],
+        "explanation": "Die Bomben zerstörten die Gehege, und die meisten Tiere kamen um. Der Zoo wurde um die einundneunzig herum wieder aufgebaut, die überlebten."
+      },
+      "findIt": "Das Elefantentor ist in der Budapester Straße: Such die zwei steinernen Elefanten, die das Dach tragen."
+    },
+    "berlin-fernsehturm": {
+      "name": "Der Fernsehturm",
+      "tagline": "Eine Kugel auf 200 Metern, mit einem Restaurant, das sich dreht",
+      "story": "1969 wollte Ostdeutschland der ganzen Welt zeigen, was es bauen kann, und stellte diesen Turm von 368 Metern hin. Er ist bis heute das höchste Bauwerk Deutschlands. Die Kugel sitzt ungefähr zweihundert Meter hoch, und in ihr dreht sich ein Restaurant ganz langsam, damit du die ganze Stadt siehst, ohne von deinem Stuhl aufzustehen. Die Berliner haben dem Turm viele Spitznamen gegeben, und ihr liebster ist „Telespargel“. Wenn die Sonne auf den Stahl der Kugel trifft, erscheint darauf ein helles Kreuz. Das stand nicht in den Plänen, und der damaligen Regierung, die Kirchen nicht mochte, gefiel es überhaupt nicht. Also lächelten die Leute auf der westlichen Seite und nannten es „die Rache des Papstes“. Auf dem Platz nebenan steht die Weltzeituhr von 1969, die die Zeit in 148 Städten zeigt, mit einem kleinen Sonnensystem obendrauf, das sich einmal pro Minute dreht.",
+      "facts": [
+        "Mit 368 Metern ist er das höchste Bauwerk Deutschlands.",
+        "Das Restaurant in der Kugel dreht sich langsam um die Achse des Turms.",
+        "Die Weltzeituhr daneben zeigt die Zeit in 148 Städten der Welt."
+      ],
+      "question": {
+        "q": "Was erscheint auf der Kugel, wenn die Sonne sie trifft?",
+        "answers": [
+          "Ein helles Kreuz auf dem Stahl",
+          "Ein Regenbogen bis zum Boden",
+          "Der Schatten des Turms, quer über den Platz",
+          "Ein goldener Punkt, sichtbar aus Potsdam"
+        ],
+        "explanation": "Die Stahlplatten der Kugel spiegeln das Licht in Form eines Kreuzes. Niemand hat das geplant: Es kommt von der Form und vom Metall."
+      },
+      "findIt": "Zu den Aufzügen kommst du durch das niedrige Gebäude am Fuß, auf der Seite der Panoramastraße."
+    },
+    "berlin-east-side-gallery": {
+      "name": "Die East Side Gallery",
+      "tagline": "Ein Stück Mauer, das zur größten Leinwand der Stadt wurde",
+      "story": "Die Berliner Mauer stand 28 Jahre, von 1961 bis zum 9. November 1989, der Nacht, in der die Übergänge aufgingen und die Leute oben auf ihr tanzten. In den Monaten danach wurde fast alles abgerissen, dieses Stück aber, fast anderthalb Kilometer lang, blieb für etwas anderes stehen. Im Frühling 1990 kamen 118 Künstler aus 21 Ländern mit Pinseln und Eimern und bedeckten es mit Farben, Hoffnungen und Witzen. Das berühmteste Bild zeigt zwei Politiker, die Anführer der Sowjetunion und Ostdeutschlands, die sich einen kräftigen Kuss geben, so wie sich damals die Anführer befreundeter Länder begrüßten; der Maler hat es von einem echten Foto von 1979 abgemalt. Auf einem anderen bricht ein kleiner Trabant, das Auto, das in Ostdeutschland fast alle fuhren, durch die Mauer und kommt auf der anderen Seite heraus. Auf seinem Nummernschild steht das Datum, an dem die Mauer aufging.",
+      "facts": [
+        "Das Stück, das stehen blieb, ist ungefähr 1,3 Kilometer lang.",
+        "Gemalt wurde es im Frühling 1990 von 118 Künstlern aus 21 Ländern.",
+        "Auf dem Nummernschild des gemalten Trabant steht „NOV-9-89“."
+      ],
+      "question": {
+        "q": "Was steht auf dem Nummernschild des gemalten Trabant?",
+        "answers": [
+          "Das Datum, an dem die Mauer öffnete",
+          "Der Name des Künstlers, der ihn malte",
+          "Die Zahl der Künstler, die hier arbeiteten",
+          "Die Länge der Mauer, in Metern geschrieben"
+        ],
+        "explanation": "Da steht „NOV-9-89“: 9. November 1989. Das kleine Auto bricht nicht nur durch die Mauer, es trägt auch den Tag mit sich, an dem es passierte."
+      },
+      "findIt": "Die Bilder sind auf der Seite zur Mühlenstraße hin, nicht auf der Seite zum Fluss."
+    },
+    "berlin-naturkundemuseum": {
+      "name": "Das Museum für Naturkunde",
+      "tagline": "Das höchste aufgestellte Dinosaurierskelett der Welt",
+      "story": "Das Museum wurde 1810 gegründet und hütet über dreißig Millionen Objekte, von Steinen und Insekten bis zu Walskeletten. Kaum bist du drin, stehst du unter einem Skelett, bei dem die Leute still werden: ein gewaltiger pflanzenfressender Dinosaurier, 13,27 Meter hoch, das höchste aufgestellte Dinosaurierskelett der Welt. Seine Knochen wurden nicht hier gefunden. Sie wurden zwischen 1909 und 1913 am Hügel Tendaguru ausgegraben, im heutigen Tansania, und in Kisten bis zur Küste getragen. Im selben Saal liegt in einer dunklen Vitrine eine Steinplatte mit einem Abdruck, der die Biologie verändert hat: der Berliner Archaeopteryx, ein Wesen mit Zähnen, Krallen und Federn. Weiter hinten, hinter Glas, erstreckt sich die Nasssammlung: eine Million Tiere in 276.000 Gläsern mit Alkohol, bis zur Decke in Regale gestellt.",
+      "facts": [
+        "Das Skelett des riesigen Dinosauriers ist 13,27 Meter hoch.",
+        "Seine Knochen wurden am Hügel Tendaguru ausgegraben, im heutigen Tansania.",
+        "Die Nasssammlung enthält eine Million Tiere in 276.000 Gläsern."
+      ],
+      "question": {
+        "q": "Woher kamen die Knochen des riesigen Dinosauriers?",
+        "answers": [
+          "Von einem Hügel im heutigen Tansania",
+          "Aus einem Steinbruch ein paar Kilometer vor Berlin",
+          "Aus den Alpen",
+          "Vom Grund der Nordsee, in Fischernetzen"
+        ],
+        "explanation": "Die Ausgrabung war am Hügel Tendaguru, von 1909 bis 1913, und die Kisten mit den Knochen wurden zu Fuß bis zur Küste getragen."
+      },
+      "findIt": "Der Eingang ist in der Invalidenstraße 43, in der Mitte der langen gelben Front, über eine breite Treppe.",
+      "museum": {
+        "doorNote": "Der Dinosauriersaal liegt gleich hinter dem Eingang. Heb dir etwas Kraft für die Gläser auf.",
+        "rooms": {
+          "berlin-naturkundemuseum-dinosaurs": {
+            "name": "Der Dinosauriersaal",
+            "intro": "Ein hoher Saal unter einem Glasdach, voller Skelette, die frei stehen, ohne Glas davor. Du musst nichts lesen, um die Größe zu begreifen: Leg einfach den Kopf in den Nacken. Die meisten Knochen hier kamen aus einer einzigen Ausgrabung, an einem einzigen afrikanischen Hang, verpackt in Holzkisten."
+          },
+          "berlin-naturkundemuseum-behind-glass": {
+            "name": "Hinter dem Glas",
+            "intro": "Ein Museum ist nicht nur das, was es ausstellt. Es ist auch ein riesiges Lager, das Dinge für Wissenschaftler aufbewahrt, die noch nicht geboren sind. Hier ist das Lager zum Ausstellungsstück geworden: Du schaust durch Glas auf Regale, die bis zur Decke reichen. Daneben leben zwei Tiere, die ganz Berlin mit Namen kannte."
+          }
+        },
+        "exhibits": {
+          "berlin-naturkundemuseum-giraffatitan": {
+            "name": "Der riesige Dinosaurier",
+            "blurb": "Ein pflanzenfressender Dinosaurier mit einem Hals wie ein Kran, aufgestellt in 13,27 Metern Höhe: höher als ein Haus mit vier Stockwerken. Die Wissenschaftler nannten ihn zuerst Brachiosaurus und geben ihm heute einen eigenen Namen, Giraffatitan, weil er sich als ziemlich anders herausstellte als sein amerikanischer Vetter. 2007 wurde er neu aufgestellt, mit dem Kopf weiter oben, wie es neuere Studien zu seiner Haltung nahelegen. So große Tiere fraßen den ganzen Tag, nur um satt zu werden.",
+            "question": {
+              "q": "Warum änderte sich der Name dieses Dinosauriers?",
+              "answers": [
+                "Er unterschied sich vom Brachiosaurus",
+                "Ein anderes Tier hatte den Namen",
+                "Das Museum wollte einen leichteren Namen für Kinder",
+                "Der Forscher, der ihn benannte, änderte später seine Meinung"
+              ],
+              "explanation": "Je mehr die Knochen untersucht wurden, desto weniger passte er zum amerikanischen Brachiosaurus. Ein eigenes Tier braucht einen eigenen Namen."
+            }
+          },
+          "berlin-naturkundemuseum-kentrosaurus": {
+            "name": "Der Dinosaurier mit den Stacheln",
+            "blurb": "Neben dem Riesen steht ein viel kleineres Tier mit einer doppelten Reihe Platten auf dem Rücken und langen Stacheln am Schwanz und an den Schultern. Er heißt Kentrosaurus und kam aus derselben Ausgrabung in Tansania, das heißt, er lebte am selben Ort zur selben Zeit wie der Riese. Auch er war ein Pflanzenfresser. Die Stacheln waren nicht zum Jagen da, sie waren dafür da, dass er nicht selbst die Mahlzeit eines anderen wurde.",
+            "question": {
+              "q": "Wozu waren die Stacheln des Kentrosaurus da?",
+              "answers": [
+                "Um sich zu verteidigen, nicht zum Jagen",
+                "Um Pflanzen leichter aus dem Boden zu ziehen",
+                "Um den Körper in kalten Nächten warm zu halten",
+                "Um über Felsen zu klettern und Wasser zu finden"
+              ],
+              "explanation": "Er fraß Pflanzen. Die Stacheln machten ihn zu einem unbequemen Ziel für die Fleischfresser ringsum."
+            }
+          },
+          "berlin-naturkundemuseum-archaeopteryx": {
+            "name": "Der Berliner Archaeopteryx",
+            "blurb": "Eine Platte aus bayerischem Kalkstein mit einem Tier darauf, abgedruckt wie eine Fotografie. Es hat Zähne im Maul, Krallen an den Händen und einen langen knöchernen Schwanz, alles Reptil. Es hat aber auch Federn, deutlich in den Stein gepresst. Es ist das Stück, das eine Veränderung sichtbar macht: Vögel sind Verwandte der Dinosaurier. Dieses hier heißt das Berliner Exemplar und gilt als das am schönsten erhaltene der Welt. Bleib eine Weile davor stehen: Je länger du schaust, desto mehr Federn siehst du.",
+            "question": {
+              "q": "Was macht dieses Fossil so wichtig?",
+              "answers": [
+                "Es hat Zähne und Federn zugleich",
+                "Es ist das größte Fossil, das je in Bayern gefunden wurde",
+                "Es ist das einzige Fossil, das seine Farben behalten hat",
+                "Es lag in jungem Gestein"
+              ],
+              "explanation": "Es zeigt Reptil und Vogel in einem Körper. Deshalb sagen wir, dass Vögel Verwandte der Dinosaurier sind."
+            }
+          },
+          "berlin-naturkundemuseum-trex": {
+            "name": "Tristan, der Tyrannosaurus",
+            "blurb": "Eines der wenigen echten Tyrannosaurus-Skelette, die je nach Europa gekommen sind. Es wurde 2010 in Montana in den Vereinigten Staaten gefunden, und 170 seiner rund 300 Knochen sind erhalten, darunter ein erstaunlich gut erhaltener Schädel mit Zähnen wie Bananen. Er lebte vor ungefähr 66 Millionen Jahren. Weil er nur geliehen ist, reist er ab und zu in andere Museen, deshalb lohnt es sich, vorher nachzuschauen.",
+            "question": {
+              "q": "Warum ist er vielleicht nicht da, wenn du kommst?",
+              "answers": [
+                "Er ist geliehen und reist",
+                "Er wird jeden Sommer zum Reinigen abgebaut",
+                "Nur Gruppen mit Anmeldung dürfen ihn sehen",
+                "Er ist im anderen Stock"
+              ],
+              "explanation": "Er gehört dem Museum nicht. Geliehene Skelette kommen und gehen, deshalb lohnt es sich, vorher nachzuschauen."
+            }
+          },
+          "berlin-naturkundemuseum-wet-collection": {
+            "name": "Die Nasssammlung",
+            "blurb": "Eine Wand aus Glas, und dahinter 276.000 Gläser mit ungefähr einer Million Tieren: Fische, Schlangen, Frösche, Krebse, Würmer. Sie schwimmen nicht in Wasser, sondern in Alkohol, denn Wasser würde sie verfaulen lassen, während Alkohol die Bakterien stoppt. Das Licht ist mit Absicht gedämpft: Zu viel Licht bleicht ein Präparat aus. Viele dieser Gläser sind über hundert Jahre alt und enthalten Tiere von Arten, die es nirgendwo mehr gibt.",
+            "question": {
+              "q": "Warum werden die Tiere in Alkohol aufbewahrt und nicht in Wasser?",
+              "answers": [
+                "Alkohol stoppt die Bakterien",
+                "Alkohol lässt die Tiere innen sauberer aussehen",
+                "Er ist billiger als Wasser im Großhandel",
+                "Er gefriert schwerer, so platzen die Gläser im Winter nicht"
+              ],
+              "explanation": "In Wasser verfault ein Tier in ein paar Tagen. In Alkohol kann es Jahrhunderte halten."
+            }
+          },
+          "berlin-naturkundemuseum-bobby": {
+            "name": "Bobby der Gorilla",
+            "blurb": "Bobby war in den 1930er-Jahren ein Gorilla im Berliner Zoo und der berühmteste Bewohner der Stadt nach ihren Menschen. Er war als Baby angekommen und wurde riesig, und die Leute standen Schlange, um ihn zu sehen. Als er 1935 jung starb, trauerte ganz Berlin, und die Zeitungen brachten ihn auf die erste Seite. Das Museum hat ihn präpariert, und er steht hier aufrecht, mit dem Gesicht eines Tieres, das eine ganze Stadt kannte.",
+            "question": {
+              "q": "Wo lebte Bobby, bevor er ins Museum kam?",
+              "answers": [
+                "Im Zoo hier in Berlin",
+                "In einem Wald in Afrika, bis Forscher ihn fanden",
+                "In einem Zirkus",
+                "In einem Privatgarten außerhalb der Stadt"
+              ],
+              "explanation": "Er war ein Tier des Zoos, ein paar Kilometer von hier, und die ganze Stadt kannte ihn mit Namen."
+            }
+          },
+          "berlin-naturkundemuseum-knut": {
+            "name": "Knut, der Eisbär",
+            "blurb": "Knut wurde am 5. Dezember 2006 im Berliner Zoo geboren. Seine Mutter kümmerte sich nicht um ihn, also zog ihn ein Pfleger mit der Flasche groß, und die Welt drehte durch: Fernsehteams von überallher kamen, um ein weißes Bärenjunges zu sehen. 2011 starb er plötzlich, mit nur vier Jahren, an einer Krankheit im Gehirn. Das Museum hat ihn präpariert, damit man ihn untersuchen kann und damit auch Kinder ihn sehen, die lange nach ihm geboren wurden.",
+            "question": {
+              "q": "Warum zog ein Pfleger Knut groß und nicht seine Mutter?",
+              "answers": [
+                "Seine Mutter kümmerte sich nicht um ihn",
+                "Seine Mutter wurde in einen Zoo im Ausland gebracht",
+                "Er kam zu früh und brauchte einen Brutkasten",
+                "Die Pfleger wollten ihn ohne Angst vor Menschen"
+              ],
+              "explanation": "Das kommt bei Tieren manchmal vor. Ohne den Pfleger und die Flasche hätte Knut nicht überlebt."
+            }
+          }
+        },
+        "riddles": {
+          "berlin-naturkundemuseum-riddle-1": {
+            "prompt": "Ich bin das Erste, was du siehst, und ich lasse dich den Kopf in den Nacken legen. Mein Hals ist ein Kran, meine Knochen kamen in Kisten aus Afrika, und kein anderes aufgestelltes Skelett der Welt steht höher als ich.",
+            "hint": "Ich habe nur Pflanzen gefressen, den ganzen Tag lang."
+          },
+          "berlin-naturkundemuseum-riddle-2": {
+            "prompt": "Ich bin flach und still in einer dunklen Vitrine. Ich habe die Zähne und die Krallen eines Reptils, aber rund um meine Knochen hat der Stein etwas bewahrt, was kein Reptil hat.",
+            "hint": "Was ich habe, hat heute jede Taube."
+          },
+          "berlin-naturkundemuseum-riddle-3": {
+            "prompt": "Ich bin hier in der Nähe geboren, in einem Garten voller Tiere, und ein Mensch hat mich mit der Flasche gefüttert. Der ganze Planet wollte mich sehen, klein und weiß. Ich habe nur vier Jahre gelebt.",
+            "hint": "Meine Art lebt sonst dort, wo das Meer gefroren ist."
+          }
+        }
+      }
+    },
+    "berlin-markthalle-neun": {
+      "name": "Die Markthalle Neun",
+      "tagline": "Die neunte Markthalle der Stadt, gerettet von ihren Nachbarn",
+      "story": "Die Markthalle öffnete am 1. Oktober 1891. Sie war die neunte der gedeckten Markthallen, die Berlin baute, um die Stände von den Straßen unter ein Dach zu holen, wo das Essen kühl und sauber bleiben konnte: Kühlschränke gab es damals nicht, und Fisch in der Sonne war ein Gesundheitsproblem für eine ganze Nachbarschaft. Das Gebäude mit seinen eisernen Bögen kam durch den Krieg. Bis 2011 war es aber fast leer und sollte verkauft werden, um noch ein Supermarkt zu werden. Da baten drei Leute aus der Nachbarschaft die Stadt, sie stattdessen ihnen zu verkaufen, und sie bekamen recht. Heute gibt es hier Bäcker, Käse, Metzger und eine kleine Brauerei, und jeden Donnerstagabend füllt sie sich mit Köchen, die kein eigenes Restaurant haben. Das berlinerischste Gericht von allen, die Currywurst, wurde 1949 in der Stadt erfunden.",
+      "facts": [
+        "Sie öffnete am 1. Oktober 1891 als neunte Markthalle Berlins.",
+        "2011 wurde sie von Nachbarn gerettet, die sie der Stadt abkauften.",
+        "Jeden Donnerstagabend füllt sich die Halle mit Ständen voll Streetfood."
+      ],
+      "question": {
+        "q": "Warum baute Berlin 1891 gedeckte Markthallen?",
+        "answers": [
+          "Damit das Essen kühl und sauber blieb",
+          "Damit die Kunden im Winter nicht nass wurden",
+          "Damit die Händler leichter ihre Steuern zahlten",
+          "Damit auch die Karren hineinpassten"
+        ],
+        "explanation": "Kühlschränke gab es nicht. Ein Stand mit Fisch in der Sonne machte Leute krank, also holte die Stadt die Stände unter ein Dach."
+      },
+      "findIt": "Der große Eingangsbogen ist in der Eisenbahnstraße 42, eingeklemmt zwischen ganz normalen Wohnhäusern."
+    },
+    "berlin-brandenburg-gate": {
+      "name": "Das Brandenburger Tor",
+      "tagline": "Ein Tor, das 28 Jahre lang niemanden durchließ",
+      "story": "Das Tor wurde 1791 fertig. Sein Architekt, Carl Gotthard Langhans, war nie in Athen gewesen, aber er hatte Zeichnungen der Propyläen studiert, des großen Eingangs der Akropolis, und gab Berlin ein Tor, das aussieht wie jenes: sechs dicke Säulen auf jeder Seite, mit fünf Durchgängen dazwischen. Früher durfte durch den breiten mittleren nur die königliche Familie. Oben fährt die Quadriga, eine Göttin auf einem Wagen, den vier Pferde ziehen. 1806 besiegte Napoleon die Preußen, ließ den Wagen abnehmen und karrte ihn nach Paris. Acht Jahre später kam er zurück, und Berlin feierte ein Fest. Dann kam der schwerste Teil seines Lebens. Von 1961 bis 1989 verlief die Berliner Mauer wenige Meter westlich, und das Tor stand eingesperrt im leeren Streifen zwischen den beiden Hälften der Stadt, wo überhaupt niemand darunter hindurchgehen konnte. Am 22. Dezember 1989 öffnete es wieder. Ein Tor ist zum Durchgehen gemacht.",
+      "facts": [
+        "Sechs Säulen auf jeder Seite, zwölf insgesamt, mit fünf Durchgängen dazwischen.",
+        "Die Quadriga war acht Jahre in Paris, von 1806 bis 1814.",
+        "Das Tor öffnete am 22. Dezember 1989 wieder, sechs Wochen nach dem Fall der Mauer."
+      ],
+      "question": {
+        "q": "Welches antike Gebäude kopierte der Architekt des Tors?",
+        "answers": [
+          "Die Propyläen der Akropolis",
+          "Das Kolosseum, die große Arena Roms",
+          "Der Schiefe Turm von Pisa, drüben in Italien",
+          "Eine Pyramide aus Ägypten"
+        ],
+        "explanation": "Langhans war nie in Athen gewesen. Er arbeitete nach Zeichnungen der Propyläen, und deshalb trägt ein Tor in Berlin griechische Säulen."
+      },
+      "findIt": "Stell dich auf den Pariser Platz, die Ostseite: Von dort fährt die Quadriga direkt auf dich zu."
+    },
+    "berlin-reichstag": {
+      "name": "Der Reichstag",
+      "tagline": "Ein Parlament mit gläsernem Hut, und das Glas ist eine Botschaft",
+      "story": "Ein Parlament ist die Gruppe von Menschen, die ein Land auswählt, damit sie über seine Gesetze streitet und dann darüber abstimmt. Dieses Gebäude wurde 1894 fertig und gab dem deutschen Parlament ein Zuhause, und 1916 wurden über den Säulen drei bronzene Wörter angebracht: „Dem Deutschen Volke“. Das Jahrhundert danach ging hart mit ihm um. 1933 brannte ein Feuer seinen großen Saal aus, der Krieg ließ es voller Löcher zurück, und dann stand es vierzig Jahre lang fast leer neben der Mauer: ein Parlamentshaus ohne Parlament darin. 1995 verhüllten die Künstler Christo und Jeanne-Claude das ganze Gebäude zwei Wochen lang mit silbernem Stoff, und Millionen Menschen kamen, um ihr eigenes Parlament wie ein riesiges Geschenk anzuschauen. Dann setzte ihm der Architekt Norman Foster eine gläserne Kuppel auf. Du steigst darin eine gewundene Rampe hinauf und schaust von oben den Abgeordneten bei der Arbeit zu. Genau deshalb ist die Kuppel aus Glas.",
+      "facts": [
+        "Er wurde 1894 fertig. Die Bronzebuchstaben „Dem Deutschen Volke“ kamen 1916 dazu.",
+        "1995 verhüllten Christo und Jeanne-Claude das ganze Gebäude zwei Wochen lang mit Stoff.",
+        "Der Aufstieg in die Glaskuppel kostet nichts, du musst dich aber vorher anmelden."
+      ],
+      "question": {
+        "q": "Warum ist über dem Saal eine Kuppel aus Glas?",
+        "answers": [
+          "Damit man das Parlament arbeiten sieht",
+          "Damit man die Reden besser hört",
+          "Damit das Gebäude wieder genau wie 1894 wird",
+          "Damit es von weitem als Wahrzeichen auffällt"
+        ],
+        "explanation": "Besucher gehen über dem Saal entlang und schauen hinunter. Das Glas sagt, dass hier nichts versteckt wird: Wer will, kann hineinsehen."
+      },
+      "findIt": "Die Schlange für die Kuppel beginnt am weißen Sicherheitspavillon auf der Westseite, draußen auf der Wiese."
+    },
+    "berlin-victory-column": {
+      "name": "Die Siegessäule",
+      "tagline": "Die Berliner nennen sie Goldelse, und sie hat 285 Stufen",
+      "story": "Die Säule wurde 1873 errichtet, nach einem Entwurf von Heinrich Strack, um drei Siege in drei Kriegen zu feiern. In ihre Rillen setzten die Erbauer echte Kanonenrohre, die man den besiegten Armeen abgenommen hatte, und überzogen sie mit Gold. Oben steht Victoria, die Göttin des Sieges: über acht Meter hoch und so schwer wie sechs Elefanten zusammen. Die Berliner, die nicht viel Feierlichkeit aushalten, nennen sie Goldelse. Die Säule stand nicht immer hier. 1938 wurde sie Stück für Stück vom Platz vor dem Reichstag abgetragen und mitten im Park wieder aufgebaut, mit einem zusätzlichen Stück, das sie auf 67 Meter brachte. Steig ihre 285 Stufen hinauf, und du schaust über den ganzen Tiergarten, den Wald, in dem früher Könige jagten und in dem heute alle picknicken.",
+      "facts": [
+        "Sie ist 67 Meter hoch, nachdem man ihr 1938 ein weiteres Stück hinzufügte.",
+        "Die goldene Victoria auf der Spitze ist mehr als acht Meter hoch.",
+        "Nach oben kommst du zu Fuß: 285 Stufen, und kein Aufzug."
+      ],
+      "question": {
+        "q": "Was steckt in den Rillen der Säule?",
+        "answers": [
+          "Echte Kanonenrohre, mit Gold überzogen",
+          "Marmorkopien von Kanonen, aus Italien geholt",
+          "Kupferrohre, die die Säule im Wind aufrecht halten",
+          "Goldene Lorbeerzweige, einer für jedes Siegesjahr"
+        ],
+        "explanation": "Es sind echte Rohre aus den Kanonen der besiegten Armeen. Die Waffen wurden nicht weggeworfen: Man vergoldete sie und stellte sie zur Schau."
+      },
+      "findIt": "Die Säule steht auf einer Insel in einem Kreisverkehr. Nimm die vier Fußgängertunnel, nie die Straße."
+    },
+    "berlin-potsdamer-platz": {
+      "name": "Der Potsdamer Platz",
+      "tagline": "Vom belebtesten Platz Europas zu einem Feld voller Kaninchen",
+      "story": "Vor hundert Jahren, in den 1920er-Jahren, war das der belebteste Platz Europas: Straßenbahnen, Busse, Autos, Pferdewagen und Tausende Menschen zu Fuß knäulten sich den ganzen Tag ineinander. Das Durcheinander war so groß, dass hier 1924 ein Turm mit fünf Seiten aufgestellt wurde, mit Ampeln auf jeder Seite und einem Polizisten, der darin saß und sie von Hand umschaltete. Der Krieg machte den Platz dem Erdboden gleich, und danach lief die Mauer mitten hindurch. Mehr als vierzig Jahre lang war hier fast nichts: Gras, Zäune und Kaninchen. Als die Mauer fiel, baute Berlin den Platz von null wieder auf, und in zehn Jahren wuchsen Hochhäuser, Kinos und ein Platz mit einem Dach wie ein riesiges Zelt. Der Ampelturm, den du heute siehst, ist eine Nachbildung von 1997. Ein leeres Feld kann wieder zum Herz einer Stadt werden.",
+      "facts": [
+        "1924 wurde hier ein Turm mit Ampeln auf fünf Seiten aufgestellt.",
+        "Seinen Namen hat er von dem Tor, das auf die Straße nach Potsdam führte.",
+        "In den 1990er-Jahren war er die größte Baustelle von ganz Europa."
+      ],
+      "question": {
+        "q": "Was machte der Polizist in dem Turm von 1924?",
+        "answers": [
+          "Er schaltete die Ampeln mit der Hand",
+          "Er zählte die Autos, die vorbeifuhren",
+          "Er verkaufte Straßenbahnkarten",
+          "Er bewachte die Stadtuhr"
+        ],
+        "explanation": "Die Ampeln schalteten nicht von selbst um. Ein Mensch saß dort oben, sah sich den Verkehr an und drehte den Schalter, wann immer er es für richtig hielt."
+      },
+      "findIt": "Verlass den Bahnhof am Ausgang Potsdamer Platz: Der Ampelturm steht auf der Insel vor dir."
+    },
+    "berlin-checkpoint-charlie": {
+      "name": "Checkpoint Charlie",
+      "tagline": "Der dritte Kontrollpunkt, und deshalb heißt er Charlie",
+      "story": "Nach dem Zweiten Weltkrieg wurde Berlin in vier Teile geteilt, die Amerika, Großbritannien, Frankreich und die Sowjetunion hielten. Als 1961 die Mauer gebaut wurde und die Stadt in zwei Teile schnitt, wurde diese kleine Baracke in der Friedrichstraße der bekannteste Übergang zwischen dem amerikanischen und dem sowjetischen Teil. Die Soldaten nannten sie Charlie, denn so sagen sie den Buchstaben C in dem Alphabet, das sie im Funk benutzen: Es war der dritte Kontrollpunkt, nach Alpha und Bravo. Im Oktober 1961 standen sich hier amerikanische und sowjetische Panzer sechzehn Stunden lang Nase an Nase gegenüber, bis beide Seiten langsam zurückwichen, ein Panzer nach dem anderen. Die Baracke, die du heute siehst, ist eine Nachbildung: Die echte wurde 1990 mit einem Kran abgehoben und steht jetzt in einem Museum draußen in Dahlem. Die Straße ist für alle offen.",
+      "facts": [
+        "Er war der dritte Kontrollpunkt der Alliierten, nach Alpha und Bravo.",
+        "Im Oktober 1961 standen sich hier Panzer beider Seiten sechzehn Stunden lang gegenüber.",
+        "Die ursprüngliche Baracke wurde 1990 fortgebracht und steht in einem Museum in Dahlem."
+      ],
+      "question": {
+        "q": "Warum hieß dieser Kontrollpunkt „Charlie“?",
+        "answers": [
+          "Es ist das „C“ im Alphabet der Soldaten",
+          "Es war der Name des ersten Wachmanns hier",
+          "Es wurde nach einem amerikanischen General benannt",
+          "Es ist Friedrichstraße auf Englisch"
+        ],
+        "explanation": "Alpha, Bravo, Charlie: das Alphabet im Funk. Es war einfach der dritte Kontrollpunkt, und der dritte Buchstabe gab ihm einen Namen, der blieb."
+      },
+      "findIt": "Er steht mitten in der Friedrichstraße, an der Kreuzung mit der Zimmerstraße, zwischen den Autos."
+    },
+    "berlin-gendarmenmarkt": {
+      "name": "Der Gendarmenmarkt",
+      "tagline": "Zwei Kirchen wie Zwillinge, gebaut von Menschen, die ihre Heimat verlassen mussten",
+      "story": "Vor mehr als dreihundert Jahren öffnete Berlin seine Türen für Tausende Flüchtlinge aus Frankreich, die Hugenotten, die zu Hause nicht auf ihre eigene Art beten durften. An der Nordseite dieses Platzes bauten sie ihre eigene Kirche, und die Deutschen bauten ihre gegenüber. Später wollte König Friedrich der Große, dass sein Platz aussieht wie ein Platz in Rom, und ließ deshalb einen einzigen Architekten jeder Kirche einen gleichen Kuppelturm hinzufügen. So wurden sie Zwillinge, ohne verwandt zu sein. In der Mitte steht das Konzerthaus, der Konzertsaal von Karl Friedrich Schinkel, der 1821 eröffnete, nachdem das alte Theater abgebrannt war. Davor steht der Dichter Friedrich Schiller in Marmor, und um seinen Sockel sitzen vier Marmorgestalten. Um 1700 sprach jeder fünfte Berliner Französisch: Wenn eine Stadt Fremde aufnimmt, wird die Stadt reicher.",
+      "facts": [
+        "Die beiden Kuppeltürme kamen um 1780 zu den Kirchen dazu.",
+        "Schinkels Konzerthaus eröffnete 1821, dort, wo ein Theater abgebrannt war.",
+        "Um 1700 sprach etwa jeder fünfte Berliner Französisch."
+      ],
+      "question": {
+        "q": "Warum sehen die beiden Kirchen aus wie Zwillinge?",
+        "answers": [
+          "Ein Architekt gab ihnen zwei gleiche Türme",
+          "Sie wurden im selben Jahr gebaut",
+          "Sie gehörten derselben Gemeinde",
+          "Sie sind einer Kirche in Rom nachgebaut"
+        ],
+        "explanation": "Die Kirchen waren verschieden und gehörten verschiedenen Menschen. Die Türme kamen später, von einem einzigen Architekten, der sie gleich machte."
+      },
+      "findIt": "Stell dich in der Mitte auf die Stufen des Konzerthauses: Von dort siehst du beide Kuppeln auf einmal."
+    },
+    "berlin-berliner-dom": {
+      "name": "Der Berliner Dom",
+      "tagline": "Eine grüne Kuppel, und davor parkt eine steinerne Schale",
+      "story": "Die Kirche ist jünger, als sie aussieht: Sie wurde 1905 fertig, als Kaiser Wilhelm II. für Berlin eine Kirche wollte, so prächtig wie die größten Europas. Ihre Kuppel ist mit Kupfer gedeckt, und Kupfer wird mit Regen und Zeit grün; diese Farbe hat niemand ausgesucht, das Wetter hat sie gemacht. Der Krieg beschädigte das Gebäude schwer, und die Reparaturen dauerten Jahrzehnte: 1993 öffnete es wieder, niedriger als zuvor. Davor, auf der Wiese des Lustgartens, steht eine riesige Schale aus Granit, aus einem einzigen Findling gehauen. Sie wurde 1831 fertig, misst fast sieben Meter im Durchmesser und wiegt ungefähr fünfundsiebzig Tonnen. Sie war gemacht worden, um im Museum nebenan zu stehen, aber sie wurde so groß, dass sie stattdessen draußen blieb. Hinter dir erstreckt sich die Museumsinsel: fünf Museen auf einer Insel mitten im Fluss.",
+      "facts": [
+        "Die heutige Kirche wurde 1905 fertig und öffnete nach den Reparaturen 1993 wieder.",
+        "Die Granitschale im Lustgarten wurde aus einem einzigen Findling geschnitten und wiegt ungefähr 75 Tonnen.",
+        "Die Museumsinsel hinter der Kirche ist seit 1999 Weltkulturerbe."
+      ],
+      "question": {
+        "q": "Warum ist die Kuppel grün?",
+        "answers": [
+          "Ihr Kupfer wird mit Regen und Zeit grün",
+          "Sie wurde gleich grün gestrichen",
+          "Sie ist mit grünen Ziegeln gedeckt",
+          "Moos hat sie bedeckt, wie einen Baum"
+        ],
+        "explanation": "Kupfer ist am Anfang rotbraun und bekommt über die Jahre eine dünne grüne Haut. Die Farbe ist kein Anstrich, sie ist Alter."
+      },
+      "findIt": "Besucher gehen an der Westfassade hinein, der Seite, die zur Wiese mit der Granitschale zeigt."
+    },
+    "berlin-nikolaiviertel": {
+      "name": "Das Nikolaiviertel",
+      "tagline": "Die älteste Ecke der Stadt, erst vor vierzig Jahren wieder aufgebaut",
+      "story": "Um 1230, vor fast achthundert Jahren, bauten Kaufleute und Fischer hier die ersten Häuser an der Spree, dazu eine steinerne Kirche, die Nikolaikirche. Am Anfang gab es zwei kleine Städte, Berlin auf diesem Ufer und Cölln auf dem anderen, die später eine wurden. Der Krieg löschte das Viertel fast aus. In den 1980er-Jahren baute Ost-Berlin es zum 750. Geburtstag der Stadt wieder auf, mit engen Gassen und kleinen Plätzen, damit es wieder alt aussieht. Gut zu wissen: Viele der „alten“ Häuser sind in Wirklichkeit fertige Betonplatten aus den 1980er-Jahren, als alt verkleidet. Unten am Ufer kämpft der heilige Georg, ein bronzener Ritter von 1855, mit seinem Drachen. Und wohin du auch schaust, schaut ein Bär zurück: Er ist seit Jahrhunderten das Zeichen der Stadt, obwohl der Name „Berlin“ wahrscheinlich nichts mit Bären zu tun hat.",
+      "facts": [
+        "Die ersten Häuser hier entstanden um 1230, an der Spree.",
+        "Das Viertel wurde in den 1980er-Jahren zum 750. Geburtstag der Stadt wieder aufgebaut.",
+        "Der bronzene heilige Georg am Ufer entstand 1855."
+      ],
+      "question": {
+        "q": "Woher kommt der Name „Berlin“ wahrscheinlich?",
+        "answers": [
+          "Von einem slawischen Wort für Sumpf",
+          "Vom deutschen Wort „Bär“ für das Tier",
+          "Vom Namen eines Fischers",
+          "Vom Fluss Spree, im Latein der damaligen Zeit"
+        ],
+        "explanation": "Der Boden hier war sumpfig, und das Wort scheint von dort zu kommen. Der Bär kam später dazu, als Wortspiel mit dem deutschen „Bär“."
+      },
+      "findIt": "Fang bei den zwei dunklen Türmen der Nikolaikirche an und geh in die Gassen ringsherum."
+    },
+    "berlin-olympiastadion": {
+      "name": "Das Olympiastadion",
+      "tagline": "Hier gewann ein Läufer vier Goldmedaillen in fünf Tagen",
+      "story": "Das Stadion wurde von 1934 bis 1936 gebaut, nach einem Entwurf von Werner March, für die Olympischen Spiele 1936. Die deutsche Regierung jener Zeit, die Regierung Hitlers, wollte die Spiele, um der Welt ihre Macht zu zeigen und zu beweisen, dass manche Menschen mehr wert sind als andere. Und dann gewann vor ihren Augen ein amerikanischer Läufer namens Jesse Owens vier Goldmedaillen: über 100 Meter, über 200 Meter, im Weitsprung und in der Staffel. Er war Schwarz, und die Antwort kam im Staub der Laufbahn. Heute trägt eine Straße vor dem Stadion seinen Namen. Das Stadion fasst fast fünfundsiebzigtausend Menschen, hier wird jedes Jahr das deutsche Pokalfinale ausgetragen, und das Finale der Weltmeisterschaft 2006 wurde hier gespielt.",
+      "facts": [
+        "Es wurde von 1934 bis 1936 gebaut, für die Olympischen Spiele jenes Jahres.",
+        "Es fasst 74.475 Menschen, nach dem Umbau, der 2004 fertig wurde.",
+        "Das Finale der Weltmeisterschaft 2006 wurde hier gespielt."
+      ],
+      "question": {
+        "q": "Wie viele Goldmedaillen gewann Jesse Owens hier 1936?",
+        "answers": [
+          "Vier, in vier verschiedenen Disziplinen",
+          "Zwei, über 100 und 200 Meter",
+          "Eine, nur im Weitsprung",
+          "Sieben, bis heute ein Rekord"
+        ],
+        "explanation": "100 Meter, 200 Meter, Weitsprung und Staffel. Vier Siege in fünf Tagen, vor einer Regierung, die das Gegenteil beweisen wollte."
+      },
+      "findIt": "Der Bahnhof Olympiastadion setzt dich auf dem Platz mit den zwei Steintürmen ab: Das ist der Haupteingang."
+    }
+  },
+  "trails": {
+    "berlin-the-wall": {
+      "name": "Die Mauer und ihre zwei Seiten",
+      "promise": "Ein Tor, das zuging, ein Kontrollpunkt mit Panzern, ein Platz voller Kaninchen und eine Mauer voller Farbe."
+    },
+    "berlin-the-island": {
+      "name": "Die Insel und die alte Stadt",
+      "promise": "Eine grüne Kuppel, eine Königin mit einem Auge, die ersten Gassen der Stadt und eine Kugel in zweihundert Metern Höhe."
+    },
+    "berlin-bones-and-engines": {
+      "name": "Knochen, Maschinen und Tiere",
+      "promise": "Das höchste Dinosaurierskelett der Welt, ein Flugzeug auf einem Dach und der älteste Zoo des Landes."
+    },
+    "berlin-stone-and-gold": {
+      "name": "Stein, Kuppeln und eine goldene Dame",
+      "promise": "Zwei Kirchen wie Zwillinge, ein Parlament mit einem gläsernen Hut und 285 Stufen hinauf zur Goldelse."
+    },
+    "berlin-out-of-the-middle": {
+      "name": "Raus aus der Mitte",
+      "promise": "Ein Tag mit der Bahn: ein Stadion mit Geschichte, eine Markthalle und eine Mauer, die 118 Menschen bemalt haben."
+    }
+  }
+}
