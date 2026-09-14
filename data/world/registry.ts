@@ -185,6 +185,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'thessaloniki.es': () => import('./i18n/thessaloniki.es.json'),
   'thessaloniki.fr': () => import('./i18n/thessaloniki.fr.json'),
   'thessaloniki.it': () => import('./i18n/thessaloniki.it.json'),
+  'vienna.de': () => import('./i18n/vienna.de.json'),
+  'vienna.es': () => import('./i18n/vienna.es.json'),
+  'vienna.fr': () => import('./i18n/vienna.fr.json'),
+  'vienna.it': () => import('./i18n/vienna.it.json'),
 };
 
 /**
