@@ -64,10 +64,31 @@ export default defineConfig(({ mode }) => {
               '**/audio/**', '**/video/**', '**/images/**',
               '**/*.png', '**/*.jpg', '**/*.webp', '**/*.svg',
               '**/*.mp3', '**/*.mp4', '**/*.woff2',
+              // WiseBot World's city content: one chunk per city and per overlay, named
+              // by the manualChunks rule above. A family installs the app to use one or
+              // two cities; precaching all seventeen in six languages made the install
+              // 14.5 MB, 5.4 MB of it cities nobody had opened, and it grew every time a
+              // city landed. They are fetched when a city is opened and the runtime
+              // caching below keeps what was actually used.
+              '**/world-content-*.js',
             ],
             maximumFileSizeToCacheInBytes: 1 * 1024 * 1024, // 1MB limit
             // Runtime caching — load on demand, cache after first use
             runtimeCaching: [
+              {
+                // The city chunks that globIgnores just took out of the precache. Taking
+                // them out must not cost a family the offline city they already walked,
+                // so the first visit puts the chunk here and it stays. CacheFirst because
+                // a city's content changes when we ship one, and a new deploy gives the
+                // file a new hash and therefore a new URL.
+                urlPattern: /\/assets\/world-content-.*\.js$/,
+                handler: 'CacheFirst',
+                options: {
+                  cacheName: 'world-content',
+                  expiration: { maxEntries: 120, maxAgeSeconds: 60 * 24 * 60 * 60 },
+                  cacheableResponse: { statuses: [0, 200] },
+                },
+              },
               {
                 // Explorer map tiles (OpenStreetMap). A family opens the city on hotel
                 // WiFi, then walks it without data: whatever tiles they looked at stay.
@@ -164,6 +185,22 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
           output: {
             manualChunks(id: string) {
+              /**
+               * One predictably-named chunk per city and per translation overlay.
+               *
+               * Not for splitting — Vite already split these, one per dynamic import.
+               * For NAMING. The service worker precaches `**\/*.js`, so every city a
+               * child has never opened was being downloaded on install: 5.4 MB of the
+               * 14.5 MB precache, growing with each city added. A stable `world-content-`
+               * prefix lets `globIgnores` below exclude them, and they load on demand
+               * over the network like any other route.
+               *
+               * Matching on the folder rather than a list of names means city eighteen
+               * needs no change here.
+               */
+              const city = id.match(/data\/world\/(?:cities|i18n)\/([^/]+?)\.(?:ts|json)$/);
+              if (city) return `world-content-${city[1]}`;
+
               if (id.includes('node_modules')) {
                 if (id.includes('/react/') || id.includes('/react-dom/') ||
                     id.includes('/react-router') || id.includes('/scheduler/')) {
