@@ -1497,7 +1497,7 @@ export const places: Place[] = [
       sources: [
         { kind: 'wikidata', ref: 'Q28303', deltaM: 0 },
         { kind: 'osm', ref: 'way/4949430', deltaM: 11 },
-        { kind: 'wikipedia', ref: 'Campo de’ Fiori', deltaM: 6 },
+        { kind: 'wikipedia', ref: "Campo de' Fiori", deltaM: 6 },
       ],
       verifiedAt: '2026-09-12',
       map: { x: 0.42, y: 0.624 },
@@ -2154,7 +2154,7 @@ export const places: Place[] = [
       sources: [
         { kind: 'wikidata', ref: 'Q486382', deltaM: 0 },
         { kind: 'osm', ref: 'way/8035487', deltaM: 4 },
-        { kind: 'wikipedia', ref: 'Castel Sant’Angelo', deltaM: 7 },
+        { kind: 'wikipedia', ref: "Castel Sant'Angelo", deltaM: 7 },
       ],
       verifiedAt: '2026-09-12',
       map: { x: 0.328, y: 0.467 },
@@ -2245,7 +2245,7 @@ export const places: Place[] = [
       sources: [
         { kind: 'wikidata', ref: 'Q83425', deltaM: 0 },
         { kind: 'osm', ref: 'way/135747106', deltaM: 125 },
-        { kind: 'wikipedia', ref: 'St. Peter’s Square', deltaM: 4 },
+        { kind: 'wikipedia', ref: "St. Peter's Square", deltaM: 4 },
       ],
       verifiedAt: '2026-09-12',
       map: { x: 0.181, y: 0.486 },

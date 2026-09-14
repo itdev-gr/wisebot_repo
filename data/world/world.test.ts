@@ -702,9 +702,16 @@ describe('world content', async () => {
      *               written. The FILE is right and the json is poorer. Fix is one
      *               resolver run once Overpass is properly back, then sync — never by
      *               hand-editing the grade down to match a worse run.
-     *   rome ×3     a curly apostrophe in the city file against a straight one in the
-     *               json, in three Wikipedia refs. Three characters, and it belongs to
-     *               the content session's files, which are frozen.
+     * Rome's three curly apostrophes were fixed on 14/9 and are gone from this list,
+     * which is the list working as intended: the entries had to be deleted before the
+     * suite would pass again.
+     *
+     * London was attempted the same day and could not be fixed. Overpass answers a single
+     * query but fails roughly half of a seventeen-query batch: three runs returned 8, 9
+     * and 8 places with an OSM cross-check, never all seventeen, and each run moved the
+     * drift to a different set of places rather than shrinking it. Committing any of them
+     * would have traded a known inconsistency for a churning one, so the committed json
+     * stands. This needs a genuinely stable Overpass, not another attempt.
      *
      * Every latitude and longitude in both agrees. No child is sent anywhere wrong; what
      * is wrong is the provenance, which brief §19 says a record may never overstate.
@@ -713,7 +720,6 @@ describe('world content', async () => {
       'london-westminster-abbey', 'london-st-pauls-cathedral', 'london-tower-of-london',
       'london-tower-bridge', 'london-science-museum', 'london-monument',
       'london-borough-market', 'london-cutty-sark',
-      'rome-campo-de-fiori', 'rome-castel-sant-angelo', 'rome-st-peters-square',
     ];
 
     const drifted = [...new Set(drift.map((d) => d.split('.')[0]))].sort();
