@@ -135,8 +135,49 @@ touching code.
 
 - The brief asks for 150 words. Three grade-band authors working in parallel produced 150 with
   **28 overlaps** (`αεροπλάνο`, `ουράνιο τόξο`, `τρένο` …), i.e. 120 unique; a top-up round
-  brought it to **145 unique** (50 / 50 / 45 for Α'–Β', Γ'–Δ', Ε'–ΣΤ'). Recorded rather than
-  padded with weak words.
+  brought it to 145, and the final five were written when the game was built. **150 unique**,
+  50 per band, and `data/games/draw.test.ts` now asserts that so a content edit cannot quietly
+  break it.
+- **«Ανά τάξη Α–ΣΤ» shipped as three two-year bands**, not six. Α'–Β', Γ'–Δ', Ε'–ΣΤ' — 50 words
+  each. Six separate grades would mean 25 words per grade, which a family exhausts in two
+  sessions, and the drawable vocabulary of Γ' and Δ' is not meaningfully different. The band is
+  a content lever: splitting one into two later is a data change, not a code change.
+
+### Ο διπλός πόντος που δίνει το `AnimatePresence` — αφορά και τα επόμενα παιχνίδια
+
+`AnimatePresence mode="wait"` keeps the **outgoing** screen mounted and clickable for its exit
+tween (~300 ms), rendered from the elements captured *before* the phase changed. So a second tap
+inside that window re-runs the handler **with the pre-change state still in its closure**.
+
+This makes the obvious guard useless:
+
+```ts
+if (picked !== null) return;   // `picked` is exactly what is stale
+```
+
+Children double-tap constantly, and the cost was real: points awarded twice (a guesser on 4
+instead of 2), `guessed` climbing past `totalTurns` so the share card read «Βρήκαμε 7 από 6
+ζωγραφιές!», and the tier that pays XP rounding up to **30 XP for a session that earned 10**.
+A separate variant left an orphan `setTimeout` armed when «ΤΕΛΕΙΩΣΑ» was tapped during the
+«ΤΕΛΟΣ ΧΡΟΝΟΥ!» beat, which dragged the table back to the reveal mid-guess and reshuffled the
+four options under the children reading them.
+
+**The fix is refs, not state.** Refs mutate synchronously, so they hold inside the exit window:
+`pickedRef`, `awardedRef` and `advancingRef` in `DrawGuess.tsx`, each cleared at the start of a
+turn — `advancingRef` released by an effect on `session.turn` rather than in `resetRound()`,
+because clearing it in the same call would undo it. `drawLogic.test.ts` pins the cost of losing
+the latch (double points, inflated tier) so the regression is visible rather than silent.
+
+**Any game in this set that animates between phases has this hazard.** Latch every handler that
+awards points, advances a turn or grants XP on a ref.
+
+### Μικρά, καταγεγραμμένα
+
+- `DRAW_STORAGE_KEY = 'wb_draw_scores'` reserves a namespace and **nothing writes it**: a
+  pass-and-play scoreboard belongs to the people in the room for one game, and a reload should
+  start fresh. The comment says so, so the next reader does not assume persistence exists.
+- If `grantGameReward` throws (storage full), the end screen falls back to the «πήρατε ήδη XP
+  σήμερα» note, which is not quite what happened. Harmless, rare, not worth a branch.
 
 ---
 
