@@ -9,7 +9,8 @@ implementation order, and a shared section for things that cut across all six.
 ## ΠΟΥ ΕΜΕΙΝΑΜΕ — 13 Σεπτεμβρίου 2026
 
 Το session «Academy games» σταμάτησε εδώ με εντολή ιδιοκτήτη (όρια χρήσης). Επόμενη εντολή:
-**Παρασκευή, μετά το reset.**
+**Παρασκευή, μετά το reset** — το πρώτο μήνυμα του session D είναι στο
+[`docs/PLAN-FRIDAY-2026-09-18.md`](../PLAN-FRIDAY-2026-09-18.md) §4.
 
 | # | παιχνίδι | κατάσταση |
 |---|---|---|
