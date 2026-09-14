@@ -6,6 +6,11 @@
 
 ## 0. HANDOFF (13/9, 18:40) — ξεκίνα από εδώ
 
+**Παρασκευή 18/9 (μετά το reset):** το πλάνο και τα πρώτα μηνύματα για κάθε session είναι στο
+[`docs/PLAN-FRIDAY-2026-09-18.md`](../PLAN-FRIDAY-2026-09-18.md). Από 13/9 βράδυ είναι επίσης
+merged: «Είμαι εδώ!» ένα κουμπί με σωστή διάγνωση αποκλεισμένης τοποθεσίας (#88, #89), PWA
+update card (#87), reset password μέσω Resend (#86), Admin v2 (#85), auth fixes (#84).
+
 **Όλα στο main.** 17 πόλεις, 260 μέρη, 40 μουσεία, 303 prerendered σελίδες, 44 overlays.
 Τελευταίο merge `fc759bc`, CI πράσινο. Τα τρία branches (`world/content`, `world/i18n`,
 `engine/answer-giveaway-gate`) είναι μέσα και τα sessions τους πάγωσαν μέχρι την Παρασκευή
