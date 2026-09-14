@@ -1,0 +1,659 @@
+{
+  "lang": "es",
+  "cityId": "vienna",
+  "places": {
+    "vienna-kunsthistorisches": {
+      "name": "El Museo de Historia del Arte",
+      "tagline": "El edificio gemelo, el que tiene los cuadros dentro",
+      "story": "El Museo de Historia del Arte abrió en 1891, gemelo del Museo de Historia Natural, con una plaza en medio. Se construyó para que cupiera todo lo que los Habsburgo habían reunido en cuatro siglos, y ahí se esconde la broma: casi nada de lo que hay dentro es austriaco. La familia compraba, heredaba y recibía dotes por toda Europa, así que las salas están llenas de cuadros flamencos, italianos y españoles, y también de hallazgos egipcios. Lo más raro de aquí son doce cuadros de un solo pintor, Pieter Brueghel el Viejo. De él se conservan unas cuarenta obras en todo el mundo, o sea, que casi un tercio está en este edificio. Hasta la escalera es una pieza del museo: en lo alto hay un Teseo de mármol, y doce metros más arriba, apretadas entre las columnas, unas pinturas que hizo Gustav Klimt cuando todavía era joven y desconocido.",
+      "facts": [
+        "Abrió en 1891 y es el edificio gemelo del Museo de Historia Natural.",
+        "Tiene doce cuadros de Pieter Brueghel, la mayor colección suya del mundo.",
+        "Se conservan unas cuarenta obras de Brueghel en total, o sea, que casi un tercio está aquí."
+      ],
+      "question": {
+        "q": "¿Por qué casi nada de este museo es austriaco?",
+        "answers": [
+          "Los Habsburgo coleccionaban por toda Europa",
+          "Las obras austriacas fueron a otros museos",
+          "Entonces no había pintores en Austria",
+          "Las obras austriacas ardieron en 1891"
+        ],
+        "explanation": "Compraban, heredaban y recibían dotes en muchos países. La colección es el mapa de una familia, no de un país."
+      },
+      "findIt": "Es el edificio gemelo del sur, el que mira hacia la Ópera.",
+      "museum": {
+        "doorNote": "Levanta la cabeza en la escalera antes de subir: las pinturas más altas están doce metros por encima de ti.",
+        "rooms": {
+          "vienna-kunsthistorisches-bruegel": {
+            "name": "La sala de Brueghel",
+            "intro": "Una sola sala, y dentro doce cuadros del mismo hombre. Brueghel pintaba pueblos, nieve, bodas y niños en una época en la que casi todos los pintores hacían solo santos y reyes. Sus cuadros piden tiempo: cuanto más te acercas, más cosas pequeñas descubres pasando en sus esquinas."
+          },
+          "vienna-kunsthistorisches-faces": {
+            "name": "Caras",
+            "intro": "En estas salas la pintura mira a la gente a los ojos. Hay una cara hecha entera de fruta, una niña a la que pintaban cada pocos años para que su familia la viera crecer, un pintor que se pintó a sí mismo de espaldas y una madre sentada en un prado."
+          },
+          "vienna-kunsthistorisches-treasures": {
+            "name": "Tesoros y escaleras",
+            "intro": "El museo no es solo cuadros. Tiene también una planta llena de objetos que hicieron orfebres y relojeros para gente que ya lo tenía todo. Y tiene su escalera, que no es solo un camino hacia arriba: encima hay una escultura de mármol de tamaño natural, y muy alto se esconden unas pinturas que pocos visitantes levantan la cabeza para ver."
+          }
+        },
+        "exhibits": {
+          "vienna-kunsthistorisches-hunters-snow": {
+            "name": "Los cazadores en la nieve",
+            "blurb": "Tres cazadores bajan una colina con sus perros. La nieve es profunda, los perros llevan la cabeza gacha, y lo único que traen es un zorro. No les fue bien el día. Más abajo, en los estanques helados, la gente patina y juega. Brueghel lo pintó en 1565 como parte de una serie de seis cuadros sobre las épocas del año; se conservan cinco, y tres están en esta sala. Mira el pájaro del medio: está pillado justo en el momento de bajar.",
+            "question": {
+              "q": "¿Qué nos dice el zorro que llevan los cazadores?",
+              "answers": [
+                "Que la caza fue mal",
+                "Que volvían de una fiesta",
+                "Que la nieve empezaba a derretirse",
+                "Que sus perros eran los mejores"
+              ],
+              "explanation": "Un zorro para tres cazadores y una jauría de perros es muy poca comida para un invierno."
+            }
+          },
+          "vienna-kunsthistorisches-childrens-games": {
+            "name": "Juegos de niños",
+            "blurb": "Pintado en 1560, este cuadro no tiene un héroe en el centro. Tiene una plaza llena de niños, unos doscientos, y cada uno hace algo distinto. Los historiadores han contado más de ochenta juegos diferentes dentro: peonzas, aros, rayuela, zancos, escondite, a caballito unos encima de otros. Muchos se juegan todavía hoy, cuatrocientos sesenta años después. No hay ni un adulto en la imagen. Brueghel les dejó el pueblo entero a los niños, y ellos se lo quedaron.",
+            "question": {
+              "q": "¿Cuántos juegos diferentes han contado dentro del cuadro?",
+              "answers": [
+                "Más de ochenta",
+                "Doce en total",
+                "Solo tres",
+                "Ninguno"
+              ],
+              "explanation": "El cuadro funciona casi como un catálogo. Muchos de esos juegos se juegan todavía en los patios."
+            }
+          },
+          "vienna-kunsthistorisches-tower-babel": {
+            "name": "La Torre de Babel",
+            "blurb": "Una torre tan alta que su punta se mete en las nubes, pintada en 1563. La historia dice que la gente quiso construir hasta el cielo y paró cuando dejó de entender la lengua de los demás. Pero Brueghel pintó algo más: fíjate bien y verás que la torre está torcida. Los arcos de un lado no están en línea. Aunque todos hubieran hablado la misma lengua, este edificio no se iba a quedar en pie.",
+            "question": {
+              "q": "¿Qué tiene mal la torre del cuadro?",
+              "answers": [
+                "Está torcida y sus arcos no están rectos",
+                "No tiene ninguna puerta de entrada",
+                "Está pintada de un color equivocado",
+                "No cabe entera en el cuadro"
+              ],
+              "explanation": "Brueghel puso el error en los cimientos, no en la lengua. La torre se habría caído de todas formas."
+            }
+          },
+          "vienna-kunsthistorisches-peasant-wedding": {
+            "name": "La boda campesina",
+            "blurb": "Una boda dentro de un granero. La novia está sentada delante de una tela verde, con las manos cruzadas y una pequeña corona de papel colgada encima de su cabeza. Al novio no es fácil encontrarlo, y los historiadores siguen discutiendo cuál de los hombres es. Dos personas llevan los platos encima de una puerta desmontada, porque no existía ninguna bandeja tan grande. En una esquina, un niño con un sombrero enorme rebaña un plato con los dedos. El cuadro es de hacia 1568.",
+            "question": {
+              "q": "¿Encima de qué llevan los platos de comida?",
+              "answers": [
+                "Una puerta",
+                "Un carro de madera",
+                "Una sábana",
+                "Una escalera larga"
+              ],
+              "explanation": "Descolgaron una puerta de sus bisagras y la usaron de bandeja. En un pueblo, lo que hay se convierte en lo que hace falta."
+            }
+          },
+          "vienna-kunsthistorisches-arcimboldo-summer": {
+            "name": "El Verano de Arcimboldo",
+            "blurb": "De lejos es una persona de perfil. De cerca no hay ninguna persona: la mejilla es un melocotón, la nariz un calabacín, los labios cerezas, el pelo uvas y espigas de trigo. Giuseppe Arcimboldo lo pintó en 1563 para el emperador, como parte de una serie con las cuatro estaciones. La parte más lista es el cuello: está trenzado con paja, y el pintor escondió su nombre dentro del trenzado. El museo tiene también el Invierno, hecho de ramas secas.",
+            "question": {
+              "q": "¿Dónde escondió el pintor su nombre?",
+              "answers": [
+                "En el cuello trenzado con paja",
+                "En el hueso del melocotón",
+                "Detrás del cuadro",
+                "En ningún sitio; no está firmado"
+              ],
+              "explanation": "Arcimboldo escribió su nombre dentro del trenzado, donde solo lo ves si te acercas mucho."
+            }
+          },
+          "vienna-kunsthistorisches-vermeer": {
+            "name": "El arte de la pintura",
+            "blurb": "Un pintor está sentado de espaldas a nosotros y trabaja. Delante de él posa una chica con un libro, una trompeta y una corona de hojas de laurel: va vestida de Musa de la Historia. En la pared, detrás de ella, cuelga un mapa grande. Johannes Vermeer lo pintó hacia 1666 y no lo vendió nunca. De este pintor se conservan unas treinta y cinco obras en todo el mundo, así que estar delante de una es algo raro.",
+            "question": {
+              "q": "¿Qué sostiene la chica que posa?",
+              "answers": [
+                "Un libro y una trompeta",
+                "Un espejo y una vela",
+                "Unos pinceles y una paleta",
+                "Una cesta de fruta"
+              ],
+              "explanation": "Son los signos de la Historia: el libro por lo que se escribió, la trompeta por la fama."
+            }
+          },
+          "vienna-kunsthistorisches-infanta": {
+            "name": "La pequeña infanta con el vestido azul",
+            "blurb": "Una niña de ocho años está completamente quieta dentro de un vestido azul enorme. Se llamaba Margarita Teresa y vivía en Madrid. Diego Velázquez la pintó en 1659 y el cuadro viajó enseguida a Viena. El motivo es poco corriente: su familia de aquí quería verla crecer desde lejos. No había fotografías, así que cada pocos años enviaban un cuadro nuevo. Es uno de los primeros álbumes de fotos de infancia de la historia, pintado al óleo.",
+            "question": {
+              "q": "¿Por qué enviaban a Viena un cuadro nuevo de Margarita cada pocos años?",
+              "answers": [
+                "Para que su familia la viera crecer",
+                "Para que aprendieran los pintores de Viena",
+                "Para demostrar que estaba bien",
+                "Para que eligiera sus vestidos"
+              ],
+              "explanation": "En el siglo XVII no había fotografía. Un cuadro era la única manera de ver a alguien que vivía lejos."
+            }
+          },
+          "vienna-kunsthistorisches-madonna-meadow": {
+            "name": "La Virgen del prado",
+            "blurb": "Una madre está sentada en la hierba y sostiene a dos niños pequeños. Rafael la pintó en 1506, cuando tenía veintitrés años. Si te fijas en las cabezas y en las manos, verás que forman un triángulo, con la punta en la cara de la mujer. Rafael lo hizo a propósito: el triángulo hace que la imagen se quede quieta, como se queda quieta una montaña. Detrás de ellos se abre un paisaje con agua, árboles y un cielo muy azul.",
+            "question": {
+              "q": "¿Qué forma dibujan las tres figuras del cuadro?",
+              "answers": [
+                "Un triángulo",
+                "Un círculo",
+                "Una línea recta",
+                "Un cuadrado"
+              ],
+              "explanation": "El triángulo tiene la base ancha y la punta tranquila. Los pintores lo usan para calmar el ojo."
+            }
+          },
+          "vienna-kunsthistorisches-saliera": {
+            "name": "La Saliera",
+            "blurb": "Es un salero, y es la única obra de oro de Benvenuto Cellini que se conserva. La hizo entre 1540 y 1543 para el rey de Francia. Dos figuras están sentadas una frente a la otra: un hombre que es el mar, con un barquito al lado para la sal, y una mujer que es la tierra, con un templo pequeño al lado para la pimienta. El 11 de mayo de 2003 un ladrón subió por los andamios y se la llevó. Apareció el 21 de enero de 2006, enterrada en una caja de plomo en un bosque.",
+            "question": {
+              "q": "¿Qué guardaba el barquito que está al lado de la figura del mar?",
+              "answers": [
+                "La sal",
+                "La pimienta",
+                "El aceite",
+                "El agua"
+              ],
+              "explanation": "La sal viene del mar y la pimienta de plantas de la tierra. Por eso cada una está al lado de su propia figura."
+            }
+          },
+          "vienna-kunsthistorisches-canova-theseus": {
+            "name": "El Teseo de Canova",
+            "blurb": "En lo alto de la gran escalera, un joven de mármol blanco ha derribado a un centauro y levanta su maza. La escultura es de Antonio Canova y se trabajó durante años, de 1805 a 1819. La encargó Napoleón; al final la compró el emperador de Austria en 1822 y la puso en un templo pequeño dentro de un parque. Cuando abrió el museo, la trajeron aquí. Dicen que Canova estudió un caballo de verdad para acertar con los músculos del centauro.",
+            "question": {
+              "q": "¿Quién encargó al principio esta escultura?",
+              "answers": [
+                "Napoleón Bonaparte",
+                "Francisco José",
+                "La ciudad de Viena",
+                "El propio museo"
+              ],
+              "explanation": "Canova la empezó para Napoleón. Austria la compró después, en 1822."
+            }
+          },
+          "vienna-kunsthistorisches-klimt-staircase": {
+            "name": "Las pinturas de Klimt en la escalera",
+            "blurb": "Doce metros por encima de las cabezas de los visitantes, en los huecos estrechos entre las columnas, hay pequeñas figuras pintadas: una egipcia, una griega antigua, una italiana del Renacimiento. Las hizo Gustav Klimt hacia 1890, junto con su hermano y un amigo, cuando todavía tenía veintiocho años y nadie sabía su nombre. Están tan altas que durante años casi nadie se fijaba en ellas. De vez en cuando el museo monta un puente para que la gente pueda verlas de cerca.",
+            "question": {
+              "q": "¿Por qué pocos visitantes se fijan en estas pinturas?",
+              "answers": [
+                "Están doce metros sobre sus cabezas",
+                "Están cubiertas con una tela protectora",
+                "Su sala abre una vez al año",
+                "Son de pocos centímetros cada una"
+              ],
+              "explanation": "Klimt las pintó para la escalera, no para la pared que tienes delante. Piden que levantes la cabeza."
+            }
+          }
+        },
+        "riddles": {
+          "vienna-kunsthistorisches-riddle-1": {
+            "prompt": "Voy bajando una colina con nieve profunda, con perros que llevan la cabeza gacha, y llevo un solo zorro. Debajo de mí, en los estanques helados, todo el mundo se divierte.",
+            "hint": "Soy uno de los tres cuadros de las épocas del año que hay en esta sala."
+          },
+          "vienna-kunsthistorisches-riddle-2": {
+            "prompt": "De lejos tengo cara. De cerca no tengo piel: mi mejilla es un melocotón y mis labios son cerezas. El nombre de mi pintor está escondido dentro de mi cuello.",
+            "hint": "A mi lado cuelga la estación contraria, hecha de ramas secas."
+          },
+          "vienna-kunsthistorisches-riddle-3": {
+            "prompt": "Soy pequeña y de oro, y un día tuve un trabajo en la mesa de un rey. En 2003 alguien me robó y me enterró en un bosque. Volví tres años después.",
+            "hint": "Encima de mí están sentadas dos figuras, el mar y la tierra."
+          },
+          "vienna-kunsthistorisches-riddle-4": {
+            "prompt": "No cuelgo de una pared y no tengo marco. Vivo en los huecos estrechos entre columnas, doce metros por encima de ti, y me pintó un chico de veintiocho años que se hizo famoso mucho después.",
+            "hint": "Me encontrarás antes de entrar en ninguna sala."
+          }
+        }
+      }
+    },
+    "vienna-schonbrunn-zoo": {
+      "name": "El Zoo de Schönbrunn",
+      "tagline": "El zoo más antiguo del mundo que sigue abierto",
+      "story": "El zoo de Schönbrunn abrió en 1752 y es el más antiguo del mundo que sigue funcionando. Lo construyó Francisco Esteban, el marido de María Teresa, no para el público sino para la corte. Desde 1779 dejaron entrar también a la gente corriente. En el medio hay un pabellón de ocho lados de 1759. Allí desayunaba el emperador, y los recintos de los animales se abrían alrededor de sus ventanas como los trozos de una tarta. Ese plano sigue ahí: ponte en el centro y puedes mirar en todas las direcciones. El zoo de hoy no se parece en nada al de antes. Tiene una casa de selva tropical con lluvia de verdad dentro y una casa fría para los animales del hielo. El 23 de agosto de 2007 nació aquí un panda gigante, Fu Long. Fue el primer panda de Europa que vino al mundo sin ninguna ayuda de los médicos.",
+      "facts": [
+        "Abrió en 1752 y es el zoo más antiguo del mundo que sigue funcionando.",
+        "El pabellón de ocho lados de su centro se construyó en 1759 para el emperador.",
+        "El 23 de agosto de 2007 nació aquí Fu Long, un panda gigante."
+      ],
+      "question": {
+        "q": "¿Qué hay exactamente en el medio del zoo?",
+        "answers": [
+          "Un pabellón de ocho lados del emperador",
+          "Un lago grande con flamencos",
+          "La casa de los elefantes",
+          "Una torre alta para ver los recintos"
+        ],
+        "explanation": "Los recintos se diseñaron alrededor del pabellón como trozos de una tarta, para que el emperador los viera todos desde su mesa."
+      }
+    },
+    "vienna-naturhistorisches": {
+      "name": "El Museo de Historia Natural",
+      "tagline": "Treinta millones de objetos, desde meteoritos hasta una Venus pequeña",
+      "story": "Enfrente de un museo de arte, al otro lado de la plaza, está su gemelo, y los dos se parecen tanto que pierdes la cuenta de cuál es cuál. El emperador Francisco José los mandó construir uno frente al otro porque las colecciones imperiales ya no cabían en el palacio. El Museo de Historia Natural abrió en 1889. Sus colecciones son mucho más antiguas: empezaron en 1750, cuando Francisco Esteban compró treinta mil piedras y minerales y los trajo a Viena en carros. Hoy el museo guarda unos treinta millones de objetos, y en las salas solo ves un trocito de ellos. Dentro te encontrarás meteoritos que cayeron del cielo, un esqueleto de dinosaurio más largo que un autobús, un alosaurio que se mueve y una figurita tallada de once centímetros que tiene casi treinta mil años. La última tiene una sala para ella sola, porque es el objeto más famoso de todo el edificio.",
+      "facts": [
+        "Abrió en 1889 y guarda unos 30 millones de objetos.",
+        "Su sala de meteoritos es la mayor exposición de meteoritos del mundo.",
+        "Las colecciones empezaron en 1750, con 30.000 minerales que compró Francisco Esteban."
+      ],
+      "question": {
+        "q": "¿Por qué el museo tiene un edificio gemelo justo enfrente?",
+        "answers": [
+          "Las colecciones imperiales no cabían en un edificio",
+          "Los dos arquitectos se pelearon y cada uno hizo el suyo",
+          "El primer edificio se quemó y lo reconstruyeron justo al lado",
+          "Querían cortar el viento que barría la plaza"
+        ],
+        "explanation": "La naturaleza fue a uno, el arte al otro, y la plaza de en medio se hizo a propósito perfectamente simétrica."
+      },
+      "findIt": "Es el edificio del norte de los dos gemelos, con el jardín y la estatua en medio.",
+      "museum": {
+        "doorNote": "Los meteoritos, los dinosaurios y la Venus están todos en la misma planta.",
+        "rooms": {
+          "vienna-naturhistorisches-stones": {
+            "name": "Piedras de la Tierra y del cielo",
+            "intro": "Las primeras salas del museo están llenas de piedras, y eso suena aburrido hasta que entras. Unas crecieron despacio dentro de las rocas durante millones de años. Otras viajaron por el espacio y cayeron ardiendo en el aire. Y entre ellas se esconde un ramo que no hizo la naturaleza: lo hizo un orfebre, para una emperatriz."
+          },
+          "vienna-naturhistorisches-dinosaurs": {
+            "name": "La sala de los dinosaurios",
+            "intro": "En el medio de esta sala hay una plataforma, y encima hay tres esqueletos a los que puedes dar la vuelta entera. No hay cristal entre ellos y tú. Uno de los tres es tan largo que no cabe en una foto, y cerca de allí algo se mueve y gira la cabeza hacia ti."
+          },
+          "vienna-naturhistorisches-venus": {
+            "name": "La sala de la Venus",
+            "intro": "Más adentro del museo, las salas se llenan de cosas hechas por manos humanas: herramientas de piedra, joyas, tumbas. Dos figuras diminutas tienen una sala oscura y una luz para ellas solas. Están entre las esculturas más antiguas que se han encontrado en el mundo, y las dos salieron de tierra austriaca, no muy lejos la una de la otra."
+          }
+        },
+        "exhibits": {
+          "vienna-naturhistorisches-knyahinya": {
+            "name": "El meteorito de Knyahinya",
+            "blurb": "El 9 de junio de 1866 una roca ardiendo rasgó el cielo por encima de un pueblo de los Cárpatos y cayó en un campo. Pesaba casi trescientos kilos. Durante décadas fue el meteorito de piedra más grande que se había encontrado nunca, y hoy está en el medio de la vitrina como un jefe. A su alrededor hay cientos más. La sala enseña unos mil cien meteoritos y es la mayor exposición de meteoritos del mundo. Cada uno de ellos fue alguna vez un trozo de otro mundo.",
+            "question": {
+              "q": "¿Qué es un meteorito?",
+              "answers": [
+                "Una piedra del espacio que cayó en la Tierra",
+                "Una piedra que lanzó un volcán",
+                "Hielo que se derritió y dejó metal",
+                "Una piedra que un rayo convirtió en vidrio"
+              ],
+              "explanation": "Mientras vuela lo llamamos meteoro. En cuanto toca el suelo, se convierte en meteorito."
+            }
+          },
+          "vienna-naturhistorisches-gem-bouquet": {
+            "name": "El ramo de piedras preciosas",
+            "blurb": "En 1764 María Teresa escondió un regalo dentro de la colección de minerales de su marido. Era un ramo de flores que no se marchita nunca: sesenta y una flores y doce insectos, hechos con 2.102 diamantes y 761 piedras de colores, puestos en un jarrón de cristal de roca. Los pétalos son esmeraldas, rubíes, turmalinas y ópalos. Las abejas y las mariposas tienen alas de piedra fina. Cada piedra se talló por separado y se ató a un tallo de alambre.",
+            "question": {
+              "q": "¿Cuántos diamantes tiene el ramo?",
+              "answers": [
+                "2.102 diamantes",
+                "Doce diamantes",
+                "Sesenta y un diamantes",
+                "Ni un solo diamante"
+              ],
+              "explanation": "Junto a ellos hay 761 piedras de colores, desde la esmeralda hasta el ópalo."
+            }
+          },
+          "vienna-naturhistorisches-topaz": {
+            "name": "El topacio gigante",
+            "blurb": "En una vitrina metida en el suelo, delante de las cajas fuertes llenas de joyas, hay un cristal de topacio que pesa 117 kilos. No lo hizo nadie. Creció solo dentro de una roca en Brasil, formando despacio caras planas y ángulos afilados, como hace cualquier cristal. Un niño no puede levantarlo; dos tampoco. Llegó a la colección en 1978. A su lado, los anillos de las reinas parecen migas.",
+            "question": {
+              "q": "¿Quién le dio al cristal sus caras planas y rectas?",
+              "answers": [
+                "Nadie; creció de esa forma él solo",
+                "Un tallador de diamantes, en 1978",
+                "Un río, frotándolo durante siglos",
+                "Unos mineros, con martillo y cincel"
+              ],
+              "explanation": "Los cristales crecen colocando sus átomos en orden. Las caras planas son ese orden, visto desde fuera."
+            }
+          },
+          "vienna-naturhistorisches-florentine-copy": {
+            "name": "La copia del Diamante Florentino",
+            "blurb": "En una vitrina brilla un diamante amarillo, tallado con ciento veintiséis caras. No es un diamante. Es una copia de vidrio, hecha en 1865, porque el de verdad ya no está aquí. El Florentino fue una de las piedras más famosas de Europa y pertenecía a los Habsburgo. En 1918, cuando se acabó el imperio, salió de Viena con la familia imperial, y durante cien años nadie supo dónde estaba. En 2025 sus descendientes lo sacaron de la caja fuerte de un banco en Canadá, donde llevaba todo ese tiempo.",
+            "question": {
+              "q": "¿Por qué el museo enseña una copia de vidrio y no el diamante de verdad?",
+              "answers": [
+                "El de verdad se fue de Viena en 1918",
+                "El de verdad pesa demasiado",
+                "El de verdad viaja siempre a otras exposiciones",
+                "El de verdad se agrieta con la luz y sigue escondido"
+              ],
+              "explanation": "El vidrio de 1865 se quedó en Viena. La piedra de verdad viajó con la familia y se escondió en la caja fuerte de un banco durante un siglo, hasta que volvió a la luz en 2025."
+            }
+          },
+          "vienna-naturhistorisches-diplodocus": {
+            "name": "Dippy, el Diplodocus",
+            "blurb": "El esqueleto que domina la sala es de un Diplodocus carnegii, y aquí todo el mundo lo llama Dippy. No son huesos; es un molde, una copia exacta del esqueleto de verdad. Andrew Carnegie, un industrial riquísimo, mandó hacer copias como esta y las regaló a museos de toda Europa. La de Viena se anotó en los libros en 1909. El Diplodocus tenía el cuello como una grúa, la cola como un látigo y comía solo plantas. Su cabeza, comparada con su cuerpo, es cómicamente pequeña.",
+            "question": {
+              "q": "¿Qué es exactamente el esqueleto de Dippy?",
+              "answers": [
+                "Una copia hecha con un molde",
+                "Los huesos de verdad de un animal",
+                "Una escultura tallada en piedra",
+                "Huesos de muchos animales a la vez"
+              ],
+              "explanation": "Los moldes permiten que diez museos enseñen el mismo dinosaurio. Los huesos de verdad solo pueden estar en un sitio."
+            }
+          },
+          "vienna-naturhistorisches-allosaurus": {
+            "name": "El alosaurio que se mueve",
+            "blurb": "En la misma plataforma hay algo que no es un esqueleto. Es un modelo robótico de alosaurio, de más de seis metros de largo, con piel, ojos y respiración. Mueve la cola, inclina la cabeza y te mira. Su tamaño es el de un animal joven, no el de uno adulto: el alosaurio era el cazador más peligroso del final del Jurásico. A su lado, en la misma plataforma, está el molde de un esqueleto de alosaurio de verdad, de Utah, hecho igual que el de Dippy: te enseña lo que hay debajo de toda esa piel.",
+            "question": {
+              "q": "¿Por qué el modelo que se mueve está al lado de un esqueleto de alosaurio?",
+              "answers": [
+                "Para ver los huesos y la piel juntos",
+                "Para ver cuánto más grande era",
+                "Porque el esqueleto sostiene el modelo",
+                "Porque salieron de la misma cantera"
+              ],
+              "explanation": "Los huesos enseñan la máquina. El modelo enseña al animal que la llevaba encima."
+            }
+          },
+          "vienna-naturhistorisches-iguanodon": {
+            "name": "El iguanodonte",
+            "blurb": "El tercer esqueleto grande de la plataforma es un iguanodonte, un herbívoro del Cretácico. Los primeros científicos que lo estudiaron cometieron un error famoso. Encontraron un hueso puntiagudo y se lo pusieron en la nariz, como el cuerno de un rinoceronte. Mucho después, cuando aparecieron esqueletos enteros juntos en una mina de Bélgica, lo entendieron: el hueso puntiagudo era su pulgar. El iguanodonte tenía en cada mano un pincho en lugar de pulgar, tres dedos para andar y un dedito pequeño que se doblaba.",
+            "question": {
+              "q": "¿Dónde estaba en realidad el hueso puntiagudo del iguanodonte?",
+              "answers": [
+                "En su pulgar",
+                "En la punta de la cola",
+                "En la nariz, como un cuerno",
+                "En el lomo, en una fila de pinchos"
+              ],
+              "explanation": "El error duró décadas. Lo corrigieron los esqueletos que aparecieron enteros en una mina belga."
+            }
+          },
+          "vienna-naturhistorisches-venus-willendorf": {
+            "name": "La Venus de Willendorf",
+            "blurb": "Mide once centímetros y cabe en la palma de tu mano. La tallaron en piedra caliza hace unos 29.500 años y la encontraron en 1908 junto al Danubio, en Willendorf. Todavía se ven en ella restos de ocre rojo, así que alguna vez estuvo pintada. Su cabeza no tiene cara; tiene filas de círculos tallados, quizá trenzas, quizá un gorro. No sabemos quién la hizo, ni por qué. Sabemos que alguien, hace trescientos siglos, se sentó con un trozo de piedra y trabajó hasta que salió esto.",
+            "question": {
+              "q": "¿Cómo de grande es la Venus de Willendorf?",
+              "answers": [
+                "Once centímetros",
+                "Como un metro",
+                "Tres metros",
+                "Medio metro"
+              ],
+              "explanation": "Cabe en una palma. Por eso podía viajar con la gente que la hizo."
+            }
+          },
+          "vienna-naturhistorisches-venus-galgenberg": {
+            "name": "La Fanny del Galgenberg",
+            "blurb": "En la misma vitrina hay una segunda figura, mucho más pequeña: 7,2 centímetros de serpentina, una piedra verde. La encontraron en 1988 cerca de Stratzing, a pocos kilómetros de Willendorf, y es mucho más antigua que su vecina: unos 36.000 años. La apodaron Fanny por una bailarina austriaca, porque su cuerpo parece que se mueve, con un brazo levantado. Las dos figuras se enseñan juntas a propósito, para que veas de qué formas tan distintas puede salir la misma idea.",
+            "question": {
+              "q": "¿Cuál de las dos figuras es la más antigua?",
+              "answers": [
+                "Fanny, con unos 36.000 años",
+                "La Venus, con unos 29.500 años",
+                "Tienen exactamente la misma edad",
+                "Su edad no se puede medir"
+              ],
+              "explanation": "La más pequeña de las dos es la más antigua, por unos seis mil años."
+            }
+          },
+          "vienna-naturhistorisches-hallstatt": {
+            "name": "Los hallazgos de Hallstatt",
+            "blurb": "Arriba en los Alpes, en un pueblo que se llama Hallstatt, hay una mina de sal que se trabaja desde hace tres mil años. La sal hace algo mágico: no deja que nada se pudra. Por eso dentro de las galerías se salvaron madera, cuero, cuerdas y telas de la Edad del Bronce, o sea, justo las cosas que normalmente desaparecen. El museo enseña picos de bronce, un saco de cuero para llevar la sal a la espalda y trozos de ropa de lana con rayas y colores. Allí arriba se excava desde el siglo XIX.",
+            "question": {
+              "q": "¿Por qué se salvaron en la mina telas y cuerdas de hace tres mil años?",
+              "answers": [
+                "La sal no los dejó pudrirse",
+                "Los mineros los envolvieron en barro",
+                "El hielo de la montaña los guardó",
+                "Eran de materiales que no se estropean"
+              ],
+              "explanation": "La sal chupa la humedad. Sin agua, los bichitos que pudren las cosas no pueden vivir."
+            }
+          }
+        },
+        "riddles": {
+          "vienna-naturhistorisches-riddle-1": {
+            "prompt": "Quepo en la palma de tu mano, pero tengo casi treinta mil años. No tengo cara, solo filas de círculos en la cabeza. Alguna vez estuve pintada de rojo, y me encontraron junto a un río.",
+            "hint": "No soy la más antigua de la vitrina, pero sí la más famosa."
+          },
+          "vienna-naturhistorisches-riddle-2": {
+            "prompt": "No tengo huesos, tengo piel y ojos. Estoy en la misma plataforma que los esqueletos, pero yo soy el que agita la cola y gira la cabeza hacia ti.",
+            "hint": "A mi lado está el esqueleto de uno de los míos."
+          },
+          "vienna-naturhistorisches-riddle-3": {
+            "prompt": "Soy flores que no se marchitaron nunca, porque ninguno de mis pétalos es una planta. Una emperatriz me escondió entre los minerales de su marido, como sorpresa para su santo.",
+            "hint": "Doce insectos están posados encima de mí y no vuelan nunca."
+          },
+          "vienna-naturhistorisches-riddle-4": {
+            "prompt": "Viajé millones de años por el frío y terminé mi viaje dentro de un campo, un día de junio de 1866. Peso casi trescientos kilos y estoy en el medio de la vitrina.",
+            "hint": "A mi alrededor hay otros mil, pero ninguno pesa tanto como yo."
+          }
+        }
+      }
+    },
+    "vienna-stephansdom": {
+      "name": "La Catedral de San Esteban",
+      "tagline": "Una torre se terminó; la otra se quedó a medias para siempre",
+      "story": "San Esteban lleva ochocientos años en el centro de Viena, y tiene dos torres que no se parecen en nada. La sur, a la que los vieneses llaman Steffl, llega a los 136,4 metros y tardó sesenta y cinco años en construirse, de 1368 a 1433. La norte se paró a los 68 metros. Se acabó el dinero, los canteros se fueron a otra parte y al final alguien le puso encima una tapa, como un gorro, y la dejó así. El tejado es la otra maravilla: unas 230.000 tejas vidriadas dibujan sobre él un águila de dos cabezas, y es tan empinado que se limpia solo con la lluvia. En 1945 la catedral se incendió. El tejado se vino abajo y se llevó con él la Pummerin, la campana enorme. Toda Austria mandó dinero para reconstruirla. La nueva Pummerin se fundió en 1951 con el metal de la vieja, pesa más de veintiuna toneladas y subió a la torre norte sin terminar en 1957.",
+      "facts": [
+        "La torre sur mide 136,4 metros y se construyó entre 1368 y 1433.",
+        "Su tejado está cubierto con unas 230.000 tejas vidriadas.",
+        "La campana Pummerin pesa más de 21 toneladas y suena cada Año Nuevo."
+      ],
+      "question": {
+        "q": "¿Por qué una de las torres de la catedral es mucho más baja que la otra?",
+        "answers": [
+          "Nunca llegaron a terminarla",
+          "La acortaron para dar sombra",
+          "La derribó un terremoto",
+          "La hicieron baja a propósito"
+        ],
+        "explanation": "Se acabó el dinero y los canteros se fueron. La torre norte se quedó en 68 metros y en vez de aguja le pusieron una tapa."
+      },
+      "findIt": "La puerta principal mira al oeste, a Stephansplatz."
+    },
+    "vienna-anker-clock": {
+      "name": "El Reloj Anker",
+      "tagline": "Doce figuras cruzan el puente, una cada hora",
+      "story": "En la plaza Hoher Markt, dos edificios de una compañía de seguros están unidos por un puente, y dentro de ese puente vive un reloj. Lo diseñó el pintor Franz von Matsch y se construyó entre 1911 y 1914. No tiene agujas. En su lugar tiene doce figuras de cobre, de casi tres metros de alto, que se mueven despacio de un lado al otro. Cada figura tarda una hora entera en cruzar el puente, y para saber la hora miras hasta dónde ha llegado. Las figuras no son inventadas. Son personas de verdad de la historia de Viena, una detrás de otra a lo largo de dieciocho siglos: un emperador romano, un poeta, una emperatriz, un compositor. A las doce del mediodía el reloj hace su truco: salen las doce, una detrás de otra, con música. Debajo de la plaza siguen estando las ruinas de Vindobona, el asentamiento romano.",
+      "facts": [
+        "Se construyó entre 1911 y 1914, obra del pintor Franz von Matsch.",
+        "Las doce figuras de cobre miden casi tres metros cada una.",
+        "A las doce del mediodía desfilan las doce juntas, con música."
+      ],
+      "question": {
+        "q": "¿Cómo da la hora el reloj Anker, si no tiene agujas?",
+        "answers": [
+          "Una figura cruza el puente en una hora",
+          "Una campana suena tantas veces como la hora",
+          "Cambia de color cada sesenta minutos",
+          "Se abre una ventanita con números"
+        ],
+        "explanation": "La figura es la aguja. Cuando llega a la marca, la hora ha cambiado."
+      },
+      "findIt": "Mira hacia arriba, al puente que une dos edificios por encima de una calleja."
+    },
+    "vienna-hofburg": {
+      "name": "El Hofburg",
+      "tagline": "Un palacio que estuvo creciendo seiscientos años",
+      "story": "El Hofburg no es un edificio. Son muchos edificios que crecieron unos dentro de otros a lo largo de seiscientos años. El castillo ya estaba aquí en el siglo XIII, construido antes de que llegaran los Habsburgo: Rodolfo I se mudó, sin más, a la fortaleza de otro. La parte más antigua que se conserva, el Ala Suiza, sigue en pie. A partir de entonces, cada gobernante que llegaba no derribaba nada: añadía. Un ala aquí, un patio allá, una cúpula más allá. Por eso recorrerlo entero es como cambiar de ciudad cuatro veces. Los Habsburgo se fueron en 1918, pero el palacio no se quedó vacío. Hoy trabaja aquí el Presidente de Austria. Dentro está también la Escuela Española de Equitación, donde los caballos blancos lipizanos entrenan desde el siglo XVI, y el tesoro imperial. Allí se guarda una corona de más de mil años y, a su lado, un cuerno largo y retorcido que los emperadores creían de unicornio. Es el diente de un narval, una ballena del norte lejano.",
+      "facts": [
+        "Su parte más antigua, el Ala Suiza, es de los siglos XIII y XIV.",
+        "Fue la casa de los Habsburgo hasta 1918. Hoy trabaja allí el Presidente de Austria.",
+        "Los caballos blancos lipizanos entrenan dentro del palacio desde el siglo XVI."
+      ],
+      "question": {
+        "q": "¿Por qué el Hofburg parece varios edificios distintos pegados?",
+        "answers": [
+          "Cada gobernante añadió un ala",
+          "Lo fueron comprando trozo a trozo",
+          "Lo trajeron aquí piedra a piedra",
+          "Lo levantaron de una vez, entre muchas cuadrillas"
+        ],
+        "explanation": "Nadie derribó lo que había hecho el anterior. Así el palacio guarda seis siglos de moda, uno al lado del otro."
+      },
+      "findIt": "La entrada más fácil es la puerta con cúpula de Michaelerplatz."
+    },
+    "vienna-staatsoper": {
+      "name": "La Ópera Estatal",
+      "tagline": "Casi todas las noches se representa algo distinto",
+      "story": "La Ópera abrió el 25 de mayo de 1869 con Don Giovanni de Mozart. Pero los vieneses no la quisieron enseguida. Decían que parecía una estación de tren y que estaba en medio de la calle como una caja hundida. Las burlas fueron crueles, y ninguno de los dos arquitectos llegó a ver el estreno. En marzo de 1945 unas bombas destruyeron la sala y ciento cincuenta mil trajes. Solo quedaron en pie la fachada, la gran escalera y un foyer. La ciudad la reconstruyó y la abrió de nuevo el 5 de noviembre de 1955 con Fidelio de Beethoven. Hoy la Ópera da más de doscientas funciones al año, y casi todas las noches toca algo distinto. Eso quiere decir que, en cuanto cae el telón, hay equipos trabajando toda la noche: se desmonta un decorado entero y se monta otro, listo para por la mañana. Una vez al año el suelo del patio de butacas sube hasta la altura del escenario, y la Ópera se convierte en salón de baile.",
+      "facts": [
+        "Abrió el 25 de mayo de 1869 con Don Giovanni de Mozart.",
+        "Unas bombas la destruyeron en 1945; volvió a abrir en 1955 con Fidelio de Beethoven.",
+        "Da más de doscientas funciones al año, con un programa que cambia casi a diario."
+      ],
+      "question": {
+        "q": "¿Por qué hay equipos trabajando dentro de la Ópera toda la noche?",
+        "answers": [
+          "Porque la noche siguiente toca otra obra",
+          "Porque los cantantes prefieren ensayar a oscuras",
+          "Porque las luces se encienden tras la medianoche",
+          "Porque los asientos se limpian a mano"
+        ],
+        "explanation": "Un decorado sale y entra el siguiente en unas pocas horas. Sin ese turno de noche el programa no podría cambiar cada día."
+      }
+    },
+    "vienna-karlskirche": {
+      "name": "La Karlskirche",
+      "tagline": "Una iglesia con dos columnas romanas delante",
+      "story": "En 1713 una enfermedad arrasó Viena. El emperador Carlos VI prometió en público que, si paraba, construiría una iglesia. Paró, y la primera piedra se puso en 1716. El concurso lo ganó Johann Bernhard Fischer von Erlach, que murió antes de terminar la obra; la acabó su hijo en 1737. La fachada es lo más raro. En el medio hay un pórtico griego con columnas y un triángulo encima. Detrás se levanta una cúpula enorme, de unos setenta metros de alto, que es una idea romana. Y a izquierda y derecha están dos columnas gigantescas, de más de treinta y tres metros cada una, envueltas en una franja de dibujos tallados que sube dando vueltas. Esas dos copian una idea de Roma, la columna de Trajano. El arquitecto cogió tres edificios distintos de tres épocas distintas y los unió en uno. Delante hay un estanque poco hondo, y dentro del agua la iglesia se ve del revés.",
+      "facts": [
+        "Se prometió en 1713 después de una epidemia y se terminó en 1737.",
+        "Su cúpula llega a unos 70 metros.",
+        "Sus dos columnas copian la columna de Trajano de Roma."
+      ],
+      "question": {
+        "q": "¿De dónde sacó el arquitecto la idea de las dos columnas en espiral?",
+        "answers": [
+          "De la columna de Trajano en Roma",
+          "De unos minaretes que vio en Oriente",
+          "De los mástiles de los barcos de Venecia",
+          "De los árboles retorcidos del jardín"
+        ],
+        "explanation": "La columna de Trajano cuenta una historia en una franja que sube dando vueltas. Aquí la franja cuenta la vida del santo."
+      },
+      "findIt": "Ponte en el borde del estanque poco hondo: la puerta está justo enfrente."
+    },
+    "vienna-rathaus": {
+      "name": "El Ayuntamiento",
+      "tagline": "La torre se quedó en 98 metros, y luego se subió un caballero",
+      "story": "El ayuntamiento de Viena se construyó entre 1872 y 1883, con planos de Friedrich von Schmidt. Lo raro es el estilo: es gótico, con arcos apuntados y agujas, cuatrocientos años después de que se acabara la época gótica. Al siglo XIX le encantaba vestir los edificios nuevos con ropa vieja. Pero había una regla: la torre no podía pasar de la torre de la Votivkirche, que tiene noventa y nueve metros. Schmidt la paró en noventa y ocho, exactamente como le habían pedido. Y después puso en la punta a un caballero de hierro con un estandarte, que subió allí arriba con cabrestantes el 21 de octubre de 1882. Con el caballero, el edificio llega a los 103,3 metros. Los vieneses lo llaman Rathausmann, el hombre del ayuntamiento. La plaza de delante cambia de oficio con las estaciones: en invierno se convierte en una pista de hielo enorme y en verano en un cine al aire libre.",
+      "facts": [
+        "Se construyó de 1872 a 1883 en estilo gótico, mucho después de la época gótica.",
+        "La torre tiene 98 metros; con el caballero de hierro encima llega a 103,3.",
+        "El caballero subió a la punta el 21 de octubre de 1882."
+      ],
+      "question": {
+        "q": "¿Cómo se saltó el arquitecto el límite de altura?",
+        "answers": [
+          "Puso un caballero de hierro sobre la torre",
+          "Excavó la base dos metros más hondo",
+          "Levantó la torre sobre una loma",
+          "Pidió al emperador y obtuvo permiso por escrito"
+        ],
+        "explanation": "El límite era para la torre, no para la estatua. La torre se quedó en 98 metros y el caballero puso el resto."
+      }
+    },
+    "vienna-parliament": {
+      "name": "El Parlamento",
+      "tagline": "Un parlamento austriaco vestido de templo griego",
+      "story": "El parlamento de Austria se construyó entre 1874 y 1883 y parece un templo griego. No es casualidad. Su arquitecto, Theophil Hansen, era danés y había vivido años en Atenas, y quería que el edificio recordara a todo el mundo dónde empezó la idea de que los ciudadanos decidan juntos. Así que le puso columnas, frontones y estatuas de mármol, y dos rampas anchas junto a la entrada, porque entonces los diputados llegaban en carruaje. Delante está Palas Atenea, de cinco metros y medio de alto, con casco y con una pequeña Niké alada en la mano. La estatua la esculpió Carl Kundmann y se descubrió en 1902. De 2018 a 2022 el edificio se reformó entero por dentro, y mientras tanto los diputados trabajaron en el Hofburg. Volvió a abrir en 2023, con un techo de cristal sobre la sala principal para que entre luz del día donde se discute.",
+      "facts": [
+        "Lo diseñó el danés Theophil Hansen, que había vivido años en Atenas.",
+        "La Atenea de delante mide 5,5 metros y se descubrió en 1902.",
+        "Se reformó de 2018 a 2022 y volvió a abrir en 2023."
+      ],
+      "question": {
+        "q": "¿Por qué el parlamento de Austria parece un templo griego?",
+        "answers": [
+          "Porque la democracia nació en Grecia",
+          "Porque su mármol lo trajeron de Grecia",
+          "Porque hace juego con el palacio del emperador",
+          "Porque era el diseño más barato"
+        ],
+        "explanation": "Hansen había vivido en Atenas y quería que el edificio lo dijera solo: aquí deciden los ciudadanos."
+      },
+      "findIt": "La Atenea con casco está justo delante de la escalinata de entrada."
+    },
+    "vienna-riesenrad": {
+      "name": "La Noria Gigante del Prater",
+      "tagline": "Una máquina de 1897 que sigue girando",
+      "story": "La gran noria del Prater se levantó en 1897, un año antes de que el emperador cumpliera cincuenta años en el trono, y se construyó justo para esa fiesta. La hizo un ingeniero inglés, Walter Bassett, y mide 64,75 metros de alto. De lejos parece una rueda de bicicleta, y no es casualidad: sus ciento veinte radios no empujan, tiran. Son cables de acero que mantienen tenso el aro, igual que los radios finos de una bicicleta. Las cabinas no van atornilladas a la noria. Cuelgan de un pasador y giran libres, así que su suelo se queda plano por mucho que suba el aro. No lo hace ningún motor; lo hace la gravedad. La noria se mueve a setenta y cinco centímetros por segundo, más despacio de lo que andas tú. En 1945 se quemó, y cuando la arreglaron le pusieron quince cabinas en vez de treinta. Por eso hoy los huecos entre ellas son tan grandes.",
+      "facts": [
+        "Se levantó en 1897 y mide 64,75 metros de alto.",
+        "Gira a 0,75 metros por segundo, o sea, 2,7 kilómetros por hora.",
+        "Tenía treinta cabinas; después del incendio de 1945 volvió a abrir con quince."
+      ],
+      "question": {
+        "q": "¿Por qué el suelo de la cabina se queda plano mientras la noria gira?",
+        "answers": [
+          "Cuelga libremente de un pasador",
+          "Un motorcito lo mantiene recto",
+          "Está lleno de agua, que busca su nivel",
+          "Los pasajeros lo equilibran solos"
+        ],
+        "explanation": "Todo lo que cuelga libre lo tira la gravedad hacia abajo. La cabina gira alrededor de su pasador y se queda plana todo el camino."
+      }
+    },
+    "vienna-schonbrunn": {
+      "name": "El Palacio de Schönbrunn",
+      "tagline": "Mil cuatrocientas cuarenta y una habitaciones, y un laberinto en el jardín",
+      "story": "Schönbrunn era la casa de campo de los Habsburgo, el sitio al que iban en verano para salir de la ciudad. Tiene 1.441 habitaciones, de las que se pueden visitar unas cuarenta; las demás son oficinas, almacenes y viviendas. Aquí crió María Teresa a sus dieciséis hijos. El 13 de octubre de 1762 un niño de seis años se sentó a tocar delante de ella en la Sala de los Espejos, junto con su hermana mayor. El niño se llamaba Wolfgang Amadeus Mozart. El jardín importa casi más que el palacio. En lo alto de la colina está la Gloriette, construida en 1775, que no es una casa: es un edificio hecho para mirarlo desde abajo y para mirar Viena desde arriba. Más abajo hay un laberinto de setos, y el Gran Invernadero de las Palmeras, de hierro y cristal, que abrió el 19 de junio de 1882 y esconde tres climas distintos bajo un mismo techo.",
+      "facts": [
+        "Tiene 1.441 habitaciones. Unas cuarenta están abiertas a los visitantes.",
+        "El 13 de octubre de 1762 Mozart, con seis años, tocó aquí para María Teresa.",
+        "La Gloriette de la colina se construyó en 1775 y el Invernadero de las Palmeras abrió en 1882."
+      ],
+      "question": {
+        "q": "¿Quién tocó música aquí con seis años?",
+        "answers": [
+          "Mozart",
+          "Beethoven",
+          "Strauss",
+          "Haydn"
+        ],
+        "explanation": "Fue el 13 de octubre de 1762, en la Sala de los Espejos, junto con su hermana Nannerl."
+      }
+    },
+    "vienna-naschmarkt": {
+      "name": "El Naschmarkt",
+      "tagline": "Kilómetro y medio de puestos encima de un río enterrado",
+      "story": "Viena tiene este mercado desde hace unos doscientos cincuenta años, aunque no siempre en este sitio. Hoy el Naschmarkt se extiende kilómetro y medio, con más de ciento veinte puestos: montañitas de especias, aceitunas, quesos, pescado, frutas que no has visto nunca. Pero lo más raro no se ve. Debajo de tus pies corre un río. Es el Wien, el río que le dio su nombre a la ciudad y que cada pocos años se desbordaba y anegaba los barrios. Hacia 1900 unos ingenieros lo taparon con un techo, y el mercado se mudó encima de la tapa, a unas pocas calles de donde estaba antes. Todos los sábados se abre en un extremo del Naschmarkt un mercadillo enorme de cosas viejas: discos, libros, llaves, sombreros. Y justo enfrente hay una casa con toda la fachada cubierta de azulejos pintados llenos de rosas. La diseñó Otto Wagner en 1898, y se limpia con una manguera.",
+      "facts": [
+        "Se extiende unos 1,5 kilómetros, con más de 120 puestos.",
+        "El río Wien pasa tapado justo por debajo.",
+        "Todos los sábados se abre en un extremo un gran mercadillo de cosas viejas."
+      ],
+      "question": {
+        "q": "¿Qué se esconde debajo de los puestos del Naschmarkt?",
+        "answers": [
+          "Un río tapado, el Wien",
+          "Las viejas bodegas imperiales",
+          "Un teatro romano, aún sin excavar",
+          "El aparcamiento más grande de la ciudad"
+        ],
+        "explanation": "El Wien se desbordaba sin parar. Lo taparon hacia 1900 y encima de la tapa se puso el mercado."
+      }
+    }
+  },
+  "trails": {
+    "vienna-old-town-hour": {
+      "name": "Una hora en el casco antiguo",
+      "promise": "Una catedral, un reloj que desfila y la puerta de un palacio."
+    },
+    "vienna-great-circle": {
+      "name": "El gran círculo de Viena",
+      "promise": "Seis edificios en círculo alrededor del casco antiguo, del gótico al barroco, y dos de ellos idénticos."
+    },
+    "vienna-imperial-day": {
+      "name": "Un día con emperadores",
+      "promise": "Habrás visto dónde vivían, dónde escuchaban música y qué coleccionaban."
+    },
+    "vienna-day-for-playing": {
+      "name": "Un día para jugar",
+      "promise": "Una noria, un panda, ciento veinte puestos y un dinosaurio."
+    }
+  }
+}
