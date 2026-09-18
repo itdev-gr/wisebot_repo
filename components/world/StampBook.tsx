@@ -37,12 +37,17 @@
  * pronounce the page in the language it is actually written in.
  */
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowLeft, Award, Building2, Globe, MapPin } from 'lucide-react';
+import { ArrowLeft, Award, Building2, Globe, Loader2, MapPin, Share2 } from 'lucide-react';
 import { PassportStamp } from './PassportStamp';
 import { WORLD_STYLE, say, ui } from './worldUi';
 import type { City, CityId, Country, CountryId, WorldLang } from '../../data/world/types';
+import { useAuth } from '../../context/AuthContext';
+import { backendReferral } from '../../services/backendApi';
+import { passportCardModel, sharePassportCard } from '../../utils/worldShareCard';
+import type { GameShareResult } from '../../utils/gameShareCard';
+import { trackSharePassport } from '../../utils/analytics';
 
 export interface StampBookProps {
   lang: WorldLang;
@@ -104,10 +109,61 @@ const T = {
     es: 'SELLADO',
     it: 'TIMBRATO',
   },
+  // The distribution button: the card a parent forwards to other parents.
+  share: {
+    el: 'ΜΟΙΡΑΣΟΥ ΤΟ ΔΙΑΒΑΤΗΡΙΟ',
+    en: 'SHARE MY PASSPORT',
+    de: 'REISEPASS TEILEN',
+    fr: 'PARTAGER MON PASSEPORT',
+    es: 'COMPARTIR MI PASAPORTE',
+    it: 'CONDIVIDI IL PASSAPORTO',
+  },
+  sharing: {
+    el: 'ΦΤΙΑΧΝΩ ΤΗΝ ΚΑΡΤΑ…',
+    en: 'MAKING THE CARD…',
+    de: 'KARTE WIRD ERSTELLT…',
+    fr: 'JE PRÉPARE LA CARTE…',
+    es: 'PREPARANDO LA TARJETA…',
+    it: 'PREPARO LA CARTA…',
+  },
 };
 
 /** Whole sentences and titles. Written twice, never concatenated from pieces. */
 const S = {
+  // After the share button: which of the three paths actually ran, so the child is told
+  // «it went» when a sheet appeared, and «I copied it» when none ever could.
+  shared: {
+    el: 'Έφυγε! Η κάρτα είναι στο μενού κοινοποίησης.',
+    en: 'Off it goes! The card is in the share sheet.',
+    de: 'Los geht’s! Die Karte ist im Teilen-Menü.',
+    fr: 'C’est parti ! La carte est dans le menu de partage.',
+    es: '¡Ya está! La tarjeta está en el menú de compartir.',
+    it: 'Fatto! La carta è nel menu di condivisione.',
+  },
+  copied: {
+    el: 'Την αντέγραψα! Κάνε επικόλληση σε ένα μήνυμα.',
+    en: 'Copied! Paste it into a message.',
+    de: 'Kopiert! Füge sie in eine Nachricht ein.',
+    fr: 'Copiée ! Colle-la dans un message.',
+    es: '¡Copiada! Pégala en un mensaje.',
+    it: 'Copiata! Incollala in un messaggio.',
+  },
+  downloaded: {
+    el: 'Την κατέβασα! Είναι στις λήψεις σου.',
+    en: 'Downloaded! It is in your downloads.',
+    de: 'Heruntergeladen! Sie ist in deinen Downloads.',
+    fr: 'Téléchargée ! Elle est dans tes téléchargements.',
+    es: '¡Descargada! Está en tus descargas.',
+    it: 'Scaricata! È nei tuoi download.',
+  },
+  failed: {
+    el: 'Δεν βγήκε η κάρτα αυτή τη φορά. Δοκίμασε ξανά.',
+    en: 'The card did not come out this time. Try again.',
+    de: 'Die Karte hat diesmal nicht geklappt. Versuch es noch einmal.',
+    fr: 'La carte n’est pas sortie cette fois. Réessaie.',
+    es: 'La tarjeta no salió esta vez. Inténtalo otra vez.',
+    it: 'La carta non è uscita stavolta. Riprova.',
+  },
   title: {
     el: 'Το βιβλίο των σφραγίδων',
     en: 'The stamp book',
@@ -434,6 +490,43 @@ const StampBook: React.FC<StampBookProps> = ({
   const placesCount = Number.isFinite(placesStamped) ? placesStamped : 0;
   const sealedCountryCount = stamped.filter((entry) => entry.sealed).length;
 
+  /**
+   * The distribution moment. A tap renders the card on the device and hands it to the OS
+   * share sheet. The parent's invite code is fetched only now, only when signed in, and
+   * only to print the same `?ref=` link the Account screen already gives out. Decision 2
+   * at the top of this file still holds: nothing here awards or stores anything — one
+   * PNG, one analytics event carrying three totals and nothing else.
+   */
+  const { user } = useAuth();
+  const [share, setShare] = useState<'idle' | 'busy' | GameShareResult | 'failed'>('idle');
+  const onShare = async () => {
+    if (share === 'busy') return;
+    setShare('busy');
+    try {
+      let referralCode: string | null = null;
+      if (user) {
+        try {
+          referralCode = (await backendReferral.get()).code;
+        } catch {
+          referralCode = null; // the card still ships, just without the invite link
+        }
+      }
+      const model = passportCardModel({
+        lang,
+        flags: stamped.map((entry) => entry.country.flag),
+        countries: stamped.length,
+        cities: sealedCityIds.size,
+        places: placesCount,
+        referralCode,
+      });
+      const how = await sharePassportCard(model);
+      trackSharePassport(how, stamped.length, placesCount);
+      setShare(how);
+    } catch {
+      setShare('failed');
+    }
+  };
+
   return (
     // `lang` is not decoration: World's language is chosen independently of the app's,
     // so without it Greek text can sit under `<html lang="en">` and CSS uppercasing
@@ -501,6 +594,28 @@ const StampBook: React.FC<StampBookProps> = ({
             {ui(S.countriesSealed, lang)(sealedCountryCount)}
           </p>
         )}
+
+        {/* ── SHARE ── the card that travels to the parents' group chat. */}
+        <div className="mt-6">
+          <button
+            type="button"
+            onClick={onShare}
+            disabled={share === 'busy'}
+            className={`${WORLD_STYLE.cta} inline-flex min-h-[48px] items-center justify-center gap-2 px-6 text-sm disabled:opacity-70`}
+          >
+            {share === 'busy' ? (
+              <Loader2 size={16} className="animate-spin" aria-hidden />
+            ) : (
+              <Share2 size={16} aria-hidden />
+            )}
+            {ui(share === 'busy' ? T.sharing : T.share, lang)}
+          </button>
+          {share !== 'idle' && share !== 'busy' && (
+            <p className="mt-2 text-[12px] font-bold leading-relaxed text-white/60" aria-live="polite">
+              {ui(S[share], lang)}
+            </p>
+          )}
+        </div>
       </motion.section>
 
       {/* ── THE PAGES ── */}

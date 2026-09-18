@@ -35,3 +35,11 @@ export const trackGateBlock = (gate: 'unlock' | 'login' | 'credits' | 'verify', 
   track('wb_gate_block', { gate, feature });
 export const trackViewStore = () => track('wb_view_store');
 export const trackPortalEnter = () => track('wb_portal_enter');
+
+/**
+ * WiseBot World's distribution moment: the passport card handed to the share sheet.
+ * `how` is which path ran (sheet, clipboard, download); the counts are coarse totals,
+ * never a country, a city or a position — see BUSINESS-PLAN.md §28.
+ */
+export const trackSharePassport = (how: 'shared' | 'copied' | 'downloaded', countries: number, places: number) =>
+  track('share_passport', { how, countries, places });
