@@ -282,6 +282,8 @@ export interface WhoAmICopy {
   yes: string;
   no: string;
   dontKnow: string;
+  /** Shown above a question WiseBot asks a second time. */
+  recheck: string;
   thinking: string;
   guessIntro: string;
   guessAsk: string;
@@ -356,6 +358,7 @@ export const WHOAMI_COPY: Record<'el' | 'en', WhoAmICopy> = {
     yes: 'ΝΑΙ',
     no: 'ΟΧΙ',
     dontKnow: 'ΔΕΝ ΞΕΡΩ',
+    recheck: 'Για να σιγουρευτώ…',
     thinking: 'Χμμ… σκέφτομαι…',
     guessIntro: 'Μήπως σκέφτεσαι…',
     guessAsk: 'Το βρήκα;',
@@ -428,6 +431,7 @@ export const WHOAMI_COPY: Record<'el' | 'en', WhoAmICopy> = {
     yes: 'YES',
     no: 'NO',
     dontKnow: 'DON’T KNOW',
+    recheck: 'Just to be sure…',
     thinking: 'Hmm… let me think…',
     guessIntro: 'Are you thinking of…',
     guessAsk: 'Did I get it?',
