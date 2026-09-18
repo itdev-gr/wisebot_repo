@@ -1,0 +1,710 @@
+{
+  "lang": "es",
+  "cityId": "lisbon",
+  "places": {
+    "lisbon-museu-de-marinha": {
+      "name": "El Museo de Marina",
+      "tagline": "En el ala oeste del monasterio, y lleno de barcos",
+      "story": "El monasterio es tan grande que en su ala oeste cabe un museo entero. Es el Museo de Marina, y reúne las herramientas con las que los portugueses aprendieron a encontrar el camino en medio del agua, donde no hay ninguna señal. Verás astrolabios de latón que medían la altura del sol, mapas que dejaban en blanco las costas adonde todavía no había llegado nadie y decenas de maquetas de barcos, desde la pequeña carabela hasta los enormes cascos que transportaban especias. En un cobertizo al lado duermen las barcas reales, pintadas de oro, con bancos para decenas de remeros. Y en ese mismo cobertizo, donde menos te lo esperas, hay un avión. El museo no trata solo de cómo eran los barcos. Trata de cómo la gente averiguaba dónde estaba cuando a su alrededor no había nada más que mar y cielo.",
+      "facts": [
+        "Ocupa el ala oeste del Monasterio de los Jerónimos.",
+        "Su colección guarda copias de los padrões, los pilares que los portugueses levantaban en cada costa nueva.",
+        "Guarda el hidroavión Santa Cruz, que en 1922 completó la primera travesía aérea del Atlántico Sur."
+      ],
+      "question": {
+        "q": "¿Qué hacía un astrolabio náutico?",
+        "answers": [
+          "Medía la altura del sol",
+          "Señalaba siempre el norte",
+          "Medía la profundidad bajo el barco",
+          "Calculaba a qué velocidad iba el barco"
+        ],
+        "explanation": "Midiendo lo alto que estaba el sol a mediodía, un marinero podía calcular cuánto al norte o al sur se encontraba. La brújula daba la dirección; el astrolabio, la posición."
+      },
+      "findIt": "No se entra por la iglesia. Sigue caminando hacia el oeste hasta el final de la fachada, donde el edificio tiene arcos y una plaza delante.",
+      "museum": {
+        "rooms": {
+          "lisbon-museu-de-marinha-charts": {
+            "name": "Mapas y estrellas",
+            "intro": "Antes de los satélites, lo único que siempre sabía dónde estaba era el cielo. Esta sala reúne los instrumentos con los que los marineros preguntaban al sol y a las estrellas dónde estaban, y los barquitos que construían ellos mismos para entender cómo funciona uno grande."
+          },
+          "lisbon-museu-de-marinha-figureheads": {
+            "name": "Mascarones y camarotes",
+            "intro": "Cuando se desguaza un barco, algunas piezas se salvan porque nadie fue capaz de tirarlas. En esta sala están las caras que un día cortaban las olas en la proa, y una habitación entera sacada de un barco de la familia real y montada otra vez aquí dentro, con sus muebles en su sitio."
+          },
+          "lisbon-museu-de-marinha-shed": {
+            "name": "El cobertizo de las barcas",
+            "intro": "Sal del edificio principal y entra en un cobertizo enorme de techo alto. Aquí no hay vitrinas, porque nada de lo que hay dentro cabría en una: barcas reales doradas, puestas en fila, y un avión que cruzó el Atlántico volando sobre mar abierto."
+          }
+        },
+        "exhibits": {
+          "lisbon-museu-de-marinha-astrolabio": {
+            "name": "El astrolabio náutico",
+            "blurb": "Un disco pesado de latón con una aguja móvil en el centro. El marinero lo colgaba de un dedo para que quedara bien recto, giraba la aguja hasta que un rayo de sol pasaba a través de ella y leía el ángulo en el círculo. Es grueso y está lleno de agujeros a propósito: el viento pasa por los agujeros en lugar de empujarlo, y el peso lo mantiene firme sobre una cubierta que no para de moverse. Una herramienta pensada para funcionar mientras todo a su alrededor se balancea.",
+            "question": {
+              "q": "¿Por qué está lleno de agujeros el astrolabio?",
+              "answers": [
+                "Para que el viento pase por ellos",
+                "Para gastar menos latón",
+                "Para poder colgarlo de muchos puntos",
+                "Para que entre la luz de las estrellas"
+              ],
+              "explanation": "Un disco macizo haría de vela y se pondría a girar. Los agujeros dejan pasar el viento, y el instrumento se queda quieto."
+            }
+          },
+          "lisbon-museu-de-marinha-esfera-armilar": {
+            "name": "La esfera armilar",
+            "blurb": "Una bola hecha solo de anillos, con una pequeña Tierra en el centro. Cada anillo es un círculo del cielo: el ecuador, los trópicos, el camino que el sol parece recorrer a lo largo del año. No es un adorno. Es un modelo, que se giraba con la mano para ver dónde estaría el sol un día concreto. El rey Manuel I la convirtió en su emblema personal, y todavía hoy hay una esfera armilar en el centro de la bandera portuguesa.",
+            "question": {
+              "q": "¿Dónde más puedes ver hoy una esfera armilar?",
+              "answers": [
+                "En la bandera de Portugal",
+                "En las monedas de un céntimo",
+                "En los billetes de euro",
+                "En los pasaportes de España"
+              ],
+              "explanation": "La esfera era el emblema de Manuel I y pasó a la bandera. Un país que pone un instrumento científico en su bandera está diciendo algo de sí mismo."
+            }
+          },
+          "lisbon-museu-de-marinha-padrao": {
+            "name": "El padrão de piedra",
+            "blurb": "Un pilar de piedra caliza portuguesa con una cruz en lo alto y letras grabadas en el cuerpo. Los barcos llevaban uno en la bodega como lastre y lo plantaban en cada costa que veían por primera vez, escribiendo en él el año y el nombre del rey. Era una firma en piedra, visible desde el mar. Para la gente que ya vivía en esas costas no cambió nada aquel día, pero para Europa su tierra apareció de repente en los mapas. El pilar de esta sala es una copia: los que navegaron de verdad acabaron lejos de Lisboa, en costas lejanas y en otros museos.",
+            "question": {
+              "q": "¿Por qué llevaban los barcos pilares como este?",
+              "answers": [
+                "Para marcar costas recién descubiertas",
+                "Para venderlos en los puertos",
+                "Para sostener el mástil",
+                "Para medir la profundidad del agua"
+              ],
+              "explanation": "Eran una señal que decía «llegamos hasta aquí», con un año y el nombre de un rey. Durante el viaje también servían de lastre, porque pesaban muchísimo."
+            }
+          },
+          "lisbon-museu-de-marinha-caravela": {
+            "name": "La maqueta de la carabela",
+            "blurb": "Pequeña, ligera y con velas triangulares: ese era el secreto de la carabela. Las velas cuadradas empujan bien cuando el viento viene de atrás, pero las triangulares dejan que un barco siga avanzando cuando el viento llega de lado. Eso importaba muchísimo: podías navegar hacia el sur a lo largo de África y aun así volver a casa. Además, la carabela se hundía poco en el agua, así que podía entrar en ríos y bahías donde un casco grande se habría quedado atascado en el fondo.",
+            "question": {
+              "q": "¿Qué permitían las velas triangulares?",
+              "answers": [
+                "Navegar también con viento de lado",
+                "Viajar sin tripulación",
+                "Llevar una carga mucho más pesada",
+                "Quedarse quieto en medio de una tormenta"
+              ],
+              "explanation": "Con una vela cuadrada vas adonde te lleva el viento. Con una triangular puedes avanzar cruzando el viento, y eso significa que puedes volver."
+            }
+          },
+          "lisbon-museu-de-marinha-figuras-de-proa": {
+            "name": "Los mascarones de proa",
+            "blurb": "Figuras de madera, más altas que una persona, que un día estuvieron sujetas a la proa de un barco. Unas son mujeres con el pelo al viento, otras son leones, otras son soldados. No eran solo decoración: muchas tripulaciones no sabían leer, y el mascarón era la manera de reconocer un barco desde lejos y recordar su nombre. Fíjate en sus ojos: están tallados mirando un poco hacia abajo, porque quien los veía estaba de pie en el muelle, más abajo que ellos.",
+            "question": {
+              "q": "¿Por qué los mascarones miran un poco hacia abajo?",
+              "answers": [
+                "La gente los veía desde abajo",
+                "Para proteger sus ojos de la espuma",
+                "Así señalaban hacia las estrellas",
+                "La madera se agrietaba menos así"
+              ],
+              "explanation": "El escultor pensaba en dónde estaría quien los mirara. Desde el muelle miras hacia arriba, así que la mirada se talló para bajar y encontrarse con la tuya."
+            }
+          },
+          "lisbon-museu-de-marinha-camarote": {
+            "name": "El camarote del Amélia",
+            "blurb": "Una habitación entera del yate real Amélia, desmontada y vuelta a montar dentro del museo: paredes de madera, cama, escritorio, espejo. Lo primero que notas es lo pequeña que es, incluso para un rey. Lo segundo es que los muebles no se mueven: en un barco se atornillan al suelo, porque si no, en una tormenta una mesa puede cruzar la habitación. Hasta la cama tiene un borde levantado, para que quien duerme no se caiga de ella.",
+            "question": {
+              "q": "¿Por qué se atornillan al suelo los muebles de un barco?",
+              "answers": [
+                "Para que una tormenta no los arrastre",
+                "Para que nadie los robe en puerto",
+                "Para que el barco pese lo justo",
+                "Para que quepan más pasajeros"
+              ],
+              "explanation": "En el mar el suelo se inclina. Todo lo que no está sujeto viaja solo, y una mesa pesada se vuelve peligrosa."
+            }
+          },
+          "lisbon-museu-de-marinha-modelos": {
+            "name": "Las naos y los galeones",
+            "blurb": "Decenas de maquetas en vitrinas, construidas con el mismo cuidado que los barcos de verdad. Pon una carabela al lado de una nao, el gran barco de carga de la ruta de las especias, y la diferencia salta a la vista: la nao es ancha, alta y lenta, hecha para llevar carga y no para ir deprisa. En el viaje de ida a la India y de vuelta, un barco así pasaba fuera de casa un año entero, y a menudo más.",
+            "question": {
+              "q": "¿Por qué la nao era ancha y lenta?",
+              "answers": [
+                "Estaba hecha para llevar mucha carga",
+                "Su madera era muchísimo más barata",
+                "Tenía que caber en los ríos",
+                "El rey había prohibido a los barcos ir rápido"
+              ],
+              "explanation": "Lo importante era cuánta pimienta cabía, no lo rápido que llegabas. Espacio significa anchura, y anchura significa un barco lento."
+            }
+          },
+          "lisbon-museu-de-marinha-bergantim-real": {
+            "name": "El Bergantín Real",
+            "blurb": "Dorado de proa a popa, con un camarote cubierto en el centro y bancos para decenas de remeros, este barco se construyó en 1780 para una boda real. No es un barco para el mar abierto; es para el río, para desfiles delante de la multitud que mira desde las orillas. Lo asombroso es que todavía funciona: en 1957 volvió al agua y llevó a la reina Isabel II por el Tajo, ciento setenta y siete años después de su primera salida.",
+            "question": {
+              "q": "¿Por dónde navegaba este barco?",
+              "answers": [
+                "Por el río, en desfiles",
+                "Por el Atlántico, hacia Brasil",
+                "Por los canales de Holanda",
+                "Por el Mediterráneo, con carga"
+              ],
+              "explanation": "Es un barco para lucirse en aguas tranquilas. El Tajo en Lisboa es tan ancho que un desfile así se veía desde toda la ciudad."
+            }
+          },
+          "lisbon-museu-de-marinha-galeotas": {
+            "name": "Las galeotas reales",
+            "blurb": "Junto al gran bergantín descansan barcos de remo más pequeños, las galeotas de la corte. Fíjate en lo juntos que están los bancos: los remeros se sentaban apretados en filas y tenían que tirar todos al mismo compás, o los remos chocaban entre sí. Alguien marcaba ese compás en voz alta, como un metrónomo. Un barco así no se mueve por la fuerza, sino por la coordinación: treinta personas haciendo el mismo movimiento en el mismo instante.",
+            "question": {
+              "q": "¿Qué necesita más un barco de treinta remos?",
+              "answers": [
+                "Que todos tiren al mismo tiempo",
+                "Los hombres más fuertes de toda la ciudad",
+                "Un canal hondo y tranquilo",
+                "Remos hechos de tres maderas distintas"
+              ],
+              "explanation": "Si un remero tira antes de tiempo, los remos se enredan. La coordinación cuenta más que la fuerza de cualquiera de ellos."
+            }
+          },
+          "lisbon-museu-de-marinha-santa-cruz": {
+            "name": "El hidroavión Santa Cruz",
+            "blurb": "Un avión con flotadores en vez de ruedas, en un museo de marina, y tiene todos los motivos para estar aquí. En 1922 dos aviadores portugueses, Gago Coutinho y Sacadura Cabral, volaron de Lisboa a Río de Janeiro: era la primera vez que alguien cruzaba el Atlántico Sur por el aire. Destrozaron dos aviones por el camino. El Santa Cruz era el tercero, y el único que llegó. Sobre el océano no hay señales, así que se orientaron con el sol, como habían hecho los marineros trescientos años antes.",
+            "question": {
+              "q": "¿Cómo se orientaban sobre el océano?",
+              "answers": [
+                "Con el sol, como hacían los marineros",
+                "Siguiendo a los barcos que iban debajo",
+                "Con señales de radio enviadas desde tierra",
+                "Volando cerca de la costa"
+              ],
+              "explanation": "Gago Coutinho había construido un sextante pensado para un avión. Medía el sol desde el aire y calculaba dónde estaban."
+            }
+          },
+          "lisbon-museu-de-marinha-sextante": {
+            "name": "El sextante de Gago Coutinho",
+            "blurb": "Un sextante normal necesita el horizonte: miras dónde se junta el mar con el cielo y mides desde ahí. En un avión, dentro de una nube o a oscuras, puede que el horizonte no se vea en absoluto. Gago Coutinho añadió a su instrumento una burbuja dentro de un líquido, como la de un nivel de albañil: mientras la burbuja esté en el centro, sabes qué está plano. Un horizonte que llevas contigo. Sin él, la travesía de 1922 no se habría podido hacer.",
+            "question": {
+              "q": "¿Qué añadió Gago Coutinho al sextante?",
+              "answers": [
+                "Una burbuja como la de un nivel",
+                "Su propio motor eléctrico",
+                "Dos espejos más en el lateral",
+                "Un mapa impreso en toda su base"
+              ],
+              "explanation": "La burbuja muestra qué está nivelado cuando no se ve ningún horizonte. Así fue como un instrumento del mar llegó a funcionar en el aire."
+            }
+          }
+        },
+        "riddles": {
+          "lisbon-museu-de-marinha-riddle-1": {
+            "prompt": "Soy una bola hecha solo de anillos, con una pequeña Tierra escondida en mi centro. Un rey me convirtió en su emblema, y hoy me ves todos los días en un trozo de tela que ondea al viento.",
+            "hint": "Ve a mirar una bandera portuguesa."
+          },
+          "lisbon-museu-de-marinha-riddle-2": {
+            "prompt": "Tengo alas, aunque este es un museo de barcos. Salimos tres juntos; dos de mis hermanos se rompieron durante la travesía, y yo fui el único que llegó al otro lado.",
+            "hint": "En lugar de ruedas, tengo flotadores."
+          },
+          "lisbon-museu-de-marinha-riddle-3": {
+            "prompt": "Soy la copia de algo que viajó en una bodega como simple peso muerto y que después pusieron de pie en una playa que ningún barco portugués había visto nunca. En mí están grabados un año y el nombre de un rey.",
+            "hint": "Tengo una cruz en lo alto."
+          }
+        },
+        "doorNote": "El cobertizo de las barcas y el avión está en un edificio aparte. No te vayas sin verlo."
+      }
+    },
+    "lisbon-aqueduto-das-aguas-livres": {
+      "name": "El Acueducto de las Aguas Libres",
+      "tagline": "El terremoto arrasó la ciudad y lo dejó en pie",
+      "story": "Durante siglos Lisboa no tuvo suficiente agua limpia. En el siglo XVIII la ciudad decidió traerla desde unos manantiales lejanos, al noroeste, por un canal con una pendiente tan suave que el agua corre sola, sin ninguna bomba en todo el camino. Lo difícil era el valle de Alcântara. Lo cruzaron con treinta y cinco arcos enormes, y el más alto llega a los sesenta y cinco metros: es el arco de piedra apuntado más alto que se ha construido nunca. El agua llegó a la ciudad en 1748. Siete años después vino el gran terremoto, derribó el centro de Lisboa y dejó el acueducto en pie y sin daños. Una construcción de piedra sencilla, sin cemento y sin acero, resistió porque estaba bien diseñada. Hoy puedes caminar por encima de los arcos, con el valle bajo tus pies.",
+      "facts": [
+        "El agua llegó a Lisboa en 1748, y corre solo por la gravedad, sin bombas.",
+        "Su arco más alto, sobre el valle de Alcântara, llega a los 65 metros.",
+        "Pasó el terremoto de 1755 sin daños, mientras el centro de la ciudad se derrumbaba."
+      ],
+      "question": {
+        "q": "¿Qué le pasó al acueducto en el terremoto de 1755?",
+        "answers": [
+          "Nada, se quedó en pie",
+          "Se cayó la mitad de sus arcos",
+          "Se agrietó y el agua paró",
+          "Se inclinó y lo rehicieron en otro sitio"
+        ],
+        "explanation": "El centro de la ciudad se vino abajo; el acueducto, no. Los arcos reparten su peso hacia el suelo, y esa forma aguanta las sacudidas."
+      },
+      "findIt": "Los arcos se ven desde la carretera de abajo, en Alcântara. La puerta para caminar por arriba está en la Calçada da Quintinha."
+    },
+    "lisbon-padrao-dos-descobrimentos": {
+      "name": "El Monumento a los Descubrimientos",
+      "tagline": "Una proa de piedra llena de gente que se hizo a la mar",
+      "story": "Imagina una época en la que nadie en Europa sabía qué había al otro lado del océano. Un príncipe portugués, Enrique el Navegante, decidió averiguarlo. Reunió a cartógrafos, constructores de barcos y marineros, y envió un barco tras otro a lo largo de la costa de África, y cada uno volvía con conocimientos nuevos. Este monumento tiene forma de proa de carabela. Enrique va delante con un barco pequeño en las manos, y detrás de él vienen Vasco da Gama, que llegó a la India, Magallanes, cuya expedición dio la vuelta al mundo, y Pedro Álvares Cabral, que desembarcó en Brasil. Pero esos mismos viajes hicieron también otra cosa: se apoderaron de las tierras de otros pueblos y llevaron a personas esclavizadas a través del mar. Las dos cosas son ciertas de los mismos barcos, y Portugal todavía discute cómo debería recordarlas.",
+      "facts": [
+        "Se construyó en 1960, quinientos años después de la muerte de Enrique el Navegante.",
+        "Se levantó por primera vez en 1940 como una construcción provisional para una exposición y se reconstruyó veinte años después.",
+        "La enorme rosa de los vientos con el mapa del mundo que hay en el suelo fue un regalo de Sudáfrica en 1960."
+      ],
+      "question": {
+        "q": "¿Qué forma tiene el monumento?",
+        "answers": [
+          "La proa de un barco",
+          "Un libro abierto",
+          "Una torre con una gran luz",
+          "Una ola de piedra"
+        ],
+        "explanation": "Es la proa de una carabela, el barco en el que navegaban los portugueses. Las figuras están de pie como una tripulación a punto de zarpar."
+      },
+      "findIt": "En el paseo junto al río, al lado del agua. Ponte primero sobre el mapa del suelo y busca Portugal; después entra para subir en el ascensor."
+    },
+    "lisbon-museu-nacional-do-azulejo": {
+      "name": "El Museo Nacional del Azulejo",
+      "tagline": "Un convento lleno de paredes que cuentan historias",
+      "story": "En Portugal los azulejos no son solo para los cuartos de baño. Allí también se llaman azulejos, cubren fachadas de casas, escaleras, iglesias y estaciones de metro, y a menudo cuentan historias enteras con dibujos, como un cómic en una pared. Su museo está dentro de un convento fundado en 1509 por la reina Leonor, y eso es parte de la gracia: recorres claustros y una iglesia donde las piezas están en el lugar para el que se hicieron. Verás los azulejos más antiguos, con bordes en relieve para mantener los colores separados, paneles azules y blancos que copian una moda holandesa y una pared de veintitrés metros de largo que muestra Lisboa tal como era antes del terremoto. Es lo más parecido que hay a una fotografía de una ciudad que ya no existe. Y como los azulejos se cuecen en un horno, sus colores no se apagan como los de la pintura: lo que ves es casi exactamente lo que vio el artesano cuando abrió el horno hace trescientos años.",
+      "facts": [
+        "Está en el convento de Madre de Deus, fundado en 1509 por la reina Leonor.",
+        "Su gran panel de Lisboa mide unos 23 metros de largo y muestra la ciudad antes del terremoto.",
+        "La palabra azulejo no viene de «azul», sino de una palabra árabe que significa piedrecita pulida."
+      ],
+      "question": {
+        "q": "¿De dónde viene la palabra azulejo?",
+        "answers": [
+          "De una palabra árabe para una piedra pulida",
+          "De la palabra «azul», el color",
+          "Del nombre del primer taller",
+          "De una palabra holandesa para barro cocido"
+        ],
+        "explanation": "Se parece a «azul», pero es una casualidad. La palabra vino del árabe y significaba piedrecita pulida, mucho antes de que los azulejos se volvieran azules."
+      },
+      "findIt": "Está bastante lejos del centro, en la Rua da Madre de Deus. La fachada es sencilla y blanca: parece una iglesia, no un museo.",
+      "museum": {
+        "rooms": {
+          "lisbon-museu-nacional-do-azulejo-first-tiles": {
+            "name": "Los primeros azulejos",
+            "intro": "Al principio los azulejos llevaban adornos repetidos, no escenas, y el gran problema era práctico: dentro del horno los colores se derriten y se mezclan unos con otros. Esta sala enseña los trucos que inventaron los artesanos para mantener cada color donde ellos querían."
+          },
+          "lisbon-museu-nacional-do-azulejo-before-the-earthquake": {
+            "name": "Lisboa antes del terremoto",
+            "intro": "En 1755 no había cámaras de fotos. Todo lo que sabemos sobre cómo era la ciudad antes de aquella mañana lo sabemos por imágenes, y la más grande de todas está aquí, hecha de azulejos. Esta sala es lo más cerca que puedes estar de entrar paseando en una ciudad que ya no existe."
+          },
+          "lisbon-museu-nacional-do-azulejo-convent": {
+            "name": "El convento a tu alrededor",
+            "intro": "En algunos museos el edificio es solo una caja. Aquí es una pieza más. Pasas por dos claustros construidos con unos cuarenta años de diferencia y entras en una iglesia tan cargada de oro y azulejos que te cuesta encontrar un trozo de pared desnuda."
+          }
+        },
+        "exhibits": {
+          "lisbon-museu-nacional-do-azulejo-aresta": {
+            "name": "El azulejo con relieves",
+            "blurb": "Pasa un dedo por encima de un azulejo del siglo XVI y notarás que no es plano. El barro se prensaba en un molde que dejaba finas líneas en relieve, como paredes diminutas. Dentro de cada pequeño campo que formaban esas paredes se echaba un color. En el horno los colores se derretían, pero no podían escaparse, porque el borde los retenía. El dibujo sale nítido porque el artesano resolvió un problema de física, no porque pintara con cuidado.",
+            "question": {
+              "q": "¿Para qué sirven las líneas en relieve?",
+              "answers": [
+                "Impiden que los colores se mezclen",
+                "Hacen el azulejo más ligero de llevar",
+                "Indican dónde hay que poner el clavo",
+                "Sujetan el azulejo a la pared"
+              ],
+              "explanation": "En el fuego el color se vuelve líquido. Sin una pared, se correría al campo de al lado y emborronaría el dibujo."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-nossa-senhora": {
+            "name": "El retablo de azulejos",
+            "blurb": "Un retablo entero hecho de azulejos, de varios metros de alto, fabricado a finales del siglo XVI. Es el momento en que los azulejos dejan de ser adorno repetido y se convierten en pintura: caras, ropas, manos, pintadas sobre cientos de piezas que tienen que encajar unas con otras después de cocerse. Y ahí se esconde la dificultad, porque el barro encoge un poco en el horno. Si un azulejo encoge de forma distinta que el de al lado, la cara sale torcida.",
+            "question": {
+              "q": "¿Por qué es difícil pintar una cara sobre muchos azulejos?",
+              "answers": [
+                "El barro encoge dentro del horno",
+                "Los colores cuestan muchísimo dinero",
+                "El pintor siempre tiene que trabajar a oscuras",
+                "Los azulejos no se pegan"
+              ],
+              "explanation": "Cada azulejo se hace un poco más pequeño en el fuego, y no todos lo mismo. Las líneas del dibujo tienen que volver a encontrarse después."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-tapete": {
+            "name": "La pared alfombra",
+            "blurb": "En el siglo XVII los portugueses cubrían las paredes con azulejos que se repiten, como una alfombra puesta de pie. El truco es que el dibujo no se detiene en el borde de un azulejo: sigue en el siguiente, así que desde el otro lado de la sala no ves azulejos, ves tela. También había una razón práctica. Una superficie de cerámica mantiene la casa fresca en verano, se limpia con agua y no le afecta la humedad que llega del Atlántico.",
+            "question": {
+              "q": "¿Por qué no se distinguen los azulejos desde lejos?",
+              "answers": [
+                "El dibujo pasa de un azulejo al siguiente",
+                "Están puestos sin ninguna junta",
+                "Se pintan otra vez cuando ya están en la pared",
+                "Son mucho más grandes que los azulejos de hoy"
+              ],
+              "explanation": "El motivo está diseñado para continuar más allá del borde. El ojo sigue el dibujo y se salta las juntas."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-grande-panorama": {
+            "name": "El gran panorama",
+            "blurb": "Veintitrés metros de pared, hechos hacia 1700, que muestran Lisboa entera desde el río, casa por casa. Camina despacio a lo largo de ella y busca el castillo en lo alto de su colina, la catedral, los barcos en el Tajo y el palacio real junto al agua, el mismo palacio que el terremoto arrasaría unos cincuenta años después. Cuando se hizo, era decoración. Se convirtió en un documento por accidente, el día en que la ciudad que muestra dejó de existir.",
+            "question": {
+              "q": "¿Por qué es tan importante esta pared?",
+              "answers": [
+                "Muestra la ciudad que se perdió en 1755",
+                "Es el azulejo más viejo de Europa",
+                "La pintó el rey Manuel con sus propias manos",
+                "Es la única que sobrevivió al fuego"
+              ],
+              "explanation": "Se hizo unos cincuenta años antes del terremoto. Es casi el único retrato detallado de una ciudad que ya no existe."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-blue-white": {
+            "name": "Los paneles azules y blancos",
+            "blurb": "En el siglo XVIII Portugal se enamoró del azul sobre blanco, una moda que llegó de Holanda y, antes, de China. También había una razón práctica: el azul de cobalto es uno de los pocos colores que aguantan el calor altísimo del horno sin cambiar. Los talleres fabricaban paneles enormes con cacerías, banquetes e historias, y los vendían a palacios, monasterios y casas de comerciantes.",
+            "question": {
+              "q": "¿Por qué el azul era un color tan práctico?",
+              "answers": [
+                "Aguanta el gran calor del horno",
+                "Era el color más barato del mercado",
+                "Se secaba muchísimo más deprisa que los demás",
+                "El rey lo prefería a todos los demás"
+              ],
+              "explanation": "Muchos pigmentos se queman y cambian con el fuego. El cobalto sale del horno casi exactamente como entró."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-factory": {
+            "name": "El azulejo de fábrica",
+            "blurb": "En el siglo XIX el azulejo dejó de hacerse de uno en uno. Las fábricas lo prensaban con máquinas, con un dibujo en relieve y un esmalte brillante, en miles de piezas idénticas. De repente ya no era un lujo para palacios: era algo que una familia corriente podía comprar para vestir la fachada de su casa. Por eso calles enteras de Lisboa brillan cuando llueve. El mismo objeto, hecho más barato, cambió el aspecto de una ciudad entera.",
+            "question": {
+              "q": "¿Qué cambió cuando los azulejos empezaron a salir de una máquina?",
+              "answers": [
+                "Hasta las casas normales podían pagarlos",
+                "Se volvieron mucho más pesados que antes",
+                "Dejaron de ponerse en las iglesias",
+                "El color azul desapareció por completo"
+              ],
+              "explanation": "La máquina hizo bajar el precio. El azulejo salió de los palacios y subió a las fachadas de las casas corrientes."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-igreja": {
+            "name": "La iglesia de Madre de Deus",
+            "blurb": "Entra y echa la cabeza hacia atrás. El techo está dividido en cuadrados de madera, cada uno con su propia pintura; las paredes están cubiertas de madera tallada y dorada, y por debajo corre una franja de azulejos azules. La iglesia sufrió daños en el terremoto de 1755 y se reparó. Hoy pertenece al museo, así que vienes con tu entrada y no a una misa, y puedes quedarte todo el tiempo que quieras mirando hacia arriba.",
+            "question": {
+              "q": "¿Qué está dividido en cuadrados pintados?",
+              "answers": [
+                "El techo de la iglesia",
+                "El suelo delante de la entrada",
+                "La puerta que da al claustro grande",
+                "La pared detrás de la mesa del altar"
+              ],
+              "explanation": "Es el techo. Cada cuadrado de madera tiene su propia pintura, así que el techo es una exposición entera por sí solo."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-claustro-manuelino": {
+            "name": "El claustro pequeño de Leonor",
+            "blurb": "Un patio cuadrado y pequeño con dos filas de arcos, una encima de la otra, de los primeros años del convento. Es manuelino, el mismo estilo que la Torre de Belém, así que busca las mismas cuerdas talladas. Fíjate en lo tranquilo que está incluso cuando el museo está lleno de gente: los claustros se diseñaban así a propósito, un jardín cuadrado rodeado de edificio, para que el ruido de la ciudad no llegara nunca al centro.",
+            "question": {
+              "q": "¿Por qué es tan silencioso un claustro?",
+              "answers": [
+                "El edificio lo rodea por todos los lados",
+                "Está construido muy hondo bajo tierra",
+                "Hablar dentro estaba totalmente prohibido",
+                "Sus paredes están rellenas de paja"
+              ],
+              "explanation": "Un jardín cerrado por los cuatro lados no le deja al ruido ningún sitio por donde entrar. Las monjas querían exactamente eso."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-claustro-grande": {
+            "name": "El claustro grande",
+            "blurb": "El segundo claustro es más grande, más sencillo y se construyó unos cuarenta años después, en estilo renacentista: líneas rectas, espacios iguales, ni cuerdas ni conchas. Pon los dos claustros uno al lado del otro y verás cambiar una moda delante de ti, dentro de un mismo edificio. Hoy este es el rincón tranquilo donde la gente se sienta a descansar, y las paredes de alrededor guardan paneles de azulejos rescatados de edificios que ya no existen.",
+            "question": {
+              "q": "¿Cómo distingues el claustro grande del pequeño?",
+              "answers": [
+                "Es sencillo, con líneas rectas",
+                "No tiene ni un solo arco alrededor",
+                "Está fuera del edificio",
+                "Está cubierto con un techo de cristal"
+              ],
+              "explanation": "El pequeño es manuelino y está lleno de tallas. El grande es renacentista y sobrio, construido unos cuarenta años más tarde."
+            }
+          }
+        },
+        "riddles": {
+          "lisbon-museu-nacional-do-azulejo-riddle-1": {
+            "prompt": "Mido veintitrés metros de largo y no quepo en ningún marco. Enseño una ciudad que ya no puedes visitar, porque unos cincuenta años después de que me hicieran se vino abajo.",
+            "hint": "Tienes que caminar para verme entero."
+          },
+          "lisbon-museu-nacional-do-azulejo-riddle-2": {
+            "prompt": "No soy plano, aunque lo parezco. Tengo paredes pequeñitas que apenas se ven pero se notan con el dedo, y su trabajo es impedir que mis colores se escapen en el fuego.",
+            "hint": "Soy una de las cosas más antiguas de aquí."
+          },
+          "lisbon-museu-nacional-do-azulejo-riddle-3": {
+            "prompt": "Soy cuadrado y estoy vacío en el centro, con arcos en dos pisos. Llevo las mismas cuerdas de piedra que una torre junto al río, a diez kilómetros de aquí.",
+            "hint": "De los dos, soy el que ocupa menos sitio."
+          }
+        },
+        "doorNote": "El gran panel de Lisboa está en el piso de arriba. Déjalo para el final: necesita tiempo."
+      }
+    },
+    "lisbon-oceanario-de-lisboa": {
+      "name": "El Oceanario de Lisboa",
+      "tagline": "Cuatro océanos alrededor de un solo tanque",
+      "story": "El Oceanario se construyó en 1998 y tiene una idea en su centro, y nunca mejor dicho. En medio hay un tanque enorme con cinco millones de litros de agua. A su alrededor hay cuatro paisajes distintos: el Atlántico Norte con sus rocas, la Antártida con sus pingüinos, el Pacífico templado con sus nutrias marinas y el Índico tropical con sus corales. Cada uno tiene su propio aire, su propia temperatura y sus propios animales, y aun así los cuatro miran a la misma agua. No es una forma de ahorrar espacio: es lo que dice el edificio. Los océanos no son cinco cosas separadas, son uno, y lo que tiras en una costa acaba llegando a todas las demás. Su habitante más famoso es el pez luna, que parece una cabeza gigante sin cuerpo.",
+      "facts": [
+        "El tanque central contiene unos cinco millones de litros de agua de mar.",
+        "Los cuatro paisajes están separados por acrílico transparente, así que desde lejos no se ve la separación.",
+        "Se construyó para la Expo ’98, una exposición universal dedicada a los océanos."
+      ],
+      "question": {
+        "q": "¿Por qué todos los paisajes miran al mismo tanque?",
+        "answers": [
+          "Porque solo hay un océano",
+          "Porque así caben más peces",
+          "Porque así es más fácil limpiar el agua",
+          "Porque el edificio era muy pequeño"
+        ],
+        "explanation": "Los océanos tienen nombres distintos, pero son una sola masa de agua. El edificio hace que lo veas con tus propios ojos, en vez de leerlo."
+      },
+      "findIt": "En el Parque das Nações, junto al agua. El edificio se alza en medio de un estanque y se llega a él por una pasarela."
+    },
+    "lisbon-pasteis-de-belem": {
+      "name": "La pastelería Pastéis de Belém",
+      "tagline": "La receta de los monjes, guardada bajo llave en una sala",
+      "story": "Al lado del monasterio hay una pastelería que vende pastelitos calientes rellenos de crema de huevo, los pastéis de nata. Su historia empieza con los monjes. Los monasterios usaban cantidades enormes de clara de huevo para almidonar la ropa, y les sobraban montañas de yemas. En lugar de tirarlas, hacían dulces con ellas. Por eso tantos postres portugueses son amarillos y saben a crema. En 1834 se cerraron los monasterios de Portugal, y la receta se vendió a una tienda de al lado, que abrió en 1837 y sigue funcionando desde entonces. La receta nunca se ha publicado en un libro de cocina. La masa se estira en una sala cerrada con llave llamada Oficina do Segredo, el «taller del secreto», y solo un puñado de personas conoce la receta entera. Los pasteles salen del horno un poco quemados por encima, y es a propósito: el fuego muy fuerte carameliza el azúcar y les da las manchitas oscuras que todo el mundo busca.",
+      "facts": [
+        "La tienda funciona desde 1837, cuando compró la receta al monasterio de al lado.",
+        "Los monjes usaban las claras de huevo para almidonar la ropa y hacían dulces con las yemas que sobraban.",
+        "Solo aquí se llaman pastéis de Belém; en todos los demás sitios son pastéis de nata."
+      ],
+      "question": {
+        "q": "¿Por qué les sobraban a los monjes tantas yemas de huevo?",
+        "answers": [
+          "Almidonaban su ropa con las claras",
+          "Vendían las claras a panaderías de la ciudad",
+          "Las claras se estropeaban más rápido",
+          "Daban las claras a los animales del huerto"
+        ],
+        "explanation": "La clara de huevo pone rígida la tela, así que los monasterios la gastaban a cubos. Las yemas sobraban, y se convirtieron en postres."
+      },
+      "findIt": "Está en la Rua de Belém, con un letrero azul. La cola de la acera es para llevar; dentro hay salas y mesas."
+    },
+    "lisbon-praca-do-comercio": {
+      "name": "La Praça do Comércio",
+      "tagline": "Aquí estaba el palacio, hasta la mañana del terremoto",
+      "story": "Justo aquí, junto al agua, estaba el palacio de los reyes de Portugal. La mañana del 1 de noviembre de 1755 un terremoto terrible sacudió Lisboa, y el palacio se perdió junto con la mayor parte del centro de la ciudad. La gente no se rindió. El ministro del rey, el marqués de Pombal, no volvió a levantar las viejas callejuelas enredadas: trazó calles rectas completamente nuevas y construyó esta plaza enorme con sus soportales amarillos, abierta por un lado al río, para que llegaran a ella barcos y comerciantes de todo el mundo. El rey a caballo es José I, que reinaba entonces. Baja hasta el agua y encontrarás dos columnas de piedra y unos escalones de mármol que se meten en el río: allí se amarraban las barcas, y por esos escalones subían a la ciudad los visitantes importantes. Cuando algo se rompe, se puede volver a construir, y a veces construirlo mejor.",
+      "facts": [
+        "La gente todavía la llama Terreiro do Paço, «el Terreno del Palacio», aunque el palacio se perdió en el terremoto de 1755.",
+        "El terremoto de 1755 fue uno de los más fuertes registrados en Europa, y su ola llegó hasta Inglaterra.",
+        "En el lado abierto, los escalones de mármol del Cais das Colunas se meten en el agua."
+      ],
+      "question": {
+        "q": "¿Qué había en esta plaza antes del terremoto?",
+        "answers": [
+          "El palacio de los reyes",
+          "Un monasterio con un huerto",
+          "El viejo faro del puerto",
+          "Un mercado con soportales"
+        ],
+        "explanation": "Era el Paço da Ribeira, el palacio junto al río. El terremoto de 1755 lo derribó, y en su lugar la ciudad construyó una plaza abierta a todo el mundo."
+      },
+      "findIt": "Ponte bajo los soportales amarillos y camina hacia el agua. La plaza termina en escalones, no en un muro."
+    },
+    "lisbon-arco-da-rua-augusta": {
+      "name": "El Arco de la Rua Augusta",
+      "tagline": "Un «bien hecho» de piedra que llegó cien años tarde",
+      "story": "Este arco se planeó justo después del terremoto, como una puerta que grita: «¡Mirad, Lisboa vuelve a estar en pie!». Solo que la construcción fue muy lenta. Cambiaron los planos, cambiaron los reyes, y el arco se terminó en 1875, más de un siglo después del día en que se prometió. Arriba del todo, una dama de mármol llamada Gloria pone coronas a dos figuras, el Genio y el Valor: la inteligencia y el coraje, justo las dos cosas que la ciudad necesitaba para levantarse. Más abajo, entre las columnas, hay figuras talladas de personas que vivieron de verdad, como el navegante Vasco da Gama y el marqués de Pombal. Debajo empieza la Rua Augusta, la calle peatonal con más gente de la ciudad. Y desde 2013 un ascensor sube a los visitantes hasta su tejado, para ver desde arriba las calles rectas que trazó Pombal.",
+      "facts": [
+        "Se planeó después del terremoto de 1755 y no se terminó hasta 1875, 120 años después del terremoto.",
+        "El grupo de esculturas de lo alto lo talló el francés Célestin Anatole Calmels.",
+        "Su azotea se abrió al público en 2013, y el reloj se añadió mucho después que el arco."
+      ],
+      "question": {
+        "q": "¿Cuánto tardaron en construir este arco?",
+        "answers": [
+          "Más de un siglo entero",
+          "Un invierno y una primavera",
+          "Unos tres años completos",
+          "Doce años, con dos pausas"
+        ],
+        "explanation": "Se planeó hacia 1760 y se terminó en 1875. La ciudad se reconstruyó mucho antes de que estuviera lista la puerta que debía celebrarlo."
+      },
+      "findIt": "Está en el lado norte de la Praça do Comércio. La puerta del ascensor al tejado está a un lado, no debajo del arco."
+    },
+    "lisbon-elevador-de-santa-justa": {
+      "name": "El Elevador de Santa Justa",
+      "tagline": "Una torre de hierro que cuenta como transporte público",
+      "story": "Lisboa está construida sobre colinas, y para ir desde las tiendas de la Baixa hasta el barrio del Chiado, treinta metros más arriba, había que subir muchos, muchísimos escalones. En 1902 la ciudad encontró la solución: una torre de hierro de cuarenta y cinco metros de alto, con dos cabinas de madera que suben y bajan por dentro. La diseñó el ingeniero Raoul Mesnier du Ponsard, que admiraba los edificios de hierro de su época. Al principio una máquina de vapor tiraba de las cabinas, como en un tren; unos años después las pasaron a la electricidad. Desde arriba, una pasarela de metal te lleva al Chiado, y la vista se extiende sobre los tejados rojos hasta el castillo. Pero lo mejor es esto: la torre no es una atracción para turistas. Es transporte público de verdad, de la misma compañía que los tranvías, y la gente la usa para ir a trabajar.",
+      "facts": [
+        "Se inauguró en 1902 y mide 45 metros de alto.",
+        "Al principio una máquina de vapor movía las cabinas; unos años después pasaron a ser eléctricas.",
+        "Es el único ascensor vertical de calle que sigue funcionando en Lisboa, y forma parte de la red de transporte público."
+      ],
+      "question": {
+        "q": "¿Qué movía las cabinas cuando se inauguró?",
+        "answers": [
+          "Una máquina de vapor",
+          "Caballos atados a una cuerda",
+          "Agua dentro de grandes depósitos",
+          "Un motor eléctrico"
+        ],
+        "explanation": "En 1902 funcionaba con vapor, como los trenes. El motor eléctrico llegó unos años después, y así sigue funcionando el ascensor hoy."
+      },
+      "findIt": "La cola se forma abajo, en la Rua do Ouro. Desde arriba puedes entrar gratis, por el Largo do Carmo."
+    },
+    "lisbon-rossio": {
+      "name": "El Rossio",
+      "tagline": "Una plaza con olas dibujadas en el suelo",
+      "story": "El Rossio es el salón de Lisboa desde hace siglos: aquí hubo mercados, fiestas y hasta corridas de toros. Pero lo más llamativo no está por encima de ti, sino bajo tus pies. En 1848 el suelo se cubrió de piedrecitas blancas y negras, colocadas una a una a mano, en un dibujo que forma olas. Cuando caminas por encima, tus ojos creen que el suelo se mueve como el mar, el mismo mar que cruzaron los marineros portugueses. A la gente le gustó tanto que los suelos así se extendieron por toda la ciudad y después por todo el país. En el centro, una columna alta sostiene al rey Pedro IV, que también fue el primer emperador de Brasil, y dos fuentes de bronce llegaron en barco desde Francia. Su nombre oficial es Praça D. Pedro IV. Nadie la llama así.",
+      "facts": [
+        "El suelo de olas se colocó en 1848, y desde aquí se extendió por todo Portugal.",
+        "Las piedras se colocan una a una a mano; este oficio se llama calçada portuguesa.",
+        "El rey de la columna, Pedro IV, fue también el primer emperador de Brasil."
+      ],
+      "question": {
+        "q": "¿Qué forman las piedras blancas y negras del suelo?",
+        "answers": [
+          "Olas, como el mar",
+          "Estrellas y medias lunas",
+          "Letras del alfabeto",
+          "Montañas en un mapa"
+        ],
+        "explanation": "Son olas, y engañan a la vista: parece que el suelo se mueve. Representan el mar que cruzaron los barcos portugueses."
+      },
+      "findIt": "Ponte en el centro, bajo la columna, y mírate los zapatos antes de mirar a tu alrededor."
+    },
+    "lisbon-se-de-lisboa": {
+      "name": "La Catedral de Lisboa",
+      "tagline": "Una iglesia construida como un castillo, con dos torres para guardias",
+      "story": "Es la iglesia más antigua de Lisboa, y se empezó en 1147. Ese año Afonso Henriques, el primer rey de Portugal, les quitó la ciudad a los moros, que la habían gobernado unos cuatrocientos años, y enseguida quiso una gran catedral. Eran tiempos inseguros, así que los constructores la hicieron fuerte como un castillo: muros gruesos, pocas ventanas y dos torres donde podían ponerse guardias. Por eso, vista de lejos, parece más una fortaleza que una iglesia. Encima de la puerta hay un rosetón, una ventana redonda: la luz del sol pasa a través de él y pinta colores en el suelo de piedra. La catedral ha resistido muchos terremotos, y en el gran terremoto de 1755 se cayó una parte y se reconstruyó. Muros fuertes y paciencia: así lleva en pie casi novecientos años.",
+      "facts": [
+        "Se empezó en 1147 y es la iglesia más antigua de la ciudad.",
+        "Bajo su claustro, los arqueólogos encontraron una calle romana, solo unos metros más abajo.",
+        "La tradición dice que aquí bautizaron a san Antonio, el santo más querido de Lisboa."
+      ],
+      "question": {
+        "q": "¿Por qué la catedral parece un castillo?",
+        "answers": [
+          "También tenía que defenderse",
+          "Antes fue un palacio",
+          "El diseño vino del norte de África",
+          "Se construyó sobre un fuerte romano"
+        ],
+        "explanation": "Se levantó justo después de 1147, cuando la ciudad acababa de cambiar de manos. Los muros gruesos y las dos torres eran para estar seguros, no para estar bonitos."
+      },
+      "findIt": "Está sobre las vías del tranvía 28, en la subida hacia el castillo. Busca las dos torres bajas y anchas con el rosetón entre ellas."
+    },
+    "lisbon-castelo-de-sao-jorge": {
+      "name": "El Castillo de San Jorge",
+      "tagline": "Once torres, pavos reales y toda la ciudad a tus pies",
+      "story": "Los moros construyeron estas murallas hace unos mil años, en la colina desde la que podían vigilar cada barco que subía por el río. En 1147 Afonso Henriques y su ejército sitiaron el castillo durante meses, hasta que la ciudad se rindió y pasó a formar parte de Portugal; unos cien años después se convirtió también en la capital. Más tarde vivieron aquí reyes, y el castillo tomó el nombre de san Jorge, el caballero del dragón. Camina por encima de las murallas y cuenta las once torres. Mira bien dónde pisas: los escalones están torcidos y no todos tienen la misma altura, porque se hicieron para guardias, no para visitantes. En los jardines viven pavos reales que abren la cola delante de la gente. Y desde aquí arriba ves Lisboa entera, el río y el gran puente rojo, el Puente 25 de Abril: es la mejor vista de la ciudad.",
+      "facts": [
+        "Las murallas tienen once torres, y puedes caminar por encima de ellas.",
+        "En esta colina se han desenterrado hallazgos de la Edad del Hierro de unos 2.700 años.",
+        "El castillo sirvió durante siglos como cuartel y se restauró mucho en la década de 1940."
+      ],
+      "question": {
+        "q": "¿Por qué se construyó un castillo precisamente en esta colina?",
+        "answers": [
+          "Desde ella se ve cada barco del río",
+          "Era el único sitio con un pozo",
+          "Su roca daba un mármol útil",
+          "Era el lugar más fresco en verano"
+        ],
+        "explanation": "Desde aquí se controla el río. Quien tenía la colina veía venir cada barco mucho antes de que llegara."
+      },
+      "findIt": "La única entrada está en el lado oeste, en el Largo do Chão da Feira. Todas las cuestas de Alfama terminan allí."
+    },
+    "lisbon-miradouro-de-santa-luzia": {
+      "name": "El Mirador de Santa Luzia",
+      "tagline": "Un balcón cubierto de enredaderas sobre el barrio más antiguo",
+      "story": "Este balcón cuelga sobre Alfama, el barrio más antiguo de Lisboa. Su nombre viene de una palabra árabe para las fuentes de agua caliente, porque los moros que vivían aquí encontraron agua templada en el suelo. Sus calles son tan estrechas y retorcidas que no pasa ningún coche, y los vecinos hablan de ventana a ventana. Cuando el gran terremoto de 1755 arrasó el centro, Alfama, construida sobre roca dura, quedó casi toda en pie; por eso sus casas son mucho más antiguas que las del resto de la ciudad. Una pérgola de buganvillas se extiende sobre la terraza, y bajo tus pies los tejados bajan en cascada hasta el agua. En sus paredes, azulejos azules y blancos muestran la plaza del palacio antes del terremoto y a los soldados trepando por las murallas del castillo en 1147. Busca los pequeños detalles: barcos, banderas, escaleras de mano.",
+      "facts": [
+        "El nombre Alfama viene de una palabra árabe para las fuentes de agua caliente.",
+        "Alfama resistió el terremoto de 1755 porque está construida sobre roca dura.",
+        "Aquí nació el fado, la canción propia de Lisboa, que la UNESCO incluyó en su lista en 2011."
+      ],
+      "question": {
+        "q": "¿Por qué las casas de Alfama son más antiguas que las del resto de la ciudad?",
+        "answers": [
+          "La roca las sostuvo en el terremoto",
+          "Son de un ladrillo mucho más duro",
+          "Una ley prohibía derribarlas",
+          "El terremoto se detuvo justo en las murallas"
+        ],
+        "explanation": "Alfama está sobre roca dura. El centro, construido sobre un suelo más blando, se vino abajo en 1755 y hubo que reconstruirlo desde cero."
+      },
+      "findIt": "En la Rua do Limoeiro, en la subida de la catedral al castillo. Busca la pérgola blanca; los azulejos están en la pared del fondo."
+    },
+    "lisbon-torre-de-belem": {
+      "name": "La Torre de Belém",
+      "tagline": "El último trocito de casa para quien se hacía a la mar",
+      "story": "Hace más de quinientos años, los barcos portugueses salían de este río rumbo a la India, África y Brasil, y el rey Manuel I quería un guardián fuerte en la puerta del puerto. Así se construyó esta torre, terminada en 1519, con cañones en el piso de abajo y vigías en lo alto. Su estilo se llama manuelino, por el nombre del rey: fíjate en las cuerdas, los nudos y las pequeñas esferas talladas en la piedra, que recuerdan todos a los barcos y al mar. Abajo, en una esquina, hay tallada una cabeza de rinoceronte. La torre estuvo un día en una islita en medio del río; con los años la orilla se fue acercando, y hoy la toca. Para los marineros que se iban era el último trocito de casa, y para los que volvían, el primero.",
+      "facts": [
+        "Se terminó en 1519, durante el reinado de Manuel I.",
+        "Se cree que su rinoceronte tallado es la primera escultura de un rinoceronte de Europa occidental.",
+        "La torre estaba en una islita del río; con los años, la orilla se fue acercando hasta ella."
+      ],
+      "question": {
+        "q": "¿Por qué hay un rinoceronte tallado en la torre?",
+        "answers": [
+          "Acababa de llegar uno de verdad de la India",
+          "Era el escudo de armas de la familia del rey",
+          "Los marineros creían que era señal de buena suerte",
+          "El escultor lo copió de un libro"
+        ],
+        "explanation": "En 1515 llegó a Lisboa un rinoceronte vivo desde la India. La ciudad quedó asombrada, y el animal acabó tallado en la piedra."
+      },
+      "findIt": "Cruzas la vía del tren por una pasarela y después un puentecito de madera hasta la puerta. La cola se forma en la orilla."
+    },
+    "lisbon-mosteiro-dos-jeronimos": {
+      "name": "El Monasterio de los Jerónimos",
+      "tagline": "Pagado con un impuesto sobre la pimienta y la canela",
+      "story": "Cuando los barcos de Vasco da Gama volvieron de la India en 1499 cargados de pimienta y canela, el rey Manuel I se hizo rico: toda Europa quería especias. El rey decidió gastar parte de ese dinero en un monasterio tan grandioso que nadie pudiera olvidarlo. Los constructores trabajaron unos cien años, tallando en la piedra cuerdas, conchas, corales y monstruos marinos, en estilo manuelino. Entra en el claustro, el patio cuadrado de arcos, y mira hacia arriba: cada columna está tallada de forma distinta a la de al lado. El propio Vasco da Gama está enterrado dentro, cerca de la entrada, en una tumba sostenida por leones de piedra. Dicen que antes de partir hacia la India pasó la noche rezando en una pequeña capilla que había justo en este lugar. El monasterio salió del terremoto de 1755 casi intacto.",
+      "facts": [
+        "Se pagó con un impuesto de verdad: la vigésima parte de las ganancias del comercio de especias.",
+        "Construirlo llevó unos cien años.",
+        "Vasco da Gama está enterrado dentro, en una tumba sostenida por leones de piedra."
+      ],
+      "question": {
+        "q": "¿De dónde salió el dinero para construirlo?",
+        "answers": [
+          "De un impuesto sobre las especias",
+          "De donativos de la gente de la ciudad",
+          "De un tesoro que se encontró enterrado",
+          "De los alquileres de los campos de alrededor"
+        ],
+        "explanation": "La vigésima parte de las ganancias del comercio de especias se destinaba a la obra. El monasterio está hecho, literalmente, de pimienta y canela."
+      },
+      "findIt": "La iglesia y el claustro tienen dos puertas distintas. Mirando la fachada, la cola de la iglesia está en la gran portada sur y la cola del claustro, a su izquierda."
+    },
+    "lisbon-estadio-da-luz": {
+      "name": "El Estádio da Luz",
+      "tagline": "Antes de cada partido, un águila da una vuelta",
+      "story": "Es el estadio más grande de Portugal, con unos sesenta y cuatro mil asientos, y se inauguró en 2003. Su nombre significa «el estadio de la Luz», por el barrio de Luz, donde se encuentra. Aquí se jugó la final de la Eurocopa de 2004, y también dos finales de la Liga de Campeones. Pero lo más curioso no es el edificio. Poco antes de cada partido del Benfica, un águila de verdad despega del brazo de su adiestrador, da una vuelta sobre el césped mientras sesenta mil personas gritan, y luego vuelve y se posa tranquila donde empezó. El águila es el símbolo del club desde hace un siglo. El techo cubre solo las gradas y está hecho a propósito de un material transparente, para que la luz del sol siga llegando al césped y lo mantenga vivo, y así al águila también le queda un círculo despejado de cielo.",
+      "facts": [
+        "Se inauguró en 2003 y tiene unos 64.000 asientos: es el estadio más grande de Portugal.",
+        "Acogió la final de la Eurocopa de 2004.",
+        "Un águila adiestrada vuela sobre el césped antes de los partidos del Benfica en casa."
+      ],
+      "question": {
+        "q": "¿Qué vuela sobre el césped antes de un partido?",
+        "answers": [
+          "Un águila de verdad",
+          "Un pequeño globo aerostático",
+          "Un avión teledirigido",
+          "Una bandada de palomas blancas"
+        ],
+        "explanation": "El águila es el símbolo del Benfica. Da una vuelta y vuelve al brazo de su adiestrador, delante de sesenta mil personas."
+      },
+      "findIt": "El metro te deja justo enfrente, en Colégio Militar. La estatua de Eusébio está fuera, junto a la entrada."
+    }
+  },
+  "trails": {
+    "lisbon-the-city-rebuilt": {
+      "name": "La ciudad que se reconstruyó",
+      "promise": "Cuatro lugares que existen solo porque una mañana de 1755 se derrumbó el centro de Lisboa."
+    },
+    "lisbon-up-the-hill": {
+      "name": "La colina y sus calles estrechas",
+      "promise": "Una iglesia construida como un castillo, un castillo con pavos reales y un balcón sobre Alfama."
+    },
+    "lisbon-belem": {
+      "name": "Belém, de donde salían los barcos",
+      "promise": "La torre vigía, el monasterio de las especias, un hidroavión y pastelitos de crema calientes para terminar."
+    },
+    "lisbon-how-it-works": {
+      "name": "Cómo funcionan las cosas",
+      "promise": "Agua que corre sola, colores que no pueden escaparse del fuego y un solo océano en un tanque."
+    },
+    "lisbon-out-of-the-centre": {
+      "name": "Fuera del centro",
+      "promise": "Tres paradas lejos de las callejuelas: un águila, un pez luna y un arco de sesenta y cinco metros."
+    }
+  }
+}

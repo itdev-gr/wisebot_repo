@@ -261,7 +261,13 @@
         "La mina de sal de Wieliczka tiene unos 287 kilómetros de galerías y baja 327 metros bajo tierra.",
         "En el bosque de Białowieża viven más de 800 bisontes europeos, el animal salvaje de tierra más pesado de Europa.",
         "Su punto más alto es la cima del Rysy, en los Tatras, casi 2.500 metros, justo en la frontera con Eslovaquia."
-      ]
+      ],
+      "cities": {
+        "krakow": {
+          "name": "Cracovia",
+          "intro": "Cracovia es una ciudad que guarda sus cosas antiguas y las sigue usando. La plaza medieval más grande de Europa sigue siendo su mercado. Desde la torre más alta, una trompeta toca cada hora y se corta a la mitad, exactamente como hace siglos. Debajo del castillo hay una cueva de verdad, y delante de ella un dragón de bronce que echa fuego. Y en una sala oscura, una muchacha con un armiño en brazos lleva quinientos años girando la cabeza."
+        }
+      }
     },
     "croatia": {
       "name": "Croacia",
@@ -345,7 +351,13 @@
         "Donde te pongas en Dinamarca, el mar nunca está a más de 52 kilómetros.",
         "LEGO empezó en 1932 con un carpintero de Billund. El nombre viene de «leg godt», que significa «juega bien».",
         "Su bandera, el Dannebrog, se usa sin interrupción desde 1625, más tiempo que ninguna otra bandera nacional."
-      ]
+      ],
+      "cities": {
+        "copenhagen": {
+          "name": "Copenhague",
+          "intro": "Copenhague es una ciudad construida sobre el agua, y su agua está tan limpia que los niños se tiran al puerto. Tiene una torre que subes por una rampa en vez de por escaleras, una central que quema basura con una pista de esquí en el tejado y un parque de atracciones que abrió hace casi dos siglos. Hans Christian Andersen escribió aquí sus primeros cuentos, junto a un canal con casas pintadas como una caja de ceras. Y casi todo el mundo se mueve en bicicleta, incluso con nieve."
+        }
+      }
     },
     "belgium": {
       "name": "Bélgica",
@@ -355,7 +367,13 @@
         "Su costa mide 67 kilómetros, y un tranvía con 67 paradas la recorre entera.",
         "Tiene tres idiomas oficiales: neerlandés, francés y alemán.",
         "Los libros de Tintín han vendido unos 200 millones de ejemplares en todo el mundo."
-      ]
+      ],
+      "cities": {
+        "bruges": {
+          "name": "Brujas",
+          "intro": "Brujas es una ciudad a la que salvó su propia mala suerte. Hace seiscientos años era una de las más ricas de Europa, con barcos que llegaban de Italia, de España y del Báltico. Luego el canal hacia el mar se llenó de arena, los barcos dejaron de venir y nadie tenía dinero para derribar los edificios viejos y levantar otros nuevos. Así que una ciudad medieval entera siguió en pie: una torre con cuarenta y siete campanas, canales en vez de calles, cisnes, molinos en las murallas y una Virgen tallada por Miguel Ángel."
+        }
+      }
     }
   }
 }
