@@ -313,7 +313,7 @@ export const places: Place[] = [
       explanation: {
         el:
           'Άνοιξε το 1317 και δεν σταμάτησε ποτέ, ούτε μετά τον σεισμό. Εφτακόσια χρόνια ' +
-          'είναι πολύ μεγάλο διάλειμμα για να μην το κάνει κανείς.',
+          'είναι πάρα πολύς καιρός για να μένει κάτι ανοιχτό.',
         en:
           'It opened in 1317 and never stopped, not even after the earthquake. Seven ' +
           'hundred years is a very long time to keep something open.',
@@ -471,8 +471,8 @@ export const places: Place[] = [
               'Ένα τετράγωνο αίθριο με κήπο στη μέση και μια στοά γύρω γύρω. Το ' +
               'περιστύλιο ήταν ο δρόμος του μοναχού: εδώ περπατούσε, διάβαζε και ' +
               'σκεφτόταν, χωρίς να βγει από το μοναστήρι. Είναι από τα ελάχιστα κομμάτια ' +
-              'του κτιρίου που έμειναν όρθια στον σεισμό του 1667, και είναι πάνω από ' +
-              'εξακόσια χρόνια παλιότερο από ό,τι βλέπεις γύρω του.',
+              'του κτιρίου που έμειναν όρθια στον σεισμό του 1667, και είναι αιώνες ' +
+              'παλιότερο από τα περισσότερα που βλέπεις γύρω του.',
             en:
               'A square courtyard with a garden in the middle and a covered walk all the ' +
               'way round. The cloister was the friar’s street: here he walked, read and ' +
@@ -508,8 +508,8 @@ export const places: Place[] = [
                 answers: [
                   { el: 'Περνάει περισσότερο φως στον κήπο', en: 'More light gets through to the garden' },
                   { el: 'Σηκώνουν πολύ μεγαλύτερο βάρος', en: 'They hold up a far heavier roof' },
-                  { el: 'Κοστίζουν πολύ λιγότερη πέτρα', en: 'They use up much less stone' },
-                  { el: 'Αντέχουν καλύτερα στους σεισμούς', en: 'They stand up better to earthquakes' },
+                  { el: 'Κάνουν τη στέγη πολύ πιο ψηλή', en: 'They make the whole roof much taller' },
+                  { el: 'Διώχνουν τα πουλιά από τον κήπο', en: 'They keep the birds out of the garden' },
                 ],
                 explanation: {
                   el:
@@ -701,42 +701,44 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'dubrovnik-franciscan-library',
-              name: { el: 'Η βιβλιοθήκη', en: 'The library' },
+              id: 'dubrovnik-franciscan-portal-saints',
+              name: { el: 'Οι άγιοι γύρω από την Παναγία', en: 'The saints around Mary' },
               blurb: {
                 el:
-                  'Το μοναστήρι φυλάει πάνω από είκοσι χιλιάδες τόμους και πολλά ' +
-                  'χειρόγραφα, ανάμεσά τους και παλιά βιβλία συνταγών του φαρμακείου. Σε ' +
-                  'μια πόλη που κάηκε, σείστηκε και ξαναχτίστηκε, μια βιβλιοθήκη είναι ' +
-                  'κάτι σαν θαύμα: το χαρτί είναι το πιο εύθραυστο πράγμα που έχει ένα ' +
-                  'κτίριο. Οι μοναχοί τα κουβαλούσαν, τα στέγνωναν και τα έδεναν ξανά, ' +
-                  'γενιά μετά τη γενιά, και γι’ αυτό υπάρχουν ακόμα.',
+                  'Κοίτα ξανά πάνω από τη μεγάλη πόρτα, αυτή τη φορά γύρω από την Παναγία. ' +
+                  'Στα δύο πλάγια της στέκονται δύο άγιοι: ο Άγιος Ιερώνυμος, που ' +
+                  'μετέφρασε τη Βίβλο στα λατινικά, και ο Άγιος Ιωάννης ο Βαπτιστής, που ' +
+                  'βάφτισε τον Ιησού στον ποταμό Ιορδάνη. Στην κορυφή, πάνω από όλους, ' +
+                  'στέκεται η μορφή του Θεού Δημιουργού. Όλα μαζί τα σκάλισε το 1498 το ' +
+                  'ίδιο εργαστήριο, των αδερφών Petrović. Τότε πολλοί άνθρωποι δεν ήξεραν ' +
+                  'να διαβάζουν, και μια πόρτα σαν αυτή ήταν ένα βιβλίο από πέτρα.',
                 en:
-                  'The monastery keeps more than twenty thousand volumes and many ' +
-                  'manuscripts, among them old recipe books from the pharmacy. In a town ' +
-                  'that has burned, shaken and been rebuilt, a library is something close ' +
-                  'to a miracle: paper is the most fragile thing a building holds. The ' +
-                  'friars carried the books out, dried them and bound them again, one ' +
-                  'generation after another, and that is why they still exist.',
+                  'Look above the big door again, this time around Mary. At her two sides ' +
+                  'stand two saints: Saint Jerome, who translated the Bible into Latin, and ' +
+                  'Saint John the Baptist, who baptised Jesus in the river Jordan. At the ' +
+                  'very top, above them all, stands the figure of God the Creator. The same ' +
+                  'workshop, the Petrović brothers’, carved all of it in 1498. Back then ' +
+                  'many people could not read, and a doorway like this one was a book made ' +
+                  'of stone.',
               },
               question: {
                 q: {
-                  el: 'Τι κάνει τόσο εύθραυστη μια παλιά βιβλιοθήκη;',
-                  en: 'What makes an old library so fragile a thing?',
+                  el: 'Ποιος στέκεται στην κορυφή, πάνω από την Παναγία;',
+                  en: 'Who stands at the very top, above Mary?',
                 },
                 answers: [
-                  { el: 'Το χαρτί καίγεται και μουχλιάζει εύκολα', en: 'Paper burns and grows mould very easily' },
-                  { el: 'Τα βιβλία είναι πολύ βαριά για τα ράφια', en: 'The books are far too heavy for the shelves' },
-                  { el: 'Το μελάνι σβήνει μέσα σε λίγους μήνες', en: 'The ink fades away within a few months' },
-                  { el: 'Οι τόμοι είναι δεμένοι με λεπτό γυαλί', en: 'The volumes are bound with very thin glass' },
+                  { el: 'Η μορφή του Θεού Δημιουργού', en: 'The figure of God the Creator' },
+                  { el: 'Ένα φτερωτό πέτρινο λιοντάρι', en: 'A stone lion with a pair of wings' },
+                  { el: 'Ο Ρέκτορας με ένα στέμμα', en: 'The town’s Rector wearing a crown' },
+                  { el: 'Ένα καράβι με ανοιχτά πανιά', en: 'A ship with all of its sails open' },
                 ],
                 explanation: {
                   el:
-                    'Φωτιά, νερό και υγρασία είναι οι τρεις εχθροί του χαρτιού, και η πόλη ' +
-                    'τα γνώρισε και τα τρία.',
+                    'Η Παναγία είναι στη μέση, οι δύο άγιοι στα πλάγια και ο Δημιουργός ' +
+                    'ψηλά. Η πόρτα διαβάζεται από κάτω προς τα πάνω.',
                   en:
-                    'Fire, water and damp are the three enemies of paper, and this town has ' +
-                    'met all three of them.',
+                    'Mary is in the middle, the two saints at her sides and the Creator up ' +
+                    'high. The doorway reads from the bottom up.',
                 },
               },
             },
@@ -1256,7 +1258,7 @@ export const places: Place[] = [
       answers: [
         { el: 'Για να μη γίνει κανείς πολύ δυνατός', en: 'So that no one could grow too strong' },
         { el: 'Γιατί η δουλειά πλήρωνε πολύ λίγα', en: 'Because the job was very badly paid' },
-        { el: 'Για να προλάβουν όλοι οι ευγενείς', en: 'So that every nobleman got a turn' },
+        { el: 'Γιατί ο Ρέκτορας έφευγε με τον στόλο', en: 'Because the Rector sailed with the fleet' },
         { el: 'Γιατί το παλάτι ήταν πολύ μικρό', en: 'Because the palace was far too small' },
       ],
       explanation: {
@@ -1339,16 +1341,18 @@ export const places: Place[] = [
                 el:
                   'Στη δεξιά άκρη της στοάς, το κιονόκρανο της τελευταίας κολόνας δείχνει ' +
                   'έναν άντρα στο εργαστήριό του, ανάμεσα σε βάζα και σκεύη. Είναι ο ' +
-                  'Ασκληπιός, ο αρχαίος θεός της ιατρικής. Ένας θεός των φαρμάκων ' +
-                  'σκαλισμένος στο κυβερνείο δεν είναι τυχαίος: η πόλη ζούσε από το ' +
-                  'εμπόριο και φοβόταν πιο πολύ την αρρώστια από τον στρατό, γιατί ένα ' +
-                  'άρρωστο λιμάνι δεν έχει πελάτες.',
+                  'Ασκληπιός, ο αρχαίος θεός της ιατρικής. Δεν βρέθηκε εκεί τυχαία: οι λόγιοι ' +
+                  'της πόλης πίστευαν ότι ο Ασκληπιός γεννήθηκε στην αρχαία Επίδαυρο, το ' +
+                  'σημερινό Cavtat, λίγο πιο νότια στην ακτή. Από εκείνη την πόλη έλεγαν ' +
+                  'ότι κατάγεται το ίδιο το Ντουμπρόβνικ, οπότε ένας θεός γεννημένος εκεί ' +
+                  'ήταν, για αυτούς, κομμάτι της δικής τους ιστορίας.',
                 en:
                   'At the right-hand end of the porch, the capital of the last column shows ' +
                   'a man in his workshop among jars and instruments. He is Aesculapius, the ' +
-                  'ancient god of medicine. A god of medicines carved on the seat of ' +
-                  'government is no accident: the town lived by trade and feared illness ' +
-                  'more than armies, because a sick harbour has no customers.',
+                  'ancient god of medicine. He is not there by chance: the town’s scholars ' +
+                  'believed Aesculapius was born in ancient Epidaurum, today’s Cavtat, a ' +
+                  'little way down the coast. Dubrovnik claimed that town as its own ' +
+                  'ancestor, so a god born there was, to them, part of their own story.',
               },
               question: {
                 q: {
@@ -1356,18 +1360,18 @@ export const places: Place[] = [
                   en: 'Why carve a god of medicine on the seat of government?',
                 },
                 answers: [
-                  { el: 'Η αρρώστια απειλούσε το λιμάνι πιο πολύ', en: 'Illness was a bigger threat to the port' },
+                  { el: 'Πίστευαν ότι γεννήθηκε στην πόλη-πρόγονο', en: 'He was thought born in their ancestor town' },
                   { el: 'Ο Ρέκτορας ήταν πάντοτε και γιατρός', en: 'The Rector was always a doctor as well' },
                   { el: 'Ο σκαλιστής μπέρδεψε τα σχέδιά του', en: 'The carver had mixed up his own drawings' },
-                  { el: 'Το παλάτι ήταν κάποτε νοσοκομείο', en: 'The palace used to be a town hospital' },
+                  { el: 'Ο Ασκληπιός είχε χτίσει ο ίδιος το παλάτι', en: 'Aesculapius had built the palace himself' },
                 ],
                 explanation: {
                   el:
-                    'Μια πόλη-λιμάνι κερδίζει από τα καράβια και χάνεται από τις ' +
-                    'επιδημίες. Η υγεία ήταν πολιτική, όχι απλώς ιατρική.',
+                    'Η Ραγούζα έλεγε ότι κατάγεται από την αρχαία Επίδαυρο, το σημερινό ' +
+                    'Cavtat, και εκεί, πίστευαν, είχε γεννηθεί ο Ασκληπιός.',
                   en:
-                    'A harbour town is made by ships and undone by disease. Health here was ' +
-                    'politics, not only medicine.',
+                    'Ragusa said it came from ancient Epidaurum, today’s Cavtat, and that, ' +
+                    'they believed, was where Aesculapius had been born.',
                 },
               },
             },
@@ -1378,14 +1382,14 @@ export const places: Place[] = [
                 el:
                   'Στην αυλή στέκεται μια μπρούντζινη προτομή που στήθηκε το 1638. Δείχνει ' +
                   'τον Miho Pracat, πλοιοκτήτη και έμπορο από το κοντινό νησί Λοπούντ, που ' +
-                  'άφησε ολόκληρη την περιουσία του στην πόλη. Είναι το μοναδικό άγαλμα ' +
+                  'άφησε ολόκληρη την περιουσία του στην πόλη όταν πέθανε το 1607. Είναι το μοναδικό άγαλμα ' +
                   'που έστησε ποτέ η Δημοκρατία για έναν συγκεκριμένο άνθρωπο. Η πόλη ' +
                   'απέφευγε επίτηδες τα αγάλματα ανθρώπων: φοβόταν ότι όποιος αποκτήσει ' +
                   'άγαλμα, μετά θέλει και εξουσία.',
                 en:
                   'In the courtyard stands a bronze bust put up in 1638. It shows Miho ' +
                   'Pracat, a shipowner and merchant from the nearby island of Lopud, who ' +
-                  'left his whole fortune to the town. It is the only statue the Republic ' +
+                  'left his whole fortune to the town when he died in 1607. It is the only statue the Republic ' +
                   'ever raised to a named person. The town avoided statues of people on ' +
                   'purpose: it worried that whoever gets a statue starts wanting power next.',
               },
@@ -1549,42 +1553,42 @@ export const places: Place[] = [
               },
             },
             {
-              id: 'dubrovnik-rectors-palace-council-hall',
-              name: { el: 'Η αίθουσα του Μεγάλου Συμβουλίου', en: 'The Great Council hall' },
+              id: 'dubrovnik-rectors-palace-keys',
+              name: { el: 'Τα κλειδιά των πυλών', en: 'The keys to the gates' },
               blurb: {
                 el:
-                  'Στο Μεγάλο Συμβούλιο κάθονταν όλοι οι ενήλικοι άντρες των ευγενών ' +
-                  'οικογενειών, και αυτοί εξέλεγαν τον Ρέκτορα. Δεν ήταν δημοκρατία όπως ' +
-                  'τη λέμε σήμερα: οι περισσότεροι κάτοικοι, όλες οι γυναίκες και όλοι οι ' +
-                  'ναυτικοί και τεχνίτες, δεν ψήφιζαν ποτέ. Ήταν όμως ένα σύστημα χωρίς ' +
-                  'βασιλιά, σε μια εποχή γεμάτη βασιλιάδες, και κρατήθηκε πάνω από ' +
-                  'τετρακόσια χρόνια χωρίς εμφύλιο πόλεμο.',
+                  'Στο παλάτι φυλάγονται τα κλειδιά των πυλών της πόλης. Κάθε βράδυ, όταν ' +
+                  'έκλειναν οι πύλες, τα έφερναν εδώ στον Ρέκτορα, και εκείνος τα κρατούσε ' +
+                  'στο δωμάτιό του ως το πρωί. Ήταν μια μικρή τελετή με μεγάλο νόημα: τη ' +
+                  'νύχτα, η ίδια η πόλη κοιμόταν στα χέρια του ανθρώπου που κυβερνούσε. ' +
+                  'Αλλά μόνο για έναν μήνα. Μετά τα κλειδιά περνούσαν στον επόμενο ' +
+                  'Ρέκτορα, και κανείς δεν τα κράτησε ποτέ για πάντα.',
                 en:
-                  'In the Great Council sat every adult man of the noble families, and they ' +
-                  'elected the Rector. It was not democracy as we mean it now: most of the ' +
-                  'people who lived here, all the women and all the sailors and craftsmen, ' +
-                  'never voted at all. But it was a system with no king, in an age full of ' +
-                  'kings, and it held together for more than four hundred years without a ' +
-                  'civil war.',
+                  'The palace keeps the keys to the town gates. Every evening, when the ' +
+                  'gates were shut, the keys were brought here to the Rector, and he kept ' +
+                  'them in his room until morning. It was a small ceremony with a big ' +
+                  'meaning: at night, the town itself slept in the hands of the man who ' +
+                  'governed it. But only for one month. Then the keys passed to the next ' +
+                  'Rector, and nobody ever held them for good.',
               },
               question: {
                 q: {
-                  el: 'Ποιοι ψήφιζαν στο Μεγάλο Συμβούλιο;',
-                  en: 'Who was allowed to vote in the Great Council?',
+                  el: 'Πού περνούσαν τη νύχτα τα κλειδιά των πυλών;',
+                  en: 'Where did the keys to the gates spend the night?',
                 },
                 answers: [
-                  { el: 'Μόνο οι ενήλικοι άντρες των ευγενών', en: 'Only the adult men of the noble families' },
-                  { el: 'Όλοι οι κάτοικοι μέσα από τα τείχη', en: 'Everyone who lived inside the town walls' },
-                  { el: 'Οι καπετάνιοι των μεγάλων καραβιών', en: 'The captains of the biggest trading ships' },
-                  { el: 'Όποιος πλήρωνε τον φόρο του λιμανιού', en: 'Anyone who paid the tax at the harbour' },
+                  { el: 'Στο δωμάτιο του Ρέκτορα ως το πρωί', en: 'In the Rector’s room until morning' },
+                  { el: 'Κρεμασμένα πάνω στις ίδιες τις πύλες', en: 'Hanging on the gates themselves' },
+                  { el: 'Στο σπίτι του πιο πλούσιου εμπόρου', en: 'At the richest merchant’s house' },
+                  { el: 'Στο καμπαναριό, κλειδωμένα', en: 'Locked away up in the town’s bell tower' },
                 ],
                 explanation: {
                   el:
-                    'Ήταν πολύ λιγότεροι από την πόλη, και είναι σημαντικό να το λέμε. ' +
-                    'Ελεύθερη πόλη δεν σημαίνει ίση πόλη.',
+                    'Όποιος κρατάει τα κλειδιά, κρατάει την πόλη. Γι’ αυτό τα κρατούσε ο ' +
+                    'Ρέκτορας, και μόνο για τον έναν μήνα του.',
                   en:
-                    'They were far fewer than the town, and that matters. A free town is not ' +
-                    'the same thing as an equal one.',
+                    'Whoever holds the keys holds the town. That is why the Rector kept ' +
+                    'them, and only for his one month.',
                 },
               },
             },
@@ -1900,7 +1904,8 @@ export const places: Place[] = [
         'Γύρω στο μεσημέρι οι πάγκοι μαζεύονται, η πλατεία σκουπίζεται και το απόγευμα ' +
         'γεμίζει παιδιά που παίζουν μπάλα. Στη μέση στέκεται το άγαλμα του Ivan Gundulić, ' +
         'ποιητή του 17ου αιώνα που έγραψε στα κροατικά σε μια εποχή που τα επίσημα ' +
-        'γράμματα γράφονταν λατινικά ή ιταλικά. Στην ανηφορική άκρη ανεβαίνει μια φαρδιά ' +
+        'γράμματα γράφονταν λατινικά ή ιταλικά. Το πιο γνωστό του έργο είναι ένα μεγάλο ' +
+        'ποίημα, ο «Osman». Στην ανηφορική άκρη ανεβαίνει μια φαρδιά ' +
         'μπαρόκ σκάλα.',
       en:
         'Behind the cathedral there is a square that changes job twice a day. Early in the ' +
@@ -1911,7 +1916,7 @@ export const places: Place[] = [
         'stalls pack up, the square is swept, and in the afternoon it fills with children ' +
         'playing football. In the middle stands the statue of Ivan Gundulić, a poet of the ' +
         '17th century who wrote in Croatian at a time when official writing was done in ' +
-        'Latin or Italian. At the uphill end a wide baroque staircase climbs away.',
+        'Latin or Italian. His best-known work is a long poem called Osman. At the uphill end a wide baroque staircase climbs away.',
     },
     facts: [
       {
@@ -2024,7 +2029,7 @@ export const places: Place[] = [
       confidence: 'C',
       sources: [{ kind: 'wikidata', ref: 'Q931733', deltaM: 0 }],
       verifiedAt: '2026-09-14',
-      note: 'Graded C: the Overpass fetch failed with a 504 and the item has no English Wikipedia article with coordinates, so neither cross-check answered. The point is the ring’s own coordinate and is an area, not a door: the walls enclose the whole old town and are entered from three separate staircases.',
+      note: 'Graded C: the Overpass fetch failed with a 504 and the item has no English Wikipedia article with coordinates, so neither cross-check answered. The point is the ring’s own coordinate and is an area, not a door: the walls enclose the whole old town and are entered from three separate staircases. Known weakness, kept on purpose: Wikidata rounds this item to 42.64, 18.108, which lands inside the town about 50 m from the Rupe granary and not on any stretch of wall. The item itself is the right one, so the seed was not changed; the findIt sends children to the Pile staircase instead of the pin.',
       findIt: {
         el:
           'Η πιο κοντινή σκάλα για τα τείχη είναι αμέσως αριστερά μόλις μπεις από την ' +
@@ -2079,7 +2084,7 @@ export const places: Place[] = [
         'και σπάει την πέτρα. Ένας στρογγυλός πύργος όμως γλιστράει τη βολή στο πλάι. Έτσι ' +
         'η Δημοκρατία κάλεσε τον Φλωρεντινό αρχιτέκτονα Michelozzo, που τύλιξε τον παλιό ' +
         'τετράγωνο πύργο μέσα σε έναν καινούργιο, στρογγυλό, με τοίχους περίπου έξι μέτρα ' +
-        'πάχος. Ο ντόπιος μάστορας Juraj Dalmatinac τον τελείωσε το 1464 με το ψηλό ' +
+        'πάχος. Ο Δαλματός μάστορας Juraj Dalmatinac, από το Ζαντάρ, τον τελείωσε το 1464 με το ψηλό ' +
         'στεφάνι που βλέπεις σήμερα.',
       en:
         'Minčeta stands at the highest and most exposed corner of the wall, where the land ' +
@@ -2089,7 +2094,7 @@ export const places: Place[] = [
         'the flat side head-on and shatters the stone. A round tower, though, lets the shot ' +
         'glance away sideways. So the Republic sent for the Florentine architect Michelozzo, ' +
         'who wrapped the old square tower inside a new round one with walls about six metres ' +
-        'thick. The local master builder Juraj Dalmatinac finished it in 1464 with the tall ' +
+        'thick. The Dalmatian master builder Juraj Dalmatinac, from Zadar, finished it in 1464 with the tall ' +
         'crown you can see today.',
     },
     facts: [
@@ -2542,7 +2547,6 @@ export const trails: Trail[] = [
       'dubrovnik-city-walls',
       'dubrovnik-minceta',
       'dubrovnik-st-john-fortress',
-      'dubrovnik-lovrijenac',
     ],
   },
   {

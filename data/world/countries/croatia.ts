@@ -90,15 +90,15 @@ export const cities: City[] = [
         'περπατάς. Σχεδόν δύο χιλιόμετρα πέτρα, σε ύψος έως είκοσι πέντε μέτρων, με τις ' +
         'πορτοκαλί στέγες από τη μία μεριά και την Αδριατική από την άλλη. Για ' +
         'εκατοντάδες χρόνια λεγόταν Ραγούζα και ήταν μια μικρή δημοκρατία που έμεινε ' +
-        'ελεύθερη χωρίς καθόλου στρατό, με εμπόριο και προσεκτικές συμφωνίες. Ο κεντρικός ' +
+        'ελεύθερη περισσότερο με εμπόριο και προσεκτικές συμφωνίες παρά με στρατό. Ο κεντρικός ' +
         'της δρόμος ήταν κάποτε θάλασσα, και το φαρμακείο της ανοίγει κάθε πρωί από ' +
         'το 1317.',
       en:
         'Dubrovnik is a whole town inside one wall, and you can walk the wall. Almost two ' +
         'kilometres of stone, in places twenty-five metres high, with orange roofs on one ' +
         'side and the Adriatic on the other. For hundreds of years it was called Ragusa, a ' +
-        'small republic that stayed free with no army at all, using trade and careful ' +
-        'agreements instead. Its main street used to be the sea, and its pharmacy has ' +
+        'small republic that stayed free more through trade and careful agreements than ' +
+        'through armies. Its main street used to be the sea, and its pharmacy has ' +
         'opened every morning since 1317.',
     },
 
