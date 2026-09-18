@@ -138,7 +138,7 @@
           },
           "lisbon-museu-de-marinha-bergantim-real": {
             "name": "Le Brigantin royal",
-            "blurb": "Doré de la proue à la poupe, avec une cabine couverte au milieu et des bancs pour des dizaines de rameurs, ce bateau a été construit en 1780 pour un mariage royal. Ce n’est pas un navire de haute mer ; il est fait pour le fleuve, pour des cortèges devant la foule massée sur les rives. Le plus étonnant, c’est qu’il fonctionne encore : en 1957, il est retourné sur l’eau et a transporté la reine Élisabeth II sur le Tage, presque deux cents ans après sa première sortie.",
+            "blurb": "Doré de la proue à la poupe, avec une cabine couverte au milieu et des bancs pour des dizaines de rameurs, ce bateau a été construit en 1780 pour un mariage royal. Ce n’est pas un navire de haute mer ; il est fait pour le fleuve, pour des cortèges devant la foule massée sur les rives. Le plus étonnant, c’est qu’il fonctionne encore : en 1957, il est retourné sur l’eau et a transporté la reine Élisabeth II sur le Tage, cent soixante-dix-sept ans après sa première sortie.",
             "question": {
               "q": "Où naviguait ce bateau ?",
               "answers": [
@@ -199,7 +199,7 @@
             "hint": "Va regarder un drapeau portugais."
           },
           "lisbon-museu-de-marinha-riddle-2": {
-            "prompt": "Ici, nous sommes trois à avoir des ailes, même si c’est un musée de bateaux. Deux de mes frères se sont brisés pendant la traversée, et je suis le seul à avoir atteint l’autre côté.",
+            "prompt": "J’ai des ailes, même si c’est un musée de bateaux. Nous sommes partis à trois ; deux de mes frères se sont brisés pendant la traversée, et je suis le seul à avoir atteint l’autre côté.",
             "hint": "À la place des roues, j’ai des flotteurs."
           },
           "lisbon-museu-de-marinha-riddle-3": {

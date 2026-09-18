@@ -1,0 +1,710 @@
+{
+  "lang": "de",
+  "cityId": "lisbon",
+  "places": {
+    "lisbon-museu-de-marinha": {
+      "name": "Das Marinemuseum",
+      "tagline": "Im Westflügel des Klosters und voller Schiffe",
+      "story": "Das Kloster ist so groß, dass in seinen Westflügel ein ganzes Museum passt. Das ist das Marinemuseum, und es sammelt die Werkzeuge, mit denen die Portugiesen lernten, ihren Weg über Wasser zu finden, auf dem es keine Wegweiser gibt. Du siehst Astrolabien aus Messing, die die Höhe der Sonne maßen, Seekarten, auf denen die Küsten leer blieben, wo noch niemand gewesen war, und Dutzende Schiffsmodelle, von der kleinen Karavelle bis zu den riesigen Rümpfen, die Gewürze transportierten. In einer Halle nebenan schlafen die königlichen Barken, golden bemalt, mit Bänken für Dutzende Ruderer. Und in derselben Halle, wo du es am wenigsten erwartest, steht ein Flugzeug. In diesem Museum geht es nicht nur darum, wie Schiffe aussahen. Es geht darum, wie Menschen herausfanden, wo sie waren, als um sie herum nichts war als Meer und Himmel.",
+      "facts": [
+        "Es ist im Westflügel des Jerónimos-Klosters untergebracht.",
+        "In seiner Sammlung sind Kopien der Padrões, der Säulen, die die Portugiesen an jeder neuen Küste aufstellten.",
+        "Hier steht das Wasserflugzeug Santa Cruz, das 1922 den ersten Flug über den Südatlantik zu Ende brachte."
+      ],
+      "question": {
+        "q": "Was machte ein Astrolabium der Seefahrer?",
+        "answers": [
+          "Es maß, wie hoch die Sonne stand",
+          "Es zeigte immer nach Norden",
+          "Es maß die Wassertiefe unter dem Schiff",
+          "Es berechnete, wie schnell das Schiff fuhr"
+        ],
+        "explanation": "Wenn ein Seemann maß, wie hoch die Sonne mittags stand, konnte er ausrechnen, wie weit im Norden oder Süden er war. Der Kompass zeigte die Richtung, das Astrolabium den Ort."
+      },
+      "findIt": "Du gehst nicht durch die Kirche hinein. Geh weiter nach Westen bis zum Ende der Fassade, wo das Gebäude Bögen hat und davor ein Platz liegt.",
+      "museum": {
+        "rooms": {
+          "lisbon-museu-de-marinha-charts": {
+            "name": "Karten und Sterne",
+            "intro": "Bevor es Satelliten gab, war das Einzige, das immer wusste, wo es war, der Himmel. Dieser Saal sammelt die Instrumente, mit denen Seeleute die Sonne und die Sterne fragten, wo sie waren, und die kleinen Schiffe, die sie selbst bauten, um zu verstehen, wie ein großes funktioniert."
+          },
+          "lisbon-museu-de-marinha-figureheads": {
+            "name": "Galionsfiguren und Kajüten",
+            "intro": "Wenn ein Schiff abgewrackt wird, bleiben manche Teile erhalten, weil es niemand übers Herz brachte, sie wegzuwerfen. In diesem Saal stehen die Gesichter, die einst am Bug durch die Wellen schnitten, und ein ganzer Raum, der aus einem königlichen Schiff herausgenommen und hier drinnen wieder aufgebaut wurde, mit den Möbeln an ihrem Platz."
+          },
+          "lisbon-museu-de-marinha-shed": {
+            "name": "Die Halle der Barken",
+            "intro": "Geh aus dem Hauptgebäude hinaus in eine riesige Halle mit hohem Dach. Hier gibt es keine Glasvitrinen, denn nichts hier drinnen würde in eine hineinpassen: vergoldete königliche Barken in einer Reihe und ein Flugzeug, das den Atlantik überquerte, über offenem Wasser."
+          }
+        },
+        "exhibits": {
+          "lisbon-museu-de-marinha-astrolabio": {
+            "name": "Das Astrolabium der Seefahrer",
+            "blurb": "Eine schwere Scheibe aus Messing mit einem beweglichen Zeiger in der Mitte. Ein Seemann hängte sie an einen Finger, damit sie gerade herunterhing, drehte den Zeiger, bis ein Sonnenstrahl hindurchfiel, und las den Winkel am Kreis ab. Sie ist mit Absicht dick und voller Löcher: Der Wind bläst durch die Löcher, statt gegen sie zu drücken, und das Gewicht hält sie ruhig auf einem Deck, das nie stillsteht. Ein Werkzeug, das dafür gebaut ist, zu funktionieren, während ringsum alles schwankt.",
+            "question": {
+              "q": "Warum ist das Astrolabium voller Löcher?",
+              "answers": [
+                "Damit der Wind durchblasen kann",
+                "Um Messing zu sparen",
+                "Damit man es an vielen Stellen aufhängen kann",
+                "Damit das Licht der Sterne hereinkommt"
+              ],
+              "explanation": "Eine volle Scheibe würde wie ein Segel wirken und sich drehen. Die Löcher lassen den Wind hindurch, und das Instrument bleibt ruhig."
+            }
+          },
+          "lisbon-museu-de-marinha-esfera-armilar": {
+            "name": "Die Armillarsphäre",
+            "blurb": "Eine Kugel, die nur aus Ringen besteht, mit einer kleinen Erde in der Mitte. Jeder Ring ist ein Kreis am Himmel: der Äquator, die Wendekreise, der Weg, den die Sonne im Lauf des Jahres zu nehmen scheint. Sie ist kein Schmuckstück. Sie ist ein Modell, das man mit der Hand drehte, um zu sehen, wo die Sonne an einem bestimmten Tag stehen würde. König Manuel I. machte sie zu seinem persönlichen Zeichen, und bis heute steht eine Armillarsphäre in der Mitte der portugiesischen Flagge.",
+            "question": {
+              "q": "Wo siehst du heute sonst noch eine Armillarsphäre?",
+              "answers": [
+                "Auf der Flagge Portugals",
+                "Auf den Ein-Cent-Münzen",
+                "Auf dem Trikot des Nationalvereins",
+                "Auf den Pässen Spaniens"
+              ],
+              "explanation": "Die Kugel war das Zeichen von Manuel I. und kam von dort auf die Flagge. Ein Land, das ein wissenschaftliches Instrument auf seine Flagge setzt, sagt damit etwas über sich selbst."
+            }
+          },
+          "lisbon-museu-de-marinha-padrao": {
+            "name": "Der steinerne Padrão",
+            "blurb": "Eine Säule aus portugiesischem Kalkstein, mit einem Kreuz obendrauf und Buchstaben, die in ihren Körper gemeißelt sind. Schiffe trugen so eine Säule als Ballast im Laderaum und stellten sie an jeder Küste auf, die sie zum ersten Mal sahen, und schrieben das Jahr und den Namen des Königs darauf. Sie war eine Unterschrift aus Stein, vom Meer aus zu sehen. Für die Menschen, die schon an diesen Küsten lebten, änderte sich an diesem Tag nichts, aber für Europa war ihr Land plötzlich auf den Landkarten aufgetaucht. Die Säule in diesem Saal ist eine Kopie: Die Säulen, die wirklich gereist sind, landeten weit weg von Lissabon, an fernen Küsten und in anderen Museen.",
+            "question": {
+              "q": "Warum hatten die Schiffe solche Säulen dabei?",
+              "answers": [
+                "Um neu entdeckte Küsten zu markieren",
+                "Um sie in den Häfen zu verkaufen",
+                "Um den Mast zu stützen",
+                "Um die Tiefe des Wassers zu messen"
+              ],
+              "explanation": "Sie waren ein Zeichen, das sagte: „Bis hierher sind wir gekommen“, mit einem Jahr und dem Namen eines Königs. Auf der Reise dienten sie zugleich als Ballast, weil sie so schwer waren."
+            }
+          },
+          "lisbon-museu-de-marinha-caravela": {
+            "name": "Das Modell der Karavelle",
+            "blurb": "Klein, leicht und mit dreieckigen Segeln: Das war das Geheimnis der Karavelle. Viereckige Segel schieben gut, wenn der Wind von hinten kommt, aber dreieckige lassen ein Schiff auch dann vorankommen, wenn der Wind von der Seite kommt. Das war enorm wichtig: Du konntest an Afrika entlang nach Süden segeln und trotzdem wieder nach Hause kommen. Die Karavelle hatte außerdem wenig Tiefgang, also konnte sie in Flüsse und Buchten fahren, in denen ein großer Rumpf auf dem Grund festgesessen hätte.",
+            "question": {
+              "q": "Was konnte man mit dreieckigen Segeln tun?",
+              "answers": [
+                "Auch mit Wind von der Seite segeln",
+                "Ohne Mannschaft reisen",
+                "Viel schwerere Ladung tragen",
+                "Mitten in einem Sturm auf der Stelle bleiben"
+              ],
+              "explanation": "Mit einem viereckigen Segel fährst du dorthin, wohin der Wind dich treibt. Mit einem dreieckigen kannst du quer zum Wind segeln, und das heißt, du kannst zurückkommen."
+            }
+          },
+          "lisbon-museu-de-marinha-figuras-de-proa": {
+            "name": "Die Galionsfiguren",
+            "blurb": "Figuren aus Holz, größer als ein Mensch, die einst am Bug eines Schiffes befestigt waren. Manche sind Frauen mit wehendem Haar, manche Löwen, manche Soldaten. Sie waren nicht nur Schmuck: Viele Seeleute konnten nicht lesen, und an der Galionsfigur erkannte man ein Schiff schon von Weitem und merkte sich seinen Namen. Schau dir ihre Augen an: Sie sind so geschnitzt, dass sie ein wenig nach oben blicken, denn wer sie sah, stand auf dem Kai, weiter unten als sie.",
+            "question": {
+              "q": "Warum blicken die Galionsfiguren ein wenig nach oben?",
+              "answers": [
+                "Die Leute sahen sie von unten",
+                "Um ihre Augen vor der Gischt zu schützen",
+                "So zeigten sie zu den Sternen",
+                "So riss das Holz weniger"
+              ],
+              "explanation": "Der Schnitzer überlegte, wo der Betrachter stehen würde. Vom Kai aus schaust du nach oben, also wurde der Blick so geschnitzt, dass er dir begegnet."
+            }
+          },
+          "lisbon-museu-de-marinha-camarote": {
+            "name": "Die Kajüte der Amélia",
+            "blurb": "Ein ganzer Raum aus der königlichen Jacht Amélia, ausgebaut und im Museum wieder aufgebaut: Holzwände, Bett, Schreibtisch, Spiegel. Das Erste, was dir auffällt, ist, wie klein er ist, sogar für einen König. Das Zweite ist, dass sich die Möbel nicht bewegen: Auf einem Schiff werden sie am Boden festgeschraubt, sonst kann ein Tisch bei Sturm quer durch den Raum rutschen. Sogar das Bett hat einen erhöhten Rand, damit der Schläfer nicht herausrutscht.",
+            "question": {
+              "q": "Warum werden die Möbel auf einem Schiff am Boden festgeschraubt?",
+              "answers": [
+                "Damit ein Sturm sie nicht herumwirft",
+                "Damit sie im Hafen niemand stiehlt",
+                "Damit das Schiff richtig wiegt",
+                "Damit mehr Fahrgäste hineinpassen"
+              ],
+              "explanation": "Auf See neigt sich der Boden. Alles, was nicht befestigt ist, wandert von allein, und ein schwerer Tisch wird gefährlich."
+            }
+          },
+          "lisbon-museu-de-marinha-modelos": {
+            "name": "Die Karacken und Galeonen",
+            "blurb": "Dutzende Modelle in Glasvitrinen, gebaut mit derselben Sorgfalt wie die echten Schiffe. Stell eine Karavelle neben eine Nau, das große Frachtschiff der Gewürzfahrten, und der Unterschied ist offensichtlich: Die Nau ist breit, hoch und langsam, gebaut, um Ladung aufzunehmen, nicht um schnell zu sein. Auf der Fahrt nach Indien und zurück war so ein Schiff ein ganzes Jahr von zu Hause fort, oft noch länger.",
+            "question": {
+              "q": "Warum war die Nau breit und langsam?",
+              "answers": [
+                "Sie war für viel Ladung gebaut",
+                "Ihr Holz war sehr viel billiger",
+                "Sie musste in die Flüsse passen",
+                "Der König hatte schnelle Schiffe verboten"
+              ],
+              "explanation": "Es kam darauf an, wie viel Pfeffer hineinpasste, nicht wie schnell man ankam. Platz heißt Breite, und Breite heißt ein langsames Schiff."
+            }
+          },
+          "lisbon-museu-de-marinha-bergantim-real": {
+            "name": "Die Königliche Brigantine",
+            "blurb": "Vom Bug bis zum Heck vergoldet, mit einer überdachten Kabine in der Mitte und Bänken für Dutzende Ruderer, wurde dieses Boot 1780 für eine königliche Hochzeit gebaut. Es ist kein Schiff für das offene Meer, es ist für den Fluss gemacht, für Festzüge vor Menschenmengen, die am Ufer stehen. Das Erstaunliche ist, dass es noch funktioniert: 1957 kam es wieder aufs Wasser und fuhr Königin Elisabeth II. über den Tejo, hundertsiebenundsiebzig Jahre nach seiner ersten Fahrt.",
+            "question": {
+              "q": "Wo fuhr dieses Boot?",
+              "answers": [
+                "Auf dem Fluss, bei Festzügen",
+                "Auf dem Atlantik, nach Brasilien",
+                "Auf den Kanälen Hollands",
+                "Über das Mittelmeer, mit Ladung an Bord"
+              ],
+              "explanation": "Es ist ein Prunkboot für ruhiges Wasser. Der Tejo ist bei Lissabon so breit, dass man so einen Festzug von der ganzen Stadt aus sehen konnte."
+            }
+          },
+          "lisbon-museu-de-marinha-galeotas": {
+            "name": "Die königlichen Galeoten",
+            "blurb": "Neben der großen Brigantine liegen kleinere Ruderboote, die Galeoten des Hofes. Schau, wie eng die Bänke stehen: Die Ruderer saßen dicht gedrängt in Reihen und mussten alle im selben Takt ziehen, sonst schlugen die Ruder gegeneinander. Jemand rief diesen Takt laut aus, wie ein Metronom. So ein Boot bewegt sich nicht durch Kraft, sondern durch den gemeinsamen Takt: dreißig Menschen, die im selben Augenblick dieselbe Bewegung machen.",
+            "question": {
+              "q": "Was braucht ein Boot mit dreißig Rudern am meisten?",
+              "answers": [
+                "Ruderer, die im selben Takt ziehen",
+                "Die stärksten Männer der ganzen Stadt",
+                "Einen tiefen, ruhigen Kanal",
+                "Ruder aus drei verschiedenen Holzarten"
+              ],
+              "explanation": "Wenn ein Ruderer zu früh zieht, verheddern sich die Ruder. Der Takt zählt mehr als die Kraft eines Einzelnen."
+            }
+          },
+          "lisbon-museu-de-marinha-santa-cruz": {
+            "name": "Das Wasserflugzeug Santa Cruz",
+            "blurb": "Ein Flugzeug auf Schwimmern statt auf Rädern, in einem Marinemuseum, und es hat allen Grund, hier zu sein. 1922 flogen zwei portugiesische Flieger, Gago Coutinho und Sacadura Cabral, von Lissabon nach Rio de Janeiro. Zum ersten Mal hatte jemand den Südatlantik durch die Luft überquert. Unterwegs gingen zwei Flugzeuge zu Bruch. Die Santa Cruz war das dritte Flugzeug und das einzige, das ankam. Über dem Ozean gibt es keine Wegweiser, also fanden sie ihren Weg mit der Sonne, so wie es Seeleute dreihundert Jahre vorher getan hatten.",
+            "question": {
+              "q": "Wie fanden sie über dem Ozean ihren Weg?",
+              "answers": [
+                "Mit der Sonne, so wie die Seeleute",
+                "Indem sie den Schiffen unter sich folgten",
+                "Mit Funksignalen, die vom Land kamen",
+                "Dicht an der Küste entlang"
+              ],
+              "explanation": "Gago Coutinho hatte einen Sextanten gebaut, der für ein Flugzeug gemacht war. Er maß die Sonne aus der Luft und rechnete aus, wo sie waren."
+            }
+          },
+          "lisbon-museu-de-marinha-sextante": {
+            "name": "Der Sextant von Gago Coutinho",
+            "blurb": "Ein gewöhnlicher Sextant braucht den Horizont: Du schaust, wo das Meer den Himmel berührt, und misst von dort aus. In einem Flugzeug, in den Wolken oder im Dunkeln, ist der Horizont vielleicht gar nicht zu sehen. Gago Coutinho baute in sein Instrument eine Blase in einer Flüssigkeit ein, wie bei einer Wasserwaage: Solange die Blase in der Mitte sitzt, weißt du, wo waagerecht ist. Ein Horizont, den du mit dir trägst. Ohne ihn wäre die Überquerung von 1922 nicht gelungen.",
+            "question": {
+              "q": "Was fügte Gago Coutinho dem Sextanten hinzu?",
+              "answers": [
+                "Eine Blase wie bei der Wasserwaage",
+                "Einen eigenen Elektromotor",
+                "Zwei zusätzliche Spiegel an der Seite",
+                "Eine Karte, auf den Fuß gedruckt"
+              ],
+              "explanation": "Die Blase zeigt, was waagerecht ist, wenn kein Horizont zu sehen ist. So kam es, dass ein Instrument des Meeres in der Luft funktionierte."
+            }
+          }
+        },
+        "riddles": {
+          "lisbon-museu-de-marinha-riddle-1": {
+            "prompt": "Ich bin eine Kugel, die nur aus Ringen besteht, und in meiner Mitte versteckt sich eine kleine Erde. Ein König machte mich zu seinem Zeichen, und heute siehst du mich jeden Tag auf einem Stück Stoff, das im Wind flattert.",
+            "hint": "Geh und schau dir eine portugiesische Flagge an."
+          },
+          "lisbon-museu-de-marinha-riddle-2": {
+            "prompt": "Ich habe Flügel, auch wenn dies ein Museum für Schiffe ist. Wir sind zu dritt aufgebrochen; zwei meiner Brüder sind unterwegs zerbrochen, und ich war der Einzige, der die andere Seite erreicht hat.",
+            "hint": "Statt Rädern habe ich Schwimmer."
+          },
+          "lisbon-museu-de-marinha-riddle-3": {
+            "prompt": "Ich bin die Kopie von etwas, das als bloßes totes Gewicht im Laderaum reiste und dann an einem Strand aufgestellt wurde, den noch kein portugiesisches Schiff gesehen hatte. In mich sind ein Jahr und der Name eines Königs gemeißelt.",
+            "hint": "Oben auf mir steht ein Kreuz."
+          }
+        },
+        "doorNote": "Die Halle mit den Barken und dem Flugzeug ist ein eigenes Gebäude. Geh nicht, ohne sie gesehen zu haben."
+      }
+    },
+    "lisbon-aqueduto-das-aguas-livres": {
+      "name": "Der Aquädukt der Águas Livres",
+      "tagline": "Das Erdbeben legte die Stadt in Trümmer und ließ ihn stehen",
+      "story": "Jahrhundertelang hatte Lissabon nicht genug sauberes Wasser. Im 18. Jahrhundert beschloss die Stadt, es von weit entfernten Quellen im Nordwesten heranzuholen, durch eine Leitung, die so sanft abfällt, dass das Wasser von allein fließt, ganz ohne Pumpe. Das Schwierigste war das Tal von Alcântara. Man überquerte es auf fünfunddreißig riesigen Bögen, und der höchste von ihnen erreicht fünfundsechzig Meter: Er ist der höchste steinerne Spitzbogen, der je gebaut wurde. 1748 kam das Wasser in der Stadt an. Sieben Jahre später kam das große Erdbeben, riss das Zentrum von Lissabon nieder und ließ den Aquädukt ohne Schaden stehen. Ein Bauwerk aus einfachem Stein, ohne Zement und ohne Stahl, überstand es, weil es richtig geplant war. Heute kannst du oben auf den Bögen entlanggehen, mit dem Tal unter deinen Füßen.",
+      "facts": [
+        "Das Wasser erreichte Lissabon 1748, und es fließt allein durch die Schwerkraft, ohne Pumpen.",
+        "Sein höchster Bogen, über dem Tal von Alcântara, erreicht 65 Meter.",
+        "Er überstand das Erdbeben von 1755 ohne Schaden, während das Stadtzentrum einstürzte."
+      ],
+      "question": {
+        "q": "Was geschah mit dem Aquädukt beim Erdbeben von 1755?",
+        "answers": [
+          "Nichts, er blieb einfach stehen",
+          "Die Hälfte der Bögen stürzte ein",
+          "Er bekam Risse, das Wasser blieb weg",
+          "Er kippte und wurde woanders neu gebaut"
+        ],
+        "explanation": "Das Stadtzentrum stürzte ein, der Aquädukt nicht. Bögen leiten ihr Gewicht in den Boden, und diese Form übersteht das Beben."
+      },
+      "findIt": "Die Bögen sieht man von der Straße unten, in Alcântara. Der Eingang für den Weg oben auf den Bögen liegt in der Calçada da Quintinha."
+    },
+    "lisbon-padrao-dos-descobrimentos": {
+      "name": "Das Denkmal der Entdeckungen",
+      "tagline": "Ein steinerner Schiffsbug voller Menschen, die in See stachen",
+      "story": "Stell dir eine Zeit vor, in der niemand in Europa wusste, was jenseits des Ozeans lag. Ein portugiesischer Prinz, Heinrich der Seefahrer, beschloss, es herauszufinden. Er holte Kartenzeichner, Schiffbauer und Seeleute zusammen und schickte ein Schiff nach dem anderen an der Küste Afrikas entlang nach Süden, und jedes kam mit neuem Wissen zurück. Dieses Denkmal hat die Form des Bugs einer Karavelle. Heinrich steht vorn und hält ein kleines Schiff, und hinter ihm folgen Vasco da Gama, der Indien erreichte, Magellan, dessen Expedition um die ganze Welt fuhr, und Pedro Álvares Cabral, der in Brasilien an Land ging. Aber dieselben Reisen taten noch etwas anderes: Sie nahmen anderen Menschen ihr Land weg und brachten versklavte Menschen über das Meer. Beides gilt für dieselben Schiffe, und Portugal streitet bis heute darüber, wie es sich an sie erinnern soll.",
+      "facts": [
+        "Es wurde 1960 gebaut, fünfhundert Jahre nach dem Tod Heinrichs des Seefahrers.",
+        "Zuerst stand es 1940 als vorübergehender Bau für eine Ausstellung und wurde zwanzig Jahre später neu errichtet.",
+        "Die riesige Windrose mit der Weltkarte auf dem Pflaster war 1960 ein Geschenk Südafrikas."
+      ],
+      "question": {
+        "q": "Wie sieht das Denkmal aus?",
+        "answers": [
+          "Wie der Bug eines Schiffes",
+          "Wie ein offenes Buch",
+          "Wie ein Turm mit großem Leuchtfeuer",
+          "Wie eine Welle aus Stein"
+        ],
+        "explanation": "Es ist der Bug einer Karavelle, des Schiffes, mit dem die Portugiesen segelten. Die Figuren stehen da wie eine Mannschaft kurz vor der Abfahrt."
+      },
+      "findIt": "An der Uferpromenade, direkt am Fluss. Stell dich zuerst auf die Karte im Pflaster und such Portugal, dann geh hinein zum Aufzug."
+    },
+    "lisbon-museu-nacional-do-azulejo": {
+      "name": "Das Nationale Fliesenmuseum",
+      "tagline": "Ein Kloster voller Wände, die Geschichten erzählen",
+      "story": "In Portugal sind Fliesen nicht nur fürs Badezimmer da. Sie heißen Azulejos, sie bedecken Hausfassaden, Treppen, Kirchen und U-Bahn-Stationen, und oft erzählen sie ganze Geschichten in Bildern, wie ein Comic an der Wand. Ihr Museum liegt in einem Kloster, das Königin Leonor 1509 gründete, und genau das gehört dazu: Du gehst durch Kreuzgänge und eine Kirche, in denen die Ausstellungsstücke an dem Ort sind, für den sie gemacht wurden. Du siehst die ältesten Fliesen, mit erhabenen Stegen, die die Farben voneinander trennten, blau-weiße Bilder, die eine holländische Mode nachahmten, und eine dreiundzwanzig Meter lange Wand, die Lissabon so zeigt, wie es vor dem Erdbeben war. Sie ist das, was einem Foto dieser verschwundenen Stadt am nächsten kommt. Und weil Fliesen gebrannt werden, verblassen ihre Farben nicht so, wie gemalte Farbe verblasst: Was du siehst, ist fast genau das, was der Handwerker sah, als er vor dreihundert Jahren den Brennofen öffnete.",
+      "facts": [
+        "Es ist im Kloster Madre de Deus untergebracht, das Königin Leonor 1509 gründete.",
+        "Sein großes Bild von Lissabon ist ungefähr 23 Meter lang und zeigt die Stadt vor dem Erdbeben.",
+        "Das Wort Azulejo kommt nicht von „azul“, blau, sondern von einem arabischen Wort für ein poliertes Steinchen."
+      ],
+      "question": {
+        "q": "Woher kommt das Wort Azulejo?",
+        "answers": [
+          "Von einem arabischen Wort für polierten Stein",
+          "Vom Wort azul, das blau bedeutet",
+          "Vom Namen der ersten Werkstatt",
+          "Von einem holländischen Wort für gebrannte Erde"
+        ],
+        "explanation": "Es sieht aus wie „azul“, aber das ist Zufall. Das Wort kam aus dem Arabischen und bezeichnete einen kleinen polierten Stein, lange bevor Fliesen blau wurden."
+      },
+      "findIt": "Es liegt weit außerhalb des Zentrums, in der Rua da Madre de Deus. Die Fassade ist schlicht und weiß: Sie sieht aus wie eine Kirche, nicht wie ein Museum.",
+      "museum": {
+        "rooms": {
+          "lisbon-museu-nacional-do-azulejo-first-tiles": {
+            "name": "Die ersten Fliesen",
+            "intro": "Anfangs trugen Fliesen Muster statt Bilder, und das große Problem war ein ganz praktisches: Im Brennofen schmelzen die Farben und laufen ineinander. Dieser Saal zeigt die Tricks, die die Handwerker erfanden, um jede Farbe dort zu halten, wo sie sie haben wollten."
+          },
+          "lisbon-museu-nacional-do-azulejo-before-the-earthquake": {
+            "name": "Lissabon vor dem Erdbeben",
+            "intro": "1755 gab es keine Kameras. Alles, was wir darüber wissen, wie die Stadt vor jenem Morgen aussah, wissen wir aus Bildern, und das größte von allen ist hier, gemacht aus Fliesen. In diesem Saal kommst du einer verschwundenen Stadt so nah, wie es nur geht."
+          },
+          "lisbon-museu-nacional-do-azulejo-convent": {
+            "name": "Das Kloster um dich herum",
+            "intro": "In manchen Museen ist das Gebäude nur eine Kiste. Hier ist es selbst ein Ausstellungsstück. Du gehst durch zwei Kreuzgänge, die im Abstand von ungefähr vierzig Jahren gebaut wurden, und betrittst eine Kirche, die so voller Gold und Fliesen ist, dass du Mühe hast, ein Stück nackte Wand zu finden."
+          }
+        },
+        "exhibits": {
+          "lisbon-museu-nacional-do-azulejo-aresta": {
+            "name": "Die Fliese mit den Stegen",
+            "blurb": "Fahr mit dem Finger über eine Fliese aus dem 16. Jahrhundert, und du spürst, dass sie nicht flach ist. Der Ton wurde in eine Form gepresst, die dünne, erhabene Linien hinterließ, winzige Mauern. In jedes kleine Feld zwischen diesen Mauern wurde eine Farbe gegossen. Im Ofen schmolzen die Farben, aber sie konnten nicht entkommen, denn der Steg hielt sie fest. Das Muster wird scharf, weil der Handwerker ein Problem der Physik gelöst hat, nicht weil er sorgfältig gemalt hat.",
+            "question": {
+              "q": "Wozu sind die erhabenen Linien da?",
+              "answers": [
+                "Damit die Farben nicht ineinanderlaufen",
+                "Damit die Fliese leichter zu tragen ist",
+                "Damit man sieht, wohin der Nagel kommt",
+                "Damit die Fliese an der Wand hält"
+              ],
+              "explanation": "Im Feuer wird die Farbe flüssig. Ohne eine Mauer würde sie ins nächste Feld laufen, und das Muster würde verschwimmen."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-nossa-senhora": {
+            "name": "Das Altarbild aus Fliesen",
+            "blurb": "Ein ganzes Altarbild aus Fliesen, mehrere Meter hoch, entstanden am Ende des 16. Jahrhunderts. Das ist der Moment, in dem Fliesen aufhören, Muster zu sein, und zu Gemälden werden: Gesichter, Kleider, Hände, gemalt über Hunderte Teile, die nach dem Brennen genau zueinander passen müssen. Und genau da steckt die Schwierigkeit, denn Ton schrumpft im Ofen ein wenig. Wenn eine Fliese anders schrumpft als ihre Nachbarin, wird das Gesicht schief.",
+            "question": {
+              "q": "Warum ist ein Gesicht über viele Fliesen schwer zu malen?",
+              "answers": [
+                "Der Ton schrumpft im Brennofen",
+                "Die Farben kosten unglaublich viel Geld",
+                "Der Maler muss immer im Dunkeln arbeiten",
+                "Die Fliesen kleben nicht"
+              ],
+              "explanation": "Jede Fliese wird im Feuer ein bisschen kleiner, und nicht alle gleich viel. Die Linien der Zeichnung müssen danach wieder zusammentreffen."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-tapete": {
+            "name": "Die Teppichwand",
+            "blurb": "Im 17. Jahrhundert bedeckten die Portugiesen Wände mit Fliesen, die sich wiederholen, wie ein aufgestellter Teppich. Der Trick ist, dass das Muster nicht am Rand einer Fliese aufhört: Es geht in der nächsten weiter, und so siehst du vom anderen Ende des Raums keine Fliesen, sondern Stoff. Es gab auch einen praktischen Grund. Eine Oberfläche aus Keramik hält ein Haus im Sommer kühl, lässt sich mit Wasser abwaschen und hat nichts gegen die Feuchtigkeit, die vom Atlantik hereinkommt.",
+            "question": {
+              "q": "Warum kannst du die Fliesen von Weitem nicht einzeln erkennen?",
+              "answers": [
+                "Das Muster läuft über die Ränder weiter",
+                "Sie sind ganz ohne Fugen verlegt",
+                "Sie werden an der Wand noch einmal bemalt",
+                "Sie sind viel größer als die Fliesen von heute"
+              ],
+              "explanation": "Das Motiv ist so entworfen, dass es über den Rand hinaus weitergeht. Das Auge folgt dem Muster und übersieht die Fugen."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-grande-panorama": {
+            "name": "Das große Panorama",
+            "blurb": "Dreiundzwanzig Meter Wand, entstanden um 1700, die ganz Lissabon vom Fluss aus zeigen, Haus für Haus. Geh langsam daran entlang und finde die Burg oben auf ihrem Hügel, die Kathedrale, die Schiffe auf dem Tejo und den Königspalast am Wasser – den Palast, den das Erdbeben fünfzig Jahre später dem Erdboden gleichmachen würde. Als die Wand entstand, war sie Dekoration. Zu einem Dokument wurde sie aus Versehen, an dem Tag, an dem die Stadt, die sie zeigt, aufhörte zu existieren.",
+            "question": {
+              "q": "Warum ist diese Wand so wichtig?",
+              "answers": [
+                "Sie zeigt die Stadt, die 1755 verloren ging",
+                "Sie ist die älteste Fliese Europas",
+                "König Manuel hat sie mit eigener Hand gemalt",
+                "Sie ist die einzige, die das Feuer überstanden hat"
+              ],
+              "explanation": "Sie entstand fünfzig Jahre vor dem Erdbeben. Sie ist fast das einzige genaue Porträt einer Stadt, die es nicht mehr gibt."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-blue-white": {
+            "name": "Die blau-weißen Fliesenbilder",
+            "blurb": "Im 18. Jahrhundert verliebte sich Portugal in Blau auf Weiß, eine Mode, die aus Holland kam und davor aus China. Es gab auch einen praktischen Grund: Kobaltblau ist eine der wenigen Farben, die die sehr große Hitze des Brennofens überstehen, ohne sich zu verändern. Werkstätten stellten riesige Bilder von Jagden, Festen und Geschichten her und verkauften sie an Paläste, Klöster und Kaufmannshäuser.",
+            "question": {
+              "q": "Warum war Blau eine so praktische Farbe?",
+              "answers": [
+                "Es übersteht die große Hitze des Ofens",
+                "Es war die billigste Farbe auf dem Markt",
+                "Es trocknete sehr viel schneller als die anderen",
+                "Der König mochte es lieber als alle anderen"
+              ],
+              "explanation": "Viele Farbstoffe verbrennen und verändern sich im Feuer. Kobalt kommt fast genau so aus dem Ofen, wie es hineinging."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-factory": {
+            "name": "Die Fliese aus der Fabrik",
+            "blurb": "Im 19. Jahrhundert wurden Fliesen nicht mehr einzeln gemacht. Fabriken pressten sie mit Maschinen, mit erhabenem Muster und glänzender Glasur, in Tausenden gleichen Stücken. Plötzlich waren sie kein Luxus für Paläste mehr: Eine ganz normale Familie konnte sie kaufen, um die Vorderseite ihres Hauses zu schmücken. Deshalb glänzen in Lissabon ganze Straßen, wenn es regnet. Derselbe Gegenstand, billiger hergestellt, veränderte das Aussehen einer ganzen Stadt.",
+            "question": {
+              "q": "Was änderte sich, als Fliesen aus einer Maschine kamen?",
+              "answers": [
+                "Auch einfache Leute konnten sie kaufen",
+                "Sie wurden viel schwerer als vorher",
+                "Sie kamen nicht mehr in Kirchen",
+                "Die Farbe Blau verschwand vollständig"
+              ],
+              "explanation": "Die Maschine drückte den Preis. Die Fliese verließ die Paläste und kletterte an die Fassaden gewöhnlicher Häuser."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-igreja": {
+            "name": "Die Kirche Madre de Deus",
+            "blurb": "Geh hinein und leg den Kopf in den Nacken. Die Decke ist in Quadrate aus Holz aufgeteilt, jedes mit seinem eigenen Gemälde, die Wände sind mit geschnitztem, vergoldetem Holz bedeckt, und darunter läuft ein Band aus blauen Fliesen entlang. Die Kirche wurde beim Erdbeben von 1755 beschädigt und repariert. Heute gehört sie zum Museum, du kommst also mit einer Eintrittskarte herein und nicht zum Gottesdienst, und du kannst so lange stehen bleiben und nach oben schauen, wie du willst.",
+            "question": {
+              "q": "Was ist in bemalte Quadrate aufgeteilt?",
+              "answers": [
+                "Die Decke der Kirche",
+                "Der Boden vor dem Eingang",
+                "Die Tür zum größeren Kreuzgang",
+                "Die Wand hinter dem Altar"
+              ],
+              "explanation": "Es ist die Decke. Jedes Quadrat aus Holz trägt sein eigenes Gemälde, und so ist die Decke für sich allein eine ganze Ausstellung."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-claustro-manuelino": {
+            "name": "Leonors kleiner Kreuzgang",
+            "blurb": "Ein kleiner quadratischer Hof mit zwei Reihen Bögen, eine über der anderen, aus den ersten Jahren des Klosters. Er ist manuelinisch, im selben Stil wie der Turm von Belém, also such nach denselben gemeißelten Seilen. Achte darauf, wie still es hier bleibt, selbst wenn im Museum viel los ist: Kreuzgänge wurden mit Absicht so gebaut, ein quadratischer Garten, rundherum von Gebäude umschlossen, damit der Lärm der Stadt nie bis in die Mitte dringt.",
+            "question": {
+              "q": "Warum ist ein Kreuzgang so still?",
+              "answers": [
+                "Das Gebäude umgibt ihn von allen Seiten",
+                "Er ist tief unter der Erde gebaut",
+                "Dort drinnen war Sprechen streng verboten",
+                "Seine Mauern sind mit Stroh gefüllt"
+              ],
+              "explanation": "Ein Garten, der an vier Seiten geschlossen ist, lässt dem Lärm keinen Weg herein. Genau das wollten die Nonnen."
+            }
+          },
+          "lisbon-museu-nacional-do-azulejo-claustro-grande": {
+            "name": "Der große Kreuzgang",
+            "blurb": "Der zweite Kreuzgang ist größer, schlichter und etwa vierzig Jahre später gebaut, im Stil der Renaissance: gerade Linien, gleiche Abstände, keine Seile und keine Muscheln. Stell dir die beiden Kreuzgänge nebeneinander vor, und du siehst, wie sich eine Mode vor deinen Augen ändert, in einem einzigen Gebäude. Heute ist das der stille Ort, an dem sich die Leute zum Ausruhen hinsetzen, und die Wände ringsum tragen Fliesenbilder, die aus Gebäuden gerettet wurden, die es nicht mehr gibt.",
+            "question": {
+              "q": "Wie unterscheidest du den großen Kreuzgang vom kleinen?",
+              "answers": [
+                "Er ist schlicht, mit geraden Linien",
+                "Er hat überhaupt keine Bögen ringsum",
+                "Er liegt außerhalb des Gebäudes",
+                "Er ist mit einem Glasdach bedeckt"
+              ],
+              "explanation": "Der kleine ist manuelinisch und voller Schnitzereien. Der große ist Renaissance und schlicht, etwa vierzig Jahre später gebaut."
+            }
+          }
+        },
+        "riddles": {
+          "lisbon-museu-nacional-do-azulejo-riddle-1": {
+            "prompt": "Ich bin dreiundzwanzig Meter lang und passe in keinen Rahmen. Ich zeige eine Stadt, die du nicht mehr besuchen kannst, denn fünfzig Jahre nachdem man mich gemacht hat, stürzte sie ein.",
+            "hint": "Du musst gehen, um mich ganz zu sehen."
+          },
+          "lisbon-museu-nacional-do-azulejo-riddle-2": {
+            "prompt": "Ich bin nicht flach, auch wenn ich so aussehe. Ich habe kleine Mauern, die du kaum siehst, aber fühlen kannst, und ihre Aufgabe ist es, meine Farben im Feuer am Entkommen zu hindern.",
+            "hint": "Ich gehöre zu den ältesten Dingen hier."
+          },
+          "lisbon-museu-nacional-do-azulejo-riddle-3": {
+            "prompt": "Ich bin quadratisch und in der Mitte leer, mit Bögen auf zwei Stockwerken. Ich trage dieselben steinernen Seile wie ein Turm am Fluss, zehn Kilometer von hier.",
+            "hint": "Der andere von uns beiden ist größer."
+          }
+        },
+        "doorNote": "Das große Bild von Lissabon ist im Obergeschoss. Heb es dir für den Schluss auf, es braucht Zeit."
+      }
+    },
+    "lisbon-oceanario-de-lisboa": {
+      "name": "Das Ozeanarium von Lissabon",
+      "tagline": "Vier Ozeane rund um ein einziges Becken",
+      "story": "Das Ozeanarium wurde 1998 gebaut, und in seiner Mitte steckt eine Idee, ganz wörtlich. In der Mitte steht ein riesiges Becken mit fünf Millionen Litern Wasser. Rundherum liegen vier verschiedene Landschaften: der Nordatlantik mit seinen Felsen, die Antarktis mit ihren Pinguinen, der gemäßigte Pazifik mit seinen Seeottern und der tropische Indische Ozean mit seinen Korallen. Jede hat ihre eigene Luft, ihre eigene Temperatur und ihre eigenen Tiere, und doch blicken alle vier in dasselbe Wasser. Das ist kein Trick, um Platz zu sparen: Das ist es, was das Gebäude sagen will. Die Ozeane sind nicht fünf getrennte Dinge, sie sind einer, und was du an einer Küste ins Wasser wirfst, erreicht am Ende alle anderen. Sein berühmtester Bewohner ist der Mondfisch, der aussieht wie ein riesiger Kopf ohne Körper.",
+      "facts": [
+        "Das große Becken in der Mitte fasst ungefähr fünf Millionen Liter Meerwasser.",
+        "Die vier Landschaften sind durch durchsichtiges Acryl getrennt, deshalb siehst du die Trennung von Weitem nicht.",
+        "Es wurde für die Weltausstellung Expo ’98 gebaut, deren Thema die Ozeane waren."
+      ],
+      "question": {
+        "q": "Warum blicken alle Landschaften in dasselbe Becken?",
+        "answers": [
+          "Weil es nur einen Ozean gibt",
+          "Weil so mehr Fische hineinpassen",
+          "Weil sich das Wasser leichter sauber halten lässt",
+          "Weil das Gebäude sehr klein war"
+        ],
+        "explanation": "Die Ozeane haben verschiedene Namen, aber sie sind ein einziges Wasser. Das Gebäude lässt dich das sehen, statt es nur zu lesen."
+      },
+      "findIt": "Im Parque das Nações, direkt am Wasser. Das Gebäude steht in einem Becken, und du erreichst es über eine Fußgängerbrücke."
+    },
+    "lisbon-pasteis-de-belem": {
+      "name": "Die Konditorei Pastéis de Belém",
+      "tagline": "Das Rezept der Mönche, in einem Raum eingeschlossen",
+      "story": "Gleich neben dem Kloster gibt es eine Konditorei, die warme kleine Törtchen mit Eiercreme verkauft, die Pastéis de Nata. Ihre Geschichte beginnt bei den Mönchen. Klöster brauchten riesige Mengen Eiweiß, um ihre Kleider zu stärken, und so blieben ihnen Berge von Eigelb übrig. Statt es wegzuwerfen, machten sie Süßspeisen daraus. Deshalb sind so viele portugiesische Nachspeisen gelb und schmecken nach Eiercreme. 1834 wurden die Klöster Portugals geschlossen, und das Rezept wurde an einen Laden nebenan verkauft, der 1837 öffnete und seitdem ohne Pause backt. Das Rezept wurde nie in einem Kochbuch gedruckt. Der Teig wird in einem abgeschlossenen Raum ausgerollt, der Oficina do Segredo heißt, die „Werkstatt des Geheimnisses“, und nur eine Handvoll Menschen kennt das ganze Rezept. Die Törtchen kommen oben ein wenig verbrannt aus dem Ofen, und das ist Absicht: Das sehr heiße Feuer karamellisiert den Zucker und macht die dunklen Bläschen, nach denen alle suchen.",
+      "facts": [
+        "Den Laden gibt es seit 1837, als er das Rezept vom Kloster nebenan kaufte.",
+        "Die Mönche nahmen das Eiweiß, um Kleider zu stärken, und machten aus dem übrigen Eigelb Süßspeisen.",
+        "Nur hier heißen sie Pastéis de Belém, überall sonst heißen sie Pastéis de Nata."
+      ],
+      "question": {
+        "q": "Warum hatten die Mönche so viel Eigelb übrig?",
+        "answers": [
+          "Sie stärkten ihre Kleider mit dem Eiweiß",
+          "Sie verkauften das Eiweiß an Bäckereien in der Stadt",
+          "Das Eiweiß wurde viel schneller schlecht",
+          "Sie fütterten die Tiere im Garten mit dem Eiweiß"
+        ],
+        "explanation": "Eiweiß macht Stoff steif, deshalb verbrauchten Klöster es eimerweise. Das Eigelb blieb übrig, und daraus wurden Süßspeisen."
+      },
+      "findIt": "Sie liegt in der Rua de Belém, mit einem blauen Schild. Die Schlange auf dem Gehweg ist nur zum Mitnehmen, drinnen gibt es Säle und Tische."
+    },
+    "lisbon-praca-do-comercio": {
+      "name": "Die Praça do Comércio",
+      "tagline": "Hier stand der Palast, bis zum Morgen des Erdbebens",
+      "story": "Genau hier, am Wasser, stand der Palast der Könige von Portugal. Am Morgen des 1. November 1755 erschütterte ein schreckliches Erdbeben Lissabon, und der Palast ging zusammen mit dem größten Teil der Innenstadt verloren. Die Menschen gaben nicht auf. Der Minister des Königs, der Marquis von Pombal, baute die alten, verwinkelten Gassen nicht wieder auf: Er zeichnete ganz neue, gerade Straßen und baute diesen riesigen Platz mit seinen gelben Arkaden, auf einer Seite offen zum Fluss, damit Schiffe und Kaufleute aus aller Welt hier ankommen konnten. Der König auf dem Pferd ist José I., der damals regierte. Geh hinunter zum Wasser, und du findest zwei Säulen aus Stein und Stufen aus Marmor, die in den Fluss hineinführen: Dort legten die Boote an, und wichtige Besucher stiegen diese Stufen hinauf in die Stadt. Wenn etwas zerbricht, kann man es wieder aufbauen, und manchmal sogar besser.",
+      "facts": [
+        "Die Leute nennen ihn immer noch Terreiro do Paço, „der Palasthof“, obwohl der Palast vor 270 Jahren verschwand.",
+        "Das Erdbeben von 1755 war eines der stärksten, die in Europa je verzeichnet wurden, und seine Welle kam bis nach England.",
+        "Auf der offenen Seite führen die Marmorstufen des Cais das Colunas hinunter ins Wasser."
+      ],
+      "question": {
+        "q": "Was stand vor dem Erdbeben auf diesem Platz?",
+        "answers": [
+          "Der Palast der Könige",
+          "Ein Kloster mit Obstgarten",
+          "Der alte Leuchtturm im Hafen",
+          "Ein Markt mit Arkaden"
+        ],
+        "explanation": "Es war der Paço da Ribeira, der Palast am Fluss. Das Erdbeben von 1755 brachte ihn zum Einsturz, und an seiner Stelle baute die Stadt einen Platz, der allen offenstand."
+      },
+      "findIt": "Stell dich unter die gelben Arkaden und geh zum Wasser. Der Platz endet mit Stufen, nicht mit einer Mauer."
+    },
+    "lisbon-arco-da-rua-augusta": {
+      "name": "Der Bogen der Rua Augusta",
+      "tagline": "Ein „Gut gemacht“ aus Stein, das hundert Jahre zu spät kam",
+      "story": "Dieser Bogen wurde gleich nach dem Erdbeben geplant, als Tor, das ruft: „Seht her, Lissabon steht wieder!“ Nur ging der Bau sehr langsam voran. Pläne änderten sich, Könige wechselten, und der Bogen wurde 1875 fertig, mehr als ein Jahrhundert nach dem Tag, an dem man ihn versprochen hatte. Ganz oben setzt eine Frau aus Marmor, die Ruhm heißt, zwei Figuren Kränze auf, dem Genie und der Tapferkeit: Klugheit und Mut, genau die zwei Dinge, die die Stadt brauchte, um wieder aufzustehen. Weiter unten, zwischen den Säulen, stehen gemeißelte Menschen, die wirklich gelebt haben, wie der Seefahrer Vasco da Gama und der Marquis von Pombal. Unter dem Bogen beginnt die Rua Augusta, die belebteste Fußgängerstraße der Stadt. Und seit 2013 bringt ein Aufzug Besucher hinauf auf sein Dach, damit sie von oben auf die geraden Straßen schauen können, die Pombal gezeichnet hat.",
+      "facts": [
+        "Er wurde nach dem Erdbeben von 1755 geplant und erst 1875 fertig, 120 Jahre später.",
+        "Die Figurengruppe oben meißelte der Franzose Célestin Anatole Calmels.",
+        "Seine Dachterrasse ist seit 2013 für Besucher offen, und die Uhr kam erst lange nach dem Bogen dazu."
+      ],
+      "question": {
+        "q": "Wie lange dauerte der Bau dieses Bogens?",
+        "answers": [
+          "Mehr als ein ganzes Jahrhundert",
+          "Einen Winter und einen Frühling",
+          "Ungefähr drei volle Jahre",
+          "Zwölf Jahre, mit zwei Pausen"
+        ],
+        "explanation": "Er wurde um 1760 geplant und 1875 fertig. Die Stadt war längst wieder aufgebaut, bevor das Tor bereit war, das genau das feiern sollte."
+      },
+      "findIt": "Er steht an der Nordseite der Praça do Comércio. Die Tür zum Aufzug aufs Dach ist an der Seite, nicht unter dem Bogen."
+    },
+    "lisbon-elevador-de-santa-justa": {
+      "name": "Der Santa-Justa-Aufzug",
+      "tagline": "Ein Eisenturm, der als öffentliches Verkehrsmittel zählt",
+      "story": "Lissabon ist auf Hügeln gebaut, und um von den Geschäften der Baixa hinauf ins Viertel Chiado zu kommen, dreißig Meter höher, musstest du viele, viele Stufen steigen. 1902 bekam die Stadt ihre Lösung: einen Eisenturm, fünfundvierzig Meter hoch, mit zwei Holzkabinen, die darin auf und ab fahren. Entworfen hat ihn der Ingenieur Raoul Mesnier du Ponsard, der die Eisenbauten seiner Zeit bewunderte. Anfangs zog eine Dampfmaschine die Kabinen nach oben, wie bei einem Zug; ein paar Jahre später wurden sie auf Strom umgestellt. Oben führt dich ein Steg aus Metall hinaus ins Chiado, und der Blick reicht über rote Dächer bis zur Burg. Das Beste aber ist das: Der Turm ist keine Attraktion für Besucher. Er ist ein echtes öffentliches Verkehrsmittel, betrieben von derselben Firma wie die Straßenbahnen, und die Leute fahren damit zur Arbeit.",
+      "facts": [
+        "Er wurde 1902 eröffnet und ist 45 Meter hoch.",
+        "Anfangs bewegte eine Dampfmaschine die Kabinen, ein paar Jahre später wurden sie elektrisch.",
+        "Er ist der einzige senkrechte Straßenaufzug Lissabons, der noch in Betrieb ist, und gehört zum öffentlichen Nahverkehr."
+      ],
+      "question": {
+        "q": "Was bewegte die Kabinen, als der Aufzug eröffnet wurde?",
+        "answers": [
+          "Eine Dampfmaschine",
+          "Pferde, die an einem Seil zogen",
+          "Wasser in großen Tanks",
+          "Ein Elektromotor"
+        ],
+        "explanation": "1902 lief er mit Dampf, wie die Züge. Der Elektromotor kam ein paar Jahre später, und so funktioniert der Aufzug bis heute."
+      },
+      "findIt": "Die Schlange bildet sich unten, in der Rua do Ouro. Von oben kommst du kostenlos hinein, vom Largo do Carmo aus."
+    },
+    "lisbon-rossio": {
+      "name": "Der Rossio",
+      "tagline": "Ein Platz mit Wellen auf dem Pflaster",
+      "story": "Der Rossio ist seit Jahrhunderten das Wohnzimmer Lissabons: Hier gab es Märkte, Feste und sogar Stierkämpfe. Das Auffälligste an ihm ist aber nicht über dir, es ist unter deinen Füßen. 1848 wurde das Pflaster aus kleinen schwarzen und weißen Steinen gelegt, einer nach dem anderen von Hand gesetzt, in einem Muster, das Wellen macht. Wenn du darüber gehst, glauben deine Augen, der Boden wogt wie das Meer – das Meer, das die portugiesischen Seeleute überquerten. Den Leuten gefiel es so gut, dass sich solche Pflaster über die ganze Stadt ausbreiteten und dann über das ganze Land. In der Mitte trägt eine hohe Säule König Pedro IV., der auch der erste Kaiser von Brasilien war, und zwei Brunnen aus Bronze kamen mit dem Schiff aus Frankreich. Sein offizieller Name ist Praça D. Pedro IV. So nennt ihn niemand.",
+      "facts": [
+        "Das Wellenpflaster wurde 1848 gelegt, und von hier aus breitete es sich über ganz Portugal aus.",
+        "Die Steine werden einer nach dem anderen von Hand gesetzt; das Handwerk heißt Calçada portuguesa.",
+        "Der König auf der Säule, Pedro IV., war auch der erste Kaiser von Brasilien."
+      ],
+      "question": {
+        "q": "Was bilden die schwarzen und weißen Steine auf dem Pflaster?",
+        "answers": [
+          "Wellen, wie das Meer",
+          "Sterne und Mondsicheln",
+          "Buchstaben des Alphabets",
+          "Berge auf einer Landkarte"
+        ],
+        "explanation": "Es sind Wellen, und sie täuschen das Auge: Der Boden scheint sich zu bewegen. Sie stehen für das Meer, das portugiesische Schiffe überquerten."
+      },
+      "findIt": "Stell dich in die Mitte, unter die Säule, und schau auf deine Schuhe, bevor du dich umschaust."
+    },
+    "lisbon-se-de-lisboa": {
+      "name": "Die Kathedrale von Lissabon",
+      "tagline": "Eine Kirche, gebaut wie eine Burg, mit zwei Türmen für Wachen",
+      "story": "Das ist die älteste Kirche Lissabons, und sie wurde 1147 begonnen. In diesem Jahr eroberte Afonso Henriques, der erste König Portugals, die Stadt von den Mauren, die sie etwa vierhundert Jahre lang beherrscht hatten, und er wollte sofort eine große Kathedrale. Die Zeiten waren unsicher, also bauten die Handwerker sie stark wie eine Burg: dicke Mauern, wenige Fenster und zwei Türme, auf denen Wachen stehen konnten. Deshalb sieht sie von Weitem eher aus wie eine Festung als wie eine Kirche. Über der Tür ist ein rundes Rosenfenster: Das Sonnenlicht fällt hindurch und malt Farben auf den Steinboden. Die Kathedrale hat viele Erdbeben überstanden, und beim großen von 1755 stürzte ein Teil von ihr ein und wurde wieder aufgebaut. Starke Mauern und Geduld: So steht sie seit fast neunhundert Jahren.",
+      "facts": [
+        "Sie wurde 1147 begonnen und ist die älteste Kirche der Stadt.",
+        "Unter ihrem Kreuzgang fanden Archäologen eine römische Straße, nur ein paar Meter tief.",
+        "Der Überlieferung nach wurde hier der heilige Antonius getauft, Lissabons beliebtester Heiliger."
+      ],
+      "question": {
+        "q": "Warum sieht die Kathedrale aus wie eine Burg?",
+        "answers": [
+          "Sie musste sich auch verteidigen",
+          "Sie war einmal ein Palast",
+          "Der Entwurf kam aus Nordafrika",
+          "Sie wurde auf einer römischen Festung gebaut"
+        ],
+        "explanation": "Sie entstand gleich nach 1147, als die Stadt gerade erst den Herrscher gewechselt hatte. Die dicken Mauern und die zwei Türme waren für die Sicherheit da, nicht für die Schönheit."
+      },
+      "findIt": "Sie steht an den Gleisen der Straßenbahn 28, auf dem Weg hinauf zur Burg. Such die zwei gedrungenen Türme mit dem Rosenfenster dazwischen."
+    },
+    "lisbon-castelo-de-sao-jorge": {
+      "name": "Die Burg São Jorge",
+      "tagline": "Elf Türme, Pfauen und die ganze Stadt darunter",
+      "story": "Die Mauren bauten diese Mauern vor ungefähr tausend Jahren, auf dem Hügel, von dem aus sie jedes Schiff sehen konnten, das den Fluss heraufkam. 1147 belagerte Afonso Henriques mit seinem Heer die Burg monatelang, bis die Stadt aufgab und Portugal eine neue Hauptstadt hatte. Später wohnten hier Könige, und die Burg bekam den Namen des heiligen Georg, des Ritters mit dem Drachen. Geh auf den Mauern entlang und zähl die elf Türme. Pass auf, wohin du trittst: Die Stufen sind schief und nicht alle gleich hoch, denn sie wurden für Wachen gebaut, nicht für Besucher. In den Gärten leben Pfauen, die vor den Leuten ihr Rad schlagen. Und von hier oben siehst du ganz Lissabon, den Fluss und die große rote Brücke, die Ponte 25 de Abril: Es ist der schönste Blick der Stadt.",
+      "facts": [
+        "Die Mauern haben elf Türme, und du kannst oben auf ihnen entlanggehen.",
+        "Auf diesem Hügel wurden Funde aus der Eisenzeit ausgegraben, ungefähr 2.700 Jahre alt.",
+        "Die Burg diente jahrhundertelang als Kaserne und wurde in den 1940er-Jahren stark restauriert."
+      ],
+      "question": {
+        "q": "Warum wurde die Burg gerade auf diesem Hügel gebaut?",
+        "answers": [
+          "Man sieht jedes Schiff auf dem Fluss",
+          "Es war der einzige Ort mit Brunnen",
+          "Sein Fels lieferte nützlichen Marmor",
+          "Es war im Sommer der kühlste Ort"
+        ],
+        "explanation": "Von hier aus beherrschst du den Fluss. Wer den Hügel hielt, sah jedes Schiff kommen, lange bevor es ankam."
+      },
+      "findIt": "Der einzige Eingang ist auf der Westseite, am Largo do Chão da Feira. Jede Gasse, die in der Alfama bergauf führt, endet dort."
+    },
+    "lisbon-miradouro-de-santa-luzia": {
+      "name": "Die Aussichtsterrasse Santa Luzia",
+      "tagline": "Ein Balkon voller Ranken über dem ältesten Viertel",
+      "story": "Dieser Balkon hängt über der Alfama, dem ältesten Viertel Lissabons. Ihr Name kommt von einem arabischen Wort für heiße Quellen, denn die Mauren, die hier lebten, fanden warmes Wasser im Boden. Ihre Gassen sind so eng und verwinkelt, dass kein Auto durchkommt, und die Nachbarn unterhalten sich von Fenster zu Fenster. Als das große Erdbeben von 1755 das Zentrum dem Erdboden gleichmachte, blieb die Alfama, die auf hartem Fels gebaut ist, größtenteils stehen; deshalb sind ihre Häuser viel älter als die im Rest der Stadt. Über der Terrasse breitet sich eine Pergola mit Bougainvilleen aus, und unter dir purzeln Ziegeldächer bis hinunter zum Wasser. An ihren Wänden zeigen blau-weiße Fliesen den Palastplatz vor dem Erdbeben und Soldaten, die 1147 die Mauern der Burg hinaufklettern. Such nach den kleinen Einzelheiten: Schiffe, Fahnen, Leitern.",
+      "facts": [
+        "Der Name Alfama kommt von einem arabischen Wort für heiße Quellen.",
+        "Die Alfama überstand das Erdbeben von 1755, weil sie auf hartem Fels gebaut ist.",
+        "Hier wurde der Fado geboren, Lissabons eigenes Lied, und die UNESCO nahm ihn 2011 in ihre Liste auf."
+      ],
+      "question": {
+        "q": "Warum sind die Häuser der Alfama älter als die im Rest der Stadt?",
+        "answers": [
+          "Der Fels hielt sie beim Erdbeben aufrecht",
+          "Sie sind aus viel härteren Ziegeln",
+          "Ein Gesetz verbot, sie abzureißen",
+          "Das Erdbeben hörte genau an den Mauern auf"
+        ],
+        "explanation": "Die Alfama steht auf hartem Fels. Das Zentrum, auf weicherem Boden gebaut, stürzte 1755 ein und musste ganz von vorn neu gebaut werden."
+      },
+      "findIt": "In der Rua do Limoeiro, auf dem Weg bergauf von der Kathedrale zur Burg. Such die weiße Pergola; die Fliesen sind an der hinteren Wand."
+    },
+    "lisbon-torre-de-belem": {
+      "name": "Der Turm von Belém",
+      "tagline": "Das letzte Stück Heimat für alle, die davonsegelten",
+      "story": "Vor mehr als fünfhundert Jahren brachen portugiesische Schiffe von diesem Fluss nach Indien, Afrika und Brasilien auf, und König Manuel I. wollte einen starken Wächter am Tor des Hafens. So entstand dieser Turm, fertig 1519, mit Kanonen im unteren Stockwerk und Wachposten oben. Sein Stil heißt manuelinisch, nach dem König: Schau dir die Seile, die Knoten und die kleinen Kugeln an, die in den Stein gemeißelt sind, alles Erinnerungen an Schiffe und das Meer. Unten in einer Ecke ist ein Nashornkopf gemeißelt. Der Turm stand einst auf einer kleinen Insel im Fluss; mit den Jahren rückte das Ufer näher, und heute berührt er das Land. Für die Seeleute, die aufbrachen, war er das letzte Stück Heimat, und für die, die zurückkamen, das erste.",
+      "facts": [
+        "Er wurde 1519 fertig, in der Regierungszeit von König Manuel I.",
+        "Sein gemeißeltes Nashorn gilt als das erste Nashorn in der europäischen Kunst seit der Antike.",
+        "Der Turm stand auf einer kleinen Insel im Fluss; mit den Jahren rückte das Ufer an ihn heran."
+      ],
+      "question": {
+        "q": "Warum ist ein Nashorn in den Turm gemeißelt?",
+        "answers": [
+          "Ein echtes war eben aus Indien gekommen",
+          "Es war das Wappen der Familie des Königs",
+          "Die Seeleute hielten es für ein Glückszeichen",
+          "Es wurde aus einem Buch kopiert"
+        ],
+        "explanation": "1515 kam ein lebendes Nashorn aus Indien in Lissabon an. Die Stadt staunte, und das Tier landete am Ende gemeißelt im Stein."
+      },
+      "findIt": "Du überquerst die Bahngleise auf einer Fußgängerbrücke und dann eine kurze Holzbrücke bis zur Tür. Die Schlange bildet sich am Ufer."
+    },
+    "lisbon-mosteiro-dos-jeronimos": {
+      "name": "Das Jerónimos-Kloster",
+      "tagline": "Bezahlt mit einer Steuer auf Pfeffer und Zimt",
+      "story": "Als die Schiffe von Vasco da Gama 1499 aus Indien zurückkamen, beladen mit Pfeffer und Zimt, wurde König Manuel I. reich: Ganz Europa wollte Gewürze. Der König beschloss, einen Teil dieses Geldes für ein Kloster auszugeben, so prächtig, dass es niemand vergessen würde. Die Handwerker arbeiteten ungefähr hundert Jahre daran und meißelten Seile, Muscheln, Korallen und Seeungeheuer in den Stein, im manuelinischen Stil. Geh in den Kreuzgang, den quadratischen Hof mit den Bögen, und schau nach oben: Jede Säule ist anders gemeißelt als die daneben. Vasco da Gama selbst ist hier begraben, nahe beim Eingang, in einem Grab, das von steinernen Löwen getragen wird. Man erzählt, dass er vor seiner Abreise nach Indien die Nacht betend in einer kleinen Kapelle verbrachte, genau an dieser Stelle. Das Kloster überstand das Erdbeben von 1755 fast unversehrt.",
+      "facts": [
+        "Es wurde mit einer echten Steuer bezahlt: einem Zwanzigstel der Gewinne aus dem Gewürzhandel.",
+        "Der Bau dauerte ungefähr hundert Jahre.",
+        "Vasco da Gama ist hier begraben, in einem Grab, das steinerne Löwen tragen."
+      ],
+      "question": {
+        "q": "Woher kam das Geld für den Bau?",
+        "answers": [
+          "Aus einer Steuer auf Gewürze",
+          "Aus Spenden der Menschen in der Stadt",
+          "Aus einem Schatz, den man im Boden fand",
+          "Aus der Pacht der Felder ringsum"
+        ],
+        "explanation": "Ein Zwanzigstel der Gewinne aus dem Gewürzhandel floss in den Bau. Das Kloster ist also ganz wörtlich aus Pfeffer und Zimt gemacht."
+      },
+      "findIt": "Die Kirche und der Kreuzgang haben zwei verschiedene Türen. Die Schlange für den Kreuzgang ist rechts, hinter dem großen Südportal."
+    },
+    "lisbon-estadio-da-luz": {
+      "name": "Das Estádio da Luz",
+      "tagline": "Vor jedem Spiel fliegt ein Adler eine Runde",
+      "story": "Das ist das größte Stadion Portugals, mit ungefähr vierundsechzigtausend Plätzen, und es wurde 2003 eröffnet. Sein Name bedeutet „das Stadion des Lichts“, nach dem Viertel Luz, in dem es steht. Hier wurde das Finale der Europameisterschaft 2004 gespielt, und außerdem zwei Endspiele der Champions League. Das Ungewöhnlichste daran ist aber nicht das Gebäude. Kurz vor jedem Spiel von Benfica startet ein echter Adler vom Arm seines Falkners, zieht einen Kreis über dem Rasen, während sechzigtausend Menschen jubeln, und kommt dann zurück und setzt sich ruhig dorthin, wo er losgeflogen ist. Der Adler ist seit hundert Jahren das Wappentier des Vereins. Das Dach bedeckt nur die Tribünen, und es ist mit Absicht aus durchsichtigem Material, damit das Sonnenlicht trotzdem den Rasen erreicht und ihn am Leben hält – und so bleibt auch für den Adler ein freier Kreis aus Himmel.",
+      "facts": [
+        "Es wurde 2003 eröffnet und hat ungefähr 64.000 Plätze: das größte Stadion Portugals.",
+        "Hier fand das Finale der Europameisterschaft 2004 statt.",
+        "Ein abgerichteter Adler fliegt vor den Heimspielen von Benfica über den Rasen."
+      ],
+      "question": {
+        "q": "Was fliegt vor einem Spiel über den Rasen?",
+        "answers": [
+          "Ein echter Adler",
+          "Ein kleiner Heißluftballon",
+          "Ein ferngesteuertes Flugzeug",
+          "Ein Schwarm weißer Tauben"
+        ],
+        "explanation": "Der Adler ist das Wappentier von Benfica. Er fliegt einen Kreis und kehrt auf den Arm seines Falkners zurück, vor sechzigtausend Menschen."
+      },
+      "findIt": "Die U-Bahn hält direkt gegenüber, an der Station Colégio Militar. Die Statue von Eusébio steht vor dem Eingang."
+    }
+  },
+  "trails": {
+    "lisbon-the-city-rebuilt": {
+      "name": "Die Stadt, die wieder aufgebaut wurde",
+      "promise": "Vier Orte, die es nur gibt, weil an einem Morgen im Jahr 1755 das Zentrum von Lissabon einstürzte."
+    },
+    "lisbon-up-the-hill": {
+      "name": "Der Hügel und seine Gassen",
+      "promise": "Eine Kirche, gebaut wie eine Burg, eine Burg mit Pfauen und ein Balkon über der Alfama."
+    },
+    "lisbon-belem": {
+      "name": "Belém, wo die Schiffe ablegten",
+      "promise": "Der Wachturm, das Gewürzkloster, ein Wasserflugzeug und zum Schluss warme Puddingtörtchen."
+    },
+    "lisbon-how-it-works": {
+      "name": "Wie die Dinge funktionieren",
+      "promise": "Wasser, das von allein fließt, Farben, die dem Feuer nicht entkommen können, und ein einziger Ozean in einem Becken."
+    },
+    "lisbon-out-of-the-centre": {
+      "name": "Raus aus dem Zentrum",
+      "promise": "Drei Stationen weit weg von den Gassen: ein Adler, ein Mondfisch und ein Bogen von fünfundsechzig Metern."
+    }
+  }
+}
