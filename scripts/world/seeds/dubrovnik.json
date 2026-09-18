@@ -1,0 +1,48 @@
+{
+  "city": "dubrovnik",
+  "country": "croatia",
+  "centre": { "lat": 42.6409, "lng": 18.1091 },
+  "note": "Wikidata q-ids only. Seventeen places, two of them museums with an interior. Nine of the ten Explorer spots on origin/main are carried over; the tenth is replaced and the reason is on the replacement. Every q-id was found by searching Wikidata in Croatian and reading the description or P131 to confirm it says Dubrovnik (Q1722) — an English search for 'Fort Lovrijenac' or 'Church of St Blaise Dubrovnik' returns nothing at all, while the Croatian name returns the item immediately. CENTRE: this is Wikidata's point for the walled Old City, Q910661, and not Wikidata's point for the municipality of Dubrovnik (Q1722), which sits out in Lapad and would put the whole map's reference point two kilometres from every pin. Q910661's point is at least 98 m from the nearest place, so nothing trips the centroid check. NO ENTRANCE IS CLAIMED anywhere: no door in this city has been measured, so every point is the centroid, area or viewpoint it actually is.",
+  "adjacentPairs": [["dubrovnik-orlando-column", "dubrovnik-sponza-palace"]],
+  "places": [
+    { "id": "dubrovnik-pile-gate", "name": "Vrata od Pila", "wikidata": "Q3509061", "anchor": "centroid" },
+    { "id": "dubrovnik-onofrio-fountain", "name": "Velika Onofrijeva česma", "wikidata": "Q2624621", "anchor": "centroid" },
+
+    { "id": "dubrovnik-franciscan-monastery", "name": "Franjevački samostan i crkva", "wikidata": "Q3509032", "anchor": "centroid",
+      "note": "The monastery building, which is what a child walks into: cloister, pharmacy, library. The pharmacy is an institution with no separate item and no coordinate of its own, so pinning it would have meant pinning nothing." },
+
+    { "id": "dubrovnik-stradun", "name": "Stradun", "wikidata": "Q1818100", "anchor": "area" },
+
+    { "id": "dubrovnik-orlando-column", "name": "Orlandov stup", "wikidata": "Q3442751", "anchor": "centroid",
+      "note": "24 m from Sponza Palace and declared in adjacentPairs. This is a real adjacency, not a duplicated pin: the column stands free on Luža square directly in front of Sponza's façade, and the two are different objects three hundred years apart — the column 1418, the palace 1522." },
+
+    { "id": "dubrovnik-sponza-palace", "name": "Palača Sponza", "wikidata": "Q2986276", "anchor": "centroid",
+      "note": "The palace, not the State Archives (Q12627215) that occupy it today, and not the Clock Tower (Q3509014) beside it. Explorer treats palace and tower as one spot; here the tower lives inside the palace's story rather than taking a pin 24 m away that the separation audit would rightly reject." },
+
+    { "id": "dubrovnik-st-blaise-church", "name": "Crkva sv. Vlaha", "wikidata": "Q2986286", "anchor": "centroid" },
+
+    { "id": "dubrovnik-rectors-palace", "name": "Knežev dvor", "wikidata": "Q2497590", "anchor": "centroid",
+      "note": "The building, not the institution. The Cultural History Museum inside it is a separate item, Q16116657, whose point sits 15 m away; pinning the museum would have created an undeclared neighbour out of one building. The museum is this place's interior instead." },
+
+    { "id": "dubrovnik-cathedral", "name": "Dubrovačka katedrala", "wikidata": "Q584428", "anchor": "centroid" },
+
+    { "id": "dubrovnik-rupe-granary", "name": "Rupe (Etnografski muzej)", "wikidata": "Q16114363", "anchor": "centroid",
+      "note": "A documented exception to 'pick the building, never the institution'. The 1590 granary has no item of its own; Q16114363 is the ethnographic museum, but the museum IS the granary — it occupies the whole building, is named after it, and its coordinate falls on it. The item carries no P131, so the city was confirmed from its Croatian label and its position, 62 m inside the south wall." },
+
+    { "id": "dubrovnik-gundulic-square", "name": "Gundulićeva poljana", "wikidata": "Q18585224", "anchor": "area",
+      "note": "The English label on this item is the mangled 'Gundulićs'. It is the right place: P31 is 'square', P131 is Dubrovnik (Q1722), and the point is on Gundulićeva poljana, the market square behind the cathedral." },
+
+    { "id": "dubrovnik-city-walls", "name": "Dubrovačke gradske zidine", "wikidata": "Q931733", "anchor": "area" },
+    { "id": "dubrovnik-minceta", "name": "Minčeta", "wikidata": "Q674521", "anchor": "centroid" },
+    { "id": "dubrovnik-lovrijenac", "name": "Lovrijenac", "wikidata": "Q3396134", "anchor": "centroid" },
+
+    { "id": "dubrovnik-st-john-fortress", "name": "Tvrđava sv. Ivana", "wikidata": "Q12644033", "anchor": "centroid",
+      "note": "Replaces Explorer's tenth spot, the Old Port. The only Wikidata item for the harbour is Q18028117, which has no label in any language and no description — nothing to read to confirm it is the right place, which is exactly the check this pipeline exists to make. St John's Fortress stands on the harbour mouth, holds the Maritime Museum and the aquarium, and carries the harbour's story with a pin that can be verified." },
+
+    { "id": "dubrovnik-lokrum", "name": "Lokrum, Fort Royal on the summit", "wikidata": "Q111304707", "anchor": "viewpoint",
+      "note": "Replaces the island item (Q277389), which graded D even as an area: Lokrum is 700 m long and Wikipedia's point for it sits 717 m from Wikidata's, so the two sources are describing opposite ends of the same island and neither is a place a child stands. Q111304707 is Fort Royal, the round French fort of 1806 on the island's highest hill — the marked viewpoint, and the one built thing on Lokrum with a coordinate of its own." },
+
+    { "id": "dubrovnik-srd", "name": "Srđ, the summit cross", "wikidata": "Q17147057", "anchor": "viewpoint",
+      "note": "The same fix Athens made for Lycabettus. The hill's own item (Q130591) is a ridge whose coordinate is rounded to two decimals and lands nowhere a child stands. Q17147057 is the white cross on the summit, the marked viewpoint over the whole city and the walls, a few steps from where the cable car arrives." }
+  ]
+}
