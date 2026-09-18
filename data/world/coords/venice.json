@@ -1,0 +1,540 @@
+{
+  "city": "venice",
+  "resolvedAt": "2026-09-18T17:50:04.740Z",
+  "centre": {
+    "lat": 45.439722,
+    "lng": 12.331944
+  },
+  "places": [
+    {
+      "id": "venice-san-marco",
+      "name": "Basilica di San Marco",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q172988",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/138800932",
+          "deltaM": 16
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St Mark's Basilica",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43444,
+      "lng": 12.33972,
+      "labels": {
+        "fr": "basilique Saint-Marc",
+        "es": "basílica de San Marcos",
+        "it": "basilica di San Marco",
+        "de": "Markusdom",
+        "el": "Βασιλική Αγίου Μάρκου",
+        "en": "St Mark's Basilica"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-palazzo-ducale",
+      "name": "Palazzo Ducale",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q189883",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/138803915",
+          "deltaM": 61
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Doge's Palace",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43367,
+      "lng": 12.34042,
+      "labels": {
+        "fr": "palais des Doges",
+        "es": "Palacio Ducal de Venecia",
+        "it": "Palazzo Ducale",
+        "de": "Dogenpalast",
+        "el": "Παλάτι των Δόγηδων",
+        "en": "Doge's Palace"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-campanile",
+      "name": "Campanile di San Marco",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q754194",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/7578687313",
+          "deltaM": 2
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St Mark's Campanile",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43403,
+      "lng": 12.33903,
+      "labels": {
+        "fr": "campanile de Saint-Marc",
+        "es": "Campanario de San Marcos",
+        "en": "St Mark's Campanile",
+        "it": "Campanile di San Marco",
+        "de": "Markusturm",
+        "el": "Καμπαναριό του Αγίου Μάρκου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-torre-orologio",
+      "name": "Torre dell'Orologio",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q966625",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St Mark's Clocktower",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.43472,
+      "lng": 12.33889,
+      "labels": {
+        "en": "St Mark's Clocktower",
+        "es": "Torre del Rejoj",
+        "it": "torre dell'orologio",
+        "de": "Uhrturm von San Marco",
+        "fr": "tour de l'Horloge"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-rialto",
+      "name": "Ponte di Rialto",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q52505",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2289364",
+          "deltaM": 23
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Rialto Bridge",
+          "deltaM": 28
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43801,
+      "lng": 12.33564,
+      "labels": {
+        "it": "ponte di Rialto",
+        "es": "puente de Rialto",
+        "en": "Rialto Bridge",
+        "de": "Rialtobrücke",
+        "fr": "pont du Rialto",
+        "el": "Γέφυρα του Ριάλτο"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-mercato-rialto",
+      "name": "Mercato di Rialto",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1921148",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/233887039",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 45.43969,
+      "lng": 12.33452,
+      "labels": {
+        "de": "Mercato di Rialto",
+        "it": "Mercato di Rialto",
+        "en": "Mercato di Rialto",
+        "es": "mercado de Rialto",
+        "fr": "Mercato di Rialto"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-accademia",
+      "name": "Gallerie dell'Accademia",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q338330",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/895805118",
+          "deltaM": 32
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Gallerie dell'Accademia",
+          "deltaM": 35
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43108,
+      "lng": 12.32814,
+      "labels": {
+        "fr": "Galeries de l'Académie",
+        "en": "Gallerie dell'Accademia",
+        "de": "Gallerie dell'Accademia",
+        "it": "Gallerie dell'Accademia",
+        "es": "Galería de la Academia de Venecia",
+        "el": "Πινακοθήκη της Ακαδημίας"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-salute",
+      "name": "Santa Maria della Salute",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q52531",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/138801509",
+          "deltaM": 1
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Santa Maria della Salute",
+          "deltaM": 37
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43057,
+      "lng": 12.33473,
+      "labels": {
+        "it": "basilica di Santa Maria della Salute",
+        "de": "Santa Maria della Salute",
+        "en": "Santa Maria della Salute",
+        "es": "basílica de Santa Maria della Salute",
+        "fr": "basilique Santa Maria della Salute de Venise",
+        "el": "Σάντα Μαρία ντέλα Σαλούτε"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-fenice",
+      "name": "Teatro La Fenice",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q223942",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/251501878",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "La Fenice",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 45.4337,
+      "lng": 12.3339,
+      "labels": {
+        "fr": "La Fenice",
+        "es": "La Fenice",
+        "it": "Gran Teatro La Fenice",
+        "de": "Teatro La Fenice",
+        "en": "Teatro La Fenice",
+        "el": "Λα Φενίτσε"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-bovolo",
+      "name": "Scala Contarini del Bovolo",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1585745",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2766982",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Palazzo Contarini del Bovolo",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43481,
+      "lng": 12.33453,
+      "labels": {
+        "de": "Palazzo Contarini del Bovolo",
+        "fr": "palais Contarini del Bovolo",
+        "en": "Palazzo Contarini del Bovolo",
+        "es": "Palacio Contarini del Bovolo",
+        "it": "Palazzo Contarini del Bovolo",
+        "el": "Παλάτσο Κονταρίνι ντελ Μπόβολο"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-squero",
+      "name": "Squero di San Trovaso",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q741242",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 45.43022,
+      "lng": 12.32588,
+      "labels": {
+        "it": "Squero di San Trovaso",
+        "es": "Squero di San Trovaso",
+        "fr": "Squero di San Trovaso",
+        "en": "Squero di San Trovaso",
+        "de": "Squero di San Trovaso"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-museo-navale",
+      "name": "Museo Storico Navale",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1954326",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/138802715",
+          "deltaM": 22
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 45.43256,
+      "lng": 12.35005,
+      "labels": {
+        "de": "Museo storico navale",
+        "it": "Museo storico navale",
+        "en": "Museo Storico Navale",
+        "fr": "musée d'histoire navale de Venise"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-arsenale",
+      "name": "Arsenale",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1262248",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2189685759",
+          "deltaM": 27
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Venetian Arsenal",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 45.43528,
+      "lng": 12.35306,
+      "labels": {
+        "en": "Venetian Arsenal",
+        "de": "Arsenal",
+        "es": "Arsenal de Venecia",
+        "fr": "arsenal de Venise",
+        "it": "Arsenale di Venezia"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-guggenheim",
+      "name": "Collezione Peggy Guggenheim",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1049033",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Peggy Guggenheim Collection",
+          "deltaM": 45
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.43082,
+      "lng": 12.33154,
+      "labels": {
+        "fr": "collection Peggy-Guggenheim",
+        "en": "Peggy Guggenheim Collection",
+        "es": "Museo Guggenheim de Venecia",
+        "it": "Peggy Guggenheim Collection",
+        "de": "Peggy Guggenheim Collection"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-san-giorgio",
+      "name": "San Giorgio Maggiore",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q713558",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "San Giorgio Maggiore (church), Venice",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.4293,
+      "lng": 12.3433,
+      "labels": {
+        "fr": "basilique San Giorgio Maggiore de Venise",
+        "en": "Church of San Giorgio Maggiore",
+        "es": "basílica de San Giorgio Maggiore",
+        "it": "basilica di San Giorgio Maggiore",
+        "de": "San Giorgio Maggiore",
+        "el": "Εκκλησία Σαν Τζόρτζιο Ματζόρε"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "venice-museo-vetro",
+      "name": "Museo del Vetro, Murano",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3867986",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/895801921",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Murano Glass Museum",
+          "deltaM": 28
+        }
+      ],
+      "warnings": [],
+      "lat": 45.4566,
+      "lng": 12.35686,
+      "labels": {
+        "it": "museo del vetro di Murano",
+        "en": "Murano Glass Museum",
+        "de": "Glasmuseum Murano",
+        "fr": "Musée du verre de Murano"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "problems": []
+}

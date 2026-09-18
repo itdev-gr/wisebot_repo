@@ -1,0 +1,25 @@
+{
+  "city": "venice",
+  "country": "italy",
+  "centre": { "lat": 45.439722, "lng": 12.331944 },
+  "note": "Wikidata q-ids only, searched in Italian. Centre is Wikidata's point for the city (Q641). Venice is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. The Doge's Palace is the palace item Q189883, which is also the museum (Q207694 among its P31), so there is no separate institution item to avoid. The clock tower is Q966625, the building on the Piazza, not any other Torre dell'Orologio. The Naval History Museum is Q1954326 on the Riva San Biagio; Q55359382 is its ships' pavilion, a separate building 1.8 km away, and is not used.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "venice-san-marco", "name": "Basilica di San Marco", "wikidata": "Q172988", "anchor": "centroid" },
+    { "id": "venice-palazzo-ducale", "name": "Palazzo Ducale", "wikidata": "Q189883", "anchor": "centroid" },
+    { "id": "venice-campanile", "name": "Campanile di San Marco", "wikidata": "Q754194", "anchor": "centroid" },
+    { "id": "venice-torre-orologio", "name": "Torre dell'Orologio", "wikidata": "Q966625", "anchor": "centroid" },
+    { "id": "venice-rialto", "name": "Ponte di Rialto", "wikidata": "Q52505", "anchor": "centroid" },
+    { "id": "venice-mercato-rialto", "name": "Mercato di Rialto", "wikidata": "Q1921148", "anchor": "area" },
+    { "id": "venice-accademia", "name": "Gallerie dell'Accademia", "wikidata": "Q338330", "anchor": "centroid" },
+    { "id": "venice-salute", "name": "Santa Maria della Salute", "wikidata": "Q52531", "anchor": "centroid" },
+    { "id": "venice-fenice", "name": "Teatro La Fenice", "wikidata": "Q223942", "anchor": "centroid" },
+    { "id": "venice-bovolo", "name": "Scala Contarini del Bovolo", "wikidata": "Q1585745", "anchor": "centroid" },
+    { "id": "venice-squero", "name": "Squero di San Trovaso", "wikidata": "Q741242", "anchor": "centroid" },
+    { "id": "venice-museo-navale", "name": "Museo Storico Navale", "wikidata": "Q1954326", "anchor": "centroid" },
+    { "id": "venice-arsenale", "name": "Arsenale", "wikidata": "Q1262248", "anchor": "area" },
+    { "id": "venice-guggenheim", "name": "Collezione Peggy Guggenheim", "wikidata": "Q1049033", "anchor": "centroid" },
+    { "id": "venice-san-giorgio", "name": "San Giorgio Maggiore", "wikidata": "Q713558", "anchor": "centroid" },
+    { "id": "venice-museo-vetro", "name": "Museo del Vetro, Murano", "wikidata": "Q3867986", "anchor": "centroid" }
+  ]
+}
