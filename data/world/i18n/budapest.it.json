@@ -1,0 +1,682 @@
+{
+  "lang": "it",
+  "cityId": "budapest",
+  "places": {
+    "budapest-vajdahunyad-castle": {
+      "name": "Il Castello di Vajdahunyad",
+      "tagline": "Un castello di cartone che alla fine è rimasto per sempre",
+      "story": "Per la grande festa del 1896 la città voleva mostrare, con un solo colpo d’occhio, tutti gli edifici famosi dell’Ungheria. L’architetto Ignác Alpár ebbe un’idea furba: invece di costruire un edificio solo, incollò insieme pezzi di più di venti castelli, chiese e palazzi. Così torri medievali si appoggiano a sale rinascimentali e un’ala sembra un palazzo barocco, tutto nello stesso posto. Siccome l’esposizione sarebbe durata solo un anno, lo fece di legno e cartone, e dopo doveva essere demolito. Ma alla gente piacque così tanto che chiese di ricostruirlo in pietra e mattoni. Fu finito nel 1908 e da allora è sempre lì. Nel suo cortile siede una figura di bronzo con un cappuccio che le nasconde il viso: è Anonymus, l’uomo che per primo scrisse la storia degli ungheresi ottocento anni fa e non disse mai come si chiamava.",
+      "facts": [
+        "Il primo edificio, nel 1896, era fatto di legno e cartone.",
+        "Copia parti di più di venti edifici di tutta l’Ungheria.",
+        "La penna della statua di Anonymus brilla per tutte le mani che la toccano."
+      ],
+      "question": {
+        "q": "Perché il primo castello fu fatto di legno e cartone?",
+        "answers": [
+          "Doveva durare solo quanto l’esposizione",
+          "Nelle cave del paese non era rimasta pietra",
+          "Era un giocattolo, fatto su misura per bambini",
+          "Tutto doveva essere finito in una sola notte"
+        ],
+        "explanation": "Era una scenografia per la festa del 1896 e doveva essere demolito. Ma alla gente piacque e chiese di ricostruirlo in pietra."
+      },
+      "findIt": "Nel parco Városliget, dietro Piazza degli Eroi. Attraversi un ponticello sopra il lago ed entri dal portone."
+    },
+    "budapest-national-museum": {
+      "name": "Il Museo Nazionale Ungherese",
+      "tagline": "È nato perché un conte regalò i suoi libri",
+      "story": "Nel 1802 il conte Ferenc Széchényi fece una cosa insolita per la sua epoca: regalò tutta la sua biblioteca, le sue carte geografiche e le sue collezioni non a un re ma al suo paese, perché chiunque potesse venire a guardarle. Quel dono diventò il Museo Nazionale. Più tardi suo figlio István costruì il Ponte delle Catene: fare regali alla città era un’abitudine di famiglia. L’edificio che vedi fu progettato da Mihály Pollack e finito nel 1847: otto colonne enormi e un’ampia scalinata, come un tempio antico calato in mezzo a Pest. Dentro ci sono cose che non hanno quasi niente in comune: argento romano, un cervo d’oro più antico dell’Acropoli, un mantello di mille anni, una sciabola ottomana e un pianoforte suonato da due musicisti famosi. E fuori c’è la scalinata, famosa quanto qualunque cosa custodita all’interno.",
+      "facts": [
+        "Nacque nel 1802 con il dono del conte Ferenc Széchényi.",
+        "L’edificio di Mihály Pollack fu finito nel 1847 e davanti ha otto colonne.",
+        "La sua collezione custodisce il manto dell’incoronazione, cucito intorno all’anno 1031."
+      ],
+      "question": {
+        "q": "Come è nato questo museo?",
+        "answers": [
+          "Un conte regalò la sua biblioteca al paese",
+          "Un re aprì a tutti i magazzini del suo palazzo",
+          "La città comprò una collezione austriaca",
+          "Nelle fondamenta dell’edificio apparve un tesoro"
+        ],
+        "explanation": "Nel 1802 Ferenc Széchényi donò i suoi libri e le sue collezioni al paese invece che a un re. Tutto il museo è nato da quel solo dono."
+      },
+      "findIt": "In Múzeum körút. Sali l’ampia scalinata fra le otto colonne; la porta è dietro di loro, al centro.",
+      "museum": {
+        "rooms": {
+          "budapest-national-museum-before-hungary": {
+            "name": "Prima dell’Ungheria",
+            "intro": "Molto prima che arrivassero i magiari, qui vivevano altri popoli, che si lasciarono dietro delle cose. Questa sala è piena di ritrovamenti che nessuno stava cercando: li ha tirati fuori un aratro, o una vanga, o un forte temporale. Guardali come sorprese, perché è proprio questo che sono stati per chi li ha trovati per primo."
+          },
+          "budapest-national-museum-first-kingdom": {
+            "name": "Il primo regno",
+            "intro": "Qui comincia l’Ungheria come paese, con re Stefano intorno all’anno 1000. Gli oggetti di questa sala sono piccoli e fragili, eppure portano addosso grandi decisioni: che cosa indossa un re per essere incoronato, che cosa manda un imperatore come regalo, e che cosa lascia dietro di sé un esercito quando se ne va."
+          },
+          "budapest-national-museum-sounds-and-steps": {
+            "name": "Suoni e gradini",
+            "intro": "Le cose più vive di un museo non stanno sempre nelle vetrine. In questa sala c’è uno strumento che un tempo suonava, un soffitto dipinto per essere guardato col naso all’insù, e una scalinata che non è nemmeno all’interno: è fuori, e lì sopra è successo qualcosa che il paese ricorda ancora ogni anno."
+          }
+        },
+        "exhibits": {
+          "budapest-national-museum-golden-stag": {
+            "name": "Il cervo d’oro",
+            "blurb": "Un cervo d’oro massiccio, lungo circa trentasette centimetri, con le zampe piegate sotto il corpo e corna che ondeggiano come fiamme. Lo fecero gli sciti, cavalieri nomadi, intorno al VI secolo a.C., e non era un ornamento da appendere al muro: era fissato sul davanti di uno scudo di ferro. Fu trovato nel 1928 a Zöldhalompuszta, in un campo. È più antico del Partenone.",
+            "question": {
+              "q": "Su che cosa era fissato questo cervo d’oro?",
+              "answers": [
+                "Su uno scudo di ferro",
+                "Sulla porta di una tomba reale",
+                "Sulla cima di un palo di legno",
+                "Sulla fronte di un cavallo, come maschera"
+              ],
+              "explanation": "Era l’ornamento sul davanti di uno scudo. Gli sciti combattevano a cavallo e coprivano di animali il loro equipaggiamento."
+            }
+          },
+          "budapest-national-museum-seuso": {
+            "name": "L’argento di Seuso",
+            "blurb": "Quattordici pezzi d’argento romano, piatti, brocche e bacili, così pesanti che per un vassoio servono due mani. Nel piatto più grande è inciso un nome, Seuso, insieme a una scena di caccia e a un picnic in campagna. Il tesoro fu trovato in Ungheria, viaggiò in segreto verso altri paesi e sparì per decenni. L’Ungheria lo ricomprò e lo riportò a casa in due volte, nel 2014 e nel 2017.",
+            "question": {
+              "q": "Che cosa è inciso nel piatto più grande?",
+              "answers": [
+                "Un nome e una scena di caccia",
+                "Una mappa delle strade di Roma",
+                "Il volto di un imperatore romano",
+                "Le regole di un gioco da tavolo romano"
+              ],
+              "explanation": "Tutto il tesoro prende il nome da Seuso. Intorno al nome, una caccia e un pranzo all’aperto."
+            }
+          },
+          "budapest-national-museum-mosaic": {
+            "name": "Il pavimento romano",
+            "blurb": "Un intero pavimento fatto di piccole pietre colorate, posato per una fattoria romana nella provincia che i romani chiamavano Pannonia. Ogni pezzetto è poco più grande di un’unghia, e tutti insieme formano disegni di cornici geometriche e di animali. Il pavimento fu sollevato con cura dal terreno e posato di nuovo qui. Un mosaico non è un dipinto: è un puzzle di migliaia di pezzi su cui la gente camminava ogni giorno con i sandali.",
+            "question": {
+              "q": "Di che cosa è fatto un pavimento a mosaico?",
+              "answers": [
+                "Di migliaia di piccole pietre colorate",
+                "Di piastrelle di legno dipinte e incollate",
+                "Di cemento colorato colato negli stampi",
+                "Di uno strato d’argilla con disegni graffiati"
+              ],
+              "explanation": "Migliaia di pietruzze, messe una a una nella malta. Per questo un mosaico resiste a secoli di passi."
+            }
+          },
+          "budapest-national-museum-mantle": {
+            "name": "Il manto dell’incoronazione",
+            "blurb": "Un pezzo di seta, ricamato con filo d’oro intorno all’anno 1031, quasi mille anni prima di te. Il re Stefano e la regina Gisella lo donarono a una chiesa, e all’inizio era una casula, la veste di un sacerdote. Più tardi fu tagliato e cucito in un altro modo, perché i re potessero indossarlo il giorno della loro incoronazione. È uno dei vestiti più antichi arrivati fino a noi in Europa, e oggi è custodito in una vetrina con l’aria controllata con cura.",
+            "question": {
+              "q": "Che cos’era questa stoffa prima di diventare un manto reale?",
+              "answers": [
+                "Una veste da prete per la chiesa",
+                "Una tenda della sala del trono",
+                "Una bandiera portata in battaglia",
+                "Una coperta per il cavallo del re"
+              ],
+              "explanation": "Era una casula, donata a una chiesa. Fu tagliata e ricucita come manto, perché una stoffa può cambiare lavoro."
+            }
+          },
+          "budapest-national-museum-crown": {
+            "name": "La corona trovata in un campo",
+            "blurb": "Sette placche d’oro con smalti colorati, che mostrano un imperatore bizantino, la sua imperatrice e alcune danzatrici. Furono fatte a Costantinopoli verso la metà dell’XI secolo, durante il regno di Costantino IX Monomaco. Nel 1860 un contadino le tirò fuori con il suo aratro, sparse nella terra. Gli esperti discutono ancora su come fossero montate insieme e che cosa decorassero di preciso, quindi questo pezzo è anche un problema non risolto.",
+            "question": {
+              "q": "Come furono trovate le placche d’oro?",
+              "answers": [
+                "Le tirò fuori l’aratro di un contadino",
+                "Le trovarono degli archeologi in uno scavo",
+                "Erano chiuse nella cassaforte di una chiesa",
+                "Una piena del fiume le lasciò sulla riva"
+              ],
+              "explanation": "Nel 1860, in mezzo a un campo. Molti dei ritrovamenti più preziosi non li stava cercando nessuno."
+            }
+          },
+          "budapest-national-museum-sabre": {
+            "name": "La sciabola ottomana",
+            "blurb": "Una spada con la lama curva, fatta nell’Impero ottomano all’inizio del XVII secolo. L’impugnatura e il fodero sono rivestiti d’argento dorato e d’oro e tempestati di rubini e turchesi. La curva non è per bellezza: una lama così taglia mentre la tiri verso di te, e questo conta quando sei seduto su un cavallo. Ma nessuno incastona tanti gioielli in un attrezzo. Finiscono su qualcosa che dice chi sei, e che porti addosso perché gli altri lo vedano prima ancora che esca dal fodero.",
+            "question": {
+              "q": "Perché la lama di questa spada è curva?",
+              "answers": [
+                "Per tagliare mentre la tiri, a cavallo",
+                "Per stare in un fodero corto alla cintura",
+                "Per piegarsi senza spezzarsi in battaglia",
+                "Per lasciare spazio a più oro sulla lama"
+              ],
+              "explanation": "Una lama curva taglia quando la si tira; una lama dritta taglia quando colpisce. Su un cavallo in corsa, tirare funziona meglio."
+            }
+          },
+          "budapest-national-museum-piano": {
+            "name": "Il pianoforte con due proprietari",
+            "blurb": "Un pianoforte a coda, costruito a Londra nel laboratorio Broadwood. Fu mandato in regalo a Ludwig van Beethoven nel 1817, quando ormai non ci sentiva quasi più, e rimase in casa sua fino alla sua morte. Più tardi passò al pianista ungherese Franz Liszt, il musicista più famoso del suo tempo, che alla fine lo regalò a questo museo. Due persone che non si sono mai davvero incontrate hanno toccato gli stessi tasti.",
+            "question": {
+              "q": "Che cosa era successo a Beethoven quando arrivò il pianoforte?",
+              "answers": [
+                "Aveva perso quasi del tutto l’udito",
+                "Aveva smesso del tutto di scrivere musica",
+                "Aveva lasciato Vienna per Budapest",
+                "Aveva regalato tutti gli altri suoi strumenti"
+              ],
+              "explanation": "Dal 1817 in poi non sentiva quasi niente. Continuò lo stesso a comporre, sentendo le vibrazioni attraverso il legno."
+            }
+          },
+          "budapest-national-museum-dome-hall": {
+            "name": "La sala della cupola",
+            "blurb": "Sali il grande scalone e sbuchi in una sala rotonda sotto una cupola, dipinta da cima a fondo. Le pitture murali sono di Károly Lotz e Mór Than, e mostrano scene della storia del paese accanto a figure che rappresentano le arti e le scienze. Qui niente sta in una vetrina. È la sala stessa il pezzo in mostra, e il modo giusto per guardarla è mettersi al centro e piegare la testa all’indietro.",
+            "question": {
+              "q": "Qual è il pezzo in mostra in questa sala?",
+              "answers": [
+                "La sala stessa e il suo soffitto dipinto",
+                "Una collezione di monete d’oro in vetrina",
+                "Un plastico di Budapest su un tavolo enorme",
+                "Gli attrezzi dei muratori che la costruirono"
+              ],
+              "explanation": "Un edificio può essere lui stesso il pezzo in mostra. Qui guardi in su, non dentro una vetrina."
+            }
+          },
+          "budapest-national-museum-steps": {
+            "name": "La scalinata del 15 marzo",
+            "blurb": "L’ampia scalinata davanti alle colonne. Il 15 marzo 1848 qui si radunò una folla, all’inizio di una grande rivolta ungherese per la libertà e l’uguaglianza dei diritti. La storia che raccontano tutti è che il poeta Sándor Petőfi salì su questi gradini e recitò la sua poesia. Oggi gli storici pensano che probabilmente non andò proprio così. Tutte e due le frasi sono utili: una ti dice che cosa è successo, l’altra che cosa la gente vuole ricordare.",
+            "question": {
+              "q": "Che cosa dicono oggi gli storici del poeta sulla scalinata?",
+              "answers": [
+                "Che probabilmente non recitò lì sopra",
+                "Che recitò due volte lo stesso giorno",
+                "Che scrisse la poesia sui gradini",
+                "Che non è mai esistito un poeta così"
+              ],
+              "explanation": "La folla venne davvero al museo, questo è sicuro. La poesia recitata sulla scalinata è una storia cresciuta più tardi."
+            }
+          }
+        },
+        "riddles": {
+          "budapest-national-museum-riddle-1": {
+            "prompt": "Sono d’oro massiccio e ho le zampe piegate sotto di me. Le mie corna ondeggiano come fiamme. Non ero un ornamento: mi avevano fissato sul davanti di uno scudo, duemilacinquecento anni fa.",
+            "hint": "Un aratro mi ha tirato fuori nel 1928."
+          },
+          "budapest-national-museum-riddle-2": {
+            "prompt": "Sono nato come veste di un sacerdote e mi hanno ricucito per i re. Sono di seta lavorata con filo d’oro, ho quasi mille anni, e mi custodiscono in una vetrina con l’aria regolata con cura.",
+            "hint": "Un re mi indossò il giorno in cui fu incoronato."
+          },
+          "budapest-national-museum-riddle-3": {
+            "prompt": "Sono arrivato da Londra come regalo per un uomo che ormai non mi sentiva più. Poi mi ebbe il pianista più famoso del suo tempo, e lui mi regalò a questo museo. Ho una coda e sei ottave di tasti.",
+            "hint": "Il mio primo padrone scriveva sinfonie."
+          }
+        },
+        "doorNote": "Comincia dalla scalinata qui fuori. Fa parte della storia, non è solo la strada per arrivare alla porta."
+      }
+    },
+    "budapest-opera-house": {
+      "name": "Il Teatro dell’Opera di Stato",
+      "tagline": "Doveva essere più piccolo di quello di Vienna, non più semplice",
+      "story": "Quando Budapest chiese un teatro dell’opera tutto suo, gran parte dei soldi li mise l’imperatore Francesco Giuseppe, a una condizione: l’edificio non doveva essere più grande dell’Opera di Vienna. L’architetto Miklós Ybl prese la condizione alla lettera e fece tutto quello che non era vietato: costruì un edificio più piccolo e molto più ricco. Ci lavorò nove anni, e il teatro aprì nel 1884. All’ingresso siedono due sfingi di pietra, e ai lati della porta stanno le statue di due musicisti, Franz Liszt e Ferenc Erkel, che scrisse l’inno nazionale del paese. Dentro, la sala ha la forma di un ferro di cavallo e dal soffitto pende un lampadario di bronzo che pesa tre tonnellate. Intorno al lampadario il pittore Károly Lotz dipinse gli dèi dell’Olimpo, così il pubblico ascolta la musica con Zeus sopra la testa.",
+      "facts": [
+        "Aprì nel 1884, dopo nove anni di lavoro.",
+        "Il lampadario della sala pesa circa tre tonnellate.",
+        "Sul soffitto Károly Lotz dipinse gli dèi dell’Olimpo."
+      ],
+      "question": {
+        "q": "Quale condizione mise l’imperatore per pagare il teatro?",
+        "answers": [
+          "Non essere più grande di quello di Vienna",
+          "Far suonare solo musica di compositori austriaci",
+          "Essere completato in soli tre anni di lavoro",
+          "Avere un posto a suo nome a ogni spettacolo"
+        ],
+        "explanation": "La condizione parlava di grandezza e di nient’altro. Ybl la rispettò e mise tutta la sua fantasia nelle decorazioni."
+      },
+      "findIt": "In Andrássy út. Lo riconosci dalle due sfingi: la porta è fra loro, sotto il portico coperto per le carrozze."
+    },
+    "budapest-great-market-hall": {
+      "name": "Il Grande Mercato Coperto",
+      "tagline": "Una stazione di ferro piena di peperoni rossi",
+      "story": "Più di centovent’anni fa i mercati di Budapest si facevano per strada, nel fango e nella polvere. La città decise di riunirli sotto un solo tetto, e l’architetto Samu Pecz progettò un edificio con uno scheletro di ferro, altissimo e pieno di luce, che sembra più una stazione ferroviaria che un negozio. Poco prima dell’inaugurazione un incendio distrusse il tetto, ma fu riparato e il mercato aprì nel 1897. Sotto l’edificio passava un canale: le barche entravano dal Danubio e scaricavano dentro il mercato, cosa che oggi non succede più. Al pianterreno pendono file di peperoni rossi per la paprika, la polvere che dà sapore a quasi tutti i piatti ungheresi. I peperoni arrivarono dall’America cinquecento anni fa e diventarono il sapore di questo paese. Al piano di sopra tutto profuma di lángos, pasta fritta con aglio e formaggio.",
+      "facts": [
+        "Aprì nel 1897, dopo che un incendio aveva distrutto il tetto poco prima dell’inaugurazione.",
+        "Un canale portava le barche dal Danubio fin dentro l’edificio.",
+        "La paprika è una polvere fatta con peperoni rossi essiccati."
+      ],
+      "question": {
+        "q": "Come arrivavano un tempo le merci dentro il mercato?",
+        "answers": [
+          "In barca, per un canale sotto l’edificio",
+          "Con un piccolo treno che entrava dal cancello",
+          "Con ascensori dai magazzini in cantina",
+          "Con carri che salivano fino al primo piano"
+        ],
+        "explanation": "Un canale che veniva dal Danubio passava sotto il mercato, e le barche scaricavano dentro. Oggi il canale è chiuso."
+      },
+      "findIt": "In Fővám tér, accanto al ponte verde Szabadság híd. Il grande portone ad arco dà sulla piazza. Chiuso la domenica."
+    },
+    "budapest-fine-arts-museum": {
+      "name": "Il Museo di Belle Arti",
+      "tagline": "Un tempio greco con mummie e un quadro rubato",
+      "story": "Sul bordo di Piazza degli Eroi c’è un edificio che fa di tutto per sembrare un tempio antico: otto colonne e un frontone triangolare pieno di figure di marmo che lottano. Non è originale, e non finge di esserlo: il frontone è una copia di quello del tempio di Zeus a Olimpia. Gli architetti Albert Schickedanz e Fülöp Herzog lo progettarono così apposta, perché dalla strada si capisse che cosa avresti trovato dentro. Il museo aprì nel 1906. Ha una delle più grandi collezioni di El Greco fuori dalla Spagna, una sala di mummie egizie e un quadro di Raffaello che fu rubato nel 1983 e ritrovato in Grecia. Ha anche una sala enorme rimasta chiusa per più di settant’anni, perché la guerra l’aveva danneggiata e nessuno trovava il tempo di ripararla.",
+      "facts": [
+        "Aprì nel 1906, sul bordo di Piazza degli Eroi.",
+        "Il frontone sopra la porta copia quello del tempio di Zeus a Olimpia.",
+        "Ha una delle collezioni di El Greco più ricche fuori dalla Spagna."
+      ],
+      "question": {
+        "q": "Che cosa copia il frontone triangolare sopra la porta?",
+        "answers": [
+          "Il tempio di Zeus nell’antica Olimpia",
+          "La facciata del Parlamento di Budapest",
+          "Un dipinto di El Greco della collezione",
+          "La porta di una tomba egizia"
+        ],
+        "explanation": "I centauri che lottano contro i Lapiti, da Olimpia. Dalla strada l’edificio annuncia che dentro custodisce arte di molti secoli."
+      },
+      "findIt": "È l’edificio con le colonne sul lato nord di Piazza degli Eroi. I visitatori entrano salendo i gradini sotto il frontone.",
+      "museum": {
+        "rooms": {
+          "budapest-fine-arts-museum-egypt": {
+            "name": "Gli egizi",
+            "intro": "Questa sala è più buia delle altre, e c’è un motivo: la luce forte sbiadisce colori che hanno resistito tremila anni. Tutto qui parla di ciò che, secondo gli egizi, succede quando una vita finisce, e quasi tutto fu fatto perché nessun vivo lo vedesse mai."
+          },
+          "budapest-fine-arts-museum-old-masters": {
+            "name": "I maestri antichi",
+            "intro": "Su questi piani sono appesi più di mille quadri, e tre di loro vale la pena di andarli a cercare. Uno lo dipinse un greco che viveva in Spagna, uno sparì dalla sua parete per due mesi di cui sentì parlare il mondo intero, e il terzo ha dentro così tante persone che non riesci a contarle."
+          },
+          "budapest-fine-arts-museum-the-building": {
+            "name": "L’edificio stesso",
+            "intro": "Alcuni musei sono solo scatole che tengono al sicuro le cose. Questo no. La sua facciata copia un tempio greco, una delle sue sale ha dormito per settant’anni dietro porte chiuse a chiave, e dentro quella sala stanno interi portali di chiese che non sono affatto chiese. Qui l’edificio fa parte della collezione."
+          }
+        },
+        "exhibits": {
+          "budapest-fine-arts-museum-coffin": {
+            "name": "Il sarcofago dipinto",
+            "blurb": "Un sarcofago di legno a forma di persona, dipinto con colori forti e coperto di geroglifici da cima a fondo. Il viso sul coperchio non è un ritratto: è un viso calmo e ideale, più o meno uguale per tutti. Le righe di geroglifici non sono decorazione, ma istruzioni e formule magiche per il viaggio che, secondo gli egizi, veniva dopo. Era, in altre parole, una mappa scritta sull’esterno della scatola.",
+            "question": {
+              "q": "Che cosa sono i geroglifici sul sarcofago?",
+              "answers": [
+                "Istruzioni e formule magiche per il viaggio",
+                "La firma dell’artigiano che lo ha costruito",
+                "L’elenco delle cose sepolte insieme a lui",
+                "Solo decorazione, senza alcun significato"
+              ],
+              "explanation": "Sono un testo, non un disegno. Il sarcofago porta addosso le indicazioni che gli egizi ritenevano necessarie."
+            }
+          },
+          "budapest-fine-arts-museum-animal-mummies": {
+            "name": "Gli animali mummificati",
+            "blurb": "Piccoli fagotti di strisce di lino, alcuni a forma di gatto, altri lunghi e sottili come un uccello. Gli egizi mummificavano gli animali con la stessa cura che dedicavano alle persone. Alcuni erano animali di casa molto amati, altri erano offerte comprate nei templi, un po’ come oggi si compra una candela. Ai raggi X alcuni fagotti si rivelano vuoti, perché anche allora c’era chi vendeva dei falsi. Gli archeologi dicono che certe mummie di gatto erano fatte soltanto di stoffa e fango.",
+            "question": {
+              "q": "Che cosa mostrano i raggi X dentro alcuni di questi fagotti?",
+              "answers": [
+                "Che alcuni sono vuoti: c’era chi vendeva falsi",
+                "Che dentro c’erano piccoli gioielli d’oro",
+                "Che ogni animale aveva scritto il suo nome",
+                "Che erano tutti di una stessa famiglia"
+              ],
+              "explanation": "Alcuni fagotti non hanno dentro nessun animale. La gente li comprava come offerte e non aveva modo di controllare che cosa ci fosse dentro."
+            }
+          },
+          "budapest-fine-arts-museum-shabti": {
+            "name": "I piccoli lavoratori",
+            "blurb": "Decine di piccole figure verdazzurre, alte pochi centimetri, con le braccia incrociate e un attrezzo dipinto addosso. Si chiamano ushabti e avevano un solo compito: se qualcuno chiamava il morto a lavorare nei campi dell’altro mondo, le figure si sarebbero alzate e ci sarebbero andate al posto suo. Nelle tombe ricche ne sono state trovate più di trecento: una per ogni giorno dell’anno, più qualcuna in più che faceva da capo squadra e aveva una frusta invece di un attrezzo.",
+            "question": {
+              "q": "Qual era il compito di queste piccole figure?",
+              "answers": [
+                "Lavorare al posto suo nell’altro mondo",
+                "Tenere lontani i ladri dalla porta della tomba",
+                "Contare i giorni fino alla prossima luna piena",
+                "Mostrare quanto era ricca la famiglia"
+              ],
+              "explanation": "Erano dei sostituti. Il loro nome vuol dire più o meno «quello che risponde», perché rispondevano alla chiamata al posto del morto."
+            }
+          },
+          "budapest-fine-arts-museum-el-greco": {
+            "name": "El Greco",
+            "blurb": "Il pittore si chiamava Domenikos Theotokopoulos ed era nato a Creta. Visse a Venezia, poi a Roma, e alla fine si stabilì a Toledo, in Spagna, dove la gente lo chiamava semplicemente «il Greco»: El Greco. Le sue figure sono allungate verso l’alto, come viste in uno specchio del luna park, e i suoi colori sono freddi ed elettrici. Nel suo secolo lo consideravano strano. Trecento anni dopo i pittori lo riscoprirono e ne fecero un eroe.",
+            "question": {
+              "q": "Perché lo chiamavano «El Greco»?",
+              "answers": [
+                "In spagnolo vuol dire «il Greco»: era di Creta",
+                "Era il nome del suo vecchio maestro a Venezia",
+                "Dipingeva soltanto scene della Grecia antica",
+                "Era il nome della sua bottega a Toledo"
+              ],
+              "explanation": "Il suo vero nome, Theotokopoulos, era difficile per gli spagnoli. Lo chiamarono con il nome del paese da cui veniva, e il soprannome gli rimase."
+            }
+          },
+          "budapest-fine-arts-museum-esterhazy-madonna": {
+            "name": "La Madonna Esterházy",
+            "blurb": "Un piccolo quadro di Raffaello, dipinto intorno al 1508 e mai finito: se guardi da vicino, le rovine sullo sfondo sono ancora solo disegno. Nel novembre del 1983 fu rubato da questo museo, insieme ad altre sei opere, in una sola notte. I quadri furono ritrovati pochi mesi dopo in Grecia, vicino a Egio, e tornarono a Budapest. È uno dei pochi Raffaello che abbiano mai viaggiato di nascosto dentro una valigia.",
+            "question": {
+              "q": "Dove fu ritrovato il quadro dopo il furto del 1983?",
+              "answers": [
+                "In Grecia, vicino alla città di Egio",
+                "In un magazzino di questo stesso museo",
+                "In una carrozza ferroviaria in Austria",
+                "In un antiquario di Londra, in vendita"
+              ],
+              "explanation": "Andò da Budapest fino al Peloponneso e tornò indietro nel giro di pochi mesi. I quadri molto famosi sono difficilissimi da vendere."
+            }
+          },
+          "budapest-fine-arts-museum-bruegel": {
+            "name": "La folla di Bruegel",
+            "blurb": "Un quadro di Pieter Bruegel il Vecchio, del 1566, che mostra una folla enorme radunata in una radura per ascoltare un uomo che parla. Il bello è che l’oratore quasi si perde in mezzo alla gente. Quello che Bruegel ha dipinto è il pubblico: bambini che si arrampicano sugli alberi, qualcuno che dorme, due persone che chiacchierano, un uomo che legge la mano a un altro. È un quadro che esplori come un gioco, e ogni volta trovi qualcosa che non avevi notato.",
+            "question": {
+              "q": "Qual è il vero soggetto di questo quadro?",
+              "answers": [
+                "La folla che ascolta, non l’uomo che parla",
+                "Il bosco sul fondo e i suoi animali",
+                "Il tempo atmosferico, che cambia nella scena",
+                "La città lontana, dietro a tutto il resto"
+              ],
+              "explanation": "L’oratore è quasi nascosto. A Bruegel interessava che cosa fa la gente mentre dovrebbe ascoltare."
+            }
+          },
+          "budapest-fine-arts-museum-pediment": {
+            "name": "Il frontone di Olimpia",
+            "blurb": "Sopra le otto colonne dell’ingresso c’è un triangolo pieno di figure che lottano: i centauri, metà cavallo e metà uomo, contro i Lapiti. La scena non è stata inventata qui. È una copia del frontone ovest del tempio di Zeus a Olimpia, scolpito duemilacinquecento anni fa. Gli architetti non l’hanno mai nascosto, perché era proprio questo lo scopo: un edificio che ti dice che cosa custodisce prima ancora che tu entri.",
+            "question": {
+              "q": "Chi combatte nel frontone sopra la porta?",
+              "answers": [
+                "Centauri e Lapiti, proprio come a Olimpia",
+                "I sette capi delle antiche tribù magiare",
+                "Gli dèi dell’Olimpo a un gran banchetto",
+                "Soldati romani vittoriosi in Pannonia"
+              ],
+              "explanation": "Copia il frontone ovest di Olimpia. L’edificio prende in prestito una scena antica per annunciare che tipo di posto è."
+            }
+          },
+          "budapest-fine-arts-museum-romanesque-hall": {
+            "name": "La sala che dormiva",
+            "blurb": "Un’enorme sala ad archi, dipinta con colori e motivi decorativi su ogni centimetro di pareti e soffitto. Aprì insieme al museo nel 1906. Durante la Seconda guerra mondiale il suo tetto fu danneggiato, entrò l’acqua, e dopo la sala fu chiusa a chiave e usata come magazzino. Rimase così per più di settant’anni, con i quadri accatastati al buio. Fu restaurata e riaperta al pubblico nel 2018, con i colori ripuliti.",
+            "question": {
+              "q": "Come fu usata questa sala per più di settant’anni?",
+              "answers": [
+                "Era chiusa a chiave e faceva da magazzino",
+                "Ospitava una scuola per i bambini della zona",
+                "Ci stavano le statue più famose del museo",
+                "Era stata riempita di libri della biblioteca"
+              ],
+              "explanation": "La guerra l’aveva danneggiata, fu chiusa a chiave e dimenticata. Ci vollero settant’anni per ripararla e riaprirla, nel 2018."
+            }
+          },
+          "budapest-fine-arts-museum-casts": {
+            "name": "I portali di gesso",
+            "blurb": "Dentro la sala ad archi stanno interi portali di chiese medievali, a grandezza naturale e in ogni dettaglio. Però non sono di pietra: sono di gesso. Prima della fotografia e degli aeroplani, uno studente di Budapest non poteva andare a vedere un portale in Francia, così era il portale a essere portato allo studente. I calchi erano la migliore macchina per copiare del loro tempo: esatti, enormi e fatti per essere studiati con gli occhi.",
+            "question": {
+              "q": "Perché facevano copie in gesso di interi portali?",
+              "answers": [
+                "Per farli studiare a chi non poteva viaggiare",
+                "Per rimpiazzare gli originali danneggiati",
+                "Per verificare se il tetto reggeva quel peso",
+                "Per venderli ad altri musei di tutta Europa"
+              ],
+              "explanation": "Senza fotografie e senza viaggi economici, un calco era l’unico modo per vedere a grandezza vera qualcosa di lontano."
+            }
+          }
+        },
+        "riddles": {
+          "budapest-fine-arts-museum-riddle-1": {
+            "prompt": "Sono un fagotto di strisce di lino a forma di animale. Qualcuno mi ha comprato in un tempio migliaia di anni fa, per lasciarmi in dono. Alcuni come me si rivelano vuoti.",
+            "hint": "I raggi X hanno svelato il mio segreto."
+          },
+          "budapest-fine-arts-museum-riddle-2": {
+            "prompt": "Sono piccolo e il mio pittore non mi ha mai finito. Una notte del 1983 mi hanno tolto dalla mia parete, e mi hanno ritrovato pochi mesi dopo, in Grecia.",
+            "hint": "Sul mio sfondo le rovine sono ancora solo disegno."
+          },
+          "budapest-fine-arts-museum-riddle-3": {
+            "prompt": "Non sono un oggetto, sono uno spazio. Ho archi e colori su ogni centimetro di me. La guerra mi ha rotto il tetto, mi hanno chiuso a chiave, e mi sono risvegliato solo nel 2018.",
+            "hint": "Per settant’anni mi hanno usato come magazzino."
+          }
+        },
+        "doorNote": "Le grandi sale sono al pianterreno e i quadri al piano di sopra. Le scale sono tante, quindi scegli un ordine."
+      }
+    },
+    "budapest-zoo": {
+      "name": "Lo Zoo e Giardino Botanico",
+      "tagline": "Gli elefanti vivono in una casa di piastrelle con una torre",
+      "story": "Aprì nel 1866 ed è uno degli zoo più antichi del mondo. A quei tempi uno zoo era una fila di gabbie; oggi il suo compito è un altro, e qui si curano animali che in natura sono diventati rari. La sorpresa è che anche gli edifici, da soli, valgono la visita. La Casa degli Elefanti, del 1912, è coperta di lucide ceramiche Zsolnay, le stesse che stanno sul tetto della Chiesa di Mattia, e ha una torre sottile come un minareto. La Casa degli Uccelli e la Fagianaia furono progettate da Károly Kós e Dezső Zrumeczky in legno e pietra, come se le avessero portate da un villaggio di montagna. La torretta degli elefanti rischiò di non sopravvivere: ad alcuni sembrava sconveniente, ci furono discussioni e nel 1915 fu abbattuta. Nel 1997 fu ricostruita esattamente com’era.",
+      "facts": [
+        "Aprì nel 1866: è uno degli zoo più antichi del mondo.",
+        "La Casa degli Elefanti, del 1912, è rivestita di ceramiche Zsolnay.",
+        "La torre degli elefanti fu abbattuta nel 1915 e ricostruita nel 1997."
+      ],
+      "question": {
+        "q": "Che cosa è successo alla torre sottile della Casa degli Elefanti?",
+        "answers": [
+          "Fu abbattuta nel 1915 e rialzata nel 1997",
+          "Fece da campanile a una chiesa del parco",
+          "I guardiani la usavano come vedetta",
+          "La costruirono proprio gli ottomani, secoli fa"
+        ],
+        "explanation": "L’architetto Kornél Neuschloss le diede la forma di un minareto: alcuni si offesero e la torre fu demolita. Ottantadue anni dopo la città la rimise al suo posto, identica."
+      },
+      "findIt": "Il cancello con gli elefanti di pietra dà su Állatkerti körút, accanto alle Terme Széchenyi."
+    },
+    "budapest-parliament": {
+      "name": "Il Parlamento (Országház)",
+      "tagline": "Un palazzo di merletto di pietra, senza nessun re dentro",
+      "story": "Più di cento anni fa Budapest voleva una casa per le sue leggi, e la voleva così bella che il mondo intero venisse a guardarla. L’architetto Imre Steindl la progettò come un palazzo delle fiabe, pieno di guglie appuntite e con una cupola rossa in mezzo. Migliaia di costruttori ci lavorarono per quasi vent’anni, fino al 1904. Dentro ci sono 691 stanze, e per le decorazioni furono usati circa quaranta chili d’oro. La sua altezza non è un caso: 96 metri, perché nell’anno 896 i magiari, gli antenati degli ungheresi, arrivarono in questa terra. Dentro non vive nessun re. Qui lavorano i deputati, scelti dal paese per discutere le leggi e poi votarle. Dal 2000 qui è custodita anche la Sacra Corona degli antichi re. Steindl perse la vista prima della fine dei lavori e non vide mai finito il suo edificio.",
+      "facts": [
+        "Ha 691 stanze e 29 scalinate.",
+        "La sua cupola è alta 96 metri, in ricordo dell’896, l’anno in cui arrivarono i magiari.",
+        "Il suo architetto, Imre Steindl, diventò cieco prima che l’edificio fosse finito."
+      ],
+      "question": {
+        "q": "Perché l’edificio è alto esattamente 96 metri?",
+        "answers": [
+          "Ricorda l’896, quando arrivarono i magiari",
+          "Le impalcature non arrivavano più in alto",
+          "Lo misurarono dalla profondità del Danubio",
+          "Un metro per ogni stanza del primo progetto"
+        ],
+        "explanation": "Nell’896 i magiari si stabilirono in questa terra. Mille anni dopo la città costruì due edifici alti esattamente 96 metri, perché tutti se ne ricordassero."
+      },
+      "findIt": "In Kossuth Lajos tér. Il lato con il grande scalone e i leoni guarda la piazza, non il fiume."
+    },
+    "budapest-basilica": {
+      "name": "La Basilica di Santo Stefano",
+      "tagline": "La sua cupola crollò una volta e fu ricostruita più solida",
+      "story": "Intorno all’anno 1000 Stefano, István in ungherese, diventò il primo re d’Ungheria e diede ai magiari leggi, chiese e una capitale. Ottocento anni dopo la città decise di dedicargli la sua chiesa più grande. I lavori cominciarono nel 1851 e andavano bene, finché nel 1868 la cupola, finita a metà, crollò con un fragore terribile. Nessuno morì, ma i costruttori dovettero ricominciare quasi da capo. Un nuovo architetto, Miklós Ybl, progettò una cupola più solida, e la chiesa fu finita nel 1905: più di cinquant’anni di lavoro. La cupola arrivò a 96 metri, esattamente come il Parlamento, e per molti anni nessun edificio del centro poté essere più alto di loro due. Dentro, in una piccola cappella, è custodita la mano destra di re Stefano, e in una delle torri è appesa la campana più grande del paese.",
+      "facts": [
+        "Fu costruita dal 1851 al 1905, con una cupola crollata a metà strada.",
+        "La sua cupola è alta 96 metri, come quella del Parlamento.",
+        "Nella sua torre sud è appesa la campana più grande dell’Ungheria."
+      ],
+      "question": {
+        "q": "Che cosa successe alla cupola della chiesa nel 1868?",
+        "answers": [
+          "Crollò tutta quanta e fu ricostruita più solida",
+          "Fu colpita da un fulmine e rimase nera per anni",
+          "La ricoprirono d’oro per la festa del primo re",
+          "Fu spostata per fare spazio all’enorme campana"
+        ],
+        "explanation": "La cupola, finita a metà, cadde nel 1868. Miklós Ybl la riprogettò più solida, ed è per questo che la chiesa richiese più di cinquant’anni."
+      },
+      "findIt": "L’ingresso fra le due torri dà su Szent István tér, dal lato pedonale."
+    },
+    "budapest-chain-bridge": {
+      "name": "Il Ponte delle Catene",
+      "tagline": "Costruito perché un uomo perse un funerale",
+      "story": "Circa duecento anni fa Buda e Pest erano due città separate. Per passare dall’altra parte prendevi una barca, e d’inverno camminavi sul Danubio ghiacciato. Ma quando il ghiaccio si stava rompendo, non passava niente. Il conte István Széchenyi rimase bloccato sulla riva sbagliata per una settimana e non arrivò in tempo al funerale di suo padre, dall’altra parte. Giurò di costruire un ponte che stesse in piedi tutto l’anno. L’ingegnere inglese William Tierney Clark lo progettò appeso a enormi catene di ferro, e uno scozzese con lo stesso cognome, Adam Clark, lo costruì sul posto: i due non erano per niente parenti. Aprì nel 1849 ed era il primo ponte permanente della città. Alla fine della guerra, nel 1945, fu fatto saltare in aria. Gli abitanti lo ricostruirono e lo riaprirono nel 1949, esattamente cento anni dopo la prima volta. Quattro leoni di pietra fanno ancora la guardia alle sue estremità.",
+      "facts": [
+        "Aprì nel 1849: fu il primo ponte permanente fra Buda e Pest.",
+        "Fu fatto saltare nel 1945 e riaperto nel 1949, un secolo dopo la prima volta.",
+        "I suoi quattro leoni la lingua ce l’hanno: solo che da sotto non si vede."
+      ],
+      "question": {
+        "q": "Che cosa faceva la gente d’inverno, prima che ci fosse il ponte?",
+        "answers": [
+          "Camminava sopra il Danubio ghiacciato",
+          "Scavava un tunnel sotto il fiume",
+          "Legava insieme tante barche",
+          "Aspettava sulla riva fino alla primavera"
+        ],
+        "explanation": "Il Danubio gelava e la gente attraversava a piedi. Ma quando il ghiaccio si rompeva in pezzi, per giorni non si passava più."
+      },
+      "findIt": "Il punto giusto è il centro del ponte. I leoni stanno alle due estremità, in Széchenyi István tér e in Clark Ádám tér."
+    },
+    "budapest-buda-castle": {
+      "name": "Il Castello di Buda",
+      "tagline": "Distrutto e ricostruito più volte di quante se ne ricordino",
+      "story": "Più di 750 anni fa il re Béla IV costruì un castello su questa collina, perché da quassù poteva vedere qualunque nemico arrivasse attraverso la pianura. I re che vennero dopo lo ingrandirono, e Mattia ne fece uno dei palazzi più splendidi d’Europa, con una biblioteca, giardini e fontane. Poi arrivarono assedi, incendi e terremoti. Il castello fu distrutto e ricostruito così tante volte che oggi quasi niente di quello che vedi è medievale: l’ultima grande distruzione avvenne nella Seconda guerra mondiale, e l’ultimo grande restauro è durato decenni. Sul bordo della collina c’è un uccello di bronzo con una spada negli artigli: è il Turul, il falco mitico che nelle antiche leggende guidò i magiari fin qui. Oggi nel palazzo non vive nessun re, ma ci sono musei e una biblioteca, e sotto la collina corrono chilometri di grotte e gallerie.",
+      "facts": [
+        "Il primo castello fu costruito qui dal re Béla IV nel XIII secolo.",
+        "Il Turul, il falco di bronzo sul bordo della collina, tiene una spada negli artigli.",
+        "Sotto la collina c’è un labirinto di grotte naturali lungo chilometri."
+      ],
+      "question": {
+        "q": "Perché il re scelse questa collina per il suo castello?",
+        "answers": [
+          "Da lassù poteva vedere arrivare i nemici",
+          "Era l’unico punto con una sorgente potabile",
+          "La sua pietra si tagliava facilmente a blocchi",
+          "Voleva vivere vicino al vecchio monastero"
+        ],
+        "explanation": "Un castello su una collina vede lontano. Béla IV voleva che nessuno potesse avvicinarsi di nascosto attraverso la pianura."
+      },
+      "findIt": "Sulla collina si sale in tanti modi. La funicolare Sikló parte da Clark Ádám tér, alla fine del Ponte delle Catene, e ti lascia accanto al Turul."
+    },
+    "budapest-matthias-church": {
+      "name": "La Chiesa di Mattia",
+      "tagline": "Un tetto come pelle di drago e un corvo con un anello",
+      "story": "Questa chiesa ha circa 750 anni e ha cambiato faccia più volte di quanto immagineresti. Il re Mattia, che regnò più di cinquecento anni fa, le fece costruire l’alta torre e qui sposò tutte e due le sue mogli. Il suo simbolo era un corvo con un anello nel becco, e lo troverai scolpito un po’ dappertutto. Quando arrivarono gli ottomani, la chiesa diventò una moschea per quasi centocinquant’anni e le sue pitture murali furono coperte di calce. Nell’Ottocento l’architetto Frigyes Schulek la trasformò in una chiesa da fiaba: mise mostri di pietra sui muri e un tetto di piastrelle di ceramica colorata della fabbrica Zsolnay, che brillano a rombi verdi, gialli e marroni. Qui l’imperatore Francesco Giuseppe fu incoronato re d’Ungheria nel 1867, e per l’incoronazione Franz Liszt scrisse una messa intera.",
+      "facts": [
+        "Il suo tetto è coperto di piastrelle colorate di ceramica Zsolnay.",
+        "Per quasi 150 anni, sotto gli ottomani, fu usata come moschea.",
+        "Il suo nome ufficiale è Chiesa di Nostra Signora, ma tutti usano il nome di re Mattia."
+      ],
+      "question": {
+        "q": "Che cosa tiene nel becco il corvo di re Mattia?",
+        "answers": [
+          "Un anello, come racconta una leggenda",
+          "Una chiave della sua biblioteca",
+          "Una penna d’oca, perché amava i libri",
+          "Una bacca rossa dei giardini reali"
+        ],
+        "explanation": "Una leggenda racconta che un corvo rubò l’anello al giovane Mattia. La sua famiglia prese il nome Corvinus, che in latino vuol dire «corvo»."
+      },
+      "findIt": "In Szentháromság tér. La porta per i visitatori è sul fianco, non sotto il grande rosone."
+    },
+    "budapest-fishermans-bastion": {
+      "name": "Il Bastione dei Pescatori",
+      "tagline": "Sembra un castello, ma non ha mai difeso niente",
+      "story": "Non farti ingannare dal suo aspetto. Questo «castello» bianco come la neve, con le torri appuntite e le scale che girano, non ha mai visto una battaglia e non è mai stato progettato per vederla. Fu costruito fra il 1895 e il 1902, mentre l’Ungheria festeggiava mille anni dall’arrivo dei magiari, e l’architetto Frigyes Schulek lo pensò come un enorme balcone: un posto dove stai in piedi e guardi. E infatti dai suoi archi vedi il Danubio, i ponti e, proprio dall’altra parte dell’acqua, il Parlamento. Ha sette torri, una per ogni tribù che arrivò a cavallo nell’896. Il suo nome non ha niente a che fare con i re: viene dalla corporazione dei pescatori, che nel Medioevo difendeva proprio questo tratto di mura e aveva il suo mercato del pesce appena sotto. Davanti al bastione, su un cavallo di bronzo, siede re Stefano.",
+      "facts": [
+        "Ha sette torri, una per ogni tribù dei magiari.",
+        "Fu costruito dal 1895 al 1902, solo per il panorama.",
+        "Il suo nome viene dalla corporazione medievale dei pescatori."
+      ],
+      "question": {
+        "q": "Perché fu costruito il bastione?",
+        "answers": [
+          "Perché la gente potesse stare a guardare",
+          "Perché i pescatori si riparassero lì",
+          "Per fermare i colpi di cannone dall’altra riva",
+          "Per reggere la collina, che stava franando"
+        ],
+        "explanation": "È un balcone, non una fortezza. Fu costruito per la festa dei mille anni, con un solo scopo: dare alla città un bel posto da cui guardare."
+      },
+      "findIt": "Proprio dietro la Chiesa di Mattia, dal lato del fiume. Le terrazze in basso sono aperte a tutti."
+    },
+    "budapest-liberty-statue": {
+      "name": "La collina Gellért e la Statua della Libertà",
+      "tagline": "La collina con l’acqua calda ai suoi piedi",
+      "story": "La collina si alza 235 metri sopra il livello del mare ed è un unico, enorme blocco di dolomia, pieno di crepe. Prende il nome da Gellért, un vescovo venuto dall’Italia che faceva da maestro al figlio di re Stefano e che fu ucciso qui durante una rivolta, circa mille anni fa. In cima, nel 1854, gli austriaci costruirono una fortezza, la Citadella, per sorvegliare la città dall’alto; gli abitanti di Budapest non l’hanno mai amata. Accanto, dal 1947, c’è una donna di bronzo che tiene alta sopra la testa una foglia di palma, un antico segno di pace. La statua è alta quattordici metri, e quaranta con il piedistallo, così si vede da tutta la città. La cosa più strana succede ai piedi della collina: dalle crepe della roccia esce acqua già calda, scaldata non dal sole ma nel profondo della terra. Due stabilimenti termali, il Rudas e il Gellért, si riempiono di quest’acqua da secoli.",
+      "facts": [
+        "La collina arriva a 235 metri sopra il livello del mare.",
+        "La statua è alta 14 metri, e 40 con il piedistallo.",
+        "Le terme Rudas, ai suoi piedi, furono costruite dagli ottomani nel XVI secolo."
+      ],
+      "question": {
+        "q": "Perché ai piedi della collina esce acqua calda?",
+        "answers": [
+          "La scalda la roccia nel sottosuolo",
+          "Il sole scalda la roccia tutto il giorno",
+          "C’è un vulcano sotto la città",
+          "La fanno bollire in cisterne nelle terme"
+        ],
+        "explanation": "Più scendi in profondità, più la roccia è calda. L’acqua piovana scende, si scalda e torna fuori: Budapest ha più di cento sorgenti come questa."
+      },
+      "findIt": "I sentieri a gradini partono dal ponte Erzsébet híd e da Szent Gellért tér. La signora con la foglia di palma si vede da ogni punto: sali verso di lei."
+    },
+    "budapest-heroes-square": {
+      "name": "Piazza degli Eroi",
+      "tagline": "Un regalo di compleanno arrivato con trentatré anni di ritardo",
+      "story": "Nel 1896 l’Ungheria festeggiava mille anni da quando i magiari erano arrivati in questa terra, e decise di regalarsi una piazza. Ma il monumento era così grande che fu finito solo nel 1929, trentatré anni dopo: il regalo arrivò quando i bambini della festa erano ormai cresciuti. In mezzo si alza una colonna alta trentasei metri con in cima l’arcangelo Gabriele, che tiene una corona in una mano e una croce doppia nell’altra. Intorno alla sua base stanno sette cavalieri, i capi delle sette tribù, con Árpád davanti a tutti. A destra e a sinistra si curvano due colonnati con quattordici statue di re e di eroi. Non sono sempre state le stesse: dopo la Seconda guerra mondiale le statue degli imperatori austriaci furono sostituite con quelle di ungheresi. Una piazza ha il diritto di cambiare idea su chi vuole ricordare.",
+      "facts": [
+        "La colonna al centro è alta 36 metri.",
+        "Cominciata nel 1896 e finita nel 1929: 33 anni di lavoro.",
+        "I sette cavalieri sono i capi delle sette tribù dei magiari."
+      ],
+      "question": {
+        "q": "Quanti cavalieri stanno intorno alla colonna, e perché?",
+        "answers": [
+          "Sette, uno per ogni tribù magiara",
+          "Dodici, uno per ogni mese dell’anno",
+          "Tre, uno per ogni fiume dell’Ungheria",
+          "Nove, uno per ogni anno che durarono i lavori"
+        ],
+        "explanation": "Sette tribù di cavalieri arrivarono qui dalle steppe nell’896, guidate da Árpád. Per questo lui sta davanti agli altri sei."
+      },
+      "findIt": "La piazza è aperta da ogni lato. Mettiti sotto la colonna con l’angelo e avrai i cavalieri tutti intorno."
+    },
+    "budapest-szechenyi-bath": {
+      "name": "Le Terme Széchenyi",
+      "tagline": "La loro acqua sale di un chilometro per arrivare qui",
+      "story": "In mezzo al parco c’è un enorme edificio giallo con cupole e statue, e dentro ci sono diciotto piscine. La parte più interessante però non si vede affatto, perché è sotto i tuoi piedi. Nel 1878 l’ingegnere Vilmos Zsigmondy scavò qui un pozzo e scese a quasi mille metri, cercando acqua calda. La trovò. Più tardi un secondo pozzo scese ancora più in profondità, e da lì l’acqua sale a circa settantacinque gradi. Nessuno la scalda: più scendi dentro la terra, più la roccia è calda, e l’acqua piovana che scende in profondità torna su bollente. Le terme aprirono nel 1913 e le piscine all’aperto funzionano tutto l’anno. D’inverno il vapore avvolge i nuotatori, e alcuni anziani giocano a scacchi dentro l’acqua, con la scacchiera che galleggia fra loro.",
+      "facts": [
+        "L’edificio aprì nel 1913 e ha diciotto piscine.",
+        "L’acqua arriva in superficie a circa 75 gradi Celsius.",
+        "Il primo pozzo, nel 1878, scese a quasi mille metri di profondità."
+      ],
+      "question": {
+        "q": "Come si scalda l’acqua di queste terme?",
+        "answers": [
+          "Dalla roccia, un chilometro sottoterra",
+          "In caldaie nella cantina delle terme",
+          "Dal sole, in vasche basse all’aperto",
+          "Da un vulcano sotto il parco"
+        ],
+        "explanation": "Non c’è nessuna caldaia. L’acqua scende, si scalda con il calore della Terra stessa, e viene riportata su attraverso un pozzo."
+      },
+      "findIt": "Nel parco Városliget. L’ingresso principale è sul lato che guarda il circo e lo zoo, sotto la grande cupola gialla."
+    },
+    "budapest-hajos-pool": {
+      "name": "La Piscina Alfréd Hajós",
+      "tagline": "Il campione olimpico che progettò la sua piscina",
+      "story": "Ai primi Giochi olimpici moderni, ad Atene nel 1896, non c’era una piscina. I nuotatori gareggiarono in mare aperto, nella baia di Zea vicino al Pireo, nell’acqua gelida e fra le onde. Un diciottenne di Budapest, Alfréd Hajós, vinse due gare nello stesso giorno. Dopo raccontò che in quell’acqua fredda la sua voglia di restare vivo aveva battuto la sua voglia di vincere. Tornato a casa non diventò allenatore: studiò architettura. Passò anni a progettare edifici, e nel 1930 sull’isola Margit-sziget aprì una piscina che aveva progettato lui stesso. È una cosa rara: l’uomo che vinse le prime gare olimpiche di nuoto disegnò i progetti del posto dove si allenarono i campioni venuti dopo di lui. Nel 1924 vinse una seconda medaglia olimpica senza nemmeno avvicinarsi all’acqua: un argento, in una gara di progetti per edifici sportivi.",
+      "facts": [
+        "Ad Atene nel 1896 i nuotatori gareggiarono in mare aperto.",
+        "Alfréd Hajós vinse due gare olimpiche nello stesso giorno, a diciotto anni.",
+        "La piscina, progettata da lui, aprì nel 1930 sull’isola Margit-sziget."
+      ],
+      "question": {
+        "q": "Che cosa fece Alfréd Hajós dopo aver vinto ad Atene?",
+        "answers": [
+          "Diventò architetto e progettò questa piscina",
+          "Diventò l’allenatore della nazionale di nuoto",
+          "Aprì una scuola di nuoto sulla riva del Danubio",
+          "Diventò maestro in una scuola di Margit-sziget"
+        ],
+        "explanation": "Studiò architettura e, anni dopo, progettò la piscina che aprì nel 1930 e che oggi porta il suo nome."
+      },
+      "findIt": "Sull’isola Margit-sziget, sul lato ovest, vicino al ponte Margit híd. L’edificio ha grandi vetrate e si vede dal sentiero lungo il fiume."
+    }
+  },
+  "trails": {
+    "budapest-the-castle-hill": {
+      "name": "La collina e il ponte",
+      "promise": "Il primo ponte della città, la collina dei re e un castello che non ha mai protetto niente."
+    },
+    "budapest-the-thousand-year-party": {
+      "name": "La festa dei mille anni",
+      "promise": "Cinque cose che Budapest costruì intorno al suo millesimo compleanno, nel 1896."
+    },
+    "budapest-hot-water-cold-river": {
+      "name": "Acqua calda, fiume freddo",
+      "promise": "Acqua che sale bollente da un chilometro sotto terra, e un campione che ad Atene tremò dal freddo."
+    },
+    "budapest-a-day-indoors": {
+      "name": "Un giorno di pioggia",
+      "promise": "Due musei con mummie, oro e un quadro rubato, e una sala con Zeus sul soffitto."
+    },
+    "budapest-the-pest-side": {
+      "name": "Il lato piatto",
+      "promise": "La casa delle leggi, una chiesa ricostruita e un mercato che profuma di paprika."
+    }
+  }
+}
