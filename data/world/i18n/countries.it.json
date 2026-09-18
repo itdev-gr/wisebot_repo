@@ -65,6 +65,10 @@
         "madrid": {
           "name": "Madrid",
           "intro": "Madrid è la capitale della Spagna e si trova quasi al centro del paese, tanto che tutte le strade principali si misurano a partire da una targa in una delle sue piazze. Qui troverai un palazzo con tremila stanze, un museo pieno di quadri che ti guardano a loro volta, un vero tempio egizio in un parco e il primo scheletro di un animale estinto mai montato. A Madrid si cena tardi la sera, si dividono piccoli piatti con gli amici e si va in barca su un lago in mezzo alla città."
+        },
+        "seville": {
+          "name": "Siviglia",
+          "intro": "Siviglia è una città calda del sud, lungo un fiume da cui un tempo partivano le navi per l’America. Per secoli fu governata dai musulmani, poi da re cristiani, e la città ha conservato qualcosa di tutti: un minareto è diventato un campanile, un castello è diventato un palazzo con i pavoni. In primavera le strade profumano di fiori d’arancio, le case sono decorate con piastrelle colorate, e dall’altra parte del fiume la gente balla il flamenco. D’estate fa così caldo che tutti cercano l’ombra."
         }
       }
     },
@@ -85,6 +89,10 @@
         "venice": {
           "name": "Venezia",
           "intro": "Venezia è una città costruita sull’acqua, su più di cento piccole isole in una laguna. Non ha nemmeno un’automobile: le sue strade sono canali, i suoi autobus sono barche, e per andare da un quartiere all’altro sali e scendi centinaia di ponti. Per mille anni è stata una repubblica di mercanti, con un doge al posto del re e un leone alato come simbolo. Qui troverai una chiesa d’oro, gondole storte apposta e un’isola dove il vetro si gonfia come un palloncino."
+        },
+        "florence": {
+          "name": "Firenze",
+          "intro": "Firenze è una piccola città lungo un fiume, l’Arno, dove seicento anni fa cominciò un modo nuovo di dipingere, di costruire e di pensare. Una famiglia di banchieri, i Medici, pagava pittori, scultori e scienziati. Qui troverai una cupola rossa che nessuno sapeva come costruire, il David di Michelangelo, i cannocchiali di Galileo, un ponte con sopra le botteghe degli orafi e un porcellino di bronzo che porta fortuna."
         }
       }
     },

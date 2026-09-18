@@ -65,6 +65,10 @@
         "madrid": {
           "name": "Madrid",
           "intro": "Madrid est la capitale de l’Espagne et se trouve presque au centre du pays, à tel point que toutes les grandes routes se mesurent à partir d’une plaque posée sur l’une de ses places. Tu y trouveras un palais de trois mille pièces, un musée rempli de tableaux qui te regardent en retour, un vrai temple égyptien dans un parc et le premier squelette d’un animal disparu jamais monté. À Madrid, on dîne tard le soir, on partage de petites assiettes entre amis et on fait du bateau sur un lac au milieu de la ville."
+        },
+        "seville": {
+          "name": "Séville",
+          "intro": "Séville est une ville chaude du sud, au bord d’un fleuve d’où les navires partaient autrefois pour l’Amérique. Pendant des siècles, elle a été gouvernée par des musulmans, puis par des rois chrétiens, et la ville a gardé quelque chose de chacun : un minaret est devenu un clocher, un château est devenu un palais avec des paons. Au printemps, les rues sentent la fleur d’oranger, les maisons sont décorées de carreaux colorés, et de l’autre côté du fleuve, on danse le flamenco. L’été, il fait si chaud que tout le monde cherche l’ombre."
         }
       }
     },
@@ -85,6 +89,10 @@
         "venice": {
           "name": "Venise",
           "intro": "Venise est une ville bâtie sur l’eau, sur plus d’une centaine de petites îles dans une lagune. Elle n’a pas une seule voiture : ses rues sont des canaux, ses bus sont des bateaux, et pour aller d’un quartier à l’autre, tu montes et tu descends des centaines de ponts. Pendant mille ans, elle a été une république de marchands, avec un doge au lieu d’un roi et un lion ailé pour emblème. Tu y trouveras une église dorée, des gondoles tordues exprès et une île où le verre gonfle comme un ballon."
+        },
+        "florence": {
+          "name": "Florence",
+          "intro": "Florence est une petite ville au bord d’un fleuve, l’Arno, où il y a six cents ans a commencé une nouvelle façon de peindre, de bâtir et de penser. Une famille de banquiers, les Médicis, payait des peintres, des sculpteurs et des savants. Tu y trouveras un dôme rouge que personne ne savait construire, le David de Michel-Ange, les lunettes de Galilée, un pont couvert de boutiques de bijoutiers et un petit sanglier de bronze qui porte bonheur."
         }
       }
     },
