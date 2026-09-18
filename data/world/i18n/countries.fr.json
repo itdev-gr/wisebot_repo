@@ -129,7 +129,13 @@
         "Son plus haut sommet, la Zugspitze, atteint 2 962 mètres. La frontière avec l’Autriche passe juste sur sa cime.",
         "Elle a une frontière avec neuf pays, du Danemark au nord à la Suisse au sud.",
         "La cathédrale de Cologne a mis 632 ans à être terminée, de 1248 à 1880. Ses tours montent à 157 mètres."
-      ]
+      ],
+      "cities": {
+        "berlin": {
+          "name": "Berlin",
+          "intro": "Berlin est une ville qui a vécu deux vies. Pendant vingt-huit ans, un mur l’a coupée en deux, et aujourd’hui tu traverses sa ligne sans même t’en apercevoir. Elle a une tour avec une boule qui tourne, un parlement coiffé d’un chapeau de verre, une île au milieu de la rivière avec cinq musées dessus, et le plus haut squelette de dinosaure du monde. Et des ours partout où tu regardes : sur les panneaux, dans les vitrines, sur les fontaines."
+        }
+      }
     },
     "portugal": {
       "name": "Portugal",
@@ -139,7 +145,17 @@
         "Près de la moitié du liège du monde vient d’ici. On enlève l’écorce tous les 9 ans et l’arbre continue de vivre.",
         "Le pont Vasco-de-Gama, à Lisbonne, mesure 17,2 kilomètres de long : c’est le plus long de l’Union européenne.",
         "La librairie Bertrand, à Lisbonne, est ouverte depuis 1732 : c’est la plus vieille librairie du monde encore en activité."
-      ]
+      ],
+      "cities": {
+        "lisbon": {
+          "name": "Lisbonne",
+          "intro": "Lisbonne est bâtie sur des collines, et presque chaque rue monte en s’éloignant de l’eau ou descend vers elle. Un matin de 1755, un tremblement de terre a rasé son centre, et la ville l’a reconstruit de zéro, avec des rues droites et une place ouverte sur le fleuve. C’est de ce fleuve que les navires sont partis chercher la route maritime vers l’Inde. Elle a des tramways jaunes qui grincent dans les montées, un ascenseur en fer qui compte comme un transport public, et des murs habillés de carreaux bleus."
+        },
+        "porto": {
+          "name": "Porto",
+          "intro": "Porto est posée sur deux collines, au-dessus d’un fleuve qui court vers l’Atlantique, et presque chacune de ses rues monte ou descend. Ce sont ses murs qui racontent : des milliers de carreaux bleus dans une gare, une image entière sur le flanc d’une église. Un pont de fer à deux tabliers relie les rives, en haut et en bas à la fois. Elle a une tour qui guidait les navires sans jamais allumer de lampe, un marché dont le nom veut dire « grosse bulle », et des paons qui se promènent dans un jardin comme s’il leur appartenait."
+        }
+      }
     },
     "austria": {
       "name": "Autriche",
@@ -149,7 +165,13 @@
         "L’Eisriesenwelt est la plus grande grotte de glace du monde, avec des galeries de plus de 42 kilomètres.",
         "Le zoo de Schönbrunn, à Vienne, a ouvert en 1752 : c’est le plus vieux zoo encore en activité au monde.",
         "Elle n’a pas du tout de côte, mais elle a une frontière avec huit pays."
-      ]
+      ],
+      "cities": {
+        "vienna": {
+          "name": "Vienne",
+          "intro": "Vienne est une ville qui garde tout. Sa cathédrale a une tour terminée et une autre à moitié construite, parce qu’un jour l’argent a manqué et que personne n’est jamais revenu la finir. Une grande roue de 1897 tourne encore au Prater. Deux musées jumeaux se regardent de chaque côté d’une place : l’un garde des dinosaures et des météorites, l’autre douze tableaux de Bruegel. Et toute une rivière coule cachée sous un marché long d’un kilomètre et demi."
+        }
+      }
     },
     "netherlands": {
       "name": "Pays-Bas",
@@ -241,7 +263,13 @@
         "Son point le plus haut, sur le mont Dinara, atteint 1 831 mètres.",
         "Les lacs de Plitvice sont seize lacs posés l’un au-dessus de l’autre, devenus parc national en 1949.",
         "Les murailles de Dubrovnik font environ 1 940 mètres de long et montent jusqu’à 25 mètres de haut."
-      ]
+      ],
+      "cities": {
+        "dubrovnik": {
+          "name": "Dubrovnik",
+          "intro": "Dubrovnik est une ville entière enfermée dans un seul rempart, et ce rempart, on peut le parcourir à pied. Près de deux kilomètres de pierre, jusqu’à vingt-cinq mètres de haut par endroits, avec les toits orange d’un côté et l’Adriatique de l’autre. Pendant des centaines d’années, elle s’est appelée Raguse, une petite république restée libre grâce au commerce et à des accords prudents plus qu’à des armées. Sa rue principale était autrefois la mer, et sa pharmacie ouvre chaque matin depuis 1317."
+        }
+      }
     },
     "united-arab-emirates": {
       "name": "Émirats arabes unis",
@@ -261,7 +289,13 @@
         "Son plus haut sommet, l’Olympe, appelé aussi Chionistra, atteint 1 952 mètres et reçoit de la neige chaque hiver.",
         "Le mot « cuivre » vient du latin « aes cyprium », qui veut dire « métal de Chypre ».",
         "Sa côte mesure environ 648 kilomètres, alors nulle part sur l’île tu n’es loin de la mer."
-      ]
+      ],
+      "cities": {
+        "nicosia": {
+          "name": "Nicosie",
+          "intro": "Nicosie se trouve loin de la mer, au milieu d’une plaine, enfermée dans un anneau de remparts aux onze bastions pointus en forme de cœur, et toute la vieille ville est bâtie dans la même pierre jaune doré. Ici, une église gothique est devenue une mosquée, un hammam ottoman fonctionne encore, et une école donne des cours sans interruption depuis 1812. Depuis les années 1960, et définitivement depuis 1974, une ligne coupe la vieille ville en deux, et on la traverse en montrant sa carte d’identité."
+        }
+      }
     },
     "czechia": {
       "name": "Tchéquie",
@@ -271,7 +305,13 @@
         "Le château de Prague s’étend sur près de 70 000 mètres carrés, environ dix terrains de football.",
         "Le pont Charles mesure 516 mètres de long, avec 16 arches et une rangée de 30 statues.",
         "Le mot « robot » est apparu pour la première fois en 1920, dans la pièce R.U.R. de Karel Čapek."
-      ]
+      ],
+      "cities": {
+        "prague": {
+          "name": "Prague",
+          "intro": "Prague est une ville qui n’a presque rien démoli. C’est pour cela qu’une horloge de 1410 sonne encore toutes les heures, qu’une synagogue de 1270 sert encore, et qu’un château qui a commencé comme un fort en bois est aujourd’hui le plus grand château ancien du monde. La Vltava coule au milieu, avec un pont de pierre de 1357 et une île que des gens ont fabriquée eux-mêmes pour moudre de la farine. Et quand tu es fatigué des vieilles choses, deux tours au bord du fleuve ont l’air de danser."
+        }
+      }
     },
     "hungary": {
       "name": "Hongrie",
@@ -281,7 +321,13 @@
         "Son point le plus haut, le Kékes, atteint à peine 1 014 mètres. Le pays est presque entièrement une plaine.",
         "Le Parlement de Budapest a 691 pièces et 29 escaliers, et son dôme monte à 96 mètres.",
         "Le Rubik’s Cube a été inventé à Budapest en 1974. Il s’en est vendu environ 500 millions."
-      ]
+      ],
+      "cities": {
+        "budapest": {
+          "name": "Budapest",
+          "intro": "Budapest était autrefois deux villes : Buda en haut sur les collines et Pest en bas dans la plaine, avec le Danube entre les deux. Un pont suspendu à des chaînes de fer les a réunies, parce qu’un homme en avait assez d’attendre la glace. Sous tes pieds, l’eau est chaude et remonte toute seule d’un kilomètre de profondeur, pour remplir des bains où l’on nage même quand il neige. Et au sommet de la colline, un château blanc comme neige n’a jamais protégé personne : on l’a construit seulement pour la vue."
+        }
+      }
     },
     "denmark": {
       "name": "Danemark",

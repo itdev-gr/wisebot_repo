@@ -129,7 +129,13 @@
         "Su montaña más alta, el Zugspitze, llega a los 2.962 metros. La frontera con Austria pasa justo por su cumbre.",
         "Tiene frontera con nueve países, desde Dinamarca en el norte hasta Suiza en el sur.",
         "La catedral de Colonia tardó 632 años en terminarse, de 1248 a 1880. Sus torres llegan a los 157 metros."
-      ]
+      ],
+      "cities": {
+        "berlin": {
+          "name": "Berlín",
+          "intro": "Berlín es una ciudad que ha vivido dos vidas. Durante veintiocho años un muro la partió en dos, y hoy cruzas su línea sin darte cuenta siquiera. Tiene una torre con una bola que gira, un parlamento con un sombrero de cristal, una isla en el río con cinco museos encima y el esqueleto de dinosaurio más alto del mundo. Y osos dondequiera que mires: en los carteles, en los escaparates, en las fuentes."
+        }
+      }
     },
     "portugal": {
       "name": "Portugal",
@@ -139,7 +145,17 @@
         "Casi la mitad del corcho del mundo viene de aquí. La corteza se saca cada 9 años y el árbol sigue vivo.",
         "El puente Vasco da Gama, en Lisboa, mide 17,2 kilómetros, el más largo de la Unión Europea.",
         "La librería Bertrand de Lisboa abrió en 1732: es la librería más antigua del mundo que sigue abierta."
-      ]
+      ],
+      "cities": {
+        "lisbon": {
+          "name": "Lisboa",
+          "intro": "Lisboa está construida sobre colinas, y casi todas sus calles o suben alejándose del agua o bajan hacia ella. Una mañana de 1755 un terremoto arrasó su centro, y la ciudad lo reconstruyó desde cero, con calles rectas y una plaza abierta al río. De ese río partieron los barcos que buscaban la ruta marítima hacia la India. Tiene tranvías amarillos que crujen en las cuestas, un ascensor de hierro que cuenta como transporte público y paredes vestidas de azulejos azules."
+        },
+        "porto": {
+          "name": "Oporto",
+          "intro": "Oporto se asienta sobre dos colinas, encima de un río que corre hacia el Atlántico, y casi todas sus calles suben o bajan. Aquí hablan las paredes: miles de azulejos azules en una estación de tren, una imagen entera en el costado de una iglesia. Un puente de hierro de dos tableros une las orillas, arriba y abajo a la vez. Tiene una torre que guiaba a los barcos sin encender nunca una lámpara, un mercado cuyo nombre significa «gran burbuja» y pavos reales que pasean por un jardín como si fuera suyo."
+        }
+      }
     },
     "austria": {
       "name": "Austria",
@@ -149,7 +165,13 @@
         "La Eisriesenwelt es la cueva de hielo más grande del mundo, con galerías de más de 42 kilómetros.",
         "El zoo de Schönbrunn, en Viena, abrió en 1752 y es el zoo más antiguo que sigue funcionando en todo el mundo.",
         "No tiene nada de costa, pero tiene frontera con ocho países."
-      ]
+      ],
+      "cities": {
+        "vienna": {
+          "name": "Viena",
+          "intro": "Viena es una ciudad que lo guarda todo. Su catedral tiene una torre terminada y otra a medio construir, porque una vez se acabó el dinero y nadie volvió nunca a terminarla. Una noria de 1897 sigue girando en el Prater. Dos museos gemelos se miran desde los dos lados de una plaza: en uno hay dinosaurios y meteoritos, en el otro doce cuadros de Bruegel. Y un río entero corre escondido bajo un mercado de un kilómetro y medio de largo."
+        }
+      }
     },
     "netherlands": {
       "name": "Países Bajos",
@@ -241,7 +263,13 @@
         "Su punto más alto, en la montaña Dinara, llega a los 1.831 metros.",
         "Los lagos de Plitvice son dieciséis lagos uno encima del otro, y se convirtieron en parque nacional en 1949.",
         "Las murallas de Dubrovnik miden unos 1.940 metros y llegan a los 25 metros de alto."
-      ]
+      ],
+      "cities": {
+        "dubrovnik": {
+          "name": "Dubrovnik",
+          "intro": "Dubrovnik es una ciudad entera dentro de una sola muralla, y esa muralla se puede recorrer a pie. Casi dos kilómetros de piedra, de hasta veinticinco metros de altura en algunos tramos, con los tejados naranjas a un lado y el Adriático al otro. Durante cientos de años se llamó Ragusa, una pequeña república que siguió libre más gracias al comercio y a acuerdos cuidadosos que a los ejércitos. Su calle principal fue antes el mar, y su farmacia abre cada mañana desde 1317."
+        }
+      }
     },
     "united-arab-emirates": {
       "name": "Emiratos Árabes Unidos",
@@ -261,7 +289,13 @@
         "Su cima más alta, el Olimpo, también llamado Chionistra, llega a los 1.952 metros y se llena de nieve todos los inviernos.",
         "La palabra «cobre» viene del latín «aes cyprium», es decir, «metal de Chipre».",
         "Su costa mide unos 648 kilómetros, así que en ningún punto de la isla estás lejos del mar."
-      ]
+      ],
+      "cities": {
+        "nicosia": {
+          "name": "Nicosia",
+          "intro": "Nicosia está lejos del mar, en medio de una llanura, encerrada en un anillo de murallas con once bastiones puntiagudos en forma de corazón, y todo el casco antiguo está construido con la misma piedra amarillo dorado. Aquí una iglesia gótica se convirtió en mezquita, un baño otomano sigue funcionando y una escuela da clases sin interrupción desde 1812. Desde los años sesenta, y de forma definitiva desde 1974, una línea divide el casco antiguo en dos, y la gente la cruza enseñando el carné de identidad."
+        }
+      }
     },
     "czechia": {
       "name": "Chequia",
@@ -271,7 +305,13 @@
         "El castillo de Praga ocupa casi 70.000 metros cuadrados, como unos diez campos de fútbol.",
         "El puente de Carlos mide 516 metros, con 16 arcos y una fila de 30 estatuas.",
         "La palabra «robot» apareció por primera vez en 1920, en la obra de teatro R.U.R., de Karel Čapek."
-      ]
+      ],
+      "cities": {
+        "prague": {
+          "name": "Praga",
+          "intro": "Praga es una ciudad que no derribó casi nada. Por eso un reloj de 1410 todavía da las horas, una sinagoga de 1270 todavía se usa, y un castillo que empezó como un fuerte de madera es hoy el castillo antiguo más grande del mundo. El Vltava corre por el centro, con un puente de piedra de 1357 y una isla que la gente hizo con sus propias manos para moler harina. Y cuando te canses de las cosas viejas, dos torres en la orilla parecen estar bailando."
+        }
+      }
     },
     "hungary": {
       "name": "Hungría",
@@ -281,7 +321,13 @@
         "Su punto más alto, el Kékes, llega solo a los 1.014 metros. El país es casi todo llanura.",
         "El Parlamento de Budapest tiene 691 habitaciones y 29 escaleras, y su cúpula llega a los 96 metros.",
         "El cubo de Rubik se inventó en Budapest en 1974. Se han vendido unos 500 millones."
-      ]
+      ],
+      "cities": {
+        "budapest": {
+          "name": "Budapest",
+          "intro": "Budapest fue una vez dos ciudades: Buda arriba en las colinas y Pest abajo en el llano, con el Danubio entre ellas. Un puente colgado de cadenas de hierro las unió, porque un hombre se cansó de esperar al hielo. Bajo tus pies el agua está caliente y sube sola desde un kilómetro de profundidad, llenando baños donde la gente nada incluso mientras nieva. Y en lo alto de la colina, un castillo blanquísimo nunca defendió a nadie: lo construyeron solo por las vistas."
+        }
+      }
     },
     "denmark": {
       "name": "Dinamarca",
