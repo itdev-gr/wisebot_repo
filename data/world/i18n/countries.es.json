@@ -241,7 +241,13 @@
         "Su punto más alto, en la montaña Dinara, llega a los 1.831 metros.",
         "Los lagos de Plitvice son dieciséis lagos uno encima del otro, y se convirtieron en parque nacional en 1949.",
         "Las murallas de Dubrovnik miden unos 1.940 metros y llegan a los 25 metros de alto."
-      ]
+      ],
+      "cities": {
+        "dubrovnik": {
+          "name": "Dubrovnik",
+          "intro": "Dubrovnik es una ciudad entera dentro de una sola muralla, y la muralla se puede recorrer a pie. Casi dos kilómetros de piedra, en algunos tramos de veinticinco metros de altura, con los tejados naranjas a un lado y el Adriático al otro. Durante cientos de años se llamó Ragusa, una pequeña república que se mantuvo libre más por el comercio y los acuerdos prudentes que por los ejércitos. Su calle principal fue mar en otro tiempo, y su farmacia abre cada mañana desde 1317."
+        }
+      }
     },
     "united-arab-emirates": {
       "name": "Emiratos Árabes Unidos",
@@ -261,7 +267,13 @@
         "Su cima más alta, el Olimpo, también llamado Chionistra, llega a los 1.952 metros y se llena de nieve todos los inviernos.",
         "La palabra «cobre» viene del latín «aes cyprium», es decir, «metal de Chipre».",
         "Su costa mide unos 648 kilómetros, así que en ningún punto de la isla estás lejos del mar."
-      ]
+      ],
+      "cities": {
+        "nicosia": {
+          "name": "Nicosia",
+          "intro": "Nicosia está lejos del mar, en medio de una llanura, encerrada en un anillo de murallas con once bastiones puntiagudos en forma de corazón, y toda la ciudad vieja está construida con la misma piedra amarillo dorado. Aquí una iglesia gótica se convirtió en mezquita, un baño otomano sigue funcionando y una escuela da clase desde 1812 sin interrupción. Desde los años sesenta, y definitivamente desde 1974, una línea divide la ciudad vieja en dos, y la gente la cruza mostrando un documento de identidad."
+        }
+      }
     },
     "czechia": {
       "name": "Chequia",
