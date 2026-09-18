@@ -1,0 +1,650 @@
+{
+  "lang": "it",
+  "cityId": "berlin",
+  "places": {
+    "berlin-neues-museum": {
+      "name": "Il Neues Museum",
+      "tagline": "Rovina per sessant’anni, e le cicatrici le ha tenute apposta",
+      "story": "Il museo fu costruito fra il 1843 e il 1855 dall’architetto Friedrich August Stüler. Nel febbraio del 1945 le bombe buttarono giù la sua ala nord-ovest, e poi successe una cosa strana: nessuno lo riparò. Per quasi sessant’anni restò aperto al cielo, con la pioggia che entrava dal buco del tetto e i piccioni che facevano il nido nei muri. Dal 1999 l’architetto David Chipperfield lo ricostruì, e riaprì nell’ottobre del 2009. Ma non nascose i danni. Cammini accanto a muri pieni di segni di proiettili, a mattoni bruciati e a pitture murali che si fermano a metà, e proprio lì accanto ci sono muri nuovi, completamente lisci. Così l’edificio racconta da solo la propria storia. Dentro vivono due collezioni: quella egizia, con il famoso busto di Nefertiti, e quella preistorica, con un cappello di oro massiccio.",
+      "facts": [
+        "Fu costruito dal 1843 al 1855 e riaprì nell’ottobre del 2009.",
+        "Restò una rovina senza tetto per quasi sessant’anni dopo la guerra.",
+        "Ospita due musei: il Museo Egizio e il Museo della Preistoria."
+      ],
+      "question": {
+        "q": "Perché si vedono ancora sui muri i danni della guerra?",
+        "answers": [
+          "L’architetto li ha lasciati a vista apposta",
+          "Non si trovarono mai i soldi",
+          "Una legge vieta di toccare i muri vecchi",
+          "I lavori finirono presto"
+        ],
+        "explanation": "Chipperfield avrebbe potuto intonacare tutto. Ha scelto di non cancellare la storia dell’edificio, ma di metterla accanto al lavoro nuovo."
+      },
+      "findIt": "Non si entra dall’edificio stesso: si passa dalla James-Simon-Galerie di vetro, accanto al fiume.",
+      "museum": {
+        "doorNote": "Comincia dal piano più alto, finché hai le gambe fresche, e scendi piano piano.",
+        "rooms": {
+          "berlin-neues-museum-egypt": {
+            "name": "L’Egitto al piano di sopra",
+            "intro": "Qui vive la signora più fotografata della Germania, insieme a una testa verde e a una famiglia dipinta tremilacinquecento anni fa. È uno spazio piccolo, con poca luce e molto silenzio. Non avere fretta: qui tutto è più piccolo di quanto ti aspetti, ed è proprio per questo che devi avvicinarti."
+          },
+          "berlin-neues-museum-scars": {
+            "name": "L’edificio con le cicatrici",
+            "intro": "In questa sala l’oggetto esposto è l’edificio. Guarda in alto, guarda i muri, guarda dove finisce la vecchia pittura e dove comincia il cemento nuovo. Un edificio che ha passato una guerra può essere ricostruito in due modi: può far finta che non sia successo niente, oppure può ammetterlo. Qui hanno scelto il secondo."
+          },
+          "berlin-neues-museum-ground": {
+            "name": "Tirati fuori dalla terra",
+            "intro": "Sotto l’Egitto, dentro gli stessi muri, vive la preistoria dell’Europa: cose che nessuno ha scritto in un libro, perché i libri non c’erano ancora. Quello che sappiamo di loro lo sappiamo perché qualcuno ha scavato e le ha trovate. Tre ti resteranno in mente: un cappello d’oro, un cranio e una collezione divisa fra due paesi."
+          }
+        },
+        "exhibits": {
+          "berlin-neues-museum-nefertiti": {
+            "name": "Il busto di Nefertiti",
+            "blurb": "Nefertiti fu regina d’Egitto circa 3.350 anni fa. Il suo busto fu trovato nel 1912 fra le rovine della bottega di uno scultore, nella città di Amarna, ed è fatto di calcare coperto di gesso e dipinto. I colori ci sono ancora. Guarda bene i suoi occhi: il destro ha un intarsio di cristallo, il sinistro non l’ha mai avuto. Nessuno sa con certezza perché. Forse il pezzo era un modello, tenuto in bottega per mostrare agli apprendisti come si fa un viso.",
+            "question": {
+              "q": "Che cosa c’è di strano negli occhi di Nefertiti?",
+              "answers": [
+                "Uno non ha mai avuto il suo intarsio",
+                "Sono tutti e due dipinti di blu",
+                "Guardano da parti diverse",
+                "Sono fatti d’oro"
+              ],
+              "explanation": "L’occhio destro ha il cristallo, il sinistro è vuoto fin dall’inizio. Non è caduto: non è mai stato messo."
+            }
+          },
+          "berlin-neues-museum-green-head": {
+            "name": "La Testa Verde di Berlino",
+            "blurb": "Una piccola testa di pietra verde scura, scolpita fra il 100 e il 50 a.C. Non è un re: è un sacerdote, con il cranio rasato e le rughe che lo scultore non ha cercato di nascondere. Nell’antico Egitto quasi tutti i visi si facevano perfetti e giovani, e per questo questa è rara: mostra una persona vera che è invecchiata. La pietra è lucidata così bene da sembrare bagnata, anche se l’acqua non la tocca da duemila anni.",
+            "question": {
+              "q": "Perché questa testa si distingue dalle altre egizie?",
+              "answers": [
+                "Mostra una persona invecchiata",
+                "È la scultura più grande di tutta la collezione",
+                "È l’unica che ha conservato tutti i suoi colori",
+                "L’ha scolpita un bambino"
+              ],
+              "explanation": "Le rughe in un ritratto egizio sono una rarità. Lo scultore ha mostrato un viso, non un ideale."
+            }
+          },
+          "berlin-neues-museum-amarna-family": {
+            "name": "La famiglia di Amarna",
+            "blurb": "Un rilievo di circa il 1350 a.C. mostra il faraone Akhenaton e Nefertiti con i loro figli. Per il suo tempo era quasi uno scandalo: i faraoni si mostravano sempre severi e immobili, e qui hanno i bambini sulle ginocchia. Akhenaton aveva cambiato la religione del suo paese e aveva costruito una capitale nuova, Amarna, e anche i suoi artisti cambiarono modo di lavorare. Dopo la sua morte l’Egitto tornò alle vecchie abitudini, e la città nuova fu abbandonata.",
+            "question": {
+              "q": "Che cosa aveva di insolito questa immagine per il suo tempo?",
+              "answers": [
+                "I faraoni sono mostrati come una famiglia",
+                "È scolpita in oro puro invece che nella pietra",
+                "Non c’è nemmeno un geroglifico scritto da nessuna parte",
+                "È più grande di ogni altro rilievo fatto in Egitto"
+              ],
+              "explanation": "I faraoni si mostravano come dèi, immobili e soli. Qui hanno dei bambini sulle ginocchia."
+            }
+          },
+          "berlin-neues-museum-staircase": {
+            "name": "La grande scala",
+            "blurb": "La prima scala del museo era coperta di pitture e di ornamenti. La guerra la fece sparire del tutto e lasciò un enorme guscio vuoto di mattoni. Chipperfield ne costruì una nuova della stessa forma, ma senza un solo ornamento: cemento chiaro e nudo, impastato con marmo tritato. Chi la sale capisce due cose insieme: quanto era maestosa un tempo questa sala, e che quello che sta calpestando è nuovo.",
+            "question": {
+              "q": "Com’è la scala nuova rispetto a quella vecchia?",
+              "answers": [
+                "Stessa forma, ma senza nessun ornamento",
+                "Identica, copiata dalle vecchie fotografie",
+                "Completamente diversa, a chiocciola e di vetro",
+                "Più piccola di prima"
+              ],
+              "explanation": "La forma ricorda quello che c’era. La superficie nuda dice chiaramente che il materiale è di oggi."
+            }
+          },
+          "berlin-neues-museum-scarred-wall": {
+            "name": "I muri con i segni",
+            "blurb": "In molte sale i muri hanno ammaccature lasciate dalle schegge, macchie nere di fumo e pitture murali che si fermano a metà. I restauratori le hanno pulite e messe in sicurezza, ma non le hanno completate. Dove mancava un mattone ne hanno messo uno nuovo, chiaramente più chiaro, così che l’occhio se ne accorga. È lo stesso ragionamento che un restauratore usa su un vaso rotto: incolli i pezzi, ma non ci dipingi sopra quello che soltanto immagini ci fosse.",
+            "question": {
+              "q": "Perché i mattoni nuovi sono di un colore più chiaro?",
+              "answers": [
+                "Per far vedere che cosa è nuovo",
+                "Perché non si trovò da nessuna parte la stessa argilla",
+                "Perché i mattoni chiari resistono meglio al fuoco",
+                "Per illuminare le sale buie"
+              ],
+              "explanation": "È una decisione di onestà. Il visitatore deve poter vedere che cosa è originale e che cosa no."
+            }
+          },
+          "berlin-neues-museum-egyptian-courtyard": {
+            "name": "Il Cortile Egizio",
+            "blurb": "Questo cortile aveva un tempo i muri dipinti con paesaggi egiziani, come se fossi sulla riva del Nilo. La guerra lo distrusse completamente e ne restò troppo poco per rifarlo com’era. Così qui l’architetto non ha tentato nessuna imitazione: ha messo una struttura dichiaratamente moderna di pilastri e travi, che regge un pavimento dentro lo spazio vuoto. Stai in una stanza di oggi e guardi oggetti di tremila anni fa.",
+            "question": {
+              "q": "Perché il cortile non fu ricostruito com’era?",
+              "answers": [
+                "Della vecchia era rimasto troppo poco",
+                "I visitatori hanno votato per una versione moderna",
+                "Il suo vecchio disegno fu giudicato pericoloso",
+                "Arrivò prima un altro architetto"
+              ],
+              "explanation": "Con troppo pochi pezzi, una ricostruzione sarebbe stata una supposizione. Hanno preferito qualcosa di apertamente nuovo a una bella invenzione."
+            }
+          },
+          "berlin-neues-museum-gold-hat": {
+            "name": "Il Cappello d’Oro di Berlino",
+            "blurb": "Un cono d’oro sottile, alto circa 75 centimetri, battuto da un solo pezzo d’oro circa tremila anni fa. È coperto di file di piccoli cerchi e di soli, sbalzati uno alla volta dall’interno. I ricercatori hanno contato i cerchi e sono arrivati a una cosa sorprendente: il disegno sembra essere un calendario, un modo di contare i mesi con la luna e gli anni con il sole. Molto probabilmente lo portava un sacerdote.",
+            "question": {
+              "q": "Che cosa sembrano contare i cerchi sul cappello?",
+              "answers": [
+                "Mesi e anni, come un calendario",
+                "Gli animali della mandria del suo proprietario",
+                "I villaggi che pagavano una tassa al loro re",
+                "Gli anni vissuti dal padrone"
+              ],
+              "explanation": "Il disegno funziona come una tabella della luna e del sole. È uno strumento, non solo un ornamento."
+            }
+          },
+          "berlin-neues-museum-neanderthal": {
+            "name": "Il cranio di Le Moustier",
+            "blurb": "Il cranio di un giovane Neanderthal, di circa quarantacinquemila anni fa, trovato in un riparo sotto roccia in Francia. I Neanderthal non erano nostri antenati ma nostri cugini: vivevano in Europa molto prima di noi, facevano strumenti, accendevano fuochi e seppellivano i loro morti. Guarda la fronte: la cresta d’osso sopra gli occhi è molto più pesante della tua. Il cranio stesso ha passato una guerra, è rimasto perduto per anni ed è stato ritrovato.",
+            "question": {
+              "q": "Che cosa erano i Neanderthal per noi?",
+              "answers": [
+                "Nostri cugini, non nostri antenati",
+                "I primi uomini che arrivarono in America",
+                "Una specie di scimmia che non camminava dritta",
+                "Gli uomini che costruirono i primi villaggi d’Europa"
+              ],
+              "explanation": "Sono un ramo diverso dello stesso albero. Vissero in Europa migliaia di anni prima di noi."
+            }
+          },
+          "berlin-neues-museum-troy": {
+            "name": "I reperti di Troia",
+            "blurb": "Alla fine dell’Ottocento Heinrich Schliemann scavò nella collina che credeva fosse Troia, e regalò a questo museo quello che trovò. La collezione oggi è divisa: i gioielli d’oro furono portati via da Berlino dall’Armata Rossa nel 1945 e da allora sono a Mosca. Qui sono rimasti migliaia di vasi, attrezzi e armi di argilla e di rame. Brillano di meno, ma dicono molto di più su come vivevano davvero le persone di quella città.",
+            "question": {
+              "q": "Dove si trova oggi l’oro di Troia?",
+              "answers": [
+                "A Mosca, dove sono finiti nel 1945",
+                "In un museo turco",
+                "Sono andati persi in guerra",
+                "In una collezione privata"
+              ],
+              "explanation": "L’Armata Rossa lo prese nel 1945 e oggi è esposto a Mosca. Berlino ha tenuto il resto."
+            }
+          }
+        },
+        "riddles": {
+          "berlin-neues-museum-riddle-1": {
+            "prompt": "Sono la faccia più fotografata di questo edificio, eppure solo uno dei miei occhi è stato finito davvero. Mi hanno tirata fuori dal pavimento di una bottega, in Egitto, nel 1912.",
+            "hint": "Porto una corona alta e azzurra ed ero una regina."
+          },
+          "berlin-neues-museum-riddle-2": {
+            "prompt": "Sono d’oro massiccio, alto come il tuo braccio e sottile come una foglia. I cerchi che mi coprono non sono un ornamento: se li conti bene, ti dicono quando tornerà la luna.",
+            "hint": "Mi portavano in testa, e finisco a punta."
+          },
+          "berlin-neues-museum-riddle-3": {
+            "prompt": "Mi sali per arrivare in alto e ho la forma che ho sempre avuto, ma nessuno dei miei vecchi ornamenti. Sono grigia, liscia e nuova di zecca dentro un guscio di mattoni nudi.",
+            "hint": "Non sono un oggetto in vetrina: sono una parte dell’edificio."
+          }
+        }
+      }
+    },
+    "berlin-technikmuseum": {
+      "name": "Il Deutsches Technikmuseum",
+      "tagline": "Un aeroplano pende dal tetto, sopra la strada",
+      "story": "Il museo sta sul vecchio scalo merci dell’Anhalter Bahnhof, dove per tutto il giorno si scaricavano i treni. Due rimesse circolari per locomotive si sono salvate e oggi sono piene di treni, con trentatré binari che partono dal centro come raggi. La cosa più strana, però, è sul tetto: un vero aeroplano Douglas C-47 pende dal bordo dell’edificio con il muso fuori nell’aria. Aerei di quel tipo tennero in vita Berlino Ovest nel 1948 e nel 1949, quando le strade per la città erano chiuse e tutto, dalla farina al carbone, doveva arrivare in volo. I bambini li chiamavano «bombardieri dell’uvetta», perché qualche pilota lanciava dolci con piccoli paracadute fatti di fazzoletti. Accanto c’è lo Spectrum, dove ogni cosa è stata costruita per essere toccata.",
+      "facts": [
+        "Il museo sta sul vecchio scalo merci dell’Anhalter Bahnhof.",
+        "Le due rimesse circolari hanno in tutto trentatré binari.",
+        "L’aeroplano sul tetto è un Douglas C-47, un tipo che volava su Berlino nel 1948-49."
+      ],
+      "question": {
+        "q": "Perché gli aeroplani si chiamavano «bombardieri dell’uvetta»?",
+        "answers": [
+          "Lanciavano dolci con piccoli paracadute",
+          "Trasportavano uvetta, l’unico cibo che non si guastava",
+          "Erano dipinti color uvetta",
+          "Erano così tanti che sembravano uno sciame di puntini"
+        ],
+        "explanation": "Qualche pilota legava caramelle ai fazzoletti e le lanciava prima di atterrare. Il soprannome venne dai bambini che aspettavano sotto."
+      },
+      "findIt": "Si entra da Trebbiner Straße 9. L’aeroplano sul tetto si vede dal ponte della strada."
+    },
+    "berlin-zoo": {
+      "name": "Lo Zoo di Berlino",
+      "tagline": "Il più antico zoo della Germania, con una porta retta dagli elefanti",
+      "story": "Lo zoo aprì il 1° agosto 1844 ed è il più antico della Germania. I suoi primi animali vennero dai recinti e dalle gabbie reali del Tiergarten, il grande parco lì accanto. Oggi qui vivono circa ventimila animali, di circa milletrecentottanta specie diverse, cioè più tipi di animali di qualunque altro zoo al mondo. La famosa Porta degli Elefanti del 1899, con i suoi due elefanti di pietra, fu distrutta nella guerra e ricostruita nel 1984 sui disegni originali. La parte più dura della sua storia è vera e vale la pena raccontarla: alla fine della guerra, dei suoi 3.715 animali ne erano rimasti vivi soltanto 91. Fra loro c’erano l’elefante Siam e l’ippopotamo Knautschke. Lo zoo fu ricostruito intorno a quei novantuno animali.",
+      "facts": [
+        "Aprì il 1° agosto 1844 ed è il più antico zoo della Germania.",
+        "Ospita circa 1.380 specie diverse, più di ogni altro zoo.",
+        "La Porta degli Elefanti del 1899 fu ricostruita nel 1984 sui progetti originali."
+      ],
+      "question": {
+        "q": "Che cosa rese così duro per lo zoo il finale della guerra?",
+        "answers": [
+          "Di 3.715 animali ne restavano 91",
+          "Tutti i suoi animali finirono in zoo di altre città",
+          "Restò chiuso per dieci anni interi dopo la guerra",
+          "Il Muro ci passava in mezzo e lo tagliava in due metà"
+        ],
+        "explanation": "I bombardamenti distrussero i recinti e la maggior parte degli animali andò perduta. Lo zoo fu ricostruito intorno ai novantuno che sopravvissero."
+      },
+      "findIt": "La Porta degli Elefanti è in Budapester Straße: cerca i due elefanti di pietra che reggono il tetto."
+    },
+    "berlin-fernsehturm": {
+      "name": "La Fernsehturm",
+      "tagline": "Una palla a 200 metri, con un ristorante che gira",
+      "story": "Nel 1969 la Germania dell’Est voleva mostrare a tutto il mondo che cosa sapeva costruire, e tirò su questa torre di 368 metri. È ancora oggi la costruzione più alta della Germania. La palla sta a circa duecento metri d’altezza, e dentro di lei un ristorante gira lentissimo, così vedi tutta la città senza alzarti dalla sedia. I berlinesi hanno dato alla torre un sacco di soprannomi, e il loro preferito è «l’asparago della tele». Quando il sole batte sull’acciaio della palla, sopra compare una croce luminosa. Non era nei piani, e al governo di allora, che non amava molto le chiese, non piacque per niente; così dalla parte occidentale sorridevano e la chiamavano «la vendetta del Papa». Nella piazza qui accanto sta l’Orologio Mondiale del 1969, che mostra l’ora di 148 città, con un piccolo sistema solare in cima che fa un giro al minuto.",
+      "facts": [
+        "Con 368 metri, è la costruzione più alta della Germania.",
+        "Il ristorante dentro la palla gira lentamente intorno all’asse della torre.",
+        "L’Orologio Mondiale accanto mostra l’ora in 148 città."
+      ],
+      "question": {
+        "q": "Che cosa compare sulla palla quando la colpisce il sole?",
+        "answers": [
+          "Una croce luminosa sull’acciaio",
+          "Un arcobaleno fino a terra",
+          "L’ombra della torre, stesa su tutta la piazza",
+          "Un punto d’oro che si vede da Potsdam"
+        ],
+        "explanation": "Le piastre d’acciaio della palla riflettono la luce a forma di croce. Nessuno l’ha progettata: l’hanno fatta la forma e il metallo."
+      },
+      "findIt": "Gli ascensori si prendono dall’edificio basso alla base, dal lato della Panoramastraße."
+    },
+    "berlin-east-side-gallery": {
+      "name": "L’East Side Gallery",
+      "tagline": "Un pezzo di Muro diventato la tela più grande della città",
+      "story": "Il Muro di Berlino è rimasto in piedi 28 anni, dal 1961 fino al 9 novembre 1989, la notte in cui aprirono i passaggi e la gente ballò sopra di lui. Nei mesi seguenti fu buttato giù quasi tutto, ma questo tratto, lungo quasi un chilometro e mezzo, fu tenuto per un’altra cosa. Nella primavera del 1990 arrivarono qui 118 artisti da 21 paesi con pennelli e secchi e lo coprirono di colori, di speranze e di scherzi. Il dipinto più famoso mostra due politici, i capi dell’Unione Sovietica e della Germania dell’Est, che si danno un bacio bello forte, come si salutavano allora i capi dei paesi amici; il pittore lo copiò da una fotografia vera del 1979. In un altro, una piccola Trabant, l’automobile che guidavano quasi tutti nella Germania dell’Est, sfonda il muro ed esce dall’altra parte. Sulla sua targa c’è la data in cui il Muro si aprì.",
+      "facts": [
+        "Il tratto che è stato tenuto è lungo circa 1,3 chilometri.",
+        "Lo dipinsero nella primavera del 1990 centodiciotto artisti di ventuno paesi.",
+        "Sulla targa della Trabant dipinta c’è scritto «NOV-9-89»."
+      ],
+      "question": {
+        "q": "Che cosa c’è scritto sulla targa della Trabant dipinta?",
+        "answers": [
+          "La data in cui il Muro si aprì",
+          "Il nome dell’artista che lo ha dipinto",
+          "Il numero degli artisti che ci lavorarono",
+          "La lunghezza del muro, scritta in metri"
+        ],
+        "explanation": "C’è scritto «NOV-9-89»: 9 novembre 1989. La macchinina non sfonda soltanto il muro, si porta addosso anche il giorno in cui successe."
+      },
+      "findIt": "I dipinti sono sul lato che dà sulla Mühlenstraße, non sul lato del fiume."
+    },
+    "berlin-naturkundemuseum": {
+      "name": "Il Museo di Storia Naturale",
+      "tagline": "Il più alto scheletro di dinosauro montato al mondo",
+      "story": "Il museo è stato fondato nel 1810 e custodisce più di trenta milioni di oggetti, dalle pietre agli insetti fino agli scheletri di balena. Appena entri, ti trovi sotto uno scheletro che fa ammutolire: un enorme dinosauro mangiatore di piante, alto 13,27 metri, lo scheletro di dinosauro montato più alto del mondo. Le sue ossa non sono state trovate qui. Furono dissotterrate fra il 1909 e il 1913 sulla collina di Tendaguru, in quella che oggi è la Tanzania, e portate dentro casse fino alla costa. Nella stessa sala, in una vetrina scura, sta una lastra di pietra con un’impronta che ha cambiato la biologia: l’Archaeopteryx di Berlino, una creatura con denti, artigli e piume. Più avanti, dietro il vetro, si allunga la collezione umida: un milione di animali dentro 276.000 barattoli di alcol, sugli scaffali fino al soffitto.",
+      "facts": [
+        "Lo scheletro del dinosauro gigante arriva a 13,27 metri d’altezza.",
+        "Le sue ossa furono dissotterrate sulla collina di Tendaguru, oggi in Tanzania.",
+        "La collezione umida ha un milione di animali dentro 276.000 barattoli."
+      ],
+      "question": {
+        "q": "Da dove sono arrivate le ossa del dinosauro gigante?",
+        "answers": [
+          "Da una collina nell’attuale Tanzania",
+          "Da una cava a pochi chilometri da Berlino",
+          "Dalle Alpi",
+          "Dal fondo del Mare del Nord, nelle reti dei pescatori"
+        ],
+        "explanation": "Lo scavo fu sulla collina di Tendaguru, dal 1909 al 1913, e le casse con le ossa furono portate a piedi fino alla costa."
+      },
+      "findIt": "Si entra da Invalidenstraße 43, in mezzo alla lunga facciata gialla, su per una larga scalinata.",
+      "museum": {
+        "doorNote": "La sala dei dinosauri è subito dopo l’ingresso. Tieni un po’ di energia per i barattoli.",
+        "rooms": {
+          "berlin-naturkundemuseum-dinosaurs": {
+            "name": "La sala dei dinosauri",
+            "intro": "Una sala alta sotto un tetto di vetro, piena di scheletri che stanno liberi, senza vetri davanti. Non devi leggere niente per capire quanto sono grandi: basta che alzi la testa. Quasi tutte le ossa qui dentro vengono da un solo scavo, su una sola collina africana, dentro casse di legno."
+          },
+          "berlin-naturkundemuseum-behind-glass": {
+            "name": "Dietro il vetro",
+            "intro": "Un museo non è solo quello che mette in mostra. È anche un magazzino enorme, dove si tengono cose per scienziati che non sono ancora nati. Qui il magazzino è diventato l’esposizione: guardi attraverso un vetro degli scaffali che arrivano al soffitto. Accanto vivono due animali che tutta Berlino conosceva per nome."
+          }
+        },
+        "exhibits": {
+          "berlin-naturkundemuseum-giraffatitan": {
+            "name": "Il dinosauro gigante",
+            "blurb": "Un dinosauro mangiatore di piante con il collo come una gru, montato a 13,27 metri d’altezza: più alto di una casa di quattro piani. Gli scienziati prima lo chiamavano Brachiosauro e oggi gli danno un nome tutto suo, Giraffatitan, perché si è rivelato parecchio diverso dal cugino americano. Nel 2007 lo hanno rimontato con la testa più in alto, come dicono gli studi più nuovi sulla posizione del suo corpo. Animali così grandi mangiavano tutto il giorno, solo per averne abbastanza.",
+            "question": {
+              "q": "Perché è cambiato il nome di questo dinosauro?",
+              "answers": [
+                "Era diverso dal Brachiosauro",
+                "Il nome era già di un altro",
+                "Il museo voleva un nome più facile per i bambini",
+                "Lo scienziato che lo battezzò cambiò idea dopo"
+              ],
+              "explanation": "Più studiavano le ossa, meno quelle ossa somigliavano al Brachiosauro americano. Un animale a parte vuole un nome tutto suo."
+            }
+          },
+          "berlin-naturkundemuseum-kentrosaurus": {
+            "name": "Il dinosauro con gli aculei",
+            "blurb": "Accanto al gigante sta un animale molto più piccolo, con una doppia fila di piastre sulla schiena e lunghi aculei sulla coda e sulle spalle. Si chiama Kentrosaurus e viene dallo stesso scavo in Tanzania, cioè è vissuto nello stesso posto e nello stesso tempo del gigante. Anche lui mangiava piante. Gli aculei non servivano per cacciare, servivano per non diventare il pranzo di qualcun altro.",
+            "question": {
+              "q": "A che cosa servivano gli aculei del Kentrosaurus?",
+              "answers": [
+                "Per difesa, non per caccia",
+                "A strappare le piante dal terreno più facilmente",
+                "A tenergli caldo il corpo nelle notti fredde",
+                "A scavalcare i sassi per trovare acqua più lontano"
+              ],
+              "explanation": "Mangiava piante. Gli aculei lo rendevano un bersaglio scomodo per i carnivori che aveva intorno."
+            }
+          },
+          "berlin-naturkundemuseum-archaeopteryx": {
+            "name": "L’Archaeopteryx di Berlino",
+            "blurb": "Una lastra di calcare della Baviera con un animale stampato sopra come una fotografia. Ha i denti in bocca, gli artigli sulle mani e una lunga coda di osso, tutte cose da rettile. Ma ha anche le piume, premute chiaramente nella pietra. È il reperto che rende visibile un cambiamento: gli uccelli sono parenti dei dinosauri. Questo si chiama «esemplare di Berlino» ed è considerato il meglio conservato del mondo. Fermati un po’ davanti a lui: più guardi, più piume vedi.",
+            "question": {
+              "q": "Che cosa rende così importante questo fossile?",
+              "answers": [
+                "Ha denti e piume insieme",
+                "È il fossile più grande trovato in Baviera",
+                "È l’unico fossile che ha conservato i colori",
+                "È in una roccia giovane"
+              ],
+              "explanation": "Mostra rettile e uccello in un corpo solo. Per questo diciamo che gli uccelli sono parenti dei dinosauri."
+            }
+          },
+          "berlin-naturkundemuseum-trex": {
+            "name": "Tristan il Tirannosauro",
+            "blurb": "Uno dei pochi scheletri veri di tirannosauro arrivati in Europa. È stato trovato nel Montana, negli Stati Uniti, nel 2010, e si sono salvate 170 delle sue circa 300 ossa, fra cui un cranio conservato benissimo con denti grandi come banane. Viveva circa 66 milioni di anni fa. Siccome è in prestito, ogni tanto viaggia in altri musei, quindi prima di partire conviene controllare.",
+            "question": {
+              "q": "Perché potrebbe non essere qui quando vieni?",
+              "answers": [
+                "È in prestito e viaggia",
+                "Lo tolgono ogni estate per pulirlo",
+                "Possono vederlo solo i gruppi prenotati",
+                "È a un altro piano"
+              ],
+              "explanation": "Non è del museo. Gli scheletri in prestito vanno e vengono, quindi una telefonata prima vale la pena."
+            }
+          },
+          "berlin-naturkundemuseum-wet-collection": {
+            "name": "La collezione umida",
+            "blurb": "Una parete di vetro, e dietro 276.000 barattoli con circa un milione di animali: pesci, serpenti, rane, granchi, vermi. Non nuotano nell’acqua ma nell’alcol, perché l’acqua li farebbe marcire mentre l’alcol ferma i batteri. La luce è bassa apposta: troppa luce scolorisce un reperto. Molti di questi barattoli hanno più di cent’anni e contengono animali di specie che non esistono più da nessuna parte.",
+            "question": {
+              "q": "Perché gli animali si conservano nell’alcol e non nell’acqua?",
+              "answers": [
+                "L’alcol ferma i batteri",
+                "L’alcol fa vedere meglio dentro gli animali",
+                "Costa meno dell’acqua se lo compri all’ingrosso",
+                "Gela di meno, così i barattoli non si spaccano d’inverno"
+              ],
+              "explanation": "Nell’acqua un animale marcisce in pochi giorni. Nell’alcol può durare secoli."
+            }
+          },
+          "berlin-naturkundemuseum-bobby": {
+            "name": "Bobby il gorilla",
+            "blurb": "Bobby era un gorilla dello zoo di Berlino negli anni Trenta e il cittadino più famoso della città dopo le persone. Era arrivato piccolo ed è diventato enorme, e la gente faceva la fila per vederlo. Quando morì giovane, nel 1935, tutta Berlino lo pianse e i giornali lo misero in prima pagina. Il museo lo ha conservato, e sta qui in piedi, con la faccia di un animale che conosceva una città intera.",
+            "question": {
+              "q": "Dove viveva Bobby prima di arrivare al museo?",
+              "answers": [
+                "Allo zoo qui a Berlino",
+                "In una foresta africana, dove lo trovarono gli scienziati",
+                "In un circo tedesco",
+                "Nel giardino privato di una famiglia fuori città"
+              ],
+              "explanation": "Era un animale dello zoo, a pochi chilometri da qui, e tutta la città lo conosceva per nome."
+            }
+          },
+          "berlin-naturkundemuseum-knut": {
+            "name": "Knut l’orso polare",
+            "blurb": "Knut è nato allo zoo di Berlino il 5 dicembre 2006. Sua madre non si occupò di lui, così lo allevò con il biberon un guardiano, e il mondo impazzì: le televisioni di tutta la terra vennero a vedere un cucciolo d’orso bianco. Morì all’improvviso nel 2011, a soli quattro anni, per una malattia al cervello. Il museo lo ha conservato, così si può studiare e lo possono vedere anche i bambini nati molto dopo di lui.",
+            "question": {
+              "q": "Perché Knut fu allevato da un guardiano e non da sua madre?",
+              "answers": [
+                "La madre non si occupò di lui",
+                "Sua madre era stata mandata in un altro zoo",
+                "Era nato prima del tempo e serviva l’incubatrice",
+                "I guardiani lo volevano senza paura degli uomini"
+              ],
+              "explanation": "Con gli animali succede qualche volta. Senza il guardiano e il biberon, Knut non sarebbe sopravvissuto."
+            }
+          }
+        },
+        "riddles": {
+          "berlin-naturkundemuseum-riddle-1": {
+            "prompt": "Sono la prima cosa che vedi e ti faccio alzare la testa. Il mio collo è una gru, le mie ossa sono arrivate dall’Africa dentro delle casse, e nessun altro scheletro montato al mondo è più alto di me.",
+            "hint": "Mangiavo soltanto piante, tutto il giorno."
+          },
+          "berlin-naturkundemuseum-riddle-2": {
+            "prompt": "Sono piatto e immobile dentro una vetrina scura. Ho i denti e gli artigli di un rettile, ma intorno alle mie ossa la pietra ha conservato una cosa che nessun rettile ha.",
+            "hint": "La cosa che ho ce l’hanno oggi tutti i piccioni."
+          },
+          "berlin-naturkundemuseum-riddle-3": {
+            "prompt": "Sono nato qui vicino, in un giardino di animali, e un uomo mi ha dato da mangiare con il biberon. Tutto il pianeta voleva vedermi, piccolo e bianco. Ho vissuto solo quattro anni.",
+            "hint": "La mia specie di solito vive sui ghiacci."
+          }
+        }
+      }
+    },
+    "berlin-markthalle-neun": {
+      "name": "Markthalle Neun",
+      "tagline": "Il nono mercato coperto della città, salvato dai vicini",
+      "story": "Il mercato aprì il 1° ottobre 1891. Era il nono dei mercati coperti che Berlino costruì per togliere i banchi dalla strada e metterli sotto un tetto, dove il cibo poteva restare fresco e pulito: allora i frigoriferi non c’erano, e il pesce al sole era un problema di salute per tutto il quartiere. L’edificio, con i suoi archi di ferro, è passato attraverso la guerra. Nel 2011, però, si era quasi svuotato e stava per essere venduto per diventare l’ennesimo supermercato. Tre persone del quartiere chiesero al comune di venderlo a loro, e ce la fecero. Oggi ci sono fornai, formaggi, macellerie e un piccolo birrificio, e ogni giovedì sera si riempie di cuochi che non hanno un ristorante tutto loro. Il piatto più berlinese di tutti, il Currywurst, è nato in città nel 1949.",
+      "facts": [
+        "Aprì il 1° ottobre 1891 come nono mercato coperto di Berlino.",
+        "Nel 2011 fu salvato dai vicini, che lo comprarono dal comune.",
+        "Ogni giovedì sera la sala si riempie di banchi di cibo di strada."
+      ],
+      "question": {
+        "q": "Perché Berlino costruì i mercati coperti nel 1891?",
+        "answers": [
+          "Per tenere il cibo fresco e pulito",
+          "Perché i clienti non si bagnassero d’inverno",
+          "Perché i commercianti pagassero più facilmente le tasse",
+          "Perché ci stessero anche i carri"
+        ],
+        "explanation": "I frigoriferi non c’erano. Un banco di pesce al sole faceva ammalare la gente, così la città raccolse i banchi sotto un tetto."
+      },
+      "findIt": "Il grande arco d’ingresso è in Eisenbahnstraße 42, infilato fra normali palazzi di appartamenti."
+    },
+    "berlin-brandenburg-gate": {
+      "name": "La Porta di Brandeburgo",
+      "tagline": "Una porta che per 28 anni non lasciò passare nessuno",
+      "story": "La porta fu finita nel 1791. Il suo architetto, Carl Gotthard Langhans, non era mai stato ad Atene, ma aveva studiato i disegni dei Propilei, il grande ingresso dell’Acropoli, e diede a Berlino una porta fatta come quello: sei colonne grosse per lato, con cinque passaggi in mezzo. Una volta, dal passaggio centrale, il più largo, passava solo la famiglia reale. In cima corre la Quadriga, una dea su un carro tirato da quattro cavalli. Nel 1806 Napoleone batté i prussiani, fece smontare il carro e se lo portò a Parigi. Otto anni dopo il carro tornò a casa e Berlino fece festa. Poi arrivò la parte più dura della sua vita. Dal 1961 al 1989 il Muro di Berlino passava pochi metri più a ovest, e la porta restò chiusa dentro la striscia vuota fra le due metà della città, dove nessuno poteva passarci sotto. Riaprì il 22 dicembre 1989. Una porta è fatta per passarci.",
+      "facts": [
+        "Sei colonne per lato, dodici in tutto, con cinque passaggi in mezzo.",
+        "La Quadriga restò a Parigi otto anni, dal 1806 al 1814.",
+        "La porta riaprì il 22 dicembre 1989, sei settimane dopo la caduta del Muro."
+      ],
+      "question": {
+        "q": "Quale edificio antico copiò l’architetto della porta?",
+        "answers": [
+          "I Propilei dell’Acropoli",
+          "Il Colosseo, la grande arena di Roma",
+          "La Torre pendente di Pisa, laggiù in Italia",
+          "Una piramide egizia"
+        ],
+        "explanation": "Langhans non era mai stato ad Atene. Lavorò sui disegni dei Propilei, ed è per questo che una porta di Berlino porta colonne greche."
+      },
+      "findIt": "Mettiti sulla Pariser Platz, sul lato est: da lì la Quadriga ti viene addosso."
+    },
+    "berlin-reichstag": {
+      "name": "Il Reichstag",
+      "tagline": "Un parlamento con il cappello di vetro, e il vetro è un messaggio",
+      "story": "Il parlamento è il gruppo di persone che un paese sceglie per discutere le sue leggi e poi votarle. Questo edificio fu finito nel 1894 per dare una casa al parlamento della Germania, e nel 1916 sopra le colonne furono messe tre parole di bronzo: «Dem Deutschen Volke», cioè «Al popolo tedesco». Il secolo che venne dopo fu duro con lui. Nel 1933 un incendio bruciò la sua grande aula, la guerra lo lasciò pieno di buchi, e poi restò quarant’anni quasi vuoto accanto al Muro: una casa del parlamento senza parlamento dentro. Nel 1995 gli artisti Christo e Jeanne-Claude lo avvolsero tutto intero in una stoffa d’argento per due settimane, e milioni di persone vennero a guardare il proprio parlamento come se fosse un regalo enorme. Poi l’architetto Norman Foster gli mise una cupola di vetro. Dentro sali una rampa a spirale e guardi dall’alto i deputati che lavorano. È esattamente per questo che la cupola è di vetro.",
+      "facts": [
+        "Fu finito nel 1894. Le lettere di bronzo «Dem Deutschen Volke» furono messe nel 1916.",
+        "Nel 1995 Christo e Jeanne-Claude avvolsero tutto l’edificio nella stoffa per due settimane.",
+        "Salire nella cupola di vetro non costa niente, ma devi prenotare prima."
+      ],
+      "question": {
+        "q": "Perché sopra l’aula c’è una cupola di vetro?",
+        "answers": [
+          "Per far vedere il parlamento al lavoro",
+          "Per sentire meglio i discorsi",
+          "Per riportare l’edificio com’era nel 1894",
+          "Per farsi notare da lontano come simbolo della città"
+        ],
+        "explanation": "I visitatori camminano sopra l’aula e guardano dentro. Il vetro dice che qui non si nasconde niente: chi vuole, può guardare."
+      },
+      "findIt": "La fila per la cupola parte dal padiglione bianco dei controlli sul lato ovest, fuori sul prato."
+    },
+    "berlin-victory-column": {
+      "name": "La Siegessäule, la Colonna della Vittoria",
+      "tagline": "I berlinesi la chiamano Elsa d’Oro, e ha 285 scalini",
+      "story": "La colonna fu innalzata nel 1873, su progetto di Heinrich Strack, per festeggiare tre vittorie in tre guerre. Nelle sue scanalature i costruttori infilarono vere canne di cannone prese agli eserciti sconfitti, e le ricoprirono d’oro. In cima sta Vittoria, la dea della vittoria: alta più di otto metri e pesante come sei elefanti messi insieme. I berlinesi, che non sopportano troppa solennità, la chiamano Goldelse, cioè Elsa d’Oro. La colonna non è sempre stata qui. Nel 1938 la smontarono pezzo per pezzo dalla piazza davanti al Reichstag e la ricostruirono in mezzo al parco, aggiungendo un altro pezzo per portarla a 67 metri. Se sali i suoi 285 scalini, vedi dall’alto tutto il Tiergarten, il bosco dove una volta andavano a caccia i re e dove oggi fanno il picnic tutti.",
+      "facts": [
+        "È alta 67 metri, dopo che nel 1938 le aggiunsero un altro pezzo.",
+        "La Vittoria dorata in cima supera gli otto metri di altezza.",
+        "In cima si sale a piedi: 285 scalini, senza ascensore."
+      ],
+      "question": {
+        "q": "Che cosa è infilato nelle scanalature della colonna?",
+        "answers": [
+          "Vere canne di cannone, ricoperte d’oro",
+          "Copie di cannoni in marmo, arrivate dall’Italia",
+          "Tubi di rame che tengono dritta la colonna nel vento",
+          "Rami d’alloro d’oro, uno per ogni anno di vittoria"
+        ],
+        "explanation": "Sono vere canne dei cannoni degli eserciti sconfitti. Le armi non furono buttate: furono dorate e messe in mostra."
+      },
+      "findIt": "La colonna sta su un’isola in mezzo a una rotonda. Usa i quattro tunnel pedonali, mai la strada."
+    },
+    "berlin-potsdamer-platz": {
+      "name": "Potsdamer Platz",
+      "tagline": "Dalla piazza più trafficata d’Europa a un campo di conigli",
+      "story": "Cento anni fa, negli anni Venti, questa era la piazza più trafficata d’Europa: tram, autobus, automobili, carri con i cavalli e migliaia di persone a piedi si aggrovigliavano tutto il giorno. La confusione era così grande che nel 1924 qui fu messa una torre a cinque lati, con un semaforo su ogni lato e un poliziotto seduto dentro che li cambiava a mano. La guerra rase al suolo la piazza, e dopo il Muro passò proprio in mezzo. Per più di quarant’anni qui non c’era quasi niente: erba, recinzioni e conigli. Quando il Muro cadde, Berlino ricostruì la piazza da zero, e in dieci anni spuntarono grattacieli, cinema e una piazza coperta da un tetto come una tenda enorme. La torre dei semafori che vedi oggi è una copia del 1997. Un campo vuoto può tornare a essere il cuore di una città.",
+      "facts": [
+        "Nel 1924 qui fu messa una torre con semafori su cinque lati.",
+        "Prende il nome dalla porta che portava sulla strada per Potsdam.",
+        "Negli anni Novanta è stata il cantiere più grande di tutta l’Europa."
+      ],
+      "question": {
+        "q": "Che lavoro faceva il poliziotto dentro la torre del 1924?",
+        "answers": [
+          "Cambiava lui i semafori a mano",
+          "Contava le auto che passavano",
+          "Vendeva i biglietti del tram",
+          "Sorvegliava l’orologio della città"
+        ],
+        "explanation": "I semafori non cambiavano da soli. Un uomo stava seduto lassù, guardava il traffico e girava l’interruttore quando gli sembrava il momento."
+      },
+      "findIt": "Esci dalla stazione dall’uscita Potsdamer Platz: la torre dei semafori è sull’isola davanti a te."
+    },
+    "berlin-checkpoint-charlie": {
+      "name": "Il Checkpoint Charlie",
+      "tagline": "Il terzo posto di blocco, ed è per questo che si chiama Charlie",
+      "story": "Dopo la Seconda guerra mondiale Berlino fu divisa in quattro parti, tenute dall’America, dalla Gran Bretagna, dalla Francia e dall’Unione Sovietica. Quando nel 1961 il Muro fu tirato su e tagliò la città in due, questa casetta sulla Friedrichstraße diventò il passaggio più conosciuto fra la parte americana e quella sovietica. I soldati lo chiamarono Charlie perché così dicono la lettera C nell’alfabeto che usano alla radio: era il terzo posto di blocco, dopo Alpha e Bravo. Nell’ottobre del 1961 i carri armati americani e quelli sovietici si fermarono qui muso contro muso per sedici ore, finché le due parti si tirarono indietro piano piano, un carro armato alla volta. La casetta che vedi oggi è una copia: quella vera fu sollevata da una gru nel 1990 e adesso sta in un museo a Dahlem. La strada è aperta a tutti.",
+      "facts": [
+        "Era il terzo posto di blocco degli alleati, dopo Alpha e Bravo.",
+        "Nell’ottobre del 1961 i carri armati delle due parti restarono qui uno di fronte all’altro per sedici ore.",
+        "La casetta originale fu spostata nel 1990 ed è esposta in un museo a Dahlem."
+      ],
+      "question": {
+        "q": "Perché questo posto di blocco fu chiamato «Charlie»?",
+        "answers": [
+          "È la «C» nell’alfabeto che usano i soldati",
+          "Era il nome della prima guardia che servì qui",
+          "Fu chiamato così in onore di un generale americano",
+          "Era la Friedrichstraße in inglese"
+        ],
+        "explanation": "Alpha, Bravo, Charlie: l’alfabeto della radio. Era semplicemente il terzo posto di blocco, e la terza lettera gli lasciò per sempre il nome."
+      },
+      "findIt": "Sta in mezzo alla Friedrichstraße, all’incrocio con la Zimmerstraße, fra le automobili."
+    },
+    "berlin-gendarmenmarkt": {
+      "name": "Gendarmenmarkt",
+      "tagline": "Due chiese come gemelle, costruite da gente che dovette lasciare casa",
+      "story": "Più di trecento anni fa Berlino aprì le sue porte a migliaia di profughi arrivati dalla Francia, gli ugonotti, che a casa loro non potevano pregare a modo loro. Sul lato nord di questa piazza costruirono la loro chiesa, e i tedeschi costruirono la loro di fronte. Più tardi il re Federico il Grande voleva che la sua piazza somigliasse a una piazza di Roma, così fece aggiungere a ciascuna chiesa, da un solo architetto, una torre con la cupola uguale all’altra. Fu così che diventarono gemelle senza essere parenti. In mezzo sta il Konzerthaus, la sala da concerti disegnata da Karl Friedrich Schinkel, che aprì nel 1821 dopo che il vecchio teatro era bruciato. Davanti a lei, di marmo, sta il poeta Friedrich Schiller, e intorno alla sua base siedono quattro figure di marmo. Intorno al 1700 un berlinese su cinque parlava francese: quando una città accoglie gli stranieri, diventa più ricca.",
+      "facts": [
+        "Le due torri con la cupola furono aggiunte alle chiese intorno al 1780.",
+        "Il Konzerthaus di Schinkel aprì nel 1821, dove era bruciato un teatro.",
+        "Intorno al 1700 circa un berlinese su cinque parlava francese."
+      ],
+      "question": {
+        "q": "Perché le due chiese sembrano gemelle?",
+        "answers": [
+          "Un architetto aggiunse a tutte e due torri uguali",
+          "Furono costruite nello stesso anno",
+          "Erano della stessa comunità",
+          "Furono copiate da una chiesa di Roma"
+        ],
+        "explanation": "Le chiese erano diverse e appartenevano a persone diverse. Le torri arrivarono dopo, da un solo architetto, che le fece uguali."
+      },
+      "findIt": "Mettiti sui gradini del Konzerthaus, in mezzo: da lì vedi tutte e due le cupole insieme."
+    },
+    "berlin-berliner-dom": {
+      "name": "Il Berliner Dom",
+      "tagline": "Una cupola verde, e davanti una coppa di pietra parcheggiata",
+      "story": "La chiesa è più giovane di quanto sembri: fu finita nel 1905, quando l’imperatore Guglielmo II volle per Berlino un tempio grandioso come i più grandi d’Europa. La sua cupola è coperta di rame, e il rame con la pioggia e gli anni diventa verde; quel colore non l’ha scelto nessuno, l’ha fatto il tempo. La guerra la danneggiò moltissimo e le riparazioni durarono decenni: riaprì nel 1993, più bassa di prima. Davanti, sul prato del Lustgarten, sta una coppa enorme di granito, scavata da un solo masso. Fu finita nel 1831, è larga quasi sette metri e pesa circa settantacinque tonnellate. L’avevano fatta per metterla dentro il museo qui accanto, ma venne fuori così grande che rimase fuori. Dietro di te si allunga l’Isola dei Musei: cinque musei su un’isola in mezzo al fiume.",
+      "facts": [
+        "La chiesa di oggi fu finita nel 1905 e riaprì dopo le riparazioni nel 1993.",
+        "La coppa di granito del Lustgarten è scavata da un solo masso e pesa circa 75 tonnellate.",
+        "L’Isola dei Musei dietro la chiesa è Patrimonio dell’Umanità dal 1999."
+      ],
+      "question": {
+        "q": "Perché la cupola è verde?",
+        "answers": [
+          "Il suo rame diventa verde con la pioggia e il tempo",
+          "L’hanno dipinta di verde fin dal primo giorno",
+          "È coperta di tegole verdi di terracotta",
+          "L’ha ricoperta il muschio, come un albero"
+        ],
+        "explanation": "Il rame all’inizio è bruno rossiccio e con gli anni si copre di una pelle verde sottile. Il colore non è vernice, è età."
+      },
+      "findIt": "I visitatori entrano dalla facciata ovest, quella che guarda il prato con la coppa di granito."
+    },
+    "berlin-nikolaiviertel": {
+      "name": "Il Nikolaiviertel",
+      "tagline": "L’angolo più vecchio della città, ricostruito solo quarant’anni fa",
+      "story": "Intorno al 1230, quasi ottocento anni fa, mercanti e pescatori costruirono qui le prime case in riva al fiume Sprea, insieme a una chiesa di pietra, la Nikolaikirche. All’inizio c’erano due piccole città, Berlino su questa riva e Cölln sull’altra, che più tardi diventarono una sola. La guerra fece quasi sparire il quartiere. Negli anni Ottanta Berlino Est lo ricostruì per i 750 anni della città, con vicoli stretti e piazzette, perché tornasse a sembrare antico. Vale la pena saperlo: molte delle case «vecchie» sono in realtà pannelli di cemento già pronti degli anni Ottanta, vestiti da antichi. Giù sulla riva san Giorgio, un cavaliere di bronzo del 1855, combatte con il suo drago. E dovunque guardi, un orso ti guarda: è il simbolo della città da secoli, anche se il nome «Berlino» probabilmente non ha niente a che fare con gli orsi.",
+      "facts": [
+        "Le prime case qui furono costruite intorno al 1230, in riva alla Sprea.",
+        "Il quartiere fu ricostruito negli anni Ottanta per i 750 anni della città.",
+        "Il san Giorgio di bronzo sulla riva fu fatto nel 1855."
+      ],
+      "question": {
+        "q": "Da dove viene probabilmente il nome «Berlino»?",
+        "answers": [
+          "Da una vecchia parola slava per palude",
+          "Dalla parola tedesca «Bär», che vuol dire orso",
+          "Dal nome di un pescatore",
+          "Dal fiume Sprea, nel latino di quel tempo"
+        ],
+        "explanation": "Il terreno qui era paludoso, e la parola sembra venire da lì. L’orso è arrivato dopo, come gioco di parole con il tedesco «Bär»."
+      },
+      "findIt": "Parti dalle due torri scure della Nikolaikirche ed entra nei vicoli qui intorno."
+    },
+    "berlin-olympiastadion": {
+      "name": "L’Olympiastadion",
+      "tagline": "Qui un corridore vinse quattro ori in cinque giorni",
+      "story": "Lo stadio fu costruito dal 1934 al 1936, su progetto di Werner March, per i Giochi Olimpici del 1936. Il governo della Germania di allora, il governo di Hitler, voleva i Giochi per mostrare al mondo la sua forza e per dimostrare che certe persone valgono più di altre. E allora, davanti a lui, un corridore americano di nome Jesse Owens vinse quattro medaglie d’oro: i 100 metri, i 200 metri, il salto in lungo e la staffetta. Era nero, e la risposta arrivò nella polvere della pista. Oggi una strada fuori dallo stadio porta il suo nome. Lo stadio tiene quasi settantacinquemila persone, ospita ogni anno la finale della coppa di Germania, e qui si è giocata la finale del Mondiale del 2006.",
+      "facts": [
+        "Fu costruito dal 1934 al 1936, per i Giochi Olimpici di quell’anno.",
+        "Tiene 74.475 persone dopo i lavori finiti nel 2004.",
+        "Qui si è giocata la finale del Mondiale del 2006."
+      ],
+      "question": {
+        "q": "Quante medaglie d’oro vinse qui Jesse Owens nel 1936?",
+        "answers": [
+          "Quattro, in quattro gare diverse",
+          "Due, nei 100 e nei 200 metri",
+          "Una, solo nel salto in lungo",
+          "Sette, un record ancora valido"
+        ],
+        "explanation": "I 100 metri, i 200 metri, il salto in lungo e la staffetta. Quattro vittorie in cinque giorni, davanti a un governo che voleva dimostrare il contrario."
+      },
+      "findIt": "La stazione Olympiastadion ti lascia sulla piazza con le due torri di pietra: quello è l’ingresso principale."
+    }
+  },
+  "trails": {
+    "berlin-the-wall": {
+      "name": "Il Muro e i suoi due lati",
+      "promise": "Una porta che si chiuse, un posto di blocco con i carri armati, una piazza piena di conigli e un muro pieno di colore."
+    },
+    "berlin-the-island": {
+      "name": "L’isola e la città vecchia",
+      "promise": "Una cupola verde, una regina con un occhio solo, i primi vicoli della città e una palla a duecento metri d’altezza."
+    },
+    "berlin-bones-and-engines": {
+      "name": "Ossa, motori e animali",
+      "promise": "Lo scheletro di dinosauro più alto del mondo, un aeroplano su un tetto e il più antico zoo del paese."
+    },
+    "berlin-stone-and-gold": {
+      "name": "Pietra, cupole e una signora d’oro",
+      "promise": "Due chiese come gemelle, un parlamento con un cappello di vetro e 285 scalini fino all’Elsa d’Oro."
+    },
+    "berlin-out-of-the-middle": {
+      "name": "Fuori dal centro",
+      "promise": "Una giornata in treno: uno stadio con una storia, un mercato coperto e un muro dipinto da 118 persone."
+    }
+  }
+}
