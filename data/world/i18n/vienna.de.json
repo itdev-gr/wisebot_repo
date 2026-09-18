@@ -1,0 +1,659 @@
+{
+  "lang": "de",
+  "cityId": "vienna",
+  "places": {
+    "vienna-kunsthistorisches": {
+      "name": "Das Kunsthistorische Museum",
+      "tagline": "Das Zwillingsgebäude, mit den Bildern darin",
+      "story": "Das Kunsthistorische Museum öffnete 1891, der Zwilling des Naturhistorischen Museums, mit einem Platz dazwischen. Es wurde gebaut, um das aufzunehmen, was die Habsburger in vier Jahrhunderten zusammengetragen hatten, und genau da versteckt sich der Witz: Fast nichts darin ist österreichisch. Die Familie kaufte, erbte und heiratete sich quer durch Europa, also hängen in den Sälen flämische, italienische und spanische Bilder, dazu ägyptische Funde. Das Seltenste hier sind zwölf Bilder von einem einzigen Maler, Pieter Bruegel dem Älteren. Auf der ganzen Welt sind nur ungefähr vierzig seiner Tafeln erhalten, also ist fast ein Drittel davon in diesem einen Haus. Sogar die Treppe ist ein Ausstellungsstück: oben auf ihr ein Theseus aus Marmor, und zwölf Meter hoch oben, eingezwängt zwischen den Säulen, Bilder von Gustav Klimt, gemalt, als er noch jung und unbekannt war.",
+      "facts": [
+        "Es öffnete 1891 und ist das Zwillingsgebäude des Naturhistorischen Museums.",
+        "Es hat zwölf Bilder von Pieter Bruegel, die größte Sammlung von ihm überhaupt.",
+        "Insgesamt sind etwa vierzig Bruegel-Tafeln erhalten, also ist fast ein Drittel hier."
+      ],
+      "question": {
+        "q": "Warum ist fast nichts in diesem Museum österreichisch?",
+        "answers": [
+          "Die Habsburger sammelten Kunst aus ganz Europa",
+          "Österreichische Werke kamen in andere Museen",
+          "Damals gab es keine österreichischen Maler",
+          "Österreichische Werke verbrannten 1891"
+        ],
+        "explanation": "Sie kauften, erbten und heirateten quer durch viele Länder. Die Sammlung ist die Landkarte einer Familie, nicht die eines Landes."
+      },
+      "findIt": "Es ist das südliche der beiden Zwillingsgebäude, das mit Blick zur Oper.",
+      "museum": {
+        "doorNote": "Schau auf der Treppe nach oben, bevor du sie hinaufgehst: Die höchsten Bilder sind zwölf Meter über dir.",
+        "rooms": {
+          "vienna-kunsthistorisches-bruegel": {
+            "name": "Der Bruegel-Saal",
+            "intro": "Ein einziger Raum, und darin zwölf Bilder von demselben Mann. Bruegel malte Dörfer, Schnee, Hochzeiten und Kinder, in einer Zeit, in der die meisten Maler nur Heilige und Könige machten. Seine Bilder brauchen Zeit: Je näher du kommst, desto mehr kleine Dinge entdeckst du, die in ihren Ecken passieren."
+          },
+          "vienna-kunsthistorisches-faces": {
+            "name": "Gesichter",
+            "intro": "In diesen Sälen schaut die Malerei den Menschen in die Augen. Es gibt ein Gesicht, das ganz aus Obst besteht, ein Mädchen, das alle paar Jahre gemalt wurde, damit seine Familie es aufwachsen sehen konnte, einen Maler, der sich selbst von hinten gemalt hat, und eine Mutter, die auf einer Wiese sitzt."
+          },
+          "vienna-kunsthistorisches-treasures": {
+            "name": "Schätze und Stufen",
+            "intro": "Das Museum besteht nicht nur aus Bildern. Es hat auch ein Stockwerk voller Dinge, die Goldschmiede und Uhrmacher für Leute gemacht haben, die schon alles besaßen. Und es hat seine Treppe, die nicht nur ein Weg nach oben ist: Auf ihr steht eine Skulptur aus Marmor in Lebensgröße, und weit oben verstecken sich Bilder, zu denen kaum ein Besucher den Kopf hebt."
+          }
+        },
+        "exhibits": {
+          "vienna-kunsthistorisches-hunters-snow": {
+            "name": "Die Jäger im Schnee",
+            "blurb": "Drei Jäger kommen mit ihren Hunden einen Hügel herunter. Der Schnee ist tief, die Hunde lassen die Köpfe hängen, und die einzige Beute, die sie tragen, ist ein Fuchs. Ihr Tag lief nicht gut. Unter ihnen laufen die Leute auf zugefrorenen Teichen Schlittschuh und spielen. Bruegel malte das Bild 1565 als Teil einer Reihe von sechs Bildern über die Zeiten des Jahres; fünf sind erhalten, und drei davon hängen in diesem Raum. Schau dir den Vogel in der Mitte an: Er ist genau in dem Moment festgehalten, in dem er herunterkommt.",
+            "question": {
+              "q": "Was sagt uns der Fuchs, den die Jäger tragen?",
+              "answers": [
+                "Dass die Jagd schlecht lief",
+                "Dass sie von einem Fest kamen",
+                "Dass der Schnee zu schmelzen begann",
+                "Dass ihre Hunde die besten waren"
+              ],
+              "explanation": "Ein Fuchs für drei Jäger und ein Rudel Hunde ist sehr wenig Essen für einen Winter."
+            }
+          },
+          "vienna-kunsthistorisches-childrens-games": {
+            "name": "Die Kinderspiele",
+            "blurb": "Gemalt 1560, hat dieses Bild keinen Helden in der Mitte. Es hat einen Platz voller Kinder, ungefähr zweihundert, und jedes macht etwas anderes. Historiker haben mehr als achtzig verschiedene Spiele darin gezählt: Kreisel, Reifen, Himmel und Hölle, Stelzen, Verstecken, huckepack aufeinander reiten. Viele davon spielen Kinder heute noch, vierhundertsechzig Jahre später. Es gibt keinen einzigen Erwachsenen auf dem Bild. Bruegel hat den Kindern die ganze Stadt überlassen, und sie haben sie genommen.",
+            "question": {
+              "q": "Wie viele verschiedene Spiele hat man im Bild gezählt?",
+              "answers": [
+                "Über achtzig",
+                "Genau zwölf",
+                "Nur drei",
+                "Gar keine"
+              ],
+              "explanation": "Das Bild wirkt fast wie ein Katalog. Viele dieser Spiele werden auf Schulhöfen immer noch gespielt."
+            }
+          },
+          "vienna-kunsthistorisches-tower-babel": {
+            "name": "Der Turmbau zu Babel",
+            "blurb": "Ein Turm, so hoch, dass seine Spitze in die Wolken stößt, gemalt 1563. Die Geschichte erzählt, dass die Menschen bis zum Himmel bauen wollten und aufhörten, als sie die Sprache des anderen nicht mehr verstanden. Bruegel hat aber noch etwas anderes gemalt: Schau genau hin, und du siehst, dass der Turm sich neigt. Die Bögen auf der einen Seite sind nicht in einer Linie. Selbst wenn alle dieselbe Sprache gesprochen hätten, dieses Gebäude wäre nie stehen geblieben.",
+            "question": {
+              "q": "Was stimmt mit dem Turm im Bild nicht?",
+              "answers": [
+                "Er neigt sich, und seine Bögen sind schief",
+                "Ihm fehlt die Eingangstür",
+                "Er hat die falschen Farben",
+                "Er passt nicht ganz ins Bild"
+              ],
+              "explanation": "Bruegel hat den Fehler in die Fundamente gelegt, nicht in die Sprache. Der Turm wäre so oder so gefallen."
+            }
+          },
+          "vienna-kunsthistorisches-peasant-wedding": {
+            "name": "Die Bauernhochzeit",
+            "blurb": "Eine Hochzeit in einer Scheune. Die Braut sitzt vor einem grünen Tuch, die Hände gefaltet, und über ihrem Kopf hängt eine kleine Krone aus Papier. Der Bräutigam ist nicht leicht zu finden, und die Historiker streiten immer noch darüber, welcher Mann er ist. Zwei Männer tragen die Teller auf einer ausgehängten Tür, weil es kein Tablett dieser Größe gab. In der Ecke leckt ein Kind mit einem viel zu großen Hut einen Teller mit den Fingern aus. Das Bild ist von ungefähr 1568.",
+            "question": {
+              "q": "Worauf werden die Teller mit dem Essen getragen?",
+              "answers": [
+                "Auf einer Tür",
+                "Auf einem Holzkarren",
+                "Auf einem Laken",
+                "Auf einer langen Leiter"
+              ],
+              "explanation": "Sie hängten eine Tür aus und machten ein Tablett daraus. In einem Dorf wird das, was da ist, zu dem, was man braucht."
+            }
+          },
+          "vienna-kunsthistorisches-arcimboldo-summer": {
+            "name": "Der Sommer von Arcimboldo",
+            "blurb": "Von Weitem ist es ein Mensch im Profil. Von Nahem ist da überhaupt kein Mensch: Die Wange ist ein Pfirsich, die Nase eine Zucchini, die Lippen sind Kirschen, die Haare Trauben und Ähren. Giuseppe Arcimboldo malte es 1563 für den Kaiser, als Teil einer Reihe mit den vier Jahreszeiten. Das Schlaueste daran ist der Kragen: Er ist aus Stroh geflochten, und im Geflecht hat der Maler seinen eigenen Namen versteckt. Das Museum hat auch den Winter, gemacht aus dürren Zweigen.",
+            "question": {
+              "q": "Wo hat der Maler seinen eigenen Namen versteckt?",
+              "answers": [
+                "Im Kragen aus geflochtenem Stroh",
+                "Im Inneren des Pfirsichkerns",
+                "Hinten auf dem Bild",
+                "Nirgends; das Gemälde ist unsigniert"
+              ],
+              "explanation": "Arcimboldo schrieb seinen Namen in das Geflecht, wo du ihn nur siehst, wenn du sehr nah herangehst."
+            }
+          },
+          "vienna-kunsthistorisches-vermeer": {
+            "name": "Die Malkunst",
+            "blurb": "Ein Maler sitzt mit dem Rücken zu uns und arbeitet. Vor ihm posiert ein Mädchen mit einem Buch, einer Trompete und einem Kranz aus Lorbeerblättern: Sie ist als Muse der Geschichte verkleidet. An der Wand hinter ihr hängt eine große Landkarte. Johannes Vermeer malte das Bild um 1666 und verkaufte es nie. Von diesem Maler sind auf der ganzen Welt nur ungefähr fünfunddreißig Bilder erhalten, es ist also selten, vor einem davon zu stehen.",
+            "question": {
+              "q": "Was hält das Mädchen, das posiert?",
+              "answers": [
+                "Ein Buch und eine Trompete",
+                "Einen Spiegel und eine Kerze",
+                "Einen Pinsel und eine Palette",
+                "Einen Korb mit Obst"
+              ],
+              "explanation": "Es sind die Zeichen der Geschichte: das Buch für alles, was aufgeschrieben wurde, die Trompete für den Ruhm."
+            }
+          },
+          "vienna-kunsthistorisches-infanta": {
+            "name": "Die kleine Infantin im blauen Kleid",
+            "blurb": "Ein Mädchen von acht Jahren steht vollkommen still in einem riesigen blauen Kleid. Sie hieß Margarita Teresa und lebte in Madrid. Diego Velázquez malte sie 1659, und das Bild reiste sofort nach Wien. Der Grund ist ungewöhnlich: Ihre Familie hier wollte sie aus der Ferne aufwachsen sehen. Es gab keine Fotos, also wurde alle paar Jahre ein neues Bild geschickt. Es ist eines der ersten Alben mit Kinderfotos der Geschichte, gemalt mit Ölfarbe.",
+            "question": {
+              "q": "Warum wurde alle paar Jahre ein neues Bild von Margarita nach Wien geschickt?",
+              "answers": [
+                "Damit ihre Familie sie aufwachsen sah",
+                "Damit die Maler in Wien daraus lernten",
+                "Damit man sah, dass es ihr gut ging",
+                "Damit sie ihre Kleider aussuchte"
+              ],
+              "explanation": "Im 17. Jahrhundert gab es keine Fotografie. Ein Bild war der einzige Weg, jemanden zu sehen, der weit weg lebte."
+            }
+          },
+          "vienna-kunsthistorisches-madonna-meadow": {
+            "name": "Die Madonna im Grünen",
+            "blurb": "Eine Mutter sitzt im Gras und hält zwei kleine Kinder. Raffael malte sie 1506, als er dreiundzwanzig war. Wenn du auf die Köpfe und die Hände schaust, siehst du, dass sie ein Dreieck bilden, mit der Spitze im Gesicht der Frau. Raffael hat das mit Absicht gemacht: Ein Dreieck lässt ein Bild ruhig stehen, so wie ein Berg ruhig steht. Hinter ihnen öffnet sich eine Landschaft mit Wasser, Bäumen und einem sehr blauen Himmel.",
+            "question": {
+              "q": "Welche Form entsteht aus den drei Gestalten im Bild?",
+              "answers": [
+                "Ein Dreieck",
+                "Ein Kreis",
+                "Eine gerade Linie",
+                "Ein Quadrat"
+              ],
+              "explanation": "Ein Dreieck hat eine breite Basis und eine ruhige Spitze. Maler benutzen es, um das Auge zu beruhigen."
+            }
+          },
+          "vienna-kunsthistorisches-saliera": {
+            "name": "Die Saliera",
+            "blurb": "Es ist ein Salzfass, und es ist das einzige Werk aus Gold von Benvenuto Cellini, das es noch gibt. Er machte es zwischen 1540 und 1543 für den König von Frankreich. Zwei Gestalten sitzen sich gegenüber: ein Mann, der das Meer ist, mit einem Schiffchen neben sich für das Salz, und eine Frau, die die Erde ist, mit einem kleinen Tempel neben sich für den Pfeffer. Am 11. Mai 2003 stieg ein Dieb auf das Gerüst und nahm es mit. Gefunden wurde es am 21. Januar 2006, vergraben in einer Bleikiste in einem Wald.",
+            "question": {
+              "q": "Was hielt das Schiffchen neben der Gestalt des Meeres?",
+              "answers": [
+                "Das Salz",
+                "Den Pfeffer",
+                "Das Öl",
+                "Das Wasser"
+              ],
+              "explanation": "Salz kommt aus dem Meer und Pfeffer von Pflanzen der Erde. Deshalb sitzt jedes neben seiner eigenen Gestalt."
+            }
+          },
+          "vienna-kunsthistorisches-canova-theseus": {
+            "name": "Canovas Theseus",
+            "blurb": "Oben an der großen Treppe hat ein junger Mann aus weißem Marmor einen Kentauren zu Boden geworfen und hebt seine Keule. Die Skulptur ist von Antonio Canova, und er arbeitete jahrelang daran, von 1805 bis 1819. Napoleon hatte sie bestellt; am Ende kaufte sie 1822 der Kaiser von Österreich und stellte sie in einen kleinen Tempel in einem Park. Als das Museum öffnete, brachte man sie hierher. Es heißt, Canova habe ein echtes Pferd studiert, um die Muskeln des Kentauren richtig hinzubekommen.",
+            "question": {
+              "q": "Wer hatte diese Skulptur ursprünglich bestellt?",
+              "answers": [
+                "Napoleon Bonaparte",
+                "Franz Joseph",
+                "Die Stadt Wien",
+                "Das Museum selbst"
+              ],
+              "explanation": "Canova begann sie für Napoleon. Österreich kaufte sie später, 1822."
+            }
+          },
+          "vienna-kunsthistorisches-klimt-staircase": {
+            "name": "Klimts Bilder im Treppenhaus",
+            "blurb": "Zwölf Meter über den Köpfen der Besucher, in den schmalen Lücken zwischen den Säulen, sitzen kleine gemalte Gestalten: eine Ägypterin, eine Griechin aus der Antike, eine Italienerin der Renaissance. Gustav Klimt hat sie um 1890 gemacht, zusammen mit seinem Bruder und einem Freund, als er noch achtundzwanzig war und niemand seinen Namen kannte. Sie sind so hoch oben, dass sie jahrelang kaum jemand bemerkt hat. Ab und zu baut das Museum eine Brücke, damit die Leute sie aus der Nähe anschauen können.",
+            "question": {
+              "q": "Warum bemerken nur wenige Besucher diese Bilder?",
+              "answers": [
+                "Sie sind zwölf Meter über ihren Köpfen",
+                "Sie sind mit einem Schutztuch abgedeckt",
+                "Ihr Saal öffnet einmal im Jahr",
+                "Sie sind nur wenige Zentimeter groß"
+              ],
+              "explanation": "Klimt hat sie für die Treppe gemalt, nicht für die Wand vor dir. Sie wollen, dass du den Kopf hebst."
+            }
+          }
+        },
+        "riddles": {
+          "vienna-kunsthistorisches-riddle-1": {
+            "prompt": "Ich komme durch tiefen Schnee einen Hügel herunter, mit Hunden, die die Köpfe hängen lassen, und ich trage einen einzigen Fuchs. Unter mir, auf den zugefrorenen Teichen, haben alle ihren Spaß.",
+            "hint": "Ich bin eines der drei Bilder von den Zeiten des Jahres in diesem Raum."
+          },
+          "vienna-kunsthistorisches-riddle-2": {
+            "prompt": "Von Weitem habe ich ein Gesicht. Von Nahem habe ich keine Haut: Meine Wange ist ein Pfirsich und meine Lippen sind Kirschen. Der Name meines Malers steckt in meinem Kragen.",
+            "hint": "Neben mir hängt die entgegengesetzte Jahreszeit, gemacht aus dürren Zweigen."
+          },
+          "vienna-kunsthistorisches-riddle-3": {
+            "prompt": "Ich bin klein und golden, und ich hatte einmal eine Aufgabe auf dem Tisch eines Königs. 2003 hat mich jemand gestohlen und in einem Wald vergraben. Drei Jahre später kam ich zurück.",
+            "hint": "Zwei Gestalten sitzen auf mir, das Meer und die Erde."
+          },
+          "vienna-kunsthistorisches-riddle-4": {
+            "prompt": "Ich hänge nicht an einer Wand und ich habe keinen Rahmen. Ich lebe in den schmalen Lücken zwischen Säulen, zwölf Meter über dir, und gemalt hat mich ein Achtundzwanzigjähriger, der erst viel später berühmt wurde.",
+            "hint": "Du findest mich, bevor du überhaupt einen Saal betrittst."
+          }
+        }
+      }
+    },
+    "vienna-schonbrunn-zoo": {
+      "name": "Der Tiergarten Schönbrunn",
+      "tagline": "Der älteste Zoo der Welt, den es heute noch gibt",
+      "story": "Der Tiergarten Schönbrunn öffnete 1752 und ist der älteste Zoo der Welt, der noch in Betrieb ist. Gebaut hat ihn Franz Stephan, der Mann von Maria Theresia, nicht für das Volk, sondern für den Hof. Ab 1779 durften auch einfache Leute hinein. In der Mitte steht ein achteckiger Pavillon von 1759. Dort frühstückte der Kaiser, und rund um seine Fenster lagen die Gehege wie Tortenstücke. Diesen Plan gibt es noch: Stell dich in die Mitte, und du kannst in alle Richtungen schauen. Der Zoo von heute sieht dem alten überhaupt nicht mehr ähnlich. Er hat ein Regenwaldhaus, in dem es richtig regnet, und ein Kältehaus für die Tiere des Eises. Am 23. August 2007 kam hier ein Großer Panda zur Welt, Fu Long. Er war der erste Panda in Europa, der ganz ohne Hilfe von Ärzten auf die Welt kam.",
+      "facts": [
+        "Er öffnete 1752 und ist der älteste Zoo, der überhaupt noch in Betrieb ist.",
+        "Der achteckige Pavillon in seiner Mitte wurde 1759 für den Kaiser gebaut.",
+        "Am 23. August 2007 kam hier Fu Long zur Welt, ein Großer Panda."
+      ],
+      "question": {
+        "q": "Was steht genau in der Mitte des Zoos?",
+        "answers": [
+          "Ein achteckiger Pavillon des Kaisers",
+          "Ein großer See mit Flamingos",
+          "Das Elefantenhaus",
+          "Ein Aussichtsturm über den Gehegen"
+        ],
+        "explanation": "Die Gehege wurden rund um den Pavillon angelegt wie Tortenstücke, damit der Kaiser sie alle von seinem Tisch aus sehen konnte."
+      }
+    },
+    "vienna-naturhistorisches": {
+      "name": "Das Naturhistorische Museum",
+      "tagline": "Dreißig Millionen Objekte, von Meteoriten bis zu einer kleinen Venus",
+      "story": "Gegenüber von einem Kunstmuseum steht sein Zwilling, und die beiden sind sich so ähnlich, dass man nicht mehr weiß, welches welches ist. Kaiser Franz Joseph ließ sie einander gegenüber bauen, weil die kaiserlichen Sammlungen nicht mehr in das Schloss passten. Das Naturhistorische Museum öffnete 1889. Seine Sammlungen sind viel älter: Sie begannen 1750, als Franz Stephan dreißigtausend Steine und Minerale kaufte und mit Wagen nach Wien bringen ließ. Heute bewahrt das Museum ungefähr dreißig Millionen Objekte auf, und in den Sälen siehst du nur einen kleinen Teil davon. Drinnen triffst du Meteoriten, die vom Himmel gefallen sind, ein Dinosaurierskelett, das länger ist als ein Bus, einen Allosaurus, der sich bewegt, und eine geschnitzte Figur von elf Zentimetern, die fast dreißigtausend Jahre alt ist. Die Letzte hat ein Zimmer ganz für sich, denn sie ist das berühmteste Objekt im ganzen Gebäude.",
+      "facts": [
+        "Es öffnete 1889 und bewahrt ungefähr 30 Millionen Objekte auf.",
+        "Sein Meteoritensaal ist die größte Meteoritenausstellung der Welt.",
+        "Die Sammlungen begannen 1750, mit 30.000 Mineralen, die Franz Stephan kaufte."
+      ],
+      "question": {
+        "q": "Warum steht dem Museum ein Zwillingsgebäude genau gegenüber?",
+        "answers": [
+          "Die kaiserlichen Sammlungen passten nicht in ein Gebäude",
+          "Die zwei Architekten stritten und bauten je eins",
+          "Das erste Gebäude brannte ab und wurde gleich daneben neu gebaut",
+          "Sie wollten den Wind aufhalten, der über den Platz hinwegfegte"
+        ],
+        "explanation": "In das eine kam die Natur, in das andere die Kunst, und der Platz dazwischen wurde mit Absicht vollkommen symmetrisch angelegt."
+      },
+      "findIt": "Es ist das nördliche der beiden Zwillingsgebäude, mit dem Garten und dem Denkmal dazwischen.",
+      "museum": {
+        "doorNote": "Die Meteoriten, die Dinosaurier und die Venus sind alle im selben Stockwerk.",
+        "rooms": {
+          "vienna-naturhistorisches-stones": {
+            "name": "Steine von der Erde und vom Himmel",
+            "intro": "Die ersten Säle des Museums sind voller Steine, und das klingt langweilig, bis du hineingehst. Manche von ihnen wuchsen Millionen Jahre lang langsam in Felsen heran. Andere reisten durch das Weltall und kamen brennend durch die Luft herunter. Und zwischen ihnen versteckt sich ein Blumenstrauß, den die Natur überhaupt nicht gemacht hat: Ein Goldschmied hat ihn gemacht, für eine Kaiserin."
+          },
+          "vienna-naturhistorisches-dinosaurs": {
+            "name": "Der Dinosauriersaal",
+            "intro": "In der Mitte dieses Saals steht eine Plattform, und darauf stehen drei Skelette, um die du ganz herumgehen kannst. Zwischen euch ist keine Scheibe. Eines der drei ist so lang, dass es auf kein Foto passt, und irgendwo daneben bewegt sich etwas und dreht den Kopf zu dir."
+          },
+          "vienna-naturhistorisches-venus": {
+            "name": "Das Zimmer der Venus",
+            "intro": "Weiter hinten im Museum füllen sich die Säle mit Dingen aus Menschenhand: Steinwerkzeuge, Schmuck, Gräber. Zwei winzige Figuren haben ein dunkles Zimmer und ein Licht ganz für sich. Sie gehören zu den ältesten Skulpturen, die je irgendwo auf der Welt gefunden wurden, und beide kamen aus österreichischem Boden, nicht weit voneinander."
+          }
+        },
+        "exhibits": {
+          "vienna-naturhistorisches-knyahinya": {
+            "name": "Der Meteorit von Knyahinya",
+            "blurb": "Am 9. Juni 1866 riss ein brennender Fels den Himmel über einem Dorf in den Karpaten auf und schlug in einem Feld ein. Er wog fast dreihundert Kilo. Jahrzehntelang war er der größte Steinmeteorit, den je jemand gefunden hatte, und heute steht er in der Mitte der Vitrine wie ein Anführer. Hunderte andere stehen um ihn herum. Der Saal zeigt ungefähr elfhundert Meteoriten und ist die größte Meteoritenausstellung der Welt. Jeder einzelne von ihnen war einmal ein Stück einer anderen Welt.",
+            "question": {
+              "q": "Was ist ein Meteorit?",
+              "answers": [
+                "Ein Stein aus dem All, der zur Erde fiel",
+                "Ein Stein, den ein Vulkan auswarf",
+                "Eis, das schmolz und Metall zurückließ",
+                "Ein Stein, den ein Blitz zu Glas machte"
+              ],
+              "explanation": "Solange er noch fliegt, nennen wir ihn Meteor. Sobald er den Boden berührt, wird er zum Meteoriten."
+            }
+          },
+          "vienna-naturhistorisches-gem-bouquet": {
+            "name": "Der Edelsteinstrauß",
+            "blurb": "1764 versteckte Maria Theresia ein Geschenk in der Mineraliensammlung ihres Mannes. Es war ein Blumenstrauß, der nie welkt: einundsechzig Blüten und zwölf Insekten, aus 2.102 Diamanten und 761 farbigen Steinen, in einer Vase aus Bergkristall. Die Blütenblätter sind Smaragde, Rubine, Turmaline und Opale. Die Bienen und Schmetterlinge haben Flügel aus dünnem Edelstein. Jeder einzelne Stein wurde für sich geschliffen und auf einen Stiel aus Draht gebunden.",
+            "question": {
+              "q": "Wie viele Diamanten hat der Strauß?",
+              "answers": [
+                "2.102 Diamanten",
+                "Zwölf Diamanten",
+                "Einundsechzig Diamanten",
+                "Gar keine Diamanten"
+              ],
+              "explanation": "Dazu kommen noch 761 farbige Steine, vom Smaragd bis zum Opal."
+            }
+          },
+          "vienna-naturhistorisches-topaz": {
+            "name": "Der riesige Topas",
+            "blurb": "In einer Vitrine, die im Boden eingelassen ist, vor den Tresoren voller Schmuck, sitzt ein Topaskristall von 117 Kilo. Niemand hat ihn gemacht. Er wuchs von allein in einem Felsen in Brasilien und bildete dabei langsam flache Flächen und scharfe Kanten, so wie es jeder Kristall macht. Ein Kind kann ihn nicht heben; zwei auch nicht. In die Sammlung kam er 1978. Neben ihm sehen die Ringe von Königinnen aus wie Krümel.",
+            "question": {
+              "q": "Wer hat dem Kristall seine flachen, geraden Flächen gegeben?",
+              "answers": [
+                "Niemand; er ist von allein gewachsen",
+                "Ein Diamantschleifer, 1978",
+                "Ein Fluss, der ihn jahrhundertelang schliff",
+                "Bergleute, mit Hammer und Meißel"
+              ],
+              "explanation": "Kristalle wachsen, indem sie ihre Atome in Ordnung stapeln. Die flachen Flächen sind diese Ordnung, von außen gesehen."
+            }
+          },
+          "vienna-naturhistorisches-florentine-copy": {
+            "name": "Die Kopie des Florentiner Diamanten",
+            "blurb": "In einer Vitrine funkelt ein gelber Diamant mit hundertsechsundzwanzig Facetten. Er ist kein Diamant. Er ist eine Kopie aus Glas, gemacht 1865, denn den echten gibt es hier nicht mehr. Der Florentiner war einer der berühmtesten Steine Europas und gehörte den Habsburgern. 1918, als das Kaiserreich zu Ende ging, verließ er Wien mit der Kaiserfamilie, und hundert Jahre lang wusste niemand, wo er war. 2025 holten ihn ihre Nachkommen aus einem Banksafe in Kanada, wo er die ganze Zeit gelegen hatte.",
+            "question": {
+              "q": "Warum zeigt das Museum eine Kopie aus Glas und nicht den echten Diamanten?",
+              "answers": [
+                "Der echte Stein verließ Wien 1918",
+                "Der echte Stein ist zu schwer",
+                "Der echte Stein ist ständig auf Ausstellungen",
+                "Der echte Stein bekommt im Licht Risse und bleibt versteckt"
+              ],
+              "explanation": "Das Glas von 1865 blieb in Wien. Der echte Stein reiste mit der Familie mit und lag hundert Jahre lang in einem Banksafe, bis er 2025 wieder ans Licht kam."
+            }
+          },
+          "vienna-naturhistorisches-diplodocus": {
+            "name": "Dippy, der Diplodocus",
+            "blurb": "Das Skelett, das den Saal beherrscht, gehört zu einem Diplodocus carnegii, und hier nennen ihn alle Dippy. Es sind keine Knochen; es ist ein Abguss, eine genaue Kopie des echten Skeletts. Andrew Carnegie, ein unglaublich reicher Industrieller, ließ solche Kopien machen und schenkte sie Museen in ganz Europa. Das Wiener Exemplar wurde 1909 in die Bücher eingetragen. Der Diplodocus hatte einen Hals wie ein Kran, einen Schwanz wie eine Peitsche und fraß nur Pflanzen. Sein Kopf ist im Vergleich zu seinem Körper komisch klein.",
+            "question": {
+              "q": "Was genau ist Dippys Skelett?",
+              "answers": [
+                "Eine Kopie aus einem Abguss",
+                "Die echten Knochen eines Tieres",
+                "Eine in Stein gehauene Skulptur",
+                "Knochen von vielen Tieren auf einmal"
+              ],
+              "explanation": "Abgüsse lassen zehn Museen denselben Dinosaurier zeigen. Die echten Knochen können immer nur an einem Ort sein."
+            }
+          },
+          "vienna-naturhistorisches-allosaurus": {
+            "name": "Der Allosaurus, der sich bewegt",
+            "blurb": "Auf derselben Plattform steht etwas, das gar kein Skelett ist. Es ist ein Robotermodell eines Allosaurus, über sechs Meter lang, mit Haut, Augen und Atem. Es schwingt den Schwanz, neigt den Kopf und schaut dich an. Seine Größe passt zu einem jungen Tier, nicht zu einem ausgewachsenen: Der Allosaurus war der gefährlichste Jäger am Ende des Jura. Daneben, auf derselben Plattform, steht der Abguss eines echten Allosaurus-Skeletts aus Utah, genauso gemacht wie Dippy: Er zeigt dir, was unter der ganzen Haut steckt.",
+            "question": {
+              "q": "Warum steht das bewegliche Modell neben einem Allosaurus-Skelett?",
+              "answers": [
+                "Damit Knochen und Haut nebeneinanderstehen",
+                "Damit du siehst, wie viel größer er war",
+                "Weil das Skelett das Modell in die Höhe hält",
+                "Weil beide aus einem Steinbruch kommen"
+              ],
+              "explanation": "Die Knochen zeigen die Maschine. Das Modell zeigt das Tier, das sie herumgetragen hat."
+            }
+          },
+          "vienna-naturhistorisches-iguanodon": {
+            "name": "Der Iguanodon",
+            "blurb": "Das dritte große Skelett auf der Plattform ist ein Iguanodon, ein Pflanzenfresser aus der Kreidezeit. Die ersten Wissenschaftler, die ihn untersuchten, machten einen berühmten Fehler. Sie fanden einen spitzen Knochen und steckten ihn auf seine Nase, wie das Horn eines Nashorns. Viel später, als in einem Bergwerk in Belgien ganze Skelette zusammen auftauchten, verstanden sie: Der spitze Knochen war sein Daumen. Der Iguanodon hatte an jeder Hand einen Stachel statt eines Daumens, drei Finger zum Laufen und einen kleinen biegsamen Finger an der Seite.",
+            "question": {
+              "q": "Wohin gehörte der spitze Knochen des Iguanodon wirklich?",
+              "answers": [
+                "An seinen Daumen",
+                "An die Schwanzspitze",
+                "Auf seine Nase, wie ein Horn",
+                "Auf seinen Rücken, in einer Reihe Stacheln"
+              ],
+              "explanation": "Der Fehler hielt sich jahrzehntelang. Ganze Skelette aus einem belgischen Bergwerk stellten es richtig."
+            }
+          },
+          "vienna-naturhistorisches-venus-willendorf": {
+            "name": "Die Venus von Willendorf",
+            "blurb": "Sie ist elf Zentimeter groß und passt in deine Handfläche. Vor ungefähr 29.500 Jahren wurde sie aus Kalkstein geschnitzt, und 1908 fand man sie an der Donau, bei Willendorf. Auf ihr sind Spuren von rotem Ocker erhalten, sie war also einmal bemalt. Ihr Kopf hat kein Gesicht; er hat stattdessen Reihen aus eingeritzten Kreisen, vielleicht Zöpfe, vielleicht eine Mütze. Wir wissen nicht, wer sie gemacht hat, und auch nicht, warum. Wir wissen, dass sich jemand vor dreihundert Jahrhunderten mit einem Stück Stein hinsetzte und arbeitete, bis es das hier wurde.",
+            "question": {
+              "q": "Wie groß ist die Venus von Willendorf?",
+              "answers": [
+                "Elf Zentimeter",
+                "Ein Meter",
+                "Drei Meter",
+                "Ein halber Meter"
+              ],
+              "explanation": "Sie passt in eine Handfläche. So konnte sie mit den Menschen mitreisen, die sie gemacht haben."
+            }
+          },
+          "vienna-naturhistorisches-venus-galgenberg": {
+            "name": "Die Fanny vom Galgenberg",
+            "blurb": "In derselben Vitrine sitzt eine zweite, viel kleinere Figur: 7,2 Zentimeter aus grünem Serpentinstein. Sie wurde 1988 bei Stratzing gefunden, ein paar Kilometer von Willendorf entfernt, und sie ist viel älter als ihre Nachbarin: ungefähr 36.000 Jahre. Fanny nannte man sie nach einer österreichischen Tänzerin, weil ihr Körper aussieht, als würde er sich bewegen, mit einem erhobenen Arm. Die beiden Figuren stehen mit Absicht nebeneinander, damit man sieht, wie verschieden dieselbe Idee ausfallen kann.",
+            "question": {
+              "q": "Welche der beiden Figuren ist die ältere?",
+              "answers": [
+                "Fanny, etwa 36.000 Jahre",
+                "Die Venus, etwa 29.500 Jahre",
+                "Sie sind genau gleich alt",
+                "Ihr Alter ist nicht messbar"
+              ],
+              "explanation": "Die Kleinere von beiden ist die Ältere, um ungefähr sechstausend Jahre."
+            }
+          },
+          "vienna-naturhistorisches-hallstatt": {
+            "name": "Die Funde aus Hallstatt",
+            "blurb": "Hoch in den Alpen, in einem Dorf namens Hallstatt, gibt es ein Salzbergwerk, in dem seit dreitausend Jahren gearbeitet wird. Salz macht etwas Zauberhaftes: Es lässt nichts verfaulen. So blieben in den Stollen Holz, Leder, Seile und Stoff aus der Bronzezeit erhalten, also genau die Dinge, die sonst verschwinden. Das Museum zeigt Hacken aus Bronze, einen Ledersack, um das Salz auf dem Rücken zu tragen, und Stücke von Wollkleidung, in denen noch Streifen und Farben stecken. Gegraben wird dort oben seit dem 19. Jahrhundert.",
+            "question": {
+              "q": "Warum blieben Stoff und Seile von vor dreitausend Jahren im Bergwerk erhalten?",
+              "answers": [
+                "Das Salz ließ sie nicht faulen",
+                "Die Bergleute wickelten sie in Ton",
+                "Das Eis des Berges hielt sie fest",
+                "Sie waren aus haltbarem Material"
+              ],
+              "explanation": "Salz zieht das Wasser heraus. Ohne Wasser können die winzigen Lebewesen, die Dinge verfaulen lassen, nicht leben."
+            }
+          }
+        },
+        "riddles": {
+          "vienna-naturhistorisches-riddle-1": {
+            "prompt": "Ich passe in deine Handfläche, aber ich bin fast dreißigtausend Jahre alt. Ich habe kein Gesicht, nur Reihen von Kreisen auf meinem Kopf. Früher war ich rot bemalt, und gefunden hat man mich an einem Fluss.",
+            "hint": "Ich bin nicht die Älteste in der Vitrine, aber ich bin die Berühmteste."
+          },
+          "vienna-naturhistorisches-riddle-2": {
+            "prompt": "Ich habe keine Knochen, ich habe Haut und Augen. Ich stehe auf derselben Plattform wie die Skelette, aber ich bin der, der den Schwanz schwingt und den Kopf zu dir dreht.",
+            "hint": "Neben mir steht das Skelett eines meiner Artgenossen."
+          },
+          "vienna-naturhistorisches-riddle-3": {
+            "prompt": "Ich bin Blumen, die nie verwelkt sind, denn kein einziges meiner Blütenblätter ist eine Pflanze. Eine Kaiserin versteckte mich zwischen den Mineralen ihres Mannes, als Überraschung zu seinem Namenstag.",
+            "hint": "Zwölf Insekten sitzen auf mir und fliegen nie weg."
+          },
+          "vienna-naturhistorisches-riddle-4": {
+            "prompt": "Ich bin Millionen Jahre lang durch die Kälte gereist und habe meine Reise in einem Feld beendet, an einem Junitag im Jahr 1866. Ich wiege fast dreihundert Kilo und stehe in der Mitte der Vitrine.",
+            "hint": "Um mich herum sind tausend andere, aber keiner ist so schwer."
+          }
+        }
+      }
+    },
+    "vienna-stephansdom": {
+      "name": "Der Stephansdom",
+      "tagline": "Ein Turm wurde fertig, der andere blieb für immer halb",
+      "story": "Der Stephansdom steht seit achthundert Jahren mitten in Wien, und er hat zwei Türme, die sich überhaupt nicht ähneln. Der südliche, den die Wiener den Steffl nennen, ist 136,4 Meter hoch und brauchte fünfundsechzig Jahre, von 1368 bis 1433. Der nördliche blieb bei 68 Metern stehen. Das Geld ging aus, die Steinmetze zogen weiter, und irgendwann setzte man ihm eine Haube auf wie eine Wollmütze und ließ ihn so. Das Dach ist das andere Wunder: Ungefähr 230.000 glasierte Ziegel bilden darauf einen Doppeladler, und es ist so steil, dass der Regen es von selbst sauber wäscht. 1945 brannte der Dom. Das Dach stürzte ein und riss die Pummerin mit hinunter, die riesige Glocke. Ganz Österreich schickte Geld für den Wiederaufbau. Die neue Pummerin wurde 1951 aus dem Metall der alten gegossen, wiegt mehr als einundzwanzig Tonnen und kam 1957 in den unfertigen Nordturm.",
+      "facts": [
+        "Der Südturm ist 136,4 Meter hoch und wurde von 1368 bis 1433 gebaut.",
+        "Sein Dach ist mit ungefähr 230.000 glasierten Ziegeln gedeckt.",
+        "Die Pummerin wiegt mehr als 21 Tonnen und läutet jedes neue Jahr ein."
+      ],
+      "question": {
+        "q": "Warum ist der eine Turm des Doms viel kürzer als der andere?",
+        "answers": [
+          "Er wurde nie fertig",
+          "Man kürzte ihn für den Schatten",
+          "Ein Erdbeben warf ihn um",
+          "Er wurde absichtlich kurz gebaut"
+        ],
+        "explanation": "Das Geld ging aus und die Steinmetze zogen weg. Der Nordturm blieb bei 68 Metern und bekam statt einer Spitze eine Haube."
+      },
+      "findIt": "Das Hauptportal schaut nach Westen, auf den Stephansplatz."
+    },
+    "vienna-anker-clock": {
+      "name": "Die Ankeruhr",
+      "tagline": "Zwölf Figuren queren die Brücke, eine pro Stunde",
+      "story": "Am Hohen Markt sind zwei Häuser einer Versicherung durch eine Brücke verbunden, und in dieser Brücke wohnt eine Uhr. Der Maler Franz von Matsch entwarf sie, gebaut wurde sie von 1911 bis 1914. Sie hat keine Zeiger. Stattdessen hat sie zwölf Figuren aus Kupfer, fast drei Meter hoch, die langsam von einer Seite zur anderen wandern. Jede Figur braucht eine ganze Stunde für die Brücke, und um die Zeit zu lesen, schaust du, wie weit sie gekommen ist. Die Figuren sind nicht erfunden. Es sind echte Menschen aus der Geschichte Wiens, einer nach dem anderen durch achtzehn Jahrhunderte: ein römischer Kaiser, ein Dichter, eine Kaiserin, ein Komponist. Um zwölf Uhr mittags macht die Uhr ihr Kunststück: Alle zwölf kommen heraus, eine hinter der anderen, mit Musik. Unter dem Platz liegen noch immer Ruinen der römischen Siedlung Vindobona.",
+      "facts": [
+        "Sie wurde von 1911 bis 1914 vom Maler Franz von Matsch gebaut.",
+        "Die zwölf Kupferfiguren sind jede fast drei Meter hoch.",
+        "Um zwölf Uhr mittags ziehen alle zwölf zusammen vorbei, mit Musik."
+      ],
+      "question": {
+        "q": "Wie zeigt die Ankeruhr die Zeit, wenn sie keine Zeiger hat?",
+        "answers": [
+          "Eine Figur überquert die Brücke in einer Stunde",
+          "Eine Glocke schlägt so oft wie die Stunde",
+          "Sie wechselt alle sechzig Minuten die Farbe",
+          "Ein Fensterchen öffnet sich mit Zahlen"
+        ],
+        "explanation": "Die Figur ist der Zeiger. Wenn sie die Marke erreicht, hat die Stunde gewechselt."
+      },
+      "findIt": "Schau nach oben, auf die Brücke, die zwei Häuser über einer Gasse verbindet."
+    },
+    "vienna-hofburg": {
+      "name": "Die Hofburg",
+      "tagline": "Ein Palast, der sechshundert Jahre lang weiterwuchs",
+      "story": "Die Hofburg ist nicht ein Gebäude. Sie ist ein Haufen Gebäude, die sechshundert Jahre lang ineinandergewachsen sind. Die Burg stand hier schon im 13. Jahrhundert, gebaut, bevor die Habsburger kamen: Rudolf I. zog einfach in die Festung eines anderen ein. Das älteste erhaltene Stück, der Schweizertrakt, ist immer noch da. Von da an riss jeder Herrscher, der kam, nichts ab: Er baute dazu. Ein Trakt hier, ein Hof dort, eine Kuppel weiter hinten. Deshalb fühlt sich ein Rundgang durch das Ganze an, als würdest du viermal die Stadt wechseln. Die Habsburger gingen 1918, aber der Palast wurde nicht leer. Heute arbeitet hier der Präsident von Österreich. Drinnen ist auch die Spanische Hofreitschule, wo die weißen Lipizzaner seit dem 16. Jahrhundert trainieren, und die kaiserliche Schatzkammer. Dort liegt eine Krone, die über tausend Jahre alt ist, und daneben ein langes gedrehtes Horn, von dem die Kaiser glaubten, es käme von einem Einhorn. Es ist der Zahn eines Narwals, eines Wals aus dem hohen Norden.",
+      "facts": [
+        "Ihr ältestes Stück, der Schweizertrakt, stammt aus dem 13. und 14. Jahrhundert.",
+        "Sie war bis 1918 das Zuhause der Habsburger. Heute arbeitet dort der Präsident von Österreich.",
+        "Die weißen Lipizzaner trainieren seit dem 16. Jahrhundert im Palast."
+      ],
+      "question": {
+        "q": "Warum sieht die Hofburg wie mehrere aneinandergeklebte Gebäude aus?",
+        "answers": [
+          "Jeder Herrscher baute etwas an",
+          "Sie wurde Stück für Stück gekauft",
+          "Sie wurde Stein für Stein hergebracht",
+          "Sie entstand auf einmal, mit vielen Trupps"
+        ],
+        "explanation": "Niemand riss ab, was vorher da war. So stehen in dem Palast sechs Jahrhunderte Mode nebeneinander."
+      },
+      "findIt": "Am einfachsten kommst du unter dem Kuppeltor am Michaelerplatz hinein."
+    },
+    "vienna-staatsoper": {
+      "name": "Die Staatsoper",
+      "tagline": "Fast jeden Abend läuft hier etwas anderes",
+      "story": "Die Oper eröffnete am 25. Mai 1869 mit Mozarts Don Giovanni. Die Wiener liebten sie aber nicht sofort. Sie sagten, sie sehe aus wie ein Bahnhof und sitze in der Straße wie eine Kiste, die eingesunken ist. Der Spott war hart, und keiner der beiden Architekten erlebte die Premiere. Im März 1945 zerstörten Bomben den Zuschauerraum und hundertfünfzigtausend Kostüme. Stehen blieben nur die Vorderseite, die große Treppe und ein Foyer. Die Stadt baute sie wieder auf und öffnete sie am 5. November 1955 mit Beethovens Fidelio. Heute gibt die Oper mehr als zweihundert Vorstellungen im Jahr, und fast jeden Abend spielt sie etwas anderes. Das heißt: Sobald der Vorhang fällt, arbeiten Teams die ganze Nacht durch. Ein ganzes Bühnenbild kommt herunter und ein anderes hinauf, fertig bis zum Morgen. Einmal im Jahr wird der Boden des Parketts auf die Höhe der Bühne gehoben, und die Oper wird zum Ballsaal.",
+      "facts": [
+        "Sie eröffnete am 25. Mai 1869 mit Mozarts Don Giovanni.",
+        "1945 zerstörten Bomben sie; 1955 öffnete sie wieder mit Beethovens Fidelio.",
+        "Sie gibt mehr als zweihundert Vorstellungen im Jahr, mit fast täglich wechselndem Programm."
+      ],
+      "question": {
+        "q": "Warum arbeiten in der Oper die ganze Nacht Teams?",
+        "answers": [
+          "Weil am nächsten Abend ein anderes Stück läuft",
+          "Weil die Sänger lieber in der Dunkelheit proben",
+          "Weil das Licht erst nach Mitternacht angeht",
+          "Weil die Sitze von Hand geputzt werden"
+        ],
+        "explanation": "Ein Bühnenbild geht hinaus und das nächste kommt in wenigen Stunden herein. Ohne diese Nachtschicht könnte das Programm nicht jeden Tag wechseln."
+      }
+    },
+    "vienna-karlskirche": {
+      "name": "Die Karlskirche",
+      "tagline": "Eine Kirche mit zwei römischen Säulen davor",
+      "story": "1713 fegte eine Krankheit durch Wien. Kaiser Karl VI. versprach damals öffentlich, eine Kirche zu bauen, wenn sie aufhört. Sie hörte auf, und 1716 wurde der Grundstein gelegt. Den Wettbewerb gewann Johann Bernhard Fischer von Erlach, der starb, bevor das Werk fertig war; sein Sohn vollendete es 1737. Die Vorderseite ist das seltsamste Stück. In der Mitte steht eine griechische Vorhalle mit Säulen und einem Dreieck darüber. Dahinter erhebt sich eine riesige Kuppel, ungefähr siebzig Meter hoch, eine römische Idee. Und links und rechts stehen zwei gewaltige Säulen, jede über dreiunddreißig Meter hoch, umwickelt von einem Band aus gemeißelten Bildern, das sich spiralförmig nach oben dreht. Diese zwei kopieren eine Idee aus Rom, die Trajanssäule. Der Architekt nahm drei verschiedene Gebäude aus drei verschiedenen Zeiten und machte eines daraus. Davor liegt ein flaches Wasserbecken, und darin steht die Kirche kopfüber.",
+      "facts": [
+        "Sie wurde 1713 nach einer Seuche versprochen und 1737 fertig.",
+        "Ihre Kuppel ist ungefähr 70 Meter hoch.",
+        "Ihre zwei Säulen kopieren die Trajanssäule in Rom."
+      ],
+      "question": {
+        "q": "Woher hatte der Architekt die Idee für die zwei spiralförmigen Säulen?",
+        "answers": [
+          "Von der Trajanssäule in Rom",
+          "Von Minaretten, die er im Osten sah",
+          "Von den Schiffsmasten in Venedig",
+          "Von den verdrehten Bäumen im Garten"
+        ],
+        "explanation": "Die Trajanssäule erzählt eine Geschichte auf einem Band, das sich nach oben windet. Hier erzählt das Band das Leben des Heiligen."
+      },
+      "findIt": "Stell dich an den Rand des flachen Beckens: Die Tür liegt genau gegenüber."
+    },
+    "vienna-rathaus": {
+      "name": "Das Rathaus",
+      "tagline": "Der Turm blieb bei 98 Metern, dann stieg ein Ritter hinauf",
+      "story": "Das Wiener Rathaus wurde von 1872 bis 1883 nach Plänen von Friedrich von Schmidt gebaut. Das Seltsame ist der Stil: Er ist gotisch, mit Spitzbögen und Türmchen, vierhundert Jahre nachdem die gotische Zeit zu Ende war. Das 19. Jahrhundert liebte es, neue Gebäude in alte Kleider zu stecken. Es gab aber eine Regel: Der Turm durfte den Turm der Votivkirche nicht überragen, und der ist neunundneunzig Meter hoch. Schmidt hörte bei achtundneunzig auf, genau so, wie man es von ihm verlangt hatte. Und dann setzte er ganz oben auf die Spitze einen eisernen Ritter mit Fahne, der am 21. Oktober 1882 mit Winden hinaufgezogen wurde. Mit dem Ritter kommt das Gebäude auf 103,3 Meter. Die Wiener nennen ihn den Rathausmann. Der Platz davor wechselt mit den Jahreszeiten die Arbeit: Im Winter wird er zu einer riesigen Eisbahn und im Sommer zu einem Freiluftkino.",
+      "facts": [
+        "Es wurde von 1872 bis 1883 im gotischen Stil gebaut, lange nach der gotischen Zeit.",
+        "Der Turm ist 98 Meter hoch; mit dem eisernen Ritter darauf sind es 103,3.",
+        "Der Ritter wurde am 21. Oktober 1882 nach oben gezogen."
+      ],
+      "question": {
+        "q": "Wie kam der Architekt an der Höhengrenze vorbei?",
+        "answers": [
+          "Er setzte einen eisernen Ritter über den Turm",
+          "Er grub das Fundament zwei Meter tiefer",
+          "Er baute den Turm auf einen Hügel",
+          "Er bat den Kaiser und bekam eine schriftliche Erlaubnis"
+        ],
+        "explanation": "Die Grenze galt für den Turm, nicht für die Statue. Der Turm blieb bei 98 Metern, und der Ritter legte den Rest drauf."
+      }
+    },
+    "vienna-parliament": {
+      "name": "Das Parlamentsgebäude",
+      "tagline": "Ein österreichisches Parlament, verkleidet als griechischer Tempel",
+      "story": "Das österreichische Parlament wurde von 1874 bis 1883 gebaut und sieht aus wie ein griechischer Tempel. Das ist kein Zufall. Sein Architekt Theophil Hansen war ein Däne, der jahrelang in Athen gelebt hatte, und er wollte, dass das Gebäude alle daran erinnert, wo die Idee anfing, dass die Bürger gemeinsam entscheiden. Also gab er ihm Säulen, Giebel und Statuen aus Marmor, und neben dem Eingang zwei breite Rampen, weil die Abgeordneten damals mit der Kutsche kamen. Davor steht Pallas Athene, fünfeinhalb Meter hoch, mit Helm und mit einer kleinen geflügelten Nike in der Hand. Carl Kundmann meißelte die Statue, und 1902 wurde sie enthüllt. Von 2018 bis 2022 wurde das ganze Gebäude innen umgebaut, und die Abgeordneten arbeiteten so lange in der Hofburg. 2023 öffnete es wieder, mit einem Glasdach über dem großen Sitzungssaal, damit Tageslicht dorthin fällt, wo gestritten wird.",
+      "facts": [
+        "Es wurde vom Dänen Theophil Hansen entworfen, der jahrelang in Athen gelebt hatte.",
+        "Die Athene davor ist 5,5 Meter hoch und wurde 1902 enthüllt.",
+        "Es wurde von 2018 bis 2022 renoviert und öffnete 2023 wieder."
+      ],
+      "question": {
+        "q": "Warum sieht das Parlament von Österreich aus wie ein griechischer Tempel?",
+        "answers": [
+          "Weil dort die Demokratie begann",
+          "Weil sein Marmor aus Griechenland kam",
+          "Weil es zum Palast des Kaisers passt",
+          "Weil sein Entwurf der billigste war"
+        ],
+        "explanation": "Hansen hatte in Athen gelebt und wollte, dass das Gebäude es von selbst sagt: Hier entscheiden die Bürger."
+      },
+      "findIt": "Die Athene mit dem Helm steht genau vor der Treppe zum Eingang."
+    },
+    "vienna-riesenrad": {
+      "name": "Das Riesenrad im Prater",
+      "tagline": "Eine Maschine von 1897, die sich immer noch dreht",
+      "story": "Das große Rad im Prater wurde 1897 aufgestellt, ein Jahr bevor der Kaiser fünfzig Jahre auf dem Thron voll hatte, und genau für dieses Fest wurde es gebaut. Gebaut hat es ein englischer Ingenieur, Walter Bassett, und es ist 64,75 Meter hoch. Von weitem sieht es aus wie ein Fahrradrad, und das ist kein Zufall: Seine hundertzwanzig Speichen drücken nicht, sie ziehen. Es sind Stahlseile, die den Kranz straff halten, genau so wie die dünnen Speichen an einem Fahrrad. Die Waggons sind nicht am Rad festgeschraubt. Sie hängen an einem Bolzen und schwingen frei, deshalb bleibt ihr Boden gerade, so weit sich der Kranz auch dreht. Das macht kein Motor; das macht die Schwerkraft. Das Rad fährt mit fünfundsiebzig Zentimetern pro Sekunde, langsamer, als du gehst. 1945 brannte es, und bei der Reparatur kamen fünfzehn Waggons zurück statt dreißig. Deshalb sind die Lücken dazwischen heute so groß.",
+      "facts": [
+        "Es wurde 1897 aufgestellt und ist 64,75 Meter hoch.",
+        "Es dreht sich mit 0,75 Metern pro Sekunde, also 2,7 Kilometer in der Stunde.",
+        "Es hatte dreißig Waggons; nach dem Brand von 1945 öffnete es mit fünfzehn."
+      ],
+      "question": {
+        "q": "Warum bleibt der Boden eines Waggons gerade, während sich das Rad dreht?",
+        "answers": [
+          "Er hängt frei an einem Bolzen",
+          "Ein kleiner Motor hält ihn gerade",
+          "Er ist voller Wasser, das seinen Pegel sucht",
+          "Die Fahrgäste gleichen ihn selbst aus"
+        ],
+        "explanation": "Alles, was frei hängt, zieht die Schwerkraft nach unten. Der Waggon dreht sich um seinen Bolzen und bleibt die ganze Fahrt gerade."
+      }
+    },
+    "vienna-schonbrunn": {
+      "name": "Schloss Schönbrunn",
+      "tagline": "Eintausendvierhunderteinundvierzig Zimmer und ein Irrgarten im Park",
+      "story": "Schönbrunn war das Landhaus der Habsburger, der Ort, an den sie im Sommer fuhren, um aus der Stadt herauszukommen. Es hat 1.441 Zimmer, von denen ungefähr vierzig zu besichtigen sind; der Rest sind Büros, Lager und Wohnungen. Maria Theresia zog hier sechzehn Kinder groß. Am 13. Oktober 1762 setzte sich ein sechsjähriger Junge im Spiegelsaal vor sie und spielte, zusammen mit seiner älteren Schwester. Der Junge hieß Wolfgang Amadeus Mozart. Der Garten ist fast wichtiger als das Schloss. Oben auf dem Hügel steht die Gloriette, 1775 gebaut, die überhaupt kein Haus ist: Sie ist ein Gebäude, das man von unten anschauen soll und von dem aus man Wien von oben sieht. Weiter unten gibt es einen Irrgarten aus Hecken und das große Palmenhaus aus Eisen und Glas, eröffnet am 19. Juni 1882, das drei verschiedene Klimazonen unter einem Dach versteckt.",
+      "facts": [
+        "Es hat 1.441 Zimmer. Für Besucher sind ungefähr vierzig offen.",
+        "Am 13. Oktober 1762 spielte der sechsjährige Mozart hier für Maria Theresia.",
+        "Die Gloriette auf dem Hügel wurde 1775 gebaut und das Palmenhaus öffnete 1882."
+      ],
+      "question": {
+        "q": "Wer spielte hier mit sechs Jahren Musik?",
+        "answers": [
+          "Mozart",
+          "Beethoven",
+          "Strauss",
+          "Haydn"
+        ],
+        "explanation": "Es war der 13. Oktober 1762, im Spiegelsaal, zusammen mit seiner Schwester Nannerl."
+      }
+    },
+    "vienna-naschmarkt": {
+      "name": "Der Naschmarkt",
+      "tagline": "Anderthalb Kilometer Stände über einem zugedeckten Fluss",
+      "story": "Wien hat diesen Markt seit ungefähr zweihundertfünfzig Jahren, aber nicht immer an dieser Stelle. Heute zieht sich der Naschmarkt anderthalb Kilometer hin, mit mehr als hundertzwanzig Ständen: kleine Berge aus Gewürzen, Oliven, Käse, Fisch, Obst, das du noch nie gesehen hast. Das Seltsamste daran sieht man aber nicht. Unter deinen Füßen fließt ein Fluss. Es ist die Wien, der Fluss, der der Stadt ihren Namen gab und der alle paar Jahre über die Ufer trat und die Viertel ersäufte. Um 1900 herum deckten Ingenieure ihn zu, und der Markt zog auf den Deckel, ein paar Gassen weiter als vorher. Jeden Samstag öffnet am Ende des Naschmarkts ein riesiger Flohmarkt: Schallplatten, Bücher, Schlüssel, Hüte. Und genau gegenüber steht ein Haus, dessen ganze Vorderseite mit bemalten Kacheln voller Rosen bedeckt ist. Otto Wagner entwarf es 1898, und geputzt wird es mit dem Schlauch.",
+      "facts": [
+        "Er zieht sich über ungefähr 1,5 Kilometer hin, mit mehr als 120 Ständen.",
+        "Der Fluss Wien fließt zugedeckt genau darunter.",
+        "Jeden Samstag öffnet an seinem Ende ein großer Flohmarkt mit alten Sachen."
+      ],
+      "question": {
+        "q": "Was versteckt sich unter den Ständen des Naschmarkts?",
+        "answers": [
+          "Der zugedeckte Fluss Wien",
+          "Die alten kaiserlichen Weinkeller",
+          "Ein römisches Theater, noch nicht ausgegraben",
+          "Der größte Parkplatz der Stadt"
+        ],
+        "explanation": "Die Wien trat ständig über die Ufer. Um 1900 wurde sie zugedeckt, und auf dem Deckel wurde der Markt ausgelegt."
+      }
+    }
+  },
+  "trails": {
+    "vienna-old-town-hour": {
+      "name": "Eine Stunde in der Altstadt",
+      "promise": "Ein Dom, eine Uhr mit einer Parade und die Tür eines Palasts."
+    },
+    "vienna-great-circle": {
+      "name": "Wiens großer Kreis",
+      "promise": "Sechs Gebäude in einem Kreis um die Altstadt, von der Gotik bis zum Barock — und zwei davon sind gleich."
+    },
+    "vienna-imperial-day": {
+      "name": "Ein Tag mit Kaisern",
+      "promise": "Du wirst gesehen haben, wo sie wohnten, wo sie Musik hörten und was sie sammelten."
+    },
+    "vienna-day-for-playing": {
+      "name": "Ein Tag zum Spielen",
+      "promise": "Ein großes Rad, ein Panda, hundertzwanzig Stände und ein Dinosaurier."
+    }
+  }
+}
