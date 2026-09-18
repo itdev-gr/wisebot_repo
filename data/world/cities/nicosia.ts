@@ -16,9 +16,12 @@
  *
  * Four Explorer spots are not pins here, and the seed's `note` carries the full
  * reasoning. In short: Laiki Geitonia has no Wikidata item at all, so no coordinate
- * could be resolved for it and its halloumi, loukoumades and wooden-balcony material
- * moved into the Kornesios Mansion's third room, which is the ethnographic house two
- * streets away. St John's Cathedral graded D on a three-decimal Wikipedia coordinate
+ * could be resolved for it. Its halloumi, copper and lace material once went into a
+ * third Kornesios room, but none of those objects is documented as on show in that
+ * museum, so the room was removed on review; the interior now keeps only the house's
+ * own documented architecture (door, courtyard, kioski, reception room, ceiling,
+ * hammam). The museum has been closed until further notice since 1 September 2026
+ * (visitcyprus.com), which its door note says. St John's Cathedral graded D on a three-decimal Wikipedia coordinate
  * and is told inside the Archbishop's Palace story, 48 m from its own door. The
  * Liberty Monument has no item of its own and is told inside the walls. Paphos Gate
  * graded D and would have repeated Famagusta Gate.
@@ -56,8 +59,8 @@ export const places: Place[] = [
         'Οι περισσότερες πλατείες είναι κομμάτια εδάφους. Αυτή δεν είναι. Είναι μια ' +
         'κατάλευκη πλατφόρμα που περνάει σαν γέφυρα πάνω από την τάφρο των παλιών ' +
         'τειχών, και όταν σκύψεις στο κάγκελο βλέπεις από κάτω σου δέντρα και μονοπάτια. ' +
-        'Η τάφρος δεν είχε ποτέ νερό. Ήταν ένα βαθύ ξερό χαντάκι που ανάγκαζε τους ' +
-        'εχθρούς να κατέβουν μέσα του πριν φτάσουν στο τείχος, εκεί όπου οι φρουροί τους ' +
+        'Οι Ενετοί έστρεψαν ένα ποτάμι και για να γεμίζει την τάφρο, όμως τώρα είναι ' +
+        'ξερή. Ήταν ένα βαθύ χαντάκι που ανάγκαζε τους εχθρούς να κατέβουν μέσα του πριν φτάσουν στο τείχος, εκεί όπου οι φρουροί τους ' +
         'έβλεπαν από ψηλά. Σήμερα το χαντάκι γεμίζει σιγά σιγά με κήπους. Την πλατεία τη ' +
         'σχεδίασε η Ζάχα Χαντίντ, αρχιτέκτονας που απέφευγε τις ίσιες γωνίες όπως εσύ ' +
         'αποφεύγεις τα λαχανικά. Ο διαγωνισμός έγινε το 2005, τα έργα κράτησαν χρόνια, ' +
@@ -67,8 +70,8 @@ export const places: Place[] = [
       en:
         'Most squares are pieces of ground. This one is not. It is a bright white ' +
         'platform that crosses like a bridge over the moat of the old walls, and when you ' +
-        'lean on the railing you look down on trees and footpaths. The moat never held ' +
-        'water. It was a deep dry ditch that forced attackers to climb down into it before ' +
+        'lean on the railing you look down on trees and footpaths. The Venetians diverted ' +
+        'a river partly to fill the moat, but it is dry now. It was a deep ditch that forced attackers to climb down into it before ' +
         'they could reach the wall, where the guards could see them from above. Today the ' +
         'ditch is slowly filling with gardens. The square was designed by Zaha Hadid, an ' +
         'architect who avoided straight corners the way you avoid vegetables. The ' +
@@ -82,12 +85,12 @@ export const places: Place[] = [
         en: 'It opened in 2021, sixteen years after the competition to design it.',
       },
       {
-        el: 'Η τάφρος από κάτω έχει μήκος περίπου 4,5 χιλιόμετρα και γίνεται πάρκο.',
-        en: 'The moat underneath runs about 4.5 kilometres and is becoming a park.',
+        el: 'Η τάφρος από κάτω έχει μήκος περίπου 5 χιλιόμετρα και γίνεται πάρκο.',
+        en: 'The moat underneath runs about 5 kilometres and is becoming a park.',
       },
       {
-        el: 'Πήρε το όνομα «Ελευθερίας» με ψηφοφορία των κατοίκων της Λευκωσίας το 1974.',
-        en: 'It was named Eleftheria, meaning Freedom, by a vote of the people of Nicosia in 1974.',
+        el: 'Πήρε το όνομα «Ελευθερίας» το 1974, ύστερα από διαγωνισμό για νέο όνομα.',
+        en: 'It was named Eleftheria, meaning Freedom, in 1974, after a competition for a new name.',
       },
     ],
     location: {
@@ -121,11 +124,11 @@ export const places: Place[] = [
       ],
       explanation: {
         el:
-          'Η πλατεία στέκεται σαν γέφυρα πάνω από το ξερό χαντάκι που έσκαψαν οι Ενετοί ' +
-          'γύρω από τα τείχη. Σήμερα εκεί κάτω φυτεύουν δέντρα και ανοίγουν μονοπάτια.',
+          'Η πλατεία στέκεται σαν γέφυρα πάνω από την τάφρο που έσκαψαν οι Ενετοί γύρω ' +
+          'από τα τείχη, ξερή σήμερα. Σήμερα εκεί κάτω φυτεύουν δέντρα και ανοίγουν μονοπάτια.',
         en:
-          'The square stands like a bridge over the dry ditch the Venetians dug around the ' +
-          'walls. Today trees are being planted down there and paths are being opened.',
+          'The square stands like a bridge over the moat the Venetians dug around the ' +
+          'walls, dry today. Today trees are being planted down there and paths are being opened.',
       },
     },
   },
@@ -174,8 +177,8 @@ export const places: Place[] = [
         en: 'There are eleven bastions, each named after a noble family of the time.',
       },
       {
-        el: 'Ο κύκλος των τειχών έχει μήκος περίπου 4,5 χιλιόμετρα.',
-        en: 'The circle of the walls runs about 4.5 kilometres all the way round.',
+        el: 'Ο κύκλος των τειχών έχει μήκος περίπου 5 χιλιόμετρα.',
+        en: 'The circle of the walls runs about 5 kilometres all the way round.',
       },
       {
         el: 'Τα μπρούντζινα αγάλματα του Μνημείου Ελευθερίας χύθηκαν στη Φλωρεντία της Ιταλίας.',
@@ -425,7 +428,7 @@ export const places: Place[] = [
         'Κύπρου να μαθαίνουν γράμματα. Τότε το νησί το κυβερνούσαν οι Οθωμανοί. Από ' +
         'εκείνη τη χρονιά μέχρι σήμερα το σχολείο δεν έκλεισε ποτέ, και είναι το ' +
         'παλαιότερο σχολείο της Κύπρου που κάνει ακόμα μάθημα. Το σημερινό όνομά του, ' +
-        '«Παγκύπριον Γυμνάσιον», το πήρε γύρω στο 1893. Το μεγάλο κτίριο με τις κολόνες ' +
+        '«Παγκύπριον Γυμνάσιον», το πήρε το 1896. Το μεγάλο κτίριο με τις κολόνες ' +
         'είναι χτισμένο από πουρόπετρα, τον ντόπιο μαλακό ασβεστόλιθο στο χρώμα της ' +
         'άμμου. Σχεδόν όλη η παλιά Λευκωσία είναι από αυτή την πέτρα, και γι’ αυτό όλη η ' +
         'πόλη γίνεται χρυσαφένια το απόγευμα. Μέσα, ανάμεσα στις τάξεις, υπάρχουν ' +
@@ -438,7 +441,7 @@ export const places: Place[] = [
         'could learn to read and write. The island was ruled by the Ottomans then. From ' +
         'that year to this one the school has never closed, and it is the oldest school in ' +
         'Cyprus still holding lessons. It took its present name, the Pancyprian Gymnasium, ' +
-        'around 1893. The big columned building is made of pouropetra, the soft local ' +
+        'in 1896. The big columned building is made of pouropetra, the soft local ' +
         'limestone the colour of sand. Almost all of old Nicosia is built from that stone, ' +
         'which is why the whole city turns golden in the late afternoon. Inside, among the ' +
         'classrooms, there are real collections: rocks and shells, ancient pots, coins, ' +
@@ -451,8 +454,8 @@ export const places: Place[] = [
         en: 'It opened in 1812 and has not closed for a single school year since.',
       },
       {
-        el: 'Πήρε το όνομα «Παγκύπριον Γυμνάσιον» γύρω στο 1893.',
-        en: 'It took the name Pancyprian Gymnasium around 1893.',
+        el: 'Πήρε το όνομα «Παγκύπριον Γυμνάσιον» το 1896.',
+        en: 'It took the name Pancyprian Gymnasium in 1896.',
       },
       {
         el: 'Είναι χτισμένο από πουρόπετρα, τον μαλακό ασβεστόλιθο της Λευκωσίας.',
@@ -510,8 +513,8 @@ export const places: Place[] = [
       en: 'The Hadjigeorgakis Kornesios Mansion',
     },
     tagline: {
-      el: 'Το σπίτι του ανθρώπου που μετέφερε λέξεις από τη μία πλευρά στην άλλη',
-      en: 'The house of the man who carried words from one side to the other',
+      el: 'Το σπίτι του ανθρώπου που μιλούσε και για τις δύο πλευρές',
+      en: 'The house of the man who spoke for both sides',
     },
     story: {
       el:
@@ -593,8 +596,12 @@ export const places: Place[] = [
 
     museum: {
       doorNote: {
-        el: 'Είναι μικρό μουσείο και το κτίριο μετράει όσο τα εκθέματα. Κοίτα και τα ταβάνια.',
-        en: 'It is a small museum and the building counts as much as the objects. Look at the ceilings too.',
+        el:
+          'Εδώ το ίδιο το σπίτι είναι το έκθεμα. Από τον Σεπτέμβριο του 2026 είναι κλειστό ' +
+          'μέχρι νεωτέρας για τεχνικούς λόγους, οπότε ρώτα αν άνοιξε πριν πας.',
+        en:
+          'Here the house itself is the exhibit. Since September 2026 it has been closed until ' +
+          'further notice for technical reasons, so ask whether it has reopened before you go.',
       },
       rooms: [
         {
@@ -626,13 +633,14 @@ export const places: Place[] = [
                   'δρόμο ποιος μένει μέσα και πόσο σημαντικός είναι, σε μια εποχή που ' +
                   'ελάχιστοι ήξεραν να διαβάσουν γράμματα αλλά όλοι διάβαζαν σύμβολα. Ένας ' +
                   'δραγουμάνος δεν είχε στρατό. Είχε κύρος, και το κύρος έπρεπε να ' +
-                  'φαίνεται από μακριά.',
+                  'φαίνεται από μακριά. Το σπίτι χτίστηκε το 1793.',
                 en:
                   'Above the big wooden door is a carved stone with an emblem on it. That is ' +
                   'not decoration. It is an announcement. It tells anyone passing in the ' +
                   'street who lives inside and how important he is, in an age when few people ' +
                   'could read letters but everybody could read symbols. A dragoman had no ' +
-                  'army. He had standing, and standing had to be visible from a distance.',
+                  'army. He had standing, and standing had to be visible from a distance. The house was ' +
+                  'built in 1793.',
               },
               question: {
                 q: {
@@ -716,14 +724,14 @@ export const places: Place[] = [
               },
               question: {
                 q: {
-                  el: 'Ποιο ήταν το πιο χρήσιμο για έναν δραγουμάνο;',
-                  en: 'Which of these was most useful to a dragoman?',
+                  el: 'Τι μπορούσε να κάνει όποιος καθόταν μέσα στο κιόσκι;',
+                  en: 'What could a person sitting inside the kioski do?',
                 },
                 answers: [
-                  { el: 'Να βλέπει χωρίς να τον βλέπουν', en: 'Watching without being seen' },
-                  { el: 'Να έχει μεγαλύτερο δωμάτιο', en: 'Having a slightly bigger room' },
-                  { el: 'Να πιάνει το αεράκι το βράδυ', en: 'Catching the evening breeze' },
-                  { el: 'Να φαίνεται πλούσιος ο δρόμος', en: 'Making the street look rich' },
+                  { el: 'Να βλέπει τον δρόμο χωρίς να φαίνεται', en: 'Watch the street without being seen' },
+                  { el: 'Να κατεβαίνει με σκάλα στον δρόμο', en: 'Climb down a ladder to the street' },
+                  { el: 'Να ακούει τι λέγανε μέσα στο παλάτι', en: 'Hear what was said in the palace' },
+                  { el: 'Να κλειδώνει όλες τις πύλες όλης της πόλης', en: 'Lock all the gates of the whole city' },
                 ],
                 explanation: {
                   el:
@@ -801,37 +809,37 @@ export const places: Place[] = [
               blurb: {
                 el:
                   'Γύρω από τους τοίχους τρέχει μια συνεχής χαμηλή σειρά καθισμάτων με ' +
-                  'μαξιλάρια. Δεν υπάρχει κεφαλή τραπεζιού, άρα δεν υπάρχει και προφανής ' +
-                  'θέση τιμής: όλοι κάθονται στην ίδια γραμμή και κοιτάζονται. Ο ' +
-                  'επισκέπτης έβγαζε τα παπούτσια του πριν πατήσει, όπως ακόμα γίνεται σε ' +
-                  'πολλά σπίτια. Και επειδή κάθεσαι χαμηλά, το δωμάτιο δείχνει ψηλότερο ' +
-                  'και το σκαλιστό ταβάνι εντυπωσιάζει περισσότερο.',
+                  'μαξιλάρια. Στη μέση δεν υπάρχει τραπέζι, οπότε το πάτωμα μένει ελεύθερο ' +
+                  'και όλοι βλέπουν ο ένας τον άλλον. Ο επισκέπτης έβγαζε τα παπούτσια του ' +
+                  'πριν μπει, όπως ακόμα γίνεται σε πολλά σπίτια. Και επειδή κάθεσαι ' +
+                  'χαμηλά, το δωμάτιο δείχνει ψηλότερο και το σκαλιστό, βαμμένο ταβάνι από ' +
+                  'πάνω κάνει ακόμα καλύτερα τη δουλειά του: να εντυπωσιάσει τον καλεσμένο.',
                 en:
                   'A continuous low run of seating with cushions goes right round the walls. ' +
-                  'There is no head of the table, so there is no obvious seat of honour: ' +
-                  'everyone sits on the same line and faces everyone else. A visitor took off ' +
-                  'his shoes before stepping in, as people still do in many houses. And ' +
-                  'because you sit low, the room looks taller and the carved ceiling does ' +
-                  'more work.',
+                  'There is no table in the middle, so the floor stays open and everyone can ' +
+                  'see everyone else. A visitor took off his shoes before stepping in, as ' +
+                  'people still do in many homes. And because you sit low, the room looks ' +
+                  'taller and the carved and painted ceiling above does its job even better: ' +
+                  'impressing the guest.',
               },
               question: {
                 q: {
-                  el: 'Τι πετυχαίνει το κάθισμα χαμηλά γύρω από τους τοίχους;',
-                  en: 'What does sitting low around the walls achieve?',
+                  el: 'Γιατί το δωμάτιο δείχνει ψηλότερο από τους καναπέδες;',
+                  en: 'Why does the room seem taller from the low couches?',
                 },
                 answers: [
-                  { el: 'Κανείς δεν κάθεται σε θέση τιμής', en: 'Nobody sits in a seat of honour' },
-                  { el: 'Το δωμάτιο ζεσταίνεται πολύ πιο γρήγορα', en: 'The room warms up much more quickly' },
-                  { el: 'Χωράνε περισσότερα έπιπλα στη μέση', en: 'More furniture fits in the middle' },
-                  { el: 'Οι επισκέπτες φεύγουν πιο γρήγορα', en: 'Visitors leave a good deal sooner' },
+                  { el: 'Κάθεσαι πολύ πιο κοντά στο πάτωμα', en: 'You sit much closer to the floor' },
+                  { el: 'Οι τοίχοι γέρνουν προς τα έξω', en: 'The walls lean out at the top' },
+                  { el: 'Οι καναπέδες βουλιάζουν στο πάτωμα', en: 'The couches sink into the floor' },
+                  { el: 'Το πάτωμα κατηφορίζει προς τη μέση', en: 'The floor slopes down to the middle' },
                 ],
                 explanation: {
                   el:
-                    'Χωρίς τραπέζι δεν υπάρχει κεφαλή. Όλοι κάθονται στην ίδια σειρά και ' +
-                    'βλέπουν ο ένας τον άλλον.',
+                    'Από χαμηλά, ό,τι είναι από πάνω σου δείχνει ψηλότερο. Γι’ αυτό το ' +
+                    'σκαλιστό ταβάνι εντυπωσιάζει ακόμα περισσότερο τον καθισμένο επισκέπτη.',
                   en:
-                    'With no table there is no head. Everyone sits on the same line and can ' +
-                    'see everyone else.',
+                    'From low down, everything above you looks higher. That is why the carved ' +
+                    'ceiling impresses a seated guest even more.',
                 },
               },
             },
@@ -875,227 +883,6 @@ export const places: Place[] = [
                 },
               },
             },
-            {
-              id: 'nicosia-kornesios-writing-set',
-              name: { el: 'Τα σύνεργα της γραφής', en: 'The writing set' },
-              blurb: {
-                el:
-                  'Ένα καλαμάρι, καλάμια κομμένα λοξά για πένες, άμμος για να στεγνώνει ' +
-                  'το μελάνι και μια σφραγίδα. Αυτά ήταν τα εργαλεία της δουλειάς. Ένας ' +
-                  'δραγουμάνος έγραφε συνέχεια: αναφορές προς τον κυβερνήτη, γράμματα ' +
-                  'προς χωριά, καταλόγους φόρων. Η σφραγίδα μετρούσε περισσότερο από την ' +
-                  'υπογραφή, γιατί το αποτύπωμά της δεν αντιγραφόταν εύκολα και όποιος ' +
-                  'την κρατούσε μπορούσε να δεσμεύσει ολόκληρο το νησί.',
-                en:
-                  'An inkwell, reeds cut at an angle for pens, sand to dry the ink and a ' +
-                  'seal. These were the tools of the job. A dragoman wrote constantly: ' +
-                  'reports to the governor, letters to villages, lists of taxes. The seal ' +
-                  'mattered more than a signature, because its print was hard to copy and ' +
-                  'whoever held it could commit the whole island to something.',
-              },
-              question: {
-                q: {
-                  el: 'Γιατί η σφραγίδα μετρούσε περισσότερο από την υπογραφή;',
-                  en: 'Why did the seal matter more than a signature?',
-                },
-                answers: [
-                  { el: 'Το αποτύπωμά της δεν αντιγραφόταν', en: 'Its print could not be copied' },
-                  { el: 'Ήταν φτιαγμένη από καθαρό χρυσάφι', en: 'It was made of solid gold' },
-                  { el: 'Χωρούσε περισσότερα λόγια επάνω της', en: 'It held more words on it' },
-                  { el: 'Στέγνωνε πολύ γρηγορότερα το μελάνι', en: 'It dried the ink much faster' },
-                ],
-                explanation: {
-                  el:
-                    'Μια υπογραφή μιμείται εύκολα. Ένα χαραγμένο αποτύπωμα όχι, οπότε ήταν ' +
-                    'η απόδειξη ότι το χαρτί ήταν αληθινό.',
-                  en:
-                    'A signature is easy to imitate. A carved print is not, so it was the ' +
-                    'proof that the paper was genuine.',
-                },
-              },
-            },
-          ],
-        },
-        {
-          id: 'nicosia-kornesios-mansion-everyday',
-          emoji: '🧀',
-          name: { el: 'Η ζωή στην παλιά Λευκωσία', en: 'Life in old Nicosia' },
-          intro: {
-            el:
-              'Το εθνολογικό μουσείο δεν φυλάει βασιλιάδες. Φυλάει το πώς περνούσε η ' +
-              'μέρα: τι έτρωγαν, τι φορούσαν, πώς κουβαλούσαν νερό, τι έφτιαχναν τα ' +
-              'χέρια τους τον χειμώνα. Είναι τα πράγματα που κανένας δεν σκέφτεται να ' +
-              'κρατήσει, γιατί όλοι τα έχουν, και ακριβώς γι’ αυτό εξαφανίζονται πρώτα.',
-            en:
-              'An ethnological museum does not keep kings. It keeps how the day went: what ' +
-              'people ate, what they wore, how they carried water, what their hands made in ' +
-              'winter. These are the things nobody thinks of saving, because everybody has ' +
-              'them, and that is exactly why they disappear first.',
-          },
-          exhibits: [
-            {
-              id: 'nicosia-kornesios-halloumi-basket',
-              name: { el: 'Το καλάθι του χαλλουμιού', en: 'The halloumi basket' },
-              blurb: {
-                el:
-                  'Ένα πλεκτό καλάθι, η ταλάρα, μέσα στο οποίο έστραγγιζε το φρέσκο τυρί. ' +
-                  'Το χαλλούμι γίνεται με έναν τρόπο που δεν έχουν τα άλλα τυριά: αφού ' +
-                  'πήξει, το τυρόπηγμα ζεματίζεται μέσα στον ίδιο του τον ορό. Αυτό ' +
-                  '«κλειδώνει» τις πρωτεΐνες του, και γι’ αυτό μετά μπορείς να το ψήσεις ' +
-                  'στη σχάρα και να τρίζει στα δόντια σου αντί να λιώσει στη φωτιά. Από ' +
-                  'το 2021 μόνο τυρί που φτιάχνεται στην Κύπρο με την παραδοσιακή συνταγή ' +
-                  'επιτρέπεται να λέγεται χαλλούμι.',
-                en:
-                  'A woven basket, the talara, in which fresh cheese was left to drain. ' +
-                  'Halloumi is made in a way no other cheese is: once the curd has set, it is ' +
-                  'scalded in its own whey. That locks its proteins, and it is why you can ' +
-                  'later put it on a grill and have it squeak between your teeth instead of ' +
-                  'melting into the fire. Since 2021 only cheese made in Cyprus to the ' +
-                  'traditional recipe may be called halloumi.',
-              },
-              question: {
-                q: {
-                  el: 'Γιατί το χαλλούμι δεν λιώνει στη σχάρα;',
-                  en: 'Why does halloumi not melt on a grill?',
-                },
-                answers: [
-                  { el: 'Ζεματίζεται μέσα στον ορό του', en: 'It is scalded in its own whey' },
-                  { el: 'Έχει μέσα πολύ περισσότερο αλάτι', en: 'It has a great deal more salt' },
-                  { el: 'Φτιάχνεται από γάλα κατσίκας μόνο', en: 'It is made from goat milk only' },
-                  { el: 'Ωριμάζει για πολλά χρόνια σε βαρέλι', en: 'It ages for years in a barrel' },
-                ],
-                explanation: {
-                  el:
-                    'Το ζεμάτισμα στον ορό «κλειδώνει» τις πρωτεΐνες του. Έτσι το τυρί ' +
-                    'κρατάει το σχήμα του και τρίζει αντί να λιώνει.',
-                  en:
-                    'Scalding in the whey locks its proteins. The cheese then holds its shape ' +
-                    'and squeaks instead of melting.',
-                },
-              },
-            },
-            {
-              id: 'nicosia-kornesios-copper-pans',
-              name: { el: 'Τα χάλκινα σκεύη', en: 'The copper pans' },
-              blurb: {
-                el:
-                  'Χάλκινα ταψιά, καζάνια και μια βαθιά κατσαρόλα για τηγάνισμα. Ο χαλκός ' +
-                  'δεν διαλέχτηκε τυχαία σε αυτό το νησί: η Κύπρος έβγαζε χαλκό από την ' +
-                  'αρχαιότητα, και η λατινική του ονομασία, aes cyprium, σημαίνει «μέταλλο ' +
-                  'της Κύπρου». Ο χαλκός μεταφέρει τη θερμότητα πολύ γρήγορα και ' +
-                  'ομοιόμορφα, οπότε το λάδι φτάνει παντού στην ίδια θερμοκρασία. Σε ένα ' +
-                  'τέτοιο σκεύος τηγανίζονταν οι λουκουμάδες: μπαλίτσες ζύμης που ' +
-                  'φουσκώνουν και μετά περιχύνονται με μέλι.',
-                en:
-                  'Copper trays, cauldrons and a deep pan for frying. Copper was not picked ' +
-                  'at random on this island: Cyprus produced copper from ancient times, and ' +
-                  'its Latin name, aes cyprium, means “metal of Cyprus”. Copper carries heat ' +
-                  'quickly and evenly, so the oil reaches the same temperature everywhere. ' +
-                  'Loukoumades were fried in a pan like this one: little balls of dough that ' +
-                  'puff up and are then covered in honey.',
-              },
-              question: {
-                q: {
-                  el: 'Γιατί ο χαλκός είναι καλός για τηγάνισμα;',
-                  en: 'Why is copper good for frying?',
-                },
-                answers: [
-                  { el: 'Μοιράζει τη θερμότητα ομοιόμορφα', en: 'It spreads the heat evenly' },
-                  { el: 'Δεν ζεσταίνεται σχεδόν καθόλου', en: 'It hardly heats up at all' },
-                  { el: 'Δίνει στο φαγητό κόκκινο χρώμα', en: 'It turns the food a red colour' },
-                  { el: 'Είναι το ελαφρύτερο από τα μέταλλα', en: 'It is the lightest of metals' },
-                ],
-                explanation: {
-                  el:
-                    'Ο χαλκός μεταφέρει τη θερμότητα γρήγορα και παντού το ίδιο, οπότε δεν ' +
-                    'υπάρχουν καυτά και κρύα σημεία στο λάδι.',
-                  en:
-                    'Copper moves heat fast and everywhere alike, so there are no hot and ' +
-                    'cold patches in the oil.',
-                },
-              },
-            },
-            {
-              id: 'nicosia-kornesios-lefkara-lace',
-              name: { el: 'Τα λευκαρίτικα κεντήματα', en: 'The Lefkara lace' },
-              blurb: {
-                el:
-                  'Λευκά υφάσματα με σχέδια από τραβηχτές κλωστές, φτιαγμένα στο χωριό ' +
-                  'Λεύκαρα. Το κέντημα γίνεται αφαιρώντας κλωστές από το ύφασμα και ' +
-                  'δένοντας ξανά όσες μένουν, οπότε το σχέδιο είναι στην πραγματικότητα ' +
-                  'μια σειρά από τρύπες. Ένα μεγάλο τραπεζομάντιλο θέλει μήνες. Το 2009 ' +
-                  'το λευκαρίτικο κέντημα μπήκε στον κατάλογο της UNESCO για την άυλη ' +
-                  'πολιτιστική κληρονομιά, δηλαδή στα πράγματα που δεν είναι κτίρια αλλά ' +
-                  'γνώση μέσα στα χέρια των ανθρώπων.',
-                en:
-                  'White cloth patterned with drawn threads, made in the village of Lefkara. ' +
-                  'The embroidery is done by pulling threads out of the cloth and knotting ' +
-                  'the ones that remain, so the pattern is really a set of holes. A large ' +
-                  'tablecloth takes months. In 2009 Lefkara lace was added to the UNESCO list ' +
-                  'of intangible cultural heritage, the list of things that are not buildings ' +
-                  'but knowledge held in people’s hands.',
-              },
-              question: {
-                q: {
-                  el: 'Πώς φτιάχνεται το σχέδιο στο λευκαρίτικο κέντημα;',
-                  en: 'How is the pattern in Lefkara lace made?',
-                },
-                answers: [
-                  { el: 'Βγάζοντας κλωστές από το ύφασμα', en: 'By pulling threads out of the cloth' },
-                  { el: 'Βάφοντας το ύφασμα με βελονάκι', en: 'By painting the cloth with a needle' },
-                  { el: 'Κόβοντας το ύφασμα με ψαλίδι', en: 'By cutting the cloth with scissors' },
-                  { el: 'Κολλώντας μικρά κομμάτια δαντέλας', en: 'By gluing small pieces of lace on' },
-                ],
-                explanation: {
-                  el:
-                    'Οι κεντήστρες αφαιρούν κλωστές και δένουν ξανά όσες μένουν. Το σχέδιο ' +
-                    'είναι στην ουσία οργανωμένες τρύπες.',
-                  en:
-                    'The embroiderers take threads out and knot the ones left behind. The ' +
-                    'pattern is really a set of organised holes.',
-                },
-              },
-            },
-            {
-              id: 'nicosia-kornesios-water-jars',
-              name: { el: 'Τα πιθάρια του νερού', en: 'The water jars' },
-              blurb: {
-                el:
-                  'Μεγάλα πήλινα δοχεία, μερικά ψηλότερα από ένα παιδί. Ο πηλός τους ' +
-                  'είναι επίτηδες πορώδης, δηλαδή αφήνει ελάχιστο νερό να ιδρώνει στην ' +
-                  'εξωτερική επιφάνεια. Αυτό το νερό εξατμίζεται, και η εξάτμιση παίρνει ' +
-                  'θερμότητα μαζί της, οπότε το υπόλοιπο νερό μέσα στο πιθάρι μένει ' +
-                  'δροσερό ακόμα και τον Ιούλιο. Είναι ψυγείο χωρίς ρεύμα, και δουλεύει ' +
-                  'καλύτερα όσο πιο ζεστός και ξηρός είναι ο αέρας γύρω του.',
-                en:
-                  'Big clay vessels, some of them taller than a child. Their clay is ' +
-                  'deliberately porous, which means it lets a little water sweat through to ' +
-                  'the outside. That water evaporates, and evaporation takes heat away with ' +
-                  'it, so the water left inside the jar stays cool even in July. It is a ' +
-                  'fridge with no electricity, and it works better the hotter and drier the ' +
-                  'air around it is.',
-              },
-              question: {
-                q: {
-                  el: 'Γιατί μένει δροσερό το νερό μέσα στο πιθάρι;',
-                  en: 'Why does the water inside the jar stay cool?',
-                },
-                answers: [
-                  { el: 'Η εξάτμιση παίρνει μαζί της θερμότητα', en: 'Evaporation carries the heat away' },
-                  { el: 'Ο πηλός εμποδίζει τον ήλιο να μπει', en: 'The clay blocks the sun from getting in' },
-                  { el: 'Το σχήμα τους κρατάει τον αέρα έξω', en: 'Their shape keeps the outside air out' },
-                  { el: 'Τα έθαβαν μισά μέσα στο κρύο χώμα', en: 'They were buried half in the cold soil' },
-                ],
-                explanation: {
-                  el:
-                    'Λίγο νερό περνάει μέσα από τον πηλό και εξατμίζεται. Η εξάτμιση ' +
-                    'κλέβει θερμότητα, οπότε το υπόλοιπο κρυώνει.',
-                  en:
-                    'A little water passes through the clay and evaporates. Evaporation ' +
-                    'steals heat, so what is left gets colder.',
-                },
-              },
-            },
           ],
         },
       ],
@@ -1105,38 +892,36 @@ export const places: Place[] = [
           difficulty: 1,
           prompt: {
             el:
-              'Είμαι πλεγμένος από καλάμι και κάποτε στράγγιζα κάτι φρέσκο και άσπρο. ' +
-              'Αυτό που κρατούσα ζεματίστηκε μέσα στο ίδιο του το υγρό, και γι’ αυτό ' +
-              'τρίζει στα δόντια αντί να λιώσει.',
+              'Είμαι ένα μικρό δωμάτιο με θόλο, γεμάτο ζεστό ατμό. Οι περισσότεροι ' +
+              'άνθρωποι της πόλης πήγαιναν στα δημόσια λουτρά, όμως ο αφέντης αυτού του ' +
+              'σπιτιού είχε εμένα δικό του.',
             en:
-              'I am woven from cane and I once drained something fresh and white. What I ' +
-              'held was scalded in its own liquid, and that is why it squeaks between your ' +
-              'teeth instead of melting.',
+              'I am a small domed room full of warm steam. Most people in the city went to ' +
+              'the public baths, but the master of this house had me all to himself.',
           },
           hint: {
-            el: 'Το όνομά μου στα κυπριακά είναι ταλάρα.',
-            en: 'In Cypriot they call me a talara.',
+            el: 'Το φως μου μπαίνει από τζαμάκια στον θόλο.',
+            en: 'My light comes in through small panes in the dome.',
           },
-          answerExhibitId: 'nicosia-kornesios-halloumi-basket',
+          answerExhibitId: 'nicosia-kornesios-house-hammam',
         },
         {
           id: 'nicosia-kornesios-mansion-riddle-2',
           difficulty: 2,
           prompt: {
             el:
-              'Είμαι από πηλό και ιδρώνω επίτηδες. Λίγο νερό βγαίνει στην επιφάνειά μου ' +
-              'και φεύγει στον αέρα, και παίρνοντάς το μαζί του ο αέρας κρυώνει ό,τι ' +
-              'φυλάω μέσα μου.',
+              'Είμαι φτιαγμένο από δεκάδες μικρά κομμάτια ξύλου που κουμπώνουν σαν παζλ. ' +
+              'Για να με δεις, πρέπει να καθίσεις χαμηλά στον καναπέ και να σηκώσεις το ' +
+              'κεφάλι.',
             en:
-              'I am made of clay and I sweat on purpose. A little water comes out onto my ' +
-              'surface and leaves into the air, and by taking it the air cools whatever I am ' +
-              'keeping inside me.',
+              'I am made of dozens of small pieces of wood that lock together like a ' +
+              'puzzle. To see me, you have to sit low on the couch and lift your head.',
           },
           hint: {
-            el: 'Είμαι ψυγείο χωρίς καλώδιο.',
-            en: 'I am a fridge with no cable.',
+            el: 'Βρίσκομαι πάνω από το δωμάτιο υποδοχής.',
+            en: 'I am found above the reception room.',
           },
-          answerExhibitId: 'nicosia-kornesios-water-jars',
+          answerExhibitId: 'nicosia-kornesios-ceiling',
         },
         {
           id: 'nicosia-kornesios-mansion-riddle-3',
@@ -1459,8 +1244,8 @@ export const places: Place[] = [
         'χρόνια των Οθωμανών αυτός ήταν ο δρόμος της αγοράς, με υφάσματα και μπαχαρικά· ' +
         'σήμερα έχει μαγαζιά, καφέδες και παγωτά, και δεν περνάει ούτε ένα αυτοκίνητο. ' +
         'Στη μέση του υψώνεται ένας πύργος με έντεκα ορόφους. Αν συνεχίσεις βόρεια, ' +
-        'φτάνεις σε κάτι που δεν έχουν άλλοι δρόμοι. Από το 1974 μια γραμμή χωρίζει τη ' +
-        'Λευκωσία στα δύο. Στο νότιο μέρος ζουν κυρίως Ελληνοκύπριοι, στο βόρειο κυρίως ' +
+        'φτάνεις σε κάτι που δεν έχουν άλλοι δρόμοι. Από τη δεκαετία του 1960, και ' +
+        'οριστικά από το 1974, μια γραμμή χωρίζει τη Λευκωσία στα δύο. Στο νότιο μέρος ζουν κυρίως Ελληνοκύπριοι, στο βόρειο κυρίως ' +
         'Τουρκοκύπριοι, και ανάμεσα υπάρχει μια λωρίδα που φυλάνε στρατιώτες του ΟΗΕ με ' +
         'γαλάζιους μπερέδες. Εδώ, μέσα στην παλιά πόλη, η λωρίδα στενεύει σε λίγα μέτρα. ' +
         'Ο δρόμος ήταν κλειστός σε αυτό το σημείο από τη δεκαετία του 1960. Στις 3 ' +
@@ -1471,8 +1256,8 @@ export const places: Place[] = [
         'main street kept the name. Since Ottoman times this has been the market street, ' +
         'with cloth and spices; today it has shops, cafés and ice cream, and not a single ' +
         'car goes down it. Halfway along, a tower of eleven floors rises above the roofs. If ' +
-        'you keep walking north you reach something other streets do not have. Since 1974 a ' +
-        'line has divided Nicosia in two. Greek Cypriots live mostly in the southern part, ' +
+        'you keep walking north you reach something other streets do not have. Since the 1960s, ' +
+        'and for good since 1974, a line has divided Nicosia in two. Greek Cypriots live mostly in the southern part, ' +
         'Turkish Cypriots mostly in the northern, and between them lies a strip guarded by ' +
         'United Nations soldiers in blue berets. Here, inside the old town, the strip ' +
         'narrows to a few metres. The street was closed at this point from the 1960s. On 3 ' +
@@ -1642,12 +1427,12 @@ export const places: Place[] = [
         'εξωτερικό. Το 1882 οι Κύπριοι ζήτησαν κάτι απλό: ένα σπίτι για τα δικά τους ' +
         'ευρήματα, εδώ. Έτσι ιδρύθηκε το Κυπριακό Μουσείο, το παλαιότερο και μεγαλύτερο ' +
         'αρχαιολογικό μουσείο του νησιού. Το σημερινό κτίριο, με τις ψηλές κολόνες στην ' +
-        'είσοδο, χτίστηκε στις αρχές του εικοστού αιώνα με χρήματα που μάζεψαν οι ίδιοι ' +
-        'οι κάτοικοι. Ο ρυθμός λέγεται νεοκλασικός: «νέος», γιατί το κτίριο είναι νέο, ' +
+        'είσοδο, χτίστηκε στις αρχές του εικοστού αιώνα με δημόσια χρήματα και με ' +
+        'δωρεές των κατοίκων. Ο ρυθμός λέγεται νεοκλασικός: «νέος», γιατί το κτίριο είναι νέο, ' +
         'και «κλασικός», γιατί αντιγράφει τους αρχαίους ναούς. Μέσα, οι αίθουσες είναι ' +
         'βαλμένες σε χρονολογική σειρά. Ξεκινάς από πέτρινα εργαλεία εννιά χιλιάδων ' +
-        'ετών, περνάς σε δύο χιλιάδες πήλινα ανθρωπάκια που στέκονταν σε ημικύκλιο γύρω ' +
-        'από έναν βωμό, και καταλήγεις σε μάρμαρο και χαλκό. Δεν είναι μεγάλο μουσείο. ' +
+        'ετών, περνάς ανάμεσα σε εκατοντάδες πήλινα ανθρωπάκια που στέκονταν σε ημικύκλιο ' +
+        'γύρω από έναν βωμό, και καταλήγεις σε μάρμαρο και χαλκό. Δεν είναι μεγάλο μουσείο. ' +
         'Είναι όμως ολόκληρο ένα νησί βαλμένο στη σειρά.',
       en:
         'At the end of the nineteenth century the soil of Cyprus kept turning up ancient ' +
@@ -1655,10 +1440,10 @@ export const places: Place[] = [
         'Cypriots asked for something simple: a home for their own finds, here. So the ' +
         'Cyprus Museum was founded, the oldest and largest archaeological museum on the ' +
         'island. The present building, with the tall columns at its entrance, was put up in ' +
-        'the early twentieth century with money the people themselves collected. The style ' +
+        'the early twentieth century with public money and donations from the people. The style ' +
         'is called neoclassical: “neo” because the building is new, and “classical” because ' +
         'it copies ancient temples. Inside, the rooms are laid out in order of time. You ' +
-        'start with stone tools nine thousand years old, pass two thousand little clay ' +
+        'start with stone tools nine thousand years old, pass hundreds of little clay ' +
         'people who stood in a half-circle around an altar, and finish with marble and ' +
         'copper. It is not a big museum. But it is an entire island, put in order.',
     },
@@ -1668,12 +1453,12 @@ export const places: Place[] = [
         en: 'It was founded in 1882 and is the oldest museum in Cyprus.',
       },
       {
-        el: 'Το νεοκλασικό κτίριό του χτίστηκε με χρήματα που μάζεψαν οι ίδιοι οι Κύπριοι.',
-        en: 'Its neoclassical building was paid for with money the Cypriots raised themselves.',
+        el: 'Το νεοκλασικό κτίριό του πληρώθηκε εν μέρει από το δημόσιο και εν μέρει με δωρεές Κυπρίων.',
+        en: 'Its neoclassical building was paid for partly with public money and partly by donations from Cypriots.',
       },
       {
-        el: 'Φυλάει περίπου δύο χιλιάδες πήλινα ειδώλια από την Αγία Ειρήνη.',
-        en: 'It keeps about two thousand clay figures from Agia Irini.',
+        el: 'Στην Αγία Ειρήνη βρέθηκαν περίπου δύο χιλιάδες πήλινα ειδώλια· τα μισά περίπου είναι εδώ και τα υπόλοιπα στη Στοκχόλμη.',
+        en: 'About two thousand clay figures were found at Agia Irini; about half are here and the rest are in Stockholm.',
       },
     ],
     location: {
@@ -1871,14 +1656,14 @@ export const places: Place[] = [
               'Το 1929 αρχαιολόγοι έσκαβαν κοντά στην Αγία Ειρήνη και βρήκαν κάτι που ' +
               'δεν περίμεναν: περίπου δύο χιλιάδες πήλινες φιγούρες, στημένες σε ' +
               'ημικύκλια γύρω από έναν βωμό, ακριβώς όπως τις είχε αφήσει κάποιος πριν ' +
-              'από δυόμισι χιλιάδες χρόνια. Στο μουσείο τις έστησαν ξανά με την ίδια ' +
-              'διάταξη. Στέκεσαι εκεί όπου στεκόταν ο βωμός.',
+              'από δυόμισι χιλιάδες χρόνια. Το 1931 περίπου οι μισές πήγαν στη Σουηδία και ' +
+              'βρίσκονται σε μουσείο της Στοκχόλμης. Οι υπόλοιπες έμειναν εδώ.',
             en:
               'In 1929 archaeologists digging near Agia Irini found something they were not ' +
               'expecting: about two thousand clay figures, set in half-circles around an ' +
               'altar, exactly as somebody had left them two and a half thousand years ' +
-              'earlier. In the museum they were arranged again in the same order. You stand ' +
-              'where the altar stood.',
+              'earlier. In 1931 about half of them went to Sweden and are now in a museum in ' +
+              'Stockholm. The rest stayed here.',
           },
           exhibits: [
             {
@@ -1926,38 +1711,38 @@ export const places: Place[] = [
               name: { el: 'Οι πολεμιστές', en: 'The warriors' },
               blurb: {
                 el:
-                  'Στις πρώτες σειρές στέκονται οι μεγαλύτερες φιγούρες: άντρες με ' +
-                  'ασπίδες, κράνη και σπαθιά. Είναι πολύ μεγαλύτερες από τις πίσω, και ' +
-                  'αυτό μάλλον δεν είναι τυχαίο. Σε πολλούς αρχαίους πολιτισμούς το ' +
-                  'μέγεθος δήλωνε σημασία και όχι πραγματικό ύψος: όσο σημαντικότερος ο ' +
-                  'ρόλος, τόσο μεγαλύτερη η μορφή. Καμία δεν είναι πανομοιότυπη με άλλη. ' +
-                  'Είναι πλασμένες στο χέρι, μία μία, και φαίνεται.',
+                  'Οι μεγαλύτερες φιγούρες είναι πολεμιστές: άντρες με κράνη, ασπίδες και ' +
+                  'σπαθιά. Όμως δεν στέκονταν μπροστά. Οι αρχαιολόγοι βρήκαν τις ' +
+                  'μικρότερες φιγούρες πιο κοντά στον βωμό και τις μεγαλύτερες στο πίσω ' +
+                  'μέρος, σαν σε θέατρο όπου οι ψηλοί κάθονται πίσω. Έτσι όλες κοίταζαν ' +
+                  'προς τον βωμό και καμία δεν έκρυβε την άλλη. Πλησίασε και σύγκρινε δύο ' +
+                  'πρόσωπα: κανένα δεν είναι ίδιο με το άλλο, όσο κι αν μοιάζουν από μακριά.',
                 en:
-                  'In the front rows stand the largest figures: men with shields, helmets and ' +
-                  'swords. They are much bigger than the ones behind, and that is probably ' +
-                  'not an accident. In many ancient cultures size showed importance rather ' +
-                  'than real height: the more important the role, the bigger the figure. No ' +
-                  'two of them are identical. They were shaped by hand, one at a time, and it ' +
-                  'shows.',
+                  'The largest figures are warriors: men with helmets, shields and swords. But ' +
+                  'they did not stand at the front. The archaeologists found the smallest ' +
+                  'figures nearest the altar and the largest ones at the back, like a theatre ' +
+                  'where the tall people sit behind. That way they all faced the altar and ' +
+                  'none hid another. Go closer and compare two faces: no two are the same, ' +
+                  'however alike they look from a distance.',
               },
               question: {
                 q: {
-                  el: 'Τι μάλλον δηλώνει το μέγεθος μιας φιγούρας;',
-                  en: 'What does a figure’s size probably show?',
+                  el: 'Πού στέκονταν οι μεγαλύτερες φιγούρες;',
+                  en: 'Where did the biggest figures stand?',
                 },
                 answers: [
-                  { el: 'Πόσο σημαντικός ήταν ο ρόλος της', en: 'How important its role was' },
-                  { el: 'Πόσο ψηλός ήταν ο άνθρωπος αυτός', en: 'How tall that person really was' },
-                  { el: 'Πόσο κοντά στον βωμό στεκόταν', en: 'How near the altar it stood' },
-                  { el: 'Πόσο παλιά είναι η κάθε φιγούρα', en: 'How old each single figure is' },
+                  { el: 'Πίσω, μακριά από τον βωμό', en: 'At the back, far from the altar' },
+                  { el: 'Ακριβώς δίπλα στον βωμό', en: 'Right up against the altar' },
+                  { el: 'Πάνω στη στέγη του ναού', en: 'Up on the roof of the temple' },
+                  { el: 'Κρεμασμένες ψηλά στους τοίχους του ναού', en: 'Hanging high on the temple walls' },
                 ],
                 explanation: {
                   el:
-                    'Σε πολλούς αρχαίους πολιτισμούς το μέγεθος έδειχνε σπουδαιότητα. Οι ' +
-                    'μεγάλες μορφές μπροστά είχαν τον σοβαρότερο ρόλο στη σκηνή.',
+                    'Τα μικρά ειδώλια στέκονταν πιο κοντά στον βωμό και τα μεγάλα πίσω τους. ' +
+                    'Έτσι οι ψηλές μορφές πίσω φαίνονταν πάνω από τις μικρές μπροστά.',
                   en:
-                    'In many ancient cultures size stood for importance. The big figures at ' +
-                    'the front had the most serious role in the scene.',
+                    'The little figures stood nearest the altar and the big ones behind them. ' +
+                    'That way the tall figures at the back could be seen over the small ones.',
                 },
               },
             },
@@ -2011,14 +1796,15 @@ export const places: Place[] = [
                   'Ο ταύρος ήταν σημαντικό ζώο σε ολόκληρη την ανατολική Μεσόγειο, και ' +
                   'κάποιος που φορούσε τέτοιο προσωπείο πιθανότατα είχε ξεχωριστό ρόλο ' +
                   'στην τελετή. Πλησίασε και κοίτα την άκρη του προσωπείου: φαίνεται καθαρά ' +
-                  'ότι είναι φορεμένο πάνω σε ανθρώπινο κεφάλι.',
+                  'ότι είναι φορεμένο πάνω σε ανθρώπινο κεφάλι. Μέτρησε πόσες τέτοιες μορφές ' +
+                  'μπορείς να βρεις.',
                 en:
                   'A few of the figures do not have a human face but the muzzle and horns of ' +
                   'a bull. They are not monsters: they are people wearing a mask. The bull ' +
                   'was an important animal right across the eastern Mediterranean, and ' +
                   'somebody wearing such a mask probably had a particular part to play in the ' +
                   'ceremony. Go close and look at the edge of the mask: you can clearly see ' +
-                  'it is worn over a human head.',
+                  'it is worn over a human head. Count how many of them you can find.',
               },
               question: {
                 q: {
@@ -2194,12 +1980,12 @@ export const places: Place[] = [
           prompt: {
             el:
               'Είμαι μικρός, γαλαζοπράσινος και ανοίγω τα χέρια μου σαν σταυρός. Φοράω ' +
-              'στον λαιμό μου έναν ακόμα μικρότερο εαυτό μου, και σήμερα κυκλοφορώ μέσα ' +
-              'στις τσέπες όλων στην Κύπρο.',
+              'στον λαιμό μου έναν ακόμα μικρότερο εαυτό μου, και σήμερα με βρίσκεις ' +
+              'πάνω στα κυπριακά κέρματα του ευρώ.',
             en:
               'I am small, blue-green, and I hold my arms out like a cross. Around my neck I ' +
-              'wear an even smaller version of myself, and today I travel about in ' +
-              'everybody’s pocket in Cyprus.',
+              'wear an even smaller version of myself, and today you can find me on ' +
+              'the Cypriot euro coins.',
           },
           hint: {
             el: 'Κοίταξε ένα κέρμα του ενός ευρώ.',
@@ -2213,12 +1999,12 @@ export const places: Place[] = [
           prompt: {
             el:
               'Είμαι μέταλλο σε σχήμα απλωμένου δέρματος, με τέσσερις γωνίες για να με ' +
-              'πιάνουν. Ζυγίζω όσο δύο άνθρωποι μαζί μπορούν να σηκώσουν, και το όνομά ' +
-              'μου κρύβει το όνομα αυτού του νησιού.',
+              'πιάνουν. Ζυγίζω όσο δύο άνθρωποι μαζί μπορούν να σηκώσουν, και το λατινικό ' +
+              'μου όνομα κρύβει το όνομα αυτού του νησιού.',
             en:
               'I am metal in the shape of a laid-out hide, with four corners so I can be ' +
-              'gripped. I weigh what two people together can lift, and my name hides the ' +
-              'name of this island.',
+              'gripped. I weigh what two people together can lift, and my Latin name hides ' +
+              'the name of this island.',
           },
           hint: {
             el: 'Στα λατινικά με έλεγαν aes cyprium.',
@@ -2240,8 +2026,8 @@ export const places: Place[] = [
               'underneath: a person with a part to play.',
           },
           hint: {
-            el: 'Στέκομαι ανάμεσα σε δύο χιλιάδες πήλινους γείτονες.',
-            en: 'I stand among two thousand clay neighbours.',
+            el: 'Στέκομαι ανάμεσα σε εκατοντάδες πήλινους γείτονες.',
+            en: 'I stand among hundreds of clay neighbours.',
           },
           answerExhibitId: 'nicosia-cyprus-museum-agia-irini-masks',
         },
@@ -2269,22 +2055,23 @@ export const places: Place[] = [
         'οι Κύπριοι. Ένα πρόβλημα: δεν υπήρχε κτίριο. Η συλλογή περίμενε δεκαετίες. ' +
         'Τελικά προκηρύχθηκε διεθνής αρχιτεκτονικός διαγωνισμός, το κτίριο ' +
         'ολοκληρώθηκε, και η πινακοθήκη άνοιξε το 2014, λίγο έξω από τα τείχη. Μέσα, τα ' +
-        'έργα χωρίζονται σε τρεις συλλογές, μία σε κάθε όροφο. Η μία είναι γεμάτη ' +
-        'Παρίσι: γαλλικά τοπία και δρόμοι που είχαν εντυπωσιάσει τον συλλέκτη. Η άλλη ' +
-        'είναι ελληνική. Η τρίτη είναι κυπριακή, και εκεί οι ζωγράφοι ζωγραφίζουν τόπους ' +
-        'που πιθανότατα έχεις δει με τα μάτια σου. Είναι διασκεδαστικό να ανεβαίνεις τους ' +
-        'ορόφους με τη σειρά: κάθε φορά η ζωγραφική έρχεται λίγο πιο κοντά στο σπίτι σου.',
+        'έργα χωρίζονται σε τρεις συλλογές, μία σε κάθε όροφο. Στο ισόγειο είναι η ' +
+        'κυπριακή, όπου οι ζωγράφοι ζωγραφίζουν τόπους που πιθανότατα έχεις δει με τα ' +
+        'μάτια σου. Πιο πάνω είναι η Συλλογή του Παρισιού, που πήρε το όνομά της από το ' +
+        'σπίτι του συλλέκτη στο Παρίσι, όπου κρέμονταν οι πίνακες: έργα μεγάλων Ευρωπαίων ' +
+        'ζωγράφων, από τον Καναλέτο ως τον Μονέ και τον Σαγκάλ. Στον τελευταίο όροφο ' +
+        'είναι η ελληνική συλλογή.',
       en:
         'Anastasios G. Leventis was a Cypriot businessman who bought paintings all his life. ' +
         'In the end he had more than eight hundred works, and he wanted Cypriots to see ' +
         'them. One problem: there was no building. The collection waited for decades. In the ' +
         'end an international architecture competition was held, the building was completed, ' +
         'and the gallery opened in 2014, just outside the walls. Inside, the works are split ' +
-        'into three collections, one on each floor. One of them is full of Paris: French ' +
-        'landscapes and streets that had impressed the collector. Another is Greek. The ' +
-        'third is Cypriot, and there the painters paint places you have probably seen with ' +
-        'your own eyes. Climbing the floors in order is fun: each time, the painting comes a ' +
-        'little closer to home.',
+        'into three collections, one on each floor. On the ground floor is the Cypriot one, ' +
+        'where painters paint places you have probably seen with your own eyes. Above it is ' +
+        'the Paris Collection, named after the collector’s home in Paris, where the ' +
+        'paintings used to hang: works by great European painters, from Canaletto to Monet ' +
+        'and Chagall. On the top floor is the Greek collection.',
     },
     facts: [
       {
@@ -2296,8 +2083,8 @@ export const places: Place[] = [
         en: 'The collection holds more than eight hundred paintings.',
       },
       {
-        el: 'Τα έργα είναι χωρισμένα σε τρεις συλλογές: παρισινή, ελληνική και κυπριακή.',
-        en: 'The works are split into three collections: Paris, Greek and Cypriot.',
+        el: 'Τα έργα είναι χωρισμένα σε τρεις συλλογές: κυπριακή, του Παρισιού και ελληνική.',
+        en: 'The works are split into three collections: Cypriot, Paris and Greek.',
       },
     ],
     location: {
@@ -2318,22 +2105,23 @@ export const places: Place[] = [
     },
     question: {
       q: {
-        el: 'Τι χωρίζει τις τρεις συλλογές της πινακοθήκης;',
-        en: 'What separates the gallery’s three collections?',
+        el: 'Γιατί η μία συλλογή λέγεται «του Παρισιού»;',
+        en: 'Why is one collection called the Paris Collection?',
       },
       answers: [
-        { el: 'Ο τόπος: Παρίσι, Ελλάδα, Κύπρος', en: 'The place: Paris, Greece, Cyprus' },
-        { el: 'Το μέγεθος του κάθε πίνακα', en: 'The size of each single painting' },
-        { el: 'Τα χρώματα που χρησιμοποιούν', en: 'The colours that they are using' },
-        { el: 'Η τιμή που πληρώθηκε γι’ αυτούς', en: 'The price that was paid for them' },
+        { el: 'Κρέμονταν στο σπίτι του στο Παρίσι', en: 'They hung in his home in Paris' },
+        { el: 'Δείχνει μόνο το Παρίσι', en: 'It shows only Paris' },
+        { el: 'Όλοι οι ζωγράφοι της γεννήθηκαν στο Παρίσι', en: 'All its painters were born in Paris' },
+        { el: 'Ταξιδεύει στο Παρίσι κάθε καλοκαίρι', en: 'It travels to Paris every summer' },
       ],
       explanation: {
         el:
-          'Κάθε όροφος έχει τη δική του συλλογή: μία παρισινή, μία ελληνική και μία ' +
-          'κυπριακή. Ανεβαίνοντας, η ζωγραφική πλησιάζει προς τα εδώ.',
+          'Πήρε το όνομά της από το σπίτι του συλλέκτη στο Παρίσι, όπου κρέμονταν αυτοί οι ' +
+          'πίνακες. Είναι έργα Ευρωπαίων ζωγράφων, από τον Καναλέτο ως τον Σαγκάλ, και όχι ' +
+          'εικόνες του Παρισιού.',
         en:
-          'Each floor has its own collection: one Paris, one Greek and one Cypriot. As you ' +
-          'go up, the painting moves closer to here.',
+          'It is named after the collector’s home in Paris, where these paintings hung. ' +
+          'They are works by European painters, from Canaletto to Chagall, not pictures of Paris.',
       },
     },
   },
@@ -2353,8 +2141,8 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Η Λευκωσία είναι η μόνη πρωτεύουσα της Μεσογείου που δεν έχει θάλασσα. ' +
-        'Βρίσκεται στη μέση μιας μεγάλης πεδιάδας, και το καλοκαίρι εκεί κάνει πολλή, ' +
+        'Η Λευκωσία βρίσκεται μακριά από τη θάλασσα, στη μέση μιας μεγάλης ' +
+        'πεδιάδας, και το καλοκαίρι εκεί κάνει πολλή, ' +
         'πολλή ζέστη: το απόγευμα ο αέρας καίει και οι τοίχοι της πόλης έχουν ζεσταθεί ' +
         'όλη μέρα. Γι’ αυτό η σκιά εδώ δεν είναι πολυτέλεια αλλά υποδομή, όπως τα ' +
         'φανάρια και οι σωλήνες. Ο Δημοτικός Κήπος είναι ο μεγαλύτερος κήπος της πόλης ' +
@@ -2365,7 +2153,7 @@ export const places: Place[] = [
         'τζιτζίκια στα πεύκα κάνουν τόσο θόρυβο που πρέπει να μιλήσεις δυνατότερα για να ' +
         'σε ακούσουν.',
       en:
-        'Nicosia is the only capital on the Mediterranean with no sea. It sits in the middle ' +
+        'Nicosia lies far from the sea, in the middle ' +
         'of a wide plain, and in summer it gets very, very hot there: by afternoon the air ' +
         'burns and the walls of the city have been heating up all day. That is why shade ' +
         'here is not a luxury but infrastructure, like traffic lights and pipes. The ' +
@@ -2419,10 +2207,10 @@ export const places: Place[] = [
       ],
       explanation: {
         el:
-          'Η Λευκωσία είναι η μόνη πρωτεύουσα της Μεσογείου χωρίς θάλασσα, στη μέση μιας ' +
+          'Η Λευκωσία είναι μακριά από τη θάλασσα, στη μέση μιας ' +
           'πεδιάδας. Χωρίς θαλασσινό αεράκι, το καλοκαίρι η ζέστη μένει.',
         en:
-          'Nicosia is the only Mediterranean capital with no sea, in the middle of a plain. ' +
+          'Nicosia lies far from the sea, in the middle of a plain. ' +
           'With no sea breeze, the summer heat simply stays.',
       },
     },
@@ -2543,17 +2331,16 @@ export const trails: Trail[] = [
     id: 'nicosia-five-rulers',
     cityId: 'nicosia',
     emoji: '👑',
-    name: { el: 'Πέντε αφεντικά, μία πόλη', en: 'Five rulers, one city' },
+    name: { el: 'Τέσσερα αφεντικά, μία πόλη', en: 'Four rulers, one city' },
     promise: {
       el: 'Γάλλοι, Ενετοί, Οθωμανοί και Βρετανοί άφησαν όλοι κάτι, και όλα στέκονται ακόμα όρθια.',
       en: 'French, Venetians, Ottomans and British each left something, and all of it still stands.',
     },
     placeIds: [
       'nicosia-omeriye-mosque',
+      'nicosia-famagusta-gate',
       'nicosia-kornesios-mansion',
-      'nicosia-archbishops-palace',
-      'nicosia-pancyprian-gymnasium',
-      'nicosia-faneromeni',
+      'nicosia-cyprus-museum',
     ],
   },
   {

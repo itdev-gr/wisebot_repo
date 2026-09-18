@@ -82,20 +82,20 @@ export const cities: City[] = [
 
     intro: {
       el:
-        'Η Λευκωσία είναι η μόνη πρωτεύουσα της Μεσογείου που δεν έχει θάλασσα. Κάθεται ' +
+        'Η Λευκωσία βρίσκεται μακριά από τη θάλασσα, ' +
         'στη μέση μιας πεδιάδας, κλεισμένη μέσα σε έναν κύκλο τειχών με έντεκα μυτερούς ' +
         'προμαχώνες σαν καρδιές, και όλη η παλιά πόλη είναι χτισμένη με την ίδια ' +
         'χρυσοκίτρινη πέτρα. Μια γοτθική εκκλησία εδώ έγινε τζαμί, ένα οθωμανικό λουτρό ' +
-        'δουλεύει ακόμα, και ένα σχολείο κάνει μάθημα από το 1812 χωρίς διακοπή. Από το ' +
-        '1974 μια γραμμή χωρίζει την παλιά πόλη στα δύο, και οι άνθρωποι περνούν ' +
+        'δουλεύει ακόμα, και ένα σχολείο κάνει μάθημα από το 1812 χωρίς διακοπή. Από τη ' +
+        'δεκαετία του 1960, και οριστικά από το 1974, μια γραμμή χωρίζει την παλιά πόλη στα δύο, και οι άνθρωποι περνούν ' +
         'δείχνοντας ταυτότητα.',
       en:
-        'Nicosia is the only capital on the Mediterranean with no sea. It sits in the ' +
+        'Nicosia lies far from the sea, in the ' +
         'middle of a plain, closed inside a ring of walls with eleven pointed bastions ' +
         'shaped like hearts, and the whole old town is built from the same golden-yellow ' +
         'stone. A Gothic church here became a mosque, an Ottoman bathhouse still works, and ' +
-        'a school has been holding lessons since 1812 without a break. Since 1974 a line ' +
-        'has divided the old town in two, and people cross it by showing an ID card.',
+        'a school has been holding lessons since 1812 without a break. Since the 1960s, and for ' +
+        'good since 1974, a line has divided the old town in two, and people cross it by showing an ID card.',
     },
 
     /** Copied from `scripts/world/seeds/nicosia.json`. */
