@@ -794,34 +794,27 @@ describe('countries overlay', () => {
   }
 
   /**
-   * City cards that are missing today, named rather than left to hold the gate shut.
+   * City cards that are missing, named rather than left to hold the gate shut. Empty
+   * today, and that is the goal state.
    *
-   * Six cities were added after the countries overlays were written, and nobody gave
-   * them a card: Berlin, Budapest, Lisbon, Porto, Prague and Vienna show an English name
-   * and intro on a German, Spanish, French or Italian front door. Every country is done;
-   * only these 24 cards are not. Filling them is the i18n session's work, and this file
-   * is not theirs to open, so the licence lives here.
-   *
-   * The list is EXACT, the same rule as the coords licence above. A card that gets
-   * translated fails this test until its line is deleted, so the list can only shrink.
-   * The engine session deletes the lines when it merges the translation.
+   * Filling cards is the languages session's work, and this file is not theirs to open,
+   * so the licence lives here. The list is EXACT, the same rule as the coords licence
+   * above: a card that gets translated fails this test until its line is deleted, and
+   * the engine session deletes the lines when it merges the translation.
    *
    * A licensed card must be wholly absent. A card with a German name and an English
    * intro is half a translation, and that fails whether or not it is listed.
    *
-   * Growing the list is the other half of the rule. A new city arrives in Greek and
-   * English from a content session and its cards come later from the languages session,
-   * so the merge that brings the city adds its lines here, on purpose, in the same commit
-   * that says so. Nicosia and Dubrovnik came in that way on 18 Σεπτεμβρίου, the first
-   * cities to arrive after this gate did; it is what caught them.
+   * The list grows in one way only. A new city arrives in Greek and English from a
+   * content session and its cards come later, so the merge that brings the city adds its
+   * lines here, on purpose, in the same commit that says so.
+   *
+   * It has been used once. On 18 Σεπτεμβρίου the gate landed with 24 cards licensed
+   * (Berlin, Budapest, Lisbon, Porto, Prague, Vienna × de/es/fr/it), grew by 8 when
+   * Nicosia and Dubrovnik arrived the same evening, and went to zero the same night:
+   * Nicosia and Dubrovnik in #112, the other 24 in #110.
    */
-  const KNOWN_ABSENT_CARDS = [
-    'de:berlin', 'de:budapest', 'de:lisbon', 'de:porto', 'de:prague', 'de:vienna',
-    'es:berlin', 'es:budapest', 'es:lisbon', 'es:porto', 'es:prague', 'es:vienna',
-    'fr:berlin', 'fr:budapest', 'fr:lisbon', 'fr:porto', 'fr:prague', 'fr:vienna',
-    'it:berlin', 'it:budapest', 'it:lisbon', 'it:porto', 'it:prague', 'it:vienna',
-    // New cities, cards not yet written.
-  ];
+  const KNOWN_ABSENT_CARDS: string[] = [];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
     const found: Array<{ path: string; node: Record<string, unknown> }> = [];
