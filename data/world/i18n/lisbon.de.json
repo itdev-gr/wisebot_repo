@@ -60,7 +60,7 @@
               "answers": [
                 "Auf der Flagge Portugals",
                 "Auf den Ein-Cent-Münzen",
-                "Auf dem Trikot des Nationalvereins",
+                "Auf den Euro-Banknoten",
                 "Auf den Pässen Spaniens"
               ],
               "explanation": "Die Kugel war das Zeichen von Manuel I. und kam von dort auf die Flagge. Ein Land, das ein wissenschaftliches Instrument auf seine Flagge setzt, sagt damit etwas über sich selbst."
@@ -332,7 +332,7 @@
           },
           "lisbon-museu-nacional-do-azulejo-grande-panorama": {
             "name": "Das große Panorama",
-            "blurb": "Dreiundzwanzig Meter Wand, entstanden um 1700, die ganz Lissabon vom Fluss aus zeigen, Haus für Haus. Geh langsam daran entlang und finde die Burg oben auf ihrem Hügel, die Kathedrale, die Schiffe auf dem Tejo und den Königspalast am Wasser – den Palast, den das Erdbeben fünfzig Jahre später dem Erdboden gleichmachen würde. Als die Wand entstand, war sie Dekoration. Zu einem Dokument wurde sie aus Versehen, an dem Tag, an dem die Stadt, die sie zeigt, aufhörte zu existieren.",
+            "blurb": "Dreiundzwanzig Meter Wand, entstanden um 1700, die ganz Lissabon vom Fluss aus zeigen, Haus für Haus. Geh langsam daran entlang und finde die Burg oben auf ihrem Hügel, die Kathedrale, die Schiffe auf dem Tejo und den Königspalast am Wasser – den Palast, den das Erdbeben etwa fünfzig Jahre später dem Erdboden gleichmachen würde. Als die Wand entstand, war sie Dekoration. Zu einem Dokument wurde sie aus Versehen, an dem Tag, an dem die Stadt, die sie zeigt, aufhörte zu existieren.",
             "question": {
               "q": "Warum ist diese Wand so wichtig?",
               "answers": [
@@ -341,7 +341,7 @@
                 "König Manuel hat sie mit eigener Hand gemalt",
                 "Sie ist die einzige, die das Feuer überstanden hat"
               ],
-              "explanation": "Sie entstand fünfzig Jahre vor dem Erdbeben. Sie ist fast das einzige genaue Porträt einer Stadt, die es nicht mehr gibt."
+              "explanation": "Sie entstand etwa fünfzig Jahre vor dem Erdbeben. Sie ist fast das einzige genaue Porträt einer Stadt, die es nicht mehr gibt."
             }
           },
           "lisbon-museu-nacional-do-azulejo-blue-white": {
@@ -417,7 +417,7 @@
         },
         "riddles": {
           "lisbon-museu-nacional-do-azulejo-riddle-1": {
-            "prompt": "Ich bin dreiundzwanzig Meter lang und passe in keinen Rahmen. Ich zeige eine Stadt, die du nicht mehr besuchen kannst, denn fünfzig Jahre nachdem man mich gemacht hat, stürzte sie ein.",
+            "prompt": "Ich bin dreiundzwanzig Meter lang und passe in keinen Rahmen. Ich zeige eine Stadt, die du nicht mehr besuchen kannst, denn etwa fünfzig Jahre nachdem man mich gemacht hat, stürzte sie ein.",
             "hint": "Du musst gehen, um mich ganz zu sehen."
           },
           "lisbon-museu-nacional-do-azulejo-riddle-2": {
@@ -582,7 +582,7 @@
     "lisbon-castelo-de-sao-jorge": {
       "name": "Die Burg São Jorge",
       "tagline": "Elf Türme, Pfauen und die ganze Stadt darunter",
-      "story": "Die Mauren bauten diese Mauern vor ungefähr tausend Jahren, auf dem Hügel, von dem aus sie jedes Schiff sehen konnten, das den Fluss heraufkam. 1147 belagerte Afonso Henriques mit seinem Heer die Burg monatelang, bis die Stadt aufgab und Portugal eine neue Hauptstadt hatte. Später wohnten hier Könige, und die Burg bekam den Namen des heiligen Georg, des Ritters mit dem Drachen. Geh auf den Mauern entlang und zähl die elf Türme. Pass auf, wohin du trittst: Die Stufen sind schief und nicht alle gleich hoch, denn sie wurden für Wachen gebaut, nicht für Besucher. In den Gärten leben Pfauen, die vor den Leuten ihr Rad schlagen. Und von hier oben siehst du ganz Lissabon, den Fluss und die große rote Brücke, die Ponte 25 de Abril: Es ist der schönste Blick der Stadt.",
+      "story": "Die Mauren bauten diese Mauern vor ungefähr tausend Jahren, auf dem Hügel, von dem aus sie jedes Schiff sehen konnten, das den Fluss heraufkam. 1147 belagerte Afonso Henriques mit seinem Heer die Burg monatelang, bis die Stadt aufgab und zu Portugal gehörte; etwa hundert Jahre später wurde sie auch die Hauptstadt. Später wohnten hier Könige, und die Burg bekam den Namen des heiligen Georg, des Ritters mit dem Drachen. Geh auf den Mauern entlang und zähl die elf Türme. Pass auf, wohin du trittst: Die Stufen sind schief und nicht alle gleich hoch, denn sie wurden für Wachen gebaut, nicht für Besucher. In den Gärten leben Pfauen, die vor den Leuten ihr Rad schlagen. Und von hier oben siehst du ganz Lissabon, den Fluss und die große rote Brücke, die Ponte 25 de Abril: Es ist der schönste Blick der Stadt.",
       "facts": [
         "Die Mauern haben elf Türme, und du kannst oben auf ihnen entlanggehen.",
         "Auf diesem Hügel wurden Funde aus der Eisenzeit ausgegraben, ungefähr 2.700 Jahre alt.",

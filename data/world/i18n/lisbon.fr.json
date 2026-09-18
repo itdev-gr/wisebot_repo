@@ -60,7 +60,7 @@
               "answers": [
                 "Sur le drapeau du Portugal",
                 "Sur les pièces d’un centime",
-                "Sur le maillot du club national",
+                "Sur les billets en euros",
                 "Sur les passeports espagnols"
               ],
               "explanation": "La sphère était l’emblème de Manuel Ier, et elle est passée sur le drapeau. Un pays qui met un instrument scientifique sur son drapeau dit quelque chose de lui-même."
@@ -332,7 +332,7 @@
           },
           "lisbon-museu-nacional-do-azulejo-grande-panorama": {
             "name": "Le grand panorama",
-            "blurb": "Vingt-trois mètres de mur, réalisés vers 1700, qui montrent tout Lisbonne depuis le fleuve, maison par maison. Longe-le lentement et trouve le château en haut de sa colline, la cathédrale, les bateaux sur le Tage et le palais royal au bord de l’eau — le palais que le tremblement de terre allait raser cinquante ans plus tard. C’était une décoration quand il a été fait. Il est devenu un document par accident, le jour où la ville qu’il montre a cessé d’exister.",
+            "blurb": "Vingt-trois mètres de mur, réalisés vers 1700, qui montrent tout Lisbonne depuis le fleuve, maison par maison. Longe-le lentement et trouve le château en haut de sa colline, la cathédrale, les bateaux sur le Tage et le palais royal au bord de l’eau — le palais que le tremblement de terre allait raser environ cinquante ans plus tard. C’était une décoration quand il a été fait. Il est devenu un document par accident, le jour où la ville qu’il montre a cessé d’exister.",
             "question": {
               "q": "Pourquoi ce mur est-il si important ?",
               "answers": [
@@ -341,7 +341,7 @@
                 "Le roi Manuel l’a peint de sa propre main",
                 "C’est le seul à avoir survécu au feu"
               ],
-              "explanation": "Il a été fait cinquante ans avant le tremblement de terre. C’est presque le seul portrait détaillé d’une ville qui n’existe plus."
+              "explanation": "Il a été fait environ cinquante ans avant le tremblement de terre. C’est presque le seul portrait détaillé d’une ville qui n’existe plus."
             }
           },
           "lisbon-museu-nacional-do-azulejo-blue-white": {
@@ -417,7 +417,7 @@
         },
         "riddles": {
           "lisbon-museu-nacional-do-azulejo-riddle-1": {
-            "prompt": "Je mesure vingt-trois mètres de long et je ne tiens dans aucun cadre. Je montre une ville que tu ne peux plus visiter, parce que cinquante ans après ma fabrication, elle s’est effondrée.",
+            "prompt": "Je mesure vingt-trois mètres de long et je ne tiens dans aucun cadre. Je montre une ville que tu ne peux plus visiter, parce qu’environ cinquante ans après ma fabrication, elle s’est effondrée.",
             "hint": "Il faut marcher pour me voir en entier."
           },
           "lisbon-museu-nacional-do-azulejo-riddle-2": {
@@ -582,7 +582,7 @@
     "lisbon-castelo-de-sao-jorge": {
       "name": "Le château de São Jorge",
       "tagline": "Onze tours, des paons, et toute la ville en dessous",
-      "story": "Les Maures ont construit ces murailles il y a environ mille ans, sur la colline d’où ils pouvaient surveiller chaque navire qui remontait le fleuve. En 1147, Afonso Henriques et son armée ont assiégé le château pendant des mois, jusqu’à ce que la ville se rende et que le Portugal ait une nouvelle capitale. Plus tard, des rois ont habité ici, et le château a pris le nom de saint Georges, le chevalier au dragon. Marche sur les remparts et compte les onze tours. Fais attention où tu mets les pieds : les marches sont de travers et n’ont pas toutes la même hauteur, parce qu’elles ont été construites pour des gardes, pas pour des visiteurs. Des paons vivent dans les jardins et font la roue devant la foule. Et d’ici, tu vois tout Lisbonne, le fleuve et le grand pont rouge, le pont du 25-Avril : c’est la plus belle vue de la ville.",
+      "story": "Les Maures ont construit ces murailles il y a environ mille ans, sur la colline d’où ils pouvaient surveiller chaque navire qui remontait le fleuve. En 1147, Afonso Henriques et son armée ont assiégé le château pendant des mois, jusqu’à ce que la ville se rende et devienne portugaise ; une centaine d’années plus tard, elle est aussi devenue la capitale. Plus tard, des rois ont habité ici, et le château a pris le nom de saint Georges, le chevalier au dragon. Marche sur les remparts et compte les onze tours. Fais attention où tu mets les pieds : les marches sont de travers et n’ont pas toutes la même hauteur, parce qu’elles ont été construites pour des gardes, pas pour des visiteurs. Des paons vivent dans les jardins et font la roue devant la foule. Et d’ici, tu vois tout Lisbonne, le fleuve et le grand pont rouge, le pont du 25-Avril : c’est la plus belle vue de la ville.",
       "facts": [
         "Les murailles ont onze tours, et tu peux marcher tout en haut.",
         "Sur cette colline, on a trouvé des objets de l’âge du fer vieux d’environ 2 700 ans.",
