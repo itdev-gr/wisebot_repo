@@ -1,0 +1,430 @@
+{
+  "city": "seville",
+  "resolvedAt": "2026-09-18T19:16:19.391Z",
+  "centre": {
+    "lat": 37.388611,
+    "lng": -5.995
+  },
+  "places": [
+    {
+      "id": "seville-catedral",
+      "name": "Catedral de Sevilla",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q231606",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Seville Cathedral",
+          "deltaM": 18
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.38574,
+      "lng": -5.9931,
+      "labels": {
+        "fr": "cathédrale Notre-Dame-du-Siège de Séville",
+        "es": "Catedral de Santa María de la Sede de Sevilla",
+        "it": "Cattedrale di Siviglia",
+        "de": "Iglesia Catedral de Santa María",
+        "en": "Seville Cathedral",
+        "el": "Εκκλησία του Αγίου Μητροπολιτικού και Πατριαρχικού Καθεδρικού Ναού της Αγία Μαρία της Σέβης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-giralda",
+      "name": "Giralda",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q834479",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Giralda",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.38614,
+      "lng": -5.99238,
+      "labels": {
+        "fr": "Giralda",
+        "en": "Giralda",
+        "es": "Giralda",
+        "it": "Giralda",
+        "de": "Giralda"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-alcazar",
+      "name": "Real Alcázar",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q498261",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 37.38443,
+      "lng": -5.99119,
+      "labels": {
+        "fr": "alcazar de Séville",
+        "es": "Reales Alcázares",
+        "it": "Alcázar di Siviglia",
+        "de": "Reales Alcázares",
+        "en": "Reales Alcázares",
+        "el": "Αλκαζάρ της Σεβίλης"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-archivo-indias",
+      "name": "Archivo General de Indias (Casa Lonja)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q97641889",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 37.38471,
+      "lng": -5.99302,
+      "labels": {
+        "en": "Antigua Casa Lonja",
+        "es": "Antigua Casa Lonja",
+        "de": "Antigua Casa Lonja",
+        "fr": "Antigua Casa Lonja"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-plaza-espana",
+      "name": "Plaza de España",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q956018",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Plaza de España, Seville",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.37708,
+      "lng": -5.9869,
+      "labels": {
+        "es": "plaza de España",
+        "de": "Plaza de España",
+        "en": "Plaza de España",
+        "fr": "place d'Espagne",
+        "it": "plaza de España",
+        "el": "Πλάθα δε Εσπάνια"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-maria-luisa",
+      "name": "Parque de María Luisa",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2627907",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Parque de María Luisa",
+          "deltaM": 106
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.37574,
+      "lng": -5.98889,
+      "labels": {
+        "fr": "Parque de María Luisa",
+        "es": "Parque de María Luisa",
+        "en": "Parque de María Luisa",
+        "it": "parco di María Luisa",
+        "de": "Parque de María Luisa"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-torre-del-oro",
+      "name": "Torre del Oro",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q943873",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Torre del Oro",
+          "deltaM": 15
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.38246,
+      "lng": -5.9963,
+      "labels": {
+        "fr": "Torre del Oro",
+        "it": "Torre dell'Oro",
+        "de": "Torre del Oro",
+        "el": "Τόρρε ντελ Όρο",
+        "en": "Torre del Oro",
+        "es": "Torre del Oro"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-metropol-parasol",
+      "name": "Metropol Parasol",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3087671",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Metropol Parasol",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.39325,
+      "lng": -5.99188,
+      "labels": {
+        "fr": "Metropol Parasol",
+        "es": "Metropol Parasol",
+        "en": "Metropol Parasol",
+        "de": "Metropol Parasol",
+        "it": "Setas de Sevilla"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-puente-triana",
+      "name": "Puente de Triana (Isabel II)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1862973",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Puente de Isabel II",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.38633,
+      "lng": -6.00237,
+      "labels": {
+        "es": "puente de Isabel II",
+        "fr": "pont Isabelle-II",
+        "en": "Isabel II Bridge",
+        "de": "Puente de Isabel II",
+        "it": "Puente de Isabel II"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-mercado-triana",
+      "name": "Mercado de Triana",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5637661",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 37.38568,
+      "lng": -6.00344,
+      "labels": {
+        "es": "Mercado de Triana",
+        "en": "Mercado de Triana"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-casa-pilatos",
+      "name": "Casa de Pilatos",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1046529",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Casa de Pilatos",
+          "deltaM": 42
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.39027,
+      "lng": -5.98699,
+      "labels": {
+        "fr": "Casa de Pilatos",
+        "de": "Casa de Pilatos",
+        "it": "Casa de Pilatos",
+        "es": "Casa de Pilatos",
+        "en": "Casa de Pilatos",
+        "el": "Κάσα ντε Πιλάτος"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-bellas-artes",
+      "name": "Museo de Bellas Artes",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2163496",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museum of Fine Arts of Seville",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.39265,
+      "lng": -6.00013,
+      "labels": {
+        "en": "Museo de Bellas Artes de Sevilla",
+        "es": "Museo de Bellas Artes de Sevilla",
+        "fr": "musée des Beaux-Arts de Séville",
+        "it": "Museo de Bellas Artes",
+        "de": "Museo de Bellas Artes de Sevilla",
+        "el": "Μουσείο Καλών Τεχνών της Σεβίλλης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-fabrica-tabacos",
+      "name": "Real Fábrica de Tabacos",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2542555",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Royal Tobacco Factory",
+          "deltaM": 75
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 37.38069,
+      "lng": -5.99083,
+      "labels": {
+        "fr": "Real Fábrica de Tabacos",
+        "en": "Royal Tobacco Factory of Seville",
+        "es": "Real Fábrica de Tabacos de Sevilla",
+        "it": "Reale Fabbrica di Tabacco",
+        "de": "Real Fábrica de Tabacos"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "seville-duenas",
+      "name": "Palacio de las Dueñas",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7126325",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 37.39472,
+      "lng": -5.98917,
+      "labels": {
+        "en": "Palacio de las Dueñas",
+        "es": "Palacio de Las Dueñas",
+        "fr": "Palacio de las Dueñas",
+        "de": "Palacio de las Dueñas"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "problems": []
+}

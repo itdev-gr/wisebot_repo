@@ -1,0 +1,96 @@
+{
+  "city": "seville",
+  "country": "spain",
+  "centre": {
+    "lat": 37.388611,
+    "lng": -5.995
+  },
+  "note": "Wikidata q-ids only, searched in Spanish. Centre is Wikidata's point for the city (Q8717). Seville is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. The General Archive of the Indies is seeded as its building, the Casa Lonja (Q97641889), not the archive as an institution (Q477051). The Triana market (Q5637661) sits 10 m from the Castle of San Jorge (Q5757560) whose ruins lie beneath it; only the market is seeded. The Isabel II bridge (Q1862973) is the one everyone calls the Triana bridge. Isla Mágica is left out: it is a commercial theme park, not a place of the city's own. RESOLVER RUN 18/9: Overpass was unreachable (fetch failed on all 14), so every grade rests on Wikidata and Wikipedia alone (8 B / 6 C). Worth a re-resolve when Overpass is stably up, as with Barcelona and Prague; never lower a grade by hand to match.",
+  "adjacentPairs": [],
+  "places": [
+    {
+      "id": "seville-catedral",
+      "name": "Catedral de Sevilla",
+      "wikidata": "Q231606",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-giralda",
+      "name": "Giralda",
+      "wikidata": "Q834479",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-alcazar",
+      "name": "Real Alcázar",
+      "wikidata": "Q498261",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-archivo-indias",
+      "name": "Archivo General de Indias (Casa Lonja)",
+      "wikidata": "Q97641889",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-plaza-espana",
+      "name": "Plaza de España",
+      "wikidata": "Q956018",
+      "anchor": "area"
+    },
+    {
+      "id": "seville-maria-luisa",
+      "name": "Parque de María Luisa",
+      "wikidata": "Q2627907",
+      "anchor": "area"
+    },
+    {
+      "id": "seville-torre-del-oro",
+      "name": "Torre del Oro",
+      "wikidata": "Q943873",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-metropol-parasol",
+      "name": "Metropol Parasol",
+      "wikidata": "Q3087671",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-puente-triana",
+      "name": "Puente de Triana (Isabel II)",
+      "wikidata": "Q1862973",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-mercado-triana",
+      "name": "Mercado de Triana",
+      "wikidata": "Q5637661",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-casa-pilatos",
+      "name": "Casa de Pilatos",
+      "wikidata": "Q1046529",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-bellas-artes",
+      "name": "Museo de Bellas Artes",
+      "wikidata": "Q2163496",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-fabrica-tabacos",
+      "name": "Real Fábrica de Tabacos",
+      "wikidata": "Q2542555",
+      "anchor": "centroid"
+    },
+    {
+      "id": "seville-duenas",
+      "name": "Palacio de las Dueñas",
+      "wikidata": "Q7126325",
+      "anchor": "centroid"
+    }
+  ]
+}

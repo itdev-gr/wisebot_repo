@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1307" width="1000" height="1307" role="img" aria-label="Stylised map of Seville">
+  <title>Seville — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/spain.ts
+    (north 37.398, south 37.372, east -5.983, west -6.008) so that place pins can be projected onto it
+    rather than positioned by hand. Deliberately schematic: the Guadalquivir is drawn
+    through a handful of projected points, the María Luisa park is a rough shape, and the
+    cathedral is a mark at its own coordinate. Nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="1307" fill="url(#ground)" />
+  <rect width="1000" height="1307" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The María Luisa park, south of the old town. -->
+  <ellipse cx="764" cy="1121" rx="112" ry="111" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The Guadalquivir, running north to south between the old town and Triana. -->
+  <path d="M200 -50 L200 276 L220 503 L240 603 L360 754 L460 905 L540 1106 L600 1357" fill="none" stroke="#7cb8cd" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- The cathedral, at its own coordinate. -->
+  <rect x="574" y="594" width="44" height="44" rx="6" fill="#d9a24a" stroke="#a87a2f" stroke-width="3" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="95" y="452" font-size="20" text-anchor="middle" letter-spacing="2">TRIANA</text>
+    <text x="262" y="226" font-size="16" letter-spacing="2" fill="#4f8ea6" transform="rotate(90 262 226)">GUADALQUIVIR</text>
+    <text x="764" y="1128" font-size="16" text-anchor="middle" letter-spacing="1">MARÍA LUISA</text>
+    <text x="40" y="1237" font-size="42" letter-spacing="6">ΣΕΒΙΛΛΗ</text>
+    <text x="40" y="1271" font-size="22" letter-spacing="4">SEVILLA</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

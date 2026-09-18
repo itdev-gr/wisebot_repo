@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1510" width="1000" height="1510" role="img" aria-label="Stylised map of Florence">
+  <title>Florence — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/italy.ts
+    (north 43.781, south 43.757, east 11.268, west 11.246) so that place pins can be projected onto it
+    rather than positioned by hand. Deliberately schematic: the Arno is drawn through a
+    handful of projected points, the Boboli hill and the hill of San Miniato are rough
+    shapes, and the cathedral dome is a disc at its own coordinate. Nothing here is traced
+    from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="1510" fill="url(#ground)" />
+  <rect width="1000" height="1510" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The green hills south of the river: the Boboli Gardens and the slope up to San Miniato. -->
+  <ellipse cx="182" cy="1101" rx="114" ry="138" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+  <ellipse cx="864" cy="1321" rx="159" ry="157" fill="#cddcb4" stroke="#a9bd8c" stroke-width="2" />
+
+  <!-- The Arno, flowing from east to west through the city. -->
+  <path d="M-45 503 L23 610 L205 724 L327 818 L486 912 L577 963 L750 1070 L1045 1183" fill="none" stroke="#7cb8cd" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Brunelleschi's dome, at the cathedral's own coordinate. -->
+  <circle cx="497" cy="500" r="34" fill="#c8674a" stroke="#9e4a33" stroke-width="3" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="182" y="1108" font-size="20" text-anchor="middle" letter-spacing="2">BOBOLI</text>
+    <text x="45" y="692" font-size="18" letter-spacing="3" fill="#4f8ea6">ARNO</text>
+    <text x="40" y="1440" font-size="42" letter-spacing="6">ΦΛΩΡΕΝΤΙΑ</text>
+    <text x="40" y="1474" font-size="22" letter-spacing="4">FIRENZE</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
