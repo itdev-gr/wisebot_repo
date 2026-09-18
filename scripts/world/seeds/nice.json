@@ -1,0 +1,24 @@
+{
+  "city": "nice",
+  "country": "france",
+  "centre": { "lat": 43.701944, "lng": 7.268333 },
+  "note": "Wikidata q-ids only, searched in French. Centre is Wikidata's point for the city (Q33959). Nice is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. Castle Hill is seeded as the fortified site and park (Q2970127), not the hill item (Q135472036), which is a landform. The Matisse museum is seeded as its building, the Villa des Arènes (Q30291412), 4 m from the institution item (Q1563354). Old Nice (Q3558059) is a neighbourhood and is not seeded; the cathedral, the Palais Lascaris and the Cours Saleya stand for it. The Sun fountain (Q119557222) is 95 m inside Place Masséna and is told there rather than pinned. Parc Phoenix and the observatory are left out to keep the map on the city itself.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "nice-promenade", "name": "Promenade des Anglais", "wikidata": "Q1849491", "anchor": "area" },
+    { "id": "nice-colline-chateau", "name": "Colline du Château", "wikidata": "Q2970127", "anchor": "viewpoint" },
+    { "id": "nice-cours-saleya", "name": "Cours Saleya", "wikidata": "Q3001353", "anchor": "area" },
+    { "id": "nice-cathedrale", "name": "Cathédrale Sainte-Réparate", "wikidata": "Q1084011", "anchor": "centroid" },
+    { "id": "nice-palais-lascaris", "name": "Palais Lascaris", "wikidata": "Q3360882", "anchor": "centroid" },
+    { "id": "nice-place-massena", "name": "Place Masséna", "wikidata": "Q3389982", "anchor": "area" },
+    { "id": "nice-jardin-albert", "name": "Jardin Albert Ier", "wikidata": "Q3162279", "anchor": "area" },
+    { "id": "nice-musee-massena", "name": "Musée Masséna", "wikidata": "Q3329270", "anchor": "centroid" },
+    { "id": "nice-opera", "name": "Opéra de Nice", "wikidata": "Q608423", "anchor": "centroid" },
+    { "id": "nice-port", "name": "Port Lympia", "wikidata": "Q3398372", "anchor": "area" },
+    { "id": "nice-mamac", "name": "MAMAC", "wikidata": "Q936859", "anchor": "centroid" },
+    { "id": "nice-museum-histoire-naturelle", "name": "Muséum d'histoire naturelle", "wikidata": "Q3330894", "anchor": "centroid" },
+    { "id": "nice-musee-chagall", "name": "Musée Marc-Chagall", "wikidata": "Q3329265", "anchor": "centroid" },
+    { "id": "nice-musee-matisse", "name": "Musée Matisse (Villa des Arènes)", "wikidata": "Q30291412", "anchor": "centroid" },
+    { "id": "nice-arenes-cimiez", "name": "Arènes de Cimiez", "wikidata": "Q2866137", "anchor": "centroid" }
+  ]
+}
