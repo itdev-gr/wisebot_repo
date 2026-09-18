@@ -1,0 +1,397 @@
+{
+  "city": "madrid",
+  "resolvedAt": "2026-09-18T16:47:42.442Z",
+  "centre": {
+    "lat": 40.42389,
+    "lng": -3.69639
+  },
+  "places": [
+    {
+      "id": "madrid-prado",
+      "name": "Museo del Prado",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q160112",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museo del Prado",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 40.41389,
+      "lng": -3.69222,
+      "labels": {
+        "es": "Museo del Prado",
+        "el": "Μουσείο του Πράδο",
+        "fr": "musée du Prado",
+        "it": "Museo del Prado",
+        "de": "Museo del Prado",
+        "en": "Museo del Prado"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-palacio-real",
+      "name": "Palacio Real",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q171517",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/4451986389",
+          "deltaM": 148
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Royal Palace of Madrid",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [
+        "osm is 148 m away — outlier, check by eye"
+      ],
+      "lat": 40.41796,
+      "lng": -3.71431,
+      "labels": {
+        "fr": "palais royal de Madrid",
+        "es": "Palacio Real de Madrid",
+        "it": "Palazzo reale di Madrid",
+        "de": "Königspalast Madrid",
+        "en": "Royal Palace of Madrid",
+        "el": "Βασιλικό Παλάτι της Μαδρίτης"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-plaza-mayor",
+      "name": "Plaza Mayor",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1123493",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/16657232",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Plaza Mayor, Madrid",
+          "deltaM": 11
+        }
+      ],
+      "warnings": [],
+      "lat": 40.41546,
+      "lng": -3.70738,
+      "labels": {
+        "fr": "Plaza Mayor de Madrid",
+        "en": "Main Square",
+        "es": "Plaza Mayor de Madrid",
+        "it": "plaza Mayor",
+        "de": "Plaza Major",
+        "el": "Πλάθα Μαγιόρ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-puerta-del-sol",
+      "name": "Puerta del Sol",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q427163",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/7424032",
+          "deltaM": 13
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Puerta del Sol",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 40.41694,
+      "lng": -3.70361,
+      "labels": {
+        "it": "Puerta del Sol",
+        "de": "Puerta del Sol",
+        "en": "Puerta del Sol",
+        "es": "Puerta del Sol",
+        "fr": "Puerta del Sol"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-retiro",
+      "name": "Parque del Retiro",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1131807",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Parque del Buen Retiro, Madrid",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 40.415,
+      "lng": -3.68389,
+      "labels": {
+        "fr": "parc du Retiro",
+        "en": "El Retiro Park",
+        "es": "Parque del Retiro",
+        "it": "parco del Retiro",
+        "de": "Parque del Retiro",
+        "el": "Πάρκο Μπουέν Ρετίρο"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-templo-de-debod",
+      "name": "Templo de Debod",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1140249",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Temple of Debod",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 40.42405,
+      "lng": -3.71778,
+      "labels": {
+        "fr": "temple d'Amon",
+        "en": "Temple of Debod",
+        "es": "Templo de Debod",
+        "it": "Tempio di Debod",
+        "de": "Tempel von Debod"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-ciencias-naturales",
+      "name": "Museo Nacional de Ciencias Naturales",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q29477212",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 40.44054,
+      "lng": -3.68953,
+      "labels": {
+        "es": "Palacio de las Artes y la Industria",
+        "en": "Palacio de las Artes y la Industria"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-bernabeu",
+      "name": "Estadio Santiago Bernabéu",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q164027",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Bernabéu (stadium)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 40.45306,
+      "lng": -3.68835,
+      "labels": {
+        "es": "Estadio Santiago Bernabéu",
+        "el": "Στάδιο Σαντιάγκο Μπερναμπέου",
+        "fr": "Bernabéu",
+        "it": "stadio Santiago Bernabéu",
+        "de": "Bernabéu",
+        "en": "Bernabéu"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-mercado-san-miguel",
+      "name": "Mercado de San Miguel",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6770825",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4518846",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Market of San Miguel",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 40.41544,
+      "lng": -3.70887,
+      "labels": {
+        "en": "Market of San Miguel",
+        "es": "Mercado de San Miguel",
+        "fr": "marché de San Miguel"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-puerta-de-alcala",
+      "name": "Puerta de Alcalá",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1140634",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/174805987",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Puerta de Alcalá",
+          "deltaM": 14
+        }
+      ],
+      "warnings": [],
+      "lat": 40.42002,
+      "lng": -3.68873,
+      "labels": {
+        "fr": "porte de Alcalá",
+        "es": "Puerta de Alcalá",
+        "en": "Alcalá Gate",
+        "it": "Puerta de Alcalá",
+        "el": "Πουέρτα δε Αλκαλά",
+        "de": "Puerta de Alcalá"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-jardin-botanico",
+      "name": "Real Jardín Botánico",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1794858",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Real Jardín Botánico de Madrid",
+          "deltaM": 35
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 40.41087,
+      "lng": -3.6914,
+      "labels": {
+        "de": "Real Jardín Botánico de Madrid",
+        "en": "Royal Botanic Garden of Madrid",
+        "es": "Real Jardín Botánico de Madrid",
+        "fr": "Jardin botanique royal de Madrid",
+        "it": "Real Jardín Botánico de Madrid"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "madrid-cibeles",
+      "name": "Plaza de Cibeles",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1537446",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Plaza de Cibeles",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: no match"
+      ],
+      "lat": 40.41917,
+      "lng": -3.69306,
+      "labels": {
+        "de": "Plaza de Cibeles",
+        "fr": "place de Cibeles",
+        "en": "plaza de Cibeles",
+        "es": "plaza de Cibeles",
+        "it": "plaza de Cibeles"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "problems": []
+}
