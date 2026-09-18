@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1083" width="1000" height="1083" role="img" aria-label="Stylised map of Venice">
+  <title>Venice — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/italy.ts
+    (north 45.4605, south 45.4255, east 12.364, west 12.318) so that place pins can be projected onto it
+    rather than positioned by hand. Deliberately schematic: the lagoon, the main islands of
+    the city, the Giudecca, San Giorgio and Murano are rough shapes, and the S of the Grand
+    Canal is drawn through a handful of projected points. Nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a9d3e0" />
+      <stop offset="1" stop-color="#7cb8cd" />
+    </linearGradient>
+  </defs>
+
+  <!-- The lagoon: everything that is not an island is water. -->
+  <rect width="1000" height="1083" fill="url(#water)" />
+
+  <!-- The islands: the city itself, the Giudecca to the south, San Giorgio opposite St
+       Mark's, and Murano to the north. -->
+  <g fill="#f3ead8" stroke="#c9b48f" stroke-width="3" stroke-linejoin="round">
+    <path d="M-54 557 L152 449 L413 418 L630 572 L826 696 L1000 758 L957 975 L696 907 L522 888 L413 944 L261 999 L43 1006 L-65 851 L-130 696 Z" />
+    <path d="M-130 1012 L152 990 L446 999 L446 1061 L-130 1061 Z" />
+    <path d="M489 928 L609 938 L613 1006 L489 999 Z" />
+    <path d="M630 31 L826 15 L967 77 L935 186 L761 217 L620 155 Z" />
+  </g>
+
+  <!-- The Grand Canal, the backwards S through the middle of the city. -->
+  <path d="M76 603 L196 579 L326 603 L374 650 L383 696 L326 752 L191 805 L185 851 L239 891 L326 913 L402 919" fill="none" stroke="#7cb8cd" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="793" y="108" font-size="20" text-anchor="middle" letter-spacing="2">MURANO</text>
+    <text x="152" y="1044" font-size="16" text-anchor="middle" letter-spacing="2">GIUDECCA</text>
+    <text x="370" y="410" font-size="16" text-anchor="middle" letter-spacing="2" fill="#4f8ea6">LAGUNA</text>
+    <text x="40" y="80" font-size="42" letter-spacing="6">ΒΕΝΕΤΙΑ</text>
+    <text x="40" y="114" font-size="22" letter-spacing="4">VENEZIA</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
