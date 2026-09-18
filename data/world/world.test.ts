@@ -807,12 +807,21 @@ describe('countries overlay', () => {
    *
    * A licensed card must be wholly absent. A card with a German name and an English
    * intro is half a translation, and that fails whether or not it is listed.
+   *
+   * Growing the list is the other half of the rule. A new city arrives in Greek and
+   * English from a content session and its cards come later from the languages session,
+   * so the merge that brings the city adds its lines here, on purpose, in the same commit
+   * that says so. Nicosia and Dubrovnik came in that way on 18 Σεπτεμβρίου, the first
+   * cities to arrive after this gate did; it is what caught them.
    */
   const KNOWN_ABSENT_CARDS = [
     'de:berlin', 'de:budapest', 'de:lisbon', 'de:porto', 'de:prague', 'de:vienna',
     'es:berlin', 'es:budapest', 'es:lisbon', 'es:porto', 'es:prague', 'es:vienna',
     'fr:berlin', 'fr:budapest', 'fr:lisbon', 'fr:porto', 'fr:prague', 'fr:vienna',
     'it:berlin', 'it:budapest', 'it:lisbon', 'it:porto', 'it:prague', 'it:vienna',
+    // New cities, cards not yet written.
+    'de:dubrovnik', 'de:nicosia', 'es:dubrovnik', 'es:nicosia',
+    'fr:dubrovnik', 'fr:nicosia', 'it:dubrovnik', 'it:nicosia',
   ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
