@@ -1,4 +1,5 @@
 
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion as m } from 'framer-motion';
 import { Upload, RefreshCcw, Download, Cuboid, Grid, Sparkles, Cylinder, Box, FileDown, CheckCircle2, X, Zap } from 'lucide-react';
@@ -270,7 +271,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
     if (!user) {
       import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', '3d')).catch(() => {});
       showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
-      setTimeout(() => navigate('/login?mode=register'), 1500);
+      setTimeout(() => navigate(loginPath({ register: true })), 1500);
       return;
     }
 
@@ -312,7 +313,7 @@ export default function ThreeDFactory({ lang }: ThreeDFactoryProps) {
         refundCredits(costs.threeD);
         setMeshyStatus('idle');
         showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
-        setTimeout(() => navigate('/login?mode=register'), 1500);
+        setTimeout(() => navigate(loginPath({ register: true })), 1500);
         return;
       }
       if (data.taskId) {

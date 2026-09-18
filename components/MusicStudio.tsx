@@ -1,3 +1,4 @@
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { backendAI, authFetch } from '../services/backendApi';
 import { Music, Mic, Play, Pause, FileMusic, Wand2, RefreshCcw, Download, Radio, PenLine, Sparkles, Guitar, SkipBack, SkipForward, Volume2, Clock, Trash2, ArrowRight } from 'lucide-react';
@@ -377,7 +378,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
     if (!user) {
       import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'song')).catch(() => {});
       showNotification('🎤', lang === 'el' ? 'Για να ακούσεις το τραγούδι σου, φτιάξε λογαριασμό!' : 'Create an account to hear your song!');
-      setTimeout(() => navigate('/login?mode=register'), 1500);
+      setTimeout(() => navigate(loginPath({ register: true })), 1500);
       return;
     }
 
@@ -480,7 +481,7 @@ export default function MusicStudio({ lang }: MusicStudioProps) {
           // real money). Give the credits back and point to sign-up.
           refundCredits(songCost);
           showNotification('🎤', lang === 'el' ? 'Για να ακούσεις το τραγούδι σου, φτιάξε λογαριασμό!' : 'Create an account to hear your song!');
-          setTimeout(() => navigate('/login?mode=register'), 1500);
+          setTimeout(() => navigate(loginPath({ register: true })), 1500);
         } else if (sunoResp.status === 402) {
           refundCredits(songCost, typeof sunoData.credits === 'number' ? sunoData.credits : undefined);
           showNotification('💰', lang === 'el' ? 'Δεν έχεις αρκετά Credits!' : 'Not enough Credits!');

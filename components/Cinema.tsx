@@ -1,4 +1,5 @@
 
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import {
@@ -477,7 +478,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
     if (!user) {
       import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'video')).catch(() => {});
       showNotification('🎬', lang === 'el' ? 'Για να γυρίσεις ταινία, φτιάξε λογαριασμό!' : 'Create an account to make a movie!');
-      setTimeout(() => navigate('/login?mode=register'), 1500);
+      setTimeout(() => navigate(loginPath({ register: true })), 1500);
       return;
     }
 
@@ -556,7 +557,7 @@ const Cinema: React.FC<CinemaProps> = ({ lang, myHeroes }) => {
           import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', 'video')).catch(() => {});
           refundCredits(videoCost);
           showNotification('🎬', lang === 'el' ? 'Για να γυρίσεις ταινία, φτιάξε λογαριασμό!' : 'Create an account to make a movie!');
-          setTimeout(() => navigate('/login?mode=register'), 1500);
+          setTimeout(() => navigate(loginPath({ register: true })), 1500);
           setIsGenerating(false);
           return;
         }

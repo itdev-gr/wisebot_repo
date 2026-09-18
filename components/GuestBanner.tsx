@@ -1,3 +1,4 @@
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect } from 'react';
 import { Sparkles, UserPlus, ArrowRight, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -47,7 +48,7 @@ export default function GuestBanner({ lang }: GuestBannerProps) {
   };
 
   const handleRegister = () => {
-    navigate('/login?mode=register');
+    navigate(loginPath({ register: true }));
   };
 
   // Never show to authenticated users
