@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 880" width="1000" height="880" role="img" aria-label="Stylised map of central Copenhagen">
+  <title>Copenhagen — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/denmark.ts
+    (north 55.698, south 55.664, east 12.628, west 12.560) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the
+    harbour channel curving from Langelinie in the north down past Nyhavn and bending
+    south-west at Islands Brygge, the chain of lakes on the north-west edge, the flat
+    green of Amager in the east, the star of Kastellet, the gardens of Tivoli, Rosenborg
+    and the Botanical Garden are all placed from those bounds. Nothing here is traced
+    from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f1e6" />
+      <stop offset="1" stop-color="#ece3d2" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a6cede" />
+      <stop offset="1" stop-color="#74aec9" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb6" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="880" fill="url(#ground)" />
+  <rect width="1000" height="880" fill="url(#grid)" opacity="0.5" />
+
+  <!-- Amager, the flat island in the east and south-east, drawn as land beyond the
+       harbour so the far-east pin has ground under it. -->
+  <path d="M700 0 L1000 0 L1000 880 L470 880 C 520 790, 610 720, 660 620 C 710 520, 660 400, 700 260 Z"
+        fill="#eee7d6" stroke="#cfc2a6" stroke-width="2" />
+
+  <!-- The harbour. One long channel from Langelinie in the north, past the mouth of
+       Nyhavn, then bending south-west towards Islands Brygge and Sydhavnen. -->
+  <path
+    d="M604 -20 C 590 40, 559 207, 522 336 C 500 420, 493 466, 449 569 C 415 640, 360 673, 243 776 C 200 815, 165 850, 140 900"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="52"
+    stroke-linecap="round"
+  />
+
+  <!-- Christianshavn: the built island the harbour cuts around, east of the channel. -->
+  <path d="M430 600 C 470 560, 560 555, 620 600 C 660 640, 640 720, 560 745 C 480 770, 420 720, 415 670 Z"
+        fill="#f1eada" stroke="#cfc2a6" stroke-width="2" />
+
+  <!-- The chain of lakes on the north-west edge, the old defensive water. -->
+  <g fill="url(#water)" stroke="#5c9fb8" stroke-width="2" opacity="0.95">
+    <ellipse cx="199" cy="104" rx="70" ry="20" transform="rotate(58 199 104)" />
+    <ellipse cx="110" cy="259" rx="76" ry="20" transform="rotate(58 110 259)" />
+    <ellipse cx="30" cy="380" rx="60" ry="19" transform="rotate(58 30 380)" />
+  </g>
+
+  <!-- Kastellet: the five-pointed star fort, with its moat, on the north-east shore. -->
+  <g transform="translate(494 165)">
+    <circle r="62" fill="#cfe0ef" stroke="#8fb8cc" stroke-width="2" />
+    <path d="M0 -52 L15 -16 L52 -16 L22 8 L33 45 L0 22 L-33 45 L-22 8 L-52 -16 L-15 -16 Z"
+          fill="#cddcb4" stroke="#a3bd85" stroke-width="2" />
+  </g>
+
+  <!-- Gardens. Tivoli in the south-west, the King's Garden at Rosenborg, the Botanical
+       Garden beside it, and the green of Churchillparken below Kastellet. -->
+  <g fill="#cddcb4" stroke="#a3bd85" stroke-width="2">
+    <ellipse cx="122" cy="631" rx="58" ry="40" />
+    <ellipse cx="257" cy="313" rx="62" ry="46" />
+    <ellipse cx="204" cy="286" rx="46" ry="34" />
+    <ellipse cx="486" cy="248" rx="44" ry="30" />
+  </g>
+
+  <!-- The green roof of Amager Bakke, out on its own in the east. -->
+  <path d="M840 392 L890 320 L945 392 Z" fill="#bfd6a4" stroke="#94b07c" stroke-width="2" />
+
+  <g fill="#7d6c4c" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="66" font-size="38" letter-spacing="4">ΚΟΠΕΓΧΑΓΗ</text>
+    <text x="40" y="96" font-size="19" letter-spacing="4">KØBENHAVN</text>
+    <text x="122" y="637" font-size="15" text-anchor="middle" letter-spacing="2">ΤΙΒΟΛΙ</text>
+    <text x="257" y="319" font-size="14" text-anchor="middle" letter-spacing="2">ΚΗΠΟΙ</text>
+    <text x="494" y="170" font-size="13" text-anchor="middle" letter-spacing="1">ΦΡΟΥΡΙΟ</text>
+    <text x="520" y="676" font-size="14" text-anchor="middle" letter-spacing="2">ΚΡΙΣΤΙΑΝΣΧΑΒΝ</text>
+    <text x="850" y="620" font-size="24" letter-spacing="5">ΑΜΑΓΚΕΡ</text>
+  </g>
+
+  <text
+    x="470"
+    y="430"
+    font-size="17"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+    transform="rotate(74 470 430)"
+  >ΛΙΜΑΝΙ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(80 800)" stroke="#7d6c4c" fill="#7d6c4c">
+    <circle r="25" fill="none" stroke-width="2" />
+    <path d="M0 -21 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-29" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

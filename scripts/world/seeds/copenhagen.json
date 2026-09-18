@@ -1,0 +1,41 @@
+{
+  "city": "copenhagen",
+  "country": "denmark",
+  "centre": { "lat": 55.67611, "lng": 12.56889 },
+  "note": "Wikidata q-ids only. Seventeen places, built by converting the Explorer product's ten spots (origin/main, data/explore/cities/copenhagen.ts) and adding seven of our own. The Explorer's own lat/lng are hand-written and were not consulted for a single number here; every q-id below was searched in Danish and its description read to confirm it says København. CENTRE: Wikidata's point for København (Q1748), 55.67611/12.56889. It sits 39 m from Rådhuspladsen (Q2178686), which is why this seed pins the CITY HALL BUILDING (Q2010247, 127 m away) and not the square in front of it — the square is the Explorer's pin and would have tripped the centre-point audit while telling exactly the same story. NO ENTRANCE IS CLAIMED anywhere: no door in this city has been measured, so every point is the centroid or area it actually is, and every door sentence lives in the city file's location.findIt instead. DROPPED FROM EXPLORER: Kongens Nytorv (Q1589941). Its honest story is a king erecting a statue of himself, and everything else on that square — the Royal Theatre, Holberg, the ballet — belongs to buildings that are not the pin. The space it would have taken went to the two museums a child can walk into, which Explorer has no model for. Explorer's Strøget spot survives as its actual target, the Stork Fountain (Q3428616), which is a point rather than a 1.1 km street. NATIONALMUSEET, the one q-id where the building rule needed thinking: the building is Prinsens Palæ (Q3432994) and the institution is Nationalmuseet (Q648166), and their Wikidata coordinates are identical to five decimals, so the institution is not off-site here and there is no two-streets-away risk to avoid. Q648166 is used because OpenStreetMap tags the museum relation with it and Q3432994 has no OSM object at all: same point, but one of them can be cross-checked and the other would ship at C for no gain.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "copenhagen-radhus", "name": "Københavns Rådhus", "wikidata": "Q2010247", "anchor": "centroid",
+      "note": "The building, not Rådhuspladsen (Q2178686). See the centre note above: the square sits 39 m from the city's own Wikidata point and would have been read as a centroid mistake." },
+
+    { "id": "copenhagen-tivoli", "name": "Tivoli", "wikidata": "Q110289", "anchor": "area" },
+    { "id": "copenhagen-glyptoteket", "name": "Ny Carlsberg Glyptotek", "wikidata": "Q1140507", "anchor": "centroid" },
+
+    { "id": "copenhagen-nationalmuseet", "name": "Nationalmuseet", "wikidata": "Q648166", "anchor": "centroid",
+      "note": "Institution item deliberately, and only because it is the same point as the building item Q3432994 (Prinsens Palæ) — see the seed note." },
+
+    { "id": "copenhagen-christiansborg", "name": "Christiansborg Slot", "wikidata": "Q940733", "anchor": "area",
+      "note": "The palace building, not Folketinget the legislature. The Danish description reads 'slot i København, sæde for Folketinget' — the seat, which is the building." },
+
+    { "id": "copenhagen-storkespringvandet", "name": "Storkespringvandet", "wikidata": "Q3428616", "anchor": "centroid",
+      "note": "Explorer's Strøget spot, pinned on what it actually sends a child to look at. Strøget is 1.1 km of street and has no point a pin can honestly sit on; the fountain on Amagertorv does." },
+
+    { "id": "copenhagen-rundetaarn", "name": "Rundetårn", "wikidata": "Q1140534", "anchor": "centroid" },
+    { "id": "copenhagen-rosenborg", "name": "Rosenborg Slot", "wikidata": "Q206101", "anchor": "centroid" },
+    { "id": "copenhagen-botanisk-have", "name": "Botanisk Have", "wikidata": "Q892711", "anchor": "area" },
+    { "id": "copenhagen-torvehallerne", "name": "Torvehallerne", "wikidata": "Q19409991", "anchor": "centroid" },
+    { "id": "copenhagen-nyhavn", "name": "Nyhavn", "wikidata": "Q943946", "anchor": "area" },
+
+    { "id": "copenhagen-amalienborg", "name": "Amalienborg", "wikidata": "Q211053", "anchor": "area",
+      "note": "The four-palace complex, not Amalienborg Slotsplads (Q11957655), which is the square between them and sits 14 m away — two pins for one place, and the palaces are what the story is about." },
+
+    { "id": "copenhagen-kastellet", "name": "Kastellet", "wikidata": "Q221812", "anchor": "area" },
+    { "id": "copenhagen-little-mermaid", "name": "Den lille Havfrue", "wikidata": "Q214619", "anchor": "centroid" },
+
+    { "id": "copenhagen-vor-frelsers-kirke", "name": "Vor Frelsers Kirke", "wikidata": "Q29157", "anchor": "centroid",
+      "note": "Eight Danish churches carry this name. Q29157's description reads 'kirke på Christianshavn, København'; the others are Esbjerg, Vejle, Ålborg, Odense, Horsens, Assens and Nuuk." },
+
+    { "id": "copenhagen-havnebadet", "name": "Havnebadet Islands Brygge", "wikidata": "Q107117790", "anchor": "area" },
+    { "id": "copenhagen-amager-bakke", "name": "Amager Bakke", "wikidata": "Q16002749", "anchor": "centroid" }
+  ]
+}

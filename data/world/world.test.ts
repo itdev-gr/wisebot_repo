@@ -809,12 +809,21 @@ describe('countries overlay', () => {
    * content session and its cards come later, so the merge that brings the city adds its
    * lines here, on purpose, in the same commit that says so.
    *
+   * And it shrinks in one way only: the languages session's cards PR deletes its own lines,
+   * so that PR is green by itself and nobody else opens this file for it.
+   *
    * On 18 Σεπτεμβρίου the gate landed with 24 cards licensed (Berlin, Budapest, Lisbon,
    * Porto, Prague, Vienna × de/es/fr/it), grew by 8 when Nicosia and Dubrovnik arrived
-   * the same evening, and went to zero the same night: Nicosia and Dubrovnik in #112, the
-   * other 24 in #110. Madrid and Venice arrived right after (#114); their cards are below.
+   * the same evening, and went to zero the same night (#112, #110). Madrid and Venice
+   * came and went the same way (#114, #124). The cities below are the current remainder.
    */
-  const KNOWN_ABSENT_CARDS: string[] = [];
+  const KNOWN_ABSENT_CARDS: string[] = [
+    // Copenhagen, Bruges (#113) and Kraków (#118) arrived in el/en from the content
+    // session; their de/es/fr/it cards come from the languages session in its own PR.
+    'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',
+    'fr:bruges', 'fr:copenhagen', 'it:bruges', 'it:copenhagen',
+    'de:krakow', 'es:krakow', 'fr:krakow', 'it:krakow',
+  ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
     const found: Array<{ path: string; node: Record<string, unknown> }> = [];

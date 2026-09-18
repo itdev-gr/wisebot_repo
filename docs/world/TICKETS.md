@@ -568,6 +568,10 @@ Nine cities are about to exist and nobody can say which are Silver and which are
 
 ### geo-low-accuracy-copy — When GPS accuracy is bad, say "You are close, look around for…" instead of "you are not there"
 
+**DONE 18/9 (#122, by the roadmap session).** `geoVerdict` in `utils/geo.ts` with
+`utils/geo.test.ts` (the desktop-IP case returns `'far'`), and a `'close'` state with its two
+strings in `PlaceCard.tsx`. `isWithin` is unchanged.
+
 **P1** · owner **engine** · brief §8, decisions row §8 (the one change named P1)
 
 A child standing in a narrow street or a courtyard gets a 60–150 m accuracy fix and is told "You are 180 m away, about 3 minutes on foot" while the place is in front of them. They walk away from it. The honest sentence is that the phone is unsure, not that the child is wrong.

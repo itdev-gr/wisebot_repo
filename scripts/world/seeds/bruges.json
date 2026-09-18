@@ -1,0 +1,46 @@
+{
+  "city": "bruges",
+  "country": "belgium",
+  "centre": { "lat": 51.20891, "lng": 3.22527 },
+  "note": "Wikidata q-ids only, searched in Dutch and confirmed against the item description. Seventeen places, converted from the Explorer product's ten spots plus five added here. CENTRE: this is Wikidata's point for the Historic Centre of Brugge (Q5762117), the UNESCO old town, and deliberately NOT the point for the city itself (Q12994). The city's own coordinate sits 47 m from the Markt, so using it made the audit report the Markt as a centroid mistake — a false positive, because the Markt has its own distinct coordinate and is exactly where it should be. Same fix as Vienna: correct the reference point, not the place. SPLITS: Explorer's spot 'markt' covered both the square and the bell tower and is split here into bruges-markt and bruges-belfort (82 m apart, two separate Wikidata items, two separate stories). Explorer's spot 'burg' covered the square, the town hall and the Basilica of the Holy Blood and is split into bruges-stadhuis and bruges-heilig-bloed; the square itself is not a third place, because its two buildings are what a child actually looks at. No Explorer spot was dropped. ADDED: Gruuthuse, the Groeningemuseum, the Sint-Janshospitaal, the Sint-Sebastiaansgilde and the Koningin Astridpark — the first three because the module needs at least two museums a child can go inside and Explorer offers none, the fourth because it is the only sport in this city with a real story, the fifth for a second green place. BUILDINGS, NOT INSTITUTIONS: bruges-gruuthuse is Q104922827, the Huis van de Heren van Gruuthuse, and not Q1108949, which is the Gruuthusemuseum as an organisation. REJECTED FOR A BAD COORDINATE: the Kruispoort (Q2185810) carries 51.2125,3.24 — rounded to whole arcminutes, about 210 m from the gate — so the gate is told inside the windmill's story instead of being pinned. adjacentPairs holds two genuine neighbours; both are declared rather than allowed to pass silently.",
+  "adjacentPairs": [
+    ["bruges-stadhuis", "bruges-heilig-bloed"],
+    ["bruges-gruuthuse", "bruges-bonifaciusbrug"]
+  ],
+  "places": [
+    { "id": "bruges-markt", "name": "Markt", "wikidata": "Q1108938", "anchor": "area" },
+    { "id": "bruges-belfort", "name": "Belfort van Brugge", "wikidata": "Q2441211", "anchor": "centroid" },
+
+    { "id": "bruges-stadhuis", "name": "Stadhuis van Brugge", "wikidata": "Q905848", "anchor": "centroid",
+      "note": "Declared adjacent to the basilica below: the two stand on the same corner of the Burg and share a wall, so their points are about 30 m apart. That is a real adjacency, not a duplicated pin." },
+
+    { "id": "bruges-heilig-bloed", "name": "Basiliek van het Heilig Bloed", "wikidata": "Q522604", "anchor": "centroid",
+      "note": "Wikidata's Dutch label on this item is 'Museum van het Heilig Bloed', which reads like the institution, but the item's English description is 'church in Bruges, Belgium', its P31 is minor basilica, and the Dutch Wikipedia article 'Basiliek van het Heilig Bloed' links to it. It is the building." },
+
+    { "id": "bruges-vismarkt", "name": "Vismarkt", "wikidata": "Q2290519", "anchor": "area" },
+    { "id": "bruges-rozenhoedkaai", "name": "Rozenhoedkaai", "wikidata": "Q2670532", "anchor": "area" },
+
+    { "id": "bruges-bonifaciusbrug", "name": "Bonifaciusbrug", "wikidata": "Q116243339", "anchor": "centroid",
+      "note": "Declared adjacent to Gruuthuse: the bridge crosses the canal at the foot of the palace, about 27 m from the house's point." },
+
+    { "id": "bruges-onze-lieve-vrouwekerk", "name": "Onze-Lieve-Vrouwekerk", "wikidata": "Q917183", "anchor": "centroid" },
+
+    { "id": "bruges-gruuthuse", "name": "Huis van de Heren van Gruuthuse", "wikidata": "Q104922827", "anchor": "centroid",
+      "note": "The BUILDING (Q104922827, 'museumbuilding in Belgium'), not the Gruuthusemuseum (Q1108949), which Wikidata records as a museum organisation. The two items carry different coordinates." },
+
+    { "id": "bruges-groeningemuseum", "name": "Groeningemuseum", "wikidata": "Q1948674", "anchor": "centroid" },
+    { "id": "bruges-sint-janshospitaal", "name": "Sint-Janshospitaal", "wikidata": "Q2432540", "anchor": "centroid" },
+
+    { "id": "bruges-begijnhof", "name": "Begijnhofbrug, gate of Ten Wijngaerde", "wikidata": "Q101248776", "anchor": "centroid",
+      "note": "Re-seeded, and this is the one choice in this city a reader should question. The beguinage itself is Q2528092, but its P625 is 51.2,3.216667 — rounded to whole arcminutes, which puts it roughly 500 m west of the courtyard, on the far side of the ring canal. An 'area' anchor tolerates 500 m, so that pin would have graded rather than failed while sending a child to the wrong side of town. Q101248776 is the Begijnhofbrug, the bridge and gate a visitor crosses to get in, about 20 m from the door. Same move as Athens replacing the Lycabettus hill with the chapel on its summit: pin the thing a child actually stands at." },
+
+    { "id": "bruges-minnewater", "name": "Minnewater", "wikidata": "Q2134080", "anchor": "area" },
+    { "id": "bruges-jan-van-eyckplein", "name": "Jan van Eyckplein", "wikidata": "Q2519486", "anchor": "area" },
+    { "id": "bruges-sint-janshuismolen", "name": "Sint-Janshuismolen", "wikidata": "Q2789120", "anchor": "centroid" },
+
+    { "id": "bruges-sint-sebastiaansgilde", "name": "Sint-Sebastiaansgilde Brugge", "wikidata": "Q3101274", "anchor": "centroid",
+      "note": "The item carries no description, which is why it needs one here: P625 puts it on Carmersstraat inside the Bruges ramparts, 110 m from the Sint-Janshuismolen, and its P31 is museum — it is the archers' guild house and its museum, not the guild as a legal body." },
+
+    { "id": "bruges-astridpark", "name": "Koningin Astridpark", "wikidata": "Q2401741", "anchor": "area" }
+  ]
+}

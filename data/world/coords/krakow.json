@@ -1,0 +1,505 @@
+{
+  "city": "krakow",
+  "resolvedAt": "2026-09-14T05:27:42.778Z",
+  "centre": {
+    "lat": 50.0666,
+    "lng": 19.9401
+  },
+  "places": [
+    {
+      "id": "krakow-barbakan",
+      "name": "Barbakan",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q807309",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/13562708",
+          "deltaM": 8
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 50.06553,
+      "lng": 19.94166,
+      "labels": {
+        "en": "Kraków Barbican",
+        "de": "Barbakan (Krakau)",
+        "fr": "barbacane de Cracovie",
+        "es": "Barbacana de Cracovia",
+        "it": "Barbacane di Cracovia",
+        "el": "Παρατηρητήριο της Κρακοβίας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-brama-florianska",
+      "name": "Brama Floriańska",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1363724",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 50.06472,
+      "lng": 19.94139,
+      "labels": {
+        "de": "Florianstor",
+        "en": "St. Florian's Gate",
+        "it": "Porta di San Floriano",
+        "es": "Puerta de San Florián",
+        "el": "Πύλη του Αγίου Φλοριανού",
+        "fr": "porte Florian"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-sukiennice",
+      "name": "Sukiennice",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1072350",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 50.06168,
+      "lng": 19.93738,
+      "labels": {
+        "de": "Krakauer Tuchhallen",
+        "fr": "Sukiennice",
+        "en": "Sukiennice",
+        "es": "Sukiennice",
+        "it": "Mercato dei Tessuti",
+        "el": "Σουκιενίτσε"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-kosciol-mariacki",
+      "name": "Kościół Mariacki",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1143171",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/26195267",
+          "deltaM": 20
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Church of the Assumption of the Blessed Virgin Mary, Kraków",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 50.06167,
+      "lng": 19.93917,
+      "labels": {
+        "fr": "basilique Sainte-Marie de Cracovie",
+        "es": "basílica de Santa María",
+        "en": "St. Mary's Basilica in Kraków",
+        "it": "basilica di Santa Maria",
+        "de": "Marienkirche",
+        "el": "Ναός της Κοιμήσεως της Θεοτόκου στη Κρακοβία"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-wieza-ratuszowa",
+      "name": "Wieża ratuszowa",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1786361",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Town Hall Tower",
+          "deltaM": 6
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 50.06147,
+      "lng": 19.93647,
+      "labels": {
+        "en": "Town Hall Tower",
+        "de": "Rathausturm (Krakau)",
+        "fr": "tour de l'Hôtel de Ville",
+        "es": "Torre del Ayuntamiento de Cracovia",
+        "it": "Torre del Municipio",
+        "el": "Πύργος του Δημαρχείου (Κρακοβία)"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-collegium-maius",
+      "name": "Collegium Maius",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q919596",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Collegium Maius, Kraków",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 50.06174,
+      "lng": 19.93376,
+      "labels": {
+        "de": "Collegium Maius",
+        "en": "Collegium Maius",
+        "fr": "Collegium Maius",
+        "es": "Collegium Maius",
+        "it": "Collegium Maius",
+        "el": "Collegium Maius"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-kosciol-piotra-pawla",
+      "name": "Kościół św. Piotra i Pawła",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q338657",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Church of Saints Apostles Peter and Paul, Kraków",
+          "deltaM": 9
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 50.05694,
+      "lng": 19.93889,
+      "labels": {
+        "de": "St.-Peter-und-Paul-Kirche",
+        "en": "Saints Peter and Paul Church",
+        "fr": "église Saints-Pierre-et-Paul de Cracovie",
+        "es": "iglesia de San Pedro y San Pablo",
+        "it": "chiesa dei Santi Pietro e Paolo",
+        "el": "Εκκλησία των Αγίων Πέτρου και Παύλου στην Κρακοβία"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-wawel-zamek",
+      "name": "Zamek Królewski na Wawelu",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q18820",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/785550415",
+          "deltaM": 88
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Wawel Castle",
+          "deltaM": 146
+        }
+      ],
+      "warnings": [],
+      "lat": 50.0544,
+      "lng": 19.9366,
+      "labels": {
+        "fr": "château du Wawel",
+        "en": "Wawel Castle",
+        "es": "Castillo de Wawel",
+        "de": "Schloss Wawel",
+        "it": "castello del Wawel",
+        "el": "Κάστρο Βάβελ"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-katedra-wawelska",
+      "name": "Katedra na Wawelu",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q638519",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Wawel Cathedral",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 50.05464,
+      "lng": 19.93542,
+      "labels": {
+        "fr": "cathédrale du Wawel",
+        "es": "Catedral de Wawel",
+        "it": "cattedrale del Wawel",
+        "de": "Wawel-Kathedrale",
+        "el": "Καθεδρικός Ναός της Κρακοβίας",
+        "en": "Wawel Cathedral"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-smocza-jama",
+      "name": "Smocza Jama",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q836876",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Smocza Jama",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 50.05306,
+      "lng": 19.93333,
+      "labels": {
+        "fr": "Smocza Jama",
+        "es": "Smocza Jama (Cracovia)",
+        "en": "Smocza Jama",
+        "de": "Smocza Jama",
+        "el": "Άνδρο του Δράκου (Βάβελ)"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-kladka-bernatka",
+      "name": "Kładka Ojca Bernatka",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q11752074",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/242682567",
+          "deltaM": 10
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 50.0465,
+      "lng": 19.9476,
+      "labels": {
+        "en": "Father Bernatek bridge",
+        "de": "Pater Bernatek Brücke"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-stara-synagoga",
+      "name": "Synagoga Stara",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3502453",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Old Synagogue (Kraków)",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 50.05139,
+      "lng": 19.94857,
+      "labels": {
+        "en": "Old Synagogue in Kraków",
+        "it": "Vecchia Sinagoga",
+        "de": "Alte Synagoge",
+        "fr": "ancienne synagogue",
+        "el": "Παλιά Συναγωγή της Κρακοβίας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-muzeum-czartoryskich",
+      "name": "Muzeum Książąt Czartoryskich",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1450630",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Czartoryski Museum",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 50.06464,
+      "lng": 19.93997,
+      "labels": {
+        "de": "Czartoryski-Museum",
+        "en": "Czartoryski Museum",
+        "es": "Museo Czartoryski",
+        "fr": "musée Czartoryski",
+        "it": "Museo Czartoryski",
+        "el": "Μουσείο Τσαρτορίσκι"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-kopiec-kosciuszki",
+      "name": "Kopiec Kościuszki",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q641398",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Kościuszko's Mound",
+          "deltaM": 354
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.0549,
+      "lng": 19.89328,
+      "labels": {
+        "en": "Kościuszko Mound",
+        "de": "Kościuszko-Hügel",
+        "es": "montículo de Kościuszko",
+        "fr": "Kopiec Kościuszki",
+        "el": "Λόφος του Κοστσιούσκο"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-rynek-kleparski",
+      "name": "Rynek Kleparski",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q9324454",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 50.0675,
+      "lng": 19.9411,
+      "labels": {
+        "en": "Market Square in Kleparz, Kraków"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "krakow-stadion-cracovii",
+      "name": "Stadion Cracovii",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q738643",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Józef Piłsudski Cracovia Stadium",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 50.05806,
+      "lng": 19.91972,
+      "labels": {
+        "it": "Stadion Cracovii",
+        "de": "Cracovia-Stadion",
+        "en": "Marshal Józef Piłsudski Stadium",
+        "fr": "stade Józef-Piłsudski",
+        "es": "Estadio Mariscal Józef Piłsudski",
+        "el": "Στάδιο Κρακοβίας «Στρατάρχης Γιούσεφ Πιουσούτσκι»"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    }
+  ],
+  "problems": []
+}

@@ -159,8 +159,8 @@ export const places: Place[] = [
         'σε αυτή την εκκλησία. Σχεδόν όλοι κάθισαν στην ίδια ξύλινη καρέκλα, την Καρέκλα ' +
         'της Στέψης, που την παρήγγειλε ο βασιλιάς Εδουάρδος Α΄ το 1296. Είναι γεμάτη ' +
         'χαραγμένα ονόματα: τον 18ο και 19ο αιώνα μαθητές του διπλανού σχολείου σκάλιζαν ' +
-        'πάνω της κρυφά. Το κτίριο που βλέπεις το ξεκίνησε ο Ερρίκος Γ΄ πριν από 750 ' +
-        'χρόνια, με μυτερές καμάρες και ψηλά παράθυρα φτιαγμένα για να σηκώνουν το βλέμμα ' +
+        'πάνω της κρυφά. Το κτίριο που βλέπεις το ξεκίνησε ο Ερρίκος Γ΄ το 1245, ' +
+        'με μυτερές καμάρες και ψηλά παράθυρα φτιαγμένα για να σηκώνουν το βλέμμα ' +
         'σου προς τα πάνω. Το αβαείο είναι όμως και τόπος ανάπαυσης. Σε μια γωνιά ' +
         'βρίσκονται ποιητές και συγγραφείς, και κοντά τους ο Ισαάκ Νεύτων, που εξήγησε ' +
         'γιατί πέφτουν τα μήλα, ο Κάρολος Δαρβίνος, που εξήγησε πώς αλλάζουν τα ζώα, και ' +
@@ -173,7 +173,7 @@ export const places: Place[] = [
         'all of them sat on the same wooden seat, the Coronation Chair, which King Edward I ' +
         'ordered in 1296. It is covered in carved names: in the 1700s and 1800s pupils from ' +
         'the school next door scratched their names into it when nobody was looking. The ' +
-        'building you see was begun by Henry III 750 years ago, with pointed arches and ' +
+        'building you see was begun by Henry III in 1245, with pointed arches and ' +
         'tall windows made to pull your eyes upwards. But the abbey is also a resting ' +
         'place. In one corner lie poets and writers, and near them Isaac Newton, who ' +
         'explained why apples fall, Charles Darwin, who explained how animals change, and ' +
