@@ -403,9 +403,11 @@ ticket was to follow is its own ticket, `i18n-countries-gate`, and it is what wo
 caught the six. It landed the same day and did: the 24 missing cards are listed in its
 `KNOWN_ABSENT_CARDS`, and each one that gets translated must leave that list at merge.
 
-**Fully DONE 18/9 night (#110).** All 32 cards — the six above plus Nicosia and Dubrovnik,
-which arrived the same evening — are translated in de/es/fr/it, and `KNOWN_ABSENT_CARDS` is
-empty. Every country and every city card on all four front doors is now in its language.
+**Fully DONE 18/9 night (#110, #112).** All 32 cards — the six above plus Nicosia and
+Dubrovnik, which arrived the same evening — are translated in de/es/fr/it, and
+`KNOWN_ABSENT_CARDS` went to empty. Every country and every city card on all four front
+doors was then in its language. New cities (Madrid and Venice, #114) arrive with their cards
+licensed in that list until the languages session writes them.
 
 **P0** · owner **i18n** · brief §21 (P0 — Languages), decisions row §21 ('six live'); STATUS.md §0α item 3 · after `i18n-countries-gate`
 
@@ -1132,6 +1134,10 @@ Every privacy promise in this cluster is currently true and every one of them is
 **Risk.** The decisions table marks §28-29 as already honoured, and it is right — this ticket must not be read as a claim that privacy is broken, or someone will 'fix' working code. It adds a guard, nothing else. A separate new file avoids competing with content sessions appending cities to world.test.ts, which is the shared-file collision this repo has already had twice (STATUS.md:41-45). The app-wide items in the notes are deliberately NOT in scope here.
 
 ### seo-faq-block — FAQ block + FAQPage JSON-LD on World city and place pages
+
+**DONE 18/9 (#117, by the roadmap session).** `faqForCity` / `faqForPlace` in
+`data/world/seo.ts`, FAQ invariants in `world.test.ts`, and a `<dl>` plus FAQPage JSON-LD
+in the prerendered pages from `generate-world-seo.mjs`.
 
 **P1** · owner **engine** · brief §39, decisions row §39 ("FAQ και «family information» blocks: P1")
 

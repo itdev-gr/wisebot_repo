@@ -125,4 +125,57 @@ export const cities: City[] = [
       bounds: { north: 41.925, south: 41.878, east: 12.508, west: 12.446 },
     },
   },
+  {
+    id: 'venice',
+    countryId: 'italy',
+    order: 2,
+    emoji: '🛶',
+
+    name: {
+      el: 'Βενετία',
+      en: 'Venice',
+    },
+
+    intro: {
+      el:
+        'Η Βενετία είναι μια πόλη χτισμένη πάνω στο νερό, σε πάνω από εκατό μικρά νησιά ' +
+        'μέσα σε μια λιμνοθάλασσα. Δεν έχει ούτε ένα αυτοκίνητο: οι δρόμοι της είναι ' +
+        'κανάλια, τα λεωφορεία της είναι βάρκες, και για να πας από τη μια γειτονιά στην ' +
+        'άλλη ανεβοκατεβαίνεις εκατοντάδες γέφυρες. Για χίλια χρόνια ήταν μια δημοκρατία ' +
+        'εμπόρων, με έναν Δόγη αντί για βασιλιά και ένα φτερωτό λιοντάρι για σύμβολο. Εδώ ' +
+        'θα βρεις μια χρυσή εκκλησία, γόνδολες που είναι στραβές επίτηδες και ένα νησί όπου ' +
+        'το γυαλί φουσκώνει σαν μπαλόνι.',
+      en:
+        'Venice is a city built on the water, on more than a hundred small islands in a ' +
+        'lagoon. It does not have a single car: its streets are canals, its buses are boats, ' +
+        'and to get from one neighbourhood to the next you go up and down hundreds of ' +
+        'bridges. For a thousand years it was a republic of merchants, with a Doge instead of ' +
+        'a king and a winged lion as its symbol. Here you will find a golden church, gondolas ' +
+        'that are crooked on purpose and an island where glass swells like a balloon.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/venice.json`, which takes it from Wikidata's own
+     * point for the city (Q641). The resolver audits every place against this exact point
+     * and found nothing on it.
+     */
+    centre: { lat: 45.439722, lng: 12.331944 },
+
+    map: {
+      src: '/images/world/maps/venice.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Βενετίας, με τη λιμνοθάλασσα, το Μεγάλο Κανάλι σε σχήμα S, την Τζουντέκα στο νότο και το Μουράνο στον βορρά.',
+        en: 'A stylised map of Venice, with the lagoon, the S of the Grand Canal, the Giudecca to the south and Murano to the north.',
+      },
+      width: 1000,
+      height: 1083,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the sixteen places in `cities/venice.ts` falls inside
+       * them, with the Glass Museum on Murano at the top right, the gondola yard on the
+       * left and San Giorgio on its island at the bottom.
+       */
+      bounds: { north: 45.4605, south: 45.4255, east: 12.364, west: 12.318 },
+    },
+  },
 ];
