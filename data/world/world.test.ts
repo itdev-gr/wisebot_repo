@@ -815,8 +815,6 @@ describe('countries overlay', () => {
    * other 24 in #110. Madrid and Venice arrived right after (#114); their cards are below.
    */
   const KNOWN_ABSENT_CARDS: string[] = [
-    'de:madrid', 'de:venice', 'es:madrid', 'es:venice',
-    'fr:madrid', 'fr:venice', 'it:madrid', 'it:venice',
     // Copenhagen and Bruges arrive in el/en from the content session (#113); their
     // de/es/fr/it cards come from the languages session in its own PR.
     'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',

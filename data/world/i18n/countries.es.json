@@ -61,6 +61,10 @@
         "barcelona": {
           "name": "Barcelona",
           "intro": "Barcelona es una ciudad entre colinas y mar, donde un arquitecto soñó casas que parecen dragones y una iglesia que se lleva construyendo 144 años y acaba de convertirse en la más alta del mundo. Las calles del casco antiguo son estrechas y de piedra, las de la ciudad nueva están trazadas con regla, y un paseo largo de plátanos de sombra las une con el puerto. Aquí se hablan dos lenguas, el catalán y el castellano; se baila en círculo delante de la catedral, y los aficionados al fútbol lo celebran en una fuente."
+        },
+        "madrid": {
+          "name": "Madrid",
+          "intro": "Madrid es la capital de España y está casi en el centro del país, tanto que todas las carreteras principales se miden desde una placa en una de sus plazas. Aquí encontrarás un palacio con tres mil habitaciones, un museo lleno de cuadros que te devuelven la mirada, un templo egipcio de verdad en un parque y el primer esqueleto montado de un animal extinguido. En Madrid se cena tarde, se comparten platos pequeños con los amigos y se rema en barca en un lago en mitad de la ciudad."
         }
       }
     },
@@ -77,6 +81,10 @@
         "rome": {
           "name": "Roma",
           "intro": "Roma es una ciudad construida encima de sí misma, capa sobre capa. Debajo de una plaza llena de fuentes se esconde un estadio, dentro de unas termas cabe una iglesia, y la tumba de un emperador se convirtió en un castillo con un ángel en lo alto. El agua de las fuentes llega por acueductos de dos mil años, y en medio de la ciudad hay otro país entero, el más pequeño del mundo. Caves donde caves, encuentras algo; te pongas donde te pongas, alguien estuvo ahí hace dos mil años."
+        },
+        "venice": {
+          "name": "Venecia",
+          "intro": "Venecia es una ciudad construida sobre el agua, en más de cien islitas dentro de una laguna. No tiene ni un solo coche: sus calles son canales, sus autobuses son barcas, y para ir de un barrio a otro subes y bajas cientos de puentes. Durante mil años fue una república de mercaderes, con un dux en lugar de un rey y un león alado como símbolo. Aquí encontrarás una iglesia dorada, góndolas torcidas a propósito y una isla donde el vidrio se hincha como un globo."
         }
       }
     },

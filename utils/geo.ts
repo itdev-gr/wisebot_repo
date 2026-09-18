@@ -34,6 +34,32 @@ export function isWithin(here: GeoPoint, accuracyM: number, spot: GeoPoint, radi
 }
 
 /**
+ * What to tell the child after «Είμαι εδώ!».
+ *
+ *   here   — exactly `isWithin`'s rule, so the gate has not moved: nothing that was «far»
+ *            opens a question or a stamp now.
+ *   close  — the fix is poor (worse than the 40 m forgiven above), the place lies inside
+ *            its error circle, and the raw distance is still one the child could see
+ *            across (radius + 150 m). A child in a narrow street or a courtyard gets
+ *            «you are very close, look around» instead of «180 m away, walk».
+ *   far    — everything else, including a desktop browser geolocating by IP: 5 km out
+ *            with a 20 km error is inside the error circle but nowhere near the place.
+ *
+ * Pure on purpose: the rule is unit-tested without a browser. `isWithin` stays as it is —
+ * the live Explorer calls it.
+ */
+export type GeoVerdict = 'here' | 'close' | 'far';
+
+export const CLOSE_EXTRA_M = 150;
+
+export function geoVerdict(distanceM: number, accuracyM: number, radiusM: number): GeoVerdict {
+  const accuracy = Number.isFinite(accuracyM) ? Math.max(accuracyM, 0) : 0;
+  if (distanceM - Math.min(accuracy, 40) <= radiusM) return 'here';
+  if (accuracy > 40 && distanceM - accuracy <= radiusM && distanceM <= radiusM + CLOSE_EXTRA_M) return 'close';
+  return 'far';
+}
+
+/**
  * How close to one of a country's cities counts as being in the country.
  *
  * A country is not a circle, so this is deliberately generous: 150 km around any city we

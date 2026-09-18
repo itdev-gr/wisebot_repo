@@ -61,6 +61,10 @@
         "barcelona": {
           "name": "Barcelone",
           "intro": "Barcelone est une ville entre les collines et la mer, où un architecte rêvait de maisons en forme de dragons et d’une église en construction depuis 144 ans, qui vient de devenir la plus haute du monde. Les rues de la vieille ville sont étroites et pavées de pierre, celles de la ville neuve sont tracées à la règle, et une longue promenade bordée de platanes les relie au port. Ici, on parle deux langues, le catalan et l’espagnol, on danse en rond devant la cathédrale, et les supporters de football font la fête autour d’une fontaine."
+        },
+        "madrid": {
+          "name": "Madrid",
+          "intro": "Madrid est la capitale de l’Espagne et se trouve presque au centre du pays, à tel point que toutes les grandes routes se mesurent à partir d’une plaque posée sur l’une de ses places. Tu y trouveras un palais de trois mille pièces, un musée rempli de tableaux qui te regardent en retour, un vrai temple égyptien dans un parc et le premier squelette d’un animal disparu jamais monté. À Madrid, on dîne tard le soir, on partage de petites assiettes entre amis et on fait du bateau sur un lac au milieu de la ville."
         }
       }
     },
@@ -77,6 +81,10 @@
         "rome": {
           "name": "Rome",
           "intro": "Rome est une ville construite par-dessus elle-même, couche après couche. Sous une place pleine de fontaines se cache un stade, dans d’anciens thermes tient une église entière, et le tombeau d’un empereur est devenu un château avec un ange au sommet. L’eau des fontaines arrive par des aqueducs de deux mille ans, et au milieu de la ville il y a tout un autre pays, le plus petit du monde. Creuse n’importe où et tu trouves quelque chose ; tiens-toi n’importe où et quelqu’un s’y est tenu il y a deux mille ans."
+        },
+        "venice": {
+          "name": "Venise",
+          "intro": "Venise est une ville bâtie sur l’eau, sur plus d’une centaine de petites îles dans une lagune. Elle n’a pas une seule voiture : ses rues sont des canaux, ses bus sont des bateaux, et pour aller d’un quartier à l’autre, tu montes et tu descends des centaines de ponts. Pendant mille ans, elle a été une république de marchands, avec un doge au lieu d’un roi et un lion ailé pour emblème. Tu y trouveras une église dorée, des gondoles tordues exprès et une île où le verre gonfle comme un ballon."
         }
       }
     },
