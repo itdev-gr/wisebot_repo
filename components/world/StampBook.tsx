@@ -37,10 +37,15 @@
  * pronounce the page in the language it is actually written in.
  */
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowLeft, Award, Building2, Globe, Loader2, MapPin, Share2 } from 'lucide-react';
+import { ArrowLeft, Award, BarChart3, Building2, Globe, Loader2, MapPin, Share2 } from 'lucide-react';
 import { PassportStamp } from './PassportStamp';
+import PassportStatsPage, { T as STATS_T } from './PassportStatsPage';
+import { computePassportStats } from './passportStats';
+import { readWorldProgress, today } from './worldProgressStore';
+import type { WorldProgress } from './worldProgressStore';
+import { PLACE_COUNTS } from '../../data/world/registry';
 import { WORLD_STYLE, say, ui } from './worldUi';
 import type { City, CityId, Country, CountryId, WorldLang } from '../../data/world/types';
 import { useAuth } from '../../context/AuthContext';
@@ -60,6 +65,12 @@ export interface StampBookProps {
   /** Used to name the sealed cities under each stamp. */
   citiesOf: (countryId: CountryId) => City[];
   placesStamped: number;
+  /**
+   * The whole passport, for the statistics page — the per-stamp `onSite` and `correct`
+   * flags are not in the props above. Optional: a caller that does not pass it gets the
+   * same object read straight from storage, read-only, the moment the page is opened.
+   */
+  progress?: WorldProgress;
   onBack: () => void;
 }
 
@@ -438,12 +449,65 @@ const StampBook: React.FC<StampBookProps> = ({
   countriesDone,
   citiesOf,
   placesStamped,
+  progress,
   onBack,
 }) => {
   // Every list arriving as a prop is guarded: World loads content dynamically, and a
   // country whose module has not landed yet is a real state, not a hypothetical one.
   const all = useMemo(() => (Array.isArray(countries) ? countries : []), [countries]);
   const reduced = useReducedMotion();
+
+  /**
+   * The book, or its statistics page. The page is a sibling screen inside this route
+   * rather than a route of its own, so `World.tsx` — another session's file — is not
+   * touched; BACK in the sticky bar returns to the book first and to World second.
+   */
+  const [view, setView] = useState<'book' | 'stats'>('book');
+
+  const cities = useMemo(
+    () =>
+      all.flatMap((country) => {
+        const list = typeof citiesOf === 'function' ? citiesOf(country.id) : [];
+        return Array.isArray(list) ? list : [];
+      }),
+    [all, citiesOf],
+  );
+
+  /**
+   * The statistics are counted only when the page is open, from the passport the caller
+   * handed in or — when it did not — from storage, read once and read only. Decision 2
+   * at the top of this file holds: nothing is written, nothing is awarded, and the read
+   * happens in render rather than in an effect, so StrictMode cannot run it twice with
+   * different results.
+   */
+  const stats = useMemo(() => {
+    if (view !== 'stats') return null;
+    const passport = progress ?? readWorldProgress();
+    return computePassportStats(passport, cities, PLACE_COUNTS, today());
+  }, [view, progress, cities]);
+
+  /**
+   * Switching page starts the reader at the top of it. The Layout scrolls its own
+   * `overflow-y-auto` pane, not the window, so this asks the book's root to come into
+   * view and lets the browser find whichever ancestor actually scrolls. Done in the
+   * click handler, never in an effect.
+   */
+  const rootRef = useRef<HTMLDivElement>(null);
+  const toTop = () => {
+    try {
+      rootRef.current?.scrollIntoView({ block: 'start' });
+    } catch {
+      /* a scroller that is not there — a test, a prerender — is not worth a crash */
+    }
+  };
+  const openStats = () => {
+    setView('stats');
+    toTop();
+  };
+  const closeStats = () => {
+    setView('book');
+    toTop();
+  };
 
   const sealedCityIds = useMemo(
     () => new Set<CityId>(Array.isArray(citiesDone) ? citiesDone : []),
@@ -531,12 +595,12 @@ const StampBook: React.FC<StampBookProps> = ({
     // `lang` is not decoration: World's language is chosen independently of the app's,
     // so without it Greek text can sit under `<html lang="en">` and CSS uppercasing
     // keeps the tonos. See the note at the top of this file.
-    <div lang={lang} className="mx-auto w-full max-w-3xl px-4 pb-32 pt-3">
+    <div ref={rootRef} lang={lang} className="mx-auto w-full max-w-3xl px-4 pb-32 pt-3">
       {/* ── BACK, always visible ── */}
       <div className="sticky top-0 z-30 -mx-4 mb-5 border-b border-white/[0.08] bg-black/60 px-4 py-3 backdrop-blur-xl">
         <button
           type="button"
-          onClick={onBack}
+          onClick={view === 'stats' ? closeStats : onBack}
           className={`inline-flex min-h-[44px] items-center gap-2 ${WORLD_STYLE.ghost}`}
         >
           <ArrowLeft size={18} aria-hidden />
@@ -544,157 +608,181 @@ const StampBook: React.FC<StampBookProps> = ({
         </button>
       </div>
 
-      {/* ── COVER ── */}
-      <motion.section
-        initial={{ opacity: 0, y: reduced ? 0 : 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: reduced ? 0 : 0.4 }}
-        className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.07] to-transparent p-5 text-center sm:p-8"
-      >
-        <div
-          className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 opacity-20 blur-3xl"
-          aria-hidden
-        />
+      {/* ── STATISTICS ── the sibling page. The book below is simply not drawn while
+          it is open; nothing is unmounted that holds state worth keeping. */}
+      {view === 'stats' && stats && (
+        <PassportStatsPage lang={lang} stats={stats} countries={all} cities={cities} />
+      )}
 
-        <p className={WORLD_STYLE.label}>{ui(T.kicker, lang)}</p>
-
-        <div className="mx-auto mt-4 flex h-20 w-20 items-center justify-center rounded-[1.5rem] border-2 border-white/20 bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl">
-          <Globe size={38} className="text-white" aria-hidden />
-        </div>
-
-        <h1 className={`${WORLD_STYLE.display} mt-4 text-3xl uppercase sm:text-4xl`}>
-          {ui(S.title, lang)}
-        </h1>
-        <p className="mt-2 text-sm font-bold italic text-white/50">{ui(S.subtitle, lang)}</p>
-
-        <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
-          <Total
-            icon={<Globe size={16} aria-hidden />}
-            value={stamped.length}
-            label={ui(T.countries, lang)}
-          />
-          <Total
-            icon={<Building2 size={16} aria-hidden />}
-            value={sealedCityIds.size}
-            label={ui(T.cities, lang)}
-          />
-          <Total
-            icon={<MapPin size={16} aria-hidden />}
-            value={placesCount}
-            label={ui(T.places, lang)}
-          />
-        </div>
-
-        <p className="mt-3 text-[11px] font-bold leading-relaxed text-white/40">
-          {ui(S.totals, lang)}
-        </p>
-
-        {sealedCountryCount > 0 && (
-          <p className="mt-2 text-[11px] font-bold leading-relaxed text-emerald-300/80">
-            {ui(S.countriesSealed, lang)(sealedCountryCount)}
-          </p>
-        )}
-
-        {/* ── SHARE ── the card that travels to the parents' group chat. */}
-        <div className="mt-6">
-          <button
-            type="button"
-            onClick={onShare}
-            disabled={share === 'busy'}
-            className={`${WORLD_STYLE.cta} inline-flex min-h-[48px] items-center justify-center gap-2 px-6 text-sm disabled:opacity-70`}
+      {view === 'book' && (
+        <>
+          {/* ── COVER ── */}
+          <motion.section
+            initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: reduced ? 0 : 0.4 }}
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/[0.07] to-transparent p-5 text-center sm:p-8"
           >
-            {share === 'busy' ? (
-              <Loader2 size={16} className="animate-spin" aria-hidden />
-            ) : (
-              <Share2 size={16} aria-hidden />
-            )}
-            {ui(share === 'busy' ? T.sharing : T.share, lang)}
-          </button>
-          {share !== 'idle' && share !== 'busy' && (
-            <p className="mt-2 text-[12px] font-bold leading-relaxed text-white/60" aria-live="polite">
-              {ui(S[share], lang)}
-            </p>
-          )}
-        </div>
-      </motion.section>
-
-      {/* ── THE PAGES ── */}
-      <section className="mt-8">
-        <h2 className={`${WORLD_STYLE.label} mb-3 block`}>{ui(T.pages, lang)}</h2>
-
-        {pages.length === 0 ? (
-          <div className={`${WORLD_STYLE.card} px-5 py-10 text-center`}>
             <div
-              className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-white/15"
+              className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 opacity-20 blur-3xl"
               aria-hidden
-            >
-              <Globe size={26} className="text-white/20" />
+            />
+
+            <p className={WORLD_STYLE.label}>{ui(T.kicker, lang)}</p>
+
+            <div className="mx-auto mt-4 flex h-20 w-20 items-center justify-center rounded-[1.5rem] border-2 border-white/20 bg-gradient-to-br from-blue-600 to-purple-600 shadow-2xl">
+              <Globe size={38} className="text-white" aria-hidden />
             </div>
-            <p className="mx-auto max-w-sm text-sm font-bold italic leading-relaxed text-white/50">
-              {ui(S.empty, lang)}
+
+            <h1 className={`${WORLD_STYLE.display} mt-4 text-3xl uppercase sm:text-4xl`}>
+              {ui(S.title, lang)}
+            </h1>
+            <p className="mt-2 text-sm font-bold italic text-white/50">{ui(S.subtitle, lang)}</p>
+
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+              <Total
+                icon={<Globe size={16} aria-hidden />}
+                value={stamped.length}
+                label={ui(T.countries, lang)}
+              />
+              <Total
+                icon={<Building2 size={16} aria-hidden />}
+                value={sealedCityIds.size}
+                label={ui(T.cities, lang)}
+              />
+              <Total
+                icon={<MapPin size={16} aria-hidden />}
+                value={placesCount}
+                label={ui(T.places, lang)}
+              />
+            </div>
+
+            <p className="mt-3 text-[11px] font-bold leading-relaxed text-white/40">
+              {ui(S.totals, lang)}
             </p>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {pages.map((page, pageIndex) => (
-              <div
-                key={`page-${pageIndex}`}
-                className="relative overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-white/[0.02] px-4 py-6 sm:px-6"
+
+            {sealedCountryCount > 0 && (
+              <p className="mt-2 text-[11px] font-bold leading-relaxed text-emerald-300/80">
+                {ui(S.countriesSealed, lang)(sealedCountryCount)}
+              </p>
+            )}
+
+            {/* ── SHARE ── the card that travels to the parents' group chat. */}
+            <div className="mt-6">
+              <button
+                type="button"
+                onClick={onShare}
+                disabled={share === 'busy'}
+                className={`${WORLD_STYLE.cta} inline-flex min-h-[48px] items-center justify-center gap-2 px-6 text-sm disabled:opacity-70`}
               >
-                {/* The binding edge: a passport page is perforated, not cut. */}
+                {share === 'busy' ? (
+                  <Loader2 size={16} className="animate-spin" aria-hidden />
+                ) : (
+                  <Share2 size={16} aria-hidden />
+                )}
+                {ui(share === 'busy' ? T.sharing : T.share, lang)}
+              </button>
+              {share !== 'idle' && share !== 'busy' && (
+                <p className="mt-2 text-[12px] font-bold leading-relaxed text-white/60" aria-live="polite">
+                  {ui(S[share], lang)}
+                </p>
+              )}
+            </div>
+
+            {/* ── STATISTICS ── the quiet second action: how far the child has come. */}
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={openStats}
+                className={`inline-flex min-h-[44px] items-center justify-center gap-2 ${WORLD_STYLE.ghost}`}
+              >
+                <BarChart3 size={16} aria-hidden />
+                <span className="text-xs font-black uppercase tracking-widest">
+                  {ui(STATS_T.open, lang)}
+                </span>
+              </button>
+            </div>
+          </motion.section>
+
+          {/* ── THE PAGES ── */}
+          <section className="mt-8">
+            <h2 className={`${WORLD_STYLE.label} mb-3 block`}>{ui(T.pages, lang)}</h2>
+
+            {pages.length === 0 ? (
+              <div className={`${WORLD_STYLE.card} px-5 py-10 text-center`}>
                 <div
-                  className="pointer-events-none absolute inset-y-5 left-2.5 border-l border-dashed border-white/[0.12]"
+                  className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-dashed border-white/15"
                   aria-hidden
-                />
-
-                <div className={`${WORLD_STYLE.label} mb-4 pl-4 block`}>
-                  {ui(S.page, lang)(pageIndex + 1)}
+                >
+                  <Globe size={26} className="text-white/20" />
                 </div>
-
-                <ul className="pl-4">
-                  {page.map((entry, slot) => (
-                    <StampEntry
-                      key={entry.country.id}
-                      lang={lang}
-                      country={entry.country}
-                      date={entry.date}
-                      sealed={entry.sealed}
-                      cities={entry.cities}
-                      sealedCityIds={sealedCityIds}
-                      slot={slot}
-                    />
-                  ))}
-                </ul>
+                <p className="mx-auto max-w-sm text-sm font-bold italic leading-relaxed text-white/50">
+                  {ui(S.empty, lang)}
+                </p>
               </div>
-            ))}
-          </div>
-        )}
-      </section>
+            ) : (
+              <div className="space-y-4">
+                {pages.map((page, pageIndex) => (
+                  <div
+                    key={`page-${pageIndex}`}
+                    className="relative overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-gradient-to-b from-white/[0.05] to-white/[0.02] px-4 py-6 sm:px-6"
+                  >
+                    {/* The binding edge: a passport page is perforated, not cut. */}
+                    <div
+                      className="pointer-events-none absolute inset-y-5 left-2.5 border-l border-dashed border-white/[0.12]"
+                      aria-hidden
+                    />
 
-      {/* ── WHAT IS STILL TO COME ── */}
-      {upcoming.length > 0 && (
-        <section className="mt-8">
-          <h2 className={`${WORLD_STYLE.label} mb-1 block`}>{ui(T.blank, lang)}</h2>
-          <p className="mb-3 text-[11px] font-bold leading-relaxed text-white/40">
-            {ui(S.blankNote, lang)}
-          </p>
+                    <div className={`${WORLD_STYLE.label} mb-4 pl-4 block`}>
+                      {ui(S.page, lang)(pageIndex + 1)}
+                    </div>
 
-          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
-            {upcoming.map((country) => (
-              <li
-                key={country.id}
-                className="rounded-2xl border border-dashed border-white/15 bg-white/[0.02] p-3 text-center"
-              >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-white/15 text-2xl opacity-40">
-                  <span aria-hidden>{country.flag}</span>
-                </div>
-                <div className="mt-2 truncate text-[11px] font-black text-white/40">
-                  {say(country.name, lang)}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
+                    <ul className="pl-4">
+                      {page.map((entry, slot) => (
+                        <StampEntry
+                          key={entry.country.id}
+                          lang={lang}
+                          country={entry.country}
+                          date={entry.date}
+                          sealed={entry.sealed}
+                          cities={entry.cities}
+                          sealedCityIds={sealedCityIds}
+                          slot={slot}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+
+          {/* ── WHAT IS STILL TO COME ── */}
+          {upcoming.length > 0 && (
+            <section className="mt-8">
+              <h2 className={`${WORLD_STYLE.label} mb-1 block`}>{ui(T.blank, lang)}</h2>
+              <p className="mb-3 text-[11px] font-bold leading-relaxed text-white/40">
+                {ui(S.blankNote, lang)}
+              </p>
+
+              <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+                {upcoming.map((country) => (
+                  <li
+                    key={country.id}
+                    className="rounded-2xl border border-dashed border-white/15 bg-white/[0.02] p-3 text-center"
+                  >
+                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-dashed border-white/15 text-2xl opacity-40">
+                      <span aria-hidden>{country.flag}</span>
+                    </div>
+                    <div className="mt-2 truncate text-[11px] font-black text-white/40">
+                      {say(country.name, lang)}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </>
       )}
     </div>
   );
