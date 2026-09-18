@@ -5,6 +5,46 @@ MacBook had no toolchain and no local project context.
 
 ---
 
+## ⚡ STATUS 18 Σεπτεμβρίου 2026 (βράδυ) — Full audit + τα λεφτά και η εμπιστοσύνη
+
+Session Fable: πλήρης έλεγχος (23 agents σε 6 άξονες + περπάτημα του app σε 375×812
+ως guest) και μετά διορθώσεις. Το report: https://claude.ai/artifact/U6c9U6B7wzfxNoN7EPEoc5
+
+**Merged απόψε (Fable):**
+- **#125 — το P0 των credits.** Τα suno/meshy/video-status έκαναν refund σε όποιον
+  έστελνε ξένο taskId (ανά-χρήστη idempotency μόνο = mint μεταξύ λογαριασμών). Το
+  `spend_credits` πήρε 4ο όρισμα `p_action_id` (**migration ήδη εφαρμοσμένο** στη
+  βάση — η 3-arg μορφή ΔΕΝ υπάρχει πια), η χρέωση γράφει το taskId, το refund
+  απαιτεί χρέωση ΑΥΤΟΥ του χρήστη γι' αυτό το task (`refundCredits` πήρε 5ο όρισμα
+  `spendAction`, `null` μόνο σε admin/ίδιο-request). Μαζί: webhook Stripe μόνο το
+  23505 = «ήδη περασμένο» (αλλιώς 500 → retry), earn.ts MAX_BOOK_ID 200→34 με test
+  καρφωμένο στο BOOK_METADATA, IP rate limit στο /api/admin/login, requestId
+  validation στο video-status, vitest exclude `.claude/**`. Σημείωση: tasks
+  χρεωμένα ΠΡΙΝ το deploy δεν παίρνουν αυτόματο refund (παράθυρο λεπτών, admin).
+- **#129 — εμπιστοσύνη.** Το ψεύτικο «TOP 10 ΕΒΔΟΜΑΔΑΣ» (9 ανύπαρκτα παιδιά) έγινε
+  «Ο ΑΓΩΝΑΣ ΤΗΣ ΠΑΡΕΑΣ» με τις 5 μασκότ και ετικέτα BOT σε κάθε αντίπαλο· η κάρτα
+  «ACADEMY PRO / Ανανέωση 12 Απριλίου» έγινε τίμια «Κάρτα Μέλους»· το νεκρό «ΛΗΨΗ
+  ΔΩΡΕΑΝ 3D PRINT» ανοίγει πλέον το 3D Εργοστάσιο.
+- **#133 — returnTo.** Νέο `utils/authReturn.ts` (loginPath/remember/take, 24h,
+  με tests)· και τα 12 gates περνούν από `loginPath()`, το AuthScreen και το
+  VerifyEmailLanding γυρίζουν τον χρήστη εκεί που ήταν (επιζεί και του email
+  verification μέσω localStorage). ΚΑΘΕ ΝΕΟ gate προς /login να χρησιμοποιεί
+  `loginPath()`, όχι σκέτο navigate.
+- **#134 — Σχολείο + guest.** Κάρτα «ΣΧΟΛΕΙΟ» στο dashboard (πάνω από το World)
+  και λιτή γραμμή «Εγγραφή» για guests (το δεύτερο μισό του CRO P0-2).
+
+**Από το audit μένουν (με σειρά):** (1) το P0 ticket `i18n-machine-translated-flag`
+— 16+ μηχανικά overlays live χωρίς σήμανση· (2) signup λέει «στείλαμε email» και
+όταν το Resend απέτυχε (api/auth/signup.ts:188-228 → γύρνα emailSent:false)· (3) οι
+σφραγίδες του παλιού Explorer αόρατες στο διαβατήριο του World (StampBook)· (4) τα
+P2 UI: ημερήσιο δώρο με ετικέτες ΔΕΥ-ΚΥΡ ενώ είναι streak (DailyRewardPopup.tsx:21),
+«16 παιχνίδια» ενώ είναι 25+, badges overlap στο /account στο 375, header overlap
+768-900px, «μαύρες τρύπες» σε γρήγορο scroll (whileInView), απόφαση για τα αγγλικά
+(QUEST STAGES/BADGES/pts) σε ελληνικό UI. Λεπτομέρειες και file:line στο report.
+
+**Προσοχή:** τα PR #113 και #118 μοιάζουν ξεπερασμένα από τα #127/#130 (τα κλείνει
+το engine session, όχι άλλος). Ανοιχτά i18n: #131/#132/#135.
+
 ## ⚡ STATUS 13 Σεπτεμβρίου 2026 — World: «Είμαι εδώ!» όταν το τηλέφωνο δεν ρωτάει καν
 
 Στο iPhone του ιδιοκτήτη (Safari) το «Είμαι εδώ!» γύριζε `denied` σε χιλιοστά χωρίς
