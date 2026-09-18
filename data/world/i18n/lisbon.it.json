@@ -96,16 +96,16 @@
           },
           "lisbon-museu-de-marinha-figuras-de-proa": {
             "name": "Le polene",
-            "blurb": "Figure di legno, più alte di una persona, che una volta erano fissate alla prua di una nave. Alcune sono donne con i capelli al vento, altre sono leoni, altre soldati. Non erano solo decorazione: molti marinai non sapevano leggere, e la polena era il modo per riconoscere una nave da lontano e ricordarne il nome. Guarda i loro occhi: sono scolpiti in modo da guardare un po’ verso l’alto, perché chi li vedeva stava sul molo, più in basso di loro.",
+            "blurb": "Figure di legno, più alte di una persona, che una volta erano fissate alla prua di una nave. Alcune sono donne con i capelli al vento, altre sono leoni, altre soldati. Non erano solo decorazione: molti marinai non sapevano leggere, e la polena era il modo per riconoscere una nave da lontano e ricordarne il nome. Guarda i loro occhi: sono scolpiti in modo da guardare un po’ verso il basso, perché chi li vedeva stava sul molo, più in basso di loro.",
             "question": {
-              "q": "Perché le polene guardano un po’ verso l’alto?",
+              "q": "Perché le polene guardano un po’ verso il basso?",
               "answers": [
                 "Le persone le vedevano dal basso",
                 "Per tenere gli occhi lontani dagli spruzzi",
                 "In quel modo indicavano le stelle",
                 "Così il legno si spaccava meno"
               ],
-              "explanation": "Lo scultore pensava a dove sarebbe stato chi guardava. Dal molo guardi in su, così lo sguardo era scolpito per incontrare il tuo."
+              "explanation": "Lo scultore pensava a dove sarebbe stato chi guardava. Dal molo guardi in su, così lo sguardo era scolpito per scendere e incontrare il tuo."
             }
           },
           "lisbon-museu-de-marinha-camarote": {
@@ -627,7 +627,7 @@
       "story": "Più di cinquecento anni fa le navi portoghesi partivano da questo fiume per l’India, l’Africa e il Brasile, e il re Manuel I voleva un guardiano forte alla porta del porto. Così fu costruita questa torre, finita nel 1519, con i cannoni al piano di sotto e le sentinelle in cima. Il suo stile si chiama manuelino, dal nome del re: guarda le corde, i nodi e le piccole sfere scolpite nella pietra, tutte cose che ricordano le navi e il mare. In basso, in un angolo, c’è scolpita una testa di rinoceronte. Una volta la torre stava su un isolotto in mezzo al fiume; con gli anni la riva si è avvicinata, e oggi la tocca. Per i marinai che partivano era l’ultimo pezzo di casa, e per quelli che tornavano il primo.",
       "facts": [
         "Fu finita nel 1519, durante il regno di Manuel I.",
-        "Il suo rinoceronte scolpito è considerato il primo rinoceronte dell’arte europea dall’antichità.",
+        "Il suo rinoceronte scolpito è considerato la prima scultura di un rinoceronte dell’Europa occidentale.",
         "La torre stava su un isolotto nel fiume; con gli anni la riva le si è avvicinata."
       ],
       "question": {
@@ -661,7 +661,7 @@
         ],
         "explanation": "Un ventesimo dei guadagni del commercio delle spezie andava nella costruzione. Il monastero è fatto, alla lettera, di pepe e cannella."
       },
-      "findIt": "La chiesa e il chiostro hanno due porte diverse. La coda per il chiostro è a destra, oltre il grande portale sud."
+      "findIt": "La chiesa e il chiostro hanno due porte diverse. Guardando la facciata, la coda per la chiesa è al grande portale sud e la coda per il chiostro è alla sua sinistra."
     },
     "lisbon-estadio-da-luz": {
       "name": "L’Estádio da Luz",

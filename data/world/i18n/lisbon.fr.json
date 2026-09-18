@@ -96,16 +96,16 @@
           },
           "lisbon-museu-de-marinha-figuras-de-proa": {
             "name": "Les figures de proue",
-            "blurb": "Des personnages de bois, plus grands qu’une personne, qui étaient autrefois fixés à l’avant d’un navire. Certains sont des femmes aux cheveux flottants, d’autres des lions, d’autres des soldats. Ce n’était pas seulement de la décoration : beaucoup de marins ne savaient pas lire, et la figure de proue permettait de reconnaître un navire de loin et de se souvenir de son nom. Regarde leurs yeux : ils sont sculptés pour regarder un peu vers le haut, parce que les gens qui les voyaient se tenaient sur le quai, plus bas qu’elles.",
+            "blurb": "Des personnages de bois, plus grands qu’une personne, qui étaient autrefois fixés à l’avant d’un navire. Certains sont des femmes aux cheveux flottants, d’autres des lions, d’autres des soldats. Ce n’était pas seulement de la décoration : beaucoup de marins ne savaient pas lire, et la figure de proue permettait de reconnaître un navire de loin et de se souvenir de son nom. Regarde leurs yeux : ils sont sculptés pour regarder un peu vers le bas, parce que les gens qui les voyaient se tenaient sur le quai, plus bas qu’elles.",
             "question": {
-              "q": "Pourquoi les figures de proue regardent-elles un peu vers le haut ?",
+              "q": "Pourquoi les figures de proue regardent-elles un peu vers le bas ?",
               "answers": [
                 "Les gens les regardaient d’en bas",
                 "Pour protéger leurs yeux des embruns",
                 "Ainsi, elles montraient les étoiles",
                 "Le bois se fendait moins ainsi"
               ],
-              "explanation": "Le sculpteur pensait à l’endroit où se tiendrait celui qui regarde. Depuis le quai, on lève les yeux, alors le regard a été sculpté pour croiser le tien."
+              "explanation": "Le sculpteur pensait à l’endroit où se tiendrait celui qui regarde. Depuis le quai, on lève les yeux, alors le regard a été sculpté pour descendre et croiser le tien."
             }
           },
           "lisbon-museu-de-marinha-camarote": {
@@ -627,7 +627,7 @@
       "story": "Il y a plus de cinq cents ans, les navires portugais partaient de ce fleuve vers l’Inde, l’Afrique et le Brésil, et le roi Manuel Ier voulait un gardien solide à la porte du port. C’est ainsi qu’a été construite cette tour, terminée en 1519, avec des canons à l’étage du bas et des guetteurs au sommet. Son style s’appelle le manuélin, d’après le nom du roi : regarde les cordes, les nœuds et les petites sphères sculptés dans la pierre, qui rappellent tous les bateaux et la mer. En bas, dans un coin, il y a une tête de rhinocéros sculptée. La tour se dressait autrefois sur un petit îlot au milieu du fleuve ; avec les années, la rive s’est rapprochée, et aujourd’hui elle la touche. Pour les marins qui partaient, c’était le dernier bout de chez eux, et pour ceux qui revenaient, le premier.",
       "facts": [
         "Elle a été terminée en 1519, sous le règne du roi Manuel Ier.",
-        "Son rhinocéros sculpté est considéré comme le premier rhinocéros de l’art européen depuis l’Antiquité.",
+        "Son rhinocéros sculpté est considéré comme la première sculpture de rhinocéros d’Europe occidentale.",
         "La tour se dressait sur un îlot dans le fleuve ; la rive s’est rapprochée d’elle au fil des années."
       ],
       "question": {
@@ -661,7 +661,7 @@
         ],
         "explanation": "Un vingtième des bénéfices du commerce des épices partait dans la construction. Le monastère est, au sens propre, fait de poivre et de cannelle."
       },
-      "findIt": "L’église et le cloître ont deux portes différentes. La file pour le cloître est à droite, après le grand portail sud."
+      "findIt": "L’église et le cloître ont deux portes différentes. Face à la façade, la file pour l’église est au grand portail sud et la file pour le cloître est à sa gauche."
     },
     "lisbon-estadio-da-luz": {
       "name": "L’Estádio da Luz",

@@ -96,16 +96,16 @@
           },
           "lisbon-museu-de-marinha-figuras-de-proa": {
             "name": "Die Galionsfiguren",
-            "blurb": "Figuren aus Holz, größer als ein Mensch, die einst am Bug eines Schiffes befestigt waren. Manche sind Frauen mit wehendem Haar, manche Löwen, manche Soldaten. Sie waren nicht nur Schmuck: Viele Seeleute konnten nicht lesen, und an der Galionsfigur erkannte man ein Schiff schon von Weitem und merkte sich seinen Namen. Schau dir ihre Augen an: Sie sind so geschnitzt, dass sie ein wenig nach oben blicken, denn wer sie sah, stand auf dem Kai, weiter unten als sie.",
+            "blurb": "Figuren aus Holz, größer als ein Mensch, die einst am Bug eines Schiffes befestigt waren. Manche sind Frauen mit wehendem Haar, manche Löwen, manche Soldaten. Sie waren nicht nur Schmuck: Viele Seeleute konnten nicht lesen, und an der Galionsfigur erkannte man ein Schiff schon von Weitem und merkte sich seinen Namen. Schau dir ihre Augen an: Sie sind so geschnitzt, dass sie ein wenig nach unten blicken, denn wer sie sah, stand auf dem Kai, weiter unten als sie.",
             "question": {
-              "q": "Warum blicken die Galionsfiguren ein wenig nach oben?",
+              "q": "Warum blicken die Galionsfiguren ein wenig nach unten?",
               "answers": [
                 "Die Leute sahen sie von unten",
                 "Um ihre Augen vor der Gischt zu schützen",
                 "So zeigten sie zu den Sternen",
                 "So riss das Holz weniger"
               ],
-              "explanation": "Der Schnitzer überlegte, wo der Betrachter stehen würde. Vom Kai aus schaust du nach oben, also wurde der Blick so geschnitzt, dass er dir begegnet."
+              "explanation": "Der Schnitzer überlegte, wo der Betrachter stehen würde. Vom Kai aus schaust du nach oben, also wurde der Blick so geschnitzt, dass er herunterkommt und dir begegnet."
             }
           },
           "lisbon-museu-de-marinha-camarote": {
@@ -627,7 +627,7 @@
       "story": "Vor mehr als fünfhundert Jahren brachen portugiesische Schiffe von diesem Fluss nach Indien, Afrika und Brasilien auf, und König Manuel I. wollte einen starken Wächter am Tor des Hafens. So entstand dieser Turm, fertig 1519, mit Kanonen im unteren Stockwerk und Wachposten oben. Sein Stil heißt manuelinisch, nach dem König: Schau dir die Seile, die Knoten und die kleinen Kugeln an, die in den Stein gemeißelt sind, alles Erinnerungen an Schiffe und das Meer. Unten in einer Ecke ist ein Nashornkopf gemeißelt. Der Turm stand einst auf einer kleinen Insel im Fluss; mit den Jahren rückte das Ufer näher, und heute berührt er das Land. Für die Seeleute, die aufbrachen, war er das letzte Stück Heimat, und für die, die zurückkamen, das erste.",
       "facts": [
         "Er wurde 1519 fertig, in der Regierungszeit von König Manuel I.",
-        "Sein gemeißeltes Nashorn gilt als das erste Nashorn in der europäischen Kunst seit der Antike.",
+        "Sein gemeißeltes Nashorn gilt als die erste Nashorn-Skulptur in Westeuropa.",
         "Der Turm stand auf einer kleinen Insel im Fluss; mit den Jahren rückte das Ufer an ihn heran."
       ],
       "question": {
@@ -661,7 +661,7 @@
         ],
         "explanation": "Ein Zwanzigstel der Gewinne aus dem Gewürzhandel floss in den Bau. Das Kloster ist also ganz wörtlich aus Pfeffer und Zimt gemacht."
       },
-      "findIt": "Die Kirche und der Kreuzgang haben zwei verschiedene Türen. Die Schlange für den Kreuzgang ist rechts, hinter dem großen Südportal."
+      "findIt": "Die Kirche und der Kreuzgang haben zwei verschiedene Türen. Mit Blick auf die Fassade ist die Schlange für die Kirche am großen Südportal und die Schlange für den Kreuzgang links davon."
     },
     "lisbon-estadio-da-luz": {
       "name": "Das Estádio da Luz",

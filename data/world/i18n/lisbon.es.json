@@ -96,16 +96,16 @@
           },
           "lisbon-museu-de-marinha-figuras-de-proa": {
             "name": "Los mascarones de proa",
-            "blurb": "Figuras de madera, más altas que una persona, que un día estuvieron sujetas a la proa de un barco. Unas son mujeres con el pelo al viento, otras son leones, otras son soldados. No eran solo decoración: muchas tripulaciones no sabían leer, y el mascarón era la manera de reconocer un barco desde lejos y recordar su nombre. Fíjate en sus ojos: están tallados mirando un poco hacia arriba, porque quien los veía estaba de pie en el muelle, más abajo que ellos.",
+            "blurb": "Figuras de madera, más altas que una persona, que un día estuvieron sujetas a la proa de un barco. Unas son mujeres con el pelo al viento, otras son leones, otras son soldados. No eran solo decoración: muchas tripulaciones no sabían leer, y el mascarón era la manera de reconocer un barco desde lejos y recordar su nombre. Fíjate en sus ojos: están tallados mirando un poco hacia abajo, porque quien los veía estaba de pie en el muelle, más abajo que ellos.",
             "question": {
-              "q": "¿Por qué los mascarones miran un poco hacia arriba?",
+              "q": "¿Por qué los mascarones miran un poco hacia abajo?",
               "answers": [
                 "La gente los veía desde abajo",
                 "Para proteger sus ojos de la espuma",
                 "Así señalaban hacia las estrellas",
                 "La madera se agrietaba menos así"
               ],
-              "explanation": "El escultor pensaba en dónde estaría quien los mirara. Desde el muelle miras hacia arriba, así que la mirada se talló para encontrarse con la tuya."
+              "explanation": "El escultor pensaba en dónde estaría quien los mirara. Desde el muelle miras hacia arriba, así que la mirada se talló para bajar y encontrarse con la tuya."
             }
           },
           "lisbon-museu-de-marinha-camarote": {
@@ -627,7 +627,7 @@
       "story": "Hace más de quinientos años, los barcos portugueses salían de este río rumbo a la India, África y Brasil, y el rey Manuel I quería un guardián fuerte en la puerta del puerto. Así se construyó esta torre, terminada en 1519, con cañones en el piso de abajo y vigías en lo alto. Su estilo se llama manuelino, por el nombre del rey: fíjate en las cuerdas, los nudos y las pequeñas esferas talladas en la piedra, que recuerdan todos a los barcos y al mar. Abajo, en una esquina, hay tallada una cabeza de rinoceronte. La torre estuvo un día en una islita en medio del río; con los años la orilla se fue acercando, y hoy la toca. Para los marineros que se iban era el último trocito de casa, y para los que volvían, el primero.",
       "facts": [
         "Se terminó en 1519, durante el reinado de Manuel I.",
-        "Se cree que su rinoceronte tallado es el primer rinoceronte del arte europeo desde la Antigüedad.",
+        "Se cree que su rinoceronte tallado es la primera escultura de un rinoceronte de Europa occidental.",
         "La torre estaba en una islita del río; con los años, la orilla se fue acercando hasta ella."
       ],
       "question": {
@@ -661,7 +661,7 @@
         ],
         "explanation": "La vigésima parte de las ganancias del comercio de especias se destinaba a la obra. El monasterio está hecho, literalmente, de pimienta y canela."
       },
-      "findIt": "La iglesia y el claustro tienen dos puertas distintas. La cola del claustro está a la derecha, pasada la gran portada sur."
+      "findIt": "La iglesia y el claustro tienen dos puertas distintas. Mirando la fachada, la cola de la iglesia está en la gran portada sur y la cola del claustro, a su izquierda."
     },
     "lisbon-estadio-da-luz": {
       "name": "El Estádio da Luz",
