@@ -23,9 +23,15 @@ export default async function handler(req: any, res: any) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return res.status(500).json({ error: 'Video service not configured' });
 
-  // requestId = Google operationName (e.g. "operations/xxx")
+  // requestId = Google operationName (e.g. "models/veo-2.0-.../operations/xxx").
+  // It is interpolated into the poll URL below, so anything but a plain
+  // operation path would let a caller aim the server's API key at arbitrary
+  // generativelanguage endpoints.
   const requestId = req.query.requestId as string;
   if (!requestId) return res.status(400).json({ error: 'requestId required' });
+  if (!/^[A-Za-z0-9._/-]{1,300}$/.test(requestId) || !requestId.includes('operations/') || requestId.includes('..')) {
+    return res.status(400).json({ error: 'Invalid requestId' });
+  }
 
   // Optional metadata passed from client for saving to DB
   const title = (req.query.title as string) || 'WiseBot Video';
@@ -56,7 +62,7 @@ export default async function handler(req: any, res: any) {
     const fail = async (message: string) => {
       const { refundCredits } = await import('../_lib/auth.js');
       const { COSTS } = await import('../_lib/costs.js');
-      const credits = await refundCredits(user.id, COSTS.VIDEO, 'REFUND_VIDEO', requestId);
+      const credits = await refundCredits(user.id, COSTS.VIDEO, 'REFUND_VIDEO', requestId, 'CREATE_VIDEO');
       return res.status(200).json({ status: 'error', error: message, refunded: credits !== null, credits });
     };
 

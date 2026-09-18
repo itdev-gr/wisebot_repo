@@ -22,6 +22,15 @@ export default async function handler(req: any, res: any) {
 
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
+  // The per-request sleep below slows one connection, not a hundred parallel
+  // ones. This is the endpoint that mints the 12h admin token, so it gets the
+  // same IP throttle as verify-otp / reset-password.
+  const { checkIpRateLimit, getClientIp } = await import('../_lib/rateLimit.js');
+  const ipCheck = await checkIpRateLimit(getClientIp(req), 'admin-login', 10, 15);
+  if (!ipCheck.allowed) {
+    return res.status(429).json({ error: 'Too many attempts. Please wait before trying again.' });
+  }
+
   try {
     const { email, password } = req.body || {};
 

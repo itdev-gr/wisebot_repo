@@ -61,7 +61,9 @@ export default async function handler(req: any, res: any) {
         if (error) throw error;
         if (orderStatus === 'cancelled') {
           const { refundCredits } = await import('../_lib/auth.js');
-          await refundCredits(order.user_id, order.credits, 'REFUND_PRINT', orderId);
+          // spendAction null: the refund target comes from the print_orders row
+          // an admin (behind adminAuth) just cancelled, not from client input.
+          await refundCredits(order.user_id, order.credits, 'REFUND_PRINT', orderId, null);
         }
         return res.status(200).json({ ok: true });
       }

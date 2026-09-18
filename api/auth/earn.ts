@@ -15,7 +15,11 @@
  */
 
 const BOOK_REWARD = 1;
-const MAX_BOOK_ID = 200;
+// The library has exactly this many books (ids 1..N, contiguous). The old
+// "headroom" of 200 quietly turned the 34⚡ lifetime reward into a 200⚡ one
+// for anyone POSTing made-up ids. api/auth/earn.test.ts pins this to
+// BOOK_METADATA.length so adding a book without bumping it fails CI.
+export const MAX_BOOK_ID = 34;
 
 export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Origin', (await import('../_lib/cors.js')).resolveCorsOrigin(req.headers?.origin));
