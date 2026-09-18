@@ -1,0 +1,37 @@
+{
+  "city": "nicosia",
+  "country": "cyprus",
+  "centre": { "lat": 35.16953, "lng": 33.36087 },
+  "note": "Wikidata q-ids only. Fifteen places, converted from the ten spots of the Explorer product on origin/main. CENTRE: this is Wikidata's point for Nicosia Municipality (Q56037497), not Wikidata's point for the city itself (Q3856). Q3856 sits at 35.1725,33.3650, which is 38 m from the Omeriye Hammam, so using it made the audit report a real place as a centroid mistake — the same false positive Vienna hit with Stephansplatz. The fix belongs on the reference point, not on the place. Searching Wikidata in Greek returns almost nothing for this city: only Q3563324 and Q257937 have Greek labels findable by search, so every other item was found in English and then confirmed by reading its description and checking its P131 says Nicosia. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. FOUR EXPLORER SPOTS ARE NOT PINS HERE, each for a reason: (1) Laiki Geitonia has no Wikidata item at all — its lanes are unnamed in Wikidata and the Trypiotis quarter item (Q47319423) sits outside the walls, so no coordinate could be resolved; its halloumi, loukoumades and wooden-balcony material moved into the Kornesios Mansion's museum rooms, which is the ethnographic house two streets away. (2) St John's Cathedral (Q9339030) is the right item for the right building, but it graded D: the English Wikipedia article carries a three-decimal coordinate, 35.172,33.367, which lands 166 m away — a precision artefact rather than a real disagreement, but a D all the same. It sits 48 m from the Archbishop's Palace and the Explorer treated the two as one spot, so it is told inside the palace's story. (3) The Liberty Monument on the Podocataro bastion has no Wikidata item of its own; the only unlabelled 'monument in Nicosia' (Q6089968) sits at 35.1966,33.3316, three kilometres away, and is something else. The monument is told inside the walls place. (4) Paphos Gate (Q6024651) also graded D — Wikipedia puts it 360 m from Wikidata's point — and a third city gate would have repeated Famagusta Gate anyway, so it was dropped rather than nudged. TWO MORE ITEMS WERE CONSIDERED AND REJECTED: the Leventis Municipal Museum (Q6535231) resolves to 35.17056,33.36166, which is roughly 240 m south of its own address on Ippokratous Street inside Laiki Geitonia; Wikidata and Wikipedia agree with each other there, which grades it B, but they look like one original edit rather than two witnesses, and with Overpass down there was no third opinion, so a pin nobody could check was left out. The Archangel Michael Trypiotis church (Q20501271) resolves cleanly, but its English article is a single sentence and nothing else about it could be verified to the standard a 120-word story needs. OVERPASS WAS DOWN FOR THIS RUN — it answered 504 to every query — so no place carries an osm cross-check and no place grades A. Wikidata is still the source of every point; OSM is only a cross-check and a missing one moves nothing.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "nicosia-eleftheria-square", "name": "Plateia Eleftherias", "wikidata": "Q5358622", "anchor": "area" },
+
+    { "id": "nicosia-venetian-walls", "name": "Teichi tis Lefkosias", "wikidata": "Q7919752", "anchor": "area",
+      "note": "The walls are a 4.5 km circle, so their point is not a centre — Wikidata puts it on the eastern rampart near the Podocataro and Caraffa bastions, which is where the Liberty Monument stands and where a visitor actually walks up onto the wall. Kept as an area: the anchor-aware tolerance for an area is 500 m, which is the honest tolerance for a ring this size." },
+
+    { "id": "nicosia-famagusta-gate", "name": "Pyli Ammochostou", "wikidata": "Q6046232", "anchor": "centroid" },
+    { "id": "nicosia-archbishops-palace", "name": "Archiepiskopiko Megaro", "wikidata": "Q4140950", "anchor": "centroid" },
+    { "id": "nicosia-pancyprian-gymnasium", "name": "Pagkyprio Gymnasio", "wikidata": "Q3563324", "anchor": "centroid" },
+
+    { "id": "nicosia-kornesios-mansion", "name": "Oikia Chatzigeorgaki Kornesiou", "wikidata": "Q5637923", "anchor": "centroid",
+      "note": "The BUILDING, which is what Q5637923 is — 'Hadjigeorgakis Kornesios Mansion, building in Nicosia'. The institution inside it is the Cyprus Ethnological Museum and has no separate item, which is the right way round for once: the mansion is the exhibit." },
+
+    { "id": "nicosia-omeriye-mosque", "name": "Temenos Omerie", "wikidata": "Q20896012", "anchor": "centroid" },
+
+    { "id": "nicosia-omeriye-hammam", "name": "Chamam Omerie", "wikidata": "Q5644014", "anchor": "centroid",
+      "note": "The bathhouse is part of the same Ottoman complex as the mosque and its point sits 77 m from it, which clears the 25 m separation rule without needing an adjacentPairs entry. It is a distinct building a child pays to walk into, not a corner of the mosque." },
+
+    { "id": "nicosia-faneromeni", "name": "Panagia Faneromeni", "wikidata": "Q20501264", "anchor": "centroid",
+      "note": "No English Wikipedia article, so this one has a single source and grades C. The item is unambiguous: the description says 'church building in Nicosia, Cyprus' and its P131 is Nicosia, which separates it from the Faneromeni churches in Larnaca (Q115055440) and in Aigio (Q56259557)." },
+
+    { "id": "nicosia-ledra-street", "name": "Odos Lidras", "wikidata": "Q257937", "anchor": "area" },
+    { "id": "nicosia-shacolas-tower", "name": "Pyrgos Siakola", "wikidata": "Q7460193", "anchor": "centroid" },
+    { "id": "nicosia-cyprus-museum", "name": "Kypriako Mouseio", "wikidata": "Q1148462", "anchor": "centroid" },
+    { "id": "nicosia-leventis-gallery", "name": "Leventeios Pinakothiki", "wikidata": "Q16960570", "anchor": "centroid" },
+
+    { "id": "nicosia-municipal-gardens", "name": "Dimotikos Kipos", "wikidata": "Q7030534", "anchor": "area" },
+
+    { "id": "nicosia-motorcycle-museum", "name": "Mouseio Klasikon Motosikleton tis Kyprou", "wikidata": "Q5200446", "anchor": "centroid" }
+  ]
+}
