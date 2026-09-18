@@ -2,7 +2,7 @@
 import React, { Suspense, useCallback } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush, Brain, KeyRound } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush, Brain, KeyRound, Music } from 'lucide-react';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
@@ -32,6 +32,7 @@ const DailyChallenge = React.lazy(() => import('./games/DailyChallenge'));
 const DrawGuess = React.lazy(() => import('./games/DrawGuess'));
 const WhoAmI = React.lazy(() => import('./games/WhoAmI'));
 const EscapeRoom = React.lazy(() => import('./games/EscapeRoom'));
+const Rhythm = React.lazy(() => import('./games/Rhythm'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -42,8 +43,8 @@ const GameLoader = () => (
 
 const motion = m as any;
 
-type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw' | 'whoami' | 'escape';
-const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw', 'whoami', 'escape'];
+type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw' | 'whoami' | 'escape' | 'rhythm';
+const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw', 'whoami', 'escape', 'rhythm'];
 
 interface GameCenterProps {
   lang: 'el' | 'en';
@@ -91,6 +92,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
     draw: { title: lang === 'el' ? 'ΖΩΓΡΑΦΙΣΕ & ΜΑΝΤΕΨΕ' : 'DRAW & GUESS', desc: lang === 'el' ? 'Ένα κινητό, 2-6 παίκτες!' : 'One phone, 2-6 players!' },
     whoami: { title: lang === 'el' ? 'ΠΟΙΟΣ ΕΙΜΑΙ;' : 'WHO AM I?', desc: lang === 'el' ? 'Σκέψου έναν ήρωα, ο WiseBot τον μαντεύει!' : 'Think of a hero, WiseBot guesses who!' },
     escape: { title: lang === 'el' ? 'ΔΩΜΑΤΙΟ ΑΠΟΔΡΑΣΗΣ' : 'ESCAPE ROOM', desc: lang === 'el' ? '6 γρίφοι, μία πόρτα. Νέο δωμάτιο κάθε Δευτέρα!' : '6 puzzles, one door. A new room every Monday!' },
+    rhythm: { title: lang === 'el' ? 'ΡΥΘΜΟΣ' : 'RHYTHM', desc: lang === 'el' ? 'Πάτα τις νότες στον ρυθμό των τραγουδιών μας!' : 'Tap the notes to the beat of our songs!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -132,6 +134,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'draw': return <DrawGuess lang={lang} onBack={handleBack} />;
         case 'whoami': return <WhoAmI lang={lang} onBack={handleBack} />;
         case 'escape': return <EscapeRoom lang={lang} onBack={handleBack} />;
+        case 'rhythm': return <Rhythm lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -201,6 +204,18 @@ export default function GameCenter({ lang }: GameCenterProps) {
       hoverShadow: 'hover:shadow-amber-500/20',
       playBg: 'group-hover:bg-amber-500',
       tagBg: 'bg-amber-500/20 text-amber-300',
+    },
+    {
+      key: 'rhythm' as const, icon: Music, featured: true,
+      thumbnail: '/images/sparken.jpg',
+      category: lang === 'el' ? 'ΜΟΥΣΙΚΗ' : 'MUSIC',
+      cardBg: 'bg-gradient-to-br from-fuchsia-950/90 to-violet-950/90',
+      borderColor: 'border-fuchsia-500/30 hover:border-fuchsia-400/60',
+      iconBg: 'bg-fuchsia-500/20 border-fuchsia-500/30',
+      iconColor: 'text-fuchsia-400',
+      hoverShadow: 'hover:shadow-fuchsia-500/20',
+      playBg: 'group-hover:bg-fuchsia-500',
+      tagBg: 'bg-fuchsia-500/20 text-fuchsia-300',
     },
     {
       key: 'mathrush' as const, icon: Calculator, featured: true,
