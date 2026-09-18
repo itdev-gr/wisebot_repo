@@ -38,6 +38,7 @@ import {
 import { UI_TEXT } from '../constants';
 import { useEconomy } from '../context/EconomyContext';
 import { useAuth } from '../context/AuthContext';
+import { loginPath } from '../utils/authReturn';
 import DailyMission from './DailyMission';
 import DailyRewardPopup from './DailyRewardPopup';
 import OnboardingOverlay from './OnboardingOverlay';
@@ -547,6 +548,24 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
       {/* 🎁 DAILY REWARD POPUP */}
       <DailyRewardPopup lang={lang} />
       <OnboardingOverlay lang={lang} />
+
+      {/* Guests had no signup entry anywhere on the hub (CRO P0-2's second half):
+          the portal got its CTA, but a guest landing here was only asked for an
+          account when a paywall blocked them. One slim honest row, no popup. */}
+      {isGuest && (
+        <div className="flex items-center gap-3 rounded-2xl border border-purple-400/25 bg-purple-500/10 px-4 py-3">
+          <span className="text-xl shrink-0" role="img" aria-hidden>✨</span>
+          <p className="flex-1 min-w-0 text-white/70 text-xs md:text-sm font-bold">
+            {lang === 'el' ? 'Παίζεις ως επισκέπτης — με δωρεάν εγγραφή κρατάς πρόοδο και δημιουργίες.' : 'You are playing as a guest — a free account keeps your progress and creations.'}
+          </p>
+          <button
+            onClick={() => navigate(loginPath({ register: true }))}
+            className="shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-xs font-[1000] uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all"
+          >
+            {lang === 'el' ? 'Εγγραφή' : 'Sign up'}
+          </button>
+        </div>
+      )}
       {/* Not while the 4-step onboarding modal is up — the tip is the step after it. */}
       {(isGuest || profile?.onboardingComplete) && <FirstTimeTip
         id="dashboard"
@@ -649,6 +668,24 @@ const Dashboard: React.FC<DashboardProps> = ({ lang, xp, level, completedIds, my
           </button>
         ))}
       </div>
+
+      {/* 🎓 ΣΧΟΛΕΙΟ — the landing page's first promise, so it gets a front door
+          here too; until now it existed only inside the burger menu, invisible
+          to the parent who came exactly for it. */}
+      <button
+        onClick={() => navigate('/school')}
+        className="w-full text-left relative overflow-hidden rounded-[2rem] border-2 border-blue-500/25 bg-gradient-to-r from-blue-500/10 via-indigo-500/5 to-transparent p-5 md:p-6 flex items-center gap-4 hover:border-blue-400/50 hover:-translate-y-0.5 active:scale-[0.99] transition-all"
+      >
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shrink-0" style={{ boxShadow: '0 4px 20px rgba(59,130,246,0.35)' }}>
+          <GraduationCap size={26} className="text-white" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-black uppercase tracking-widest text-blue-300">{lang === 'el' ? 'Α΄–ΣΤ΄ ΔΗΜΟΤΙΚΟΥ · ΠΑΝΤΑ ΔΩΡΕΑΝ' : 'GRADES 1–6 · ALWAYS FREE'}</p>
+          <h3 className="text-xl md:text-2xl font-[1000] text-white uppercase italic tracking-tighter leading-none mt-0.5">{lang === 'el' ? 'Σχολείο' : 'School'}</h3>
+          <p className="text-white/55 text-xs md:text-sm font-bold mt-1 truncate">{lang === 'el' ? 'Γλώσσα, Μαθηματικά, Ιστορία — αστέρια, απολυτήρια και quiz ανά τάξη.' : 'Language, Math, History — stars, diplomas and quizzes per grade.'}</p>
+        </div>
+        <span className="text-3xl shrink-0" role="img" aria-hidden>🎒</span>
+      </button>
 
       {/* 🌍 WISEBOT WORLD — the family feature: real cities, museums, a passport.
           The older Explorer keeps its /explore route until every city has moved across,
