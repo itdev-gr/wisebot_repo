@@ -153,6 +153,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'barcelona.es': () => import('./i18n/barcelona.es.json'),
   'barcelona.fr': () => import('./i18n/barcelona.fr.json'),
   'barcelona.it': () => import('./i18n/barcelona.it.json'),
+  'berlin.de': () => import('./i18n/berlin.de.json'),
+  'berlin.es': () => import('./i18n/berlin.es.json'),
+  'berlin.fr': () => import('./i18n/berlin.fr.json'),
+  'berlin.it': () => import('./i18n/berlin.it.json'),
   'delphi.de': () => import('./i18n/delphi.de.json'),
   'delphi.es': () => import('./i18n/delphi.es.json'),
   'delphi.fr': () => import('./i18n/delphi.fr.json'),
@@ -173,6 +177,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'paris.es': () => import('./i18n/paris.es.json'),
   'paris.fr': () => import('./i18n/paris.fr.json'),
   'paris.it': () => import('./i18n/paris.it.json'),
+  'prague.de': () => import('./i18n/prague.de.json'),
+  'prague.es': () => import('./i18n/prague.es.json'),
+  'prague.fr': () => import('./i18n/prague.fr.json'),
+  'prague.it': () => import('./i18n/prague.it.json'),
   'rhodes.de': () => import('./i18n/rhodes.de.json'),
   'rhodes.es': () => import('./i18n/rhodes.es.json'),
   'rhodes.fr': () => import('./i18n/rhodes.fr.json'),
@@ -185,6 +193,10 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'thessaloniki.es': () => import('./i18n/thessaloniki.es.json'),
   'thessaloniki.fr': () => import('./i18n/thessaloniki.fr.json'),
   'thessaloniki.it': () => import('./i18n/thessaloniki.it.json'),
+  'vienna.de': () => import('./i18n/vienna.de.json'),
+  'vienna.es': () => import('./i18n/vienna.es.json'),
+  'vienna.fr': () => import('./i18n/vienna.fr.json'),
+  'vienna.it': () => import('./i18n/vienna.it.json'),
 };
 
 /**

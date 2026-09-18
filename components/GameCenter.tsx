@@ -2,7 +2,7 @@
 import React, { Suspense, useCallback } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush } from 'lucide-react';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
@@ -29,6 +29,7 @@ const EcoHero = React.lazy(() => import('./games/EcoHero'));
 const TimeMachine = React.lazy(() => import('./games/TimeMachine'));
 const SpellListen = React.lazy(() => import('./games/SpellListen'));
 const DailyChallenge = React.lazy(() => import('./games/DailyChallenge'));
+const DrawGuess = React.lazy(() => import('./games/DrawGuess'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -39,8 +40,8 @@ const GameLoader = () => (
 
 const motion = m as any;
 
-type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily';
-const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily'];
+type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw';
+const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw'];
 
 interface GameCenterProps {
   lang: 'el' | 'en';
@@ -85,6 +86,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
     time: { title: 'TIME MACHINE', desc: lang === 'el' ? 'Ταξίδι στην ιστορία!' : 'Travel through history!' },
     spell: { title: 'SPELL & LISTEN', desc: lang === 'el' ? 'Άκου και γράψε!' : 'Listen and spell!' },
     daily: { title: lang === 'el' ? 'ΠΡΟΚΛΗΣΗ ΗΜΕΡΑΣ' : 'DAILY CHALLENGE', desc: lang === 'el' ? '3 γύροι των 30". Ίδιοι για όλους!' : '3 rounds of 30s. Same for everyone!' },
+    draw: { title: lang === 'el' ? 'ΖΩΓΡΑΦΙΣΕ & ΜΑΝΤΕΨΕ' : 'DRAW & GUESS', desc: lang === 'el' ? 'Ένα κινητό, 2-6 παίκτες!' : 'One phone, 2-6 players!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -123,6 +125,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'time': return <TimeMachine lang={lang} onBack={handleBack} />;
         case 'spell': return <SpellListen lang={lang} onBack={handleBack} />;
         case 'daily': return <DailyChallenge lang={lang} onBack={handleBack} />;
+        case 'draw': return <DrawGuess lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -156,6 +159,18 @@ export default function GameCenter({ lang }: GameCenterProps) {
       hoverShadow: 'hover:shadow-orange-500/20',
       playBg: 'group-hover:bg-orange-500',
       tagBg: 'bg-orange-500/20 text-orange-300',
+    },
+    {
+      key: 'draw' as const, icon: Brush, featured: true,
+      thumbnail: '/images/pencilo.jpg',
+      category: lang === 'el' ? 'ΠΑΡΕΑ' : 'PARTY',
+      cardBg: 'bg-gradient-to-br from-pink-950/90 to-fuchsia-950/90',
+      borderColor: 'border-pink-500/30 hover:border-pink-400/60',
+      iconBg: 'bg-pink-500/20 border-pink-500/30',
+      iconColor: 'text-pink-400',
+      hoverShadow: 'hover:shadow-pink-500/20',
+      playBg: 'group-hover:bg-pink-500',
+      tagBg: 'bg-pink-500/20 text-pink-300',
     },
     {
       key: 'mathrush' as const, icon: Calculator, featured: true,

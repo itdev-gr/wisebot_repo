@@ -25,6 +25,21 @@ const idsFor = (cityId: string, n: number): string[] =>
   Array.from({ length: n }, (_, i) => `${cityId}-p${i + 1}`);
 
 describe('mergeWorldStamps', () => {
+  it('keeps the local onSite flag when both sides hold the stamp', () => {
+    // world_stamps has no column for it, so the cloud copy never carries one. Rebuilding
+    // the merged stamp from `at` and `correct` alone erased it on every sign-in.
+    const merged = mergeWorldStamps(
+      { 'rome-a': { at: '2026-09-05', correct: false, onSite: true } },
+      { 'rome-a': { at: '2026-09-01', correct: true } },
+    );
+    expect(merged['rome-a']).toEqual({ at: '2026-09-01', correct: true, onSite: true });
+  });
+
+  it('does not invent onSite for a stamp that exists only in the cloud', () => {
+    const merged = mergeWorldStamps({}, { 'rome-a': { at: '2026-09-01', correct: true } });
+    expect('onSite' in merged['rome-a']).toBe(false);
+  });
+
   it('keeps a stamp that only one side has, from either side', () => {
     const merged = mergeWorldStamps(
       { 'rome-a': stamp('2026-09-01') },

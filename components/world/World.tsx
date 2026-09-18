@@ -858,7 +858,7 @@ const PlacePage: React.FC<{
   const [askAnother, setAskAnother] = useState<number | null>(null);
 
   const handleComplete = useCallback(
-    (correct: boolean) => {
+    (correct: boolean, onSite: boolean) => {
       if (!place || !city || !module) return;
       const award = visitPlace(
         place,
@@ -866,6 +866,7 @@ const PlacePage: React.FC<{
         city,
         module.places.map((p) => p.id),
         countryCityIds,
+        onSite,
       );
 
       // Trails are checked after the stamp lands: a trail can only finish on the visit

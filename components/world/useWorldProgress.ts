@@ -125,6 +125,8 @@ export interface UseWorldProgress {
    *
    * @param cityPlaceIds    every place of this city, for the city seal
    * @param countryCityIds  every city of this country, for the country seal
+   * @param onSite          the question was unlocked by «Είμαι εδώ!». Recorded on the
+   *                        stamp and nothing else: it moves no XP and no seal.
    */
   visitPlace: (
     place: Place,
@@ -132,6 +134,7 @@ export interface UseWorldProgress {
     city: City,
     cityPlaceIds: PlaceId[],
     countryCityIds: CityId[],
+    onSite: boolean,
   ) => WorldAward | null;
 
   /** One exhibit's question, inside a museum. */
@@ -192,11 +195,14 @@ export function useWorldProgress(): UseWorldProgress {
       city: City,
       cityPlaceIds: PlaceId[],
       countryCityIds: CityId[],
+      onSite: boolean,
     ): WorldAward | null => {
       const current = ref.current;
+      // The FIRST stamp is the record. A place read at home and walked to later keeps
+      // its first answer — this early return is why onSite can never be rewritten.
       if (current.places[place.id]) return null;
 
-      const stamp: PlaceStamp = { at: today(), correct };
+      const stamp: PlaceStamp = { at: today(), correct, onSite };
       const places = { ...current.places, [place.id]: stamp };
       let xp = WORLD_XP.visitPlace + (correct ? WORLD_XP.placeCorrect : 0);
       const award: WorldAward = { xp };
