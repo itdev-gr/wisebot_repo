@@ -133,11 +133,12 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
 
   const text = {
     el: {
-      pro: 'Certified Creator',
       joined: 'Μέλος από',
       membership: 'Κάρτα Μέλους',
-      planName: 'WISEBOT ACADEMY PRO',
-      renew: 'Ανανέωση: 12 Απριλίου',
+      // Honest card: there is no PRO subscription in the product — the old
+      // 'ACADEMY PRO / Ανανέωση: 12 Απριλίου' card showed a fake active plan
+      // with a hand-written renewal date to everyone, guests included.
+      planName: 'WISEBOT ACADEMY',
       statsTitle: 'Στατιστικά Δημιουργού',
       statBooks: 'Βιβλία',
       statImages: 'Εικόνες',
@@ -171,11 +172,9 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
       }
     },
     en: {
-      pro: 'Certified Creator',
       joined: 'Member since',
       membership: 'Membership Card',
-      planName: 'WISEBOT ACADEMY PRO',
-      renew: 'Renews: April 12',
+      planName: 'WISEBOT ACADEMY',
       statsTitle: 'Creator Stats',
       statBooks: 'Books',
       statImages: 'Images',
@@ -448,7 +447,7 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
                         </div>
                         <div>
                             <h4 className="text-white font-[1000] uppercase italic tracking-wider text-lg leading-none">{t.planName}</h4>
-                            <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-1">{lang === 'el' ? 'Ενεργή Πρόσβαση' : 'Active Access'}</p>
+                            <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mt-1">{t.membership}</p>
                         </div>
                     </div>
                     <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center border border-amber-500/30">

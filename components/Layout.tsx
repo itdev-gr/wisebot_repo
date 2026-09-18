@@ -835,9 +835,16 @@ const Layout: React.FC<LayoutProps> = ({ children, lang, setLang, xp, level, com
                            </div>
                         </div>
 
-                        <button className="w-full py-6 rounded-[2rem] bg-white text-blue-950 font-[1000] text-lg uppercase italic tracking-widest hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-blue-900/20 flex items-center justify-center gap-3 border-2 border-transparent hover:border-blue-200">
+                        {/* The old button promised «ΛΗΨΗ ΔΩΡΕΑΝ 3D PRINT» with no onClick and
+                            no claim flow anywhere in the product — a child earning 3 badges
+                            tapped into silence. Until a real physical reward exists, the
+                            unlocked state opens the 3D factory instead of promising a print. */}
+                        <button
+                           onClick={unlockedBadgeCount >= 3 ? () => { setShowLevelModal(false); navigate('/3d-factory'); } : undefined}
+                           className={`w-full py-6 rounded-[2rem] bg-white text-blue-950 font-[1000] text-lg uppercase italic tracking-widest transition-all shadow-xl shadow-blue-900/20 flex items-center justify-center gap-3 border-2 border-transparent ${unlockedBadgeCount >= 3 ? 'hover:scale-[1.02] active:scale-95 hover:border-blue-200' : 'opacity-70 cursor-default'}`}
+                        >
                            {unlockedBadgeCount >= 3 ? (
-                              <><Box size={24} /> {lang === 'el' ? 'ΛΗΨΗ ΔΩΡΕΑΝ 3D PRINT' : 'CLAIM FREE 3D PRINT'}</>
+                              <><Box size={24} /> {lang === 'el' ? 'ΑΝΟΙΞΕ ΤΟ 3D ΕΡΓΟΣΤΑΣΙΟ' : 'OPEN THE 3D FACTORY'}</>
                            ) : (
                               <><Lock size={20} className="opacity-50" /> {lang === 'el' ? 'ΞΕΚΛΕΙΔΩΣΕ 3 BADGES' : 'UNLOCK 3 BADGES'}</>
                            )}
