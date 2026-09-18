@@ -53,8 +53,8 @@ export const places: Place[] = [
     story: {
       el:
         'Το Δημαρχείο άνοιξε το 1905 και χτίστηκε για να είναι το ρολόι της πόλης. Ο ' +
-        'πύργος του φτάνει τα 106 μέτρα περίπου, και για πολλά χρόνια τίποτα στην ' +
-        'Κοπεγχάγη δεν ήταν ψηλότερο. Πάνω από τη μεγάλη πόρτα κοιτάζει μια χρυσή ' +
+        'πύργος του φτάνει τα 105 μέτρα περίπου, και ώσπου να τελειώσει ο πύργος του ' +
+        'Κρίστιανσμποργκ το 1928, τίποτα στην Κοπεγχάγη δεν ήταν ψηλότερο. Πάνω από τη μεγάλη πόρτα κοιτάζει μια χρυσή ' +
         'φιγούρα: ο επίσκοπος Άμπσαλον, που το 1167 έχτισε ένα μικρό κάστρο δίπλα σε ' +
         'αυτά τα νερά και θεωρείται ο ιδρυτής της πόλης. Μέσα, σε δική του αίθουσα, ' +
         'στέκεται το Παγκόσμιο Ρολόι του Γενς Όλσεν. Ένας ωρολογοποιός πέρασε το ' +
@@ -66,7 +66,8 @@ export const places: Place[] = [
         'πλατεία, δύο μπρούντζινοι άντρες σηκώνουν τεράστιες καμπυλωτές τρομπέτες.',
       en:
         'The City Hall opened in 1905, and it was built to be the city’s clock. Its tower ' +
-        'is about 106 metres high, and for many years nothing in Copenhagen stood taller. ' +
+        'is about 105 metres high, and until Christiansborg’s tower was finished in 1928 ' +
+        'nothing in Copenhagen stood taller. ' +
         'Above the main door a golden figure looks down: Bishop Absalon, who put up a ' +
         'small castle beside this water in 1167 and is counted as the city’s founder. ' +
         'Inside, in a room of its own, stands Jens Olsen’s World Clock. A clockmaker spent ' +
@@ -79,8 +80,8 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Ο πύργος του φτάνει τα 106 μέτρα περίπου και άνοιξε μαζί με το κτίριο, το 1905.',
-        en: 'Its tower is about 106 metres high and opened with the building, in 1905.',
+        el: 'Ο πύργος του φτάνει τα 105 μέτρα περίπου και άνοιξε μαζί με το κτίριο, το 1905.',
+        en: 'Its tower is about 105 metres high and opened with the building, in 1905.',
       },
       {
         el: 'Το Παγκόσμιο Ρολόι του Γενς Όλσεν ολοκληρώθηκε το 1955 και έχει πάνω από 15.000 εξαρτήματα.',
@@ -146,7 +147,7 @@ export const places: Place[] = [
       el:
         'Το Τίβολι άνοιξε το καλοκαίρι του 1843, σε ένα χωράφι έξω από τα παλιά τείχη ' +
         'της πόλης. Ο ιδρυτής του, ο Γκέοργκ Κάρστενσεν, έπεισε τον βασιλιά με μία ' +
-        'πρόταση: όταν ο κόσμος διασκεδάζει, δεν σκέφτεται τις έγνοιες του. Πήρε την ' +
+        'πρόταση: όταν ο κόσμος διασκεδάζει, δεν σκέφτεται την πολιτική. Πήρε την ' +
         'άδεια και τη γη. Μέσα υπάρχει ένα ξύλινο τρενάκι από το 1914 που λειτουργεί ' +
         'ακόμη, και δεν έχει καθόλου αυτόματα φρένα: σε κάθε διαδρομή ένας άνθρωπος, ο ' +
         'φρεναδόρος, στέκεται στη μέση του τρένου και το φρενάρει με το χέρι. Τα βράδια ' +
@@ -159,7 +160,7 @@ export const places: Place[] = [
       en:
         'Tivoli opened in the summer of 1843, on a field outside the old city walls. Its ' +
         'founder, Georg Carstensen, talked the king into it with a single sentence: people ' +
-        'who are enjoying themselves do not brood on their worries. He got his permission ' +
+        'who are enjoying themselves do not think about politics. He got his permission ' +
         'and his land. Inside there is a wooden roller coaster from 1914 that still runs, ' +
         'and it has no automatic brakes at all: on every trip a person called the brakeman ' +
         'stands in the middle of the train and slows it by hand. In the evening thousands ' +
@@ -243,7 +244,7 @@ export const places: Place[] = [
         'φοίνικες, ένα σιντριβάνι και ζεστό αέρα όλον τον χειμώνα. Ο κόσμος μπαίνει από ' +
         'το χιονόνερο, κάθεται ανάμεσα στα φύλλα και κοιτάζει μαρμάρινα πρόσωπα δύο ' +
         'χιλιάδων ετών. Πιο πέρα υπάρχουν αιγυπτιακά φέρετρα, σειρές ρωμαϊκών ' +
-        'πορτρέτων και γαλλικά γλυπτά. Εδώ αποδείχτηκε και κάτι που ξαφνιάζει: για ' +
+        'πορτρέτων και γαλλικά γλυπτά. Εδώ βρέθηκε και κάτι που ξαφνιάζει: για ' +
         'διακόσια χρόνια όλοι νόμιζαν ότι το αρχαίο μάρμαρο ήταν λευκό. Ερευνητές αυτού ' +
         'του μουσείου βρήκαν μικροσκοπικούς κόκκους χρώματος κρυμμένους μέσα στην πέτρα.',
       en:
@@ -255,7 +256,7 @@ export const places: Place[] = [
         'and warm air all winter. People come in out of the sleet, sit down among the ' +
         'leaves and look at marble faces two thousand years old. Further in there are ' +
         'Egyptian coffins, rows of Roman portraits and French sculpture. Something ' +
-        'surprising was also proved here. For two hundred years everybody believed ancient ' +
+        'surprising was also found here. For two hundred years everybody believed ancient ' +
         'marble was white. Researchers at this museum found tiny grains of paint still ' +
         'hidden in the stone.',
     },
@@ -553,7 +554,7 @@ export const places: Place[] = [
                 },
                 answers: [
                   { el: 'Να δουλεύουν στην άλλη ζωή', en: 'To work in the next life' },
-                  { el: 'Να μετράνε όλες τις μέρες', en: 'To count out all the days' },
+                  { el: 'Να διώχνουν τους κλέφτες', en: 'To scare off tomb robbers' },
                   { el: 'Να κρατάνε ψηλά το φέρετρο', en: 'To hold the coffin up high' },
                   { el: 'Να παίζουν με τα παιδιά', en: 'To be toys for the children' },
                 ],
@@ -621,13 +622,13 @@ export const places: Place[] = [
               'Μια ολόκληρη αίθουσα με μαρμάρινα κεφάλια, στη σειρά, στο ύψος του δικού ' +
               'σου. Δεν είναι θεοί. Είναι Ρωμαίοι, αληθινοί άνθρωποι που οι οικογένειές ' +
               'τους πλήρωσαν για ένα πορτρέτο. Το μουσείο έχει μία από τις μεγαλύτερες ' +
-              'ομάδες ρωμαϊκών πορτρέτων που υπάρχουν, και εδώ αποδείχτηκε ότι κάποτε ' +
-              'ήταν όλα βαμμένα.',
+              'ομάδες ρωμαϊκών πορτρέτων που υπάρχουν, και ερευνητές εδώ βρήκαν πάνω τους ' +
+              'μικροσκοπικά ίχνη από το χρώμα που είχαν κάποτε.',
             en:
               'A whole room of marble heads, in rows, at about your own height. They are ' +
               'not gods. They are Romans, real people whose families paid for a portrait. ' +
               'The museum holds one of the largest groups of Roman portraits anywhere, and ' +
-              'it was here that they were shown to have once been painted.',
+              'researchers here have found tiny traces of the paint they once wore.',
           },
           exhibits: [
             {
@@ -659,7 +660,7 @@ export const places: Place[] = [
                 answers: [
                   { el: 'Έπρεπε να μοιάζει με τον άνθρωπο', en: 'The portrait had to look like them' },
                   { el: 'Ο γλύπτης δεν ήξερε να σκαλίζει', en: 'The sculptor could not carve well' },
-                  { el: 'Το μάρμαρο έσπασε με τον καιρό', en: 'The marble broke over the years' },
+                  { el: 'Τα κεφάλια φτιάχτηκαν για αστείο', en: 'The heads were made as a joke' },
                   { el: 'Τα έφτιαχναν όλα πολύ βιαστικά', en: 'They were always made in a hurry' },
                 ],
                 explanation: {
@@ -805,11 +806,11 @@ export const places: Place[] = [
           difficulty: 3,
           prompt: {
             el:
-              'Δύο χιλιάδες χρόνια όλοι με έλεγαν λευκό, και δεν ήμουν ποτέ. Κρύβω ακόμα ' +
+              'Διακόσια χρόνια όλοι με έλεγαν λευκό, και δεν ήμουν ποτέ. Κρύβω ακόμα ' +
               'μικροσκοπικούς κόκκους χρώματος στις χαραματιές μου, και μια λάμπα τους ' +
               'βρήκε.',
             en:
-              'For two thousand years everyone called me white, and I never was. I still ' +
+              'For two hundred years everyone called me white, and I never was. I still ' +
               'hide tiny grains of colour in my scratches, and a lamp found them.',
           },
           hint: {
@@ -887,7 +888,7 @@ export const places: Place[] = [
       verifiedAt: '2026-09-14',
       note: 'Q648166 is the institution, and it is used here only because its Wikidata point is identical to five decimals to the building item, Prinsens Palæ (Q3432994) — so there is no two-streets-away risk to avoid. Q3432994 has no OpenStreetMap object at all and would have shipped at C on the very same coordinate.',
       findIt: {
-        el: 'Η είσοδος βλέπει στην πλατεία Ny Vestergade, όχι στο κανάλι. Ψάξε τη μεγάλη αυλή.',
+        el: 'Η είσοδος βλέπει στην οδό Ny Vestergade, όχι στο κανάλι. Ψάξε τη μεγάλη αυλή.',
         en: 'The entrance faces Ny Vestergade, not the canal. Look for the wide courtyard.',
       },
     },
@@ -1240,8 +1241,8 @@ export const places: Place[] = [
                   'Το 1639 ένα κορίτσι που περπατούσε κοντά στο Γκάλεχους βρήκε στο χώμα ' +
                   'ένα βαρύ χρυσό κέρας. Ενενήντα πέντε χρόνια αργότερα, σχεδόν στο ίδιο ' +
                   'σημείο, ένας αγρότης βρήκε και δεύτερο. Ήταν μακριά, καμπυλωτά, από ' +
-                  'χρυσάφι και γεμάτα παράξενες μικρές μορφές, και ήταν περίπου χίλια ' +
-                  'τετρακόσια ετών. Ο βασιλιάς τα κράτησε στη συλλογή του. Το 1802 ένας ' +
+                  'χρυσάφι και γεμάτα παράξενες μικρές μορφές, και είχαν φτιαχτεί γύρω στο ' +
+                  'έτος 400, πριν από περίπου χίλια εξακόσια χρόνια. Ο βασιλιάς τα κράτησε στη συλλογή του. Το 1802 ένας ' +
                   'κλέφτης μπήκε, πήρε και τα δύο, τα έλιωσε και έφτιαξε ψεύτικα ' +
                   'νομίσματα. Τον έπιασαν, αλλά τα κέρατα είχαν χαθεί για πάντα. Αυτά που ' +
                   'βλέπεις είναι αντίγραφα από παλιά σχέδια.',
@@ -1249,7 +1250,8 @@ export const places: Place[] = [
                   'In 1639 a girl walking near Gallehus found a heavy golden horn in the ' +
                   'ground. Ninety-five years later, almost in the same spot, a farmer ' +
                   'found a second one. They were long, curved, made of gold and covered in ' +
-                  'strange little figures, and they were about fourteen hundred years old. ' +
+                  'strange little figures, and they had been made around the year 400, about ' +
+                  'sixteen hundred years ago. ' +
                   'The king kept them in his collection. In 1802 a thief broke in, took ' +
                   'both, melted them down and made fake coins from the gold. He was ' +
                   'caught, but the horns were gone for good. What you see here are copies ' +
@@ -1269,10 +1271,10 @@ export const places: Place[] = [
                 explanation: {
                   el:
                     'Το 1802 κλάπηκαν και λιώθηκαν για να γίνουν νομίσματα. Τα αντίγραφα ' +
-                    'φτιάχτηκαν από σχέδια, γιατί δεν πρόλαβε κανείς να τα φωτογραφίσει.',
+                    'φτιάχτηκαν από σχέδια, γιατί η φωτογραφία δεν είχε εφευρεθεί ακόμα.',
                   en:
                     'In 1802 they were stolen and melted into coins. The copies were made ' +
-                    'from drawings, because nobody had photographed them in time.',
+                    'from drawings, because photography had not been invented yet.',
                 },
               },
             },
@@ -1391,12 +1393,12 @@ export const places: Place[] = [
           prompt: {
             el:
               'Δεν είμαστε αληθινά. Τα αληθινά ήταν από χρυσάφι, κάποιος τα έκλεψε το ' +
-              '1802 και τα έλιωσε. Εμάς μας έφτιαξαν από παλιά σχέδια, γιατί δεν πρόλαβε ' +
-              'κανείς να τα φωτογραφίσει.',
+              '1802 και τα έλιωσε. Εμάς μας έφτιαξαν από παλιά σχέδια, γιατί η φωτογραφία ' +
+              'δεν είχε εφευρεθεί ακόμα.',
             en:
               'We are not the real thing. The real ones were gold, somebody stole them in ' +
-              '1802 and melted them down. We were made from old drawings, because nobody ' +
-              'had photographed them in time.',
+              '1802 and melted them down. We were made from old drawings, because ' +
+              'photography had not been invented yet.',
           },
           hint: {
             el: 'Το πρώτο από τα δύο το βρήκε ένα κορίτσι που περπατούσε, το 1639.',
@@ -1445,7 +1447,7 @@ export const places: Place[] = [
         'Όλα στην Κοπεγχάγη ξεκινούν από αυτό το μικρό νησί. Το 1167 ο επίσκοπος ' +
         'Άμπσαλον έχτισε εδώ ένα κάστρο για να φυλάει το λιμάνι, και η πόλη μεγάλωσε ' +
         'γύρω του. Από τότε, τα κτίρια σε αυτό το σημείο κάηκαν δύο φορές και ' +
-        'γκρεμίστηκαν μία. Το παλάτι που στέκεται σήμερα τελείωσε το 1928 και είναι το ' +
+        'γκρεμίστηκαν δύο. Το παλάτι που στέκεται σήμερα τελείωσε το 1928 και είναι το ' +
         'τρίτο Κρίστιανσμποργκ. Μέσα του βρίσκονται τρία πράγματα που στις περισσότερες ' +
         'χώρες μένουν σε τρία διαφορετικά κτίρια: το κοινοβούλιο, το γραφείο του ' +
         'πρωθυπουργού και το ανώτατο δικαστήριο. Κάτω από το πάτωμα περπατάς μέσα στα ' +
@@ -1457,7 +1459,7 @@ export const places: Place[] = [
       en:
         'Everything in Copenhagen starts on this small island. In 1167 Bishop Absalon ' +
         'built a castle here to guard the harbour, and the city grew up around it. Since ' +
-        'then the buildings on this spot have burned down twice and been pulled down once. ' +
+        'then the buildings on this spot have burned down twice and been pulled down twice. ' +
         'The palace standing here now was finished in 1928 and is the third ' +
         'Christiansborg. Inside it are three things that in most countries sit in three ' +
         'separate buildings: the parliament, the prime minister’s office and the supreme ' +
@@ -1533,26 +1535,27 @@ export const places: Place[] = [
       el:
         'Το σιντριβάνι στήθηκε το 1894, δώρο για τα ασημένια γαμήλια χρόνια ενός ' +
         'διαδόχου: τρία μπρούντζινα πουλιά με ανοιχτά φτερά πάνω από μια γρανιτένια ' +
-        'γούρνα. Όλοι τα λένε πελαργούς. Όσοι τα κοιτάξουν προσεκτικά λένε ότι είναι ' +
-        'ερωδιοί. Η πόλη δεν το έλυσε ποτέ. Υπήρχε και μια συνήθεια: οι νέες μαίες ' +
-        'χόρευαν γύρω από τη γούρνα όταν τελείωναν τις σπουδές τους. Πιο σημαντικός όμως ' +
+        'γούρνα. Όλοι τα λένε πελαργούς. Κάποιοι επιμένουν ότι είναι ' +
+        'ερωδιοί, αλλά το 2008 ειδικοί στα πουλιά το έλυσαν: είναι πελαργοί. Υπάρχει ' +
+        'και μια συνήθεια: οι νέες μαίες χορεύουν γύρω από τη γούρνα όταν τελειώνουν ' +
+        'τις σπουδές τους. Πιο σημαντικός όμως ' +
         'είναι ο δρόμος πάνω στον οποίο στέκεται. Το Strøget έχει μήκος περίπου 1,1 ' +
         'χιλιόμετρο και δεν είναι ένας δρόμος αλλά πέντε στη σειρά. Το 1962 η πόλη τον ' +
-        'έκλεισε για τα αυτοκίνητα, ως δοκιμή, για έναν χειμώνα. Οι καταστηματάρχες ' +
+        'έκλεισε για τα αυτοκίνητα, ως δοκιμή. Οι καταστηματάρχες ' +
         'εξοργίστηκαν και οι εφημερίδες προέβλεψαν καταστροφή. Αντί γι’ αυτό, ο κόσμος ' +
-        'ήρθε, έμεινε περισσότερη ώρα, και τα αυτοκίνητα δεν ξαναγύρισαν ποτέ. Ένας ' +
+        'ήρθε, έμεινε περισσότερη ώρα, και δύο χρόνια αργότερα η αλλαγή έγινε μόνιμη. Ένας ' +
         'Δανός αρχιτέκτονας, ο Γιαν Γκελ, πέρασε χρόνια εδώ μετρώντας ποιος κάθεται πού ' +
         'και για πόσο, και οι μετρήσεις του άλλαξαν δρόμους σε όλον τον κόσμο.',
       en:
         'The fountain went up in 1894, a present for the silver wedding of a crown prince: ' +
         'three bronze birds with their wings open above a granite basin. Everybody calls ' +
-        'them storks. People who look carefully say they are herons. The city has never ' +
-        'settled it. There was a custom, too: newly trained midwives danced around the ' +
-        'basin when they finished their studies. More important, though, is the street it ' +
+        'them storks. Some people insist they are herons, but in 2008 bird experts settled ' +
+        'it: storks. There is a custom, too: newly trained midwives dance around the ' +
+        'basin when they finish their studies. More important, though, is the street it ' +
         'stands on. Strøget is about 1.1 kilometres long and it is not one street but five ' +
-        'in a row. In 1962 the city closed it to cars, as an experiment, for one winter. ' +
+        'in a row. In 1962 the city closed it to cars, as an experiment. ' +
         'Shopkeepers were furious and newspapers predicted ruin. Instead people came, ' +
-        'stayed longer, and the cars never returned. A Danish architect, Jan Gehl, spent ' +
+        'stayed longer, and two years later the change was made permanent. A Danish architect, Jan Gehl, spent ' +
         'years here counting who sat where and for how long, and what he found has changed ' +
         'streets all over the world.',
     },
@@ -1566,8 +1569,8 @@ export const places: Place[] = [
         en: 'Strøget is not one street but five in a row, about 1.1 km end to end.',
       },
       {
-        el: 'Το 1962 έκλεισε για τα αυτοκίνητα ως δοκιμή ενός χειμώνα, και δεν ξανάνοιξε.',
-        en: 'In 1962 it closed to cars as a one-winter experiment, and never reopened.',
+        el: 'Το 1962 έκλεισε για τα αυτοκίνητα ως δοκιμή, και το 1964 έγινε μόνιμος πεζόδρομος.',
+        en: 'In 1962 it closed to cars as an experiment, and in 1964 that became permanent.',
       },
     ],
     location: {
@@ -1599,10 +1602,10 @@ export const places: Place[] = [
       ],
       explanation: {
         el:
-          'Ο δρόμος έκλεισε για τα αυτοκίνητα ως δοκιμή ενός χειμώνα. Ο κόσμος τον ' +
+          'Ο δρόμος έκλεισε για τα αυτοκίνητα ως δοκιμή. Ο κόσμος τον ' +
           'αγάπησε, ο πεζόδρομος έμεινε, και άλλες πόλεις αντέγραψαν την ιδέα.',
         en:
-          'The street was closed to cars as a one-winter experiment. People loved it, the ' +
+          'The street was closed to cars as an experiment. People loved it, the ' +
           'walking street stayed, and other cities copied the idea.',
       },
     },
@@ -1626,7 +1629,7 @@ export const places: Place[] = [
         'Ο βασιλιάς Χριστιανός ο Δ΄ αγαπούσε το χτίσιμο. Το 1642 τελείωσε αυτόν τον ' +
         'στρογγυλό πύργο για τους αστρονόμους του πανεπιστημίου, ώστε να κοιτάζουν τον ' +
         'ουρανό από πάνω από τον καπνό της πόλης. Είναι ακόμα αστεροσκοπείο, και το ' +
-        'παλαιότερο της Ευρώπης που λειτουργεί συνεχώς. Μέσα δεν υπάρχουν σχεδόν καθόλου ' +
+        'παλαιότερο της Ευρώπης που λειτουργεί ακόμα. Μέσα δεν υπάρχουν σχεδόν καθόλου ' +
         'σκαλοπάτια. Στη θέση τους μια χτιστή ράμπα στριφογυρίζει εφτάμισι φορές γύρω από ' +
         'έναν κεντρικό πυρήνα, περίπου 209 μέτρα ήπιας ανηφόρας, ώστε ένα άλογο με κάρο ' +
         'να ανεβάζει βαριά όργανα και βιβλία ως την κορυφή. Το 1716 ο τσάρος Πέτρος ο ' +
@@ -1637,8 +1640,8 @@ export const places: Place[] = [
       en:
         'King Christian IV loved building. In 1642 he finished this round tower for the ' +
         'university’s astronomers, so that they could watch the sky from above the smoke ' +
-        'of the city. It is still an observatory, and the oldest one in Europe in ' +
-        'continuous use. Inside there are almost no steps at all. In their place a brick ' +
+        'of the city. It is still an observatory, and the oldest one in Europe that is ' +
+        'still in use. Inside there are almost no steps at all. In their place a brick ' +
         'ramp spirals seven and a half times around a central core, about 209 metres of ' +
         'gentle slope, so that a horse and cart could carry heavy instruments and books to ' +
         'the top. In 1716 Tsar Peter the Great rode up it, and the story goes that the ' +
@@ -1773,7 +1776,7 @@ export const places: Place[] = [
       answers: [
         { el: 'Από δόντι φάλαινας', en: 'From the tooth of a whale' },
         { el: 'Από κέρατο ελαφιού', en: 'From the horn of a deer' },
-        { el: 'Από δόντι ελέφαντα', en: 'From the tusk of a walrus' },
+        { el: 'Από δόντι ελέφαντα', en: 'From the tusk of an elephant' },
         { el: 'Από κόκαλο αλόγου', en: 'From the bone of a horse' },
       ],
       explanation: {
@@ -2075,7 +2078,8 @@ export const places: Place[] = [
         'βασιλιάς Φρειδερίκος ο Ε΄ ήθελε μια ολόκληρη καινούργια συνοικία τόσο όμορφη ' +
         'ώστε να τη συζητάνε οι επισκέπτες, και έβαλε στη μέση της το άγαλμα του εαυτού ' +
         'του πάνω σε άλογο. Ο Γάλλος γλύπτης Ζακ Σαλί χρειάστηκε περίπου είκοσι χρόνια ' +
-        'γι’ αυτό το άγαλμα, και λένε ότι κόστισε σχεδόν όσο ένα από τα παλάτια. Το 1794 ' +
+        'γι’ αυτό το άγαλμα, και λένε ότι κόστισε περισσότερο και από τα τέσσερα παλάτια ' +
+        'μαζί. Το 1794 ' +
         'το βασιλικό παλάτι στο Κρίστιανσμποργκ κάηκε, ο βασιλιάς αγόρασε τα τέσσερα ' +
         'σπίτια από τους ιδιοκτήτες τους, και η οικογένεια μετακόμισε εδώ. Είναι ακόμα ' +
         'εδώ. Στρατιώτες με ψηλά μαύρα καπέλα από γούνα φυλάνε την πλατεία. Κάθε πρωί ' +
@@ -2086,8 +2090,8 @@ export const places: Place[] = [
         'noble families, around a square with eight sides. King Frederik V wanted a whole ' +
         'new district so handsome that visitors would talk about it, and he put a statue ' +
         'of himself on horseback in the middle of it. The French sculptor Jacques Saly ' +
-        'took about twenty years over that statue, and it is said to have cost nearly as ' +
-        'much as one of the palaces. Then in 1794 the royal palace at Christiansborg ' +
+        'took about twenty years over that statue, and it is said to have cost more than ' +
+        'all four palaces put together. Then in 1794 the royal palace at Christiansborg ' +
         'burned down, the king bought the four houses from their owners, and the family ' +
         'moved in. They are still here. Soldiers in tall black fur caps guard the square. ' +
         'Every morning at half past eleven the guard sets out from Rosenborg Castle, ' +
@@ -2440,7 +2444,7 @@ export const places: Place[] = [
         'υπερχείλιση όταν βρέχει πολύ, και σταμάτησε τα βιομηχανικά απόβλητα. Το 2002 το ' +
         'νερό ήταν αρκετά καθαρό ώστε να ανοίξει ένα δημόσιο κολυμβητήριο μέσα στο ίδιο ' +
         'το λιμάνι, στο Islands Brygge. Είναι μια ξύλινη πλατφόρμα με πέντε πισίνες ' +
-        'κομμένες μέσα της, μία ρηχή για μικρά παιδιά, με ναυαγοσώστες το καλοκαίρι και ' +
+        'κομμένες μέσα της, δύο από αυτές ρηχές για μικρά παιδιά, με ναυαγοσώστες το καλοκαίρι και ' +
         'χωρίς εισιτήριο. Αισθητήρες παρακολουθούν το νερό και οι πισίνες κλείνουν αν ' +
         'μια καταιγίδα το κάνει επικίνδυνο.',
       en:
@@ -2452,7 +2456,7 @@ export const places: Place[] = [
         'hold the overflow when it rains hard, and stopped the industrial discharges. By ' +
         '2002 the water was clean enough to open a public swimming place in the harbour ' +
         'itself, off Islands Brygge. It is a wooden platform with five pools cut into it, ' +
-        'one of them shallow for small children, with lifeguards in summer and nothing to ' +
+        'two of them shallow for small children, with lifeguards in summer and nothing to ' +
         'pay. Sensors watch the water and the pools close if a storm makes it unsafe.',
     },
     facts: [
@@ -2461,8 +2465,8 @@ export const places: Place[] = [
         en: 'It opened in 2002, once the harbour water was clean enough to swim in.',
       },
       {
-        el: 'Έχει πέντε πισίνες, μία ρηχή για μικρά παιδιά, και η είσοδος δεν κοστίζει.',
-        en: 'It has five pools, one shallow for small children, and costs nothing to use.',
+        el: 'Έχει πέντε πισίνες, δύο ρηχές για μικρά παιδιά, και η είσοδος δεν κοστίζει.',
+        en: 'It has five pools, two shallow for small children, and costs nothing to use.',
       },
       {
         el: 'Η πόλη χώρισε τους αγωγούς της βροχής από τους αγωγούς των λυμάτων.',
