@@ -1,3 +1,4 @@
+import { loginPath } from '../utils/authReturn';
 import React, { createContext, useContext, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -68,7 +69,7 @@ const GuestTopBanner: React.FC<{ lang: 'el' | 'en' }> = ({ lang }) => {
         </p>
         <div className="flex flex-shrink-0 items-center gap-1">
           <button
-            onClick={() => navigate('/login?mode=register')}
+            onClick={() => navigate(loginPath({ register: true }))}
             className="px-4 py-1.5 bg-amber-500/20 border border-amber-500/30 rounded-xl text-amber-400 text-xs font-[1000] uppercase tracking-wider hover:bg-amber-500/30 transition-colors"
           >
             {lang === 'el' ? 'Εγγραφή' : 'Sign Up'}

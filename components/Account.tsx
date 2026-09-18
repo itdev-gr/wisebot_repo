@@ -1,4 +1,5 @@
 
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect } from 'react';
 import {
   CreditCard,
@@ -332,7 +333,7 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
           <div className="mt-3">
             {isGuest ? (
               <button
-                onClick={() => navigate('/login')}
+                onClick={() => navigate(loginPath())}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-2xl text-white font-[900] text-xs uppercase tracking-wider hover:border-blue-400/60 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all active:scale-[0.97]"
               >
                 <LogIn size={16} />

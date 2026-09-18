@@ -1,4 +1,5 @@
 
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Zap, Star, Crown, Rocket, Gift, Sparkles, ArrowRight, BookOpen, Brain, Briefcase, Music, Clapperboard, Box, CheckCircle, Loader2, Shield, AlertCircle, X, Smartphone, Mail, Lock } from 'lucide-react';
@@ -478,7 +479,7 @@ export default function CreditStore({ lang }: CreditStoreProps) {
                 <button
                   onClick={() => {
                     setShowVerifyGate(false);
-                    navigate('/login?mode=register');
+                    navigate(loginPath({ register: true }));
                   }}
                   className="w-full py-3 bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-xl text-white font-[1000] uppercase tracking-widest text-xs hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20"
                 >

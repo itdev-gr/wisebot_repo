@@ -11,6 +11,7 @@
  * Replaced the mock market (hard-coded "heroes by other students") on
  * 24 Αυγούστου 2026 — see the economy-hardening PR for the whole story.
  */
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Store, Music, Image as ImageIcon, Box, ArrowRight, Play, Pause, Zap, Clock, CheckCircle2, XCircle, Plus, Loader2, Flag, X } from 'lucide-react';
@@ -100,7 +101,7 @@ const HeroMarket: React.FC<HeroMarketProps> = ({ lang, myHeroes = [] }) => {
 
   const requireLogin = () => {
     showNotification('🔑', el ? 'Φτιάξε λογαριασμό για την Αγορά!' : 'Create an account for the Market!');
-    setTimeout(() => navigate('/login?mode=register'), 1200);
+    setTimeout(() => navigate(loginPath({ register: true })), 1200);
   };
 
   const buy = async (listing: Listing) => {

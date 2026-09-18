@@ -5,12 +5,13 @@
  * Register: childName + parentEmail (= account email) + password
  * Login: parentEmail + password
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import { Shield, ArrowRight, User, Mail, Lock, Sparkles, AlertCircle, Eye, EyeOff, CheckCircle, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import PasswordResetForm from './PasswordResetForm';
+import { rememberReturnTo, takeReturnTo } from '../utils/authReturn';
 
 const motion = m as any;
 
@@ -89,11 +90,32 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const [resending, setResending] = useState(false);
   const t = TEXT[lang];
 
+  // ?returnTo=<in-app path>: where the gate that sent us here wants the user
+  // back. Remembered in localStorage too, because a signup returns through the
+  // verification e-mail — a different tab, often hours later.
+  const returnTo = useMemo(() => {
+    try {
+      const p = new URLSearchParams(window.location.search).get('returnTo');
+      return p && /^\/[a-z0-9\-/]*$/i.test(p) ? p : null;
+    } catch {
+      return null;
+    }
+  }, []);
+  useEffect(() => {
+    if (returnTo) rememberReturnTo(returnTo);
+  }, [returnTo]);
+  // Consumes the stored copy either way, so an old gate can't hijack later logins.
+  const afterAuthPath = () => {
+    const stored = takeReturnTo();
+    return returnTo || stored || '/dashboard';
+  };
+
   // If already logged in, redirect — access is available before verification too.
   useEffect(() => {
     if (!authLoading && user && !resetMode) {
-      navigate('/dashboard', { replace: true });
+      navigate(afterAuthPath(), { replace: true });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, authLoading, navigate, resetMode]);
 
   // /login?mode=register (guest banner, parent dashboard) opens straight on the signup tab.
@@ -206,7 +228,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       }
 
       setSuccess(t.successLogin);
-      setTimeout(() => navigate('/dashboard', { replace: true }), 1000);
+      setTimeout(() => navigate(afterAuthPath(), { replace: true }), 1000);
     }
   };
 

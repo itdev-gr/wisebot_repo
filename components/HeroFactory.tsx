@@ -1,4 +1,5 @@
 
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion as m, AnimatePresence } from 'framer-motion';
 import {
@@ -366,7 +367,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
     if (isGuest) {
       import('../utils/analytics').then(({ trackGateBlock }) => trackGateBlock('login', '3d')).catch(() => {});
       showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
-      setTimeout(() => navigate('/login?mode=register'), 1500);
+      setTimeout(() => navigate(loginPath({ register: true })), 1500);
       return;
     }
     if (!spendCredits(costs.threeD, '3d')) {
@@ -404,7 +405,7 @@ export default function HeroFactory({ lang, addHero }: HeroFactoryProps) {
         refundCredits(costs.threeD);
         setMeshy3DStatus('idle');
         showNotification('🧊', lang === 'el' ? 'Για να φτιάξεις 3D, φτιάξε λογαριασμό!' : 'Create an account to make 3D!');
-        setTimeout(() => navigate('/login?mode=register'), 1500);
+        setTimeout(() => navigate(loginPath({ register: true })), 1500);
         return;
       }
       if (!data.taskId) {

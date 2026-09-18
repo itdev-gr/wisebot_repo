@@ -10,6 +10,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Loader2, MailQuestion, ShieldAlert } from 'lucide-react';
+import { takeReturnTo } from '../utils/authReturn';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -62,10 +63,12 @@ const VerifyEmailLanding: React.FC<VerifyEmailLandingProps> = ({ lang }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Verified and signed in → celebrate briefly, then straight to the dashboard.
+  // Verified and signed in → celebrate briefly, then back to the page whose
+  // gate started the signup (remembered across the e-mail round trip), else
+  // the dashboard.
   useEffect(() => {
     if (!user) return;
-    const timer = setTimeout(() => navigate('/dashboard', { replace: true }), 2500);
+    const timer = setTimeout(() => navigate(takeReturnTo() || '/dashboard', { replace: true }), 2500);
     return () => clearTimeout(timer);
   }, [user, navigate]);
 
@@ -91,7 +94,7 @@ const VerifyEmailLanding: React.FC<VerifyEmailLandingProps> = ({ lang }) => {
             <h1 className="text-2xl font-[1000] text-white uppercase italic tracking-tighter">{t.successTitle}</h1>
             <p className="text-white/60 text-sm font-bold leading-relaxed">{t.successBody}</p>
             <button
-              onClick={() => navigate('/dashboard', { replace: true })}
+              onClick={() => navigate(takeReturnTo() || '/dashboard', { replace: true })}
               className="px-8 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-[900] uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all"
             >
               {t.successBtn}

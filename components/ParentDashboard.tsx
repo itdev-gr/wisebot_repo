@@ -1,4 +1,5 @@
 
+import { loginPath } from '../utils/authReturn';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Shield, Brain, Palette, Clapperboard, Hammer, Store, Music, FlaskConical, Globe,
@@ -408,14 +409,14 @@ export default function ParentDashboard({ lang }: ParentDashboardProps) {
           <div className="space-y-3">
             <button
               type="button"
-              onClick={() => navigate('/login')}
+              onClick={() => navigate(loginPath())}
               className="w-full py-3 bg-blue-600 rounded-xl text-white font-black uppercase text-sm hover:bg-blue-500 transition-all"
             >
               {t.guestLogin}
             </button>
             <button
               type="button"
-              onClick={() => navigate('/login?mode=register')}
+              onClick={() => navigate(loginPath({ register: true }))}
               className="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-white/80 font-black uppercase text-sm hover:bg-white/10 transition-all"
             >
               {t.guestRegister}
