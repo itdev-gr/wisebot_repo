@@ -509,7 +509,8 @@ export const places: Place[] = [
         'Οι Μαυριτανοί έχτισαν αυτά τα τείχη πριν από περίπου χίλια χρόνια, στον λόφο από ' +
         'τον οποίο μπορούσαν να βλέπουν κάθε καράβι που ανέβαινε το ποτάμι. Το 1147 ο ' +
         'Afonso Henriques με τον στρατό του πολιόρκησε το κάστρο για μήνες, ώσπου η πόλη ' +
-        'παραδόθηκε και η Πορτογαλία απέκτησε καινούργια πρωτεύουσα. Αργότερα εδώ έμεναν ' +
+        'παραδόθηκε και έγινε κομμάτι της Πορτογαλίας· περίπου εκατό χρόνια αργότερα έγινε ' +
+        'και πρωτεύουσα. Αργότερα εδώ έμεναν ' +
         'βασιλιάδες, και το κάστρο πήρε το όνομα του Αγίου Γεωργίου, του ιππότη με τον ' +
         'δράκο. Περπάτα πάνω στα τείχη και μέτρα τους έντεκα πύργους. Πρόσεχε πού πατάς: τα ' +
         'σκαλοπάτια είναι στραβά και δεν έχουν όλα το ίδιο ύψος, γιατί χτίστηκαν για ' +
@@ -519,8 +520,9 @@ export const places: Place[] = [
       en:
         'The Moors built these walls about a thousand years ago, on the hill from which they ' +
         'could watch every ship coming up the river. In 1147 Afonso Henriques and his army ' +
-        'besieged the castle for months, until the city gave in and Portugal had a new ' +
-        'capital. Later, kings lived here, and the castle took the name of Saint George, the ' +
+        'besieged the castle for months, until the city gave in and became part of ' +
+        'Portugal; about a hundred years later it became the capital too. Later, kings ' +
+        'lived here, and the castle took the name of Saint George, the ' +
         'knight with the dragon. Walk along the walls and count the eleven towers. Watch your ' +
         'feet: the steps are crooked and not all the same height, because they were built for ' +
         'guards, not for visitors. Peacocks live in the gardens and spread their tails in ' +
@@ -1111,7 +1113,7 @@ export const places: Place[] = [
                 answers: [
                   { el: 'Στη σημαία της Πορτογαλίας', en: 'On the flag of Portugal' },
                   { el: 'Στα κέρματα του ενός λεπτού', en: 'On the one-cent coins' },
-                  { el: 'Στη στολή του εθνικού συλλόγου', en: 'On the national club’s kit' },
+                  { el: 'Στα χαρτονομίσματα του ευρώ', en: 'On the euro banknotes' },
                   { el: 'Στα διαβατήρια της Ισπανίας', en: 'On the passports of Spain' },
                 ],
                 explanation: {
@@ -1852,14 +1854,14 @@ export const places: Place[] = [
                   'Είκοσι τρία μέτρα τοίχου, φτιαγμένα γύρω στο 1700, που δείχνουν ολόκληρη τη ' +
                   'Λισαβόνα από το ποτάμι, σπίτι το σπίτι. Περπάτα αργά κατά μήκος του και βρες ' +
                   'το κάστρο ψηλά, τον καθεδρικό, τα καράβια στον Τάγο και το βασιλικό παλάτι ' +
-                  'δίπλα στο νερό — το παλάτι που ο σεισμός θα ισοπέδωνε πενήντα χρόνια ' +
+                  'δίπλα στο νερό — το παλάτι που ο σεισμός θα ισοπέδωνε περίπου πενήντα χρόνια ' +
                   'αργότερα. Ήταν διακόσμηση όταν φτιάχτηκε. Έγινε ντοκουμέντο κατά λάθος, την ' +
                   'ημέρα που η πόλη που εικονίζει έπαψε να υπάρχει.',
                 en:
                   'Twenty-three metres of wall, made around 1700, showing the whole of Lisbon ' +
                   'from the river, house by house. Walk slowly along it and find the castle up on ' +
                   'its hill, the cathedral, the ships on the Tagus and the royal palace beside ' +
-                  'the water — the palace the earthquake would flatten fifty years later. It was ' +
+                  'the water — the palace the earthquake would flatten about fifty years later. It was ' +
                   'decoration when it was made. It became a document by accident, on the day the ' +
                   'city it shows stopped existing.',
               },
@@ -1876,10 +1878,10 @@ export const places: Place[] = [
                 ],
                 explanation: {
                   el:
-                    'Φτιάχτηκε πενήντα χρόνια πριν από τον σεισμό. Είναι σχεδόν το μόνο ' +
+                    'Φτιάχτηκε περίπου πενήντα χρόνια πριν από τον σεισμό. Είναι σχεδόν το μόνο ' +
                     'λεπτομερές πορτρέτο μιας πόλης που δεν υπάρχει πια.',
                   en:
-                    'It was made fifty years before the earthquake. It is almost the only detailed ' +
+                    'It was made about fifty years before the earthquake. It is almost the only detailed ' +
                     'portrait of a city that no longer exists.',
                 },
               },
@@ -2113,11 +2115,11 @@ export const places: Place[] = [
           prompt: {
             el:
               'Είμαι είκοσι τρία μέτρα μακρύς και δεν χωράω σε καμία κορνίζα. Δείχνω μια πόλη ' +
-              'που δεν μπορείς πια να επισκεφθείς, γιατί πενήντα χρόνια αφού με έφτιαξαν ' +
+              'που δεν μπορείς πια να επισκεφθείς, γιατί περίπου πενήντα χρόνια αφού με έφτιαξαν ' +
               'γκρεμίστηκε.',
             en:
               'I am twenty-three metres long and I fit into no frame at all. I show a city you ' +
-              'can no longer visit, because fifty years after I was made it fell down.',
+              'can no longer visit, because about fifty years after I was made it fell down.',
           },
           hint: {
             el: 'Πρέπει να περπατήσεις για να με δεις ολόκληρο.',
