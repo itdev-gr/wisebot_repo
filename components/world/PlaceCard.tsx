@@ -28,9 +28,9 @@
  * six disagree about word order and a concatenated sentence is wrong in most of them.
  */
 
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Check, X, Sparkles, DoorOpen, MapPin, Stamp, Info } from 'lucide-react';
+import { ArrowLeft, BookOpen, Check, X, Sparkles, DoorOpen, MapPin, Stamp, Info } from 'lucide-react';
 import type { LocText, Place, PlaceId, WorldLang } from '../../data/world/types';
 import type { PlaceStamp } from './useWorldProgress';
 import StoryNarration from './StoryNarration';
@@ -127,6 +127,15 @@ const T = {
     fr: 'L’HISTOIRE',
     es: 'LA HISTORIA',
     it: 'LA STORIA',
+  },
+  /** On site the question comes first; this is the one tap that still gets you the story. */
+  readStory: {
+    el: 'Θες πρώτα την ιστορία; Είναι πιο κάτω.',
+    en: 'Want the story first? It is just below.',
+    de: 'Erst die Geschichte? Sie steht weiter unten.',
+    fr: 'D’abord l’histoire ? Elle est juste en dessous.',
+    es: '¿Primero la historia? Está justo debajo.',
+    it: 'Prima la storia? È qui sotto.',
   },
   facts: {
     el: 'ΚΑΛΟ ΝΑ ΞΕΡΕΙΣ',
@@ -435,6 +444,21 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
   const radiusM = place.location.anchor === 'area' ? 120 : 60;
   const onSite = Boolean(stamp) || geo === 'here';
 
+  /**
+   * On site, the question comes before the story — brief §16, «action before information».
+   * A child standing in front of the Parthenon used to be handed 200 words before anything
+   * was asked of them. From home nothing changes: the story reads first, in full.
+   *
+   * Decided once per visit, and it must not flip mid-visit. `onComplete` lands the stamp in
+   * the same commit as the answer, so a rule reading `stamp` would reorder the page the
+   * instant the child answered, sliding the result out from under their finger. So a place
+   * stamped BEFORE this card opened keeps the at-home order — re-reading is not a mission —
+   * and one stamped DURING it keeps the order it was answered in. The card is keyed by
+   * place, so this is read once per place.
+   */
+  const stampedAtOpen = useRef(Boolean(stamp)).current;
+  const questionFirst = geo === 'here' && !stampedAtOpen;
+
   const locate = async () => {
     // WebKit answers every request after a denial from memory until the page reloads,
     // so a tap after a «no» reloads first; the tap after that is the one that asks.
@@ -504,6 +528,55 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
   const stampedOn = stamp?.at ? formatStampDate(stamp.at, lang) : null;
   const headingId = `world-place-${place.id}`;
   const questionId = `world-question-${place.id}`;
+  const storyId = `world-story-${place.id}`;
+  const questionAnchorId = `${questionId}-anchor`;
+
+  /**
+   * The moment «Είμαι εδώ!» succeeds the story leaves the top of the page, and everything
+   * below it would slide up under the child's finger. So the page is moved on purpose,
+   * to the question, instead of being left to jump.
+   */
+  useEffect(() => {
+    if (!questionFirst) return;
+    document.getElementById(questionAnchorId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [questionFirst, questionAnchorId]);
+
+  const scrollToStory = () =>
+    document.getElementById(storyId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  /** The story and its facts, rendered once — above the question from home, below it on site. */
+  const storyBlock = (
+    <>
+      {/* ── STORY ──
+          Read aloud in the app's one voice when narration exists for this place and
+          language, with the words following the voice; plain text when it does not.
+          StoryNarration decides which, so this screen never has to know. */}
+      <section id={storyId} className="mt-8 scroll-mt-24">
+        <h2 className={`${WORLD_STYLE.label} mb-3`}>{ui(T.story, lang)}</h2>
+        <StoryNarration
+          id={place.id}
+          lang={lang}
+          text={say(place.story, lang)}
+          className="text-[17px] md:text-lg"
+        />
+      </section>
+
+      {/* ── FACTS ── */}
+      {facts.length > 0 && (
+        <section className="mt-8">
+          <h2 className={`${WORLD_STYLE.label} mb-3`}>{ui(T.facts, lang)}</h2>
+          <div className="flex flex-wrap gap-2">
+            {facts.map((fact, i) => (
+              <span key={i} className={WORLD_STYLE.chip}>
+                <Sparkles size={12} className="text-white/30 shrink-0" aria-hidden />
+                {say(fact, lang)}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+    </>
+  );
 
   return (
     <div className="pb-32">
@@ -602,34 +675,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
           </p>
         )}
 
-        {/* ── STORY ──
-            Read aloud in the app's one voice when narration exists for this place and
-            language, with the words following the voice; plain text when it does not.
-            StoryNarration decides which, so this screen never has to know. */}
-        <section className="mt-8">
-          <h2 className={`${WORLD_STYLE.label} mb-3`}>{ui(T.story, lang)}</h2>
-          <StoryNarration
-            id={place.id}
-            lang={lang}
-            text={say(place.story, lang)}
-            className="text-[17px] md:text-lg"
-          />
-        </section>
-
-        {/* ── FACTS ── */}
-        {facts.length > 0 && (
-          <section className="mt-8">
-            <h2 className={`${WORLD_STYLE.label} mb-3`}>{ui(T.facts, lang)}</h2>
-            <div className="flex flex-wrap gap-2">
-              {facts.map((fact, i) => (
-                <span key={i} className={WORLD_STYLE.chip}>
-                  <Sparkles size={12} className="text-white/30 shrink-0" aria-hidden />
-                  {say(fact, lang)}
-                </span>
-              ))}
-            </div>
-          </section>
-        )}
+        {/* From home: the story first, exactly as before. */}
+        {!questionFirst && storyBlock}
 
         {/* ── FINDING THE DOOR ──
             A landmark, not a coordinate. The Panathenaic Stadium's own site gives its
@@ -747,6 +794,21 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
               </button>
             </div>
           </section>
+        )}
+
+        {/* Where the page lands when «Είμαι εδώ!» succeeds, with the one tap that still
+            reaches the story — never hidden behind a right answer. */}
+        {questionFirst && (
+          <div id={questionAnchorId} className="mt-8 scroll-mt-24">
+            <button
+              type="button"
+              onClick={scrollToStory}
+              className="inline-flex min-h-[44px] items-center gap-2 text-sm font-bold text-white/55 underline decoration-white/20 underline-offset-4 hover:text-white/80"
+            >
+              <BookOpen size={15} aria-hidden="true" />
+              {ui(T.readStory, lang)}
+            </button>
+          </div>
         )}
 
         {/* ── THE QUESTION — opens on the spot, or once the stamp is already there ── */}
@@ -894,6 +956,9 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
             </div>
           </section>
         )}
+
+        {/* On site: the story after the question — do, get curious, then be told. */}
+        {questionFirst && storyBlock}
 
         {/* ── BACK, again, at the end of a long read ── */}
         <div className="mt-8 flex justify-center">
