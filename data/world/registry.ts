@@ -157,6 +157,8 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'berlin.es': () => import('./i18n/berlin.es.json'),
   'berlin.fr': () => import('./i18n/berlin.fr.json'),
   'berlin.it': () => import('./i18n/berlin.it.json'),
+  'budapest.de': () => import('./i18n/budapest.de.json'),
+  'budapest.es': () => import('./i18n/budapest.es.json'),
   'delphi.de': () => import('./i18n/delphi.de.json'),
   'delphi.es': () => import('./i18n/delphi.es.json'),
   'delphi.fr': () => import('./i18n/delphi.fr.json'),
