@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 1000" width="920" height="1000" role="img" aria-label="Stylised map of the old town of Bruges">
+  <title>Bruges — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/belgium.ts
+    (north 51.220, south 51.1955, east 3.246, west 3.210) so that place pins can be
+    projected onto it rather than positioned by hand. Deliberately schematic: the egg of
+    the ring canal with its green rampart belt, the four surviving gates as notches on it,
+    the reien threading the old town from the northern harbour down past the Rozenhoedkaai
+    corner to the Minnewater in the south, the windmill bank on the eastern rampart, and
+    the greens of the Astridpark and the Begijnhof meadow are all placed from those
+    bounds. Nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5f0e5" />
+      <stop offset="1" stop-color="#eae1cf" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a4cddc" />
+      <stop offset="1" stop-color="#7db3c9" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dcd0b7" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="920" height="1000" fill="url(#ground)" />
+  <rect width="920" height="1000" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The green belt of the old ramparts, just inside the moat. -->
+  <path
+    d="M350 33 C 500 40, 600 52, 613 61 C 760 130, 869 260, 869 376 C 869 560, 760 700, 639 751
+       C 540 800, 450 900, 396 918 C 300 890, 190 870, 153 825 C 70 760, 46 660, 46 580
+       C 46 400, 80 260, 115 212 C 180 120, 270 45, 350 33 Z"
+    fill="#d8e5c2"
+    stroke="none"
+  />
+
+  <!-- The ring canal: the moat that still draws the shape of the medieval town. -->
+  <path
+    d="M350 33 C 500 40, 600 52, 613 61 C 760 130, 869 260, 869 376 C 869 560, 760 700, 639 751
+       C 540 800, 450 900, 396 918 C 300 890, 190 870, 153 825 C 70 760, 46 660, 46 580
+       C 46 400, 80 260, 115 212 C 180 120, 270 45, 350 33 Z"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="22"
+    stroke-linejoin="round"
+  />
+
+  <!-- Inside the belt, the town itself. -->
+  <path
+    d="M352 70 C 490 76, 580 88, 600 98 C 720 158, 833 268, 833 376 C 833 548, 733 676, 622 722
+       C 528 768, 448 862, 398 880 C 312 854, 212 836, 178 796 C 106 738, 82 654, 82 580
+       C 82 412, 112 282, 143 236 C 202 156, 280 82, 352 70 Z"
+    fill="#f2ecdd"
+    stroke="#cbbd9e"
+    stroke-width="2"
+  />
+
+  <!-- The reien: the town's own canals, once its streets. -->
+  <g fill="none" stroke="url(#water)" stroke-width="11" stroke-linecap="round">
+    <!-- From the northern harbour down past Jan van Eyckplein to the Rozenhoedkaai corner. -->
+    <path d="M600 98 C 540 170, 460 270, 406 345 C 466 400, 452 470, 449 524" />
+    <!-- The corner where two canals meet, then south-west along the Dijver. -->
+    <path d="M449 524 C 420 570, 396 590, 384 611 C 368 660, 358 706, 355 746 C 366 776, 374 790, 378 800" />
+    <!-- The eastern branch, out to the moat past the Astridpark. -->
+    <path d="M449 524 C 520 540, 600 570, 690 620 C 740 650, 780 700, 800 720" />
+    <!-- The Minnewater, the old inland harbour, joining the southern moat. -->
+    <path d="M378 800 C 384 850, 390 890, 396 918" stroke-width="16" />
+  </g>
+
+  <!-- The Minnewater lake itself. -->
+  <ellipse cx="384" cy="845" rx="30" ry="52" fill="url(#water)" stroke="#5c9fb8" stroke-width="2" />
+
+  <!-- The Markt and, beside it, the Burg: the two squares the town grew around. -->
+  <rect x="341" y="450" width="58" height="40" rx="6" fill="#efe6d2" stroke="#b9a888" stroke-width="2" />
+  <rect x="415" y="466" width="38" height="30" rx="5" fill="#efe6d2" stroke="#b9a888" stroke-width="2" />
+
+  <!-- The Begijnhof meadow, walled and quiet. -->
+  <ellipse cx="355" cy="746" rx="40" ry="26" fill="#cfe0b8" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The Koningin Astridpark, the green in the east of the town. -->
+  <ellipse cx="545" cy="562" rx="48" ry="32" fill="#c9dcaf" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The windmill bank on the eastern rampart. Four sails apiece, north is up. -->
+  <g stroke="#8a7c62" stroke-width="4" fill="none">
+    <g transform="translate(717 186)">
+      <path d="M0 14 V-6" />
+      <path d="M-13 -19 L13 7 M13 -19 L-13 7" />
+    </g>
+    <g transform="translate(677 182)">
+      <path d="M0 14 V-6" />
+      <path d="M-11 -17 L11 5 M11 -17 L-11 5" />
+    </g>
+  </g>
+
+  <!-- The four surviving town gates, as notches on the moat. -->
+  <g fill="#c9a86a" stroke="#8a7c62" stroke-width="2">
+    <circle cx="869" cy="376" r="9" />
+    <circle cx="639" cy="751" r="9" />
+    <circle cx="46" cy="580" r="9" />
+    <circle cx="153" cy="825" r="9" />
+  </g>
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="72" font-size="42" letter-spacing="6">ΜΠΡΙΖ</text>
+    <text x="40" y="106" font-size="22" letter-spacing="4">BRUGGE</text>
+    <text x="370" y="474" font-size="15" text-anchor="middle" letter-spacing="2">MARKT</text>
+    <text x="434" y="486" font-size="11" text-anchor="middle" letter-spacing="1">BURG</text>
+    <text x="545" y="568" font-size="14" text-anchor="middle" letter-spacing="2">ΠΑΡΚΟ</text>
+    <text x="355" y="752" font-size="13" text-anchor="middle" letter-spacing="2">ΜΠΕΓΚΙΝΕΣ</text>
+    <text x="697" y="146" font-size="16" text-anchor="middle" letter-spacing="3">ΜΥΛΟΙ</text>
+  </g>
+
+  <text
+    x="470"
+    y="252"
+    font-size="18"
+    fill="#3f7d95"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+    transform="rotate(52 470 252)"
+  >REIEN</text>
+
+  <text
+    x="300"
+    y="862"
+    font-size="16"
+    fill="#3f7d95"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="3"
+  >MINNEWATER</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(850 930)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
