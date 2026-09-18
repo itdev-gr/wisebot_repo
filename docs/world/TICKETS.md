@@ -162,6 +162,21 @@ Nothing below this line ships a city to a family until these are done. Six of th
 
 ### i18n-countries-gate — Test the countries overlay for completeness, the way city overlays are already tested
 
+**DONE 18/9.** `describe('countries overlay')` in `data/world/world.test.ts`, four tests per
+language that has a countries file (languages from `AVAILABLE_LANGS`; no file = skipped).
+It found exactly the gap i18n-countries-24 left: the 24 city cards of Berlin, Budapest,
+Lisbon, Porto, Prague and Vienna in de/es/fr/it. Rather than hold the suite red while the
+translator sessions are not allowed to open the file, they are named in an EXACT
+`KNOWN_ABSENT_CARDS` list — the coords licence's rule: a card that gets translated fails
+until its line is deleted, so the list can only shrink, and the engine session deletes the
+lines when it merges the translation. Two deliberate departures from the text below, both
+measured: the English-left-in-place check covers intros and facts but not names (29 names
+are rightly the same word — Paris in French, Portugal in Spanish), and city cards check
+`name` and `intro` only (`city.map.alt` is a LocText with no overlay slot that nothing
+renders). Trails are now walked in the city overlay test. Each rule was checked by breaking
+the data and watching it fail: blank fact, fifth fact, city filed under the wrong country,
+half a card, a fact copied from English, an untranslated trail name.
+
 **P0** · owner **engine** · brief §20 (AI → DRAFT → VALIDATION → PUBLISH), decisions row §20 ('η πύλη σήμερα: 120+ invariants'); §21
 
 The reason 24 countries sat untranslated without anyone noticing is that nothing tests the countries overlay. City overlays have a gate that fails loudly; the front door has none. Without this, ticket i18n-countries-24 can be reported done while half the facts are missing, and the same drift starts again with the next country.
@@ -385,7 +400,8 @@ files, so those cities introduce themselves in English on the country page even 
 city itself is translated (Prague, Vienna and Berlin gained full overlays in #94–#96 without
 their cards). That remainder belongs to the languages session. The completeness TEST this
 ticket was to follow is its own ticket, `i18n-countries-gate`, and it is what would have
-caught the six.
+caught the six. It landed the same day and did: the 24 missing cards are listed in its
+`KNOWN_ABSENT_CARDS`, and each one that gets translated must leave that list at merge.
 
 **P0** · owner **i18n** · brief §21 (P0 — Languages), decisions row §21 ('six live'); STATUS.md §0α item 3 · after `i18n-countries-gate`
 

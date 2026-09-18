@@ -18,8 +18,17 @@ import { readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-import { CITIES, CITY_IDS, COUNTRIES, PLACE_COUNTS, loadCity, translationsFor } from './registry';
-import type { City, CityModule, Country, Place } from './types';
+import {
+  AVAILABLE_LANGS,
+  CITIES,
+  CITY_IDS,
+  COUNTRIES,
+  PLACE_COUNTS,
+  loadCity,
+  loadCountries,
+  translationsFor,
+} from './registry';
+import type { City, CityModule, CountriesTranslation, Country, Place } from './types';
 import { WORLD_LANGS } from './types';
 import * as fixture from './__fixtures__/sample';
 
@@ -535,10 +544,13 @@ describe('world content', async () => {
           base.places.length,
         );
 
+        // Trails too: a trail name is the first line of a city page, and walking places only
+        // let an untranslated one through. Nothing was missing when this was added; it was
+        // luck that every translated city had its trails filled in.
         const untranslated: string[] = [];
-        for (const place of translated.places) {
+        for (const item of [...translated.places, ...(translated.trails ?? [])]) {
           const found: Array<{ path: string; node: Record<string, unknown> }> = [];
-          walkLocTexts(place, place.id, found);
+          walkLocTexts(item, item.id, found);
           for (const entry of found) {
             const value = entry.node[lang];
             if (typeof value !== 'string' || !value.trim()) untranslated.push(entry.path);
@@ -750,4 +762,181 @@ describe('world content', async () => {
       );
     }
   });
+});
+
+/**
+ * The front door, tested the way city overlays are.
+ *
+ * `countries.<lang>.json` is the first thing a child reads in their language: every flag,
+ * every country intro, every city card, before they have chosen anything. Nothing in this
+ * suite read it. `countries.de.json` held two countries out of twenty-five for days and
+ * the run stayed green, because the overlay tests above only ever load cities.
+ *
+ * This loads the front door through `loadCountries(lang)`, the real loader, so a file the
+ * registry never wired up, or one that no longer parses, fails here exactly as it would
+ * look to a child: as English.
+ *
+ * Languages come from `AVAILABLE_LANGS`, the list the switcher offers, and a language
+ * with no countries file at all is skipped rather than failed. Adding a `pt` city overlay
+ * must not turn the suite red before anyone has been asked for the Portuguese front door.
+ */
+describe('countries overlay', () => {
+  const langs = AVAILABLE_LANGS.filter(
+    (lang) =>
+      lang !== 'el' &&
+      lang !== 'en' &&
+      existsSync(resolve(ROOT, `data/world/i18n/countries.${lang}.json`)),
+  );
+
+  if (langs.length === 0) {
+    it('none yet', () => expect(langs).toEqual([]));
+  }
+
+  /**
+   * City cards that are missing today, named rather than left to hold the gate shut.
+   *
+   * Six cities were added after the countries overlays were written, and nobody gave
+   * them a card: Berlin, Budapest, Lisbon, Porto, Prague and Vienna show an English name
+   * and intro on a German, Spanish, French or Italian front door. Every country is done;
+   * only these 24 cards are not. Filling them is the i18n session's work, and this file
+   * is not theirs to open, so the licence lives here.
+   *
+   * The list is EXACT, the same rule as the coords licence above. A card that gets
+   * translated fails this test until its line is deleted, so the list can only shrink.
+   * The engine session deletes the lines when it merges the translation.
+   *
+   * A licensed card must be wholly absent. A card with a German name and an English
+   * intro is half a translation, and that fails whether or not it is listed.
+   */
+  const KNOWN_ABSENT_CARDS = [
+    'de:berlin', 'de:budapest', 'de:lisbon', 'de:porto', 'de:prague', 'de:vienna',
+    'es:berlin', 'es:budapest', 'es:lisbon', 'es:porto', 'es:prague', 'es:vienna',
+    'fr:berlin', 'fr:budapest', 'fr:lisbon', 'fr:porto', 'fr:prague', 'fr:vienna',
+    'it:berlin', 'it:budapest', 'it:lisbon', 'it:porto', 'it:prague', 'it:vienna',
+  ];
+
+  const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
+    const found: Array<{ path: string; node: Record<string, unknown> }> = [];
+    walkLocTexts(value, path, found);
+    for (const { path: at, node } of found) {
+      const text = node[lang];
+      if (typeof text !== 'string' || !text.trim()) out.push(at);
+    }
+  };
+
+  for (const lang of langs) {
+    it(`every country is completely translated into ${lang}`, async () => {
+      const { countries } = await loadCountries(lang);
+      expect(countries.length, `loadCountries(${lang}) lost or gained countries`).toBe(
+        COUNTRIES.length,
+      );
+
+      const missing: string[] = [];
+      for (const country of countries) missingIn(country, lang, country.id, missing);
+
+      expect(
+        missing.slice(0, 12),
+        `countries.${lang}.json: ${missing.length} string(s) still untranslated`,
+      ).toEqual([]);
+    });
+
+    it(`every city card is translated into ${lang}`, async () => {
+      const { cities } = await loadCountries(lang);
+      expect(cities.length, `loadCountries(${lang}) lost or gained cities`).toBe(CITIES.length);
+
+      // Name and intro only: they are all the card shows and all the overlay has a slot for.
+      // `city.map.alt` is a LocText too, but nothing renders it — CityView reads its own
+      // `mapAlt` string — so walking the whole City would demand a translation with nowhere
+      // to put it and nowhere to show it.
+      const absent: string[] = [];
+      const partial: string[] = [];
+      for (const city of cities) {
+        const missing: string[] = [];
+        missingIn({ name: city.name, intro: city.intro }, lang, city.id, missing);
+        if (missing.length === 2) absent.push(`${lang}:${city.id}`);
+        else if (missing.length) partial.push(...missing);
+      }
+
+      expect(partial, `${lang}: half-translated city cards`).toEqual([]);
+
+      const known = KNOWN_ABSENT_CARDS.filter((key) => key.startsWith(`${lang}:`));
+      const unexpected = absent.filter((key) => !known.includes(key));
+      const fixed = known.filter((key) => !absent.includes(key));
+
+      expect(
+        unexpected,
+        `city cards with no ${lang} name or intro — add them under ` +
+          `countries.<countryId>.cities.<cityId> in countries.${lang}.json`,
+      ).toEqual([]);
+      expect(
+        fixed,
+        `these cards are translated now — delete them from KNOWN_ABSENT_CARDS in this test, ` +
+          `the licence is stale`,
+      ).toEqual([]);
+    });
+
+    /**
+     * What the merge cannot see.
+     *
+     * `mergeCountriesTranslation` maps over the source, so anything in the overlay that the
+     * source does not have is dropped without a word: a fifth fact where the country has
+     * four, a city filed under the wrong country, a country id with a typo. Each one is a
+     * translator's work that no child will ever read. Only the raw file shows it.
+     */
+    it(`countries.${lang}.json has nothing the merge would drop`, async () => {
+      const raw = JSON.parse(
+        await readFile(resolve(ROOT, `data/world/i18n/countries.${lang}.json`), 'utf8'),
+      ) as CountriesTranslation;
+
+      expect(raw.lang, `countries.${lang}.json says lang "${raw.lang}"`).toBe(lang);
+
+      const dropped: string[] = [];
+      for (const [countryId, t] of Object.entries(raw.countries ?? {})) {
+        const country = COUNTRIES.find((c) => c.id === countryId);
+        if (!country) {
+          dropped.push(`${countryId}: no such country`);
+          continue;
+        }
+        if (t.facts && t.facts.length !== country.facts.length) {
+          dropped.push(`${countryId}.facts: ${t.facts.length} in ${lang}, ${country.facts.length} in the source`);
+        }
+        for (const cityId of Object.keys(t.cities ?? {})) {
+          const city = CITIES.find((c) => c.id === cityId);
+          if (!city) dropped.push(`${countryId}.cities.${cityId}: no such city`);
+          else if (city.countryId !== countryId) {
+            dropped.push(`${countryId}.cities.${cityId}: filed under ${countryId}, belongs to ${city.countryId}`);
+          }
+        }
+      }
+
+      expect(dropped, `countries.${lang}.json`).toEqual([]);
+    });
+
+    /**
+     * The English left in place, the same silent bug as Greek copied into the English slot.
+     *
+     * Sentences only. A name may rightly be the same word in both languages — Paris in
+     * French, Portugal in Spanish, London in German — and on 18 Σεπτεμβρίου 29 of them
+     * were, all correct. An intro or a fact that is byte-for-byte the English is never a translation.
+     */
+    it(`no ${lang} intro or fact on the front door is the English left in place`, async () => {
+      const { countries, cities } = await loadCountries(lang);
+      const copied: string[] = [];
+      const check = (text: Record<string, unknown>, path: string) => {
+        if (typeof text[lang] === 'string' && text[lang] === text.en) copied.push(path);
+      };
+
+      for (const country of countries) {
+        check(country.intro as unknown as Record<string, unknown>, `${country.id}.intro`);
+        country.facts.forEach((fact, i) =>
+          check(fact as unknown as Record<string, unknown>, `${country.id}.facts[${i}]`),
+        );
+      }
+      for (const city of cities) {
+        check(city.intro as unknown as Record<string, unknown>, `${city.id}.intro`);
+      }
+
+      expect(copied, `${lang} text identical to en`).toEqual([]);
+    });
+  }
 });
