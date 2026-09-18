@@ -2,7 +2,7 @@
 import React, { Suspense, useCallback } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush, Brain } from 'lucide-react';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
@@ -30,6 +30,7 @@ const TimeMachine = React.lazy(() => import('./games/TimeMachine'));
 const SpellListen = React.lazy(() => import('./games/SpellListen'));
 const DailyChallenge = React.lazy(() => import('./games/DailyChallenge'));
 const DrawGuess = React.lazy(() => import('./games/DrawGuess'));
+const WhoAmI = React.lazy(() => import('./games/WhoAmI'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -40,8 +41,8 @@ const GameLoader = () => (
 
 const motion = m as any;
 
-type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw';
-const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw'];
+type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw' | 'whoami';
+const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw', 'whoami'];
 
 interface GameCenterProps {
   lang: 'el' | 'en';
@@ -87,6 +88,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
     spell: { title: 'SPELL & LISTEN', desc: lang === 'el' ? 'Άκου και γράψε!' : 'Listen and spell!' },
     daily: { title: lang === 'el' ? 'ΠΡΟΚΛΗΣΗ ΗΜΕΡΑΣ' : 'DAILY CHALLENGE', desc: lang === 'el' ? '3 γύροι των 30". Ίδιοι για όλους!' : '3 rounds of 30s. Same for everyone!' },
     draw: { title: lang === 'el' ? 'ΖΩΓΡΑΦΙΣΕ & ΜΑΝΤΕΨΕ' : 'DRAW & GUESS', desc: lang === 'el' ? 'Ένα κινητό, 2-6 παίκτες!' : 'One phone, 2-6 players!' },
+    whoami: { title: lang === 'el' ? 'ΠΟΙΟΣ ΕΙΜΑΙ;' : 'WHO AM I?', desc: lang === 'el' ? 'Σκέψου έναν ήρωα, ο WiseBot τον μαντεύει!' : 'Think of a hero, WiseBot guesses who!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -126,6 +128,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'spell': return <SpellListen lang={lang} onBack={handleBack} />;
         case 'daily': return <DailyChallenge lang={lang} onBack={handleBack} />;
         case 'draw': return <DrawGuess lang={lang} onBack={handleBack} />;
+        case 'whoami': return <WhoAmI lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -171,6 +174,18 @@ export default function GameCenter({ lang }: GameCenterProps) {
       hoverShadow: 'hover:shadow-pink-500/20',
       playBg: 'group-hover:bg-pink-500',
       tagBg: 'bg-pink-500/20 text-pink-300',
+    },
+    {
+      key: 'whoami' as const, icon: Brain, featured: true,
+      thumbnail: '/images/wisebot.jpg',
+      category: lang === 'el' ? 'ΓΝΩΣΕΙΣ' : 'KNOWLEDGE',
+      cardBg: 'bg-gradient-to-br from-cyan-950/90 to-sky-950/90',
+      borderColor: 'border-cyan-500/30 hover:border-cyan-400/60',
+      iconBg: 'bg-cyan-500/20 border-cyan-500/30',
+      iconColor: 'text-cyan-400',
+      hoverShadow: 'hover:shadow-cyan-500/20',
+      playBg: 'group-hover:bg-cyan-500',
+      tagBg: 'bg-cyan-500/20 text-cyan-300',
     },
     {
       key: 'mathrush' as const, icon: Calculator, featured: true,
