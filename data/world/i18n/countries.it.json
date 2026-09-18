@@ -61,6 +61,10 @@
         "barcelona": {
           "name": "Barcellona",
           "intro": "Barcellona è una città tra le colline e il mare, dove un architetto sognava case come draghi e una chiesa che è in costruzione da 144 anni ed è appena diventata la più alta del mondo. Le strade della città vecchia sono strette e di pietra, quelle della città nuova sono disegnate col righello, e un lungo viale di platani le unisce al porto. Qui si parlano due lingue, il catalano e lo spagnolo, si balla in cerchio davanti alla cattedrale, e i tifosi del calcio festeggiano a una fontana."
+        },
+        "madrid": {
+          "name": "Madrid",
+          "intro": "Madrid è la capitale della Spagna e si trova quasi al centro del paese, tanto che tutte le strade principali si misurano a partire da una targa in una delle sue piazze. Qui troverai un palazzo con tremila stanze, un museo pieno di quadri che ti guardano a loro volta, un vero tempio egizio in un parco e il primo scheletro di un animale estinto mai montato. A Madrid si cena tardi la sera, si dividono piccoli piatti con gli amici e si va in barca su un lago in mezzo alla città."
         }
       }
     },
@@ -77,6 +81,10 @@
         "rome": {
           "name": "Roma",
           "intro": "Roma è una città costruita sopra se stessa, strato su strato. Sotto una piazza piena di fontane si nasconde uno stadio, dentro delle terme sta una chiesa, e la tomba di un imperatore è diventata un castello con un angelo in cima. L’acqua delle fontane arriva da acquedotti di duemila anni, e in mezzo alla città c’è un altro paese intero, il più piccolo del mondo. Scava dovunque e trovi qualcosa; fermati dovunque e qualcuno si era già fermato lì duemila anni fa."
+        },
+        "venice": {
+          "name": "Venezia",
+          "intro": "Venezia è una città costruita sull’acqua, su più di cento piccole isole in una laguna. Non ha nemmeno un’automobile: le sue strade sono canali, i suoi autobus sono barche, e per andare da un quartiere all’altro sali e scendi centinaia di ponti. Per mille anni è stata una repubblica di mercanti, con un doge al posto del re e un leone alato come simbolo. Qui troverai una chiesa d’oro, gondole storte apposta e un’isola dove il vetro si gonfia come un palloncino."
         }
       }
     },
