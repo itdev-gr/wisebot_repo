@@ -346,6 +346,69 @@ const already = new Set([...existing.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) =
 const fresh = urls.filter((u) => !already.has(`${BASE_URL}${u.path}`));
 fs.writeFileSync(distSitemap, sitemap(existing, fresh, today), 'utf-8');
 
+// ----------------------------------------------------------------- llms.txt
+/**
+ * A plain-text map of the site for language models (the llms.txt convention: Markdown,
+ * one H1, short sections, absolute links). AI search engines and assistants read this
+ * before they read HTML, and it is the one place the whole product is described in a
+ * form they can quote: what WiseBot Academy is, who it is for, and every World page
+ * with its one-line tagline. Derived from the same modules as the pages, so it cannot
+ * drift. Nothing personal is in here — it lists content, never users.
+ */
+function llmsTxt() {
+  const lines = [];
+  lines.push('# WiseBot Academy');
+  lines.push('');
+  lines.push(
+    '> Greek/English digital academy for children aged 6–12 and their parents: a School track (curriculum missions for grades 1–6), 34 narrated ebooks with read-along, an Academy of short stories about great people, educational mini-games, creative studios (heroes, music, 3D), and WiseBot World — a family passport game where children explore real cities, read short stories about landmarks and museums, answer a question on site and collect stamps. Ελληνικά και Αγγλικά· το WiseBot World και σε Γαλλικά, Γερμανικά, Ισπανικά, Ιταλικά.',
+  );
+  lines.push('');
+  lines.push('Site: https://wisebot.gr · Sitemap: https://wisebot.gr/sitemap.xml · Contact: info@wisebot.gr');
+  lines.push('');
+  lines.push('## Sections');
+  lines.push('');
+  for (const [p, t] of [
+    ['/school', 'Σχολείο — curriculum missions for grades 1–6 (Greek primary school), one per lesson'],
+    ['/ebooks', 'Βιβλία — 34 narrated ebooks, Greek and English, with read-along highlighting'],
+    ['/academy', 'Ακαδημία — short stories about great people, for children'],
+    ['/game', 'Παιχνίδια — educational mini-games, daily challenge, pass-the-phone party games'],
+    ['/quiz', 'Κουίζ — quizzes on the school material'],
+    ['/music', 'Μουσική — the WiseBot songs and the music studio'],
+    ['/world', `WiseBot World — ${COUNTRIES.length} countries, ${CITIES.length} cities, ${placeCount} places incl. ${museumCount} museums, with a passport of stamps`],
+    ['/paidika-paixnidia', 'Παιδικά παιχνίδια — overview page'],
+    ['/ekpaideutiko-ai', 'Εκπαιδευτικό AI για παιδιά — overview page'],
+  ]) {
+    lines.push(`- [${t}](${BASE_URL}${p})`);
+  }
+  lines.push('');
+  lines.push('## WiseBot World — countries, cities and places');
+  lines.push('');
+  lines.push(
+    'Every place page has: a short story for a child, three facts, a question whose stamp is earned only on site («Είμαι εδώ!» checks the phone position on the device; nothing is stored), a map pin with Google Maps / Apple Maps directions, and a FAQ. Museums have rooms, exhibits and riddles.',
+  );
+  for (const page of pages) {
+    if (!page.path.startsWith('/world/')) continue;
+    const depth = page.path.split('/').length - 2; // country=1, city=2, place=3
+    if (depth === 1) {
+      lines.push('');
+      lines.push(`### ${page.ogTitle.replace(/ — WiseBot World$/, '')}`);
+      lines.push(`- [${page.title.replace(/ \| WiseBot World$/, '')}](${BASE_URL}${page.path})`);
+    } else if (depth === 2) {
+      lines.push(`- [${page.title.replace(/ \| WiseBot World$/, '')}](${BASE_URL}${page.path}): ${page.description}`);
+    } else if (depth === 3) {
+      lines.push(`  - [${page.ogTitle.replace(/ — WiseBot World$/, '')}](${BASE_URL}${page.path})`);
+    }
+  }
+  lines.push('');
+  lines.push('## Optional');
+  lines.push('');
+  lines.push(`- [Privacy](${BASE_URL}/privacy)`);
+  lines.push(`- [Terms](${BASE_URL}/terms)`);
+  lines.push('');
+  return lines.join('\n');
+}
+fs.writeFileSync(path.join(DIST, 'llms.txt'), llmsTxt(), 'utf-8');
+
 await vite.close();
 
 console.log(

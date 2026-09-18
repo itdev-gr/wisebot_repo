@@ -1,0 +1,24 @@
+{
+  "city": "madrid",
+  "country": "spain",
+  "centre": { "lat": 40.42389, "lng": -3.69639 },
+  "note": "Wikidata q-ids only. Madrid is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. CENTRE: Wikidata's point for the Justicia neighbourhood (Q1992319), chosen because the two obvious candidates both sit on a place in this seed. Madrid's own point (Q2807) is 23 m from the Puerta del Sol, because the city is measured from Kilometre Zero on that square; the Centro district's point (Q1763376) is 22 m from the Plaza Mayor. Either one would make the audit report a real monument as a centroid mistake, the same false positive Vienna produced with its cathedral. Justicia is central, sourced, and 596 m from the nearest place. DROPPED: Atocha station (Q5846989) graded D. It is the modern station complex, whose OpenStreetMap outline covers the whole site and lands 163 m away with no Wikipedia coordinate to back Wikidata up. The tropical garden a child would come for is in the old 1892 iron hall, which has no Wikidata item of its own, so there was nothing better to seed.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "madrid-prado", "name": "Museo del Prado", "wikidata": "Q160112", "anchor": "centroid" },
+    { "id": "madrid-palacio-real", "name": "Palacio Real", "wikidata": "Q171517", "anchor": "centroid" },
+    { "id": "madrid-plaza-mayor", "name": "Plaza Mayor", "wikidata": "Q1123493", "anchor": "area" },
+    { "id": "madrid-puerta-del-sol", "name": "Puerta del Sol", "wikidata": "Q427163", "anchor": "area" },
+    { "id": "madrid-retiro", "name": "Parque del Retiro", "wikidata": "Q1131807", "anchor": "area" },
+    { "id": "madrid-templo-de-debod", "name": "Templo de Debod", "wikidata": "Q1140249", "anchor": "centroid" },
+
+    { "id": "madrid-ciencias-naturales", "name": "Museo Nacional de Ciencias Naturales", "wikidata": "Q29477212", "anchor": "centroid",
+      "note": "The building, not the institution. Q1966699 is the museum as an organisation; Q29477212 is the Palacio de las Artes y la Industria it occupies, about 80 m away, which is what a visitor walks up to." },
+
+    { "id": "madrid-bernabeu", "name": "Estadio Santiago Bernabéu", "wikidata": "Q164027", "anchor": "centroid" },
+    { "id": "madrid-mercado-san-miguel", "name": "Mercado de San Miguel", "wikidata": "Q6770825", "anchor": "centroid" },
+    { "id": "madrid-puerta-de-alcala", "name": "Puerta de Alcalá", "wikidata": "Q1140634", "anchor": "centroid" },
+    { "id": "madrid-jardin-botanico", "name": "Real Jardín Botánico", "wikidata": "Q1794858", "anchor": "area" },
+    { "id": "madrid-cibeles", "name": "Plaza de Cibeles", "wikidata": "Q1537446", "anchor": "area" }
+  ]
+}
