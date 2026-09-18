@@ -61,6 +61,10 @@
         "barcelona": {
           "name": "Barcelona",
           "intro": "Barcelona ist eine Stadt zwischen Hügeln und Meer, in der ein Architekt sich Häuser wie Drachen ausdachte und eine Kirche, an der seit 144 Jahren gebaut wird und die gerade die höchste der Welt geworden ist. Die Straßen der Altstadt sind eng und aus Stein, die Straßen der neuen Stadt sind mit dem Lineal gezogen, und eine lange Promenade mit Platanen verbindet sie mit dem Hafen. Die Menschen hier sprechen zwei Sprachen, Katalanisch und Spanisch, sie tanzen im Kreis vor der Kathedrale, und die Fußballfans feiern an einem Brunnen."
+        },
+        "madrid": {
+          "name": "Madrid",
+          "intro": "Madrid ist die Hauptstadt Spaniens und liegt fast in der Mitte des Landes, so genau, dass alle großen Straßen von einer Platte auf einem seiner Plätze aus gemessen werden. Hier findest du einen Palast mit dreitausend Zimmern, ein Museum voller Gemälde, die dich anschauen, einen echten ägyptischen Tempel in einem Park und das erste Skelett eines ausgestorbenen Tieres, das je aufgestellt wurde. Die Leute in Madrid essen spät am Abend, teilen kleine Teller mit Freunden und rudern auf einem See mitten in der Stadt."
         }
       }
     },
@@ -77,6 +81,10 @@
         "rome": {
           "name": "Rom",
           "intro": "Rom ist eine Stadt, die auf sich selbst gebaut ist, Schicht für Schicht. Unter einem Platz voller Brunnen versteckt sich ein Stadion, in einem Badehaus steckt eine Kirche, und das Grab eines Kaisers wurde zu einer Burg mit einem Engel auf der Spitze. Das Wasser der Brunnen kommt durch Aquädukte, die zweitausend Jahre alt sind, und mitten in der Stadt liegt ein ganzes anderes Land, das kleinste der Welt. Wo du auch gräbst, findest du etwas; wo du auch stehst, hat vor zweitausend Jahren schon jemand gestanden."
+        },
+        "venice": {
+          "name": "Venedig",
+          "intro": "Venedig ist eine Stadt, die auf dem Wasser gebaut ist, auf mehr als hundert kleinen Inseln in einer Lagune. Es gibt dort kein einziges Auto: Die Straßen sind Kanäle, die Busse sind Boote, und um von einem Viertel ins nächste zu kommen, gehst du über Hunderte von Brücken hinauf und hinunter. Tausend Jahre lang war sie eine Republik von Kaufleuten, mit einem Dogen statt eines Königs und einem geflügelten Löwen als Wappentier. Hier findest du eine goldene Kirche, Gondeln, die absichtlich schief sind, und eine Insel, auf der Glas sich aufbläht wie ein Ballon."
         }
       }
     },
@@ -267,7 +275,7 @@
       "cities": {
         "dubrovnik": {
           "name": "Dubrovnik",
-          "intro": "Dubrovnik ist eine ganze Stadt innerhalb einer einzigen Mauer, und auf der Mauer kann man entlanggehen. Fast zwei Kilometer Stein, stellenweise fünfundzwanzig Meter hoch, mit orangefarbenen Dächern auf der einen Seite und der Adria auf der anderen. Jahrhundertelang hieß sie Ragusa, eine kleine Republik, die eher durch Handel und kluge Verträge frei blieb als durch Armeen. Ihre Hauptstraße war einst Meer, und ihre Apotheke öffnet jeden Morgen seit 1317."
+          "intro": "Dubrovnik ist eine ganze Stadt innerhalb einer einzigen Mauer, und auf der Mauer kannst du entlanggehen. Fast zwei Kilometer Stein, stellenweise fünfundzwanzig Meter hoch, mit orangefarbenen Dächern auf der einen Seite und der Adria auf der anderen. Jahrhundertelang hieß sie Ragusa, eine kleine Republik, die eher durch Handel und kluge Verträge frei blieb als durch Armeen. Ihre Hauptstraße war einst Meer, und ihre Apotheke öffnet jeden Morgen seit 1317."
         }
       }
     },
