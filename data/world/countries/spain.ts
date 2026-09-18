@@ -175,4 +175,56 @@ export const cities: City[] = [
       bounds: { north: 40.46, south: 40.402, east: -3.672, west: -3.73 },
     },
   },
+  {
+    id: 'seville',
+    countryId: 'spain',
+    order: 3,
+    emoji: '🍊',
+
+    name: {
+      el: 'Σεβίλλη',
+      en: 'Seville',
+    },
+
+    intro: {
+      el:
+        'Η Σεβίλλη είναι μια ζεστή πόλη του νότου, δίπλα σε ένα ποτάμι από όπου κάποτε ' +
+        'ξεκινούσαν τα πλοία για την Αμερική. Για αιώνες την κυβερνούσαν μουσουλμάνοι, και ' +
+        'μετά χριστιανοί βασιλιάδες, και η πόλη κράτησε κάτι από όλους: ένας μιναρές έγινε ' +
+        'καμπαναριό, ένα κάστρο έγινε παλάτι με παγόνια. Οι δρόμοι μυρίζουν πορτοκαλιά την ' +
+        'άνοιξη, τα σπίτια είναι στολισμένα με πολύχρωμα πλακάκια, και στην άλλη όχθη του ' +
+        'ποταμού χορεύουν φλαμένκο. Το καλοκαίρι κάνει τόση ζέστη που όλοι ψάχνουν ίσκιο.',
+      en:
+        'Seville is a warm city in the south, beside a river from which ships once set off ' +
+        'for America. For centuries it was ruled by Muslims, and then by Christian kings, and ' +
+        'the city kept something from all of them: a minaret became a bell tower, a castle ' +
+        'became a palace with peacocks. The streets smell of orange blossom in spring, the ' +
+        'houses are decorated with colourful tiles, and across the river people dance ' +
+        'flamenco. In summer it gets so hot that everyone looks for shade.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/seville.json`, which takes it from Wikidata's own
+     * point for the city (Q8717). The resolver audits every place against this exact point
+     * and found nothing on it.
+     */
+    centre: { lat: 37.388611, lng: -5.995 },
+
+    map: {
+      src: '/images/world/maps/seville.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Σεβίλλης, με τον ποταμό Γουαδαλκιβίρ, την Τριάνα στη δυτική όχθη και το πάρκο Μαρία Λουίζα στα νότια.',
+        en: 'A stylised map of Seville, with the Guadalquivir, Triana on the west bank and María Luisa park to the south.',
+      },
+      width: 1000,
+      height: 1307,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the fourteen places in `cities/seville.ts` falls inside
+       * them, with the Triana market on the left, the Palacio de las Dueñas at the top and
+       * the María Luisa park at the bottom.
+       */
+      bounds: { north: 37.398, south: 37.372, east: -5.983, west: -6.008 },
+    },
+  },
 ];
