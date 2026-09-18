@@ -824,8 +824,6 @@ describe('countries overlay', () => {
     'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',
     'fr:bruges', 'fr:copenhagen', 'it:bruges', 'it:copenhagen',
     'de:krakow', 'es:krakow', 'fr:krakow', 'it:krakow',
-    'de:florence', 'de:seville', 'es:florence', 'es:seville',
-    'fr:florence', 'fr:seville', 'it:florence', 'it:seville',
   ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {

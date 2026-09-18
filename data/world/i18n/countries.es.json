@@ -65,6 +65,10 @@
         "madrid": {
           "name": "Madrid",
           "intro": "Madrid es la capital de España y está casi en el centro del país, tanto que todas las carreteras principales se miden desde una placa en una de sus plazas. Aquí encontrarás un palacio con tres mil habitaciones, un museo lleno de cuadros que te devuelven la mirada, un templo egipcio de verdad en un parque y el primer esqueleto montado de un animal extinguido. En Madrid se cena tarde, se comparten platos pequeños con los amigos y se rema en barca en un lago en mitad de la ciudad."
+        },
+        "seville": {
+          "name": "Sevilla",
+          "intro": "Sevilla es una ciudad cálida del sur, junto a un río desde el que un día salían los barcos hacia América. Durante siglos la gobernaron musulmanes, y después reyes cristianos, y la ciudad se quedó con algo de todos: un alminar se convirtió en campanario, un castillo en un palacio con pavos reales. En primavera las calles huelen a azahar, las casas están decoradas con azulejos de colores, y al otro lado del río la gente baila flamenco. En verano hace tanto calor que todo el mundo busca la sombra."
         }
       }
     },
@@ -85,6 +89,10 @@
         "venice": {
           "name": "Venecia",
           "intro": "Venecia es una ciudad construida sobre el agua, en más de cien islitas dentro de una laguna. No tiene ni un solo coche: sus calles son canales, sus autobuses son barcas, y para ir de un barrio a otro subes y bajas cientos de puentes. Durante mil años fue una república de mercaderes, con un dux en lugar de un rey y un león alado como símbolo. Aquí encontrarás una iglesia dorada, góndolas torcidas a propósito y una isla donde el vidrio se hincha como un globo."
+        },
+        "florence": {
+          "name": "Florencia",
+          "intro": "Florencia es una ciudad pequeña junto a un río, el Arno, donde hace seiscientos años empezó una manera nueva de pintar, de construir y de pensar. Una familia de banqueros, los Médici, pagaba a pintores, escultores y científicos. Aquí encontrarás una cúpula roja que nadie sabía cómo construir, el David de Miguel Ángel, los telescopios de Galileo, un puente con joyerías encima y un jabalí de bronce que trae suerte."
         }
       }
     },

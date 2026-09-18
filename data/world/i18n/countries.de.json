@@ -65,6 +65,10 @@
         "madrid": {
           "name": "Madrid",
           "intro": "Madrid ist die Hauptstadt Spaniens und liegt fast in der Mitte des Landes, so genau, dass alle großen Straßen von einer Platte auf einem seiner Plätze aus gemessen werden. Hier findest du einen Palast mit dreitausend Zimmern, ein Museum voller Gemälde, die dich anschauen, einen echten ägyptischen Tempel in einem Park und das erste Skelett eines ausgestorbenen Tieres, das je aufgestellt wurde. Die Leute in Madrid essen spät am Abend, teilen kleine Teller mit Freunden und rudern auf einem See mitten in der Stadt."
+        },
+        "seville": {
+          "name": "Sevilla",
+          "intro": "Sevilla ist eine warme Stadt im Süden, an einem Fluss, von dem aus einst die Schiffe nach Amerika aufbrachen. Jahrhundertelang regierten hier Muslime und danach christliche Könige, und die Stadt hat von allen etwas behalten: Ein Minarett wurde zum Glockenturm, eine Burg zum Palast mit Pfauen. Im Frühling riechen die Straßen nach Orangenblüten, die Häuser sind mit bunten Fliesen geschmückt, und auf der anderen Seite des Flusses tanzen die Leute Flamenco. Im Sommer wird es so heiß, dass alle Schatten suchen."
         }
       }
     },
@@ -85,6 +89,10 @@
         "venice": {
           "name": "Venedig",
           "intro": "Venedig ist eine Stadt, die auf dem Wasser gebaut ist, auf mehr als hundert kleinen Inseln in einer Lagune. Es gibt dort kein einziges Auto: Die Straßen sind Kanäle, die Busse sind Boote, und um von einem Viertel ins nächste zu kommen, gehst du über Hunderte von Brücken hinauf und hinunter. Tausend Jahre lang war sie eine Republik von Kaufleuten, mit einem Dogen statt eines Königs und einem geflügelten Löwen als Wappentier. Hier findest du eine goldene Kirche, Gondeln, die absichtlich schief sind, und eine Insel, auf der Glas sich aufbläht wie ein Ballon."
+        },
+        "florence": {
+          "name": "Florenz",
+          "intro": "Florenz ist eine kleine Stadt an einem Fluss, dem Arno, wo vor sechshundert Jahren eine neue Art zu malen, zu bauen und zu denken begann. Eine Familie von Bankiers, die Medici, bezahlte Maler, Bildhauer und Wissenschaftler. Hier findest du eine rote Kuppel, von der niemand wusste, wie man sie baut, Michelangelos David, Galileis Fernrohre, eine Brücke mit Juwelierläden darauf und ein Ferkel aus Bronze, das Glück bringt."
         }
       }
     },
