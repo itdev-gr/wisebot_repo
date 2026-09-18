@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" width="1000" height="760" role="img" aria-label="Stylised map of central Nicosia">
+  <title>Nicosia — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/cyprus.ts
+    (north 35.1805, south 35.1650, east 33.3745, west 33.3495) so that place pins can be
+    projected onto it rather than positioned by hand. The eleven-bastion ring, its dry
+    moat, the gardens to the west and the market lane are placed from those bounds;
+    nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f0dd" />
+      <stop offset="1" stop-color="#ecdfc0" />
+    </linearGradient>
+    <linearGradient id="walled" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3e3bd" />
+      <stop offset="1" stop-color="#e6d2a4" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#e0d0aa" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="760" fill="url(#ground)" />
+  <rect width="1000" height="760" fill="url(#grid)" opacity="0.5" />
+
+  <!--
+    The dry moat: the same eleven-pointed outline, drawn fatter and softer underneath the
+    wall so it reads as a band running right around the outside of it.
+  -->
+  <path
+    d="M578 17 L656 67 L757 59 L788 134 L879 169 L854 246 L905 314 L831 368 L828 447 L729 461 L671 526 L578 496 L485 526 L427 461 L328 447 L325 368 L251 314 L302 246 L277 169 L368 134 L399 59 L500 67 Z"
+    fill="none"
+    stroke="#cbdcc0"
+    stroke-width="42"
+    stroke-linejoin="round"
+    opacity="0.85"
+  />
+
+  <!-- The walled city: eleven bastions, pointed like hearts, the way Savorgnan set them. -->
+  <path
+    d="M578 17 L656 67 L757 59 L788 134 L879 169 L854 246 L905 314 L831 368 L828 447 L729 461 L671 526 L578 496 L485 526 L427 461 L328 447 L325 368 L251 314 L302 246 L277 169 L368 134 L399 59 L500 67 Z"
+    fill="url(#walled)"
+    stroke="#b09a68"
+    stroke-width="7"
+    stroke-linejoin="round"
+  />
+
+  <!-- The Municipal Gardens, outside the walls to the west. -->
+  <ellipse cx="180" cy="368" rx="86" ry="52" fill="#cfe0bb" stroke="#a6bb8c" stroke-width="2" />
+
+  <!-- The market lane, running north through the old town from the southern wall. -->
+  <path
+    d="M399 503 C 430 450, 452 380, 476 297"
+    fill="none"
+    stroke="#e9d59f"
+    stroke-width="13"
+    stroke-linecap="round"
+  />
+
+  <!--
+    The line that has divided the old town since 1974. Drawn softly and honestly: it
+    crosses the walled city north of every place in this city file.
+  -->
+  <path
+    d="M300 216 C 400 200, 520 204, 620 212 C 700 218, 780 224, 860 232"
+    fill="none"
+    stroke="#9aa7b5"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-dasharray="16 14"
+  />
+  <text
+    x="640"
+    y="196"
+    font-size="16"
+    fill="#7c8794"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+  >Η ΓΡΑΜΜΗ</text>
+
+  <g fill="#8a7346" font-family="Georgia, 'Times New Roman', serif">
+    <text x="180" y="374" font-size="16" text-anchor="middle" letter-spacing="2">Ο ΚΗΠΟΣ</text>
+    <text x="578" y="330" font-size="19" text-anchor="middle" letter-spacing="4">ΕΝΤΟΣ ΤΩΝ ΤΕΙΧΩΝ</text>
+    <text x="40" y="70" font-size="38" letter-spacing="5">ΛΕΥΚΩΣΙΑ</text>
+    <text x="40" y="100" font-size="19" letter-spacing="4">NICOSIA</text>
+  </g>
+
+  <text
+    x="866"
+    y="600"
+    font-size="15"
+    fill="#7d8f6d"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="3"
+    text-anchor="middle"
+  >Η ΤΑΦΡΟΣ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 690)" stroke="#8a7346" fill="#8a7346">
+    <circle r="25" fill="none" stroke-width="2" />
+    <path d="M0 -21 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-29" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
