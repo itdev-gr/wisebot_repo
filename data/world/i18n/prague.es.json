@@ -1,0 +1,731 @@
+{
+  "lang": "es",
+  "cityId": "prague",
+  "places": {
+    "prague-wenceslas-square": {
+      "name": "La Plaza de Wenceslao",
+      "tagline": "La llaman plaza, pero es un mercado de caballos de 750 metros",
+      "story": "En 1348 Carlos IV fundó una ciudad nueva entera al lado de la vieja, la Nové Město, y dibujó dentro de ella un mercado enorme, de 750 metros de largo, donde se vendían caballos. Por eso no parece una plaza sino una avenida: tardas diez minutos en cruzarla de punta a punta. En 1848 le pusieron el nombre de San Wenceslao, el príncipe que gobernó Bohemia hace mil cien años y se convirtió en el patrón del país. El escultor Josef Václav Myslbek trabajó en su estatua más de treinta años; se levantó en 1912, y el último de los cuatro santos que la rodean no se colocó hasta 1924. Desde entonces, cada vez que pasa algo importante, la ciudad se junta aquí. En noviembre de 1989 cientos de miles de personas llenaron la plaza haciendo sonar sus llaves y pidieron libertad sin nada de violencia. La llamaron la Revolución de Terciopelo.",
+      "facts": [
+        "Mide 750 metros de largo y empezó en 1348 como mercado de caballos.",
+        "El escultor trabajó en la estatua de San Wenceslao más de treinta años.",
+        "En noviembre de 1989 la gente hacía sonar aquí sus llaves en vez de gritar."
+      ],
+      "question": {
+        "q": "¿Por qué llamaron «de Terciopelo» a la revolución de 1989?",
+        "answers": [
+          "Porque fue suave, sin nada de violencia",
+          "Porque empezó dentro de una fábrica de telas de la ciudad",
+          "Porque la gente llevaba sombreros de terciopelo",
+          "Porque duró solo una noche"
+        ],
+        "explanation": "Pidieron libertad en paz y la consiguieron sin peleas. Por eso a aquel cambio lo llamaron suave como el terciopelo."
+      },
+      "findIt": "Sube por una cuesta, así que siempre sabes dónde estás: la estatua y el museo están en el extremo alto, las tiendas en el bajo."
+    },
+    "prague-national-museum": {
+      "name": "El Museo Nacional",
+      "tagline": "Era negro porque alguien lo pintó, no por el hollín",
+      "story": "El museo empezó en 1818 con las colecciones privadas de unos nobles, que decidieron que sus piedras, sus plantas y sus libros tenían que verlos todos. Durante setenta años las colecciones fueron mudándose de palacio en palacio, hasta que la ciudad dio un solar en lo alto de la plaza de Wenceslao. Al concurso de 1883 se presentaron veintisiete propuestas; lo ganó Josef Schulz, con la idea de que un museo es un templo del saber. Abrió el 18 de mayo de 1891. En agosto de 1968 la fachada recibió disparos cuando ejércitos extranjeros entraron en la ciudad; en la reparación de 1971–1973 los agujeros se rellenaron con cientos de trocitos de piedra nueva, y a la vez pintaron todo el edificio de negro para que pareciera más antiguo. Así que el negro no era hollín, era pintura. El museo cerró en 2011 y volvió a abrir el 28 de octubre de 2018, limpio y claro otra vez.",
+      "facts": [
+        "Se fundó en 1818; el edificio de la plaza abrió el 18 de mayo de 1891.",
+        "Su color negro era pintura de los años setenta, no suciedad.",
+        "Sus colecciones en todos sus edificios llegan casi a 14 millones de objetos."
+      ],
+      "question": {
+        "q": "¿Por qué estuvo negro el museo durante décadas?",
+        "answers": [
+          "Lo pintaron de negro en una reparación",
+          "Su piedra era naturalmente oscura",
+          "El humo del carbón de la ciudad lo había ennegrecido",
+          "Lo había quemado un incendio y nunca lo limpiaron"
+        ],
+        "explanation": "En la reparación de 1971–1973 pintaron de negro las estatuas, las columnas y toda la fachada, para que combinaran y parecieran más antiguas."
+      },
+      "findIt": "Cierra el extremo alto de la plaza de Wenceslao, así que lo ves desde un kilómetro de distancia. Subes las escaleras anchas por el lado de la plaza.",
+      "museum": {
+        "doorNote": "No es un museo, son cuatro en un edificio. Elige dos salas y míralas de verdad.",
+        "rooms": {
+          "prague-national-museum-building": {
+            "name": "El propio edificio",
+            "intro": "Antes de mirar un solo objeto, mira el envase. Schulz diseñó el edificio como un templo: escalera ancha, techo de cristal, una cúpula en medio. El edificio es lo primero que te dice lo en serio que se tomaban el saber los que lo construyeron, y lo que les pasó después."
+          },
+          "prague-national-museum-minerals": {
+            "name": "Las salas de los minerales",
+            "intro": "La colección de minerales es de las más antiguas del museo y empezó con regalos de unos nobles. Aquí las piedras no son adorno: cada una es una respuesta a la pregunta «¿qué pasó aquí hace millones de años?». Dos de ellas cayeron del cielo."
+          },
+          "prague-national-museum-evolution": {
+            "name": "Milagros de la evolución",
+            "intro": "Aquí viven juntos lo muy grande y lo muy pequeño. Sobre tu cabeza cuelga el esqueleto de una ballena; dentro de las vitrinas hay animales que murieron hace quinientos millones de años y te caben en la palma de la mano. La sala cuenta una sola historia: nada vivo se ha quedado nunca igual mucho tiempo."
+          }
+        },
+        "exhibits": {
+          "prague-national-museum-staircase": {
+            "name": "La gran escalera",
+            "blurb": "Entras y te encuentras delante de una escalera de mármol tan ancha que caben dos clases enteras una al lado de la otra. Encima hay un techo de cristal, para que la luz del día caiga en los escalones sin ninguna lámpara: el edificio se diseñó antes de que la electricidad se diera por hecha. Schulz quería que el visitante subiera despacio y entendiera que estaba entrando en un sitio importante. Es un truco de arquitecto tan viejo como los templos, y todavía funciona.",
+            "question": {
+              "q": "¿Por qué hay un techo de cristal encima de la escalera?",
+              "answers": [
+                "Para que la ilumine la luz del día sin ninguna lámpara",
+                "Para que los visitantes vean las estrellas",
+                "Para que el calor salga por arriba del edificio",
+                "Para que la lluvia caiga en un depósito del sótano"
+              ],
+              "explanation": "El edificio se diseñó cuando la luz eléctrica todavía era rara. El sol era la lámpara."
+            }
+          },
+          "prague-national-museum-pantheon": {
+            "name": "El Panteón",
+            "blurb": "Debajo de la gran cúpula hay una sala construida como un templo romano, llena de estatuas y bustos: cincuenta y cuatro de bronce, científicos, escritores, pintores, historiadores, y dos más de mármol. No los eligió el museo; los eligió la Dieta de Bohemia, y eso es lo interesante. En 1919, cuando cambió el Estado, sacaron los dos bustos de mármol del emperador y la emperatriz; volvieron en 2018, con la gran reforma. Un panteón enseña a quién admira un país en un momento concreto, y el momento no para de cambiar.",
+            "question": {
+              "q": "¿Quién eligió qué personas estarían en el Panteón?",
+              "answers": [
+                "La Dieta de Bohemia, no el museo",
+                "El arquitecto Josef Schulz",
+                "Los visitantes, en una votación del primer año",
+                "Los nobles que le dieron sus primeras colecciones"
+              ],
+              "explanation": "Por eso la lista cambió en 1919, y otra vez en 2018: cuando cambia la política, cambia también a quién honras."
+            }
+          },
+          "prague-national-museum-dome": {
+            "name": "El mirador de la cúpula",
+            "blurb": "Durante ciento veintiocho años la cúpula estuvo cerrada al público. Abrió en febrero de 2019, después de la gran reforma, y ahora puedes subir y mirar desde arriba toda la plaza de Wenceslao, desde la estatua hasta el extremo más lejano. Es el mejor sitio para entender por qué esta «plaza» parece una calle: desde aquí arriba se ve clarísimo que es un mercado de 750 metros de largo.",
+            "question": {
+              "q": "¿Cuándo abrió la cúpula para los visitantes?",
+              "answers": [
+                "En 2019, tras la gran reforma",
+                "En 1891, el mismo día que abrió el museo",
+                "En 1968, cuando repararon la fachada",
+                "Todavía no ha abierto; solo se ve por fuera"
+              ],
+              "explanation": "La cúpula estaba ahí desde 1891, pero ningún visitante subió hasta 2019."
+            }
+          },
+          "prague-national-museum-patches": {
+            "name": "Los parches en la piedra",
+            "blurb": "Ponte en las escaleras y mira la fachada de cerca. Verás cientos de trocitos de piedra metidos dentro de la piedra vieja, como parches en un abrigo. En agosto de 1968 unos ejércitos extranjeros entraron en Praga y el edificio recibió disparos. En la reparación de 1971–1973 cada agujero se rellenó con un trozo de piedra nueva. El museo podía haberlos tapado en la última restauración. Decidió no hacerlo.",
+            "question": {
+              "q": "¿Qué son los trocitos de piedra nueva de la fachada?",
+              "answers": [
+                "Parches sobre los daños hechos en 1968",
+                "Marcas que señalan dónde están las puertas ocultas",
+                "Sobras de los canteros de 1891",
+                "Decoración que imita las estrellas de la noche"
+              ],
+              "explanation": "Una herida que no se esconde es una historia que no se olvida. Por eso los parches todavía se ven."
+            }
+          },
+          "prague-national-museum-moldavites": {
+            "name": "Las moldavitas",
+            "blurb": "Son trozos de vidrio verde, ásperos y arrugados como si alguien los hubiera estrujado. No los hizo ninguna persona y no los hizo ningún volcán. Hace unos quince millones de años un meteorito chocó contra la Tierra en lo que hoy es Alemania con tanta fuerza que el suelo se derritió y salió volando por los aires. Las gotas se enfriaron mientras volaban y cayeron a cientos de kilómetros, aquí en Bohemia. Las moldavitas son, literalmente, lluvia de suelo derretido.",
+            "question": {
+              "q": "¿Cómo se hizo este vidrio verde?",
+              "answers": [
+                "De tierra que se derritió cuando cayó un meteorito",
+                "De lava de volcán que se enfrió en el agua",
+                "De vidrio fundido en un taller medieval",
+                "De arena prensada miles de años bajo el mar"
+              ],
+              "explanation": "El meteorito cayó en Alemania; las moldavitas aparecieron a cientos de kilómetros. Volaron hasta aquí cuando todavía estaban derretidas."
+            }
+          },
+          "prague-national-museum-meteorites": {
+            "name": "Los meteoritos",
+            "blurb": "En una vitrina hay piedras que no nacieron en este planeta. Los meteoritos son trozos de asteroides, o sea, material que sobró cuando se hizo el sistema solar. Muchos pesan más de lo que esperas, porque llevan hierro y níquel, y su superficie es negra y lisa: se derritió mientras caían a muchísima velocidad por el aire. Estás mirando algo más antiguo que la Tierra.",
+            "question": {
+              "q": "¿Por qué la superficie de un meteorito es negra y lisa?",
+              "answers": [
+                "Se derritió por la velocidad en el aire",
+                "La pintaron de negro en el museo",
+                "El polvo del espacio la pule durante millones de años",
+                "Está hecha de carbono, como el carbón de piedra"
+              ],
+              "explanation": "Al entrar en la atmósfera, el rozamiento los calienta tanto que la capa de fuera se derrite. Esa costra se llama corteza de fusión."
+            }
+          },
+          "prague-national-museum-founding-stones": {
+            "name": "Las piedras de los fundadores",
+            "blurb": "El museo no empezó con compras sino con regalos. El conde František Antonín Kolowrat le dejó una colección de minerales y treinta y cinco mil libros; el conde Kašpar Šternberk le dio sus colecciones de fósiles. Otro noble le regaló seiscientos animales disecados. Todo lo demás se construyó encima de esos regalos. Cuando miras una vitrina de piedras, miras también la decisión de alguien de no quedárselas.",
+            "question": {
+              "q": "¿Cómo consiguió el museo sus primeras colecciones?",
+              "answers": [
+                "Se las regalaron nobles que las reunieron",
+                "Las compró el emperador",
+                "Las trajeron científicos de viajes a Sudamérica",
+                "Las encontraron unos obreros cavando los cimientos"
+              ],
+              "explanation": "En 1818 unos cuantos nobles entregaron piedras, plantas, fósiles y libros. El museo empezó con eso y creció a su alrededor."
+            }
+          },
+          "prague-national-museum-whale": {
+            "name": "El esqueleto de la ballena",
+            "blurb": "Veintidós metros y medio de la nariz a la cola y cuatro toneladas de huesos, colgando del techo. Es el esqueleto de un rorcual común que apareció varado en Noruega en 1885. No se lo regaló nadie: Antonín Frič, que dirigía las colecciones del propio museo, y su hermano Václav abrieron una suscripción pública, y los habitantes de Praga juntaron el dinero para comprarlo. Pesa tanto que solo moverlo es una operación: bajó para la reforma y volvió a la exposición en septiembre de 2021. Ponte debajo y mírale las costillas. Una ballena no es un pez sino un mamífero, y sus huesos lo dicen a gritos.",
+            "question": {
+              "q": "¿Cuánto mide el esqueleto de la ballena?",
+              "answers": [
+                "Unos veintidós metros y medio",
+                "Unos cuatro metros, como un coche grande",
+                "Unos nueve metros, la altura de una casa pequeña",
+                "Unos cincuenta metros, como medio campo de fútbol"
+              ],
+              "explanation": "Veintidós metros y medio y cuatro toneladas. Por eso, para volver a colgarlo en 2021, hizo falta una operación entera."
+            }
+          },
+          "prague-national-museum-trilobites": {
+            "name": "Los trilobites de Barrande",
+            "blurb": "Joachim Barrande era francés y llegó a Praga como profesor de una familia real que vivía exiliada de Francia. Cuando ellos se marcharon, él se quedó y entró a trabajar de ingeniero, trazando un ferrocarril tirado por caballos. En las excavaciones vio piedras llenas de bichos raros con armadura y tres lóbulos a lo largo del cuerpo: los trilobites. Dejó el ferrocarril y pasó el resto de su vida estudiándolos. Sus colecciones hicieron famoso a este museo en el mundo entero. Los trilobites vivían en el mar, y sin embargo los encuentras en un país que no tiene mar.",
+            "question": {
+              "q": "¿Por qué hay animales marinos en un país sin mar?",
+              "answers": [
+                "Aquí hubo un mar entero hace millones de años",
+                "Los trajeron comerciantes de costas lejanas",
+                "Los ríos los llevaron del mar a los montes",
+                "Vivían en lagos y parecen animales marinos"
+              ],
+              "explanation": "Las tierras y los mares cambian de sitio. Bohemia fue una vez un fondo marino, y los fósiles se acuerdan."
+            }
+          },
+          "prague-national-museum-cooksonia": {
+            "name": "La primera planta de tierra firme",
+            "blurb": "Una huella diminuta en una piedra, de unos pocos centímetros, como una ramita partida en dos. Se llama Cooksonia barrandei y es la planta más antigua que se conoce en el mundo con vasos, es decir, con tubitos que suben el agua. Ese truco es la razón de que existan los árboles: sin vasos nada puede crecer más de unos pocos centímetros. La encontraron unos investigadores dentro de las propias colecciones del museo, no en una excavación nueva.",
+            "question": {
+              "q": "¿Por qué importan tanto los tubitos de dentro de una planta?",
+              "answers": [
+                "Sin ellos ninguna planta crece en alto",
+                "Sin ellos la planta no tiene color",
+                "Sin ellos la planta no aguanta el frío del invierno",
+                "Sin ellos la planta nunca puede dar flores"
+              ],
+              "explanation": "Los vasos suben el agua desde las raíces. En cuanto aparecieron, las plantas pudieron convertirse en árboles."
+            }
+          }
+        },
+        "riddles": {
+          "prague-national-museum-riddle-1": {
+            "prompt": "Cuelgo del techo y peso cuatro toneladas. No soy un pez, aunque viví en el mar, y para volver a colgarme hizo falta una operación entera con grúas y paciencia.",
+            "hint": "Mis costillas van de una pared a la otra."
+          },
+          "prague-national-museum-riddle-2": {
+            "prompt": "Soy verde y áspero, y antes fui tierra. Me derretí en un segundo, volé cientos de kilómetros y me enfrié en el aire antes de aterrizar aquí.",
+            "hint": "Lo que me hizo cayó del cielo, en lo que hoy es Alemania."
+          },
+          "prague-national-museum-riddle-3": {
+            "prompt": "Soy una sala construida como un templo romano y dentro de mí hay más de cincuenta personas de bronce y de mármol. Yo no elegí cuáles, y en 1919 dos de ellas se fueron.",
+            "hint": "Estoy justo debajo de la gran cúpula."
+          }
+        }
+      }
+    },
+    "prague-old-new-synagogue": {
+      "name": "La Sinagoga Vieja-Nueva",
+      "tagline": "La sinagoga más antigua de Europa que sigue en uso",
+      "story": "Se construyó hacia 1270, cuando el gótico era nuevo en Praga, y es la sinagoga más antigua de Europa que sigue en uso. Por dentro es rara: dos filas de bóvedas se apoyan en una sola fila de pilares por el medio, un diseño que casi no se conserva en ningún otro sitio. El nombre «Vieja-Nueva» confunde, y el motivo se ha olvidado: era nueva cuando ya había otra más vieja, y una leyenda dice que sus piedras vinieron de Jerusalén «con una condición». La leyenda más conocida es la de su desván: allí, dicen, descansa el Gólem, una figura de barro que hizo el rabino Löw. El desván no se puede visitar. En la guerra de los años cuarenta se llevaron a casi todas las familias judías de Praga y no volvieron, y de 1941 a 1945 la sinagoga estuvo cerrada. El edificio se salvó, las oraciones empezaron otra vez en 1945, y han seguido desde entonces.",
+      "facts": [
+        "Se terminó hacia 1270 y dentro se siguen diciendo oraciones hoy.",
+        "Sus bóvedas se apoyan en una sola fila de pilares, un diseño rarísimo.",
+        "El desván, donde la leyenda pone al Gólem, no se puede visitar."
+      ],
+      "question": {
+        "q": "¿Qué hace especial a esta sinagoga en toda Europa?",
+        "answers": [
+          "Es la más antigua que sigue funcionando",
+          "Es la más grande de Europa",
+          "Es la única construida solo con madera y ladrillos",
+          "Fue la primera con luz eléctrica, a finales del siglo XIX"
+        ],
+        "explanation": "Se construyó hacia 1270 y dentro se siguen diciendo oraciones. Ninguna otra sinagoga de Europa lleva tantos años en uso."
+      },
+      "findIt": "Está baja, en el barrio de Josefov, entre edificios de 1900 mucho más altos. Busca el tejado de ladrillo empinado con escalones en el borde."
+    },
+    "prague-dancing-house": {
+      "name": "La Casa Danzante",
+      "tagline": "Dos torres que parecen estar bailando juntas",
+      "story": "En esta esquina hubo una vez una casa corriente, igual que las de al lado. Al final de la Segunda Guerra Mundial, en 1945, una bomba cayó aquí por error y la derribó, y la esquina se quedó vacía casi cincuenta años. En el edificio de al lado vivía un escritor, Václav Havel, que después llegó a ser Presidente del país, y durante años estuvo pensando qué podía ponerse en aquel hueco. Al final dos arquitectos, el checo Vlado Milunić y el estadounidense Frank Gehry, diseñaron un edificio que baila. Se construyó entre 1992 y 1996. Una torre es de cristal y se estrecha en el medio como la cintura de una bailarina; la otra es de hormigón y lleva puesta una maraña de tubos de metal. La fachada tiene noventa y nueve paneles de hormigón, cada uno con una forma distinta, y las ventanas no están en filas rectas, para que el edificio parezca que se mueve. Al principio a mucha gente le parecía que no pegaba aquí.",
+      "facts": [
+        "Se construyó entre 1992 y 1996, en una esquina vacía desde 1945.",
+        "Su fachada tiene 99 paneles de hormigón y no hay dos iguales.",
+        "El apodo «Fred y Ginger» viene de una pareja de bailarines del cine antiguo."
+      ],
+      "question": {
+        "q": "¿Por qué se quedó vacía esta esquina casi cincuenta años?",
+        "answers": [
+          "Una bomba derribó su casa en 1945",
+          "El suelo junto al río era demasiado blando para construir",
+          "La ciudad la guardaba para hacer allí un puente nuevo",
+          "Los vecinos nunca se ponían de acuerdo en un plan"
+        ],
+        "explanation": "Al final de la guerra una bomba cayó aquí por error. La esquina esperó hasta los años noventa para que volvieran a construir en ella."
+      },
+      "findIt": "Está en el paseo Rašínovo nábřeží, en la esquina de Jiráskovo náměstí. Míralo desde la otra orilla: solo desde allí baila de verdad."
+    },
+    "prague-technical-museum": {
+      "name": "El Museo Técnico Nacional",
+      "tagline": "El edificio estuvo listo en 1941; el museo entró en 1948",
+      "story": "El museo se fundó el 5 de julio de 1908 y pasó décadas juntando máquinas sin tener casa propia. En 1935 el arquitecto Milan Babuška ganó el concurso, y el edificio de Letná se construyó entre 1938 y 1941. En cuanto se terminó, la administración de la ocupación lo tomó para sus oficinas, y el museo se quedó fuera de su propio edificio. Las primeras salas abrieron en 1948, empezando por la gran sala de los transportes, y ni siquiera entonces tenía el museo más que un tercio del edificio. Entre 1951 y 1953 excavaron una mina entera en el sótano. El último inquilino se marchó en 1999. Hoy el museo guarda unos setenta y seis mil objetos y enseña seis mil, o sea, menos de uno de cada diez. Los demás esperan en los almacenes.",
+      "facts": [
+        "Se fundó el 5 de julio de 1908 y no entró en su edificio hasta 1948.",
+        "Entre 1951 y 1953 construyeron una mina dentro del sótano del museo.",
+        "De sus 76.000 objetos aproximadamente, se exponen unos 6.000."
+      ],
+      "question": {
+        "q": "¿Por qué no pudo entrar el museo en su edificio en 1941?",
+        "answers": [
+          "La administración de la ocupación lo tomó para oficinas",
+          "Sus escaleras eran demasiado estrechas",
+          "El arquitecto nunca llegó a entregarle los planos al museo",
+          "Todavía no se había encontrado la manera de calentarlo en invierno"
+        ],
+        "explanation": "El edificio estaba listo y el museo esperaba fuera. Las primeras salas abrieron siete años después, en 1948."
+      },
+      "findIt": "Está en la calle Kostelní, en Letná, al lado del museo de agricultura, que parece su gemelo. Busca el edificio de las ventanas cuadradas, no el decorado.",
+      "museum": {
+        "doorNote": "Entra primero en la gran sala y mira hacia arriba antes de mirar hacia abajo. Los aviones están por encima de los coches.",
+        "rooms": {
+          "prague-technical-museum-transport": {
+            "name": "La sala de los transportes",
+            "intro": "Fue la primera sala que abrió, en 1948, y sigue siendo la razón por la que viene la gente. En un espacio de varios pisos de alto, hay aviones colgados por encima de locomotoras de vapor, coches y motos. No hay separaciones: ves ciento cincuenta años de transporte de una sola mirada, de arriba abajo."
+          },
+          "prague-technical-museum-astronomy": {
+            "name": "Astronomía",
+            "intro": "Hacia 1600 Praga era la ciudad de los astrónomos: el emperador Rodolfo II llamó aquí a los mejores observadores de Europa y pagó a los mejores artesanos para que les hicieran instrumentos. Esta sala guarda algunos de aquellos instrumentos: latón, números grabados, ni una lámpara y ni una lente."
+          },
+          "prague-technical-museum-mine": {
+            "name": "La mina de debajo del museo",
+            "intro": "Entre 1951 y 1953 la gente del museo hizo algo extraño: en vez de colgar fotografías de una mina en una pared, excavaron una mina en el sótano. Bajas unas escaleras, el aire se vuelve fresco, el techo baja y de repente caminas por una galería con puntales de madera y máquinas que trabajaron de verdad bajo tierra."
+          }
+        },
+        "exhibits": {
+          "prague-technical-museum-prasident": {
+            "name": "El coche NW Präsident",
+            "blurb": "Parece un carruaje al que se le ha olvidado el caballo, porque es exactamente eso: los primeros fabricantes de coches sabían hacer carruajes y simplemente le metieron un motor. El NW Präsident es el coche más antiguo fabricado en tierras checas. Tiene ruedas altas y finas con radios, carrocería de madera y ninguna puerta por un lado. Fíjate en lo alto que va sentado el conductor: entonces las carreteras eran barro y piedras.",
+            "question": {
+              "q": "¿Por qué parece un carruaje el primer coche?",
+              "answers": [
+                "Lo hicieron personas que hacían carruajes",
+                "La ley exigía que se pareciera a uno, por seguridad",
+                "Querían que los caballos no se asustaran al cruzárselo",
+                "Era de verdad un carruaje y le pusieron motor mucho después"
+              ],
+              "explanation": "Cada cosa nueva empieza pareciéndose a la vieja. La forma del coche tardó décadas en encontrarse a sí misma."
+            }
+          },
+          "prague-technical-museum-kaspar-plane": {
+            "name": "El avión de Kašpar",
+            "blurb": "En lo alto de la sala cuelga un avión que parece una cometa de madera y tela. Lo voló Jan Kašpar, el primer aviador checo, y está construido según el sistema Blériot: lo hizo él mismo, siguiendo el diseño del francés Louis Blériot, que había cruzado volando el canal de la Mancha. Por eso tiene un solo par de alas en vez de dos. No tiene cabina, ni cinturón, ni instrumentos: el piloto iba sentado al aire libre y miraba hacia abajo. Entre el primer vuelo del mundo y esta máquina pasaron solo unos pocos años.",
+            "question": {
+              "q": "¿Qué significa aquí «construido según el sistema Blériot»?",
+              "answers": [
+                "Sigue el diseño del francés Louis Blériot",
+                "Lleva el motor en la cola y no en el morro",
+                "Despega desde el agua y no desde una pista de tierra",
+                "Está construido de metal y no de madera y tela"
+              ],
+              "explanation": "Blériot fue el primero en cruzar volando el canal de la Mancha. Kašpar copió su diseño y se construyó él mismo el avión."
+            }
+          },
+          "prague-technical-museum-saloon-carriage": {
+            "name": "El vagón del emperador",
+            "blurb": "Un vagón de tren que por fuera parece igual que los demás y por dentro es un salón: paneles de madera, terciopelo, espejos, lámparas. Era el vagón personal del emperador Francisco José. A finales del siglo XIX el tren era la única manera rápida de cruzar un imperio, así que los gobernantes viajaban en habitaciones con ruedas. Fíjate en los detalles: todo está atornillado, porque en un tren nada se queda quieto solo.",
+            "question": {
+              "q": "¿Por qué viajaban los gobernantes en vagones como este?",
+              "answers": [
+                "El tren era la manera más rápida de viajar",
+                "A los gobernantes se les prohibía ir en carruaje por las ciudades",
+                "Querían enseñar lo ricos que eran",
+                "Todavía no había hoteles en ninguna ciudad del imperio"
+              ],
+              "explanation": "Antes de los aviones, el tren era la velocidad. Un vagón salón era despacho y dormitorio a la vez."
+            }
+          },
+          "prague-technical-museum-tatra-87": {
+            "name": "El Tatra 87 de los viajeros",
+            "blurb": "Un coche de espalda redondeada y una aleta rara en medio de la cola. Con él los checos Jiří Hanzelka y Miroslav Zikmund cruzaron África y América del Sur a finales de los años cuarenta, por caminos que muchas veces no eran ni caminos. Volvieron con películas, fotografías y libros, y para un país que no podía viajar con facilidad ellos eran la ventana. La aleta no es un adorno: ayuda al coche a mantenerse firme cuando sopla viento de lado.",
+            "question": {
+              "q": "¿Qué hace en realidad la aleta de la cola del coche?",
+              "answers": [
+                "Lo mantiene firme cuando sopla viento de lado",
+                "Mete aire fresco en la cabina",
+                "Enseña a los demás conductores hacia dónde va a girar",
+                "Esconde dentro la rueda de repuesto y las herramientas"
+              ],
+              "explanation": "Un coche con la cola redonda se desliza con el viento de lado. La aleta le da al aire algo contra lo que empujar y lo endereza."
+            }
+          },
+          "prague-technical-museum-burgi-sextant": {
+            "name": "El sextante de Bürgi",
+            "blurb": "Un gran arco de latón con una escala grabada, hecho por Jost Bürgi, el relojero del emperador Rodolfo II. Con él se medía el ángulo entre dos estrellas. No aumenta nada: su secreto no es una lente, sino la precisión de las marcas grabadas. Bürgi era tan buen artesano que hacía relojes con segundero en una época en la que la mayoría no tenía ni minutero.",
+            "question": {
+              "q": "¿Qué medían los astrónomos con un sextante así?",
+              "answers": [
+                "El ángulo entre dos estrellas del cielo",
+                "El color de una estrella, para saber cuánto calor tiene",
+                "El peso de un planeta, con una balanza escondida en la base",
+                "La distancia de la Tierra al Sol, en miles de millas"
+              ],
+              "explanation": "Antes de los telescopios, la astronomía era geometría: medías ángulos con mucho cuidado y lo demás lo sacabas en un papel."
+            }
+          },
+          "prague-technical-museum-habermel-sextant": {
+            "name": "El sextante de Habermel",
+            "blurb": "Erasmus Habermel hacía instrumentos para la corte de Praga y era famoso por algo que no se ve a primera vista: sus piezas encajaban unas con otras a la perfección. Mira de cerca las marcas de la escala. Cada rayita se grabó a mano, y fallar por el grosor de un pelo significaba una medida equivocada. La astronomía de aquella época llegó exactamente hasta donde llegaron los artesanos que hacían sus herramientas.",
+            "question": {
+              "q": "¿Por qué importaba tanto el trabajo del artesano?",
+              "answers": [
+                "Una raya mal grabada, aunque fuera por un pelo, daba mal la medida",
+                "El emperador pagaba según lo bonito que fuera el instrumento",
+                "Los instrumentos tenían que aguantar viajes por mar con tormenta",
+                "Sin piezas perfectas el instrumento no cabía en su estuche"
+              ],
+              "explanation": "La ciencia no avanza solo con ideas. Avanza también con manos capaces de construir lo que la idea necesita."
+            }
+          },
+          "prague-technical-museum-seige-clock": {
+            "name": "El reloj astronómico de Seige",
+            "blurb": "Un reloj al que no le basta con la hora: sus esferas enseñan la posición del sol y de la luna, el día del mes y la fase lunar. Lo hizo Engelbert Seige. Es una máquina pequeña que imita el cielo con engranajes, y lo más difícil de todo es que el cielo no funciona con números redondos: el mes de la luna no dura exactamente treinta días, así que los dientes de los engranajes hay que contarlos con astucia.",
+            "question": {
+              "q": "¿Qué es lo más difícil de hacer un reloj así?",
+              "answers": [
+                "El cielo no se mueve con números redondos",
+                "El latón se oxida y los engranajes se atascan a menudo",
+                "Hay que darle cuerda dos veces al día",
+                "Las esferas las tiene que pintar un pintor muy bueno"
+              ],
+              "explanation": "El mes de la luna dura unos 29 días y medio. Para enseñar eso con engranajes hacen falta números de dientes muy astutos."
+            }
+          },
+          "prague-technical-museum-gallery": {
+            "name": "La galería",
+            "blurb": "El pasillo es estrecho y el techo bajo, porque así es una galería de verdad: cada centímetro de más costaba horas de excavación. Los puntales de madera no son un adorno; sujetan el techo. En muchas minas se prefirió la madera al metal por una razón rara: antes de romperse, cruje. Un minero que oía hablar a las maderas por encima de su cabeza sabía que tenía que salir.",
+            "question": {
+              "q": "¿Por qué se preferían los puntales de madera en muchas minas?",
+              "answers": [
+                "La madera cruje y avisa antes de romperse",
+                "La madera no se calienta en la mano",
+                "La madera se puede quemar para calentar a los mineros",
+                "La madera impide que entre agua en la galería desde arriba"
+              ],
+              "explanation": "Un material que avisa antes de ceder es más seguro que uno fuerte que se rompe sin hacer ruido."
+            }
+          },
+          "prague-technical-museum-safety-lamp": {
+            "name": "La lámpara de seguridad",
+            "blurb": "Parece un farol corriente, pero su llama está encerrada dentro de una malla de metal. En una mina puede haber gas que se enciende; si una llama desnuda lo encuentra, hay una explosión. La malla deja salir la luz, pero se lleva el calor tan deprisa que la llama no puede pasar al otro lado. Y hay algo más: cuando había gas, la llama de dentro cambiaba de forma. La lámpara era luz y aviso a la vez.",
+            "question": {
+              "q": "¿Por qué hay una malla de metal alrededor de la llama?",
+              "answers": [
+                "Para que la llama no llegue al gas de la mina",
+                "Para que la corriente de la galería no apague la llama",
+                "Para que no se quemen los dedos al sujetar la lámpara",
+                "Para que la luz se vea más lejos por los pasillos"
+              ],
+              "explanation": "La malla le roba el calor a la llama. Fuera de ella, el gas nunca se calienta lo bastante para prender."
+            }
+          },
+          "prague-technical-museum-mine-trucks": {
+            "name": "Las vagonetas",
+            "blurb": "Cajas pequeñas de metal sobre ruedas, en unos raíles estrechos que pasan por el medio de la galería. Los raíles están ahí porque una vagoneta cargada pesa cientos de kilos y en el barro no se mueve; sobre hierro la empuja una sola persona. Primero tiraban de ellas personas, luego caballos, luego máquinas. Toda la historia del ferrocarril empezó bajo tierra, en galerías como esta, mucho antes de llegar a las estaciones.",
+            "question": {
+              "q": "¿Por qué hay raíles dentro de la galería?",
+              "answers": [
+                "Para que una sola persona pueda empujar cientos de kilos",
+                "Para que los mineros no se pierdan en la oscuridad",
+                "Para que el techo tenga algo en lo que apoyarse",
+                "Para que el agua corra lejos de los pies de los obreros"
+              ],
+              "explanation": "El hierro sobre hierro casi no tiene rozamiento. Por eso los raíles se inventaron en las minas, antes que los trenes."
+            }
+          }
+        },
+        "riddles": {
+          "prague-technical-museum-riddle-1": {
+            "prompt": "Estoy hecho de madera y tela y cuelgo por encima de todo lo demás. No tengo cabina ni instrumentos, y el hombre que me pilotaba iba sentado fuera, al aire libre.",
+            "hint": "Tengo un solo par de alas."
+          },
+          "prague-technical-museum-riddle-2": {
+            "prompt": "Tengo una llama dentro, pero me llevan como un farol a un sitio donde una llama desnuda sería peligrosa. Mi malla guarda el fuego dentro y deja salir solo la luz.",
+            "hint": "Me encontrarás por debajo de la planta baja, a oscuras."
+          },
+          "prague-technical-museum-riddle-3": {
+            "prompt": "Por fuera parezco igual que los demás coches de la línea, pero dentro de mí hay terciopelo y hay espejos. Dentro de mí viajaba quien mandaba en todo el imperio, cuando el tren era la cosa más rápida del mundo.",
+            "hint": "Soy una habitación con ruedas."
+          }
+        }
+      }
+    },
+    "prague-havelske-trziste": {
+      "name": "El mercado de Havel",
+      "tagline": "Lo que queda de un mercado de 560 metros",
+      "story": "En la década de 1230 el rey Václav I permitió que se levantara una ciudad nueva entera dentro de la Ciudad Vieja, alrededor de la iglesia de San Havel. Tenía sus propias reglas, su propio plano de calles rectas y, en el corazón, un mercado enorme: quinientos sesenta metros de largo y más de tres hectáreas, o sea, un rival del mercado viejo de la actual Staroměstské náměstí. En 1287 la pequeña ciudad se unió a la Ciudad Vieja. En el siglo XIV construyeron filas de puestos de madera en medio del mercado, y poco a poco esas filas se convirtieron en edificios y calles. O sea, que el mercado no desapareció: se volvió de piedra. Los nombres de las calles que te rodean todavía se acuerdan de él: Ovocný trh, el Mercado de la Fruta, y Uhelný trh, el Mercado del Carbón. Y en una de ellas todavía se montan los puestos.",
+      "facts": [
+        "El mercado medieval tenía unos 560 metros de largo y más de tres hectáreas.",
+        "La pequeña ciudad de alrededor se unió a la Ciudad Vieja en 1287.",
+        "Ovocný trh y Uhelný trh significan Mercado de la Fruta y Mercado del Carbón."
+      ],
+      "question": {
+        "q": "¿Qué queda hoy del gran mercado medieval?",
+        "answers": [
+          "Una calle con puestos y unos nombres de calles",
+          "Un museo que enseña cómo era antes el mercado entero",
+          "Una plaza sin ningún puesto, solo con mesas de los cafés",
+          "Nada; lo taparon del todo los edificios del siglo diecinueve"
+        ],
+        "explanation": "Las filas de puestos se convirtieron en edificios y calles. El mercado sigue ahí, pero con forma de ciudad."
+      },
+      "findIt": "Está en la calle Havelská, entre Melantrichova y Na Můstku. Ve por la mañana: a última hora de la tarde los puestos ya están recogidos."
+    },
+    "prague-powder-tower": {
+      "name": "La Torre de la Pólvora",
+      "tagline": "Un regalo para un rey, y luego un almacén de pólvora",
+      "story": "En 1475 los habitantes de Praga empezaron a construir esta puerta oscura y puntiaguda como regalo para su rey, Vladislav, que vivía en el palacio de al lado. Era una de las puertas de la muralla de la Ciudad Vieja, y aquí empezaba el Camino Real: cuando iban a coronar a un rey nuevo, su desfile pasaba por esta puerta, cruzaba la ciudad y el puente y subía hasta el castillo. El último desfile así pasó en 1836. Pero el rey se mudó del palacio de al lado, las obras se pararon y la torre se quedó a medias durante siglos. Mientras tanto encontró un trabajo mucho más aburrido: almacén de pólvora, y de ahí le viene el nombre que todavía tiene. El tejado puntiagudo y casi todos los adornos los añadió el arquitecto Josef Mocker entre 1875 y 1886. O sea, que la parte más medieval de la puerta es la más nueva de todas.",
+      "facts": [
+        "Mide 65 metros de alto, y 186 escalones suben hasta su mirador.",
+        "El último desfile de coronación pasó por ella en 1836.",
+        "El tejado puntiagudo no es medieval: se puso entre 1875 y 1886."
+      ],
+      "question": {
+        "q": "¿De dónde le viene el nombre a la Torre de la Pólvora?",
+        "answers": [
+          "De la pólvora que los soldados guardaban dentro de la puerta",
+          "Del polvo que levantaban los carros en la puerta",
+          "De la roca negra como la ceniza con que se construyó",
+          "De los fuegos artificiales de las fiestas de aquí"
+        ],
+        "explanation": "La torre a medio terminar sirvió durante años de almacén de pólvora. El nombre se quedó, aunque por suerte nunca hizo pum."
+      },
+      "findIt": "Está al final de la calle Celetná, justo al lado del dorado Obecní dům. Es la única puerta negra de la esquina, no tiene pérdida."
+    },
+    "prague-old-town-square": {
+      "name": "La Plaza de la Ciudad Vieja",
+      "tagline": "Un mercado desde hace casi novecientos años",
+      "story": "Comerciantes llegados de muy lejos montan sus puestos en esta plaza desde el siglo XII, y aquí se juntaban los vecinos para las fiestas, para las grandes noticias y para saber la hora. Cada casa de alrededor es de un color y de una edad, y algunas son medievales, con pinturas en las paredes. Por encima se levantan las dos torres puntiagudas de la iglesia de Týn, de ochenta metros cada una, y no son iguales: una es un poco más gorda que la otra, así que en Praga las llaman Adán y Eva. En medio está el monumento a Jan Hus, un predicador que decía siempre lo que pensaba, incluso cuando era peligroso; se levantó en 1915, exactamente 500 años después de su muerte. Busca también una tira de metal en el suelo: es el meridiano de Praga. Cuando la sombra de una columna alta caía encima, la ciudad sabía que era justo mediodía.",
+      "facts": [
+        "Las dos torres de la iglesia de Týn miden 80 metros y no son iguales.",
+        "El monumento a Jan Hus se levantó en 1915, 500 años después de su muerte.",
+        "La columna que echaba su sombra sobre el meridiano se repuso en 2020."
+      ],
+      "question": {
+        "q": "¿Qué señalaba la tira de metal del suelo de la plaza?",
+        "answers": [
+          "Cuándo era exactamente mediodía en Praga",
+          "Dónde terminaban las murallas viejas de la Ciudad Vieja",
+          "Dónde tenían que poner sus puestos los comerciantes",
+          "Hasta dónde subió el agua en una gran inundación"
+        ],
+        "explanation": "La sombra de una columna alta tocaba la tira justo a mediodía. Era el reloj de la ciudad, cuando nadie tenía reloj de pulsera."
+      },
+      "findIt": "Desde la Torre de la Pólvora coge la calle Celetná hacia el oeste. A los seis minutos la calle estrecha se abre de golpe y ya estás en la plaza."
+    },
+    "prague-astronomical-clock": {
+      "name": "El Reloj Astronómico",
+      "tagline": "El reloj astronómico más antiguo que sigue funcionando",
+      "story": "Este reloj dio su primera hora en 1410 y es el reloj astronómico más antiguo del mundo que sigue funcionando. En seiscientos años se ha parado más de una vez, y cada vez Praga lo ha arreglado. Lo hicieron entre un relojero, Mikuláš de Kadaň, y un astrónomo, Jan Šindel. El astrónomo quería una máquina que no dijera solo la hora, sino que enseñara el cielo entero: dónde está el sol, dónde está la luna, qué signo del zodiaco está saliendo. La esfera de arriba cuenta las horas de tres maneras distintas a la vez, porque entonces todavía no se habían puesto todos de acuerdo en cuándo empieza el día. La esfera de abajo, el calendario, llegó después. Cada hora se abren dos ventanitas, los doce Apóstoles pasan uno a uno, un esqueleto le da la vuelta a su reloj de arena y un gallo dorado canta. En 1945 el reloj se quemó. La gente de Praga lo reparó y talló Apóstoles nuevos de madera.",
+      "facts": [
+        "Empezó a funcionar en 1410, hace más de 600 años.",
+        "La esfera de arriba enseña la hora de tres maneras distintas a la vez.",
+        "Después del incendio de 1945, vuelve a dar las horas desde 1948."
+      ],
+      "question": {
+        "q": "¿Qué enseña la esfera de arriba además de la hora?",
+        "answers": [
+          "Dónde están ahora el sol y la luna",
+          "Cuánta gente vive hoy dentro de la Ciudad Vieja",
+          "Cuánta lluvia caerá en la ciudad la semana que viene",
+          "Cuándo es la próxima gran fiesta"
+        ],
+        "explanation": "El astrónomo Jan Šindel quería un mapa del cielo que se moviera solo: el sol, la luna y el zodiaco, cada uno en el sitio en el que está ahora mismo."
+      },
+      "findIt": "Está en la pared sur de la torre del Ayuntamiento de la Ciudad Vieja, en la esquina suroeste de la plaza. Ponte debajo unos minutos antes de la hora en punto."
+    },
+    "prague-charles-bridge": {
+      "name": "El Puente de Carlos",
+      "tagline": "Dieciséis arcos, treinta estatuas y un palíndromo",
+      "story": "Una gran inundación se había llevado el puente viejo de Praga, y el nuevo tenía que durar para siempre. Al rey Carlos IV le gustaban los números y las estrellas, y cuentan que eligió para él un momento muy especial: el 9 de julio de 1357, a las 5:31 de la mañana. Escribe las cifras en fila, 1-3-5-7-9-7-5-3-1, y léelas al revés; son exactamente las mismas. Lo construyó el arquitecto Peter Parler, mide 516 metros y tiene dieciséis arcos, y durante más de cuatrocientos años fue el único puente de la ciudad sobre el Vltava. Las treinta estatuas llegaron mucho después, la mayoría hace unos trescientos años, y hoy muchas son copias. Una leyenda dice que los constructores pidieron huevos a todos los pueblos para que la mezcla agarrara más fuerte. Nadie lo ha demostrado nunca, pero la historia ha durado casi tanto como el puente.",
+      "facts": [
+        "Mide 516 metros de largo, con dieciséis arcos y treinta estatuas en fila.",
+        "La primera piedra se puso en 1357; las cifras se leen igual al revés.",
+        "Durante 500 años fue solo el «Puente de Piedra». Tomó el nombre de Carlos en 1870."
+      ],
+      "question": {
+        "q": "¿Qué tiene de especial el momento en que se puso la primera piedra?",
+        "answers": [
+          "Sus números se leen igual al derecho y al revés",
+          "Fue el único momento en que se vieron dos cometas juntos",
+          "Era el cumpleaños del rey y de su mujer a la vez",
+          "Era el día más caluroso de aquel año"
+        ],
+        "explanation": "1-3-5-7-9-7-5-3-1: igual en los dos sentidos. Carlos creía que unos números así mantendrían el puente en pie."
+      },
+      "findIt": "Por el lado de la Ciudad Vieja se entra en la plaza Křižovnické náměstí, debajo de la torre gótica del puente. Ve temprano: más tarde se llena."
+    },
+    "prague-kampa": {
+      "name": "La isla de Kampa",
+      "tagline": "Se hizo isla porque alguien quería harina",
+      "story": "Kampa no fue siempre una isla. Hace unos novecientos años la gente cavó un canal desde el Vltava para mover sus molinos de agua, y así este trozo de tierra se quedó entre dos aguas. El canal se llama Čertovka, el Arroyo del Diablo, y la leyenda dice que le pusieron ese nombre por una señora de muy mal genio que vivía en una casa llamada «En los Siete Diablos». Los molinos molían la harina para los panaderos de la ciudad, y una rueda grande de madera todavía gira. Pero el río no siempre está tranquilo: en agosto de 2002 subió más alto que en quinientos años y cubrió la isla entera. La gente la limpió y la volvió a poner en pie. Hoy es un parque tranquilo con un museo de arte en un molino viejo y tres bebés enormes de bronce que gatean por la hierba, hechos por el escultor David Černý.",
+      "facts": [
+        "El canal Čertovka se cavó para mover molinos de agua, no por bonito.",
+        "En la inundación de agosto de 2002 el agua cubrió la isla entera.",
+        "Los tres bebés de bronce tienen una ranura en la cara en vez de ojos y nariz."
+      ],
+      "question": {
+        "q": "¿Por qué cavó la gente el canal Čertovka?",
+        "answers": [
+          "Para mover los molinos que molían la harina de la ciudad",
+          "Para que los barcos pudieran rodear el puente",
+          "Para proteger la ciudad de las inundaciones",
+          "Para que la gente tuviera dónde pescar en verano"
+        ],
+        "explanation": "El agua del canal movía las ruedas de los molinos, que molían la harina de la ciudad. La isla fue un efecto secundario."
+      },
+      "findIt": "Cruza el puente y, justo antes de las torres del otro extremo, baja las escaleras de la izquierda. El parque de los bebés está enfrente."
+    },
+    "prague-lennon-wall": {
+      "name": "El Muro de Lennon",
+      "tagline": "Lo pintaban de blanco y al día siguiente se llenaba otra vez",
+      "story": "En 1980 murió de repente John Lennon, el cantante de los Beatles que escribía canciones sobre la paz, y los jóvenes de Praga quisieron acordarse de él. Alguien pintó su cara en este muro y otros añadieron letras de canciones y deseos. Pero en aquellos años no te dejaban escribir libremente lo que pensabas. La policía pintaba el muro de blanco, y en una sola noche volvía a llenarse de mensajes. Pintaban; se llenaba. Pintaban; se llenaba. Así un muro cualquiera acabó significando algo que nadie había planeado: las ideas no se borran con una brocha. El muro es del jardín de la Orden de Malta, que lo restauró en 2019 y lo declaró galería al aire libre, con reglas sobre lo que puede añadir un visitante. Lo que ves hoy puede estar tapado mañana por otra cosa. Es quizá la única obra de arte de la ciudad que no está nunca terminada.",
+      "facts": [
+        "Las pinturas empezaron en 1980, el año en que murió John Lennon.",
+        "El muro es de la Orden de Malta, que lo restauró en 2019.",
+        "El símbolo de la paz se diseñó en 1958, mucho antes que el muro."
+      ],
+      "question": {
+        "q": "¿Qué pasaba cada vez que la policía pintaba el muro de blanco?",
+        "answers": [
+          "La gente volvía a llenarlo de mensajes",
+          "El muro se quedaba blanco meses",
+          "La gente pintaba en su lugar otro muro más abajo",
+          "La Orden de Malta pagaba para repintarlo desde cero"
+        ],
+        "explanation": "Cada muro blanco era una invitación. En una noche volvía a llenarse, y eso es justo lo que lo convirtió en un símbolo."
+      },
+      "findIt": "Está en la pequeña plaza Velkopřevorské náměstí. Desde el parque de Kampa camina tres minutos hacia el norte y cruza el puentecillo que hay junto a la rueda del molino."
+    },
+    "prague-castle": {
+      "name": "El Castillo de Praga",
+      "tagline": "El castillo antiguo más grande del mundo, y todavía se trabaja dentro",
+      "story": "Hace más de mil cien años un príncipe llamado Bořivoj construyó un fuerte de madera en esta colina, encima del río. Desde entonces cada señor de Bohemia ha añadido algo suyo: murallas, palacios, iglesias, jardines, una callejuela de casitas diminutas. Nadie diseñó nunca el castillo entero; simplemente nadie dejó de construirlo. Así que hoy ocupa casi setenta mil metros cuadrados, unos diez campos de fútbol, y es el conjunto de castillo antiguo más grande del mundo. Lo más raro, sin embargo, es que no es un museo. El Presidente de Chequia tiene aquí su despacho, y cuando está en el país ondea una bandera especial en el tejado. En las puertas hay guardias con uniforme azul; los uniformes los diseñó en 1990 Theodor Pištěk, un diseñador de vestuario de cine que había ganado un Óscar. Todos los días a mediodía los guardias cambian de turno con música.",
+      "facts": [
+        "Ocupa casi 70.000 metros cuadrados, unos diez campos de fútbol.",
+        "Los uniformes azules de los guardias los diseñó en 1990 un ganador de un Óscar.",
+        "El primero que construyó aquí fue el príncipe Bořivoj, con un fuerte de madera."
+      ],
+      "question": {
+        "q": "¿Quién trabaja hoy dentro del castillo?",
+        "answers": [
+          "El Presidente de Chequia, en su despacho",
+          "El rey de Bohemia junto con toda su corte",
+          "El alcalde de Praga y los funcionarios de la ciudad",
+          "Ya no trabaja nadie; el castillo lleva años vacío"
+        ],
+        "explanation": "Chequia no tiene rey desde hace más de cien años. El castillo se quedó con su trabajo: aquí se sienta el jefe del Estado."
+      },
+      "findIt": "Los patios son gratis y se entra por las puertas, donde miran las mochilas. Desde el Muro de Lennon son veinte minutos de subida por la calle Nerudova."
+    },
+    "prague-st-vitus": {
+      "name": "La catedral de San Vito",
+      "tagline": "Empezada en 1344 y terminada en 1929",
+      "story": "Carlos IV empezó en 1344 la catedral enorme que hay en medio del castillo. El primer arquitecto fue Matías de Arras, y cuando murió el trabajo pasó a Peter Parler, que tenía entonces solo veintitrés años. Parler hizo con la piedra cosas que no había hecho nadie, y talló en el edificio las caras de las personas que lo estaban levantando, la suya entre ellas. Después se acabó el dinero. Llegaron guerras, incendios y siglos. La iglesia se quedó a medio construir, con un muro provisional en medio, y la gente de Praga se acostumbró a verla así. Se terminó solo en 1929, casi seiscientos años después de la primera piedra. Dentro, las paredes de la capilla de San Wenceslao están cubiertas de más de mil trescientas piedras semipreciosas, y en una sala de encima se guarda la corona de Bohemia detrás de una puerta con siete cerraduras.",
+      "facts": [
+        "Empezada en 1344 y terminada en 1929: casi 600 años, con muchas pausas.",
+        "La puerta que guarda la corona tiene siete cerraduras y siete llaves en siete manos.",
+        "Las paredes de la capilla de San Wenceslao llevan más de 1.300 piedras de colores."
+      ],
+      "question": {
+        "q": "¿Cuánto tiempo pasó entre la primera y la última piedra de la catedral?",
+        "answers": [
+          "Casi seiscientos años, de 1344 a 1929",
+          "Cuarenta años, lo que reinó Carlos",
+          "Ciento veinte años, tres generaciones de canteros",
+          "No se terminó nunca; falta aún la segunda torre grande"
+        ],
+        "explanation": "Se acabó el dinero, llegaron guerras, y la iglesia se quedó a medias detrás de un muro provisional. El muro «provisional» duró siglos."
+      },
+      "findIt": "Llena el tercer patio del castillo, así que no la ves entera hasta que estás cerca. Se entra por el lado oeste, debajo de las dos torres altas de delante."
+    },
+    "prague-petrin-tower": {
+      "name": "La Torre de Petřín",
+      "tagline": "Más baja que la Torre Eiffel, pero su punta está más alta",
+      "story": "En 1891 Praga preparaba una gran exposición para enseñar al mundo lo que sabía construir. Algunos de sus habitantes habían estado en París, habían visto la Torre Eiffel recién hecha y volvieron a casa diciendo que ellos también querían una. En pocos meses se levantó esta torre de hierro en lo alto de la colina de Petřín, de 63,5 metros. Es cinco veces más baja que la francesa, pero como está encima de una colina, su punta queda más alta sobre el mar que la punta de la de París. El funicular que te sube hasta allí se construyó para la misma exposición, y al principio funcionaba con agua: el vagón que bajaba se llenaba de agua, pesaba más y tiraba del otro hacia arriba. Al lado de la torre, un edificio pequeño con forma de castillo esconde un laberinto de espejos, hecho el mismo año.",
+      "facts": [
+        "Mide 63,5 metros de alto, con 299 escalones hasta arriba.",
+        "El funicular funcionaba al principio con agua, no con electricidad.",
+        "El laberinto de espejos de al lado se construyó el mismo año, en 1891."
+      ],
+      "question": {
+        "q": "¿Cómo puede estar su punta más alta que la de la Torre Eiffel?",
+        "answers": [
+          "Porque se levanta encima de una colina que ya es muy alta",
+          "Porque tiene una antena muy larga en la punta",
+          "Porque la Torre Eiffel encoge un poco cada invierno",
+          "Porque la midieron junto con sus cimientos"
+        ],
+        "explanation": "Dos alturas son cosas distintas: lo alta que es la torre y lo alto que queda su punta. La colina es la que marca la diferencia."
+      },
+      "findIt": "Está a tres minutos a pie de la estación de arriba del funicular, que sale de Újezd. Si no, subes andando por los jardines."
+    },
+    "prague-vysehrad": {
+      "name": "El fuerte de Vyšehrad",
+      "tagline": "Una roca con una leyenda encima, y hoy un parque",
+      "story": "Tres kilómetros al sur del Castillo de Praga, una segunda roca se levanta sobre el Vltava. Allí se construyó un fuerte seguramente en el siglo X, y la leyenda dice que desde esta roca la princesa Libuše miró el bosque y anunció una ciudad «cuya gloria tocará las estrellas». Las leyendas no son historia, pero enseñan lo que una ciudad quiere creer de sí misma. Lo más antiguo que sigue en pie aquí es la pequeña iglesia redonda de San Martín, del siglo XI. Al lado se levanta la basílica de San Pedro y San Pablo con sus dos torres puntiagudas, y detrás el cementerio donde descansan muchos checos famosos, entre ellos los compositores Antonín Dvořák y Bedřich Smetana. Hoy las murallas cubiertas de hierba son un parque, con las vistas más anchas de la ciudad y casi nada de gente.",
+      "facts": [
+        "La iglesia redonda de San Martín es del siglo XI.",
+        "En su cementerio están enterrados los compositores Dvořák y Smetana.",
+        "Está a unos tres kilómetros al sur del Castillo de Praga."
+      ],
+      "question": {
+        "q": "¿Cuál es el edificio más antiguo que sigue en pie en la roca?",
+        "answers": [
+          "La iglesia redonda de San Martín",
+          "La basílica de las dos torres puntiagudas del medio",
+          "La puerta de ladrillo del lado este de las murallas",
+          "El cementerio tras la iglesia"
+        ],
+        "explanation": "La rotonda de San Martín es del siglo XI y es la más antigua que se conserva en toda Praga."
+      },
+      "findIt": "Subes desde el río o entras por la puerta de ladrillo Táborská brána, en el lado este. Dentro de las murallas la carretera se convierte de golpe en camino de tierra."
+    },
+    "prague-strahov-stadium": {
+      "name": "El Gran Estadio de Strahov",
+      "tagline": "El estadio más grande jamás construido, y no es para partidos",
+      "story": "Por encima de la ciudad, en la colina de al lado de Petřín, se extiende algo que no te creerías si no lo vieras: un estadio cuyo campo es tres veces más largo y tres veces más ancho que un campo de fútbol normal. Dentro caben nueve campos. No se construyó para partidos, porque dos equipos nunca necesitarían tanto sitio. Se construyó para exhibiciones masivas de gimnasia, en las que decenas de miles de personas hacían los mismos movimientos al mismo tiempo, y el espectáculo era la propia multitud. En su mayor tamaño podía acoger a unos doscientos cincuenta mil espectadores, más que ningún otro estadio de la historia. En los años del gobierno comunista las exhibiciones se llamaban Spartakiáda, y participar muchas veces no era una elección de verdad. Después de 1989 se acabaron. Hoy dentro de las murallas enormes hay campos de entrenamiento normales, y el estadio envejece en silencio.",
+      "facts": [
+        "Su campo es tres veces más largo y tres veces más ancho que uno normal.",
+        "Acogía a unos 250.000 espectadores, más que ningún otro estadio.",
+        "Hoy se usa como centro de entrenamiento y no para partidos."
+      ],
+      "question": {
+        "q": "¿Para qué se construyó un estadio tan enorme?",
+        "answers": [
+          "Para exhibiciones masivas de gimnasia con miles de personas",
+          "Para unos Juegos Olímpicos que nunca se celebraron aquí",
+          "Para partidos de fútbol entre los equipos del país",
+          "Para carreras de caballos, como los circos romanos"
+        ],
+        "explanation": "Dos equipos no necesitan nueve campos. El espectáculo eran miles de personas moviéndose todas juntas al mismo ritmo."
+      },
+      "findIt": "Está en lo alto de la colina, al oeste de la torre de Petřín. Caminas por los jardines unos veinte minutos y las murallas aparecen de golpe."
+    }
+  },
+  "trails": {
+    "prague-royal-route": {
+      "name": "La Ruta Real",
+      "promise": "El camino que hacía un rey nuevo para coronarse, desde la puerta de la ciudad hasta la catedral."
+    },
+    "prague-the-other-bank": {
+      "name": "La otra orilla",
+      "promise": "Una isla de molinos, un muro que nunca se quedaba blanco y el estadio más grande del mundo."
+    },
+    "prague-indoors": {
+      "name": "Un día bajo techo",
+      "promise": "Una ballena bajo un techo de cristal, un avión encima de los coches y la plaza en medio."
+    },
+    "prague-oldest-stones": {
+      "name": "Las piedras más antiguas",
+      "promise": "Una roca con leyenda, una sala de oración de setecientos años y el último mercado medieval."
+    },
+    "prague-along-the-vltava": {
+      "name": "A lo largo del Moldava",
+      "promise": "Desde el puente de 1357 hasta una casa que baila, con una isla y una roca en medio."
+    }
+  }
+}

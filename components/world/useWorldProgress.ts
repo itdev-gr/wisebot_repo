@@ -17,7 +17,10 @@
  *  3. **Ids are permanent.** A renamed `PlaceId` erases a stamp, silently.
  *  4. **XP only.** No credits, no badge, no `trackAction`. Credits are bought by
  *     parents; effort pays in XP. `earnXp` dispatches `wb:xp`, which `App.tsx` already
- *     listens for, so the economy context never learns this module exists.
+ *     listens for, so the economy context never learns this module exists. The only
+ *     other thing an award triggers is one of the five anonymous counters in
+ *     `utils/worldAnalytics.ts` — a city or country id, never a place, a position or
+ *     a person — fired after the commit, never before it.
  *
  * Guests keep everything: progress is local, so a child with no account collects
  * stamps normally. That is the same deal every other room offers.
@@ -26,6 +29,11 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { useEconomy } from '../../context/EconomyContext';
 import { pushWorldStamp } from '../../services/worldStampsSync';
+import {
+  trackWorldMissionCompleted,
+  trackWorldSecondCity,
+  trackWorldStampEarned,
+} from '../../utils/worldAnalytics';
 import {
   readWorldProgress as read,
   writeWorldProgress as write,
@@ -125,6 +133,8 @@ export interface UseWorldProgress {
    *
    * @param cityPlaceIds    every place of this city, for the city seal
    * @param countryCityIds  every city of this country, for the country seal
+   * @param onSite          the question was unlocked by «Είμαι εδώ!». Recorded on the
+   *                        stamp and nothing else: it moves no XP and no seal.
    */
   visitPlace: (
     place: Place,
@@ -132,6 +142,7 @@ export interface UseWorldProgress {
     city: City,
     cityPlaceIds: PlaceId[],
     countryCityIds: CityId[],
+    onSite: boolean,
   ) => WorldAward | null;
 
   /** One exhibit's question, inside a museum. */
@@ -180,6 +191,7 @@ export function useWorldProgress(): UseWorldProgress {
         entries: { ...current.entries, [country.id]: today() },
       };
       commit(next, WORLD_XP.enterCountry, 'WORLD_ENTER_COUNTRY');
+      trackWorldStampEarned({ countryId: country.id });
       return { xp: WORLD_XP.enterCountry, enteredCountry: country };
     },
     [commit],
@@ -192,11 +204,19 @@ export function useWorldProgress(): UseWorldProgress {
       city: City,
       cityPlaceIds: PlaceId[],
       countryCityIds: CityId[],
+      onSite: boolean,
     ): WorldAward | null => {
       const current = ref.current;
+      // The FIRST stamp is the record. A place read at home and walked to later keeps
+      // its first answer — this early return is why onSite can never be rewritten.
       if (current.places[place.id]) return null;
 
-      const stamp: PlaceStamp = { at: today(), correct };
+      // For the «second city» counter: is this the first stamp in this city, while
+      // another city already has one? Decided on the state BEFORE this stamp lands.
+      const firstInThisCity = !cityPlaceIds.some((id) => current.places[id]);
+      const stampedElsewhere = Object.keys(current.places).some((id) => !cityPlaceIds.includes(id as PlaceId));
+
+      const stamp: PlaceStamp = { at: today(), correct, onSite };
       const places = { ...current.places, [place.id]: stamp };
       let xp = WORLD_XP.visitPlace + (correct ? WORLD_XP.placeCorrect : 0);
       const award: WorldAward = { xp };
@@ -231,6 +251,11 @@ export function useWorldProgress(): UseWorldProgress {
       // Guests have no session and this returns without a request; a failed push is
       // picked up by the full sync at the next login, so it must not be awaited here.
       void pushWorldStamp(place.id, stamp);
+
+      // Anonymous counters: a city id and nothing else (utils/worldAnalytics.ts).
+      trackWorldMissionCompleted(city.id);
+      if (correct) trackWorldStampEarned({ cityId: city.id });
+      if (firstInThisCity && stampedElsewhere) trackWorldSecondCity();
 
       return award;
     },

@@ -1,0 +1,460 @@
+{
+  "city": "nicosia",
+  "resolvedAt": "2026-09-14T10:14:49.849Z",
+  "centre": {
+    "lat": 35.16953,
+    "lng": 33.36087
+  },
+  "places": [
+    {
+      "id": "nicosia-eleftheria-square",
+      "name": "Plateia Eleftherias",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5358622",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Eleftheria square",
+          "deltaM": 56
+        }
+      ],
+      "warnings": [
+        "osm: no match"
+      ],
+      "lat": 35.17025,
+      "lng": 33.35947,
+      "labels": {
+        "en": "Eleftheria square",
+        "el": "Πλατεία Ελευθερίας"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-venetian-walls",
+      "name": "Teichi tis Lefkosias",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7919752",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 35.17106,
+      "lng": 33.37006,
+      "labels": {
+        "en": "Venetian walls of Nicosia",
+        "el": "Τείχη της Λευκωσίας",
+        "de": "Stadtmauern von Nikosia",
+        "it": "mura di Nicosia",
+        "es": "Murallas de Nicosia",
+        "fr": "muraille de Nicosie"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-famagusta-gate",
+      "name": "Pyli Ammochostou",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6046232",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Famagusta Gate",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 35.1743,
+      "lng": 33.3712,
+      "labels": {
+        "en": "Famagusta Gate",
+        "it": "Porta di Famagosta",
+        "fr": "porte de Famagouste",
+        "es": "Puerta de Famagusta",
+        "de": "Famagusta-Tor"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-archbishops-palace",
+      "name": "Archiepiskopiko Megaro",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q4140950",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Archbishop's Palace, Nicosia",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 35.173,
+      "lng": 33.3675,
+      "labels": {
+        "fr": "palais de l’Archevêché de Nicosie",
+        "en": "Archbishop's Palace",
+        "el": "Αρχιεπισκοπικό Μέγαρο",
+        "es": "Palacio del Arzobispo"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-pancyprian-gymnasium",
+      "name": "Pagkyprio Gymnasio",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3563324",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Pancyprian Gymnasium",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 35.1733,
+      "lng": 33.3692,
+      "labels": {
+        "el": "Παγκύπριο Γυμνάσιο",
+        "en": "Pancyprian Gymnasium",
+        "fr": "Pancyprian Gymnasium",
+        "it": "Ginnasio Panciprio",
+        "de": "Pancyprianisches Gymnasium"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-kornesios-mansion",
+      "name": "Oikia Chatzigeorgaki Kornesiou",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5637923",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/808783879",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hadjigeorgakis Kornesios Mansion",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 35.17194,
+      "lng": 33.3669,
+      "labels": {
+        "en": "Hadjigeorgakis Kornesios Mansion",
+        "de": "Haus des Kornessios",
+        "es": "Mansión de Hadjigeorgakis Kornesios"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-omeriye-mosque",
+      "name": "Temenos Omerie",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q20896012",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Ömeriye Mosque",
+          "deltaM": 17
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 35.17192,
+      "lng": 33.36558,
+      "labels": {
+        "en": "Omeriye Mosque",
+        "de": "Omeriye-Moschee (Nikosia)",
+        "el": "Τέμενος Ομεριέ"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-omeriye-hammam",
+      "name": "Chamam Omerie",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5644014",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/116919987",
+          "deltaM": 6
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Ömeriye Hamam",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 35.1726,
+      "lng": 33.3654,
+      "labels": {
+        "en": "Hamam Omerye Baths"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-faneromeni",
+      "name": "Panagia Faneromeni",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q20501264",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 35.17353,
+      "lng": 33.3625,
+      "labels": {
+        "en": "Faneromeni church in Nicosia"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-ledra-street",
+      "name": "Odos Lidras",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q257937",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Ledra Street",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 35.17444,
+      "lng": 33.36139,
+      "labels": {
+        "de": "Ledrastraße",
+        "en": "Ledra Street",
+        "fr": "rue Ledra",
+        "it": "via Ledra",
+        "el": "Οδός Λήδρας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-shacolas-tower",
+      "name": "Pyrgos Siakola",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7460193",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Shacolas Tower",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 35.1719,
+      "lng": 33.3615,
+      "labels": {
+        "en": "Shacolas Tower",
+        "es": "Shacolas Tower",
+        "el": "Πύργος Σιακόλα",
+        "fr": "Tour Shacolas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-cyprus-museum",
+      "name": "Kypriako Mouseio",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1148462",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Cyprus Museum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 35.17167,
+      "lng": 33.35528,
+      "labels": {
+        "en": "Cyprus Museum",
+        "el": "Κυπριακό Μουσείο",
+        "de": "Cyprus Museum",
+        "es": "Museo de Chipre",
+        "fr": "musée de Chypre",
+        "it": "Museo di Cipro"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-leventis-gallery",
+      "name": "Leventeios Pinakothiki",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q16960570",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/20493985",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Leventis Gallery",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 35.1694,
+      "lng": 33.3585,
+      "labels": {
+        "en": "Leventis Gallery",
+        "el": "Λεβέντειος Πινακοθήκη"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-municipal-gardens",
+      "name": "Dimotikos Kipos",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7030534",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/22634563",
+          "deltaM": 9
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Nicosia municipal gardens",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 35.173,
+      "lng": 33.354,
+      "labels": {
+        "en": "Nicosia municipal gardens",
+        "el": "Δημοτικοί κήποι της Λευκωσίας"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "nicosia-motorcycle-museum",
+      "name": "Mouseio Klasikon Motosikleton tis Kyprou",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q5200446",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/4557557192",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Cyprus Classic Motorcycle Museum",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 35.17278,
+      "lng": 33.35833,
+      "labels": {
+        "en": "Cyprus Classic Motorcycle Museum",
+        "de": "Cyprus Classic Motorcycle Museum",
+        "el": "Μουσείο Κλασικών Μοτοσικλετών της Κύπρου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    }
+  ],
+  "problems": []
+}

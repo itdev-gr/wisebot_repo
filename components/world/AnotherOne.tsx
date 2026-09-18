@@ -26,6 +26,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import type { WorldLang } from '../../data/world/types';
 import { WORLD_STYLE, ui } from './worldUi';
 import { today } from './worldProgressStore';
+import { trackWorldAnotherOne } from '../../utils/worldAnalytics';
 
 /** Its own key, so the passport's version never has to move for it. */
 const ENOUGH_KEY = 'wb_world_enough_for_today';
@@ -138,10 +139,17 @@ export const AnotherOne: React.FC<AnotherOneProps> = ({ lang, remaining, onYes, 
     yesRef.current?.focus();
   }, []);
 
+  // Both answers are counted, anonymously and without parameters, because the share
+  // that keeps going is one of the §35 targets. Escape and the backdrop count as «enough».
   const enough = useCallback(() => {
     rememberEnoughForToday();
+    trackWorldAnotherOne(false);
     onEnough();
   }, [onEnough]);
+  const yes = useCallback(() => {
+    trackWorldAnotherOne(true);
+    onYes();
+  }, [onYes]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -179,7 +187,7 @@ export const AnotherOne: React.FC<AnotherOneProps> = ({ lang, remaining, onYes, 
         <p className={`${WORLD_STYLE.body} text-sm mb-5`}>{subtitle}</p>
 
         <div className="flex flex-col gap-2.5">
-          <button ref={yesRef} onClick={onYes} className={`${WORLD_STYLE.cta} w-full text-base`}>
+          <button ref={yesRef} onClick={yes} className={`${WORLD_STYLE.cta} w-full text-base`}>
             {ui(cityDone ? CHROME.yesNewCity : CHROME.yes, lang)}
           </button>
           <button onClick={enough} className={`${WORLD_STYLE.ghost} w-full`}>

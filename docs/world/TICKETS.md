@@ -162,6 +162,21 @@ Nothing below this line ships a city to a family until these are done. Six of th
 
 ### i18n-countries-gate — Test the countries overlay for completeness, the way city overlays are already tested
 
+**DONE 18/9.** `describe('countries overlay')` in `data/world/world.test.ts`, four tests per
+language that has a countries file (languages from `AVAILABLE_LANGS`; no file = skipped).
+It found exactly the gap i18n-countries-24 left: the 24 city cards of Berlin, Budapest,
+Lisbon, Porto, Prague and Vienna in de/es/fr/it. Rather than hold the suite red while the
+translator sessions are not allowed to open the file, they are named in an EXACT
+`KNOWN_ABSENT_CARDS` list — the coords licence's rule: a card that gets translated fails
+until its line is deleted, so the list can only shrink, and the engine session deletes the
+lines when it merges the translation. Two deliberate departures from the text below, both
+measured: the English-left-in-place check covers intros and facts but not names (29 names
+are rightly the same word — Paris in French, Portugal in Spanish), and city cards check
+`name` and `intro` only (`city.map.alt` is a LocText with no overlay slot that nothing
+renders). Trails are now walked in the city overlay test. Each rule was checked by breaking
+the data and watching it fail: blank fact, fifth fact, city filed under the wrong country,
+half a card, a fact copied from English, an untranslated trail name.
+
 **P0** · owner **engine** · brief §20 (AI → DRAFT → VALIDATION → PUBLISH), decisions row §20 ('η πύλη σήμερα: 120+ invariants'); §21
 
 The reason 24 countries sat untranslated without anyone noticing is that nothing tests the countries overlay. City overlays have a gate that fails loudly; the front door has none. Without this, ticket i18n-countries-24 can be reported done while half the facts are missing, and the same drift starts again with the next country.
@@ -225,6 +240,20 @@ JSON: a top-level `"machineTranslated": false` sibling of `"lang"` in all 28 exi
 **Risk.** Touches data/world/types.ts, which docs/world/SESSION-SPLIT.md:33 calls frozen and which ticket i18n-nl-language-slot also wants — sequence them, do not run them in parallel. It also adds a key to all 28 i18n JSON files while i18n-countries-24 and i18n-overlays-rome-london-amsterdam are rewriting some of those same files: land this AFTER both, or do the JSON pass as a scripted one-liner at the end. registry.ts is generated — if the loader's return type changes, fix scripts/world/build-registry.mjs, never registry.ts.
 
 ### loc-ab-quest-rule — Enforce «only A/B inside a quest» — there is no test for it today
+
+**DECIDED 18/9 by the owner: a worklist, not a block.** Measured before building it: the
+ticket was written when six non-Greek places were graded C; by 18/9 there were **31, in ten
+of the twelve cities outside Greece**, 29 of them inside trails. Enforced as written, ten
+cities could never have been sealed and 29 places would have left their trails. Nineteen
+of the 31 were C only because OpenStreetMap did not answer the night they were resolved —
+the rule would have punished an outage, not bad data.
+
+So nothing changes for a child. `scripts/world/c-grade-worklist.mjs` generates
+[C-GRADE-WORKLIST.md](C-GRADE-WORKLIST.md), which says for every C place whether it needs a
+re-resolve (no OSM) or a better seed (one source disagrees). Order: re-resolve when Overpass
+answers a whole batch, keep only clean runs, then apply the rule to what is still C — at
+which point this ticket's original test becomes the right one. The rest of this entry is the
+original ticket, kept for that step.
 
 **P0** · owner **engine** · brief §7 ("Μόνο A και B μέσα σε quests"), decisions row §7
 
@@ -302,6 +331,12 @@ Today a child standing in front of the Parthenon is handed 200 words to read bef
 
 ### session-split-ownership — SESSION-SPLIT.md does not know the i18n session exists, and points at a file that does not
 
+**DONE 13/9, PR #78.** SESSION-SPLIT.md has a third column for the languages session and
+its path list, the stale `hooks/useWorldProgress.ts` path is corrected there and in
+`data/world/types.ts`, and the hand-over rule («pushed», merge from `origin/*` only, check
+the city count build-registry prints) is written down. Rules 9 and 10 on trimmed and
+non-candidate distractors followed in #78 and #83.
+
 **P0** · owner **engine** · brief Λειτουργικός κανόνας row; docs/world/SESSION-SPLIT.md
 
 Three sessions work in parallel and the ownership document describes two. Every i18n ticket in this backlog is therefore unverifiable against the spec, and a session looking up who owns the progress hook finds a path that was never there.
@@ -357,6 +392,16 @@ components/world/useWorldProgress.ts:
 **Risk.** Do NOT bump `VERSION` in useWorldProgress.ts — `read()` at :121-141 throws away the whole passport when the version differs, so a bump would wipe every existing child's stamps to add an optional field. Adding it optionally is backward-compatible by construction. Privacy (§28): the flag is a single boolean derived from a comparison that already happens on-device; no latitude, longitude, accuracy, distance or timestamp-of-fix is stored or passed — `PlaceCard.tsx` keeps the Fix in local state and drops it, and that must stay true. World.tsx has been overwritten by concurrent sessions before (STATUS.md:41-43) — one session on this file.
 
 ### i18n-countries-24 — Translate the 24 untranslated countries (and 3 missing city cards) at the front door
+
+**The 24 countries are DONE, closed 18/9.** `countries.{de,fr,es,it}.json` carry all 25
+countries in each language, merged in #72. **Six city cards are still missing** — Berlin,
+Budapest, Lisbon, Porto, Prague, Vienna have no translated name or intro in any of the four
+files, so those cities introduce themselves in English on the country page even where the
+city itself is translated (Prague, Vienna and Berlin gained full overlays in #94–#96 without
+their cards). That remainder belongs to the languages session. The completeness TEST this
+ticket was to follow is its own ticket, `i18n-countries-gate`, and it is what would have
+caught the six. It landed the same day and did: the 24 missing cards are listed in its
+`KNOWN_ABSENT_CARDS`, and each one that gets translated must leave that list at merge.
 
 **P0** · owner **i18n** · brief §21 (P0 — Languages), decisions row §21 ('six live'); STATUS.md §0α item 3 · after `i18n-countries-gate`
 

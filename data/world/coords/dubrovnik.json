@@ -1,0 +1,489 @@
+{
+  "city": "dubrovnik",
+  "resolvedAt": "2026-09-14T10:10:17.626Z",
+  "centre": {
+    "lat": 42.6409,
+    "lng": 18.1091
+  },
+  "places": [
+    {
+      "id": "dubrovnik-pile-gate",
+      "name": "Vrata od Pila",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3509061",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/668283215",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 42.64174,
+      "lng": 18.10685,
+      "labels": {
+        "de": "Pile-Tor",
+        "en": "Pile Gate, Dubrovnik"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-onofrio-fountain",
+      "name": "Velika Onofrijeva česma",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2624621",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/171862545",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 42.64153,
+      "lng": 18.10722,
+      "labels": {
+        "fr": "fontaine d'Onofrio",
+        "en": "Onofrio fountain",
+        "de": "Onofrio Brunnen",
+        "it": "Fontana di Onofrio",
+        "es": "Fuente de Onofrio"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-franciscan-monastery",
+      "name": "Franjevački samostan i crkva",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3509032",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/843131885",
+          "deltaM": 15
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Franciscan friary, Dubrovnik",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 42.6418,
+      "lng": 18.1078,
+      "labels": {
+        "en": "Franciscan Church and Monastery",
+        "es": "iglesia franciscana y monasterio",
+        "it": "chiesa e monastero dei Francescani di Ragusa",
+        "fr": "couvent franciscain de Dubrovnik",
+        "de": "Franziskanerkloster Dubrovnik"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-stradun",
+      "name": "Stradun",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1818100",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Stradun (street)",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 42.6414,
+      "lng": 18.1081,
+      "labels": {
+        "de": "Stradun",
+        "en": "Stradun",
+        "es": "Stradun",
+        "fr": "Stradun"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-orlando-column",
+      "name": "Orlandov stup",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3442751",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.641,
+      "lng": 18.1103,
+      "labels": {
+        "en": "Orlando's Column",
+        "de": "Dubrovniker Roland"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-sponza-palace",
+      "name": "Palača Sponza",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2986276",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2301265",
+          "deltaM": 17
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Sponza Palace",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 42.64111,
+      "lng": 18.11056,
+      "labels": {
+        "en": "Sponza Palace",
+        "fr": "palais Sponza",
+        "it": "Palazzo Sponza",
+        "de": "Sponzapalast",
+        "es": "Palacio Sponza"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-st-blaise-church",
+      "name": "Crkva sv. Vlaha",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2986286",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St Blaise's Church",
+          "deltaM": 16
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 42.64056,
+      "lng": 18.11028,
+      "labels": {
+        "en": "St Blaise's Church",
+        "fr": "église Saint-Blaise",
+        "it": "chiesa di San Biagio",
+        "de": "St. Blasius Kirche",
+        "es": "iglesia de San Blas"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-rectors-palace",
+      "name": "Knežev dvor",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2497590",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Rector's Palace, Dubrovnik",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 42.64028,
+      "lng": 18.11083,
+      "labels": {
+        "en": "Rector's Palace, Dubrovnik",
+        "el": "Παλάτι του Ρέκτορα",
+        "fr": "palais des recteurs",
+        "es": "Museo de Dubrovnik",
+        "it": "Palazzo dei Rettori",
+        "de": "Rektorenpalast"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-cathedral",
+      "name": "Dubrovačka katedrala",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q584428",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Dubrovnik Cathedral",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 42.6399,
+      "lng": 18.1104,
+      "labels": {
+        "es": "Catedral de Dubrovnik",
+        "en": "Dubrovnik Cathedral",
+        "it": "cattedrale dell'Assunzione di Maria",
+        "de": "Kathedrale von Dubrovnik",
+        "el": "Καθεδρικός Ναός του Ντούμπροβνικ",
+        "fr": "cathédrale de l'Assomption-de-la-Bienheureuse-Vierge-Marie de Dubrovnik"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-rupe-granary",
+      "name": "Rupe (Etnografski muzej)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q16114363",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.64035,
+      "lng": 18.10742,
+      "labels": {},
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-gundulic-square",
+      "name": "Gundulićeva poljana",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q18585224",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.6403,
+      "lng": 18.10999,
+      "labels": {
+        "de": "Gundulićeva Poljana",
+        "en": "Gundulićs"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-city-walls",
+      "name": "Dubrovačke gradske zidine",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q931733",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.64,
+      "lng": 18.108,
+      "labels": {
+        "es": "Murallas de Dubrovnik",
+        "en": "Walls of Dubrovnik",
+        "de": "Stadtmauer von Dubrovnik",
+        "fr": "murs de Dubrovnik",
+        "el": "Τείχη του Ντούμπροβνικ",
+        "it": "mura di Ragusa"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-minceta",
+      "name": "Minčeta",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q674521",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/172454061",
+          "deltaM": 21
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 42.64283,
+      "lng": 18.10859,
+      "labels": {
+        "en": "Minčeta",
+        "de": "Minčeta"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-lovrijenac",
+      "name": "Lovrijenac",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3396134",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.64073,
+      "lng": 18.10441,
+      "labels": {
+        "en": "Lovrijenac",
+        "de": "Festung Lovrijenac",
+        "fr": "Lovrijenac",
+        "es": "Lovrijenac",
+        "el": "Λοβριγένατς"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-st-john-fortress",
+      "name": "Tvrđava sv. Ivana",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q12644033",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.64009,
+      "lng": 18.11247,
+      "labels": {
+        "en": "Saint John's Fortress",
+        "de": "Festung San Ivan"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-lokrum",
+      "name": "Lokrum, Fort Royal on the summit",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q111304707",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 42.62997,
+      "lng": 18.11674,
+      "labels": {
+        "en": "Fort Royal"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "dubrovnik-srd",
+      "name": "Srđ, the summit cross",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q17147057",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/821764626",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 42.64878,
+      "lng": 18.11217,
+      "labels": {
+        "en": "Cross on Srđ"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    }
+  ],
+  "problems": []
+}

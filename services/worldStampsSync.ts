@@ -70,7 +70,11 @@ export function mergeWorldStamps(
       merged[id] = { ...stamp };
       continue;
     }
+    // Spread `mine` first so `onSite` survives the merge. `world_stamps` has no column for
+    // it, so a cloud stamp never carries one; rebuilding the object from `at` and
+    // `correct` alone erased the flag on every sign-in for every place both sides had.
     merged[id] = {
+      ...mine,
       at: stamp.at < mine.at ? stamp.at : mine.at,
       correct: mine.correct || stamp.correct,
     };

@@ -95,8 +95,8 @@ export const places: Place[] = [
         en: 'It has 691 rooms and 29 staircases.',
       },
       {
-        el: 'Ο τρούλος του φτάνει τα 96 μέτρα, όσα και τα χρόνια από το 896 ως το 1896.',
-        en: 'Its dome rises 96 metres, one for each year from 896 to 1896.',
+        el: 'Ο τρούλος του φτάνει τα 96 μέτρα, για να θυμίζει το 896, όταν ήρθαν οι Μαγυάροι.',
+        en: 'Its dome rises 96 metres, a reminder of 896, the year the Magyars arrived.',
       },
       {
         el: 'Ο αρχιτέκτονάς του, ο Imre Steindl, τυφλώθηκε πριν τελειώσει το κτίριο.',
