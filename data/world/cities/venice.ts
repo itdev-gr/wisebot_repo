@@ -79,6 +79,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'St Mark\'s Basilica', deltaM: 1 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.472, y: 0.745 },
     },
     question: {
       q: {
@@ -162,6 +163,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Doge\'s Palace', deltaM: 7 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.487, y: 0.767 },
     },
     question: {
       q: { el: 'Γιατί ο Δόγης δεν μπορούσε να κάνει ό,τι ήθελε;', en: 'Why couldn’t the Doge do whatever he liked?' },
@@ -549,6 +551,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'St Mark\'s Campanile', deltaM: 4 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.457, y: 0.756 },
     },
     question: {
       q: { el: 'Τι αποφάσισε η πόλη όταν έπεσε ο πύργος;', en: 'What did the city decide when the tower fell?' },
@@ -628,6 +631,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'St Mark\'s Clocktower', deltaM: 2 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.454, y: 0.737 },
     },
     question: {
       q: { el: 'Ποιος χτυπάει την καμπάνα του πύργου;', en: 'Who strikes the tower’s bell?' },
@@ -707,6 +711,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Rialto Bridge', deltaM: 28 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.383, y: 0.643 },
     },
     question: {
       q: { el: 'Γιατί η πόλη έχτισε τελικά γέφυρα από πέτρα;', en: 'Why did the city finally build a stone bridge?' },
@@ -786,6 +791,7 @@ export const places: Place[] = [
         { kind: 'osm', ref: 'way/233887039', deltaM: 12 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.359, y: 0.595 },
     },
     question: {
       q: { el: 'Γιατί η πέτρινη πλάκα γράφει μεγέθη ψαριών;', en: 'Why does the stone plaque list fish sizes?' },
@@ -869,6 +875,7 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-18',
       note: 'Grade C: OpenStreetMap and Wikipedia agree with each other but sit just over 30 m from Wikidata, all three inside the same building block.',
+      map: { x: 0.220, y: 0.841 },
     },
     question: {
       q: { el: 'Τι μπορείς να κάνεις με τους παλιούς πίνακες της πόλης;', en: 'What can you do with the old paintings of the city?' },
@@ -1259,6 +1266,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Santa Maria della Salute', deltaM: 37 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.364, y: 0.855 },
     },
     question: {
       q: { el: 'Τι στήνεται κάθε Νοέμβριο για τη γιορτή της;', en: 'What is set up every November for its feast?' },
@@ -1338,6 +1346,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'La Fenice', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.346, y: 0.766 },
     },
     question: {
       q: { el: 'Γιατί του ταιριάζει τόσο το όνομα «φοίνικας»;', en: 'Why does the name "phoenix" suit it so well?' },
@@ -1417,6 +1426,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Palazzo Contarini del Bovolo', deltaM: 16 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.359, y: 0.734 },
     },
     question: {
       q: { el: 'Τι σημαίνει «μπόβολο»;', en: 'What does "bovolo" mean?' },
@@ -1495,6 +1505,7 @@ export const places: Place[] = [
       sources: [{ kind: 'wikidata', ref: 'Q741242', deltaM: 0 }],
       verifiedAt: '2026-09-18',
       note: 'Grade C: Wikidata is the only source with a point for the boatyard itself. It is a working yard, not open to visitors, and is watched from the opposite bank of the rio.',
+      map: { x: 0.171, y: 0.865 },
     },
     question: {
       q: { el: 'Γιατί η γόνδολα είναι πιο φαρδιά από τη μία πλευρά;', en: 'Why is a gondola wider on one side?' },
@@ -1574,6 +1585,7 @@ export const places: Place[] = [
         { kind: 'osm', ref: 'way/138802715', deltaM: 22 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.697, y: 0.798 },
     },
     question: {
       q: { el: 'Τι έριχνε ο Δόγης στη θάλασσα κάθε χρόνο;', en: 'What did the Doge throw into the sea every year?' },
@@ -1654,6 +1666,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Venetian Arsenal', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.762, y: 0.721 },
     },
     question: {
       q: { el: 'Από πού ήρθε ένα από τα λιοντάρια της πύλης;', en: 'Where did one of the gate’s lions come from?' },
@@ -1733,6 +1746,7 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-18',
       note: 'Grade C: Wikipedia is 45 m off, along the same canal-front building and garden.',
+      map: { x: 0.294, y: 0.848 },
     },
     question: {
       q: { el: 'Γιατί το παλάτι είναι τόσο χαμηλό;', en: 'Why is the palace so low?' },
@@ -1811,6 +1825,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'San Giorgio Maggiore (church), Venice', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.550, y: 0.891 },
     },
     question: {
       q: { el: 'Πώς φτάνεις στο νησί του Σαν Τζόρτζιο;', en: 'How do you get to the island of San Giorgio?' },
@@ -1891,6 +1906,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Murano Glass Museum', deltaM: 28 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.845, y: 0.111 },
     },
     question: {
       q: { el: 'Γιατί οι υαλουργοί μεταφέρθηκαν στο Μουράνο;', en: 'Why were the glassmakers moved to Murano?' },

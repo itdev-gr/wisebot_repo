@@ -77,6 +77,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Museo del Prado', deltaM: 2 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.651, y: 0.795 },
     },
     question: {
       q: {
@@ -473,6 +474,7 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-18',
       note: 'The OSM match is a single node 148 m off, somewhere on the palace grounds. Wikidata and Wikipedia agree to 16 m on the building.',
+      map: { x: 0.271, y: 0.725 },
     },
     question: {
       q: { el: 'Πού μένει ο σημερινός βασιλιάς της Ισπανίας;', en: 'Where does the present king of Spain live?' },
@@ -553,6 +555,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Plaza Mayor, Madrid', deltaM: 11 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.390, y: 0.768 },
     },
     question: {
       q: { el: 'Γιατί κοιτάζουν όλα τα μπαλκόνια προς τα μέσα;', en: 'Why do all the balconies face inwards?' },
@@ -633,6 +636,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Puerta del Sol', deltaM: 1 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.455, y: 0.742 },
     },
     question: {
       q: { el: 'Τι κάνουν οι Ισπανοί σε κάθε χτύπημα του ρολογιού την Πρωτοχρονιά;', en: 'What do Spaniards do on each stroke of the clock at New Year?' },
@@ -712,6 +716,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Parque del Buen Retiro, Madrid', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.795, y: 0.776 },
     },
     question: {
       q: { el: 'Για ποιον χτίστηκε το Κρυστάλλινο Παλάτι;', en: 'Who was the Crystal Palace built for?' },
@@ -791,6 +796,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Temple of Debod', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.211, y: 0.620 },
     },
     question: {
       q: { el: 'Γιατί χάρισε η Αίγυπτος αυτόν τον ναό στην Ισπανία;', en: 'Why did Egypt give this temple to Spain?' },
@@ -871,6 +877,7 @@ export const places: Place[] = [
       sources: [{ kind: 'wikidata', ref: 'Q29477212', deltaM: 0 }],
       verifiedAt: '2026-09-18',
       note: 'The building, not the institution (Q1966699). Grade C: Wikidata is the only source carrying a coordinate for the building itself.',
+      map: { x: 0.698, y: 0.336 },
     },
     question: {
       q: { el: 'Τι έγινε εδώ πρώτη φορά στον κόσμο;', en: 'What happened here for the first time in the world?' },
@@ -1241,6 +1248,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Bernabéu (stadium)', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.718, y: 0.120 },
     },
     question: {
       q: { el: 'Πού πηγαίνει το γρασίδι όταν γίνεται συναυλία;', en: 'Where does the grass go during a concert?' },
@@ -1321,6 +1329,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Market of San Miguel', deltaM: 0 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.364, y: 0.768 },
     },
     question: {
       q: { el: 'Ποια είναι η ιδέα πίσω από τις τάπας;', en: 'What is the idea behind tapas?' },
@@ -1399,6 +1408,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Puerta de Alcalá', deltaM: 14 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.712, y: 0.689 },
     },
     question: {
       q: { el: 'Τι ήταν αρχικά αυτή η πύλη;', en: 'What was this gate originally?' },
@@ -1479,6 +1489,7 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-18',
       note: 'Grade C: Wikipedia is 35 m off, just outside the 30 m agreement window, which for a garden this size is still inside the grounds.',
+      map: { x: 0.666, y: 0.847 },
     },
     question: {
       q: { el: 'Γιατί φτιάχτηκε αυτός ο κήπος;', en: 'Why was this garden made?' },
@@ -1556,6 +1567,7 @@ export const places: Place[] = [
         { kind: 'wikipedia', ref: 'Plaza de Cibeles', deltaM: 1 },
       ],
       verifiedAt: '2026-09-18',
+      map: { x: 0.637, y: 0.704 },
     },
     question: {
       q: { el: 'Τι ήταν αρχικά το μεγάλο λευκό κτίριο;', en: 'What was the big white building originally?' },
