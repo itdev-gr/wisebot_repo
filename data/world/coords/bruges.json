@@ -1,0 +1,484 @@
+{
+  "city": "bruges",
+  "resolvedAt": "2026-09-14T05:39:41.822Z",
+  "centre": {
+    "lat": 51.20891,
+    "lng": 3.22527
+  },
+  "places": [
+    {
+      "id": "bruges-markt",
+      "name": "Markt",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1108938",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Markt, Bruges",
+          "deltaM": 19
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.2085,
+      "lng": 3.22444,
+      "labels": {
+        "en": "Markt",
+        "fr": "Grand-Place",
+        "it": "Piazza del Mercato",
+        "es": "Grote Markt",
+        "de": "Grote Markt"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-belfort",
+      "name": "Belfort van Brugge",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2441211",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Belfry of Bruges",
+          "deltaM": 56
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.20798,
+      "lng": 3.2253,
+      "labels": {
+        "en": "Belfry of Bruges",
+        "es": "campanario de Brujas",
+        "fr": "beffroi de Bruges",
+        "it": "belfort di Bruges",
+        "de": "Belfried von Brügge",
+        "el": "Καμπαναριό της Μπριζ"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-stadhuis",
+      "name": "Stadhuis van Brugge",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q905848",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Bruges City Hall",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.20806,
+      "lng": 3.22694,
+      "labels": {
+        "es": "Ayuntamiento de Brujas",
+        "it": "municipio di Bruges",
+        "en": "Bruges City Hall",
+        "el": "Δημαρχείο της Μπρυζ",
+        "fr": "hôtel de ville de Bruges",
+        "de": "Rathaus von Brügge"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-heilig-bloed",
+      "name": "Basiliek van het Heilig Bloed",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q522604",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Basilica of the Holy Blood",
+          "deltaM": 24
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.20833,
+      "lng": 3.22694,
+      "labels": {
+        "en": "Museum van het Heilig Bloed",
+        "fr": "basilique du Saint-Sang de Bruges",
+        "it": "basilica del Sacro Sangue",
+        "es": "basílica de la Santa Sangre de Brujas",
+        "de": "Museum van het Heilig Bloed"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-vismarkt",
+      "name": "Vismarkt",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2290519",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.20804,
+      "lng": 3.22846,
+      "labels": {
+        "en": "Fish market",
+        "de": "Fischmarkt Brügge",
+        "fr": "Marché aux poissons de Bruges"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-rozenhoedkaai",
+      "name": "Rozenhoedkaai",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2670532",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.20716,
+      "lng": 3.22756,
+      "labels": {
+        "en": "Rozenhoedkaai",
+        "de": "Rozenhoedkaai",
+        "fr": "Quai du Rosaire"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-bonifaciusbrug",
+      "name": "Bonifaciusbrug",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q116243339",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.20491,
+      "lng": 3.22538,
+      "labels": {
+        "de": "Bonifatiusbrug (Brügge)",
+        "es": "Bonifatiusbrug (Brujas)",
+        "en": "Bonifatiusbrug"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-onze-lieve-vrouwekerk",
+      "name": "Onze-Lieve-Vrouwekerk",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q917183",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Church of Our Lady, Bruges",
+          "deltaM": 8
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.20465,
+      "lng": 3.22447,
+      "labels": {
+        "de": "Liebfrauenkirche (Brügge)",
+        "en": "Church of Our Lady",
+        "fr": "église Notre-Dame de Bruges",
+        "it": "chiesa di Nostra Signora",
+        "es": "Iglesia de Nuestra Señora"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-gruuthuse",
+      "name": "Huis van de Heren van Gruuthuse",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q104922827",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.20503,
+      "lng": 3.22503,
+      "labels": {
+        "en": "Gruuthusemuseum (Building)",
+        "de": "Gruuthusemuseum (Gebäude)",
+        "es": "museo de Gruuthuse (edificio)"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-groeningemuseum",
+      "name": "Groeningemuseum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1948674",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Groeningemuseum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.20528,
+      "lng": 3.22667,
+      "labels": {
+        "en": "Groeningemuseum",
+        "es": "Museo Groeninge",
+        "fr": "musée Groeninge",
+        "it": "Groeningemuseum",
+        "de": "Groeningemuseum",
+        "el": "Groeningemuseum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-sint-janshospitaal",
+      "name": "Sint-Janshospitaal",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2432540",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Old St. John's Hospital",
+          "deltaM": 82
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.20389,
+      "lng": 3.22284,
+      "labels": {
+        "en": "Sint-Janshospitaal",
+        "fr": "ancien hôpital Saint-Jean",
+        "it": "Ospedale di San Giovanni",
+        "de": "Sint-Janshospitaal",
+        "es": "Antiguo hospital de San Juan"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-begijnhof",
+      "name": "Begijnhofbrug, gate of Ten Wijngaerde",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q101248776",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.20173,
+      "lng": 3.22388,
+      "labels": {
+        "de": "Beginenhofbrücke",
+        "en": "Begijnhofbrug",
+        "fr": "pont du Béguinage"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-minnewater",
+      "name": "Minnewater",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2134080",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.2004,
+      "lng": 3.2248,
+      "labels": {
+        "en": "Minnewater",
+        "de": "Minnewater",
+        "es": "Minnewater (calle)"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-jan-van-eyckplein",
+      "name": "Jan van Eyckplein",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2519486",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Jan van Eyckplein",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed"
+      ],
+      "lat": 51.21156,
+      "lng": 3.22589,
+      "labels": {
+        "en": "Jan van Eyckplein",
+        "fr": "Jan van Eyckplein",
+        "de": "Jan van Eyckplein",
+        "es": "Jan van Eyckplein"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-sint-janshuismolen",
+      "name": "Sint-Janshuismolen",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2789120",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.21545,
+      "lng": 3.23806,
+      "labels": {
+        "fr": "Sint-Janshuismolen",
+        "de": "Sint-Janshuismolen",
+        "en": "Sint-Janshuismolen"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-sint-sebastiaansgilde",
+      "name": "Sint-Sebastiaansgilde Brugge",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3101274",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.21553,
+      "lng": 3.23648,
+      "labels": {
+        "fr": "Sint-Sebastiaansgilde Bruges",
+        "de": "Sint-Sebastiaansgilde",
+        "en": "Royal Guild of Saint-Sebastian in Bruges"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    },
+    {
+      "id": "bruges-astridpark",
+      "name": "Koningin Astridpark",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2401741",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: fetch failed",
+        "wikipedia: no match"
+      ],
+      "lat": 51.20623,
+      "lng": 3.23133,
+      "labels": {
+        "en": "Koningin Astridpark"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-14"
+    }
+  ],
+  "problems": []
+}

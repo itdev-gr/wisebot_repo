@@ -814,7 +814,12 @@ describe('countries overlay', () => {
    * the same evening, and went to zero the same night: Nicosia and Dubrovnik in #112, the
    * other 24 in #110. Madrid and Venice arrived right after (#114); their cards are below.
    */
-  const KNOWN_ABSENT_CARDS: string[] = [];
+  const KNOWN_ABSENT_CARDS: string[] = [
+    // Copenhagen and Bruges arrive in el/en from the content session (#113); their
+    // de/es/fr/it cards come from the languages session in its own PR.
+    'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',
+    'fr:bruges', 'fr:copenhagen', 'it:bruges', 'it:copenhagen',
+  ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
     const found: Array<{ path: string; node: Record<string, unknown> }> = [];

@@ -1,8 +1,12 @@
 /**
  * WiseBot World — Denmark.
  *
- * Country only for now; `cities` is empty until the city pipeline delivers them. The
- * figures were checked against the English Wikipedia articles "Geography of Denmark"
+ * One city so far, Copenhagen; the rest arrive through the pipeline in their own pass.
+ * Copenhagen's `centre` and its map `bounds` are both copied from
+ * `data/world/coords/copenhagen.json` — the centre is the resolver's own reference
+ * point (Wikidata Q1748) and the bounds are the box that holds every resolved pin, from
+ * the Harbour Bath in the south to the Little Mermaid in the north and Amager Bakke out
+ * east. The figures were checked against the English Wikipedia articles "Geography of Denmark"
  * (52 km from the coast), "Møllehøj" (170.86 m), "Lego" (Ole Kirk Christiansen, Billund,
  * 1932, "leg godt") and "Flag of Denmark" (Guinness record, in continuous use since 1625).
  * The stamp is inked in Danish, as a real entry stamp is. `de`, `fr`, `es` and `it` land
@@ -69,4 +73,53 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'copenhagen',
+    countryId: 'denmark',
+    order: 1,
+    emoji: '🧜',
+
+    name: {
+      el: 'Κοπεγχάγη',
+      en: 'Copenhagen',
+    },
+
+    intro: {
+      el:
+        'Η Κοπεγχάγη είναι μια πόλη χτισμένη πάνω στο νερό, και το νερό της είναι τόσο ' +
+        'καθαρό που τα παιδιά βουτάνε μέσα στο λιμάνι. Έχει έναν πύργο που τον ανεβαίνεις ' +
+        'με ράμπα αντί για σκάλα, ένα εργοστάσιο σκουπιδιών με πίστα του σκι στη σκεπή, ' +
+        'και ένα λούνα παρκ που άνοιξε πριν από σχεδόν δύο αιώνες. Εδώ έγραψε ο Χανς ' +
+        'Κρίστιαν Άντερσεν τα πρώτα του παραμύθια, σε ένα κανάλι με σπίτια βαμμένα σαν ' +
+        'κουτί με κραγιόνια. Και σχεδόν όλοι κυκλοφορούν με ποδήλατο, ακόμα και με χιόνι.',
+      en:
+        'Copenhagen is a city built on water, and its water is clean enough that children ' +
+        'jump into the harbour. It has a tower you climb by ramp instead of stairs, a ' +
+        'rubbish-burning power station with a ski slope on the roof, and a funfair that ' +
+        'opened almost two centuries ago. Hans Christian Andersen wrote his first fairy ' +
+        'tales here, on a canal lined with houses painted like a box of crayons. And ' +
+        'almost everybody gets around by bicycle, even in the snow.',
+    },
+
+    /** Copied from `data/world/coords/copenhagen.json`. Wikidata Q1748. */
+    centre: { lat: 55.67611, lng: 12.56889 },
+
+    map: {
+      src: '/images/world/maps/copenhagen.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Κοπεγχάγης, με το λιμάνι, τις λίμνες και το αστεροειδές φρούριο.',
+        en: 'A stylised map of Copenhagen, with its harbour, its lakes and its star-shaped fort.',
+      },
+      width: 1000,
+      height: 880,
+      /**
+       * The smallest north-aligned box that holds all seventeen resolved pins with a
+       * margin: the Harbour Bath at Islands Brygge sets the south edge, the Little
+       * Mermaid the north, Tivoli the west, and Amager Bakke — alone out on Amager —
+       * the east.
+       */
+      bounds: { north: 55.698, south: 55.664, east: 12.628, west: 12.56 },
+    },
+  },
+];
