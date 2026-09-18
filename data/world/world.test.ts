@@ -820,8 +820,6 @@ describe('countries overlay', () => {
     'fr:berlin', 'fr:budapest', 'fr:lisbon', 'fr:porto', 'fr:prague', 'fr:vienna',
     'it:berlin', 'it:budapest', 'it:lisbon', 'it:porto', 'it:prague', 'it:vienna',
     // New cities, cards not yet written.
-    'de:dubrovnik', 'de:nicosia', 'es:dubrovnik', 'es:nicosia',
-    'fr:dubrovnik', 'fr:nicosia', 'it:dubrovnik', 'it:nicosia',
   ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
