@@ -26,5 +26,56 @@ Disallow: /account
 Disallow: /store
 Disallow: /parent
 
+# AI search engines and assistants are welcome to read and cite the public pages.
+# The same rules as above apply: nothing under /api, /admin, /dashboard, /account,
+# /store, /parent, and no passport pages (a family's stamps are not public content).
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /account
+Disallow: /store
+Disallow: /parent
+Disallow: /world/passport
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /account
+Disallow: /store
+Disallow: /parent
+Disallow: /world/passport
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /account
+Disallow: /store
+Disallow: /parent
+Disallow: /world/passport
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /account
+Disallow: /store
+Disallow: /parent
+Disallow: /world/passport
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# A plain-text map of the site for language models: https://wisebot.gr/llms.txt
+
 # Sitemap
 Sitemap: https://wisebot.gr/sitemap.xml
