@@ -819,6 +819,7 @@ describe('countries overlay', () => {
     // de/es/fr/it cards come from the languages session in its own PR.
     'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',
     'fr:bruges', 'fr:copenhagen', 'it:bruges', 'it:copenhagen',
+    'de:krakow', 'es:krakow', 'fr:krakow', 'it:krakow',
   ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
