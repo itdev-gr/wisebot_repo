@@ -261,7 +261,13 @@
         "La miniera di sale di Wieliczka ha circa 287 chilometri di gallerie e scende 327 metri sotto terra.",
         "Nella foresta di Białowieża vivono più di 800 bisonti europei, l’animale selvatico di terra più pesante d’Europa.",
         "Il suo punto più alto è la cima del Rysy nei Tatra, quasi 2.500 metri, proprio sul confine con la Slovacchia."
-      ]
+      ],
+      "cities": {
+        "krakow": {
+          "name": "Cracovia",
+          "intro": "Cracovia è una città che conserva le sue cose antiche e continua a usarle. La più grande piazza medievale d’Europa è ancora il suo mercato. Dalla torre più alta una tromba suona ogni ora e si interrompe a metà, esattamente come secoli fa. Sotto il castello c’è una vera grotta, e davanti una statua di drago di bronzo che sputa fuoco. E in una stanza buia una ragazza con un ermellino in braccio gira la testa da cinquecento anni."
+        }
+      }
     },
     "croatia": {
       "name": "Croazia",
@@ -345,7 +351,13 @@
         "Dovunque ti fermi in Danimarca, il mare non è mai più lontano di 52 chilometri.",
         "I LEGO sono cominciati nel 1932 con un falegname di Billund. Il nome viene da «leg godt», che vuol dire «gioca bene».",
         "La sua bandiera, il Dannebrog, è in uso senza interruzioni dal 1625, più a lungo di ogni altra bandiera nazionale."
-      ]
+      ],
+      "cities": {
+        "copenhagen": {
+          "name": "Copenaghen",
+          "intro": "Copenaghen è una città costruita sull’acqua, e la sua acqua è così pulita che i bambini si tuffano nel porto. Ha una torre che sali per una rampa invece che per le scale, una centrale che brucia rifiuti con una pista da sci sul tetto e un luna park aperto quasi due secoli fa. Hans Christian Andersen scrisse qui le sue prime fiabe, lungo un canale con case dipinte come una scatola di pastelli. E quasi tutti vanno in bicicletta, anche con la neve."
+        }
+      }
     },
     "belgium": {
       "name": "Belgio",
@@ -355,7 +367,13 @@
         "La sua costa è lunga 67 chilometri, e un tram con 67 fermate la percorre tutta.",
         "Ha tre lingue ufficiali: olandese, francese e tedesco.",
         "I libri di Tintin hanno venduto circa 200 milioni di copie in tutto il mondo."
-      ]
+      ],
+      "cities": {
+        "bruges": {
+          "name": "Bruges",
+          "intro": "Bruges è una città salvata dalla sua stessa sfortuna. Seicento anni fa era una delle più ricche d’Europa, con navi in arrivo dall’Italia, dalla Spagna e dal Baltico. Poi il canale verso il mare si riempì di sabbia, le navi smisero di arrivare e nessuno aveva i soldi per abbattere gli edifici vecchi e costruirne di nuovi. Così un’intera città medievale rimase in piedi: una torre con quarantasette campane, canali al posto delle strade, cigni, mulini a vento sulle mura e una Madonna scolpita da Michelangelo."
+        }
+      }
     }
   }
 }

@@ -261,7 +261,13 @@
         "La mine de sel de Wieliczka a environ 287 kilomètres de galeries et descend à 327 mètres sous terre.",
         "Plus de 800 bisons d’Europe, l’animal sauvage terrestre le plus lourd d’Europe, vivent dans la forêt de Białowieża.",
         "Son point le plus haut est le sommet du Rysy, dans les Tatras, presque 2 500 mètres, juste sur la frontière avec la Slovaquie."
-      ]
+      ],
+      "cities": {
+        "krakow": {
+          "name": "Cracovie",
+          "intro": "Cracovie est une ville qui garde ses vieilles choses et continue de s’en servir. La plus grande place médiévale d’Europe est toujours son marché. Du haut de la plus haute tour, une trompette joue toutes les heures et s’arrête net au milieu, exactement comme il y a des siècles. Sous le château, il y a une vraie grotte, et devant elle un dragon de bronze qui crache du feu. Et dans une pièce sombre, une jeune fille tenant une hermine tourne la tête depuis cinq cents ans."
+        }
+      }
     },
     "croatia": {
       "name": "Croatie",
@@ -345,7 +351,13 @@
         "Où que tu te trouves au Danemark, la mer n’est jamais à plus de 52 kilomètres.",
         "LEGO a commencé en 1932 avec un menuisier de Billund. Le nom vient de « leg godt », qui veut dire « joue bien ».",
         "Son drapeau, le Dannebrog, est utilisé sans interruption depuis 1625, plus longtemps que n’importe quel autre drapeau national."
-      ]
+      ],
+      "cities": {
+        "copenhagen": {
+          "name": "Copenhague",
+          "intro": "Copenhague est une ville bâtie sur l’eau, et son eau est assez propre pour que les enfants sautent dans le port. Elle a une tour que l’on monte par une rampe au lieu d’un escalier, une centrale qui brûle les déchets avec une piste de ski sur le toit, et une fête foraine ouverte il y a presque deux siècles. Hans Christian Andersen a écrit ici ses premiers contes, au bord d’un canal aux maisons peintes comme une boîte de crayons. Et presque tout le monde se déplace à vélo, même sous la neige."
+        }
+      }
     },
     "belgium": {
       "name": "Belgique",
@@ -355,7 +367,13 @@
         "Sa côte mesure 67 kilomètres, et un seul tram, avec 67 arrêts, la parcourt sur toute sa longueur.",
         "Elle a trois langues officielles : le néerlandais, le français et l’allemand.",
         "Les albums de Tintin se sont vendus à environ 200 millions d’exemplaires dans le monde."
-      ]
+      ],
+      "cities": {
+        "bruges": {
+          "name": "Bruges",
+          "intro": "Bruges est une ville que sa propre malchance a sauvée. Il y a six cents ans, c’était l’une des plus riches d’Europe, avec des navires venus d’Italie, d’Espagne et de la Baltique. Puis le chenal vers la mer s’est ensablé, les navires ont cessé de venir, et personne n’a eu l’argent pour démolir les vieux bâtiments et en construire de nouveaux. Alors toute une ville médiévale est restée debout : une tour aux quarante-sept cloches, des canaux à la place des rues, des cygnes, des moulins sur les remparts et une Madone sculptée par Michel-Ange."
+        }
+      }
     }
   }
 }
