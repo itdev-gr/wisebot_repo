@@ -66,9 +66,18 @@ const { COUNTRIES, CITIES, PLACE_COUNTS, loadCity, citiesOf } = await vite.ssrLo
 );
 // The titles, descriptions and JSON-LD come from the same module the runtime <WorldSeo>
 // uses, so the static page and the hydrated page never disagree about a page's name.
-const { worldMeta, countryMeta, cityMeta, placeMeta, CATEGORY_LABEL } = await vite.ssrLoadModule(
-  '/data/world/seo.ts',
-);
+const { worldMeta, countryMeta, cityMeta, placeMeta, CATEGORY_LABEL, faqForCity, faqForPlace } =
+  await vite.ssrLoadModule('/data/world/seo.ts');
+
+/**
+ * The same Q/A pairs the JSON-LD carries, as visible text for a crawler that does not
+ * run JS: a real <h2> and a <dl>, once in Greek and once in English.
+ */
+function faqHtml(entries, lang) {
+  const heading = lang === 'el' ? 'Συχνές ερωτήσεις' : 'Frequently asked questions';
+  const rows = entries.map((e) => `<dt>${esc(e.q[lang])}</dt><dd>${esc(e.a[lang])}</dd>`).join('');
+  return `<h2>${heading}</h2><dl>${rows}</dl>`;
+}
 
 // ------------------------------------------------------------------- helpers
 
@@ -205,6 +214,7 @@ function cityPage(country, city, module) {
   const trailList = trails
     .map((t) => `<li><h3>${t.emoji} ${esc(t.name.el)}</h3><p>${esc(t.promise.el)} (${t.placeIds.length} στάσεις)</p></li>`)
     .join('\n');
+  const faq = faqForCity(country, city, module);
   return {
     ...cityMeta(country, city, module, 'el'),
     noscript: `
@@ -213,9 +223,11 @@ function cityPage(country, city, module) {
       <h2>${places.length} μέρη για παιδιά στην πόλη ${esc(city.name.el)}</h2>
       <ul>${list}</ul>
       ${trails.length ? `<h2>Διαδρομές για οικογένειες</h2><ul>${trailList}</ul>` : ''}
+      ${faqHtml(faq, 'el')}
       <h2>${esc(city.name.en)} with kids — ${places.length} places and ${museums.length} museums</h2>
       <p>${esc(city.intro.en)}</p>
       <ul>${places.map((p) => `<li><a href="${BASE_URL}${base}/${p.id}">${esc(p.name.en)}</a> — ${esc(p.tagline.en)}</li>`).join('')}</ul>
+      ${faqHtml(faq, 'en')}
       <p><a href="${BASE_URL}/world/${country.id}">${country.flag} ${esc(country.name.el)}</a></p>
     `,
   };
@@ -235,6 +247,7 @@ function placePage(country, city, place) {
   const findIt = place.location.findIt
     ? `<p><strong>Πού είναι η είσοδος:</strong> ${esc(place.location.findIt.el)}</p>`
     : '';
+  const faq = faqForPlace(country, city, place);
 
   return {
     ...placeMeta(country, city, place, 'el'),
@@ -246,10 +259,12 @@ function placePage(country, city, place) {
       <ul>${place.facts.map((f) => `<li>${esc(f.el)}</li>`).join('')}</ul>
       ${findIt}
       ${museumBlock}
+      ${faqHtml(faq, 'el')}
       <h2>${esc(place.name.en)} — ${esc(place.tagline.en)}</h2>
       <p>${esc(place.story.en)}</p>
       <ul>${place.facts.map((f) => `<li>${esc(f.en)}</li>`).join('')}</ul>
       ${place.location.findIt ? `<p><strong>Finding the entrance:</strong> ${esc(place.location.findIt.en)}</p>` : ''}
+      ${faqHtml(faq, 'en')}
       <p>Απάντησε στην ερώτηση και πάρε τη σφραγίδα σου στο ${BRAND}.</p>
     `,
   };

@@ -267,7 +267,7 @@
       "cities": {
         "dubrovnik": {
           "name": "Dubrovnik",
-          "intro": "Dubrovnik est une ville entière enfermée dans un seul rempart, et ce rempart, on peut le parcourir à pied. Près de deux kilomètres de pierre, jusqu’à vingt-cinq mètres de haut par endroits, avec les toits orange d’un côté et l’Adriatique de l’autre. Pendant des centaines d’années, elle s’est appelée Raguse, une petite république restée libre grâce au commerce et à des accords prudents plus qu’à des armées. Sa rue principale était autrefois la mer, et sa pharmacie ouvre chaque matin depuis 1317."
+          "intro": "Dubrovnik est une ville entière à l’intérieur d’un seul rempart, et ce rempart se parcourt à pied. Presque deux kilomètres de pierre, jusqu’à vingt-cinq mètres de haut, avec les toits orange d’un côté et l’Adriatique de l’autre. Pendant des siècles elle s’est appelée Raguse, une petite république restée libre davantage par le commerce et des accords prudents que par les armées. Sa rue principale était autrefois la mer, et sa pharmacie ouvre chaque matin depuis 1317."
         }
       }
     },
@@ -293,7 +293,7 @@
       "cities": {
         "nicosia": {
           "name": "Nicosie",
-          "intro": "Nicosie se trouve loin de la mer, au milieu d’une plaine, enfermée dans un anneau de remparts aux onze bastions pointus en forme de cœur, et toute la vieille ville est bâtie dans la même pierre jaune doré. Ici, une église gothique est devenue une mosquée, un hammam ottoman fonctionne encore, et une école donne des cours sans interruption depuis 1812. Depuis les années 1960, et définitivement depuis 1974, une ligne coupe la vieille ville en deux, et on la traverse en montrant sa carte d’identité."
+          "intro": "Nicosie est loin de la mer, au milieu d’une plaine, enfermée dans un cercle de remparts aux onze bastions pointus en forme de cœur, et toute la vieille ville est bâtie dans la même pierre jaune doré. Une église gothique y est devenue mosquée, un bain ottoman fonctionne encore, et une école fait la classe depuis 1812 sans interruption. Depuis les années 1960, et définitivement depuis 1974, une ligne coupe la vieille ville en deux, et les gens la traversent en montrant une pièce d’identité."
         }
       }
     },
