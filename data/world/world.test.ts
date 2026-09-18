@@ -28,6 +28,7 @@ import {
   loadCountries,
   translationsFor,
 } from './registry';
+import { cityMeta, countryMeta, faqForCity, faqForPlace, placeMeta, worldMeta } from './seo';
 import type { City, CityModule, CountriesTranslation, Country, Place } from './types';
 import { WORLD_LANGS } from './types';
 import * as fixture from './__fixtures__/sample';
@@ -793,34 +794,27 @@ describe('countries overlay', () => {
   }
 
   /**
-   * City cards that are missing today, named rather than left to hold the gate shut.
+   * City cards that are missing, named rather than left to hold the gate shut. Empty
+   * today, and that is the goal state.
    *
-   * Six cities were added after the countries overlays were written, and nobody gave
-   * them a card: Berlin, Budapest, Lisbon, Porto, Prague and Vienna show an English name
-   * and intro on a German, Spanish, French or Italian front door. Every country is done;
-   * only these 24 cards are not. Filling them is the i18n session's work, and this file
-   * is not theirs to open, so the licence lives here.
-   *
-   * The list is EXACT, the same rule as the coords licence above. A card that gets
-   * translated fails this test until its line is deleted, so the list can only shrink.
-   * The engine session deletes the lines when it merges the translation.
+   * Filling cards is the languages session's work, and this file is not theirs to open,
+   * so the licence lives here. The list is EXACT, the same rule as the coords licence
+   * above: a card that gets translated fails this test until its line is deleted, and
+   * the engine session deletes the lines when it merges the translation.
    *
    * A licensed card must be wholly absent. A card with a German name and an English
    * intro is half a translation, and that fails whether or not it is listed.
    *
-   * Growing the list is the other half of the rule. A new city arrives in Greek and
-   * English from a content session and its cards come later from the languages session,
-   * so the merge that brings the city adds its lines here, on purpose, in the same commit
-   * that says so. Nicosia and Dubrovnik came in that way on 18 Σεπτεμβρίου, the first
-   * cities to arrive after this gate did; it is what caught them.
+   * The list grows in one way only. A new city arrives in Greek and English from a
+   * content session and its cards come later, so the merge that brings the city adds its
+   * lines here, on purpose, in the same commit that says so.
+   *
+   * It has been used once. On 18 Σεπτεμβρίου the gate landed with 24 cards licensed
+   * (Berlin, Budapest, Lisbon, Porto, Prague, Vienna × de/es/fr/it), grew by 8 when
+   * Nicosia and Dubrovnik arrived the same evening, and went to zero the same night:
+   * Nicosia and Dubrovnik in #112, the other 24 in #110.
    */
-  const KNOWN_ABSENT_CARDS = [
-    'de:berlin', 'de:budapest', 'de:lisbon', 'de:porto', 'de:prague', 'de:vienna',
-    'es:berlin', 'es:budapest', 'es:lisbon', 'es:porto', 'es:prague', 'es:vienna',
-    'fr:berlin', 'fr:budapest', 'fr:lisbon', 'fr:porto', 'fr:prague', 'fr:vienna',
-    'it:berlin', 'it:budapest', 'it:lisbon', 'it:porto', 'it:prague', 'it:vienna',
-    // New cities, cards not yet written.
-  ];
+  const KNOWN_ABSENT_CARDS: string[] = [];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
     const found: Array<{ path: string; node: Record<string, unknown> }> = [];
@@ -946,4 +940,92 @@ describe('countries overlay', () => {
       expect(copied, `${lang} text identical to en`).toEqual([]);
     });
   }
+});
+
+/**
+ * The FAQ a parent finds in a search result. Every city and place answers 4–6 questions
+ * in both languages, built only from the module's own data; the repo's most common
+ * content bug is a silently empty `en`, so the answer text is checked, not just its
+ * presence. City and place pages carry exactly one FAQPage; the world and country pages
+ * none (thin, duplicated FAQs are a rich-result penalty).
+ */
+describe('world FAQ', async () => {
+  const all = await bundles();
+  const countryOf = (bundle: Bundle): Country =>
+    bundle.countries.find((c) => c.id === bundle.city.countryId) as Country;
+  const isFaq = (ld: Record<string, unknown>) => ld['@type'] === 'FAQPage';
+
+  it('gives every city 4–6 questions, each answered in Greek and English, no two alike', () => {
+    for (const bundle of all) {
+      const faq = faqForCity(countryOf(bundle), bundle.city, bundle.module);
+      expect(faq.length, bundle.label).toBeGreaterThanOrEqual(4);
+      expect(faq.length, bundle.label).toBeLessThanOrEqual(6);
+      const questions = new Set<string>();
+      for (const entry of faq) {
+        for (const lang of ['el', 'en'] as const) {
+          expect(entry.q[lang].trim().length, `${bundle.label}: empty question (${lang})`).toBeGreaterThan(8);
+          expect(entry.a[lang].trim().length, `${bundle.label}: empty answer (${lang})`).toBeGreaterThan(20);
+        }
+        expect(entry.q.el, `${bundle.label}: a question without the city's name`).toContain(bundle.city.name.el);
+        questions.add(entry.q.el);
+      }
+      expect(questions.size, `${bundle.label}: duplicate question`).toBe(faq.length);
+    }
+  });
+
+  it('gives every place 4–6 questions, each answered in Greek and English, each naming the place', () => {
+    for (const bundle of all) {
+      const country = countryOf(bundle);
+      for (const place of bundle.module.places) {
+        const faq = faqForPlace(country, bundle.city, place);
+        expect(faq.length, `${bundle.label}/${place.id}`).toBeGreaterThanOrEqual(4);
+        expect(faq.length, `${bundle.label}/${place.id}`).toBeLessThanOrEqual(6);
+        const questions = new Set<string>();
+        for (const entry of faq) {
+          for (const lang of ['el', 'en'] as const) {
+            expect(entry.q[lang].trim().length, `${place.id}: empty question (${lang})`).toBeGreaterThan(8);
+            expect(entry.a[lang].trim().length, `${place.id}: empty answer (${lang})`).toBeGreaterThan(20);
+            expect(entry.q[lang], `${place.id}: a question without the place's name (${lang})`).toContain(place.name[lang]);
+          }
+          questions.add(entry.q.el);
+        }
+        expect(questions.size, `${place.id}: duplicate question`).toBe(faq.length);
+      }
+    }
+  });
+
+  it('never repeats an answer across pages', () => {
+    const seen = new Map<string, string>();
+    for (const bundle of all) {
+      const country = countryOf(bundle);
+      const pages = [
+        { id: `${bundle.label}`, faq: faqForCity(country, bundle.city, bundle.module) },
+        ...bundle.module.places.map((p) => ({ id: `${bundle.label}/${p.id}`, faq: faqForPlace(country, bundle.city, p) })),
+      ];
+      for (const page of pages) {
+        for (const entry of page.faq) {
+          const key = `${entry.q.el}\n${entry.a.el}`;
+          expect(seen.get(key), `${page.id} repeats a Q/A of ${seen.get(key)}`).toBeUndefined();
+          seen.set(key, page.id);
+        }
+      }
+    }
+  });
+
+  it('puts exactly one FAQPage on city and place pages, and none on the world or country page', () => {
+    for (const bundle of all) {
+      const country = countryOf(bundle);
+      expect(cityMeta(country, bundle.city, bundle.module, 'el').jsonLd.filter(isFaq)).toHaveLength(1);
+      expect(cityMeta(country, bundle.city, bundle.module, 'en').jsonLd.filter(isFaq)).toHaveLength(1);
+      for (const place of bundle.module.places) {
+        const faqs = placeMeta(country, bundle.city, place, 'el').jsonLd.filter(isFaq);
+        expect(faqs, `${place.id}`).toHaveLength(1);
+        const entity = (faqs[0] as { mainEntity: { name: string; acceptedAnswer: { text: string } }[] }).mainEntity;
+        expect(entity.length).toBeGreaterThanOrEqual(4);
+        for (const q of entity) expect(q.acceptedAnswer.text.length).toBeGreaterThan(20);
+      }
+      expect(countryMeta(country, bundle.cities, PLACE_COUNTS, 'el').jsonLd.filter(isFaq)).toHaveLength(0);
+    }
+    expect(worldMeta(COUNTRIES, CITIES, PLACE_COUNTS, 'el').jsonLd.filter(isFaq)).toHaveLength(0);
+  });
 });
