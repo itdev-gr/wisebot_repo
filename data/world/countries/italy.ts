@@ -178,4 +178,55 @@ export const cities: City[] = [
       bounds: { north: 45.4605, south: 45.4255, east: 12.364, west: 12.318 },
     },
   },
+  {
+    id: 'florence',
+    countryId: 'italy',
+    order: 3,
+    emoji: '🌸',
+
+    name: {
+      el: 'Φλωρεντία',
+      en: 'Florence',
+    },
+
+    intro: {
+      el:
+        'Η Φλωρεντία είναι μια μικρή πόλη δίπλα σε ένα ποτάμι, τον Άρνο, όπου πριν από ' +
+        'εξακόσια χρόνια άρχισε ένας καινούργιος τρόπος να ζωγραφίζεις, να χτίζεις και να ' +
+        'σκέφτεσαι. Μια οικογένεια τραπεζιτών, οι Μέδικοι, πλήρωνε ζωγράφους, γλύπτες και ' +
+        'επιστήμονες. Εδώ θα βρεις έναν κόκκινο τρούλο που κανείς δεν ήξερε πώς να χτίσει, ' +
+        'τον Δαβίδ του Μιχαήλ Αγγέλου, τα τηλεσκόπια του Γαλιλαίου, μια γέφυρα με ' +
+        'κοσμηματοπωλεία πάνω της και ένα χάλκινο γουρουνάκι που φέρνει τύχη.',
+      en:
+        'Florence is a small city beside a river, the Arno, where six hundred years ago a new ' +
+        'way of painting, building and thinking began. A family of bankers, the Medici, paid ' +
+        'painters, sculptors and scientists. Here you will find a red dome that nobody knew ' +
+        'how to build, Michelangelo’s David, Galileo’s telescopes, a bridge with jewellers’ ' +
+        'shops on it and a bronze piglet that brings luck.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/florence.json`, which takes it from Wikidata's own
+     * point for the city (Q2044). The resolver audits every place against this exact point
+     * and found nothing on it.
+     */
+    centre: { lat: 43.771389, lng: 11.254167 },
+
+    map: {
+      src: '/images/world/maps/florence.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Φλωρεντίας, με τον Άρνο να διασχίζει την πόλη, τον κόκκινο τρούλο στη μέση και τους πράσινους λόφους στα νότια.',
+        en: 'A stylised map of Florence, with the Arno running through the city, the red dome in the middle and green hills to the south.',
+      },
+      width: 1000,
+      height: 1510,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the sixteen places in `cities/florence.ts` falls inside
+       * them, with the Garden of Simples at the top, the Boboli Gardens on the left and San
+       * Miniato on its hill at the bottom right.
+       */
+      bounds: { north: 43.781, south: 43.757, east: 11.268, west: 11.246 },
+    },
+  },
 ];
