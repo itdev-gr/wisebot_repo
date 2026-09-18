@@ -261,7 +261,13 @@
         "Das Salzbergwerk von Wieliczka hat etwa 287 Kilometer Gänge und reicht 327 Meter unter die Erde.",
         "Im Wald von Białowieża leben mehr als 800 Wisente, das schwerste wilde Landtier Europas.",
         "Sein höchster Punkt ist der Gipfel der Rysy in der Tatra, fast 2.500 Meter, genau auf der Grenze zur Slowakei."
-      ]
+      ],
+      "cities": {
+        "krakow": {
+          "name": "Krakau",
+          "intro": "Krakau ist eine Stadt, die ihre alten Dinge behält und weiter benutzt. Der größte mittelalterliche Platz Europas ist immer noch ihr Marktplatz. Vom höchsten Turm spielt jede Stunde eine Trompete und bricht mitten im Ton ab, genau wie vor Jahrhunderten. Unter der Burg gibt es eine echte Höhle, und davor einen Drachen aus Bronze, der Feuer speit. Und in einem dunklen Raum dreht ein Mädchen mit einem Hermelin im Arm seit fünfhundert Jahren den Kopf."
+        }
+      }
     },
     "croatia": {
       "name": "Kroatien",
@@ -345,7 +351,13 @@
         "Wo du in Dänemark auch stehst, das Meer ist nie weiter weg als 52 Kilometer.",
         "LEGO begann 1932 mit einem Tischler in Billund. Der Name kommt von „leg godt“, das heißt „spiel gut“.",
         "Seine Flagge, der Dannebrog, ist seit 1625 ohne Unterbrechung in Gebrauch, länger als jede andere Nationalflagge."
-      ]
+      ],
+      "cities": {
+        "copenhagen": {
+          "name": "Kopenhagen",
+          "intro": "Kopenhagen ist eine Stadt, die auf dem Wasser gebaut ist, und ihr Wasser ist so sauber, dass Kinder in den Hafen springen. Es gibt einen Turm, den du über eine Rampe statt über Treppen hinaufgehst, ein Müllkraftwerk mit einer Skipiste auf dem Dach und einen Vergnügungspark, der vor fast zwei Jahrhunderten eröffnet wurde. Hans Christian Andersen schrieb hier seine ersten Märchen, an einem Kanal mit Häusern, die bunt wie eine Schachtel Buntstifte gestrichen sind. Und fast alle fahren mit dem Fahrrad, sogar im Schnee."
+        }
+      }
     },
     "belgium": {
       "name": "Belgien",
@@ -355,7 +367,13 @@
         "Seine Küste ist 67 Kilometer lang, und eine Straßenbahn mit 67 Haltestellen fährt sie ganz ab.",
         "Es hat drei Amtssprachen: Niederländisch, Französisch und Deutsch.",
         "Die Bücher von Tim und Struppi haben sich weltweit rund 200 Millionen Mal verkauft."
-      ]
+      ],
+      "cities": {
+        "bruges": {
+          "name": "Brügge",
+          "intro": "Brügge ist eine Stadt, die ihr eigenes Pech gerettet hat. Vor sechshundert Jahren war sie eine der reichsten in Europa, mit Schiffen aus Italien, Spanien und von der Ostsee. Dann versandete die Fahrrinne zum Meer, die Schiffe blieben aus, und niemand hatte das Geld, die alten Gebäude abzureißen und neue zu bauen. So blieb eine ganze mittelalterliche Stadt stehen: ein Turm mit siebenundvierzig Glocken, Kanäle statt Straßen, Schwäne, Windmühlen auf den Wällen und eine Madonna, die Michelangelo gemeißelt hat."
+        }
+      }
     }
   }
 }

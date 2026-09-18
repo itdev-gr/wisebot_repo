@@ -820,9 +820,6 @@ describe('countries overlay', () => {
   const KNOWN_ABSENT_CARDS: string[] = [
     // Copenhagen, Bruges (#113) and Kraków (#118) arrived in el/en from the content
     // session; their de/es/fr/it cards come from the languages session in its own PR.
-    'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',
-    'fr:bruges', 'fr:copenhagen', 'it:bruges', 'it:copenhagen',
-    'de:krakow', 'es:krakow', 'fr:krakow', 'it:krakow',
   ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
