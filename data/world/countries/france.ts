@@ -117,4 +117,55 @@ export const cities: City[] = [
       bounds: { north: 48.9, south: 48.838, east: 2.395, west: 2.285 },
     },
   },
+  {
+    id: 'nice',
+    countryId: 'france',
+    order: 2,
+    emoji: '🌊',
+
+    name: {
+      el: 'Νίκαια',
+      en: 'Nice',
+    },
+
+    intro: {
+      el:
+        'Η Νίκαια είναι μια πόλη δίπλα σε έναν κόλπο που τον λένε «Κόλπο των Αγγέλων», με ' +
+        'ήλιο σχεδόν όλο τον χρόνο. Την ίδρυσαν Έλληνες, την έχτισαν Ρωμαίοι σε έναν λόφο, ' +
+        'την κυβέρνησαν Ιταλοί δούκες, και έγινε γαλλική μόλις το 1860, γι’ αυτό τα σπίτια ' +
+        'της είναι κίτρινα και κόκκινα σαν στην Ιταλία. Οι Άγγλοι πλήρωσαν τον περίπατο ' +
+        'δίπλα στη θάλασσα, ζωγράφοι από όλο τον κόσμο ήρθαν για το φως της, και κάθε ' +
+        'μεσημέρι ένα κανόνι λέει στην πόλη ότι είναι δώδεκα.',
+      en:
+        'Nice is a city beside a bay called the "Bay of Angels", with sunshine almost all year ' +
+        'round. It was founded by Greeks, built by Romans on a hill, ruled by Italian dukes, ' +
+        'and only became French in 1860, which is why its houses are yellow and red as in ' +
+        'Italy. The English paid for the walk beside the sea, painters from all over the world ' +
+        'came for its light, and every day at noon a cannon tells the city it is twelve o’clock.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/nice.json`, which takes it from Wikidata's own point
+     * for the city (Q33959). The resolver audits every place against this exact point and
+     * found nothing on it.
+     */
+    centre: { lat: 43.701944, lng: 7.268333 },
+
+    map: {
+      src: '/images/world/maps/nice.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Νίκαιας, με τον Κόλπο των Αγγέλων στα νότια, τον Λόφο του Κάστρου δίπλα στο λιμάνι και τον λόφο του Σιμιέ στα βόρεια.',
+        en: 'A stylised map of Nice, with the Bay of Angels to the south, Castle Hill by the harbour and the hill of Cimiez to the north.',
+      },
+      width: 1000,
+      height: 1000,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the fifteen places in `cities/nice.ts` falls inside
+       * them, with the Promenade on the left edge, the harbour on the right and the Matisse
+       * museum and the Roman arena up on Cimiez at the top.
+       */
+      bounds: { north: 43.724, south: 43.688, east: 7.29, west: 7.242 },
+    },
+  },
 ];
