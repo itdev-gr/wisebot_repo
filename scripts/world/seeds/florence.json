@@ -1,0 +1,25 @@
+{
+  "city": "florence",
+  "country": "italy",
+  "centre": { "lat": 43.771389, "lng": 11.254167 },
+  "note": "Wikidata q-ids only, searched in Italian. Centre is Wikidata's point for the city (Q2044). Florence is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. Brunelleschi's dome has its own item (Q3699556), but its point sits 12 m from Giotto's bell tower, so the dome is told inside the cathedral (Q191739) instead of being seeded as a second pin. Palazzo Pitti (Q29286) and the Boboli Gardens (Q888825) are 15 m apart for the same reason, and only the gardens are seeded. The Uffizi is the palace-and-museum item Q51252, not the institution Q16335227. The Accademia is the gallery Q10855544, not the Academy of Arts of Drawing (Q1760178) next door.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "florence-duomo", "name": "Cattedrale di Santa Maria del Fiore", "wikidata": "Q191739", "anchor": "centroid" },
+    { "id": "florence-campanile", "name": "Campanile di Giotto", "wikidata": "Q1140023", "anchor": "centroid" },
+    { "id": "florence-battistero", "name": "Battistero di San Giovanni", "wikidata": "Q732511", "anchor": "centroid" },
+    { "id": "florence-ponte-vecchio", "name": "Ponte Vecchio", "wikidata": "Q208633", "anchor": "centroid" },
+    { "id": "florence-uffizi", "name": "Galleria degli Uffizi", "wikidata": "Q51252", "anchor": "centroid" },
+    { "id": "florence-palazzo-vecchio", "name": "Palazzo Vecchio", "wikidata": "Q271928", "anchor": "centroid" },
+    { "id": "florence-signoria", "name": "Piazza della Signoria", "wikidata": "Q849846", "anchor": "area" },
+    { "id": "florence-accademia", "name": "Galleria dell'Accademia", "wikidata": "Q10855544", "anchor": "centroid" },
+    { "id": "florence-boboli", "name": "Giardino di Boboli", "wikidata": "Q888825", "anchor": "area" },
+    { "id": "florence-piazzale-michelangelo", "name": "Piazzale Michelangelo", "wikidata": "Q1348158", "anchor": "viewpoint" },
+    { "id": "florence-museo-galileo", "name": "Museo Galileo", "wikidata": "Q1668196", "anchor": "centroid" },
+    { "id": "florence-santa-croce", "name": "Basilica di Santa Croce", "wikidata": "Q51177", "anchor": "centroid" },
+    { "id": "florence-porcellino", "name": "Fontana del Porcellino", "wikidata": "Q1713758", "anchor": "centroid" },
+    { "id": "florence-mercato-centrale", "name": "Mercato Centrale", "wikidata": "Q3854843", "anchor": "centroid" },
+    { "id": "florence-san-miniato", "name": "San Miniato al Monte", "wikidata": "Q844337", "anchor": "centroid" },
+    { "id": "florence-giardino-semplici", "name": "Giardino dei Semplici", "wikidata": "Q1875558", "anchor": "area" }
+  ]
+}

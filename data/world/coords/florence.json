@@ -1,0 +1,539 @@
+{
+  "city": "florence",
+  "resolvedAt": "2026-09-18T18:54:50.590Z",
+  "centre": {
+    "lat": 43.771389,
+    "lng": 11.254167
+  },
+  "places": [
+    {
+      "id": "florence-duomo",
+      "name": "Cattedrale di Santa Maria del Fiore",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q191739",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/43768260",
+          "deltaM": 30
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Florence Cathedral",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 43.77306,
+      "lng": 11.25694,
+      "labels": {
+        "fr": "cathédrale Santa Maria del Fiore",
+        "es": "Santa María del Fiore",
+        "it": "Cattedrale di Santa Maria del Fiore",
+        "de": "Kathedrale von Florenz",
+        "en": "Florence Cathedral",
+        "el": "Καθεδρικός Ναός της Φλωρεντίας"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-campanile",
+      "name": "Campanile di Giotto",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1140023",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/251650632",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Giotto's Campanile",
+          "deltaM": 47
+        }
+      ],
+      "warnings": [],
+      "lat": 43.77281,
+      "lng": 11.25581,
+      "labels": {
+        "fr": "campanile de Santa Maria del Fiore",
+        "es": "Campanario de Giotto",
+        "en": "Giotto's Campanile",
+        "it": "campanile di Giotto",
+        "de": "Campanile di Giotto"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-battistero",
+      "name": "Battistero di San Giovanni",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q732511",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Florence Baptistery",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 43.77306,
+      "lng": 11.255,
+      "labels": {
+        "fr": "baptistère Saint-Jean",
+        "es": "Baptisterio de San Juan",
+        "it": "battistero di San Giovanni",
+        "de": "Baptisterium San Giovanni",
+        "en": "Florence Baptistery",
+        "el": "Βαπτιστήριο της Φλωρεντίας"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-ponte-vecchio",
+      "name": "Ponte Vecchio",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q208633",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Ponte Vecchio",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 43.76799,
+      "lng": 11.25319,
+      "labels": {
+        "fr": "ponte Vecchio",
+        "es": "Ponte Vecchio",
+        "it": "Ponte Vecchio",
+        "de": "Ponte Vecchio",
+        "en": "Ponte Vecchio",
+        "el": "Πόντε Βέκιο"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-uffizi",
+      "name": "Galleria degli Uffizi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q51252",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/477279033",
+          "deltaM": 17
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Uffizi",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 43.76833,
+      "lng": 11.25528,
+      "labels": {
+        "it": "Palazzo degli Uffizi",
+        "en": "Uffizi Gallery",
+        "de": "Uffizien",
+        "el": "Ουφίτσι",
+        "es": "Galería Uffizi",
+        "fr": "galerie des Offices"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-palazzo-vecchio",
+      "name": "Palazzo Vecchio",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q271928",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/1461712",
+          "deltaM": 57
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Palazzo Vecchio",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [],
+      "lat": 43.76944,
+      "lng": 11.25611,
+      "labels": {
+        "fr": "palais de la Seigneurie",
+        "es": "Palazzo Vecchio",
+        "it": "Palazzo Vecchio",
+        "de": "Palazzo Vecchio",
+        "el": "Παλάτσο Βέκκιο",
+        "en": "Palazzo Vecchio"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-signoria",
+      "name": "Piazza della Signoria",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q849846",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/23298643",
+          "deltaM": 35
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Piazza della Signoria",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 43.76972,
+      "lng": 11.25556,
+      "labels": {
+        "fr": "piazza della Signoria",
+        "es": "Plaza de la Señoría",
+        "en": "piazza della Signoria",
+        "it": "piazza della Signoria",
+        "de": "Piazza della Signoria",
+        "el": "Πιάτσα ντελλα Σινιορία"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-accademia",
+      "name": "Galleria dell'Accademia",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10855544",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/560308250",
+          "deltaM": 11
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Galleria dell'Accademia",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [],
+      "lat": 43.77694,
+      "lng": 11.25889,
+      "labels": {
+        "en": "Galleria dell'Accademia",
+        "it": "Galleria dell'Accademia",
+        "fr": "Galleria dell'Accademia de Florence",
+        "es": "Galería de la Academia de Florencia",
+        "de": "Galleria dell'Accademia",
+        "el": "Κατάλογος έργων της Γκαλλερία ντελλ’ Ακκαντέμια της Φλωρεντίας"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-boboli",
+      "name": "Giardino di Boboli",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q888825",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Boboli Gardens",
+          "deltaM": 336
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 43.76528,
+      "lng": 11.24997,
+      "labels": {
+        "en": "Boboli Gardens",
+        "de": "Boboli-Garten",
+        "fr": "jardin de Boboli",
+        "it": "Giardino di Boboli",
+        "es": "Jardín de Bóboli",
+        "el": "Κήποι του Μπόμπολι"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-piazzale-michelangelo",
+      "name": "Piazzale Michelangelo",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1348158",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Piazzale Michelangelo",
+          "deltaM": 18
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 43.76292,
+      "lng": 11.26516,
+      "labels": {
+        "de": "Piazzale Michelangelo",
+        "fr": "piazzale Michelangelo",
+        "en": "piazzale Michelangelo",
+        "it": "piazzale Michelangelo",
+        "es": "Piazzale Michelangelo"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-museo-galileo",
+      "name": "Museo Galileo",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1668196",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/3518187675",
+          "deltaM": 9
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museo Galileo",
+          "deltaM": 19
+        }
+      ],
+      "warnings": [],
+      "lat": 43.76768,
+      "lng": 11.25602,
+      "labels": {
+        "de": "Museo Galileo",
+        "en": "Museo Galileo",
+        "fr": "musée Galilée",
+        "it": "Museo Galileo",
+        "es": "Museo Galileo",
+        "el": "Museo Galileo"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-santa-croce",
+      "name": "Basilica di Santa Croce",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q51177",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Santa Croce, Florence",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 43.76845,
+      "lng": 11.26274,
+      "labels": {
+        "it": "basilica di Santa Croce",
+        "de": "Santa Croce",
+        "en": "Basilica of Santa Croce",
+        "es": "basílica de la Santa Cruz",
+        "fr": "basilique Santa Croce de Florence",
+        "el": "Βασιλική της Σάντα Κρότσε"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-porcellino",
+      "name": "Fontana del Porcellino",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1713758",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/3391028134",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 43.76989,
+      "lng": 11.25423,
+      "labels": {
+        "de": "Fontana del Porcellino",
+        "en": "Porcellino",
+        "it": "Fontana del Porcellino",
+        "fr": "Fontana del Porcellino",
+        "es": "Fontana del Porcellino"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-mercato-centrale",
+      "name": "Mercato Centrale",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3854843",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2361666938",
+          "deltaM": 47
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Mercato Centrale (Florence)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 43.77667,
+      "lng": 11.25333,
+      "labels": {
+        "en": "Mercato Centrale",
+        "it": "Mercato Centrale",
+        "es": "Mercado central de Florencia",
+        "fr": "Marché central de Florence"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-san-miniato",
+      "name": "San Miniato al Monte",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q844337",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "San Miniato al Monte",
+          "deltaM": 41
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 43.75944,
+      "lng": 11.265,
+      "labels": {
+        "fr": "basilique San Miniato al Monte",
+        "es": "basílica de San Miniato al Monte",
+        "en": "San Miniato al Monte",
+        "it": "basilica di San Miniato al Monte",
+        "de": "San Miniato al Monte"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "florence-giardino-semplici",
+      "name": "Giardino dei Semplici",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1875558",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Orto Botanico di Firenze",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 43.77889,
+      "lng": 11.26139,
+      "labels": {
+        "en": "Botanical Garden of Florence",
+        "es": "Jardín de los Simples de Florencia",
+        "fr": "jardin des simples de Florence",
+        "it": "Giardino dei Semplici"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "problems": []
+}
