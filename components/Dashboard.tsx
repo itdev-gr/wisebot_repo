@@ -135,49 +135,23 @@ const getISOWeek = (date: Date): number => {
   return Math.ceil((((d.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
 };
 
-const FAKE_NAMES = {
-  el: [
-    'Αλέξανδρος', 'Μαρία', 'Γιώργος', 'Σοφία', 'Νίκος',
-    'Ελένη', 'Δημήτρης', 'Κατερίνα', 'Παναγιώτης', 'Αθηνά',
-    'Στέφανος', 'Ιωάννα', 'Κώστας', 'Εύα', 'Βασίλης',
-    'Χριστίνα', 'Μιχάλης', 'Δέσποινα', 'Ανδρέας', 'Μαρίνα',
-  ],
-  en: [
-    'Alex', 'Maria', 'George', 'Sophie', 'Nick',
-    'Helen', 'James', 'Kate', 'Peter', 'Athena',
-    'Steven', 'Joanna', 'Gus', 'Eva', 'Billy',
-    'Christine', 'Michael', 'Debbie', 'Andrew', 'Marina',
-  ],
-};
-
-const FAKE_ACHIEVEMENTS = [
-  { el: 'Διάβασε 5 ιστορίες', en: 'Read 5 stories' },
-  { el: 'Δημιούργησε 3 ήρωες', en: 'Created 3 heroes' },
-  { el: 'Πέρασε 4 Quiz', en: 'Passed 4 quizzes' },
-  { el: 'Διάβασε 3 βιβλία', en: 'Read 3 books' },
-  { el: 'Έφτιαξε εταιρεία', en: 'Built a business' },
-  { el: 'Δημιούργησε 5 ήρωες', en: 'Created 5 heroes' },
-  { el: 'Πέρασε 6 Quiz', en: 'Passed 6 quizzes' },
-  { el: 'Διάβασε 8 ιστορίες', en: 'Read 8 stories' },
-  { el: 'Έφτιαξε 2 εταιρείες', en: 'Built 2 businesses' },
-  { el: 'Δημιούργησε βίντεο', en: 'Created a video' },
-];
-
-const AVATAR_COLORS = [
-  'from-blue-500 to-cyan-500',
-  'from-purple-500 to-pink-500',
-  'from-amber-500 to-orange-500',
-  'from-emerald-500 to-teal-500',
-  'from-rose-500 to-red-500',
-  'from-indigo-500 to-violet-500',
-  'from-fuchsia-500 to-purple-500',
-  'from-cyan-500 to-blue-500',
-  'from-green-500 to-emerald-500',
-  'from-orange-500 to-amber-500',
+// The rivals are the product's own mascots — bots, and labelled as bots on
+// every row. (This replaced a "TOP 10" of nine invented children with seeded
+// scores and a "rankings reset every Monday" claim: fabricated social proof
+// in a paid kids' product. The weekly seeded jitter stays — the bots' scores
+// genuinely reshuffle each Monday — but nothing here pretends to be a child.)
+// `base` values are tiered so there is always a bot within reach.
+const CREW_BOTS = [
+  { name: 'WiseBot', emoji: '🦉', avatarColor: 'from-emerald-500 to-teal-500', base: 330, line: { el: 'Διάβασε 8 ιστορίες', en: 'Read 8 stories' } },
+  { name: 'Sparken', emoji: '⚡', avatarColor: 'from-amber-500 to-orange-500', base: 240, line: { el: 'Πέρασε 6 quiz', en: 'Passed 6 quizzes' } },
+  { name: 'Crocus', emoji: '🦔', avatarColor: 'from-purple-500 to-pink-500', base: 160, line: { el: 'Έφτιαξε 2 τραγούδια', en: 'Made 2 songs' } },
+  { name: 'Pencilo', emoji: '✏️', avatarColor: 'from-blue-500 to-cyan-500', base: 90, line: { el: 'Ζωγράφισε 3 ήρωες', en: 'Drew 3 heroes' } },
+  { name: 'Link', emoji: '🤖', avatarColor: 'from-indigo-500 to-violet-500', base: 35, line: { el: 'Βρήκε 2 θησαυρούς', en: 'Found 2 treasures' } },
 ];
 
 interface LeaderboardEntry {
   name: string;
+  emoji?: string;
   avatarColor: string;
   score: number;
   achievement: { el: string; en: string };
@@ -196,30 +170,18 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
     (stats.booksRead || 0) * 20 +
     (stats.businessesCreated || 0) * 30;
 
-  // Generate 9 fake players with seeded random (deterministic per week)
-  const fakePlayers: LeaderboardEntry[] = React.useMemo(() => {
-    const shuffled = [...FAKE_NAMES[lang]];
-    // Fisher-Yates with seeded random
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(seededRandom(yearWeekSeed * 1000 + i) * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-
-    return Array.from({ length: 9 }, (_, i) => {
-      const r = seededRandom(yearWeekSeed * 100 + i);
-      const score = Math.floor(50 + r * 400); // Scores between 50-450
-      const achIdx = Math.floor(seededRandom(yearWeekSeed * 200 + i) * FAKE_ACHIEVEMENTS.length);
-      const colorIdx = Math.floor(seededRandom(yearWeekSeed * 300 + i) * AVATAR_COLORS.length);
-
-      return {
-        name: shuffled[i],
-        avatarColor: AVATAR_COLORS[colorIdx],
-        score,
-        achievement: FAKE_ACHIEVEMENTS[achIdx],
-        isPlayer: false,
-      };
-    });
-  }, [yearWeekSeed, lang]);
+  // The mascots' weekly scores: tiered bases plus a per-week jitter, so the
+  // race reshuffles every Monday without ever pretending to be real children.
+  const crewPlayers: LeaderboardEntry[] = React.useMemo(() => {
+    return CREW_BOTS.map((bot, i) => ({
+      name: bot.name,
+      emoji: bot.emoji,
+      avatarColor: bot.avatarColor,
+      score: bot.base + Math.floor(seededRandom(yearWeekSeed * 100 + i) * 40),
+      achievement: bot.line,
+      isPlayer: false,
+    }));
+  }, [yearWeekSeed]);
 
   // Insert player and sort
   const allPlayers = React.useMemo(() => {
@@ -234,18 +196,17 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
       isPlayer: true,
     };
 
-    const combined = [...fakePlayers, playerEntry];
+    const combined = [...crewPlayers, playerEntry];
     combined.sort((a, b) => b.score - a.score);
-    return combined.slice(0, 10);
-  }, [fakePlayers, playerScore, lang]);
+    return combined;
+  }, [crewPlayers, playerScore, lang]);
 
-  // Only show player in top 10 if they have a meaningful score
-  const playerRank = playerScore > 0 ? allPlayers.findIndex(p => p.isPlayer) + 1 : 0;
-  const isInTop10 = playerRank > 0 && playerRank <= 10;
+  const playerRank = allPlayers.findIndex(p => p.isPlayer) + 1;
+  const isFirst = playerRank === 1;
 
-  // If player not in top 10, calculate what they need
-  const top10MinScore = allPlayers[allPlayers.length - 1]?.score || 0;
-  const pointsNeeded = isInTop10 ? 0 : top10MinScore - playerScore + 1;
+  // The bot directly ahead — the honest, always-reachable target.
+  const nextAhead = isFirst ? null : allPlayers[playerRank - 2];
+  const pointsNeeded = nextAhead ? nextAhead.score - playerScore + 1 : 0;
 
   const rankEmojis = ['👑', '🥈', '🥉'];
   const rankBgColors = [
@@ -264,31 +225,29 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
           </div>
           <div>
             <h2 className="font-[1000] text-white text-lg italic uppercase tracking-tight">
-              {lang === 'el' ? 'TOP 10 ΕΒΔΟΜΑΔΑΣ' : 'WEEKLY TOP 10'}
+              {lang === 'el' ? 'Ο ΑΓΩΝΑΣ ΤΗΣ ΠΑΡΕΑΣ' : 'CREW RACE'}
             </h2>
             <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">
               {lang === 'el' ? `Εβδομάδα ${weekNum}` : `Week ${weekNum}`}
             </p>
           </div>
         </div>
-        {isInTop10 && (
-          <div className="px-4 py-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl">
-            <span className="text-amber-300 font-[1000] text-sm italic">
-              #{playerRank}
-            </span>
-          </div>
-        )}
+        <div className="px-4 py-2 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl">
+          <span className="text-amber-300 font-[1000] text-sm italic">
+            #{playerRank}
+          </span>
+        </div>
       </div>
 
       {/* Player rank callout */}
-      {isInTop10 ? (
+      {isFirst ? (
         <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 rounded-2xl p-4 flex items-center gap-3">
-          <div className="text-3xl">{playerRank <= 3 ? rankEmojis[playerRank - 1] : '🔥'}</div>
+          <div className="text-3xl">👑</div>
           <div>
             <p className="text-amber-300 font-[1000] text-base italic uppercase">
               {lang === 'el'
-                ? `Είσαι #${playerRank} αυτή την εβδομάδα!`
-                : `You are #${playerRank} this week!`}
+                ? 'Νίκησες όλη την παρέα αυτή την εβδομάδα!'
+                : 'You beat the whole crew this week!'}
             </p>
             <p className="text-white/40 text-xs font-bold">
               {lang === 'el' ? `${playerScore} πόντοι` : `${playerScore} points`}
@@ -297,16 +256,16 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
         </div>
       ) : (
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-4 flex items-center gap-3">
-          <div className="text-3xl">🚀</div>
+          <div className="text-3xl">{playerScore === 0 ? '🚀' : nextAhead?.emoji || '🔥'}</div>
           <div>
             <p className="text-blue-300 font-[1000] text-sm italic uppercase">
               {lang === 'el'
                 ? playerScore === 0
                   ? 'Ξεκίνα το ταξίδι σου!'
-                  : `Λίγο ακόμα! Χρειάζεσαι ${pointsNeeded} πόντους!`
+                  : `Πρόλαβε τον ${nextAhead?.name}! Θέλεις ${pointsNeeded} πόντους!`
                 : playerScore === 0
                   ? 'Start your journey!'
-                  : `Almost there! You need ${pointsNeeded} points!`}
+                  : `Catch ${nextAhead?.name}! You need ${pointsNeeded} points!`}
             </p>
             <p className="text-white/40 text-xs font-bold">
               {lang === 'el'
@@ -350,7 +309,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
                 player.isPlayer ? 'ring-2 ring-amber-400/50' : ''
               }`}>
                 <span className="text-white font-[1000] text-sm">
-                  {player.isPlayer ? '⭐' : player.name.charAt(0)}
+                  {player.isPlayer ? '⭐' : player.emoji}
                 </span>
               </div>
 
@@ -362,6 +321,11 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
                   {player.name}
                 </p>
                 <p className="text-white/30 text-[10px] font-bold truncate">
+                  {!player.isPlayer && (
+                    <span className="mr-1.5 px-1 py-px rounded bg-white/10 text-white/40 text-[8px] font-black tracking-widest">
+                      BOT
+                    </span>
+                  )}
                   {player.achievement[lang]}
                 </p>
               </div>
@@ -382,12 +346,12 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
         })}
       </div>
 
-      {/* Motivational footer */}
+      {/* Honest footer: the rivals are our bots, and their round really does reshuffle weekly */}
       <div className="text-center pt-2">
         <p className="text-white/20 text-[10px] font-black uppercase tracking-[0.3em]">
           {lang === 'el'
-            ? '📊 Η κατάταξη ανανεώνεται κάθε Δευτέρα'
-            : '📊 Rankings reset every Monday'}
+            ? '🤖 Η παρέα είναι bots — νέος γύρος κάθε Δευτέρα'
+            : '🤖 The crew are bots — new round every Monday'}
         </p>
       </div>
     </div>
