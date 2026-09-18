@@ -34,6 +34,18 @@ export interface PlaceStamp {
   at: string;
   /** Whether the question was right on that first attempt. */
   correct: boolean;
+  /**
+   * True when the question was unlocked by «Είμαι εδώ!» — the family was standing there —
+   * rather than read at home. The North Star is «completed REAL-WORLD missions», and
+   * without this a story read on the sofa and a place reached on foot are the same stamp.
+   *
+   * ABSENT on every stamp written before this field existed. Treat absent as UNKNOWN,
+   * never as false, in any count or report: some of those were walked.
+   *
+   * One boolean, decided on the device. No position, accuracy or time of fix is stored
+   * or passed to anything — §28.
+   */
+  onSite?: boolean;
 }
 
 export interface WorldProgress {
@@ -112,7 +124,11 @@ function stampMap(x: unknown): Record<string, PlaceStamp> {
   if (!isObject(x)) return out;
   for (const [key, value] of Object.entries(x)) {
     if (isObject(value) && typeof value.at === 'string' && typeof value.correct === 'boolean') {
-      out[key] = { at: value.at, correct: value.correct };
+      const stamp: PlaceStamp = { at: value.at, correct: value.correct };
+      // Kept only when it is a real boolean. Absent stays absent — "unknown" — rather than
+      // being defaulted to false and quietly reclassifying a walked stamp as a sofa one.
+      if (typeof value.onSite === 'boolean') stamp.onSite = value.onSite;
+      out[key] = stamp;
     }
   }
   return out;

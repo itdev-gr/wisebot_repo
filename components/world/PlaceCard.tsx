@@ -71,7 +71,12 @@ export interface PlaceCardProps {
   cityName?: LocText;
   /** From `useWorldProgress`. Present means this place is already visited and paid. */
   stamp?: PlaceStamp;
-  onComplete: (correct: boolean) => void;
+  /**
+   * `onSite` is this card's own `geo === 'here'` — the family pressed «Είμαι εδώ!» and
+   * the phone agreed. NOT the local `onSite` const, which is also true for any place
+   * already stamped and would mark a re-read at home as a real-world visit.
+   */
+  onComplete: (correct: boolean, onSite: boolean) => void;
   /** Present only when `place.museum` exists. */
   onEnterMuseum?: () => void;
   onBack: () => void;
@@ -484,7 +489,7 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
     if (firedRef.current.has(place.id)) return;
     firedRef.current.add(place.id);
     setAnswer({ placeId: place.id, index });
-    onComplete(index === shuffled.correctIndex);
+    onComplete(index === shuffled.correctIndex, geo === 'here');
   };
 
   const categoryStyle = CATEGORY_STYLE[place.category] ?? FALLBACK_CATEGORY_STYLE;

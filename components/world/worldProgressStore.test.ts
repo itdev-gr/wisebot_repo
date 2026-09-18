@@ -118,6 +118,33 @@ describe('reading is not a write', () => {
   });
 });
 
+describe('onSite on a stamp', () => {
+  it('keeps true and keeps false', () => {
+    store({
+      v: WORLD_PROGRESS_VERSION,
+      places: {
+        'rome-colosseum': { at: '2026-09-18', correct: true, onSite: true },
+        'rome-pantheon': { at: '2026-09-18', correct: true, onSite: false },
+      },
+    });
+    const p = readWorldProgress();
+    expect(p.places['rome-colosseum'].onSite).toBe(true);
+    expect(p.places['rome-pantheon'].onSite).toBe(false);
+  });
+
+  it('leaves it ABSENT on stamps written before the field existed — unknown, not false', () => {
+    store({ v: WORLD_PROGRESS_VERSION, places: ROME });
+    const stamp = readWorldProgress().places['rome-colosseum'];
+    expect('onSite' in stamp).toBe(false);
+  });
+
+  it('drops a non-boolean onSite but keeps the stamp itself', () => {
+    store({ v: WORLD_PROGRESS_VERSION, places: { 'rome-colosseum': { at: '2026-09-18', correct: true, onSite: 'yes' } } });
+    const stamp = readWorldProgress().places['rome-colosseum'];
+    expect(stamp).toEqual({ at: '2026-09-18', correct: true });
+  });
+});
+
 describe('the migration ladder', () => {
   it('migrates without reading storage, so the cloud sync can use it too', () => {
     expect(migrateWorldProgress({ v: 1, places: ROME }).places).toEqual(ROME);
