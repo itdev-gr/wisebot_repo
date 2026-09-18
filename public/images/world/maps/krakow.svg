@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 667" width="1000" height="667" role="img" aria-label="Stylised map of Kraków">
+  <title>Kraków — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/poland.ts
+    (north 50.071, south 50.043, east 19.953, west 19.888) so that place pins can be
+    projected onto it rather than positioned by hand. The bend of the Wisła, the rock of
+    Wawel above it, the green ring of the Planty around the Old Town, the Błonia meadow
+    and the cone of the Kościuszko Mound in the west are all placed from those bounds,
+    and nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f0e2" />
+      <stop offset="1" stop-color="#ece2cd" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a6cfdf" />
+      <stop offset="1" stop-color="#79b3cb" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dcd0b7" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="667" fill="url(#ground)" />
+  <rect width="1000" height="667" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The Wisła. It comes in from the west, runs east under the meadow, swings up
+       around the foot of Wawel and then turns south-east past Kazimierz. -->
+  <path
+    d="M0 602 C 120 601, 220 596, 300 582 C 400 564, 470 540, 560 512 C 630 487, 682 452, 745 428 C 790 412, 832 430, 862 482 C 888 527, 904 553, 920 585 C 942 628, 968 650, 1000 662"
+    fill="none"
+    stroke="url(#water)"
+    stroke-width="27"
+    stroke-linecap="round"
+  />
+
+  <!-- Wawel: the limestone rock the castle and the cathedral share, with the cave in it. -->
+  <ellipse cx="742" cy="392" rx="58" ry="42" fill="#dcd3ae" stroke="#b3a880" stroke-width="2" />
+  <circle cx="700" cy="424" r="7" fill="#8a7c62" opacity="0.7" />
+
+  <!-- The Planty: the green ring planted where the city walls stood, around the Old Town. -->
+  <ellipse
+    cx="766"
+    cy="248"
+    rx="88"
+    ry="116"
+    fill="#e9eed8"
+    stroke="#a9c089"
+    stroke-width="13"
+    opacity="0.95"
+  />
+
+  <!-- The Main Square, the open rectangle in the middle of the ring. -->
+  <rect x="736" y="200" width="62" height="44" rx="4" fill="#efe7d3" stroke="#bcac89" stroke-width="2" />
+
+  <!-- The Błonia: a meadow the size of a small farm, right inside the city. -->
+  <ellipse cx="524" cy="302" rx="76" ry="48" fill="#c9dcaa" stroke="#a4bb84" stroke-width="2" />
+
+  <!-- The Kościuszko Mound in the west: a cone people built by hand, inside a brick fort. -->
+  <g transform="translate(81 384)">
+    <path d="M-46 34 L0 -34 L46 34 Z" fill="#cbd9ac" stroke="#9fb583" stroke-width="2" />
+    <path d="M-62 40 L62 40" stroke="#b08d72" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <!-- Kazimierz, the town that became a neighbourhood, on the near bank of the bend. -->
+  <ellipse cx="915" cy="466" rx="52" ry="40" fill="#eee3cb" stroke="#bda98a" stroke-width="2" stroke-dasharray="7 5" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="72" font-size="42" letter-spacing="6">ΚΡΑΚΟΒΙΑ</text>
+    <text x="40" y="106" font-size="22" letter-spacing="4">KRAKÓW</text>
+    <text x="766" y="150" font-size="17" text-anchor="middle" letter-spacing="3">PLANTY</text>
+    <text x="767" y="227" font-size="13" text-anchor="middle" letter-spacing="1">RYNEK</text>
+    <text x="742" y="398" font-size="17" text-anchor="middle" letter-spacing="2">WAWEL</text>
+    <text x="524" y="308" font-size="17" text-anchor="middle" letter-spacing="3">BŁONIA</text>
+    <text x="915" y="472" font-size="15" text-anchor="middle" letter-spacing="2">KAZIMIERZ</text>
+    <text x="81" y="448" font-size="15" text-anchor="middle" letter-spacing="2">KOPIEC</text>
+  </g>
+
+  <text
+    x="330"
+    y="556"
+    font-size="18"
+    fill="#2f7189"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="4"
+    transform="rotate(-12 330 556)"
+  >WISŁA</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(120 500)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="25" fill="none" stroke-width="2" />
+    <path d="M0 -21 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-29" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>

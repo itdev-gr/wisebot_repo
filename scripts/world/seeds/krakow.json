@@ -1,0 +1,47 @@
+{
+  "city": "krakow",
+  "country": "poland",
+  "centre": { "lat": 50.0666, "lng": 19.9401 },
+  "note": "Wikidata q-ids only. Sixteen places, converted from the Explorer product's ten spots plus six added here. CENTRE: this is Wikidata's point for Dzielnica I Stare Miasto (Q11695631), Kraków's Old Town district, and NOT Wikidata's point for the city itself (Q31487). The city's own coordinate sits 34 m from the Cloth Hall and 54 m from the Town Hall Tower, because whoever set it chose the Main Square, so using it made the audit report both of them as centroid mistakes. That is a false positive — each of those two has its own distinct coordinate and is exactly where it should be — and the fix belongs on the reference point, not on the places. Same reasoning, and same wording, as vienna.json. NO ENTRANCE IS CLAIMED anywhere in this file: no door in Kraków has been measured, so every point is the centroid, area or viewpoint it actually is. EXPLORER: its ten spots are all here except 'main-square' (Rynek Główny, Q770631), which is dropped as a separate place because its coordinate sits 12 m from the Cloth Hall's — the hall stands in the middle of the square, so they are one pin, not two. The square keeps its story inside krakow-sukiennice. Explorer's 'florian-gate-barbican' is split back into two places, because the gate and the Barbican are 92 m apart and each carries its own story. Explorer's 'wawel-courtyard' is split into the castle and the cathedral, 89 m apart, for the same reason. Explorer's 'kazimierz-szeroka' is pinned on the Old Synagogue at the street's end rather than on the street, because a building has a coordinate and a street does not. Explorer's 'wawel-dragon' is pinned on the cave, Smocza Jama, rather than on the bronze dragon: the statue has no Wikidata item of its own and it stands at the cave's exit, so the cave is the pin and the dragon lives in its story. ADDED HERE, to reach sixteen places, two museums and all eight categories: Muzeum Książąt Czartoryskich (art, museum interior), Kopiec Kościuszki (nature), Rynek Kleparski (food), Stadion Cracovii (sport). THE CZARTORYSKI Q-ID IS THE ONE PLACE WHERE BUILDING AND INSTITUTION ARE THE SAME ITEM: Wikidata has no separate item for the palace on ul. Pijarska, and Q1450630 carries P31 architectural structure (Q811165) alongside art museum, with a P625 on the museum building itself rather than on the National Museum's head office. Checked by eye against the Old Town cluster: it lands 102 m from St Florian's Gate, which is where the museum is.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "krakow-barbakan", "name": "Barbakan", "wikidata": "Q807309", "anchor": "centroid" },
+    { "id": "krakow-brama-florianska", "name": "Brama Floriańska", "wikidata": "Q1363724", "anchor": "centroid" },
+
+    { "id": "krakow-sukiennice", "name": "Sukiennice", "wikidata": "Q1072350", "anchor": "centroid",
+      "note": "Carries the Main Square's story too. Q770631, the square itself, is 12 m away and is not seeded — see the file note." },
+
+    { "id": "krakow-kosciol-mariacki", "name": "Kościół Mariacki", "wikidata": "Q1143171", "anchor": "centroid",
+      "note": "Found by searching 'Bazylika Mariacka' in Polish: the item's own label is the long parish name, kościół archiprezbiterialny pw. Wniebowzięcia NMP w Krakowie, which no English search returns." },
+
+    { "id": "krakow-wieza-ratuszowa", "name": "Wieża ratuszowa", "wikidata": "Q1786361", "anchor": "centroid" },
+    { "id": "krakow-collegium-maius", "name": "Collegium Maius", "wikidata": "Q919596", "anchor": "centroid",
+      "note": "The building (P31 university building), not the Jagiellonian University and not its museum service. Six other Collegium Maius items exist, in Erfurt, Poznań, Toruń and Opole; the Polish description names Kraków." },
+
+    { "id": "krakow-kosciol-piotra-pawla", "name": "Kościół św. Piotra i Pawła", "wikidata": "Q338657", "anchor": "centroid",
+      "note": "Nine churches of Saints Peter and Paul come back from one Polish search, in Vilnius, Lviv, Gdańsk, Potsdam, Tbilisi and elsewhere. Q338657 is the one whose description says Kraków." },
+
+    { "id": "krakow-wawel-zamek", "name": "Zamek Królewski na Wawelu", "wikidata": "Q18820", "anchor": "area",
+      "note": "The castle, not the institution. Q7975612 is 'Zamek Królewski na Wawelu – Państwowe Zbiory Sztuki', the state art collection founded in 1930, which is an organisation and not a courtyard." },
+
+    { "id": "krakow-katedra-wawelska", "name": "Katedra na Wawelu", "wikidata": "Q638519", "anchor": "centroid" },
+
+    { "id": "krakow-smocza-jama", "name": "Smocza Jama", "wikidata": "Q836876", "anchor": "centroid",
+      "note": "Three caves share this name in Poland, one in the Tatras and one in a park at Młoszowa. Q836876 is the limestone cave inside Wawel hill." },
+
+    { "id": "krakow-kladka-bernatka", "name": "Kładka Ojca Bernatka", "wikidata": "Q11752074", "anchor": "centroid" },
+    { "id": "krakow-stara-synagoga", "name": "Synagoga Stara", "wikidata": "Q3502453", "anchor": "centroid" },
+
+    { "id": "krakow-muzeum-czartoryskich", "name": "Muzeum Książąt Czartoryskich", "wikidata": "Q1450630", "anchor": "centroid",
+      "note": "See the file note: no separate item exists for the building, and this one carries P31 architectural structure with its point on the museum on ul. Pijarska." },
+
+    { "id": "krakow-kopiec-kosciuszki", "name": "Kopiec Kościuszki", "wikidata": "Q641398", "anchor": "viewpoint",
+      "note": "Ten mounds in Poland are named after Kościuszko. Q641398 is the Kraków one, finished in 1823. Seeded as a viewpoint rather than a centroid because that is what a mound is: you climb it for the view, and the resolver's tolerance for a viewpoint is the right one for a hill." },
+
+    { "id": "krakow-rynek-kleparski", "name": "Rynek Kleparski", "wikidata": "Q9324454", "anchor": "area",
+      "note": "The square that holds the Stary Kleparz market. Searching 'Stary Kleparz' returns Q116663895, which is a tram stop — the classic wrong pin, two streets from the stalls." },
+
+    { "id": "krakow-stadion-cracovii", "name": "Stadion Cracovii", "wikidata": "Q738643", "anchor": "area",
+      "note": "The current stadium, opened in 2010. Q65169272 is the old ground on the same name and is a different item." }
+  ]
+}
