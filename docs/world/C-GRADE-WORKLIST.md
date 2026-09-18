@@ -9,7 +9,7 @@ OpenStreetMap answers reliably, and the rule is then applied to whatever is stil
 
 | | Places | In a trail | No OSM cross-check |
 | --- | --- | --- | --- |
-| Outside Greece | 31 | 29 | 19 |
+| Outside Greece | 77 | 74 | 63 |
 | Greece | 16 | 16 | 13 |
 
 **Order of work.** Re-resolve the "no OSM" rows first, one city at a time, only when
@@ -33,12 +33,43 @@ C places are upgraded by the owner walking to them, per the decisions table.
 | barcelona | Barcelona Zoo (`barcelona-zoo`) | yes | no OSM: re-resolve first |
 | barcelona | Tibidabo Amusement Park (`barcelona-tibidabo`) | yes | no OSM: re-resolve first |
 | berlin | The East Side Gallery (`berlin-east-side-gallery`) | yes | one source disagrees: re-seed |
+| bruges | The Belfort (`bruges-belfort`) | yes | no OSM: re-resolve first |
+| bruges | The Vismarkt (`bruges-vismarkt`) | yes | no OSM: re-resolve first |
+| bruges | The Rozenhoedkaai (`bruges-rozenhoedkaai`) | yes | no OSM: re-resolve first |
+| bruges | The Bonifaciusbrug (`bruges-bonifaciusbrug`) | yes | no OSM: re-resolve first |
+| bruges | The Gruuthuse (`bruges-gruuthuse`) | no | no OSM: re-resolve first |
+| bruges | The Sint-Janshospitaal (`bruges-sint-janshospitaal`) | yes | no OSM: re-resolve first |
+| bruges | The Begijnhof (`bruges-begijnhof`) | yes | no OSM: re-resolve first |
+| bruges | The Minnewater (`bruges-minnewater`) | yes | no OSM: re-resolve first |
+| bruges | The Sint-Janshuismolen (`bruges-sint-janshuismolen`) | yes | no OSM: re-resolve first |
+| bruges | The Sint-Sebastiaansgilde (`bruges-sint-sebastiaansgilde`) | yes | no OSM: re-resolve first |
+| bruges | The Koningin Astridpark (`bruges-astridpark`) | yes | no OSM: re-resolve first |
 | budapest | Heroes’ Square (`budapest-heroes-square`) | yes | no OSM: re-resolve first |
 | budapest | The Széchenyi Baths (`budapest-szechenyi-bath`) | yes | no OSM: re-resolve first |
 | budapest | The Zoo and Botanical Garden (`budapest-zoo`) | no | no OSM: re-resolve first |
+| copenhagen | Christiansborg Palace (`copenhagen-christiansborg`) | yes | no OSM: re-resolve first |
+| copenhagen | The Round Tower (`copenhagen-rundetaarn`) | yes | no OSM: re-resolve first |
+| copenhagen | The Torvehallerne markets (`copenhagen-torvehallerne`) | yes | no OSM: re-resolve first |
+| copenhagen | Kastellet (`copenhagen-kastellet`) | yes | no OSM: re-resolve first |
+| copenhagen | The Harbour Bath (`copenhagen-havnebadet`) | yes | no OSM: re-resolve first |
+| copenhagen | Amager Bakke (`copenhagen-amager-bakke`) | yes | no OSM: re-resolve first |
+| dubrovnik | Orlando’s Column (`dubrovnik-orlando-column`) | yes | no OSM: re-resolve first |
+| dubrovnik | The Rupe Granary (`dubrovnik-rupe-granary`) | yes | no OSM: re-resolve first |
+| dubrovnik | Gundulić Square (`dubrovnik-gundulic-square`) | yes | no OSM: re-resolve first |
+| dubrovnik | The City Walls (`dubrovnik-city-walls`) | yes | no OSM: re-resolve first |
+| dubrovnik | Fort Lovrijenac (`dubrovnik-lovrijenac`) | yes | no OSM: re-resolve first |
+| dubrovnik | St John’s Fortress (`dubrovnik-st-john-fortress`) | yes | no OSM: re-resolve first |
+| dubrovnik | The Island of Lokrum (`dubrovnik-lokrum`) | yes | no OSM: re-resolve first |
+| florence | The Boboli Gardens (`florence-boboli`) | yes | no OSM: re-resolve first |
+| florence | San Miniato al Monte (`florence-san-miniato`) | yes | no OSM: re-resolve first |
 | istanbul | The Basilica Cistern (Yerebatan) (`istanbul-basilica-cistern`) | yes | one source disagrees: re-seed |
 | istanbul | Gülhane Park (`istanbul-gulhane-park`) | no | one source disagrees: re-seed |
 | istanbul | The Rahmi M. Koç Museum (`istanbul-rahmi-koc-museum`) | yes | one source disagrees: re-seed |
+| krakow | St Florian’s Gate (`krakow-brama-florianska`) | yes | no OSM: re-resolve first |
+| krakow | The Cloth Hall (`krakow-sukiennice`) | yes | no OSM: re-resolve first |
+| krakow | Wawel Royal Castle (`krakow-wawel-zamek`) | yes | one source disagrees: re-seed |
+| krakow | The Kościuszko Mound (`krakow-kopiec-kosciuszki`) | yes | no OSM: re-resolve first |
+| krakow | The Kleparz Market (`krakow-rynek-kleparski`) | yes | no OSM: re-resolve first |
 | lisbon | Praça do Comércio (`lisbon-praca-do-comercio`) | yes | one source disagrees: re-seed |
 | lisbon | The Santa Luzia terrace (`lisbon-miradouro-de-santa-luzia`) | yes | no OSM: re-resolve first |
 | lisbon | The Belém Tower (`lisbon-torre-de-belem`) | yes | no OSM: re-resolve first |
@@ -46,6 +77,11 @@ C places are upgraded by the owner walking to them, per the decisions table.
 | lisbon | The Águas Livres Aqueduct (`lisbon-aqueduto-das-aguas-livres`) | yes | one source disagrees: re-seed |
 | lisbon | The Pastéis de Belém bakery (`lisbon-pasteis-de-belem`) | yes | no OSM: re-resolve first |
 | london | Covent Garden (`london-covent-garden`) | yes | no OSM: re-resolve first |
+| madrid | The Natural Science Museum (`madrid-ciencias-naturales`) | yes | no OSM: re-resolve first |
+| madrid | The Royal Botanic Garden (`madrid-jardin-botanico`) | yes | no OSM: re-resolve first |
+| nicosia | Eleftheria Square (`nicosia-eleftheria-square`) | yes | no OSM: re-resolve first |
+| nicosia | The Venetian Walls (`nicosia-venetian-walls`) | yes | no OSM: re-resolve first |
+| nicosia | Panagia Faneromeni (`nicosia-faneromeni`) | yes | no OSM: re-resolve first |
 | prague | Kampa Island (`prague-kampa`) | yes | no OSM: re-resolve first |
 | prague | Wenceslas Square (`prague-wenceslas-square`) | yes | no OSM: re-resolve first |
 | prague | The National Museum (`prague-national-museum`) | yes | no OSM: re-resolve first |
@@ -53,6 +89,16 @@ C places are upgraded by the owner walking to them, per the decisions table.
 | prague | The Vyšehrad fort (`prague-vysehrad`) | yes | no OSM: re-resolve first |
 | prague | The Havel Market (`prague-havelske-trziste`) | yes | no OSM: re-resolve first |
 | rome | Palazzo Massimo (`rome-palazzo-massimo`) | yes | one source disagrees: re-seed |
+| seville | The Royal Alcázar (`seville-alcazar`) | yes | no OSM: re-resolve first |
+| seville | The Archive of the Indies (`seville-archivo-indias`) | yes | no OSM: re-resolve first |
+| seville | María Luisa Park (`seville-maria-luisa`) | yes | no OSM: re-resolve first |
+| seville | The Triana Market (`seville-mercado-triana`) | yes | no OSM: re-resolve first |
+| seville | The House of Pilate (`seville-casa-pilatos`) | yes | no OSM: re-resolve first |
+| seville | The old Royal Factory (`seville-fabrica-tabacos`) | yes | no OSM: re-resolve first |
+| seville | The Palacio de las Dueñas (`seville-duenas`) | yes | no OSM: re-resolve first |
+| venice | The Accademia Gallery (`venice-accademia`) | yes | one source disagrees: re-seed |
+| venice | The San Trovaso gondola yard (`venice-squero`) | yes | no OSM: re-resolve first |
+| venice | The Peggy Guggenheim Collection (`venice-guggenheim`) | yes | no OSM: re-resolve first |
 | vienna | Schönbrunn Zoo (`vienna-schonbrunn-zoo`) | yes | one source disagrees: re-seed |
 
 ## Greece — the owner's walk
