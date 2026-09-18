@@ -451,25 +451,25 @@ export const places: Place[] = [
       el:
         'Σε αυτή τη γωνία της πλατείας στεκόταν κάποτε το δημαρχείο της Κρακοβίας: ' +
         'αίθουσες συμβουλίου, ένα πανδοχείο, και στο υπόγειο κελιά. Το 1820 η πόλη το ' +
-        'βρήκε παλιό, ετοιμόρροπο και στη μέση, και το γκρέμισε. Τον πύργο όμως δεν ' +
-        'μπόρεσε να τον ρίξει κανείς: ήταν πολύ όμορφος, και έμεινε μόνος του στο ' +
+        'βρήκε παλιό, ετοιμόρροπο και στη μέση, και το γκρέμισε. Τον πύργο όμως είχε ' +
+        'αποφασίσει από πριν να τον κρατήσει, για τη φρουρά της, και έμεινε μόνος του στο ' +
         'πλακόστρωτο σαν να ξέχασε να φύγει μαζί με το σπίτι του. Έχει ύψος εβδομήντα ' +
-        'μέτρα και χτίστηκε γύρω στο 1300 από τούβλα και πέτρα. Το 1703 μια δυνατή ' +
+        'μέτρα και χτίστηκε πριν από εξακόσια περίπου χρόνια, στις αρχές του 1400, από τούβλα και πέτρα. Το 1703 μια δυνατή ' +
         'καταιγίδα τον ταρακούνησε και από τότε γέρνει πενήντα πέντε εκατοστά προς τη μία ' +
         'μεριά· πρέπει να κοιτάξεις προσεκτικά για να το δεις. Εκατόν δέκα σκαλιά ' +
         'ανεβάζουν σε μια θέα πάνω από όλη την πλατεία. Και λίγα βήματα πιο πέρα, από το ' +
-        '2005, ένα τεράστιο μπρούντζινο κεφάλι με δεμένα μάτια κείτεται στο πλάι. Είναι ' +
+        '2003, ένα τεράστιο μπρούντζινο κεφάλι με δεμένα μάτια κείτεται στο πλάι. Είναι ' +
         'κούφιο, και τα παιδιά μπαίνουν μέσα και κοιτούν έξω από τα μάτια του.',
       en:
         'On this corner of the square there once stood Kraków’s town hall: council rooms, ' +
         'an inn, and cells down in the cellar. In 1820 the city found it old, crumbling ' +
-        'and in the way, and pulled it down. Nobody could bring themselves to fell the ' +
-        'tower, though: it was too beautiful, and it was left alone on the paving as if it ' +
+        'and in the way, and pulled it down. The tower, though, the city had decided in ' +
+        'advance to keep, for its guards, and it was left alone on the paving as if it ' +
         'had forgotten to leave with its house. It is seventy metres high and was built ' +
-        'around 1300 of brick and stone. In 1703 a violent storm shook it, and ever since ' +
+        'about six hundred years ago, in the early 1400s, of brick and stone. In 1703 a violent storm shook it, and ever since ' +
         'it has leaned fifty-five centimetres to one side; you have to look carefully to ' +
         'catch it. A hundred and ten steps climb to a view over the whole square. And a ' +
-        'few paces away, since 2005, an enormous bronze head with bandaged eyes lies on ' +
+        'few paces away, since 2003, an enormous bronze head with bandaged eyes lies on ' +
         'its side. It is hollow, and children climb inside and look out through its eyes.',
     },
     facts: [
@@ -482,8 +482,8 @@ export const places: Place[] = [
         en: 'It leans 55 centimetres after a storm in 1703, but it stands firm.',
       },
       {
-        el: 'Το γλυπτό κεφάλι δίπλα του λέγεται Eros Bendato και είναι του 2005.',
-        en: 'The sculpted head beside it is called Eros Bendato and dates from 2005.',
+        el: 'Το γλυπτό κεφάλι δίπλα του λέγεται Eros Bendato και βρίσκεται εδώ από το 2003.',
+        en: 'The sculpted head beside it is called Eros Bendato and has stood here since 2003.',
       },
     ],
     location: {
@@ -516,11 +516,11 @@ export const places: Place[] = [
       ],
       explanation: {
         el:
-          'Το δημαρχείο ήταν χαλασμένο και η πόλη το κατεδάφισε. Τον πύργο τον κράτησαν ' +
-          'επειδή τον έβρισκαν πολύ όμορφο για να χαθεί μαζί με τα υπόλοιπα.',
+          'Το δημαρχείο ήταν χαλασμένο και η πόλη το κατεδάφισε. Τον πύργο είχε αποφασίσει ' +
+          'από πριν να τον κρατήσει, γιατί εκεί είχε τη φρουρά της.',
         en:
-          'The town hall was crumbling and the city demolished it. The tower was kept ' +
-          'because people thought it far too beautiful to lose along with the rest.',
+          'The town hall was crumbling and the city demolished it. It had decided in ' +
+          'advance to keep the tower, because its guard post was there.',
       },
     },
   },
@@ -684,15 +684,15 @@ export const places: Place[] = [
                 el:
                   'Πέντε φορές τη μέρα, στις εννιά, στις έντεκα, στη μία, στις τρεις και ' +
                   'στις πέντε, δύο πορτούλες ανοίγουν και ξύλινες φιγούρες βγαίνουν βόλτα ' +
-                  'σε έναν κύκλο: βασιλιάδες, καθηγητές, ένας φοιτητής. Παίζει μαζί τους ' +
+                  'σε έναν κύκλο: μια βασίλισσα, ένας βασιλιάς, καθηγητές και ο κλητήρας του πανεπιστημίου. Παίζει μαζί τους ' +
                   'το Gaudeamus igitur, το τραγούδι που τραγουδούν οι φοιτητές σε όλη την ' +
                   'Ευρώπη εδώ και αιώνες. Το ρολόι μοιάζει μεσαιωνικό και δεν είναι: ' +
                   'μπήκε στη θέση του γύρω στο 2000. Είναι το νεότερο πράγμα στην αυλή και ' +
                   'το πιο πολυφωτογραφημένο.',
                 en:
                   'Five times a day — at nine, eleven, one, three and five — two small ' +
-                  'doors open and wooden figures come out for a walk in a circle: kings, ' +
-                  'professors, a student. Gaudeamus igitur plays along with them, the song ' +
+                  'doors open and wooden figures come out for a walk in a circle: a queen, a king, ' +
+                  'professors and the university’s beadle. Gaudeamus igitur plays along with them, the song ' +
                   'students have sung across Europe for centuries. The clock looks ' +
                   'medieval and is not: it was put up around the year 2000. It is the ' +
                   'newest thing in the courtyard and the most photographed.',
@@ -890,13 +890,13 @@ export const places: Place[] = [
               'Εδώ τελειώνει η ξενάγηση, και εδώ γίνεται πιο παράξενη. Σε βιτρίνες ' +
               'βρίσκονται μπρούντζινοι δίσκοι με χαραγμένες γραμμές, μια υδρόγειος από ' +
               'χρυσωμένο μέταλλο και ένα βαρύ χρυσό αγαλματάκι που δεν έχει καμία σχέση ' +
-              'με αστρονομία. Όλα τους είναι εργαλεία για να βλέπεις κάτι που δεν φαίνεται ' +
+              'με αστρονομία. Τα όργανα είναι εργαλεία για να βλέπεις κάτι που δεν φαίνεται ' +
               'με γυμνό μάτι.',
             en:
               'This is where the tour ends, and where it gets stranger. In the cases lie ' +
               'bronze discs scratched with lines, a globe of gilded metal, and one heavy ' +
-              'gold figurine with nothing at all to do with astronomy. Every one of them ' +
-              'is a tool for seeing something the naked eye cannot.',
+              'gold figurine with nothing at all to do with astronomy. The instruments are ' +
+              'tools for seeing something the naked eye cannot.',
           },
           exhibits: [
             {
@@ -1007,8 +1007,8 @@ export const places: Place[] = [
                   { el: 'Το αγόρασε το μουσείο σε μια δημοπρασία', en: 'The museum bought it at an auction some years ago' },
                 ],
                 explanation: {
-                  el: 'Ο Wajda πήρε το τιμητικό Όσκαρ το 2000 και το δώρισε αμέσως στο πανεπιστήμιο της πόλης του.',
-                  en: 'Wajda received the honorary award in 2000 and at once donated it to the university of his city.',
+                  el: 'Ο Wajda πήρε το τιμητικό Όσκαρ το 2000 και το δώρισε αμέσως στο Πανεπιστήμιο Jagiellonian της Κρακοβίας.',
+                  en: 'Wajda received the honorary award in 2000 and at once donated it to the Jagiellonian University in Kraków.',
                 },
               },
             },
@@ -1191,8 +1191,8 @@ export const places: Place[] = [
         'ορόφους από καμάρες, η μία πάνω στην άλλη, με τις κολόνες του τελευταίου ορόφου ' +
         'αφύσικα ψηλές. Δεν είναι λάθος: τις τράβηξαν επίτηδες, ώστε να φαίνεται η αυλή ' +
         'ακόμα πιο ψηλή απ’ όσο είναι. Μέσα στα δωμάτια κρέμονται τεράστιες ταπισερί ' +
-        'υφασμένες στη Φλάνδρα τον 16ο αιώνα, με ζώα, δέντρα και ιστορίες της Βίβλου. Ο ' +
-        'βασιλιάς παρήγγειλε πολλές εκατοντάδες, ταξίδεψαν και κρύφτηκαν σε δύο πολέμους, ' +
+        'υφασμένες στη Φλάνδρα τον 16ο αιώνα, με ζώα, δέντρα και ιστορίες της Βίβλου. Τις ' +
+        'περισσότερες τις παρήγγειλε ο γιος του· σώζονται πάνω από εκατό, ταξίδεψαν και κρύφτηκαν σε δύο πολέμους, ' +
         'και όσες γύρισαν πίσω κρέμονται πάλι στους τοίχους τους.',
       en:
         'Wawel hill is a limestone rock beside the river, and the rulers of Poland sat on ' +
@@ -1203,8 +1203,8 @@ export const places: Place[] = [
         'other, and the columns of the top storey are oddly tall. That is not a mistake: ' +
         'they were stretched on purpose, so the courtyard would look even higher than it ' +
         'is. Inside the rooms hang enormous tapestries woven in Flanders in the 1500s, ' +
-        'full of animals, trees and stories from the Bible. The king ordered many ' +
-        'hundreds of them; they travelled and hid through two wars, and those that came ' +
+        'full of animals, trees and stories from the Bible. His son ordered most of them; ' +
+        'more than a hundred survive. They travelled and hid through two wars, and those that came ' +
         'back hang on their walls again.',
     },
     facts: [
@@ -1278,8 +1278,8 @@ export const places: Place[] = [
       el:
         'Δίπλα στο κάστρο στέκεται ο ναός όπου στέφονταν οι βασιλιάδες της Πολωνίας, από ' +
         'το 1320 ως το 1734, και όπου αναπαύονται ακόμη. Έχει τρεις πύργους, και στον ' +
-        'έναν κρέμεται από το 1520 η καμπάνα Zygmunt. Είναι τόσο βαριά που κανένα σκοινί ' +
-        'δεν την κουνάει: χρειάζονται δώδεκα άνθρωποι, που τραβούν μαζί με ρυθμό, και ' +
+        'έναν κρέμεται η καμπάνα Zygmunt, που χυτεύτηκε το 1520. Είναι τόσο βαριά που ένας άνθρωπος ' +
+        'δεν μπορεί να την κουνήσει: χρειάζονται δώδεκα καμπανοκρούστες, που τραβούν μαζί με ρυθμό, και ' +
         'ηχεί μόνο τις πιο σπουδαίες μέρες της χώρας. Όταν ηχήσει, την ακούει όλη η ' +
         'πόλη και ξέρει ότι κάτι μεγάλο συνέβη. Δίπλα λάμπει ο χρυσός τρούλος ενός ' +
         'παρεκκλησιού που έχτισαν Ιταλοί τεχνίτες τον 16ο αιώνα. Και στην είσοδο, ψηλά ' +
@@ -1290,8 +1290,8 @@ export const places: Place[] = [
       en:
         'Beside the castle stands the church where the kings of Poland were crowned, from ' +
         '1320 until 1734, and where they still lie. It has three towers, and in one of ' +
-        'them the Sigismund Bell has hung since 1520. It is so heavy that no rope will ' +
-        'swing it: twelve people are needed, pulling together in rhythm, and it sounds ' +
+        'them hangs the Sigismund Bell, cast in 1520. It is so heavy that one person cannot ' +
+        'swing it: twelve bell-ringers are needed, pulling together in rhythm, and it sounds ' +
         'only on the country’s greatest days. When it does sound, the whole city hears it ' +
         'and knows that something large has happened. Beside it shines the golden dome of ' +
         'a chapel built by Italian craftsmen in the 1500s. And at the entrance, high to ' +
@@ -1306,8 +1306,8 @@ export const places: Place[] = [
         en: 'The kings of Poland were crowned here from 1320 until 1734.',
       },
       {
-        el: 'Η καμπάνα Zygmunt κρέμεται από το 1520 και τη σηκώνουν δώδεκα άνθρωποι.',
-        en: 'The Sigismund Bell has hung since 1520 and twelve people swing it.',
+        el: 'Η καμπάνα Zygmunt χυτεύτηκε το 1520 και την κουνούν δώδεκα άνθρωποι.',
+        en: 'The Sigismund Bell was cast in 1520, and twelve people swing it.',
       },
       {
         el: 'Τα «κόκαλα του δράκου» στην είσοδο είναι μαμούθ, ρινόκερου και φάλαινας.',
@@ -1519,7 +1519,7 @@ export const places: Place[] = [
         en: 'Why do the acrobats not fall when the wind blows?',
       },
       answers: [
-        { el: 'Ισορροπούν σε ένα σημείο και δεν πέφτουν', en: 'They are calculated to sway without tipping over' },
+        { el: 'Είναι ζυγισμένοι να κουνιούνται χωρίς να πέφτουν', en: 'They are calculated to sway without tipping over' },
         { el: 'Είναι βιδωμένοι γερά σε μια σιδερένια δοκό', en: 'They are bolted tightly onto a strong iron beam' },
         { el: 'Τα σύρματα τεντώνονται αυτόματα με μοτέρ', en: 'The wires are tightened by motors on their own' },
         { el: 'Είναι από αφρώδες υλικό και δεν έχουν βάρος', en: 'They are made of foam and have no weight at all' },
@@ -1557,8 +1557,9 @@ export const places: Place[] = [
         'γειτονιά γέμισε συναγωγές, σχολεία, φούρνους και εργαστήρια. Αυτό το χαμηλό ' +
         'πέτρινο κτίριο στην άκρη της φαρδιάς οδού Szeroka χτίστηκε τον 15ο αιώνα και ' +
         'είναι η παλαιότερη συναγωγή που σώζεται σε ολόκληρη την Πολωνία. Η κοινότητα ' +
-        'έζησε εδώ πάνω από τετρακόσια χρόνια και καταστράφηκε στον Δεύτερο Παγκόσμιο ' +
-        'Πόλεμο. Το κτίριο επισκευάστηκε και σήμερα είναι μουσείο, ώστε να μπορεί κανείς ' +
+        'έζησε εδώ πάνω από τετρακόσια χρόνια, ως τον Δεύτερο Παγκόσμιο Πόλεμο. Τότε οι ' +
+        'Γερμανοί κατακτητές έδιωξαν τους Εβραίους της Κρακοβίας από τα σπίτια τους, και ' +
+        'οι περισσότεροι σκοτώθηκαν. Το κτίριο επισκευάστηκε και σήμερα είναι μουσείο, ώστε να μπορεί κανείς ' +
         'να δει πώς ζούσαν εδώ οι άνθρωποι. Κάθε καλοκαίρι η Szeroka γεμίζει ξανά με ' +
         'μουσική και χορό στο Φεστιβάλ Εβραϊκού Πολιτισμού.',
       en:
@@ -1569,8 +1570,9 @@ export const places: Place[] = [
         'with synagogues, schools, bakeries and workshops. This low stone building at the ' +
         'end of the wide Szeroka street was built in the fifteenth century and is the ' +
         'oldest synagogue still standing in all of Poland. The community lived here for ' +
-        'more than four hundred years and was destroyed in the Second World War. The ' +
-        'building was repaired and is a museum today, so that anyone can come and see how ' +
+        'more than four hundred years, until the Second World War. Then the German ' +
+        'occupiers forced the Jews of Kraków out of their homes, and most of them were ' +
+        'killed. The building was repaired and is a museum today, so that anyone can come and see how ' +
         'people lived here. Every summer Szeroka fills with music and dancing again, for ' +
         'the Jewish Culture Festival.',
     },
@@ -1725,16 +1727,16 @@ export const places: Place[] = [
         {
           id: 'krakow-czartoryskich-dama',
           emoji: '🎨',
-          name: { el: 'Το δωμάτιο της Κυρίας', en: 'The room of the Lady' },
+          name: { el: 'Τρεις διάσημοι πίνακες', en: 'Three famous pictures' },
           intro: {
             el:
-              'Τρία έργα σε ένα σκοτεινό δωμάτιο, και το ένα από αυτά είναι μια άδεια ' +
-              'κορνίζα. Το φως είναι χαμηλό επίτηδες: το παλιό χρώμα ξεθωριάζει αν το ' +
+              'Τρία διάσημα έργα, και το ένα από αυτά είναι μόνο μια άδεια κορνίζα. Η Κυρία ' +
+              'περιμένει σε δικό της σκοτεινό δωμάτιο. Το φως είναι χαμηλό επίτηδες: το παλιό χρώμα ξεθωριάζει αν το ' +
               'φωτίσεις δυνατά, οπότε τα μουσεία θυσιάζουν λίγη ορατότητα για να ζήσουν ' +
               'τα έργα μερικούς αιώνες ακόμα.',
             en:
-              'Three works in one dark room, and one of them is an empty frame. The light ' +
-              'is low on purpose: old paint fades if you shine a lamp on it, so museums ' +
+              'Three famous pictures, and one of them is only an empty frame. The Lady waits ' +
+              'in a dark room of her own. The light is low on purpose: old paint fades if you shine a lamp on it, so museums ' +
               'trade a little visibility to give the pictures a few more centuries.',
           },
           exhibits: [
@@ -1859,13 +1861,13 @@ export const places: Place[] = [
           name: { el: 'Η αίθουσα των θησαυρών', en: 'The room of treasures' },
           intro: {
             el:
-              'Η Izabela δεν μάζευε μόνο πίνακες. Μάζευε ό,τι μπορούσε να αφηγηθεί μια ' +
-              'ιστορία: όπλα, υφάσματα, αγγεία τριών χιλιάδων ετών. Αυτή η αίθουσα είναι ' +
+              'Η Izabela και τα εγγόνια της δεν μάζευαν μόνο πίνακες. Μάζευαν ό,τι μπορούσε να αφηγηθεί μια ' +
+              'ιστορία: όπλα, υφάσματα, αγγεία πάνω από δυόμισι χιλιάδων ετών. Αυτή η αίθουσα είναι ' +
               'η πιο άτακτη του μουσείου, και είναι η πιο κοντινή σε αυτό που φανταζόταν ' +
               'εκείνη όταν το ξεκίνησε.',
             en:
-              'Izabela did not only collect pictures. She collected anything that could ' +
-              'tell a story: weapons, textiles, pots three thousand years old. This is the ' +
+              'Izabela and her grandchildren did not only collect pictures. They collected anything that could ' +
+              'tell a story: weapons, textiles, pots over two and a half thousand years old. This is the ' +
               'untidiest room in the museum, and it is the closest to what she had in ' +
               'mind when she began it.',
           },
@@ -1954,31 +1956,33 @@ export const places: Place[] = [
                   'μερικά τους πάνω από δύο χιλιάδες πεντακόσια χρόνια παλιά. Ήταν ' +
                   'καθημερινά πράγματα: κανάτες για κρασί, κύπελλα, δοχεία για λάδι. ' +
                   'Πάνω τους είναι ζωγραφισμένοι αθλητές, θεοί και ζώα, με μαύρο και ' +
-                  'πορτοκαλί χρώμα. Η Izabela τα αγόρασε γιατί πίστευε ότι ένα μουσείο ' +
-                  'δεν πρέπει να δείχνει μόνο τη δική του χώρα. Ήθελε ο επισκέπτης να ' +
-                  'καταλάβει ότι ο κόσμος είναι παλιός και μεγάλος.',
+                  'πορτοκαλί χρώμα. Δεν τα έφερε η Izabela: τα πρόσθεσαν στη συλλογή ο ' +
+                  'εγγονός της, ο πρίγκιπας Władysław, και η αδελφή του, Izabela ' +
+                  'Działyńska. Κοίτα προσεκτικά: οι ζωγραφισμένοι άνθρωποι τρέχουν, ' +
+                  'παλεύουν και κερνούν κρασί, σαν σκηνές από τη ζωή τους.',
                 en:
                   'In glass cases stand Greek and Etruscan pots, some of them more than ' +
                   'two thousand five hundred years old. They were everyday things: wine ' +
                   'jugs, cups, jars for oil. Athletes, gods and animals are painted on ' +
-                  'them, in black and orange. Izabela bought them because she believed a ' +
-                  'museum should not show only its own country. She wanted a visitor to ' +
-                  'understand that the world is old and large.',
+                  'them, in black and orange. They were not Izabela’s: her grandson, Prince ' +
+                  'Władysław, and his sister, Izabela Działyńska, added them to the ' +
+                  'collection. Look closely: the painted people run, wrestle and pour ' +
+                  'wine, like scenes from their own lives.',
               },
               question: {
                 q: {
-                  el: 'Γιατί αγόρασε η Izabela αρχαία ελληνικά αγγεία;',
-                  en: 'Why did Izabela buy ancient Greek pots for the museum?',
+                  el: 'Τι είναι ζωγραφισμένο πάνω στα αρχαία αγγεία;',
+                  en: 'What is painted on the ancient pots in the cases?',
                 },
                 answers: [
-                  { el: 'Ήθελε το μουσείο να δείχνει όλο τον κόσμο', en: 'She wanted the museum to show the whole world' },
-                  { el: 'Ήταν δώρο από έναν βασιλιά της Ελλάδας', en: 'They were a gift from a king of Greece' },
-                  { el: 'Τα βρήκε θαμμένα στον κήπο του σπιτιού της', en: 'She found them buried in her own back garden' },
-                  { el: 'Τα χρειαζόταν για να σερβίρει στους φίλους της', en: 'She needed them to serve wine to her guests' },
+                  { el: 'Αθλητές, θεοί και ζώα, με μαύρο και πορτοκαλί', en: 'Athletes, gods and animals, in black and orange' },
+                  { el: 'Χάρτες με τους δρόμους της αρχαίας Ρώμης', en: 'Maps of all the roads of ancient Rome' },
+                  { el: 'Γράμματα που έγραψαν οι βασιλιάδες της Πολωνίας', en: 'Letters written by the kings of Poland' },
+                  { el: 'Τα ονόματα όλων των πριγκίπων Czartoryski', en: 'The names of every Czartoryski prince and princess' },
                 ],
                 explanation: {
-                  el: 'Πίστευε ότι ένα μουσείο πρέπει να δείχνει και τους άλλους λαούς, όχι μόνο τον δικό του.',
-                  en: 'She believed a museum should show other peoples too, and not only its own.',
+                  el: 'Οι αρχαίοι αγγειογράφοι ζωγράφιζαν αθλητές, θεούς και ζώα πάνω σε καθημερινά σκεύη, με μαύρο και πορτοκαλί χρώμα.',
+                  en: 'Ancient pot painters decorated everyday jugs and cups with athletes, gods and animals, in black and orange.',
                 },
               },
             },
@@ -2292,8 +2296,8 @@ export const places: Place[] = [
       note: 'The OpenStreetMap fetch failed in the resolver run, so the grade rests on Wikidata and Wikipedia, which agree to 1 m.',
       map: { x: 0.488, y: 0.462 },
       findIt: {
-        el: 'Στη δυτική άκρη του λιβαδιού Błonia, στην οδό Kałuży. Οι λευκές και κόκκινες καρέκλες φαίνονται από τον δρόμο.',
-        en: 'At the west edge of the Błonia meadow, on Kałuży street. The white and red seats show from the road.',
+        el: 'Στην ανατολική άκρη του λιβαδιού Błonia, στην οδό Kałuży. Οι λευκές και κόκκινες καρέκλες φαίνονται από τον δρόμο.',
+        en: 'At the east end of the Błonia meadow, on Kałuży street. The white and red seats show from the road.',
       },
     },
     question: {
@@ -2374,15 +2378,15 @@ export const trails: Trail[] = [
     id: 'krakow-across-the-river',
     cityId: 'krakow',
     emoji: '🌉',
-    name: { el: 'Πέρα από το ποτάμι', en: 'Over the river' },
+    name: { el: 'Κατά μήκος του ποταμού', en: 'Along the river' },
     promise: {
-      el: 'Μια γειτονιά που ήταν πόλη, ακροβάτες στον αέρα και ένα κουλούρι.',
-      en: 'A neighbourhood that was a town, acrobats in the air, and a bread ring.',
+      el: 'Η σπηλιά ενός δράκου, μια γειτονιά που ήταν πόλη και ακροβάτες στον αέρα.',
+      en: 'A dragon’s cave, a neighbourhood that was a town, and acrobats in the air.',
     },
     placeIds: [
+      'krakow-smocza-jama',
       'krakow-stara-synagoga',
       'krakow-kladka-bernatka',
-      'krakow-rynek-kleparski',
     ],
   },
   {
@@ -2391,14 +2395,13 @@ export const trails: Trail[] = [
     emoji: '🌳',
     name: { el: 'Έξω, στον αέρα', en: 'Outside, in the open air' },
     promise: {
-      el: 'Τρία μέρη χωρίς ταβάνι: ένας λόφος, ένα λιβάδι και μια αγορά.',
-      en: 'Three places with no ceiling: a hill, a meadow and a market.',
+      el: 'Τρία μέρη χωρίς ταβάνι: ένας λόφος, ένα γήπεδο και μια αγορά.',
+      en: 'Three places with no ceiling: a hill, a stadium and a market.',
     },
     placeIds: [
       'krakow-kopiec-kosciuszki',
       'krakow-stadion-cracovii',
       'krakow-rynek-kleparski',
-      'krakow-smocza-jama',
     ],
   },
 ];
