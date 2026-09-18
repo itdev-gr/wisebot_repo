@@ -119,7 +119,7 @@ export const places: Place[] = [
       answers: [
         { el: 'Χασάπης και υφαντής', en: 'A butcher and a weaver' },
         { el: 'Στρατιώτης και γιατρός', en: 'A soldier and a doctor' },
-        { el: 'Ζωγράφος και μουσικός', en: 'A painter and a singer' },
+        { el: 'Ζωγράφος και μουσικός', en: 'A painter and a musician' },
         { el: 'Ναύτης και μυλωνάς', en: 'A sailor and a miller' },
       ],
       explanation: {
@@ -153,7 +153,7 @@ export const places: Place[] = [
         'δόσεις, και φαίνεται: τα δύο κάτω κομμάτια είναι τετράγωνα και από κόκκινο τούβλο, ' +
         'από τον 13ο και τον 14ο αιώνα, ενώ το πάνω είναι οκτάγωνο, από ανοιχτόχρωμη πέτρα, ' +
         'και προστέθηκε γύρω στο 1480. Δύο φορές του έβαλαν ξύλινη μυτερή κορυφή και δύο ' +
-        'φορές κάηκε, το 1493 και το 1741. Την τρίτη φορά η πόλη δεν ξαναπροσπάθησε, και γι’ ' +
+        'φορές κάηκε, το 1493 και το 1741. Μετά τη δεύτερη φωτιά η πόλη δεν ξαναπροσπάθησε, και γι’ ' +
         'αυτό ο πύργος τελειώνει κοντός. Οι καμπάνες του δεν ήταν μουσική· ήταν ρολόι και ' +
         'τηλέφωνο μαζί, και έλεγαν πότε ξυπνάει η πόλη, πότε ανοίγει η αγορά, πότε κλείνουν ' +
         'οι πύλες, πότε υπάρχει κίνδυνος. Ψηλά, σε ένα δωμάτιο, φυλάγονταν τα επίσημα χαρτιά ' +
@@ -431,15 +431,14 @@ export const places: Place[] = [
 
     name: { el: 'Vismarkt, η ψαραγορά', en: 'The Vismarkt' },
     tagline: {
-      el: 'Χτίστηκε το 1821 επειδή οι γείτονες παραπονέθηκαν',
-      en: 'Built in 1821 because the neighbours complained',
+      el: 'Ψάρια κάτω από κολόνες, σαν σε αρχαίο ναό',
+      en: 'Fish sold under columns, like in an ancient temple',
     },
     story: {
       el:
-        'Για αιώνες τα ψάρια της Μπριζ πουλιούνταν στη μεγάλη πλατεία Markt. Οι πλούσιοι που ' +
-        'έμεναν γύρω της παραπονιούνταν όμως συνέχεια για τη μυρωδιά, και το 1821 η πόλη ' +
-        'υποχώρησε: έχτισε καινούργια ψαραγορά εδώ, δίπλα στο κανάλι, μακριά από τα ωραία ' +
-        'σπίτια. Είναι μια στοά με στρογγυλές πέτρινες κολόνες που κρατούν μια στέγη χωρίς ' +
+        'Για αιώνες τα ψάρια της Μπριζ πουλιούνταν στη μεγάλη πλατεία Markt. Το 1745 οι ' +
+        'ψαροπώλες μετακόμισαν εδώ, δίπλα στο κανάλι, σε μια ανοιχτή πλατεία, και το 1821 η ' +
+        'πόλη τούς έχτισε αυτή τη στοά. Έχει στρογγυλές πέτρινες κολόνες που κρατούν μια στέγη χωρίς ' +
         'τοίχους, φτιαγμένη στο νεοκλασικό στιλ της εποχής, δηλαδή σαν αρχαίος ναός. Σε μια ' +
         'πόλη γεμάτη γοτθικά μυτερά κτίρια, η ψαραγορά είναι η παράξενη εξαίρεση. Από κάτω ' +
         'υπάρχουν μακριά πέτρινα τραπέζια, και η πέτρα δεν διαλέχτηκε τυχαία: μένει δροσερή ' +
@@ -448,10 +447,9 @@ export const places: Place[] = [
         'σήμερα, τα πρωινά, στήνονται εδώ πάγκοι με ψάρι. Αν ακουμπήσεις ένα τραπέζι θα ' +
         'καταλάβεις αμέσως γιατί είναι από πέτρα.',
       en:
-        'For centuries the fish of Bruges was sold on the big Markt square. But the rich ' +
-        'people who lived around it complained about the smell, over and over, and in 1821 the ' +
-        'city gave in: it built a new fish market here, beside the canal, away from the smart ' +
-        'houses. It is a colonnade of round stone columns holding up a roof with no walls, ' +
+        'For centuries the fish of Bruges was sold on the big Markt square. In 1745 the fish ' +
+        'sellers moved here, beside the canal, to an open square, and in 1821 the city built ' +
+        'them this colonnade. It has round stone columns holding up a roof with no walls, ' +
         'made in the neoclassical style of the day, which is to say like an ancient temple. In ' +
         'a city full of pointed Gothic buildings, the fish market is the odd one out. ' +
         'Underneath run long stone tables, and the stone was not chosen by accident: it stays ' +
@@ -462,8 +460,8 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Η ψαραγορά χτίστηκε το 1821, δίπλα στο κανάλι.',
-        en: 'The fish market was built in 1821, beside the canal.',
+        el: 'Οι ψαροπώλες ήρθαν εδώ το 1745· η στοά τους χτίστηκε το 1821.',
+        en: 'The fish sellers moved here in 1745; their colonnade was built in 1821.',
       },
       {
         el: 'Οι κολόνες της είναι νεοκλασικές, σπάνιο πράγμα σε μια γοτθική πόλη.',
@@ -707,7 +705,7 @@ export const places: Place[] = [
     },
     story: {
       el:
-        'Ο πύργος αυτής της εκκλησίας φτάνει τα 115,5 μέτρα και είναι από τους ψηλότερους ' +
+        'Ο πύργος αυτής της εκκλησίας φτάνει τα 115,6 μέτρα και είναι από τους ψηλότερους ' +
         'πύργους από τούβλο στον κόσμο. Στη Φλάνδρα δεν υπάρχουν βουνά με πέτρα, οπότε οι ' +
         'χτίστες έψηναν τούβλα από τη λάσπη της γης τους. Εκατομμύρια τούβλα, το ένα πάνω στο ' +
         'άλλο, για περισσότερα από διακόσια χρόνια δουλειάς. Μέσα, σε ένα πλάγιο παρεκκλήσι, ' +
@@ -720,7 +718,7 @@ export const places: Place[] = [
         'Τολμηρός. Η Μαρία λάτρευε τα άλογα και πέθανε στα εικοσιπέντε της, μετά από μια ' +
         'πτώση στο κυνήγι.',
       en:
-        'The tower of this church reaches 115.5 metres and is one of the tallest brick towers ' +
+        'The tower of this church reaches 115.6 metres and is one of the tallest brick towers ' +
         'in the world. Flanders has no mountains with stone in them, so the builders baked ' +
         'bricks out of the clay of their own ground. Millions of bricks, one on top of ' +
         'another, over more than two hundred years of work. Inside, in a side chapel, sits a ' +
@@ -734,8 +732,8 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Ο πύργος του έχει ύψος 115,5 μέτρα και είναι ολόκληρος από τούβλο.',
-        en: 'Its tower is 115.5 metres high and made entirely of brick.',
+        el: 'Ο πύργος του έχει ύψος 115,6 μέτρα και είναι ολόκληρος από τούβλο.',
+        en: 'Its tower is 115.6 metres high and made entirely of brick.',
       },
       {
         el: 'Ο Μιχαήλ Άγγελος σκάλισε την Παναγία της Μπριζ γύρω στο 1504.',
@@ -899,8 +897,8 @@ export const places: Place[] = [
         'παραγγείλουν πίνακες. Αυτοί οι ζωγράφοι ανακάτευαν τα χρώματά τους με λάδι αντί για ' +
         'αυγό. Το λάδι στεγνώνει αργά, οπότε μπορούσαν να δουλεύουν πάνω στο ίδιο σημείο για ' +
         'μέρες, στρώση πάνω σε στρώση, μέχρι το ύφασμα να φαίνεται βελούδο και το μέταλλο ' +
-        'μέταλλο. Δες από κοντά έναν πίνακα: θα βρεις τρίχες γενειάδας μία μία, και μέσα σε ' +
-        'μια πανοπλία, μικρό σαν κόκκος, καθρεφτισμένο ένα ολόκληρο δωμάτιο. Οι αίθουσες ' +
+        'μέταλλο. Δες από κοντά έναν πίνακα: θα βρεις τρίχες γενειάδας μία μία, και στην ' +
+        'ασπίδα ενός ιππότη, μικρό σαν κόκκο, τον ίδιο τον ζωγράφο καθρεφτισμένο. Οι αίθουσες ' +
         'είναι σκοτεινές επίτηδες, γιατί το δυνατό φως ξεθωριάζει τα χρώματα.',
       en:
         'The Groeningemuseum is the painting museum of Bruges, and it is small on purpose: you ' +
@@ -910,8 +908,8 @@ export const places: Place[] = [
         'These painters mixed their colours with oil instead of egg. Oil dries slowly, so they ' +
         'could keep working on the same patch for days, layer over layer, until cloth looked ' +
         'like velvet and metal looked like metal. Get close to one of them: you will find ' +
-        'beard hairs painted one at a time, and inside a suit of armour, no bigger than a ' +
-        'seed, a whole room reflected. The rooms are kept dark on purpose, because strong ' +
+        'beard hairs painted one at a time, and in a knight’s shield, no bigger than a ' +
+        'seed, the painter himself reflected. The rooms are kept dark on purpose, because strong ' +
         'light fades the colours.',
     },
     facts: [
@@ -976,13 +974,13 @@ export const places: Place[] = [
           intro: {
             el:
               'Εδώ κρέμονται οι πίνακες που έκαναν τη Μπριζ διάσημη στη ζωγραφική. Όλοι ' +
-              'φτιάχτηκαν τον 15ο αιώνα, όλοι με χρώματα λαδιού, και όλοι παραγγέλθηκαν από ' +
+              'φτιάχτηκαν τον 15ο αιώνα, όλοι με χρώματα λαδιού, και οι περισσότεροι παραγγέλθηκαν από ' +
               'ανθρώπους που ήθελαν να τους θυμούνται. Μη βιαστείς. Οι πίνακες αυτοί δεν ' +
               'φωνάζουν από μακριά· ανταμείβουν όποιον πλησιάσει και κοιτάξει τρία λεπτά ' +
               'παραπάνω από τους άλλους.',
             en:
               'These are the pictures that made Bruges famous in painting. All were made in ' +
-              'the 15th century, all in oil colours, and all were ordered by people who wanted ' +
+              'the 15th century, all in oil colours, and most were ordered by people who wanted ' +
               'to be remembered. Do not hurry. They do not shout from across the room; they ' +
               'reward anyone who steps close and looks for three minutes longer than everybody ' +
               'else does.',
@@ -1000,35 +998,35 @@ export const places: Place[] = [
                   'πολύς χρόνος. Παρήγγειλε στον Jan van Eyck αυτόν τον πίνακα για να τον ' +
                   'θυμούνται, και ο ζωγράφος τον έδειξε ακριβώς όπως ήταν: ρυτίδες, πρησμένα ' +
                   'χέρια, γυαλιά στο ένα χέρι, βιβλίο στο άλλο. Δίπλα του στέκεται ο άγιος ' +
-                  'Γεώργιος με γυαλιστερή πανοπλία, και μέσα στο μέταλλο καθρεφτίζεται ένα ' +
-                  'μικροσκοπικό παράθυρο. Ο πίνακας τελείωσε το 1436 και είναι ο μεγαλύτερος ' +
-                  'που σώζεται από τον van Eyck.',
+                  'Γεώργιος με γυαλιστερή πανοπλία, και στην ασπίδα του καθρεφτίζεται ένας ' +
+                  'μικροσκοπικός ζωγράφος στο καβαλέτο του: ο ίδιος ο van Eyck. Ο πίνακας ' +
+                  'τελείωσε το 1436 και είναι από τα μεγαλύτερα έργα που σώζονται από τον van Eyck.',
                 en:
                   'Joris van der Paele was an old priest who knew he did not have long left. ' +
                   'He ordered this picture from Jan van Eyck so that he would be remembered, ' +
                   'and the painter showed him exactly as he was: wrinkles, swollen hands, ' +
                   'spectacles in one hand and a book in the other. Beside him stands Saint ' +
-                  'George in polished armour, and in that metal a tiny window is reflected. ' +
-                  'The painting was finished in 1436 and is the largest surviving work by van ' +
-                  'Eyck.',
+                  'George in polished armour, and in his shield a tiny painter at his easel is ' +
+                  'reflected: van Eyck himself. The painting was finished in 1436 and is one of ' +
+                  'the largest surviving works by van Eyck.',
               },
               question: {
                 q: {
-                  el: 'Τι φαίνεται καθρεφτισμένο στην πανοπλία του αγίου;',
-                  en: 'What is reflected in the saint’s polished armour?',
+                  el: 'Τι φαίνεται καθρεφτισμένο στην ασπίδα του αγίου;',
+                  en: 'What is reflected in the saint’s polished shield?',
                 },
                 answers: [
-                  { el: 'Ένα παράθυρο του δωματίου', en: 'A window of the room' },
+                  { el: 'Ο ζωγράφος του πίνακα', en: 'The painter himself' },
                   { el: 'Ένα κερί πάνω στο τραπέζι', en: 'A candle on the table' },
                   { el: 'Ένα καράβι στο λιμάνι', en: 'A ship in the port' },
                   { el: 'Ο πύργος των καμπανών', en: 'The tower of bells' },
                 ],
                 explanation: {
                   el:
-                    'Ο van Eyck ζωγράφισε το δωμάτιο μέσα στο γυαλισμένο μέταλλο, μικρό σαν ' +
+                    'Ο van Eyck ζωγράφισε τον εαυτό του μέσα στο γυαλισμένο μέταλλο, μικρό σαν ' +
                     'κόκκο ρυζιού. Ήθελε να δείξει ότι μπορούσε να ζωγραφίσει το φως, όχι μόνο τα πράγματα.',
                   en:
-                    'Van Eyck painted the room inside the polished metal, no bigger than a ' +
+                    'Van Eyck painted himself inside the polished metal, no bigger than a ' +
                     'grain of rice. He wanted to show he could paint light itself, not just things.',
                 },
               },
@@ -1040,17 +1038,17 @@ export const places: Place[] = [
                 el:
                   'Αυτή η γυναίκα δεν είναι αγία ούτε βασίλισσα. Είναι η Margareta, η ' +
                   'σύζυγος του ζωγράφου, και τη ζωγράφισε ο ίδιος της ο άντρας το 1439. ' +
-                  'Φοράει κόκκινο κεφαλόδεσμο με δύο «κέρατα» από διπλωμένο ύφασμα, τη μόδα ' +
-                  'της εποχής, και κοιτάζει ίσια μπροστά με σφιγμένα χείλη. Πάνω στο αρχικό ' +
-                  'πλαίσιο ο van Eyck έγραψε τη χρονιά και την ηλικία της, τριάντα τριών ' +
-                  'ετών. Δεν πουλήθηκε ποτέ όσο ζούσε: το κράτησε στο σπίτι του.',
+                  'Φοράει κόκκινο φόρεμα και άσπρο κεφαλόδεσμο με δύο «κέρατα» από διπλωμένο ' +
+                  'λινό, τη μόδα της εποχής, και κοιτάζει ίσια μπροστά με σφιγμένα χείλη. Πάνω ' +
+                  'στο αρχικό πλαίσιο ο van Eyck έγραψε τη χρονιά και την ηλικία της, τριάντα ' +
+                  'τριών ετών, και μια φράση σαν να μιλάει η ίδια: «Ο άντρας μου Ιωάννης με τελείωσε».',
                 en:
                   'This woman is neither a saint nor a queen. She is Margareta, the painter’s ' +
-                  'wife, and her own husband painted her in 1439. She wears a red headdress ' +
-                  'with two “horns” of folded cloth, the fashion of the day, and looks ' +
-                  'straight out with her lips pressed together. On the original frame van ' +
-                  'Eyck wrote the year and her age, thirty-three. He never sold it while he ' +
-                  'lived: he kept it at home.',
+                  'wife, and her own husband painted her in 1439. She wears a red dress and a ' +
+                  'white headdress with two “horns” of folded linen, the fashion of the day, and ' +
+                  'looks straight out with her lips pressed together. On the original frame van ' +
+                  'Eyck wrote the year and her age, thirty-three, and a line as if she were ' +
+                  'speaking: “My husband Johannes completed me.”',
               },
               question: {
                 q: {
@@ -1259,17 +1257,17 @@ export const places: Place[] = [
               name: { el: '«Secret-Reflet» του Khnopff', en: 'Khnopff’s “Secret-Reflet”' },
               blurb: {
                 el:
-                  'Ο Fernand Khnopff μεγάλωσε στη Μπριζ και έφυγε παιδί. Δεν ξαναγύρισε ' +
-                  'ποτέ, και όμως τη ζωγράφιζε συνέχεια, από μνήμης. Αυτό το έργο του 1902 ' +
-                  'είναι δύο εικόνες σε ένα πλαίσιο: πάνω, ένα πρόσωπο που κρύβει το στόμα ' +
-                  'του πίσω από ένα χέρι· κάτω, ένα παλιό κτίριο καθρεφτισμένο ανάποδα στο ' +
+                  'Ο Fernand Khnopff πέρασε τα πρώτα του χρόνια στη Μπριζ και έφυγε παιδί. ' +
+                  'Τη ζωγράφιζε όμως συνέχεια, από τις παιδικές του αναμνήσεις. Αυτό το έργο του 1902 ' +
+                  'είναι δύο εικόνες σε ένα πλαίσιο: πάνω, μια γυναίκα ντυμένη στα μπλε αγγίζει ' +
+                  'απαλά μια μάσκα πάνω σε μια κολόνα· κάτω, ένα παλιό κτίριο καθρεφτισμένο ανάποδα στο ' +
                   'νερό ενός καναλιού. Το κτίριο υπάρχει: είναι το Sint-Janshospitaal, λίγα ' +
                   'λεπτά περπάτημα από εδώ.',
                 en:
-                  'Fernand Khnopff grew up in Bruges and left as a child. He never went back, ' +
-                  'and yet he painted the city again and again, from memory. This work of ' +
-                  '1902 is two pictures in one frame: above, a face hiding its mouth behind a ' +
-                  'hand; below, an old building mirrored upside down in the water of a canal. ' +
+                  'Fernand Khnopff spent his first years in Bruges and left as a child. Yet ' +
+                  'he painted the city again and again, from his childhood memories. This work of ' +
+                  '1902 is two pictures in one frame: above, a woman dressed in blue gently ' +
+                  'touches a mask on a column; below, an old building mirrored upside down in the water of a canal. ' +
                   'The building is real: it is the Sint-Janshospitaal, a few minutes’ walk ' +
                   'from here.',
               },
@@ -1303,12 +1301,12 @@ export const places: Place[] = [
           prompt: {
             el:
               'Μέσα μου γονατίζει ένας γέρος με γυαλιά στο χέρι, μπροστά σε μια μητέρα με ' +
-              'μωρό. Δίπλα τους στέκεται ένας ιππότης, και μέσα στη γυαλισμένη πανοπλία του ' +
-              'κρύβεται ένα ολόκληρο δωμάτιο.',
+              'μωρό. Δίπλα τους στέκεται ένας ιππότης, και μέσα στη γυαλισμένη ασπίδα του ' +
+              'κρύβεται ο ίδιος ο ζωγράφος μου.',
             en:
               'Inside me an old man kneels with spectacles in his hand, before a mother and ' +
-              'her baby. A knight stands beside them, and hidden in his polished armour there ' +
-              'is a whole room.',
+              'her baby. A knight stands beside them, and hidden in his polished shield is ' +
+              'the very painter who made me.',
           },
           hint: {
             el: 'Ο γέρος πλήρωσε για να τον ζωγραφίσουν, επειδή ήξερε ότι δεν θα ζούσε πολύ ακόμα.',
@@ -1321,17 +1319,17 @@ export const places: Place[] = [
           id: 'bruges-groeningemuseum-riddle-2',
           prompt: {
             el:
-              'Είμαι το πρόσωπο μιας γυναίκας με κόκκινο κεφαλόδεσμο και σφιγμένα χείλη. Με ' +
+              'Είμαι το πρόσωπο μιας γυναίκας με άσπρο κεφαλόδεσμο, κόκκινο φόρεμα και σφιγμένα χείλη. Με ' +
               'ζωγράφισε ο ίδιος μου ο άντρας, και πάνω στο πλαίσιό μου έγραψε πόσων χρονών ' +
               'ήμουν εκείνη τη μέρα.',
             en:
-              'I am the face of a woman in a red headdress, with her lips pressed together. ' +
+              'I am the face of a woman in a white headdress and a red dress, with her lips pressed together. ' +
               'My own husband painted me, and on my frame he wrote down how old I was on that ' +
               'day.',
           },
           hint: {
-            el: 'Ο ζωγράφος δεν με πούλησε ποτέ. Με κράτησε στο σπίτι του.',
-            en: 'The painter never sold me. He kept me in his own house.',
+            el: 'Στο πλαίσιό μου μοιάζω να μιλάω εγώ: «Ο άντρας μου Ιωάννης με τελείωσε».',
+            en: 'On my frame I seem to speak myself: “My husband Johannes completed me.”',
           },
           answerExhibitId: 'bruges-groeningemuseum-margareta',
           difficulty: 2,
@@ -1340,17 +1338,17 @@ export const places: Place[] = [
           id: 'bruges-groeningemuseum-riddle-3',
           prompt: {
             el:
-              'Είμαι δύο εικόνες σε ένα πλαίσιο. Πάνω, κάποιος κρύβει το στόμα του πίσω από ' +
-              'το χέρι του. Κάτω, ένα κτίριο της πόλης κοιτάζεται ανάποδα μέσα σε ένα ήσυχο ' +
-              'κανάλι.',
+              'Είμαι δύο εικόνες σε ένα πλαίσιο. Πάνω, μια γυναίκα αγγίζει απαλά μια μάσκα ' +
+              'πάνω σε μια κολόνα. Κάτω, ένα κτίριο της πόλης κοιτάζεται ανάποδα μέσα σε ένα ' +
+              'ήσυχο κανάλι.',
             en:
-              'I am two pictures in one frame. Above, somebody hides their mouth behind a ' +
-              'hand. Below, a building of this city looks at itself upside down in a quiet ' +
+              'I am two pictures in one frame. Above, a woman gently touches a mask on a ' +
+              'column. Below, a building of this city looks at itself upside down in a quiet ' +
               'canal.',
           },
           hint: {
-            el: 'Ο ζωγράφος μου έφυγε από τη Μπριζ παιδί και δεν ξαναγύρισε ποτέ.',
-            en: 'My painter left Bruges as a child and never once came back.',
+            el: 'Ο ζωγράφος μου έφυγε από τη Μπριζ παιδί και τη ζωγράφιζε από τις αναμνήσεις του.',
+            en: 'My painter left Bruges as a child and painted it from his memories.',
           },
           answerExhibitId: 'bruges-groeningemuseum-khnopff',
           difficulty: 3,
@@ -1377,7 +1375,7 @@ export const places: Place[] = [
         'Αυτό είναι ένα από τα παλιότερα νοσοκομεία της Ευρώπης που σώζονται. Άνοιξε τον 12ο ' +
         'αιώνα, δίπλα σε μια από τις πύλες της πόλης, ώστε να το βρίσκουν εύκολα οι ταξιδιώτες ' +
         'που έφταναν άρρωστοι, και δούλεψε ως νοσοκομείο μέχρι τον 20ό αιώνα. Οκτακόσια χρόνια ' +
-        'στην ίδια δουλειά, στους ίδιους τοίχους. Δεν το κρατούσαν γιατροί με πτυχία αλλά ' +
+        'στην ίδια δουλειά, στους ίδιους τοίχους. Για αιώνες δεν το κρατούσαν γιατροί με πτυχία αλλά ' +
         'αδελφοί και αδελφές που ζούσαν εδώ μέσα και φρόντιζαν όποιον χτυπούσε την πόρτα. Η ' +
         'ιατρική τους ήταν απλή: ζεστασιά, καθαρά σεντόνια, σούπα, βότανα από τον δικό τους ' +
         'κήπο και πολλή υπομονή. Πολλοί άρρωστοι δεν γίνονταν καλά, και το νοσοκομείο το ' +
@@ -1388,7 +1386,7 @@ export const places: Place[] = [
         'This is one of the oldest surviving hospitals in Europe. It opened in the 12th ' +
         'century beside one of the city gates, so that travellers who arrived ill would find ' +
         'it easily, and it went on working as a hospital into the 20th century. Eight hundred ' +
-        'years at the same job, inside the same walls. It was not run by doctors with degrees ' +
+        'years at the same job, inside the same walls. For centuries it was not run by doctors with degrees ' +
         'but by brothers and sisters who lived here and looked after whoever knocked. Their ' +
         'medicine was simple: warmth, clean sheets, soup, herbs from their own garden and a ' +
         'great deal of patience. Many patients did not get better, and the hospital knew it; ' +
@@ -1402,8 +1400,8 @@ export const places: Place[] = [
         en: 'It opened in the 12th century and worked as a hospital into the 20th.',
       },
       {
-        el: 'Το κρατούσαν αδελφοί και αδελφές, όχι γιατροί με πτυχίο.',
-        en: 'It was run by brothers and sisters, not by qualified doctors.',
+        el: 'Για αιώνες το κρατούσαν αδελφοί και αδελφές, όχι γιατροί.',
+        en: 'For centuries it was run by brothers and sisters, not doctors.',
       },
       {
         el: 'Ο Hans Memling ζωγράφισε έργα ειδικά για αυτό το κτίριο.',
@@ -1421,9 +1419,13 @@ export const places: Place[] = [
       ],
       verifiedAt: '2026-09-14',
       note:
-        'Wikipedia sits 82 m from Wikidata, which is roughly the length of the hospital block ' +
-        'itself: the two sources have picked different ends of one long building, not two ' +
-        'different buildings. The OSM cross-check that would settle it could not run.',
+        'Known weak pin, kept because no hand-placed coordinate is allowed. Wikidata’s point ' +
+        '(Q2432540, the hospital as a whole) falls on the Site Oud Sint-Jan, the later ' +
+        'hospital grounds now used as a conference centre, about 50 m west of the medieval ' +
+        'ward building that holds the museum (OSM way 221477838, checked by review). No ' +
+        'separate Wikidata item exists for that building, so the seed cannot be moved to one. ' +
+        'Fix when a sourced door or building item becomes available; the findIt points to ' +
+        'the real entrance on Mariastraat.',
       findIt: {
         el: 'Η είσοδος είναι στη Mariastraat, απέναντι από την εκκλησία της Παναγίας, κάτω από μια πέτρινη καμάρα.',
         en: 'The entrance is on Mariastraat, opposite the Church of Our Lady, under a stone archway.',
@@ -1741,17 +1743,17 @@ export const places: Place[] = [
           emoji: '✨',
           intro: {
             el:
-              'Ο Hans Memling ήρθε στη Μπριζ από τη Γερμανία και έμεινε. Τα έργα σε αυτή την ' +
-              'αίθουσα δεν αγοράστηκαν από πλειστηριασμό: φτιάχτηκαν για αυτό εδώ το κτίριο, ' +
-              'παραγγελία των αδελφών και των αδελφών που δούλευαν στις αίθουσες δίπλα. ' +
-              'Στέκονται δηλαδή ακριβώς εκεί όπου έπρεπε να στέκονται, κάτι σπάνιο για έργα ' +
-              'πεντακοσίων ετών.',
+              'Ο Hans Memling ήρθε στη Μπριζ από τη Γερμανία και έμεινε. Δύο από τα έργα αυτής ' +
+              'της αίθουσας, η λάρνακα της αγίας Ούρσουλας και το τρίπτυχο των δύο Ιωαννών, ' +
+              'φτιάχτηκαν για αυτό εδώ το κτίριο, παραγγελία των αδελφών που δούλευαν στις ' +
+              'αίθουσες δίπλα. Στέκονται δηλαδή εκεί όπου έπρεπε να στέκονται, κάτι σπάνιο για ' +
+              'έργα πεντακοσίων ετών. Τα άλλα ήταν ιδιωτικές παραγγελίες και ήρθαν εδώ αργότερα.',
             en:
-              'Hans Memling came to Bruges from Germany and stayed. The works in this room ' +
-              'were not bought at auction: they were made for this building, ordered by the ' +
-              'brothers and sisters who worked in the wards next door. They are standing ' +
-              'exactly where they were meant to stand, which is rare for anything five hundred ' +
-              'years old.',
+              'Hans Memling came to Bruges from Germany and stayed. Two of the works in this ' +
+              'room, the Saint Ursula shrine and the triptych of the two Johns, were made for this ' +
+              'building, ordered by the brothers and sisters who worked in the wards next ' +
+              'door. They stand where they were meant to stand, which is rare for anything five ' +
+              'hundred years old. The others were private orders and arrived here later.',
           },
           exhibits: [
             {
@@ -1903,7 +1905,7 @@ export const places: Place[] = [
                   { el: 'Το όνομα γράφτηκε πολύ αργότερα', en: 'The name was added much later' },
                   { el: 'Ο πίνακας έχει χαλάσει πολύ', en: 'The painting is badly damaged' },
                   { el: 'Ο πίνακας δεν καθαρίστηκε ποτέ', en: 'The picture was never cleaned' },
-                  { el: 'Το πρόσωπό της είναι κρυμμένο', en: 'Her face is hidden by the veil' },
+                  { el: 'Το πέπλο κρύβει το πρόσωπό της', en: 'Her face is hidden by the veil' },
                 ],
                 explanation: {
                   el:
@@ -1960,11 +1962,11 @@ export const places: Place[] = [
           id: 'bruges-sint-janshospitaal-riddle-3',
           prompt: {
             el:
-              'Δείχνω αυτόν ακριβώς τον χώρο όπως ήταν πριν από διακόσια χρόνια: κρεβάτια με ' +
+              'Δείχνω αυτόν ακριβώς τον χώρο όπως ήταν πριν από σχεδόν διακόσια πενήντα χρόνια: κρεβάτια με ' +
               'κουρτίνες, αδελφές με άσπρα σκουφιά, έναν άρρωστο σε φορείο και έναν σκύλο ' +
               'ξαπλωμένο στο πάτωμα.',
             en:
-              'I show this very space as it was two hundred years ago: beds with curtains, ' +
+              'I show this very space as it was almost two hundred and fifty years ago: beds with curtains, ' +
               'sisters in white caps, a patient on a stretcher and a dog lying on the floor.',
           },
           hint: {
@@ -2092,7 +2094,8 @@ export const places: Place[] = [
         'Αυτή η ήσυχη λίμνη με τους κύκνους ήταν κάποτε ένα πολυσύχναστο λιμάνι. Εδώ έδεναν ' +
         'τα ποταμόπλοια που έρχονταν από τη Γάνδη, φορτωμένα εμπορεύματα, και το μικρό ' +
         'πέτρινο σπίτι στην άκρη της, το Sashuis, ρυθμίζει τη στάθμη του νερού με φράγμα από ' +
-        'το 1519. Το όνομα Minnewater σημαίνει «Νερό της Αγάπης», και υπάρχει θρύλος για μια ' +
+        'το 1519. Ο κόσμος τη λέει «Λίμνη της Αγάπης», αν και κανείς δεν ξέρει σίγουρα από ' +
+        'πού βγήκε το όνομα Minnewater, και υπάρχει θρύλος για μια ' +
         'κοπέλα, τη Minna, που το έσκασε για να μην παντρευτεί κάποιον που δεν αγαπούσε. Οι ' +
         'κύκνοι έχουν τη δική τους ιστορία. Το 1488 οι κάτοικοι της Μπριζ επαναστάτησαν και ' +
         'κράτησαν φυλακισμένο τον Μαξιμιλιανό, τον μελλοντικό αυτοκράτορα· ο σύμβουλός του ' +
@@ -2103,8 +2106,9 @@ export const places: Place[] = [
       en:
         'This quiet lake full of swans was once a busy harbour. River barges from Ghent tied up ' +
         'here loaded with goods, and the little stone house at its end, the Sashuis, has ' +
-        'controlled the water level with a lock since 1519. The name Minnewater means “Water ' +
-        'of Love”, and there is a legend about a girl, Minna, who ran away rather than marry ' +
+        'controlled the water level with a lock since 1519. People call it the “Lake of ' +
+        'Love”, though nobody is sure where the name Minnewater really comes from, and there ' +
+        'is a legend about a girl, Minna, who ran away rather than marry ' +
         'someone she did not love. The swans have a story of their own. In 1488 the people of ' +
         'Bruges rebelled and held Maximilian, the future emperor, prisoner; his adviser Pieter ' +
         'Lanchals, whose name means “long neck”, did not survive it. They say that when ' +
@@ -2118,8 +2122,8 @@ export const places: Place[] = [
         en: 'The Sashuis has controlled the water level since 1519.',
       },
       {
-        el: 'Το όνομα Minnewater σημαίνει «Νερό της Αγάπης».',
-        en: 'The name Minnewater means “Water of Love”.',
+        el: 'Τα ποταμόπλοια από τη Γάνδη έδεναν εδώ μέχρι το 1784.',
+        en: 'The barges from Ghent tied up here until 1784.',
       },
       {
         el: 'Το επώνυμο Lanchals σημαίνει «μακρύς λαιμός» στα φλαμανδικά.',
