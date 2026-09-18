@@ -98,7 +98,7 @@ export default async function handler(req: any, res: any) {
     if (status === 'error') {
       const { refundCredits } = await import('../_lib/auth.js');
       const { COSTS } = await import('../_lib/costs.js');
-      const credits = await refundCredits(user.id, COSTS.SONG, 'REFUND_SONG', taskId);
+      const credits = await refundCredits(user.id, COSTS.SONG, 'REFUND_SONG', taskId, 'CREATE_SONG');
       const sensitive = rawStatus === 'SENSITIVE_WORD_ERROR';
       console.warn('[suno-status] task failed:', taskId, rawStatus, taskData.errorMessage || '');
       return res.status(200).json({

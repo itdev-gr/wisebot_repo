@@ -86,7 +86,7 @@ export default async function handler(req: any, res: any) {
 
     console.log('[video-generate] Started Veo 2 video, operationName:', operationName);
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, VIDEO_COST, 'CREATE_VIDEO');
+    await deductCredits(user.id, VIDEO_COST, 'CREATE_VIDEO', operationName);
     // Return as requestId so polling endpoint stays consistent
     return res.status(200).json({ requestId: operationName });
   } catch (err: any) {

@@ -66,7 +66,8 @@ export default async function handler(req: any, res: any) {
       .select('id').single();
     if (error) {
       const { refundCredits } = await import('../_lib/auth.js');
-      await refundCredits(user.id, PRINT_COST, 'REFUND_PRINT', `failed:${Date.now()}`);
+      // spendAction null: this very request charged this user two lines up.
+      await refundCredits(user.id, PRINT_COST, 'REFUND_PRINT', `failed:${Date.now()}`, null);
       throw error;
     }
 

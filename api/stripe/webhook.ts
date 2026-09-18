@@ -84,11 +84,17 @@ export default async function handler(req: any, res: any) {
               status: 'completed',
             });
 
-          // If the insert failed on a unique constraint, another delivery won
-          // the race — treat as already processed and don't credit again.
+          // Only a unique-constraint violation means another delivery won the
+          // race. Any other insert error (timeout, connection reset) must be a
+          // 500: answering 200 here marks the event delivered, Stripe never
+          // retries, and a paid purchase silently never grants its credits.
           if (insertError) {
+            if ((insertError as any).code === '23505') {
+              console.log(`[Webhook] Session ${sessionId} already recorded by a concurrent delivery — skipping`);
+              return res.json({ received: true });
+            }
             console.error('[Webhook] Purchase insert error:', insertError.message);
-            return res.json({ received: true });
+            return res.status(500).json({ error: 'Purchase record failed; will retry' });
           }
 
           // Add credits via atomic function
@@ -188,8 +194,12 @@ export default async function handler(req: any, res: any) {
             // Don't fail — email is non-critical
           }
         } catch (dbErr: any) {
+          // Reaching here means crediting has NOT happened (the post-credit
+          // steps — referral, email — catch their own errors), so a Stripe
+          // retry is exactly what we want. It is safe: a delivery that did
+          // credit is skipped by the purchases session-id guard above.
           console.error('[Webhook] DB error:', dbErr.message);
-          // Don't fail the webhook — Stripe needs 200 to not retry
+          return res.status(500).json({ error: 'Webhook processing failed; will retry' });
         }
       } else {
         console.log('[Webhook] Anonymous purchase or no credits — skipping DB write');

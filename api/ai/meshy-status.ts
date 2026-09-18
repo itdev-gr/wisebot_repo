@@ -114,7 +114,7 @@ export default async function handler(req: any, res: any) {
     if (status === 'error') {
       const { refundCredits } = await import('../_lib/auth.js');
       const { COSTS } = await import('../_lib/costs.js');
-      const credits = await refundCredits(user.id, COSTS.THREE_D, 'REFUND_3D', taskId);
+      const credits = await refundCredits(user.id, COSTS.THREE_D, 'REFUND_3D', taskId, 'CREATE_3D');
       console.warn('[meshy-status] task failed:', taskId, data.status, result.error || '');
       result.error = 'Η δημιουργία του 3D μοντέλου απέτυχε.';
       result.refunded = credits !== null;

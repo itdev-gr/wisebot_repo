@@ -129,7 +129,7 @@ export default async function handler(req: any, res: any) {
     }
 
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, THREED_COST, 'CREATE_3D');
+    await deductCredits(user.id, THREED_COST, 'CREATE_3D', String(data.result));
     return res.status(200).json({ taskId: data.result });
   } catch (err: any) {
     console.error('[meshy-generate] Error:', err.message || err);
