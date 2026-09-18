@@ -36,7 +36,7 @@ import type { PlaceStamp } from './useWorldProgress';
 import StoryNarration from './StoryNarration';
 import { PinReport } from './PinReport';
 import { WorldMap } from './WorldMap';
-import { distanceM, formatDistance, geoPermissionState, isWithin, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
+import { distanceM, formatDistance, geoPermissionState, geoVerdict, locateOnce, walkMinutes, type GeoError } from '../../utils/geo';
 import { afterReloadNote, blockedNote, consumeRetryReload, deniedKind, reloadForRetry, retryNeedsReload } from './geoNotes';
 import { GeoHow } from './GeoHow';
 
@@ -299,6 +299,25 @@ const T = {
     es: (d: string, min: number): string => `Estás a ${d}, unos ${min} minutos a pie. Camina hacia allí y vuelve a pulsar.`,
     it: (d: string, min: number): string => `Sei a ${d}, circa ${min} minuti a piedi. Avvicinati e tocca di nuovo.`,
   },
+  // A poor fix (narrow street, courtyard) can put a child «180 m away» from the place in
+  // front of them. The honest sentence is that the phone is unsure, not that the child is
+  // wrong — and it names the door when the place has a door note. The gate stays shut.
+  closeLookFor: {
+    el: (f: string): string => `Είσαι πολύ κοντά! Το σήμα του GPS εδώ δεν είναι καθαρό. Κοίτα γύρω σου για: ${f}`,
+    en: (f: string): string => `You are very close! The GPS signal here is not clear. Look around you for: ${f}`,
+    de: (f: string): string => `Du bist ganz nah! Das GPS-Signal ist hier nicht klar. Schau dich um nach: ${f}`,
+    fr: (f: string): string => `Tu y es presque ! Le signal GPS n’est pas clair ici. Regarde autour de toi pour trouver : ${f}`,
+    es: (f: string): string => `¡Estás muy cerca! Aquí la señal del GPS no es clara. Mira a tu alrededor y busca: ${f}`,
+    it: (f: string): string => `Sei vicinissimo! Qui il segnale GPS non è chiaro. Guardati intorno e cerca: ${f}`,
+  },
+  closeLookAround: {
+    el: 'Είσαι πολύ κοντά! Το σήμα του GPS εδώ δεν είναι καθαρό, οπότε κοίτα γύρω σου — το σημείο πρέπει να είναι δίπλα. Κάνε λίγα βήματα και ξαναπάτα.',
+    en: 'You are very close! The GPS signal here is not clear, so look around you — the place should be right next to you. Take a few steps and tap again.',
+    de: 'Du bist ganz nah! Das GPS-Signal ist hier nicht klar, also schau dich um — der Ort muss gleich neben dir sein. Geh ein paar Schritte und tippe noch einmal.',
+    fr: 'Tu y es presque ! Le signal GPS n’est pas clair ici, alors regarde autour de toi — le lieu doit être juste à côté. Fais quelques pas et appuie encore.',
+    es: '¡Estás muy cerca! Aquí la señal del GPS no es clara, así que mira a tu alrededor: el lugar debe de estar al lado. Da unos pasos y vuelve a pulsar.',
+    it: 'Sei vicinissimo! Qui il segnale GPS non è chiaro, quindi guardati intorno: il posto deve essere proprio lì. Fai qualche passo e tocca di nuovo.',
+  },
   geoDenied: {
     el: 'Χωρίς άδεια τοποθεσίας η σφραγίδα δεν μπορεί να μπει. Δώσε άδεια στο τηλέφωνο και ξαναπάτα.',
     en: 'Without location permission the stamp cannot be earned. Allow location on your phone and tap again.',
@@ -434,7 +453,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
    */
   // `ready` is the note after a retry reload: «Ready! Tap once more.» The card is keyed
   // by place in PlacePage, so this initialiser runs once per place.
-  const [geo, setGeo] = useState<'idle' | 'ready' | 'checking' | 'here' | 'far' | 'error'>(() =>
+  // 'close' is a poor fix that could be standing on the place: told, never stamped.
+  const [geo, setGeo] = useState<'idle' | 'ready' | 'checking' | 'here' | 'close' | 'far' | 'error'>(() =>
     consumeRetryReload(place.id) ? 'ready' : 'idle',
   );
   const [geoError, setGeoError] = useState<GeoError | null>(null);
@@ -482,7 +502,8 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
     }
     const m = distanceM(fix, place.location);
     setDistance(m);
-    setGeo(isWithin(fix, fix.accuracyM, place.location, radiusM) ? 'here' : 'far');
+    // 'here' is exactly the old isWithin rule; 'close' only changes the sentence.
+    setGeo(geoVerdict(m, fix.accuracyM, radiusM));
   };
 
   /**
@@ -724,6 +745,10 @@ const PlaceCard: React.FC<PlaceCardProps> = ({
                 {geo === 'far' &&
                   distance !== null &&
                   ui(T.tooFar, lang)(formatDistance(distance, lang === 'el' ? 'el' : 'en'), walkMinutes(distance))}
+                {geo === 'close' &&
+                  (place.location.findIt
+                    ? ui(T.closeLookFor, lang)(say(place.location.findIt, lang))
+                    : ui(T.closeLookAround, lang))}
                 {geo === 'error' && geoError === 'denied' && !geoBlocked && ui(T.geoDenied, lang)}
                 {geo === 'error' && geoError === 'denied' && geoBlocked && <BlockedLines lang={lang} />}
                 {geo === 'error' && geoError !== 'denied' && ui(T.geoUnavailable, lang)}
