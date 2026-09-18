@@ -55,7 +55,7 @@ const WISEBOT_AVATAR = '/images/wisebot.jpg';
 
 /** Load an image, resolving to null instead of rejecting — a missing avatar
  *  must never cost the child their card. */
-function loadImageOrNull(src: string): Promise<HTMLImageElement | null> {
+export function loadImageOrNull(src: string): Promise<HTMLImageElement | null> {
   return new Promise((resolve) => {
     try {
       const img = new Image();
@@ -71,7 +71,7 @@ function loadImageOrNull(src: string): Promise<HTMLImageElement | null> {
   });
 }
 
-function roundRect(
+export function roundRect(
   ctx: CanvasRenderingContext2D,
   x: number, y: number, w: number, h: number, r: number,
 ) {
@@ -91,7 +91,7 @@ function roundRect(
 
 /** '#a855f7' | '#a5f' → 'rgba(168,85,247,0.4)'. Falls back to the default
  *  accent rather than producing an invalid fillStyle. */
-function withAlpha(hex: string, alpha: number): string {
+export function withAlpha(hex: string, alpha: number): string {
   let h = (hex || '').trim().replace('#', '');
   if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
   if (!/^[0-9a-fA-F]{6}$/.test(h)) h = DEFAULT_ACCENT.slice(1);
@@ -99,12 +99,12 @@ function withAlpha(hex: string, alpha: number): string {
   return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
 }
 
-function setFont(ctx: CanvasRenderingContext2D, weight: number, size: number, italic = false) {
+export function setFont(ctx: CanvasRenderingContext2D, weight: number, size: number, italic = false) {
   ctx.font = `${italic ? 'italic ' : ''}${weight} ${size}px ${FONT}`;
 }
 
 /** Largest size in [min, start] at which `text` fits `maxWidth`. */
-function fitFont(
+export function fitFont(
   ctx: CanvasRenderingContext2D,
   text: string,
   maxWidth: number,
