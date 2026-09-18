@@ -815,15 +815,12 @@ describe('countries overlay', () => {
    * On 18 Σεπτεμβρίου the gate landed with 24 cards licensed (Berlin, Budapest, Lisbon,
    * Porto, Prague, Vienna × de/es/fr/it), grew by 8 when Nicosia and Dubrovnik arrived
    * the same evening, and went to zero the same night (#112, #110). Madrid and Venice
-   * came and went the same way (#114, #124). The cities below are the current remainder.
+   * came and went the same way (#114, #124), then Copenhagen, Bruges and Kraków (#113,
+   * #118 → #132). The cities below are the current remainder.
    */
   const KNOWN_ABSENT_CARDS: string[] = [
-    // Copenhagen, Bruges (#113), Kraków (#118), Florence and Seville (#126) arrived in
-    // el/en from the content sessions; their de/es/fr/it cards come from the languages
-    // session in its own PR.
-    'de:bruges', 'de:copenhagen', 'es:bruges', 'es:copenhagen',
-    'fr:bruges', 'fr:copenhagen', 'it:bruges', 'it:copenhagen',
-    'de:krakow', 'es:krakow', 'fr:krakow', 'it:krakow',
+    // Florence and Seville (#126) arrived in el/en from the content session; their
+    // de/es/fr/it cards come from the languages session in its own PR.
     'de:florence', 'de:seville', 'es:florence', 'es:seville',
     'fr:florence', 'fr:seville', 'it:florence', 'it:seville',
   ];
