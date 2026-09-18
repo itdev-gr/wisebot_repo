@@ -19,6 +19,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { CITIES, CITY_IDS, COUNTRIES, PLACE_COUNTS, loadCity, translationsFor } from './registry';
+import { cityMeta, countryMeta, faqForCity, faqForPlace, placeMeta, worldMeta } from './seo';
 import type { City, CityModule, Country, Place } from './types';
 import { WORLD_LANGS } from './types';
 import * as fixture from './__fixtures__/sample';
@@ -749,5 +750,93 @@ describe('world content', async () => {
         bundle.module.places.length,
       );
     }
+  });
+});
+
+/**
+ * The FAQ a parent finds in a search result. Every city and place answers 4–6 questions
+ * in both languages, built only from the module's own data; the repo's most common
+ * content bug is a silently empty `en`, so the answer text is checked, not just its
+ * presence. City and place pages carry exactly one FAQPage; the world and country pages
+ * none (thin, duplicated FAQs are a rich-result penalty).
+ */
+describe('world FAQ', async () => {
+  const all = await bundles();
+  const countryOf = (bundle: Bundle): Country =>
+    bundle.countries.find((c) => c.id === bundle.city.countryId) as Country;
+  const isFaq = (ld: Record<string, unknown>) => ld['@type'] === 'FAQPage';
+
+  it('gives every city 4–6 questions, each answered in Greek and English, no two alike', () => {
+    for (const bundle of all) {
+      const faq = faqForCity(countryOf(bundle), bundle.city, bundle.module);
+      expect(faq.length, bundle.label).toBeGreaterThanOrEqual(4);
+      expect(faq.length, bundle.label).toBeLessThanOrEqual(6);
+      const questions = new Set<string>();
+      for (const entry of faq) {
+        for (const lang of ['el', 'en'] as const) {
+          expect(entry.q[lang].trim().length, `${bundle.label}: empty question (${lang})`).toBeGreaterThan(8);
+          expect(entry.a[lang].trim().length, `${bundle.label}: empty answer (${lang})`).toBeGreaterThan(20);
+        }
+        expect(entry.q.el, `${bundle.label}: a question without the city's name`).toContain(bundle.city.name.el);
+        questions.add(entry.q.el);
+      }
+      expect(questions.size, `${bundle.label}: duplicate question`).toBe(faq.length);
+    }
+  });
+
+  it('gives every place 4–6 questions, each answered in Greek and English, each naming the place', () => {
+    for (const bundle of all) {
+      const country = countryOf(bundle);
+      for (const place of bundle.module.places) {
+        const faq = faqForPlace(country, bundle.city, place);
+        expect(faq.length, `${bundle.label}/${place.id}`).toBeGreaterThanOrEqual(4);
+        expect(faq.length, `${bundle.label}/${place.id}`).toBeLessThanOrEqual(6);
+        const questions = new Set<string>();
+        for (const entry of faq) {
+          for (const lang of ['el', 'en'] as const) {
+            expect(entry.q[lang].trim().length, `${place.id}: empty question (${lang})`).toBeGreaterThan(8);
+            expect(entry.a[lang].trim().length, `${place.id}: empty answer (${lang})`).toBeGreaterThan(20);
+            expect(entry.q[lang], `${place.id}: a question without the place's name (${lang})`).toContain(place.name[lang]);
+          }
+          questions.add(entry.q.el);
+        }
+        expect(questions.size, `${place.id}: duplicate question`).toBe(faq.length);
+      }
+    }
+  });
+
+  it('never repeats an answer across pages', () => {
+    const seen = new Map<string, string>();
+    for (const bundle of all) {
+      const country = countryOf(bundle);
+      const pages = [
+        { id: `${bundle.label}`, faq: faqForCity(country, bundle.city, bundle.module) },
+        ...bundle.module.places.map((p) => ({ id: `${bundle.label}/${p.id}`, faq: faqForPlace(country, bundle.city, p) })),
+      ];
+      for (const page of pages) {
+        for (const entry of page.faq) {
+          const key = `${entry.q.el}\n${entry.a.el}`;
+          expect(seen.get(key), `${page.id} repeats a Q/A of ${seen.get(key)}`).toBeUndefined();
+          seen.set(key, page.id);
+        }
+      }
+    }
+  });
+
+  it('puts exactly one FAQPage on city and place pages, and none on the world or country page', () => {
+    for (const bundle of all) {
+      const country = countryOf(bundle);
+      expect(cityMeta(country, bundle.city, bundle.module, 'el').jsonLd.filter(isFaq)).toHaveLength(1);
+      expect(cityMeta(country, bundle.city, bundle.module, 'en').jsonLd.filter(isFaq)).toHaveLength(1);
+      for (const place of bundle.module.places) {
+        const faqs = placeMeta(country, bundle.city, place, 'el').jsonLd.filter(isFaq);
+        expect(faqs, `${place.id}`).toHaveLength(1);
+        const entity = (faqs[0] as { mainEntity: { name: string; acceptedAnswer: { text: string } }[] }).mainEntity;
+        expect(entity.length).toBeGreaterThanOrEqual(4);
+        for (const q of entity) expect(q.acceptedAnswer.text.length).toBeGreaterThan(20);
+      }
+      expect(countryMeta(country, bundle.cities, PLACE_COUNTS, 'el').jsonLd.filter(isFaq)).toHaveLength(0);
+    }
+    expect(worldMeta(COUNTRIES, CITIES, PLACE_COUNTS, 'el').jsonLd.filter(isFaq)).toHaveLength(0);
   });
 });
