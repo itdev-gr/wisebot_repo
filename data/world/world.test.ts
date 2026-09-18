@@ -814,10 +814,7 @@ describe('countries overlay', () => {
    * the same evening, and went to zero the same night: Nicosia and Dubrovnik in #112, the
    * other 24 in #110. Madrid and Venice arrived right after (#114); their cards are below.
    */
-  const KNOWN_ABSENT_CARDS: string[] = [
-    'de:madrid', 'de:venice', 'es:madrid', 'es:venice',
-    'fr:madrid', 'fr:venice', 'it:madrid', 'it:venice',
-  ];
+  const KNOWN_ABSENT_CARDS: string[] = [];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
     const found: Array<{ path: string; node: Record<string, unknown> }> = [];
