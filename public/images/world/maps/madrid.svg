@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1311" width="1000" height="1311" role="img" aria-label="Stylised map of Madrid">
+  <title>Madrid — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/spain.ts
+    (north 40.46, south 40.402, east -3.672, west -3.73) so that place pins can be projected onto it
+    rather than positioned by hand. Deliberately schematic: the Manzanares river on the west,
+    the green of the Retiro park, the long north-south avenue from the Prado up past the
+    Bernabéu and the Gran Vía are placed from a handful of projected points, and nothing
+    here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="1311" fill="url(#ground)" />
+  <rect width="1000" height="1311" fill="url(#grid)" opacity="0.55" />
+
+  <!-- The Casa de Campo, the big green park across the river on the west edge. -->
+  <path d="M0 0 -9 -45 L26 554 L129 909 L164 1026 L284 1345 L0 1311 Z" fill="#d8e0c3" stroke="none" />
+
+  <!-- The Manzanares river, running north to south along the west of the old town. -->
+  <path d="M-9 -45 L26 554 L129 909 L164 1026 L284 1345" fill="none" stroke="#7cb8cd" stroke-width="10" stroke-linecap="round" />
+
+  <!-- The Retiro park. -->
+  <rect x="716" y="893" width="206" height="271" rx="18" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- The long avenue from the Prado north past Cibeles to the Bernabéu, and the Gran Vía
+       from Cibeles west towards the river. -->
+  <path d="M629 1322 L629 1187 L636 922 L681 787 L664 452 L681 158 L698 -23" fill="none" stroke="#c9b48f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M636 922 L500 904 L302 825" fill="none" stroke="#c9b48f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="819" y="1035" font-size="20" text-anchor="middle" letter-spacing="2">RETIRO</text>
+    <text x="32" y="791" font-size="18" text-anchor="middle" letter-spacing="2" transform="rotate(-90 32 791)">CASA DE CAMPO</text>
+    <text x="40" y="1241" font-size="42" letter-spacing="6">ΜΑΔΡΙΤΗ</text>
+    <text x="40" y="1275" font-size="22" letter-spacing="4">MADRID</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
