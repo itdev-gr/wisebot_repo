@@ -710,8 +710,8 @@ export const places: Place[] = [
         en: 'It was finished in 1519, in the reign of King Manuel I.',
       },
       {
-        el: 'Ο σκαλισμένος ρινόκερός του θεωρείται η πρώτη απεικόνιση ρινόκερου στην ευρωπαϊκή τέχνη μετά την αρχαιότητα.',
-        en: 'Its carved rhinoceros is thought to be the first rhinoceros in European art since antiquity.',
+        el: 'Ο σκαλισμένος ρινόκερός του θεωρείται το πρώτο γλυπτό ρινόκερου στη δυτική Ευρώπη.',
+        en: 'Its carved rhinoceros is thought to be the first sculpture of a rhinoceros in Western Europe.',
       },
       {
         el: 'Ο πύργος στεκόταν σε νησάκι μέσα στο ποτάμι· η όχθη τον πλησίασε με τα χρόνια.',
@@ -909,8 +909,8 @@ export const places: Place[] = [
       verifiedAt: '2026-09-13',
       note: 'The monastery building, not the World Heritage listing that pairs it with the Belém Tower a kilometre away. An area: the façade alone is about 300 m long. The Overpass API answered 429 during this run.',
       findIt: {
-        el: 'Η εκκλησία και ο κλοιστρός έχουν δύο διαφορετικές πόρτες. Η ουρά για τον κλοιστρό είναι δεξιά, κάτω από τη μεγάλη νότια πύλη.',
-        en: 'The church and the cloister have two different doors. The cloister queue is to the right, past the big south doorway.',
+        el: 'Η εκκλησία και ο κλοιστρός έχουν δύο διαφορετικές πόρτες. Κοιτώντας την πρόσοψη, η ουρά για την εκκλησία είναι στη μεγάλη νότια πύλη και η ουρά για τον κλοιστρό αριστερά της.',
+        en: 'The church and the cloister have two different doors. Facing the front, the church queue is at the big south doorway and the cloister queue is to its left.',
       },
     },
     question: {
@@ -1239,19 +1239,19 @@ export const places: Place[] = [
                   'στρατιώτες. Δεν ήταν μόνο στολίδι: πολλά πληρώματα δεν ήξεραν γράμματα, και ' +
                   'το ακρόπρωρο ήταν ο τρόπος να αναγνωρίσεις το πλοίο από μακριά και να θυμηθείς ' +
                   'το όνομά του. Πρόσεξε τα μάτια τους: είναι σκαλισμένα να κοιτούν λίγο προς τα ' +
-                  'πάνω, γιατί όποιος τα έβλεπε στέκονταν στην αποβάθρα, χαμηλότερα από αυτά.',
+                  'κάτω, γιατί όποιος τα έβλεπε στέκονταν στην αποβάθρα, χαμηλότερα από αυτά.',
                 en:
                   'Wooden figures, taller than a person, that were once fixed to a ship’s bow. ' +
                   'Some are women with streaming hair, some are lions, some are soldiers. They ' +
                   'were not only decoration: many crews could not read, and the figurehead was ' +
                   'how you recognised a ship from far off and remembered its name. Look at their ' +
-                  'eyes: they are carved looking slightly upwards, because whoever saw them was ' +
+                  'eyes: they are carved looking slightly downwards, because whoever saw them was ' +
                   'standing on the quay, lower down than they were.',
               },
               question: {
                 q: {
-                  el: 'Γιατί τα ακρόπρωρα κοιτούν ελαφρώς προς τα πάνω;',
-                  en: 'Why do the figureheads look slightly upwards?',
+                  el: 'Γιατί τα ακρόπρωρα κοιτούν ελαφρώς προς τα κάτω;',
+                  en: 'Why do the figureheads look slightly downwards?',
                 },
                 answers: [
                   { el: 'Ο κόσμος τα έβλεπε από χαμηλά', en: 'People saw them from down below' },
@@ -1262,10 +1262,10 @@ export const places: Place[] = [
                 explanation: {
                   el:
                     'Ο γλύπτης σκεφτόταν πού θα στέκεται ο θεατής. Από την αποβάθρα κοιτάς ψηλά, ' +
-                    'οπότε το βλέμμα σκαλίζεται ανάλογα.',
+                    'οπότε το βλέμμα σκαλίζεται να κατεβαίνει και να σε συναντά.',
                   en:
                     'The carver thought about where the viewer would stand. From the quay you look ' +
-                    'up, so the gaze was carved to meet you.',
+                    'up, so the gaze was carved to come down and meet you.',
                 },
               },
             },
