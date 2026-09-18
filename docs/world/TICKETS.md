@@ -226,6 +226,20 @@ JSON: a top-level `"machineTranslated": false` sibling of `"lang"` in all 28 exi
 
 ### loc-ab-quest-rule — Enforce «only A/B inside a quest» — there is no test for it today
 
+**DECIDED 18/9 by the owner: a worklist, not a block.** Measured before building it: the
+ticket was written when six non-Greek places were graded C; by 18/9 there were **31, in ten
+of the twelve cities outside Greece**, 29 of them inside trails. Enforced as written, ten
+cities could never have been sealed and 29 places would have left their trails. Nineteen
+of the 31 were C only because OpenStreetMap did not answer the night they were resolved —
+the rule would have punished an outage, not bad data.
+
+So nothing changes for a child. `scripts/world/c-grade-worklist.mjs` generates
+[C-GRADE-WORKLIST.md](C-GRADE-WORKLIST.md), which says for every C place whether it needs a
+re-resolve (no OSM) or a better seed (one source disagrees). Order: re-resolve when Overpass
+answers a whole batch, keep only clean runs, then apply the rule to what is still C — at
+which point this ticket's original test becomes the right one. The rest of this entry is the
+original ticket, kept for that step.
+
 **P0** · owner **engine** · brief §7 ("Μόνο A και B μέσα σε quests"), decisions row §7
 
 A child walks to a pin we are not sure about, the GPS gate opens anyway, and the stamp lands on the wrong corner. Today confidence is graded, stored, and then never read again by anything that runs.
@@ -302,6 +316,12 @@ Today a child standing in front of the Parthenon is handed 200 words to read bef
 
 ### session-split-ownership — SESSION-SPLIT.md does not know the i18n session exists, and points at a file that does not
 
+**DONE 13/9, PR #78.** SESSION-SPLIT.md has a third column for the languages session and
+its path list, the stale `hooks/useWorldProgress.ts` path is corrected there and in
+`data/world/types.ts`, and the hand-over rule («pushed», merge from `origin/*` only, check
+the city count build-registry prints) is written down. Rules 9 and 10 on trimmed and
+non-candidate distractors followed in #78 and #83.
+
 **P0** · owner **engine** · brief Λειτουργικός κανόνας row; docs/world/SESSION-SPLIT.md
 
 Three sessions work in parallel and the ownership document describes two. Every i18n ticket in this backlog is therefore unverifiable against the spec, and a session looking up who owns the progress hook finds a path that was never there.
@@ -357,6 +377,15 @@ components/world/useWorldProgress.ts:
 **Risk.** Do NOT bump `VERSION` in useWorldProgress.ts — `read()` at :121-141 throws away the whole passport when the version differs, so a bump would wipe every existing child's stamps to add an optional field. Adding it optionally is backward-compatible by construction. Privacy (§28): the flag is a single boolean derived from a comparison that already happens on-device; no latitude, longitude, accuracy, distance or timestamp-of-fix is stored or passed — `PlaceCard.tsx` keeps the Fix in local state and drops it, and that must stay true. World.tsx has been overwritten by concurrent sessions before (STATUS.md:41-43) — one session on this file.
 
 ### i18n-countries-24 — Translate the 24 untranslated countries (and 3 missing city cards) at the front door
+
+**The 24 countries are DONE, closed 18/9.** `countries.{de,fr,es,it}.json` carry all 25
+countries in each language, merged in #72. **Six city cards are still missing** — Berlin,
+Budapest, Lisbon, Porto, Prague, Vienna have no translated name or intro in any of the four
+files, so those cities introduce themselves in English on the country page even where the
+city itself is translated (Prague, Vienna and Berlin gained full overlays in #94–#96 without
+their cards). That remainder belongs to the languages session. The completeness TEST this
+ticket was to follow is its own ticket, `i18n-countries-gate`, and it is what would have
+caught the six.
 
 **P0** · owner **i18n** · brief §21 (P0 — Languages), decisions row §21 ('six live'); STATUS.md §0α item 3 · after `i18n-countries-gate`
 
