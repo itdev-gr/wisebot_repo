@@ -129,7 +129,13 @@
         "Sein höchster Berg, die Zugspitze, ist 2.962 Meter hoch. Die Grenze zu Österreich läuft genau über ihren Gipfel.",
         "Es grenzt an neun Länder, von Dänemark im Norden bis zur Schweiz im Süden.",
         "Der Kölner Dom brauchte 632 Jahre, bis er fertig war, von 1248 bis 1880. Seine Türme sind 157 Meter hoch."
-      ]
+      ],
+      "cities": {
+        "berlin": {
+          "name": "Berlin",
+          "intro": "Berlin ist eine Stadt, die zwei Leben gelebt hat. Achtundzwanzig Jahre lang teilte eine Mauer sie in zwei Hälften, und heute gehst du über ihre Linie, ohne es überhaupt zu merken. Es gibt einen Turm mit einer Kugel, die sich dreht, ein Parlament mit einem gläsernen Hut, eine Insel im Fluss mit fünf Museen darauf und das höchste Dinosaurierskelett der Welt. Und Bären, wohin du auch schaust: auf den Schildern, in den Schaufenstern, an den Brunnen."
+        }
+      }
     },
     "portugal": {
       "name": "Portugal",
@@ -139,7 +145,17 @@
         "Fast die Hälfte des Korks der Welt kommt von hier. Die Rinde wird alle 9 Jahre abgeschält, und der Baum lebt weiter.",
         "Die Vasco-da-Gama-Brücke in Lissabon ist 17,2 Kilometer lang, die längste der Europäischen Union.",
         "Die Buchhandlung Bertrand in Lissabon ist seit 1732 geöffnet: Sie ist die älteste Buchhandlung der Welt, die noch arbeitet."
-      ]
+      ],
+      "cities": {
+        "lisbon": {
+          "name": "Lissabon",
+          "intro": "Lissabon ist auf Hügeln gebaut, und fast jede Straße steigt entweder vom Wasser weg an oder läuft zu ihm hinunter. An einem Morgen im Jahr 1755 zerstörte ein Erdbeben das Zentrum, und die Stadt baute es ganz neu auf, mit geraden Straßen und einem Platz, der zum Fluss hin offen ist. Von diesem Fluss aus fuhren die Schiffe los, um den Seeweg nach Indien zu suchen. Es gibt gelbe Straßenbahnen, die knarrend die Hänge hinauffahren, einen eisernen Aufzug, der als öffentliches Verkehrsmittel zählt, und Wände, die mit blauen Fliesen verkleidet sind."
+        },
+        "porto": {
+          "name": "Porto",
+          "intro": "Porto liegt auf zwei Hügeln über einem Fluss, der zum Atlantik hinausfließt, und fast jede Straße steigt an oder fällt ab. Hier erzählen die Wände: Tausende blaue Fliesen in einem Bahnhof, ein ganzes Bild an der Seite einer Kirche. Eine eiserne Brücke mit zwei Fahrbahnen verbindet die Ufer, oben und unten zugleich. Es gibt einen Turm, der Schiffen den Weg zeigte, ohne je eine Lampe anzuzünden, einen Markt, dessen Name „große Blase“ bedeutet, und Pfauen, die durch einen Garten spazieren, als gehöre er ihnen."
+        }
+      }
     },
     "austria": {
       "name": "Österreich",
@@ -149,7 +165,13 @@
         "Die Eisriesenwelt ist die größte Eishöhle der Welt, mit Gängen von mehr als 42 Kilometern.",
         "Der Tiergarten Schönbrunn in Wien öffnete 1752 und ist der älteste Zoo, der überhaupt noch in Betrieb ist.",
         "Es hat gar keine Küste, aber es grenzt an acht Länder."
-      ]
+      ],
+      "cities": {
+        "vienna": {
+          "name": "Wien",
+          "intro": "Wien ist eine Stadt, die alles aufhebt. Ihr Dom hat einen fertigen Turm und einen halb gebauten, weil einmal das Geld ausging und nie jemand zurückkam, um ihn fertigzustellen. Ein Riesenrad von 1897 dreht sich noch immer im Prater. Zwei Zwillingsmuseen schauen sich über einen Platz hinweg an: In dem einen gibt es Dinosaurier und Meteoriten, in dem anderen zwölf Gemälde von Bruegel. Und ein ganzer Fluss fließt versteckt unter einem Markt, der anderthalb Kilometer lang ist."
+        }
+      }
     },
     "netherlands": {
       "name": "Niederlande",
@@ -283,7 +305,13 @@
         "Die Prager Burg breitet sich über fast 70.000 Quadratmeter aus, etwa zehn Fußballfelder.",
         "Die Karlsbrücke ist 516 Meter lang, mit 16 Bögen und einer Reihe von 30 Statuen.",
         "Das Wort „Roboter“ tauchte 1920 zum ersten Mal auf, im Theaterstück R.U.R. von Karel Čapek."
-      ]
+      ],
+      "cities": {
+        "prague": {
+          "name": "Prag",
+          "intro": "Prag ist eine Stadt, die fast nichts abgerissen hat. Deshalb schlägt eine Uhr von 1410 noch jede Stunde, wird eine Synagoge von 1270 noch benutzt, und eine Burg, die als hölzerne Festung begann, ist heute die größte alte Burg der Welt. Die Moldau fließt mitten hindurch, mit einer Steinbrücke von 1357 und einer Insel, die Menschen selbst angelegt haben, um Mehl zu mahlen. Und wenn du genug von alten Dingen hast, sehen zwei Türme am Flussufer aus, als würden sie tanzen."
+        }
+      }
     },
     "hungary": {
       "name": "Ungarn",
@@ -293,7 +321,13 @@
         "Sein höchster Punkt, der Kékes, liegt gerade einmal 1.014 Meter hoch. Das Land ist fast ganz flache Ebene.",
         "Das Parlament in Budapest hat 691 Zimmer und 29 Treppen, und seine Kuppel ist 96 Meter hoch.",
         "Der Zauberwürfel von Rubik wurde 1974 in Budapest erfunden. Etwa 500 Millionen Stück wurden verkauft."
-      ]
+      ],
+      "cities": {
+        "budapest": {
+          "name": "Budapest",
+          "intro": "Budapest war einmal zwei Städte: Buda oben auf den Hügeln und Pest unten in der Ebene, dazwischen die Donau. Eine Brücke, die an eisernen Ketten hängt, verband sie, weil ein Mann es satthatte, auf das Eis zu warten. Unter deinen Füßen ist das Wasser heiß und steigt von selbst aus einem Kilometer Tiefe herauf, um Bäder zu füllen, in denen man sogar schwimmt, während es schneit. Und oben auf dem Hügel hat eine schneeweiße Burg nie jemanden bewacht: Sie wurde nur für die Aussicht gebaut."
+        }
+      }
     },
     "denmark": {
       "name": "Dänemark",
