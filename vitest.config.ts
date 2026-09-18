@@ -18,6 +18,9 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     include: ['**/*.test.{ts,tsx}'],
-    exclude: ['**/node_modules/**', 'dist/**', 'server/**'],
+    // .claude/worktrees holds abandoned agent checkouts whose stale copies of
+    // real test files otherwise fail a full local run (vite.config already
+    // excludes them; this standalone config had missed it).
+    exclude: ['**/node_modules/**', 'dist/**', 'server/**', '**/.claude/**'],
   },
 });

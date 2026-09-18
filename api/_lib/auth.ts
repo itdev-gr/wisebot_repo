@@ -116,8 +116,12 @@ export async function checkCredits(userId: string, cost: number): Promise<{ ok: 
  * spend_credits RPC (row lock + balance check + transaction log).
  * Guests are a no-op. Returns true if deducted (or guest), false if the
  * balance was insufficient at deduction time.
+ *
+ * `actionId` is the provider task id for charges that a status endpoint may
+ * later refund (song/3D/video). It lands in credit_transactions.action_id and
+ * is what lets refundCredits prove THIS user paid for THAT task.
  */
-export async function deductCredits(userId: string, cost: number, action: string = 'AI_GENERATION'): Promise<boolean> {
+export async function deductCredits(userId: string, cost: number, action: string = 'AI_GENERATION', actionId?: string): Promise<boolean> {
   if (!userId || userId === 'guest' || cost <= 0) return true;
   try {
     const supabase = await getAdminClient();
@@ -125,6 +129,7 @@ export async function deductCredits(userId: string, cost: number, action: string
       p_user_id: userId,
       p_amount: cost,
       p_action: action,
+      p_action_id: actionId ?? null,
     });
     if (error) {
       console.error('[credits] deduct RPC error:', error.message);
@@ -147,18 +152,47 @@ export async function deductCredits(userId: string, cost: number, action: string
  * same task fail inside earn_credits, which rolls the whole RPC back — so a
  * client polling every few seconds can never be refunded twice.
  *
+ * It refunds only the account that was charged: the charge (deductCredits with
+ * an actionId) leaves a `spendAction` row with action_id = taskId, and without
+ * a matching row for THIS user the refund is denied. Before this check, the
+ * per-user idempotency alone meant any signed-in account could "refund" itself
+ * any failed taskId it had ever seen — a cross-account credit mint. Charges
+ * made before action_id existed can no longer be auto-refunded (tasks live
+ * for minutes, so the window closed at deploy); the admin panel covers those.
+ *
+ * `spendAction` is required so every call site states its intent: the CREATE_*
+ * action whose charge row must exist, or `null` ONLY where the caller has
+ * itself established who paid (the same request that charged, or an admin
+ * behind adminAuth). Never pass null on a client-supplied task id.
+ *
  * Returns the new balance if a refund happened, null if it was already refunded,
- * skipped (guest) or failed.
+ * denied (no matching charge), skipped (guest) or failed.
  */
 export async function refundCredits(
   userId: string,
   amount: number,
   action: string,
   taskId: string,
+  spendAction: string | null,
 ): Promise<number | null> {
   if (!userId || userId === 'guest' || amount <= 0 || !taskId) return null;
   try {
     const supabase = await getAdminClient();
+    if (spendAction !== null) {
+      const { data: charge, error: chargeError } = await supabase
+        .from('credit_transactions')
+        .select('id')
+        .eq('user_id', userId)
+        .eq('action', spendAction)
+        .eq('action_id', taskId)
+        .limit(1)
+        .maybeSingle();
+      if (chargeError || !charge) {
+        if (chargeError) console.error('[credits] refund ownership check error:', chargeError.message);
+        else console.warn(`[credits] refund denied: no ${spendAction} charge by ${userId} for ${taskId}`);
+        return null;
+      }
+    }
     const { data, error } = await supabase.rpc('earn_credits', {
       p_user_id: userId,
       p_amount: amount,

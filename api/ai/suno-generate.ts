@@ -114,7 +114,7 @@ export default async function handler(req: any, res: any) {
     }
 
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, SONG_COST, 'CREATE_SONG');
+    await deductCredits(user.id, SONG_COST, 'CREATE_SONG', String(data.data.taskId));
     return res.status(200).json({ taskId: data.data.taskId });
   } catch (err: any) {
     console.error('[suno-generate] Error:', err.message || err);
