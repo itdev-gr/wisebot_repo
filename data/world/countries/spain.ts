@@ -122,4 +122,57 @@ export const cities: City[] = [
       bounds: { north: 41.435, south: 41.36, east: 2.21, west: 2.1 },
     },
   },
+  {
+    id: 'madrid',
+    countryId: 'spain',
+    order: 2,
+    emoji: '👑',
+
+    name: {
+      el: 'Μαδρίτη',
+      en: 'Madrid',
+    },
+
+    intro: {
+      el:
+        'Η Μαδρίτη είναι η πρωτεύουσα της Ισπανίας και βρίσκεται σχεδόν στο κέντρο της ' +
+        'χώρας, τόσο που όλοι οι μεγάλοι δρόμοι μετριούνται από μια πλάκα σε μια πλατεία ' +
+        'της. Εδώ θα βρεις ένα παλάτι με τρεις χιλιάδες δωμάτια, ένα μουσείο γεμάτο ' +
+        'πίνακες που σε κοιτάζουν πίσω, έναν αληθινό αιγυπτιακό ναό σε ένα πάρκο και τον ' +
+        'πρώτο σκελετό εξαφανισμένου ζώου που στήθηκε ποτέ. Οι Μαδριλένοι τρώνε αργά το ' +
+        'βράδυ, μοιράζονται μικρά πιάτα με φίλους και κάνουν βαρκάδα σε μια λίμνη στη μέση ' +
+        'της πόλης.',
+      en:
+        'Madrid is the capital of Spain and sits almost in the middle of the country, so ' +
+        'much so that all the main roads are measured from a plaque in one of its squares. ' +
+        'Here you will find a palace with three thousand rooms, a museum full of paintings ' +
+        'that look back at you, a real Egyptian temple in a park and the first skeleton of ' +
+        'an extinct animal ever mounted. People in Madrid eat late in the evening, share ' +
+        'small plates with friends and row boats on a lake in the middle of the city.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/madrid.json`: Wikidata's point for the Justicia
+     * neighbourhood (Q1992319). Madrid's own point sits on the Puerta del Sol and the Centro
+     * district's on the Plaza Mayor, and either would read as a place's centroid mistake.
+     */
+    centre: { lat: 40.42389, lng: -3.69639 },
+
+    map: {
+      src: '/images/world/maps/madrid.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Μαδρίτης, με τον ποταμό Μανθανάρες στα δυτικά, το πάρκο Ρετίρο στα ανατολικά και τη μεγάλη λεωφόρο που ανεβαίνει προς τον βορρά.',
+        en: 'A stylised map of Madrid, with the Manzanares river to the west, the Retiro park to the east and the long avenue running north.',
+      },
+      width: 1000,
+      height: 1311,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the twelve places in `cities/madrid.ts` falls inside
+       * them, with the Egyptian temple near the river on the left, the Retiro on the right
+       * and the Bernabéu at the top of the long avenue.
+       */
+      bounds: { north: 40.46, south: 40.402, east: -3.672, west: -3.73 },
+    },
+  },
 ];

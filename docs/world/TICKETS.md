@@ -403,6 +403,12 @@ ticket was to follow is its own ticket, `i18n-countries-gate`, and it is what wo
 caught the six. It landed the same day and did: the 24 missing cards are listed in its
 `KNOWN_ABSENT_CARDS`, and each one that gets translated must leave that list at merge.
 
+**Fully DONE 18/9 night (#110, #112).** All 32 cards — the six above plus Nicosia and
+Dubrovnik, which arrived the same evening — are translated in de/es/fr/it, and
+`KNOWN_ABSENT_CARDS` went to empty. Every country and every city card on all four front
+doors was then in its language. New cities (Madrid and Venice, #114) arrive with their cards
+licensed in that list until the languages session writes them.
+
 **P0** · owner **i18n** · brief §21 (P0 — Languages), decisions row §21 ('six live'); STATUS.md §0α item 3 · after `i18n-countries-gate`
 
 The world list is the first screen in every language. A German child today lands on a list headed in German and reads GREECE… no wait — reads Italy, United Kingdom, Netherlands, Japan, Egypt and 19 more in English, with English intros and English facts. The decisions row asserts six LIVE languages; four of them are skin-deep until this lands. STATUS.md's claim is confirmed and is in fact slightly worse than stated.
@@ -1129,6 +1135,10 @@ Every privacy promise in this cluster is currently true and every one of them is
 
 ### seo-faq-block — FAQ block + FAQPage JSON-LD on World city and place pages
 
+**DONE 18/9 (#117, by the roadmap session).** `faqForCity` / `faqForPlace` in
+`data/world/seo.ts`, FAQ invariants in `world.test.ts`, and a `<dl>` plus FAQPage JSON-LD
+in the prerendered pages from `generate-world-seo.mjs`.
+
 **P1** · owner **engine** · brief §39, decisions row §39 ("FAQ και «family information» blocks: P1")
 
 A parent searching "Ακρόπολη με παιδιά πόσο κρατάει" lands on our page instead of a tour operator's, and Google can show the answer as a rich result. The child gets a page that answers the parent's question before the parent decides to open the app.
@@ -1165,6 +1175,10 @@ No change to data/world/types.ts.
 **Risk.** data/world/seo.ts and scripts/world/generate-world-seo.mjs are both shared with anyone doing SEO work — one session only, per the operational rule. Content risk: an FAQ that answers "what time does it open" from invented knowledge violates §20; the acceptance criteria therefore restrict answers to counts and fields already in the modules, and opening hours are deliberately pushed to world-family-info-schema where they arrive with a source. Duplicate-content risk if the same FAQ text is emitted on 136 place pages — the generated questions must interpolate the place's own name, category and counts so no two pages share a string.
 
 ### world-analytics-minimum — The minimum GA4 event set that measures the North Star
+
+**DONE 18/9 (#104, by the roadmap session).** Five anonymous counters in
+`utils/worldAnalytics.ts` with tests, called from `useWorldProgress.ts` and `AnotherOne.tsx`
+after the state change commits. No user id, no coordinate, no place id is sent.
 
 **P1** · owner **engine** · brief §34 (North Star + event list), §35 (targets), §28 (no child location history) · after `world-stamp-onsite-flag`
 
