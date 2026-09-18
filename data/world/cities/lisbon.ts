@@ -81,8 +81,8 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Οι Πορτογάλοι τη λένε ακόμα Terreiro do Paço, «η Αυλή του Παλατιού», αν και το παλάτι χάθηκε πριν από 270 χρόνια.',
-        en: 'People still call it Terreiro do Paço, “the Palace Ground”, though the palace vanished 270 years ago.',
+        el: 'Οι Πορτογάλοι τη λένε ακόμα Terreiro do Paço, «η Αυλή του Παλατιού», αν και το παλάτι χάθηκε στον σεισμό του 1755.',
+        en: 'People still call it Terreiro do Paço, “the Palace Ground”, though the palace was lost in the earthquake of 1755.',
       },
       {
         el: 'Ο σεισμός του 1755 ήταν από τους ισχυρότερους που έχουν καταγραφεί στην Ευρώπη, και το κύμα του έφτασε ως την Αγγλία.',
@@ -171,8 +171,8 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Σχεδιάστηκε μετά τον σεισμό του 1755 και τελείωσε μόλις το 1875, 120 χρόνια αργότερα.',
-        en: 'It was planned after the 1755 earthquake and only finished in 1875, 120 years later.',
+        el: 'Σχεδιάστηκε μετά τον σεισμό του 1755 και τελείωσε μόλις το 1875, 120 χρόνια μετά τον σεισμό.',
+        en: 'It was planned after the 1755 earthquake and only finished in 1875, 120 years after the earthquake.',
       },
       {
         el: 'Το γλυπτό στην κορυφή το σκάλισε ο Γάλλος Célestin Anatole Calmels.',
