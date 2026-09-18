@@ -1,0 +1,25 @@
+{
+  "city": "lyon",
+  "country": "france",
+  "centre": { "lat": 45.7675, "lng": 4.835 },
+  "note": "Wikidata q-ids only, searched in French. Centre is Wikidata's point for the city (Q456), which sits on the Hôtel de Ville, so the town hall is deliberately not seeded. Lyon is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. Place des Terreaux (Q1506) is 18 m from the Bartholdi fountain (Q10144) that stands on it; only the fountain is seeded and the square is told there. Vieux Lyon (Q8399) and the Croix-Rousse (Q8656) are a district and a hill and are not seeded; the cathedral, the Gadagne museums and the fresco stand for the old town. The Institut Lumière has no Wikidata coordinate the search turned up and is left out.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "lyon-fourviere", "name": "Basilique Notre-Dame de Fourvière", "wikidata": "Q1516", "anchor": "centroid" },
+    { "id": "lyon-tour-metallique", "name": "Tour métallique de Fourvière", "wikidata": "Q625", "anchor": "centroid" },
+    { "id": "lyon-theatre-antique", "name": "Théâtre antique de Fourvière", "wikidata": "Q1510", "anchor": "centroid" },
+    { "id": "lyon-lugdunum", "name": "Lugdunum, musée gallo-romain", "wikidata": "Q509", "anchor": "centroid" },
+    { "id": "lyon-cathedrale", "name": "Cathédrale Saint-Jean", "wikidata": "Q1521", "anchor": "centroid" },
+    { "id": "lyon-gadagne", "name": "Musées Gadagne", "wikidata": "Q8397", "anchor": "centroid" },
+    { "id": "lyon-fresque", "name": "Fresque des Lyonnais", "wikidata": "Q10147", "anchor": "centroid" },
+    { "id": "lyon-fontaine-bartholdi", "name": "Fontaine Bartholdi", "wikidata": "Q10144", "anchor": "centroid" },
+    { "id": "lyon-beaux-arts", "name": "Musée des Beaux-Arts", "wikidata": "Q511", "anchor": "centroid" },
+    { "id": "lyon-opera", "name": "Opéra Nouvel", "wikidata": "Q9496", "anchor": "centroid" },
+    { "id": "lyon-bellecour", "name": "Place Bellecour", "wikidata": "Q614", "anchor": "area" },
+    { "id": "lyon-hotel-dieu", "name": "Grand Hôtel-Dieu", "wikidata": "Q4013", "anchor": "centroid" },
+    { "id": "lyon-imprimerie", "name": "Musée de l'Imprimerie", "wikidata": "Q8323", "anchor": "centroid" },
+    { "id": "lyon-tete-d-or", "name": "Parc de la Tête d'Or", "wikidata": "Q3991", "anchor": "area" },
+    { "id": "lyon-halles", "name": "Halles de Lyon-Paul Bocuse", "wikidata": "Q3126137", "anchor": "centroid" },
+    { "id": "lyon-confluences", "name": "Musée des Confluences", "wikidata": "Q8352", "anchor": "centroid" }
+  ]
+}
