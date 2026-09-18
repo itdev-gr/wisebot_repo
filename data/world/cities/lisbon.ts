@@ -1375,14 +1375,14 @@ export const places: Place[] = [
                   'βασιλικό γάμο. Δεν είναι πλοίο ανοιχτής θάλασσας· είναι για το ποτάμι, για ' +
                   'παρελάσεις μπροστά σε κόσμο που στέκεται στις όχθες. Το εντυπωσιακό είναι ' +
                   'ότι λειτουργεί ακόμα: το 1957 μπήκε στο νερό και μετέφερε τη βασίλισσα ' +
-                  'Ελισάβετ Β΄ πάνω στον Τάγο, σχεδόν διακόσια χρόνια μετά το πρώτο της ταξίδι.',
+                  'Ελισάβετ Β΄ πάνω στον Τάγο, εκατόν εβδομήντα επτά χρόνια μετά το πρώτο της ταξίδι.',
                 en:
                   'Gilded from bow to stern, with a covered cabin amidships and benches for ' +
                   'dozens of oarsmen, this vessel was built in 1780 for a royal wedding. It is not ' +
                   'a seagoing ship; it is for the river, for processions in front of crowds ' +
                   'standing on the banks. The remarkable thing is that it still works: in 1957 it ' +
-                  'went back on the water and carried Queen Elizabeth II along the Tagus, almost ' +
-                  'two hundred years after its first outing.',
+                  'went back on the water and carried Queen Elizabeth II along the Tagus, a ' +
+                  'hundred and seventy-seven years after its first outing.',
               },
               question: {
                 q: {
@@ -1554,13 +1554,13 @@ export const places: Place[] = [
           difficulty: 2,
           prompt: {
             el:
-              'Τρία από εμάς εδώ μέσα έχουν φτερά, κι ας είναι αυτό μουσείο για πλοία. Δύο ' +
-              'αδέρφια μου χάλασαν στη διαδρομή. Εγώ ήμουν το μόνο που έφτασε ως την άλλη ' +
+              'Έχω φτερά, κι ας είναι αυτό μουσείο για πλοία. Ξεκινήσαμε τρία μαζί· τα δύο ' +
+              'αδέρφια μου χάλασαν στη διαδρομή, κι εγώ ήμουν το μόνο που έφτασε ως την άλλη ' +
               'μεριά.',
             en:
-              'Three of us in here have wings, though this is a museum of ships. Two of my ' +
-              'brothers broke on the way across, and I was the only one that reached the far ' +
-              'side.',
+              'I have wings, though this is a museum of ships. Three of us set out together; ' +
+              'two of my brothers broke on the way across, and I was the only one that reached ' +
+              'the far side.',
           },
           hint: {
             el: 'Αντί για ρόδες έχω πλωτήρες.',
