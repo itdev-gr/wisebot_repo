@@ -1,8 +1,8 @@
 /**
  * WiseBot World — Cyprus.
  *
- * Same shape as `greece.ts`: the country plus the metadata of its cities. The cities
- * arrive through the pipeline later, so `cities` is empty for now.
+ * Same shape as `greece.ts`: the country plus the metadata of its cities. Nicosia landed
+ * on 14 September 2026; any further Cypriot cities arrive through the pipeline later.
  *
  * Facts checked on 12 September 2026 against the English Wikipedia articles for
  * Geography of Cyprus (9,251 km², third-largest Mediterranean island, 648 km of coast),
@@ -68,4 +68,54 @@ export const country: Country = {
   },
 };
 
-export const cities: City[] = [];
+export const cities: City[] = [
+  {
+    id: 'nicosia',
+    countryId: 'cyprus',
+    order: 1,
+    emoji: '🌞',
+
+    name: {
+      el: 'Λευκωσία',
+      en: 'Nicosia',
+    },
+
+    intro: {
+      el:
+        'Η Λευκωσία βρίσκεται μακριά από τη θάλασσα, ' +
+        'στη μέση μιας πεδιάδας, κλεισμένη μέσα σε έναν κύκλο τειχών με έντεκα μυτερούς ' +
+        'προμαχώνες σαν καρδιές, και όλη η παλιά πόλη είναι χτισμένη με την ίδια ' +
+        'χρυσοκίτρινη πέτρα. Μια γοτθική εκκλησία εδώ έγινε τζαμί, ένα οθωμανικό λουτρό ' +
+        'δουλεύει ακόμα, και ένα σχολείο κάνει μάθημα από το 1812 χωρίς διακοπή. Από τη ' +
+        'δεκαετία του 1960, και οριστικά από το 1974, μια γραμμή χωρίζει την παλιά πόλη στα δύο, και οι άνθρωποι περνούν ' +
+        'δείχνοντας ταυτότητα.',
+      en:
+        'Nicosia lies far from the sea, in the ' +
+        'middle of a plain, closed inside a ring of walls with eleven pointed bastions ' +
+        'shaped like hearts, and the whole old town is built from the same golden-yellow ' +
+        'stone. A Gothic church here became a mosque, an Ottoman bathhouse still works, and ' +
+        'a school has been holding lessons since 1812 without a break. Since the 1960s, and for ' +
+        'good since 1974, a line has divided the old town in two, and people cross it by showing an ID card.',
+    },
+
+    /** Copied from `scripts/world/seeds/nicosia.json`. */
+    centre: { lat: 35.16953, lng: 33.36087 },
+
+    map: {
+      src: '/images/world/maps/nicosia.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Λευκωσίας, με τον κύκλο των τειχών, τους έντεκα προμαχώνες του και την τάφρο.',
+        en: 'A stylised map of Nicosia, with the ring of its walls, its eleven bastions and its moat.',
+      },
+      width: 1000,
+      height: 760,
+      /**
+       * Wide enough east to hold Famagusta Gate and the eastern rampart, wide enough west
+       * to hold the Municipal Gardens, and deep enough south to hold the Leventis Gallery
+       * outside the walls, without shrinking the walled city — which is where eleven of
+       * the fifteen places are — to a blob.
+       */
+      bounds: { north: 35.1805, south: 35.165, east: 33.3745, west: 33.3495 },
+    },
+  },
+];

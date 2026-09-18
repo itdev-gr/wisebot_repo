@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 1000" width="940" height="1000" role="img" aria-label="Stylised map of Dubrovnik">
+  <title>Dubrovnik — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/croatia.ts
+    (north 42.6515, south 42.6280, east 18.1260, west 18.0960) so that place pins can be
+    projected onto it rather than positioned by hand. The box is about 2.46 km east to
+    west and 2.61 km north to south, which is the 940 × 1000 ratio of the drawing, so
+    nothing stretches. The ridge of Srđ across the north, the walled Old City on its
+    little headland, the rock of Lovrijenac west of it and the island of Lokrum in the
+    south-east are all placed from those bounds; nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f1e3" />
+      <stop offset="1" stop-color="#ece1cb" />
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#96c7dc" />
+      <stop offset="1" stop-color="#5b9cbd" />
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9d2ac" />
+      <stop offset="1" stop-color="#dfdfc2" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#ded2b9" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="940" height="1000" fill="url(#ground)" />
+  <rect width="940" height="1000" fill="url(#grid)" opacity="0.55" />
+
+  <!--
+    The ridge of Srđ, the bare limestone hill that stands behind the city all along its
+    northern side. The summit cross sits near the middle of it.
+  -->
+  <path
+    d="M0 210 C 140 150, 300 118, 470 112 C 640 106, 800 132, 940 176 L940 0 L0 0 Z"
+    fill="url(#ridge)"
+  />
+  <path
+    d="M0 210 C 140 150, 300 118, 470 112 C 640 106, 800 132, 940 176"
+    fill="none"
+    stroke="#a9b487"
+    stroke-width="3"
+  />
+
+  <!--
+    The Adriatic. The coast runs from the west, past the little bay at Pile, along the
+    south wall of the Old City, then swings north-east towards Ploče.
+  -->
+  <path
+    d="M0 478 L150 486 L268 498 L322 476 L360 500 L470 522 L540 500 L620 442
+       L720 415 L830 398 L940 378 L940 1000 L0 1000 Z"
+    fill="url(#water)"
+  />
+  <path
+    d="M0 478 L150 486 L268 498 L322 476 L360 500 L470 522 L540 500 L620 442
+       L720 415 L830 398 L940 378"
+    fill="none"
+    stroke="#4c8ba9"
+    stroke-width="3"
+  />
+
+  <!-- The rock of Lovrijenac, standing out of the water west of the city. -->
+  <path d="M243 452 L286 446 L292 474 L250 480 Z" fill="#e3d8c0" stroke="#b1a382" stroke-width="2" />
+
+  <!--
+    The Old City: one ring of wall, the roofs inside it, and the Stradun cutting through
+    from the Pile Gate in the west to Luža square in the east.
+  -->
+  <path
+    d="M330 384 C 356 366, 404 362, 452 372 C 500 382, 528 404, 534 440
+       C 540 476, 512 500, 462 508 C 410 516, 358 506, 332 480
+       C 310 458, 310 402, 330 384 Z"
+    fill="#f0d9c4"
+    stroke="#c08a63"
+    stroke-width="7"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M340 415 L448 447"
+    fill="none"
+    stroke="#fbf3e6"
+    stroke-width="9"
+    stroke-linecap="round"
+  />
+
+  <!-- Minčeta, the round tower at the highest corner of the wall. -->
+  <circle cx="395" cy="369" r="12" fill="#eadfc6" stroke="#c08a63" stroke-width="5" />
+
+  <!-- Lokrum, the wooded island half a mile out to sea. -->
+  <ellipse
+    cx="655"
+    cy="908"
+    rx="86"
+    ry="48"
+    fill="#cadfb6"
+    stroke="#96b483"
+    stroke-width="3"
+    transform="rotate(-28 655 908)"
+  />
+
+  <g fill="#84714f" font-family="Georgia, 'Times New Roman', serif">
+    <text x="40" y="70" font-size="34" letter-spacing="4">ΝΤΟΥΜΠΡΟΒΝΙΚ</text>
+    <text x="40" y="100" font-size="19" letter-spacing="5">DUBROVNIK</text>
+    <text x="470" y="72" font-size="20" text-anchor="middle" letter-spacing="6">ΣΡΤΖ · SRĐ</text>
+    <text x="432" y="435" font-size="13" text-anchor="middle" letter-spacing="1">STRADUN</text>
+  </g>
+
+  <text
+    x="655"
+    y="914"
+    font-size="15"
+    fill="#5d7b4d"
+    font-family="Georgia, 'Times New Roman', serif"
+    text-anchor="middle"
+    letter-spacing="3"
+  >ΛΟΚΡΟΥΜ</text>
+
+  <text
+    x="250"
+    y="700"
+    font-size="19"
+    fill="#2f6f8c"
+    font-family="Georgia, 'Times New Roman', serif"
+    letter-spacing="5"
+    transform="rotate(-9 250 700)"
+  >ΑΔΡΙΑΤΙΚΗ</text>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(870 930)" stroke="#84714f" fill="#84714f">
+    <circle r="25" fill="none" stroke-width="2" />
+    <path d="M0 -21 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-29" font-size="15" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
