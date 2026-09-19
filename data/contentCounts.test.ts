@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
-  ACADEMY_STORY_COUNT, BOOK_COUNT,
+  ACADEMY_STORY_COUNT, BOOK_COUNT, GAME_COUNT,
   SCHOOL_MISSION_COUNT, SCHOOL_QUESTION_COUNT, SCHOOL_MISSION_COUNT_EN, SCHOOL_QUESTION_COUNT_EN,
 } from './contentCounts';
 import { COURSES } from './academyCourses';
@@ -20,6 +23,12 @@ describe('content counts used in marketing copy', () => {
 
   it('BOOK_COUNT matches the number of books', () => {
     expect(BOOK_METADATA.length).toBe(BOOK_COUNT);
+  });
+
+  it('GAME_COUNT matches the GameCenter registry (the «16 παιχνίδια» copy rotted once already)', () => {
+    const here = dirname(fileURLToPath(import.meta.url));
+    const src = readFileSync(join(here, '../components/GameCenter.tsx'), 'utf8');
+    expect((src.match(/^\s*key: '/gm) || []).length).toBe(GAME_COUNT);
   });
 
   it('Greek-edition SCHOOL counts match the unit registry', () => {

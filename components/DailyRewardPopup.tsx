@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Gift, Zap, Flame, Crown, X, Sparkles, Check } from 'lucide-react';
+import { Gift, Zap, Flame, Crown, X, Sparkles, Check, Star } from 'lucide-react';
 import { useEconomy } from '../context/EconomyContext';
 
 interface DailyRewardPopupProps {
@@ -17,9 +17,11 @@ interface StreakData {
 // XP per consecutive day. (Credits are bought, not handed out daily — 24 Αυγούστου 2026.)
 const STREAK_REWARDS = [10, 20, 20, 30, 30, 50, 100];
 
+// The strip is a STREAK (day 1..7 of consecutive visits), not a calendar week —
+// weekday names here made a new child on a Friday see «ΔΕΥ» highlighted.
 const DAY_LABELS = {
-  el: ['ΔΕΥ', 'ΤΡΙ', 'ΤΕΤ', 'ΠΕΜ', 'ΠΑΡ', 'ΣΑΒ', 'ΚΥΡ'],
-  en: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'],
+  el: ['ΜΕΡΑ 1', 'ΜΕΡΑ 2', 'ΜΕΡΑ 3', 'ΜΕΡΑ 4', 'ΜΕΡΑ 5', 'ΜΕΡΑ 6', 'ΜΕΡΑ 7'],
+  en: ['DAY 1', 'DAY 2', 'DAY 3', 'DAY 4', 'DAY 5', 'DAY 6', 'DAY 7'],
 };
 
 const getStreakData = (): StreakData => {
@@ -225,7 +227,7 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
                     ) : i === STREAK_REWARDS.length - 1 ? (
                       <Crown size={14} className={isCurrent ? 'text-amber-400' : 'text-white/20'} />
                     ) : (
-                      <Zap size={12} className={isFuture ? 'text-white/20' : ''} />
+                      <Star size={12} className={isFuture ? 'text-white/20' : ''} />
                     )}
                     <span className="text-[9px] font-[1000] mt-0.5">{reward}</span>
                   </div>
@@ -251,7 +253,7 @@ export default function DailyRewardPopup({ lang }: DailyRewardPopupProps) {
               className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white font-[1000] text-lg uppercase italic tracking-wider shadow-[0_8px_40px_rgba(245,158,11,0.5)] flex items-center justify-center gap-3 hover:brightness-110 hover:scale-105 hover:shadow-[0_8px_50px_rgba(245,158,11,0.6)] active:scale-95 transition-all duration-300"
             >
               <Gift size={22} />
-              {txt.claim} (+{todayReward} <Zap size={16} fill="currentColor" className="inline" />)
+              <span className="whitespace-nowrap">{txt.claim} · +{todayReward} XP</span>
             </button>
           ) : (
             <div className="w-full py-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-[1000] text-lg uppercase italic tracking-wider flex items-center justify-center gap-3">

@@ -228,11 +228,11 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
     const isUnlocked = badges[id as keyof typeof badges];
     const c = BADGE_COLORS[color] || BADGE_COLORS.purple;
     return (
-        <div className={`flex flex-col items-center gap-2 p-3 rounded-2xl border transition-all ${isUnlocked ? `${c.bg} ${c.border}` : 'bg-white/5 border-white/5 opacity-50 grayscale'}`}>
+        <div className={`flex flex-col items-center gap-2 px-1.5 py-3 rounded-2xl border transition-all ${isUnlocked ? `${c.bg} ${c.border}` : 'bg-white/5 border-white/5 opacity-50 grayscale'}`}>
             <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isUnlocked ? `${c.iconBg} ${c.iconText} ${c.shadow}` : 'bg-white/10 text-white/20'}`}>
                 <Icon size={24} />
             </div>
-            <span className={`text-[10px] font-black uppercase tracking-widest ${isUnlocked ? 'text-white' : 'text-white/30'}`}>
+            <span className={`text-[8px] font-black uppercase tracking-normal text-center leading-tight break-words max-w-full ${isUnlocked ? 'text-white' : 'text-white/30'}`}>
                 {t.badges[id as keyof typeof t.badges]}
             </span>
         </div>
@@ -514,7 +514,7 @@ export default function Account({ lang, onClaimBonus, lastClaimDate }: AccountPr
                 <Award size={20} className="text-fuchsia-400" /> {t.achievements}
               </h3>
               
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-4 gap-2 sm:gap-3">
                  <BadgeDisplay icon={Brain} id="thinker" color="purple" />
                  <BadgeDisplay icon={ImageIcon} id="creator" color="fuchsia" />
                  <BadgeDisplay icon={Clapperboard} id="filmmaker" color="cyan" />

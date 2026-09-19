@@ -3,6 +3,7 @@
  * Renders a "Εξερεύνησε Επίσης" grid of links to all content pages.
  * Uses real <a> tags (React Router Link renders as <a>) so Google follows them.
  */
+import { GAME_COUNT } from '../data/contentCounts';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Music, Gamepad2, HelpCircle, Film, Wand2, Cuboid, Briefcase, ShoppingBag, Users, GraduationCap, Heart, Compass } from 'lucide-react';
@@ -60,7 +61,7 @@ const PAGES = [
     icon: Gamepad2,
     color: 'from-green-500 to-emerald-600',
     label: { el: 'Παιχνίδια', en: 'Games' },
-    desc: { el: '16 δωρεάν arcade games', en: '16 free arcade games' },
+    desc: { el: `${GAME_COUNT} δωρεάν arcade games`, en: `${GAME_COUNT} free arcade games` },
   },
   {
     id: 'quiz',
