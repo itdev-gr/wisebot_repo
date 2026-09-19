@@ -1,0 +1,341 @@
+{
+  "city": "antalya",
+  "resolvedAt": "2026-09-19T11:40:51.806Z",
+  "centre": {
+    "lat": 36.90812,
+    "lng": 30.69556
+  },
+  "places": [
+    {
+      "id": "antalya-hadrian-gate",
+      "name": "Hadrianus Kapısı",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1283114",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/91728341",
+          "deltaM": 18
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hadrian's Gate",
+          "deltaM": 17
+        }
+      ],
+      "warnings": [],
+      "lat": 36.88531,
+      "lng": 30.70835,
+      "labels": {
+        "es": "Puerta de Adriano",
+        "en": "Hadrian's Gate",
+        "de": "Hadrianstor",
+        "fr": "porte d'Hadrien",
+        "it": "Porta di Adriano"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-clock-tower",
+      "name": "Saat Kulesi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6060345",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/431455145",
+          "deltaM": 19
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.887,
+      "lng": 30.7059,
+      "labels": {
+        "en": "Antalya Clock Tower",
+        "fr": "tour-hologe d'Antalya"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-yivli-minare",
+      "name": "Yivli Minare",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1753844",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Yivli Minaret Mosque",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 36.88639,
+      "lng": 30.70444,
+      "labels": {
+        "de": "Yivli-Minare-Moschee",
+        "en": "Antalya Mosque",
+        "el": "Τζαμί Γιβλί Μιναρέ",
+        "fr": "Yivli Minare"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-kesik-minare",
+      "name": "Kesik Minare",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6395079",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 36.88258,
+      "lng": 30.70606,
+      "labels": {
+        "en": "Kesik Minare",
+        "de": "Kesik-Minarett",
+        "es": "alminbar Kesik"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-hidirlik",
+      "name": "Hıdırlık Kulesi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q218118",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hidirlik Tower",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 36.88139,
+      "lng": 30.70361,
+      "labels": {
+        "en": "Hidirlik Tower",
+        "es": "Torre Hıdırlık",
+        "de": "Leuchtturm Hıdırlık",
+        "fr": "Tour d'Hidirlik"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-karaalioglu",
+      "name": "Karaalioğlu Parkı",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6367585",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/110321827",
+          "deltaM": 219
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.88067,
+      "lng": 30.70397,
+      "labels": {
+        "en": "Karaalioğlu Park"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-harbour",
+      "name": "Kaleiçi Yat Limanı",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q116369972",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/1420290795",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.88437,
+      "lng": 30.70215,
+      "labels": {
+        "de": "Hafen Antalya",
+        "en": "Antalya Harbour",
+        "es": "puerto de Antalya"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-toy-museum",
+      "name": "Antalya Oyuncak Müzesi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6055656",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2880832121",
+          "deltaM": 27
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.88549,
+      "lng": 30.7022,
+      "labels": {
+        "en": "Antalya Toy Museum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-museum",
+      "name": "Antalya Müzesi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q843241",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 36.8856,
+      "lng": 30.6797,
+      "labels": {
+        "en": "Antalya Museum",
+        "es": "Museo de Antalya",
+        "fr": "Musée d'Antalya",
+        "it": "Museo di Antalya"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-aquarium",
+      "name": "Antalya Akvaryum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q20470397",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/502752451",
+          "deltaM": 34
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 36.87891,
+      "lng": 30.66068,
+      "labels": {
+        "en": "Antalya Aquarium"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-konyaalti",
+      "name": "Konyaaltı Plajı",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2493895",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 36.865,
+      "lng": 30.64444,
+      "labels": {
+        "es": "Playa Konyaaltı",
+        "en": "Konyaaltı Beach"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "antalya-lower-duden",
+      "name": "Aşağı Düden Şelalesi",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q72177820",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 36.85097,
+      "lng": 30.78344,
+      "labels": {
+        "en": "Lower Düden Waterfalls"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    }
+  ],
+  "problems": []
+}

@@ -121,4 +121,56 @@ export const cities: City[] = [
       bounds: { north: 41.048, south: 40.998, east: 29.012, west: 28.93 },
     },
   },
+  {
+    id: 'antalya',
+    countryId: 'turkey',
+    order: 2,
+    emoji: '🍊',
+
+    name: {
+      el: 'Αττάλεια',
+      en: 'Antalya',
+    },
+
+    intro: {
+      el:
+        'Η Αττάλεια είναι μια πόλη πάνω σε βράχια, δίπλα σε έναν κόλπο που τον κλείνουν βουνά ' +
+        'με χιόνι στις κορυφές ενώ κάτω κάνει ζέστη. Την ίδρυσε ένας Έλληνας βασιλιάς που ' +
+        'έψαχνε λιμάνι, την επισκέφτηκε ένας Ρωμαίος αυτοκράτορας που του έχτισαν πύλη, και ' +
+        'οι Σελτζούκοι της έδωσαν έναν μιναρέ με αυλάκια που έγινε το σύμβολό της. Εδώ ένα ' +
+        'ποτάμι πηδάει από τα βράχια κατευθείαν στη θάλασσα, οι καρχαρίες περνούν πάνω από το ' +
+        'κεφάλι σου σε ένα γυάλινο τούνελ, και η παραλία είναι επτά χιλιόμετρα βότσαλα.',
+      en:
+        'Antalya is a city on cliffs, beside a bay closed off by mountains with snow on their ' +
+        'peaks while it is warm below. It was founded by a Greek king looking for a harbour, ' +
+        'visited by a Roman emperor who was given a gate, and the Seljuks gave it a grooved ' +
+        'minaret that became its symbol. Here a river leaps off the cliffs straight into the ' +
+        'sea, sharks pass over your head in a glass tunnel, and the beach is seven kilometres ' +
+        'of pebbles.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/antalya.json`, which takes it from Wikidata's own
+     * point for the city (Q6487), north of the old town. The resolver audits every place
+     * against this exact point and found nothing on it.
+     */
+    centre: { lat: 36.90812, lng: 30.69556 },
+
+    map: {
+      src: '/images/world/maps/antalya.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Αττάλειας, με τον κόλπο στα νότια, την παλιά πόλη στα βράχια πάνω από το λιμάνι, την παραλία στα δυτικά και τον καταρράκτη στα ανατολικά.',
+        en: 'A stylised map of Antalya, with the bay to the south, the old town on its cliffs above the harbour, the beach to the west and the waterfall to the east.',
+      },
+      width: 1000,
+      height: 627,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the twelve places in `cities/antalya.ts` falls inside
+       * them, with the beach at the bottom left, the old town in the middle and the Düden
+       * falls at the bottom right.
+       */
+      bounds: { north: 36.895, south: 36.845, east: 30.79, west: 30.635 },
+    },
+  },
 ];
