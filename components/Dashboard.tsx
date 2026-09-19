@@ -143,15 +143,18 @@ const getISOWeek = (date: Date): number => {
 // genuinely reshuffle each Monday — but nothing here pretends to be a child.)
 // `base` values are tiered so there is always a bot within reach.
 const CREW_BOTS = [
-  { name: 'WiseBot', emoji: '🦉', avatarColor: 'from-emerald-500 to-teal-500', base: 330, line: { el: 'Διάβασε 8 ιστορίες', en: 'Read 8 stories' } },
-  { name: 'Sparken', emoji: '⚡', avatarColor: 'from-amber-500 to-orange-500', base: 240, line: { el: 'Πέρασε 6 quiz', en: 'Passed 6 quizzes' } },
-  { name: 'Crocus', emoji: '🦔', avatarColor: 'from-purple-500 to-pink-500', base: 160, line: { el: 'Έφτιαξε 2 τραγούδια', en: 'Made 2 songs' } },
-  { name: 'Pencilo', emoji: '✏️', avatarColor: 'from-blue-500 to-cyan-500', base: 90, line: { el: 'Ζωγράφισε 3 ήρωες', en: 'Drew 3 heroes' } },
-  { name: 'Link', emoji: '🤖', avatarColor: 'from-indigo-500 to-violet-500', base: 35, line: { el: 'Βρήκε 2 θησαυρούς', en: 'Found 2 treasures' } },
+  // `acc` is the Greek accusative with the right article — ΦΥΛΑ ΧΑΡΑΚΤΗΡΩΝ
+  // (κανόνας ιδιοκτήτη 19/9): η WiseBot και η Link είναι θηλυκές.
+  { name: 'WiseBot', acc: 'τη WiseBot', emoji: '🦉', avatarColor: 'from-emerald-500 to-teal-500', base: 330, line: { el: 'Διάβασε 8 ιστορίες', en: 'Read 8 stories' } },
+  { name: 'Sparken', acc: 'τον Sparken', emoji: '⚡', avatarColor: 'from-amber-500 to-orange-500', base: 240, line: { el: 'Πέρασε 6 quiz', en: 'Passed 6 quizzes' } },
+  { name: 'Crocus', acc: 'τον Crocus', emoji: '🦔', avatarColor: 'from-purple-500 to-pink-500', base: 160, line: { el: 'Έφτιαξε 2 τραγούδια', en: 'Made 2 songs' } },
+  { name: 'Pencilo', acc: 'τον Pencilo', emoji: '✏️', avatarColor: 'from-blue-500 to-cyan-500', base: 90, line: { el: 'Ζωγράφισε 3 ήρωες', en: 'Drew 3 heroes' } },
+  { name: 'Link', acc: 'τη Link', emoji: '🤖', avatarColor: 'from-indigo-500 to-violet-500', base: 35, line: { el: 'Βρήκε 2 θησαυρούς', en: 'Found 2 treasures' } },
 ];
 
 interface LeaderboardEntry {
   name: string;
+  acc?: string;
   emoji?: string;
   avatarColor: string;
   score: number;
@@ -176,6 +179,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
   const crewPlayers: LeaderboardEntry[] = React.useMemo(() => {
     return CREW_BOTS.map((bot, i) => ({
       name: bot.name,
+      acc: bot.acc,
       emoji: bot.emoji,
       avatarColor: bot.avatarColor,
       score: bot.base + Math.floor(seededRandom(yearWeekSeed * 100 + i) * 40),
@@ -263,7 +267,7 @@ const WeeklyLeaderboard = ({ lang, stats }: { lang: 'el' | 'en'; stats: any }) =
               {lang === 'el'
                 ? playerScore === 0
                   ? 'Ξεκίνα το ταξίδι σου!'
-                  : `Πρόλαβε τον ${nextAhead?.name}! Θέλεις ${pointsNeeded} πόντους!`
+                  : `Πρόλαβε ${nextAhead?.acc || nextAhead?.name}! Θέλεις ${pointsNeeded} πόντους!`
                 : playerScore === 0
                   ? 'Start your journey!'
                   : `Catch ${nextAhead?.name}! You need ${pointsNeeded} points!`}
