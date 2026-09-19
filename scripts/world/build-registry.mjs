@@ -266,7 +266,7 @@ ${countryOverlayLoaders || '  // no front-door translations yet'}
  */
 export async function loadCountries(
   lang?: string,
-): Promise<{ countries: Country[]; cities: City[] }> {
+): Promise<{ countries: Country[]; cities: City[]; machineTranslated?: boolean }> {
   if (!lang || lang === 'el' || lang === 'en') return { countries: COUNTRIES, cities: CITIES };
   const loader = I18N_COUNTRIES[lang];
   if (!loader) return { countries: COUNTRIES, cities: CITIES };

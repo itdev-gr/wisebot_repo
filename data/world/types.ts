@@ -386,6 +386,12 @@ export interface CountryModule {
 export interface CityModule {
   places: Place[];
   trails?: Trail[];
+  /**
+   * Carried out of the loader from the overlay that was applied, so a screen holding a
+   * city can say where its words came from. Absent or false when the module is in its
+   * own Greek and English, or when the applied overlay was read by a person.
+   */
+  machineTranslated?: boolean;
 }
 
 /**
@@ -408,6 +414,18 @@ export interface CityTranslation {
   /** The language this file supplies. Must match the filename. */
   lang: WorldLang;
   cityId: CityId;
+  /**
+   * `true` means this text came out of a machine and no human has read it. The brief
+   * forbids publishing AI text without visible provenance (§20, §21), so the flag is
+   * what a parent and a reviewer see, not a note to ourselves.
+   *
+   * Every overlay must state it explicitly — the test refuses a file that stays silent,
+   * because silence would otherwise read as "verified" and stamp the largest batch of
+   * unread machine text in the module as human work. A translator session's output
+   * starts `true`; it flips to `false` for one file only when a named adult has read
+   * that file.
+   */
+  machineTranslated?: boolean;
   places: Record<PlaceId, PlaceTranslation>;
   trails?: Record<TrailId, { name?: string; promise?: string }>;
 }
@@ -444,6 +462,8 @@ export interface PlaceTranslation {
  */
 export interface CountriesTranslation {
   lang: WorldLang;
+  /** Same meaning and same rule as on `CityTranslation`: machine text, unread. */
+  machineTranslated?: boolean;
   countries: Record<CountryId, CountryTranslation>;
 }
 

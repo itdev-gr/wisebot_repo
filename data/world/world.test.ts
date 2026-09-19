@@ -1037,3 +1037,48 @@ describe('world FAQ', async () => {
     expect(worldMeta(COUNTRIES, CITIES, PLACE_COUNTS, 'el').jsonLd.filter(isFaq)).toHaveLength(0);
   });
 });
+
+/**
+ * Where every translated word came from.
+ *
+ * The brief forbids publishing machine text without visible provenance. That rule is
+ * only enforceable if every overlay SAYS which it is, so silence is refused here: a file
+ * that omits `machineTranslated` would otherwise read as human-verified, and the first
+ * batch to slip through that gap would be exactly the unread machine text the flag
+ * exists to mark.
+ */
+describe('translation provenance', async () => {
+  const dir = resolve(ROOT, 'data/world/i18n');
+  const files = (await readdir(dir)).filter((f) => f.endsWith('.json')).sort();
+
+  it('has overlays to check', () => {
+    expect(files.length).toBeGreaterThan(0);
+  });
+
+  for (const file of files) {
+    it(`${file} states whether a machine wrote it`, async () => {
+      const overlay = JSON.parse(await readFile(resolve(dir, file), 'utf8')) as {
+        machineTranslated?: unknown;
+      };
+      expect(
+        typeof overlay.machineTranslated,
+        `${file}: machineTranslated must be an explicit boolean — absent would pass as verified`,
+      ).toBe('boolean');
+    });
+  }
+
+  it('carries the flag through the city loader instead of dropping it', async () => {
+    for (const cityId of CITY_IDS) {
+      for (const lang of translationsFor(cityId)) {
+        const overlay = JSON.parse(
+          await readFile(resolve(dir, `${cityId}.${lang}.json`), 'utf8'),
+        ) as { machineTranslated: boolean };
+        const loaded = await loadCity(cityId, lang);
+        expect(loaded.machineTranslated, `${cityId}.${lang}`).toBe(overlay.machineTranslated);
+      }
+      // The city in its own languages is never "machine translated".
+      const own = await loadCity(cityId);
+      expect(own.machineTranslated ?? false, `${cityId} el/en`).toBe(false);
+    }
+  });
+});

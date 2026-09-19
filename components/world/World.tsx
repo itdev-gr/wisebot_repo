@@ -132,6 +132,16 @@ const T = {
     es: 'Esta ciudad aún no está traducida. La estás leyendo en inglés.',
     it: 'Questa città non è ancora tradotta. La stai leggendo in inglese.',
   },
+  // A different state from «not translated»: the words are here, a machine wrote them,
+  // and nobody has read them yet. Plain, not alarming — a fact about provenance.
+  machineTranslated: {
+    el: 'Μετάφραση από μηχανή. Δεν την έχει ελέγξει ακόμα άνθρωπος.',
+    en: 'Translated by a machine. A person has not checked it yet.',
+    de: 'Von einer Maschine übersetzt. Noch von niemandem geprüft.',
+    fr: 'Traduit par une machine. Personne ne l’a encore vérifié.',
+    es: 'Traducido por una máquina. Todavía nadie lo ha revisado.',
+    it: 'Tradotto da una macchina. Nessuno l’ha ancora controllato.',
+  },
   imInCountry: {
     el: 'ΕΙΜΑΙ ΕΔΩ!',
     en: 'I’M HERE!',
@@ -250,6 +260,8 @@ interface WorldContent {
   cities: City[];
   placeCounts: Record<CityId, number>;
   load: (cityId: CityId, lang?: WorldLang) => Promise<CityModule>;
+  /** True when the front door's words in the active language came out of a machine. */
+  machineTranslated?: boolean;
 }
 
 const REGISTRY_CONTENT: WorldContent = {
@@ -277,8 +289,8 @@ function useWorldContent(lang: WorldLang): WorldContent {
     if (COUNTRIES.length === 0) return undefined;
     let alive = true;
     loadCountries(lang)
-      .then(({ countries, cities }) => {
-        if (alive) setContent((prev) => ({ ...prev, countries, cities }));
+      .then(({ countries, cities, machineTranslated }) => {
+        if (alive) setContent((prev) => ({ ...prev, countries, cities, machineTranslated }));
       })
       .catch(() => {
         /* no front door in this language yet — English is the honest fallback */
@@ -485,6 +497,7 @@ const CountriesPage: React.FC<{
   return (
     <>
       <WorldSeo meta={worldMeta(content.countries, content.cities, content.placeCounts, seoLang(lang))} />
+      <MachineBadge lang={lang} flagged={content.machineTranslated} />
       <CountryList
         lang={lang}
         items={items}
@@ -638,6 +651,28 @@ const CountryPage: React.FC<{
  * all. That falls back to English, which is the right behaviour and the wrong silence:
  * a French child looking at an English page needs to be told it is not broken.
  */
+/**
+ * Says, in the child's own language, that the words on this screen came out of a
+ * machine and nobody has read them.
+ *
+ * The brief forbids publishing AI text without visible provenance. This is the visible
+ * part: the flag travels from the overlay file through the loader and lands here. It
+ * is a different state from «not translated yet» — that one means the words are
+ * English; this one means the words are here and unverified. Never shown for Greek or
+ * English, which are the module's own languages and were written, not translated.
+ */
+const MachineBadge: React.FC<{ lang: WorldLang; flagged?: boolean }> = ({ lang, flagged }) => {
+  if (!flagged || lang === 'el' || lang === 'en') return null;
+  return (
+    <p
+      className={`${WORLD_STYLE.label} mt-4 text-center text-amber-300/80`}
+      role="note"
+    >
+      {ui(T.machineTranslated, lang)}
+    </p>
+  );
+};
+
 const TranslationNote: React.FC<{ lang: WorldLang }> = ({ lang }) => {
   const { pathname } = useLocation();
   const cityId = pathname.split('/')[3];
@@ -804,6 +839,7 @@ const CityPage: React.FC<{
   return (
     <>
       <WorldSeo meta={cityMeta(country, city, module, seoLang(lang))} />
+      <MachineBadge lang={lang} flagged={module.machineTranslated} />
       <CityView
         lang={lang}
         city={city}
@@ -916,12 +952,15 @@ const PlacePage: React.FC<{
   if (!place || !city) return <NotFound lang={lang} onBack={() => navigate(cityUrl)} />;
 
   const seo = country ? <WorldSeo meta={placeMeta(country, city, place, seoLang(lang))} /> : null;
+  // Provenance of the words on this card, from the overlay the loader applied.
+  const badge = <MachineBadge lang={lang} flagged={module.machineTranslated} />;
 
   if (inside) {
     if (!place.museum) return <Navigate to={`${cityUrl}/${place.id}`} replace />;
     return (
       <>
         {seo}
+        {badge}
         <MuseumView
           lang={lang}
           place={place}
@@ -938,6 +977,7 @@ const PlacePage: React.FC<{
   return (
     <>
       {seo}
+      {badge}
       <PlaceCard
         // One card per place. The route element is reused when only `:placeId` changes
         // («Άλλη μία;» hops within a city), and without the key the card's «you are here»
