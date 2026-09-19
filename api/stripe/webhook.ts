@@ -59,61 +59,64 @@ export default async function handler(req: any, res: any) {
           // Reuse a single Supabase admin client for the entire webhook
           const supabase = await getSupabaseAdmin();
 
-          // Idempotency guard — Stripe may redeliver the same event. If we've
-          // already recorded this session, skip to avoid double-crediting.
+          // Idempotency lives in the credits LEDGER, not in the purchases row.
+          // The row is inserted before crediting, so "row exists" can also mean
+          // "a previous delivery died between insert and credit" — skipping on
+          // it alone can eat a paid purchase, and deleting it on a credit error
+          // can loop a delivery that actually committed. earn_credits' unique
+          // (user_id, 'PURCHASE', session_id) makes re-calling it safe: 23505
+          // means "already credited". So every delivery converges on the same
+          // two steps — ensure the row, then ensure the credit — and nothing is
+          // ever deleted.
+          const grantOnce = async (): Promise<'granted' | 'already' | Error> => {
+            const { error } = await supabase.rpc('earn_credits', {
+              p_user_id: userId,
+              p_amount: creditsAmount,
+              p_action: 'PURCHASE',
+              p_action_id: sessionId,
+            });
+            if (!error) return 'granted';
+            if ((error as any).code === '23505') return 'already';
+            return new Error(error.message);
+          };
+
+          // 1) Ensure the purchase row exists.
           const { data: existing } = await supabase
             .from('purchases')
             .select('id')
             .eq('stripe_session_id', sessionId)
             .maybeSingle();
 
-          if (existing) {
-            console.log(`[Webhook] Session ${sessionId} already processed — skipping`);
-            return res.json({ received: true });
-          }
-
-          // Insert purchase record
-          const { error: insertError } = await supabase
-            .from('purchases')
-            .insert({
-              user_id: userId,
-              stripe_session_id: sessionId,
-              pack_id: packId || 'unknown',
-              credits_amount: creditsAmount,
-              amount_eur: (session.amount_total || 0) / 100,
-              status: 'completed',
-            });
-
-          // Only a unique-constraint violation means another delivery won the
-          // race. Any other insert error (timeout, connection reset) must be a
-          // 500: answering 200 here marks the event delivered, Stripe never
-          // retries, and a paid purchase silently never grants its credits.
-          if (insertError) {
-            if ((insertError as any).code === '23505') {
-              console.log(`[Webhook] Session ${sessionId} already recorded by a concurrent delivery — skipping`);
-              return res.json({ received: true });
+          if (!existing) {
+            const { error: insertError } = await supabase
+              .from('purchases')
+              .insert({
+                user_id: userId,
+                stripe_session_id: sessionId,
+                pack_id: packId || 'unknown',
+                credits_amount: creditsAmount,
+                amount_eur: (session.amount_total || 0) / 100,
+                status: 'completed',
+              });
+            // 23505 = a concurrent delivery inserted it — fine, the ledger
+            // below still decides who credits. Anything else must be a 500:
+            // answering 200 marks the event delivered and Stripe never retries.
+            if (insertError && (insertError as any).code !== '23505') {
+              console.error('[Webhook] Purchase insert error:', insertError.message);
+              return res.status(500).json({ error: 'Purchase record failed; will retry' });
             }
-            console.error('[Webhook] Purchase insert error:', insertError.message);
-            return res.status(500).json({ error: 'Purchase record failed; will retry' });
           }
 
-          // Add credits via atomic function
-          const { error: rpcError } = await supabase.rpc('earn_credits', {
-            p_user_id: userId,
-            p_amount: creditsAmount,
-            p_action: 'PURCHASE',
-            p_action_id: sessionId,
-          });
-
-          if (rpcError) {
-            // The parent has paid, but crediting failed. The purchase row we just
-            // inserted is what makes this session look "already processed", so if we
-            // leave it behind, Stripe's retry would skip the credit forever and the
-            // child would never receive what was bought. Remove it and fail loudly so
-            // Stripe redelivers and the whole block runs again cleanly.
-            console.error('[Webhook] Credit RPC error:', rpcError.message);
-            await supabase.from('purchases').delete().eq('stripe_session_id', sessionId);
+          // 2) Ensure the credit — exactly once, enforced by the ledger.
+          const granted = await grantOnce();
+          if (granted instanceof Error) {
+            // Row stays: the retry path above handles existing-row + grant.
+            console.error('[Webhook] Credit RPC error:', granted.message);
             return res.status(500).json({ error: 'Crediting failed; will retry' });
+          }
+          if (granted === 'already') {
+            console.log(`[Webhook] Session ${sessionId} already credited — skipping`);
+            return res.json({ received: true });
           }
           console.log(`[Webhook] Added ${creditsAmount} credits to user ${userId}`);
 
