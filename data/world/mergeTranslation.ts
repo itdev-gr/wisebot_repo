@@ -148,6 +148,9 @@ export function mergeCityTranslation(
   return {
     places: module.places.map((place) => mergePlace(place, lang, overlay)),
     trails: module.trails?.map((trail) => mergeTrail(trail, lang, overlay)),
+    // Provenance travels with the text. Until now the merge read the overlay and kept
+    // only the strings, so even a flagged file came out of the loader unflagged.
+    machineTranslated: overlay.machineTranslated === true,
   };
 }
 
@@ -167,12 +170,14 @@ export function mergeCountriesTranslation(
   countries: Country[],
   cities: City[],
   overlay: CountriesTranslation | null | undefined,
-): { countries: Country[]; cities: City[] } {
+): { countries: Country[]; cities: City[]; machineTranslated?: boolean } {
   if (!overlay) return { countries, cities };
   const lang = overlay.lang;
   if (lang === 'el' || lang === 'en') return { countries, cities };
+  const machineTranslated = overlay.machineTranslated === true;
 
   return {
+    machineTranslated,
     countries: countries.map((country) => {
       const t = overlay.countries[country.id];
       if (!t) return country;
