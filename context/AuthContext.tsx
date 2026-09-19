@@ -35,7 +35,7 @@ interface AuthContextType {
   loading: boolean;
   isGuest: boolean;
   emailVerified: boolean;
-  signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string; userId?: string }>;
+  signUp: (email: string, password: string, childName: string, parentEmail?: string) => Promise<{ error?: string; userId?: string; emailSent?: boolean }>;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signInWithGoogle: () => Promise<{ error?: string }>;
   resetPassword: (email: string) => Promise<{ error?: string }>;
@@ -213,7 +213,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     password: string,
     childName: string,
     parentEmail?: string,
-  ): Promise<{ error?: string; userId?: string }> => {
+  ): Promise<{ error?: string; userId?: string; emailSent?: boolean }> => {
     if (!configured) return { error: 'Auth not configured' };
 
     try {
@@ -234,7 +234,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // Don't auto-login — email verification is required first
       // Return userId so caller can send OTP directly
       trackSignUp('password');
-      return { userId: result.userId };
+      // Older deploys of the API don't return the field — treat absent as sent.
+      return { userId: result.userId, emailSent: result.emailSent !== false };
     } catch (err: any) {
       return { error: err.message || 'Registration failed' };
     }

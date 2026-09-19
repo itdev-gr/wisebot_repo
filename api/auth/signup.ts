@@ -184,6 +184,12 @@ export default async function handler(req: any, res: any) {
     // Send the verification email through Resend (reliable + branded).
     // Only when we hold a link from generateLink — the fallback path above
     // already had Supabase send its own email.
+    //
+    // Whether it actually LEFT is returned to the client as `emailSent`:
+    // until now every failure here was only console.error'd while the parent
+    // was told «Στείλαμε email» for a mail that never existed — and retrying
+    // the signup answers «ο λογαριασμός υπάρχει ήδη». Dead end.
+    let emailSent = !verificationLink; // fallback path: Supabase sent its own
     if (verificationLink) {
       const resendKeyForVerify = process.env.RESEND_API_KEY;
       if (!resendKeyForVerify) {
@@ -220,6 +226,7 @@ export default async function handler(req: any, res: any) {
           if (!mailResp.ok) {
             console.error('[Auth Signup] Resend error:', mailResp.status, (await mailResp.text()).slice(0, 200));
           } else {
+            emailSent = true;
             console.log('[Auth Signup] Verification email sent via Resend to', email);
           }
         } catch (mailErr: any) {
@@ -295,7 +302,8 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({
       success: true,
       userId: data.user?.id,
-      message: 'Verification email sent to parent',
+      emailSent,
+      message: emailSent ? 'Verification email sent to parent' : 'Account created but the verification email failed to send',
     });
   } catch (err: any) {
     console.error('[Auth Signup] Unexpected error:', err);
