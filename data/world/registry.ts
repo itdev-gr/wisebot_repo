@@ -207,6 +207,7 @@ const I18N: Record<string, () => Promise<{ default: unknown }>> = {
   'paris.es': () => import('./i18n/paris.es.json'),
   'paris.fr': () => import('./i18n/paris.fr.json'),
   'paris.it': () => import('./i18n/paris.it.json'),
+  'porto.fr': () => import('./i18n/porto.fr.json'),
   'prague.de': () => import('./i18n/prague.de.json'),
   'prague.es': () => import('./i18n/prague.es.json'),
   'prague.fr': () => import('./i18n/prague.fr.json'),
