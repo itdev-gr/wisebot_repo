@@ -1,0 +1,552 @@
+{
+  "city": "edinburgh",
+  "resolvedAt": "2026-09-19T20:14:48.460Z",
+  "centre": {
+    "lat": 55.953333,
+    "lng": -3.189167
+  },
+  "places": [
+    {
+      "id": "edinburgh-castle",
+      "name": "Edinburgh Castle",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q212065",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/4301292",
+          "deltaM": 20
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Edinburgh Castle",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [],
+      "lat": 55.9487,
+      "lng": -3.20073,
+      "labels": {
+        "fr": "château d'Édimbourg",
+        "es": "Castillo de Edimburgo",
+        "it": "castello di Edimburgo",
+        "de": "Edinburgh Castle",
+        "en": "Edinburgh Castle",
+        "el": "Κάστρο του Εδιμβούργου"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-camera-obscura",
+      "name": "Camera Obscura and World of Illusions",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q4211494",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/268408103",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Camera Obscura, Edinburgh",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [],
+      "lat": 55.949,
+      "lng": -3.19557,
+      "labels": {
+        "en": "Camera Obscura",
+        "de": "Camera Obscura (Edinburgh)",
+        "es": "Cámara Oscura, Edimburgo"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-st-giles",
+      "name": "St Giles' Cathedral",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1547466",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/42407060",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "St Giles' Cathedral",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 55.94944,
+      "lng": -3.19083,
+      "labels": {
+        "de": "St Giles’ Cathedral",
+        "fr": "cathédrale Saint-Gilles d'Édimbourg",
+        "es": "Catedral de Saint Giles",
+        "en": "St Giles' Cathedral",
+        "it": "cattedrale di Sant'Egidio"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-mary-kings-close",
+      "name": "The Real Mary King's Close",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1084992",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/1126727983",
+          "deltaM": 16
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Mary King's Close",
+          "deltaM": 32
+        }
+      ],
+      "warnings": [],
+      "lat": 55.95011,
+      "lng": -3.19069,
+      "labels": {
+        "es": "Mary King's Close",
+        "en": "Mary King's Close",
+        "fr": "Mary King's Close"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-writers-museum",
+      "name": "The Writers' Museum",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q8038444",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Writers' Museum",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 55.9497,
+      "lng": -3.1937,
+      "labels": {
+        "en": "Writers' Museum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-national-museum",
+      "name": "National Museum of Scotland",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1633842",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/467226683",
+          "deltaM": 32
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "National Museum of Scotland",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 55.94694,
+      "lng": -3.19,
+      "labels": {
+        "de": "National Museum of Scotland",
+        "en": "National Museum of Scotland",
+        "es": "Museo de Escocia",
+        "fr": "musée national d'Écosse",
+        "it": "Museum of Scotland"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-greyfriars-bobby",
+      "name": "Greyfriars Bobby",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q17570789",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/258016781",
+          "deltaM": 3
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Greyfriars Bobby Fountain",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 55.9469,
+      "lng": -3.19133,
+      "labels": {
+        "en": "Greyfriars Bobby Fountain"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-grassmarket",
+      "name": "Grassmarket",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1543570",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/2956313",
+          "deltaM": 20
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Grassmarket",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 55.9475,
+      "lng": -3.19611,
+      "labels": {
+        "de": "Grassmarket",
+        "en": "Grassmarket",
+        "es": "Grassmarket",
+        "it": "Grassmarket",
+        "fr": "Grassmarket"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-museum-of-childhood",
+      "name": "Museum of Childhood",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q15122172",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/2955931322",
+          "deltaM": 8
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museum of Childhood (Edinburgh)",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [],
+      "lat": 55.95039,
+      "lng": -3.18558,
+      "labels": {
+        "de": "Museum of Childhood (Edinburgh)",
+        "en": "Museum of Childhood",
+        "fr": "Museum of Childhood"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-holyrood",
+      "name": "Palace of Holyroodhouse",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q505950",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/16769442",
+          "deltaM": 14
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Holyrood Palace",
+          "deltaM": 26
+        }
+      ],
+      "warnings": [],
+      "lat": 55.9527,
+      "lng": -3.17229,
+      "labels": {
+        "fr": "palais de Holyrood",
+        "es": "Palacio de Holyrood",
+        "it": "Palazzo di Holyrood",
+        "de": "Holyrood Palace",
+        "en": "Holyrood Palace",
+        "el": "Ανάκτορο του Χόλιρουντ"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-parliament",
+      "name": "Scottish Parliament Building",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2746031",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/938084558",
+          "deltaM": 42
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Scottish Parliament Building",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 55.95222,
+      "lng": -3.17472,
+      "labels": {
+        "fr": "bâtiment du Parlement écossais",
+        "es": "Edificio del Parlamento de Escocia",
+        "en": "Scottish Parliament Building",
+        "it": "Palazzo del parlamento scozzese"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-dynamic-earth",
+      "name": "Dynamic Earth",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3358350",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/25946269",
+          "deltaM": 8
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Dynamic Earth (Edinburgh)",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [],
+      "lat": 55.9506,
+      "lng": -3.17437,
+      "labels": {
+        "fr": "Our Dynamic Earth",
+        "en": "Dynamic Earth"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-arthurs-seat",
+      "name": "Arthur's Seat summit",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q31118012",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 55.94298,
+      "lng": -3.16002,
+      "labels": {
+        "en": "Arthur's Seat"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-calton-hill",
+      "name": "National Monument, Calton Hill",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q6974379",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/22412844",
+          "deltaM": 9
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "National Monument of Scotland",
+          "deltaM": 7
+        }
+      ],
+      "warnings": [],
+      "lat": 55.95474,
+      "lng": -3.18191,
+      "labels": {
+        "en": "National Monument of Scotland",
+        "es": "Monumento nacional de Escocia",
+        "fr": "monument national d'Écosse",
+        "de": "National Monument (Schottland)"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-scott-monument",
+      "name": "Scott Monument",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2502213",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/39044819",
+          "deltaM": 7
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Scott Monument",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 55.95242,
+      "lng": -3.19328,
+      "labels": {
+        "fr": "Scott Monument",
+        "es": "Monumento a Walter Scott en Edimburgo",
+        "en": "Scott Monument",
+        "it": "Monumento a Scott"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-ross-fountain",
+      "name": "Ross Fountain, Princes Street Gardens",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q7369346",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/62066717",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 55.9501,
+      "lng": -3.20307,
+      "labels": {
+        "en": "Ross Fountain",
+        "es": "Fuente Ross",
+        "fr": "fontaine Ross"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    },
+    {
+      "id": "edinburgh-botanic-garden",
+      "name": "Royal Botanic Garden",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1807521",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/5209575",
+          "deltaM": 28
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Royal Botanic Garden Edinburgh",
+          "deltaM": 92
+        }
+      ],
+      "warnings": [],
+      "lat": 55.96507,
+      "lng": -3.20853,
+      "labels": {
+        "de": "Royal Botanic Garden Edinburgh",
+        "en": "Royal Botanic Garden Edinburgh",
+        "es": "Real Jardín Botánico de Edimburgo",
+        "fr": "jardin botanique royal d'Édimbourg",
+        "it": "Giardino botanico reale di Edimburgo"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-19"
+    }
+  ],
+  "problems": []
+}

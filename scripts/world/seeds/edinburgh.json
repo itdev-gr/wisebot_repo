@@ -1,0 +1,26 @@
+{
+  "city": "edinburgh",
+  "country": "united-kingdom",
+  "centre": { "lat": 55.953333, "lng": -3.189167 },
+  "note": "Wikidata q-ids only. Centre is Wikidata's point for the city (Q23436), between Princes Street and Calton Hill and away from every place. Edinburgh is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. Arthur's Seat is seeded as the summit hillfort (Q31118012), not the mountain item (Q712311), which is a landform whose centroid is nowhere a child stands; Calton Hill likewise is seeded as the National Monument (Q6974379) on its top rather than the hill (Q1199959). The Nelson Monument (Q11838983) is 60 m from the National Monument and is told there rather than pinned. Princes Street Gardens' own point (Q980646) is 6 m from the Ross Fountain (Q7369346), so the fountain is seeded and the gardens are told there. The Royal Mile (Q852908) is a street whose point sits 20 m from the Museum of Childhood and is not seeded. The zoo and the royal yacht are 3-5 km out and are left off to keep the map on the city.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "edinburgh-castle", "name": "Edinburgh Castle", "wikidata": "Q212065", "anchor": "centroid" },
+    { "id": "edinburgh-camera-obscura", "name": "Camera Obscura and World of Illusions", "wikidata": "Q4211494", "anchor": "centroid" },
+    { "id": "edinburgh-st-giles", "name": "St Giles' Cathedral", "wikidata": "Q1547466", "anchor": "centroid" },
+    { "id": "edinburgh-mary-kings-close", "name": "The Real Mary King's Close", "wikidata": "Q1084992", "anchor": "centroid" },
+    { "id": "edinburgh-writers-museum", "name": "The Writers' Museum", "wikidata": "Q8038444", "anchor": "centroid" },
+    { "id": "edinburgh-national-museum", "name": "National Museum of Scotland", "wikidata": "Q1633842", "anchor": "centroid" },
+    { "id": "edinburgh-greyfriars-bobby", "name": "Greyfriars Bobby", "wikidata": "Q17570789", "anchor": "centroid" },
+    { "id": "edinburgh-grassmarket", "name": "Grassmarket", "wikidata": "Q1543570", "anchor": "area" },
+    { "id": "edinburgh-museum-of-childhood", "name": "Museum of Childhood", "wikidata": "Q15122172", "anchor": "centroid" },
+    { "id": "edinburgh-holyrood", "name": "Palace of Holyroodhouse", "wikidata": "Q505950", "anchor": "centroid" },
+    { "id": "edinburgh-parliament", "name": "Scottish Parliament Building", "wikidata": "Q2746031", "anchor": "centroid" },
+    { "id": "edinburgh-dynamic-earth", "name": "Dynamic Earth", "wikidata": "Q3358350", "anchor": "centroid" },
+    { "id": "edinburgh-arthurs-seat", "name": "Arthur's Seat summit", "wikidata": "Q31118012", "anchor": "viewpoint" },
+    { "id": "edinburgh-calton-hill", "name": "National Monument, Calton Hill", "wikidata": "Q6974379", "anchor": "viewpoint" },
+    { "id": "edinburgh-scott-monument", "name": "Scott Monument", "wikidata": "Q2502213", "anchor": "centroid" },
+    { "id": "edinburgh-ross-fountain", "name": "Ross Fountain, Princes Street Gardens", "wikidata": "Q7369346", "anchor": "centroid" },
+    { "id": "edinburgh-botanic-garden", "name": "Royal Botanic Garden", "wikidata": "Q1807521", "anchor": "area" }
+  ]
+}
