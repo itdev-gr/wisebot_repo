@@ -1,3 +1,4 @@
+import { GAME_COUNT } from '../data/contentCounts';
 import { Helmet } from 'react-helmet-async';
 import { ACADEMY_STORY_COUNT, BOOK_COUNT, SCHOOL_MISSION_COUNT, SCHOOL_QUESTION_COUNT, SCHOOL_MISSION_COUNT_EN, SCHOOL_QUESTION_COUNT_EN } from '../data/contentCounts';
 
@@ -169,12 +170,12 @@ const PAGE_META: Record<string, PageMeta> = {
   },
   game: {
     title: {
-      el: 'Παιχνίδια — 16 Δωρεάν Arcade Games για Παιδιά | WiseBot Academy',
-      en: 'Games — 16 Free Arcade Games for Kids | WiseBot Academy',
+      el: `Παιχνίδια — ${GAME_COUNT} Δωρεάν Arcade Games για Παιδιά | WiseBot Academy`,
+      en: `Games — ${GAME_COUNT} Free Arcade Games for Kids | WiseBot Academy`,
     },
     description: {
-      el: 'Παίξε 16 δωρεάν arcade παιχνίδια! Wizard Duel, Dungeon Explorer, Geometry Dash, Tower Defense, Memory Cards. Κέρδισε credits παίζοντας!',
-      en: 'Play 16 free arcade games! Wizard Duel, Dungeon Explorer, Geometry Dash, Tower Defense, Memory Cards. Earn credits by playing!',
+      el: `Παίξε ${GAME_COUNT} δωρεάν arcade παιχνίδια! Wizard Duel, Dungeon Explorer, Geometry Dash, Tower Defense, Memory Cards. Κέρδισε XP και badges παίζοντας!`,
+      en: `Play ${GAME_COUNT} free arcade games! Wizard Duel, Dungeon Explorer, Geometry Dash, Tower Defense, Memory Cards. Earn XP and badges by playing!`,
     },
     keywords: {
       el: 'δωρεάν παιχνίδια για παιδιά, παιδικά παιχνίδια online, arcade games παιδιά, snake, tetris, memory game, WiseBot games, δωρεάν παιχνίδια online',
@@ -184,13 +185,13 @@ const PAGE_META: Record<string, PageMeta> = {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: { el: 'WiseBot Games - 16 Δωρεάν Παιδικά Παιχνίδια', en: 'WiseBot Games - 16 Free Kids Games' },
-      description: { el: '16 δωρεάν arcade παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, και άλλα.', en: '16 free arcade games: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, and more.' },
-      numberOfItems: 16,
+      name: { el: `WiseBot Games - ${GAME_COUNT} Δωρεάν Παιδικά Παιχνίδια`, en: `WiseBot Games - ${GAME_COUNT} Free Kids Games` },
+      description: { el: `${GAME_COUNT} δωρεάν arcade παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, και άλλα.`, en: `${GAME_COUNT} free arcade games: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory, Football, and more.` },
+      numberOfItems: GAME_COUNT,
       isAccessibleForFree: true,
     },
     faq: [
-      { q: { el: 'Πόσα παιχνίδια υπάρχουν;', en: 'How many games are there?' }, a: { el: '16 δωρεάν παιχνίδια: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Endless Runner, Tower Defense, Hero Fusion, Memory Cards, Tactical Football, Nebula Catch, Ball Rush, Puzzle, Broken Company, Sky Metropolis, Slingshot, Spot It.', en: '16 free games: Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Endless Runner, Tower Defense, Hero Fusion, Memory Cards, Tactical Football, Nebula Catch, Ball Rush, Puzzle, Broken Company, Sky Metropolis, Slingshot, Spot It.' } },
+      { q: { el: 'Πόσα παιχνίδια υπάρχουν;', en: 'How many games are there?' }, a: { el: `${GAME_COUNT} δωρεάν παιχνίδια: Πρόκληση Ημέρας, Ζωγράφισε & Μάντεψε, Ποιος Είμαι;, Δωμάτιο Απόδρασης, Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory Cards και άλλα.`, en: `${GAME_COUNT} free games: Daily Challenge, Draw & Guess, Who Am I?, Escape Room, Wizard Duel, Dungeon Explorer, AI Art Battle, Geometry Dash, Tower Defense, Memory Cards and more.` } },
       { q: { el: 'Κερδίζω κάτι παίζοντας;', en: 'Do I earn anything by playing?' }, a: { el: 'Ναι! Κερδίζεις credits και XP με κάθε παιχνίδι. Τα credits τα χρησιμοποιείς για AI δημιουργίες.', en: 'Yes! You earn credits and XP with every game. Credits are used for AI creations.' } },
     ],
   },

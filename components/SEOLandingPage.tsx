@@ -3,6 +3,7 @@
  * Routes: /ai-paidia, /paidika-paixnidia, /ekpaideutiko-ai, /ftiaxe-tragoudia-ai
  * Each page has: H1, H2, H3, paragraphs, FAQ, internal links, structured data
  */
+import { GAME_COUNT } from '../data/contentCounts';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -61,14 +62,14 @@ const CONTENT = {
       en: 'Free Kids Games Online — 16 Arcade Games | WiseBot Academy',
     },
     description: {
-      el: '16 δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε credits & badges. Για παιδιά 6-12.',
-      en: '16 free kids games online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Earn credits & badges. For kids 6-12.',
+      el: `${GAME_COUNT} δωρεάν παιδικά παιχνίδια online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Κέρδισε XP & badges. Για παιδιά 6-12.`,
+      en: `${GAME_COUNT} free kids games online! Wizard Duel, Dungeon Explorer, Memory Cards, Geometry Dash, Tower Defense. Earn XP & badges. For kids 6-12.`,
     },
     path: '/paidika-paixnidia',
-    h1: { el: 'Παιδικά Παιχνίδια Online — 16 Δωρεάν Arcade Games', en: 'Kids Games Online — 16 Free Arcade Games' },
+    h1: { el: `Παιδικά Παιχνίδια Online — ${GAME_COUNT} Δωρεάν Arcade Games`, en: `Kids Games Online — ${GAME_COUNT} Free Arcade Games` },
     intro: {
-      el: 'Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει 16 δωρεάν arcade games ειδικά για παιδιά 6-12 ετών. Χωρίς διαφημίσεις, χωρίς in-app purchases, 100% ασφαλή.',
-      en: 'Looking for free kids games online? WiseBot Academy has 16 free arcade games specially for kids 6-12. No ads, no in-app purchases, 100% safe.',
+      el: `Αναζητάς παιδικά παιχνίδια online δωρεάν; Το WiseBot Academy έχει ${GAME_COUNT} δωρεάν arcade games ειδικά για παιδιά 6-12 ετών. Χωρίς διαφημίσεις, χωρίς in-app purchases, 100% ασφαλή.`,
+      en: `Looking for free kids games online? WiseBot Academy has ${GAME_COUNT} free arcade games specially for kids 6-12. No ads, no in-app purchases, 100% safe.`,
     },
     sections: [
       {
