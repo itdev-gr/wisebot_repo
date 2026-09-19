@@ -46,6 +46,14 @@
         "paris": {
           "name": "Paris",
           "intro": "Paris est une ville qui se dispute avec ses bâtiments, puis qui les aime. On voulait démolir la tour Eiffel, on disait que la pyramide de verre du Louvre était une insulte, et aujourd’hui les deux sont son emblème. Au milieu coule la Seine, et au milieu du fleuve il y a une petite île : c’est de là qu’est partie toute la ville. Elle a un musée si grand qu’on n’en voit jamais la fin, et un pendule qui a prouvé que la Terre tourne."
+        },
+        "nice": {
+          "name": "Nice",
+          "intro": "Nice est une ville au bord d’une baie que l’on appelle la « baie des Anges », avec du soleil presque toute l’année. Elle a été fondée par des Grecs, bâtie par des Romains sur une colline, gouvernée par des ducs italiens, et n’est devenue française qu’en 1860, ce qui explique ses maisons jaunes et rouges comme en Italie. Les Anglais ont payé la promenade au bord de la mer, des peintres du monde entier sont venus pour sa lumière, et chaque jour à midi, un canon annonce à la ville qu’il est douze heures."
+        },
+        "lyon": {
+          "name": "Lyon",
+          "intro": "Lyon est une ville entre deux fleuves, qui a commencé comme capitale des Romains sur une colline et qui est descendue peu à peu vers l’eau. Pendant des siècles, elle a tissé la plus belle soie d’Europe, imprimé quelques-uns des premiers livres, inventé le cinéma et une marionnette qui dit toujours la vérité. Aujourd’hui, on l’appelle la capitale de la gastronomie, ses murs sont peints de fausses fenêtres, et chaque mois de décembre, elle met des bougies à toutes ses fenêtres."
         }
       }
     },

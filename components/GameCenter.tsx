@@ -2,7 +2,7 @@
 import React, { Suspense, useCallback } from 'react';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
-import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush, Brain, KeyRound, Music } from 'lucide-react';
+import { Gamepad2, Eye, Play, Star, Activity, Hexagon, Puzzle, Building2, Cloud, Crosshair, Disc, Grid, Zap, PersonStanding, Shield, Loader2, Wand2, Map, Palette, Calculator, BookA, Globe2, Recycle, Hourglass, Ear, CalendarDays, Brush, Brain, KeyRound, Music, Wrench } from 'lucide-react';
 import FirstTimeTip, { useChildName } from './FirstTimeTip';
 
 // ─── Lazy-loaded games (each becomes its own chunk) ────────────
@@ -33,6 +33,7 @@ const DrawGuess = React.lazy(() => import('./games/DrawGuess'));
 const WhoAmI = React.lazy(() => import('./games/WhoAmI'));
 const EscapeRoom = React.lazy(() => import('./games/EscapeRoom'));
 const Rhythm = React.lazy(() => import('./games/Rhythm'));
+const Machine = React.lazy(() => import('./games/Machine'));
 
 const GameLoader = () => (
   <div className="fixed inset-0 z-[9999] bg-[#0B0F1A] flex flex-col items-center justify-center gap-4">
@@ -43,8 +44,8 @@ const GameLoader = () => (
 
 const motion = m as any;
 
-type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw' | 'whoami' | 'escape' | 'rhythm';
-const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw', 'whoami', 'escape', 'rhythm'];
+type GameKey = 'nebula' | 'diff' | 'slingshot' | 'ballrush' | 'fusion' | 'puzzle' | 'company' | 'sky' | 'football' | 'cards' | 'geodash' | 'runner' | 'tower' | 'wizard' | 'dungeon' | 'artbattle' | 'mathrush' | 'wordquest' | 'geo' | 'eco' | 'time' | 'spell' | 'daily' | 'draw' | 'whoami' | 'escape' | 'rhythm' | 'machine';
+const GAME_KEYS: GameKey[] = ['nebula', 'diff', 'slingshot', 'ballrush', 'fusion', 'puzzle', 'company', 'sky', 'football', 'cards', 'geodash', 'runner', 'tower', 'wizard', 'dungeon', 'artbattle', 'mathrush', 'wordquest', 'geo', 'eco', 'time', 'spell', 'daily', 'draw', 'whoami', 'escape', 'rhythm', 'machine'];
 
 interface GameCenterProps {
   lang: 'el' | 'en';
@@ -90,9 +91,10 @@ export default function GameCenter({ lang }: GameCenterProps) {
     spell: { title: 'SPELL & LISTEN', desc: lang === 'el' ? 'Άκου και γράψε!' : 'Listen and spell!' },
     daily: { title: lang === 'el' ? 'ΠΡΟΚΛΗΣΗ ΗΜΕΡΑΣ' : 'DAILY CHALLENGE', desc: lang === 'el' ? '3 γύροι των 30". Ίδιοι για όλους!' : '3 rounds of 30s. Same for everyone!' },
     draw: { title: lang === 'el' ? 'ΖΩΓΡΑΦΙΣΕ & ΜΑΝΤΕΨΕ' : 'DRAW & GUESS', desc: lang === 'el' ? 'Ένα κινητό, 2-6 παίκτες!' : 'One phone, 2-6 players!' },
-    whoami: { title: lang === 'el' ? 'ΠΟΙΟΣ ΕΙΜΑΙ;' : 'WHO AM I?', desc: lang === 'el' ? 'Σκέψου έναν ήρωα, ο WiseBot τον μαντεύει!' : 'Think of a hero, WiseBot guesses who!' },
+    whoami: { title: lang === 'el' ? 'ΠΟΙΟΣ ΕΙΜΑΙ;' : 'WHO AM I?', desc: lang === 'el' ? 'Σκέψου έναν ήρωα, η WiseBot τον μαντεύει!' : 'Think of a hero, WiseBot guesses who!' },
     escape: { title: lang === 'el' ? 'ΔΩΜΑΤΙΟ ΑΠΟΔΡΑΣΗΣ' : 'ESCAPE ROOM', desc: lang === 'el' ? '6 γρίφοι, μία πόρτα. Νέο δωμάτιο κάθε Δευτέρα!' : '6 puzzles, one door. A new room every Monday!' },
     rhythm: { title: lang === 'el' ? 'ΡΥΘΜΟΣ' : 'RHYTHM', desc: lang === 'el' ? 'Πάτα τις νότες στον ρυθμό των τραγουδιών μας!' : 'Tap the notes to the beat of our songs!' },
+    machine: { title: lang === 'el' ? 'Η ΜΗΧΑΝΗ ΤΟΥ SPARKEN' : "SPARKEN'S MACHINE", desc: lang === 'el' ? 'Ράμπες, τραμπολίνο, μαγνήτες: φέρε τη μπάλα στον στόχο και μοιράσου τη μηχανή σου με κωδικό!' : 'Ramps, trampolines, magnets: get the ball to the target and share your machine as a code!' },
     play: lang === 'el' ? 'ΠΑΙΞΕ' : 'PLAY'
   };
 
@@ -135,6 +137,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
         case 'whoami': return <WhoAmI lang={lang} onBack={handleBack} />;
         case 'escape': return <EscapeRoom lang={lang} onBack={handleBack} />;
         case 'rhythm': return <Rhythm lang={lang} onBack={handleBack} />;
+        case 'machine': return <Machine lang={lang} onBack={handleBack} />;
         default: return null;
       }
     })();
@@ -216,6 +219,18 @@ export default function GameCenter({ lang }: GameCenterProps) {
       hoverShadow: 'hover:shadow-fuchsia-500/20',
       playBg: 'group-hover:bg-fuchsia-500',
       tagBg: 'bg-fuchsia-500/20 text-fuchsia-300',
+    },
+    {
+      key: 'machine' as const, icon: Wrench, featured: true,
+      thumbnail: '/images/sparken.jpg',
+      category: lang === 'el' ? 'ΦΥΣΙΚΗ' : 'PHYSICS',
+      cardBg: 'bg-gradient-to-br from-amber-950/90 to-orange-950/90',
+      borderColor: 'border-amber-500/30 hover:border-amber-400/60',
+      iconBg: 'bg-amber-500/20 border-amber-500/30',
+      iconColor: 'text-amber-400',
+      hoverShadow: 'hover:shadow-amber-500/20',
+      playBg: 'group-hover:bg-amber-500',
+      tagBg: 'bg-amber-500/20 text-amber-300',
     },
     {
       key: 'mathrush' as const, icon: Calculator, featured: true,
@@ -486,8 +501,8 @@ export default function GameCenter({ lang }: GameCenterProps) {
   return (
     <div className="max-w-5xl mx-auto py-6 px-4 pb-32 animate-in fade-in">
       <FirstTimeTip id="games" lang={lang} text={lang === 'el'
-        ? <>🦉 16 παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει XP — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
-        : <>🦉 16 games, all free, {childName}. Every win gives XP — up to twice a day per game.</>} />
+        ? <>🦉 {games.length} παιχνίδια, όλα δωρεάν, {childName}. Κάθε νίκη δίνει XP — μέχρι 2 φορές τη μέρα ανά παιχνίδι.</>
+        : <>🦉 {games.length} games, all free, {childName}. Every win gives XP — up to twice a day per game.</>} />
 
       {/* HEADER */}
       <div className="text-center space-y-3 mb-8">

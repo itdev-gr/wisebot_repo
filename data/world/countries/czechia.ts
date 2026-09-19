@@ -34,7 +34,7 @@ export const country: Country = {
       'με τριάντα αγάλματα περνάει τον ποταμό εδώ και εξακόσια χρόνια. Σε μια πλατεία ' +
       'ένα ρολόι από το 1410 δείχνει ακόμα πού είναι ο ήλιος και το φεγγάρι. Και κάτι ' +
       'ακόμα: η λέξη «ρομπότ» γεννήθηκε εδώ, σε ένα θεατρικό έργο του 1920. Χωρίς την ' +
-      'Τσεχία, ο WiseBot δεν θα είχε καν όνομα.',
+      'Τσεχία, η WiseBot δεν θα είχε καν όνομα.',
     en:
       'Czechia has no sea at all, but it makes up for it with castles. Above Prague ' +
       'stands the largest ancient castle in the world, and below it a stone bridge lined ' +

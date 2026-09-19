@@ -46,6 +46,14 @@
         "paris": {
           "name": "Parigi",
           "intro": "Parigi è una città che litiga con i suoi edifici e poi se ne innamora. La Torre Eiffel la volevano demolire, la piramide di vetro del Louvre la chiamavano un insulto, e oggi sono tutte e due il suo simbolo. In mezzo scorre la Senna, e in mezzo al fiume c’è una piccola isola: da lì è cominciata tutta la città. Ha un museo così grande che non si finisce mai, e un pendolo che ha dimostrato che la Terra gira."
+        },
+        "nice": {
+          "name": "Nizza",
+          "intro": "Nizza è una città su una baia chiamata «baia degli Angeli», con il sole quasi tutto l’anno. Fu fondata dai Greci, costruita dai Romani su una collina, governata da duchi italiani, e diventò francese solo nel 1860: per questo le sue case sono gialle e rosse come in Italia. Gli inglesi pagarono la passeggiata lungo il mare, pittori da tutto il mondo vennero per la sua luce, e ogni giorno a mezzogiorno un cannone dice alla città che sono le dodici."
+        },
+        "lyon": {
+          "name": "Lione",
+          "intro": "Lione è una città tra due fiumi, nata come capitale dei Romani su una collina e scesa piano piano verso l’acqua. Per secoli ha tessuto la seta più bella d’Europa, ha stampato alcuni dei primi libri, ha inventato il cinema e una marionetta che dice sempre la verità. Oggi la chiamano la capitale del cibo, i suoi muri sono dipinti con finestre finte, e ogni dicembre mette candele a tutte le sue finestre."
         }
       }
     },

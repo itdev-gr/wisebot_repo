@@ -822,8 +822,6 @@ describe('countries overlay', () => {
   const KNOWN_ABSENT_CARDS: string[] = [
     // Nice and Lyon (#142) arrived in el/en from the content session; their de/es/fr/it
     // cards come from the languages session in its own PR.
-    'de:lyon', 'de:nice', 'es:lyon', 'es:nice',
-    'fr:lyon', 'fr:nice', 'it:lyon', 'it:nice',
   ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
