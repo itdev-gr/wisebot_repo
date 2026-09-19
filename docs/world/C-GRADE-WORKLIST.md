@@ -9,7 +9,7 @@ OpenStreetMap answers reliably, and the rule is then applied to whatever is stil
 
 | | Places | In a trail | No OSM cross-check |
 | --- | --- | --- | --- |
-| Outside Greece | 77 | 74 | 63 |
+| Outside Greece | 85 | 82 | 71 |
 | Greece | 16 | 16 | 13 |
 
 **Order of work.** Re-resolve the "no OSM" rows first, one city at a time, only when
@@ -77,8 +77,16 @@ C places are upgraded by the owner walking to them, per the decisions table.
 | lisbon | The Águas Livres Aqueduct (`lisbon-aqueduto-das-aguas-livres`) | yes | one source disagrees: re-seed |
 | lisbon | The Pastéis de Belém bakery (`lisbon-pasteis-de-belem`) | yes | no OSM: re-resolve first |
 | london | Covent Garden (`london-covent-garden`) | yes | no OSM: re-resolve first |
+| lyon | Saint John’s Cathedral (`lyon-cathedrale`) | yes | no OSM: re-resolve first |
+| lyon | The Golden Head Park (`lyon-tete-d-or`) | yes | no OSM: re-resolve first |
+| lyon | The Paul Bocuse Food Hall (`lyon-halles`) | yes | no OSM: re-resolve first |
 | madrid | The Natural Science Museum (`madrid-ciencias-naturales`) | yes | no OSM: re-resolve first |
 | madrid | The Royal Botanic Garden (`madrid-jardin-botanico`) | yes | no OSM: re-resolve first |
+| nice | The Promenade des Anglais (`nice-promenade`) | yes | no OSM: re-resolve first |
+| nice | The Cours Saleya (`nice-cours-saleya`) | yes | no OSM: re-resolve first |
+| nice | The Masséna Museum (`nice-musee-massena`) | yes | no OSM: re-resolve first |
+| nice | Port Lympia (`nice-port`) | yes | no OSM: re-resolve first |
+| nice | The Matisse Museum (`nice-musee-matisse`) | yes | no OSM: re-resolve first |
 | nicosia | Eleftheria Square (`nicosia-eleftheria-square`) | yes | no OSM: re-resolve first |
 | nicosia | The Venetian Walls (`nicosia-venetian-walls`) | yes | no OSM: re-resolve first |
 | nicosia | Panagia Faneromeni (`nicosia-faneromeni`) | yes | no OSM: re-resolve first |

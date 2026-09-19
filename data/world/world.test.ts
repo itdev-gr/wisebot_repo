@@ -816,10 +816,15 @@ describe('countries overlay', () => {
    * Porto, Prague, Vienna × de/es/fr/it), grew by 8 when Nicosia and Dubrovnik arrived
    * the same evening, and went to zero the same night (#112, #110). Madrid and Venice
    * came and went the same way (#114, #124), then Copenhagen, Bruges and Kraków (#113,
-   * #118 → #132), then Florence and Seville (#126 → #135). Empty again, which is the
-   * goal state: every city on main has its card in six languages.
+   * #118 → #132), then Florence and Seville (#126 → #135) — empty for a moment on 19/9,
+   * which is the goal state. The cities below are the current remainder.
    */
-  const KNOWN_ABSENT_CARDS: string[] = [];
+  const KNOWN_ABSENT_CARDS: string[] = [
+    // Nice and Lyon (#142) arrived in el/en from the content session; their de/es/fr/it
+    // cards come from the languages session in its own PR.
+    'de:lyon', 'de:nice', 'es:lyon', 'es:nice',
+    'fr:lyon', 'fr:nice', 'it:lyon', 'it:nice',
+  ];
 
   const missingIn = (value: unknown, lang: string, path: string, out: string[]): void => {
     const found: Array<{ path: string; node: Record<string, unknown> }> = [];

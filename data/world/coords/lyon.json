@@ -1,0 +1,523 @@
+{
+  "city": "lyon",
+  "resolvedAt": "2026-09-18T20:31:08.268Z",
+  "centre": {
+    "lat": 45.7675,
+    "lng": 4.835
+  },
+  "places": [
+    {
+      "id": "lyon-fourviere",
+      "name": "Basilique Notre-Dame de Fourvière",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1516",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/29179429",
+          "deltaM": 2
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Basilica of Notre-Dame de Fourvière",
+          "deltaM": 24
+        }
+      ],
+      "warnings": [],
+      "lat": 45.76229,
+      "lng": 4.82256,
+      "labels": {
+        "fr": "basilique Notre-Dame de Fourvière",
+        "en": "Basilica of Notre-Dame de Fourvière",
+        "de": "Notre-Dame de Fourvière",
+        "es": "basílica Notre-Dame de Fourvière",
+        "it": "basilica di Notre-Dame de Fourvière"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-tour-metallique",
+      "name": "Tour métallique de Fourvière",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q625",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/320879095",
+          "deltaM": 17
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Metallic tower of Fourvière",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 45.76377,
+      "lng": 4.82227,
+      "labels": {
+        "fr": "tour métallique de Fourvière",
+        "it": "torre metallica di Fourvière",
+        "en": "Metallic tower of Fourvière",
+        "es": "Torre metálica de Fourvière",
+        "de": "Tour métallique de Fourvière"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-theatre-antique",
+      "name": "Théâtre antique de Fourvière",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1510",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/88526502",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Ancient Theatre of Fourvière",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 45.75972,
+      "lng": 4.81972,
+      "labels": {
+        "fr": "théâtre antique de Lyon",
+        "en": "ancient theatre of Lyon",
+        "de": "römisches Amphitheater von Fourvière",
+        "it": "Teatro antico di Lione",
+        "es": "Teatro galorromano de Fourvière"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-lugdunum",
+      "name": "Lugdunum, musée gallo-romain",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q509",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/88526510",
+          "deltaM": 47
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Lugdunum (museum)",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 45.76042,
+      "lng": 4.81991,
+      "labels": {
+        "en": "Lugdunum Musée et Théâtres",
+        "fr": "Lugdunum",
+        "it": "Museo Lugdunum",
+        "es": "Museo Lugdunum",
+        "de": "Lugdunum"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-cathedrale",
+      "name": "Cathédrale Saint-Jean",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1521",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Lyon Cathedral",
+          "deltaM": 37
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.76083,
+      "lng": 4.82722,
+      "labels": {
+        "fr": "primatiale Saint-Jean de Lyon",
+        "en": "Lyon Cathedral",
+        "de": "Kathedrale von Lyon",
+        "es": "Catedral de Lyon",
+        "it": "cattedrale di Saint-Jean",
+        "el": "Καθεδρικός της Λυών"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-gadagne",
+      "name": "Musées Gadagne",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q8397",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Musée Gadagne",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.76417,
+      "lng": 4.8275,
+      "labels": {
+        "fr": "Gadagne",
+        "en": "Gadagne (museums)",
+        "de": "Gadagne (museen)",
+        "it": "Gadagne (musei)",
+        "es": "Gadagne (museos)"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-fresque",
+      "name": "Fresque des Lyonnais",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10147",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/8306296317",
+          "deltaM": 8
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 45.7681,
+      "lng": 4.82791,
+      "labels": {
+        "fr": "Fresque des Lyonnais",
+        "en": "Fresque des Lyonnais",
+        "es": "Fresco de los Lyoneses",
+        "de": "Fresque des Lyonnais",
+        "it": "Fresque des Lyonnais"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-fontaine-bartholdi",
+      "name": "Fontaine Bartholdi",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q10144",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/55071957",
+          "deltaM": 1
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Fontaine Bartholdi",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 45.76764,
+      "lng": 4.83346,
+      "labels": {
+        "fr": "fontaine Bartholdi",
+        "en": "Fontaine Bartholdi",
+        "es": "fuente Bartholdi",
+        "de": "Fontaine Bartholdi",
+        "it": "fontana Bartholdi"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-beaux-arts",
+      "name": "Musée des Beaux-Arts",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q511",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/493540665",
+          "deltaM": 26
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Museum of Fine Arts of Lyon",
+          "deltaM": 5
+        }
+      ],
+      "warnings": [],
+      "lat": 45.76694,
+      "lng": 4.83361,
+      "labels": {
+        "en": "Museum of Fine Arts of Lyon",
+        "fr": "musée des Beaux-Arts de Lyon",
+        "de": "Musée des Beaux-Arts de Lyon",
+        "es": "Museo de Bellas Artes de Lyon",
+        "it": "Museo di belle arti di Lione",
+        "el": "Μουσείο Καλών Τεχνών της Λυών"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-opera",
+      "name": "Opéra Nouvel",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q9496",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Opéra de Lyon",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.76783,
+      "lng": 4.83661,
+      "labels": {
+        "fr": "opéra de Lyon",
+        "en": "Opéra Nouvel",
+        "es": "Opéra Nouvel Lyon",
+        "de": "Opéra de Lyon",
+        "it": "Opéra de Lyon"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-bellecour",
+      "name": "Place Bellecour",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q614",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Place Bellecour",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.7575,
+      "lng": 4.83222,
+      "labels": {
+        "fr": "place Bellecour",
+        "en": "Place Bellecour",
+        "es": "Plaza de Bellecour",
+        "it": "place Bellecour",
+        "de": "Place Bellecour"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-hotel-dieu",
+      "name": "Grand Hôtel-Dieu",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q4013",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Hôtel-Dieu de Lyon",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 45.75833,
+      "lng": 4.83639,
+      "labels": {
+        "fr": "hôtel-Dieu de Lyon",
+        "en": "Hôtel-Dieu de Lyon",
+        "de": "Hôtel-Dieu de Lyon",
+        "es": "Hôtel-Dieu",
+        "it": "Hôtel-Dieu de Lyon"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-imprimerie",
+      "name": "Musée de l'Imprimerie",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q8323",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/62271798",
+          "deltaM": 18
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 45.76444,
+      "lng": 4.83472,
+      "labels": {
+        "fr": "musée de l'Imprimerie et de la Communication graphique",
+        "en": "Musée de l'Imprimerie et de la Communication Graphique",
+        "de": "Museum für Druckkunst",
+        "it": "Musée de l'Imprimerie",
+        "es": "Musée de l'Imprimerie"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-tete-d-or",
+      "name": "Parc de la Tête d'Or",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3991",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Parc de la Tête d'or",
+          "deltaM": 64
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429"
+      ],
+      "lat": 45.78056,
+      "lng": 4.85417,
+      "labels": {
+        "fr": "parc de la Tête d'Or",
+        "en": "parc de la Tête d'Or",
+        "it": "parco della Tête d'Or",
+        "es": "parque de la Tête d'Or",
+        "de": "Parc de la Tête d’Or"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-halles",
+      "name": "Halles de Lyon-Paul Bocuse",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3126137",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 45.7632,
+      "lng": 4.85049,
+      "labels": {
+        "fr": "halles de Lyon-Paul Bocuse",
+        "en": "Halles de Lyon-Paul Bocuse"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "lyon-confluences",
+      "name": "Musée des Confluences",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q8352",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/440270631",
+          "deltaM": 30
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Musée des Confluences",
+          "deltaM": 68
+        }
+      ],
+      "warnings": [],
+      "lat": 45.73236,
+      "lng": 4.81792,
+      "labels": {
+        "fr": "musée des Confluences",
+        "de": "Musée des Confluences",
+        "en": "Musée des Confluences",
+        "it": "Musée des Confluences",
+        "es": "Musée des Confluences"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "problems": []
+}

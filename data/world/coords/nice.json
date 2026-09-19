@@ -1,0 +1,453 @@
+{
+  "city": "nice",
+  "resolvedAt": "2026-09-18T20:27:12.275Z",
+  "centre": {
+    "lat": 43.701944,
+    "lng": 7.268333
+  },
+  "places": [
+    {
+      "id": "nice-promenade",
+      "name": "Promenade des Anglais",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1849491",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 43.69111,
+      "lng": 7.2475,
+      "labels": {
+        "de": "Promenade des Anglais",
+        "fr": "promenade des Anglais",
+        "en": "Promenade des Anglais",
+        "es": "Paseo de los Ingleses",
+        "it": "Promenade des Anglais",
+        "el": "Προμενάντ Ντεζ Ανγκλέ"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-colline-chateau",
+      "name": "Colline du Château",
+      "anchor": "viewpoint",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2970127",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Castle of Nice",
+          "deltaM": 2
+        }
+      ],
+      "warnings": [
+        "osm: no match"
+      ],
+      "lat": 43.696,
+      "lng": 7.27968,
+      "labels": {
+        "fr": "colline du château de Nice",
+        "en": "Colline du Château"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-cours-saleya",
+      "name": "Cours Saleya",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3001353",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504",
+        "wikipedia: no match"
+      ],
+      "lat": 43.6956,
+      "lng": 7.27504,
+      "labels": {
+        "fr": "cours Saleya",
+        "en": "Cours Saleya",
+        "de": "Cours Saleya"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-cathedrale",
+      "name": "Cathédrale Sainte-Réparate",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q1084011",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/137356605",
+          "deltaM": 12
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Nice Cathedral",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [],
+      "lat": 43.69722,
+      "lng": 7.27583,
+      "labels": {
+        "fr": "cathédrale Sainte-Réparate de Nice",
+        "en": "Nice Cathedral",
+        "it": "cattedrale di Nizza",
+        "es": "Catedral Basílica de Santa María y Santa Reparata",
+        "de": "Kathedrale von Nizza"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-palais-lascaris",
+      "name": "Palais Lascaris",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3360882",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/578023554",
+          "deltaM": 6
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Palais Lascaris",
+          "deltaM": 4
+        }
+      ],
+      "warnings": [],
+      "lat": 43.6977,
+      "lng": 7.27725,
+      "labels": {
+        "fr": "palais Lascaris",
+        "en": "Palais Lascaris",
+        "es": "Palais Lascaris",
+        "it": "Palazzo Lascaris (Nizza)"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-place-massena",
+      "name": "Place Masséna",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3389982",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/8597240",
+          "deltaM": 10
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Place Masséna",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [],
+      "lat": 43.6973,
+      "lng": 7.27014,
+      "labels": {
+        "fr": "place Masséna",
+        "en": "place Masséna",
+        "de": "Masséna-Platz",
+        "it": "Place Masséna"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-jardin-albert",
+      "name": "Jardin Albert Ier",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3162279",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/2369263",
+          "deltaM": 15
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 43.696,
+      "lng": 7.26824,
+      "labels": {
+        "fr": "jardin Albert-Ier",
+        "en": "Albert I Garden"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-musee-massena",
+      "name": "Musée Masséna",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3329270",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 43.6952,
+      "lng": 7.25894,
+      "labels": {
+        "fr": "musée Masséna",
+        "en": "Musée Masséna",
+        "de": "Museum Masséna"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-opera",
+      "name": "Opéra de Nice",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q608423",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/137418626",
+          "deltaM": 4
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Opéra de Nice",
+          "deltaM": 13
+        }
+      ],
+      "warnings": [],
+      "lat": 43.69544,
+      "lng": 7.27255,
+      "labels": {
+        "de": "Oper Nizza",
+        "en": "Opéra de Nice",
+        "fr": "opéra de Nice",
+        "it": "Teatro dell'Opera di Nizza",
+        "el": "Όπερα της Νίκαιας"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-port",
+      "name": "Port Lympia",
+      "anchor": "area",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3398372",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 429",
+        "wikipedia: no match"
+      ],
+      "lat": 43.6942,
+      "lng": 7.28492,
+      "labels": {
+        "fr": "port Lympia",
+        "de": "Port de Nice",
+        "en": "Nice Port"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-mamac",
+      "name": "MAMAC",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q936859",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "relation/1949582",
+          "deltaM": 17
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Musée d'art moderne et d'art contemporain",
+          "deltaM": 12
+        }
+      ],
+      "warnings": [],
+      "lat": 43.7013,
+      "lng": 7.27845,
+      "labels": {
+        "de": "Musée d’Art Moderne et d’Art Contemporain",
+        "fr": "musée d'art moderne et d'art contemporain de Nice",
+        "en": "musée d'art moderne et d'art contemporain de Nice",
+        "it": "Museo d'arte moderna e contemporanea"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-museum-histoire-naturelle",
+      "name": "Muséum d'histoire naturelle",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3330894",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "node/1398474011",
+          "deltaM": 16
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Muséum d'histoire naturelle de Nice",
+          "deltaM": 1
+        }
+      ],
+      "warnings": [],
+      "lat": 43.70167,
+      "lng": 7.27944,
+      "labels": {
+        "fr": "muséum d'histoire naturelle de Nice",
+        "en": "Muséum d'histoire naturelle de Nice"
+      },
+      "confidence": "A",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-musee-chagall",
+      "name": "Musée Marc-Chagall",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q3329265",
+          "deltaM": 0
+        },
+        {
+          "kind": "wikipedia",
+          "ref": "Musée Marc Chagall",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: overpass 504"
+      ],
+      "lat": 43.70917,
+      "lng": 7.26954,
+      "labels": {
+        "fr": "musée Marc-Chagall",
+        "en": "musée Marc-Chagall",
+        "it": "Museo nazionale messaggio biblico di Marc Chagall",
+        "es": "Museo Marc-Chagall",
+        "de": "Museum Marc Chagall"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-musee-matisse",
+      "name": "Musée Matisse (Villa des Arènes)",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q30291412",
+          "deltaM": 0
+        }
+      ],
+      "warnings": [
+        "osm: no match",
+        "wikipedia: no match"
+      ],
+      "lat": 43.71941,
+      "lng": 7.27622,
+      "labels": {
+        "fr": "villa des Arènes",
+        "en": "villa des Arènes",
+        "it": "villa des Arènes"
+      },
+      "confidence": "C",
+      "verifiedAt": "2026-09-18"
+    },
+    {
+      "id": "nice-arenes-cimiez",
+      "name": "Arènes de Cimiez",
+      "anchor": "centroid",
+      "sources": [
+        {
+          "kind": "wikidata",
+          "ref": "Q2866137",
+          "deltaM": 0
+        },
+        {
+          "kind": "osm",
+          "ref": "way/140009090",
+          "deltaM": 3
+        }
+      ],
+      "warnings": [
+        "wikipedia: no match"
+      ],
+      "lat": 43.71999,
+      "lng": 7.27532,
+      "labels": {
+        "fr": "arènes de Cimiez",
+        "de": "Arènes de Cimiez",
+        "en": "arènes de Cimiez"
+      },
+      "confidence": "B",
+      "verifiedAt": "2026-09-18"
+    }
+  ],
+  "problems": []
+}
