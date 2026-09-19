@@ -131,6 +131,8 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showVerificationMsg, setShowVerificationMsg] = useState(false);
+  // The account exists but the server could not send the verification email.
+  const [emailSendFailed, setEmailSendFailed] = useState(false);
   // Pre-filled when the user arrived via an invite link (?ref=CODE)
   const [referralCode, setReferralCode] = useState(() => localStorage.getItem('wb_ref') || '');
 
@@ -202,8 +204,11 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
       // Signup deliberately creates no session (AuthContext: "Don't auto-login"), so
       // navigating to /dashboard here silently dropped the new user into guest mode
       // (CRO-AUDIT P0-4). Show the check-your-email screen instead — it already has
-      // the resend button.
+      // the resend button. If the server says the email never left, the same screen
+      // says THAT instead of the confident «στείλαμε email» — the resend button is
+      // then the way out, and the parent actually has a reason to press it.
       setVerificationEmail(parentEmail);
+      setEmailSendFailed(result.emailSent === false);
       setShowVerificationMsg(true);
       setSuccess('');
       return;
@@ -216,6 +221,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
           // Account exists, link never clicked. Say so, and reuse the post-signup screen
           // which already has the 'resend verification email' button.
           setVerificationEmail(parentEmail);
+          setEmailSendFailed(false);
           setShowVerificationMsg(true);
           setError(t.notVerified);
         } else if (msg.includes('invalid login') || msg.includes('invalid')) {
@@ -268,20 +274,28 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 p-6 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-center space-y-4"
+            className={`mb-6 p-6 rounded-2xl text-center space-y-4 border ${emailSendFailed ? 'bg-amber-500/10 border-amber-500/25' : 'bg-emerald-500/10 border-emerald-500/20'}`}
           >
-            <Mail size={40} className="text-emerald-400 mx-auto" />
+            <Mail size={40} className={`mx-auto ${emailSendFailed ? 'text-amber-400' : 'text-emerald-400'}`} />
             <h3 className="text-white font-[900] text-lg uppercase italic tracking-tight">
-              {lang === 'el' ? 'Σχεδόν έτοιμοι!' : 'Almost there!'}
+              {emailSendFailed
+                ? (lang === 'el' ? 'Ένα βήμα ακόμα' : 'One more step')
+                : (lang === 'el' ? 'Σχεδόν έτοιμοι!' : 'Almost there!')}
             </h3>
-            <p className="text-emerald-400/80 text-sm font-bold leading-relaxed">
-              {lang === 'el'
-                ? `Στείλαμε email στο ${verificationEmail}. Πάτησε τον σύνδεσμο μέσα του — και μετά γυρίστε εδώ μαζί: το πρώτο βήμα το κάνει το παιδί.`
-                : `We sent an email to ${verificationEmail}. Click the link inside — then come back here together: the first step is the child's.`}
+            <p className={`text-sm font-bold leading-relaxed ${emailSendFailed ? 'text-amber-300/90' : 'text-emerald-400/80'}`}>
+              {emailSendFailed
+                ? (lang === 'el'
+                    ? `Ο λογαριασμός δημιουργήθηκε, αλλά το email επιβεβαίωσης ΔΕΝ στάλθηκε στο ${verificationEmail}. Πάτησε το κουμπί από κάτω για να το στείλουμε τώρα.`
+                    : `The account was created, but the verification email could NOT be sent to ${verificationEmail}. Press the button below and we'll send it now.`)
+                : (lang === 'el'
+                    ? `Στείλαμε email στο ${verificationEmail}. Πάτησε τον σύνδεσμο μέσα του — και μετά γυρίστε εδώ μαζί: το πρώτο βήμα το κάνει το παιδί.`
+                    : `We sent an email to ${verificationEmail}. Click the link inside — then come back here together: the first step is the child's.`)}
             </p>
-            <p className="text-white/30 text-xs font-bold">
-              {lang === 'el' ? 'Τσέκαρε και τα spam/junk!' : 'Check spam/junk too!'}
-            </p>
+            {!emailSendFailed && (
+              <p className="text-white/30 text-xs font-bold">
+                {lang === 'el' ? 'Τσέκαρε και τα spam/junk!' : 'Check spam/junk too!'}
+              </p>
+            )}
             <button
               type="button"
               disabled={resending}
@@ -291,15 +305,20 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
                 if (result.error) {
                   setError(result.error);
                 } else {
-                  setSuccess(lang === 'el' ? 'Email στάλθηκε ξανά!' : 'Email resent!');
+                  setEmailSendFailed(false);
+                  setSuccess(lang === 'el' ? 'Email στάλθηκε!' : 'Email sent!');
                 }
                 setResending(false);
               }}
-              className="text-blue-400 text-xs font-bold hover:text-blue-300 transition-colors underline disabled:opacity-50"
+              className={emailSendFailed
+                ? 'w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-[1000] uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all disabled:opacity-50'
+                : 'text-blue-400 text-xs font-bold hover:text-blue-300 transition-colors underline disabled:opacity-50'}
             >
               {resending
                 ? (lang === 'el' ? 'Στέλνουμε...' : 'Sending...')
-                : (lang === 'el' ? 'Στείλε ξανά το email επαλήθευσης' : 'Resend verification email')}
+                : emailSendFailed
+                  ? (lang === 'el' ? 'Στείλε το email τώρα' : 'Send the email now')
+                  : (lang === 'el' ? 'Στείλε ξανά το email επαλήθευσης' : 'Resend verification email')}
             </button>
             {error && <ErrorMsg message={error} />}
             {success && (
@@ -307,7 +326,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ lang }) => {
             )}
             <button
               type="button"
-              onClick={() => { setShowVerificationMsg(false); setTab('login'); setError(''); setSuccess(''); }}
+              onClick={() => { setShowVerificationMsg(false); setEmailSendFailed(false); setTab('login'); setError(''); setSuccess(''); }}
               className="text-white/30 text-xs font-bold hover:text-white/50 transition-colors"
             >
               {lang === 'el' ? '← Πίσω στη σύνδεση' : '← Back to login'}
