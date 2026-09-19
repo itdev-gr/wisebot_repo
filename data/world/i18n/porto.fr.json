@@ -26,11 +26,11 @@
     "porto-igreja-dos-carmelitas": {
       "name": "L’église des Carmélites",
       "tagline": "La plus âgée des deux sœurs qui se tiennent côte à côte",
-      "story": "Depuis la place, on dirait un seul bâtiment, mais il y en a deux. Celui-ci, l’église des Carmélites, est le plus ancien : il a été bâti au début des années 1600 pour des religieuses de l’ordre du Carmel. Celui d’à côté, l’église du Carmo, est arrivé environ cent cinquante ans plus tard et appartenait à une autre communauté. Regarde bien les deux façades et tu verras que la mode a changé : celle-ci est plus simple et plus discrète, sa voisine est plus voyante. Entre les deux se dresse la maison très étroite, et c’est ici que commence une histoire que Porto raconte depuis des générations : la petite maison aurait été mise là pour que deux communautés religieuses différentes ne partagent jamais un mur. Les historiens ne sont pas tous d’accord, parce qu’il existait aussi des règles qui interdisaient à deux églises de se toucher. Ce qui est sûr, c’est que la maison est là, et que quelqu’un y a vécu.",
+      "story": "Depuis la place, on dirait un seul bâtiment, mais il y en a deux. Celui-ci, l’église des Carmélites, est le plus ancien : il a été bâti au début des années 1600 pour des frères de l’ordre du Carmel. Celui d’à côté, l’église du Carmo, est arrivé environ cent cinquante ans plus tard et appartenait à une autre communauté. Regarde bien les deux façades et tu verras que la mode a changé : celle-ci est plus simple et plus discrète, sa voisine est plus voyante. Entre les deux se dresse la maison très étroite, et c’est ici que commence une histoire que Porto raconte depuis des générations : la petite maison aurait été mise là pour que deux communautés religieuses différentes ne partagent jamais un mur. Les historiens ne sont pas tous d’accord, parce qu’il existait aussi des règles qui interdisaient à deux églises de se toucher. Ce qui est sûr, c’est que la maison est là, et que quelqu’un y a vécu.",
       "facts": [
-        "Elle a été bâtie au début des années 1600 pour des religieuses de l’ordre du Carmel.",
+        "Elle a été bâtie au début des années 1600 pour des frères de l’ordre du Carmel.",
         "Elle a environ 150 ans de plus que l’église du Carmo, juste à côté.",
-        "Les deux églises sont à 15 mètres à peine l’une de l’autre."
+        "L’ancien couvent, juste à côté, abrite aujourd’hui la GNR, l’une des polices du Portugal."
       ],
       "question": {
         "q": "Laquelle des deux églises voisines a été bâtie en premier ?",
