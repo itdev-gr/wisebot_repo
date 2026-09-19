@@ -32,7 +32,7 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
 
-  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req); // no guests: only authenticated users can own tasks (generate is allowGuest:false)
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   if (req.method !== 'GET') {
@@ -50,6 +50,12 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
+    // Only the account that paid for this task may read it (or be refunded
+    // for it). Anyone else gets the same 404 a made-up id would get.
+    const { taskBelongsToUser } = await import('../_lib/auth.js');
+    if (!(await taskBelongsToUser(user.id, 'CREATE_3D', taskId))) {
+      return res.status(404).json({ error: 'Task not found.' });
+    }
     const url = `${MESHY_TASK_URL}/${encodeURIComponent(taskId)}`;
 
     const response = await fetch(url, {

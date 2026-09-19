@@ -129,7 +129,9 @@ export default async function handler(req: any, res: any) {
     }
 
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, THREED_COST, 'CREATE_3D', String(data.result));
+    // API3: unpaid task ⇒ no taskId for the caller (status will 404 it too).
+    const charged = await deductCredits(user.id, THREED_COST, 'CREATE_3D', String(data.result));
+    if (!charged) return res.status(402).json({ error: 'Δεν έχεις αρκετά credits.', required: THREED_COST });
     return res.status(200).json({ taskId: data.result });
   } catch (err: any) {
     console.error('[meshy-generate] Error:', err.message || err);

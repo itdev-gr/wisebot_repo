@@ -102,3 +102,30 @@ describe('refundCredits ownership and amounts', () => {
     expect(state.earnCalls).toBe(0);
   });
 });
+
+describe('taskBelongsToUser — the status endpoints ownership gate', () => {
+  const belongs = async (userId = 'u1') => {
+    const { taskBelongsToUser } = await import('./auth');
+    return taskBelongsToUser(userId, 'CREATE_SONG', 'task-1');
+  };
+
+  it('true only when this user has the charge row', async () => {
+    resetState({ charge: { data: { id: 't1' }, error: null } });
+    await expect(belongs()).resolves.toBe(true);
+  });
+
+  it('no charge row → false (the endpoint 404s like a made-up id)', async () => {
+    await expect(belongs()).resolves.toBe(false);
+  });
+
+  it('transient DB error → THROWS so the endpoint 500s and the next poll retries', async () => {
+    resetState({ charge: { data: null, error: { message: 'timeout' } } });
+    await expect(belongs()).rejects.toThrow();
+  });
+
+  it('guests own nothing', async () => {
+    resetState({ charge: { data: { id: 't1' }, error: null } });
+    await expect(belongs('guest')).resolves.toBe(false);
+    expect(state.selectCalls).toBe(0);
+  });
+});

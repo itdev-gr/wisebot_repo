@@ -86,7 +86,9 @@ export default async function handler(req: any, res: any) {
 
     console.log('[video-generate] Started Veo 2 video, operationName:', operationName);
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, VIDEO_COST, 'CREATE_VIDEO', operationName);
+    // API3: unpaid operation ⇒ no requestId for the caller (status 404s it too).
+    const charged = await deductCredits(user.id, VIDEO_COST, 'CREATE_VIDEO', operationName);
+    if (!charged) return res.status(402).json({ error: 'Δεν έχεις αρκετά credits.', required: VIDEO_COST });
     // Return as requestId so polling endpoint stays consistent
     return res.status(200).json({ requestId: operationName });
   } catch (err: any) {
