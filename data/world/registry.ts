@@ -89,6 +89,7 @@ export const CITIES: City[] = COUNTRY_MODULES.flatMap((m) => m.cities).sort(byOr
  */
 export const PLACE_COUNTS: Record<CityId, number> = {
   'amsterdam': 16,
+  'antalya': 12,
   'athens': 18,
   'barcelona': 16,
   'berlin': 16,
@@ -120,6 +121,7 @@ export const PLACE_COUNTS: Record<CityId, number> = {
 
 const LOADERS: Record<CityId, () => Promise<CityModule>> = {
   'amsterdam': () => import('./cities/amsterdam'),
+  'antalya': () => import('./cities/antalya'),
   'athens': () => import('./cities/athens'),
   'barcelona': () => import('./cities/barcelona'),
   'berlin': () => import('./cities/berlin'),
