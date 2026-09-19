@@ -1548,7 +1548,7 @@ export const places: Place[] = [
     story: {
       el:
         'Από την πλατεία μοιάζουν με ένα κτίριο, αλλά είναι δύο. Αυτή εδώ, η εκκλησία των ' +
-        'Καρμελιτών, είναι η παλαιότερη: χτίστηκε στις αρχές του 17ου αιώνα για μοναχές ' +
+        'Καρμελιτών, είναι η παλαιότερη: χτίστηκε στις αρχές του 17ου αιώνα για μοναχούς ' +
         'του τάγματος του Κάρμηλου. Η διπλανή, η εκκλησία του Κάρμο, ήρθε περίπου εκατόν ' +
         'πενήντα χρόνια αργότερα και ανήκε σε άλλη κοινότητα. Αν κοιτάξεις προσεκτικά τις ' +
         'προσόψεις θα δεις τη διαφορά της εποχής: αυτή είναι πιο αυστηρή και ήσυχη, η ' +
@@ -1560,7 +1560,7 @@ export const places: Place[] = [
         'και ότι κάποιος ζούσε μέσα του.',
       en:
         'From the square they look like one building, but they are two. This one, the ' +
-        'Carmelites’ church, is the older: it was built in the early 1600s for nuns of the ' +
+        'Carmelites’ church, is the older: it was built in the early 1600s for friars of the ' +
         'Carmelite order. The one next door, the Igreja do Carmo, arrived about a hundred ' +
         'and fifty years later and belonged to a different community. Look carefully at the ' +
         'two fronts and you can see the change in fashion: this one is plainer and quieter, ' +
@@ -1572,16 +1572,16 @@ export const places: Place[] = [
     },
     facts: [
       {
-        el: 'Χτίστηκε στις αρχές του 17ου αιώνα για μοναχές του τάγματος του Κάρμηλου.',
-        en: 'It was built in the early 1600s for nuns of the Carmelite order.',
+        el: 'Χτίστηκε στις αρχές του 17ου αιώνα για μοναχούς του τάγματος του Κάρμηλου.',
+        en: 'It was built in the early 1600s for friars of the Carmelite order.',
       },
       {
         el: 'Είναι περίπου 150 χρόνια παλαιότερη από τη διπλανή εκκλησία του Κάρμο.',
         en: 'It is about 150 years older than the Igreja do Carmo next door.',
       },
       {
-        el: 'Οι δύο εκκλησίες απέχουν μόλις 15 μέτρα η μία από την άλλη.',
-        en: 'The two churches stand just 15 metres apart from one another.',
+        el: 'Στο παλιό μοναστήρι δίπλα της στεγάζεται σήμερα η GNR, μία από τις αστυνομίες της Πορτογαλίας.',
+        en: 'The old convent beside it is home today to the GNR, one of Portugal’s police forces.',
       },
     ],
     location: {
