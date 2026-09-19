@@ -1,0 +1,739 @@
+{
+  "lang": "es",
+  "cityId": "porto",
+  "places": {
+    "porto-serra-do-pilar": {
+      "name": "El monasterio de la Serra do Pilar",
+      "tagline": "Una iglesia redonda sobre una roca, con la ciudad delante",
+      "story": "Cruzas el puente y estás en otra ciudad: Vila Nova de Gaia, en la orilla de enfrente. En lo alto de la roca, unos monjes construyeron en el siglo XVI un monasterio con algo muy raro: su iglesia es completamente redonda, y el claustro de al lado también es un círculo perfecto. En Portugal no hay casi nada parecido. Pero como está tan alto, el monasterio hizo también un trabajo que ningún monje había planeado: se convirtió en un puesto de vigilancia. En 1809 un general se puso aquí a estudiar el río antes de que su ejército cruzara, y en 1832 y 1833, cuando Oporto fue sitiada en una guerra entre dos hermanos que querían los dos el trono, la roca volvió a montar guardia. Hoy la única batalla que hay aquí es por el mejor sitio en la barandilla.",
+      "facts": [
+        "La iglesia y el claustro son los dos circulares, algo muy raro en Portugal.",
+        "Está en Vila Nova de Gaia, al otro lado del río, no dentro de Oporto.",
+        "Bajo la roca, los tejados largos son las bodegas donde envejece el vino de Oporto."
+      ],
+      "question": {
+        "q": "¿Qué hacía útil este monasterio para los soldados?",
+        "answers": [
+          "Desde su roca se ve todo el río de un solo vistazo",
+          "Sus muros eran muy gruesos para el cañón",
+          "Estaba justo sobre el único camino que llevaba a la ciudad de Oporto",
+          "Sus monjes conocían todos los senderos de la zona y los enseñaban todos"
+        ],
+        "explanation": "Un puesto de vigilancia no necesita murallas, necesita altura. Desde aquí se ven el puente, el río y la ciudad entera."
+      },
+      "findIt": "Cruza el tablero inferior del puente y sube las escaleras del lado de Gaia. La terraza con las vistas está junto al monasterio y está abierta incluso cuando la iglesia no lo está."
+    },
+    "porto-igreja-dos-carmelitas": {
+      "name": "La iglesia de los Carmelitas",
+      "tagline": "La mayor de las dos hermanas que están una junto a la otra",
+      "story": "Desde la plaza parecen un solo edificio, pero son dos. Esta, la iglesia de los Carmelitas, es la más antigua: se construyó a principios del siglo XVII para frailes de la orden del Carmelo. La de al lado, la iglesia del Carmo, llegó unos ciento cincuenta años después y pertenecía a otra comunidad. Fíjate bien en las dos fachadas y verás el cambio de moda: esta es más sencilla y tranquila, su vecina es más llamativa. Entre las dos está la casa estrechísima, y aquí empieza una historia que en Oporto se cuenta desde hace generaciones: que la casita se puso ahí para que dos comunidades religiosas distintas nunca compartieran pared. No todos los historiadores están de acuerdo, porque también había normas que prohibían que dos iglesias se tocaran. Lo seguro es que la casa está ahí, y que alguien vivió dentro.",
+      "facts": [
+        "Se construyó a principios del siglo XVII para frailes de la orden del Carmelo.",
+        "Es unos 150 años más antigua que la iglesia del Carmo de al lado.",
+        "El antiguo convento de al lado alberga hoy a la GNR, uno de los cuerpos de policía de Portugal."
+      ],
+      "question": {
+        "q": "¿Cuál de las dos iglesias vecinas se construyó primero?",
+        "answers": [
+          "La iglesia de los Carmelitas, unos 150 años antes",
+          "La del Carmo, porque tiene el gran muro de azulejos azules",
+          "Las dos a la vez, por los mismos albañiles",
+          "La casa estrecha, que es más vieja que las dos"
+        ],
+        "explanation": "La iglesia de los Carmelitas es de principios del siglo XVII. La del Carmo llegó a mediados del XVIII, y sus azulejos aún más tarde, en 1912."
+      },
+      "findIt": "Es la iglesia de la izquierda de las dos, mirándolas desde la plaza. Busca la fachada más sencilla, la que no tiene el gran muro azul en el costado."
+    },
+    "porto-carro-electrico": {
+      "name": "El Museo del Tranvía",
+      "tagline": "Una central eléctrica llena de las máquinas a las que daba de comer",
+      "story": "Los tranvías de Oporto necesitaban electricidad, y la electricidad había que fabricarla en algún sitio. Así que la ciudad construyó una central eléctrica en Massarelos, justo al lado del río, y quemaba carbón en ella para hacer girar los generadores que alimentaban el cable de encima de los raíles. Cuando el edificio dejó de hacer falta para ese trabajo, no desapareció. En 1992 volvió a abrir como museo sobre las mismas máquinas a las que antes daba corriente, que es una forma muy ordenada de reciclar. Dentro, bajo un techo de hierro, hay filas de tranvías: unos de madera con asas de latón, otros más antiguos que tiraban caballos antes de que llegara la electricidad, y coches de trabajo que nunca llevaron un solo pasajero en su vida. Oporto tiene además un mérito serio en esta historia: el primer tranvía eléctrico de toda la península ibérica circuló en esta ciudad, en 1895. Y por la puerta siguen pasando tranvías de verdad.",
+      "facts": [
+        "En 1895 Oporto puso en marcha el primer tranvía eléctrico de la península ibérica.",
+        "El museo está en la antigua central eléctrica de Massarelos.",
+        "Abrió como museo en 1992, en el mismo edificio que daba corriente a los tranvías."
+      ],
+      "question": {
+        "q": "¿Por qué hay un museo del tranvía dentro de una central eléctrica?",
+        "answers": [
+          "Esa central fabricaba la corriente de los tranvías",
+          "Era la nave vacía más grande que quedaba en toda la ciudad",
+          "Allí mismo se fabricaban los tranvías",
+          "Estaba junto a la última línea abierta"
+        ],
+        "explanation": "El edificio quemaba carbón para hacer girar generadores, y los generadores alimentaban el cable de encima de los raíles."
+      },
+      "findIt": "En la Alameda de Basílio Teles, en la orilla del río, debajo de la colina. El edificio es el largo de ladrillo con el techo de hierro; los raíles pasan justo por delante.",
+      "museum": {
+        "rooms": {
+          "porto-carro-electrico-power-station": {
+            "name": "La central eléctrica",
+            "intro": "Antes de mirar un solo tranvía, mira el edificio. Es la razón de que exista todo lo demás. Un tranvía no lleva combustible; toma la corriente de un cable, y alguien tiene que fabricar esa corriente. Se fabricaba justo aquí, con carbón, vapor y máquinas que hacían ruido día y noche."
+          },
+          "porto-carro-electrico-before-electricity": {
+            "name": "Antes de la electricidad",
+            "intro": "Los tranvías son más antiguos que la electricidad. Antes del cable, coches parecidos iban por los mismos raíles tirados por caballos. La idea nunca fue la corriente, la idea eran los raíles, y la corriente llegó después para resolver el problema que tiene todo caballo: se cansa."
+          },
+          "porto-carro-electrico-the-cars": {
+            "name": "Los tranvías de cerca",
+            "intro": "Ahora acércate. Un tranvía de 1900 no es solo viejo, está construido con otra lógica: madera en vez de plástico, latón en vez de botones, y un conductor que iba de pie pasando frío. Mira dónde está cada cosa y piensa por qué la pusieron ahí."
+          }
+        },
+        "exhibits": {
+          "porto-carro-electrico-generator-hall": {
+            "name": "La sala de los generadores",
+            "blurb": "Un espacio alto con vigas de hierro y ventanas grandes en lo alto de las paredes. No se construyó así por belleza: las máquinas eran enormes, soltaban calor, y el aire caliente tenía que salir por algún sitio. Las ventanas están altas para que entre la luz sin que entre la gente. Hoy el mismo espacio guarda los tranvías en filas, y encaja perfectamente, porque una sala hecha para máquinas grandes acepta otras máquinas grandes sin quejarse.",
+            "question": {
+              "q": "¿Por qué están tan altas las ventanas de esta sala?",
+              "answers": [
+                "Para que entre luz y salga hacia arriba el aire caliente",
+                "Para dejar fuera el ruido de la calle",
+                "Porque más abajo las chispas de las máquinas las habrían roto",
+                "Para que cupieran las estanterías de herramientas debajo de cada una"
+              ],
+              "explanation": "El aire caliente sube. Una ventana en lo alto es lámpara y chimenea al mismo tiempo."
+            }
+          },
+          "porto-carro-electrico-coal-and-steam": {
+            "name": "El carbón y el vapor",
+            "blurb": "La electricidad no sale de la nada. Aquí la cadena era esta: el carbón arde, el agua hierve, el vapor empuja con fuerza, una máquina gira, y un generador convierte el giro en corriente. Cinco pasos, y al final un tranvía se mueve en la otra punta de la ciudad sin quemar nada él mismo. Esa era la gran ventaja del tranvía: el humo se quedaba en la central en vez de en la calle por donde caminaba la gente.",
+            "question": {
+              "q": "¿Cuál era la ventaja del tranvía eléctrico en la calle?",
+              "answers": [
+                "El humo se quedaba atrás, en la central junto al río",
+                "Podía moverse sin raíles cada vez que necesitaba girar una esquina",
+                "Era más barato de construir que uno de caballos",
+                "No necesitaba conductor, porque se paraba solo en cada parada"
+              ],
+              "explanation": "La quema se hacía en un edificio junto al río. La calle solo recibía el movimiento."
+            }
+          },
+          "porto-carro-electrico-overhead-wire": {
+            "name": "El cable de arriba",
+            "blurb": "Mira el techo por encima de los raíles y verás un cable. De ahí toma la corriente el tranvía, con una pértiga o un brazo que lo toca desde abajo y se desliza mientras avanza. La corriente baja, pasa por el motor y vuelve a la central por los propios raíles. Por eso arriba solo hace falta un cable y no dos: el segundo cable es el hierro de debajo de las ruedas, y lo pisas cada vez que subes.",
+            "question": {
+              "q": "¿Cómo vuelve la corriente de un tranvía a la central eléctrica?",
+              "answers": [
+                "Por los propios raíles de debajo de las ruedas",
+                "Por otro cable tendido junto al primero",
+                "Desde una batería del tranvía que se recarga cada noche",
+                "No vuelve a ningún sitio, la corriente se gasta entera"
+              ],
+              "explanation": "Un circuito tiene que cerrarse. El cable de arriba la trae, los raíles la devuelven, y el círculo se cierra."
+            }
+          },
+          "porto-carro-electrico-horse-car": {
+            "name": "El tranvía de caballos",
+            "blurb": "Un coche ligero de madera con ventanas y bancos, y delante, donde hoy esperarías un motor, dos caballos. Coches como este empezaron a circular por Oporto en 1872. Eran silenciosos, olían a cuadra y necesitaban unos cuidados que ninguna máquina pide: comida, agua, descanso y veterinario. Un caballo no trabaja doce horas al día. Así que una empresa tenía que tener varias veces más caballos que coches, y eso salía muy caro.",
+            "question": {
+              "q": "¿Por qué necesitaba una empresa muchos más caballos que coches?",
+              "answers": [
+                "Un caballo no aguanta toda la jornada",
+                "Cada coche necesitaba cuatro caballos en llano",
+                "Para poder seguir circulando de noche",
+                "Los caballos tenían miedo de los coches"
+              ],
+              "explanation": "Los turnos. El coche trabaja de la mañana a la noche; el caballo, unas pocas horas, y después necesita descansar."
+            }
+          },
+          "porto-carro-electrico-rails-in-the-street": {
+            "name": "Raíles en la calle",
+            "blurb": "¿Para qué poner hierro en una calle que ya existe? Porque una rueda sobre un raíl liso rueda mucho más fácil que una rueda entre baches y barro. Con los mismos dos caballos delante, un coche podía tirar de varias veces más peso y de mucha más gente. Los raíles daban algo más: el coche va siempre por donde van ellos, así que la gente sabía por dónde iba a pasar y dónde esperar. Un raíl es ingeniería y mapa al mismo tiempo.",
+            "question": {
+              "q": "¿Qué ganas poniendo raíles en una calle embarrada?",
+              "answers": [
+                "La rueda rueda mejor, y el mismo caballo tira de más",
+                "La calle ya no vuelve a necesitar limpieza ni arreglos nunca más",
+                "El coche va más deprisa que los caballos",
+                "Los pasajeros van mucho mejor sentados porque la madera no cruje nada"
+              ],
+              "explanation": "Menos rozamiento, el mismo caballo, varias veces más carga. Y un segundo regalo: todos saben por dónde va a pasar."
+            }
+          },
+          "porto-carro-electrico-the-hill": {
+            "name": "El problema de la cuesta",
+            "blurb": "Oporto no es llana. Baja en picado hasta el río y vuelve a subir igual de empinada. Para un tranvía de caballos eso era una dificultad seria: al subir hacían falta animales de más, que esperaban al pie de la cuesta para engancharlos delante, y al bajar el problema era el contrario, evitar que el coche empujara a los caballos. La electricidad resolvió las dos cosas a la vez: un motor no se queda sin aliento cuesta arriba y se sujeta cuesta abajo.",
+            "question": {
+              "q": "¿Cuál era el problema de un tranvía de caballos cuesta abajo?",
+              "answers": [
+                "El coche empujaba a los caballos desde atrás",
+                "Los caballos se cansaban mucho más que en la subida",
+                "Los raíles resbalaban con la lluvia",
+                "Los pasajeros tenían que bajarse y hacer el resto del camino a pie"
+              ],
+              "explanation": "Cuesta arriba significa más caballos. Cuesta abajo significa freno, o el peso baja más rápido que los animales."
+            }
+          },
+          "porto-carro-electrico-wooden-benches": {
+            "name": "Los bancos de madera",
+            "blurb": "Dentro del coche no hay butacas, hay tablones. Se eligió la madera porque es ligera, barata, se arregla con un clavo y, sobre todo, porque se limpia con un cubo de agua al final del día. Fíjate en que los bancos son estrechos y están muy juntos: un tranvía no se paga por la comodidad, sino por la cantidad de gente que mueve. Un asiento cómodo significa menos pasajeros, y menos pasajeros significa un billete más caro.",
+            "question": {
+              "q": "¿Por qué eran estrechos y estaban tan juntos los bancos?",
+              "answers": [
+                "Para que cupieran más pasajeros en el mismo coche",
+                "Para que el conductor viera hasta el fondo",
+                "Porque la madera de entonces no se podía cortar en tablones anchos",
+                "Para que los pasajeros no resbalaran cuando el coche frenaba de golpe"
+              ],
+              "explanation": "El billete se paga por persona. Cada centímetro de comodidad es un pasajero menos."
+            }
+          },
+          "porto-carro-electrico-driver-platform": {
+            "name": "La plataforma del conductor",
+            "blurb": "El conductor no se sentaba. Iba de pie en una pequeña plataforma abierta en el extremo del coche, muchas veces sin cristal delante, con un mando redondo en una mano para la corriente y una manivela en la otra para el freno. De pie veía mejor, reaccionaba más rápido y podía echar todo su peso sobre el freno. También era un trabajo duro: en invierno, con lluvia y viento, el conductor lo recibía todo en la cara.",
+            "question": {
+              "q": "¿Por qué conducía de pie el conductor del tranvía?",
+              "answers": [
+                "Veía mejor y frenaba con todo el peso del cuerpo",
+                "No había sitio para un asiento",
+                "Para que los pasajeros pudieran hablarle sin tener que agacharse",
+                "Porque un asiento se enfría mucho en una plataforma abierta en invierno"
+              ],
+              "explanation": "Altura para ver, peso para frenar. Un freno de manivela necesita el cuerpo entero, no solo un brazo."
+            }
+          },
+          "porto-carro-electrico-foot-gong": {
+            "name": "La campana de pedal",
+            "blurb": "Mira abajo, al suelo de la plataforma: hay un pedal. Al pisarlo golpea una campana de metal debajo del coche. La razón es sencilla y muy práctica. Las dos manos del conductor estaban siempre ocupadas, una con la corriente y otra con el freno, así que lo único libre que le quedaba era un pie. Un tranvía no puede apartarse; está atado a sus raíles. Así que lo único que le queda es avisar, y bien alto.",
+            "question": {
+              "q": "¿Por qué tocaba el conductor la campana con el pie?",
+              "answers": [
+                "Tenía las dos manos ya ocupadas",
+                "La campana iba fija bajo el suelo",
+                "Un pie golpea más fuerte que una mano",
+                "Para tocarla a un ritmo constante"
+              ],
+              "explanation": "Corriente en una mano, freno en la otra. Queda el pie, y un tranvía que no puede apartarse necesita una voz a toda costa."
+            }
+          },
+          "porto-carro-electrico-tower-car": {
+            "name": "El tranvía con torre",
+            "blurb": "Entre los coches de pasajeros hay uno que nunca se pareció a los demás: lleva en el techo una plataforma con escalones, como una torre pequeña. Nunca llevó a nadie. Su trabajo era el cable de encima de los raíles, que se rompe, se afloja y necesita mantenimiento. Los operarios subían a la torre, el coche avanzaba despacio por la vía y ellos trabajaban a la altura del cable. Todas las redes de transporte tienen vehículos así, y casi nadie se fija en ellos: trabajan de noche.",
+            "question": {
+              "q": "¿Cuál era el trabajo del coche con la torre encima?",
+              "answers": [
+                "Mantener el cable tendido encima de los raíles",
+                "Subir pasajeros arriba para las vistas",
+                "Remolcar coches averiados a la cochera",
+                "Quitar las hojas caídas en otoño de encima de los raíles"
+              ],
+              "explanation": "El cable está alto, así que la cuadrilla tiene que subir. La torre es una escalera que rueda por los raíles."
+            }
+          }
+        },
+        "riddles": {
+          "porto-carro-electrico-riddle-1": {
+            "prompt": "Yo hacía el trabajo de este museo antes de que hubiera ningún cable, y lo hacía con dos corazones latiendo delante de mí. Comían heno, se cansaban en la cuesta y tenían nombre.",
+            "hint": "A mí nunca me enchufas."
+          },
+          "porto-carro-electrico-riddle-2": {
+            "prompt": "Ruedo por los mismos raíles que todos los demás y nunca he llevado ni un solo pasajero. Solo me importa lo que pasa por encima de tu cabeza, y por eso llevo mi propia torre pequeña.",
+            "hint": "Nadie compró nunca un billete para subir en mí."
+          },
+          "porto-carro-electrico-riddle-3": {
+            "prompt": "Soy la razón de que este museo esté justo aquí y no en otro sitio. Mucho antes de que los aparcaran dentro de mí, yo fabricaba con carbón y vapor lo que los hacía moverse.",
+            "hint": "No soy un vehículo. Soy una sala."
+          }
+        },
+        "doorNote": "Agacha la cabeza al subir a los coches: sus puertas se hicieron para la gente de 1900."
+      }
+    },
+    "porto-casa-do-infante": {
+      "name": "La Casa do Infante",
+      "tagline": "Aduana, casa de la moneda, vivienda — y un suelo romano debajo",
+      "story": "Abajo, junto al río, donde el muelle se encuentra con las callejuelas viejas, hay una casa de piedra con un patio en medio. Ha tenido más trabajos de los que llegan a tener casi todos los edificios. El rey Alfonso IV la construyó en 1325 como aduana real: todo lo que subía por el Duero en barco (sal, telas, pescado, vino, hierro) se metía aquí, se pesaba, se apuntaba en un libro de cuentas y pagaba impuestos. Durante un tiempo fue también la casa de la moneda, donde se acuñaban las monedas de la ciudad. Y en 1394, si la vieja historia es cierta, nació en una habitación de arriba un niño que llegó a ser Enrique el Navegante, el príncipe que mandó barcos cada vez más lejos por la costa de África. Después, en la década de 1990, unos arqueólogos excavaron bajo el suelo y encontraron algo que nadie esperaba: los mosaicos de un edificio romano, tranquilos bajo una aduana medieval. Hoy es un museo, y puedes estar de pie encima de todo eso a la vez.",
+      "facts": [
+        "La construyó en 1325 el rey Alfonso IV como aduana real de Oporto.",
+        "Durante un tiempo fue también la casa de la moneda: dentro se acuñaban monedas.",
+        "Unas excavaciones en la década de 1990 sacaron a la luz mosaicos romanos debajo del edificio.",
+        "Hoy guarda también el archivo histórico de la ciudad, con siglos de documentos."
+      ],
+      "question": {
+        "q": "¿Cuál era el trabajo de este edificio en 1325?",
+        "answers": [
+          "Cobrar impuestos por todo lo que se descargaba del río",
+          "Alojar a la familia real en sus visitas",
+          "Guardar el trigo que alimentaba a toda la ciudad durante el invierno",
+          "Vigilar el puente que cruzaba el Duero justo en este punto"
+        ],
+        "explanation": "Era la aduana real. Cada carga se pesaba, se apuntaba en un libro de cuentas y pagaba impuestos antes de poder seguir hacia la ciudad."
+      },
+      "findIt": "En la Rua da Alfândega, una callejuela por encima del muelle de la Ribeira. Busca la esquina de piedra con las ventanas medievales; la puerta da a un patio interior.",
+      "museum": {
+        "rooms": {
+          "porto-casa-do-infante-under-the-floor": {
+            "name": "Bajo el suelo",
+            "intro": "Lo primero que ves aquí no está en las paredes, está bajo tus pies. Cuando levantaron el suelo para hacer reparaciones, apareció debajo un edificio romano entero. El museo no lo volvió a tapar. Lo dejó abierto y te hace pasar por encima, para que veas dos ciudades una sobre otra."
+          },
+          "porto-casa-do-infante-customs": {
+            "name": "La aduana",
+            "intro": "Este es el trabajo para el que se construyó la casa. Oporto era un puerto de río, y un puerto gana dinero de una manera: quedándose con un poco de todo lo que pasa. Aquí se guardaba ese poco. Cada carga se paraba, se pesaba, se apuntaba y pagaba, y solo entonces seguía cuesta arriba hacia la ciudad."
+          },
+          "porto-casa-do-infante-prince": {
+            "name": "El niño que mandaba barcos",
+            "intro": "La casa lleva el nombre de un bebé. La tradición dice que en 1394 nació aquí Enrique, hijo del rey Juan I y de Felipa de Lancaster. Nunca fue rey y él mismo casi no navegó. Hizo otra cosa: organizó viajes, pagó a las tripulaciones y guardó todo lo que aprendían."
+          }
+        },
+        "exhibits": {
+          "porto-casa-do-infante-mosaic": {
+            "name": "El mosaico romano",
+            "blurb": "Un suelo hecho de miles de piedrecitas, cortadas casi en cubos y colocadas una a una formando un dibujo. Los romanos hacían así los suelos de sus habitaciones importantes, porque un mosaico casi no se desgasta y se limpia bien. Mira lo pequeña que es cada piedra y piensa cuántas horas hicieron falta. Después piensa que los pasos se acabaron, el edificio se cayó, la tierra lo cubrió, y el dibujo esperó ahí abajo durante siglos sin que nadie supiera que existía.",
+            "question": {
+              "q": "¿Por qué ponían los romanos mosaicos en sus habitaciones importantes?",
+              "answers": [
+                "Aguantaban las pisadas y se limpiaban con agua",
+                "Daban calor a la habitación en invierno",
+                "Costaban menos que un suelo de tablas",
+                "Hacían más silencioso el ruido de los pasos dentro de la casa"
+              ],
+              "explanation": "Piedra sobre piedra, sin tablas que se pudran. Por eso quedan suelos romanos y casi ninguna puerta romana."
+            }
+          },
+          "porto-casa-do-infante-layers": {
+            "name": "Muros sobre muros",
+            "blurb": "Mira con atención la excavación y verás que las piedras no son todas iguales. Unas son grandes y bien cortadas, otras pequeñas y revueltas. Cada capa es una época distinta que construyó encima de las ruinas de la anterior, porque era más fácil que allanarlo todo primero. Los arqueólogos leen estas capas como tú lees las páginas: la más profunda es la más antigua, y una piedra que está sobre otra piedra es siempre más joven que la de debajo.",
+            "question": {
+              "q": "¿Cómo sabe un arqueólogo qué capa es más antigua?",
+              "answers": [
+                "Cuanto más honda está una capa, más antigua es",
+                "Por el color de las piedras, que se oscurece con los siglos",
+                "Por el tamaño del edificio, porque los antiguos eran siempre más pequeños",
+                "Pesando cada piedra que sale"
+              ],
+              "explanation": "No puedes construir debajo de algo que ya está ahí. Así que lo que está debajo se puso primero."
+            }
+          },
+          "porto-casa-do-infante-walkway": {
+            "name": "La pasarela sobre la excavación",
+            "blurb": "El museo tenía un problema: quería enseñar la excavación, pero si la gente caminaba por ella la destrozaría en un mes. La solución fue poner cristal en medio. Pasas por encima, miras hacia abajo más allá de tus zapatos, lo ves todo y no tocas nada. Es una pequeña lección sobre cómo funcionan los museos: casi cada vitrina, cada cuerda y cada puentecito existen para que el niño que venga dentro de cincuenta años pueda seguir viendo la pieza.",
+            "question": {
+              "q": "¿Por qué pasas por encima de la excavación en vez de caminar por ella?",
+              "answers": [
+                "Para que miles de pisadas no la vayan desgastando",
+                "Porque el suelo de ahí abajo no aguanta el peso de una persona",
+                "Para que quepa más gente en la sala pequeña",
+                "Porque desde arriba la luz cae mejor sobre las piedras viejas"
+              ],
+              "explanation": "Un mosaico aguanta siglos bajo tierra y unos meses bajo zapatos."
+            }
+          },
+          "porto-casa-do-infante-lead-seals": {
+            "name": "Los sellos de plomo",
+            "blurb": "Un trocito de plomo, blando como masa de pan, apretado sobre un fardo con unas tenazas que le dejaban la marca de la aduana. Esa era la prueba de que se había pagado el impuesto. Se eligió el plomo porque es blando: se marca con facilidad, pero una vez que alguien lo abre ya nunca se cierra igual. En las vitrinas verás decenas de estos sellos, y a su lado las fichas de contar que los empleados movían para hacer sus cuentas. Son objetos diminutos, y sostenían un puerto entero.",
+            "question": {
+              "q": "¿Qué te decía un sello de plomo sobre un fardo?",
+              "answers": [
+                "Que el impuesto ya se había pagado",
+                "Qué barco lo subió por el río",
+                "Cuánto pesaba todo el fardo",
+                "Qué mercader de la ciudad lo había encargado"
+              ],
+              "explanation": "Un sello roto quería decir que alguien había abierto el fardo después de la aduana, y entonces empezaban las preguntas."
+            }
+          },
+          "porto-casa-do-infante-archive": {
+            "name": "El archivo de la ciudad",
+            "blurb": "El mismo edificio guarda hoy el archivo histórico de Oporto: estanterías con libros de cuentas, contratos, permisos y listas, escritos a mano durante siglos. Suena aburrido y es lo contrario. Como un empleado apuntó cuántos barriles subieron a un barco un martes del siglo XVI, hoy sabemos qué comía la ciudad, con quién comerciaba y cuánto costaba el pan. La historia no la escriben solo los reyes. La escriben también las personas que tomaban notas.",
+            "question": {
+              "q": "¿Qué nos enseñan los viejos libros de cuentas de un puerto?",
+              "answers": [
+                "Qué comía la ciudad y con quién comerciaba",
+                "Cómo eran exactamente las personas que vivían entonces en la ciudad",
+                "Qué canciones cantaban los marineros mientras cargaban los barcos",
+                "Qué profundidad tenía el río en cada punto del viejo muelle de piedra"
+              ],
+              "explanation": "Una lista de cargas es, sin querer, una lista de la vida diaria. Nadie la escribió para nosotros."
+            }
+          },
+          "porto-casa-do-infante-mint": {
+            "name": "La casa de la moneda",
+            "blurb": "Durante un tiempo el mismo edificio también acuñaba monedas. El método era a mano y ruidoso: un disco liso de metal se ponía entre dos cuños grabados y alguien golpeaba el de arriba con un martillo. El dibujo se marcaba en las dos caras de un solo golpe. Una moneda no es solo metal: es una promesa de que esa pieza vale lo que dice. Por eso un país vigila con tanto cuidado quién tiene permiso para fabricarlas.",
+            "question": {
+              "q": "¿Cómo llegaba el dibujo a las dos caras de una moneda?",
+              "answers": [
+                "Con un martillazo entre dos cuños de metal grabados",
+                "Con un cuchillo fino que lo grababa a mano, línea a línea",
+                "Vertiendo metal fundido en dos moldes completamente separados",
+                "Con un pincel y una pintura que se seca dura"
+              ],
+              "explanation": "Dos cuños grabados, un disco en medio, un martillo. Las dos caras aparecen en el mismo instante."
+            }
+          },
+          "porto-casa-do-infante-many-faces": {
+            "name": "Las muchas caras de Enrique",
+            "blurb": "Nadie sabe cómo era Enrique. No existe ningún retrato hecho por alguien que lo conociera, y hasta su cara más famosa, la del hombre con el gran sombrero oscuro, está en duda. El museo pone en fila sus imágenes a lo largo de los siglos y la gracia se ve enseguida: cada época lo pintó parecido a su propia gente. Unas veces un monje severo, otras un general, otras un científico entre sus instrumentos. Los retratos no nos dicen cómo era él. Nos dicen lo que cada generación quería ver.",
+            "question": {
+              "q": "¿Por qué son todos distintos los retratos de Enrique?",
+              "answers": [
+                "Cada siglo lo dibujó como a su propia gente",
+                "Cambió muchísimo al hacerse mayor",
+                "Los más antiguos han perdido el color",
+                "Solo un artista tuvo permiso para verlo en persona"
+              ],
+              "explanation": "Cuando nadie lo dibujó del natural, cada uno pinta lo que imagina. Y lo imagina con los ojos de su época."
+            }
+          },
+          "porto-casa-do-infante-milestones": {
+            "name": "El muro de las fechas",
+            "blurb": "Un muro con fechas, una debajo de otra, y junto a cada una un poco más de costa africana. Así funcionaba de verdad la exploración: no un gran viaje, sino decenas de viajes pequeños, cada uno un poco más lejos que el anterior. Un barco llegaba a un cabo, volvía a casa y lo contaba, y el barco siguiente salía desde ahí. Un mapa no te enseña el mundo; te enseña cuánto mundo había visto quien lo dibujó. El papel en blanco de más abajo no era mar vacío. Era no saber.",
+            "question": {
+              "q": "¿Cómo se fue alargando la costa en los mapas?",
+              "answers": [
+                "Cada viaje añadía lo que acababa de ver",
+                "Los reyes mandaban dibujarla más grande",
+                "Las hojas de papel eran cada vez más grandes",
+                "África crecía a medida que bajaba el mar"
+              ],
+              "explanation": "Nadie hizo un viaje hasta el final. Hicieron muchos, y cada uno le pasaba al siguiente unas millas más."
+            }
+          },
+          "porto-casa-do-infante-porcelain": {
+            "name": "Un plato que viajó más lejos que el príncipe",
+            "blurb": "En las vitrinas de cerámica hay porcelana de China. Piensa el camino que hizo: se fabricó en la otra punta del mundo, la subieron a un barco, dio la vuelta a África y la descargaron en este mismo muelle. A su lado hay platos hechos aquí cerca, en Oporto y en Vila Nova de Gaia. Ponlos uno junto a otro y verás lo que los viajes hicieron con la vida de cada día: los alfareros de aquí vieron el azul y blanco de China y empezaron a probarlo ellos también. Las ideas viajan dentro de las cajas, junto con las cosas.",
+            "question": {
+              "q": "¿Qué pasó cuando la porcelana china llegó a Oporto?",
+              "answers": [
+                "Los alfareros de Oporto copiaron su azul y blanco",
+                "La mandaron de vuelta a China enseguida",
+                "La ciudad prohibió los platos de barro",
+                "Los alfareros de aquí dejaron de trabajar por completo"
+              ],
+              "explanation": "El comercio no solo lleva objetos. Lleva también dibujos, colores e ideas, y esas se quedan."
+            }
+          }
+        },
+        "riddles": {
+          "porto-casa-do-infante-riddle-1": {
+            "prompt": "Estoy hecho de miles de piedrecitas y soy mucho más antiguo que la casa que se levanta encima de mí. Durante siglos nadie caminó sobre mí, porque nadie sabía que estaba ahí.",
+            "hint": "Para verme tienes que mirar hacia abajo, no hacia arriba."
+          },
+          "porto-casa-do-infante-riddle-2": {
+            "prompt": "Soy pequeño, gris y blando, y me apretaron bien cerrado sobre un fardo de tela. Mientras yo seguía entero, todos los del camino sabían que al rey ya le habían pagado.",
+            "hint": "Rómpeme y ya nunca me cierro igual que antes."
+          },
+          "porto-casa-do-infante-riddle-3": {
+            "prompt": "Soy el mismo hombre dibujado una y otra vez, y no hay dos retratos míos que estén de acuerdo. Cada siglo que me pintó me dio la cara y la ropa de su propia gente.",
+            "hint": "Nadie de los que me conocieron dejó un dibujo mío."
+          }
+        },
+        "doorNote": "El edificio es la pieza expuesta. Mira primero abajo, luego alrededor, y arriba al final."
+      }
+    },
+    "porto-ponte-luis-i": {
+      "name": "El puente Luis I",
+      "tagline": "Un solo arco de hierro que sostiene dos caminos a la vez",
+      "story": "Oporto cruzó esta curva del Duero con tres puentes en ochenta años. Primero, un puente hecho de barcas atadas unas a otras, que el río zarandeaba cada vez que crecía. Después, desde 1843, un puente colgante sujeto a torres de piedra. Y en 1881 empezaron las obras de un puente de hierro diseñado por Théophile Seyrig, un ingeniero que había trabajado con Gustave Eiffel; el viejo puente colgante se desmontó mientras este subía, y en 1886 se abrió. Su idea es sencilla e inteligente. Aquí las orillas del Duero son empinadas y altas, pero la ciudad vieja está abajo, junto al agua. Así que hacían falta dos pasos: uno arriba, de lo alto de una orilla a lo alto de la otra, y uno abajo, de muelle a muelle. Seyrig colgó los dos del mismo arco, uno encima del otro. El arco salva 172 metros y era entonces uno de los arcos de hierro más grandes del mundo. Hoy por arriba pasa el metro y por abajo los coches, y por los dos camina la gente.",
+      "facts": [
+        "Se abrió en 1886. Su único arco salva 172 metros.",
+        "Lo diseñó Théophile Seyrig; había sido socio de Gustave Eiffel en un puente anterior de Oporto.",
+        "Tiene dos tableros: el de arriba para el metro, el de abajo para los coches."
+      ],
+      "question": {
+        "q": "¿Por qué tiene dos tableros este puente?",
+        "answers": [
+          "La ciudad está arriba, en la roca, y abajo, junto al agua",
+          "Para poder cerrar uno cuando hay reparaciones",
+          "Para repartir el peso por igual entre los dos lados del enorme arco",
+          "Porque los trenes y los coches nunca habrían cabido en un solo ancho"
+        ],
+        "explanation": "Las orillas son empinadas. Hacía falta un paso de lo alto a lo alto y otro de muelle a muelle, así que colgaron los dos del mismo arco."
+      },
+      "findIt": "El tablero de abajo sale del muelle de la Ribeira, hacia el este. Para el de arriba, sube desde la plaza que hay junto a la catedral; es el mismo arco, visto desde lo alto."
+    },
+    "porto-igreja-do-carmo": {
+      "name": "La iglesia del Carmo",
+      "tagline": "Una pared entera que en realidad es una sola imagen",
+      "story": "Casi todas las iglesias guardan lo mejor dentro. Esta lo sacó fuera. Su gran pared lateral, la que da a la plaza, está cubierta de arriba abajo de azulejos azules y blancos, y todos juntos no son un dibujo repetido sino una sola imagen. Se pusieron en 1912, mucho después que la propia iglesia, que se construyó a mediados del siglo XVIII. Ponte enfrente y mira cómo funciona: de cerca son cientos de cuadrados de cerámica, de lejos son escenas con personas, barcos y nubes. Es un puzle que alguien pintó antes de cortarlo en piezas. Y hay una segunda cosa que encontrar, mucho más pequeña: en el extremo de la iglesia, donde empieza la siguiente, hay una casa de más o menos un metro de ancho. Es una casa de verdad, con puerta, ventanas y pisos, y vivió gente en ella hasta la década de 1980.",
+      "facts": [
+        "La pared lateral se vistió de azulejos azules y blancos en 1912.",
+        "La iglesia se construyó a mediados del siglo XVIII, unos 150 años antes que los azulejos.",
+        "Entre las dos iglesias hay una casa de más o menos un metro de ancho, habitada hasta la década de 1980."
+      ],
+      "question": {
+        "q": "¿Qué es en realidad la gran pared lateral de esta iglesia?",
+        "answers": [
+          "Una sola imagen, cortada en cientos de azulejos",
+          "Un dibujo que se repite y que cada azulejo copia exactamente igual",
+          "Una pared pintada que imita la cerámica",
+          "Un mosaico de piedras de colores, como los suelos que hacían los romanos"
+        ],
+        "explanation": "Se pintó como una sola escena y después se coció en azulejos separados. Por eso de cerca ves cuadrados y de lejos ves personas."
+      },
+      "findIt": "En la Praça de Gomes Teixeira. La pared de azulejos no es la fachada de la iglesia: es el lado derecho, y se ve mejor desde la esquina de enfrente de la plaza."
+    },
+    "porto-palacio-de-cristal": {
+      "name": "Los jardines del Palacio de Cristal",
+      "tagline": "Pavos reales, árboles y un palacio que ya no está",
+      "story": "En 1865 Oporto construyó un palacio de hierro y cristal, como un invernadero gigante, para una gran exposición en la que los países enseñaban sus inventos y sus oficios. A su alrededor, un diseñador de jardines alemán, Émile David, plantó árboles, montó fuentes y trazó senderos por la colina que hay sobre el río. Pero el palacio de cristal envejeció, y en 1951 lo derribaron; en su lugar se levantó un enorme edificio redondo con cúpula, que hoy lleva el nombre de Rosa Mota, una corredora de maratón de Oporto que ganó el oro olímpico. Los jardines se quedaron, y con ellos los pavos reales, que pasean por los senderos como si el sitio fuera suyo y abren la cola cuando les apetece. Ve hasta el borde de la colina: desde allí ves el Duero salir derecho hacia el Atlántico.",
+      "facts": [
+        "El Palacio de Cristal de 1865 era de hierro y cristal. Se derribó en 1951.",
+        "Los jardines los diseñó el alemán Émile David, en la colina que hay sobre el Duero.",
+        "La cúpula que lo sustituyó lleva el nombre de Rosa Mota, campeona olímpica de maratón."
+      ],
+      "question": {
+        "q": "¿Qué hay hoy donde estaba el palacio de cristal?",
+        "answers": [
+          "Un edificio redondo con una cúpula encima",
+          "Un lago para barcas, excavado mucho después",
+          "Una copia exacta, otra vez de cristal",
+          "Un gran prado vacío para los visitantes"
+        ],
+        "explanation": "La cúpula Rosa Mota. Lleva el nombre de una corredora de maratón de Oporto que ganó una medalla de oro olímpica."
+      },
+      "findIt": "La puerta grande está en la Rua de Dom Manuel II. Entra y sigue por la derecha, hacia el río: el mirador está en el borde del fondo, detrás de los árboles."
+    },
+    "porto-sao-bento": {
+      "name": "La estación de São Bento",
+      "tagline": "Veinte mil azulejos pintados esperan el tren contigo",
+      "story": "Casi todas las estaciones de tren son sitios donde esperas. Esta es un sitio donde miras. Se construyó en el terreno de un antiguo convento, São Bento de Avé-Maria, y se quedó con el nombre del convento. La gente de Oporto decidió que quien espera un tren merece algo que valga la pena mirar, así que le encargaron las paredes a un pintor llamado Jorge Colaço. Trabajó en ellas más de diez años, y en 1916 el vestíbulo estaba terminado: unos veinte mil azulejos pintados, del suelo al techo. No son decoración. Son imágenes con historias dentro. Mira hacia arriba y encontrarás caballeros en una batalla, un rey entrando en la ciudad con su reina al lado, campesinos recogiendo la cosecha, y una franja de color cerca de lo alto que enseña cómo viajó la gente a lo largo de los siglos, de los bueyes al vapor. Portugal llama azulejos a estas placas pintadas y las pone en paredes por todas partes. Pero en ningún otro sitio hay veinte mil en una sala de espera.",
+      "facts": [
+        "Jorge Colaço pintó unos 20.000 azulejos. Las paredes se terminaron en 1916.",
+        "La estación está donde antes estaba el convento de São Bento de Avé-Maria.",
+        "El rey Carlos I puso la primera piedra de la estación en 1900."
+      ],
+      "question": {
+        "q": "¿Por qué cubrieron de azulejos pintados el vestíbulo de una estación?",
+        "answers": [
+          "Para que los viajeros que esperan el tren tengan algo que mirar",
+          "Para que el humo de las máquinas de vapor no ennegreciera la piedra",
+          "Para ayudar a los pasajeros a encontrar más fácilmente el andén correcto",
+          "Porque los azulejos eran el acabado más barato que había"
+        ],
+        "explanation": "El vestíbulo es un libro de imágenes: caballeros, una boda real, la cosecha y una franja con todas las maneras en que la gente se ha movido alguna vez."
+      },
+      "findIt": "La puerta grande da a la Praça de Almeida Garrett, al final de la Avenida dos Aliados. Entra y párate enseguida: el vestíbulo de los azulejos es la primera sala."
+    },
+    "porto-se-do-porto": {
+      "name": "La catedral de Oporto",
+      "tagline": "Parece un castillo porque tenía que serlo",
+      "story": "Oporto empezó a construir esta catedral hacia 1110, cuando la ciudad era pequeña, estaba en una colina sobre el río y necesitaba protección. Por eso no parece una iglesia sino una fortaleza: muros gruesos, dos torres cuadradas y, arriba, una fila de dientes de piedra, exactamente como un castillo. En los siglos siguientes, cada época añadió algo suyo. Una ventana redonda con forma de flor. Un claustro gótico, vestido más tarde de azulejos azules. Una ancha escalera de piedra. En 1387 el rey Juan I se casó aquí con una princesa inglesa, Felipa de Lancaster, y su hijo llegó a ser Enrique el Navegante. Y dentro hay una historia que parece un cuento y no lo es: en 1809, cuando un ejército extranjero entró en la ciudad, la gente de Oporto levantó una pared falsa delante de su retablo de plata para que nadie lo encontrara. Funcionó.",
+      "facts": [
+        "Empezó a construirse hacia 1110, y es uno de los edificios más antiguos de la ciudad.",
+        "En 1387 el rey Juan I se casó aquí con Felipa de Lancaster.",
+        "Los azulejos del claustro los pintó hacia 1730 Valentim de Almeida."
+      ],
+      "question": {
+        "q": "¿Cómo se salvó el retablo de plata de la catedral en 1809?",
+        "answers": [
+          "Lo escondieron tras una pared falsa levantada delante",
+          "Lo cargaron en un barco y lo mandaron al mar",
+          "Lo partieron en trozos y los repartieron",
+          "Lo pintaron de negro para que pareciera madera normal y corriente"
+        ],
+        "explanation": "La gente levantó a toda prisa una pared delante. El ejército pasó de largo y nunca supo lo que había detrás."
+      },
+      "findIt": "Sal a la plaza grande, el Terreiro da Sé, en lo alto de la colina. La entrada está entre las dos torres cuadradas; la columna alta y retorcida de la plaza se llama pelourinho."
+    },
+    "porto-palacio-da-bolsa": {
+      "name": "El Palacio de la Bolsa",
+      "tagline": "Un palacio sin rey dentro, construido por mercaderes",
+      "story": "En 1832 un incendio destruyó parte del antiguo monasterio de São Francisco y dejó un solar quemado junto al río. Los mercaderes de Oporto lo pidieron. No querían una oficina; querían un edificio que le dijera a cualquiera que llegara por mar que esta ciudad iba en serio. Empezaron en 1842 y no tuvieron ninguna prisa: la decoración duró tanto que el palacio no se terminó del todo hasta alrededor de 1910, casi setenta años después. En medio hay un patio bajo un techo de cristal, pintado con los escudos de los países con los que comerciaba Oporto. Más adentro se esconde el Salón Árabe, decorado durante dieciocho años para recordar la Alhambra de España, con dibujos dorados en cada centímetro de pared. Aquí nunca vivió un rey. Lo construyeron personas que se ganaban la vida pesando mercancías.",
+      "facts": [
+        "Las obras empezaron en 1842, pero la decoración no se terminó hasta alrededor de 1910.",
+        "El Salón Árabe tardó unos dieciocho años en decorarse, inspirado en la Alhambra.",
+        "La primera piedra de la estatua de Enrique el Navegante, en el jardín, se puso en 1894; la estatua se descubrió en 1900."
+      ],
+      "question": {
+        "q": "¿Quién construyó este palacio, y para qué?",
+        "answers": [
+          "Los mercaderes, para enseñar al mundo cuánto importaba su ciudad",
+          "Un rey, que quería una segunda casa cerca de la orilla del río",
+          "Los monjes, para sustituir el monasterio que se había quemado",
+          "La ciudad, para poner allí su ayuntamiento"
+        ],
+        "explanation": "Era la bolsa de comercio de Oporto. Los mercaderes lo construyeron para reunirse y para impresionar a cualquiera que llegara por mar."
+      },
+      "findIt": "En la Rua Ferreira Borges, junto a la gran iglesia de São Francisco. La puerta da al jardín con la estatua del príncipe que señala hacia el mar."
+    },
+    "porto-clerigos": {
+      "name": "La iglesia y la torre de los Clérigos",
+      "tagline": "Un faro sin luz, en medio de la ciudad",
+      "story": "Esta torre es lo más alto de la ciudad vieja: unos setenta y cinco metros, como veinte casas puestas una encima de otra. La diseñó Nicolau Nasoni, un artista que vino de Italia, se quedó en Oporto y le regaló algunos de sus edificios más bonitos. La torre se terminó en 1763 y durante mucho tiempo fue la más alta de todo Portugal. Pero también tenía un trabajo que no se ve desde abajo: los barcos que subían por el Duero la veían desde lejos y sabían que habían llegado a Oporto. Era, en la práctica, un faro sin luz. Dentro, una escalera de caracol de piedra con más de doscientos escalones sube hasta las campanas, y se va estrechando a medida que subes. Nasoni quiso tanto este sitio que pidió que lo enterraran dentro de su propia iglesia, y en 1773 eso fue exactamente lo que pasó.",
+      "facts": [
+        "La torre mide unos 75 metros de alto y se terminó en 1763.",
+        "La escalera de dentro tiene más de doscientos escalones y se estrecha al subir.",
+        "Su arquitecto, Nicolau Nasoni, fue enterrado dentro de la misma iglesia en 1773."
+      ],
+      "question": {
+        "q": "¿Por qué se dice que la torre era un faro sin luz?",
+        "answers": [
+          "Los barcos la veían de lejos y sabían que habían llegado",
+          "Ardía un fuego en lo alto las noches de niebla",
+          "Su mármol blanco deslumbraba a todo el que miraba",
+          "Tocaban sus campanas cada vez que un barco se acercaba a la desembocadura del río"
+        ],
+        "explanation": "Un faro dice «aquí está la tierra». La torre decía lo mismo, solo que lo decía con su altura y no con una lámpara."
+      },
+      "findIt": "La entrada a la escalera de la torre no es la puerta de la iglesia. Está en la Rua de São Filipe de Nery, en el lateral, donde casi siempre hay cola."
+    },
+    "porto-mercado-do-bolhao": {
+      "name": "El mercado del Bolhão",
+      "tagline": "Su nombre significa «la gran burbuja»",
+      "story": "Mucho antes del mercado, esto era una hondonada pantanosa donde el agua subía sola del suelo y hacía burbujas. La gente lo llamaba el bolhão, la gran burbuja, y cuando aparecieron aquí los puestos el nombre se quedó. El edificio que ves abrió en 1914: dos pisos de barandillas de hierro alrededor de un patio abierto, sin techo en medio, para que la luz y el aire entraran entre el pescado y las flores. Durante cien años los vendedores amontonaron aquí naranjas, queso, pan, aceitunas y pescado fresco, y gritaban más fuerte los unos que los otros. Después el mercado se desgastó. La ciudad podía haberlo tirado y construir algo nuevo; en vez de eso lo reparó pieza a pieza y lo volvió a abrir en 2022, con el mismo hierro, el mismo granito y los mismos puestos. Lo correcto suele ser también lo más difícil.",
+      "facts": [
+        "«Bolhão» significa gran burbuja, por el manantial que brotaba aquí antes.",
+        "El edificio de barandillas de hierro abrió en 1914 y tiene un patio abierto sin techo.",
+        "Volvió a abrir en 2022 tras una reparación que duró cuatro años."
+      ],
+      "question": {
+        "q": "¿De dónde le viene el nombre a este mercado?",
+        "answers": [
+          "De un manantial que burbujeaba al salir del suelo",
+          "Del vendedor que puso el primer puesto",
+          "De la forma de su patio, que es redondo como una gran pelota",
+          "De las cestas que los compradores llevaban antes sobre los hombros"
+        ],
+        "explanation": "El agua subía del suelo y hacía burbujas. Bolhão significa «gran burbuja», y el nombre duró más de un siglo más que el manantial."
+      },
+      "findIt": "La puerta principal da a la Rua Formosa. Entra y camina hasta el medio: ahí está el patio sin techo, y desde ahí ves los dos pisos a la vez."
+    },
+    "porto-world-of-discoveries": {
+      "name": "World of Discoveries",
+      "tagline": "Un museo que cruzas en barca",
+      "story": "Portugal es un país pequeño en el borde occidental de Europa, con el Atlántico delante y España detrás. En el siglo XV hizo algo que nadie había probado: mandó barcos hacia el sur por la costa de África, cada vez un poco más lejos, para averiguar qué había allí. Este museo, que abrió en 2014 en un edificio antiguo del barrio de Miragaia, junto al río, está construido alrededor de esa historia. No tiene vitrinas con objetos; tiene escenarios construidos, y una parte la cruzas dentro de una barca que avanza despacio por delante de reconstrucciones de los lugares a los que llegaron aquellos barcos. Aquellos viajes trajeron especias, oro y plantas que nadie en Europa había visto nunca. También llevaron a personas que habían sido arrancadas de sus casas y vendidas. Eso pertenece a la misma historia, no a otra distinta. Y buena parte de ella empezó en este mismo río.",
+      "facts": [
+        "Abrió en 2014, en el barrio de Miragaia, cerca de la orilla del Duero.",
+        "Una parte de la visita se hace dentro de una barca, entre lugares reconstruidos.",
+        "En 1498 barcos portugueses llegaron a la India por mar, dando la vuelta a África."
+      ],
+      "question": {
+        "q": "¿Qué buscaban los barcos portugueses bajando por la costa de África?",
+        "answers": [
+          "Un camino por mar hacia las especias de Oriente",
+          "Una travesía más corta del Atlántico para llegar antes a Islandia",
+          "Campos nuevos que cultivar, porque a Portugal se le había acabado la buena tierra",
+          "Las montañas donde nacen todos los grandes ríos de Europa"
+        ],
+        "explanation": "Las especias venían por tierra pasando por muchas manos, y costaban una fortuna. Un barco que diera la vuelta a África se saltaba todas esas manos."
+      },
+      "findIt": "En la Rua de Miragaia, debajo de la colina de los jardines y cerca del río. Se entra por el gran edificio antiguo de ventanas altas en arco.",
+      "museum": {
+        "rooms": {
+          "porto-world-of-discoveries-shipyard": {
+            "name": "El astillero",
+            "intro": "Todo viaje empieza mucho antes del mar, en un patio lleno de madera, sierras y humo de brea caliente. Ese patio es lo que esta sala reconstruye. Antes de preguntar adónde fueron los barcos, vale la pena ver cómo se hace uno: en qué orden, con qué, y cuál es la pieza que no puede fallar."
+          },
+          "porto-world-of-discoveries-voyage": {
+            "name": "El viaje",
+            "intro": "Ahora el barco está listo y sale. A partir de aquí los problemas no son de carpintería. Son dos: dónde estoy, y cuánto más puedo aguantar. El cielo responde a la primera; los barriles de la bodega deciden la segunda. Todos los grandes descubrimientos dependieron de esas dos preguntas."
+          }
+        },
+        "exhibits": {
+          "porto-world-of-discoveries-hull": {
+            "name": "El esqueleto del barco",
+            "blurb": "Un barco de madera no se construye como una casa, de abajo arriba. Se construye como un animal: primero la columna vertebral, una viga larga que se llama quilla, luego las costillas a derecha e izquierda, y al final la piel, que son las tablas. La quilla es la pieza crítica: si se tuerce, se tuerce el barco entero y ya no se arregla. Por eso elegían para ella la mejor madera del astillero, muchas veces de un solo árbol enorme.",
+            "question": {
+              "q": "¿Qué pieza de un barco de madera se coloca primero?",
+              "answers": [
+                "La quilla, que es la columna vertebral del barco",
+                "La cubierta, para que los carpinteros tengan dónde pisar",
+                "El mástil, porque es la pieza más alta y la más difícil",
+                "Las tablas de los costados, que le dan al barco su forma"
+              ],
+              "explanation": "Primero la columna, luego las costillas, la piel al final. Un comienzo torcido nunca se endereza después."
+            }
+          },
+          "porto-world-of-discoveries-caulking": {
+            "name": "La brea y la estopa",
+            "blurb": "Entre dos tablas siempre hay una rendija, y una rendija significa agua. La solución era antigua y lista: metían a golpes fibra retorcida, la estopa, en las juntas, y echaban brea caliente por encima. Después la madera se hincha con la humedad y aprieta el relleno todavía más. Así que el barco se vuelve más estanco después de entrar en el agua, no antes. Un casco nuevo que gotea un poco los primeros días no está necesariamente roto.",
+            "question": {
+              "q": "¿Cuándo se vuelve más estanco un casco de madera nuevo?",
+              "answers": [
+                "Cuando ya lleva un rato dentro del agua",
+                "Cuando se seca al sol durante semanas",
+                "En cuanto lo pintan de blanco por fuera",
+                "Cuando lo cargan con mucha mercancía"
+              ],
+              "explanation": "La madera mojada se dilata. La junta se cierra sola, y la estopa y la brea la mantienen cerrada."
+            }
+          },
+          "porto-world-of-discoveries-sails": {
+            "name": "Las velas",
+            "blurb": "Hay dos formas básicas de vela y hacen trabajos distintos. Una vela cuadrada es grande y fuerte, pero quiere el viento por detrás. Una vela triangular es más pequeña y deja que el barco siga avanzando incluso cuando el viento viene de lado, en zigzag. Los barcos de exploración solían llevar las dos, porque no tenían ni idea del tiempo que iban a encontrar. Poder volver a casa con el viento en contra importa más que ir rápido.",
+            "question": {
+              "q": "¿Qué puede hacer una vela triangular que una cuadrada no puede?",
+              "answers": [
+                "Seguir avanzando con el viento de lado",
+                "Coger mucho más aire en la tormenta",
+                "Plegarse sola con viento muy fuerte",
+                "Mantener el barco quieto al ancla"
+              ],
+              "explanation": "Con una vela cuadrada esperas el viento bueno. Con una triangular sales de todos modos y vas zigzagueando."
+            }
+          },
+          "porto-world-of-discoveries-astrolabe": {
+            "name": "El astrolabio",
+            "blurb": "Un disco pesado de latón con una barra móvil en el medio y marcas alrededor del borde. Lo colgabas, dejabas que se quedara nivelado y apuntabas al sol o a una estrella por dos agujeritos. Lo alto que estaba en el cielo te decía cuánto habías ido hacia el norte o hacia el sur. El este y el oeste no los podía responder: para eso hacía falta un reloj exacto, y todavía no existía. Así que los marineros sabían exactamente la mitad de su posición y adivinaban la otra mitad.",
+            "question": {
+              "q": "¿Qué te podía decir un astrolabio?",
+              "answers": [
+                "Hasta dónde habías ido al norte o al sur",
+                "Qué profundidad tenía el agua bajo ti",
+                "Con qué fuerza soplaba allí el viento",
+                "Qué hora era entonces a bordo del barco"
+              ],
+              "explanation": "La altura del sol te da el norte y el sur. El este y el oeste necesitan un reloj exacto, y no había ninguno."
+            }
+          },
+          "porto-world-of-discoveries-water-barrel": {
+            "name": "El barril de agua",
+            "blurb": "El objeto más importante de un barco de exploración no es el mapa ni la brújula. Es el agua. Una persona aguanta semanas sin comida y solo unos días sin agua, y el mar que te rodea no se puede beber. Así que el alcance real de un viaje nunca fue el valor del capitán, sino cuántos barriles cabían en la bodega. Por eso los barcos iban pegados a la costa: no por miedo, sino para saber dónde podrían volver a llenarlos.",
+            "question": {
+              "q": "¿Qué decidía de verdad hasta dónde podía llegar un barco?",
+              "answers": [
+                "Cuánta agua podía llevar el barco",
+                "Lo constantes que eran los vientos ese año",
+                "La experiencia que tenía el capitán",
+                "Lo grandes que eran sus dos velas"
+              ],
+              "explanation": "Sin agua das la vuelta, por muy buen capitán que seas. Los barriles eran el verdadero borde del mapa."
+            }
+          },
+          "porto-world-of-discoveries-cargo": {
+            "name": "La carga que volvió a casa",
+            "blurb": "Cuando un barco volvía, su bodega cambiaba Europa entera. Pimienta, canela, clavo, azúcar, oro y plantas que nadie aquí había visto nunca. Un saco de especias podía hacer rico a un mercader para toda la vida. Pero esos mismos barcos llevaron también a personas que habían sido arrancadas de sus casas y vendidas a otras personas. Ninguna de ellas eligió el viaje. Esta no es una historia aparte, al lado de la historia de las especias; es la misma, y se cuenta con ella.",
+            "question": {
+              "q": "¿Por qué valía tanto un saco de especias en Europa?",
+              "answers": [
+                "Porque venía de muy lejos y aquí no crecía",
+                "Porque los reyes habían prohibido a todos los demás venderlo",
+                "Porque hacía falta un barco entero para llevar un solo saco",
+                "Porque se estropeaba en pocos días"
+              ],
+              "explanation": "El clima de Europa no da ni pimienta ni canela. Lo que no crece cerca de ti lo pagas caro."
+            }
+          }
+        },
+        "riddles": {
+          "porto-world-of-discoveries-riddle-1": {
+            "prompt": "Soy de latón y peso mucho, y solo funciono si me dejas colgar bien nivelado. Apunta al sol por mis dos agujeros y te diré cuánto has avanzado hacia el norte. El este no lo sé.",
+            "hint": "Necesito el cielo, no la costa."
+          },
+          "porto-world-of-discoveries-riddle-2": {
+            "prompt": "No soy ni una tormenta ni un monstruo, y aun así soy yo quien decide cuándo se acaba el viaje. Cuando me quedo vacío, el barco pone rumbo a tierra, diga lo que diga el capitán.",
+            "hint": "El mar que te rodea está lleno de algo que no se puede beber."
+          }
+        },
+        "doorNote": "Esto no es un museo de vitrinas, sino de escenarios construidos. Métete dentro."
+      }
+    }
+  },
+  "trails": {
+    "porto-down-to-the-river": {
+      "name": "Bajando al río",
+      "promise": "La aduana de un puerto, un palacio de mercaderes, un arco de hierro y las mejores vistas de la ciudad."
+    },
+    "porto-stories-in-tiles": {
+      "name": "Historias contadas en azulejos",
+      "promise": "Tres paredes que se leen como un libro de imágenes, pintadas en azul y blanco."
+    },
+    "porto-things-that-move": {
+      "name": "Cosas que se mueven",
+      "promise": "Tranvías que siguen circulando, un puente de dos tableros y los barcos que zarparon de aquí."
+    },
+    "porto-garden-market-tower": {
+      "name": "Un jardín, un mercado y una torre",
+      "promise": "Pavos reales en los senderos, naranjas en los puestos y doscientos escalones hasta las campanas."
+    }
+  }
+}
