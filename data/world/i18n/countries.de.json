@@ -45,6 +45,14 @@
         "paris": {
           "name": "Paris",
           "intro": "Paris ist eine Stadt, die sich mit ihren Gebäuden streitet und sie dann liebt. Den Eiffelturm wollte man abreißen, die Glaspyramide des Louvre nannte man eine Beleidigung, und heute sind beide ihr Wahrzeichen. In der Mitte fließt die Seine, und mitten im Fluss liegt eine kleine Insel: Von dort aus begann die ganze Stadt. Sie hat ein Museum, das so groß ist, dass du nie damit fertig wirst, und ein Pendel, das bewiesen hat, dass die Erde sich dreht."
+        },
+        "nice": {
+          "name": "Nizza",
+          "intro": "Nizza ist eine Stadt an einer Bucht, die „Engelsbucht“ heißt, mit Sonne fast das ganze Jahr. Gegründet wurde sie von Griechen, gebaut von Römern auf einem Hügel, regiert von italienischen Herzögen, und französisch wurde sie erst 1860 – deshalb sind ihre Häuser gelb und rot wie in Italien. Die Engländer bezahlten die Promenade am Meer, Maler aus aller Welt kamen wegen ihres Lichts, und jeden Tag um zwölf sagt eine Kanone der Stadt, dass es Mittag ist."
+        },
+        "lyon": {
+          "name": "Lyon",
+          "intro": "Lyon ist eine Stadt zwischen zwei Flüssen, die als Hauptstadt der Römer auf einem Hügel begann und langsam zum Wasser hinunterzog. Jahrhundertelang webte sie die feinste Seide Europas, druckte einige der ersten Bücher, erfand das Kino und eine Puppe, die immer die Wahrheit sagt. Heute nennt man sie die Hauptstadt des Essens, ihre Wände sind mit falschen Fenstern bemalt, und jeden Dezember stellt sie Kerzen in alle ihre Fenster."
         }
       }
     },
