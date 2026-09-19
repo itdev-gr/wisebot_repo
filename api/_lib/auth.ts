@@ -165,8 +165,16 @@ export async function deductCredits(userId: string, cost: number, action: string
  * itself established who paid (the same request that charged, or an admin
  * behind adminAuth). Never pass null on a client-supplied task id.
  *
- * Returns the new balance if a refund happened, null if it was already refunded,
- * denied (no matching charge), skipped (guest) or failed.
+ * When the charge row is found, the refund is ITS amount (negated), not the
+ * caller's `amount`: COSTS.* can change while a task is in flight, and the
+ * child must get back exactly what this task took — no more, no less.
+ *
+ * Returns the new balance if a refund happened, null if there is definitively
+ * nothing to refund (already refunded, no matching charge, guest). A transient
+ * failure THROWS instead of returning null: null makes the status endpoints
+ * answer refunded:false, the client stops polling, and a legitimate refund
+ * would be lost forever — a thrown error becomes the endpoint's 500 and the
+ * client's next poll retries.
  */
 export async function refundCredits(
   userId: string,
@@ -176,38 +184,41 @@ export async function refundCredits(
   spendAction: string | null,
 ): Promise<number | null> {
   if (!userId || userId === 'guest' || amount <= 0 || !taskId) return null;
-  try {
-    const supabase = await getAdminClient();
-    if (spendAction !== null) {
-      const { data: charge, error: chargeError } = await supabase
-        .from('credit_transactions')
-        .select('id')
-        .eq('user_id', userId)
-        .eq('action', spendAction)
-        .eq('action_id', taskId)
-        .limit(1)
-        .maybeSingle();
-      if (chargeError || !charge) {
-        if (chargeError) console.error('[credits] refund ownership check error:', chargeError.message);
-        else console.warn(`[credits] refund denied: no ${spendAction} charge by ${userId} for ${taskId}`);
-        return null;
-      }
+  const supabase = await getAdminClient();
+  let refundAmount = amount;
+  if (spendAction !== null) {
+    const { data: charge, error: chargeError } = await supabase
+      .from('credit_transactions')
+      .select('id, amount')
+      .eq('user_id', userId)
+      .eq('action', spendAction)
+      .eq('action_id', taskId)
+      .limit(1)
+      .maybeSingle();
+    if (chargeError) {
+      // Transient DB failure ≠ "no charge" — retry, don't deny.
+      console.error('[credits] refund ownership check unavailable:', chargeError.message);
+      throw new Error('refund ownership check unavailable');
     }
-    const { data, error } = await supabase.rpc('earn_credits', {
-      p_user_id: userId,
-      p_amount: amount,
-      p_action: action,
-      p_action_id: taskId,
-    });
-    if (error) {
-      // 23505 = unique_violation → this task was refunded by an earlier poll.
-      if (error.code !== '23505') console.error('[credits] refund RPC error:', error.message);
+    if (!charge) {
+      console.warn(`[credits] refund denied: no ${spendAction} charge by ${userId} for ${taskId}`);
       return null;
     }
-    console.log(`[credits] refunded ${amount} to ${userId} for ${action} ${taskId}`);
-    return typeof data === 'number' ? data : null;
-  } catch (err: any) {
-    console.error('[credits] refund error:', err.message);
-    return null;
+    const charged = typeof charge.amount === 'number' ? -charge.amount : 0;
+    if (charged > 0) refundAmount = charged;
   }
+  const { data, error } = await supabase.rpc('earn_credits', {
+    p_user_id: userId,
+    p_amount: refundAmount,
+    p_action: action,
+    p_action_id: taskId,
+  });
+  if (error) {
+    // 23505 = unique_violation → this task was refunded by an earlier poll.
+    if ((error as any).code === '23505') return null;
+    console.error('[credits] refund RPC error:', error.message);
+    throw new Error('refund failed');
+  }
+  console.log(`[credits] refunded ${refundAmount} to ${userId} for ${action} ${taskId}`);
+  return typeof data === 'number' ? data : null;
 }
