@@ -21,6 +21,11 @@
  *     is the reason to keep travelling. They render as dotted, quiet placeholders in the
  *     same display order the world list uses.
  *
+ * One more section sits between the pages and the blank ones: the stamps a family earned
+ * in the old Explorer, read from its own `wb_explore_*` records by `legacyStamps.ts`.
+ * Decision 2 covers it too — read once, written never, counted in no total — and it is
+ * not drawn at all when there is nothing to show.
+ *
  * Content strings come from the data through `say()`. Chrome strings are the local `T`
  * and `S` dictionaries below, read with `ui()`; every sentence is written out whole in
  * each of the six languages rather than assembled from fragments, because the six do not
@@ -39,10 +44,11 @@
 
 import React, { useMemo, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowLeft, Award, BarChart3, Building2, Globe, Loader2, MapPin, Share2 } from 'lucide-react';
+import { ArrowLeft, Award, BarChart3, Building2, Globe, Loader2, MapPin, Share2, Stamp } from 'lucide-react';
 import { PassportStamp } from './PassportStamp';
 import PassportStatsPage, { T as STATS_T } from './PassportStatsPage';
-import { computePassportStats } from './passportStats';
+import { computePassportStats, formatIsoDate } from './passportStats';
+import { legacyDay, readLegacyStamps } from './legacyStamps';
 import { readWorldProgress, today } from './worldProgressStore';
 import type { WorldProgress } from './worldProgressStore';
 import { PLACE_COUNTS } from '../../data/world/registry';
@@ -276,6 +282,62 @@ const S = {
         ? 'Un Paese completato dall’inizio alla fine.'
         : `${n} Paesi completati dall’inizio alla fine.`,
   },
+  // The old Explorer's stamps (`legacyStamps.ts`). Explorer counted "envelopes", so the
+  // section keeps that word: it is the word the family learned. Read-only, and the note
+  // says so in every language — these do not move the three totals on the cover.
+  legacyTitle: {
+    el: 'Σφραγίδες από τον παλιό Εξερευνητή',
+    en: 'Stamps from the old Explorer',
+    de: 'Stempel aus dem alten Explorer',
+    fr: 'Tampons de l’ancien Explorateur',
+    es: 'Sellos del antiguo Explorador',
+    it: 'Timbri del vecchio Esploratore',
+  },
+  legacyNote: {
+    el: 'Η οικογένειά σου τις κέρδισε πριν ανοίξει το WiseBot World. Μένουν εδώ όπως είναι και δεν μετρούν στο νέο διαβατήριο.',
+    en: 'Your family earned these before WiseBot World opened. They stay here as they are and do not count towards the new passport.',
+    de: 'Deine Familie hat sie gesammelt, bevor WiseBot World eröffnet wurde. Sie bleiben hier, wie sie sind, und zählen nicht zum neuen Reisepass.',
+    fr: 'Ta famille les a gagnés avant l’ouverture de WiseBot World. Ils restent ici tels quels et ne comptent pas dans le nouveau passeport.',
+    es: 'Tu familia los consiguió antes de que abriera WiseBot World. Se quedan aquí tal como están y no cuentan para el nuevo pasaporte.',
+    it: 'La tua famiglia li ha guadagnati prima che aprisse WiseBot World. Restano qui così come sono e non contano per il nuovo passaporto.',
+  },
+  legacyEnvelopes: {
+    el: (n: number, total: number) => `Άνοιξες ${n} από τους ${total} φακέλους.`,
+    en: (n: number, total: number) =>
+      n === 1 ? `You opened 1 of ${total} envelopes.` : `You opened ${n} of ${total} envelopes.`,
+    de: (n: number, total: number) => `Du hast ${n} von ${total} Umschlägen geöffnet.`,
+    fr: (n: number, total: number) =>
+      n === 1 ? `Tu as ouvert 1 enveloppe sur ${total}.` : `Tu as ouvert ${n} enveloppes sur ${total}.`,
+    es: (n: number, total: number) => `Abriste ${n} de ${total} sobres.`,
+    it: (n: number, total: number) =>
+      n === 1 ? `Hai aperto 1 busta su ${total}.` : `Hai aperto ${n} buste su ${total}.`,
+  },
+  legacyStampedOn: {
+    el: (date: string) => `Σφραγίδα πόλης στις ${date}.`,
+    en: (date: string) => `City stamp on ${date}.`,
+    de: (date: string) => `Stadtstempel am ${date}.`,
+    fr: (date: string) => `Tampon de la ville le ${date}.`,
+    es: (date: string) => `Sello de la ciudad el ${date}.`,
+    it: (date: string) => `Timbro della città il ${date}.`,
+  },
+  // Earned, but one of the old envelopes carries a date that cannot be read. Said
+  // plainly rather than printed as today's date.
+  legacyStampedUndated: {
+    el: 'Σφραγίδα πόλης, χωρίς ημερομηνία.',
+    en: 'City stamp, date unknown.',
+    de: 'Stadtstempel, Datum unbekannt.',
+    fr: 'Tampon de la ville, date inconnue.',
+    es: 'Sello de la ciudad, fecha desconocida.',
+    it: 'Timbro della città, data sconosciuta.',
+  },
+  legacyNoStamp: {
+    el: 'Χωρίς σφραγίδα πόλης.',
+    en: 'No city stamp.',
+    de: 'Kein Stadtstempel.',
+    fr: 'Pas de tampon de la ville.',
+    es: 'Sin sello de la ciudad.',
+    it: 'Nessun timbro della città.',
+  },
 };
 
 // ------------------------------------------------------------------- ink
@@ -485,6 +547,15 @@ const StampBook: React.FC<StampBookProps> = ({
     const passport = progress ?? readWorldProgress();
     return computePassportStats(passport, cities, PLACE_COUNTS, today());
   }, [view, progress, cities]);
+
+  /**
+   * The old Explorer's stamps, read once when the book opens — `wb_explore_*` and the
+   * quiz best runs, never `wb_world_progress`. Same rule as the statistics above: a
+   * read in render, nothing written, nothing awarded, and the three totals on the cover
+   * do not see these. Nothing on this screen can change the old records, so there is
+   * nothing to re-read; an empty list means the section is not drawn at all.
+   */
+  const legacy = useMemo(() => readLegacyStamps(), []);
 
   /**
    * Switching page starts the reader at the top of it. The Layout scrolls its own
@@ -756,6 +827,72 @@ const StampBook: React.FC<StampBookProps> = ({
               </div>
             )}
           </section>
+
+          {/* ── THE OLD EXPLORER ── stamps a family earned before World existed. Printed
+              as they were written, in date order, and drawn only when there is one. */}
+          {legacy.length > 0 && (
+            <section className="mt-8">
+              <h2 className="flex items-center gap-2 text-sm font-black text-white/80">
+                <Stamp size={16} className="shrink-0 text-white/40" aria-hidden />
+                <span className="min-w-0">{ui(S.legacyTitle, lang)}</span>
+              </h2>
+              <p className="mb-3 mt-1 text-[11px] font-bold leading-relaxed text-white/40">
+                {ui(S.legacyNote, lang)}
+              </p>
+
+              <ul className="space-y-2">
+                {legacy.map((stamp) => (
+                  <li
+                    key={stamp.cityId}
+                    className={
+                      stamp.stamped
+                        ? `flex items-start gap-3 rounded-2xl border px-3 py-3 ${WORLD_STYLE.earned}`
+                        : `${WORLD_STYLE.card} flex items-start gap-3 px-3 py-3`
+                    }
+                  >
+                    <div
+                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-xl"
+                      aria-hidden
+                    >
+                      {stamp.emoji}
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="min-w-0 truncate text-sm font-black text-white/80">
+                          {say(stamp.name, lang)}
+                        </span>
+                        <span className="shrink-0 text-base leading-none" aria-hidden>
+                          {stamp.flag}
+                        </span>
+                        {stamp.stamped && (
+                          <Stamp size={14} className="ml-auto shrink-0 text-emerald-300" aria-hidden />
+                        )}
+                      </div>
+
+                      <p className="mt-1 text-[11px] font-bold leading-relaxed text-white/45">
+                        {ui(S.legacyEnvelopes, lang)(stamp.spotsOpened, stamp.spotCount)}
+                      </p>
+
+                      <p
+                        className={
+                          stamp.stamped
+                            ? 'mt-0.5 text-[11px] font-bold leading-relaxed text-emerald-300/80'
+                            : 'mt-0.5 text-[11px] font-bold leading-relaxed text-white/40'
+                        }
+                      >
+                        {stamp.stamped
+                          ? stamp.stampedAt !== null
+                            ? ui(S.legacyStampedOn, lang)(formatIsoDate(legacyDay(stamp.stampedAt), lang))
+                            : ui(S.legacyStampedUndated, lang)
+                          : ui(S.legacyNoStamp, lang)}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {/* ── WHAT IS STILL TO COME ── */}
           {upcoming.length > 0 && (
