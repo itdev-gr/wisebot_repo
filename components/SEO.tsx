@@ -322,7 +322,7 @@ const PAGE_META: Record<string, PageMeta> = {
       en: 'Explorer Passport — Stamps from 18 European Cities | WiseBot Academy',
     },
     description: {
-      el: 'Το ηλεκτρονικό διαβατήριο του παιδιού: η χώρα του στην πρώτη σελίδα, μια σελίδα για κάθε χώρα και μια σφραγίδα μελάνης για κάθε πόλη που εξερεύνησε με τον WiseBot Explorer.',
+      el: 'Το ηλεκτρονικό διαβατήριο του παιδιού: η χώρα του στην πρώτη σελίδα, μια σελίδα για κάθε χώρα και μια σφραγίδα μελάνης για κάθε πόλη που εξερεύνησε με το WiseBot Explorer.',
       en: 'The child\'s own passport: their country on the first page, a page for every country and an ink stamp for every city explored with WiseBot Explorer.',
     },
     keywords: {
