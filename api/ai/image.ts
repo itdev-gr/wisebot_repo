@@ -33,7 +33,10 @@ export default async function handler(req: any, res: any) {
 
   // Charge only after a provider actually returns an image
   const succeed = async (payload: Record<string, unknown>) => {
-    await deductCredits(user.id, IMAGE_COST, 'CREATE_IMAGE');
+    // API3: false = the balance ran out between check and deduct — the image
+    // was generated but an unpaid one is not delivered.
+    const charged = await deductCredits(user.id, IMAGE_COST, 'CREATE_IMAGE');
+    if (!charged) return res.status(402).json({ error: 'Δεν έχεις αρκετά credits.', required: IMAGE_COST });
     return res.status(200).json(payload);
   };
 

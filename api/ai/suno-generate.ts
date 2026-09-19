@@ -114,7 +114,11 @@ export default async function handler(req: any, res: any) {
     }
 
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, SONG_COST, 'CREATE_SONG', String(data.data.taskId));
+    // API3: a false here means the balance ran out between check and deduct.
+    // Without a charge row the status endpoint will 404 this task anyway, so
+    // handing back the taskId would only give a free song.
+    const charged = await deductCredits(user.id, SONG_COST, 'CREATE_SONG', String(data.data.taskId));
+    if (!charged) return res.status(402).json({ error: 'Δεν έχεις αρκετά credits.', required: SONG_COST });
     return res.status(200).json({ taskId: data.data.taskId });
   } catch (err: any) {
     console.error('[suno-generate] Error:', err.message || err);

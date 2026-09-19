@@ -93,7 +93,9 @@ Reply ONLY with valid JSON, no markdown, no code blocks. Example:
     }
 
     const { deductCredits } = await import('../_lib/auth.js');
-    await deductCredits(user.id, BUSINESS_COST, 'CREATE_BUSINESS');
+    // API3: unpaid result is not delivered.
+    const charged = await deductCredits(user.id, BUSINESS_COST, 'CREATE_BUSINESS');
+    if (!charged) return res.status(402).json({ error: 'Δεν έχεις αρκετά credits.', required: BUSINESS_COST });
     res.status(200).json({ slogan, description, logo: '' });
   } catch (err: any) {
     console.error('AI Business error:', err.message);

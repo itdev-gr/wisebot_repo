@@ -17,7 +17,7 @@ export default async function handler(req: any, res: any) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
-  const user = await (await import('../_lib/auth.js')).getAuthUser(req, { allowGuest: true });
+  const user = await (await import('../_lib/auth.js')).getAuthUser(req); // no guests: only authenticated users can own tasks (generate is allowGuest:false)
   if (!user) return res.status(401).json({ error: 'Authentication required' });
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -40,6 +40,12 @@ export default async function handler(req: any, res: any) {
   const thumbnail = (req.query.thumbnail as string) || '';
 
   try {
+    // Only the account that paid for this task may read it (or be refunded
+    // for it). Anyone else gets the same 404 a made-up id would get.
+    const { taskBelongsToUser } = await import('../_lib/auth.js');
+    if (!(await taskBelongsToUser(user.id, 'CREATE_VIDEO', requestId))) {
+      return res.status(404).json({ error: 'Task not found.' });
+    }
     const pollUrl = `https://generativelanguage.googleapis.com/v1beta/${requestId}?key=${apiKey}`;
     const pollResp = await fetch(pollUrl);
 

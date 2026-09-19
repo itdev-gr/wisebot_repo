@@ -143,6 +143,33 @@ export async function deductCredits(userId: string, cost: number, action: string
 }
 
 /**
+ * Does a charge row prove this user paid for this provider task?
+ * ----------------------------------------------------------------
+ * The status endpoints call this before answering at all: without it, anyone
+ * who learned a taskId could poll another child's task — read its progress,
+ * its result URLs, and in video-status even have the finished video copied
+ * into their own library. False = definitively not this user's task (404 it);
+ * a transient DB failure THROWS so the endpoint 500s and the next poll retries.
+ */
+export async function taskBelongsToUser(userId: string, spendAction: string, taskId: string): Promise<boolean> {
+  if (!userId || userId === 'guest' || !taskId || !spendAction) return false;
+  const supabase = await getAdminClient();
+  const { data, error } = await supabase
+    .from('credit_transactions')
+    .select('id')
+    .eq('user_id', userId)
+    .eq('action', spendAction)
+    .eq('action_id', taskId)
+    .limit(1)
+    .maybeSingle();
+  if (error) {
+    console.error('[credits] task ownership check unavailable:', error.message);
+    throw new Error('task ownership check unavailable');
+  }
+  return !!data;
+}
+
+/**
  * Give credits back for a paid task that failed after the charge.
  * ----------------------------------------------------------------
  * Tasks (song, 3D, video) are charged when the provider accepts the job, and the
