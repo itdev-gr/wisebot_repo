@@ -1,0 +1,739 @@
+{
+  "lang": "de",
+  "cityId": "porto",
+  "places": {
+    "porto-serra-do-pilar": {
+      "name": "Das Kloster Serra do Pilar",
+      "tagline": "Eine runde Kirche auf einem Felsen, mit der Stadt davor",
+      "story": "Geh über die Brücke, und du bist in einer anderen Stadt: Vila Nova de Gaia, am anderen Ufer. Hoch oben auf dem Felsen bauten Mönche im 16. Jahrhundert ein Kloster mit etwas sehr Seltenem: Seine Kirche ist ganz rund, und der Kreuzgang daneben ist ebenfalls ein perfekter Kreis. In Portugal gibt es fast nichts anderes, das so aussieht. Weil das Kloster aber so hoch steht, bekam es auch eine Aufgabe, die kein Mönch geplant hatte: Es wurde ein Ausguck. 1809 stand hier ein General und betrachtete den Fluss, bevor sein Heer hinüberzog, und 1832 und 1833, als Porto in einem Krieg zwischen zwei Brüdern belagert wurde, die beide den Thron wollten, hielt der Felsen wieder Wache. Heute gibt es hier nur noch einen Kampf: den um den besten Platz am Geländer.",
+      "facts": [
+        "Kirche und Kreuzgang sind beide rund, was in Portugal sehr selten ist.",
+        "Es steht in Vila Nova de Gaia, gegenüber von Porto auf der anderen Seite des Flusses, nicht in der Stadt.",
+        "Unter dem Felsen sind die langen Dächer die Keller, in denen der Portwein reift."
+      ],
+      "question": {
+        "q": "Was machte dieses Kloster für Soldaten nützlich?",
+        "answers": [
+          "Von seinem Felsen aus siehst du den ganzen Fluss auf einmal",
+          "Seine Mauern waren viel zu dick für Kanonen",
+          "Es lag genau an der einzigen Straße, die in die Stadt Porto führte",
+          "Seine Mönche kannten jeden Pfad der Gegend und zeigten sie alle"
+        ],
+        "explanation": "Ein Ausguck braucht keine Mauern, er braucht Höhe. Von hier aus siehst du die Brücke, den Fluss und die ganze Stadt."
+      },
+      "findIt": "Geh über das untere Deck der Brücke und steig auf der Seite von Gaia die Treppen hinauf. Die Terrasse mit der Aussicht liegt neben dem Kloster und ist auch offen, wenn die Kirche geschlossen ist."
+    },
+    "porto-igreja-dos-carmelitas": {
+      "name": "Die Igreja dos Carmelitas",
+      "tagline": "Die ältere der beiden Schwestern, die Seite an Seite stehen",
+      "story": "Vom Platz aus sehen sie aus wie ein Gebäude, aber es sind zwei. Diese hier, die Kirche der Karmeliten, ist die ältere: Sie wurde Anfang des 17. Jahrhunderts für Mönche des Karmelitenordens gebaut. Die Nachbarin, die Igreja do Carmo, kam etwa hundertfünfzig Jahre später und gehörte einer anderen Gemeinschaft. Schau dir die beiden Fassaden genau an, und du siehst, wie sich die Mode geändert hat: Diese hier ist schlichter und ruhiger, ihre Nachbarin ist prächtiger. Zwischen ihnen steht das sehr schmale Haus, und hier beginnt eine Geschichte, die man sich in Porto seit Generationen erzählt: dass das Häuschen dort hingesetzt wurde, damit zwei verschiedene religiöse Gemeinschaften nie eine Wand teilen mussten. Nicht alle Historiker sind sich einig, denn es gab auch Regeln, die zwei Kirchen verboten, sich zu berühren. Sicher ist, dass das Haus da ist und dass jemand darin gewohnt hat.",
+      "facts": [
+        "Sie wurde Anfang des 17. Jahrhunderts für Mönche des Karmelitenordens gebaut.",
+        "Sie ist etwa 150 Jahre älter als die Igreja do Carmo nebenan.",
+        "Im alten Kloster daneben ist heute die GNR untergebracht, eine der Polizeitruppen Portugals."
+      ],
+      "question": {
+        "q": "Welche der beiden Nachbarkirchen wurde zuerst gebaut?",
+        "answers": [
+          "Die Igreja dos Carmelitas, etwa 150 Jahre früher",
+          "Die Igreja do Carmo, weil sie die große Wand aus blauen Kacheln hat",
+          "Beide zugleich, von denselben Bauleuten",
+          "Das schmale Haus, das älter ist als beide"
+        ],
+        "explanation": "Die Igreja dos Carmelitas stammt vom Anfang des 17. Jahrhunderts. Die Igreja do Carmo kam Mitte des 18., und ihre Kacheln noch später, 1912."
+      },
+      "findIt": "Es ist die linke der beiden Kirchen, wenn du vom Platz aus auf sie schaust. Such die schlichtere Fassade, die ohne die große blaue Wand an der Seite."
+    },
+    "porto-carro-electrico": {
+      "name": "Das Straßenbahnmuseum",
+      "tagline": "Ein Kraftwerk voller Maschinen, die es früher mit Strom versorgte",
+      "story": "Die Straßenbahnen von Porto brauchten Strom, und der Strom musste irgendwo gemacht werden. Also baute die Stadt in Massarelos, direkt am Fluss, ein Kraftwerk und verbrannte darin Kohle, damit sich die Generatoren drehten, die den Draht über den Schienen speisten. Als das Gebäude für diese Aufgabe nicht mehr gebraucht wurde, verschwand es nicht. 1992 öffnete es wieder, als Museum über genau die Maschinen, die es früher mit Strom versorgt hatte – eine ziemlich ordentliche Art von Recycling. Drinnen, unter einem Eisendach, stehen Reihen von Wagen: hölzerne mit Messinggriffen, ältere, die vor dem Strom von Pferden gezogen wurden, und Arbeitswagen, die in ihrem ganzen Leben keinen einzigen Fahrgast befördert haben. Porto hat in dieser Geschichte auch einen ernsthaften Anspruch: Die erste elektrische Straßenbahn der ganzen Iberischen Halbinsel fuhr in dieser Stadt, 1895. Und draußen vor der Tür fahren noch immer echte Straßenbahnen vorbei.",
+      "facts": [
+        "1895 fuhr in Porto die erste elektrische Straßenbahn der Iberischen Halbinsel.",
+        "Das Museum ist im alten Kraftwerk von Massarelos untergebracht.",
+        "Es öffnete 1992 als Museum, im selben Gebäude, das die Straßenbahnen mit Strom versorgt hatte."
+      ],
+      "question": {
+        "q": "Warum ist ein Straßenbahnmuseum in einem Kraftwerk untergebracht?",
+        "answers": [
+          "Dieses Kraftwerk machte den Strom, mit dem die Bahnen fuhren",
+          "Es war die größte leere Halle, die in der ganzen Stadt noch übrig war",
+          "Die Wagen selbst wurden dort gebaut",
+          "Es stand neben der letzten offenen Linie"
+        ],
+        "explanation": "Das Gebäude verbrannte Kohle, um Generatoren zu drehen, und die Generatoren speisten den Draht über den Schienen."
+      },
+      "findIt": "An der Alameda de Basílio Teles, am Flussufer unterhalb des Hügels. Das Gebäude ist das lange aus Backstein mit dem Eisendach; die Schienen laufen direkt an seiner Vorderseite vorbei.",
+      "museum": {
+        "rooms": {
+          "porto-carro-electrico-power-station": {
+            "name": "Das Kraftwerk",
+            "intro": "Bevor du dir einen einzigen Wagen anschaust, schau dir das Gebäude an. Es ist der Grund, warum es alles andere gibt. Eine Straßenbahn hat keinen Treibstoff dabei; sie holt sich den Strom aus einem Draht, und jemand muss diesen Strom machen. Er wurde genau hier gemacht, aus Kohle, Dampf und Maschinen, die Tag und Nacht laut waren."
+          },
+          "porto-carro-electrico-before-electricity": {
+            "name": "Vor dem Strom",
+            "intro": "Straßenbahnen sind älter als der Strom. Vor dem Draht fuhren ganz ähnliche Wagen auf denselben Schienen, gezogen von Pferden. Die Idee war nie der Strom, die Idee waren die Schienen, und der Strom kam später, um das Problem zu lösen, das jedes Pferd hat: Es wird müde."
+          },
+          "porto-carro-electrico-the-cars": {
+            "name": "Die Wagen aus der Nähe",
+            "intro": "Jetzt komm näher. Eine Straßenbahn von 1900 ist nicht einfach nur alt, sie ist nach einer anderen Logik gebaut: Holz statt Plastik, Messing statt Knöpfe, und ein Fahrer, der in der Kälte stand. Schau, wo jedes Ding sitzt, und überlege, warum es dort hingekommen ist."
+          }
+        },
+        "exhibits": {
+          "porto-carro-electrico-generator-hall": {
+            "name": "Die Generatorenhalle",
+            "blurb": "Ein hoher Raum mit Eisenträgern und großen Fenstern weit oben in den Wänden. So gebaut wurde er nicht der Schönheit wegen: Die Maschinen waren riesig, sie gaben Hitze ab, und die heiße Luft musste irgendwo hinaus. Die Fenster sitzen hoch, damit Licht hereinkommt, ohne dass Leute hereinkommen. Heute stehen in demselben Raum die Wagen in Reihen, und das passt perfekt, denn eine Halle, die für große Maschinen gebaut wurde, nimmt andere große Maschinen auf, ohne sich zu beschweren.",
+            "question": {
+              "q": "Warum sitzen die Fenster dieser Halle so weit oben?",
+              "answers": [
+                "Für Tageslicht, und damit die heiße Luft nach oben abzieht",
+                "Damit der Lärm der Straße draußen bleibt",
+                "Weil weiter unten die Funken aus den Maschinen sie zerschlagen hätten",
+                "Damit die Regale mit den Werkzeugen unter jedes einzelne Fenster passten"
+              ],
+              "explanation": "Heiße Luft steigt auf. Ein Fenster weit oben ist Lampe und Schornstein zugleich."
+            }
+          },
+          "porto-carro-electrico-coal-and-steam": {
+            "name": "Kohle und Dampf",
+            "blurb": "Strom kommt nicht aus dem Nichts. Hier lief die Kette so: Kohle brennt, Wasser kocht, Dampf drückt kräftig, eine Maschine dreht sich, und ein Generator verwandelt das Drehen in Strom. Fünf Schritte, und am Ende fährt ein Wagen am anderen Ende der Stadt, ohne selbst irgendetwas zu verbrennen. Das war der große Vorteil der Straßenbahn: Der Rauch blieb im Kraftwerk statt auf der Straße, wo die Leute gingen.",
+            "question": {
+              "q": "Was war der Vorteil der elektrischen Straßenbahn draußen auf der Straße?",
+              "answers": [
+                "Der Rauch blieb hinten im Kraftwerk unten am Fluss",
+                "Sie konnte ohne Schienen fahren, wenn sie um eine Ecke biegen musste",
+                "Sie war billiger zu bauen als ein Pferdewagen",
+                "Sie brauchte keinen Fahrer, weil sie an jeder Haltestelle von selbst anhielt"
+              ],
+              "explanation": "Das Verbrennen geschah in einem Gebäude am Fluss. Die Straße bekam nur die Bewegung."
+            }
+          },
+          "porto-carro-electrico-overhead-wire": {
+            "name": "Der Draht über den Schienen",
+            "blurb": "Schau auf die Decke über den Schienen, und du siehst einen Draht. Von dort holt sich der Wagen seinen Strom, mit einer Stange oder einem Bügel, der ihn von unten berührt und beim Fahren entlanggleitet. Der Strom kommt herunter, fließt durch den Motor und geht durch die Schienen selbst zurück zum Kraftwerk. Deshalb braucht es dort oben nur einen Draht statt zwei: Der zweite Draht ist das Eisen unter den Rädern, und du trittst jedes Mal darauf, wenn du einsteigst.",
+            "question": {
+              "q": "Wie kommt der Strom einer Straßenbahn zurück zum Kraftwerk?",
+              "answers": [
+                "Durch die Schienen unter den Rädern zurück",
+                "Über einen zweiten Draht daneben",
+                "Aus einer Batterie im Wagen, die jede Nacht geladen wird",
+                "Er kommt nicht zurück, er wird ganz verbraucht"
+              ],
+              "explanation": "Ein Stromkreis muss sich schließen. Der Draht oben bringt ihn, die Schienen tragen ihn zurück, und der Kreis ist komplett."
+            }
+          },
+          "porto-carro-electrico-horse-car": {
+            "name": "Die Pferdebahn",
+            "blurb": "Ein leichter Holzwagen mit Fenstern und Bänken, und davor, wo du heute einen Motor erwarten würdest, zwei Pferde. Solche Wagen fuhren in Porto ab 1872. Sie waren leise, sie rochen wie ein Stall, und sie brauchten eine Pflege, die keine Maschine verlangt: Futter, Wasser, Ruhe und einen Tierarzt. Ein Pferd arbeitet keine zwölf Stunden am Tag. Also musste eine Firma mehrere Male so viele Pferde haben wie Wagen, und das war teuer.",
+            "question": {
+              "q": "Warum brauchte eine Firma viel mehr Pferde, als sie Wagen hatte?",
+              "answers": [
+                "Ein Pferd kann nicht den ganzen Tag arbeiten",
+                "Jeder Wagen brauchte auf ebener Strecke vier Pferde",
+                "Damit sie auch die ganze Nacht durchfahren konnte",
+                "Die Pferde hatten Angst vor den Wagen"
+              ],
+              "explanation": "Schichten. Der Wagen arbeitet von morgens bis abends, das Pferd ein paar Stunden, und dann braucht es eine Pause."
+            }
+          },
+          "porto-carro-electrico-rails-in-the-street": {
+            "name": "Schienen in der Straße",
+            "blurb": "Warum Eisen in eine Straße legen, die es schon gibt? Weil ein Rad auf einer glatten Schiene viel leichter rollt als ein Rad in Schlaglöchern und Schlamm. Mit denselben zwei Pferden davor konnte ein Wagen ein Vielfaches an Gewicht und viel mehr Menschen ziehen. Schienen gaben noch etwas anderes: Der Wagen fährt immer dorthin, wohin sie führen, also wussten die Leute, wo er vorbeikommt und wo sie stehen müssen. Eine Schiene ist Technik und Landkarte zugleich.",
+            "question": {
+              "q": "Was gewinnst du, wenn du Schienen in eine schlammige Straße legst?",
+              "answers": [
+                "Das Rad rollt leichter, also zieht dasselbe Pferd mehr",
+                "Die Straße muss danach nie wieder gereinigt oder ausgebessert werden",
+                "Der Wagen fährt schneller, als Pferde gehen",
+                "Die Fahrgäste sitzen viel besser, weil das Holz überhaupt nicht knarrt"
+              ],
+              "explanation": "Weniger Reibung, dasselbe Pferd, ein Vielfaches an Last. Und ein zweites Geschenk: Alle wissen, wo er vorbeikommt."
+            }
+          },
+          "porto-carro-electrico-the-hill": {
+            "name": "Das Problem mit dem Hügel",
+            "blurb": "Porto ist nicht flach. Es fällt steil zum Fluss ab und steigt genauso steil wieder an. Für einen Pferdewagen war das eine ernste Schwierigkeit: Bergauf brauchte man zusätzliche Tiere, die unten am Hügel warteten und vorn angespannt wurden, und bergab war das Problem das Gegenteil: den Wagen davon abzuhalten, die Pferde vor sich herzuschieben. Der Strom löste beides auf einmal: Ein Motor kommt bergauf nicht außer Atem, und bergab hält er zurück.",
+            "question": {
+              "q": "Was war das Problem für einen Pferdewagen, der bergab fuhr?",
+              "answers": [
+                "Der Wagen schob die Pferde von hinten vor sich her",
+                "Die Pferde wurden viel müder als auf dem Weg nach oben",
+                "Die Schienen waren bei Nässe rutschig",
+                "Die Fahrgäste mussten aussteigen und den Rest des Weges hinuntergehen"
+              ],
+              "explanation": "Bergauf heißt mehr Pferde. Bergab heißt eine Bremse, sonst kommt das Gewicht schneller herunter als die Tiere."
+            }
+          },
+          "porto-carro-electrico-wooden-benches": {
+            "name": "Die Holzbänke",
+            "blurb": "Im Wagen gibt es keine Sessel, es gibt Bretter. Holz wurde gewählt, weil es leicht ist, billig, mit einem Nagel zu reparieren, und vor allem, weil man es am Ende des Tages mit einem Eimer Wasser abwaschen kann. Sieh dir an, wie schmal die Bänke sind und wie dicht sie beieinanderstehen: Eine Straßenbahn wird nicht für Bequemlichkeit bezahlt, sondern für die Zahl der Menschen, die sie befördert. Ein bequemer Sitz bedeutet weniger Fahrgäste, und weniger Fahrgäste bedeuten eine teurere Fahrkarte.",
+            "question": {
+              "q": "Warum waren die Bänke schmal und standen dicht beieinander?",
+              "answers": [
+                "Damit mehr Fahrgäste in denselben Wagen passten",
+                "Damit der Fahrer bis hinten sehen konnte",
+                "Weil sich das Holz von damals nicht in breite Bretter schneiden ließ",
+                "Damit die Fahrgäste nicht rutschten, wenn der Wagen plötzlich bremste"
+              ],
+              "explanation": "Die Fahrkarte wird pro Person bezahlt. Jeder Zentimeter Bequemlichkeit ist ein Fahrgast weniger."
+            }
+          },
+          "porto-carro-electrico-driver-platform": {
+            "name": "Die Plattform des Fahrers",
+            "blurb": "Der Fahrer saß nicht. Er stand auf einer kleinen offenen Plattform am Ende des Wagens, oft ohne Scheibe vor sich, einen runden Griff in der einen Hand für den Strom und eine Kurbel in der anderen für die Bremse. Im Stehen sah er besser, reagierte schneller und konnte sein ganzes Gewicht in die Bremse legen. Es war aber auch ein harter Beruf: Im Winter, bei Regen und Wind, bekam der Fahrer alles ins Gesicht.",
+            "question": {
+              "q": "Warum fuhr der Straßenbahnfahrer im Stehen?",
+              "answers": [
+                "Er sah besser und bremste mit seinem ganzen Körpergewicht",
+                "Es gab überhaupt keinen Platz für einen Sitz",
+                "Damit die Fahrgäste mit ihm reden konnten, ohne sich hinunterzubeugen",
+                "Weil ein Sitz auf einer offenen Plattform im Winter sehr kalt wird"
+              ],
+              "explanation": "Höhe zum Sehen, Gewicht zum Bremsen. Eine Kurbelbremse braucht einen ganzen Körper, nicht nur einen Arm."
+            }
+          },
+          "porto-carro-electrico-foot-gong": {
+            "name": "Der Fußgong",
+            "blurb": "Schau nach unten auf den Boden der Plattform: Dort ist ein Pedal. Wenn man darauf tritt, schlägt es gegen einen Metallgong unter dem Wagen. Der Grund ist einfach und sehr praktisch. Beide Hände des Fahrers waren immer beschäftigt, eine am Strom und eine an der Bremse, also war das einzige freie Körperteil ein Fuß. Eine Straßenbahn kann nicht ausweichen; sie ist an ihre Schienen gebunden. Also bleibt ihr nur eines: die Leute zu warnen, und zwar laut.",
+            "question": {
+              "q": "Warum schlug der Fahrer den Gong mit dem Fuß?",
+              "answers": [
+                "Seine beiden Hände waren bereits beschäftigt",
+                "Der Gong war unter dem Boden befestigt",
+                "Ein Fuß schlägt härter zu als eine Hand",
+                "Damit er ihn in gleichmäßigem Takt schlagen konnte"
+              ],
+              "explanation": "Strom in der einen Hand, Bremse in der anderen. Bleibt der Fuß, und eine Straßenbahn, die nicht ausweichen kann, braucht dringend eine Stimme."
+            }
+          },
+          "porto-carro-electrico-tower-car": {
+            "name": "Der Turmwagen",
+            "blurb": "Zwischen den Fahrgastwagen steht einer, der nie aussah wie die anderen: Er trägt auf dem Dach eine gestufte Plattform, wie einen kleinen Turm. Er hat nie jemanden befördert. Seine Aufgabe war der Draht über den Schienen, der reißt, sich lockert und gewartet werden muss. Die Monteure stiegen auf den Turm, der Wagen rollte langsam die Strecke entlang, und sie arbeiteten in der Höhe des Drahts. Jedes Verkehrsnetz hat solche Fahrzeuge, und fast niemand bemerkt sie: Sie arbeiten nachts.",
+            "question": {
+              "q": "Was war die Aufgabe des Wagens mit dem Turm darauf?",
+              "answers": [
+                "Den Draht über den Schienen instand halten",
+                "Fahrgäste hoch hinauf zur Aussicht bringen",
+                "Liegengebliebene Wagen zurück ins Depot schleppen",
+                "Herbstlaub von den Schienen fegen"
+              ],
+              "explanation": "Der Draht hängt hoch oben, also muss die Mannschaft hinauf. Der Turm ist eine Leiter, die auf den Schienen rollt."
+            }
+          }
+        },
+        "riddles": {
+          "porto-carro-electrico-riddle-1": {
+            "prompt": "Ich habe die Arbeit dieses Museums gemacht, bevor es irgendeinen Draht gab, und ich habe sie mit zwei Herzen gemacht, die vor mir schlugen. Sie fraßen Heu, wurden am Hügel müde und hatten Namen.",
+            "hint": "Du steckst mich nie in die Steckdose."
+          },
+          "porto-carro-electrico-riddle-2": {
+            "prompt": "Ich fahre auf denselben Schienen wie alle anderen und habe nie einen einzigen Fahrgast befördert. Mich interessiert nur das, was über deinem Kopf entlangläuft, und deshalb trage ich mein eigenes kleines Gerüst auf dem Dach.",
+            "hint": "Niemand hat je eine Fahrkarte für mich gekauft."
+          },
+          "porto-carro-electrico-riddle-3": {
+            "prompt": "Ich bin der Grund, warum dieses Museum genau hier steht und nirgendwo sonst. Lange bevor sie in mir abgestellt wurden, machte ich aus Kohle und Dampf das, was sie fahren ließ.",
+            "hint": "Ich bin kein Fahrzeug. Ich bin ein Raum."
+          }
+        },
+        "doorNote": "Zieh den Kopf ein, wenn du in die Wagen steigst: Ihre Türen wurden für Menschen von 1900 gemacht."
+      }
+    },
+    "porto-casa-do-infante": {
+      "name": "Die Casa do Infante",
+      "tagline": "Zollhaus, Münzstätte, Wohnhaus – und darunter ein römischer Fußboden",
+      "story": "Unten am Fluss, wo der Kai auf die alten Gassen trifft, steht ein Steinhaus mit einem Hof in der Mitte. Es hatte mehr Aufgaben, als die meisten Gebäude je bekommen. König Afonso IV. baute es 1325 als königliches Zollhaus: Alles, was mit dem Boot den Douro heraufkam – Salz, Stoff, Fisch, Wein, Eisen –, wurde hier hineingetragen, gewogen, in ein Buch geschrieben und besteuert. Eine Zeit lang war es auch die Münzstätte, in der die Münzen der Stadt geprägt wurden. Und 1394, wenn die alte Geschichte stimmt, wurde in einem Zimmer im Obergeschoss ein Junge geboren, aus dem Heinrich der Seefahrer wurde, der Prinz, der Schiffe immer weiter die Küste Afrikas hinunterschickte. Dann, in den 1990er-Jahren, gruben Archäologen unter dem Fußboden und fanden etwas, womit niemand gerechnet hatte: die Mosaike eines römischen Gebäudes, still unter einem mittelalterlichen Zollhaus. Heute ist es ein Museum, und du kannst über all dem zugleich stehen.",
+      "facts": [
+        "Es wurde 1325 von König Afonso IV. als königliches Zollhaus von Porto gebaut.",
+        "Eine Zeit lang war es auch die Münzstätte: Hier drinnen wurden Münzen geprägt.",
+        "Ausgrabungen in den 1990er-Jahren legten römische Mosaike unter dem Gebäude frei.",
+        "Heute beherbergt es auch das historische Archiv der Stadt, mit Dokumenten aus vielen Jahrhunderten."
+      ],
+      "question": {
+        "q": "Was war die Aufgabe dieses Gebäudes im Jahr 1325?",
+        "answers": [
+          "Alles zu besteuern, was vom Fluss her abgeladen wurde",
+          "Die Königsfamilie bei Besuchen zu beherbergen",
+          "Das Getreide zu lagern, das die ganze Stadt durch den Winter brachte",
+          "Die Brücke zu bewachen, die genau hier den Douro überquerte"
+        ],
+        "explanation": "Es war das königliche Zollhaus. Jede Ladung wurde gewogen, in ein Buch geschrieben und besteuert, bevor sie weiter in die Stadt durfte."
+      },
+      "findIt": "In der Rua da Alfândega, eine Gasse oberhalb des Kais der Ribeira. Such die steinerne Ecke mit den mittelalterlichen Fenstern; die Tür führt in einen Innenhof.",
+      "museum": {
+        "rooms": {
+          "porto-casa-do-infante-under-the-floor": {
+            "name": "Unter dem Fußboden",
+            "intro": "Das Erste, was du hier siehst, ist nicht an den Wänden, es ist unter deinen Füßen. Als der Boden für Reparaturen geöffnet wurde, kam darunter ein ganzes römisches Gebäude zum Vorschein. Das Museum hat es nicht wieder zugemacht. Es ließ es offen und führt dich oben darüber hinweg, damit du zwei Städte übereinander sehen kannst."
+          },
+          "porto-casa-do-infante-customs": {
+            "name": "Das Zollhaus",
+            "intro": "Das ist die Aufgabe, für die das Haus gebaut wurde. Porto war ein Flusshafen, und ein Hafen verdient sein Geld auf eine Art: Er behält ein wenig von allem, was durch ihn hindurchgeht. Hier wurde dieses Wenige behalten. Jede Ladung hielt an, wurde gewogen, aufgeschrieben und bezahlt, und erst dann ging es weiter den Hügel hinauf in die Stadt."
+          },
+          "porto-casa-do-infante-prince": {
+            "name": "Der Junge, der Schiffe aussandte",
+            "intro": "Das Haus ist nach einem Baby benannt. Die Überlieferung sagt, dass 1394 hier Heinrich geboren wurde, Sohn von König João I. und Philippa von Lancaster. Er wurde nie König, und er segelte selbst fast nirgendwohin. Er tat etwas anderes: Er organisierte Reisen, bezahlte die Mannschaften und behielt alles, was sie lernten."
+          }
+        },
+        "exhibits": {
+          "porto-casa-do-infante-mosaic": {
+            "name": "Das römische Mosaik",
+            "blurb": "Ein Fußboden aus Tausenden kleiner Steine, fast zu Würfeln geschnitten und einer nach dem anderen zu einem Muster gelegt. Die Römer legten so die Böden ihrer wichtigen Räume, weil ein Mosaik sich kaum abnutzt und sich sauber wischen lässt. Schau, wie klein jeder Stein ist, und überlege, wie viele Stunden das gedauert hat. Dann denk daran, dass die Schritte aufhörten, das Gebäude einstürzte, Erde darauf fiel und das Muster dort unten Jahrhunderte wartete, ohne dass jemand von ihm wusste.",
+            "question": {
+              "q": "Warum legten die Römer Mosaike in ihre wichtigen Räume?",
+              "answers": [
+                "Sie hielten Schritte aus und ließen sich mit Wasser abwaschen",
+                "Sie hielten den Raum im Winter warm",
+                "Sie kosteten weniger als ein Bretterboden",
+                "Sie machten das Geräusch von Schritten im Inneren des Hauses leiser"
+              ],
+              "explanation": "Stein auf Stein, ohne Bretter, die verfaulen. Deshalb gibt es noch römische Fußböden und fast keine römischen Türen."
+            }
+          },
+          "porto-casa-do-infante-layers": {
+            "name": "Mauern auf Mauern",
+            "blurb": "Schau dir die Grabung genau an, und du siehst, dass die Steine nicht alle gleich sind. Manche sind groß und sauber behauen, andere klein und durcheinander. Jede Schicht ist ein anderes Zeitalter, das auf den Ruinen des vorigen gebaut hat, weil das leichter war, als erst alles einzuebnen. Archäologen lesen diese Schichten so, wie du Seiten liest: Die tiefste ist die älteste, und ein Stein, der auf einem anderen Stein sitzt, ist immer jünger als der darunter.",
+            "question": {
+              "q": "Woher weiß ein Archäologe, welche Schicht älter ist?",
+              "answers": [
+                "Je tiefer eine Schicht liegt, desto älter muss sie sein",
+                "An der Farbe der Steine, die über die Jahrhunderte dunkler wird",
+                "An der Größe des Gebäudes, weil die alten immer kleiner waren",
+                "Indem er jeden Stein wiegt, der herauskommt"
+              ],
+              "explanation": "Du kannst nicht unter etwas bauen, das schon da ist. Also kam das, was unten liegt, zuerst hinein."
+            }
+          },
+          "porto-casa-do-infante-walkway": {
+            "name": "Der Steg über der Grabung",
+            "blurb": "Das Museum hatte ein Problem: Es wollte die Grabung zeigen, aber wenn Leute hindurchliefen, wäre sie in einem Monat ruiniert. Die Lösung war, Glas dazwischenzusetzen. Du gehst oben darüber, schaust an deinen eigenen Schuhen vorbei nach unten, siehst alles und berührst nichts. Das ist eine kleine Lektion darüber, wie Museen funktionieren: Fast jede Vitrine, jede Absperrung und jede kleine Brücke ist da, damit auch das Kind, das in fünfzig Jahren kommt, das Ding noch sehen kann.",
+            "question": {
+              "q": "Warum gehst du oben über die Grabung, statt hindurchzulaufen?",
+              "answers": [
+                "Damit Tausende von Schritten sie nicht abnutzen",
+                "Weil der Boden dort unten das Gewicht eines Menschen nicht trägt",
+                "Damit mehr Besucher in den Raum passen",
+                "Weil von oben das Licht besser auf die alten Steine fällt"
+              ],
+              "explanation": "Ein Mosaik übersteht Jahrhunderte unter Erde und ein paar Monate unter Schuhen."
+            }
+          },
+          "porto-casa-do-infante-lead-seals": {
+            "name": "Die Bleisiegel",
+            "blurb": "Ein kleines Stück Blei, weich wie Teig, mit einer Zange auf einen Ballen gedrückt, die das Zeichen des Zolls darin hinterließ. Das war der Beweis, dass der Zoll bezahlt worden war. Blei wurde gewählt, weil es weich ist: Es nimmt einen Stempel leicht an, aber wenn jemand es aufbricht, schließt es sich nie wieder so wie vorher. In den Vitrinen siehst du Dutzende solcher Siegel, und daneben die Rechenmarken, die die Schreiber hin- und herschoben, um ihre Summen zu bilden. Es sind winzige Dinge, und sie hielten einen ganzen Hafen zusammen.",
+            "question": {
+              "q": "Was sagte dir ein Bleisiegel auf einem Ballen?",
+              "answers": [
+                "Dass die Steuer darauf schon bezahlt war",
+                "Welches Schiff ihn den Fluss heraufgebracht hatte",
+                "Wie viel der ganze Ballen wog",
+                "Welcher Kaufmann in der Stadt ihn bestellt hatte"
+              ],
+              "explanation": "Ein gebrochenes Siegel bedeutete, dass jemand den Ballen nach dem Zollhaus geöffnet hatte – und dann begannen die Fragen."
+            }
+          },
+          "porto-casa-do-infante-archive": {
+            "name": "Das Archiv der Stadt",
+            "blurb": "Im selben Gebäude wird heute das historische Archiv von Porto aufbewahrt: Regale voller Rechnungsbücher, Verträge, Genehmigungen und Listen, über Jahrhunderte von Hand geschrieben. Das klingt langweilig und ist das Gegenteil. Weil irgendein Schreiber notierte, wie viele Fässer an einem Dienstag in den 1500er-Jahren auf ein Schiff kamen, wissen wir heute, was die Stadt aß, mit wem sie Handel trieb und was das Brot kostete. Geschichte wird nicht nur von Königen geschrieben. Sie wird auch von Leuten geschrieben, die sich Notizen machten.",
+            "question": {
+              "q": "Was lehren uns die alten Rechnungsbücher eines Hafens?",
+              "answers": [
+                "Was die Stadt aß und mit wem sie Handel trieb",
+                "Wie genau die Menschen aussahen, die damals in der Stadt lebten",
+                "Welche Lieder die Seeleute sangen, während sie die Schiffe beluden",
+                "Wie tief der Fluss an jeder Stelle des alten Steinkais war"
+              ],
+              "explanation": "Eine Liste von Ladungen ist aus Versehen auch eine Liste des täglichen Lebens. Niemand hat sie für uns geschrieben."
+            }
+          },
+          "porto-casa-do-infante-mint": {
+            "name": "Die Münzstätte",
+            "blurb": "Eine Zeit lang prägte dasselbe Gebäude auch Münzen. Die Methode war Handarbeit und laut: Eine blanke Metallscheibe kam zwischen zwei gravierte Stempel, und jemand schlug mit einem Hammer auf den oberen. Das Bild drückte sich mit einem einzigen Schlag in beide Seiten. Eine Münze ist nicht einfach Metall: Sie ist ein Versprechen, dass dieses Stück so viel wert ist, wie darauf steht. Deshalb wacht ein Land so streng darüber, wer sie machen darf.",
+            "question": {
+              "q": "Wie kam das Bild auf beide Seiten einer Münze?",
+              "answers": [
+                "Ein Hammerschlag zwischen zwei gravierten Metallstempeln",
+                "Mit einem feinen Messer, das es Linie für Linie von Hand einritzte",
+                "Indem man flüssiges Metall in zwei ganz getrennte Formen goss",
+                "Mit einem Pinsel und hart trocknender Farbe"
+              ],
+              "explanation": "Zwei gravierte Stempel, eine Scheibe dazwischen, ein Hammer. Beide Seiten erscheinen im selben Augenblick."
+            }
+          },
+          "porto-casa-do-infante-many-faces": {
+            "name": "Die vielen Gesichter Heinrichs",
+            "blurb": "Niemand weiß, wie Heinrich aussah. Es gibt kein Porträt von jemandem, der ihn getroffen hat, und selbst sein berühmtestes Gesicht, der Mann mit dem großen dunklen Hut, ist umstritten. Das Museum reiht seine Bilder aus den Jahrhunderten nebeneinander auf, und der Witz zeigt sich sofort: Jedes Zeitalter malte ihn so, dass er aussah wie seine eigenen Leute. Mal ein strenger Mönch, mal ein General, mal ein Gelehrter zwischen seinen Instrumenten. Die Bilder sagen uns nicht, wie er war. Sie sagen uns, was jede Generation sehen wollte.",
+            "question": {
+              "q": "Warum sehen Heinrichs Porträts alle verschieden aus?",
+              "answers": [
+                "Jedes Jahrhundert zeichnete ihn wie seine eigenen Leute",
+                "Er veränderte sich sehr, als er älter wurde",
+                "Die Farbe auf den älteren ist verblasst",
+                "Nur ein einziger Künstler hat je die Erlaubnis bekommen, ihn zu sehen"
+              ],
+              "explanation": "Wenn ihn niemand nach dem Leben gezeichnet hat, malt jeder, was er sich vorstellt. Und er stellt es sich mit den Augen seiner eigenen Zeit vor."
+            }
+          },
+          "porto-casa-do-infante-milestones": {
+            "name": "Die Wand der Jahreszahlen",
+            "blurb": "Eine Wand voller Jahreszahlen, eine unter der anderen, und neben jeder ein Stückchen mehr afrikanische Küste. So funktionierte das Entdecken wirklich: nicht eine große Reise, sondern Dutzende kleine, jede ein Stück weiter als die letzte. Ein Schiff erreichte ein Kap, kam nach Hause und berichtete davon, und das nächste Schiff brach von dort aus auf. Eine Karte zeigt dir nicht die Welt; sie zeigt dir, wie viel von der Welt der gesehen hat, der sie gezeichnet hat. Das leere Papier darunter war kein leeres Meer. Es war Nichtwissen.",
+            "question": {
+              "q": "Wie wurde die Küste auf den Karten länger?",
+              "answers": [
+                "Jede Reise fügte hinzu, was sie gerade gesehen hatte",
+                "Könige befahlen, sie größer zu zeichnen, als sie wirklich war",
+                "Die Papierbögen wurden immer größer",
+                "Afrika selbst wuchs, als der Meeresspiegel sank"
+              ],
+              "explanation": "Niemand machte eine einzige Reise bis ans Ende. Sie machten viele, und jede übergab der nächsten ein paar Meilen mehr."
+            }
+          },
+          "porto-casa-do-infante-porcelain": {
+            "name": "Ein Teller, der weiter reiste als der Prinz",
+            "blurb": "In den Vitrinen mit der Keramik gibt es Porzellan aus China. Überleg, wie weit es gekommen ist: am anderen Ende der Welt gemacht, auf ein Schiff geladen, um Afrika herumgetragen und auf genau diesem Kai abgeladen. Daneben steht Geschirr, das ganz in der Nähe gemacht wurde, in Porto und in Vila Nova de Gaia. Stell sie nebeneinander, und du siehst, was die Reisen mit dem Alltag machten: Die Töpfer hier sahen das Blau und Weiß aus China und fingen an, es selbst auszuprobieren. Ideen reisen in den Kisten mit, zusammen mit den Dingen.",
+            "question": {
+              "q": "Was geschah, nachdem chinesisches Porzellan Porto erreicht hatte?",
+              "answers": [
+                "Die Töpfer in Porto kopierten sein Blau und Weiß",
+                "Es wurde sofort nach China zurückgeschickt",
+                "Die Stadt verbot alles Geschirr aus Ton",
+                "Die Töpfer vor Ort hörten damals ganz mit der Arbeit auf"
+              ],
+              "explanation": "Der Handel trägt nicht nur Gegenstände. Er trägt auch Muster, Farben und Ideen, und die bleiben."
+            }
+          }
+        },
+        "riddles": {
+          "porto-casa-do-infante-riddle-1": {
+            "prompt": "Ich bestehe aus Tausenden winziger Steine und bin viel älter als das Haus, das über mir steht. Jahrhundertelang ging niemand über mich, weil niemand wusste, dass ich da bin.",
+            "hint": "Um mich zu sehen, musst du nach unten schauen, nicht nach oben."
+          },
+          "porto-casa-do-infante-riddle-2": {
+            "prompt": "Ich bin klein, grau und weich, und man hat mich auf einem Ballen Stoff fest zusammengedrückt. Solange ich unversehrt blieb, wusste jeder an der Straße, dass der König schon bezahlt worden war.",
+            "hint": "Brich mich auf, und ich schließe mich nie wieder so wie vorher."
+          },
+          "porto-casa-do-infante-riddle-3": {
+            "prompt": "Ich bin derselbe Mann, immer wieder gezeichnet, und keine zwei meiner Bilder stimmen miteinander überein. Jedes Jahrhundert, das mich malte, gab mir die Züge und die Kleidung seiner eigenen Leute.",
+            "hint": "Keiner von denen, die mich je getroffen haben, hat eine Zeichnung von mir hinterlassen."
+          }
+        },
+        "doorNote": "Das Gebäude ist das Ausstellungsstück. Schau zuerst nach unten, dann um dich herum und zuletzt nach oben."
+      }
+    },
+    "porto-ponte-luis-i": {
+      "name": "Die Ponte Luís I",
+      "tagline": "Ein einziger Eisenbogen, der zwei Straßen zugleich trägt",
+      "story": "Porto hat diese Biegung des Douro in achtzig Jahren mit drei Brücken überquert. Zuerst mit einer Brücke aus Booten, die aneinandergebunden waren und die der Fluss jedes Mal herumstieß, wenn er anstieg. Dann, ab 1843, mit einer Hängebrücke, die an steinernen Türmen hing. 1881 begann dann der Bau einer Eisenbrücke, entworfen von Théophile Seyrig, einem Ingenieur, der mit Gustave Eiffel gearbeitet hatte; die alte Hängebrücke wurde abgebaut, während diese hier hochwuchs, und 1886 wurde sie eröffnet. Ihre Idee ist einfach und klug. Die Ufer des Douro sind hier steil und hoch, aber die Altstadt liegt unten am Wasser. Also brauchte man zwei Übergänge: einen oben, von Felskante zu Felskante, und einen unten, von Kai zu Kai. Seyrig hängte beide an denselben Bogen, einen über den anderen. Der Bogen spannt sich über 172 Meter und gehörte damals zu den größten Eisenbögen der Welt. Heute fährt oben die Metro und unten fahren die Autos, und auf beiden Decks gehen Menschen zu Fuß.",
+      "facts": [
+        "Sie wurde 1886 eröffnet. Ihr einziger Bogen spannt sich über 172 Meter.",
+        "Théophile Seyrig hat sie entworfen; bei einer früheren Brücke in Porto war er der Partner von Gustave Eiffel.",
+        "Sie hat zwei Decks: das obere für die Metro, das untere für Autos."
+      ],
+      "question": {
+        "q": "Warum hat diese Brücke zwei Decks?",
+        "answers": [
+          "Die Stadt liegt oben auf dem Felsen und unten am Wasser",
+          "Damit man ein Deck für Reparaturen sperren kann",
+          "Um das Gewicht gleichmäßig auf die beiden Seiten des riesigen Bogens zu verteilen",
+          "Weil Züge und Autos nie auf eine einzige Breite gepasst hätten"
+        ],
+        "explanation": "Die Ufer sind steil. Ein Übergang wurde von Felskante zu Felskante gebraucht und ein zweiter von Kai zu Kai, also wurden beide an denselben Bogen gehängt."
+      },
+      "findIt": "Das untere Deck beginnt am Kai der Ribeira, im Osten. Für das obere steigst du vom Platz neben der Kathedrale hinauf; es ist derselbe Bogen, von oben gesehen."
+    },
+    "porto-igreja-do-carmo": {
+      "name": "Die Igreja do Carmo",
+      "tagline": "Eine ganze Wand, die in Wirklichkeit ein einziges großes Bild ist",
+      "story": "Die meisten Kirchen bewahren ihre schönsten Stücke drinnen auf. Diese hat sie nach draußen gehängt. Ihre große Seitenwand, die zum Platz zeigt, ist von oben bis unten mit blauen und weißen Kacheln bedeckt, und zusammen sind sie kein Muster, sondern ein einziges Bild. Sie kamen 1912 an die Wand, lange nach der Kirche selbst, die Mitte des 18. Jahrhunderts gebaut wurde. Stell dich gegenüber hin und schau, wie es funktioniert: Von Nahem sind es Hunderte von Keramikquadraten, von Weitem sind es Szenen mit Menschen, Schiffen und Wolken. Es ist ein Puzzle, das jemand gemalt hat, bevor es zerschnitten wurde. Und es gibt noch etwas Zweites zu finden, viel kleiner: Am Ende der Kirche, dort, wo die nächste beginnt, steht ein Haus, das etwa einen Meter breit ist. Es ist ein echtes Haus, mit Tür, Fenstern und Stockwerken, und bis in die 1980er-Jahre haben Menschen darin gewohnt.",
+      "facts": [
+        "Die Seitenwand wurde 1912 mit blauen und weißen Azulejos verkleidet.",
+        "Die Kirche wurde Mitte des 18. Jahrhunderts gebaut, etwa 150 Jahre vor den Kacheln.",
+        "Zwischen den beiden Kirchen steht ein etwa einen Meter breites Haus, bewohnt bis in die 1980er-Jahre."
+      ],
+      "question": {
+        "q": "Was ist die große Seitenwand dieser Kirche in Wirklichkeit?",
+        "answers": [
+          "Ein einziges Bild, zerschnitten in Hunderte von Kacheln",
+          "Ein sich wiederholendes Muster, das jede einzelne Kachel genau gleich kopiert",
+          "Eine bemalte Wand, die Keramik nur nachahmt",
+          "Ein Mosaik aus bunten Steinen, wie die Fußböden, die die Römer legten"
+        ],
+        "explanation": "Sie wurde als eine Szene gemalt und dann als einzelne Kacheln gebrannt. Deshalb siehst du von Nahem Quadrate und von Weitem Menschen."
+      },
+      "findIt": "An der Praça de Gomes Teixeira. Die Kachelwand ist nicht die Vorderseite der Kirche: Es ist die rechte Seite, und du siehst sie am besten von der gegenüberliegenden Ecke des Platzes."
+    },
+    "porto-palacio-de-cristal": {
+      "name": "Die Gärten des Palácio de Cristal",
+      "tagline": "Pfauen, Bäume und ein Palast, den es nicht mehr gibt",
+      "story": "1865 baute Porto einen Palast aus Eisen und Glas, wie ein riesiges Gewächshaus, für eine große Ausstellung, auf der Länder ihre Erfindungen und ihr Handwerk vorführten. Rundherum pflanzte ein deutscher Gartengestalter, Émile David, Bäume, stellte Brunnen auf und legte Wege über den Hügel oberhalb des Flusses an. Der Glaspalast wurde aber alt, und 1951 wurde er abgerissen; an seiner Stelle entstand ein riesiges rundes Gebäude mit einer Kuppel, das heute den Namen von Rosa Mota trägt, einer Marathonläuferin aus Porto, die olympisches Gold gewann. Die Gärten blieben, und die Pfauen auch, die auf den Wegen spazieren, als gehörte ihnen der Ort, und ein Rad schlagen, wann immer ihnen danach ist. Geh bis an den Rand des Hügels: Von dort siehst du den Douro geradewegs zum Atlantik hinausziehen.",
+      "facts": [
+        "Der Kristallpalast von 1865 war aus Eisen und Glas. Er wurde 1951 abgerissen.",
+        "Die Gärten entwarf der Deutsche Émile David, auf dem Hügel über dem Douro.",
+        "Die Kuppel, die ihn ersetzte, ist nach Rosa Mota benannt, einer olympischen Marathonsiegerin."
+      ],
+      "question": {
+        "q": "Was steht heute dort, wo früher der Glaspalast war?",
+        "answers": [
+          "Ein rundes Gebäude mit einer Kuppel obendrauf",
+          "Ein See für Ruderboote, der viel später ausgehoben wurde",
+          "Eine genaue Kopie, wieder aus Glas gebaut",
+          "Eine große leere Wiese für die Besucher"
+        ],
+        "explanation": "Die Kuppel Rosa Mota. Sie wurde nach einer Marathonläuferin aus Porto benannt, die eine olympische Goldmedaille gewann."
+      },
+      "findIt": "Das große Tor ist an der Rua de Dom Manuel II. Geh hinein und halte dich rechts, Richtung Fluss: Der Aussichtspunkt ist ganz am Rand, hinter den Bäumen."
+    },
+    "porto-sao-bento": {
+      "name": "Der Bahnhof São Bento",
+      "tagline": "Zwanzigtausend bemalte Kacheln warten mit dir auf den Zug",
+      "story": "Die meisten Bahnhöfe sind Orte, an denen du wartest. Dieser ist ein Ort, an dem du schaust. Er wurde auf dem Grund eines alten Klosters gebaut, São Bento de Avé-Maria, und er behielt den Namen des Klosters. Die Leute von Porto beschlossen, dass jeder, der auf einen Zug wartet, etwas verdient, das sich anzustarren lohnt, also übergaben sie die Wände einem Maler namens Jorge Colaço. Er arbeitete mehr als zehn Jahre daran, und 1916 war die Eingangshalle fertig: ungefähr zwanzigtausend bemalte Kacheln, vom Boden bis zur Decke. Sie sind keine Dekoration. Sie sind Bilder mit Geschichten darin. Schau nach oben, und du findest Ritter in einer Schlacht, einen König, der mit seiner Königin an der Seite in die Stadt reitet, Bauern, die die Ernte einbringen, und weiter oben ein farbiges Band, das zeigt, wie die Menschen durch die Jahrhunderte reisten, vom Ochsen bis zum Dampf. Portugal nennt diese bemalten Kacheln Azulejos und hängt sie überall an die Wände. Nirgendwo sonst aber sind zwanzigtausend davon in einem Wartesaal.",
+      "facts": [
+        "Jorge Colaço bemalte ungefähr 20.000 Kacheln. Die Wände waren 1916 fertig.",
+        "Der Bahnhof steht dort, wo früher das Kloster São Bento de Avé-Maria war.",
+        "König Carlos I. legte 1900 den Grundstein des Bahnhofs."
+      ],
+      "question": {
+        "q": "Warum haben sie eine Bahnhofshalle mit bemalten Kacheln bedeckt?",
+        "answers": [
+          "Um Reisenden, die auf einen Zug warten, etwas zum Anschauen zu geben",
+          "Damit der Rauch der Dampflokomotiven den Stein nicht schwarz machte",
+          "Um den Fahrgästen zu helfen, leichter den richtigen Bahnsteig zu finden",
+          "Weil Kacheln der billigste Belag waren, den es gab"
+        ],
+        "explanation": "Die Halle ist ein Bilderbuch: Ritter, eine königliche Hochzeit, die Ernte und ein Band, das jede Art zeigt, wie Menschen je befördert wurden."
+      },
+      "findIt": "Die große Tür zeigt zur Praça de Almeida Garrett, am unteren Ende der Avenida dos Aliados. Geh hinein und bleib sofort stehen: Die Halle mit den Kacheln ist der erste Raum."
+    },
+    "porto-se-do-porto": {
+      "name": "Die Kathedrale von Porto",
+      "tagline": "Sie sieht aus wie eine Burg, weil sie eine sein musste",
+      "story": "Porto begann um 1110 mit dem Bau dieser Kathedrale, als die Stadt klein war, auf einem Hügel über dem Fluss saß und Schutz brauchte. Deshalb sieht sie nicht aus wie eine Kirche, sondern wie eine Festung: dicke Mauern, zwei viereckige Türme und oben eine Reihe steinerner Zähne, genau wie bei einer Burg. In den Jahrhunderten danach fügte jedes Zeitalter etwas Eigenes hinzu. Ein rundes Fenster in der Form einer Blume. Einen gotischen Kreuzgang, später mit blauen Kacheln verkleidet. Eine breite Steintreppe. 1387 heiratete König João I. hier eine englische Prinzessin, Philippa von Lancaster, und ihr Sohn wurde Heinrich der Seefahrer. Und drinnen gibt es eine Geschichte, die wie ein Märchen klingt und keines ist: Als 1809 ein fremdes Heer in die Stadt einmarschierte, bauten die Leute von Porto eine falsche Wand vor ihren silbernen Altaraufsatz, damit niemand ihn findet. Es hat funktioniert.",
+      "facts": [
+        "Der Bau begann um 1110, damit ist sie eines der ältesten Gebäude der Stadt.",
+        "1387 heiratete König João I. hier Philippa von Lancaster.",
+        "Die Kacheln des Kreuzgangs wurden um 1730 von Valentim de Almeida gemalt."
+      ],
+      "question": {
+        "q": "Wie überstand der silberne Altaraufsatz der Kathedrale das Jahr 1809?",
+        "answers": [
+          "Sie versteckten ihn hinter einer eilig gebauten falschen Wand",
+          "Sie luden ihn auf ein Boot und schickten ihn aufs Meer",
+          "Sie zerlegten ihn und verteilten die Stücke",
+          "Sie bemalten ihn mit schwarzer Farbe, damit er wie gewöhnliches Holz aussah"
+        ],
+        "explanation": "Die Leute zogen in aller Eile eine Wand davor hoch. Das Heer ging daran vorbei und wusste nie, was dahinter war."
+      },
+      "findIt": "Tritt hinaus auf den großen Platz, den Terreiro da Sé, oben auf dem Hügel. Der Eingang ist zwischen den beiden viereckigen Türmen; die hohe gedrehte Säule auf dem Platz heißt Pelourinho."
+    },
+    "porto-palacio-da-bolsa": {
+      "name": "Der Palácio da Bolsa",
+      "tagline": "Ein Palast ohne König darin, gebaut von Kaufleuten",
+      "story": "1832 zerstörte ein Feuer einen Teil des alten Klosters São Francisco und ließ ein verbranntes Grundstück am Fluss zurück. Die Kaufleute von Porto baten darum. Sie wollten kein Büro; sie wollten ein Gebäude, das jedem, der vom Meer her ankam, sagen würde, dass diese Stadt es ernst meint. Sie begannen 1842 und hatten es überhaupt nicht eilig: Die Ausschmückung dauerte so lange, dass der Palast erst um 1910 wirklich fertig war, fast siebzig Jahre später. In der Mitte gibt es einen Hof unter einem Glasdach, bemalt mit den Wappen der Länder, mit denen Porto Handel trieb. Tiefer drinnen versteckt sich der Arabische Saal, der achtzehn Jahre lang ausgeschmückt wurde, um an die Alhambra in Spanien zu erinnern, mit goldenen Mustern auf jedem Zentimeter Wand. Kein König hat je hier gewohnt. Gebaut haben es Leute, die von Berufs wegen Ladungen wogen.",
+      "facts": [
+        "Der Bau begann 1842, aber die Ausschmückung war erst um 1910 fertig.",
+        "Die Ausschmückung des Arabischen Saals dauerte etwa achtzehn Jahre, inspiriert von der Alhambra.",
+        "Der Grundstein für die Statue Heinrichs des Seefahrers im Garten wurde 1894 gelegt; die Statue selbst wurde 1900 enthüllt."
+      ],
+      "question": {
+        "q": "Wer hat diesen Palast gebaut, und wofür?",
+        "answers": [
+          "Die Kaufleute, um der Welt zu zeigen, wie viel ihre Stadt zählte",
+          "Ein König, der ein zweites Zuhause nah am Ufer des Flusses wollte",
+          "Die Mönche, als Ersatz für das Kloster, das niedergebrannt war",
+          "Die Stadt, um ihr Rathaus und ihre Ämter unterzubringen"
+        ],
+        "explanation": "Es war die Börse von Porto. Die Kaufleute bauten sie, um sich dort zu treffen und jeden zu beeindrucken, der vom Meer her ankam."
+      },
+      "findIt": "In der Rua Ferreira Borges, neben der großen Kirche São Francisco. Die Tür geht auf den Garten mit der Statue des Prinzen, der zum Meer zeigt."
+    },
+    "porto-clerigos": {
+      "name": "Die Kirche und der Turm der Clérigos",
+      "tagline": "Ein Leuchtturm ohne Licht, mitten in der Stadt",
+      "story": "Dieser Turm ist das Höchste in der Altstadt: ungefähr fünfundsiebzig Meter, wie zwanzig Häuser übereinandergestapelt. Entworfen hat ihn Nicolau Nasoni, ein Künstler, der aus Italien kam, in Porto blieb und der Stadt einige ihrer schönsten Gebäude schenkte. Der Turm wurde 1763 fertig und war lange Zeit der höchste in ganz Portugal. Er hatte aber auch eine Aufgabe, die du von unten nicht sehen kannst: Schiffe, die den Douro heraufkamen, erkannten ihn von Weitem und wussten, dass sie Porto erreicht hatten. Er war im Grunde ein Leuchtturm ohne Licht. Drinnen steigt eine steinerne Wendeltreppe mit mehr als zweihundert Stufen zu den Glocken hinauf und wird dabei immer enger. Nasoni liebte diesen Ort so sehr, dass er darum bat, in seiner eigenen Kirche begraben zu werden, und 1773 geschah genau das.",
+      "facts": [
+        "Der Turm ist ungefähr 75 Meter hoch und wurde 1763 fertig.",
+        "Die Treppe innen hat über zweihundert Stufen und wird nach oben hin enger.",
+        "Sein Architekt, Nicolau Nasoni, wurde 1773 in derselben Kirche begraben."
+      ],
+      "question": {
+        "q": "Warum nennt man den Turm einen Leuchtturm ohne Licht?",
+        "answers": [
+          "Schiffe sahen ihn von Weitem und wussten, dass sie angekommen waren",
+          "In nebligen Nächten brannte ein Feuer auf seiner Spitze",
+          "Sein weißer Marmor blendete jeden, der hinsah",
+          "Seine Glocken wurden geläutet, wann immer sich ein Schiff der Flussmündung näherte"
+        ],
+        "explanation": "Ein Leuchtturm sagt „Hier ist Land“. Der Turm sagte dasselbe, nur sagte er es mit seiner Höhe statt mit einer Lampe."
+      },
+      "findIt": "Der Eingang zur Turmtreppe ist nicht die Kirchentür. Er ist an der Rua de São Filipe de Nery, an der Seite, wo meistens eine Schlange steht."
+    },
+    "porto-mercado-do-bolhao": {
+      "name": "Der Mercado do Bolhão",
+      "tagline": "Sein Name bedeutet „die große Blase“",
+      "story": "Lange vor dem Markt war hier eine sumpfige Senke, in der das Wasser von selbst aus dem Boden drückte und Blasen warf. Die Leute nannten sie bolhão, die große Blase, und als hier Stände auftauchten, blieb der Name hängen. Das Gebäude, das du siehst, öffnete 1914: zwei Stockwerke mit Eisengeländern rund um einen offenen Hof, ohne Dach in der Mitte, damit Licht und Luft zwischen die Fische und die Blumen kommen konnten. Hundert Jahre lang stapelten die Verkäufer hier Orangen, Käse, Brot, Oliven und frischen Fisch und riefen einer lauter als der andere. Dann war der Markt abgenutzt. Die Stadt hätte ihn abreißen und etwas Neues bauen können; stattdessen reparierte sie ihn Stück für Stück und eröffnete ihn 2022 wieder, mit demselben Eisen, demselben Granit und denselben Ständen. Das Richtige ist oft auch das Schwierigere.",
+      "facts": [
+        "„Bolhão“ bedeutet große Blase, nach der Quelle, die hier einmal aufsprudelte.",
+        "Das Gebäude mit den Eisengeländern öffnete 1914 und hat einen offenen Hof ohne Dach.",
+        "Er wurde 2022 wiedereröffnet, nach einer Reparatur, die vier Jahre dauerte."
+      ],
+      "question": {
+        "q": "Woher hat dieser Markt seinen Namen?",
+        "answers": [
+          "Von einer Quelle, die einmal aus dem Boden sprudelte",
+          "Von dem Händler mit dem allerersten Stand",
+          "Von der Form seines Hofes, der rund ist wie ein großer Ball",
+          "Von den Körben, die die Käufer früher auf ihren eigenen Schultern trugen"
+        ],
+        "explanation": "Wasser drückte aus dem Boden und warf Blasen. Bolhão heißt „große Blase“, und der Name überlebte die Quelle um mehr als ein Jahrhundert."
+      },
+      "findIt": "Die Haupttür zeigt zur Rua Formosa. Geh hinein und bis in die Mitte: Dort ist der Hof ohne Dach, und von dort siehst du beide Stockwerke auf einmal."
+    },
+    "porto-world-of-discoveries": {
+      "name": "World of Discoveries",
+      "tagline": "Ein Museum, das du in einem Boot durchquerst",
+      "story": "Portugal ist ein kleines Land am westlichen Rand Europas, mit dem Atlantik vor sich und Spanien im Rücken. Im 15. Jahrhundert tat es etwas, das niemand sonst versucht hatte: Es schickte Schiffe nach Süden, die Küste Afrikas entlang, jedes Mal ein Stück weiter, um herauszufinden, was dort ist. Dieses Museum, das 2014 in einem alten Gebäude im Viertel Miragaia am Fluss eröffnet wurde, ist um diese Geschichte herum gebaut. Es hat keine Vitrinen mit Gegenständen; es hat nachgebaute Szenen, und einen Teil davon durchquerst du in einem Boot, das langsam an Nachbildungen der Orte vorbeifährt, die diese Schiffe erreichten. Diese Reisen brachten Gewürze, Gold und Pflanzen zurück, die niemand in Europa je gesehen hatte. Sie beförderten aber auch Menschen, die aus ihren Häusern geraubt und verkauft worden waren. Das gehört zu derselben Geschichte, nicht zu einer anderen. Und ein großer Teil davon begann an genau diesem Fluss.",
+      "facts": [
+        "Es öffnete 2014 im Viertel Miragaia, nahe am Ufer des Douro.",
+        "Ein Teil des Besuchs findet in einem Boot statt, das zwischen nachgebauten Orten fährt.",
+        "1498 erreichten portugiesische Schiffe Indien über das Meer, indem sie um Afrika herumsegelten."
+      ],
+      "question": {
+        "q": "Wonach suchten die portugiesischen Schiffe an der Küste Afrikas?",
+        "answers": [
+          "Einen Seeweg zu den Gewürzen des Ostens",
+          "Eine kürzere Überfahrt über den Atlantik, um Island schneller zu erreichen",
+          "Neue Felder zum Bebauen, weil Portugal der gute Boden ausgegangen war",
+          "Die Berge, in denen alle großen Flüsse Europas entspringen"
+        ],
+        "explanation": "Gewürze kamen über Land durch viele Hände und kosteten ein Vermögen. Ein Schiff, das um Afrika segeln konnte, schaltete jede dieser Hände aus."
+      },
+      "findIt": "In der Rua de Miragaia, unterhalb des Hügels mit den Gärten und nahe am Fluss. Der Eingang führt durch das große alte Gebäude mit den hohen Bogenfenstern.",
+      "museum": {
+        "rooms": {
+          "porto-world-of-discoveries-shipyard": {
+            "name": "Die Werft",
+            "intro": "Jede Reise beginnt lange vor dem Meer, auf einem Platz voller Holz, Sägen und dem Rauch von heißem Teer. Diesen Platz baut dieser Raum nach. Bevor du fragst, wohin die Schiffe fuhren, lohnt es sich zu sehen, wie eines gebaut wird: in welcher Reihenfolge, woraus, und welches Teil das ist, das nicht versagen darf."
+          },
+          "porto-world-of-discoveries-voyage": {
+            "name": "Die Reise",
+            "intro": "Jetzt ist das Schiff fertig und legt ab. Von hier an sind die Probleme keine Zimmermannsarbeit mehr. Es sind zwei: Wo bin ich, und wie lange halte ich noch durch. Der Himmel beantwortet das erste; die Fässer im Laderaum entscheiden das zweite. Jede große Entdeckung hing an diesen zwei Fragen."
+          }
+        },
+        "exhibits": {
+          "porto-world-of-discoveries-hull": {
+            "name": "Das Skelett des Schiffs",
+            "blurb": "Ein Holzschiff wird nicht wie ein Haus gebaut, von unten nach oben. Es wird wie ein Tier gebaut: zuerst das Rückgrat, ein langer Balken, der Kiel heißt, dann die Rippen rechts und links, und ganz zuletzt die Haut, das sind die Planken. Der Kiel ist das entscheidende Stück: Wenn er sich verzieht, verzieht sich das ganze Schiff und lässt sich nicht mehr richten. Deshalb wählten sie dafür das beste Holz der Werft, oft aus einem einzigen riesigen Baum.",
+            "question": {
+              "q": "Welches Teil eines Holzschiffs wird zuerst eingebaut?",
+              "answers": [
+                "Der Kiel, der das Rückgrat des Schiffs ist",
+                "Das Deck, damit die Schiffbauer irgendwo stehen können",
+                "Der Mast, weil er das höchste und schwierigste Teil ist",
+                "Die Seitenplanken, die dem Schiff seine eigentliche Form geben"
+              ],
+              "explanation": "Zuerst das Rückgrat, dann die Rippen, zuletzt die Haut. Ein krummer Anfang wird später nie mehr gerade."
+            }
+          },
+          "porto-world-of-discoveries-caulking": {
+            "name": "Teer und Werg",
+            "blurb": "Zwischen zwei Planken ist immer ein Spalt, und ein Spalt bedeutet Wasser. Die Lösung war alt und klug: Sie hämmerten gedrehte Fasern, Werg genannt, in die Fugen und gossen heißen Teer darüber. Das Holz quillt dann durch die Nässe auf und drückt die Füllung noch fester zusammen. Das Schiff wird also dichter, nachdem es ins Wasser kommt, nicht vorher. Ein neuer Rumpf, der in den ersten Tagen ein wenig tropft, ist nicht unbedingt kaputt.",
+            "question": {
+              "q": "Wann wird ein neuer hölzerner Rumpf dichter?",
+              "answers": [
+                "Sobald er eine Weile lang im Wasser war",
+                "Wenn er wochenlang in der Sonne trocknet",
+                "Sobald er außen weiß gestrichen ist",
+                "Wenn er schwer mit Ladung beladen worden ist"
+              ],
+              "explanation": "Nasses Holz dehnt sich aus. Die Fuge schließt sich von selbst, und Werg und Teer halten sie zu."
+            }
+          },
+          "porto-world-of-discoveries-sails": {
+            "name": "Die Segel",
+            "blurb": "Es gibt zwei Grundformen von Segeln, und sie tun verschiedene Dinge. Ein viereckiges Segel ist groß und stark, aber es will den Wind von hinten. Ein dreieckiges Segel ist kleiner und lässt ein Schiff sogar dann weiterfahren, wenn der Wind schräg kommt, im Zickzack. Entdeckerschiffe hatten oft beide, weil sie keine Ahnung hatten, welches Wetter sie erwartete. Gegen den Wind nach Hause zu kommen ist wichtiger, als schnell zu sein.",
+            "question": {
+              "q": "Was kann ein dreieckiges Segel, was ein viereckiges nicht kann?",
+              "answers": [
+                "Weiterfahren, wenn der Wind schräg kommt",
+                "Bei stürmischer See viel mehr Luft fangen",
+                "Sich bei sehr starkem Wind von selbst wegfalten",
+                "Das Schiff vor Anker stillhalten"
+              ],
+              "explanation": "Mit einem viereckigen Segel wartest du auf den richtigen Wind. Mit einem dreieckigen legst du trotzdem ab und kreuzt."
+            }
+          },
+          "porto-world-of-discoveries-astrolabe": {
+            "name": "Das Astrolabium",
+            "blurb": "Eine schwere Messingscheibe mit einem beweglichen Balken quer über der Mitte und Markierungen am Rand. Du hängtest sie auf, ließest sie ruhig hängen und peiltest die Sonne oder einen Stern durch zwei winzige Löcher an. Wie hoch sie am Himmel stand, sagte dir, wie weit nördlich oder südlich du warst. Osten und Westen konnte sie nicht beantworten: Dafür brauchtest du eine genaue Uhr, und die gab es noch nicht. Die Seeleute kannten also genau die Hälfte ihrer Position und rieten die andere Hälfte.",
+            "question": {
+              "q": "Was konnte dir ein Astrolabium sagen?",
+              "answers": [
+                "Wie weit nördlich oder südlich du warst",
+                "Wie tief das Wasser unter dir war",
+                "Wie stark der Wind dort draußen blies",
+                "Wie spät es in diesem Moment an Bord des Schiffs war"
+              ],
+              "explanation": "Die Höhe der Sonne gibt dir Norden und Süden. Für Osten und Westen brauchst du eine genaue Uhr, und die gab es nicht."
+            }
+          },
+          "porto-world-of-discoveries-water-barrel": {
+            "name": "Das Wasserfass",
+            "blurb": "Der wichtigste Gegenstand auf einem Entdeckerschiff ist nicht die Karte und nicht der Kompass. Es ist Wasser. Ein Mensch hält Wochen ohne Essen durch und nur ein paar Tage ohne Wasser, und das Meer um dich herum kann man nicht trinken. Die wahre Reichweite einer Reise war also nie der Mut des Kapitäns, sondern wie viele Fässer in den Laderaum passten. Deshalb blieben die Schiffe nahe an der Küste: nicht aus Angst, sondern damit sie wussten, wo sie wieder auffüllen konnten.",
+            "question": {
+              "q": "Was entschied wirklich darüber, wie weit ein Schiff kommen konnte?",
+              "answers": [
+                "Wie viel Wasser das Schiff tragen konnte",
+                "Wie stetig die Winde in jenem Jahr wehten",
+                "Wie erfahren der Kapitän wirklich war",
+                "Wie groß die beiden Segel daran waren"
+              ],
+              "explanation": "Ohne Wasser kehrst du um, egal, wie gut du als Kapitän bist. Die Fässer waren der wahre Rand der Karte."
+            }
+          },
+          "porto-world-of-discoveries-cargo": {
+            "name": "Die Ladung, die nach Hause kam",
+            "blurb": "Wenn ein Schiff zurückkam, veränderte sein Laderaum ganz Europa. Pfeffer, Zimt, Nelken, Zucker, Gold und Pflanzen, die hier niemand je gesehen hatte. Ein Sack Gewürze konnte einen Kaufmann für sein ganzes Leben reich machen. Aber dieselben Schiffe beförderten auch Menschen, die aus ihren Häusern geraubt und an andere Menschen verkauft worden waren. Nicht einer von ihnen hatte diese Reise gewählt. Das ist keine eigene Geschichte, die neben der Geschichte der Gewürze steht; es ist dieselbe, und sie wird zusammen mit ihr erzählt.",
+            "question": {
+              "q": "Warum war ein Sack Gewürze in Europa so viel wert?",
+              "answers": [
+                "Er kam von sehr weit her und wuchs hier nicht",
+                "Weil Könige allen anderen verboten hatten, auch nur etwas davon zu verkaufen",
+                "Weil es ein ganzes Schiff brauchte, um einen einzigen Sack davon zu befördern",
+                "Weil er innerhalb weniger Tage verdarb"
+              ],
+              "explanation": "Europas Klima lässt weder Pfeffer noch Zimt wachsen. Was nicht in deiner Nähe wächst, bezahlst du teuer."
+            }
+          }
+        },
+        "riddles": {
+          "porto-world-of-discoveries-riddle-1": {
+            "prompt": "Ich bin aus Messing und schwer, und ich funktioniere nur, wenn du mich gerade hängen lässt. Peile die Sonne durch meine zwei Löcher an, und ich sage dir, wie weit nördlich du bist. Osten kenne ich nicht.",
+            "hint": "Ich brauche den Himmel, nicht die Küste."
+          },
+          "porto-world-of-discoveries-riddle-2": {
+            "prompt": "Ich bin weder ein Sturm noch ein Ungeheuer, und doch entscheide ich, wann die Reise zu Ende ist. Wenn ich leer bin, dreht das Schiff Richtung Land, egal, was der Kapitän dazu sagt.",
+            "hint": "Das Meer um dich herum ist voll von etwas, das du nicht trinken kannst."
+          }
+        },
+        "doorNote": "Das ist kein Museum der Vitrinen, sondern der nachgebauten Szenen. Tritt in sie hinein."
+      }
+    }
+  },
+  "trails": {
+    "porto-down-to-the-river": {
+      "name": "Hinunter zum Fluss",
+      "promise": "Das Zollhaus eines Hafens, ein Palast der Kaufleute, ein Eisenbogen und die schönste Aussicht der Stadt."
+    },
+    "porto-stories-in-tiles": {
+      "name": "Geschichten auf Kacheln",
+      "promise": "Drei Wände, die sich wie ein Bilderbuch lesen, gemalt in Blau und Weiß."
+    },
+    "porto-things-that-move": {
+      "name": "Dinge, die sich bewegen",
+      "promise": "Straßenbahnen, die noch fahren, eine Brücke mit zwei Decks und die Schiffe, die von hier aufbrachen."
+    },
+    "porto-garden-market-tower": {
+      "name": "Ein Garten, ein Markt und ein Turm",
+      "promise": "Pfauen auf den Wegen, Orangen auf den Ständen und zweihundert Stufen bis zu den Glocken."
+    }
+  }
+}
