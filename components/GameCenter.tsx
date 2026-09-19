@@ -91,7 +91,7 @@ export default function GameCenter({ lang }: GameCenterProps) {
     spell: { title: 'SPELL & LISTEN', desc: lang === 'el' ? 'Άκου και γράψε!' : 'Listen and spell!' },
     daily: { title: lang === 'el' ? 'ΠΡΟΚΛΗΣΗ ΗΜΕΡΑΣ' : 'DAILY CHALLENGE', desc: lang === 'el' ? '3 γύροι των 30". Ίδιοι για όλους!' : '3 rounds of 30s. Same for everyone!' },
     draw: { title: lang === 'el' ? 'ΖΩΓΡΑΦΙΣΕ & ΜΑΝΤΕΨΕ' : 'DRAW & GUESS', desc: lang === 'el' ? 'Ένα κινητό, 2-6 παίκτες!' : 'One phone, 2-6 players!' },
-    whoami: { title: lang === 'el' ? 'ΠΟΙΟΣ ΕΙΜΑΙ;' : 'WHO AM I?', desc: lang === 'el' ? 'Σκέψου έναν ήρωα, ο WiseBot τον μαντεύει!' : 'Think of a hero, WiseBot guesses who!' },
+    whoami: { title: lang === 'el' ? 'ΠΟΙΟΣ ΕΙΜΑΙ;' : 'WHO AM I?', desc: lang === 'el' ? 'Σκέψου έναν ήρωα, η WiseBot τον μαντεύει!' : 'Think of a hero, WiseBot guesses who!' },
     escape: { title: lang === 'el' ? 'ΔΩΜΑΤΙΟ ΑΠΟΔΡΑΣΗΣ' : 'ESCAPE ROOM', desc: lang === 'el' ? '6 γρίφοι, μία πόρτα. Νέο δωμάτιο κάθε Δευτέρα!' : '6 puzzles, one door. A new room every Monday!' },
     rhythm: { title: lang === 'el' ? 'ΡΥΘΜΟΣ' : 'RHYTHM', desc: lang === 'el' ? 'Πάτα τις νότες στον ρυθμό των τραγουδιών μας!' : 'Tap the notes to the beat of our songs!' },
     machine: { title: lang === 'el' ? 'Η ΜΗΧΑΝΗ ΤΟΥ SPARKEN' : "SPARKEN'S MACHINE", desc: lang === 'el' ? 'Ράμπες, τραμπολίνο, μαγνήτες: φέρε τη μπάλα στον στόχο και μοιράσου τη μηχανή σου με κωδικό!' : 'Ramps, trampolines, magnets: get the ball to the target and share your machine as a code!' },
