@@ -9,7 +9,7 @@ OpenStreetMap answers reliably, and the rule is then applied to whatever is stil
 
 | | Places | In a trail | No OSM cross-check |
 | --- | --- | --- | --- |
-| Outside Greece | 85 | 82 | 71 |
+| Outside Greece | 92 | 89 | 76 |
 | Greece | 16 | 16 | 13 |
 
 **Order of work.** Re-resolve the "no OSM" rows first, one city at a time, only when
@@ -27,6 +27,12 @@ C places are upgraded by the owner walking to them, per the decisions table.
 | amsterdam | Het Scheepvaartmuseum (`amsterdam-scheepvaartmuseum`) | yes | one source disagrees: re-seed |
 | amsterdam | Albert Cuyp Market (`amsterdam-albert-cuyp-market`) | yes | one source disagrees: re-seed |
 | amsterdam | Hortus Botanicus (`amsterdam-hortus`) | yes | one source disagrees: re-seed |
+| antalya | The Broken Minaret (`antalya-kesik-minare`) | yes | no OSM: re-resolve first |
+| antalya | Karaalioğlu Park (`antalya-karaalioglu`) | yes | one source disagrees: re-seed |
+| antalya | The Antalya Museum (`antalya-museum`) | yes | no OSM: re-resolve first |
+| antalya | The Antalya Aquarium (`antalya-aquarium`) | yes | one source disagrees: re-seed |
+| antalya | Konyaaltı Beach (`antalya-konyaalti`) | yes | no OSM: re-resolve first |
+| antalya | The Düden Waterfall (`antalya-lower-duden`) | yes | no OSM: re-resolve first |
 | barcelona | La Boqueria market (`barcelona-boqueria`) | yes | no OSM: re-resolve first |
 | barcelona | Arc de Triomf (`barcelona-arc-de-triomf`) | yes | no OSM: re-resolve first |
 | barcelona | CosmoCaixa (`barcelona-cosmocaixa`) | yes | no OSM: re-resolve first |
@@ -60,6 +66,7 @@ C places are upgraded by the owner walking to them, per the decisions table.
 | dubrovnik | Fort Lovrijenac (`dubrovnik-lovrijenac`) | yes | no OSM: re-resolve first |
 | dubrovnik | St John’s Fortress (`dubrovnik-st-john-fortress`) | yes | no OSM: re-resolve first |
 | dubrovnik | The Island of Lokrum (`dubrovnik-lokrum`) | yes | no OSM: re-resolve first |
+| edinburgh | Arthur’s Seat (`edinburgh-arthurs-seat`) | yes | no OSM: re-resolve first |
 | florence | The Boboli Gardens (`florence-boboli`) | yes | no OSM: re-resolve first |
 | florence | San Miniato al Monte (`florence-san-miniato`) | yes | no OSM: re-resolve first |
 | istanbul | The Basilica Cistern (Yerebatan) (`istanbul-basilica-cistern`) | yes | one source disagrees: re-seed |

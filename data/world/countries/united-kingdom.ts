@@ -126,4 +126,57 @@ export const cities: City[] = [
       bounds: { north: 51.545, south: 51.468, east: 0.012, west: -0.19 },
     },
   },
+  {
+    id: 'edinburgh',
+    countryId: 'united-kingdom',
+    order: 2,
+    emoji: '🏰',
+
+    name: {
+      el: 'Εδιμβούργο',
+      en: 'Edinburgh',
+    },
+
+    intro: {
+      el:
+        'Το Εδιμβούργο είναι η πρωτεύουσα της Σκωτίας, μια πόλη χτισμένη πάνω σε σβησμένα ' +
+        'ηφαίστεια, με ένα κάστρο στην κορυφή του ενός και ένα βουνό που ανεβαίνεις με τα ' +
+        'πόδια στη μέση της. Η παλιά της πόλη είναι μια ράχη με σπίτια που κάποτε είχαν δώδεκα ' +
+        'ορόφους και δρόμους θαμμένους κάτω από τη γη, και η νέα της πόλη είναι χαραγμένη με ' +
+        'χάρακα. Κάθε μεσημέρι στη μία ρίχνει ένα κανόνι, ένας σκύλος έχει δικό του άγαλμα, ' +
+        'ένα πρόβατο ήταν το πρώτο αντίγραφο ζώου στον κόσμο, και τα μουσεία της είναι ' +
+        'δωρεάν.',
+      en:
+        'Edinburgh is the capital of Scotland, a city built on extinct volcanoes, with a ' +
+        'castle on top of one and a mountain you climb on foot in the middle of it. Its old ' +
+        'town is a ridge of houses that once had twelve storeys and streets buried ' +
+        'underground, and its new town is drawn with a ruler. Every day at one o’clock it ' +
+        'fires a gun, a dog has a statue of his own, a sheep was the first cloned animal in ' +
+        'the world, and its museums are free.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/edinburgh.json`, which takes it from Wikidata's own
+     * point for the city (Q23436), between Princes Street and Calton Hill. The resolver
+     * audits every place against this exact point and found nothing on it.
+     */
+    centre: { lat: 55.953333, lng: -3.189167 },
+
+    map: {
+      src: '/images/world/maps/edinburgh.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης του Εδιμβούργου, με τον βράχο του κάστρου, τον Βασιλικό Μίλι ως το παλάτι, το ηφαίστειο του Άρθουρς Σιτ στα ανατολικά και τον βοτανικό κήπο στα βόρεια.',
+        en: 'A stylised map of Edinburgh, with the castle rock, the Royal Mile down to the palace, the volcano of Arthur’s Seat to the east and the Botanic Garden to the north.',
+      },
+      width: 1000,
+      height: 875,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the seventeen places in `cities/edinburgh.ts` falls
+       * inside them, with the Botanic Garden at the top left, Arthur's Seat at the bottom
+       * right and the castle in the middle of the left half.
+       */
+      bounds: { north: 55.968, south: 55.94, east: -3.155, west: -3.212 },
+    },
+  },
 ];

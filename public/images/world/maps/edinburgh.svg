@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 875" width="1000" height="875" role="img" aria-label="Stylised map of Edinburgh">
+  <title>Edinburgh — WiseBot World</title>
+  <desc>
+    Our own artwork, drawn to the bounds declared in data/world/countries/united-kingdom.ts
+    (north 55.968, south 55.94, east -3.155, west -3.212) so that place pins can be projected onto it
+    rather than positioned by hand. Deliberately schematic: the castle rock, Arthur's Seat,
+    Calton Hill and the Botanic Garden are rough shapes at their own coordinates, the line of
+    the Royal Mile runs through a handful of projected points, and the gardens fill the old
+    loch between the towns. Nothing here is traced from any map.
+  </desc>
+
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6efe1" />
+      <stop offset="1" stop-color="#efe4d0" />
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M50 0H0V50" fill="none" stroke="#dccfb5" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="875" fill="url(#ground)" />
+  <rect width="1000" height="875" fill="url(#grid)" opacity="0.55" />
+
+  <!-- Arthur's Seat and Holyrood Park, the volcano east of the old town. -->
+  <ellipse cx="912" cy="781" rx="150" ry="120" fill="#d8e0c3" stroke="#b7c49a" stroke-width="2" />
+
+  <!-- The Botanic Garden to the north. -->
+  <ellipse cx="61" cy="91" rx="70" ry="55" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- Princes Street Gardens, in the valley of the old loch below the castle. -->
+  <rect x="105" y="531" width="211" height="63" rx="14" fill="#bfd6a4" stroke="#a3bd85" stroke-width="2" />
+
+  <!-- Calton Hill. -->
+  <ellipse cx="528" cy="416" rx="60" ry="42" fill="#cddcb4" stroke="#a9bd8c" stroke-width="2" />
+
+  <!-- The castle rock. -->
+  <ellipse cx="198" cy="603" rx="46" ry="38" fill="#cbbfa6" stroke="#9e8f72" stroke-width="3" />
+
+  <!-- The Royal Mile, from the castle down to the palace. -->
+  <path d="M237 603 L333 581 L439 562 L561 531 L667 478" fill="none" stroke="#c9b48f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+
+  <g fill="#8a7c62" font-family="Georgia, 'Times New Roman', serif">
+    <text x="912" y="871" font-size="18" text-anchor="middle" letter-spacing="2">HOLYROOD PARK</text>
+    <text x="528" y="364" font-size="16" text-anchor="middle" letter-spacing="2">CALTON HILL</text>
+    <text x="61" y="161" font-size="16" text-anchor="middle" letter-spacing="1">BOTANIC GARDEN</text>
+    <text x="40" y="805" font-size="42" letter-spacing="6">ΕΔΙΜΒΟΥΡΓΟ</text>
+    <text x="40" y="839" font-size="22" letter-spacing="4">EDINBURGH</text>
+  </g>
+
+  <!-- Compass. North is up: the artwork is north-aligned, like the bounds. -->
+  <g transform="translate(930 90)" stroke="#8a7c62" fill="#8a7c62">
+    <circle r="26" fill="none" stroke-width="2" />
+    <path d="M0 -22 L7 4 L0 -2 L-7 4 Z" />
+    <text y="-30" font-size="16" text-anchor="middle" font-family="Georgia, serif" stroke="none">Β</text>
+  </g>
+</svg>
