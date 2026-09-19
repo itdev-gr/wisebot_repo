@@ -1,0 +1,21 @@
+{
+  "city": "antalya",
+  "country": "turkey",
+  "centre": { "lat": 36.90812, "lng": 30.69556 },
+  "note": "Wikidata q-ids only, searched in Turkish. Centre is Wikidata's point for the city (Q6487), which sits north of the old town and away from every place. Antalya is not in the old Explorer, so this city is written fresh rather than converted. No entrance is claimed: no door here has been measured, so every point is the centroid or area it actually is. Kaleiçi (Q5994531) is the old-town neighbourhood and is not seeded; the gate, the minarets, the tower and the harbour stand for it. The Yivli Minare is seeded as the mosque item (Q1753844), the only one with a coordinate. Of the two Düden falls only the lower one (Q72177820), which drops into the sea, is seeded; the upper falls are 9 km north and would stretch the map. Perge, Aspendos and Termessos are ancient cities outside Antalya and are left out.",
+  "adjacentPairs": [],
+  "places": [
+    { "id": "antalya-hadrian-gate", "name": "Hadrianus Kapısı", "wikidata": "Q1283114", "anchor": "centroid" },
+    { "id": "antalya-clock-tower", "name": "Saat Kulesi", "wikidata": "Q6060345", "anchor": "centroid" },
+    { "id": "antalya-yivli-minare", "name": "Yivli Minare", "wikidata": "Q1753844", "anchor": "centroid" },
+    { "id": "antalya-kesik-minare", "name": "Kesik Minare", "wikidata": "Q6395079", "anchor": "centroid" },
+    { "id": "antalya-hidirlik", "name": "Hıdırlık Kulesi", "wikidata": "Q218118", "anchor": "centroid" },
+    { "id": "antalya-karaalioglu", "name": "Karaalioğlu Parkı", "wikidata": "Q6367585", "anchor": "area" },
+    { "id": "antalya-harbour", "name": "Kaleiçi Yat Limanı", "wikidata": "Q116369972", "anchor": "area" },
+    { "id": "antalya-toy-museum", "name": "Antalya Oyuncak Müzesi", "wikidata": "Q6055656", "anchor": "centroid" },
+    { "id": "antalya-museum", "name": "Antalya Müzesi", "wikidata": "Q843241", "anchor": "centroid" },
+    { "id": "antalya-aquarium", "name": "Antalya Akvaryum", "wikidata": "Q20470397", "anchor": "centroid" },
+    { "id": "antalya-konyaalti", "name": "Konyaaltı Plajı", "wikidata": "Q2493895", "anchor": "area" },
+    { "id": "antalya-lower-duden", "name": "Aşağı Düden Şelalesi", "wikidata": "Q72177820", "anchor": "viewpoint" }
+  ]
+}
