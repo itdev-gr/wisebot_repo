@@ -168,4 +168,55 @@ export const cities: City[] = [
       bounds: { north: 43.724, south: 43.688, east: 7.29, west: 7.242 },
     },
   },
+  {
+    id: 'lyon',
+    countryId: 'france',
+    order: 3,
+    emoji: '🎎',
+
+    name: {
+      el: 'Λυών',
+      en: 'Lyon',
+    },
+
+    intro: {
+      el:
+        'Η Λυών είναι μια πόλη ανάμεσα σε δύο ποτάμια, που ξεκίνησε ως πρωτεύουσα των ' +
+        'Ρωμαίων πάνω σε έναν λόφο και κατέβηκε σιγά σιγά στο νερό. Για αιώνες ύφαινε το ' +
+        'πιο ωραίο μετάξι της Ευρώπης, τύπωσε από τα πρώτα βιβλία, εφηύρε τον κινηματογράφο ' +
+        'και μια μαριονέτα που λέει πάντα την αλήθεια. Σήμερα τη λένε πρωτεύουσα του φαγητού, ' +
+        'οι τοίχοι της είναι ζωγραφισμένοι με ψεύτικα παράθυρα, και κάθε Δεκέμβριο βάζει ' +
+        'κεριά σε όλα τα παράθυρά της.',
+      en:
+        'Lyon is a city between two rivers, which began as the Romans’ capital on a hill and ' +
+        'slowly came down to the water. For centuries it wove the finest silk in Europe, ' +
+        'printed some of the first books, invented cinema and a puppet that always tells the ' +
+        'truth. Today it is called the capital of food, its walls are painted with fake ' +
+        'windows, and every December it puts candles in all its windows.',
+    },
+
+    /**
+     * Copied from `scripts/world/seeds/lyon.json`, which takes it from Wikidata's own point
+     * for the city (Q456). That point sits on the Hôtel de Ville, which is why the town hall
+     * is deliberately not a place: it would read as a centroid mistake.
+     */
+    centre: { lat: 45.7675, lng: 4.835 },
+
+    map: {
+      src: '/images/world/maps/lyon.svg',
+      alt: {
+        el: 'Στυλιζαρισμένος χάρτης της Λυών, με τον Σον και τον Ροδανό να ενώνονται στα νότια, τον λόφο της Φουρβιέρ στα δυτικά και το πάρκο στα βορειοανατολικά.',
+        en: 'A stylised map of Lyon, with the Saône and the Rhône meeting to the south, the Fourvière hill to the west and the park to the north-east.',
+      },
+      width: 1000,
+      height: 1160,
+      /**
+       * The artwork is drawn to these bounds, so pins are projected onto it rather than
+       * placed by hand. Every one of the sixteen places in `cities/lyon.ts` falls inside
+       * them, with the Confluences museum at the bottom, the Tête d'Or park at the top right
+       * and the Roman theatre on the hill at the left.
+       */
+      bounds: { north: 45.786, south: 45.728, east: 4.862, west: 4.812 },
+    },
+  },
 ];
